@@ -14,7 +14,7 @@ import (
 // all of the AWS token components used below.
 const (
 	// packages:
-	awsPkg = "aws"
+	awsPkg = "tf-aws"
 	// modules:
 	apigatewayMod        = "apigateway"             // API Gateway
 	appautoscalingMod    = "appautoscaling"         // Application Auto Scaling
@@ -28,7 +28,7 @@ const (
 	codedeployMod        = "codedeploy"             // Code Deploy
 	codepipelineMod      = "codepipeline"           // Code Pipeline
 	cognitoMod           = "cognito"                // Cognito
-	configMod            = "config"                 // Config
+	cfgMod               = "cfg"                    // Resource Config
 	devicefarmMod        = "devicefarm"             // Device Farm
 	directoryserviceMod  = "directoryservice"       // Directory Services
 	dynamodbMod          = "dynamodb"               // DynamoDB
@@ -139,10 +139,10 @@ func awsProvider() ProviderInfo {
 			// Cognito
 			"aws_cognito_identity_pool": {Tok: awstok(cognitoMod, "IdentityPool")},
 			// Config
-			"aws_config_config_rule":                   {Tok: awstok(configMod, "Rule")},
-			"aws_config_configuration_recorder":        {Tok: awstok(configMod, "Recorder")},
-			"aws_config_configuration_recorder_status": {Tok: awstok(configMod, "RecorderStatus")},
-			"aws_config_delivery_channel":              {Tok: awstok(configMod, "DeliveryChannel")},
+			"aws_config_config_rule":                   {Tok: awstok(cfgMod, "Rule")},
+			"aws_config_configuration_recorder":        {Tok: awstok(cfgMod, "Recorder")},
+			"aws_config_configuration_recorder_status": {Tok: awstok(cfgMod, "RecorderStatus")},
+			"aws_config_delivery_channel":              {Tok: awstok(cfgMod, "DeliveryChannel")},
 			// Data Migration Service
 			"aws_dms_certificate":              {Tok: awstok(dmsMod, "Certificate")},
 			"aws_dms_endpoint":                 {Tok: awstok(dmsMod, "Endpoint")},
