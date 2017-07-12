@@ -75,8 +75,13 @@ func awstok(mod string, res string) tokens.Type {
 }
 
 func awsProvider() ProviderInfo {
+	git, err := getGitInfo("aws")
+	if err != nil {
+		panic(err)
+	}
 	return ProviderInfo{
-		P: aws.Provider().(*schema.Provider),
+		P:   aws.Provider().(*schema.Provider),
+		Git: git,
 		Resources: map[string]ResourceInfo{
 			// API Gateway
 			"aws_api_gateway_account":              {Tok: awstok(apigatewayMod, "Account")},
