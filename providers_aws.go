@@ -14,7 +14,7 @@ import (
 // all of the AWS token components used below.
 const (
 	// packages:
-	awsPkg = "tf-aws"
+	awsPkg = "aws"
 	// modules:
 	apigatewayMod        = "apigateway"             // API Gateway
 	appautoscalingMod    = "appautoscaling"         // Application Auto Scaling
