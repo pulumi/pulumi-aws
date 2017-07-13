@@ -1,6 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import {region} from "./config";
+import {region} from "./vars";
 import {Region} from "../region";
 
 // requireRegion fetches the AWS region, requiring that it exists; if it has not been configured, an error is thrown.
