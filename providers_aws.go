@@ -200,11 +200,6 @@ func awsProvider() ProviderInfo {
 					"instance_type": {
 						Type: awstok("ec2/instanceType", "InstanceType"),
 					},
-					"security_groups": {
-						Elem: &SchemaInfo{
-							Type: awstok("ec2/securityGroup", "SecurityGroup"),
-						},
-					},
 				},
 			},
 			"aws_internet_gateway":                     {Tok: awsrestok(ec2Mod, "InternetGateway")},
