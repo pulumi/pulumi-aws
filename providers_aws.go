@@ -531,6 +531,11 @@ func awsProvider() ProviderInfo {
 						"require.ts", // requireRegion helpers for validating proper config
 					},
 				},
+				"iam": {
+					Files: []string{
+						"managedPolicies.ts", // handy constants that predefine all known managed policies.
+					},
+				},
 				"ec2": {
 					Files: []string{
 						"instanceMaps.ts", // getLinuxAMI helper for looking up AMIs
