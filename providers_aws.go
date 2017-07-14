@@ -6,6 +6,7 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/pulumi/lumi/pkg/resource"
 	"github.com/pulumi/lumi/pkg/tokens"
 
 	"github.com/terraform-providers/terraform-provider-aws/aws"
@@ -398,7 +399,23 @@ func awsProvider() ProviderInfo {
 			"aws_kms_alias": {Tok: awsrestok(kmsMod, "Alias")},
 			"aws_kms_key":   {Tok: awsrestok(kmsMod, "Key")},
 			// Lambda
-			"aws_lambda_function":             {Tok: awsrestok(lambdaMod, "Function")},
+			"aws_lambda_function": {
+				Tok: awsrestok(lambdaMod, "Function"),
+				Fields: map[string]SchemaInfo{
+					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
+					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
+					// stead and we will turn around and emit the archive as a temp file that Terraform can read.  We
+					// also automatically populate the asset hash property as this is used in diffs/updates/etc.
+					"filename": {
+						Name: "code",
+						Asset: &AssetTranslation{
+							Kind:      FileArchive,
+							Format:    resource.ZIPArchive,
+							HashField: "source_code_hash",
+						},
+					},
+				},
+			},
 			"aws_lambda_event_source_mapping": {Tok: awsrestok(lambdaMod, "EventSourceMapping")},
 			"aws_lambda_alias":                {Tok: awsrestok(lambdaMod, "Alias")},
 			"aws_lambda_permission": {
