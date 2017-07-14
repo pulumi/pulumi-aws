@@ -16,6 +16,7 @@ const (
 	// packages:
 	awsPkg = "aws"
 	// modules:
+	awsMod               = "index"                  // the root index.
 	apigatewayMod        = "apigateway"             // API Gateway
 	appautoscalingMod    = "appautoscaling"         // Application Auto Scaling
 	autoscalingMod       = "autoscaling"            // Auto Scaling
@@ -94,25 +95,65 @@ func awsProvider() ProviderInfo {
 		},
 		Resources: map[string]ResourceInfo{
 			// API Gateway
-			"aws_api_gateway_account":              {Tok: awsrestok(apigatewayMod, "Account")},
-			"aws_api_gateway_api_key":              {Tok: awsrestok(apigatewayMod, "ApiKey")},
-			"aws_api_gateway_authorizer":           {Tok: awsrestok(apigatewayMod, "Authorizer")},
-			"aws_api_gateway_base_path_mapping":    {Tok: awsrestok(apigatewayMod, "BasePathMapping")},
-			"aws_api_gateway_client_certificate":   {Tok: awsrestok(apigatewayMod, "ClientCertificate")},
-			"aws_api_gateway_deployment":           {Tok: awsrestok(apigatewayMod, "Deployment")},
-			"aws_api_gateway_domain_name":          {Tok: awsrestok(apigatewayMod, "DomainName")},
-			"aws_api_gateway_integration":          {Tok: awsrestok(apigatewayMod, "Integration")},
+			"aws_api_gateway_account":            {Tok: awsrestok(apigatewayMod, "Account")},
+			"aws_api_gateway_api_key":            {Tok: awsrestok(apigatewayMod, "ApiKey")},
+			"aws_api_gateway_authorizer":         {Tok: awsrestok(apigatewayMod, "Authorizer")},
+			"aws_api_gateway_base_path_mapping":  {Tok: awsrestok(apigatewayMod, "BasePathMapping")},
+			"aws_api_gateway_client_certificate": {Tok: awsrestok(apigatewayMod, "ClientCertificate")},
+			"aws_api_gateway_deployment": {
+				Tok: awsrestok(apigatewayMod, "Deployment"),
+				Fields: map[string]SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_domain_name": {Tok: awsrestok(apigatewayMod, "DomainName")},
+			"aws_api_gateway_integration": {
+				Tok: awsrestok(apigatewayMod, "Integration"),
+				Fields: map[string]SchemaInfo{
+					"resource_id": {
+						Name: "resource",
+						Type: awstok(apigatewayMod+"/resource", "Resource"),
+					},
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
 			"aws_api_gateway_integration_response": {Tok: awsrestok(apigatewayMod, "IntegrationResponse")},
 			"aws_api_gateway_method":               {Tok: awsrestok(apigatewayMod, "Method")},
 			"aws_api_gateway_method_response":      {Tok: awsrestok(apigatewayMod, "MethodResponse")},
 			"aws_api_gateway_method_settings":      {Tok: awsrestok(apigatewayMod, "MethodSettings")},
 			"aws_api_gateway_model":                {Tok: awsrestok(apigatewayMod, "Model")},
 			"aws_api_gateway_request_validator":    {Tok: awsrestok(apigatewayMod, "RequestValidator")},
-			"aws_api_gateway_resource":             {Tok: awsrestok(apigatewayMod, "Resource")},
-			"aws_api_gateway_rest_api":             {Tok: awsrestok(apigatewayMod, "RestApi")},
-			"aws_api_gateway_stage":                {Tok: awsrestok(apigatewayMod, "Stage")},
-			"aws_api_gateway_usage_plan":           {Tok: awsrestok(apigatewayMod, "UsagePlan")},
-			"aws_api_gateway_usage_plan_key":       {Tok: awsrestok(apigatewayMod, "UsagePlanKey")},
+			"aws_api_gateway_resource": {
+				Tok: awsrestok(apigatewayMod, "Resource"),
+				Fields: map[string]SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_rest_api": {Tok: awsrestok(apigatewayMod, "RestApi")},
+			"aws_api_gateway_stage": {
+				Tok: awsrestok(apigatewayMod, "Stage"),
+				Fields: map[string]SchemaInfo{
+					"deployment_id": {
+						Name: "deployment",
+						Type: awstok(apigatewayMod+"/deployment", "Deployment"),
+					},
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_usage_plan":     {Tok: awsrestok(apigatewayMod, "UsagePlan")},
+			"aws_api_gateway_usage_plan_key": {Tok: awsrestok(apigatewayMod, "UsagePlanKey")},
 			// Application Auto Scaling
 			"aws_appautoscaling_target": {Tok: awsrestok(appautoscalingMod, "Target")},
 			"aws_appautoscaling_policy": {Tok: awsrestok(appautoscalingMod, "Policy")},
@@ -198,7 +239,7 @@ func awsProvider() ProviderInfo {
 				Tok: awsrestok(ec2Mod, "Instance"),
 				Fields: map[string]SchemaInfo{
 					"instance_type": {
-						Type: awstok("ec2/instanceType", "InstanceType"),
+						Type: awstok(ec2Mod+"/instanceType", "InstanceType"),
 					},
 				},
 			},
@@ -287,21 +328,65 @@ func awsProvider() ProviderInfo {
 			"aws_iam_group_policy":            {Tok: awsrestok(iamMod, "GroupPolicy")},
 			"aws_iam_group":                   {Tok: awsrestok(iamMod, "Group")},
 			"aws_iam_group_membership":        {Tok: awsrestok(iamMod, "GroupMembership")},
-			"aws_iam_group_policy_attachment": {Tok: awsrestok(iamMod, "GroupPolicyAttachment")},
+			"aws_iam_group_policy_attachment": {
+				Tok: awsrestok(iamMod, "GroupPolicyAttachment"),
+				Fields: map[string]SchemaInfo{
+					"group": {Type: awstok(iamMod+"/group", "Group")},
+					"policy_arn": {
+						Name: "policyArn",
+						Type: awstok(awsMod, "ARN"),
+					},
+				},
+			},
 			"aws_iam_instance_profile":        {Tok: awsrestok(iamMod, "InstanceProfile")},
 			"aws_iam_openid_connect_provider": {Tok: awsrestok(iamMod, "OpenIdConnectProvider")},
 			"aws_iam_policy":                  {Tok: awsrestok(iamMod, "Policy")},
-			"aws_iam_policy_attachment":       {Tok: awsrestok(iamMod, "PolicyAttachment")},
-			"aws_iam_role_policy_attachment":  {Tok: awsrestok(iamMod, "RolePolicyAttachment")},
-			"aws_iam_role_policy":             {Tok: awsrestok(iamMod, "RolePolicy")},
-			"aws_iam_role":                    {Tok: awsrestok(iamMod, "Role")},
-			"aws_iam_saml_provider":           {Tok: awsrestok(iamMod, "SamlProvider")},
-			"aws_iam_server_certificate":      {Tok: awsrestok(iamMod, "ServerCertificate")},
-			"aws_iam_user_policy_attachment":  {Tok: awsrestok(iamMod, "UserPolicyAttachment")},
-			"aws_iam_user_policy":             {Tok: awsrestok(iamMod, "UserPolicy")},
-			"aws_iam_user_ssh_key":            {Tok: awsrestok(iamMod, "SshKey")},
-			"aws_iam_user":                    {Tok: awsrestok(iamMod, "User")},
-			"aws_iam_user_login_profile":      {Tok: awsrestok(iamMod, "UserLoginProfile")},
+			"aws_iam_policy_attachment": {
+				Tok: awsrestok(iamMod, "PolicyAttachment"),
+				Fields: map[string]SchemaInfo{
+					"users": {
+						Elem: &SchemaInfo{Type: awstok(iamMod+"/user", "User")},
+					},
+					"roles": {
+						Elem: &SchemaInfo{Type: awstok(iamMod+"/role", "Role")},
+					},
+					"groups": {
+						Elem: &SchemaInfo{Type: awstok(iamMod+"/group", "Group")},
+					},
+					"policy_arn": {
+						Name: "policyArn",
+						Type: awstok(awsMod, "ARN"),
+					},
+				},
+			},
+			"aws_iam_role_policy_attachment": {
+				Tok: awsrestok(iamMod, "RolePolicyAttachment"),
+				Fields: map[string]SchemaInfo{
+					"role": {Type: awstok(iamMod+"/role", "Role")},
+					"policy_arn": {
+						Name: "policyArn",
+						Type: awstok(awsMod, "ARN"),
+					},
+				},
+			},
+			"aws_iam_role_policy":        {Tok: awsrestok(iamMod, "RolePolicy")},
+			"aws_iam_role":               {Tok: awsrestok(iamMod, "Role")},
+			"aws_iam_saml_provider":      {Tok: awsrestok(iamMod, "SamlProvider")},
+			"aws_iam_server_certificate": {Tok: awsrestok(iamMod, "ServerCertificate")},
+			"aws_iam_user_policy_attachment": {
+				Tok: awsrestok(iamMod, "UserPolicyAttachment"),
+				Fields: map[string]SchemaInfo{
+					"user": {Type: awstok(iamMod+"/user", "User")},
+					"policy_arn": {
+						Name: "policyArn",
+						Type: awstok(awsMod, "ARN"),
+					},
+				},
+			},
+			"aws_iam_user_policy":        {Tok: awsrestok(iamMod, "UserPolicy")},
+			"aws_iam_user_ssh_key":       {Tok: awsrestok(iamMod, "SshKey")},
+			"aws_iam_user":               {Tok: awsrestok(iamMod, "User")},
+			"aws_iam_user_login_profile": {Tok: awsrestok(iamMod, "UserLoginProfile")},
 			// Inspector
 			"aws_inspector_assessment_target":   {Tok: awsrestok(inspectorMod, "AssessmentTarget")},
 			"aws_inspector_assessment_template": {Tok: awsrestok(inspectorMod, "AssessmentTemplate")},
@@ -316,7 +401,15 @@ func awsProvider() ProviderInfo {
 			"aws_lambda_function":             {Tok: awsrestok(lambdaMod, "Function")},
 			"aws_lambda_event_source_mapping": {Tok: awsrestok(lambdaMod, "EventSourceMapping")},
 			"aws_lambda_alias":                {Tok: awsrestok(lambdaMod, "Alias")},
-			"aws_lambda_permission":           {Tok: awsrestok(lambdaMod, "Permission")},
+			"aws_lambda_permission": {
+				Tok: awsrestok(lambdaMod, "Permission"),
+				Fields: map[string]SchemaInfo{
+					"function_name": {
+						Name: "function",
+						Type: awstok(lambdaMod+"/function", "Function"),
+					},
+				},
+			},
 			// LightSail
 			"aws_lightsail_domain":               {Tok: awsrestok(lightsailMod, "Domain")},
 			"aws_lightsail_instance":             {Tok: awsrestok(lightsailMod, "Instance")},
