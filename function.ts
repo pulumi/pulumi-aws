@@ -4,9 +4,9 @@ import { AssetArchive, File, String as StringAsset } from "@lumi/lumi/asset";
 import {
     Closure, jsonStringify, objectKeys, printf, serializeClosure,
 } from "@lumi/lumirt";
-import { Role } from "../iam/role";
-import { DeadLetterConfig, Function as LambdaFunction } from "../lambda/function";
-import { ARN } from "../types";
+import { Role, RolePolicyAttachment } from "@lumi/aws/iam";
+import * as lambda from "@lumi/aws/lambda";
+import { ARN } from "@lumi/aws";
 
 // Context is the shape of the context object passed to a Function callback.
 export interface Context {
@@ -77,7 +77,7 @@ function createJavaScriptLambda(
     functionName: string,
     role: Role,
     closure: Closure,
-    opts: FunctionOptions): LambdaFunction {
+    opts: FunctionOptions): lambda.Function {
 
     let funcs = addToFuncEnvs({}, "__handler", closure);
     let str = "exports.handler = __handler;\n\n";
@@ -148,35 +148,33 @@ function __generator(thisArg, body) {
         timeout = opts.timeout;
     }
 
-    let lambda = new LambdaFunction(functionName, {
+    return new lambda.Function(functionName, {
         code: new AssetArchive({
             "node_modules": new File("node_modules"),
             "index.js": new StringAsset(str),
         }),
+        functionName: functionName,
         handler: "index.handler",
         runtime: "nodejs6.10",
         role: role,
         timeout: timeout,
         memorySize: opts.memorySize,
-        deadLetterConfig: opts.deadLetterConfig,
         environment: envObj,
     });
-
-    return lambda;
 }
 
 export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
-    deadLetterConfig?: DeadLetterConfig;
 }
 
 // Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
 // by a Lumi lambda expression and with a set of attached policies.
 export class Function {
-    public lambda: LambdaFunction;
-    public role: Role;
+    public readonly lambda: lambda.Function;
+    public readonly role: Role;
+    public readonly policies: RolePolicyAttachment[];
 
     constructor(name: string, options: FunctionOptions, func: Handler) {
         if (name === undefined) {
@@ -190,10 +188,17 @@ export class Function {
             throw new Error("Failed to serialize function.");
         }
 
-        this.role = new Role(name + "-role", {
-            assumeRolePolicyDocument: policy,
-            managedPolicyARNs: options.policies,
+        // Attach a role and then, if there are policies, attach those too.
+        this.role = new Role(name + "-iamrole", {
+            assumeRolePolicy: jsonStringify(policy),
         });
+        this.policies = [];
+        for (let i = 0; i < (<any>options.policies).length; i++) {
+            this.policies.push(new RolePolicyAttachment(name + "-iampolicy-" + i, {
+                role: this.role,
+                policyArn: options.policies[i],
+            }));
+        }
 
         switch (closure.language) {
             case ".js":
