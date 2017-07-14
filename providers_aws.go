@@ -402,6 +402,7 @@ func awsProvider() ProviderInfo {
 			"aws_lambda_function": {
 				Tok: awsrestok(lambdaMod, "Function"),
 				Fields: map[string]SchemaInfo{
+					"role": {Type: awstok(iamMod+"/role", "Role")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
 					// stead and we will turn around and emit the archive as a temp file that Terraform can read.  We
