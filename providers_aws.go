@@ -86,8 +86,9 @@ func awsProvider() ProviderInfo {
 	if err != nil {
 		panic(err)
 	}
-	return ProviderInfo{
-		P:   aws.Provider().(*schema.Provider),
+	p := aws.Provider().(*schema.Provider)
+	prov := ProviderInfo{
+		P:   p,
 		Git: git,
 		Config: map[string]SchemaInfo{
 			"region": {
@@ -227,9 +228,24 @@ func awsProvider() ProviderInfo {
 			"aws_elasticache_security_group":    {Tok: awsrestok(elasticacheMod, "SecurityGroup")},
 			"aws_elasticache_subnet_group":      {Tok: awsrestok(elasticacheMod, "SubnetGroup")},
 			// Elastic Compute (EC2)
-			"aws_ami":                          {Tok: awsrestok(ec2Mod, "Ami")},
-			"aws_ami_copy":                     {Tok: awsrestok(ec2Mod, "AmiCopy")},
-			"aws_ami_from_instance":            {Tok: awsrestok(ec2Mod, "AmiFromInstance")},
+			"aws_ami": {
+				Tok: awsrestok(ec2Mod, "Ami"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "amiId"},
+				},
+			},
+			"aws_ami_copy": {
+				Tok: awsrestok(ec2Mod, "AmiCopy"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "amiId"},
+				},
+			},
+			"aws_ami_from_instance": {
+				Tok: awsrestok(ec2Mod, "AmiFromInstance"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "amiId"},
+				},
+			},
 			"aws_ami_launch_permission":        {Tok: awsrestok(ec2Mod, "AmiLaunchPermission")},
 			"aws_customer_gateway":             {Tok: awsrestok(ec2Mod, "CustomerGateway")},
 			"aws_egress_only_internet_gateway": {Tok: awsrestok(ec2Mod, "EgressOnlyInternetGateway")},
@@ -402,7 +418,7 @@ func awsProvider() ProviderInfo {
 			"aws_lambda_function": {
 				Tok: awsrestok(lambdaMod, "Function"),
 				Fields: map[string]SchemaInfo{
-					"function_name": {Name: "name"},
+					"function_name": autoNameInfo("functionName", -1),
 					"role":          {Type: awstok(iamMod+"/role", "Role")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
@@ -436,22 +452,102 @@ func awsProvider() ProviderInfo {
 			"aws_lightsail_static_ip":            {Tok: awsrestok(lightsailMod, "StaticIp")},
 			"aws_lightsail_static_ip_attachment": {Tok: awsrestok(lightsailMod, "StaticIpAttachment")},
 			// OpsWorks
-			"aws_opsworks_application":      {Tok: awsrestok(opsworksMod, "Application")},
-			"aws_opsworks_stack":            {Tok: awsrestok(opsworksMod, "Stack")},
-			"aws_opsworks_java_app_layer":   {Tok: awsrestok(opsworksMod, "JavaAppLayer")},
-			"aws_opsworks_haproxy_layer":    {Tok: awsrestok(opsworksMod, "HaproxyLayer")},
-			"aws_opsworks_static_web_layer": {Tok: awsrestok(opsworksMod, "StaticWebLayer")},
-			"aws_opsworks_php_app_layer":    {Tok: awsrestok(opsworksMod, "PhpAppLayer")},
-			"aws_opsworks_rails_app_layer":  {Tok: awsrestok(opsworksMod, "RailsAppLayer")},
-			"aws_opsworks_nodejs_app_layer": {Tok: awsrestok(opsworksMod, "NodejsAppLayer")},
-			"aws_opsworks_memcached_layer":  {Tok: awsrestok(opsworksMod, "MemcachedLayer")},
-			"aws_opsworks_mysql_layer":      {Tok: awsrestok(opsworksMod, "MysqlLayer")},
-			"aws_opsworks_ganglia_layer":    {Tok: awsrestok(opsworksMod, "GangliaLayer")},
-			"aws_opsworks_custom_layer":     {Tok: awsrestok(opsworksMod, "CustomLayer")},
-			"aws_opsworks_instance":         {Tok: awsrestok(opsworksMod, "Instance")},
-			"aws_opsworks_user_profile":     {Tok: awsrestok(opsworksMod, "UserProfile")},
-			"aws_opsworks_permission":       {Tok: awsrestok(opsworksMod, "Permission")},
-			"aws_opsworks_rds_db_instance":  {Tok: awsrestok(opsworksMod, "RdsDbInstance")},
+			"aws_opsworks_application": {
+				Tok: awsrestok(opsworksMod, "Application"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "applicationId"},
+				},
+			},
+			"aws_opsworks_stack": {
+				Tok: awsrestok(opsworksMod, "Stack"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "stackId"},
+				},
+			},
+			"aws_opsworks_java_app_layer": {
+				Tok: awsrestok(opsworksMod, "JavaAppLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_haproxy_layer": {
+				Tok: awsrestok(opsworksMod, "HaproxyLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_static_web_layer": {
+				Tok: awsrestok(opsworksMod, "StaticWebLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_php_app_layer": {
+				Tok: awsrestok(opsworksMod, "PhpAppLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_rails_app_layer": {
+				Tok: awsrestok(opsworksMod, "RailsAppLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_nodejs_app_layer": {
+				Tok: awsrestok(opsworksMod, "NodejsAppLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_memcached_layer": {
+				Tok: awsrestok(opsworksMod, "MemcachedLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_mysql_layer": {
+				Tok: awsrestok(opsworksMod, "MysqlLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_ganglia_layer": {
+				Tok: awsrestok(opsworksMod, "GangliaLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_custom_layer": {
+				Tok: awsrestok(opsworksMod, "CustomLayer"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "layerId"},
+				},
+			},
+			"aws_opsworks_instance": {
+				Tok: awsrestok(opsworksMod, "Instance"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "instanceId"},
+				},
+			},
+			"aws_opsworks_user_profile": {
+				Tok: awsrestok(opsworksMod, "UserProfile"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "profileId"},
+				},
+			},
+			"aws_opsworks_permission": {
+				Tok: awsrestok(opsworksMod, "Permission"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "permissionId"},
+				},
+			},
+			"aws_opsworks_rds_db_instance": {
+				Tok: awsrestok(opsworksMod, "RdsDbInstance"),
+				Fields: map[string]SchemaInfo{
+					"id": {Name: "instanceId"},
+				},
+			},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster":                 {Tok: awsrestok(rdsMod, "Cluster")},
 			"aws_rds_cluster_instance":        {Tok: awsrestok(rdsMod, "ClusterInstance")},
@@ -551,4 +647,15 @@ func awsProvider() ProviderInfo {
 			},
 		},
 	}
+
+	// For all resources with name properties, we will add an auto-name property.
+	for resname := range prov.Resources {
+		if schema := p.ResourcesMap[resname]; schema != nil {
+			if _, has := schema.Schema[NameProperty]; has {
+				prov.Resources[resname] = autoName(prov.Resources[resname], -1)
+			}
+		}
+	}
+
+	return prov
 }
