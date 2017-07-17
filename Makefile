@@ -6,6 +6,7 @@ PACKDIR=pack
 NAME   =AWS
 
 TFGEN           = lumi-tfgen
+TFBRIDGE        = lumi-tfbridge
 TFBRIDGE_BIN    = ${GOPATH}/bin/${TFBRIDGE}
 LUMIROOT       ?= /usr/local/lumi
 LUMILIB         = ${LUMIROOT}/packs
@@ -40,9 +41,9 @@ build:
 
 test:
 	go test -cover -parallel ${TESTPARALLELISM} ${GOPKGS}
+	go tool vet -printf=false ./
 	which ${GOMETALINTERBIN} >/dev/null
 	$(GOMETALINTER) ./... | sort ; exit "$${PIPESTATUS[0]}"
-	go tool vet -printf=false cmd/ pkg/
 .PHONY: test
 
 install:

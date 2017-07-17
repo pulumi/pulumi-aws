@@ -1,0 +1,128 @@
+import * as lumi from "@lumi/lumi";
+export declare class Instance extends lumi.NamedResource implements InstanceArgs {
+    readonly agentVersion?: string;
+    readonly amiId: string;
+    readonly architecture?: string;
+    readonly autoScalingType?: string;
+    readonly availabilityZone: string;
+    readonly createdAt: string;
+    readonly deleteEbs?: boolean;
+    readonly deleteEip?: boolean;
+    readonly ebsBlockDevice: {
+        deleteOnTermination?: boolean;
+        deviceName: string;
+        iops: number;
+        snapshotId: string;
+        volumeSize: number;
+        volumeType: string;
+    }[];
+    readonly ebsOptimized?: boolean;
+    readonly ec2InstanceId: string;
+    readonly ecsClusterArn: string;
+    readonly elasticIp: string;
+    readonly ephemeralBlockDevice: {
+        deviceName: string;
+        virtualName: string;
+    }[];
+    readonly hostname: string;
+    readonly instanceId: string;
+    readonly infrastructureClass: string;
+    readonly installUpdatesOnBoot?: boolean;
+    readonly instanceProfileArn: string;
+    readonly instanceType?: string;
+    readonly lastServiceErrorId: string;
+    readonly layerIds: string[];
+    readonly os: string;
+    readonly platform: string;
+    readonly privateDns: string;
+    readonly privateIp: string;
+    readonly publicDns: string;
+    readonly publicIp: string;
+    readonly registeredBy: string;
+    readonly reportedAgentVersion: string;
+    readonly reportedOsFamily: string;
+    readonly reportedOsName: string;
+    readonly reportedOsVersion: string;
+    readonly rootBlockDevice: {
+        deleteOnTermination?: boolean;
+        iops: number;
+        volumeSize: number;
+        volumeType: string;
+    }[];
+    readonly rootDeviceType: string;
+    readonly rootDeviceVolumeId: string;
+    readonly securityGroupIds: string[];
+    readonly sshHostDsaKeyFingerprint: string;
+    readonly sshHostRsaKeyFingerprint: string;
+    readonly sshKeyName: string;
+    readonly stackId: string;
+    readonly state?: string;
+    readonly status: string;
+    readonly subnetId: string;
+    readonly tenancy: string;
+    readonly virtualizationType: string;
+    constructor(name: string, args: InstanceArgs);
+}
+export interface InstanceArgs {
+    readonly agentVersion?: string;
+    readonly amiId?: string;
+    readonly architecture?: string;
+    readonly autoScalingType?: string;
+    readonly availabilityZone?: string;
+    readonly createdAt?: string;
+    readonly deleteEbs?: boolean;
+    readonly deleteEip?: boolean;
+    readonly ebsBlockDevice?: {
+        deleteOnTermination?: boolean;
+        deviceName: string;
+        iops: number;
+        snapshotId: string;
+        volumeSize: number;
+        volumeType: string;
+    }[];
+    readonly ebsOptimized?: boolean;
+    readonly ec2InstanceId?: string;
+    readonly ecsClusterArn?: string;
+    readonly elasticIp?: string;
+    readonly ephemeralBlockDevice?: {
+        deviceName: string;
+        virtualName: string;
+    }[];
+    readonly hostname?: string;
+    readonly infrastructureClass?: string;
+    readonly installUpdatesOnBoot?: boolean;
+    readonly instanceProfileArn?: string;
+    readonly instanceType?: string;
+    readonly lastServiceErrorId?: string;
+    readonly layerIds: string[];
+    readonly os?: string;
+    readonly platform?: string;
+    readonly privateDns?: string;
+    readonly privateIp?: string;
+    readonly publicDns?: string;
+    readonly publicIp?: string;
+    readonly registeredBy?: string;
+    readonly reportedAgentVersion?: string;
+    readonly reportedOsFamily?: string;
+    readonly reportedOsName?: string;
+    readonly reportedOsVersion?: string;
+    readonly rootBlockDevice?: {
+        deleteOnTermination?: boolean;
+        iops: number;
+        volumeSize: number;
+        volumeType: string;
+    }[];
+    readonly rootDeviceType?: string;
+    readonly rootDeviceVolumeId?: string;
+    readonly securityGroupIds?: string[];
+    readonly sshHostDsaKeyFingerprint?: string;
+    readonly sshHostRsaKeyFingerprint?: string;
+    readonly sshKeyName?: string;
+    readonly stackId: string;
+    readonly state?: string;
+    readonly status?: string;
+    readonly subnetId?: string;
+    readonly tenancy?: string;
+    readonly virtualizationType?: string;
+}
+
