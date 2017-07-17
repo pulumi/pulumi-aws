@@ -174,15 +174,26 @@ func awsProvider() ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsrestok(cloudtrailMod, "Trail")},
 			// CloudWatch
-			"aws_cloudwatch_event_rule":              {Tok: awsrestok(cloudwatchMod, "EventRule")},
-			"aws_cloudwatch_event_target":            {Tok: awsrestok(cloudwatchMod, "EventTarget")},
-			"aws_cloudwatch_log_destination":         {Tok: awsrestok(cloudwatchMod, "LogDestination")},
-			"aws_cloudwatch_log_destination_policy":  {Tok: awsrestok(cloudwatchMod, "LogDestinationPolicy")},
-			"aws_cloudwatch_log_group":               {Tok: awsrestok(cloudwatchMod, "LogGroup")},
-			"aws_cloudwatch_log_metric_filter":       {Tok: awsrestok(cloudwatchMod, "LogMetricFilter")},
-			"aws_cloudwatch_log_stream":              {Tok: awsrestok(cloudwatchMod, "LogStream")},
-			"aws_cloudwatch_log_subscription_filter": {Tok: awsrestok(cloudwatchMod, "LogSubscriptionFilter")},
-			"aws_cloudwatch_metric_alarm":            {Tok: awsrestok(cloudwatchMod, "MetricAlarm")},
+			"aws_cloudwatch_event_rule":             {Tok: awsrestok(cloudwatchMod, "EventRule")},
+			"aws_cloudwatch_event_target":           {Tok: awsrestok(cloudwatchMod, "EventTarget")},
+			"aws_cloudwatch_log_destination":        {Tok: awsrestok(cloudwatchMod, "LogDestination")},
+			"aws_cloudwatch_log_destination_policy": {Tok: awsrestok(cloudwatchMod, "LogDestinationPolicy")},
+			"aws_cloudwatch_log_group": {
+				IDFields: []string{"name"},
+				Tok:      awsrestok(cloudwatchMod, "LogGroup"),
+			},
+			"aws_cloudwatch_log_metric_filter": {Tok: awsrestok(cloudwatchMod, "LogMetricFilter")},
+			"aws_cloudwatch_log_stream":        {Tok: awsrestok(cloudwatchMod, "LogStream")},
+			"aws_cloudwatch_log_subscription_filter": {
+				Tok: awsrestok(cloudwatchMod, "LogSubscriptionFilter"),
+				Fields: map[string]SchemaInfo{
+					"log_group_name": {
+						Name: "logGroup",
+						Type: awsrestok(cloudwatchMod, "LogGroup"),
+					},
+				},
+			},
+			"aws_cloudwatch_metric_alarm": {Tok: awsrestok(cloudwatchMod, "MetricAlarm")},
 			// CodeBuild
 			"aws_codebuild_project": {Tok: awsrestok(codebuildMod, "Project")},
 			// CodeDeploy
@@ -377,7 +388,8 @@ func awsProvider() ProviderInfo {
 				},
 			},
 			"aws_iam_role_policy_attachment": {
-				Tok: awsrestok(iamMod, "RolePolicyAttachment"),
+				Tok:       awsrestok(iamMod, "RolePolicyAttachment"),
+				KeyFields: []string{"role", "policy_arn"},
 				Fields: map[string]SchemaInfo{
 					"role": {Type: awstok(iamMod+"/role", "Role")},
 					"policy_arn": {
@@ -416,10 +428,11 @@ func awsProvider() ProviderInfo {
 			"aws_kms_key":   {Tok: awsrestok(kmsMod, "Key")},
 			// Lambda
 			"aws_lambda_function": {
-				Tok: awsrestok(lambdaMod, "Function"),
+				Tok:      awsrestok(lambdaMod, "Function"),
+				IDFields: []string{"function_name"},
 				Fields: map[string]SchemaInfo{
 					"function_name": autoNameInfo("functionName", -1),
-					"role":          {Type: awstok(iamMod+"/role", "Role")},
+					"role":          {Type: awstok(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
 					// stead and we will turn around and emit the archive as a temp file that Terraform can read.  We
@@ -437,12 +450,15 @@ func awsProvider() ProviderInfo {
 			"aws_lambda_event_source_mapping": {Tok: awsrestok(lambdaMod, "EventSourceMapping")},
 			"aws_lambda_alias":                {Tok: awsrestok(lambdaMod, "Alias")},
 			"aws_lambda_permission": {
-				Tok: awsrestok(lambdaMod, "Permission"),
+				Tok:       awsrestok(lambdaMod, "Permission"),
+				IDFields:  []string{"statement_id"},
+				KeyFields: []string{"function_name"},
 				Fields: map[string]SchemaInfo{
 					"function_name": {
 						Name: "function",
 						Type: awstok(lambdaMod+"/function", "Function"),
 					},
+					"statement_id": autoNameInfo("statementId", -1),
 				},
 			},
 			// LightSail
