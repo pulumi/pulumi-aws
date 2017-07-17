@@ -1,9 +1,9 @@
 SHELL=/bin/bash
 .SHELLFLAGS=-e
 
-PACK   =aws
-PACKDIR=pack
-NAME   =AWS
+PACK    =aws
+PACKDIR =pack
+PACKNAME=Amazon Web Services (AWS)
 
 TFGEN           = lumi-tfgen
 TFBRIDGE        = lumi-tfbridge
@@ -21,9 +21,9 @@ all: banner gen build test install
 .PHONY: all
 
 banner:
-	@$(ECHO) "\033[1;37m================================\033[0m"
-	@$(ECHO) "\033[1;37m${FLUX} Lumi Package\033[0m"
-	@$(ECHO) "\033[1;37m================================\033[0m"
+	@$(ECHO) "\033[1;37m========================================\033[0m"
+	@$(ECHO) "\033[1;37m${PACKNAME} Lumi Package\033[0m"
+	@$(ECHO) "\033[1;37m========================================\033[0m"
 	@go version
 .PHONY: banner
 
