@@ -1,12 +1,10 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import { AssetArchive, File, String as StringAsset } from "@lumi/lumi/asset";
-import {
-    Closure, jsonStringify, objectKeys, printf, serializeClosure,
-} from "@lumi/lumirt";
-import { Role, RolePolicyAttachment } from "@lumi/aws/iam";
+import {AssetArchive, File, String as StringAsset} from "@lumi/lumi/asset";
+import {Closure, jsonStringify, objectKeys, printf, serializeClosure, toString} from "@lumi/lumirt";
+import {Role, RolePolicyAttachment} from "@lumi/aws/iam";
 import * as lambda from "@lumi/aws/lambda";
-import { ARN } from "@lumi/aws";
+import {ARN} from "@lumi/aws";
 
 // Context is the shape of the context object passed to a Function callback.
 export interface Context {
@@ -155,8 +153,8 @@ function __generator(thisArg, body) {
         }),
         functionName: functionName,
         handler: "index.handler",
-        runtime: "nodejs6.10",
-        role: role,
+        runtime: lambda.NodeJS6d10Runtime,
+        role: role.arn,
         timeout: timeout,
         memorySize: opts.memorySize,
         environment: envObj,
@@ -194,7 +192,7 @@ export class Function {
         });
         this.policies = [];
         for (let i = 0; i < (<any>options.policies).length; i++) {
-            this.policies.push(new RolePolicyAttachment(name + "-iampolicy-" + i, {
+            (<any>this.policies).push(new RolePolicyAttachment(name + "-iampolicy-" + toString(i), {
                 role: this.role,
                 policyArn: options.policies[i],
             }));
