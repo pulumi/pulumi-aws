@@ -596,9 +596,21 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_configuration_set":       {Tok: awsrestok(sesMod, "ConfgurationSet")},
 			"aws_ses_event_destination":       {Tok: awsrestok(sesMod, "EventDestination")},
 			// S3
-			"aws_s3_bucket":              {Tok: awsrestok(s3Mod, "Bucket")},
-			"aws_s3_bucket_policy":       {Tok: awsrestok(s3Mod, "BucketPolicy")},
-			"aws_s3_bucket_object":       {Tok: awsrestok(s3Mod, "Object")},
+			"aws_s3_bucket":        {Tok: awsrestok(s3Mod, "Bucket")},
+			"aws_s3_bucket_policy": {Tok: awsrestok(s3Mod, "BucketPolicy")},
+			"aws_s3_bucket_object": {
+				Tok:                 awsrestok(s3Mod, "Object"),
+				NameFields:          []string{"bucket", "key"},
+				NameFieldsDelimiter: ":",
+				Fields: map[string]tfbridge.SchemaInfo{
+					"bucket": {Type: awsrestok(s3Mod, "Bucket")},
+					"source": {
+						Asset: &tfbridge.AssetTranslation{
+							Kind: tfbridge.FileAsset,
+						},
+					},
+				},
+			},
 			"aws_s3_bucket_notification": {Tok: awsrestok(s3Mod, "Notification")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsrestok(ssmMod, "Activation")},
