@@ -13,12 +13,15 @@ LUMILIB         = ${LUMIROOT}/packs
 LUMIPLUG        = lumi-resource
 TESTPARALLELISM = 10
 
+INSTALLDIR      = ${LUMILIB}/${PACK}
+
 ECHO=echo -e
 GOMETALINTERBIN=gometalinter
 GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 
 all: banner gen build test install
-.PHONY: all
+notest: banner gen build install
+.PHONY: all notest
 
 banner:
 	@$(ECHO) "\033[1;37m========================================\033[0m"
@@ -36,7 +39,6 @@ build:
 	cd ${PACKDIR} && yarn link @lumi/lumi @lumi/lumirt      # ensure we resolve to Lumi's stdlibs.
 	cd ${PACKDIR} && lumijs                                 # compile the LumiPack.
 	cd ${PACKDIR} && lumi pack verify                       # ensure the pack verifies.
-	$(eval INSTALLDIR := ${LUMILIB}/${PACK})
 .PHONY: build
 
 test:
