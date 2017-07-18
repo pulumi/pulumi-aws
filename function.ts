@@ -151,7 +151,6 @@ function __generator(thisArg, body) {
             "node_modules": new File("node_modules"),
             "index.js": new StringAsset(str),
         }),
-        functionName: functionName,
         handler: "index.handler",
         runtime: lambda.NodeJS6d10Runtime,
         role: role.arn,

@@ -51,8 +51,9 @@ let lambda = new serverless.Function(
   },
 );
 
+// BUGBUG[pulumi/aws-serverless#1]: because we don't recursively create resources, we use bambam rather than /bambam.
 let api = new serverless.API("frontend");
-api.route("GET", "/bambam", lambda);
-api.route("PUT", "/bambam", lambda);
+api.route("GET", "bambam", lambda);
+api.route("PUT", "bambam", lambda);
 let stage = api.publish();
 
