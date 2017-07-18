@@ -4,13 +4,16 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {Resource} from "./resource";
+import {RestApi} from "./restApi";
+
 export class MethodResponse extends lumi.NamedResource implements MethodResponseArgs {
     public readonly httpMethod: string;
-    public readonly resourceId: string;
+    public readonly resource: Resource;
     public readonly responseModels?: {[key: string]: string};
     public readonly responseParameters?: {[key: string]: boolean};
     public readonly responseParametersInJson?: string;
-    public readonly restApiId: string;
+    public readonly restApi: RestApi;
     public readonly statusCode: string;
 
     constructor(name: string, args: MethodResponseArgs) {
@@ -19,17 +22,17 @@ export class MethodResponse extends lumi.NamedResource implements MethodResponse
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }
         this.httpMethod = args.httpMethod;
-        if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
-            throw new Error("Property argument 'resourceId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.resource, "") === undefined) {
+            throw new Error("Property argument 'resource' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
+        this.resource = args.resource;
         this.responseModels = args.responseModels;
         this.responseParameters = args.responseParameters;
         this.responseParametersInJson = args.responseParametersInJson;
-        if (lumirt.defaultIfComputed(args.restApiId, "") === undefined) {
-            throw new Error("Property argument 'restApiId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
+            throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApiId = args.restApiId;
+        this.restApi = args.restApi;
         if (lumirt.defaultIfComputed(args.statusCode, "") === undefined) {
             throw new Error("Property argument 'statusCode' is required, but was missing");
         }
@@ -39,11 +42,11 @@ export class MethodResponse extends lumi.NamedResource implements MethodResponse
 
 export interface MethodResponseArgs {
     readonly httpMethod: string;
-    readonly resourceId: string;
+    readonly resource: Resource;
     readonly responseModels?: {[key: string]: string};
     readonly responseParameters?: {[key: string]: boolean};
     readonly responseParametersInJson?: string;
-    readonly restApiId: string;
+    readonly restApi: RestApi;
     readonly statusCode: string;
 }
 

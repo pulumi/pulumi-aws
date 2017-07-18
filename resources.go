@@ -98,10 +98,34 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Resources: map[string]tfbridge.ResourceInfo{
 			// API Gateway
-			"aws_api_gateway_account":            {Tok: awsrestok(apigatewayMod, "Account")},
-			"aws_api_gateway_api_key":            {Tok: awsrestok(apigatewayMod, "ApiKey")},
-			"aws_api_gateway_authorizer":         {Tok: awsrestok(apigatewayMod, "Authorizer")},
-			"aws_api_gateway_base_path_mapping":  {Tok: awsrestok(apigatewayMod, "BasePathMapping")},
+			"aws_api_gateway_account": {Tok: awsrestok(apigatewayMod, "Account")},
+			"aws_api_gateway_api_key": {
+				Tok: awsrestok(apigatewayMod, "ApiKey"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_authorizer": {
+				Tok: awsrestok(apigatewayMod, "Authorizer"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_base_path_mapping": {
+				Tok: awsrestok(apigatewayMod, "BasePathMapping"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
 			"aws_api_gateway_client_certificate": {Tok: awsrestok(apigatewayMod, "ClientCertificate")},
 			"aws_api_gateway_deployment": {
 				Tok: awsrestok(apigatewayMod, "Deployment"),
@@ -126,15 +150,77 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_api_gateway_integration_response": {Tok: awsrestok(apigatewayMod, "IntegrationResponse")},
-			"aws_api_gateway_method":               {Tok: awsrestok(apigatewayMod, "Method")},
-			"aws_api_gateway_method_response":      {Tok: awsrestok(apigatewayMod, "MethodResponse")},
-			"aws_api_gateway_method_settings":      {Tok: awsrestok(apigatewayMod, "MethodSettings")},
-			"aws_api_gateway_model":                {Tok: awsrestok(apigatewayMod, "Model")},
-			"aws_api_gateway_request_validator":    {Tok: awsrestok(apigatewayMod, "RequestValidator")},
+			"aws_api_gateway_integration_response": {
+				Tok: awsrestok(apigatewayMod, "IntegrationResponse"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"resource_id": {
+						Name: "resource",
+						Type: awstok(apigatewayMod+"/resource", "Resource"),
+					},
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_method": {
+				Tok: awsrestok(apigatewayMod, "Method"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"resource_id": {
+						Name: "resource",
+						Type: awstok(apigatewayMod+"/resource", "Resource"),
+					},
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
+			"aws_api_gateway_method_response": {
+				Tok: awsrestok(apigatewayMod, "MethodResponse"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"resource_id": {
+						Name: "resource",
+						Type: awstok(apigatewayMod+"/resource", "Resource"),
+					},
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				}},
+			"aws_api_gateway_method_settings": {
+				Tok: awsrestok(apigatewayMod, "MethodSettings"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				}},
+			"aws_api_gateway_model": {
+				Tok: awsrestok(apigatewayMod, "Model"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				}},
+			"aws_api_gateway_request_validator": {
+				Tok: awsrestok(apigatewayMod, "RequestValidator"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"rest_api_id": {
+						Name: "restApi",
+						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					},
+				},
+			},
 			"aws_api_gateway_resource": {
 				Tok: awsrestok(apigatewayMod, "Resource"),
 				Fields: map[string]tfbridge.SchemaInfo{
+					// TODO[pulumi/terraform-bridge#5] Strongly type the parent refernence to align with other uses
+					// "parent_id": {
+					// 	Name: "parent",
+					// 	Type: awstok(apigatewayMod+"/resource", "Resource"),
+					// },
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),

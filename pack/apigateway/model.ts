@@ -4,11 +4,13 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {RestApi} from "./restApi";
+
 export class Model extends lumi.NamedResource implements ModelArgs {
     public readonly contentType: string;
     public readonly description?: string;
     public readonly modelName?: string;
-    public readonly restApiId: string;
+    public readonly restApi: RestApi;
     public readonly schema?: string;
 
     constructor(name: string, args: ModelArgs) {
@@ -19,10 +21,10 @@ export class Model extends lumi.NamedResource implements ModelArgs {
         this.contentType = args.contentType;
         this.description = args.description;
         this.modelName = args.modelName;
-        if (lumirt.defaultIfComputed(args.restApiId, "") === undefined) {
-            throw new Error("Property argument 'restApiId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
+            throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApiId = args.restApiId;
+        this.restApi = args.restApi;
         this.schema = args.schema;
     }
 }
@@ -31,7 +33,7 @@ export interface ModelArgs {
     readonly contentType: string;
     readonly description?: string;
     readonly modelName?: string;
-    readonly restApiId: string;
+    readonly restApi: RestApi;
     readonly schema?: string;
 }
 

@@ -4,6 +4,8 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {RestApi} from "./restApi";
+
 export class ApiKey extends lumi.NamedResource implements ApiKeyArgs {
     public /*out*/ readonly createdDate: string;
     public readonly description?: string;

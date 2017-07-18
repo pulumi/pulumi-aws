@@ -4,9 +4,11 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {RestApi} from "./restApi";
+
 export class MethodSettings extends lumi.NamedResource implements MethodSettingsArgs {
     public readonly methodPath: string;
-    public readonly restApiId: string;
+    public readonly restApi: RestApi;
     public readonly settings: { cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[];
     public readonly stageName: string;
 
@@ -16,10 +18,10 @@ export class MethodSettings extends lumi.NamedResource implements MethodSettings
             throw new Error("Property argument 'methodPath' is required, but was missing");
         }
         this.methodPath = args.methodPath;
-        if (lumirt.defaultIfComputed(args.restApiId, "") === undefined) {
-            throw new Error("Property argument 'restApiId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
+            throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApiId = args.restApiId;
+        this.restApi = args.restApi;
         if (lumirt.defaultIfComputed(args.settings, "") === undefined) {
             throw new Error("Property argument 'settings' is required, but was missing");
         }
@@ -33,7 +35,7 @@ export class MethodSettings extends lumi.NamedResource implements MethodSettings
 
 export interface MethodSettingsArgs {
     readonly methodPath: string;
-    readonly restApiId: string;
+    readonly restApi: RestApi;
     readonly settings: { cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[];
     readonly stageName: string;
 }
