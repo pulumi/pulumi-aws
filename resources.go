@@ -476,8 +476,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_iam_role_policy_attachment": {
-				Tok:       awsrestok(iamMod, "RolePolicyAttachment"),
-				KeyFields: []string{"role", "policy_arn"},
+				Tok: awsrestok(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]tfbridge.SchemaInfo{
 					"role": {Type: awstok(iamMod+"/role", "Role")},
 					"policy_arn": {
@@ -538,9 +537,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_event_source_mapping": {Tok: awsrestok(lambdaMod, "EventSourceMapping")},
 			"aws_lambda_alias":                {Tok: awsrestok(lambdaMod, "Alias")},
 			"aws_lambda_permission": {
-				Tok:       awsrestok(lambdaMod, "Permission"),
-				IDFields:  []string{"statement_id"},
-				KeyFields: []string{"function_name"},
+				Tok:      awsrestok(lambdaMod, "Permission"),
+				IDFields: []string{"statement_id"},
 				Fields: map[string]tfbridge.SchemaInfo{
 					"function_name": {
 						Name: "function",
