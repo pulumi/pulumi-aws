@@ -4,7 +4,6 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
-import {Resource} from "./resource";
 import {RestApi} from "./restApi";
 
 export class Method extends lumi.NamedResource implements MethodArgs {
@@ -16,7 +15,7 @@ export class Method extends lumi.NamedResource implements MethodArgs {
     public readonly requestParameters?: {[key: string]: boolean};
     public readonly requestParametersInJson?: string;
     public readonly requestValidatorId?: string;
-    public readonly resource: Resource;
+    public readonly resourceId: string;
     public readonly restApi: RestApi;
 
     constructor(name: string, args: MethodArgs) {
@@ -35,10 +34,10 @@ export class Method extends lumi.NamedResource implements MethodArgs {
         this.requestParameters = args.requestParameters;
         this.requestParametersInJson = args.requestParametersInJson;
         this.requestValidatorId = args.requestValidatorId;
-        if (lumirt.defaultIfComputed(args.resource, "") === undefined) {
-            throw new Error("Property argument 'resource' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
+            throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resource = args.resource;
+        this.resourceId = args.resourceId;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
@@ -55,7 +54,7 @@ export interface MethodArgs {
     readonly requestParameters?: {[key: string]: boolean};
     readonly requestParametersInJson?: string;
     readonly requestValidatorId?: string;
-    readonly resource: Resource;
+    readonly resourceId: string;
     readonly restApi: RestApi;
 }
 

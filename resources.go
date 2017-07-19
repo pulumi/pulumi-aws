@@ -141,10 +141,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_integration": {
 				Tok: awsrestok(apigatewayMod, "Integration"),
 				Fields: map[string]tfbridge.SchemaInfo{
-					"resource_id": {
-						Name: "resource",
-						Type: awstok(apigatewayMod+"/resource", "Resource"),
-					},
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -154,10 +150,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_integration_response": {
 				Tok: awsrestok(apigatewayMod, "IntegrationResponse"),
 				Fields: map[string]tfbridge.SchemaInfo{
-					"resource_id": {
-						Name: "resource",
-						Type: awstok(apigatewayMod+"/resource", "Resource"),
-					},
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -167,10 +159,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_method": {
 				Tok: awsrestok(apigatewayMod, "Method"),
 				Fields: map[string]tfbridge.SchemaInfo{
-					"resource_id": {
-						Name: "resource",
-						Type: awstok(apigatewayMod+"/resource", "Resource"),
-					},
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -180,10 +168,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_method_response": {
 				Tok: awsrestok(apigatewayMod, "MethodResponse"),
 				Fields: map[string]tfbridge.SchemaInfo{
-					"resource_id": {
-						Name: "resource",
-						Type: awstok(apigatewayMod+"/resource", "Resource"),
-					},
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),

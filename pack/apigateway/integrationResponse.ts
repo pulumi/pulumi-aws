@@ -4,13 +4,12 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
-import {Resource} from "./resource";
 import {RestApi} from "./restApi";
 
 export class IntegrationResponse extends lumi.NamedResource implements IntegrationResponseArgs {
     public readonly contentHandling?: string;
     public readonly httpMethod: string;
-    public readonly resource: Resource;
+    public readonly resourceId: string;
     public readonly responseParameters?: {[key: string]: string};
     public readonly responseParametersInJson?: string;
     public readonly responseTemplates?: {[key: string]: string};
@@ -25,10 +24,10 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }
         this.httpMethod = args.httpMethod;
-        if (lumirt.defaultIfComputed(args.resource, "") === undefined) {
-            throw new Error("Property argument 'resource' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
+            throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resource = args.resource;
+        this.resourceId = args.resourceId;
         this.responseParameters = args.responseParameters;
         this.responseParametersInJson = args.responseParametersInJson;
         this.responseTemplates = args.responseTemplates;
@@ -47,7 +46,7 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
 export interface IntegrationResponseArgs {
     readonly contentHandling?: string;
     readonly httpMethod: string;
-    readonly resource: Resource;
+    readonly resourceId: string;
     readonly responseParameters?: {[key: string]: string};
     readonly responseParametersInJson?: string;
     readonly responseTemplates?: {[key: string]: string};
