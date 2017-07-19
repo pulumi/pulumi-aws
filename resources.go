@@ -3,6 +3,7 @@
 package aws
 
 import (
+	"strings"
 	"unicode"
 
 	"github.com/hashicorp/terraform/helper/schema"
@@ -596,10 +597,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_configuration_set":       {Tok: awsrestok(sesMod, "ConfgurationSet")},
 			"aws_ses_event_destination":       {Tok: awsrestok(sesMod, "EventDestination")},
 			// S3
-			"aws_s3_bucket":        {Tok: awsrestok(s3Mod, "Bucket")},
+			"aws_s3_bucket": {
+				Tok: awsrestok(s3Mod, "Bucket"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"bucket": tfbridge.AutoNameInfoRename("bucket", -1, func(name string) string {
+						return strings.ToLower(name)
+					}),
+				},
+			},
 			"aws_s3_bucket_policy": {Tok: awsrestok(s3Mod, "BucketPolicy")},
 			"aws_s3_bucket_object": {
 				Tok:                 awsrestok(s3Mod, "Object"),
+				IDFields:            []string{"bucket", "key"},
 				NameFields:          []string{"bucket", "key"},
 				NameFieldsDelimiter: ":",
 				Fields: map[string]tfbridge.SchemaInfo{
