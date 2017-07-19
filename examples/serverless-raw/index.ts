@@ -118,14 +118,14 @@ let resource = new aws.apigateway.Resource("myrestapi-resource", {
 
 let method = new aws.apigateway.Method("myrestapi-method", {
     restApi: restApi,
-    resource: resource,
+    resourceId: resource.id,
     httpMethod: "ANY",
     authorization: "NONE",
 });
 
 let integration = new aws.apigateway.Integration("myrestapi-integration", {
     restApi: restApi,
-    resource: resource,
+    resourceId: resource.id,
     httpMethod: "ANY",
     type: "AWS_PROXY",
     integrationHttpMethod: "POST",
