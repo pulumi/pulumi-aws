@@ -4,9 +4,10 @@ SHELL=/bin/bash
 PACK    =aws
 PACKDIR =pack
 PACKNAME=Amazon Web Services (AWS)
+PROJECT =github.com/pulumi/aws
 
-TFGEN           = lumi-tfgen
-TFBRIDGE        = lumi-tfbridge
+TFGEN           = lumi-tfgen-${PACK}
+TFBRIDGE        = lumi-tfbridge-${PACK}
 TFBRIDGE_BIN    = ${GOPATH}/bin/${TFBRIDGE}
 LUMIROOT       ?= /usr/local/lumi
 LUMILIB         = ${LUMIROOT}/packs
@@ -19,7 +20,7 @@ ECHO=echo -e
 GOMETALINTERBIN=gometalinter
 GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 
-all: banner gen build test install
+all: banner buildtools gen build test install
 notest: banner gen build install
 .PHONY: all notest
 
@@ -30,8 +31,12 @@ banner:
 	@go version
 .PHONY: banner
 
+buildtools:
+	go install ${PROJECT}/cmd/${TFGEN}
+	go install ${PROJECT}/cmd/${TFBRIDGE}
+
 gen:
-	$(TFGEN) ${PACK} --out pack/
+	$(TFGEN) --out pack/
 .PHONY: gen
 
 build:
