@@ -200,16 +200,14 @@
   version = "v0.8.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/lumi"
   packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
-  revision = "ba1b27a65704cf68b2b801d95db0feaae136b37a"
+  revision = "8a3a7a1a52f6938553291887aeffa9b01891d0c8"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/terraform-bridge"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "4ed245aa73fc0d336eaf913766e8f78b32593e4f"
+  revision = "332ca2d726f2f8c56f33517c786357fa2b25f17b"
 
 [[projects]]
   branch = "master"
@@ -292,6 +290,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "275b8069ae892023e9b6f17161cfec1d70ab027edee2012481a3e426eed805b7"
+  inputs-digest = "ed86e824e49dd1dc3c507c1a0fa7fd1ca1a9eeed32bf723c61582c078a8dc7cb"
   solver-name = "gps-cdcl"
   solver-version = 1
