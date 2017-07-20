@@ -4,6 +4,8 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {RestApi} from "./restApi";
+
 export class IntegrationResponse extends lumi.NamedResource implements IntegrationResponseArgs {
     public readonly contentHandling?: string;
     public readonly httpMethod: string;
@@ -11,7 +13,7 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
     public readonly responseParameters?: {[key: string]: string};
     public readonly responseParametersInJson?: string;
     public readonly responseTemplates?: {[key: string]: string};
-    public readonly restApiId: string;
+    public readonly restApi: RestApi;
     public readonly selectionPattern?: string;
     public readonly statusCode: string;
 
@@ -29,10 +31,10 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
         this.responseParameters = args.responseParameters;
         this.responseParametersInJson = args.responseParametersInJson;
         this.responseTemplates = args.responseTemplates;
-        if (lumirt.defaultIfComputed(args.restApiId, "") === undefined) {
-            throw new Error("Property argument 'restApiId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
+            throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApiId = args.restApiId;
+        this.restApi = args.restApi;
         this.selectionPattern = args.selectionPattern;
         if (lumirt.defaultIfComputed(args.statusCode, "") === undefined) {
             throw new Error("Property argument 'statusCode' is required, but was missing");
@@ -48,7 +50,7 @@ export interface IntegrationResponseArgs {
     readonly responseParameters?: {[key: string]: string};
     readonly responseParametersInJson?: string;
     readonly responseTemplates?: {[key: string]: string};
-    readonly restApiId: string;
+    readonly restApi: RestApi;
     readonly selectionPattern?: string;
     readonly statusCode: string;
 }

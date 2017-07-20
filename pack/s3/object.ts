@@ -4,9 +4,11 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
-export class Object extends lumi.NamedResource implements ObjectArgs {
+import {Bucket} from "./bucket";
+
+export class Object extends lumi.Resource implements ObjectArgs {
     public readonly acl?: string;
-    public readonly bucket: string;
+    public readonly bucket: Bucket;
     public readonly cacheControl?: string;
     public readonly content?: string;
     public readonly contentDisposition?: string;
@@ -17,14 +19,14 @@ export class Object extends lumi.NamedResource implements ObjectArgs {
     public readonly key: string;
     public readonly kmsKeyId?: string;
     public readonly serverSideEncryption: string;
-    public readonly source?: string;
+    public readonly source?: lumi.asset.Asset;
     public readonly storageClass: string;
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly versionId: string;
     public readonly websiteRedirect?: string;
 
-    constructor(name: string, args: ObjectArgs) {
-        super(name);
+    constructor(args: ObjectArgs) {
+        super();
         this.acl = args.acl;
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
@@ -52,7 +54,7 @@ export class Object extends lumi.NamedResource implements ObjectArgs {
 
 export interface ObjectArgs {
     readonly acl?: string;
-    readonly bucket: string;
+    readonly bucket: Bucket;
     readonly cacheControl?: string;
     readonly content?: string;
     readonly contentDisposition?: string;
@@ -63,7 +65,7 @@ export interface ObjectArgs {
     readonly key: string;
     readonly kmsKeyId?: string;
     readonly serverSideEncryption?: string;
-    readonly source?: string;
+    readonly source?: lumi.asset.Asset;
     readonly storageClass?: string;
     readonly tags?: {[key: string]: any};
     readonly websiteRedirect?: string;

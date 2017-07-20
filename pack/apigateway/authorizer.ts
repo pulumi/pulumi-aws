@@ -4,6 +4,8 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {RestApi} from "./restApi";
+
 export class Authorizer extends lumi.NamedResource implements AuthorizerArgs {
     public readonly authorizerCredentials?: string;
     public readonly authorizerResultTtlInSeconds?: number;
@@ -11,7 +13,7 @@ export class Authorizer extends lumi.NamedResource implements AuthorizerArgs {
     public readonly identitySource?: string;
     public readonly identityValidationExpression?: string;
     public readonly authorizerName?: string;
-    public readonly restApiId: string;
+    public readonly restApi: RestApi;
     public readonly type?: string;
 
     constructor(name: string, args: AuthorizerArgs) {
@@ -25,10 +27,10 @@ export class Authorizer extends lumi.NamedResource implements AuthorizerArgs {
         this.identitySource = args.identitySource;
         this.identityValidationExpression = args.identityValidationExpression;
         this.authorizerName = args.authorizerName;
-        if (lumirt.defaultIfComputed(args.restApiId, "") === undefined) {
-            throw new Error("Property argument 'restApiId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
+            throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApiId = args.restApiId;
+        this.restApi = args.restApi;
         this.type = args.type;
     }
 }
@@ -40,7 +42,7 @@ export interface AuthorizerArgs {
     readonly identitySource?: string;
     readonly identityValidationExpression?: string;
     readonly authorizerName?: string;
-    readonly restApiId: string;
+    readonly restApi: RestApi;
     readonly type?: string;
 }
 

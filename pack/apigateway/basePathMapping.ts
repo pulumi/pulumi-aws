@@ -4,18 +4,20 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {RestApi} from "./restApi";
+
 export class BasePathMapping extends lumi.NamedResource implements BasePathMappingArgs {
-    public readonly apiId: string;
+    public readonly restApi: RestApi;
     public readonly basePath?: string;
     public readonly domainName: string;
     public readonly stageName?: string;
 
     constructor(name: string, args: BasePathMappingArgs) {
         super(name);
-        if (lumirt.defaultIfComputed(args.apiId, "") === undefined) {
-            throw new Error("Property argument 'apiId' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
+            throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.apiId = args.apiId;
+        this.restApi = args.restApi;
         this.basePath = args.basePath;
         if (lumirt.defaultIfComputed(args.domainName, "") === undefined) {
             throw new Error("Property argument 'domainName' is required, but was missing");
@@ -26,7 +28,7 @@ export class BasePathMapping extends lumi.NamedResource implements BasePathMappi
 }
 
 export interface BasePathMappingArgs {
-    readonly apiId: string;
+    readonly restApi: RestApi;
     readonly basePath?: string;
     readonly domainName: string;
     readonly stageName?: string;

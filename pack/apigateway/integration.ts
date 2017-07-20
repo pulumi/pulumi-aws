@@ -4,7 +4,6 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
-import {Resource} from "./resource";
 import {RestApi} from "./restApi";
 
 export class Integration extends lumi.NamedResource implements IntegrationArgs {
@@ -18,7 +17,7 @@ export class Integration extends lumi.NamedResource implements IntegrationArgs {
     public readonly requestParameters?: {[key: string]: string};
     public readonly requestParametersInJson?: string;
     public readonly requestTemplates?: {[key: string]: string};
-    public readonly resource: Resource;
+    public readonly resourceId: string;
     public readonly restApi: RestApi;
     public readonly type: string;
     public readonly uri?: string;
@@ -38,10 +37,10 @@ export class Integration extends lumi.NamedResource implements IntegrationArgs {
         this.requestParameters = args.requestParameters;
         this.requestParametersInJson = args.requestParametersInJson;
         this.requestTemplates = args.requestTemplates;
-        if (lumirt.defaultIfComputed(args.resource, "") === undefined) {
-            throw new Error("Property argument 'resource' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
+            throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resource = args.resource;
+        this.resourceId = args.resourceId;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
@@ -65,7 +64,7 @@ export interface IntegrationArgs {
     readonly requestParameters?: {[key: string]: string};
     readonly requestParametersInJson?: string;
     readonly requestTemplates?: {[key: string]: string};
-    readonly resource: Resource;
+    readonly resourceId: string;
     readonly restApi: RestApi;
     readonly type: string;
     readonly uri?: string;
