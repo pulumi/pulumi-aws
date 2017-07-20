@@ -4,9 +4,12 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {Application} from "./application";
+import {ApplicationVersion} from "./applicationVersion";
+
 export class Environment extends lumi.NamedResource implements EnvironmentArgs {
     public /*out*/ readonly allSettings: { name: string, namespace: string, resource?: string, value: string }[];
-    public readonly application: string;
+    public readonly application: Application;
     public /*out*/ readonly autoscalingGroups: string[];
     public /*out*/ readonly cname: string;
     public readonly cnamePrefix: string;
@@ -23,7 +26,7 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
     public readonly templateName?: string;
     public readonly tier?: string;
     public /*out*/ readonly triggers: string[];
-    public readonly versionLabel: string;
+    public readonly version: ApplicationVersion;
     public readonly waitForReadyTimeout?: string;
 
     public static get(id: lumi.ID): Environment {
@@ -49,13 +52,13 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
         this.tags = args.tags;
         this.templateName = args.templateName;
         this.tier = args.tier;
-        this.versionLabel = args.versionLabel;
+        this.version = args.version;
         this.waitForReadyTimeout = args.waitForReadyTimeout;
     }
 }
 
 export interface EnvironmentArgs {
-    readonly application: string;
+    readonly application: Application;
     readonly cnamePrefix?: string;
     readonly description?: string;
     readonly environmentName?: string;
@@ -65,7 +68,7 @@ export interface EnvironmentArgs {
     readonly tags?: {[key: string]: any};
     readonly templateName?: string;
     readonly tier?: string;
-    readonly versionLabel?: string;
+    readonly version?: ApplicationVersion;
     readonly waitForReadyTimeout?: string;
 }
 

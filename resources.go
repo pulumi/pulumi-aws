@@ -317,10 +317,24 @@ func Provider() tfbridge.ProviderInfo {
 			// DynamoDB
 			"aws_dynamodb_table": {Tok: awsrestok(dynamodbMod, "Table")},
 			// Elastic Beanstalk
-			"aws_elastic_beanstalk_application":            {Tok: awsrestok(elasticbeanstalkMod, "Application")},
-			"aws_elastic_beanstalk_application_version":    {Tok: awsrestok(elasticbeanstalkMod, "ApplicationVersion")},
+			"aws_elastic_beanstalk_application": {Tok: awsrestok(elasticbeanstalkMod, "Application")},
+			"aws_elastic_beanstalk_application_version": {
+				Tok: awsrestok(elasticbeanstalkMod, "ApplicationVersion"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
+				},
+			},
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsrestok(elasticbeanstalkMod, "ConfigurationTemplate")},
-			"aws_elastic_beanstalk_environment":            {Tok: awsrestok(elasticbeanstalkMod, "Environment")},
+			"aws_elastic_beanstalk_environment": {
+				Tok: awsrestok(elasticbeanstalkMod, "Environment"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
+					"version_label": {
+						Name: "version",
+						Type: awsrestok(elasticbeanstalkMod, "ApplicationVersion"),
+					},
+				},
+			},
 			// Elastic Block Store
 			"aws_ebs_snapshot": {Tok: awsrestok(ebsMod, "Snapshot")},
 			"aws_ebs_volume":   {Tok: awsrestok(ebsMod, "Volume")},
@@ -458,7 +472,14 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_iam_instance_profile":        {Tok: awsrestok(iamMod, "InstanceProfile")},
+			"aws_iam_instance_profile": {
+				Tok: awsrestok(iamMod, "InstanceProfile"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"roles": {
+						Elem: &tfbridge.SchemaInfo{Type: awsrestok(iamMod, "Role")},
+					},
+				},
+			},
 			"aws_iam_openid_connect_provider": {Tok: awsrestok(iamMod, "OpenIdConnectProvider")},
 			"aws_iam_policy":                  {Tok: awsrestok(iamMod, "Policy")},
 			"aws_iam_policy_attachment": {

@@ -4,6 +4,8 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {Role} from "./role";
+
 export class InstanceProfile extends lumi.NamedResource implements InstanceProfileArgs {
     public /*out*/ readonly arn: string;
     public /*out*/ readonly createDate: string;
@@ -11,7 +13,7 @@ export class InstanceProfile extends lumi.NamedResource implements InstanceProfi
     public readonly namePrefix?: string;
     public readonly path?: string;
     public readonly role: string;
-    public readonly roles: string[];
+    public readonly roles: Role[];
     public /*out*/ readonly uniqueId: string;
 
     public static get(id: lumi.ID): InstanceProfile {
@@ -37,6 +39,6 @@ export interface InstanceProfileArgs {
     readonly namePrefix?: string;
     readonly path?: string;
     readonly role?: string;
-    readonly roles?: string[];
+    readonly roles?: Role[];
 }
 
