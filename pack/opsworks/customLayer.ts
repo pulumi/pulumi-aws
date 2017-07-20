@@ -28,6 +28,14 @@ export class CustomLayer extends lumi.NamedResource implements CustomLayerArgs {
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): CustomLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): CustomLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: CustomLayerArgs) {
         super(name);
         this.autoAssignElasticIps = args.autoAssignElasticIps;

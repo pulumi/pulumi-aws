@@ -9,6 +9,14 @@ export class LogStream extends lumi.NamedResource implements LogStreamArgs {
     public readonly logGroupName: string;
     public readonly logStreamName?: string;
 
+    public static get(id: lumi.ID): LogStream {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LogStream[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LogStreamArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.logGroupName, "") === undefined) {

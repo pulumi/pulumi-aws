@@ -19,6 +19,14 @@ export class Route extends lumi.NamedResource implements RouteArgs {
     public /*out*/ readonly state: string;
     public readonly vpcPeeringConnectionId?: string;
 
+    public static get(id: lumi.ID): Route {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Route[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RouteArgs) {
         super(name);
         this.destinationCidrBlock = args.destinationCidrBlock;

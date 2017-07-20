@@ -20,6 +20,14 @@ export class Ami extends lumi.NamedResource implements AmiArgs {
     public readonly tags?: {[key: string]: any};
     public readonly virtualizationType?: string;
 
+    public static get(id: lumi.ID): Ami {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Ami[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AmiArgs) {
         super(name);
         this.architecture = args.architecture;

@@ -21,7 +21,7 @@ GOMETALINTERBIN=gometalinter
 GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 
 all: banner buildtools gen build test install
-notest: banner gen build install
+notest: banner buildtools gen build install
 .PHONY: all notest
 
 banner:

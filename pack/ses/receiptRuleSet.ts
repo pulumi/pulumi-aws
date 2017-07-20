@@ -7,6 +7,14 @@ import * as lumirt from "@lumi/lumirt";
 export class ReceiptRuleSet extends lumi.NamedResource implements ReceiptRuleSetArgs {
     public readonly ruleSetName: string;
 
+    public static get(id: lumi.ID): ReceiptRuleSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReceiptRuleSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReceiptRuleSetArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.ruleSetName, "") === undefined) {

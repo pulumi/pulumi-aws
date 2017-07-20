@@ -10,6 +10,14 @@ export class LogMetricFilter extends lumi.NamedResource implements LogMetricFilt
     public readonly logMetricFilterName?: string;
     public readonly pattern: string;
 
+    public static get(id: lumi.ID): LogMetricFilter {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LogMetricFilter[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LogMetricFilterArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.logGroupName, "") === undefined) {

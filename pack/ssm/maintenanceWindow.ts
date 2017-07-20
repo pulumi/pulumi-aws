@@ -12,6 +12,14 @@ export class MaintenanceWindow extends lumi.NamedResource implements Maintenance
     public readonly maintenanceWindowName?: string;
     public readonly schedule: string;
 
+    public static get(id: lumi.ID): MaintenanceWindow {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MaintenanceWindow[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MaintenanceWindowArgs) {
         super(name);
         this.allowUnassociatedTargets = args.allowUnassociatedTargets;

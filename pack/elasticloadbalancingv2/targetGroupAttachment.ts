@@ -9,6 +9,14 @@ export class TargetGroupAttachment extends lumi.NamedResource implements TargetG
     public readonly targetGroupArn: string;
     public readonly targetId: string;
 
+    public static get(id: lumi.ID): TargetGroupAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): TargetGroupAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TargetGroupAttachmentArgs) {
         super(name);
         this.port = args.port;

@@ -16,6 +16,14 @@ export class SecurityGroupRule extends lumi.NamedResource implements SecurityGro
     public readonly toPort: number;
     public readonly type: string;
 
+    public static get(id: lumi.ID): SecurityGroupRule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SecurityGroupRule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SecurityGroupRuleArgs) {
         super(name);
         this.cidrBlocks = args.cidrBlocks;

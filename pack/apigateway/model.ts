@@ -13,6 +13,14 @@ export class Model extends lumi.NamedResource implements ModelArgs {
     public readonly restApi: RestApi;
     public readonly schema?: string;
 
+    public static get(id: lumi.ID): Model {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Model[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ModelArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.contentType, "") === undefined) {

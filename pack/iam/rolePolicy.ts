@@ -10,6 +10,14 @@ export class RolePolicy extends lumi.NamedResource implements RolePolicyArgs {
     public readonly policy: string;
     public readonly role: string;
 
+    public static get(id: lumi.ID): RolePolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RolePolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RolePolicyArgs) {
         super(name);
         this.rolePolicyName = args.rolePolicyName;

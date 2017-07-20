@@ -10,6 +10,14 @@ export class StaticIp extends lumi.NamedResource implements StaticIpArgs {
     public readonly staticIpName?: string;
     public /*out*/ readonly supportCode: string;
 
+    public static get(id: lumi.ID): StaticIp {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): StaticIp[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StaticIpArgs) {
         super(name);
         this.staticIpName = args.staticIpName;

@@ -23,6 +23,14 @@ export class ReplicationInstance extends lumi.NamedResource implements Replicati
     public readonly tags?: {[key: string]: any};
     public readonly vpcSecurityGroupIds: string[];
 
+    public static get(id: lumi.ID): ReplicationInstance {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReplicationInstance[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReplicationInstanceArgs) {
         super(name);
         this.allocatedStorage = args.allocatedStorage;

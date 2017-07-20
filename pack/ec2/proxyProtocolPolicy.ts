@@ -8,6 +8,14 @@ export class ProxyProtocolPolicy extends lumi.NamedResource implements ProxyProt
     public readonly instancePorts: string[];
     public readonly loadBalancer: string;
 
+    public static get(id: lumi.ID): ProxyProtocolPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ProxyProtocolPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ProxyProtocolPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.instancePorts, "") === undefined) {

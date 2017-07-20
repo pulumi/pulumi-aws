@@ -31,7 +31,6 @@
         "apigateway/methodResponse.ts",
         "apigateway/methodSettings.ts",
         "apigateway/model.ts",
-        "apigateway/requestValidator.ts",
         "apigateway/resource.ts",
         "apigateway/restApi.ts",
         "apigateway/stage.ts",

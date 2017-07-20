@@ -11,6 +11,14 @@ export class User extends lumi.NamedResource implements UserArgs {
     public readonly path?: string;
     public /*out*/ readonly uniqueId: string;
 
+    public static get(id: lumi.ID): User {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): User[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UserArgs) {
         super(name);
         this.forceDestroy = args.forceDestroy;

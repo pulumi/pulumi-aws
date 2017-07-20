@@ -14,6 +14,14 @@ export class FirehoseDeliveryStream extends lumi.NamedResource implements Fireho
     public readonly s3Configuration: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }[];
     public readonly versionId: string;
 
+    public static get(id: lumi.ID): FirehoseDeliveryStream {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): FirehoseDeliveryStream[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: FirehoseDeliveryStreamArgs) {
         super(name);
         this.arn = args.arn;

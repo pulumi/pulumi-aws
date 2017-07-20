@@ -25,6 +25,14 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly zoneId: string;
 
+    public static get(id: lumi.ID): LoadBalancer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LoadBalancer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LoadBalancerArgs) {
         super(name);
         this.accessLogs = args.accessLogs;

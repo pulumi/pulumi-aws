@@ -14,6 +14,14 @@ export class OptionGroup extends lumi.NamedResource implements OptionGroupArgs {
     public readonly optionGroupDescription?: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): OptionGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): OptionGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: OptionGroupArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.engineName, "") === undefined) {

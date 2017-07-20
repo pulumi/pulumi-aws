@@ -14,6 +14,14 @@ export class Volume extends lumi.NamedResource implements VolumeArgs {
     public readonly tags?: {[key: string]: any};
     public readonly type: string;
 
+    public static get(id: lumi.ID): Volume {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Volume[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VolumeArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {

@@ -12,6 +12,14 @@ export class SshKey extends lumi.NamedResource implements SshKeyArgs {
     public readonly status: string;
     public readonly username: string;
 
+    public static get(id: lumi.ID): SshKey {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SshKey[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SshKeyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.encoding, "") === undefined) {

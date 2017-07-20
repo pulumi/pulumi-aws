@@ -8,6 +8,14 @@ export class IpSet extends lumi.NamedResource implements IpSetArgs {
     public readonly ipSetDescriptor?: { type: string, value: string }[];
     public readonly ipSetName?: string;
 
+    public static get(id: lumi.ID): IpSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): IpSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: IpSetArgs) {
         super(name);
         this.ipSetDescriptor = args.ipSetDescriptor;

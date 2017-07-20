@@ -16,6 +16,14 @@ export class ReplicationTask extends lumi.NamedResource implements ReplicationTa
     public readonly tags?: {[key: string]: any};
     public readonly targetEndpointArn: string;
 
+    public static get(id: lumi.ID): ReplicationTask {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReplicationTask[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReplicationTaskArgs) {
         super(name);
         this.cdcStartTime = args.cdcStartTime;

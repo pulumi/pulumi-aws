@@ -13,6 +13,14 @@ export class ClusterParameterGroup extends lumi.NamedResource implements Cluster
     public readonly parameter?: { applyMethod?: string, name: string, value: string }[];
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): ClusterParameterGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ClusterParameterGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ClusterParameterGroupArgs) {
         super(name);
         this.description = args.description;

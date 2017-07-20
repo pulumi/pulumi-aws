@@ -10,6 +10,14 @@ export class Group extends lumi.NamedResource implements GroupArgs {
     public readonly path?: string;
     public /*out*/ readonly uniqueId: string;
 
+    public static get(id: lumi.ID): Group {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Group[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: GroupArgs) {
         super(name);
         this.groupName = args.groupName;

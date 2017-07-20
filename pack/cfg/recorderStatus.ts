@@ -8,6 +8,14 @@ export class RecorderStatus extends lumi.NamedResource implements RecorderStatus
     public readonly isEnabled: boolean;
     public readonly recorderStatusName?: string;
 
+    public static get(id: lumi.ID): RecorderStatus {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RecorderStatus[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RecorderStatusArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.isEnabled, "") === undefined) {

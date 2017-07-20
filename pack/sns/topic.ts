@@ -4,12 +4,22 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {ARN} from "../index";
+
 export class Topic extends lumi.NamedResource implements TopicArgs {
-    public /*out*/ readonly arn: string;
+    public /*out*/ readonly arn: ARN;
     public readonly deliveryPolicy?: string;
     public readonly displayName?: string;
     public readonly topicName?: string;
     public readonly policy: string;
+
+    public static get(id: lumi.ID): Topic {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Topic[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
 
     constructor(name: string, args: TopicArgs) {
         super(name);

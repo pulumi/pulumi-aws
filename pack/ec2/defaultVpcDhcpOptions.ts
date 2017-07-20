@@ -12,6 +12,14 @@ export class DefaultVpcDhcpOptions extends lumi.NamedResource implements Default
     public /*out*/ readonly ntpServers: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): DefaultVpcDhcpOptions {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DefaultVpcDhcpOptions[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DefaultVpcDhcpOptionsArgs) {
         super(name);
         this.netbiosNameServers = args.netbiosNameServers;

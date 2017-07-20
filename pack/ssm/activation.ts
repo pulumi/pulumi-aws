@@ -13,6 +13,14 @@ export class Activation extends lumi.NamedResource implements ActivationArgs {
     public /*out*/ readonly registrationCount: number;
     public readonly registrationLimit?: number;
 
+    public static get(id: lumi.ID): Activation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Activation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ActivationArgs) {
         super(name);
         this.description = args.description;

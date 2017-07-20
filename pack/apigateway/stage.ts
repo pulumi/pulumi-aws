@@ -18,6 +18,14 @@ export class Stage extends lumi.NamedResource implements StageArgs {
     public readonly stageName: string;
     public readonly variables?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Stage {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Stage[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StageArgs) {
         super(name);
         this.cacheClusterEnabled = args.cacheClusterEnabled;

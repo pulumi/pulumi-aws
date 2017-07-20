@@ -11,6 +11,14 @@ export class NetworkInterfaceAttachment extends lumi.NamedResource implements Ne
     public readonly networkInterfaceId: string;
     public /*out*/ readonly status: string;
 
+    public static get(id: lumi.ID): NetworkInterfaceAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): NetworkInterfaceAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NetworkInterfaceAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.deviceIndex, "") === undefined) {

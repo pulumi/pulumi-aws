@@ -8,6 +8,14 @@ export class PlacementGroup extends lumi.NamedResource implements PlacementGroup
     public readonly placementGroupName?: string;
     public readonly strategy: string;
 
+    public static get(id: lumi.ID): PlacementGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): PlacementGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PlacementGroupArgs) {
         super(name);
         this.placementGroupName = args.placementGroupName;

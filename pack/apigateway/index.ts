@@ -15,7 +15,6 @@ export * from "./method";
 export * from "./methodResponse";
 export * from "./methodSettings";
 export * from "./model";
-export * from "./requestValidator";
 export * from "./resource";
 export * from "./restApi";
 export * from "./stage";

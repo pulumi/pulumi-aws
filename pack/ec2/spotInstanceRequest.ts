@@ -45,6 +45,14 @@ export class SpotInstanceRequest extends lumi.NamedResource implements SpotInsta
     public readonly vpcSecurityGroupIds: string[];
     public readonly waitForFulfillment?: boolean;
 
+    public static get(id: lumi.ID): SpotInstanceRequest {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SpotInstanceRequest[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SpotInstanceRequestArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.ami, "") === undefined) {

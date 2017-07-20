@@ -11,6 +11,14 @@ export class Parameter extends lumi.NamedResource implements ParameterArgs {
     public readonly type: string;
     public readonly value: string;
 
+    public static get(id: lumi.ID): Parameter {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Parameter[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ParameterArgs) {
         super(name);
         this.keyId = args.keyId;

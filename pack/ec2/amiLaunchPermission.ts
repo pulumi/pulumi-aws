@@ -8,6 +8,14 @@ export class AmiLaunchPermission extends lumi.NamedResource implements AmiLaunch
     public readonly accountId: string;
     public readonly imageId: string;
 
+    public static get(id: lumi.ID): AmiLaunchPermission {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AmiLaunchPermission[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AmiLaunchPermissionArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.accountId, "") === undefined) {

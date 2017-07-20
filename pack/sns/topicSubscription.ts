@@ -4,6 +4,8 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {Topic} from "./topic";
+
 export class TopicSubscription extends lumi.NamedResource implements TopicSubscriptionArgs {
     public /*out*/ readonly arn: string;
     public readonly confirmationTimeoutInMinutes?: number;
@@ -12,7 +14,15 @@ export class TopicSubscription extends lumi.NamedResource implements TopicSubscr
     public readonly endpointAutoConfirms?: boolean;
     public readonly protocol: string;
     public readonly rawMessageDelivery?: boolean;
-    public readonly topicArn: string;
+    public readonly topic: Topic;
+
+    public static get(id: lumi.ID): TopicSubscription {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): TopicSubscription[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
 
     constructor(name: string, args: TopicSubscriptionArgs) {
         super(name);
@@ -28,10 +38,10 @@ export class TopicSubscription extends lumi.NamedResource implements TopicSubscr
         }
         this.protocol = args.protocol;
         this.rawMessageDelivery = args.rawMessageDelivery;
-        if (lumirt.defaultIfComputed(args.topicArn, "") === undefined) {
-            throw new Error("Property argument 'topicArn' is required, but was missing");
+        if (lumirt.defaultIfComputed(args.topic, "") === undefined) {
+            throw new Error("Property argument 'topic' is required, but was missing");
         }
-        this.topicArn = args.topicArn;
+        this.topic = args.topic;
     }
 }
 
@@ -42,6 +52,6 @@ export interface TopicSubscriptionArgs {
     readonly endpointAutoConfirms?: boolean;
     readonly protocol: string;
     readonly rawMessageDelivery?: boolean;
-    readonly topicArn: string;
+    readonly topic: Topic;
 }
 

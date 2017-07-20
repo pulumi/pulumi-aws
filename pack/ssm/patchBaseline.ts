@@ -12,6 +12,14 @@ export class PatchBaseline extends lumi.NamedResource implements PatchBaselineAr
     public readonly patchBaselineName?: string;
     public readonly rejectedPatches?: string[];
 
+    public static get(id: lumi.ID): PatchBaseline {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): PatchBaseline[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PatchBaselineArgs) {
         super(name);
         this.approvalRule = args.approvalRule;

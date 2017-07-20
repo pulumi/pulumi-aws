@@ -18,6 +18,14 @@ export class Directory extends lumi.NamedResource implements DirectoryArgs {
     public readonly type?: string;
     public readonly vpcSettings?: { subnetIds: string[], vpcId: string }[];
 
+    public static get(id: lumi.ID): Directory {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Directory[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DirectoryArgs) {
         super(name);
         this.alias = args.alias;

@@ -8,6 +8,14 @@ export class LogDestinationPolicy extends lumi.NamedResource implements LogDesti
     public readonly accessPolicy: string;
     public readonly destinationName: string;
 
+    public static get(id: lumi.ID): LogDestinationPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LogDestinationPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LogDestinationPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.accessPolicy, "") === undefined) {

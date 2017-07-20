@@ -17,6 +17,14 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
     public readonly thumbnailConfig: { bucket: string, storageClass?: string }[];
     public readonly thumbnailConfigPermissions?: { access?: string[], grantee?: string, granteeType?: string }[];
 
+    public static get(id: lumi.ID): Pipeline {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Pipeline[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PipelineArgs) {
         super(name);
         this.awsKmsKeyArn = args.awsKmsKeyArn;

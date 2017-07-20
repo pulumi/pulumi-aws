@@ -32,6 +32,14 @@ export class JavaAppLayer extends lumi.NamedResource implements JavaAppLayerArgs
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): JavaAppLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): JavaAppLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: JavaAppLayerArgs) {
         super(name);
         this.appServer = args.appServer;

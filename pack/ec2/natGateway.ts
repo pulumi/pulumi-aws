@@ -11,6 +11,14 @@ export class NatGateway extends lumi.NamedResource implements NatGatewayArgs {
     public readonly publicIp: string;
     public readonly subnetId: string;
 
+    public static get(id: lumi.ID): NatGateway {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): NatGateway[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NatGatewayArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.allocationId, "") === undefined) {

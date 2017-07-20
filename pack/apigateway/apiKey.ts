@@ -15,6 +15,14 @@ export class ApiKey extends lumi.NamedResource implements ApiKeyArgs {
     public readonly stageKey?: { restApiId: string, stageName: string }[];
     public readonly value: string;
 
+    public static get(id: lumi.ID): ApiKey {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ApiKey[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ApiKeyArgs) {
         super(name);
         this.description = args.description;

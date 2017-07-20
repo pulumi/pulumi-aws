@@ -10,6 +10,14 @@ export class CookieStickinessPolicy extends lumi.NamedResource implements Cookie
     public readonly loadBalancer: string;
     public readonly cookieStickinessPolicyName?: string;
 
+    public static get(id: lumi.ID): CookieStickinessPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): CookieStickinessPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: CookieStickinessPolicyArgs) {
         super(name);
         this.cookieExpirationPeriod = args.cookieExpirationPeriod;

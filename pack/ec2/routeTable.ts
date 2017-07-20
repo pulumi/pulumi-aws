@@ -10,6 +10,14 @@ export class RouteTable extends lumi.NamedResource implements RouteTableArgs {
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): RouteTable {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RouteTable[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RouteTableArgs) {
         super(name);
         this.propagatingVgws = args.propagatingVgws;

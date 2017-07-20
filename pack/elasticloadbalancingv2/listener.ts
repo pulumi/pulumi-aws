@@ -13,6 +13,14 @@ export class Listener extends lumi.NamedResource implements ListenerArgs {
     public readonly protocol?: string;
     public readonly sslPolicy: string;
 
+    public static get(id: lumi.ID): Listener {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Listener[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ListenerArgs) {
         super(name);
         this.certificateArn = args.certificateArn;

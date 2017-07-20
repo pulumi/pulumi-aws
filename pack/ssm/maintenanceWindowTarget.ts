@@ -10,6 +10,14 @@ export class MaintenanceWindowTarget extends lumi.NamedResource implements Maint
     public readonly targets: { key: string, values: string[] }[];
     public readonly windowId: string;
 
+    public static get(id: lumi.ID): MaintenanceWindowTarget {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MaintenanceWindowTarget[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MaintenanceWindowTargetArgs) {
         super(name);
         this.ownerInformation = args.ownerInformation;

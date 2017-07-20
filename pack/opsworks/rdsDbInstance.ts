@@ -11,6 +11,14 @@ export class RdsDbInstance extends lumi.NamedResource implements RdsDbInstanceAr
     public readonly rdsDbInstanceArn: string;
     public readonly stackId: string;
 
+    public static get(id: lumi.ID): RdsDbInstance {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RdsDbInstance[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RdsDbInstanceArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.dbPassword, "") === undefined) {

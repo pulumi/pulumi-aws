@@ -10,6 +10,14 @@ export class OpenIdConnectProvider extends lumi.NamedResource implements OpenIdC
     public readonly thumbprintList: string[];
     public readonly url: string;
 
+    public static get(id: lumi.ID): OpenIdConnectProvider {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): OpenIdConnectProvider[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: OpenIdConnectProviderArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.clientIdList, "") === undefined) {

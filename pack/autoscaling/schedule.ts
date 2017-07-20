@@ -15,6 +15,14 @@ export class Schedule extends lumi.NamedResource implements ScheduleArgs {
     public readonly scheduledActionName: string;
     public readonly startTime: string;
 
+    public static get(id: lumi.ID): Schedule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Schedule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ScheduleArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {

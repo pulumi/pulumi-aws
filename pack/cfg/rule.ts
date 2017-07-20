@@ -14,6 +14,14 @@ export class Rule extends lumi.NamedResource implements RuleArgs {
     public readonly scope?: { complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[];
     public readonly source: { owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[];
 
+    public static get(id: lumi.ID): Rule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Rule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RuleArgs) {
         super(name);
         this.description = args.description;

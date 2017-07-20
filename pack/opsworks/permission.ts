@@ -12,6 +12,14 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
     public readonly stackId: string;
     public readonly userArn: string;
 
+    public static get(id: lumi.ID): Permission {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Permission[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PermissionArgs) {
         super(name);
         this.allowSsh = args.allowSsh;

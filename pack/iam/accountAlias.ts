@@ -7,6 +7,14 @@ import * as lumirt from "@lumi/lumirt";
 export class AccountAlias extends lumi.NamedResource implements AccountAliasArgs {
     public readonly accountAlias: string;
 
+    public static get(id: lumi.ID): AccountAlias {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AccountAlias[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AccountAliasArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.accountAlias, "") === undefined) {

@@ -9,6 +9,14 @@ export class Trigger extends lumi.NamedResource implements TriggerArgs {
     public readonly repositoryName: string;
     public readonly trigger: { branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[];
 
+    public static get(id: lumi.ID): Trigger {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Trigger[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TriggerArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.repositoryName, "") === undefined) {

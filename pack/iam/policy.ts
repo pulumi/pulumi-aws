@@ -12,6 +12,14 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
     public readonly path?: string;
     public readonly policy: string;
 
+    public static get(id: lumi.ID): Policy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Policy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PolicyArgs) {
         super(name);
         this.description = args.description;

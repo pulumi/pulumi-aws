@@ -9,6 +9,14 @@ export class DeploymentConfig extends lumi.NamedResource implements DeploymentCo
     public readonly deploymentConfigName: string;
     public readonly minimumHealthyHosts: { type: string, value?: number }[];
 
+    public static get(id: lumi.ID): DeploymentConfig {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DeploymentConfig[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DeploymentConfigArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.deploymentConfigName, "") === undefined) {

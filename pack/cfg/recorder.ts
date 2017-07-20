@@ -9,6 +9,14 @@ export class Recorder extends lumi.NamedResource implements RecorderArgs {
     public readonly recordingGroup: { allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[];
     public readonly roleArn: string;
 
+    public static get(id: lumi.ID): Recorder {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Recorder[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RecorderArgs) {
         super(name);
         this.recorderName = args.recorderName;

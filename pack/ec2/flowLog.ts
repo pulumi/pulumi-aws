@@ -12,6 +12,14 @@ export class FlowLog extends lumi.NamedResource implements FlowLogArgs {
     public readonly trafficType: string;
     public readonly vpcId?: string;
 
+    public static get(id: lumi.ID): FlowLog {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): FlowLog[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: FlowLogArgs) {
         super(name);
         this.eniId = args.eniId;

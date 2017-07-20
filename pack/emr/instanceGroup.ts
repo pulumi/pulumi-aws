@@ -14,6 +14,14 @@ export class InstanceGroup extends lumi.NamedResource implements InstanceGroupAr
     public /*out*/ readonly runningInstanceCount: number;
     public /*out*/ readonly status: string;
 
+    public static get(id: lumi.ID): InstanceGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): InstanceGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: InstanceGroupArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.clusterId, "") === undefined) {

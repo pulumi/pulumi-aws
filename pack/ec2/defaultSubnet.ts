@@ -14,6 +14,14 @@ export class DefaultSubnet extends lumi.NamedResource implements DefaultSubnetAr
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly vpcId: string;
 
+    public static get(id: lumi.ID): DefaultSubnet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DefaultSubnet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DefaultSubnetArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {

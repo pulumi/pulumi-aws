@@ -9,8 +9,6 @@ export class Queue extends lumi.NamedResource implements QueueArgs {
     public readonly contentBasedDeduplication?: boolean;
     public readonly delaySeconds?: number;
     public readonly fifoQueue?: boolean;
-    public readonly kmsDataKeyReusePeriodSeconds: number;
-    public readonly kmsMasterKeyId?: string;
     public readonly maxMessageSize?: number;
     public readonly messageRetentionSeconds?: number;
     public readonly queueName: string;
@@ -20,13 +18,19 @@ export class Queue extends lumi.NamedResource implements QueueArgs {
     public readonly redrivePolicy?: string;
     public readonly visibilityTimeoutSeconds?: number;
 
+    public static get(id: lumi.ID): Queue {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Queue[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: QueueArgs) {
         super(name);
         this.contentBasedDeduplication = args.contentBasedDeduplication;
         this.delaySeconds = args.delaySeconds;
         this.fifoQueue = args.fifoQueue;
-        this.kmsDataKeyReusePeriodSeconds = args.kmsDataKeyReusePeriodSeconds;
-        this.kmsMasterKeyId = args.kmsMasterKeyId;
         this.maxMessageSize = args.maxMessageSize;
         this.messageRetentionSeconds = args.messageRetentionSeconds;
         this.queueName = args.queueName;
@@ -42,8 +46,6 @@ export interface QueueArgs {
     readonly contentBasedDeduplication?: boolean;
     readonly delaySeconds?: number;
     readonly fifoQueue?: boolean;
-    readonly kmsDataKeyReusePeriodSeconds?: number;
-    readonly kmsMasterKeyId?: string;
     readonly maxMessageSize?: number;
     readonly messageRetentionSeconds?: number;
     readonly queueName?: string;

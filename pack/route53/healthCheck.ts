@@ -24,6 +24,14 @@ export class HealthCheck extends lumi.NamedResource implements HealthCheckArgs {
     public readonly tags?: {[key: string]: any};
     public readonly type: string;
 
+    public static get(id: lumi.ID): HealthCheck {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): HealthCheck[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: HealthCheckArgs) {
         super(name);
         this.childHealthThreshold = args.childHealthThreshold;

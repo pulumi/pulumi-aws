@@ -9,6 +9,14 @@ export class GroupMembership extends lumi.NamedResource implements GroupMembersh
     public readonly groupMembershipName?: string;
     public readonly users: string[];
 
+    public static get(id: lumi.ID): GroupMembership {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): GroupMembership[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: GroupMembershipArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {

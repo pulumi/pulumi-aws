@@ -26,6 +26,14 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
     public readonly versionLabel: string;
     public readonly waitForReadyTimeout?: string;
 
+    public static get(id: lumi.ID): Environment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Environment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EnvironmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {

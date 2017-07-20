@@ -10,6 +10,14 @@ export class SecurityConfiguration extends lumi.NamedResource implements Securit
     public readonly securityConfigurationName: string;
     public readonly namePrefix?: string;
 
+    public static get(id: lumi.ID): SecurityConfiguration {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SecurityConfiguration[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SecurityConfigurationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.configuration, "") === undefined) {

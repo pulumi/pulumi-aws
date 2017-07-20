@@ -14,6 +14,14 @@ export class LifecycleHook extends lumi.NamedResource implements LifecycleHookAr
     public readonly notificationTargetArn?: string;
     public readonly roleArn?: string;
 
+    public static get(id: lumi.ID): LifecycleHook {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LifecycleHook[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LifecycleHookArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {

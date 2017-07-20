@@ -11,6 +11,14 @@ export class UsagePlanKey extends lumi.NamedResource implements UsagePlanKeyArgs
     public readonly usagePlanId: string;
     public /*out*/ readonly value: string;
 
+    public static get(id: lumi.ID): UsagePlanKey {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): UsagePlanKey[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UsagePlanKeyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.keyId, "") === undefined) {

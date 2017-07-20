@@ -11,6 +11,14 @@ export class RolePolicyAttachment extends lumi.NamedResource implements RolePoli
     public readonly policyArn: ARN;
     public readonly role: Role;
 
+    public static get(id: lumi.ID): RolePolicyAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RolePolicyAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RolePolicyAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {

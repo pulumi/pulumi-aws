@@ -11,6 +11,14 @@ export class Association extends lumi.NamedResource implements AssociationArgs {
     public readonly parameters: {[key: string]: any};
     public readonly targets: { key: string, values: string[] }[];
 
+    public static get(id: lumi.ID): Association {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Association[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AssociationArgs) {
         super(name);
         this.instanceId = args.instanceId;

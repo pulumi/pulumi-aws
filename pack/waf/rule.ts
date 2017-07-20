@@ -9,6 +9,14 @@ export class Rule extends lumi.NamedResource implements RuleArgs {
     public readonly ruleName?: string;
     public readonly predicates?: { dataId?: string, negated: boolean, type: string }[];
 
+    public static get(id: lumi.ID): Rule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Rule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RuleArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.metricName, "") === undefined) {

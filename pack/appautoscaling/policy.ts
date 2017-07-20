@@ -18,6 +18,14 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
     public readonly serviceNamespace: string;
     public readonly stepAdjustment?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
 
+    public static get(id: lumi.ID): Policy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Policy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.adjustmentType, "") === undefined) {

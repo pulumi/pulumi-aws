@@ -21,6 +21,14 @@ export class Table extends lumi.NamedResource implements TableArgs {
     public readonly ttl?: { attributeName: string, enabled: boolean }[];
     public readonly writeCapacity: number;
 
+    public static get(id: lumi.ID): Table {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Table[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TableArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.attribute, "") === undefined) {

@@ -8,6 +8,14 @@ export class Account extends lumi.NamedResource implements AccountArgs {
     public readonly cloudwatchRoleArn?: string;
     public /*out*/ readonly throttleSettings: { burstLimit: number, rateLimit: number }[];
 
+    public static get(id: lumi.ID): Account {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Account[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AccountArgs) {
         super(name);
         this.cloudwatchRoleArn = args.cloudwatchRoleArn;

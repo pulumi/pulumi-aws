@@ -27,6 +27,14 @@ export class StaticWebLayer extends lumi.NamedResource implements StaticWebLayer
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): StaticWebLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): StaticWebLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StaticWebLayerArgs) {
         super(name);
         this.autoAssignElasticIps = args.autoAssignElasticIps;

@@ -21,6 +21,14 @@ export class Endpoint extends lumi.NamedResource implements EndpointArgs {
     public readonly tags?: {[key: string]: any};
     public readonly username?: string;
 
+    public static get(id: lumi.ID): Endpoint {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Endpoint[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EndpointArgs) {
         super(name);
         this.certificateArn = args.certificateArn;

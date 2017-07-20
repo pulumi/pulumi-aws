@@ -8,6 +8,14 @@ export class ByteMatchSet extends lumi.NamedResource implements ByteMatchSetArgs
     public readonly byteMatchTuples?: { fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[];
     public readonly byteMatchSetName?: string;
 
+    public static get(id: lumi.ID): ByteMatchSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ByteMatchSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ByteMatchSetArgs) {
         super(name);
         this.byteMatchTuples = args.byteMatchTuples;

@@ -12,6 +12,14 @@ export class OriginAccessIdentity extends lumi.NamedResource implements OriginAc
     public /*out*/ readonly iamArn: string;
     public /*out*/ readonly s3CanonicalUserId: string;
 
+    public static get(id: lumi.ID): OriginAccessIdentity {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): OriginAccessIdentity[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: OriginAccessIdentityArgs) {
         super(name);
         this.comment = args.comment;

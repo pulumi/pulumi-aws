@@ -25,6 +25,14 @@ export class Snapshot extends lumi.NamedResource implements SnapshotArgs {
     public /*out*/ readonly storageType: string;
     public /*out*/ readonly vpcId: string;
 
+    public static get(id: lumi.ID): Snapshot {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Snapshot[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SnapshotArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.dbInstanceIdentifier, "") === undefined) {

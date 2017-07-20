@@ -11,6 +11,14 @@ export class Alias extends lumi.NamedResource implements AliasArgs {
     public readonly functionVersion: string;
     public readonly aliasName?: string;
 
+    public static get(id: lumi.ID): Alias {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Alias[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AliasArgs) {
         super(name);
         this.description = args.description;

@@ -29,6 +29,14 @@ export class MysqlLayer extends lumi.NamedResource implements MysqlLayerArgs {
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): MysqlLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MysqlLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MysqlLayerArgs) {
         super(name);
         this.autoAssignElasticIps = args.autoAssignElasticIps;

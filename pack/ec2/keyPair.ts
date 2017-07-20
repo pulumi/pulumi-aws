@@ -10,6 +10,14 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
     public readonly keyNamePrefix?: string;
     public readonly publicKey: string;
 
+    public static get(id: lumi.ID): KeyPair {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): KeyPair[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: KeyPairArgs) {
         super(name);
         this.keyName = args.keyName;

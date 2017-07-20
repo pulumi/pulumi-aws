@@ -16,6 +16,14 @@ export class MaintenanceWindowTask extends lumi.NamedResource implements Mainten
     public readonly taskType: string;
     public readonly windowId: string;
 
+    public static get(id: lumi.ID): MaintenanceWindowTask {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MaintenanceWindowTask[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MaintenanceWindowTaskArgs) {
         super(name);
         this.loggingInfo = args.loggingInfo;

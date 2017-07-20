@@ -11,6 +11,14 @@ export class GroupPolicyAttachment extends lumi.NamedResource implements GroupPo
     public readonly group: Group;
     public readonly policyArn: ARN;
 
+    public static get(id: lumi.ID): GroupPolicyAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): GroupPolicyAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: GroupPolicyAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {

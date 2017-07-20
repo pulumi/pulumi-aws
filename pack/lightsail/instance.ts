@@ -21,6 +21,14 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
     public readonly userData?: string;
     public /*out*/ readonly username: string;
 
+    public static get(id: lumi.ID): Instance {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Instance[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: InstanceArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {

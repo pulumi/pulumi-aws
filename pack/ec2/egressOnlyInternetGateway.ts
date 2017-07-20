@@ -7,6 +7,14 @@ import * as lumirt from "@lumi/lumirt";
 export class EgressOnlyInternetGateway extends lumi.NamedResource implements EgressOnlyInternetGatewayArgs {
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): EgressOnlyInternetGateway {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EgressOnlyInternetGateway[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EgressOnlyInternetGatewayArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {

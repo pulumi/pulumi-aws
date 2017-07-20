@@ -20,6 +20,14 @@ export class ReceiptRule extends lumi.NamedResource implements ReceiptRuleArgs {
     public readonly tlsPolicy: string;
     public readonly workmailAction?: { organizationArn: string, position: number, topicArn?: string }[];
 
+    public static get(id: lumi.ID): ReceiptRule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReceiptRule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReceiptRuleArgs) {
         super(name);
         this.addHeaderAction = args.addHeaderAction;

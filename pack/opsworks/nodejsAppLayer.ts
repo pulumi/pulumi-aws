@@ -28,6 +28,14 @@ export class NodejsAppLayer extends lumi.NamedResource implements NodejsAppLayer
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): NodejsAppLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): NodejsAppLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NodejsAppLayerArgs) {
         super(name);
         this.autoAssignElasticIps = args.autoAssignElasticIps;

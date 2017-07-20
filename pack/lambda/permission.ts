@@ -15,6 +15,14 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
     public readonly sourceArn?: string;
     public readonly statementId?: string;
 
+    public static get(id: lumi.ID): Permission {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Permission[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PermissionArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.action, "") === undefined) {

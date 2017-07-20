@@ -20,6 +20,14 @@ export class Stack extends lumi.NamedResource implements StackArgs {
     public readonly templateUrl?: string;
     public readonly timeoutInMinutes?: number;
 
+    public static get(id: lumi.ID): Stack {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Stack[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StackArgs) {
         super(name);
         this.capabilities = args.capabilities;

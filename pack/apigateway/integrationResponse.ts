@@ -17,6 +17,14 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
     public readonly selectionPattern?: string;
     public readonly statusCode: string;
 
+    public static get(id: lumi.ID): IntegrationResponse {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): IntegrationResponse[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: IntegrationResponseArgs) {
         super(name);
         this.contentHandling = args.contentHandling;

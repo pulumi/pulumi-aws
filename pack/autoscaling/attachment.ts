@@ -9,6 +9,14 @@ export class Attachment extends lumi.NamedResource implements AttachmentArgs {
     public readonly autoscalingGroupName: string;
     public readonly elb?: string;
 
+    public static get(id: lumi.ID): Attachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Attachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AttachmentArgs) {
         super(name);
         this.albTargetGroupArn = args.albTargetGroupArn;

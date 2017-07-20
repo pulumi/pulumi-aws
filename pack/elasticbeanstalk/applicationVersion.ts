@@ -12,6 +12,14 @@ export class ApplicationVersion extends lumi.NamedResource implements Applicatio
     public readonly key: string;
     public readonly applicationVersionName?: string;
 
+    public static get(id: lumi.ID): ApplicationVersion {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ApplicationVersion[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ApplicationVersionArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {

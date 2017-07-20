@@ -12,6 +12,14 @@ export class DefaultSecurityGroup extends lumi.NamedResource implements DefaultS
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): DefaultSecurityGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DefaultSecurityGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DefaultSecurityGroupArgs) {
         super(name);
         this.egress = args.egress;

@@ -8,6 +8,14 @@ export class DomainPolicy extends lumi.NamedResource implements DomainPolicyArgs
     public readonly accessPolicies: string;
     public readonly domainName: string;
 
+    public static get(id: lumi.ID): DomainPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DomainPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DomainPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.accessPolicies, "") === undefined) {

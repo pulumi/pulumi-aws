@@ -10,6 +10,14 @@ export class WebAcl extends lumi.NamedResource implements WebAclArgs {
     public readonly webAclName?: string;
     public readonly rules?: { action: { type: string }[], priority: number, ruleId: string }[];
 
+    public static get(id: lumi.ID): WebAcl {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): WebAcl[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: WebAclArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.defaultAction, "") === undefined) {

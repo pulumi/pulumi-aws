@@ -10,6 +10,14 @@ export class CustomerGateway extends lumi.NamedResource implements CustomerGatew
     public readonly tags?: {[key: string]: any};
     public readonly type: string;
 
+    public static get(id: lumi.ID): CustomerGateway {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): CustomerGateway[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: CustomerGatewayArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.bgpAsn, "") === undefined) {

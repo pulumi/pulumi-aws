@@ -9,6 +9,14 @@ export class ReceiptFilter extends lumi.NamedResource implements ReceiptFilterAr
     public readonly receiptFilterName?: string;
     public readonly policy: string;
 
+    public static get(id: lumi.ID): ReceiptFilter {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReceiptFilter[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReceiptFilterArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.cidr, "") === undefined) {

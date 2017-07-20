@@ -11,6 +11,14 @@ export class StateMachine extends lumi.NamedResource implements StateMachineArgs
     public readonly roleArn: string;
     public /*out*/ readonly status: string;
 
+    public static get(id: lumi.ID): StateMachine {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): StateMachine[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StateMachineArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.definition, "") === undefined) {

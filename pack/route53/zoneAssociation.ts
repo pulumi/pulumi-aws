@@ -9,6 +9,14 @@ export class ZoneAssociation extends lumi.NamedResource implements ZoneAssociati
     public readonly vpcRegion: string;
     public readonly zoneId: string;
 
+    public static get(id: lumi.ID): ZoneAssociation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ZoneAssociation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ZoneAssociationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {

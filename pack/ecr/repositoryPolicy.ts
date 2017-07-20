@@ -9,6 +9,14 @@ export class RepositoryPolicy extends lumi.NamedResource implements RepositoryPo
     public /*out*/ readonly registryId: string;
     public readonly repository: string;
 
+    public static get(id: lumi.ID): RepositoryPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RepositoryPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RepositoryPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {

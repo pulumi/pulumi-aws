@@ -8,6 +8,14 @@ export class TopicPolicy extends lumi.NamedResource implements TopicPolicyArgs {
     public readonly arn: string;
     public readonly policy: string;
 
+    public static get(id: lumi.ID): TopicPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): TopicPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TopicPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.arn, "") === undefined) {

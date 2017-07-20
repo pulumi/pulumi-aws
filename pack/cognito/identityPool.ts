@@ -13,6 +13,14 @@ export class IdentityPool extends lumi.NamedResource implements IdentityPoolArgs
     public readonly samlProviderArns?: string[];
     public readonly supportedLoginProviders?: {[key: string]: string};
 
+    public static get(id: lumi.ID): IdentityPool {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): IdentityPool[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: IdentityPoolArgs) {
         super(name);
         this.allowUnauthenticatedIdentities = args.allowUnauthenticatedIdentities;

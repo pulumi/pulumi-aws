@@ -8,6 +8,14 @@ export class VpnGatewayAttachment extends lumi.NamedResource implements VpnGatew
     public readonly vpcId: string;
     public readonly vpnGatewayId: string;
 
+    public static get(id: lumi.ID): VpnGatewayAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpnGatewayAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpnGatewayAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {

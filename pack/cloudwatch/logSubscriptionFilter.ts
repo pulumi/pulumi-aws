@@ -13,6 +13,14 @@ export class LogSubscriptionFilter extends lumi.NamedResource implements LogSubs
     public readonly logSubscriptionFilterName?: string;
     public readonly roleArn: string;
 
+    public static get(id: lumi.ID): LogSubscriptionFilter {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LogSubscriptionFilter[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LogSubscriptionFilterArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.destinationArn, "") === undefined) {

@@ -9,6 +9,14 @@ export class AssessmentTarget extends lumi.NamedResource implements AssessmentTa
     public readonly assessmentTargetName?: string;
     public readonly resourceGroupArn: string;
 
+    public static get(id: lumi.ID): AssessmentTarget {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AssessmentTarget[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AssessmentTargetArgs) {
         super(name);
         this.assessmentTargetName = args.assessmentTargetName;

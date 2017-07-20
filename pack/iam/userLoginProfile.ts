@@ -12,6 +12,14 @@ export class UserLoginProfile extends lumi.NamedResource implements UserLoginPro
     public readonly pgpKey: string;
     public readonly user: string;
 
+    public static get(id: lumi.ID): UserLoginProfile {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): UserLoginProfile[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UserLoginProfileArgs) {
         super(name);
         this.passwordLength = args.passwordLength;

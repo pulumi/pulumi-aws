@@ -11,6 +11,14 @@ export class AssessmentTemplate extends lumi.NamedResource implements Assessment
     public readonly rulesPackageArns: string[];
     public readonly targetArn: string;
 
+    public static get(id: lumi.ID): AssessmentTemplate {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AssessmentTemplate[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AssessmentTemplateArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.duration, "") === undefined) {

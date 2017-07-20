@@ -8,6 +8,14 @@ export class VpcEndpointRouteTableAssociation extends lumi.NamedResource impleme
     public readonly routeTableId: string;
     public readonly vpcEndpointId: string;
 
+    public static get(id: lumi.ID): VpcEndpointRouteTableAssociation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpcEndpointRouteTableAssociation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpcEndpointRouteTableAssociationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {

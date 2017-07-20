@@ -16,6 +16,14 @@ export class AccountPasswordPolicy extends lumi.NamedResource implements Account
     public readonly requireSymbols: boolean;
     public readonly requireUppercaseCharacters: boolean;
 
+    public static get(id: lumi.ID): AccountPasswordPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AccountPasswordPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AccountPasswordPolicyArgs) {
         super(name);
         this.allowUsersToChangePassword = args.allowUsersToChangePassword;

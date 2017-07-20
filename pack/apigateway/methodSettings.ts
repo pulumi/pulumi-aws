@@ -12,6 +12,14 @@ export class MethodSettings extends lumi.NamedResource implements MethodSettings
     public readonly settings: { cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[];
     public readonly stageName: string;
 
+    public static get(id: lumi.ID): MethodSettings {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MethodSettings[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MethodSettingsArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.methodPath, "") === undefined) {

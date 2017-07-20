@@ -10,6 +10,14 @@ export class Repository extends lumi.NamedResource implements RepositoryArgs {
     public /*out*/ readonly registryId: string;
     public /*out*/ readonly repositoryUrl: string;
 
+    public static get(id: lumi.ID): Repository {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Repository[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RepositoryArgs) {
         super(name);
         this.repositoryName = args.repositoryName;

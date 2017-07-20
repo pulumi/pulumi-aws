@@ -14,6 +14,14 @@ export class InstanceProfile extends lumi.NamedResource implements InstanceProfi
     public readonly roles: string[];
     public /*out*/ readonly uniqueId: string;
 
+    public static get(id: lumi.ID): InstanceProfile {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): InstanceProfile[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: InstanceProfileArgs) {
         super(name);
         this.instanceProfileName = args.instanceProfileName;

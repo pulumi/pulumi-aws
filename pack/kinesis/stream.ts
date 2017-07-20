@@ -12,6 +12,14 @@ export class Stream extends lumi.NamedResource implements StreamArgs {
     public readonly shardLevelMetrics?: string[];
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Stream {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Stream[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StreamArgs) {
         super(name);
         this.arn = args.arn;

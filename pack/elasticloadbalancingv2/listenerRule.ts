@@ -11,6 +11,14 @@ export class ListenerRule extends lumi.NamedResource implements ListenerRuleArgs
     public readonly listenerArn: string;
     public readonly priority: number;
 
+    public static get(id: lumi.ID): ListenerRule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ListenerRule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ListenerRuleArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.action, "") === undefined) {

@@ -25,6 +25,14 @@ export class Object extends lumi.Resource implements ObjectArgs {
     public /*out*/ readonly versionId: string;
     public readonly websiteRedirect?: string;
 
+    public static get(id: lumi.ID): Object {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Object[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(args: ObjectArgs) {
         super();
         this.acl = args.acl;

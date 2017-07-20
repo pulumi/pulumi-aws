@@ -8,6 +8,14 @@ export class Attachment extends lumi.NamedResource implements AttachmentArgs {
     public readonly elb: string;
     public readonly instance: string;
 
+    public static get(id: lumi.ID): Attachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Attachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.elb, "") === undefined) {

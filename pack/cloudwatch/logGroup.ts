@@ -11,6 +11,14 @@ export class LogGroup extends lumi.NamedResource implements LogGroupArgs {
     public readonly retentionInDays?: number;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): LogGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LogGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LogGroupArgs) {
         super(name);
         this.logGroupName = args.logGroupName;

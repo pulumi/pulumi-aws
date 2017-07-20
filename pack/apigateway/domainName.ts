@@ -15,6 +15,14 @@ export class DomainName extends lumi.NamedResource implements DomainNameArgs {
     public /*out*/ readonly cloudfrontZoneId: string;
     public readonly domainName: string;
 
+    public static get(id: lumi.ID): DomainName {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DomainName[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DomainNameArgs) {
         super(name);
         this.certificateArn = args.certificateArn;

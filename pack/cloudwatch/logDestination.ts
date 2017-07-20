@@ -10,6 +10,14 @@ export class LogDestination extends lumi.NamedResource implements LogDestination
     public readonly roleArn: string;
     public readonly targetArn: string;
 
+    public static get(id: lumi.ID): LogDestination {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LogDestination[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LogDestinationArgs) {
         super(name);
         this.logDestinationName = args.logDestinationName;

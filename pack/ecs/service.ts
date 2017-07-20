@@ -16,6 +16,14 @@ export class Service extends lumi.NamedResource implements ServiceArgs {
     public readonly placementStrategy?: { field?: string, type: string }[];
     public readonly taskDefinition: string;
 
+    public static get(id: lumi.ID): Service {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Service[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ServiceArgs) {
         super(name);
         this.cluster = args.cluster;

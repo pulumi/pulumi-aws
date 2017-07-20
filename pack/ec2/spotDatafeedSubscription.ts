@@ -8,6 +8,14 @@ export class SpotDatafeedSubscription extends lumi.NamedResource implements Spot
     public readonly bucket: string;
     public readonly prefix?: string;
 
+    public static get(id: lumi.ID): SpotDatafeedSubscription {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SpotDatafeedSubscription[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SpotDatafeedSubscriptionArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {

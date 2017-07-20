@@ -8,6 +8,14 @@ export class InternetGateway extends lumi.NamedResource implements InternetGatew
     public readonly tags?: {[key: string]: any};
     public readonly vpcId?: string;
 
+    public static get(id: lumi.ID): InternetGateway {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): InternetGateway[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: InternetGatewayArgs) {
         super(name);
         this.tags = args.tags;

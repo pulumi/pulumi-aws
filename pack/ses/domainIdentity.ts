@@ -9,6 +9,14 @@ export class DomainIdentity extends lumi.NamedResource implements DomainIdentity
     public readonly domain: string;
     public /*out*/ readonly verificationToken: string;
 
+    public static get(id: lumi.ID): DomainIdentity {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DomainIdentity[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DomainIdentityArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.domain, "") === undefined) {

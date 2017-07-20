@@ -13,6 +13,14 @@ export class EventRule extends lumi.NamedResource implements EventRuleArgs {
     public readonly roleArn?: string;
     public readonly scheduleExpression?: string;
 
+    public static get(id: lumi.ID): EventRule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EventRule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EventRuleArgs) {
         super(name);
         this.description = args.description;

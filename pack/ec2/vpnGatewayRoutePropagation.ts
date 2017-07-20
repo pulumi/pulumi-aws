@@ -8,6 +8,14 @@ export class VpnGatewayRoutePropagation extends lumi.NamedResource implements Vp
     public readonly routeTableId: string;
     public readonly vpnGatewayId: string;
 
+    public static get(id: lumi.ID): VpnGatewayRoutePropagation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpnGatewayRoutePropagation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpnGatewayRoutePropagationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {

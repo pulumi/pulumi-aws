@@ -7,6 +7,14 @@ import * as lumirt from "@lumi/lumirt";
 export class ActiveReceiptRuleSet extends lumi.NamedResource implements ActiveReceiptRuleSetArgs {
     public readonly ruleSetName: string;
 
+    public static get(id: lumi.ID): ActiveReceiptRuleSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ActiveReceiptRuleSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ActiveReceiptRuleSetArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.ruleSetName, "") === undefined) {

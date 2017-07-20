@@ -265,7 +265,27 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_cloudwatch_metric_alarm": {Tok: awsrestok(cloudwatchMod, "MetricAlarm")},
+			"aws_cloudwatch_metric_alarm": {
+				Tok: awsrestok(cloudwatchMod, "MetricAlarm"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"alarm_name": tfbridge.AutoNameInfo("alarmName", -1),
+					"alarm_actions": {
+						Elem: &tfbridge.SchemaInfo{
+							Type: awsrestok(snsMod, "Topic"),
+						},
+					},
+					"insufficient_data_actions": {
+						Elem: &tfbridge.SchemaInfo{
+							Type: awsrestok(snsMod, "Topic"),
+						},
+					},
+					"ok_actions": {
+						Elem: &tfbridge.SchemaInfo{
+							Type: awsrestok(snsMod, "Topic"),
+						},
+					},
+				},
+			},
 			// CodeBuild
 			"aws_codebuild_project": {Tok: awsrestok(codebuildMod, "Project")},
 			// CodeDeploy
@@ -705,9 +725,22 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sqs_queue":        {Tok: awsrestok(sqsMod, "Queue")},
 			"aws_sqs_queue_policy": {Tok: awsrestok(sqsMod, "QueuePolicy")},
 			// Simple Notification Service (SNS)
-			"aws_sns_topic":              {Tok: awsrestok(snsMod, "Topic")},
-			"aws_sns_topic_policy":       {Tok: awsrestok(snsMod, "TopicPolicy")},
-			"aws_sns_topic_subscription": {Tok: awsrestok(snsMod, "TopicSubscription")},
+			"aws_sns_topic": {
+				Tok: awsrestok(snsMod, "Topic"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"arn": {Type: awstok(awsMod, "ARN")},
+				},
+			},
+			"aws_sns_topic_policy": {Tok: awsrestok(snsMod, "TopicPolicy")},
+			"aws_sns_topic_subscription": {
+				Tok: awsrestok(snsMod, "TopicSubscription"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"topic_arn": {
+						Name: "topic",
+						Type: awsrestok(snsMod, "Topic"),
+					},
+				},
+			},
 			// Step Functions (SFN)
 			"aws_sfn_activity":      {Tok: awsrestok(sfnMod, "Activity")},
 			"aws_sfn_state_machine": {Tok: awsrestok(sfnMod, "StateMachine")},

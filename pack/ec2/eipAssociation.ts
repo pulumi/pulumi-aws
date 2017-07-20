@@ -12,6 +12,14 @@ export class EipAssociation extends lumi.NamedResource implements EipAssociation
     public readonly privateIpAddress: string;
     public readonly publicIp: string;
 
+    public static get(id: lumi.ID): EipAssociation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EipAssociation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EipAssociationArgs) {
         super(name);
         this.allocationId = args.allocationId;

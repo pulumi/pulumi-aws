@@ -16,6 +16,14 @@ export class PolicyAttachment extends lumi.NamedResource implements PolicyAttach
     public readonly roles?: Role[];
     public readonly users?: User[];
 
+    public static get(id: lumi.ID): PolicyAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): PolicyAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PolicyAttachmentArgs) {
         super(name);
         this.groups = args.groups;

@@ -8,6 +8,14 @@ export class SnapshotCreateVolumePermission extends lumi.NamedResource implement
     public readonly accountId: string;
     public readonly snapshotId: string;
 
+    public static get(id: lumi.ID): SnapshotCreateVolumePermission {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SnapshotCreateVolumePermission[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SnapshotCreateVolumePermissionArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.accountId, "") === undefined) {

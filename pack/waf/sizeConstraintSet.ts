@@ -8,6 +8,14 @@ export class SizeConstraintSet extends lumi.NamedResource implements SizeConstra
     public readonly sizeConstraintSetName?: string;
     public readonly sizeConstraints?: { comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[];
 
+    public static get(id: lumi.ID): SizeConstraintSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SizeConstraintSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SizeConstraintSetArgs) {
         super(name);
         this.sizeConstraintSetName = args.sizeConstraintSetName;

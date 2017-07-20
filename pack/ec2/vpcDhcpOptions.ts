@@ -12,6 +12,14 @@ export class VpcDhcpOptions extends lumi.NamedResource implements VpcDhcpOptions
     public readonly ntpServers?: string[];
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): VpcDhcpOptions {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpcDhcpOptions[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpcDhcpOptionsArgs) {
         super(name);
         this.domainName = args.domainName;

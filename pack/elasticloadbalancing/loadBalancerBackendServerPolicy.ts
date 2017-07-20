@@ -9,6 +9,14 @@ export class LoadBalancerBackendServerPolicy extends lumi.NamedResource implemen
     public readonly loadBalancerName: string;
     public readonly policyNames?: string[];
 
+    public static get(id: lumi.ID): LoadBalancerBackendServerPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LoadBalancerBackendServerPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LoadBalancerBackendServerPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.instancePort, "") === undefined) {

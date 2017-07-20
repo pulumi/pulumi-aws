@@ -8,6 +8,14 @@ export class DelegationSet extends lumi.NamedResource implements DelegationSetAr
     public /*out*/ readonly nameServers: string[];
     public readonly referenceName?: string;
 
+    public static get(id: lumi.ID): DelegationSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DelegationSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DelegationSetArgs) {
         super(name);
         this.referenceName = args.referenceName;

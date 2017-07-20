@@ -10,6 +10,14 @@ export class LoadBalancerPolicy extends lumi.NamedResource implements LoadBalanc
     public readonly policyName: string;
     public readonly policyTypeName: string;
 
+    public static get(id: lumi.ID): LoadBalancerPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LoadBalancerPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LoadBalancerPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.loadBalancerName, "") === undefined) {

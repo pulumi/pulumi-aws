@@ -14,6 +14,14 @@ export class EventTarget extends lumi.NamedResource implements EventTargetArgs {
     public readonly runCommandTargets?: { key: string, values: string[] }[];
     public readonly targetId: string;
 
+    public static get(id: lumi.ID): EventTarget {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EventTarget[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EventTargetArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.arn, "") === undefined) {

@@ -12,6 +12,14 @@ export class Resource extends lumi.NamedResource implements ResourceArgs {
     public readonly pathPart: string;
     public readonly restApi: RestApi;
 
+    public static get(id: lumi.ID): Resource {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Resource[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ResourceArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.parentId, "") === undefined) {

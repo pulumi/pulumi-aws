@@ -15,6 +15,14 @@ export class Eip extends lumi.NamedResource implements EipArgs {
     public /*out*/ readonly publicIp: string;
     public readonly vpc: boolean;
 
+    public static get(id: lumi.ID): Eip {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Eip[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EipArgs) {
         super(name);
         this.associateWithPrivateIp = args.associateWithPrivateIp;

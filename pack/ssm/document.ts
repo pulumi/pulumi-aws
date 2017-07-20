@@ -22,6 +22,14 @@ export class Document extends lumi.NamedResource implements DocumentArgs {
     public /*out*/ readonly schemaVersion: string;
     public /*out*/ readonly status: string;
 
+    public static get(id: lumi.ID): Document {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Document[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DocumentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.content, "") === undefined) {

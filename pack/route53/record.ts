@@ -19,6 +19,14 @@ export class Record extends lumi.NamedResource implements RecordArgs {
     public readonly weightedRoutingPolicy?: { weight: number }[];
     public readonly zoneId: string;
 
+    public static get(id: lumi.ID): Record {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Record[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RecordArgs) {
         super(name);
         this.alias = args.alias;

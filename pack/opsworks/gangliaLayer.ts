@@ -30,6 +30,14 @@ export class GangliaLayer extends lumi.NamedResource implements GangliaLayerArgs
     public readonly useEbsOptimizedInstances?: boolean;
     public readonly username?: string;
 
+    public static get(id: lumi.ID): GangliaLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): GangliaLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: GangliaLayerArgs) {
         super(name);
         this.autoAssignElasticIps = args.autoAssignElasticIps;

@@ -14,6 +14,14 @@ export class EventSubscription extends lumi.NamedResource implements EventSubscr
     public readonly sourceType?: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): EventSubscription {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EventSubscription[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EventSubscriptionArgs) {
         super(name);
         this.enabled = args.enabled;

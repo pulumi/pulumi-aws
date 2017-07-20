@@ -16,6 +16,14 @@ export class Deployment extends lumi.NamedResource implements DeploymentArgs {
     public readonly stageName: string;
     public readonly variables?: {[key: string]: string};
 
+    public static get(id: lumi.ID): Deployment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Deployment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DeploymentArgs) {
         super(name);
         this.description = args.description;

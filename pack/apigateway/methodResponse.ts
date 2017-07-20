@@ -15,6 +15,14 @@ export class MethodResponse extends lumi.NamedResource implements MethodResponse
     public readonly restApi: RestApi;
     public readonly statusCode: string;
 
+    public static get(id: lumi.ID): MethodResponse {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MethodResponse[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MethodResponseArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {

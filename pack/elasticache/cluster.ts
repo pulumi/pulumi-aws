@@ -31,6 +31,14 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
     public readonly subnetGroupName: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Cluster {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Cluster[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ClusterArgs) {
         super(name);
         this.applyImmediately = args.applyImmediately;

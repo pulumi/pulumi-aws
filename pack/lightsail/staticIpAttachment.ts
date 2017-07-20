@@ -8,6 +8,14 @@ export class StaticIpAttachment extends lumi.NamedResource implements StaticIpAt
     public readonly instanceName: string;
     public readonly staticIpName: string;
 
+    public static get(id: lumi.ID): StaticIpAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): StaticIpAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: StaticIpAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.instanceName, "") === undefined) {

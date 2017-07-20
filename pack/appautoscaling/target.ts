@@ -12,6 +12,14 @@ export class Target extends lumi.NamedResource implements TargetArgs {
     public readonly scalableDimension: string;
     public readonly serviceNamespace: string;
 
+    public static get(id: lumi.ID): Target {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Target[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TargetArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.maxCapacity, "") === undefined) {

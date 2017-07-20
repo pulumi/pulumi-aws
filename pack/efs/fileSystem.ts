@@ -10,6 +10,14 @@ export class FileSystem extends lumi.NamedResource implements FileSystemArgs {
     public readonly referenceName: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): FileSystem {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): FileSystem[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: FileSystemArgs) {
         super(name);
         this.creationToken = args.creationToken;

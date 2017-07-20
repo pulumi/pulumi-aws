@@ -10,6 +10,14 @@ export class UserPolicy extends lumi.NamedResource implements UserPolicyArgs {
     public readonly policy: string;
     public readonly user: string;
 
+    public static get(id: lumi.ID): UserPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): UserPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UserPolicyArgs) {
         super(name);
         this.userPolicyName = args.userPolicyName;

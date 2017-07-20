@@ -26,6 +26,14 @@ export class VpnConnection extends lumi.NamedResource implements VpnConnectionAr
     public readonly vgwTelemetry: { acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[];
     public readonly vpnGatewayId: string;
 
+    public static get(id: lumi.ID): VpnConnection {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpnConnection[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpnConnectionArgs) {
         super(name);
         this.customerGatewayConfiguration = args.customerGatewayConfiguration;

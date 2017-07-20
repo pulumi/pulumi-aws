@@ -10,6 +10,14 @@ export class Notification extends lumi.NamedResource implements NotificationArgs
     public readonly queue?: { events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[];
     public readonly topic?: { events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[];
 
+    public static get(id: lumi.ID): Notification {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Notification[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NotificationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {

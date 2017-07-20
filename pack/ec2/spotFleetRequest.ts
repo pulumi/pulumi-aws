@@ -18,6 +18,14 @@ export class SpotFleetRequest extends lumi.NamedResource implements SpotFleetReq
     public readonly validFrom?: string;
     public readonly validUntil?: string;
 
+    public static get(id: lumi.ID): SpotFleetRequest {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SpotFleetRequest[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SpotFleetRequestArgs) {
         super(name);
         this.allocationStrategy = args.allocationStrategy;

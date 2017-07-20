@@ -17,6 +17,14 @@ export class TargetGroup extends lumi.NamedResource implements TargetGroupArgs {
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): TargetGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): TargetGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TargetGroupArgs) {
         super(name);
         this.deregistrationDelay = args.deregistrationDelay;

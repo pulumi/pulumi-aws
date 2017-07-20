@@ -8,6 +8,14 @@ export class PatchGroup extends lumi.NamedResource implements PatchGroupArgs {
     public readonly baselineId: string;
     public readonly patchGroup: string;
 
+    public static get(id: lumi.ID): PatchGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): PatchGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PatchGroupArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.baselineId, "") === undefined) {

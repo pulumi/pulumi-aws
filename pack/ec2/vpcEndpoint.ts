@@ -12,6 +12,14 @@ export class VpcEndpoint extends lumi.NamedResource implements VpcEndpointArgs {
     public readonly serviceName: string;
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): VpcEndpoint {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpcEndpoint[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpcEndpointArgs) {
         super(name);
         this.policy = args.policy;

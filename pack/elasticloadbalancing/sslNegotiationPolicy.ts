@@ -10,6 +10,14 @@ export class SslNegotiationPolicy extends lumi.NamedResource implements SslNegot
     public readonly loadBalancer: string;
     public readonly sslNegotiationPolicyName?: string;
 
+    public static get(id: lumi.ID): SslNegotiationPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SslNegotiationPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SslNegotiationPolicyArgs) {
         super(name);
         this.attribute = args.attribute;

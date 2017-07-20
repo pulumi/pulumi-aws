@@ -53,6 +53,14 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
     public readonly username: string;
     public readonly vpcSecurityGroupIds: string[];
 
+    public static get(id: lumi.ID): Instance {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Instance[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: InstanceArgs) {
         super(name);
         this.allocatedStorage = args.allocatedStorage;

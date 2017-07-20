@@ -32,6 +32,14 @@ export class Function extends lumi.NamedResource implements FunctionArgs {
     public /*out*/ readonly version: string;
     public readonly vpcConfig?: { securityGroupIds: string[], subnetIds: string[], vpcId: string }[];
 
+    public static get(id: lumi.ID): Function {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Function[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: FunctionArgs) {
         super(name);
         this.deadLetterConfig = args.deadLetterConfig;

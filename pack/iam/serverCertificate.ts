@@ -13,6 +13,14 @@ export class ServerCertificate extends lumi.NamedResource implements ServerCerti
     public readonly path?: string;
     public readonly privateKey: string;
 
+    public static get(id: lumi.ID): ServerCertificate {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ServerCertificate[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ServerCertificateArgs) {
         super(name);
         this.arn = args.arn;

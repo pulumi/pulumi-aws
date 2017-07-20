@@ -11,6 +11,14 @@ export class RestApi extends lumi.NamedResource implements RestApiArgs {
     public readonly restApiName?: string;
     public /*out*/ readonly rootResourceId: string;
 
+    public static get(id: lumi.ID): RestApi {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RestApi[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RestApiArgs) {
         super(name);
         this.binaryMediaTypes = args.binaryMediaTypes;

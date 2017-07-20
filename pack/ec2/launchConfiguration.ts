@@ -24,6 +24,14 @@ export class LaunchConfiguration extends lumi.NamedResource implements LaunchCon
     public readonly vpcClassicLinkId?: string;
     public readonly vpcClassicLinkSecurityGroups?: string[];
 
+    public static get(id: lumi.ID): LaunchConfiguration {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): LaunchConfiguration[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: LaunchConfigurationArgs) {
         super(name);
         this.associatePublicIpAddress = args.associatePublicIpAddress;

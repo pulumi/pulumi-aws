@@ -12,7 +12,6 @@ export class DefaultVpc extends lumi.NamedResource implements DefaultVpcArgs {
     public /*out*/ readonly defaultSecurityGroupId: string;
     public /*out*/ readonly dhcpOptionsId: string;
     public readonly enableClassiclink: boolean;
-    public readonly enableClassiclinkDnsSupport: boolean;
     public readonly enableDnsHostnames: boolean;
     public readonly enableDnsSupport?: boolean;
     public /*out*/ readonly instanceTenancy: string;
@@ -21,10 +20,17 @@ export class DefaultVpc extends lumi.NamedResource implements DefaultVpcArgs {
     public /*out*/ readonly mainRouteTableId: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): DefaultVpc {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DefaultVpc[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DefaultVpcArgs) {
         super(name);
         this.enableClassiclink = args.enableClassiclink;
-        this.enableClassiclinkDnsSupport = args.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = args.enableDnsHostnames;
         this.enableDnsSupport = args.enableDnsSupport;
         this.tags = args.tags;
@@ -33,7 +39,6 @@ export class DefaultVpc extends lumi.NamedResource implements DefaultVpcArgs {
 
 export interface DefaultVpcArgs {
     readonly enableClassiclink?: boolean;
-    readonly enableClassiclinkDnsSupport?: boolean;
     readonly enableDnsHostnames?: boolean;
     readonly enableDnsSupport?: boolean;
     readonly tags?: {[key: string]: any};

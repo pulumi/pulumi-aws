@@ -11,6 +11,14 @@ export class UserProfile extends lumi.NamedResource implements UserProfileArgs {
     public readonly sshUsername: string;
     public readonly userArn: string;
 
+    public static get(id: lumi.ID): UserProfile {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): UserProfile[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UserProfileArgs) {
         super(name);
         this.allowSelfManagement = args.allowSelfManagement;

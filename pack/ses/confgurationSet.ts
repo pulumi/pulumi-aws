@@ -7,6 +7,14 @@ import * as lumirt from "@lumi/lumirt";
 export class ConfgurationSet extends lumi.NamedResource implements ConfgurationSetArgs {
     public readonly confgurationSetName?: string;
 
+    public static get(id: lumi.ID): ConfgurationSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ConfgurationSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ConfgurationSetArgs) {
         super(name);
         this.confgurationSetName = args.confgurationSetName;

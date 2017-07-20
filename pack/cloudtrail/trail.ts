@@ -20,6 +20,14 @@ export class Trail extends lumi.NamedResource implements TrailArgs {
     public readonly snsTopicName?: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Trail {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Trail[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TrailArgs) {
         super(name);
         this.cloudWatchLogsGroupArn = args.cloudWatchLogsGroupArn;

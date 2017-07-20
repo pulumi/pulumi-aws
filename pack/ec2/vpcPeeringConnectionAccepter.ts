@@ -15,6 +15,14 @@ export class VpcPeeringConnectionAccepter extends lumi.NamedResource implements 
     public /*out*/ readonly vpcId: string;
     public readonly vpcPeeringConnectionId: string;
 
+    public static get(id: lumi.ID): VpcPeeringConnectionAccepter {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpcPeeringConnectionAccepter[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpcPeeringConnectionAccepterArgs) {
         super(name);
         this.accepter = args.accepter;

@@ -10,6 +10,14 @@ export class ParameterGroup extends lumi.NamedResource implements ParameterGroup
     public readonly parameterGroupName?: string;
     public readonly parameter?: { name: string, value: string }[];
 
+    public static get(id: lumi.ID): ParameterGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ParameterGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ParameterGroupArgs) {
         super(name);
         this.description = args.description;

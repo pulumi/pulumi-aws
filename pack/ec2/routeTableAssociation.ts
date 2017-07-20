@@ -8,6 +8,14 @@ export class RouteTableAssociation extends lumi.NamedResource implements RouteTa
     public readonly routeTableId: string;
     public readonly subnetId: string;
 
+    public static get(id: lumi.ID): RouteTableAssociation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RouteTableAssociation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RouteTableAssociationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {

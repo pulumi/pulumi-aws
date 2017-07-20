@@ -22,6 +22,14 @@ export class Integration extends lumi.NamedResource implements IntegrationArgs {
     public readonly type: string;
     public readonly uri?: string;
 
+    public static get(id: lumi.ID): Integration {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Integration[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: IntegrationArgs) {
         super(name);
         this.cacheKeyParameters = args.cacheKeyParameters;

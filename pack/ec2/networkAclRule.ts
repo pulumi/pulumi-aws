@@ -17,6 +17,14 @@ export class NetworkAclRule extends lumi.NamedResource implements NetworkAclRule
     public readonly ruleNumber: number;
     public readonly toPort?: number;
 
+    public static get(id: lumi.ID): NetworkAclRule {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): NetworkAclRule[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NetworkAclRuleArgs) {
         super(name);
         this.cidrBlock = args.cidrBlock;

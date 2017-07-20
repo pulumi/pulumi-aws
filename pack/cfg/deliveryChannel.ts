@@ -11,6 +11,14 @@ export class DeliveryChannel extends lumi.NamedResource implements DeliveryChann
     public readonly snapshotDeliveryProperties?: { deliveryFrequency?: string }[];
     public readonly snsTopicArn?: string;
 
+    public static get(id: lumi.ID): DeliveryChannel {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DeliveryChannel[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DeliveryChannelArgs) {
         super(name);
         this.deliveryChannelName = args.deliveryChannelName;

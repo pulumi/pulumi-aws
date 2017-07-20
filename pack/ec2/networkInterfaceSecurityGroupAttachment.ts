@@ -8,6 +8,14 @@ export class NetworkInterfaceSecurityGroupAttachment extends lumi.NamedResource 
     public readonly networkInterfaceId: string;
     public readonly securityGroupId: string;
 
+    public static get(id: lumi.ID): NetworkInterfaceSecurityGroupAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): NetworkInterfaceSecurityGroupAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NetworkInterfaceSecurityGroupAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.networkInterfaceId, "") === undefined) {

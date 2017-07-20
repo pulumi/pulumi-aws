@@ -31,6 +31,14 @@ export class ReplicationGroup extends lumi.NamedResource implements ReplicationG
     public readonly subnetGroupName: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): ReplicationGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReplicationGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReplicationGroupArgs) {
         super(name);
         this.applyImmediately = args.applyImmediately;

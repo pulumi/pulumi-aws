@@ -12,7 +12,6 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
     public /*out*/ readonly defaultSecurityGroupId: string;
     public /*out*/ readonly dhcpOptionsId: string;
     public readonly enableClassiclink: boolean;
-    public readonly enableClassiclinkDnsSupport: boolean;
     public readonly enableDnsHostnames: boolean;
     public readonly enableDnsSupport?: boolean;
     public readonly instanceTenancy: string;
@@ -20,6 +19,14 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
     public /*out*/ readonly ipv6CidrBlock: string;
     public /*out*/ readonly mainRouteTableId: string;
     public readonly tags?: {[key: string]: any};
+
+    public static get(id: lumi.ID): Vpc {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Vpc[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
 
     constructor(name: string, args: VpcArgs) {
         super(name);
@@ -29,7 +36,6 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
         }
         this.cidrBlock = args.cidrBlock;
         this.enableClassiclink = args.enableClassiclink;
-        this.enableClassiclinkDnsSupport = args.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = args.enableDnsHostnames;
         this.enableDnsSupport = args.enableDnsSupport;
         this.instanceTenancy = args.instanceTenancy;
@@ -41,7 +47,6 @@ export interface VpcArgs {
     readonly assignGeneratedIpv6CidrBlock?: boolean;
     readonly cidrBlock: string;
     readonly enableClassiclink?: boolean;
-    readonly enableClassiclinkDnsSupport?: boolean;
     readonly enableDnsHostnames?: boolean;
     readonly enableDnsSupport?: boolean;
     readonly instanceTenancy?: string;

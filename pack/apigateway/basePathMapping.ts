@@ -12,6 +12,14 @@ export class BasePathMapping extends lumi.NamedResource implements BasePathMappi
     public readonly domainName: string;
     public readonly stageName?: string;
 
+    public static get(id: lumi.ID): BasePathMapping {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): BasePathMapping[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: BasePathMappingArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {

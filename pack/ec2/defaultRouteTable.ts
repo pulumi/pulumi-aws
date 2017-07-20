@@ -11,6 +11,14 @@ export class DefaultRouteTable extends lumi.NamedResource implements DefaultRout
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly vpcId: string;
 
+    public static get(id: lumi.ID): DefaultRouteTable {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DefaultRouteTable[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DefaultRouteTableArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.defaultRouteTableId, "") === undefined) {

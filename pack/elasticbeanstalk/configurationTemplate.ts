@@ -12,6 +12,14 @@ export class ConfigurationTemplate extends lumi.NamedResource implements Configu
     public readonly setting: { name: string, namespace: string, resource?: string, value: string }[];
     public readonly solutionStackName?: string;
 
+    public static get(id: lumi.ID): ConfigurationTemplate {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ConfigurationTemplate[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ConfigurationTemplateArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {

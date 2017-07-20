@@ -15,6 +15,14 @@ export class Snapshot extends lumi.NamedResource implements SnapshotArgs {
     public readonly volumeId: string;
     public /*out*/ readonly volumeSize: number;
 
+    public static get(id: lumi.ID): Snapshot {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Snapshot[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SnapshotArgs) {
         super(name);
         this.description = args.description;

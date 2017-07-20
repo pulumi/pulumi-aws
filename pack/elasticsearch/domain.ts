@@ -17,6 +17,14 @@ export class Domain extends lumi.NamedResource implements DomainArgs {
     public readonly snapshotOptions?: { automatedSnapshotStartHour: number }[];
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Domain {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Domain[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DomainArgs) {
         super(name);
         this.accessPolicies = args.accessPolicies;

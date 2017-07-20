@@ -28,6 +28,14 @@ export class MemcachedLayer extends lumi.NamedResource implements MemcachedLayer
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): MemcachedLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MemcachedLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MemcachedLayerArgs) {
         super(name);
         this.allocatedMemory = args.allocatedMemory;

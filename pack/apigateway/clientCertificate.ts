@@ -10,6 +10,14 @@ export class ClientCertificate extends lumi.NamedResource implements ClientCerti
     public /*out*/ readonly expirationDate: string;
     public /*out*/ readonly pemEncodedCertificate: string;
 
+    public static get(id: lumi.ID): ClientCertificate {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ClientCertificate[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ClientCertificateArgs) {
         super(name);
         this.description = args.description;

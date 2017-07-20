@@ -10,6 +10,14 @@ export class GroupPolicy extends lumi.NamedResource implements GroupPolicyArgs {
     public readonly namePrefix?: string;
     public readonly policy: string;
 
+    public static get(id: lumi.ID): GroupPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): GroupPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: GroupPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {

@@ -13,6 +13,14 @@ export class AccessKey extends lumi.NamedResource implements AccessKeyArgs {
     public /*out*/ readonly status: string;
     public readonly user: string;
 
+    public static get(id: lumi.ID): AccessKey {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AccessKey[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AccessKeyArgs) {
         super(name);
         this.pgpKey = args.pgpKey;

@@ -8,6 +8,14 @@ export class SqlInjectionMatchSet extends lumi.NamedResource implements SqlInjec
     public readonly sqlInjectionMatchSetName?: string;
     public readonly sqlInjectionMatchTuples?: { fieldToMatch: { data?: string, type: string }[], textTransformation: string }[];
 
+    public static get(id: lumi.ID): SqlInjectionMatchSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SqlInjectionMatchSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SqlInjectionMatchSetArgs) {
         super(name);
         this.sqlInjectionMatchSetName = args.sqlInjectionMatchSetName;

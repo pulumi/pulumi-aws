@@ -9,6 +9,14 @@ export class MainRouteTableAssociation extends lumi.NamedResource implements Mai
     public readonly routeTableId: string;
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): MainRouteTableAssociation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MainRouteTableAssociation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MainRouteTableAssociationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {

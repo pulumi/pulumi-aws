@@ -14,6 +14,14 @@ export class SecurityGroup extends lumi.NamedResource implements SecurityGroupAr
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): SecurityGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SecurityGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SecurityGroupArgs) {
         super(name);
         this.description = args.description;

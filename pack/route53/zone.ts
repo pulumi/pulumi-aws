@@ -15,6 +15,14 @@ export class Zone extends lumi.NamedResource implements ZoneArgs {
     public readonly vpcRegion: string;
     public /*out*/ readonly zoneId: string;
 
+    public static get(id: lumi.ID): Zone {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Zone[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ZoneArgs) {
         super(name);
         this.comment = args.comment;

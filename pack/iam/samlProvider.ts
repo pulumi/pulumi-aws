@@ -10,6 +10,14 @@ export class SamlProvider extends lumi.NamedResource implements SamlProviderArgs
     public readonly samlMetadataDocument: string;
     public /*out*/ readonly validUntil: string;
 
+    public static get(id: lumi.ID): SamlProvider {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): SamlProvider[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SamlProviderArgs) {
         super(name);
         this.samlProviderName = args.samlProviderName;

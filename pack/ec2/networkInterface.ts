@@ -15,6 +15,14 @@ export class NetworkInterface extends lumi.NamedResource implements NetworkInter
     public readonly subnetId: string;
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): NetworkInterface {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): NetworkInterface[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NetworkInterfaceArgs) {
         super(name);
         this.attachment = args.attachment;

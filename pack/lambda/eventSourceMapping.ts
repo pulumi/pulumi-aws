@@ -17,6 +17,14 @@ export class EventSourceMapping extends lumi.NamedResource implements EventSourc
     public /*out*/ readonly stateTransitionReason: string;
     public /*out*/ readonly uuid: string;
 
+    public static get(id: lumi.ID): EventSourceMapping {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EventSourceMapping[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EventSourceMappingArgs) {
         super(name);
         this.batchSize = args.batchSize;

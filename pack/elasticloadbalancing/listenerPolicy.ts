@@ -9,6 +9,14 @@ export class ListenerPolicy extends lumi.NamedResource implements ListenerPolicy
     public readonly loadBalancerPort: number;
     public readonly policyNames?: string[];
 
+    public static get(id: lumi.ID): ListenerPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ListenerPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ListenerPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.loadBalancerName, "") === undefined) {

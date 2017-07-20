@@ -32,6 +32,14 @@ export class Distribution extends lumi.NamedResource implements DistributionArgs
     public readonly viewerCertificate: { acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }[];
     public readonly webAclId?: string;
 
+    public static get(id: lumi.ID): Distribution {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Distribution[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DistributionArgs) {
         super(name);
         this.aliases = args.aliases;

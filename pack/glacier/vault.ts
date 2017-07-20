@@ -12,6 +12,14 @@ export class Vault extends lumi.NamedResource implements VaultArgs {
     public readonly notification?: { events: string[], snsTopic: string }[];
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Vault {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Vault[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VaultArgs) {
         super(name);
         this.accessPolicy = args.accessPolicy;

@@ -11,6 +11,14 @@ export class VolumeAttachment extends lumi.NamedResource implements VolumeAttach
     public readonly skipDestroy: boolean;
     public readonly volumeId: string;
 
+    public static get(id: lumi.ID): VolumeAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VolumeAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VolumeAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.deviceName, "") === undefined) {

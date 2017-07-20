@@ -8,6 +8,14 @@ export class VpnConnectionRoute extends lumi.NamedResource implements VpnConnect
     public readonly destinationCidrBlock: string;
     public readonly vpnConnectionId: string;
 
+    public static get(id: lumi.ID): VpnConnectionRoute {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpnConnectionRoute[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpnConnectionRouteArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.destinationCidrBlock, "") === undefined) {

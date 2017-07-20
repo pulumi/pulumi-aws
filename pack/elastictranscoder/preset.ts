@@ -17,6 +17,14 @@ export class Preset extends lumi.NamedResource implements PresetArgs {
     public readonly videoCodecOptions?: {[key: string]: any};
     public readonly videoWatermarks?: { horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[];
 
+    public static get(id: lumi.ID): Preset {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Preset[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PresetArgs) {
         super(name);
         this.audio = args.audio;

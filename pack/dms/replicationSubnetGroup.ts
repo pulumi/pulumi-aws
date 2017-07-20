@@ -12,6 +12,14 @@ export class ReplicationSubnetGroup extends lumi.NamedResource implements Replic
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly vpcId: string;
 
+    public static get(id: lumi.ID): ReplicationSubnetGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ReplicationSubnetGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ReplicationSubnetGroupArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.replicationSubnetGroupDescription, "") === undefined) {

@@ -10,6 +10,14 @@ export class Certificate extends lumi.NamedResource implements CertificateArgs {
     public readonly certificatePem?: string;
     public readonly certificateWallet?: string;
 
+    public static get(id: lumi.ID): Certificate {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Certificate[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: CertificateArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.certificateId, "") === undefined) {

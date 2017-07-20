@@ -12,6 +12,14 @@ export class EventDestination extends lumi.NamedResource implements EventDestina
     public readonly matchingTypes: string[];
     public readonly eventDestinationName?: string;
 
+    public static get(id: lumi.ID): EventDestination {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): EventDestination[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: EventDestinationArgs) {
         super(name);
         this.cloudwatchDestination = args.cloudwatchDestination;

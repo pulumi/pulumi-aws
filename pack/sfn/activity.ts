@@ -8,6 +8,14 @@ export class Activity extends lumi.NamedResource implements ActivityArgs {
     public /*out*/ readonly creationDate: string;
     public readonly activityName?: string;
 
+    public static get(id: lumi.ID): Activity {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Activity[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ActivityArgs) {
         super(name);
         this.activityName = args.activityName;

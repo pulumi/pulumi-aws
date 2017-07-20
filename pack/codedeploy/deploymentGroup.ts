@@ -16,6 +16,14 @@ export class DeploymentGroup extends lumi.NamedResource implements DeploymentGro
     public readonly serviceRoleArn: string;
     public readonly triggerConfiguration?: { triggerEvents: string[], triggerName: string, triggerTargetArn: string }[];
 
+    public static get(id: lumi.ID): DeploymentGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DeploymentGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DeploymentGroupArgs) {
         super(name);
         this.alarmConfiguration = args.alarmConfiguration;

@@ -24,6 +24,14 @@ export class AmiCopy extends lumi.NamedResource implements AmiCopyArgs {
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly virtualizationType: string;
 
+    public static get(id: lumi.ID): AmiCopy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): AmiCopy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: AmiCopyArgs) {
         super(name);
         this.description = args.description;

@@ -8,6 +8,14 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
     public /*out*/ readonly arn: string;
     public readonly projectName?: string;
 
+    public static get(id: lumi.ID): Project {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Project[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ProjectArgs) {
         super(name);
         this.projectName = args.projectName;

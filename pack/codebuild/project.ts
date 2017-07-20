@@ -15,6 +15,14 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
     public readonly source: { auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[];
     public readonly tags?: {[key: string]: any};
 
+    public static get(id: lumi.ID): Project {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Project[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ProjectArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.artifacts, "") === undefined) {

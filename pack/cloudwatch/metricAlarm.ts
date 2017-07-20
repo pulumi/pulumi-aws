@@ -4,34 +4,41 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {Topic} from "../sns/topic";
+
 export class MetricAlarm extends lumi.NamedResource implements MetricAlarmArgs {
     public readonly actionsEnabled?: boolean;
-    public readonly alarmActions?: string[];
+    public readonly alarmActions?: Topic[];
     public readonly alarmDescription?: string;
-    public readonly alarmName: string;
+    public readonly alarmName?: string;
     public readonly comparisonOperator: string;
     public readonly dimensions?: {[key: string]: any};
     public readonly evaluateLowSampleCountPercentiles: string;
     public readonly evaluationPeriods: number;
     public readonly extendedStatistic?: string;
-    public readonly insufficientDataActions?: string[];
+    public readonly insufficientDataActions?: Topic[];
     public readonly metricName: string;
     public readonly namespace: string;
-    public readonly okActions?: string[];
+    public readonly okActions?: Topic[];
     public readonly period: number;
     public readonly statistic?: string;
     public readonly threshold: number;
     public readonly treatMissingData?: string;
     public readonly unit?: string;
 
+    public static get(id: lumi.ID): MetricAlarm {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MetricAlarm[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MetricAlarmArgs) {
         super(name);
         this.actionsEnabled = args.actionsEnabled;
         this.alarmActions = args.alarmActions;
         this.alarmDescription = args.alarmDescription;
-        if (lumirt.defaultIfComputed(args.alarmName, "") === undefined) {
-            throw new Error("Property argument 'alarmName' is required, but was missing");
-        }
         this.alarmName = args.alarmName;
         if (lumirt.defaultIfComputed(args.comparisonOperator, "") === undefined) {
             throw new Error("Property argument 'comparisonOperator' is required, but was missing");
@@ -70,18 +77,18 @@ export class MetricAlarm extends lumi.NamedResource implements MetricAlarmArgs {
 
 export interface MetricAlarmArgs {
     readonly actionsEnabled?: boolean;
-    readonly alarmActions?: string[];
+    readonly alarmActions?: Topic[];
     readonly alarmDescription?: string;
-    readonly alarmName: string;
+    readonly alarmName?: string;
     readonly comparisonOperator: string;
     readonly dimensions?: {[key: string]: any};
     readonly evaluateLowSampleCountPercentiles?: string;
     readonly evaluationPeriods: number;
     readonly extendedStatistic?: string;
-    readonly insufficientDataActions?: string[];
+    readonly insufficientDataActions?: Topic[];
     readonly metricName: string;
     readonly namespace: string;
-    readonly okActions?: string[];
+    readonly okActions?: Topic[];
     readonly period: number;
     readonly statistic?: string;
     readonly threshold: number;

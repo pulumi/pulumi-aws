@@ -8,6 +8,14 @@ export class ResourceGroup extends lumi.NamedResource implements ResourceGroupAr
     public /*out*/ readonly arn: string;
     public readonly tags: {[key: string]: any};
 
+    public static get(id: lumi.ID): ResourceGroup {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ResourceGroup[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ResourceGroupArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.tags, "") === undefined) {

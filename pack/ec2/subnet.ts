@@ -14,6 +14,14 @@ export class Subnet extends lumi.NamedResource implements SubnetArgs {
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): Subnet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Subnet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: SubnetArgs) {
         super(name);
         this.assignIpv6AddressOnCreation = args.assignIpv6AddressOnCreation;

@@ -11,6 +11,14 @@ export class UserPolicyAttachment extends lumi.NamedResource implements UserPoli
     public readonly policyArn: ARN;
     public readonly user: User;
 
+    public static get(id: lumi.ID): UserPolicyAttachment {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): UserPolicyAttachment[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UserPolicyAttachmentArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {

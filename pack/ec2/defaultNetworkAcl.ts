@@ -12,6 +12,14 @@ export class DefaultNetworkAcl extends lumi.NamedResource implements DefaultNetw
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly vpcId: string;
 
+    public static get(id: lumi.ID): DefaultNetworkAcl {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): DefaultNetworkAcl[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DefaultNetworkAclArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.defaultNetworkAclId, "") === undefined) {

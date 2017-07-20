@@ -9,6 +9,14 @@ export class Notification extends lumi.NamedResource implements NotificationArgs
     public readonly notifications: string[];
     public readonly topicArn: string;
 
+    public static get(id: lumi.ID): Notification {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Notification[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: NotificationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.groupNames, "") === undefined) {

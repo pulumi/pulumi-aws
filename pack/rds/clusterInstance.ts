@@ -26,6 +26,14 @@ export class ClusterInstance extends lumi.NamedResource implements ClusterInstan
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly writer: boolean;
 
+    public static get(id: lumi.ID): ClusterInstance {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): ClusterInstance[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: ClusterInstanceArgs) {
         super(name);
         this.applyImmediately = args.applyImmediately;

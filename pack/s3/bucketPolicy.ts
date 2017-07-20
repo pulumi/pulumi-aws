@@ -8,6 +8,14 @@ export class BucketPolicy extends lumi.NamedResource implements BucketPolicyArgs
     public readonly bucket: string;
     public readonly policy: string;
 
+    public static get(id: lumi.ID): BucketPolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): BucketPolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: BucketPolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {

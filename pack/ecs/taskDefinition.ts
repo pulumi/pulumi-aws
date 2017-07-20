@@ -14,6 +14,14 @@ export class TaskDefinition extends lumi.NamedResource implements TaskDefinition
     public readonly taskRoleArn?: string;
     public readonly volume?: { hostPath?: string, name: string }[];
 
+    public static get(id: lumi.ID): TaskDefinition {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): TaskDefinition[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: TaskDefinitionArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.containerDefinitions, "") === undefined) {

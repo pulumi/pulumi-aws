@@ -10,6 +10,14 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
     public readonly roleArn: string;
     public readonly stage: { action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[];
 
+    public static get(id: lumi.ID): Pipeline {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Pipeline[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PipelineArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.artifactStore, "") === undefined) {

@@ -8,6 +8,14 @@ export class VpcDhcpOptionsAssociation extends lumi.NamedResource implements Vpc
     public readonly dhcpOptionsId: string;
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): VpcDhcpOptionsAssociation {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpcDhcpOptionsAssociation[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpcDhcpOptionsAssociationArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.dhcpOptionsId, "") === undefined) {

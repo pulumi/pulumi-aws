@@ -8,6 +8,14 @@ export class QueuePolicy extends lumi.NamedResource implements QueuePolicyArgs {
     public readonly policy: string;
     public readonly queueUrl: string;
 
+    public static get(id: lumi.ID): QueuePolicy {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): QueuePolicy[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: QueuePolicyArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {

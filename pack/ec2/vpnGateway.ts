@@ -9,6 +9,14 @@ export class VpnGateway extends lumi.NamedResource implements VpnGatewayArgs {
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
 
+    public static get(id: lumi.ID): VpnGateway {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): VpnGateway[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: VpnGatewayArgs) {
         super(name);
         this.availabilityZone = args.availabilityZone;

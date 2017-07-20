@@ -27,6 +27,14 @@ export class PhpAppLayer extends lumi.NamedResource implements PhpAppLayerArgs {
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
 
+    public static get(id: lumi.ID): PhpAppLayer {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): PhpAppLayer[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: PhpAppLayerArgs) {
         super(name);
         this.autoAssignElasticIps = args.autoAssignElasticIps;

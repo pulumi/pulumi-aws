@@ -26,6 +26,14 @@ export class Bucket extends lumi.NamedResource implements BucketArgs {
     public readonly websiteDomain: string;
     public readonly websiteEndpoint: string;
 
+    public static get(id: lumi.ID): Bucket {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Bucket[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: BucketArgs) {
         super(name);
         this.accelerationStatus = args.accelerationStatus;

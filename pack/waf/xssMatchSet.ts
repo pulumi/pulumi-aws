@@ -8,6 +8,14 @@ export class XssMatchSet extends lumi.NamedResource implements XssMatchSetArgs {
     public readonly xssMatchSetName?: string;
     public readonly xssMatchTuples?: { fieldToMatch: { data?: string, type: string }[], textTransformation: string }[];
 
+    public static get(id: lumi.ID): XssMatchSet {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): XssMatchSet[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: XssMatchSetArgs) {
         super(name);
         this.xssMatchSetName = args.xssMatchSetName;

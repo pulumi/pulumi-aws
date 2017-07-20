@@ -12,6 +12,14 @@ export class MountTarget extends lumi.NamedResource implements MountTargetArgs {
     public readonly securityGroups: string[];
     public readonly subnetId: string;
 
+    public static get(id: lumi.ID): MountTarget {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): MountTarget[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: MountTargetArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.fileSystemId, "") === undefined) {

@@ -8,6 +8,14 @@ export class Domain extends lumi.NamedResource implements DomainArgs {
     public /*out*/ readonly arn: string;
     public readonly domainName: string;
 
+    public static get(id: lumi.ID): Domain {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): Domain[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: DomainArgs) {
         super(name);
         if (lumirt.defaultIfComputed(args.domainName, "") === undefined) {

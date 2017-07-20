@@ -12,6 +12,14 @@ export class UsagePlan extends lumi.NamedResource implements UsagePlanArgs {
     public readonly quotaSettings?: { limit: number, offset?: number, period: string }[];
     public readonly throttleSettings?: { burstLimit?: number, rateLimit?: number }[];
 
+    public static get(id: lumi.ID): UsagePlan {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): UsagePlan[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: UsagePlanArgs) {
         super(name);
         this.apiStages = args.apiStages;
