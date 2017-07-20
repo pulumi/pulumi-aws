@@ -9,5 +9,5 @@ import (
 )
 
 func main() {
-	tfbridge.Main("aws", aws.Provider)
+	tfbridge.Main("aws", aws.Provider())
 }

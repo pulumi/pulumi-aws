@@ -48,9 +48,10 @@ build:
 
 test:
 	go test -cover -parallel ${TESTPARALLELISM} ${GOPKGS}
-	go tool vet -printf=false ./
+	go tool vet -printf=false ./cmd
+	go tool vet -printf=false resources.go
 	which ${GOMETALINTERBIN} >/dev/null
-	$(GOMETALINTER) ./... | sort ; exit "$${PIPESTATUS[0]}"
+	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
 .PHONY: test
 
 install:

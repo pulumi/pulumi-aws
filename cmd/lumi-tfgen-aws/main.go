@@ -9,5 +9,5 @@ import (
 )
 
 func main() {
-	tfgen.Main("aws", aws.Provider)
+	tfgen.Main("aws", aws.Provider())
 }
