@@ -6,6 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class RestApi extends lumi.NamedResource implements RestApiArgs {
     public readonly binaryMediaTypes?: string[];
+    public readonly body?: string;
     public /*out*/ readonly createdDate: string;
     public readonly description?: string;
     public readonly restApiName?: string;
@@ -22,6 +23,7 @@ export class RestApi extends lumi.NamedResource implements RestApiArgs {
     constructor(name: string, args: RestApiArgs) {
         super(name);
         this.binaryMediaTypes = args.binaryMediaTypes;
+        this.body = args.body;
         this.description = args.description;
         this.restApiName = args.restApiName;
     }
@@ -29,6 +31,7 @@ export class RestApi extends lumi.NamedResource implements RestApiArgs {
 
 export interface RestApiArgs {
     readonly binaryMediaTypes?: string[];
+    readonly body?: string;
     readonly description?: string;
     readonly restApiName?: string;
 }

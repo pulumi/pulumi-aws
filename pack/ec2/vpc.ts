@@ -12,6 +12,7 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
     public /*out*/ readonly defaultSecurityGroupId: string;
     public /*out*/ readonly dhcpOptionsId: string;
     public readonly enableClassiclink: boolean;
+    public readonly enableClassiclinkDnsSupport: boolean;
     public readonly enableDnsHostnames: boolean;
     public readonly enableDnsSupport?: boolean;
     public readonly instanceTenancy: string;
@@ -36,6 +37,7 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
         }
         this.cidrBlock = args.cidrBlock;
         this.enableClassiclink = args.enableClassiclink;
+        this.enableClassiclinkDnsSupport = args.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = args.enableDnsHostnames;
         this.enableDnsSupport = args.enableDnsSupport;
         this.instanceTenancy = args.instanceTenancy;
@@ -47,6 +49,7 @@ export interface VpcArgs {
     readonly assignGeneratedIpv6CidrBlock?: boolean;
     readonly cidrBlock: string;
     readonly enableClassiclink?: boolean;
+    readonly enableClassiclinkDnsSupport?: boolean;
     readonly enableDnsHostnames?: boolean;
     readonly enableDnsSupport?: boolean;
     readonly instanceTenancy?: string;

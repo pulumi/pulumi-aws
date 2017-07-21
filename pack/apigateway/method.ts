@@ -14,6 +14,7 @@ export class Method extends lumi.NamedResource implements MethodArgs {
     public readonly requestModels?: {[key: string]: string};
     public readonly requestParameters?: {[key: string]: boolean};
     public readonly requestParametersInJson?: string;
+    public readonly requestValidatorId?: string;
     public readonly resourceId: string;
     public readonly restApi: RestApi;
 
@@ -40,6 +41,7 @@ export class Method extends lumi.NamedResource implements MethodArgs {
         this.requestModels = args.requestModels;
         this.requestParameters = args.requestParameters;
         this.requestParametersInJson = args.requestParametersInJson;
+        this.requestValidatorId = args.requestValidatorId;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
@@ -59,6 +61,7 @@ export interface MethodArgs {
     readonly requestModels?: {[key: string]: string};
     readonly requestParameters?: {[key: string]: boolean};
     readonly requestParametersInJson?: string;
+    readonly requestValidatorId?: string;
     readonly resourceId: string;
     readonly restApi: RestApi;
 }

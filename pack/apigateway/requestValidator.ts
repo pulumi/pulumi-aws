@@ -12,6 +12,14 @@ export class RequestValidator extends lumi.NamedResource implements RequestValid
     public readonly validateRequestBody?: boolean;
     public readonly validateRequestParameters?: boolean;
 
+    public static get(id: lumi.ID): RequestValidator {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
+    public static query(q: any): RequestValidator[] {
+        return <any>undefined; // functionality provided by the runtime
+    }
+
     constructor(name: string, args: RequestValidatorArgs) {
         super(name);
         this.requestValidatorName = args.requestValidatorName;

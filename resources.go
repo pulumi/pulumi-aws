@@ -51,6 +51,7 @@ const (
 	glacierMod           = "glacier"                // Glacier
 	iamMod               = "iam"                    // Identity and Access Management (IAM)
 	inspectorMod         = "inspector"              // Inspector
+	iotMod               = "iot"                    // Internet of Things (IoT)
 	kinesisMod           = "kinesis"                // Kinesis
 	kmsMod               = "kms"                    // Key Management Service (KMS)
 	lambdaMod            = "lambda"                 // Lambda
@@ -103,9 +104,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_api_key": {
 				Tok: awsrestok(apigatewayMod, "ApiKey"),
 				Fields: map[string]tfbridge.SchemaInfo{
-					"rest_api_id": {
-						Name: "restApi",
-						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+					"stage_key": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]tfbridge.SchemaInfo{
+								"rest_api_id": {
+									Name: "restApi",
+									Type: awstok(apigatewayMod+"/restApi", "RestApi"),
+								},
+							},
+						},
 					},
 				},
 			},
@@ -212,7 +219,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_api_gateway_rest_api": {Tok: awsrestok(apigatewayMod, "RestApi")},
+			"aws_api_gateway_gateway_response": {Tok: awsrestok(apigatewayMod, "Response")},
+			"aws_api_gateway_rest_api":         {Tok: awsrestok(apigatewayMod, "RestApi")},
 			"aws_api_gateway_stage": {
 				Tok: awsrestok(apigatewayMod, "Stage"),
 				Fields: map[string]tfbridge.SchemaInfo{
@@ -377,7 +385,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_internet_gateway":                     {Tok: awsrestok(ec2Mod, "InternetGateway")},
+			"aws_internet_gateway": {Tok: awsrestok(ec2Mod, "InternetGateway")},
+			"aws_iot_policy": {
+				Tok:      awsrestok(iotMod, "Policy"),
+				IDFields: []string{"name"},
+			},
 			"aws_key_pair":                             {Tok: awsrestok(ec2Mod, "KeyPair")},
 			"aws_launch_configuration":                 {Tok: awsrestok(ec2Mod, "LaunchConfiguration")},
 			"aws_main_route_table_association":         {Tok: awsrestok(ec2Mod, "MainRouteTableAssociation")},

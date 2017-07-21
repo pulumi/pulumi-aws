@@ -6,8 +6,8 @@ import * as lumirt from "@lumi/lumirt";
 
 export class DefaultNetworkAcl extends lumi.NamedResource implements DefaultNetworkAclArgs {
     public readonly defaultNetworkAclId: string;
-    public readonly egress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, protocol: string, ruleNo: number, toPort: number }[];
-    public readonly ingress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, protocol: string, ruleNo: number, toPort: number }[];
+    public readonly egress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
+    public readonly ingress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
     public readonly subnetIds?: string[];
     public readonly tags?: {[key: string]: any};
     public /*out*/ readonly vpcId: string;
@@ -35,8 +35,8 @@ export class DefaultNetworkAcl extends lumi.NamedResource implements DefaultNetw
 
 export interface DefaultNetworkAclArgs {
     readonly defaultNetworkAclId: string;
-    readonly egress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, protocol: string, ruleNo: number, toPort: number }[];
-    readonly ingress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, protocol: string, ruleNo: number, toPort: number }[];
+    readonly egress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
+    readonly ingress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
     readonly subnetIds?: string[];
     readonly tags?: {[key: string]: any};
 }
