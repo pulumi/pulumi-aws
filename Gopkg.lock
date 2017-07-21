@@ -200,9 +200,15 @@
   version = "v0.8.0"
 
 [[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "tfbridge"
   name = "github.com/pulumi/lumi"
-  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
+  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/integrationtesting","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
   revision = "8a3a7a1a52f6938553291887aeffa9b01891d0c8"
 
 [[projects]]
@@ -233,6 +239,12 @@
   name = "github.com/spf13/pflag"
   packages = ["."]
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "69483b4bd14f5845b5a1e55bca19e954e827f1d0"
+  version = "v1.1.4"
 
 [[projects]]
   branch = "pulumi-master"
@@ -292,6 +304,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "5c5ac38b46553c92093dc57bf7e9e370ee1f063ff923ffc524d6a152fe2b0793"
+  inputs-digest = "02729682ade789ddad1747840bc0a891c963bb8a0d0d4eb0128a996a0b5bdca9"
   solver-name = "gps-cdcl"
   solver-version = 1
