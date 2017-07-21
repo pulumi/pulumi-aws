@@ -12,7 +12,7 @@ export class InstanceProfile extends lumi.NamedResource implements InstanceProfi
     public readonly instanceProfileName: string;
     public readonly namePrefix?: string;
     public readonly path?: string;
-    public readonly role: string;
+    public readonly role: Role;
     public readonly roles: Role[];
     public /*out*/ readonly uniqueId: string;
 
@@ -38,7 +38,7 @@ export interface InstanceProfileArgs {
     readonly instanceProfileName?: string;
     readonly namePrefix?: string;
     readonly path?: string;
-    readonly role?: string;
+    readonly role?: Role;
     readonly roles?: Role[];
 }
 

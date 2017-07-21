@@ -4,11 +4,12 @@
 import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
+import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
 
 export class ApplicationVersion extends lumi.NamedResource implements ApplicationVersionArgs {
     public readonly application: Application;
-    public readonly bucket: string;
+    public readonly bucket: Bucket;
     public readonly description?: string;
     public readonly forceDelete?: boolean;
     public readonly key: string;
@@ -44,7 +45,7 @@ export class ApplicationVersion extends lumi.NamedResource implements Applicatio
 
 export interface ApplicationVersionArgs {
     readonly application: Application;
-    readonly bucket: string;
+    readonly bucket: Bucket;
     readonly description?: string;
     readonly forceDelete?: boolean;
     readonly key: string;

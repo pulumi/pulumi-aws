@@ -330,12 +330,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsrestok(elasticbeanstalkMod, "ApplicationVersion"),
 				Fields: map[string]tfbridge.SchemaInfo{
 					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
+					"bucket":      {Type: awsrestok(s3Mod, "Bucket")},
 				},
 			},
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsrestok(elasticbeanstalkMod, "ConfigurationTemplate")},
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsrestok(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]tfbridge.SchemaInfo{
+					"name":        tfbridge.AutoNameInfo("environmentName", 40),
 					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
 					"version_label": {
 						Name: "version",
@@ -487,6 +489,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_instance_profile": {
 				Tok: awsrestok(iamMod, "InstanceProfile"),
 				Fields: map[string]tfbridge.SchemaInfo{
+					"role": {Type: awsrestok(iamMod, "Role")},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{Type: awsrestok(iamMod, "Role")},
 					},
@@ -820,11 +823,15 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	// For all resources with name properties, we will add an auto-name property.
+	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
+	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
 	for resname := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
 			if _, has := schema.Schema[tfbridge.NameProperty]; has {
-				prov.Resources[resname] = tfbridge.AutoName(prov.Resources[resname], -1)
+				res := prov.Resources[resname]
+				if _, hasfield := res.Fields[tfbridge.NameProperty]; !hasfield {
+					prov.Resources[resname] = tfbridge.AutoName(res, 255)
+				}
 			}
 		}
 	}
