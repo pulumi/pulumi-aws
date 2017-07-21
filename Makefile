@@ -65,6 +65,11 @@ install:
 	cd ${INSTALLDIR} && yarn link --force                   # make the pack easily available for devs.
 .PHONY: install
 
+publish:
+	@$(ECHO) "\033[0;32mPublishing current release:\033[0m"
+	./scripts/publish.sh
+.PHONY: publish
+
 clean:
 	rm -rf ${INSTALLDIR}
 .PHONY: clean
