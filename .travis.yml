@@ -15,7 +15,7 @@ install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
     # Clone the Lumi repo and use its script to fetch the latest installation packages.
-    - git clone -b tfbridge git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
+    - git clone git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
     - export LUMIVERSION=$(dep status --json | jq -c '.[] | select (.ProjectRoot == "github.com/pulumi/lumi") | .Revision' --raw-output)
     - cd ${GOPATH}/src/github.com/pulumi/lumi && git checkout ${LUMIVERSION}
     - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install.sh ${LUMIVERSION} ~/.lumi
