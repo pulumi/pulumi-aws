@@ -200,6 +200,18 @@
   revision = "8d802ff4ae93611b807597f639c19f76074df5c6"
 
 [[projects]]
+  name = "github.com/pelletier/go-buffruneio"
+  packages = ["."]
+  revision = "c37440a7cf42ac63b919c752ca73a85067e05992"
+  version = "v0.2.0"
+
+[[projects]]
+  name = "github.com/pelletier/go-toml"
+  packages = ["."]
+  revision = "5ccdfb18c776b740aecaf085c4d9a2779199c279"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
@@ -221,7 +233,7 @@
   branch = "master"
   name = "github.com/pulumi/terraform-bridge"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "15989540ec22edbccce4a58f43548c100da53ea5"
+  revision = "acee554a720d9dc876a835cda2313974c759d3ea"
 
 [[projects]]
   branch = "master"
@@ -311,6 +323,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "63937b25956f36b8e858d643db6b120ffcc37bb9ee36f987dd48470c7102a386"
+  inputs-digest = "12fa4ac423b31d2a0c432433e43574a35ba804227ac8f570c04dde03ac96fd27"
   solver-name = "gps-cdcl"
   solver-version = 1
