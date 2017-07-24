@@ -27,7 +27,7 @@ mkdir -p ${PUBDIR}/cmd ${PUBDIR}/packs
 cp -R ${LUMILIB}/aws ${PUBDIR}/packs/aws
 
 # Tar up the release and upload it to our S3 bucket.
-tar -czf ${PUBFILE} -C ${PUBDIR} .
+tar -chzf ${PUBFILE} -C ${PUBDIR} .
 for target in ${PUBTARGETS[@]}; do
     PUBTARGET=${PUBPREFIX}/${target}.tgz
     echo Publishing ${GITVER} to: ${PUBTARGET}
