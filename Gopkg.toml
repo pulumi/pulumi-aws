@@ -21,8 +21,12 @@
 #  version = "2.4.0"
 
 [[override]]
+  branch = "master"
   name = "github.com/pulumi/lumi"
-  branch = "tfbridge"
+
+[[override]]
+  branch = "master"
+  name = "github.com/pulumi/terraform-bridge"
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"
