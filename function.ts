@@ -1,7 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import {AssetArchive, File, String as StringAsset} from "@lumi/lumi/asset";
-import {Closure, jsonStringify, objectKeys, printf, serializeClosure, toString} from "@lumi/lumirt";
+import {Closure, jsonStringify, objectKeys, printf, serializeClosure, toString, sha1hash, EnvObj} from "@lumi/lumirt";
 import {Role, RolePolicyAttachment} from "@lumi/aws/iam";
 import * as lambda from "@lumi/aws/lambda";
 import {ARN} from "@lumi/aws";
@@ -40,35 +40,85 @@ let policy = {
 
 interface FuncEnv {
     code: string;
-    env: string;
+    env: { [key: string]: string; };
 }
 
-// addToFuncEnvs adds the closure with the given name into a collection of function environments.  As it walks the
-// closures environment, it finds additional closures that this closure is dependent on, and recursively adds those
-// to the function environment as well.  The resulting environments for each closure are json stringified
-// representations ready to be marshalled to a target execution environment.
-function addToFuncEnvs(funcEnvs: { [key: string]: FuncEnv}, name: string, closure: Closure): { [key: string]: FuncEnv} {
-    let obj: any = {};
-    let keys = objectKeys(closure.environment);
+// FuncsForClosure collects all the function defintions needed to
+// support serialization of a given Closure object.  Note that
+// a Closure object can reference other Closure objects and
+// can also have cycles, so we recursively walk the graph and
+// cache serialized nodes along the way to avoid cycles.
+class FuncsForClosure {
+    public funcs: { [hash: string]: FuncEnv };
+    public root: string;
+
+    constructor(closure: Closure) {
+        this.funcs = {};
+        this.root = this.createFuncForClosure(closure);
+    }
+
+    private createFuncForClosure(closure: Closure): string {
+        let hash = "__" + sha1hash(closure.code);
+        if (this.funcs[hash] === undefined) {
+            this.funcs[hash] = {
+                code: closure.code,
+                env: {}, // initialize as empty - update after recursive call
+            };
+            this.funcs[hash].env = this.envFromClosureEnvironment(closure.environment);
+        }
+        return hash;
+    }
+
+    private envFromClosureEnvironment(env: EnvObj): {[key: string]: string} {
+        let envObj: {[key: string]: string} = {};
+        let keys = objectKeys(env);
+        for (let i = 0; i < (<any>keys).length; i++) {
+            let key = keys[i];
+            let envEntry = env[key];
+            if (envEntry.json !== undefined) {
+                envObj[key] = jsonStringify(envEntry.json);
+            } else if (envEntry.closure !== undefined) {
+                let innerHash = this.createFuncForClosure(envEntry.closure);
+                envObj[key] = innerHash;
+            } else if (envEntry.obj !== undefined) {
+                envObj[key] = envObjToString(this.envFromClosureEnvironment(envEntry.obj));
+            } else {
+                // TODO[pulumi/lumi#239]: For now we will skip serialziing when the captured JSON object is
+                // null/undefined. This is not technically correct, as it will cause references to these to
+                // fail instead of return undefined.
+            }
+        }
+        return envObj;
+    }
+}
+
+// Converts an environment object into a string which can be embedded into a serialized
+// function body.  Note that this is not JSON serialization, as we may have proeprty
+// values which are variable references to other global functions.  In other words,
+// there can be free variables in the resulting object literal.
+function envObjToString(envObj: { [key: string]: string; }): string {
+    let ret = "{";
+    let isStart = true;
+    let keys = objectKeys(envObj);
     for (let i = 0; i < (<any>keys).length; i++) {
         let key = keys[i];
-        let envEntry = closure.environment[key];
-        if (envEntry.json !== undefined) {
-            obj[key] = envEntry.json;
-        } else if (envEntry.closure !== undefined) {
-            // TODO[pulumi/lumi#238]: We need to detect cycles here.
-            addToFuncEnvs(funcEnvs, key, envEntry.closure);
-        } else {
-            // TODO[pulumi/lumi#239]: For now we will skip serialziing when the captured JSON object is null/undefined.
-            //     This is not technically correct, as it will cause references to these to fail instead
-            //     of return undefined.
+        let val = envObj[key];
+        // Lumi generates the special name `.this` for references to `this`.
+        // We will rewrite to the name `_this` and then pass that as the
+        // receiver to `.apply` later on.
+        if (key === ".this") {
+            key = "_this";
         }
+        if (isStart) {
+            ret += " ";
+        } else {
+            ret += ", ";
+        }
+        isStart = false;
+        ret += key + ": " + val;
     }
-    funcEnvs[name] = {
-        code: closure.code,
-        env: jsonStringify(obj),
-    };
-    return funcEnvs;
+    ret += " }";
+    return ret;
 }
 
 function createJavaScriptLambda(
@@ -77,30 +127,29 @@ function createJavaScriptLambda(
     closure: Closure,
     opts: FunctionOptions): lambda.Function {
 
-    let funcs = addToFuncEnvs({}, "__handler", closure);
-    let str = "exports.handler = __handler;\n\n";
+    let funcsForClosure = new FuncsForClosure(closure);
+    let funcs = funcsForClosure.funcs;
+    let str = "exports.handler = " + funcsForClosure.root + ";\n\n";
     let fkeys = objectKeys(funcs);
-    let envObj: any = {};
     for (let i = 0; i < (<any>fkeys).length; i++) {
         let name = fkeys[i];
         str +=
             "function " + name + "() {\n" +
-            "  let __env = JSON.parse(process.env.LUMI_ENV_" + name + ");\n" +
-            "  with(__env) {\n" +
-            "    let __f = (() => {" + funcs[name].code + "})();\n" +
-            "    return __f.apply(this, arguments);\n" +
+            "  var _this;\n" +
+            "  with(" + envObjToString(funcs[name].env) + ") {\n" +
+            "    return (function() {\n\n" +
+            funcs[name].code + "\n" +
+            "    }).apply(_this).apply(undefined, arguments);\n" +
             "  }\n" +
             "}\n" +
             "\n";
-        envObj["LUMI_ENV_" + name] = funcs[name].env;
     }
 
     // Inject some TypeScript runtime helpers that the transpiled code may have dependencies on.
     // These are necessary for targeting Node.js runtime environments that do not yet support
     // new ECMAScript features like `async`/`await`.
     //
-    // The implemnetations are sourced from: https://github.com/Microsoft/tslib/blob/master/tslib.es6.js
-
+    // The implementations are sourced from: https://github.com/Microsoft/tslib/blob/master/tslib.es6.js
     /*tslint:disable: max-line-length */
     str += `
 function __awaiter(thisArg, _arguments, P, generator) {
@@ -146,6 +195,11 @@ function __generator(thisArg, body) {
         timeout = opts.timeout;
     }
 
+    let deadLetterConfig: { targetArn: string; }[] | undefined;
+    if (opts.deadLetterConfig !== undefined) {
+        deadLetterConfig = [ opts.deadLetterConfig ];
+    }
+
     return new lambda.Function(functionName, {
         code: new AssetArchive({
             "node_modules": new File("node_modules"),
@@ -156,7 +210,7 @@ function __generator(thisArg, body) {
         role: role.arn,
         timeout: timeout,
         memorySize: opts.memorySize,
-        environment: envObj,
+        deadLetterConfig: deadLetterConfig,
     });
 }
 
@@ -164,6 +218,7 @@ export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
+    deadLetterConfig?: { targetArn: string; };
 }
 
 // Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
