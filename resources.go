@@ -525,8 +525,13 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_iam_role_policy":        {Tok: awsrestok(iamMod, "RolePolicy")},
-			"aws_iam_role":               {Tok: awsrestok(iamMod, "Role")},
+			"aws_iam_role_policy": {Tok: awsrestok(iamMod, "RolePolicy")},
+			"aws_iam_role": {
+				Tok: awsrestok(iamMod, "Role"),
+				Fields: map[string]tfbridge.SchemaInfo{
+					"name": tfbridge.AutoNameInfo("roleName", 64),
+				},
+			},
 			"aws_iam_saml_provider":      {Tok: awsrestok(iamMod, "SamlProvider")},
 			"aws_iam_server_certificate": {Tok: awsrestok(iamMod, "ServerCertificate")},
 			"aws_iam_user_policy_attachment": {
@@ -558,7 +563,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:      awsrestok(lambdaMod, "Function"),
 				IDFields: []string{"function_name"},
 				Fields: map[string]tfbridge.SchemaInfo{
-					"function_name": tfbridge.AutoNameInfo("functionName", -1),
+					"function_name": tfbridge.AutoNameInfo("functionName", 64),
 					"role":          {Type: awstok(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
