@@ -23,3 +23,7 @@ mkdir -p ${INSTALLDIR}
 aws s3 cp ${RELEASE} ${INSTALLDIR}
 tar -xzf ${INSTALLDIR}/${GITVER}.tgz -C ${INSTALLDIR}
 
+# Finally, link the bits so that NPM packages link to the right place.
+for pack in ${INSTALLDIR}/packs/*; do
+    cd ${pack} && yarn link
+done
