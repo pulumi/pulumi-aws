@@ -20,7 +20,7 @@ install:
     - git clone git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
     - export LUMIVERSION=$(dep status --json | jq -c '.[] | select (.ProjectRoot == "github.com/pulumi/lumi") | .Revision' --raw-output)
     - pushd ${GOPATH}/src/github.com/pulumi/lumi; git checkout ${LUMIVERSION}; popd
-    - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install.sh ${LUMIVERSION} ~/.lumi
+    - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install_release.sh lumi ${LUMIVERSION} ~/.lumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
 script:
