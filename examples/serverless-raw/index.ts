@@ -129,7 +129,7 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
     httpMethod: "ANY",
     type: "AWS_PROXY",
     integrationHttpMethod: "POST",
-    passthroughBehavior: "when_no_match",
+    passthroughBehavior: "WHEN_NO_MATCH",
     uri: "arn:aws:apigateway:" + region + ":lambda:path/2015-03-31/functions/" + lambda.arn + "/invocations",
 });
 
