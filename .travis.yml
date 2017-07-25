@@ -14,7 +14,8 @@ before_install:
 install:
     # First clone the inter-repo source dependencies.
     - git clone git@github.com:pulumi/terraform-bridge ${GOPATH}/src/github.com/pulumi/terraform-bridge
-    - git clone git@github.com:pulumi/terraform-provider-aws ${GOPATH}/src/github.com/pulumi/terraform-provider-aws
+    - git clone -b pulumi-master git@github.com:pulumi/terraform-provider-aws ${GOPATH}/src/github.com/terraform-providers/terraform-provider-aws
+    - go install github.com/terraform-providers/terraform-provider-aws
     # Clone the Lumi repo and use its script to fetch the latest installation packages.
     - git clone git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
     - export LUMIVERSION=$(dep status --json | jq -c '.[] | select (.ProjectRoot == "github.com/pulumi/lumi") | .Revision' --raw-output)
