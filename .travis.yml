@@ -22,6 +22,8 @@ install:
     - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install.sh ${LUMIVERSION} ~/.lumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
+script:
+    - make all
 before_script:
     - export LUMIROOT=~/.lumi
     - export PATH=$LUMIROOT/cmd:$PATH

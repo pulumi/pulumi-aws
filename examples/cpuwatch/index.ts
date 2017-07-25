@@ -6,7 +6,7 @@ import {emailAddress} from "./config";
 // enableAlarm turns on a CPU alarm for the given instance; if the CPU utilization exceeds the given threshold, an
 // email will be sent to the configured email address.
 export function enableAlarm(instance: aws.ec2.Instance, threshold: number): void {
-    if (!emailAddress) {
+    if (emailAddress === undefined) {
         throw new Error("Missing email address configuration");
     }
 
