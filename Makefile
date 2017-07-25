@@ -61,7 +61,7 @@ install:
 	cp -r ${PACKDIR}/.lumi/bin/* ${INSTALLDIR}              # copy the binary/metadata.
 	cp ${TFBRIDGE_BIN} ${INSTALLDIR}/${LUMIPLUG}-${PACK}    # bring along the Lumi plugin.
 	cp ${PACKDIR}/package.json ${INSTALLDIR}                # ensure the result is a proper NPM package.
-	cp -r ${PACKDIR}/node_modules ${INSTALLDIR}             # keep the links we installed.
+	cp -rL ${PACKDIR}/node_modules ${INSTALLDIR}            # copy the links we installed.
 	cd ${INSTALLDIR} && yarn link --force                   # make the pack easily available for devs.
 .PHONY: install
 
