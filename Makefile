@@ -20,9 +20,10 @@ ECHO=echo -e
 GOMETALINTERBIN=gometalinter
 GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 
-all: banner buildtools gen build test install
+default: banner buildtools gen build test install
 notest: banner buildtools gen build install
-.PHONY: all notest
+all: banner buildtools gen build install examples
+.PHONY: default notest all
 
 banner:
 	@$(ECHO) "\033[1;37m========================================\033[0m"
@@ -61,7 +62,7 @@ install:
 	cp -r ${PACKDIR}/.lumi/bin/* ${INSTALLDIR}              # copy the binary/metadata.
 	cp ${TFBRIDGE_BIN} ${INSTALLDIR}/${LUMIPLUG}-${PACK}    # bring along the Lumi plugin.
 	cp ${PACKDIR}/package.json ${INSTALLDIR}                # ensure the result is a proper NPM package.
-	cp -rL ${PACKDIR}/node_modules ${INSTALLDIR}            # copy the links we installed.
+	cp -RL ${PACKDIR}/node_modules ${INSTALLDIR}            # copy the links we installed.
 	cd ${INSTALLDIR} && yarn link --force                   # make the pack easily available for devs.
 .PHONY: install
 
@@ -74,3 +75,7 @@ clean:
 	rm -rf ${INSTALLDIR}
 .PHONY: clean
 
+examples:
+	@echo "\033[0;32mTEST EXAMPLES:\033[0m"
+	go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+.PHONY: examples
