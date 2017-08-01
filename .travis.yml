@@ -17,7 +17,7 @@ install:
     - git clone git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
     - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install_release.sh lumi HEAD ~/.lumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
-    - govendor sync
+    - govendor sync -v
     # Install the AWS Terraform plugin.
     - govendor install github.com/pulumi/terraform-provider-aws
 script:
