@@ -19,7 +19,7 @@ install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - govendor sync -v
     # Install the AWS Terraform plugin.
-    - govendor install github.com/terraform-providers/terraform-provider-aws
+    - go get -u -v github.com/terraform-providers/terraform-provider-aws
 script:
     - make all
 before_script:
