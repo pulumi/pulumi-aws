@@ -71,6 +71,18 @@ publish:
 	./scripts/publish.sh
 .PHONY: publish
 
+sync:
+	govendor sync -v
+.PHONY: sync
+
+updatedeps:
+	govendor init
+	govendor add +external
+	sed -i.bck '/\"origin\": ".*\/vendor/d' ./vendor/vendor.json
+	rm ./vendor/vendor.json.bck
+	govendor update +v
+.PHONY: updatedeps
+
 clean:
 	rm -rf ${INSTALLDIR}
 .PHONY: clean
