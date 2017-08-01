@@ -2,8 +2,9 @@ language: go
 go: 1.8.2
 sudo: true # give us 7.5GB and >2 bursted cores.
 before_install:
-    # Dep for Go dependency management.
-    - go get -v github.com/golang/dep/cmd/dep
+    # Govendor for Go dependency management.
+    - go get -v github.com/kardianos/govendor
+    - git config --global url."git@github.com:".insteadOf "https://github.com/"
     # Gometalinter for good Go linting/hygiene.
     - go get -v github.com/alecthomas/gometalinter
     - gometalinter --install
@@ -18,11 +19,9 @@ install:
     - go install github.com/terraform-providers/terraform-provider-aws
     # Clone the Lumi repo and use its script to fetch the latest installation packages.
     - git clone git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
-    - export LUMIVERSION=$(dep status --json | jq -c '.[] | select (.ProjectRoot == "github.com/pulumi/lumi") | .Revision' --raw-output)
-    - pushd ${GOPATH}/src/github.com/pulumi/lumi; git checkout ${LUMIVERSION}; popd
-    - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install_release.sh lumi ${LUMIVERSION} ~/.lumi
+    - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install_release.sh lumi HEAD ~/.lumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
-    - dep ensure
+    - make sync
 script:
     - make all
 before_script:
