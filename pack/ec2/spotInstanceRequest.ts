@@ -20,6 +20,7 @@ export class SpotInstanceRequest extends lumi.NamedResource implements SpotInsta
     public readonly ipv6AddressCount: number;
     public readonly ipv6Addresses: string[];
     public readonly keyName: string;
+    public readonly launchGroup?: string;
     public readonly monitoring?: boolean;
     public readonly networkInterface: { deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[];
     public /*out*/ readonly networkInterfaceId: string;
@@ -75,6 +76,7 @@ export class SpotInstanceRequest extends lumi.NamedResource implements SpotInsta
         this.ipv6AddressCount = args.ipv6AddressCount;
         this.ipv6Addresses = args.ipv6Addresses;
         this.keyName = args.keyName;
+        this.launchGroup = args.launchGroup;
         this.monitoring = args.monitoring;
         this.networkInterface = args.networkInterface;
         this.placementGroup = args.placementGroup;
@@ -112,6 +114,7 @@ export interface SpotInstanceRequestArgs {
     readonly ipv6AddressCount?: number;
     readonly ipv6Addresses?: string[];
     readonly keyName?: string;
+    readonly launchGroup?: string;
     readonly monitoring?: boolean;
     readonly networkInterface?: { deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[];
     readonly placementGroup?: string;

@@ -399,6 +399,12 @@
 			"revisionTime": "2017-06-27T23:09:38Z"
 		},
 		{
+			"checksumSHA1": "nOv/gD/OgiW6qN6Txgoo0w1k0Jc=",
+			"path": "github.com/aws/aws-sdk-go/service/iot",
+			"revision": "d187e501f592487c8eda9d3d75af3a2ca7a593d9",
+			"revisionTime": "2017-06-27T23:09:38Z"
+		},
+		{
 			"checksumSHA1": "KJuPA/SLv0fLME23SmxVP4410BE=",
 			"path": "github.com/aws/aws-sdk-go/service/kinesis",
 			"revision": "d187e501f592487c8eda9d3d75af3a2ca7a593d9",
@@ -971,170 +977,170 @@
 		{
 			"checksumSHA1": "MpwLvZvqLXo/gh57/4WsoycANAY=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/ast",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "mBmntXcfSNUPkRQj1aU+pdxxouQ=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/binder",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "Sti8BIXf8kk8bV0eLCiKKlFf0j0=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/core",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "1dg/HjT/Tf+wsqiN0UT/U60YPJ8=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/errors",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "BZZ7/ARd8t4tm8M7sfpiSMYEV1Y=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/metadata",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "oEwQfYyJ+W9W/2xDM7E9MBNt0nk=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/symbols",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "uUL4etuIj52Awar/7LBbnvSzj7s=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/types",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "UF/RW+w2vr8MqZ4R0Mv6XmrxkB8=",
 			"path": "github.com/pulumi/lumi/pkg/compiler/types/predef",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "QL4U0au7TK5vtcvKqvyzJKwgf84=",
 			"path": "github.com/pulumi/lumi/pkg/diag",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "u3JlwSgZK5RKmK6sPMAPi3a4WgQ=",
 			"path": "github.com/pulumi/lumi/pkg/diag/colors",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "Q44ljERUs9XxPOk6leM8vyu6+oM=",
 			"path": "github.com/pulumi/lumi/pkg/encoding",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "iibArsINXY3oKdjCc4EwCo+d4yg=",
 			"path": "github.com/pulumi/lumi/pkg/eval",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "SN+GZx0zQBlckIfL//FmXU4SdnM=",
 			"path": "github.com/pulumi/lumi/pkg/eval/rt",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "7rbTuWPdouxPr2Hq5RUkr6bT5/4=",
 			"path": "github.com/pulumi/lumi/pkg/integrationtesting",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "XehZMu7zP7KfapK4jczdRGgkQbw=",
 			"path": "github.com/pulumi/lumi/pkg/pack",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "EhGeUlq6XYqebiJKr7W+Im62k2k=",
 			"path": "github.com/pulumi/lumi/pkg/resource",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "VEmCxCG1A5BVIwIUZZjGbDP7O/g=",
 			"path": "github.com/pulumi/lumi/pkg/resource/plugin",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "9hGxB3XpAi2eePrJ679ij55PPZw=",
 			"path": "github.com/pulumi/lumi/pkg/resource/provider",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "tzEQfue8ZjPzEMLy/3u7j0cVblI=",
 			"path": "github.com/pulumi/lumi/pkg/tokens",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "C7tF1Hy2TBFhRg0ANePsdQILm10=",
 			"path": "github.com/pulumi/lumi/pkg/tools",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "RJdvvbBK+n/4Dfc/56bcSWMsHUU=",
 			"path": "github.com/pulumi/lumi/pkg/util/cmdutil",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "qeBHzDP83foboRy/1T1cESsRKZs=",
 			"path": "github.com/pulumi/lumi/pkg/util/contract",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "PQ3BewhSbUGqcxtmoLqxkBL4ppE=",
 			"path": "github.com/pulumi/lumi/pkg/util/mapper",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "UCGsCU7n0gDgSxpcn7y6suMMOq0=",
 			"path": "github.com/pulumi/lumi/pkg/util/rpcutil",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "w5gvNncKMUdu67MIqPpwOLZ0qTs=",
 			"path": "github.com/pulumi/lumi/pkg/workspace",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "4jF1L/eCpzAGTczR/FTJ//8/lo0=",
 			"path": "github.com/pulumi/lumi/sdk/go/pkg/lumirpc",
-			"revision": "f939651c64409fb168911f1271de5b86840e4602",
-			"revisionTime": "2017-08-01T13:23:14Z"
+			"revision": "ceec05f627af3711b27700201d1f0385edae09d3",
+			"revisionTime": "2017-08-01T22:48:08Z"
 		},
 		{
 			"checksumSHA1": "+uKX0y8Jykr+G7HESD6KxrfA61Y=",
 			"path": "github.com/pulumi/terraform-bridge/pkg/tfbridge",
-			"revision": "09ce7a257630c0a29a1fdd24829d3358c8a7311d",
-			"revisionTime": "2017-08-01T14:43:03Z"
+			"revision": "60045d64715ad94615ed58f7303113d869f33363",
+			"revisionTime": "2017-08-01T22:36:05Z"
 		},
 		{
 			"checksumSHA1": "cocJN6640/iUNHtfbN3xyAUQ4AA=",
 			"path": "github.com/pulumi/terraform-bridge/pkg/tfgen",
-			"revision": "09ce7a257630c0a29a1fdd24829d3358c8a7311d",
-			"revisionTime": "2017-08-01T14:43:03Z"
+			"revision": "60045d64715ad94615ed58f7303113d869f33363",
+			"revisionTime": "2017-08-01T22:36:05Z"
 		},
 		{
 			"checksumSHA1": "GTSusTEcXS+e4bVB9GW8C9kXpSI=",
@@ -1167,12 +1173,13 @@
 			"revisionTime": "2017-01-30T11:31:45Z"
 		},
 		{
-			"checksumSHA1": "co3SBWpBAfuyRqOLCUOm/RySj+A=",
-            "origin": "github.com/pulumi/terraform-provider-aws/aws",
+			"checksumSHA1": "7v9YKJziw4IhrTwZ3TvtITH+y3U=",
+			"origin": "github.com/pulumi/terraform-provider-aws/aws",
 			"path": "github.com/terraform-providers/terraform-provider-aws/aws",
-			"revision": "aec76dad824474a8b5ea9186c254656fa2062c9c",
-			"revisionTime": "2017-07-10T17:38:50Z",
-			"version": "pulumi-master"
+			"revision": "2a4120b0be27ac23d1c76640ac2257afd68a599b",
+			"revisionTime": "2017-07-21T15:36:26Z",
+			"version": "pulumi-master",
+			"versionExact": "pulumi-master"
 		},
 		{
 			"checksumSHA1": "UWjVYmoHlIfHzVIskELHiJQtMOI=",

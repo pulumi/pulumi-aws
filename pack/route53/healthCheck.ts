@@ -18,6 +18,7 @@ export class HealthCheck extends lumi.NamedResource implements HealthCheckArgs {
     public readonly measureLatency?: boolean;
     public readonly port?: number;
     public readonly referenceName?: string;
+    public readonly regions?: string[];
     public readonly requestInterval?: number;
     public readonly resourcePath?: string;
     public readonly searchString?: string;
@@ -47,6 +48,7 @@ export class HealthCheck extends lumi.NamedResource implements HealthCheckArgs {
         this.measureLatency = args.measureLatency;
         this.port = args.port;
         this.referenceName = args.referenceName;
+        this.regions = args.regions;
         this.requestInterval = args.requestInterval;
         this.resourcePath = args.resourcePath;
         this.searchString = args.searchString;
@@ -72,6 +74,7 @@ export interface HealthCheckArgs {
     readonly measureLatency?: boolean;
     readonly port?: number;
     readonly referenceName?: string;
+    readonly regions?: string[];
     readonly requestInterval?: number;
     readonly resourcePath?: string;
     readonly searchString?: string;

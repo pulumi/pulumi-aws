@@ -10,6 +10,7 @@ export class ClusterInstance extends lumi.NamedResource implements ClusterInstan
     public readonly clusterIdentifier: string;
     public readonly dbParameterGroupName: string;
     public readonly dbSubnetGroupName: string;
+    public /*out*/ readonly dbiResourceId: string;
     public /*out*/ readonly endpoint: string;
     public readonly identifier: string;
     public readonly identifierPrefix: string;
