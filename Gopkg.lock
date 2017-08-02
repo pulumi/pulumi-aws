@@ -10,8 +10,8 @@
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
   packages = ["aws","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/ec2query","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restjson","private/protocol/restxml","private/protocol/xml/xmlutil","private/signer/v2","service/acm","service/apigateway","service/applicationautoscaling","service/autoscaling","service/cloudformation","service/cloudfront","service/cloudtrail","service/cloudwatch","service/cloudwatchevents","service/cloudwatchlogs","service/codebuild","service/codecommit","service/codedeploy","service/codepipeline","service/cognitoidentity","service/configservice","service/databasemigrationservice","service/devicefarm","service/directoryservice","service/dynamodb","service/ec2","service/ecr","service/ecs","service/efs","service/elasticache","service/elasticbeanstalk","service/elasticsearchservice","service/elastictranscoder","service/elb","service/elbv2","service/emr","service/firehose","service/glacier","service/iam","service/inspector","service/iot","service/kinesis","service/kms","service/lambda","service/lightsail","service/opsworks","service/rds","service/redshift","service/route53","service/s3","service/ses","service/sfn","service/simpledb","service/sns","service/sqs","service/ssm","service/sts","service/waf","service/wafregional"]
-  revision = "5e436e55ac5eddc739f26a2a209b3f4248ee8e0e"
-  version = "v1.10.18"
+  revision = "b33b08175d12b795daa7726c5577b39d06a2551c"
+  version = "v1.10.20"
 
 [[projects]]
   branch = "master"
@@ -225,15 +225,15 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/pulumi/lumi"
+  name = "github.com/pulumi/pulumi-fabric"
   packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/integrationtesting","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
-  revision = "5fb014e53c9bc1084042b673edc6fcfd8af766b2"
+  revision = "35aa6b755999f963922e7acf99fb3b1de6a1d419"
 
 [[projects]]
   branch = "master"
-  name = "github.com/pulumi/terraform-bridge"
+  name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "f2eb1a256378d89f0d90fb4822962dddbeb25ab9"
+  revision = "55ff610d33f746d6a25ded7d8940186aeb7bb123"
 
 [[projects]]
   branch = "master"
@@ -282,7 +282,7 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["bcrypt","blowfish","cast5","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","ssh/terminal"]
-  revision = "558b6879de74bc843225cde5686419267ff707ca"
+  revision = "358f15eacb587b056fc93273b930314a5cda12fe"
 
 [[projects]]
   branch = "master"
@@ -294,7 +294,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "0f826bdd13b500be0f1d4004938ad978fcc6031e"
+  revision = "e312636bdaa2fac4f0acde9d17ab9fbad2b4ad10"
 
 [[projects]]
   branch = "master"
@@ -323,6 +323,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "12fa4ac423b31d2a0c432433e43574a35ba804227ac8f570c04dde03ac96fd27"
+  inputs-digest = "b309c063b42e8855d3710608e90491e9589412ad1115b6ae00f5ffba9bef4cf4"
   solver-name = "gps-cdcl"
   solver-version = 1

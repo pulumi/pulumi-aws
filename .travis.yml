@@ -13,8 +13,8 @@ before_install:
     - pip install --upgrade --user awscli
 install:
     # Clone the Lumi repo and use its script to fetch the latest installation packages.
-    - git clone git@github.com:pulumi/lumi ${GOPATH}/src/github.com/pulumi/lumi
-    - ${GOPATH}/src/github.com/pulumi/lumi/scripts/install_release.sh lumi HEAD ~/.lumi
+    - git clone git@github.com:pulumi/pulumi-fabric ${GOPATH}/src/github.com/pulumi/pulumi-fabric
+    - ${GOPATH}/src/github.com/pulumi/pulumi-fabric/scripts/install_release.sh lumi HEAD ~/.lumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
     # Finally, clone and install the Pulumi fork of the AWS Terraform provider.  This needs to be done explicitly

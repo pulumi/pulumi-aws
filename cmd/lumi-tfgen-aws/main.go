@@ -3,9 +3,9 @@
 package main
 
 import (
-	"github.com/pulumi/terraform-bridge/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform/pkg/tfgen"
 
-	"github.com/pulumi/aws"
+	"github.com/pulumi/pulumi-aws"
 )
 
 func main() {

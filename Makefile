@@ -4,7 +4,7 @@ SHELL=/bin/bash
 PACK    =aws
 PACKDIR =pack
 PACKNAME=Amazon Web Services (AWS)
-PROJECT =github.com/pulumi/aws
+PROJECT =github.com/pulumi/pulumi-aws
 
 TFGEN           = lumi-tfgen-${PACK}
 TFBRIDGE        = lumi-tfbridge-${PACK}

@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pulumi/lumi/pkg/integrationtesting"
+	"github.com/pulumi/pulumi-fabric/pkg/integrationtesting"
 )
 
 func TestExamples(t *testing.T) {
@@ -31,7 +31,7 @@ func TestExamples(t *testing.T) {
 			path.Join(cwd, "minimal"),
 			path.Join(cwd, "webserver"),
 			path.Join(cwd, "webserver-comp"),
-			// TODO[pulumi/aws#5] Reenable this test once unblocked.
+			// TODO[pulumi/pulumi-aws#5]: Reenable this test once unblocked.
 			// path.Join(cwd, "beanstalk"),
 			path.Join(cwd, "cpuwatch"),
 		}

@@ -22,13 +22,18 @@
 
 [[override]]
   branch = "master"
-  name = "github.com/pulumi/lumi"
+  name = "github.com/pulumi/pulumi-fabric"
 
 [[override]]
   branch = "master"
-  name = "github.com/pulumi/terraform-bridge"
+  name = "github.com/pulumi/pulumi-terraform"
+
+[[override]]
+  name = "github.com/hashicorp/terraform"
+  version = "0.10.0-rc1"
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"
   source = "github.com/pulumi/terraform-provider-aws"
   branch = "pulumi-master"
+
