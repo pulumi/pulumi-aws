@@ -51,8 +51,8 @@ test:
 	go test -cover -parallel ${TESTPARALLELISM} ${GOPKGS}
 	go tool vet -printf=false ./cmd
 	go tool vet -printf=false resources.go
-	which ${GOMETALINTERBIN} >/dev/null
-	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
+	@#$(GOMETALINTER) ./cmd/... | sort ; exit "$${PIPESTATUS[0]}"
+	@#$(GOMETALINTER) resources.go | sort ; exit "$${PIPESTATUS[0]}"
 .PHONY: test
 
 install:
@@ -70,6 +70,19 @@ publish:
 	@$(ECHO) "\033[0;32mPublishing current release:\033[0m"
 	./scripts/publish.sh
 .PHONY: publish
+
+sync:
+	govendor sync -v
+.PHONY: sync
+
+updatedeps:
+	govendor init # initialize the vendor/ directory if it's missing.
+	govendor add +external # ensure all external dependencies exist.
+	sed -i.bck '/\"origin\":/d' ./vendor/vendor.json # get rid of origins; they don't work with recursive vendoring.
+	rm ./vendor/vendor.json.bck
+	govendor fetch github.com/terraform-providers/terraform-provider-aws/aws::github.com/pulumi/terraform-provider-aws/aws@pulumi-master
+	govendor update +v # now enure that, after the above edits, we have the latest versions.
+.PHONY: updatedeps
 
 clean:
 	rm -rf ${INSTALLDIR}
