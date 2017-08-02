@@ -83,7 +83,7 @@ class FuncsForClosure {
             } else if (envEntry.obj !== undefined) {
                 envObj[key] = envObjToString(this.envFromClosureEnvironment(envEntry.obj));
             } else {
-                // TODO[pulumi/lumi#239]: For now we will skip serialziing when the captured JSON object is
+                // TODO[pulumi/pulumi-fabric#239]: For now we will skip serialziing when the captured JSON object is
                 // null/undefined. This is not technically correct, as it will cause references to these to
                 // fail instead of return undefined.
             }
