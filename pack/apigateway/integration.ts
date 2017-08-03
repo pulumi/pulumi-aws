@@ -32,32 +32,32 @@ export class Integration extends lumi.NamedResource implements IntegrationArgs {
 
     constructor(name: string, args: IntegrationArgs) {
         super(name);
-        this.cacheKeyParameters = args.cacheKeyParameters;
-        this.cacheNamespace = args.cacheNamespace;
-        this.contentHandling = args.contentHandling;
-        this.credentials = args.credentials;
+        this.cacheKeyParameters = <any>args.cacheKeyParameters;
+        this.cacheNamespace = <any>args.cacheNamespace;
+        this.contentHandling = <any>args.contentHandling;
+        this.credentials = <any>args.credentials;
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }
-        this.httpMethod = args.httpMethod;
-        this.integrationHttpMethod = args.integrationHttpMethod;
-        this.passthroughBehavior = args.passthroughBehavior;
-        this.requestParameters = args.requestParameters;
-        this.requestParametersInJson = args.requestParametersInJson;
-        this.requestTemplates = args.requestTemplates;
+        this.httpMethod = <any>args.httpMethod;
+        this.integrationHttpMethod = <any>args.integrationHttpMethod;
+        this.passthroughBehavior = <any>args.passthroughBehavior;
+        this.requestParameters = <any>args.requestParameters;
+        this.requestParametersInJson = <any>args.requestParametersInJson;
+        this.requestTemplates = <any>args.requestTemplates;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
+        this.resourceId = <any>args.resourceId;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
+        this.restApi = <any>args.restApi;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
-        this.uri = args.uri;
+        this.type = <any>args.type;
+        this.uri = <any>args.uri;
     }
 }
 

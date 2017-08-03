@@ -22,11 +22,11 @@ export class MainRouteTableAssociation extends lumi.NamedResource implements Mai
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }
-        this.routeTableId = args.routeTableId;
+        this.routeTableId = <any>args.routeTableId;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

@@ -24,13 +24,13 @@ export class SecurityGroup extends lumi.NamedResource implements SecurityGroupAr
 
     constructor(name: string, args: SecurityGroupArgs) {
         super(name);
-        this.description = args.description;
-        this.egress = args.egress;
-        this.ingress = args.ingress;
-        this.securityGroupName = args.securityGroupName;
-        this.namePrefix = args.namePrefix;
-        this.tags = args.tags;
-        this.vpcId = args.vpcId;
+        this.description = <any>args.description;
+        this.egress = <any>args.egress;
+        this.ingress = <any>args.ingress;
+        this.securityGroupName = <any>args.securityGroupName;
+        this.namePrefix = <any>args.namePrefix;
+        this.tags = <any>args.tags;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

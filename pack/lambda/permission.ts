@@ -13,7 +13,7 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
     public readonly qualifier?: string;
     public readonly sourceAccount?: string;
     public readonly sourceArn?: string;
-    public readonly statementId?: string;
+    public readonly statementId: string;
 
     public static get(id: lumi.ID): Permission {
         return <any>undefined; // functionality provided by the runtime
@@ -28,19 +28,19 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
         if (lumirt.defaultIfComputed(args.action, "") === undefined) {
             throw new Error("Property argument 'action' is required, but was missing");
         }
-        this.action = args.action;
+        this.action = <any>args.action;
         if (lumirt.defaultIfComputed(args.function, "") === undefined) {
             throw new Error("Property argument 'function' is required, but was missing");
         }
-        this.function = args.function;
+        this.function = <any>args.function;
         if (lumirt.defaultIfComputed(args.principal, "") === undefined) {
             throw new Error("Property argument 'principal' is required, but was missing");
         }
-        this.principal = args.principal;
-        this.qualifier = args.qualifier;
-        this.sourceAccount = args.sourceAccount;
-        this.sourceArn = args.sourceArn;
-        this.statementId = args.statementId;
+        this.principal = <any>args.principal;
+        this.qualifier = <any>args.qualifier;
+        this.sourceAccount = <any>args.sourceAccount;
+        this.sourceArn = <any>args.sourceArn;
+        this.statementId = <any>args.statementId;
     }
 }
 

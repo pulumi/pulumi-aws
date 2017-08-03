@@ -20,10 +20,10 @@ export class FileSystem extends lumi.NamedResource implements FileSystemArgs {
 
     constructor(name: string, args: FileSystemArgs) {
         super(name);
-        this.creationToken = args.creationToken;
-        this.performanceMode = args.performanceMode;
-        this.referenceName = args.referenceName;
-        this.tags = args.tags;
+        this.creationToken = <any>args.creationToken;
+        this.performanceMode = <any>args.performanceMode;
+        this.referenceName = <any>args.referenceName;
+        this.tags = <any>args.tags;
     }
 }
 

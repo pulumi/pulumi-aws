@@ -21,11 +21,11 @@ export class NetworkInterfaceSecurityGroupAttachment extends lumi.NamedResource 
         if (lumirt.defaultIfComputed(args.networkInterfaceId, "") === undefined) {
             throw new Error("Property argument 'networkInterfaceId' is required, but was missing");
         }
-        this.networkInterfaceId = args.networkInterfaceId;
+        this.networkInterfaceId = <any>args.networkInterfaceId;
         if (lumirt.defaultIfComputed(args.securityGroupId, "") === undefined) {
             throw new Error("Property argument 'securityGroupId' is required, but was missing");
         }
-        this.securityGroupId = args.securityGroupId;
+        this.securityGroupId = <any>args.securityGroupId;
     }
 }
 

@@ -27,27 +27,27 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
 
     constructor(name: string, args: IntegrationResponseArgs) {
         super(name);
-        this.contentHandling = args.contentHandling;
+        this.contentHandling = <any>args.contentHandling;
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }
-        this.httpMethod = args.httpMethod;
+        this.httpMethod = <any>args.httpMethod;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
-        this.responseParameters = args.responseParameters;
-        this.responseParametersInJson = args.responseParametersInJson;
-        this.responseTemplates = args.responseTemplates;
+        this.resourceId = <any>args.resourceId;
+        this.responseParameters = <any>args.responseParameters;
+        this.responseParametersInJson = <any>args.responseParametersInJson;
+        this.responseTemplates = <any>args.responseTemplates;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
-        this.selectionPattern = args.selectionPattern;
+        this.restApi = <any>args.restApi;
+        this.selectionPattern = <any>args.selectionPattern;
         if (lumirt.defaultIfComputed(args.statusCode, "") === undefined) {
             throw new Error("Property argument 'statusCode' is required, but was missing");
         }
-        this.statusCode = args.statusCode;
+        this.statusCode = <any>args.statusCode;
     }
 }
 

@@ -23,15 +23,15 @@ export class OpenIdConnectProvider extends lumi.NamedResource implements OpenIdC
         if (lumirt.defaultIfComputed(args.clientIdList, "") === undefined) {
             throw new Error("Property argument 'clientIdList' is required, but was missing");
         }
-        this.clientIdList = args.clientIdList;
+        this.clientIdList = <any>args.clientIdList;
         if (lumirt.defaultIfComputed(args.thumbprintList, "") === undefined) {
             throw new Error("Property argument 'thumbprintList' is required, but was missing");
         }
-        this.thumbprintList = args.thumbprintList;
+        this.thumbprintList = <any>args.thumbprintList;
         if (lumirt.defaultIfComputed(args.url, "") === undefined) {
             throw new Error("Property argument 'url' is required, but was missing");
         }
-        this.url = args.url;
+        this.url = <any>args.url;
     }
 }
 

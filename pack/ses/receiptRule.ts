@@ -10,7 +10,7 @@ export class ReceiptRule extends lumi.NamedResource implements ReceiptRuleArgs {
     public readonly bounceAction?: { message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[];
     public readonly enabled: boolean;
     public readonly lambdaAction?: { functionArn: string, invocationType: string, position: number, topicArn?: string }[];
-    public readonly receiptRuleName?: string;
+    public readonly receiptRuleName: string;
     public readonly recipients?: string[];
     public readonly ruleSetName: string;
     public readonly s3Action?: { bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[];
@@ -30,23 +30,23 @@ export class ReceiptRule extends lumi.NamedResource implements ReceiptRuleArgs {
 
     constructor(name: string, args: ReceiptRuleArgs) {
         super(name);
-        this.addHeaderAction = args.addHeaderAction;
-        this.after = args.after;
-        this.bounceAction = args.bounceAction;
-        this.enabled = args.enabled;
-        this.lambdaAction = args.lambdaAction;
-        this.receiptRuleName = args.receiptRuleName;
-        this.recipients = args.recipients;
+        this.addHeaderAction = <any>args.addHeaderAction;
+        this.after = <any>args.after;
+        this.bounceAction = <any>args.bounceAction;
+        this.enabled = <any>args.enabled;
+        this.lambdaAction = <any>args.lambdaAction;
+        this.receiptRuleName = <any>args.receiptRuleName;
+        this.recipients = <any>args.recipients;
         if (lumirt.defaultIfComputed(args.ruleSetName, "") === undefined) {
             throw new Error("Property argument 'ruleSetName' is required, but was missing");
         }
-        this.ruleSetName = args.ruleSetName;
-        this.s3Action = args.s3Action;
-        this.scanEnabled = args.scanEnabled;
-        this.snsAction = args.snsAction;
-        this.stopAction = args.stopAction;
-        this.tlsPolicy = args.tlsPolicy;
-        this.workmailAction = args.workmailAction;
+        this.ruleSetName = <any>args.ruleSetName;
+        this.s3Action = <any>args.s3Action;
+        this.scanEnabled = <any>args.scanEnabled;
+        this.snsAction = <any>args.snsAction;
+        this.stopAction = <any>args.stopAction;
+        this.tlsPolicy = <any>args.tlsPolicy;
+        this.workmailAction = <any>args.workmailAction;
     }
 }
 
@@ -55,7 +55,7 @@ export interface ReceiptRuleArgs {
     readonly after?: string;
     readonly bounceAction?: { message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[];
     readonly enabled?: boolean;
-    readonly lambdaAction?: { functionArn: string, invocationType: string, position: number, topicArn?: string }[];
+    readonly lambdaAction?: { functionArn: string, invocationType?: string, position: number, topicArn?: string }[];
     readonly receiptRuleName?: string;
     readonly recipients?: string[];
     readonly ruleSetName: string;

@@ -21,11 +21,11 @@ export class VpnConnectionRoute extends lumi.NamedResource implements VpnConnect
         if (lumirt.defaultIfComputed(args.destinationCidrBlock, "") === undefined) {
             throw new Error("Property argument 'destinationCidrBlock' is required, but was missing");
         }
-        this.destinationCidrBlock = args.destinationCidrBlock;
+        this.destinationCidrBlock = <any>args.destinationCidrBlock;
         if (lumirt.defaultIfComputed(args.vpnConnectionId, "") === undefined) {
             throw new Error("Property argument 'vpnConnectionId' is required, but was missing");
         }
-        this.vpnConnectionId = args.vpnConnectionId;
+        this.vpnConnectionId = <any>args.vpnConnectionId;
     }
 }
 

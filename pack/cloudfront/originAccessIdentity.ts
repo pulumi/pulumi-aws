@@ -22,7 +22,7 @@ export class OriginAccessIdentity extends lumi.NamedResource implements OriginAc
 
     constructor(name: string, args: OriginAccessIdentityArgs) {
         super(name);
-        this.comment = args.comment;
+        this.comment = <any>args.comment;
     }
 }
 

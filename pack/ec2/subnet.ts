@@ -24,19 +24,19 @@ export class Subnet extends lumi.NamedResource implements SubnetArgs {
 
     constructor(name: string, args: SubnetArgs) {
         super(name);
-        this.assignIpv6AddressOnCreation = args.assignIpv6AddressOnCreation;
-        this.availabilityZone = args.availabilityZone;
+        this.assignIpv6AddressOnCreation = <any>args.assignIpv6AddressOnCreation;
+        this.availabilityZone = <any>args.availabilityZone;
         if (lumirt.defaultIfComputed(args.cidrBlock, "") === undefined) {
             throw new Error("Property argument 'cidrBlock' is required, but was missing");
         }
-        this.cidrBlock = args.cidrBlock;
-        this.ipv6CidrBlock = args.ipv6CidrBlock;
-        this.mapPublicIpOnLaunch = args.mapPublicIpOnLaunch;
-        this.tags = args.tags;
+        this.cidrBlock = <any>args.cidrBlock;
+        this.ipv6CidrBlock = <any>args.ipv6CidrBlock;
+        this.mapPublicIpOnLaunch = <any>args.mapPublicIpOnLaunch;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

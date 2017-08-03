@@ -9,7 +9,7 @@ export class Alias extends lumi.NamedResource implements AliasArgs {
     public readonly description?: string;
     public readonly functionName: string;
     public readonly functionVersion: string;
-    public readonly aliasName?: string;
+    public readonly aliasName: string;
 
     public static get(id: lumi.ID): Alias {
         return <any>undefined; // functionality provided by the runtime
@@ -21,16 +21,16 @@ export class Alias extends lumi.NamedResource implements AliasArgs {
 
     constructor(name: string, args: AliasArgs) {
         super(name);
-        this.description = args.description;
+        this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.functionName, "") === undefined) {
             throw new Error("Property argument 'functionName' is required, but was missing");
         }
-        this.functionName = args.functionName;
+        this.functionName = <any>args.functionName;
         if (lumirt.defaultIfComputed(args.functionVersion, "") === undefined) {
             throw new Error("Property argument 'functionVersion' is required, but was missing");
         }
-        this.functionVersion = args.functionVersion;
-        this.aliasName = args.aliasName;
+        this.functionVersion = <any>args.functionVersion;
+        this.aliasName = <any>args.aliasName;
     }
 }
 

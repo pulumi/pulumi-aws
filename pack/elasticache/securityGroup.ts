@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class SecurityGroup extends lumi.NamedResource implements SecurityGroupArgs {
     public readonly description?: string;
-    public readonly securityGroupName?: string;
+    public readonly securityGroupName: string;
     public readonly securityGroupNames: string[];
 
     public static get(id: lumi.ID): SecurityGroup {
@@ -19,12 +19,12 @@ export class SecurityGroup extends lumi.NamedResource implements SecurityGroupAr
 
     constructor(name: string, args: SecurityGroupArgs) {
         super(name);
-        this.description = args.description;
-        this.securityGroupName = args.securityGroupName;
+        this.description = <any>args.description;
+        this.securityGroupName = <any>args.securityGroupName;
         if (lumirt.defaultIfComputed(args.securityGroupNames, "") === undefined) {
             throw new Error("Property argument 'securityGroupNames' is required, but was missing");
         }
-        this.securityGroupNames = args.securityGroupNames;
+        this.securityGroupNames = <any>args.securityGroupNames;
     }
 }
 

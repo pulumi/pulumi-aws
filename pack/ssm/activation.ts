@@ -9,7 +9,7 @@ export class Activation extends lumi.NamedResource implements ActivationArgs {
     public readonly expirationDate?: string;
     public /*out*/ readonly expired: string;
     public readonly iamRole: string;
-    public readonly activationName?: string;
+    public readonly activationName: string;
     public /*out*/ readonly registrationCount: number;
     public readonly registrationLimit?: number;
 
@@ -23,14 +23,14 @@ export class Activation extends lumi.NamedResource implements ActivationArgs {
 
     constructor(name: string, args: ActivationArgs) {
         super(name);
-        this.description = args.description;
-        this.expirationDate = args.expirationDate;
+        this.description = <any>args.description;
+        this.expirationDate = <any>args.expirationDate;
         if (lumirt.defaultIfComputed(args.iamRole, "") === undefined) {
             throw new Error("Property argument 'iamRole' is required, but was missing");
         }
-        this.iamRole = args.iamRole;
-        this.activationName = args.activationName;
-        this.registrationLimit = args.registrationLimit;
+        this.iamRole = <any>args.iamRole;
+        this.activationName = <any>args.activationName;
+        this.registrationLimit = <any>args.registrationLimit;
     }
 }
 

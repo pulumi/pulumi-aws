@@ -21,10 +21,10 @@ export class LogGroup extends lumi.NamedResource implements LogGroupArgs {
 
     constructor(name: string, args: LogGroupArgs) {
         super(name);
-        this.logGroupName = args.logGroupName;
-        this.namePrefix = args.namePrefix;
-        this.retentionInDays = args.retentionInDays;
-        this.tags = args.tags;
+        this.logGroupName = <any>args.logGroupName;
+        this.namePrefix = <any>args.namePrefix;
+        this.retentionInDays = <any>args.retentionInDays;
+        this.tags = <any>args.tags;
     }
 }
 

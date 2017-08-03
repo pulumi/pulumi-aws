@@ -27,17 +27,17 @@ export class EventTarget extends lumi.NamedResource implements EventTargetArgs {
         if (lumirt.defaultIfComputed(args.arn, "") === undefined) {
             throw new Error("Property argument 'arn' is required, but was missing");
         }
-        this.arn = args.arn;
-        this.ecsTarget = args.ecsTarget;
-        this.input = args.input;
-        this.inputPath = args.inputPath;
-        this.roleArn = args.roleArn;
+        this.arn = <any>args.arn;
+        this.ecsTarget = <any>args.ecsTarget;
+        this.input = <any>args.input;
+        this.inputPath = <any>args.inputPath;
+        this.roleArn = <any>args.roleArn;
         if (lumirt.defaultIfComputed(args.rule, "") === undefined) {
             throw new Error("Property argument 'rule' is required, but was missing");
         }
-        this.rule = args.rule;
-        this.runCommandTargets = args.runCommandTargets;
-        this.targetId = args.targetId;
+        this.rule = <any>args.rule;
+        this.runCommandTargets = <any>args.runCommandTargets;
+        this.targetId = <any>args.targetId;
     }
 }
 

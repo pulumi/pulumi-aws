@@ -24,19 +24,19 @@ export class ListenerRule extends lumi.NamedResource implements ListenerRuleArgs
         if (lumirt.defaultIfComputed(args.action, "") === undefined) {
             throw new Error("Property argument 'action' is required, but was missing");
         }
-        this.action = args.action;
+        this.action = <any>args.action;
         if (lumirt.defaultIfComputed(args.condition, "") === undefined) {
             throw new Error("Property argument 'condition' is required, but was missing");
         }
-        this.condition = args.condition;
+        this.condition = <any>args.condition;
         if (lumirt.defaultIfComputed(args.listenerArn, "") === undefined) {
             throw new Error("Property argument 'listenerArn' is required, but was missing");
         }
-        this.listenerArn = args.listenerArn;
+        this.listenerArn = <any>args.listenerArn;
         if (lumirt.defaultIfComputed(args.priority, "") === undefined) {
             throw new Error("Property argument 'priority' is required, but was missing");
         }
-        this.priority = args.priority;
+        this.priority = <any>args.priority;
     }
 }
 

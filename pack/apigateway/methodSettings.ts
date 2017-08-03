@@ -25,19 +25,19 @@ export class MethodSettings extends lumi.NamedResource implements MethodSettings
         if (lumirt.defaultIfComputed(args.methodPath, "") === undefined) {
             throw new Error("Property argument 'methodPath' is required, but was missing");
         }
-        this.methodPath = args.methodPath;
+        this.methodPath = <any>args.methodPath;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
+        this.restApi = <any>args.restApi;
         if (lumirt.defaultIfComputed(args.settings, "") === undefined) {
             throw new Error("Property argument 'settings' is required, but was missing");
         }
-        this.settings = args.settings;
+        this.settings = <any>args.settings;
         if (lumirt.defaultIfComputed(args.stageName, "") === undefined) {
             throw new Error("Property argument 'stageName' is required, but was missing");
         }
-        this.stageName = args.stageName;
+        this.stageName = <any>args.stageName;
     }
 }
 

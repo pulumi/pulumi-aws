@@ -25,7 +25,7 @@ export class RailsAppLayer extends lumi.NamedResource implements RailsAppLayerAr
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
     public readonly manageBundler?: boolean;
-    public readonly railsAppLayerName?: string;
+    public readonly railsAppLayerName: string;
     public readonly passengerVersion?: string;
     public readonly rubyVersion?: string;
     public readonly rubygemsVersion?: string;
@@ -43,35 +43,35 @@ export class RailsAppLayer extends lumi.NamedResource implements RailsAppLayerAr
 
     constructor(name: string, args: RailsAppLayerArgs) {
         super(name);
-        this.appServer = args.appServer;
-        this.autoAssignElasticIps = args.autoAssignElasticIps;
-        this.autoAssignPublicIps = args.autoAssignPublicIps;
-        this.autoHealing = args.autoHealing;
-        this.bundlerVersion = args.bundlerVersion;
-        this.customConfigureRecipes = args.customConfigureRecipes;
-        this.customDeployRecipes = args.customDeployRecipes;
-        this.customInstanceProfileArn = args.customInstanceProfileArn;
-        this.customJson = args.customJson;
-        this.customSecurityGroupIds = args.customSecurityGroupIds;
-        this.customSetupRecipes = args.customSetupRecipes;
-        this.customShutdownRecipes = args.customShutdownRecipes;
-        this.customUndeployRecipes = args.customUndeployRecipes;
-        this.drainElbOnShutdown = args.drainElbOnShutdown;
-        this.ebsVolume = args.ebsVolume;
-        this.elasticLoadBalancer = args.elasticLoadBalancer;
-        this.installUpdatesOnBoot = args.installUpdatesOnBoot;
-        this.instanceShutdownTimeout = args.instanceShutdownTimeout;
-        this.manageBundler = args.manageBundler;
-        this.railsAppLayerName = args.railsAppLayerName;
-        this.passengerVersion = args.passengerVersion;
-        this.rubyVersion = args.rubyVersion;
-        this.rubygemsVersion = args.rubygemsVersion;
+        this.appServer = <any>args.appServer;
+        this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
+        this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
+        this.autoHealing = <any>args.autoHealing;
+        this.bundlerVersion = <any>args.bundlerVersion;
+        this.customConfigureRecipes = <any>args.customConfigureRecipes;
+        this.customDeployRecipes = <any>args.customDeployRecipes;
+        this.customInstanceProfileArn = <any>args.customInstanceProfileArn;
+        this.customJson = <any>args.customJson;
+        this.customSecurityGroupIds = <any>args.customSecurityGroupIds;
+        this.customSetupRecipes = <any>args.customSetupRecipes;
+        this.customShutdownRecipes = <any>args.customShutdownRecipes;
+        this.customUndeployRecipes = <any>args.customUndeployRecipes;
+        this.drainElbOnShutdown = <any>args.drainElbOnShutdown;
+        this.ebsVolume = <any>args.ebsVolume;
+        this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
+        this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
+        this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
+        this.manageBundler = <any>args.manageBundler;
+        this.railsAppLayerName = <any>args.railsAppLayerName;
+        this.passengerVersion = <any>args.passengerVersion;
+        this.rubyVersion = <any>args.rubyVersion;
+        this.rubygemsVersion = <any>args.rubygemsVersion;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
-        this.stackId = args.stackId;
-        this.systemPackages = args.systemPackages;
-        this.useEbsOptimizedInstances = args.useEbsOptimizedInstances;
+        this.stackId = <any>args.stackId;
+        this.systemPackages = <any>args.systemPackages;
+        this.useEbsOptimizedInstances = <any>args.useEbsOptimizedInstances;
     }
 }
 

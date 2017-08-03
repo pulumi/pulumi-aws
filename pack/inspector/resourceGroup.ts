@@ -21,7 +21,7 @@ export class ResourceGroup extends lumi.NamedResource implements ResourceGroupAr
         if (lumirt.defaultIfComputed(args.tags, "") === undefined) {
             throw new Error("Property argument 'tags' is required, but was missing");
         }
-        this.tags = args.tags;
+        this.tags = <any>args.tags;
     }
 }
 

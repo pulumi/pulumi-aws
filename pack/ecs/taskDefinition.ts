@@ -27,15 +27,15 @@ export class TaskDefinition extends lumi.NamedResource implements TaskDefinition
         if (lumirt.defaultIfComputed(args.containerDefinitions, "") === undefined) {
             throw new Error("Property argument 'containerDefinitions' is required, but was missing");
         }
-        this.containerDefinitions = args.containerDefinitions;
+        this.containerDefinitions = <any>args.containerDefinitions;
         if (lumirt.defaultIfComputed(args.family, "") === undefined) {
             throw new Error("Property argument 'family' is required, but was missing");
         }
-        this.family = args.family;
-        this.networkMode = args.networkMode;
-        this.placementConstraints = args.placementConstraints;
-        this.taskRoleArn = args.taskRoleArn;
-        this.volume = args.volume;
+        this.family = <any>args.family;
+        this.networkMode = <any>args.networkMode;
+        this.placementConstraints = <any>args.placementConstraints;
+        this.taskRoleArn = <any>args.taskRoleArn;
+        this.volume = <any>args.volume;
     }
 }
 

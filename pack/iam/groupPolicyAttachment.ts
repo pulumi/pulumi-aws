@@ -24,11 +24,11 @@ export class GroupPolicyAttachment extends lumi.NamedResource implements GroupPo
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {
             throw new Error("Property argument 'group' is required, but was missing");
         }
-        this.group = args.group;
+        this.group = <any>args.group;
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {
             throw new Error("Property argument 'policyArn' is required, but was missing");
         }
-        this.policyArn = args.policyArn;
+        this.policyArn = <any>args.policyArn;
     }
 }
 

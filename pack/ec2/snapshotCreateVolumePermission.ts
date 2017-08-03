@@ -21,11 +21,11 @@ export class SnapshotCreateVolumePermission extends lumi.NamedResource implement
         if (lumirt.defaultIfComputed(args.accountId, "") === undefined) {
             throw new Error("Property argument 'accountId' is required, but was missing");
         }
-        this.accountId = args.accountId;
+        this.accountId = <any>args.accountId;
         if (lumirt.defaultIfComputed(args.snapshotId, "") === undefined) {
             throw new Error("Property argument 'snapshotId' is required, but was missing");
         }
-        this.snapshotId = args.snapshotId;
+        this.snapshotId = <any>args.snapshotId;
     }
 }
 

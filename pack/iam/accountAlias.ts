@@ -20,7 +20,7 @@ export class AccountAlias extends lumi.NamedResource implements AccountAliasArgs
         if (lumirt.defaultIfComputed(args.accountAlias, "") === undefined) {
             throw new Error("Property argument 'accountAlias' is required, but was missing");
         }
-        this.accountAlias = args.accountAlias;
+        this.accountAlias = <any>args.accountAlias;
     }
 }
 

@@ -26,33 +26,33 @@ export class ReplicationTask extends lumi.NamedResource implements ReplicationTa
 
     constructor(name: string, args: ReplicationTaskArgs) {
         super(name);
-        this.cdcStartTime = args.cdcStartTime;
+        this.cdcStartTime = <any>args.cdcStartTime;
         if (lumirt.defaultIfComputed(args.migrationType, "") === undefined) {
             throw new Error("Property argument 'migrationType' is required, but was missing");
         }
-        this.migrationType = args.migrationType;
+        this.migrationType = <any>args.migrationType;
         if (lumirt.defaultIfComputed(args.replicationInstanceArn, "") === undefined) {
             throw new Error("Property argument 'replicationInstanceArn' is required, but was missing");
         }
-        this.replicationInstanceArn = args.replicationInstanceArn;
+        this.replicationInstanceArn = <any>args.replicationInstanceArn;
         if (lumirt.defaultIfComputed(args.replicationTaskId, "") === undefined) {
             throw new Error("Property argument 'replicationTaskId' is required, but was missing");
         }
-        this.replicationTaskId = args.replicationTaskId;
-        this.replicationTaskSettings = args.replicationTaskSettings;
+        this.replicationTaskId = <any>args.replicationTaskId;
+        this.replicationTaskSettings = <any>args.replicationTaskSettings;
         if (lumirt.defaultIfComputed(args.sourceEndpointArn, "") === undefined) {
             throw new Error("Property argument 'sourceEndpointArn' is required, but was missing");
         }
-        this.sourceEndpointArn = args.sourceEndpointArn;
+        this.sourceEndpointArn = <any>args.sourceEndpointArn;
         if (lumirt.defaultIfComputed(args.tableMappings, "") === undefined) {
             throw new Error("Property argument 'tableMappings' is required, but was missing");
         }
-        this.tableMappings = args.tableMappings;
-        this.tags = args.tags;
+        this.tableMappings = <any>args.tableMappings;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.targetEndpointArn, "") === undefined) {
             throw new Error("Property argument 'targetEndpointArn' is required, but was missing");
         }
-        this.targetEndpointArn = args.targetEndpointArn;
+        this.targetEndpointArn = <any>args.targetEndpointArn;
     }
 }
 

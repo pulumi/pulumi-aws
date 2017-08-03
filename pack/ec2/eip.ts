@@ -25,10 +25,10 @@ export class Eip extends lumi.NamedResource implements EipArgs {
 
     constructor(name: string, args: EipArgs) {
         super(name);
-        this.associateWithPrivateIp = args.associateWithPrivateIp;
-        this.instance = args.instance;
-        this.networkInterface = args.networkInterface;
-        this.vpc = args.vpc;
+        this.associateWithPrivateIp = <any>args.associateWithPrivateIp;
+        this.instance = <any>args.instance;
+        this.networkInterface = <any>args.networkInterface;
+        this.vpc = <any>args.vpc;
     }
 }
 

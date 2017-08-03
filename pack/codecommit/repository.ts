@@ -23,12 +23,12 @@ export class Repository extends lumi.NamedResource implements RepositoryArgs {
 
     constructor(name: string, args: RepositoryArgs) {
         super(name);
-        this.defaultBranch = args.defaultBranch;
-        this.description = args.description;
+        this.defaultBranch = <any>args.defaultBranch;
+        this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.repositoryName, "") === undefined) {
             throw new Error("Property argument 'repositoryName' is required, but was missing");
         }
-        this.repositoryName = args.repositoryName;
+        this.repositoryName = <any>args.repositoryName;
     }
 }
 

@@ -18,8 +18,8 @@ export class InternetGateway extends lumi.NamedResource implements InternetGatew
 
     constructor(name: string, args: InternetGatewayArgs) {
         super(name);
-        this.tags = args.tags;
-        this.vpcId = args.vpcId;
+        this.tags = <any>args.tags;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

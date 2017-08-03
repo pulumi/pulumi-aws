@@ -35,28 +35,28 @@ export class Object extends lumi.Resource implements ObjectArgs {
 
     constructor(args: ObjectArgs) {
         super();
-        this.acl = args.acl;
+        this.acl = <any>args.acl;
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
         }
-        this.bucket = args.bucket;
-        this.cacheControl = args.cacheControl;
-        this.content = args.content;
-        this.contentDisposition = args.contentDisposition;
-        this.contentEncoding = args.contentEncoding;
-        this.contentLanguage = args.contentLanguage;
-        this.contentType = args.contentType;
-        this.etag = args.etag;
+        this.bucket = <any>args.bucket;
+        this.cacheControl = <any>args.cacheControl;
+        this.content = <any>args.content;
+        this.contentDisposition = <any>args.contentDisposition;
+        this.contentEncoding = <any>args.contentEncoding;
+        this.contentLanguage = <any>args.contentLanguage;
+        this.contentType = <any>args.contentType;
+        this.etag = <any>args.etag;
         if (lumirt.defaultIfComputed(args.key, "") === undefined) {
             throw new Error("Property argument 'key' is required, but was missing");
         }
-        this.key = args.key;
-        this.kmsKeyId = args.kmsKeyId;
-        this.serverSideEncryption = args.serverSideEncryption;
-        this.source = args.source;
-        this.storageClass = args.storageClass;
-        this.tags = args.tags;
-        this.websiteRedirect = args.websiteRedirect;
+        this.key = <any>args.key;
+        this.kmsKeyId = <any>args.kmsKeyId;
+        this.serverSideEncryption = <any>args.serverSideEncryption;
+        this.source = <any>args.source;
+        this.storageClass = <any>args.storageClass;
+        this.tags = <any>args.tags;
+        this.websiteRedirect = <any>args.websiteRedirect;
     }
 }
 

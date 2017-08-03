@@ -22,10 +22,10 @@ export class DefaultSecurityGroup extends lumi.NamedResource implements DefaultS
 
     constructor(name: string, args: DefaultSecurityGroupArgs) {
         super(name);
-        this.egress = args.egress;
-        this.ingress = args.ingress;
-        this.tags = args.tags;
-        this.vpcId = args.vpcId;
+        this.egress = <any>args.egress;
+        this.ingress = <any>args.ingress;
+        this.tags = <any>args.tags;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

@@ -25,16 +25,16 @@ export class ReplicationSubnetGroup extends lumi.NamedResource implements Replic
         if (lumirt.defaultIfComputed(args.replicationSubnetGroupDescription, "") === undefined) {
             throw new Error("Property argument 'replicationSubnetGroupDescription' is required, but was missing");
         }
-        this.replicationSubnetGroupDescription = args.replicationSubnetGroupDescription;
+        this.replicationSubnetGroupDescription = <any>args.replicationSubnetGroupDescription;
         if (lumirt.defaultIfComputed(args.replicationSubnetGroupId, "") === undefined) {
             throw new Error("Property argument 'replicationSubnetGroupId' is required, but was missing");
         }
-        this.replicationSubnetGroupId = args.replicationSubnetGroupId;
+        this.replicationSubnetGroupId = <any>args.replicationSubnetGroupId;
         if (lumirt.defaultIfComputed(args.subnetIds, "") === undefined) {
             throw new Error("Property argument 'subnetIds' is required, but was missing");
         }
-        this.subnetIds = args.subnetIds;
-        this.tags = args.tags;
+        this.subnetIds = <any>args.subnetIds;
+        this.tags = <any>args.tags;
     }
 }
 

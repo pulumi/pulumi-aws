@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class SecurityGroup extends lumi.NamedResource implements SecurityGroupArgs {
     public readonly description?: string;
     public readonly ingress: { cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[];
-    public readonly securityGroupName?: string;
+    public readonly securityGroupName: string;
 
     public static get(id: lumi.ID): SecurityGroup {
         return <any>undefined; // functionality provided by the runtime
@@ -19,18 +19,18 @@ export class SecurityGroup extends lumi.NamedResource implements SecurityGroupAr
 
     constructor(name: string, args: SecurityGroupArgs) {
         super(name);
-        this.description = args.description;
+        this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.ingress, "") === undefined) {
             throw new Error("Property argument 'ingress' is required, but was missing");
         }
-        this.ingress = args.ingress;
-        this.securityGroupName = args.securityGroupName;
+        this.ingress = <any>args.ingress;
+        this.securityGroupName = <any>args.securityGroupName;
     }
 }
 
 export interface SecurityGroupArgs {
     readonly description?: string;
-    readonly ingress: { cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[];
+    readonly ingress: { cidr?: string, securityGroupName?: string, securityGroupOwnerId?: string }[];
     readonly securityGroupName?: string;
 }
 

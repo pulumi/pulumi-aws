@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class Association extends lumi.NamedResource implements AssociationArgs {
     public /*out*/ readonly associationId: string;
     public readonly instanceId?: string;
-    public readonly associationName?: string;
+    public readonly associationName: string;
     public readonly parameters: {[key: string]: any};
     public readonly targets: { key: string, values: string[] }[];
 
@@ -21,10 +21,10 @@ export class Association extends lumi.NamedResource implements AssociationArgs {
 
     constructor(name: string, args: AssociationArgs) {
         super(name);
-        this.instanceId = args.instanceId;
-        this.associationName = args.associationName;
-        this.parameters = args.parameters;
-        this.targets = args.targets;
+        this.instanceId = <any>args.instanceId;
+        this.associationName = <any>args.associationName;
+        this.parameters = <any>args.parameters;
+        this.targets = <any>args.targets;
     }
 }
 

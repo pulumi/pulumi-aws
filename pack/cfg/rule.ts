@@ -9,7 +9,7 @@ export class Rule extends lumi.NamedResource implements RuleArgs {
     public readonly description?: string;
     public readonly inputParameters?: string;
     public readonly maximumExecutionFrequency?: string;
-    public readonly ruleName?: string;
+    public readonly ruleName: string;
     public /*out*/ readonly ruleId: string;
     public readonly scope?: { complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[];
     public readonly source: { owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[];
@@ -24,15 +24,15 @@ export class Rule extends lumi.NamedResource implements RuleArgs {
 
     constructor(name: string, args: RuleArgs) {
         super(name);
-        this.description = args.description;
-        this.inputParameters = args.inputParameters;
-        this.maximumExecutionFrequency = args.maximumExecutionFrequency;
-        this.ruleName = args.ruleName;
-        this.scope = args.scope;
+        this.description = <any>args.description;
+        this.inputParameters = <any>args.inputParameters;
+        this.maximumExecutionFrequency = <any>args.maximumExecutionFrequency;
+        this.ruleName = <any>args.ruleName;
+        this.scope = <any>args.scope;
         if (lumirt.defaultIfComputed(args.source, "") === undefined) {
             throw new Error("Property argument 'source' is required, but was missing");
         }
-        this.source = args.source;
+        this.source = <any>args.source;
     }
 }
 

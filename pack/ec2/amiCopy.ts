@@ -15,7 +15,7 @@ export class AmiCopy extends lumi.NamedResource implements AmiCopyArgs {
     public /*out*/ readonly kernelId: string;
     public readonly kmsKeyId: string;
     public /*out*/ readonly manageEbsSnapshots: boolean;
-    public readonly amiCopyName?: string;
+    public readonly amiCopyName: string;
     public /*out*/ readonly ramdiskId: string;
     public /*out*/ readonly rootDeviceName: string;
     public readonly sourceAmiId: string;
@@ -34,29 +34,29 @@ export class AmiCopy extends lumi.NamedResource implements AmiCopyArgs {
 
     constructor(name: string, args: AmiCopyArgs) {
         super(name);
-        this.description = args.description;
-        this.ebsBlockDevice = args.ebsBlockDevice;
-        this.encrypted = args.encrypted;
-        this.ephemeralBlockDevice = args.ephemeralBlockDevice;
-        this.kmsKeyId = args.kmsKeyId;
-        this.amiCopyName = args.amiCopyName;
+        this.description = <any>args.description;
+        this.ebsBlockDevice = <any>args.ebsBlockDevice;
+        this.encrypted = <any>args.encrypted;
+        this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
+        this.kmsKeyId = <any>args.kmsKeyId;
+        this.amiCopyName = <any>args.amiCopyName;
         if (lumirt.defaultIfComputed(args.sourceAmiId, "") === undefined) {
             throw new Error("Property argument 'sourceAmiId' is required, but was missing");
         }
-        this.sourceAmiId = args.sourceAmiId;
+        this.sourceAmiId = <any>args.sourceAmiId;
         if (lumirt.defaultIfComputed(args.sourceAmiRegion, "") === undefined) {
             throw new Error("Property argument 'sourceAmiRegion' is required, but was missing");
         }
-        this.sourceAmiRegion = args.sourceAmiRegion;
-        this.tags = args.tags;
+        this.sourceAmiRegion = <any>args.sourceAmiRegion;
+        this.tags = <any>args.tags;
     }
 }
 
 export interface AmiCopyArgs {
     readonly description?: string;
-    readonly ebsBlockDevice?: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName?: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     readonly encrypted?: boolean;
-    readonly ephemeralBlockDevice?: { deviceName: string, virtualName: string }[];
+    readonly ephemeralBlockDevice?: { deviceName?: string, virtualName?: string }[];
     readonly kmsKeyId?: string;
     readonly amiCopyName?: string;
     readonly sourceAmiId: string;

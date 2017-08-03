@@ -25,13 +25,13 @@ export class BasePathMapping extends lumi.NamedResource implements BasePathMappi
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
-        this.basePath = args.basePath;
+        this.restApi = <any>args.restApi;
+        this.basePath = <any>args.basePath;
         if (lumirt.defaultIfComputed(args.domainName, "") === undefined) {
             throw new Error("Property argument 'domainName' is required, but was missing");
         }
-        this.domainName = args.domainName;
-        this.stageName = args.stageName;
+        this.domainName = <any>args.domainName;
+        this.stageName = <any>args.stageName;
     }
 }
 

@@ -11,7 +11,7 @@ export class Record extends lumi.NamedResource implements RecordArgs {
     public readonly geolocationRoutingPolicy?: { continent?: string, country?: string, subdivision?: string }[];
     public readonly healthCheckId?: string;
     public readonly latencyRoutingPolicy?: { region: string }[];
-    public readonly recordName?: string;
+    public readonly recordName: string;
     public readonly records?: string[];
     public readonly setIdentifier?: string;
     public readonly ttl?: number;
@@ -29,24 +29,24 @@ export class Record extends lumi.NamedResource implements RecordArgs {
 
     constructor(name: string, args: RecordArgs) {
         super(name);
-        this.alias = args.alias;
-        this.failoverRoutingPolicy = args.failoverRoutingPolicy;
-        this.geolocationRoutingPolicy = args.geolocationRoutingPolicy;
-        this.healthCheckId = args.healthCheckId;
-        this.latencyRoutingPolicy = args.latencyRoutingPolicy;
-        this.recordName = args.recordName;
-        this.records = args.records;
-        this.setIdentifier = args.setIdentifier;
-        this.ttl = args.ttl;
+        this.alias = <any>args.alias;
+        this.failoverRoutingPolicy = <any>args.failoverRoutingPolicy;
+        this.geolocationRoutingPolicy = <any>args.geolocationRoutingPolicy;
+        this.healthCheckId = <any>args.healthCheckId;
+        this.latencyRoutingPolicy = <any>args.latencyRoutingPolicy;
+        this.recordName = <any>args.recordName;
+        this.records = <any>args.records;
+        this.setIdentifier = <any>args.setIdentifier;
+        this.ttl = <any>args.ttl;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
-        this.weightedRoutingPolicy = args.weightedRoutingPolicy;
+        this.type = <any>args.type;
+        this.weightedRoutingPolicy = <any>args.weightedRoutingPolicy;
         if (lumirt.defaultIfComputed(args.zoneId, "") === undefined) {
             throw new Error("Property argument 'zoneId' is required, but was missing");
         }
-        this.zoneId = args.zoneId;
+        this.zoneId = <any>args.zoneId;
     }
 }
 

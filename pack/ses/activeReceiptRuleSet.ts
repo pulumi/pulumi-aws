@@ -20,7 +20,7 @@ export class ActiveReceiptRuleSet extends lumi.NamedResource implements ActiveRe
         if (lumirt.defaultIfComputed(args.ruleSetName, "") === undefined) {
             throw new Error("Property argument 'ruleSetName' is required, but was missing");
         }
-        this.ruleSetName = args.ruleSetName;
+        this.ruleSetName = <any>args.ruleSetName;
     }
 }
 

@@ -19,15 +19,15 @@ export class TargetGroupAttachment extends lumi.NamedResource implements TargetG
 
     constructor(name: string, args: TargetGroupAttachmentArgs) {
         super(name);
-        this.port = args.port;
+        this.port = <any>args.port;
         if (lumirt.defaultIfComputed(args.targetGroupArn, "") === undefined) {
             throw new Error("Property argument 'targetGroupArn' is required, but was missing");
         }
-        this.targetGroupArn = args.targetGroupArn;
+        this.targetGroupArn = <any>args.targetGroupArn;
         if (lumirt.defaultIfComputed(args.targetId, "") === undefined) {
             throw new Error("Property argument 'targetId' is required, but was missing");
         }
-        this.targetId = args.targetId;
+        this.targetId = <any>args.targetId;
     }
 }
 

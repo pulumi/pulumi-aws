@@ -28,24 +28,24 @@ export class Stage extends lumi.NamedResource implements StageArgs {
 
     constructor(name: string, args: StageArgs) {
         super(name);
-        this.cacheClusterEnabled = args.cacheClusterEnabled;
-        this.cacheClusterSize = args.cacheClusterSize;
-        this.clientCertificateId = args.clientCertificateId;
+        this.cacheClusterEnabled = <any>args.cacheClusterEnabled;
+        this.cacheClusterSize = <any>args.cacheClusterSize;
+        this.clientCertificateId = <any>args.clientCertificateId;
         if (lumirt.defaultIfComputed(args.deployment, "") === undefined) {
             throw new Error("Property argument 'deployment' is required, but was missing");
         }
-        this.deployment = args.deployment;
-        this.description = args.description;
-        this.documentationVersion = args.documentationVersion;
+        this.deployment = <any>args.deployment;
+        this.description = <any>args.description;
+        this.documentationVersion = <any>args.documentationVersion;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
+        this.restApi = <any>args.restApi;
         if (lumirt.defaultIfComputed(args.stageName, "") === undefined) {
             throw new Error("Property argument 'stageName' is required, but was missing");
         }
-        this.stageName = args.stageName;
-        this.variables = args.variables;
+        this.stageName = <any>args.stageName;
+        this.variables = <any>args.variables;
     }
 }
 

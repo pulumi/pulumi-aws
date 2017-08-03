@@ -20,7 +20,7 @@ export class EgressOnlyInternetGateway extends lumi.NamedResource implements Egr
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class Cluster extends lumi.NamedResource implements ClusterArgs {
-    public readonly clusterName?: string;
+    public readonly clusterName: string;
 
     public static get(id: lumi.ID): Cluster {
         return <any>undefined; // functionality provided by the runtime
@@ -17,7 +17,7 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
 
     constructor(name: string, args: ClusterArgs) {
         super(name);
-        this.clusterName = args.clusterName;
+        this.clusterName = <any>args.clusterName;
     }
 }
 

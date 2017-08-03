@@ -25,23 +25,23 @@ export class NetworkInterface extends lumi.NamedResource implements NetworkInter
 
     constructor(name: string, args: NetworkInterfaceArgs) {
         super(name);
-        this.attachment = args.attachment;
-        this.description = args.description;
-        this.privateIp = args.privateIp;
-        this.privateIps = args.privateIps;
-        this.privateIpsCount = args.privateIpsCount;
-        this.securityGroups = args.securityGroups;
-        this.sourceDestCheck = args.sourceDestCheck;
+        this.attachment = <any>args.attachment;
+        this.description = <any>args.description;
+        this.privateIp = <any>args.privateIp;
+        this.privateIps = <any>args.privateIps;
+        this.privateIpsCount = <any>args.privateIpsCount;
+        this.securityGroups = <any>args.securityGroups;
+        this.sourceDestCheck = <any>args.sourceDestCheck;
         if (lumirt.defaultIfComputed(args.subnetId, "") === undefined) {
             throw new Error("Property argument 'subnetId' is required, but was missing");
         }
-        this.subnetId = args.subnetId;
-        this.tags = args.tags;
+        this.subnetId = <any>args.subnetId;
+        this.tags = <any>args.tags;
     }
 }
 
 export interface NetworkInterfaceArgs {
-    readonly attachment?: { attachmentId: string, deviceIndex: number, instance: string }[];
+    readonly attachment?: { attachmentId?: string, deviceIndex: number, instance: string }[];
     readonly description?: string;
     readonly privateIp?: string;
     readonly privateIps?: string[];

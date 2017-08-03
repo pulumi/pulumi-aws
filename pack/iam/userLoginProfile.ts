@@ -22,16 +22,16 @@ export class UserLoginProfile extends lumi.NamedResource implements UserLoginPro
 
     constructor(name: string, args: UserLoginProfileArgs) {
         super(name);
-        this.passwordLength = args.passwordLength;
-        this.passwordResetRequired = args.passwordResetRequired;
+        this.passwordLength = <any>args.passwordLength;
+        this.passwordResetRequired = <any>args.passwordResetRequired;
         if (lumirt.defaultIfComputed(args.pgpKey, "") === undefined) {
             throw new Error("Property argument 'pgpKey' is required, but was missing");
         }
-        this.pgpKey = args.pgpKey;
+        this.pgpKey = <any>args.pgpKey;
         if (lumirt.defaultIfComputed(args.user, "") === undefined) {
             throw new Error("Property argument 'user' is required, but was missing");
         }
-        this.user = args.user;
+        this.user = <any>args.user;
     }
 }
 

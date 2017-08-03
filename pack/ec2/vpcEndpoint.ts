@@ -22,16 +22,16 @@ export class VpcEndpoint extends lumi.NamedResource implements VpcEndpointArgs {
 
     constructor(name: string, args: VpcEndpointArgs) {
         super(name);
-        this.policy = args.policy;
-        this.routeTableIds = args.routeTableIds;
+        this.policy = <any>args.policy;
+        this.routeTableIds = <any>args.routeTableIds;
         if (lumirt.defaultIfComputed(args.serviceName, "") === undefined) {
             throw new Error("Property argument 'serviceName' is required, but was missing");
         }
-        this.serviceName = args.serviceName;
+        this.serviceName = <any>args.serviceName;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

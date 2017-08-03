@@ -35,28 +35,28 @@ export class HealthCheck extends lumi.NamedResource implements HealthCheckArgs {
 
     constructor(name: string, args: HealthCheckArgs) {
         super(name);
-        this.childHealthThreshold = args.childHealthThreshold;
-        this.childHealthchecks = args.childHealthchecks;
-        this.cloudwatchAlarmName = args.cloudwatchAlarmName;
-        this.cloudwatchAlarmRegion = args.cloudwatchAlarmRegion;
-        this.enableSni = args.enableSni;
-        this.failureThreshold = args.failureThreshold;
-        this.fqdn = args.fqdn;
-        this.insufficientDataHealthStatus = args.insufficientDataHealthStatus;
-        this.invertHealthcheck = args.invertHealthcheck;
-        this.ipAddress = args.ipAddress;
-        this.measureLatency = args.measureLatency;
-        this.port = args.port;
-        this.referenceName = args.referenceName;
-        this.regions = args.regions;
-        this.requestInterval = args.requestInterval;
-        this.resourcePath = args.resourcePath;
-        this.searchString = args.searchString;
-        this.tags = args.tags;
+        this.childHealthThreshold = <any>args.childHealthThreshold;
+        this.childHealthchecks = <any>args.childHealthchecks;
+        this.cloudwatchAlarmName = <any>args.cloudwatchAlarmName;
+        this.cloudwatchAlarmRegion = <any>args.cloudwatchAlarmRegion;
+        this.enableSni = <any>args.enableSni;
+        this.failureThreshold = <any>args.failureThreshold;
+        this.fqdn = <any>args.fqdn;
+        this.insufficientDataHealthStatus = <any>args.insufficientDataHealthStatus;
+        this.invertHealthcheck = <any>args.invertHealthcheck;
+        this.ipAddress = <any>args.ipAddress;
+        this.measureLatency = <any>args.measureLatency;
+        this.port = <any>args.port;
+        this.referenceName = <any>args.referenceName;
+        this.regions = <any>args.regions;
+        this.requestInterval = <any>args.requestInterval;
+        this.resourcePath = <any>args.resourcePath;
+        this.searchString = <any>args.searchString;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
+        this.type = <any>args.type;
     }
 }
 

@@ -25,10 +25,10 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
 
     constructor(name: string, args: KeyPairArgs) {
         super(name);
-        this.keyPairName = args.keyPairName;
-        this.namePrefix = args.namePrefix;
-        this.pgpKey = args.pgpKey;
-        this.publicKey = args.publicKey;
+        this.keyPairName = <any>args.keyPairName;
+        this.namePrefix = <any>args.namePrefix;
+        this.pgpKey = <any>args.pgpKey;
+        this.publicKey = <any>args.publicKey;
     }
 }
 

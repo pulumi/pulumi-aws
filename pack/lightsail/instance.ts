@@ -14,7 +14,7 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
     public /*out*/ readonly ipv6Address: string;
     public /*out*/ readonly isStaticIp: boolean;
     public readonly keyPairName?: string;
-    public readonly instanceName?: string;
+    public readonly instanceName: string;
     public /*out*/ readonly privateIpAddress: string;
     public /*out*/ readonly publicIpAddress: string;
     public /*out*/ readonly ramSize: number;
@@ -34,18 +34,18 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {
             throw new Error("Property argument 'availabilityZone' is required, but was missing");
         }
-        this.availabilityZone = args.availabilityZone;
+        this.availabilityZone = <any>args.availabilityZone;
         if (lumirt.defaultIfComputed(args.blueprintId, "") === undefined) {
             throw new Error("Property argument 'blueprintId' is required, but was missing");
         }
-        this.blueprintId = args.blueprintId;
+        this.blueprintId = <any>args.blueprintId;
         if (lumirt.defaultIfComputed(args.bundleId, "") === undefined) {
             throw new Error("Property argument 'bundleId' is required, but was missing");
         }
-        this.bundleId = args.bundleId;
-        this.keyPairName = args.keyPairName;
-        this.instanceName = args.instanceName;
-        this.userData = args.userData;
+        this.bundleId = <any>args.bundleId;
+        this.keyPairName = <any>args.keyPairName;
+        this.instanceName = <any>args.instanceName;
+        this.userData = <any>args.userData;
     }
 }
 

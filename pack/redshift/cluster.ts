@@ -51,47 +51,47 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
 
     constructor(name: string, args: ClusterArgs) {
         super(name);
-        this.allowVersionUpgrade = args.allowVersionUpgrade;
-        this.automatedSnapshotRetentionPeriod = args.automatedSnapshotRetentionPeriod;
-        this.availabilityZone = args.availabilityZone;
-        this.bucketName = args.bucketName;
+        this.allowVersionUpgrade = <any>args.allowVersionUpgrade;
+        this.automatedSnapshotRetentionPeriod = <any>args.automatedSnapshotRetentionPeriod;
+        this.availabilityZone = <any>args.availabilityZone;
+        this.bucketName = <any>args.bucketName;
         if (lumirt.defaultIfComputed(args.clusterIdentifier, "") === undefined) {
             throw new Error("Property argument 'clusterIdentifier' is required, but was missing");
         }
-        this.clusterIdentifier = args.clusterIdentifier;
-        this.clusterParameterGroupName = args.clusterParameterGroupName;
-        this.clusterPublicKey = args.clusterPublicKey;
-        this.clusterRevisionNumber = args.clusterRevisionNumber;
-        this.clusterSecurityGroups = args.clusterSecurityGroups;
-        this.clusterSubnetGroupName = args.clusterSubnetGroupName;
-        this.clusterType = args.clusterType;
-        this.clusterVersion = args.clusterVersion;
-        this.databaseName = args.databaseName;
-        this.elasticIp = args.elasticIp;
-        this.enableLogging = args.enableLogging;
-        this.encrypted = args.encrypted;
-        this.endpoint = args.endpoint;
-        this.enhancedVpcRouting = args.enhancedVpcRouting;
-        this.finalSnapshotIdentifier = args.finalSnapshotIdentifier;
-        this.iamRoles = args.iamRoles;
-        this.kmsKeyId = args.kmsKeyId;
-        this.masterPassword = args.masterPassword;
-        this.masterUsername = args.masterUsername;
+        this.clusterIdentifier = <any>args.clusterIdentifier;
+        this.clusterParameterGroupName = <any>args.clusterParameterGroupName;
+        this.clusterPublicKey = <any>args.clusterPublicKey;
+        this.clusterRevisionNumber = <any>args.clusterRevisionNumber;
+        this.clusterSecurityGroups = <any>args.clusterSecurityGroups;
+        this.clusterSubnetGroupName = <any>args.clusterSubnetGroupName;
+        this.clusterType = <any>args.clusterType;
+        this.clusterVersion = <any>args.clusterVersion;
+        this.databaseName = <any>args.databaseName;
+        this.elasticIp = <any>args.elasticIp;
+        this.enableLogging = <any>args.enableLogging;
+        this.encrypted = <any>args.encrypted;
+        this.endpoint = <any>args.endpoint;
+        this.enhancedVpcRouting = <any>args.enhancedVpcRouting;
+        this.finalSnapshotIdentifier = <any>args.finalSnapshotIdentifier;
+        this.iamRoles = <any>args.iamRoles;
+        this.kmsKeyId = <any>args.kmsKeyId;
+        this.masterPassword = <any>args.masterPassword;
+        this.masterUsername = <any>args.masterUsername;
         if (lumirt.defaultIfComputed(args.nodeType, "") === undefined) {
             throw new Error("Property argument 'nodeType' is required, but was missing");
         }
-        this.nodeType = args.nodeType;
-        this.numberOfNodes = args.numberOfNodes;
-        this.ownerAccount = args.ownerAccount;
-        this.port = args.port;
-        this.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
-        this.publiclyAccessible = args.publiclyAccessible;
-        this.s3KeyPrefix = args.s3KeyPrefix;
-        this.skipFinalSnapshot = args.skipFinalSnapshot;
-        this.snapshotClusterIdentifier = args.snapshotClusterIdentifier;
-        this.snapshotIdentifier = args.snapshotIdentifier;
-        this.tags = args.tags;
-        this.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+        this.nodeType = <any>args.nodeType;
+        this.numberOfNodes = <any>args.numberOfNodes;
+        this.ownerAccount = <any>args.ownerAccount;
+        this.port = <any>args.port;
+        this.preferredMaintenanceWindow = <any>args.preferredMaintenanceWindow;
+        this.publiclyAccessible = <any>args.publiclyAccessible;
+        this.s3KeyPrefix = <any>args.s3KeyPrefix;
+        this.skipFinalSnapshot = <any>args.skipFinalSnapshot;
+        this.snapshotClusterIdentifier = <any>args.snapshotClusterIdentifier;
+        this.snapshotIdentifier = <any>args.snapshotIdentifier;
+        this.tags = <any>args.tags;
+        this.vpcSecurityGroupIds = <any>args.vpcSecurityGroupIds;
     }
 }
 

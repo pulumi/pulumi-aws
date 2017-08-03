@@ -34,36 +34,36 @@ export class LaunchConfiguration extends lumi.NamedResource implements LaunchCon
 
     constructor(name: string, args: LaunchConfigurationArgs) {
         super(name);
-        this.associatePublicIpAddress = args.associatePublicIpAddress;
-        this.ebsBlockDevice = args.ebsBlockDevice;
-        this.ebsOptimized = args.ebsOptimized;
-        this.enableMonitoring = args.enableMonitoring;
-        this.ephemeralBlockDevice = args.ephemeralBlockDevice;
-        this.iamInstanceProfile = args.iamInstanceProfile;
+        this.associatePublicIpAddress = <any>args.associatePublicIpAddress;
+        this.ebsBlockDevice = <any>args.ebsBlockDevice;
+        this.ebsOptimized = <any>args.ebsOptimized;
+        this.enableMonitoring = <any>args.enableMonitoring;
+        this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
+        this.iamInstanceProfile = <any>args.iamInstanceProfile;
         if (lumirt.defaultIfComputed(args.imageId, "") === undefined) {
             throw new Error("Property argument 'imageId' is required, but was missing");
         }
-        this.imageId = args.imageId;
+        this.imageId = <any>args.imageId;
         if (lumirt.defaultIfComputed(args.instanceType, "") === undefined) {
             throw new Error("Property argument 'instanceType' is required, but was missing");
         }
-        this.instanceType = args.instanceType;
-        this.keyName = args.keyName;
-        this.launchConfigurationName = args.launchConfigurationName;
-        this.namePrefix = args.namePrefix;
-        this.placementTenancy = args.placementTenancy;
-        this.rootBlockDevice = args.rootBlockDevice;
-        this.securityGroups = args.securityGroups;
-        this.spotPrice = args.spotPrice;
-        this.userData = args.userData;
-        this.vpcClassicLinkId = args.vpcClassicLinkId;
-        this.vpcClassicLinkSecurityGroups = args.vpcClassicLinkSecurityGroups;
+        this.instanceType = <any>args.instanceType;
+        this.keyName = <any>args.keyName;
+        this.launchConfigurationName = <any>args.launchConfigurationName;
+        this.namePrefix = <any>args.namePrefix;
+        this.placementTenancy = <any>args.placementTenancy;
+        this.rootBlockDevice = <any>args.rootBlockDevice;
+        this.securityGroups = <any>args.securityGroups;
+        this.spotPrice = <any>args.spotPrice;
+        this.userData = <any>args.userData;
+        this.vpcClassicLinkId = <any>args.vpcClassicLinkId;
+        this.vpcClassicLinkSecurityGroups = <any>args.vpcClassicLinkSecurityGroups;
     }
 }
 
 export interface LaunchConfigurationArgs {
     readonly associatePublicIpAddress?: boolean;
-    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     readonly ebsOptimized?: boolean;
     readonly enableMonitoring?: boolean;
     readonly ephemeralBlockDevice?: { deviceName: string, virtualName: string }[];
@@ -74,7 +74,7 @@ export interface LaunchConfigurationArgs {
     readonly launchConfigurationName?: string;
     readonly namePrefix?: string;
     readonly placementTenancy?: string;
-    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[];
     readonly securityGroups?: string[];
     readonly spotPrice?: string;
     readonly userData?: string;

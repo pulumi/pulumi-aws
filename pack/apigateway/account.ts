@@ -18,7 +18,7 @@ export class Account extends lumi.NamedResource implements AccountArgs {
 
     constructor(name: string, args: AccountArgs) {
         super(name);
-        this.cloudwatchRoleArn = args.cloudwatchRoleArn;
+        this.cloudwatchRoleArn = <any>args.cloudwatchRoleArn;
     }
 }
 

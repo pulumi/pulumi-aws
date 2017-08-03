@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class Policy extends lumi.NamedResource implements PolicyArgs {
     public /*out*/ readonly arn: string;
     public /*out*/ readonly defaultVersionId: string;
-    public readonly policyName?: string;
+    public readonly policyName: string;
     public readonly policy: string;
 
     public static get(id: lumi.ID): Policy {
@@ -20,11 +20,11 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
 
     constructor(name: string, args: PolicyArgs) {
         super(name);
-        this.policyName = args.policyName;
+        this.policyName = <any>args.policyName;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
     }
 }
 

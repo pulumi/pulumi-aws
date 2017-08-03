@@ -24,14 +24,14 @@ export class NatGateway extends lumi.NamedResource implements NatGatewayArgs {
         if (lumirt.defaultIfComputed(args.allocationId, "") === undefined) {
             throw new Error("Property argument 'allocationId' is required, but was missing");
         }
-        this.allocationId = args.allocationId;
-        this.networkInterfaceId = args.networkInterfaceId;
-        this.privateIp = args.privateIp;
-        this.publicIp = args.publicIp;
+        this.allocationId = <any>args.allocationId;
+        this.networkInterfaceId = <any>args.networkInterfaceId;
+        this.privateIp = <any>args.privateIp;
+        this.publicIp = <any>args.publicIp;
         if (lumirt.defaultIfComputed(args.subnetId, "") === undefined) {
             throw new Error("Property argument 'subnetId' is required, but was missing");
         }
-        this.subnetId = args.subnetId;
+        this.subnetId = <any>args.subnetId;
     }
 }
 

@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class LogMetricFilter extends lumi.NamedResource implements LogMetricFilterArgs {
     public readonly logGroupName: string;
     public readonly metricTransformation: { name: string, namespace: string, value: string }[];
-    public readonly logMetricFilterName?: string;
+    public readonly logMetricFilterName: string;
     public readonly pattern: string;
 
     public static get(id: lumi.ID): LogMetricFilter {
@@ -23,16 +23,16 @@ export class LogMetricFilter extends lumi.NamedResource implements LogMetricFilt
         if (lumirt.defaultIfComputed(args.logGroupName, "") === undefined) {
             throw new Error("Property argument 'logGroupName' is required, but was missing");
         }
-        this.logGroupName = args.logGroupName;
+        this.logGroupName = <any>args.logGroupName;
         if (lumirt.defaultIfComputed(args.metricTransformation, "") === undefined) {
             throw new Error("Property argument 'metricTransformation' is required, but was missing");
         }
-        this.metricTransformation = args.metricTransformation;
-        this.logMetricFilterName = args.logMetricFilterName;
+        this.metricTransformation = <any>args.metricTransformation;
+        this.logMetricFilterName = <any>args.logMetricFilterName;
         if (lumirt.defaultIfComputed(args.pattern, "") === undefined) {
             throw new Error("Property argument 'pattern' is required, but was missing");
         }
-        this.pattern = args.pattern;
+        this.pattern = <any>args.pattern;
     }
 }
 

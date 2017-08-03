@@ -21,11 +21,11 @@ export class StaticIpAttachment extends lumi.NamedResource implements StaticIpAt
         if (lumirt.defaultIfComputed(args.instanceName, "") === undefined) {
             throw new Error("Property argument 'instanceName' is required, but was missing");
         }
-        this.instanceName = args.instanceName;
+        this.instanceName = <any>args.instanceName;
         if (lumirt.defaultIfComputed(args.staticIpName, "") === undefined) {
             throw new Error("Property argument 'staticIpName' is required, but was missing");
         }
-        this.staticIpName = args.staticIpName;
+        this.staticIpName = <any>args.staticIpName;
     }
 }
 

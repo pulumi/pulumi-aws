@@ -21,11 +21,11 @@ export class RouteTableAssociation extends lumi.NamedResource implements RouteTa
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }
-        this.routeTableId = args.routeTableId;
+        this.routeTableId = <any>args.routeTableId;
         if (lumirt.defaultIfComputed(args.subnetId, "") === undefined) {
             throw new Error("Property argument 'subnetId' is required, but was missing");
         }
-        this.subnetId = args.subnetId;
+        this.subnetId = <any>args.subnetId;
     }
 }
 

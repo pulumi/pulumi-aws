@@ -24,15 +24,15 @@ export class UsagePlanKey extends lumi.NamedResource implements UsagePlanKeyArgs
         if (lumirt.defaultIfComputed(args.keyId, "") === undefined) {
             throw new Error("Property argument 'keyId' is required, but was missing");
         }
-        this.keyId = args.keyId;
+        this.keyId = <any>args.keyId;
         if (lumirt.defaultIfComputed(args.keyType, "") === undefined) {
             throw new Error("Property argument 'keyType' is required, but was missing");
         }
-        this.keyType = args.keyType;
+        this.keyType = <any>args.keyType;
         if (lumirt.defaultIfComputed(args.usagePlanId, "") === undefined) {
             throw new Error("Property argument 'usagePlanId' is required, but was missing");
         }
-        this.usagePlanId = args.usagePlanId;
+        this.usagePlanId = <any>args.usagePlanId;
     }
 }
 

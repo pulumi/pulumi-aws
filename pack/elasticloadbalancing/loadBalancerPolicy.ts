@@ -23,16 +23,16 @@ export class LoadBalancerPolicy extends lumi.NamedResource implements LoadBalanc
         if (lumirt.defaultIfComputed(args.loadBalancerName, "") === undefined) {
             throw new Error("Property argument 'loadBalancerName' is required, but was missing");
         }
-        this.loadBalancerName = args.loadBalancerName;
-        this.policyAttribute = args.policyAttribute;
+        this.loadBalancerName = <any>args.loadBalancerName;
+        this.policyAttribute = <any>args.policyAttribute;
         if (lumirt.defaultIfComputed(args.policyName, "") === undefined) {
             throw new Error("Property argument 'policyName' is required, but was missing");
         }
-        this.policyName = args.policyName;
+        this.policyName = <any>args.policyName;
         if (lumirt.defaultIfComputed(args.policyTypeName, "") === undefined) {
             throw new Error("Property argument 'policyTypeName' is required, but was missing");
         }
-        this.policyTypeName = args.policyTypeName;
+        this.policyTypeName = <any>args.policyTypeName;
     }
 }
 

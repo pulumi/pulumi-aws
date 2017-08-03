@@ -17,7 +17,7 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
     public readonly enableSsl?: boolean;
     public readonly environment?: { key: string, secure?: boolean, value: string }[];
     public /*out*/ readonly applicationId: string;
-    public readonly applicationName?: string;
+    public readonly applicationName: string;
     public readonly railsEnv?: string;
     public readonly shortName: string;
     public readonly sslConfiguration?: { certificate: string, chain?: string, privateKey: string }[];
@@ -34,29 +34,29 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
 
     constructor(name: string, args: ApplicationArgs) {
         super(name);
-        this.appSource = args.appSource;
-        this.autoBundleOnDeploy = args.autoBundleOnDeploy;
-        this.awsFlowRubySettings = args.awsFlowRubySettings;
-        this.dataSourceArn = args.dataSourceArn;
-        this.dataSourceDatabaseName = args.dataSourceDatabaseName;
-        this.dataSourceType = args.dataSourceType;
-        this.description = args.description;
-        this.documentRoot = args.documentRoot;
-        this.domains = args.domains;
-        this.enableSsl = args.enableSsl;
-        this.environment = args.environment;
-        this.applicationName = args.applicationName;
-        this.railsEnv = args.railsEnv;
-        this.shortName = args.shortName;
-        this.sslConfiguration = args.sslConfiguration;
+        this.appSource = <any>args.appSource;
+        this.autoBundleOnDeploy = <any>args.autoBundleOnDeploy;
+        this.awsFlowRubySettings = <any>args.awsFlowRubySettings;
+        this.dataSourceArn = <any>args.dataSourceArn;
+        this.dataSourceDatabaseName = <any>args.dataSourceDatabaseName;
+        this.dataSourceType = <any>args.dataSourceType;
+        this.description = <any>args.description;
+        this.documentRoot = <any>args.documentRoot;
+        this.domains = <any>args.domains;
+        this.enableSsl = <any>args.enableSsl;
+        this.environment = <any>args.environment;
+        this.applicationName = <any>args.applicationName;
+        this.railsEnv = <any>args.railsEnv;
+        this.shortName = <any>args.shortName;
+        this.sslConfiguration = <any>args.sslConfiguration;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
-        this.stackId = args.stackId;
+        this.stackId = <any>args.stackId;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
+        this.type = <any>args.type;
     }
 }
 

@@ -22,12 +22,12 @@ export class VpcDhcpOptions extends lumi.NamedResource implements VpcDhcpOptions
 
     constructor(name: string, args: VpcDhcpOptionsArgs) {
         super(name);
-        this.domainName = args.domainName;
-        this.domainNameServers = args.domainNameServers;
-        this.netbiosNameServers = args.netbiosNameServers;
-        this.netbiosNodeType = args.netbiosNodeType;
-        this.ntpServers = args.ntpServers;
-        this.tags = args.tags;
+        this.domainName = <any>args.domainName;
+        this.domainNameServers = <any>args.domainNameServers;
+        this.netbiosNameServers = <any>args.netbiosNameServers;
+        this.netbiosNodeType = <any>args.netbiosNodeType;
+        this.ntpServers = <any>args.ntpServers;
+        this.tags = <any>args.tags;
     }
 }
 

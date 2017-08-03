@@ -36,34 +36,34 @@ export class VpnConnection extends lumi.NamedResource implements VpnConnectionAr
 
     constructor(name: string, args: VpnConnectionArgs) {
         super(name);
-        this.customerGatewayConfiguration = args.customerGatewayConfiguration;
+        this.customerGatewayConfiguration = <any>args.customerGatewayConfiguration;
         if (lumirt.defaultIfComputed(args.customerGatewayId, "") === undefined) {
             throw new Error("Property argument 'customerGatewayId' is required, but was missing");
         }
-        this.customerGatewayId = args.customerGatewayId;
-        this.routes = args.routes;
-        this.staticRoutesOnly = args.staticRoutesOnly;
-        this.tags = args.tags;
+        this.customerGatewayId = <any>args.customerGatewayId;
+        this.routes = <any>args.routes;
+        this.staticRoutesOnly = <any>args.staticRoutesOnly;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
-        this.vgwTelemetry = args.vgwTelemetry;
+        this.type = <any>args.type;
+        this.vgwTelemetry = <any>args.vgwTelemetry;
         if (lumirt.defaultIfComputed(args.vpnGatewayId, "") === undefined) {
             throw new Error("Property argument 'vpnGatewayId' is required, but was missing");
         }
-        this.vpnGatewayId = args.vpnGatewayId;
+        this.vpnGatewayId = <any>args.vpnGatewayId;
     }
 }
 
 export interface VpnConnectionArgs {
     readonly customerGatewayConfiguration?: string;
     readonly customerGatewayId: string;
-    readonly routes?: { destinationCidrBlock: string, source: string, state: string }[];
+    readonly routes?: { destinationCidrBlock?: string, source?: string, state?: string }[];
     readonly staticRoutesOnly?: boolean;
     readonly tags?: {[key: string]: any};
     readonly type: string;
-    readonly vgwTelemetry?: { acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[];
+    readonly vgwTelemetry?: { acceptedRouteCount?: number, lastStatusChange?: string, outsideIpAddress?: string, status?: string, statusMessage?: string }[];
     readonly vpnGatewayId: string;
 }
 

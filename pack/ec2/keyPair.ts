@@ -20,12 +20,12 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
 
     constructor(name: string, args: KeyPairArgs) {
         super(name);
-        this.keyName = args.keyName;
-        this.keyNamePrefix = args.keyNamePrefix;
+        this.keyName = <any>args.keyName;
+        this.keyNamePrefix = <any>args.keyNamePrefix;
         if (lumirt.defaultIfComputed(args.publicKey, "") === undefined) {
             throw new Error("Property argument 'publicKey' is required, but was missing");
         }
-        this.publicKey = args.publicKey;
+        this.publicKey = <any>args.publicKey;
     }
 }
 

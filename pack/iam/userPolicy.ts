@@ -20,16 +20,16 @@ export class UserPolicy extends lumi.NamedResource implements UserPolicyArgs {
 
     constructor(name: string, args: UserPolicyArgs) {
         super(name);
-        this.userPolicyName = args.userPolicyName;
-        this.namePrefix = args.namePrefix;
+        this.userPolicyName = <any>args.userPolicyName;
+        this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
         if (lumirt.defaultIfComputed(args.user, "") === undefined) {
             throw new Error("Property argument 'user' is required, but was missing");
         }
-        this.user = args.user;
+        this.user = <any>args.user;
     }
 }
 

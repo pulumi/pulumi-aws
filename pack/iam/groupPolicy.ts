@@ -23,13 +23,13 @@ export class GroupPolicy extends lumi.NamedResource implements GroupPolicyArgs {
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {
             throw new Error("Property argument 'group' is required, but was missing");
         }
-        this.group = args.group;
-        this.groupPolicyName = args.groupPolicyName;
-        this.namePrefix = args.namePrefix;
+        this.group = <any>args.group;
+        this.groupPolicyName = <any>args.groupPolicyName;
+        this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
     }
 }
 

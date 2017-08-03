@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class Application extends lumi.NamedResource implements ApplicationArgs {
-    public readonly applicationName?: string;
+    public readonly applicationName: string;
     public readonly uniqueId: string;
 
     public static get(id: lumi.ID): Application {
@@ -18,8 +18,8 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
 
     constructor(name: string, args: ApplicationArgs) {
         super(name);
-        this.applicationName = args.applicationName;
-        this.uniqueId = args.uniqueId;
+        this.applicationName = <any>args.applicationName;
+        this.uniqueId = <any>args.uniqueId;
     }
 }
 

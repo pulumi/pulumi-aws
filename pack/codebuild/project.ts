@@ -10,7 +10,7 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
     public readonly description: string;
     public readonly encryptionKey: string;
     public readonly environment: { computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[];
-    public readonly projectName?: string;
+    public readonly projectName: string;
     public readonly serviceRole: string;
     public readonly source: { auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[];
     public readonly tags?: {[key: string]: any};
@@ -28,21 +28,21 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
         if (lumirt.defaultIfComputed(args.artifacts, "") === undefined) {
             throw new Error("Property argument 'artifacts' is required, but was missing");
         }
-        this.artifacts = args.artifacts;
-        this.buildTimeout = args.buildTimeout;
-        this.description = args.description;
-        this.encryptionKey = args.encryptionKey;
+        this.artifacts = <any>args.artifacts;
+        this.buildTimeout = <any>args.buildTimeout;
+        this.description = <any>args.description;
+        this.encryptionKey = <any>args.encryptionKey;
         if (lumirt.defaultIfComputed(args.environment, "") === undefined) {
             throw new Error("Property argument 'environment' is required, but was missing");
         }
-        this.environment = args.environment;
-        this.projectName = args.projectName;
-        this.serviceRole = args.serviceRole;
+        this.environment = <any>args.environment;
+        this.projectName = <any>args.projectName;
+        this.serviceRole = <any>args.serviceRole;
         if (lumirt.defaultIfComputed(args.source, "") === undefined) {
             throw new Error("Property argument 'source' is required, but was missing");
         }
-        this.source = args.source;
-        this.tags = args.tags;
+        this.source = <any>args.source;
+        this.tags = <any>args.tags;
     }
 }
 
@@ -51,7 +51,7 @@ export interface ProjectArgs {
     readonly buildTimeout?: number;
     readonly description?: string;
     readonly encryptionKey?: string;
-    readonly environment: { computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[];
+    readonly environment: { computeType: string, environmentVariable?: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[];
     readonly projectName?: string;
     readonly serviceRole?: string;
     readonly source: { auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[];

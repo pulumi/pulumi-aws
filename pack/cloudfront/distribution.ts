@@ -42,38 +42,38 @@ export class Distribution extends lumi.NamedResource implements DistributionArgs
 
     constructor(name: string, args: DistributionArgs) {
         super(name);
-        this.aliases = args.aliases;
-        this.cacheBehavior = args.cacheBehavior;
-        this.comment = args.comment;
-        this.customErrorResponse = args.customErrorResponse;
+        this.aliases = <any>args.aliases;
+        this.cacheBehavior = <any>args.cacheBehavior;
+        this.comment = <any>args.comment;
+        this.customErrorResponse = <any>args.customErrorResponse;
         if (lumirt.defaultIfComputed(args.defaultCacheBehavior, "") === undefined) {
             throw new Error("Property argument 'defaultCacheBehavior' is required, but was missing");
         }
-        this.defaultCacheBehavior = args.defaultCacheBehavior;
-        this.defaultRootObject = args.defaultRootObject;
+        this.defaultCacheBehavior = <any>args.defaultCacheBehavior;
+        this.defaultRootObject = <any>args.defaultRootObject;
         if (lumirt.defaultIfComputed(args.enabled, "") === undefined) {
             throw new Error("Property argument 'enabled' is required, but was missing");
         }
-        this.enabled = args.enabled;
-        this.httpVersion = args.httpVersion;
-        this.isIpv6Enabled = args.isIpv6Enabled;
-        this.loggingConfig = args.loggingConfig;
+        this.enabled = <any>args.enabled;
+        this.httpVersion = <any>args.httpVersion;
+        this.isIpv6Enabled = <any>args.isIpv6Enabled;
+        this.loggingConfig = <any>args.loggingConfig;
         if (lumirt.defaultIfComputed(args.origin, "") === undefined) {
             throw new Error("Property argument 'origin' is required, but was missing");
         }
-        this.origin = args.origin;
-        this.priceClass = args.priceClass;
+        this.origin = <any>args.origin;
+        this.priceClass = <any>args.priceClass;
         if (lumirt.defaultIfComputed(args.restrictions, "") === undefined) {
             throw new Error("Property argument 'restrictions' is required, but was missing");
         }
-        this.restrictions = args.restrictions;
-        this.retainOnDelete = args.retainOnDelete;
-        this.tags = args.tags;
+        this.restrictions = <any>args.restrictions;
+        this.retainOnDelete = <any>args.retainOnDelete;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.viewerCertificate, "") === undefined) {
             throw new Error("Property argument 'viewerCertificate' is required, but was missing");
         }
-        this.viewerCertificate = args.viewerCertificate;
-        this.webAclId = args.webAclId;
+        this.viewerCertificate = <any>args.viewerCertificate;
+        this.webAclId = <any>args.webAclId;
     }
 }
 

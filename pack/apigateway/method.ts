@@ -28,28 +28,28 @@ export class Method extends lumi.NamedResource implements MethodArgs {
 
     constructor(name: string, args: MethodArgs) {
         super(name);
-        this.apiKeyRequired = args.apiKeyRequired;
+        this.apiKeyRequired = <any>args.apiKeyRequired;
         if (lumirt.defaultIfComputed(args.authorization, "") === undefined) {
             throw new Error("Property argument 'authorization' is required, but was missing");
         }
-        this.authorization = args.authorization;
-        this.authorizerId = args.authorizerId;
+        this.authorization = <any>args.authorization;
+        this.authorizerId = <any>args.authorizerId;
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }
-        this.httpMethod = args.httpMethod;
-        this.requestModels = args.requestModels;
-        this.requestParameters = args.requestParameters;
-        this.requestParametersInJson = args.requestParametersInJson;
-        this.requestValidatorId = args.requestValidatorId;
+        this.httpMethod = <any>args.httpMethod;
+        this.requestModels = <any>args.requestModels;
+        this.requestParameters = <any>args.requestParameters;
+        this.requestParametersInJson = <any>args.requestParametersInJson;
+        this.requestValidatorId = <any>args.requestValidatorId;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
+        this.resourceId = <any>args.resourceId;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
+        this.restApi = <any>args.restApi;
     }
 }
 

@@ -22,7 +22,7 @@ export class GangliaLayer extends lumi.NamedResource implements GangliaLayerArgs
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly gangliaLayerName?: string;
+    public readonly gangliaLayerName: string;
     public readonly password: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
@@ -40,35 +40,35 @@ export class GangliaLayer extends lumi.NamedResource implements GangliaLayerArgs
 
     constructor(name: string, args: GangliaLayerArgs) {
         super(name);
-        this.autoAssignElasticIps = args.autoAssignElasticIps;
-        this.autoAssignPublicIps = args.autoAssignPublicIps;
-        this.autoHealing = args.autoHealing;
-        this.customConfigureRecipes = args.customConfigureRecipes;
-        this.customDeployRecipes = args.customDeployRecipes;
-        this.customInstanceProfileArn = args.customInstanceProfileArn;
-        this.customJson = args.customJson;
-        this.customSecurityGroupIds = args.customSecurityGroupIds;
-        this.customSetupRecipes = args.customSetupRecipes;
-        this.customShutdownRecipes = args.customShutdownRecipes;
-        this.customUndeployRecipes = args.customUndeployRecipes;
-        this.drainElbOnShutdown = args.drainElbOnShutdown;
-        this.ebsVolume = args.ebsVolume;
-        this.elasticLoadBalancer = args.elasticLoadBalancer;
-        this.installUpdatesOnBoot = args.installUpdatesOnBoot;
-        this.instanceShutdownTimeout = args.instanceShutdownTimeout;
-        this.gangliaLayerName = args.gangliaLayerName;
+        this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
+        this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
+        this.autoHealing = <any>args.autoHealing;
+        this.customConfigureRecipes = <any>args.customConfigureRecipes;
+        this.customDeployRecipes = <any>args.customDeployRecipes;
+        this.customInstanceProfileArn = <any>args.customInstanceProfileArn;
+        this.customJson = <any>args.customJson;
+        this.customSecurityGroupIds = <any>args.customSecurityGroupIds;
+        this.customSetupRecipes = <any>args.customSetupRecipes;
+        this.customShutdownRecipes = <any>args.customShutdownRecipes;
+        this.customUndeployRecipes = <any>args.customUndeployRecipes;
+        this.drainElbOnShutdown = <any>args.drainElbOnShutdown;
+        this.ebsVolume = <any>args.ebsVolume;
+        this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
+        this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
+        this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
+        this.gangliaLayerName = <any>args.gangliaLayerName;
         if (lumirt.defaultIfComputed(args.password, "") === undefined) {
             throw new Error("Property argument 'password' is required, but was missing");
         }
-        this.password = args.password;
+        this.password = <any>args.password;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
-        this.stackId = args.stackId;
-        this.systemPackages = args.systemPackages;
-        this.url = args.url;
-        this.useEbsOptimizedInstances = args.useEbsOptimizedInstances;
-        this.username = args.username;
+        this.stackId = <any>args.stackId;
+        this.systemPackages = <any>args.systemPackages;
+        this.url = <any>args.url;
+        this.useEbsOptimizedInstances = <any>args.useEbsOptimizedInstances;
+        this.username = <any>args.username;
     }
 }
 

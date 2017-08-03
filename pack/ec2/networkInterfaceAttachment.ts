@@ -24,15 +24,15 @@ export class NetworkInterfaceAttachment extends lumi.NamedResource implements Ne
         if (lumirt.defaultIfComputed(args.deviceIndex, "") === undefined) {
             throw new Error("Property argument 'deviceIndex' is required, but was missing");
         }
-        this.deviceIndex = args.deviceIndex;
+        this.deviceIndex = <any>args.deviceIndex;
         if (lumirt.defaultIfComputed(args.instanceId, "") === undefined) {
             throw new Error("Property argument 'instanceId' is required, but was missing");
         }
-        this.instanceId = args.instanceId;
+        this.instanceId = <any>args.instanceId;
         if (lumirt.defaultIfComputed(args.networkInterfaceId, "") === undefined) {
             throw new Error("Property argument 'networkInterfaceId' is required, but was missing");
         }
-        this.networkInterfaceId = args.networkInterfaceId;
+        this.networkInterfaceId = <any>args.networkInterfaceId;
     }
 }
 

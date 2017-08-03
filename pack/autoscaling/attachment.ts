@@ -19,12 +19,12 @@ export class Attachment extends lumi.NamedResource implements AttachmentArgs {
 
     constructor(name: string, args: AttachmentArgs) {
         super(name);
-        this.albTargetGroupArn = args.albTargetGroupArn;
+        this.albTargetGroupArn = <any>args.albTargetGroupArn;
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {
             throw new Error("Property argument 'autoscalingGroupName' is required, but was missing");
         }
-        this.autoscalingGroupName = args.autoscalingGroupName;
-        this.elb = args.elb;
+        this.autoscalingGroupName = <any>args.autoscalingGroupName;
+        this.elb = <any>args.elb;
     }
 }
 

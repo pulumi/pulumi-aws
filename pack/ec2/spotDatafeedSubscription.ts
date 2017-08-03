@@ -21,8 +21,8 @@ export class SpotDatafeedSubscription extends lumi.NamedResource implements Spot
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
         }
-        this.bucket = args.bucket;
-        this.prefix = args.prefix;
+        this.bucket = <any>args.bucket;
+        this.prefix = <any>args.prefix;
     }
 }
 

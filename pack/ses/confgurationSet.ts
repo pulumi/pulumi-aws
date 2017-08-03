@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class ConfgurationSet extends lumi.NamedResource implements ConfgurationSetArgs {
-    public readonly confgurationSetName?: string;
+    public readonly confgurationSetName: string;
 
     public static get(id: lumi.ID): ConfgurationSet {
         return <any>undefined; // functionality provided by the runtime
@@ -17,7 +17,7 @@ export class ConfgurationSet extends lumi.NamedResource implements ConfgurationS
 
     constructor(name: string, args: ConfgurationSetArgs) {
         super(name);
-        this.confgurationSetName = args.confgurationSetName;
+        this.confgurationSetName = <any>args.confgurationSetName;
     }
 }
 

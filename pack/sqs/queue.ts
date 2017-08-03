@@ -30,19 +30,19 @@ export class Queue extends lumi.NamedResource implements QueueArgs {
 
     constructor(name: string, args: QueueArgs) {
         super(name);
-        this.contentBasedDeduplication = args.contentBasedDeduplication;
-        this.delaySeconds = args.delaySeconds;
-        this.fifoQueue = args.fifoQueue;
-        this.kmsDataKeyReusePeriodSeconds = args.kmsDataKeyReusePeriodSeconds;
-        this.kmsMasterKeyId = args.kmsMasterKeyId;
-        this.maxMessageSize = args.maxMessageSize;
-        this.messageRetentionSeconds = args.messageRetentionSeconds;
-        this.queueName = args.queueName;
-        this.namePrefix = args.namePrefix;
-        this.policy = args.policy;
-        this.receiveWaitTimeSeconds = args.receiveWaitTimeSeconds;
-        this.redrivePolicy = args.redrivePolicy;
-        this.visibilityTimeoutSeconds = args.visibilityTimeoutSeconds;
+        this.contentBasedDeduplication = <any>args.contentBasedDeduplication;
+        this.delaySeconds = <any>args.delaySeconds;
+        this.fifoQueue = <any>args.fifoQueue;
+        this.kmsDataKeyReusePeriodSeconds = <any>args.kmsDataKeyReusePeriodSeconds;
+        this.kmsMasterKeyId = <any>args.kmsMasterKeyId;
+        this.maxMessageSize = <any>args.maxMessageSize;
+        this.messageRetentionSeconds = <any>args.messageRetentionSeconds;
+        this.queueName = <any>args.queueName;
+        this.namePrefix = <any>args.namePrefix;
+        this.policy = <any>args.policy;
+        this.receiveWaitTimeSeconds = <any>args.receiveWaitTimeSeconds;
+        this.redrivePolicy = <any>args.redrivePolicy;
+        this.visibilityTimeoutSeconds = <any>args.visibilityTimeoutSeconds;
     }
 }
 

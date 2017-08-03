@@ -13,7 +13,7 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
     public readonly metricAggregationType: string;
     public readonly minAdjustmentMagnitude?: number;
     public readonly minAdjustmentStep?: number;
-    public readonly policyName?: string;
+    public readonly policyName: string;
     public readonly policyType?: string;
     public readonly scalingAdjustment?: number;
     public readonly stepAdjustment?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
@@ -31,20 +31,20 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
         if (lumirt.defaultIfComputed(args.adjustmentType, "") === undefined) {
             throw new Error("Property argument 'adjustmentType' is required, but was missing");
         }
-        this.adjustmentType = args.adjustmentType;
+        this.adjustmentType = <any>args.adjustmentType;
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {
             throw new Error("Property argument 'autoscalingGroupName' is required, but was missing");
         }
-        this.autoscalingGroupName = args.autoscalingGroupName;
-        this.cooldown = args.cooldown;
-        this.estimatedInstanceWarmup = args.estimatedInstanceWarmup;
-        this.metricAggregationType = args.metricAggregationType;
-        this.minAdjustmentMagnitude = args.minAdjustmentMagnitude;
-        this.minAdjustmentStep = args.minAdjustmentStep;
-        this.policyName = args.policyName;
-        this.policyType = args.policyType;
-        this.scalingAdjustment = args.scalingAdjustment;
-        this.stepAdjustment = args.stepAdjustment;
+        this.autoscalingGroupName = <any>args.autoscalingGroupName;
+        this.cooldown = <any>args.cooldown;
+        this.estimatedInstanceWarmup = <any>args.estimatedInstanceWarmup;
+        this.metricAggregationType = <any>args.metricAggregationType;
+        this.minAdjustmentMagnitude = <any>args.minAdjustmentMagnitude;
+        this.minAdjustmentStep = <any>args.minAdjustmentStep;
+        this.policyName = <any>args.policyName;
+        this.policyType = <any>args.policyType;
+        this.scalingAdjustment = <any>args.scalingAdjustment;
+        this.stepAdjustment = <any>args.stepAdjustment;
     }
 }
 

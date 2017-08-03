@@ -26,37 +26,37 @@ export class MaintenanceWindowTask extends lumi.NamedResource implements Mainten
 
     constructor(name: string, args: MaintenanceWindowTaskArgs) {
         super(name);
-        this.loggingInfo = args.loggingInfo;
+        this.loggingInfo = <any>args.loggingInfo;
         if (lumirt.defaultIfComputed(args.maxConcurrency, "") === undefined) {
             throw new Error("Property argument 'maxConcurrency' is required, but was missing");
         }
-        this.maxConcurrency = args.maxConcurrency;
+        this.maxConcurrency = <any>args.maxConcurrency;
         if (lumirt.defaultIfComputed(args.maxErrors, "") === undefined) {
             throw new Error("Property argument 'maxErrors' is required, but was missing");
         }
-        this.maxErrors = args.maxErrors;
-        this.priority = args.priority;
+        this.maxErrors = <any>args.maxErrors;
+        this.priority = <any>args.priority;
         if (lumirt.defaultIfComputed(args.serviceRoleArn, "") === undefined) {
             throw new Error("Property argument 'serviceRoleArn' is required, but was missing");
         }
-        this.serviceRoleArn = args.serviceRoleArn;
+        this.serviceRoleArn = <any>args.serviceRoleArn;
         if (lumirt.defaultIfComputed(args.targets, "") === undefined) {
             throw new Error("Property argument 'targets' is required, but was missing");
         }
-        this.targets = args.targets;
+        this.targets = <any>args.targets;
         if (lumirt.defaultIfComputed(args.taskArn, "") === undefined) {
             throw new Error("Property argument 'taskArn' is required, but was missing");
         }
-        this.taskArn = args.taskArn;
-        this.taskParameters = args.taskParameters;
+        this.taskArn = <any>args.taskArn;
+        this.taskParameters = <any>args.taskParameters;
         if (lumirt.defaultIfComputed(args.taskType, "") === undefined) {
             throw new Error("Property argument 'taskType' is required, but was missing");
         }
-        this.taskType = args.taskType;
+        this.taskType = <any>args.taskType;
         if (lumirt.defaultIfComputed(args.windowId, "") === undefined) {
             throw new Error("Property argument 'windowId' is required, but was missing");
         }
-        this.windowId = args.windowId;
+        this.windowId = <any>args.windowId;
     }
 }
 

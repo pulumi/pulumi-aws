@@ -27,17 +27,17 @@ export class Domain extends lumi.NamedResource implements DomainArgs {
 
     constructor(name: string, args: DomainArgs) {
         super(name);
-        this.accessPolicies = args.accessPolicies;
-        this.advancedOptions = args.advancedOptions;
-        this.clusterConfig = args.clusterConfig;
+        this.accessPolicies = <any>args.accessPolicies;
+        this.advancedOptions = <any>args.advancedOptions;
+        this.clusterConfig = <any>args.clusterConfig;
         if (lumirt.defaultIfComputed(args.domainName, "") === undefined) {
             throw new Error("Property argument 'domainName' is required, but was missing");
         }
-        this.domainName = args.domainName;
-        this.ebsOptions = args.ebsOptions;
-        this.elasticsearchVersion = args.elasticsearchVersion;
-        this.snapshotOptions = args.snapshotOptions;
-        this.tags = args.tags;
+        this.domainName = <any>args.domainName;
+        this.ebsOptions = <any>args.ebsOptions;
+        this.elasticsearchVersion = <any>args.elasticsearchVersion;
+        this.snapshotOptions = <any>args.snapshotOptions;
+        this.tags = <any>args.tags;
     }
 }
 
@@ -46,7 +46,7 @@ export interface DomainArgs {
     readonly advancedOptions?: {[key: string]: any};
     readonly clusterConfig?: { dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }[];
     readonly domainName: string;
-    readonly ebsOptions?: { ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType: string }[];
+    readonly ebsOptions?: { ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType?: string }[];
     readonly elasticsearchVersion?: string;
     readonly snapshotOptions?: { automatedSnapshotStartHour: number }[];
     readonly tags?: {[key: string]: any};

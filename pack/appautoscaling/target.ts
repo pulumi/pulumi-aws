@@ -25,27 +25,27 @@ export class Target extends lumi.NamedResource implements TargetArgs {
         if (lumirt.defaultIfComputed(args.maxCapacity, "") === undefined) {
             throw new Error("Property argument 'maxCapacity' is required, but was missing");
         }
-        this.maxCapacity = args.maxCapacity;
+        this.maxCapacity = <any>args.maxCapacity;
         if (lumirt.defaultIfComputed(args.minCapacity, "") === undefined) {
             throw new Error("Property argument 'minCapacity' is required, but was missing");
         }
-        this.minCapacity = args.minCapacity;
+        this.minCapacity = <any>args.minCapacity;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
+        this.resourceId = <any>args.resourceId;
         if (lumirt.defaultIfComputed(args.roleArn, "") === undefined) {
             throw new Error("Property argument 'roleArn' is required, but was missing");
         }
-        this.roleArn = args.roleArn;
+        this.roleArn = <any>args.roleArn;
         if (lumirt.defaultIfComputed(args.scalableDimension, "") === undefined) {
             throw new Error("Property argument 'scalableDimension' is required, but was missing");
         }
-        this.scalableDimension = args.scalableDimension;
+        this.scalableDimension = <any>args.scalableDimension;
         if (lumirt.defaultIfComputed(args.serviceNamespace, "") === undefined) {
             throw new Error("Property argument 'serviceNamespace' is required, but was missing");
         }
-        this.serviceNamespace = args.serviceNamespace;
+        this.serviceNamespace = <any>args.serviceNamespace;
     }
 }
 

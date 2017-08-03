@@ -21,11 +21,11 @@ export class VpnGatewayRoutePropagation extends lumi.NamedResource implements Vp
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }
-        this.routeTableId = args.routeTableId;
+        this.routeTableId = <any>args.routeTableId;
         if (lumirt.defaultIfComputed(args.vpnGatewayId, "") === undefined) {
             throw new Error("Property argument 'vpnGatewayId' is required, but was missing");
         }
-        this.vpnGatewayId = args.vpnGatewayId;
+        this.vpnGatewayId = <any>args.vpnGatewayId;
     }
 }
 

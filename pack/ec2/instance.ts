@@ -53,35 +53,35 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         if (lumirt.defaultIfComputed(args.ami, "") === undefined) {
             throw new Error("Property argument 'ami' is required, but was missing");
         }
-        this.ami = args.ami;
-        this.associatePublicIpAddress = args.associatePublicIpAddress;
-        this.availabilityZone = args.availabilityZone;
-        this.disableApiTermination = args.disableApiTermination;
-        this.ebsBlockDevice = args.ebsBlockDevice;
-        this.ebsOptimized = args.ebsOptimized;
-        this.ephemeralBlockDevice = args.ephemeralBlockDevice;
-        this.iamInstanceProfile = args.iamInstanceProfile;
-        this.instanceInitiatedShutdownBehavior = args.instanceInitiatedShutdownBehavior;
+        this.ami = <any>args.ami;
+        this.associatePublicIpAddress = <any>args.associatePublicIpAddress;
+        this.availabilityZone = <any>args.availabilityZone;
+        this.disableApiTermination = <any>args.disableApiTermination;
+        this.ebsBlockDevice = <any>args.ebsBlockDevice;
+        this.ebsOptimized = <any>args.ebsOptimized;
+        this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
+        this.iamInstanceProfile = <any>args.iamInstanceProfile;
+        this.instanceInitiatedShutdownBehavior = <any>args.instanceInitiatedShutdownBehavior;
         if (lumirt.defaultIfComputed(args.instanceType, "") === undefined) {
             throw new Error("Property argument 'instanceType' is required, but was missing");
         }
-        this.instanceType = args.instanceType;
-        this.ipv6AddressCount = args.ipv6AddressCount;
-        this.ipv6Addresses = args.ipv6Addresses;
-        this.keyName = args.keyName;
-        this.monitoring = args.monitoring;
-        this.networkInterface = args.networkInterface;
-        this.placementGroup = args.placementGroup;
-        this.privateIp = args.privateIp;
-        this.rootBlockDevice = args.rootBlockDevice;
-        this.securityGroups = args.securityGroups;
-        this.sourceDestCheck = args.sourceDestCheck;
-        this.subnetId = args.subnetId;
-        this.tags = args.tags;
-        this.tenancy = args.tenancy;
-        this.userData = args.userData;
-        this.volumeTags = args.volumeTags;
-        this.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+        this.instanceType = <any>args.instanceType;
+        this.ipv6AddressCount = <any>args.ipv6AddressCount;
+        this.ipv6Addresses = <any>args.ipv6Addresses;
+        this.keyName = <any>args.keyName;
+        this.monitoring = <any>args.monitoring;
+        this.networkInterface = <any>args.networkInterface;
+        this.placementGroup = <any>args.placementGroup;
+        this.privateIp = <any>args.privateIp;
+        this.rootBlockDevice = <any>args.rootBlockDevice;
+        this.securityGroups = <any>args.securityGroups;
+        this.sourceDestCheck = <any>args.sourceDestCheck;
+        this.subnetId = <any>args.subnetId;
+        this.tags = <any>args.tags;
+        this.tenancy = <any>args.tenancy;
+        this.userData = <any>args.userData;
+        this.volumeTags = <any>args.volumeTags;
+        this.vpcSecurityGroupIds = <any>args.vpcSecurityGroupIds;
     }
 }
 
@@ -90,7 +90,7 @@ export interface InstanceArgs {
     readonly associatePublicIpAddress?: boolean;
     readonly availabilityZone?: string;
     readonly disableApiTermination?: boolean;
-    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     readonly ebsOptimized?: boolean;
     readonly ephemeralBlockDevice?: { deviceName: string, noDevice?: boolean, virtualName?: string }[];
     readonly iamInstanceProfile?: string;
@@ -103,7 +103,7 @@ export interface InstanceArgs {
     readonly networkInterface?: { deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[];
     readonly placementGroup?: string;
     readonly privateIp?: string;
-    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[];
     readonly securityGroups?: string[];
     readonly sourceDestCheck?: boolean;
     readonly subnetId?: string;

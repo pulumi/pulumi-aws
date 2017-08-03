@@ -41,41 +41,41 @@ export class ReplicationGroup extends lumi.NamedResource implements ReplicationG
 
     constructor(name: string, args: ReplicationGroupArgs) {
         super(name);
-        this.applyImmediately = args.applyImmediately;
-        this.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
-        this.automaticFailoverEnabled = args.automaticFailoverEnabled;
-        this.availabilityZones = args.availabilityZones;
-        this.clusterMode = args.clusterMode;
-        this.engine = args.engine;
-        this.engineVersion = args.engineVersion;
-        this.maintenanceWindow = args.maintenanceWindow;
+        this.applyImmediately = <any>args.applyImmediately;
+        this.autoMinorVersionUpgrade = <any>args.autoMinorVersionUpgrade;
+        this.automaticFailoverEnabled = <any>args.automaticFailoverEnabled;
+        this.availabilityZones = <any>args.availabilityZones;
+        this.clusterMode = <any>args.clusterMode;
+        this.engine = <any>args.engine;
+        this.engineVersion = <any>args.engineVersion;
+        this.maintenanceWindow = <any>args.maintenanceWindow;
         if (lumirt.defaultIfComputed(args.nodeType, "") === undefined) {
             throw new Error("Property argument 'nodeType' is required, but was missing");
         }
-        this.nodeType = args.nodeType;
-        this.notificationTopicArn = args.notificationTopicArn;
-        this.numberCacheClusters = args.numberCacheClusters;
-        this.parameterGroupName = args.parameterGroupName;
+        this.nodeType = <any>args.nodeType;
+        this.notificationTopicArn = <any>args.notificationTopicArn;
+        this.numberCacheClusters = <any>args.numberCacheClusters;
+        this.parameterGroupName = <any>args.parameterGroupName;
         if (lumirt.defaultIfComputed(args.port, "") === undefined) {
             throw new Error("Property argument 'port' is required, but was missing");
         }
-        this.port = args.port;
+        this.port = <any>args.port;
         if (lumirt.defaultIfComputed(args.replicationGroupDescription, "") === undefined) {
             throw new Error("Property argument 'replicationGroupDescription' is required, but was missing");
         }
-        this.replicationGroupDescription = args.replicationGroupDescription;
+        this.replicationGroupDescription = <any>args.replicationGroupDescription;
         if (lumirt.defaultIfComputed(args.replicationGroupId, "") === undefined) {
             throw new Error("Property argument 'replicationGroupId' is required, but was missing");
         }
-        this.replicationGroupId = args.replicationGroupId;
-        this.securityGroupIds = args.securityGroupIds;
-        this.securityGroupNames = args.securityGroupNames;
-        this.snapshotArns = args.snapshotArns;
-        this.snapshotName = args.snapshotName;
-        this.snapshotRetentionLimit = args.snapshotRetentionLimit;
-        this.snapshotWindow = args.snapshotWindow;
-        this.subnetGroupName = args.subnetGroupName;
-        this.tags = args.tags;
+        this.replicationGroupId = <any>args.replicationGroupId;
+        this.securityGroupIds = <any>args.securityGroupIds;
+        this.securityGroupNames = <any>args.securityGroupNames;
+        this.snapshotArns = <any>args.snapshotArns;
+        this.snapshotName = <any>args.snapshotName;
+        this.snapshotRetentionLimit = <any>args.snapshotRetentionLimit;
+        this.snapshotWindow = <any>args.snapshotWindow;
+        this.subnetGroupName = <any>args.subnetGroupName;
+        this.tags = <any>args.tags;
     }
 }
 

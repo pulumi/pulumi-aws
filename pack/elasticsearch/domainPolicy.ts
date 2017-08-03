@@ -21,11 +21,11 @@ export class DomainPolicy extends lumi.NamedResource implements DomainPolicyArgs
         if (lumirt.defaultIfComputed(args.accessPolicies, "") === undefined) {
             throw new Error("Property argument 'accessPolicies' is required, but was missing");
         }
-        this.accessPolicies = args.accessPolicies;
+        this.accessPolicies = <any>args.accessPolicies;
         if (lumirt.defaultIfComputed(args.domainName, "") === undefined) {
             throw new Error("Property argument 'domainName' is required, but was missing");
         }
-        this.domainName = args.domainName;
+        this.domainName = <any>args.domainName;
     }
 }
 

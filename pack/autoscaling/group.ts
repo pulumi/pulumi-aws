@@ -43,41 +43,41 @@ export class Group extends lumi.NamedResource implements GroupArgs {
 
     constructor(name: string, args: GroupArgs) {
         super(name);
-        this.availabilityZones = args.availabilityZones;
-        this.defaultCooldown = args.defaultCooldown;
-        this.desiredCapacity = args.desiredCapacity;
-        this.enabledMetrics = args.enabledMetrics;
-        this.forceDelete = args.forceDelete;
-        this.healthCheckGracePeriod = args.healthCheckGracePeriod;
-        this.healthCheckType = args.healthCheckType;
-        this.initialLifecycleHook = args.initialLifecycleHook;
+        this.availabilityZones = <any>args.availabilityZones;
+        this.defaultCooldown = <any>args.defaultCooldown;
+        this.desiredCapacity = <any>args.desiredCapacity;
+        this.enabledMetrics = <any>args.enabledMetrics;
+        this.forceDelete = <any>args.forceDelete;
+        this.healthCheckGracePeriod = <any>args.healthCheckGracePeriod;
+        this.healthCheckType = <any>args.healthCheckType;
+        this.initialLifecycleHook = <any>args.initialLifecycleHook;
         if (lumirt.defaultIfComputed(args.launchConfiguration, "") === undefined) {
             throw new Error("Property argument 'launchConfiguration' is required, but was missing");
         }
-        this.launchConfiguration = args.launchConfiguration;
-        this.loadBalancers = args.loadBalancers;
+        this.launchConfiguration = <any>args.launchConfiguration;
+        this.loadBalancers = <any>args.loadBalancers;
         if (lumirt.defaultIfComputed(args.maxSize, "") === undefined) {
             throw new Error("Property argument 'maxSize' is required, but was missing");
         }
-        this.maxSize = args.maxSize;
-        this.metricsGranularity = args.metricsGranularity;
-        this.minElbCapacity = args.minElbCapacity;
+        this.maxSize = <any>args.maxSize;
+        this.metricsGranularity = <any>args.metricsGranularity;
+        this.minElbCapacity = <any>args.minElbCapacity;
         if (lumirt.defaultIfComputed(args.minSize, "") === undefined) {
             throw new Error("Property argument 'minSize' is required, but was missing");
         }
-        this.minSize = args.minSize;
-        this.groupName = args.groupName;
-        this.namePrefix = args.namePrefix;
-        this.placementGroup = args.placementGroup;
-        this.protectFromScaleIn = args.protectFromScaleIn;
-        this.suspendedProcesses = args.suspendedProcesses;
-        this.tag = args.tag;
-        this.tags = args.tags;
-        this.targetGroupArns = args.targetGroupArns;
-        this.terminationPolicies = args.terminationPolicies;
-        this.vpcZoneIdentifier = args.vpcZoneIdentifier;
-        this.waitForCapacityTimeout = args.waitForCapacityTimeout;
-        this.waitForElbCapacity = args.waitForElbCapacity;
+        this.minSize = <any>args.minSize;
+        this.groupName = <any>args.groupName;
+        this.namePrefix = <any>args.namePrefix;
+        this.placementGroup = <any>args.placementGroup;
+        this.protectFromScaleIn = <any>args.protectFromScaleIn;
+        this.suspendedProcesses = <any>args.suspendedProcesses;
+        this.tag = <any>args.tag;
+        this.tags = <any>args.tags;
+        this.targetGroupArns = <any>args.targetGroupArns;
+        this.terminationPolicies = <any>args.terminationPolicies;
+        this.vpcZoneIdentifier = <any>args.vpcZoneIdentifier;
+        this.waitForCapacityTimeout = <any>args.waitForCapacityTimeout;
+        this.waitForElbCapacity = <any>args.waitForElbCapacity;
     }
 }
 
@@ -89,7 +89,7 @@ export interface GroupArgs {
     readonly forceDelete?: boolean;
     readonly healthCheckGracePeriod?: number;
     readonly healthCheckType?: string;
-    readonly initialLifecycleHook?: { defaultResult: string, heartbeatTimeout?: number, lifecycleTransition: string, name: string, notificationMetadata?: string, notificationTargetArn?: string, roleArn?: string }[];
+    readonly initialLifecycleHook?: { defaultResult?: string, heartbeatTimeout?: number, lifecycleTransition: string, name: string, notificationMetadata?: string, notificationTargetArn?: string, roleArn?: string }[];
     readonly launchConfiguration: string;
     readonly loadBalancers?: string[];
     readonly maxSize: number;

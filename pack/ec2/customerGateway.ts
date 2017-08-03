@@ -23,16 +23,16 @@ export class CustomerGateway extends lumi.NamedResource implements CustomerGatew
         if (lumirt.defaultIfComputed(args.bgpAsn, "") === undefined) {
             throw new Error("Property argument 'bgpAsn' is required, but was missing");
         }
-        this.bgpAsn = args.bgpAsn;
+        this.bgpAsn = <any>args.bgpAsn;
         if (lumirt.defaultIfComputed(args.ipAddress, "") === undefined) {
             throw new Error("Property argument 'ipAddress' is required, but was missing");
         }
-        this.ipAddress = args.ipAddress;
-        this.tags = args.tags;
+        this.ipAddress = <any>args.ipAddress;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
+        this.type = <any>args.type;
     }
 }
 

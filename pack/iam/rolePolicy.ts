@@ -20,16 +20,16 @@ export class RolePolicy extends lumi.NamedResource implements RolePolicyArgs {
 
     constructor(name: string, args: RolePolicyArgs) {
         super(name);
-        this.rolePolicyName = args.rolePolicyName;
-        this.namePrefix = args.namePrefix;
+        this.rolePolicyName = <any>args.rolePolicyName;
+        this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
         if (lumirt.defaultIfComputed(args.role, "") === undefined) {
             throw new Error("Property argument 'role' is required, but was missing");
         }
-        this.role = args.role;
+        this.role = <any>args.role;
     }
 }
 

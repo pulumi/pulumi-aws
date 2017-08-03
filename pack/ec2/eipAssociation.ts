@@ -22,12 +22,12 @@ export class EipAssociation extends lumi.NamedResource implements EipAssociation
 
     constructor(name: string, args: EipAssociationArgs) {
         super(name);
-        this.allocationId = args.allocationId;
-        this.allowReassociation = args.allowReassociation;
-        this.instanceId = args.instanceId;
-        this.networkInterfaceId = args.networkInterfaceId;
-        this.privateIpAddress = args.privateIpAddress;
-        this.publicIp = args.publicIp;
+        this.allocationId = <any>args.allocationId;
+        this.allowReassociation = <any>args.allowReassociation;
+        this.instanceId = <any>args.instanceId;
+        this.networkInterfaceId = <any>args.networkInterfaceId;
+        this.privateIpAddress = <any>args.privateIpAddress;
+        this.publicIp = <any>args.publicIp;
     }
 }
 

@@ -33,26 +33,26 @@ export class ReplicationInstance extends lumi.NamedResource implements Replicati
 
     constructor(name: string, args: ReplicationInstanceArgs) {
         super(name);
-        this.allocatedStorage = args.allocatedStorage;
-        this.applyImmediately = args.applyImmediately;
-        this.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
-        this.availabilityZone = args.availabilityZone;
-        this.engineVersion = args.engineVersion;
-        this.kmsKeyArn = args.kmsKeyArn;
-        this.multiAz = args.multiAz;
-        this.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
-        this.publiclyAccessible = args.publiclyAccessible;
+        this.allocatedStorage = <any>args.allocatedStorage;
+        this.applyImmediately = <any>args.applyImmediately;
+        this.autoMinorVersionUpgrade = <any>args.autoMinorVersionUpgrade;
+        this.availabilityZone = <any>args.availabilityZone;
+        this.engineVersion = <any>args.engineVersion;
+        this.kmsKeyArn = <any>args.kmsKeyArn;
+        this.multiAz = <any>args.multiAz;
+        this.preferredMaintenanceWindow = <any>args.preferredMaintenanceWindow;
+        this.publiclyAccessible = <any>args.publiclyAccessible;
         if (lumirt.defaultIfComputed(args.replicationInstanceClass, "") === undefined) {
             throw new Error("Property argument 'replicationInstanceClass' is required, but was missing");
         }
-        this.replicationInstanceClass = args.replicationInstanceClass;
+        this.replicationInstanceClass = <any>args.replicationInstanceClass;
         if (lumirt.defaultIfComputed(args.replicationInstanceId, "") === undefined) {
             throw new Error("Property argument 'replicationInstanceId' is required, but was missing");
         }
-        this.replicationInstanceId = args.replicationInstanceId;
-        this.replicationSubnetGroupId = args.replicationSubnetGroupId;
-        this.tags = args.tags;
-        this.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+        this.replicationInstanceId = <any>args.replicationInstanceId;
+        this.replicationSubnetGroupId = <any>args.replicationSubnetGroupId;
+        this.tags = <any>args.tags;
+        this.vpcSecurityGroupIds = <any>args.vpcSecurityGroupIds;
     }
 }
 

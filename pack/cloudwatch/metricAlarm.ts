@@ -10,7 +10,7 @@ export class MetricAlarm extends lumi.NamedResource implements MetricAlarmArgs {
     public readonly actionsEnabled?: boolean;
     public readonly alarmActions?: Topic[];
     public readonly alarmDescription?: string;
-    public readonly alarmName?: string;
+    public readonly alarmName: string;
     public readonly comparisonOperator: string;
     public readonly dimensions?: {[key: string]: any};
     public readonly evaluateLowSampleCountPercentiles: string;
@@ -36,42 +36,42 @@ export class MetricAlarm extends lumi.NamedResource implements MetricAlarmArgs {
 
     constructor(name: string, args: MetricAlarmArgs) {
         super(name);
-        this.actionsEnabled = args.actionsEnabled;
-        this.alarmActions = args.alarmActions;
-        this.alarmDescription = args.alarmDescription;
-        this.alarmName = args.alarmName;
+        this.actionsEnabled = <any>args.actionsEnabled;
+        this.alarmActions = <any>args.alarmActions;
+        this.alarmDescription = <any>args.alarmDescription;
+        this.alarmName = <any>args.alarmName;
         if (lumirt.defaultIfComputed(args.comparisonOperator, "") === undefined) {
             throw new Error("Property argument 'comparisonOperator' is required, but was missing");
         }
-        this.comparisonOperator = args.comparisonOperator;
-        this.dimensions = args.dimensions;
-        this.evaluateLowSampleCountPercentiles = args.evaluateLowSampleCountPercentiles;
+        this.comparisonOperator = <any>args.comparisonOperator;
+        this.dimensions = <any>args.dimensions;
+        this.evaluateLowSampleCountPercentiles = <any>args.evaluateLowSampleCountPercentiles;
         if (lumirt.defaultIfComputed(args.evaluationPeriods, "") === undefined) {
             throw new Error("Property argument 'evaluationPeriods' is required, but was missing");
         }
-        this.evaluationPeriods = args.evaluationPeriods;
-        this.extendedStatistic = args.extendedStatistic;
-        this.insufficientDataActions = args.insufficientDataActions;
+        this.evaluationPeriods = <any>args.evaluationPeriods;
+        this.extendedStatistic = <any>args.extendedStatistic;
+        this.insufficientDataActions = <any>args.insufficientDataActions;
         if (lumirt.defaultIfComputed(args.metricName, "") === undefined) {
             throw new Error("Property argument 'metricName' is required, but was missing");
         }
-        this.metricName = args.metricName;
+        this.metricName = <any>args.metricName;
         if (lumirt.defaultIfComputed(args.namespace, "") === undefined) {
             throw new Error("Property argument 'namespace' is required, but was missing");
         }
-        this.namespace = args.namespace;
-        this.okActions = args.okActions;
+        this.namespace = <any>args.namespace;
+        this.okActions = <any>args.okActions;
         if (lumirt.defaultIfComputed(args.period, "") === undefined) {
             throw new Error("Property argument 'period' is required, but was missing");
         }
-        this.period = args.period;
-        this.statistic = args.statistic;
+        this.period = <any>args.period;
+        this.statistic = <any>args.statistic;
         if (lumirt.defaultIfComputed(args.threshold, "") === undefined) {
             throw new Error("Property argument 'threshold' is required, but was missing");
         }
-        this.threshold = args.threshold;
-        this.treatMissingData = args.treatMissingData;
-        this.unit = args.unit;
+        this.threshold = <any>args.threshold;
+        this.treatMissingData = <any>args.treatMissingData;
+        this.unit = <any>args.unit;
     }
 }
 

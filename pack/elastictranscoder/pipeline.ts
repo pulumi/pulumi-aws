@@ -27,35 +27,35 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
 
     constructor(name: string, args: PipelineArgs) {
         super(name);
-        this.awsKmsKeyArn = args.awsKmsKeyArn;
-        this.contentConfig = args.contentConfig;
-        this.contentConfigPermissions = args.contentConfigPermissions;
+        this.awsKmsKeyArn = <any>args.awsKmsKeyArn;
+        this.contentConfig = <any>args.contentConfig;
+        this.contentConfigPermissions = <any>args.contentConfigPermissions;
         if (lumirt.defaultIfComputed(args.inputBucket, "") === undefined) {
             throw new Error("Property argument 'inputBucket' is required, but was missing");
         }
-        this.inputBucket = args.inputBucket;
-        this.pipelineName = args.pipelineName;
-        this.notifications = args.notifications;
-        this.outputBucket = args.outputBucket;
+        this.inputBucket = <any>args.inputBucket;
+        this.pipelineName = <any>args.pipelineName;
+        this.notifications = <any>args.notifications;
+        this.outputBucket = <any>args.outputBucket;
         if (lumirt.defaultIfComputed(args.role, "") === undefined) {
             throw new Error("Property argument 'role' is required, but was missing");
         }
-        this.role = args.role;
-        this.thumbnailConfig = args.thumbnailConfig;
-        this.thumbnailConfigPermissions = args.thumbnailConfigPermissions;
+        this.role = <any>args.role;
+        this.thumbnailConfig = <any>args.thumbnailConfig;
+        this.thumbnailConfigPermissions = <any>args.thumbnailConfigPermissions;
     }
 }
 
 export interface PipelineArgs {
     readonly awsKmsKeyArn?: string;
-    readonly contentConfig?: { bucket: string, storageClass?: string }[];
+    readonly contentConfig?: { bucket?: string, storageClass?: string }[];
     readonly contentConfigPermissions?: { access?: string[], grantee?: string, granteeType?: string }[];
     readonly inputBucket: string;
     readonly pipelineName?: string;
     readonly notifications?: { completed?: string, error?: string, progressing?: string, warning?: string }[];
     readonly outputBucket?: string;
     readonly role: string;
-    readonly thumbnailConfig?: { bucket: string, storageClass?: string }[];
+    readonly thumbnailConfig?: { bucket?: string, storageClass?: string }[];
     readonly thumbnailConfigPermissions?: { access?: string[], grantee?: string, granteeType?: string }[];
 }
 

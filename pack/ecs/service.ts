@@ -11,7 +11,7 @@ export class Service extends lumi.NamedResource implements ServiceArgs {
     public readonly desiredCount?: number;
     public readonly iamRole?: string;
     public readonly loadBalancer?: { containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[];
-    public readonly serviceName?: string;
+    public readonly serviceName: string;
     public readonly placementConstraints?: { expression?: string, type: string }[];
     public readonly placementStrategy?: { field?: string, type: string }[];
     public readonly taskDefinition: string;
@@ -26,19 +26,19 @@ export class Service extends lumi.NamedResource implements ServiceArgs {
 
     constructor(name: string, args: ServiceArgs) {
         super(name);
-        this.cluster = args.cluster;
-        this.deploymentMaximumPercent = args.deploymentMaximumPercent;
-        this.deploymentMinimumHealthyPercent = args.deploymentMinimumHealthyPercent;
-        this.desiredCount = args.desiredCount;
-        this.iamRole = args.iamRole;
-        this.loadBalancer = args.loadBalancer;
-        this.serviceName = args.serviceName;
-        this.placementConstraints = args.placementConstraints;
-        this.placementStrategy = args.placementStrategy;
+        this.cluster = <any>args.cluster;
+        this.deploymentMaximumPercent = <any>args.deploymentMaximumPercent;
+        this.deploymentMinimumHealthyPercent = <any>args.deploymentMinimumHealthyPercent;
+        this.desiredCount = <any>args.desiredCount;
+        this.iamRole = <any>args.iamRole;
+        this.loadBalancer = <any>args.loadBalancer;
+        this.serviceName = <any>args.serviceName;
+        this.placementConstraints = <any>args.placementConstraints;
+        this.placementStrategy = <any>args.placementStrategy;
         if (lumirt.defaultIfComputed(args.taskDefinition, "") === undefined) {
             throw new Error("Property argument 'taskDefinition' is required, but was missing");
         }
-        this.taskDefinition = args.taskDefinition;
+        this.taskDefinition = <any>args.taskDefinition;
     }
 }
 

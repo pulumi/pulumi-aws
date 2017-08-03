@@ -9,7 +9,7 @@ export class MaintenanceWindow extends lumi.NamedResource implements Maintenance
     public readonly cutoff: number;
     public readonly duration: number;
     public readonly enabled?: boolean;
-    public readonly maintenanceWindowName?: string;
+    public readonly maintenanceWindowName: string;
     public readonly schedule: string;
 
     public static get(id: lumi.ID): MaintenanceWindow {
@@ -22,21 +22,21 @@ export class MaintenanceWindow extends lumi.NamedResource implements Maintenance
 
     constructor(name: string, args: MaintenanceWindowArgs) {
         super(name);
-        this.allowUnassociatedTargets = args.allowUnassociatedTargets;
+        this.allowUnassociatedTargets = <any>args.allowUnassociatedTargets;
         if (lumirt.defaultIfComputed(args.cutoff, "") === undefined) {
             throw new Error("Property argument 'cutoff' is required, but was missing");
         }
-        this.cutoff = args.cutoff;
+        this.cutoff = <any>args.cutoff;
         if (lumirt.defaultIfComputed(args.duration, "") === undefined) {
             throw new Error("Property argument 'duration' is required, but was missing");
         }
-        this.duration = args.duration;
-        this.enabled = args.enabled;
-        this.maintenanceWindowName = args.maintenanceWindowName;
+        this.duration = <any>args.duration;
+        this.enabled = <any>args.enabled;
+        this.maintenanceWindowName = <any>args.maintenanceWindowName;
         if (lumirt.defaultIfComputed(args.schedule, "") === undefined) {
             throw new Error("Property argument 'schedule' is required, but was missing");
         }
-        this.schedule = args.schedule;
+        this.schedule = <any>args.schedule;
     }
 }
 

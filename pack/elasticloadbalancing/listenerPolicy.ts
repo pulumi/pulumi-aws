@@ -22,12 +22,12 @@ export class ListenerPolicy extends lumi.NamedResource implements ListenerPolicy
         if (lumirt.defaultIfComputed(args.loadBalancerName, "") === undefined) {
             throw new Error("Property argument 'loadBalancerName' is required, but was missing");
         }
-        this.loadBalancerName = args.loadBalancerName;
+        this.loadBalancerName = <any>args.loadBalancerName;
         if (lumirt.defaultIfComputed(args.loadBalancerPort, "") === undefined) {
             throw new Error("Property argument 'loadBalancerPort' is required, but was missing");
         }
-        this.loadBalancerPort = args.loadBalancerPort;
-        this.policyNames = args.policyNames;
+        this.loadBalancerPort = <any>args.loadBalancerPort;
+        this.policyNames = <any>args.policyNames;
     }
 }
 

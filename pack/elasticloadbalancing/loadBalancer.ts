@@ -35,25 +35,25 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
 
     constructor(name: string, args: LoadBalancerArgs) {
         super(name);
-        this.accessLogs = args.accessLogs;
-        this.availabilityZones = args.availabilityZones;
-        this.connectionDraining = args.connectionDraining;
-        this.connectionDrainingTimeout = args.connectionDrainingTimeout;
-        this.crossZoneLoadBalancing = args.crossZoneLoadBalancing;
-        this.healthCheck = args.healthCheck;
-        this.idleTimeout = args.idleTimeout;
-        this.instances = args.instances;
-        this.internal = args.internal;
+        this.accessLogs = <any>args.accessLogs;
+        this.availabilityZones = <any>args.availabilityZones;
+        this.connectionDraining = <any>args.connectionDraining;
+        this.connectionDrainingTimeout = <any>args.connectionDrainingTimeout;
+        this.crossZoneLoadBalancing = <any>args.crossZoneLoadBalancing;
+        this.healthCheck = <any>args.healthCheck;
+        this.idleTimeout = <any>args.idleTimeout;
+        this.instances = <any>args.instances;
+        this.internal = <any>args.internal;
         if (lumirt.defaultIfComputed(args.listener, "") === undefined) {
             throw new Error("Property argument 'listener' is required, but was missing");
         }
-        this.listener = args.listener;
-        this.loadBalancerName = args.loadBalancerName;
-        this.namePrefix = args.namePrefix;
-        this.securityGroups = args.securityGroups;
-        this.sourceSecurityGroup = args.sourceSecurityGroup;
-        this.subnets = args.subnets;
-        this.tags = args.tags;
+        this.listener = <any>args.listener;
+        this.loadBalancerName = <any>args.loadBalancerName;
+        this.namePrefix = <any>args.namePrefix;
+        this.securityGroups = <any>args.securityGroups;
+        this.sourceSecurityGroup = <any>args.sourceSecurityGroup;
+        this.subnets = <any>args.subnets;
+        this.tags = <any>args.tags;
     }
 }
 

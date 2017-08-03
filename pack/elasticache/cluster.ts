@@ -41,42 +41,42 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
 
     constructor(name: string, args: ClusterArgs) {
         super(name);
-        this.applyImmediately = args.applyImmediately;
-        this.availabilityZone = args.availabilityZone;
-        this.availabilityZones = args.availabilityZones;
-        this.azMode = args.azMode;
+        this.applyImmediately = <any>args.applyImmediately;
+        this.availabilityZone = <any>args.availabilityZone;
+        this.availabilityZones = <any>args.availabilityZones;
+        this.azMode = <any>args.azMode;
         if (lumirt.defaultIfComputed(args.clusterId, "") === undefined) {
             throw new Error("Property argument 'clusterId' is required, but was missing");
         }
-        this.clusterId = args.clusterId;
+        this.clusterId = <any>args.clusterId;
         if (lumirt.defaultIfComputed(args.engine, "") === undefined) {
             throw new Error("Property argument 'engine' is required, but was missing");
         }
-        this.engine = args.engine;
-        this.engineVersion = args.engineVersion;
-        this.maintenanceWindow = args.maintenanceWindow;
+        this.engine = <any>args.engine;
+        this.engineVersion = <any>args.engineVersion;
+        this.maintenanceWindow = <any>args.maintenanceWindow;
         if (lumirt.defaultIfComputed(args.nodeType, "") === undefined) {
             throw new Error("Property argument 'nodeType' is required, but was missing");
         }
-        this.nodeType = args.nodeType;
-        this.notificationTopicArn = args.notificationTopicArn;
+        this.nodeType = <any>args.nodeType;
+        this.notificationTopicArn = <any>args.notificationTopicArn;
         if (lumirt.defaultIfComputed(args.numCacheNodes, "") === undefined) {
             throw new Error("Property argument 'numCacheNodes' is required, but was missing");
         }
-        this.numCacheNodes = args.numCacheNodes;
-        this.parameterGroupName = args.parameterGroupName;
+        this.numCacheNodes = <any>args.numCacheNodes;
+        this.parameterGroupName = <any>args.parameterGroupName;
         if (lumirt.defaultIfComputed(args.port, "") === undefined) {
             throw new Error("Property argument 'port' is required, but was missing");
         }
-        this.port = args.port;
-        this.securityGroupIds = args.securityGroupIds;
-        this.securityGroupNames = args.securityGroupNames;
-        this.snapshotArns = args.snapshotArns;
-        this.snapshotName = args.snapshotName;
-        this.snapshotRetentionLimit = args.snapshotRetentionLimit;
-        this.snapshotWindow = args.snapshotWindow;
-        this.subnetGroupName = args.subnetGroupName;
-        this.tags = args.tags;
+        this.port = <any>args.port;
+        this.securityGroupIds = <any>args.securityGroupIds;
+        this.securityGroupNames = <any>args.securityGroupNames;
+        this.snapshotArns = <any>args.snapshotArns;
+        this.snapshotName = <any>args.snapshotName;
+        this.snapshotRetentionLimit = <any>args.snapshotRetentionLimit;
+        this.snapshotWindow = <any>args.snapshotWindow;
+        this.subnetGroupName = <any>args.subnetGroupName;
+        this.tags = <any>args.tags;
     }
 }
 

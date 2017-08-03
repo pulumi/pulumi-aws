@@ -17,7 +17,7 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
     public /*out*/ readonly instances: string[];
     public /*out*/ readonly launchConfigurations: string[];
     public /*out*/ readonly loadBalancers: string[];
-    public readonly environmentName?: string;
+    public readonly environmentName: string;
     public readonly pollInterval?: string;
     public /*out*/ readonly queues: string[];
     public readonly setting?: { name: string, namespace: string, resource?: string, value: string }[];
@@ -42,18 +42,18 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {
             throw new Error("Property argument 'application' is required, but was missing");
         }
-        this.application = args.application;
-        this.cnamePrefix = args.cnamePrefix;
-        this.description = args.description;
-        this.environmentName = args.environmentName;
-        this.pollInterval = args.pollInterval;
-        this.setting = args.setting;
-        this.solutionStackName = args.solutionStackName;
-        this.tags = args.tags;
-        this.templateName = args.templateName;
-        this.tier = args.tier;
-        this.version = args.version;
-        this.waitForReadyTimeout = args.waitForReadyTimeout;
+        this.application = <any>args.application;
+        this.cnamePrefix = <any>args.cnamePrefix;
+        this.description = <any>args.description;
+        this.environmentName = <any>args.environmentName;
+        this.pollInterval = <any>args.pollInterval;
+        this.setting = <any>args.setting;
+        this.solutionStackName = <any>args.solutionStackName;
+        this.tags = <any>args.tags;
+        this.templateName = <any>args.templateName;
+        this.tier = <any>args.tier;
+        this.version = <any>args.version;
+        this.waitForReadyTimeout = <any>args.waitForReadyTimeout;
     }
 }
 

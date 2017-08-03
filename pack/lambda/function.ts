@@ -12,7 +12,7 @@ export class Function extends lumi.NamedResource implements FunctionArgs {
     public readonly description?: string;
     public readonly environment?: { variables?: {[key: string]: string} }[];
     public readonly code?: lumi.asset.Archive;
-    public readonly functionName?: string;
+    public readonly functionName: string;
     public readonly handler: string;
     public /*out*/ readonly invokeArn: string;
     public readonly kmsKeyArn?: string;
@@ -42,34 +42,34 @@ export class Function extends lumi.NamedResource implements FunctionArgs {
 
     constructor(name: string, args: FunctionArgs) {
         super(name);
-        this.deadLetterConfig = args.deadLetterConfig;
-        this.description = args.description;
-        this.environment = args.environment;
-        this.code = args.code;
-        this.functionName = args.functionName;
+        this.deadLetterConfig = <any>args.deadLetterConfig;
+        this.description = <any>args.description;
+        this.environment = <any>args.environment;
+        this.code = <any>args.code;
+        this.functionName = <any>args.functionName;
         if (lumirt.defaultIfComputed(args.handler, "") === undefined) {
             throw new Error("Property argument 'handler' is required, but was missing");
         }
-        this.handler = args.handler;
-        this.kmsKeyArn = args.kmsKeyArn;
-        this.memorySize = args.memorySize;
-        this.publish = args.publish;
+        this.handler = <any>args.handler;
+        this.kmsKeyArn = <any>args.kmsKeyArn;
+        this.memorySize = <any>args.memorySize;
+        this.publish = <any>args.publish;
         if (lumirt.defaultIfComputed(args.role, "") === undefined) {
             throw new Error("Property argument 'role' is required, but was missing");
         }
-        this.role = args.role;
+        this.role = <any>args.role;
         if (lumirt.defaultIfComputed(args.runtime, "") === undefined) {
             throw new Error("Property argument 'runtime' is required, but was missing");
         }
-        this.runtime = args.runtime;
-        this.s3Bucket = args.s3Bucket;
-        this.s3Key = args.s3Key;
-        this.s3ObjectVersion = args.s3ObjectVersion;
-        this.sourceCodeHash = args.sourceCodeHash;
-        this.tags = args.tags;
-        this.timeout = args.timeout;
-        this.tracingConfig = args.tracingConfig;
-        this.vpcConfig = args.vpcConfig;
+        this.runtime = <any>args.runtime;
+        this.s3Bucket = <any>args.s3Bucket;
+        this.s3Key = <any>args.s3Key;
+        this.s3ObjectVersion = <any>args.s3ObjectVersion;
+        this.sourceCodeHash = <any>args.sourceCodeHash;
+        this.tags = <any>args.tags;
+        this.timeout = <any>args.timeout;
+        this.tracingConfig = <any>args.tracingConfig;
+        this.vpcConfig = <any>args.vpcConfig;
     }
 }
 
@@ -92,6 +92,6 @@ export interface FunctionArgs {
     readonly tags?: {[key: string]: any};
     readonly timeout?: number;
     readonly tracingConfig?: { mode: string }[];
-    readonly vpcConfig?: { securityGroupIds: string[], subnetIds: string[], vpcId: string }[];
+    readonly vpcConfig?: { securityGroupIds: string[], subnetIds: string[], vpcId?: string }[];
 }
 

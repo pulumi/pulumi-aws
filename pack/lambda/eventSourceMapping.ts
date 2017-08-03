@@ -27,20 +27,20 @@ export class EventSourceMapping extends lumi.NamedResource implements EventSourc
 
     constructor(name: string, args: EventSourceMappingArgs) {
         super(name);
-        this.batchSize = args.batchSize;
-        this.enabled = args.enabled;
+        this.batchSize = <any>args.batchSize;
+        this.enabled = <any>args.enabled;
         if (lumirt.defaultIfComputed(args.eventSourceArn, "") === undefined) {
             throw new Error("Property argument 'eventSourceArn' is required, but was missing");
         }
-        this.eventSourceArn = args.eventSourceArn;
+        this.eventSourceArn = <any>args.eventSourceArn;
         if (lumirt.defaultIfComputed(args.functionName, "") === undefined) {
             throw new Error("Property argument 'functionName' is required, but was missing");
         }
-        this.functionName = args.functionName;
+        this.functionName = <any>args.functionName;
         if (lumirt.defaultIfComputed(args.startingPosition, "") === undefined) {
             throw new Error("Property argument 'startingPosition' is required, but was missing");
         }
-        this.startingPosition = args.startingPosition;
+        this.startingPosition = <any>args.startingPosition;
     }
 }
 

@@ -10,7 +10,7 @@ export class Table extends lumi.NamedResource implements TableArgs {
     public readonly globalSecondaryIndex?: { hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[];
     public readonly hashKey: string;
     public readonly localSecondaryIndex?: { name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[];
-    public readonly tableName?: string;
+    public readonly tableName: string;
     public readonly rangeKey?: string;
     public readonly readCapacity: number;
     public /*out*/ readonly streamArn: string;
@@ -34,27 +34,27 @@ export class Table extends lumi.NamedResource implements TableArgs {
         if (lumirt.defaultIfComputed(args.attribute, "") === undefined) {
             throw new Error("Property argument 'attribute' is required, but was missing");
         }
-        this.attribute = args.attribute;
-        this.globalSecondaryIndex = args.globalSecondaryIndex;
+        this.attribute = <any>args.attribute;
+        this.globalSecondaryIndex = <any>args.globalSecondaryIndex;
         if (lumirt.defaultIfComputed(args.hashKey, "") === undefined) {
             throw new Error("Property argument 'hashKey' is required, but was missing");
         }
-        this.hashKey = args.hashKey;
-        this.localSecondaryIndex = args.localSecondaryIndex;
-        this.tableName = args.tableName;
-        this.rangeKey = args.rangeKey;
+        this.hashKey = <any>args.hashKey;
+        this.localSecondaryIndex = <any>args.localSecondaryIndex;
+        this.tableName = <any>args.tableName;
+        this.rangeKey = <any>args.rangeKey;
         if (lumirt.defaultIfComputed(args.readCapacity, "") === undefined) {
             throw new Error("Property argument 'readCapacity' is required, but was missing");
         }
-        this.readCapacity = args.readCapacity;
-        this.streamEnabled = args.streamEnabled;
-        this.streamViewType = args.streamViewType;
-        this.tags = args.tags;
-        this.ttl = args.ttl;
+        this.readCapacity = <any>args.readCapacity;
+        this.streamEnabled = <any>args.streamEnabled;
+        this.streamViewType = <any>args.streamViewType;
+        this.tags = <any>args.tags;
+        this.ttl = <any>args.ttl;
         if (lumirt.defaultIfComputed(args.writeCapacity, "") === undefined) {
             throw new Error("Property argument 'writeCapacity' is required, but was missing");
         }
-        this.writeCapacity = args.writeCapacity;
+        this.writeCapacity = <any>args.writeCapacity;
     }
 }
 

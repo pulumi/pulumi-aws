@@ -24,11 +24,11 @@ export class UserPolicyAttachment extends lumi.NamedResource implements UserPoli
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {
             throw new Error("Property argument 'policyArn' is required, but was missing");
         }
-        this.policyArn = args.policyArn;
+        this.policyArn = <any>args.policyArn;
         if (lumirt.defaultIfComputed(args.user, "") === undefined) {
             throw new Error("Property argument 'user' is required, but was missing");
         }
-        this.user = args.user;
+        this.user = <any>args.user;
     }
 }
 

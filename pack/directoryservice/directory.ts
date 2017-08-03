@@ -11,7 +11,7 @@ export class Directory extends lumi.NamedResource implements DirectoryArgs {
     public readonly description?: string;
     public /*out*/ readonly dnsIpAddresses: string[];
     public readonly enableSso?: boolean;
-    public readonly directoryName?: string;
+    public readonly directoryName: string;
     public readonly password: string;
     public readonly shortName: string;
     public readonly size?: string;
@@ -28,19 +28,19 @@ export class Directory extends lumi.NamedResource implements DirectoryArgs {
 
     constructor(name: string, args: DirectoryArgs) {
         super(name);
-        this.alias = args.alias;
-        this.connectSettings = args.connectSettings;
-        this.description = args.description;
-        this.enableSso = args.enableSso;
-        this.directoryName = args.directoryName;
+        this.alias = <any>args.alias;
+        this.connectSettings = <any>args.connectSettings;
+        this.description = <any>args.description;
+        this.enableSso = <any>args.enableSso;
+        this.directoryName = <any>args.directoryName;
         if (lumirt.defaultIfComputed(args.password, "") === undefined) {
             throw new Error("Property argument 'password' is required, but was missing");
         }
-        this.password = args.password;
-        this.shortName = args.shortName;
-        this.size = args.size;
-        this.type = args.type;
-        this.vpcSettings = args.vpcSettings;
+        this.password = <any>args.password;
+        this.shortName = <any>args.shortName;
+        this.size = <any>args.size;
+        this.type = <any>args.type;
+        this.vpcSettings = <any>args.vpcSettings;
     }
 }
 

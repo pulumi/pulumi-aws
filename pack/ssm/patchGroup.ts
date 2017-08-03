@@ -21,11 +21,11 @@ export class PatchGroup extends lumi.NamedResource implements PatchGroupArgs {
         if (lumirt.defaultIfComputed(args.baselineId, "") === undefined) {
             throw new Error("Property argument 'baselineId' is required, but was missing");
         }
-        this.baselineId = args.baselineId;
+        this.baselineId = <any>args.baselineId;
         if (lumirt.defaultIfComputed(args.patchGroup, "") === undefined) {
             throw new Error("Property argument 'patchGroup' is required, but was missing");
         }
-        this.patchGroup = args.patchGroup;
+        this.patchGroup = <any>args.patchGroup;
     }
 }
 

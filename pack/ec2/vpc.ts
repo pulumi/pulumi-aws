@@ -31,17 +31,17 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
 
     constructor(name: string, args: VpcArgs) {
         super(name);
-        this.assignGeneratedIpv6CidrBlock = args.assignGeneratedIpv6CidrBlock;
+        this.assignGeneratedIpv6CidrBlock = <any>args.assignGeneratedIpv6CidrBlock;
         if (lumirt.defaultIfComputed(args.cidrBlock, "") === undefined) {
             throw new Error("Property argument 'cidrBlock' is required, but was missing");
         }
-        this.cidrBlock = args.cidrBlock;
-        this.enableClassiclink = args.enableClassiclink;
-        this.enableClassiclinkDnsSupport = args.enableClassiclinkDnsSupport;
-        this.enableDnsHostnames = args.enableDnsHostnames;
-        this.enableDnsSupport = args.enableDnsSupport;
-        this.instanceTenancy = args.instanceTenancy;
-        this.tags = args.tags;
+        this.cidrBlock = <any>args.cidrBlock;
+        this.enableClassiclink = <any>args.enableClassiclink;
+        this.enableClassiclinkDnsSupport = <any>args.enableClassiclinkDnsSupport;
+        this.enableDnsHostnames = <any>args.enableDnsHostnames;
+        this.enableDnsSupport = <any>args.enableDnsSupport;
+        this.instanceTenancy = <any>args.instanceTenancy;
+        this.tags = <any>args.tags;
     }
 }
 

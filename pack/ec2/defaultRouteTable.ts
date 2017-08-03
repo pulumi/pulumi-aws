@@ -24,10 +24,10 @@ export class DefaultRouteTable extends lumi.NamedResource implements DefaultRout
         if (lumirt.defaultIfComputed(args.defaultRouteTableId, "") === undefined) {
             throw new Error("Property argument 'defaultRouteTableId' is required, but was missing");
         }
-        this.defaultRouteTableId = args.defaultRouteTableId;
-        this.propagatingVgws = args.propagatingVgws;
-        this.route = args.route;
-        this.tags = args.tags;
+        this.defaultRouteTableId = <any>args.defaultRouteTableId;
+        this.propagatingVgws = <any>args.propagatingVgws;
+        this.route = <any>args.route;
+        this.tags = <any>args.tags;
     }
 }
 

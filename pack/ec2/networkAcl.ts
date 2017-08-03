@@ -22,15 +22,15 @@ export class NetworkAcl extends lumi.NamedResource implements NetworkAclArgs {
 
     constructor(name: string, args: NetworkAclArgs) {
         super(name);
-        this.egress = args.egress;
-        this.ingress = args.ingress;
-        this.subnetId = args.subnetId;
-        this.subnetIds = args.subnetIds;
-        this.tags = args.tags;
+        this.egress = <any>args.egress;
+        this.ingress = <any>args.ingress;
+        this.subnetId = <any>args.subnetId;
+        this.subnetIds = <any>args.subnetIds;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

@@ -22,14 +22,14 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
 
     constructor(name: string, args: PermissionArgs) {
         super(name);
-        this.allowSsh = args.allowSsh;
-        this.allowSudo = args.allowSudo;
-        this.level = args.level;
-        this.stackId = args.stackId;
+        this.allowSsh = <any>args.allowSsh;
+        this.allowSudo = <any>args.allowSudo;
+        this.level = <any>args.level;
+        this.stackId = <any>args.stackId;
         if (lumirt.defaultIfComputed(args.userArn, "") === undefined) {
             throw new Error("Property argument 'userArn' is required, but was missing");
         }
-        this.userArn = args.userArn;
+        this.userArn = <any>args.userArn;
     }
 }
 

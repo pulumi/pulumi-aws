@@ -25,13 +25,13 @@ export class Key extends lumi.NamedResource implements KeyArgs {
 
     constructor(name: string, args: KeyArgs) {
         super(name);
-        this.deletionWindowInDays = args.deletionWindowInDays;
-        this.description = args.description;
-        this.enableKeyRotation = args.enableKeyRotation;
-        this.isEnabled = args.isEnabled;
-        this.keyUsage = args.keyUsage;
-        this.policy = args.policy;
-        this.tags = args.tags;
+        this.deletionWindowInDays = <any>args.deletionWindowInDays;
+        this.description = <any>args.description;
+        this.enableKeyRotation = <any>args.enableKeyRotation;
+        this.isEnabled = <any>args.isEnabled;
+        this.keyUsage = <any>args.keyUsage;
+        this.policy = <any>args.policy;
+        this.tags = <any>args.tags;
     }
 }
 

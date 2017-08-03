@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Stream extends lumi.NamedResource implements StreamArgs {
     public readonly arn: string;
-    public readonly streamName?: string;
+    public readonly streamName: string;
     public readonly retentionPeriod?: number;
     public readonly shardCount: number;
     public readonly shardLevelMetrics?: string[];
@@ -22,15 +22,15 @@ export class Stream extends lumi.NamedResource implements StreamArgs {
 
     constructor(name: string, args: StreamArgs) {
         super(name);
-        this.arn = args.arn;
-        this.streamName = args.streamName;
-        this.retentionPeriod = args.retentionPeriod;
+        this.arn = <any>args.arn;
+        this.streamName = <any>args.streamName;
+        this.retentionPeriod = <any>args.retentionPeriod;
         if (lumirt.defaultIfComputed(args.shardCount, "") === undefined) {
             throw new Error("Property argument 'shardCount' is required, but was missing");
         }
-        this.shardCount = args.shardCount;
-        this.shardLevelMetrics = args.shardLevelMetrics;
-        this.tags = args.tags;
+        this.shardCount = <any>args.shardCount;
+        this.shardLevelMetrics = <any>args.shardLevelMetrics;
+        this.tags = <any>args.tags;
     }
 }
 

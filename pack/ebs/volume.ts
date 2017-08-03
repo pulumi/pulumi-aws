@@ -27,14 +27,14 @@ export class Volume extends lumi.NamedResource implements VolumeArgs {
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {
             throw new Error("Property argument 'availabilityZone' is required, but was missing");
         }
-        this.availabilityZone = args.availabilityZone;
-        this.encrypted = args.encrypted;
-        this.iops = args.iops;
-        this.kmsKeyId = args.kmsKeyId;
-        this.size = args.size;
-        this.snapshotId = args.snapshotId;
-        this.tags = args.tags;
-        this.type = args.type;
+        this.availabilityZone = <any>args.availabilityZone;
+        this.encrypted = <any>args.encrypted;
+        this.iops = <any>args.iops;
+        this.kmsKeyId = <any>args.kmsKeyId;
+        this.size = <any>args.size;
+        this.snapshotId = <any>args.snapshotId;
+        this.tags = <any>args.tags;
+        this.type = <any>args.type;
     }
 }
 

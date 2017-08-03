@@ -27,19 +27,19 @@ export class Preset extends lumi.NamedResource implements PresetArgs {
 
     constructor(name: string, args: PresetArgs) {
         super(name);
-        this.audio = args.audio;
-        this.audioCodecOptions = args.audioCodecOptions;
+        this.audio = <any>args.audio;
+        this.audioCodecOptions = <any>args.audioCodecOptions;
         if (lumirt.defaultIfComputed(args.container, "") === undefined) {
             throw new Error("Property argument 'container' is required, but was missing");
         }
-        this.container = args.container;
-        this.description = args.description;
-        this.presetName = args.presetName;
-        this.thumbnails = args.thumbnails;
-        this.type = args.type;
-        this.video = args.video;
-        this.videoCodecOptions = args.videoCodecOptions;
-        this.videoWatermarks = args.videoWatermarks;
+        this.container = <any>args.container;
+        this.description = <any>args.description;
+        this.presetName = <any>args.presetName;
+        this.thumbnails = <any>args.thumbnails;
+        this.type = <any>args.type;
+        this.video = <any>args.video;
+        this.videoCodecOptions = <any>args.videoCodecOptions;
+        this.videoWatermarks = <any>args.videoWatermarks;
     }
 }
 

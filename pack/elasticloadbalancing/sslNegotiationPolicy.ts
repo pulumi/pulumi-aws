@@ -8,7 +8,7 @@ export class SslNegotiationPolicy extends lumi.NamedResource implements SslNegot
     public readonly attribute?: { name: string, value: string }[];
     public readonly lbPort: number;
     public readonly loadBalancer: string;
-    public readonly sslNegotiationPolicyName?: string;
+    public readonly sslNegotiationPolicyName: string;
 
     public static get(id: lumi.ID): SslNegotiationPolicy {
         return <any>undefined; // functionality provided by the runtime
@@ -20,16 +20,16 @@ export class SslNegotiationPolicy extends lumi.NamedResource implements SslNegot
 
     constructor(name: string, args: SslNegotiationPolicyArgs) {
         super(name);
-        this.attribute = args.attribute;
+        this.attribute = <any>args.attribute;
         if (lumirt.defaultIfComputed(args.lbPort, "") === undefined) {
             throw new Error("Property argument 'lbPort' is required, but was missing");
         }
-        this.lbPort = args.lbPort;
+        this.lbPort = <any>args.lbPort;
         if (lumirt.defaultIfComputed(args.loadBalancer, "") === undefined) {
             throw new Error("Property argument 'loadBalancer' is required, but was missing");
         }
-        this.loadBalancer = args.loadBalancer;
-        this.sslNegotiationPolicyName = args.sslNegotiationPolicyName;
+        this.loadBalancer = <any>args.loadBalancer;
+        this.sslNegotiationPolicyName = <any>args.sslNegotiationPolicyName;
     }
 }
 

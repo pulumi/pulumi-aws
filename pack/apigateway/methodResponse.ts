@@ -28,22 +28,22 @@ export class MethodResponse extends lumi.NamedResource implements MethodResponse
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }
-        this.httpMethod = args.httpMethod;
+        this.httpMethod = <any>args.httpMethod;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
-        this.responseModels = args.responseModels;
-        this.responseParameters = args.responseParameters;
-        this.responseParametersInJson = args.responseParametersInJson;
+        this.resourceId = <any>args.resourceId;
+        this.responseModels = <any>args.responseModels;
+        this.responseParameters = <any>args.responseParameters;
+        this.responseParametersInJson = <any>args.responseParametersInJson;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
+        this.restApi = <any>args.restApi;
         if (lumirt.defaultIfComputed(args.statusCode, "") === undefined) {
             throw new Error("Property argument 'statusCode' is required, but was missing");
         }
-        this.statusCode = args.statusCode;
+        this.statusCode = <any>args.statusCode;
     }
 }
 

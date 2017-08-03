@@ -21,11 +21,11 @@ export class BucketPolicy extends lumi.NamedResource implements BucketPolicyArgs
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
         }
-        this.bucket = args.bucket;
+        this.bucket = <any>args.bucket;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
     }
 }
 

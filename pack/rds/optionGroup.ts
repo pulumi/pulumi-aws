@@ -27,16 +27,16 @@ export class OptionGroup extends lumi.NamedResource implements OptionGroupArgs {
         if (lumirt.defaultIfComputed(args.engineName, "") === undefined) {
             throw new Error("Property argument 'engineName' is required, but was missing");
         }
-        this.engineName = args.engineName;
+        this.engineName = <any>args.engineName;
         if (lumirt.defaultIfComputed(args.majorEngineVersion, "") === undefined) {
             throw new Error("Property argument 'majorEngineVersion' is required, but was missing");
         }
-        this.majorEngineVersion = args.majorEngineVersion;
-        this.optionGroupName = args.optionGroupName;
-        this.namePrefix = args.namePrefix;
-        this.option = args.option;
-        this.optionGroupDescription = args.optionGroupDescription;
-        this.tags = args.tags;
+        this.majorEngineVersion = <any>args.majorEngineVersion;
+        this.optionGroupName = <any>args.optionGroupName;
+        this.namePrefix = <any>args.namePrefix;
+        this.option = <any>args.option;
+        this.optionGroupDescription = <any>args.optionGroupDescription;
+        this.tags = <any>args.tags;
     }
 }
 

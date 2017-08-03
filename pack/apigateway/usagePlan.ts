@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class UsagePlan extends lumi.NamedResource implements UsagePlanArgs {
     public readonly apiStages?: { apiId: string, stage: string }[];
     public readonly description?: string;
-    public readonly usagePlanName?: string;
+    public readonly usagePlanName: string;
     public readonly productCode?: string;
     public readonly quotaSettings?: { limit: number, offset?: number, period: string }[];
     public readonly throttleSettings?: { burstLimit?: number, rateLimit?: number }[];
@@ -22,12 +22,12 @@ export class UsagePlan extends lumi.NamedResource implements UsagePlanArgs {
 
     constructor(name: string, args: UsagePlanArgs) {
         super(name);
-        this.apiStages = args.apiStages;
-        this.description = args.description;
-        this.usagePlanName = args.usagePlanName;
-        this.productCode = args.productCode;
-        this.quotaSettings = args.quotaSettings;
-        this.throttleSettings = args.throttleSettings;
+        this.apiStages = <any>args.apiStages;
+        this.description = <any>args.description;
+        this.usagePlanName = <any>args.usagePlanName;
+        this.productCode = <any>args.productCode;
+        this.quotaSettings = <any>args.quotaSettings;
+        this.throttleSettings = <any>args.throttleSettings;
     }
 }
 

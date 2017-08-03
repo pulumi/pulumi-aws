@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Group extends lumi.NamedResource implements GroupArgs {
     public /*out*/ readonly arn: string;
-    public readonly groupName?: string;
+    public readonly groupName: string;
     public readonly path?: string;
     public /*out*/ readonly uniqueId: string;
 
@@ -20,8 +20,8 @@ export class Group extends lumi.NamedResource implements GroupArgs {
 
     constructor(name: string, args: GroupArgs) {
         super(name);
-        this.groupName = args.groupName;
-        this.path = args.path;
+        this.groupName = <any>args.groupName;
+        this.path = <any>args.path;
     }
 }
 

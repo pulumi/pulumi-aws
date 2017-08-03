@@ -21,11 +21,11 @@ export class Attachment extends lumi.NamedResource implements AttachmentArgs {
         if (lumirt.defaultIfComputed(args.elb, "") === undefined) {
             throw new Error("Property argument 'elb' is required, but was missing");
         }
-        this.elb = args.elb;
+        this.elb = <any>args.elb;
         if (lumirt.defaultIfComputed(args.instance, "") === undefined) {
             throw new Error("Property argument 'instance' is required, but was missing");
         }
-        this.instance = args.instance;
+        this.instance = <any>args.instance;
     }
 }
 

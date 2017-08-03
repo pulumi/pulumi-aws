@@ -26,31 +26,31 @@ export class SecurityGroupRule extends lumi.NamedResource implements SecurityGro
 
     constructor(name: string, args: SecurityGroupRuleArgs) {
         super(name);
-        this.cidrBlocks = args.cidrBlocks;
+        this.cidrBlocks = <any>args.cidrBlocks;
         if (lumirt.defaultIfComputed(args.fromPort, "") === undefined) {
             throw new Error("Property argument 'fromPort' is required, but was missing");
         }
-        this.fromPort = args.fromPort;
-        this.ipv6CidrBlocks = args.ipv6CidrBlocks;
-        this.prefixListIds = args.prefixListIds;
+        this.fromPort = <any>args.fromPort;
+        this.ipv6CidrBlocks = <any>args.ipv6CidrBlocks;
+        this.prefixListIds = <any>args.prefixListIds;
         if (lumirt.defaultIfComputed(args.protocol, "") === undefined) {
             throw new Error("Property argument 'protocol' is required, but was missing");
         }
-        this.protocol = args.protocol;
+        this.protocol = <any>args.protocol;
         if (lumirt.defaultIfComputed(args.securityGroupId, "") === undefined) {
             throw new Error("Property argument 'securityGroupId' is required, but was missing");
         }
-        this.securityGroupId = args.securityGroupId;
-        this.self = args.self;
-        this.sourceSecurityGroupId = args.sourceSecurityGroupId;
+        this.securityGroupId = <any>args.securityGroupId;
+        this.self = <any>args.self;
+        this.sourceSecurityGroupId = <any>args.sourceSecurityGroupId;
         if (lumirt.defaultIfComputed(args.toPort, "") === undefined) {
             throw new Error("Property argument 'toPort' is required, but was missing");
         }
-        this.toPort = args.toPort;
+        this.toPort = <any>args.toPort;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
         }
-        this.type = args.type;
+        this.type = <any>args.type;
     }
 }
 

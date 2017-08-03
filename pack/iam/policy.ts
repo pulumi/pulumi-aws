@@ -22,14 +22,14 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
 
     constructor(name: string, args: PolicyArgs) {
         super(name);
-        this.description = args.description;
-        this.policyName = args.policyName;
-        this.namePrefix = args.namePrefix;
-        this.path = args.path;
+        this.description = <any>args.description;
+        this.policyName = <any>args.policyName;
+        this.namePrefix = <any>args.namePrefix;
+        this.path = <any>args.path;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
     }
 }
 

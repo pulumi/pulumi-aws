@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class StateMachine extends lumi.NamedResource implements StateMachineArgs {
     public /*out*/ readonly creationDate: string;
     public readonly definition: string;
-    public readonly stateMachineName?: string;
+    public readonly stateMachineName: string;
     public readonly roleArn: string;
     public /*out*/ readonly status: string;
 
@@ -24,12 +24,12 @@ export class StateMachine extends lumi.NamedResource implements StateMachineArgs
         if (lumirt.defaultIfComputed(args.definition, "") === undefined) {
             throw new Error("Property argument 'definition' is required, but was missing");
         }
-        this.definition = args.definition;
-        this.stateMachineName = args.stateMachineName;
+        this.definition = <any>args.definition;
+        this.stateMachineName = <any>args.stateMachineName;
         if (lumirt.defaultIfComputed(args.roleArn, "") === undefined) {
             throw new Error("Property argument 'roleArn' is required, but was missing");
         }
-        this.roleArn = args.roleArn;
+        this.roleArn = <any>args.roleArn;
     }
 }
 

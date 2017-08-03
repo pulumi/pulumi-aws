@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class User extends lumi.NamedResource implements UserArgs {
     public /*out*/ readonly arn: string;
     public readonly forceDestroy?: boolean;
-    public readonly userName?: string;
+    public readonly userName: string;
     public readonly path?: string;
     public /*out*/ readonly uniqueId: string;
 
@@ -21,9 +21,9 @@ export class User extends lumi.NamedResource implements UserArgs {
 
     constructor(name: string, args: UserArgs) {
         super(name);
-        this.forceDestroy = args.forceDestroy;
-        this.userName = args.userName;
-        this.path = args.path;
+        this.forceDestroy = <any>args.forceDestroy;
+        this.userName = <any>args.userName;
+        this.path = <any>args.path;
     }
 }
 

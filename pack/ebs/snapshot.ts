@@ -25,12 +25,12 @@ export class Snapshot extends lumi.NamedResource implements SnapshotArgs {
 
     constructor(name: string, args: SnapshotArgs) {
         super(name);
-        this.description = args.description;
-        this.tags = args.tags;
+        this.description = <any>args.description;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.volumeId, "") === undefined) {
             throw new Error("Property argument 'volumeId' is required, but was missing");
         }
-        this.volumeId = args.volumeId;
+        this.volumeId = <any>args.volumeId;
     }
 }
 

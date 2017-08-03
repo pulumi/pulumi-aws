@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class GroupMembership extends lumi.NamedResource implements GroupMembershipArgs {
     public readonly group: string;
-    public readonly groupMembershipName?: string;
+    public readonly groupMembershipName: string;
     public readonly users: string[];
 
     public static get(id: lumi.ID): GroupMembership {
@@ -22,12 +22,12 @@ export class GroupMembership extends lumi.NamedResource implements GroupMembersh
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {
             throw new Error("Property argument 'group' is required, but was missing");
         }
-        this.group = args.group;
-        this.groupMembershipName = args.groupMembershipName;
+        this.group = <any>args.group;
+        this.groupMembershipName = <any>args.groupMembershipName;
         if (lumirt.defaultIfComputed(args.users, "") === undefined) {
             throw new Error("Property argument 'users' is required, but was missing");
         }
-        this.users = args.users;
+        this.users = <any>args.users;
     }
 }
 

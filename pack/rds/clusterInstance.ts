@@ -37,27 +37,27 @@ export class ClusterInstance extends lumi.NamedResource implements ClusterInstan
 
     constructor(name: string, args: ClusterInstanceArgs) {
         super(name);
-        this.applyImmediately = args.applyImmediately;
-        this.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
+        this.applyImmediately = <any>args.applyImmediately;
+        this.autoMinorVersionUpgrade = <any>args.autoMinorVersionUpgrade;
         if (lumirt.defaultIfComputed(args.clusterIdentifier, "") === undefined) {
             throw new Error("Property argument 'clusterIdentifier' is required, but was missing");
         }
-        this.clusterIdentifier = args.clusterIdentifier;
-        this.dbParameterGroupName = args.dbParameterGroupName;
-        this.dbSubnetGroupName = args.dbSubnetGroupName;
-        this.identifier = args.identifier;
-        this.identifierPrefix = args.identifierPrefix;
+        this.clusterIdentifier = <any>args.clusterIdentifier;
+        this.dbParameterGroupName = <any>args.dbParameterGroupName;
+        this.dbSubnetGroupName = <any>args.dbSubnetGroupName;
+        this.identifier = <any>args.identifier;
+        this.identifierPrefix = <any>args.identifierPrefix;
         if (lumirt.defaultIfComputed(args.instanceClass, "") === undefined) {
             throw new Error("Property argument 'instanceClass' is required, but was missing");
         }
-        this.instanceClass = args.instanceClass;
-        this.monitoringInterval = args.monitoringInterval;
-        this.monitoringRoleArn = args.monitoringRoleArn;
-        this.preferredBackupWindow = args.preferredBackupWindow;
-        this.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
-        this.promotionTier = args.promotionTier;
-        this.publiclyAccessible = args.publiclyAccessible;
-        this.tags = args.tags;
+        this.instanceClass = <any>args.instanceClass;
+        this.monitoringInterval = <any>args.monitoringInterval;
+        this.monitoringRoleArn = <any>args.monitoringRoleArn;
+        this.preferredBackupWindow = <any>args.preferredBackupWindow;
+        this.preferredMaintenanceWindow = <any>args.preferredMaintenanceWindow;
+        this.promotionTier = <any>args.promotionTier;
+        this.publiclyAccessible = <any>args.publiclyAccessible;
+        this.tags = <any>args.tags;
     }
 }
 

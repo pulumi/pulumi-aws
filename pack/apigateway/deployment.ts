@@ -26,17 +26,17 @@ export class Deployment extends lumi.NamedResource implements DeploymentArgs {
 
     constructor(name: string, args: DeploymentArgs) {
         super(name);
-        this.description = args.description;
+        this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
-        this.restApi = args.restApi;
-        this.stageDescription = args.stageDescription;
+        this.restApi = <any>args.restApi;
+        this.stageDescription = <any>args.stageDescription;
         if (lumirt.defaultIfComputed(args.stageName, "") === undefined) {
             throw new Error("Property argument 'stageName' is required, but was missing");
         }
-        this.stageName = args.stageName;
-        this.variables = args.variables;
+        this.stageName = <any>args.stageName;
+        this.variables = <any>args.variables;
     }
 }
 

@@ -21,11 +21,11 @@ export class VpcEndpointRouteTableAssociation extends lumi.NamedResource impleme
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }
-        this.routeTableId = args.routeTableId;
+        this.routeTableId = <any>args.routeTableId;
         if (lumirt.defaultIfComputed(args.vpcEndpointId, "") === undefined) {
             throw new Error("Property argument 'vpcEndpointId' is required, but was missing");
         }
-        this.vpcEndpointId = args.vpcEndpointId;
+        this.vpcEndpointId = <any>args.vpcEndpointId;
     }
 }
 

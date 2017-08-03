@@ -21,11 +21,11 @@ export class LogDestinationPolicy extends lumi.NamedResource implements LogDesti
         if (lumirt.defaultIfComputed(args.accessPolicy, "") === undefined) {
             throw new Error("Property argument 'accessPolicy' is required, but was missing");
         }
-        this.accessPolicy = args.accessPolicy;
+        this.accessPolicy = <any>args.accessPolicy;
         if (lumirt.defaultIfComputed(args.destinationName, "") === undefined) {
             throw new Error("Property argument 'destinationName' is required, but was missing");
         }
-        this.destinationName = args.destinationName;
+        this.destinationName = <any>args.destinationName;
     }
 }
 

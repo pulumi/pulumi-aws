@@ -17,7 +17,7 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
     public readonly logUri?: string;
     public readonly masterInstanceType: string;
     public /*out*/ readonly masterPublicDns: string;
-    public readonly clusterName?: string;
+    public readonly clusterName: string;
     public readonly releaseLabel: string;
     public readonly securityConfiguration?: string;
     public readonly serviceRole: string;
@@ -35,32 +35,32 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
 
     constructor(name: string, args: ClusterArgs) {
         super(name);
-        this.applications = args.applications;
-        this.autoscalingRole = args.autoscalingRole;
-        this.bootstrapAction = args.bootstrapAction;
-        this.configurations = args.configurations;
-        this.coreInstanceCount = args.coreInstanceCount;
-        this.coreInstanceType = args.coreInstanceType;
-        this.ec2Attributes = args.ec2Attributes;
-        this.keepJobFlowAliveWhenNoSteps = args.keepJobFlowAliveWhenNoSteps;
-        this.logUri = args.logUri;
+        this.applications = <any>args.applications;
+        this.autoscalingRole = <any>args.autoscalingRole;
+        this.bootstrapAction = <any>args.bootstrapAction;
+        this.configurations = <any>args.configurations;
+        this.coreInstanceCount = <any>args.coreInstanceCount;
+        this.coreInstanceType = <any>args.coreInstanceType;
+        this.ec2Attributes = <any>args.ec2Attributes;
+        this.keepJobFlowAliveWhenNoSteps = <any>args.keepJobFlowAliveWhenNoSteps;
+        this.logUri = <any>args.logUri;
         if (lumirt.defaultIfComputed(args.masterInstanceType, "") === undefined) {
             throw new Error("Property argument 'masterInstanceType' is required, but was missing");
         }
-        this.masterInstanceType = args.masterInstanceType;
-        this.clusterName = args.clusterName;
+        this.masterInstanceType = <any>args.masterInstanceType;
+        this.clusterName = <any>args.clusterName;
         if (lumirt.defaultIfComputed(args.releaseLabel, "") === undefined) {
             throw new Error("Property argument 'releaseLabel' is required, but was missing");
         }
-        this.releaseLabel = args.releaseLabel;
-        this.securityConfiguration = args.securityConfiguration;
+        this.releaseLabel = <any>args.releaseLabel;
+        this.securityConfiguration = <any>args.securityConfiguration;
         if (lumirt.defaultIfComputed(args.serviceRole, "") === undefined) {
             throw new Error("Property argument 'serviceRole' is required, but was missing");
         }
-        this.serviceRole = args.serviceRole;
-        this.tags = args.tags;
-        this.terminationProtection = args.terminationProtection;
-        this.visibleToAllUsers = args.visibleToAllUsers;
+        this.serviceRole = <any>args.serviceRole;
+        this.tags = <any>args.tags;
+        this.terminationProtection = <any>args.terminationProtection;
+        this.visibleToAllUsers = <any>args.visibleToAllUsers;
     }
 }
 

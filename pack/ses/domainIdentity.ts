@@ -22,7 +22,7 @@ export class DomainIdentity extends lumi.NamedResource implements DomainIdentity
         if (lumirt.defaultIfComputed(args.domain, "") === undefined) {
             throw new Error("Property argument 'domain' is required, but was missing");
         }
-        this.domain = args.domain;
+        this.domain = <any>args.domain;
     }
 }
 

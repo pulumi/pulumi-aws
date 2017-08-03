@@ -22,11 +22,11 @@ export class DeploymentConfig extends lumi.NamedResource implements DeploymentCo
         if (lumirt.defaultIfComputed(args.deploymentConfigName, "") === undefined) {
             throw new Error("Property argument 'deploymentConfigName' is required, but was missing");
         }
-        this.deploymentConfigName = args.deploymentConfigName;
+        this.deploymentConfigName = <any>args.deploymentConfigName;
         if (lumirt.defaultIfComputed(args.minimumHealthyHosts, "") === undefined) {
             throw new Error("Property argument 'minimumHealthyHosts' is required, but was missing");
         }
-        this.minimumHealthyHosts = args.minimumHealthyHosts;
+        this.minimumHealthyHosts = <any>args.minimumHealthyHosts;
     }
 }
 

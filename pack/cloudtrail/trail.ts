@@ -14,7 +14,7 @@ export class Trail extends lumi.NamedResource implements TrailArgs {
     public readonly includeGlobalServiceEvents?: boolean;
     public readonly isMultiRegionTrail?: boolean;
     public readonly kmsKeyId?: string;
-    public readonly trailName?: string;
+    public readonly trailName: string;
     public readonly s3BucketName: string;
     public readonly s3KeyPrefix?: string;
     public readonly snsTopicName?: string;
@@ -30,21 +30,21 @@ export class Trail extends lumi.NamedResource implements TrailArgs {
 
     constructor(name: string, args: TrailArgs) {
         super(name);
-        this.cloudWatchLogsGroupArn = args.cloudWatchLogsGroupArn;
-        this.cloudWatchLogsRoleArn = args.cloudWatchLogsRoleArn;
-        this.enableLogFileValidation = args.enableLogFileValidation;
-        this.enableLogging = args.enableLogging;
-        this.includeGlobalServiceEvents = args.includeGlobalServiceEvents;
-        this.isMultiRegionTrail = args.isMultiRegionTrail;
-        this.kmsKeyId = args.kmsKeyId;
-        this.trailName = args.trailName;
+        this.cloudWatchLogsGroupArn = <any>args.cloudWatchLogsGroupArn;
+        this.cloudWatchLogsRoleArn = <any>args.cloudWatchLogsRoleArn;
+        this.enableLogFileValidation = <any>args.enableLogFileValidation;
+        this.enableLogging = <any>args.enableLogging;
+        this.includeGlobalServiceEvents = <any>args.includeGlobalServiceEvents;
+        this.isMultiRegionTrail = <any>args.isMultiRegionTrail;
+        this.kmsKeyId = <any>args.kmsKeyId;
+        this.trailName = <any>args.trailName;
         if (lumirt.defaultIfComputed(args.s3BucketName, "") === undefined) {
             throw new Error("Property argument 's3BucketName' is required, but was missing");
         }
-        this.s3BucketName = args.s3BucketName;
-        this.s3KeyPrefix = args.s3KeyPrefix;
-        this.snsTopicName = args.snsTopicName;
-        this.tags = args.tags;
+        this.s3BucketName = <any>args.s3BucketName;
+        this.s3KeyPrefix = <any>args.s3KeyPrefix;
+        this.snsTopicName = <any>args.snsTopicName;
+        this.tags = <any>args.tags;
     }
 }
 

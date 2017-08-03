@@ -22,11 +22,11 @@ export class RepositoryPolicy extends lumi.NamedResource implements RepositoryPo
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
         if (lumirt.defaultIfComputed(args.repository, "") === undefined) {
             throw new Error("Property argument 'repository' is required, but was missing");
         }
-        this.repository = args.repository;
+        this.repository = <any>args.repository;
     }
 }
 

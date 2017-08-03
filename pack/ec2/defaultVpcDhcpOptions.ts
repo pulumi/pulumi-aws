@@ -22,9 +22,9 @@ export class DefaultVpcDhcpOptions extends lumi.NamedResource implements Default
 
     constructor(name: string, args: DefaultVpcDhcpOptionsArgs) {
         super(name);
-        this.netbiosNameServers = args.netbiosNameServers;
-        this.netbiosNodeType = args.netbiosNodeType;
-        this.tags = args.tags;
+        this.netbiosNameServers = <any>args.netbiosNameServers;
+        this.netbiosNodeType = <any>args.netbiosNodeType;
+        this.tags = <any>args.tags;
     }
 }
 

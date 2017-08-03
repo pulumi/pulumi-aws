@@ -27,7 +27,7 @@ export class JavaAppLayer extends lumi.NamedResource implements JavaAppLayerArgs
     public readonly jvmOptions?: string;
     public readonly jvmType?: string;
     public readonly jvmVersion?: string;
-    public readonly javaAppLayerName?: string;
+    public readonly javaAppLayerName: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
@@ -42,34 +42,34 @@ export class JavaAppLayer extends lumi.NamedResource implements JavaAppLayerArgs
 
     constructor(name: string, args: JavaAppLayerArgs) {
         super(name);
-        this.appServer = args.appServer;
-        this.appServerVersion = args.appServerVersion;
-        this.autoAssignElasticIps = args.autoAssignElasticIps;
-        this.autoAssignPublicIps = args.autoAssignPublicIps;
-        this.autoHealing = args.autoHealing;
-        this.customConfigureRecipes = args.customConfigureRecipes;
-        this.customDeployRecipes = args.customDeployRecipes;
-        this.customInstanceProfileArn = args.customInstanceProfileArn;
-        this.customJson = args.customJson;
-        this.customSecurityGroupIds = args.customSecurityGroupIds;
-        this.customSetupRecipes = args.customSetupRecipes;
-        this.customShutdownRecipes = args.customShutdownRecipes;
-        this.customUndeployRecipes = args.customUndeployRecipes;
-        this.drainElbOnShutdown = args.drainElbOnShutdown;
-        this.ebsVolume = args.ebsVolume;
-        this.elasticLoadBalancer = args.elasticLoadBalancer;
-        this.installUpdatesOnBoot = args.installUpdatesOnBoot;
-        this.instanceShutdownTimeout = args.instanceShutdownTimeout;
-        this.jvmOptions = args.jvmOptions;
-        this.jvmType = args.jvmType;
-        this.jvmVersion = args.jvmVersion;
-        this.javaAppLayerName = args.javaAppLayerName;
+        this.appServer = <any>args.appServer;
+        this.appServerVersion = <any>args.appServerVersion;
+        this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
+        this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
+        this.autoHealing = <any>args.autoHealing;
+        this.customConfigureRecipes = <any>args.customConfigureRecipes;
+        this.customDeployRecipes = <any>args.customDeployRecipes;
+        this.customInstanceProfileArn = <any>args.customInstanceProfileArn;
+        this.customJson = <any>args.customJson;
+        this.customSecurityGroupIds = <any>args.customSecurityGroupIds;
+        this.customSetupRecipes = <any>args.customSetupRecipes;
+        this.customShutdownRecipes = <any>args.customShutdownRecipes;
+        this.customUndeployRecipes = <any>args.customUndeployRecipes;
+        this.drainElbOnShutdown = <any>args.drainElbOnShutdown;
+        this.ebsVolume = <any>args.ebsVolume;
+        this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
+        this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
+        this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
+        this.jvmOptions = <any>args.jvmOptions;
+        this.jvmType = <any>args.jvmType;
+        this.jvmVersion = <any>args.jvmVersion;
+        this.javaAppLayerName = <any>args.javaAppLayerName;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
-        this.stackId = args.stackId;
-        this.systemPackages = args.systemPackages;
-        this.useEbsOptimizedInstances = args.useEbsOptimizedInstances;
+        this.stackId = <any>args.stackId;
+        this.systemPackages = <any>args.systemPackages;
+        this.useEbsOptimizedInstances = <any>args.useEbsOptimizedInstances;
     }
 }
 

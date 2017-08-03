@@ -21,7 +21,7 @@ export class Stack extends lumi.NamedResource implements StackArgs {
     public readonly hostnameTheme?: string;
     public /*out*/ readonly stackId: string;
     public readonly manageBerkshelf?: boolean;
-    public readonly stackName?: string;
+    public readonly stackName: string;
     public readonly region: string;
     public readonly serviceRoleArn: string;
     public /*out*/ readonly stackEndpoint: string;
@@ -39,36 +39,36 @@ export class Stack extends lumi.NamedResource implements StackArgs {
 
     constructor(name: string, args: StackArgs) {
         super(name);
-        this.agentVersion = args.agentVersion;
-        this.berkshelfVersion = args.berkshelfVersion;
-        this.color = args.color;
-        this.configurationManagerName = args.configurationManagerName;
-        this.configurationManagerVersion = args.configurationManagerVersion;
-        this.customCookbooksSource = args.customCookbooksSource;
-        this.customJson = args.customJson;
-        this.defaultAvailabilityZone = args.defaultAvailabilityZone;
+        this.agentVersion = <any>args.agentVersion;
+        this.berkshelfVersion = <any>args.berkshelfVersion;
+        this.color = <any>args.color;
+        this.configurationManagerName = <any>args.configurationManagerName;
+        this.configurationManagerVersion = <any>args.configurationManagerVersion;
+        this.customCookbooksSource = <any>args.customCookbooksSource;
+        this.customJson = <any>args.customJson;
+        this.defaultAvailabilityZone = <any>args.defaultAvailabilityZone;
         if (lumirt.defaultIfComputed(args.defaultInstanceProfileArn, "") === undefined) {
             throw new Error("Property argument 'defaultInstanceProfileArn' is required, but was missing");
         }
-        this.defaultInstanceProfileArn = args.defaultInstanceProfileArn;
-        this.defaultOs = args.defaultOs;
-        this.defaultRootDeviceType = args.defaultRootDeviceType;
-        this.defaultSshKeyName = args.defaultSshKeyName;
-        this.defaultSubnetId = args.defaultSubnetId;
-        this.hostnameTheme = args.hostnameTheme;
-        this.manageBerkshelf = args.manageBerkshelf;
-        this.stackName = args.stackName;
+        this.defaultInstanceProfileArn = <any>args.defaultInstanceProfileArn;
+        this.defaultOs = <any>args.defaultOs;
+        this.defaultRootDeviceType = <any>args.defaultRootDeviceType;
+        this.defaultSshKeyName = <any>args.defaultSshKeyName;
+        this.defaultSubnetId = <any>args.defaultSubnetId;
+        this.hostnameTheme = <any>args.hostnameTheme;
+        this.manageBerkshelf = <any>args.manageBerkshelf;
+        this.stackName = <any>args.stackName;
         if (lumirt.defaultIfComputed(args.region, "") === undefined) {
             throw new Error("Property argument 'region' is required, but was missing");
         }
-        this.region = args.region;
+        this.region = <any>args.region;
         if (lumirt.defaultIfComputed(args.serviceRoleArn, "") === undefined) {
             throw new Error("Property argument 'serviceRoleArn' is required, but was missing");
         }
-        this.serviceRoleArn = args.serviceRoleArn;
-        this.useCustomCookbooks = args.useCustomCookbooks;
-        this.useOpsworksSecurityGroups = args.useOpsworksSecurityGroups;
-        this.vpcId = args.vpcId;
+        this.serviceRoleArn = <any>args.serviceRoleArn;
+        this.useCustomCookbooks = <any>args.useCustomCookbooks;
+        this.useOpsworksSecurityGroups = <any>args.useOpsworksSecurityGroups;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

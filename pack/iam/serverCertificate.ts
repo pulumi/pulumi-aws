@@ -23,19 +23,19 @@ export class ServerCertificate extends lumi.NamedResource implements ServerCerti
 
     constructor(name: string, args: ServerCertificateArgs) {
         super(name);
-        this.arn = args.arn;
+        this.arn = <any>args.arn;
         if (lumirt.defaultIfComputed(args.certificateBody, "") === undefined) {
             throw new Error("Property argument 'certificateBody' is required, but was missing");
         }
-        this.certificateBody = args.certificateBody;
-        this.certificateChain = args.certificateChain;
-        this.serverCertificateName = args.serverCertificateName;
-        this.namePrefix = args.namePrefix;
-        this.path = args.path;
+        this.certificateBody = <any>args.certificateBody;
+        this.certificateChain = <any>args.certificateChain;
+        this.serverCertificateName = <any>args.serverCertificateName;
+        this.namePrefix = <any>args.namePrefix;
+        this.path = <any>args.path;
         if (lumirt.defaultIfComputed(args.privateKey, "") === undefined) {
             throw new Error("Property argument 'privateKey' is required, but was missing");
         }
-        this.privateKey = args.privateKey;
+        this.privateKey = <any>args.privateKey;
     }
 }
 

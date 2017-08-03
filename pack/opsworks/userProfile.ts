@@ -21,16 +21,16 @@ export class UserProfile extends lumi.NamedResource implements UserProfileArgs {
 
     constructor(name: string, args: UserProfileArgs) {
         super(name);
-        this.allowSelfManagement = args.allowSelfManagement;
-        this.sshPublicKey = args.sshPublicKey;
+        this.allowSelfManagement = <any>args.allowSelfManagement;
+        this.sshPublicKey = <any>args.sshPublicKey;
         if (lumirt.defaultIfComputed(args.sshUsername, "") === undefined) {
             throw new Error("Property argument 'sshUsername' is required, but was missing");
         }
-        this.sshUsername = args.sshUsername;
+        this.sshUsername = <any>args.sshUsername;
         if (lumirt.defaultIfComputed(args.userArn, "") === undefined) {
             throw new Error("Property argument 'userArn' is required, but was missing");
         }
-        this.userArn = args.userArn;
+        this.userArn = <any>args.userArn;
     }
 }
 

@@ -8,7 +8,7 @@ export class Stack extends lumi.NamedResource implements StackArgs {
     public readonly capabilities?: string[];
     public readonly disableRollback?: boolean;
     public readonly iamRoleArn?: string;
-    public readonly stackName?: string;
+    public readonly stackName: string;
     public readonly notificationArns?: string[];
     public readonly onFailure?: string;
     public /*out*/ readonly outputs: {[key: string]: any};
@@ -30,19 +30,19 @@ export class Stack extends lumi.NamedResource implements StackArgs {
 
     constructor(name: string, args: StackArgs) {
         super(name);
-        this.capabilities = args.capabilities;
-        this.disableRollback = args.disableRollback;
-        this.iamRoleArn = args.iamRoleArn;
-        this.stackName = args.stackName;
-        this.notificationArns = args.notificationArns;
-        this.onFailure = args.onFailure;
-        this.parameters = args.parameters;
-        this.policyBody = args.policyBody;
-        this.policyUrl = args.policyUrl;
-        this.tags = args.tags;
-        this.templateBody = args.templateBody;
-        this.templateUrl = args.templateUrl;
-        this.timeoutInMinutes = args.timeoutInMinutes;
+        this.capabilities = <any>args.capabilities;
+        this.disableRollback = <any>args.disableRollback;
+        this.iamRoleArn = <any>args.iamRoleArn;
+        this.stackName = <any>args.stackName;
+        this.notificationArns = <any>args.notificationArns;
+        this.onFailure = <any>args.onFailure;
+        this.parameters = <any>args.parameters;
+        this.policyBody = <any>args.policyBody;
+        this.policyUrl = <any>args.policyUrl;
+        this.tags = <any>args.tags;
+        this.templateBody = <any>args.templateBody;
+        this.templateUrl = <any>args.templateUrl;
+        this.timeoutInMinutes = <any>args.timeoutInMinutes;
     }
 }
 

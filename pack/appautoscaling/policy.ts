@@ -11,7 +11,7 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
     public readonly cooldown: number;
     public readonly metricAggregationType: string;
     public readonly minAdjustmentMagnitude?: number;
-    public readonly policyName?: string;
+    public readonly policyName: string;
     public readonly policyType?: string;
     public readonly resourceId: string;
     public readonly scalableDimension: string;
@@ -31,32 +31,32 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
         if (lumirt.defaultIfComputed(args.adjustmentType, "") === undefined) {
             throw new Error("Property argument 'adjustmentType' is required, but was missing");
         }
-        this.adjustmentType = args.adjustmentType;
-        this.alarms = args.alarms;
+        this.adjustmentType = <any>args.adjustmentType;
+        this.alarms = <any>args.alarms;
         if (lumirt.defaultIfComputed(args.cooldown, "") === undefined) {
             throw new Error("Property argument 'cooldown' is required, but was missing");
         }
-        this.cooldown = args.cooldown;
+        this.cooldown = <any>args.cooldown;
         if (lumirt.defaultIfComputed(args.metricAggregationType, "") === undefined) {
             throw new Error("Property argument 'metricAggregationType' is required, but was missing");
         }
-        this.metricAggregationType = args.metricAggregationType;
-        this.minAdjustmentMagnitude = args.minAdjustmentMagnitude;
-        this.policyName = args.policyName;
-        this.policyType = args.policyType;
+        this.metricAggregationType = <any>args.metricAggregationType;
+        this.minAdjustmentMagnitude = <any>args.minAdjustmentMagnitude;
+        this.policyName = <any>args.policyName;
+        this.policyType = <any>args.policyType;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
         }
-        this.resourceId = args.resourceId;
+        this.resourceId = <any>args.resourceId;
         if (lumirt.defaultIfComputed(args.scalableDimension, "") === undefined) {
             throw new Error("Property argument 'scalableDimension' is required, but was missing");
         }
-        this.scalableDimension = args.scalableDimension;
+        this.scalableDimension = <any>args.scalableDimension;
         if (lumirt.defaultIfComputed(args.serviceNamespace, "") === undefined) {
             throw new Error("Property argument 'serviceNamespace' is required, but was missing");
         }
-        this.serviceNamespace = args.serviceNamespace;
-        this.stepAdjustment = args.stepAdjustment;
+        this.serviceNamespace = <any>args.serviceNamespace;
+        this.stepAdjustment = <any>args.stepAdjustment;
     }
 }
 

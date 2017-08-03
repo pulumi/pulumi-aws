@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class XssMatchSet extends lumi.NamedResource implements XssMatchSetArgs {
-    public readonly xssMatchSetName?: string;
+    public readonly xssMatchSetName: string;
     public readonly xssMatchTuples?: { fieldToMatch: { data?: string, type: string }[], textTransformation: string }[];
 
     public static get(id: lumi.ID): XssMatchSet {
@@ -18,8 +18,8 @@ export class XssMatchSet extends lumi.NamedResource implements XssMatchSetArgs {
 
     constructor(name: string, args: XssMatchSetArgs) {
         super(name);
-        this.xssMatchSetName = args.xssMatchSetName;
-        this.xssMatchTuples = args.xssMatchTuples;
+        this.xssMatchSetName = <any>args.xssMatchSetName;
+        this.xssMatchTuples = <any>args.xssMatchTuples;
     }
 }
 

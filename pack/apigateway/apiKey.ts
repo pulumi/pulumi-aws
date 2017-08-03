@@ -11,7 +11,7 @@ export class ApiKey extends lumi.NamedResource implements ApiKeyArgs {
     public readonly description?: string;
     public readonly enabled?: boolean;
     public /*out*/ readonly lastUpdatedDate: string;
-    public readonly apiKeyName?: string;
+    public readonly apiKeyName: string;
     public readonly stageKey?: { restApi: RestApi, stageName: string }[];
     public readonly value: string;
 
@@ -25,11 +25,11 @@ export class ApiKey extends lumi.NamedResource implements ApiKeyArgs {
 
     constructor(name: string, args: ApiKeyArgs) {
         super(name);
-        this.description = args.description;
-        this.enabled = args.enabled;
-        this.apiKeyName = args.apiKeyName;
-        this.stageKey = args.stageKey;
-        this.value = args.value;
+        this.description = <any>args.description;
+        this.enabled = <any>args.enabled;
+        this.apiKeyName = <any>args.apiKeyName;
+        this.stageKey = <any>args.stageKey;
+        this.value = <any>args.value;
     }
 }
 

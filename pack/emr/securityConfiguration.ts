@@ -23,9 +23,9 @@ export class SecurityConfiguration extends lumi.NamedResource implements Securit
         if (lumirt.defaultIfComputed(args.configuration, "") === undefined) {
             throw new Error("Property argument 'configuration' is required, but was missing");
         }
-        this.configuration = args.configuration;
-        this.securityConfigurationName = args.securityConfigurationName;
-        this.namePrefix = args.namePrefix;
+        this.configuration = <any>args.configuration;
+        this.securityConfigurationName = <any>args.securityConfigurationName;
+        this.namePrefix = <any>args.namePrefix;
     }
 }
 

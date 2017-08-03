@@ -23,11 +23,11 @@ export class AccessKey extends lumi.NamedResource implements AccessKeyArgs {
 
     constructor(name: string, args: AccessKeyArgs) {
         super(name);
-        this.pgpKey = args.pgpKey;
+        this.pgpKey = <any>args.pgpKey;
         if (lumirt.defaultIfComputed(args.user, "") === undefined) {
             throw new Error("Property argument 'user' is required, but was missing");
         }
-        this.user = args.user;
+        this.user = <any>args.user;
     }
 }
 

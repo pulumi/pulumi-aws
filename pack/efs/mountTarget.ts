@@ -25,13 +25,13 @@ export class MountTarget extends lumi.NamedResource implements MountTargetArgs {
         if (lumirt.defaultIfComputed(args.fileSystemId, "") === undefined) {
             throw new Error("Property argument 'fileSystemId' is required, but was missing");
         }
-        this.fileSystemId = args.fileSystemId;
-        this.ipAddress = args.ipAddress;
-        this.securityGroups = args.securityGroups;
+        this.fileSystemId = <any>args.fileSystemId;
+        this.ipAddress = <any>args.ipAddress;
+        this.securityGroups = <any>args.securityGroups;
         if (lumirt.defaultIfComputed(args.subnetId, "") === undefined) {
             throw new Error("Property argument 'subnetId' is required, but was missing");
         }
-        this.subnetId = args.subnetId;
+        this.subnetId = <any>args.subnetId;
     }
 }
 

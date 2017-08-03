@@ -22,12 +22,12 @@ export class LoadBalancerBackendServerPolicy extends lumi.NamedResource implemen
         if (lumirt.defaultIfComputed(args.instancePort, "") === undefined) {
             throw new Error("Property argument 'instancePort' is required, but was missing");
         }
-        this.instancePort = args.instancePort;
+        this.instancePort = <any>args.instancePort;
         if (lumirt.defaultIfComputed(args.loadBalancerName, "") === undefined) {
             throw new Error("Property argument 'loadBalancerName' is required, but was missing");
         }
-        this.loadBalancerName = args.loadBalancerName;
-        this.policyNames = args.policyNames;
+        this.loadBalancerName = <any>args.loadBalancerName;
+        this.policyNames = <any>args.policyNames;
     }
 }
 

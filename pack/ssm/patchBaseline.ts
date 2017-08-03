@@ -9,7 +9,7 @@ export class PatchBaseline extends lumi.NamedResource implements PatchBaselineAr
     public readonly approvedPatches?: string[];
     public readonly description?: string;
     public readonly globalFilter?: { key: string, values: string[] }[];
-    public readonly patchBaselineName?: string;
+    public readonly patchBaselineName: string;
     public readonly rejectedPatches?: string[];
 
     public static get(id: lumi.ID): PatchBaseline {
@@ -22,12 +22,12 @@ export class PatchBaseline extends lumi.NamedResource implements PatchBaselineAr
 
     constructor(name: string, args: PatchBaselineArgs) {
         super(name);
-        this.approvalRule = args.approvalRule;
-        this.approvedPatches = args.approvedPatches;
-        this.description = args.description;
-        this.globalFilter = args.globalFilter;
-        this.patchBaselineName = args.patchBaselineName;
-        this.rejectedPatches = args.rejectedPatches;
+        this.approvalRule = <any>args.approvalRule;
+        this.approvedPatches = <any>args.approvedPatches;
+        this.description = <any>args.description;
+        this.globalFilter = <any>args.globalFilter;
+        this.patchBaselineName = <any>args.patchBaselineName;
+        this.rejectedPatches = <any>args.rejectedPatches;
     }
 }
 

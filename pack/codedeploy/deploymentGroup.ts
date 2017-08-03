@@ -26,25 +26,25 @@ export class DeploymentGroup extends lumi.NamedResource implements DeploymentGro
 
     constructor(name: string, args: DeploymentGroupArgs) {
         super(name);
-        this.alarmConfiguration = args.alarmConfiguration;
+        this.alarmConfiguration = <any>args.alarmConfiguration;
         if (lumirt.defaultIfComputed(args.appName, "") === undefined) {
             throw new Error("Property argument 'appName' is required, but was missing");
         }
-        this.appName = args.appName;
-        this.autoRollbackConfiguration = args.autoRollbackConfiguration;
-        this.autoscalingGroups = args.autoscalingGroups;
-        this.deploymentConfigName = args.deploymentConfigName;
+        this.appName = <any>args.appName;
+        this.autoRollbackConfiguration = <any>args.autoRollbackConfiguration;
+        this.autoscalingGroups = <any>args.autoscalingGroups;
+        this.deploymentConfigName = <any>args.deploymentConfigName;
         if (lumirt.defaultIfComputed(args.deploymentGroupName, "") === undefined) {
             throw new Error("Property argument 'deploymentGroupName' is required, but was missing");
         }
-        this.deploymentGroupName = args.deploymentGroupName;
-        this.ec2TagFilter = args.ec2TagFilter;
-        this.onPremisesInstanceTagFilter = args.onPremisesInstanceTagFilter;
+        this.deploymentGroupName = <any>args.deploymentGroupName;
+        this.ec2TagFilter = <any>args.ec2TagFilter;
+        this.onPremisesInstanceTagFilter = <any>args.onPremisesInstanceTagFilter;
         if (lumirt.defaultIfComputed(args.serviceRoleArn, "") === undefined) {
             throw new Error("Property argument 'serviceRoleArn' is required, but was missing");
         }
-        this.serviceRoleArn = args.serviceRoleArn;
-        this.triggerConfiguration = args.triggerConfiguration;
+        this.serviceRoleArn = <any>args.serviceRoleArn;
+        this.triggerConfiguration = <any>args.triggerConfiguration;
     }
 }
 

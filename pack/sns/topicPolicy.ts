@@ -21,11 +21,11 @@ export class TopicPolicy extends lumi.NamedResource implements TopicPolicyArgs {
         if (lumirt.defaultIfComputed(args.arn, "") === undefined) {
             throw new Error("Property argument 'arn' is required, but was missing");
         }
-        this.arn = args.arn;
+        this.arn = <any>args.arn;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }
-        this.policy = args.policy;
+        this.policy = <any>args.policy;
     }
 }
 

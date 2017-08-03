@@ -23,21 +23,21 @@ export class Listener extends lumi.NamedResource implements ListenerArgs {
 
     constructor(name: string, args: ListenerArgs) {
         super(name);
-        this.certificateArn = args.certificateArn;
+        this.certificateArn = <any>args.certificateArn;
         if (lumirt.defaultIfComputed(args.defaultAction, "") === undefined) {
             throw new Error("Property argument 'defaultAction' is required, but was missing");
         }
-        this.defaultAction = args.defaultAction;
+        this.defaultAction = <any>args.defaultAction;
         if (lumirt.defaultIfComputed(args.loadBalancerArn, "") === undefined) {
             throw new Error("Property argument 'loadBalancerArn' is required, but was missing");
         }
-        this.loadBalancerArn = args.loadBalancerArn;
+        this.loadBalancerArn = <any>args.loadBalancerArn;
         if (lumirt.defaultIfComputed(args.port, "") === undefined) {
             throw new Error("Property argument 'port' is required, but was missing");
         }
-        this.port = args.port;
-        this.protocol = args.protocol;
-        this.sslPolicy = args.sslPolicy;
+        this.port = <any>args.port;
+        this.protocol = <any>args.protocol;
+        this.sslPolicy = <any>args.sslPolicy;
     }
 }
 

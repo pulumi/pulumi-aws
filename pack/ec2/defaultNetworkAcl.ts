@@ -25,11 +25,11 @@ export class DefaultNetworkAcl extends lumi.NamedResource implements DefaultNetw
         if (lumirt.defaultIfComputed(args.defaultNetworkAclId, "") === undefined) {
             throw new Error("Property argument 'defaultNetworkAclId' is required, but was missing");
         }
-        this.defaultNetworkAclId = args.defaultNetworkAclId;
-        this.egress = args.egress;
-        this.ingress = args.ingress;
-        this.subnetIds = args.subnetIds;
-        this.tags = args.tags;
+        this.defaultNetworkAclId = <any>args.defaultNetworkAclId;
+        this.egress = <any>args.egress;
+        this.ingress = <any>args.ingress;
+        this.subnetIds = <any>args.subnetIds;
+        this.tags = <any>args.tags;
     }
 }
 

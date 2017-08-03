@@ -43,29 +43,29 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
 
     constructor(name: string, args: ClusterArgs) {
         super(name);
-        this.applyImmediately = args.applyImmediately;
-        this.availabilityZones = args.availabilityZones;
-        this.backupRetentionPeriod = args.backupRetentionPeriod;
-        this.clusterIdentifier = args.clusterIdentifier;
-        this.clusterIdentifierPrefix = args.clusterIdentifierPrefix;
-        this.clusterMembers = args.clusterMembers;
-        this.databaseName = args.databaseName;
-        this.dbClusterParameterGroupName = args.dbClusterParameterGroupName;
-        this.dbSubnetGroupName = args.dbSubnetGroupName;
-        this.finalSnapshotIdentifier = args.finalSnapshotIdentifier;
-        this.iamDatabaseAuthenticationEnabled = args.iamDatabaseAuthenticationEnabled;
-        this.kmsKeyId = args.kmsKeyId;
-        this.masterPassword = args.masterPassword;
-        this.masterUsername = args.masterUsername;
-        this.port = args.port;
-        this.preferredBackupWindow = args.preferredBackupWindow;
-        this.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
-        this.replicationSourceIdentifier = args.replicationSourceIdentifier;
-        this.skipFinalSnapshot = args.skipFinalSnapshot;
-        this.snapshotIdentifier = args.snapshotIdentifier;
-        this.storageEncrypted = args.storageEncrypted;
-        this.tags = args.tags;
-        this.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+        this.applyImmediately = <any>args.applyImmediately;
+        this.availabilityZones = <any>args.availabilityZones;
+        this.backupRetentionPeriod = <any>args.backupRetentionPeriod;
+        this.clusterIdentifier = <any>args.clusterIdentifier;
+        this.clusterIdentifierPrefix = <any>args.clusterIdentifierPrefix;
+        this.clusterMembers = <any>args.clusterMembers;
+        this.databaseName = <any>args.databaseName;
+        this.dbClusterParameterGroupName = <any>args.dbClusterParameterGroupName;
+        this.dbSubnetGroupName = <any>args.dbSubnetGroupName;
+        this.finalSnapshotIdentifier = <any>args.finalSnapshotIdentifier;
+        this.iamDatabaseAuthenticationEnabled = <any>args.iamDatabaseAuthenticationEnabled;
+        this.kmsKeyId = <any>args.kmsKeyId;
+        this.masterPassword = <any>args.masterPassword;
+        this.masterUsername = <any>args.masterUsername;
+        this.port = <any>args.port;
+        this.preferredBackupWindow = <any>args.preferredBackupWindow;
+        this.preferredMaintenanceWindow = <any>args.preferredMaintenanceWindow;
+        this.replicationSourceIdentifier = <any>args.replicationSourceIdentifier;
+        this.skipFinalSnapshot = <any>args.skipFinalSnapshot;
+        this.snapshotIdentifier = <any>args.snapshotIdentifier;
+        this.storageEncrypted = <any>args.storageEncrypted;
+        this.tags = <any>args.tags;
+        this.vpcSecurityGroupIds = <any>args.vpcSecurityGroupIds;
     }
 }
 

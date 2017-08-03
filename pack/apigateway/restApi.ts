@@ -9,7 +9,7 @@ export class RestApi extends lumi.NamedResource implements RestApiArgs {
     public readonly body?: string;
     public /*out*/ readonly createdDate: string;
     public readonly description?: string;
-    public readonly restApiName?: string;
+    public readonly restApiName: string;
     public /*out*/ readonly rootResourceId: string;
 
     public static get(id: lumi.ID): RestApi {
@@ -22,10 +22,10 @@ export class RestApi extends lumi.NamedResource implements RestApiArgs {
 
     constructor(name: string, args: RestApiArgs) {
         super(name);
-        this.binaryMediaTypes = args.binaryMediaTypes;
-        this.body = args.body;
-        this.description = args.description;
-        this.restApiName = args.restApiName;
+        this.binaryMediaTypes = <any>args.binaryMediaTypes;
+        this.body = <any>args.body;
+        this.description = <any>args.description;
+        this.restApiName = <any>args.restApiName;
     }
 }
 

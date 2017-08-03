@@ -20,13 +20,13 @@ export class RouteTable extends lumi.NamedResource implements RouteTableArgs {
 
     constructor(name: string, args: RouteTableArgs) {
         super(name);
-        this.propagatingVgws = args.propagatingVgws;
-        this.route = args.route;
-        this.tags = args.tags;
+        this.propagatingVgws = <any>args.propagatingVgws;
+        this.route = <any>args.route;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

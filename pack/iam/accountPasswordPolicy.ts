@@ -26,15 +26,15 @@ export class AccountPasswordPolicy extends lumi.NamedResource implements Account
 
     constructor(name: string, args: AccountPasswordPolicyArgs) {
         super(name);
-        this.allowUsersToChangePassword = args.allowUsersToChangePassword;
-        this.hardExpiry = args.hardExpiry;
-        this.maxPasswordAge = args.maxPasswordAge;
-        this.minimumPasswordLength = args.minimumPasswordLength;
-        this.passwordReusePrevention = args.passwordReusePrevention;
-        this.requireLowercaseCharacters = args.requireLowercaseCharacters;
-        this.requireNumbers = args.requireNumbers;
-        this.requireSymbols = args.requireSymbols;
-        this.requireUppercaseCharacters = args.requireUppercaseCharacters;
+        this.allowUsersToChangePassword = <any>args.allowUsersToChangePassword;
+        this.hardExpiry = <any>args.hardExpiry;
+        this.maxPasswordAge = <any>args.maxPasswordAge;
+        this.minimumPasswordLength = <any>args.minimumPasswordLength;
+        this.passwordReusePrevention = <any>args.passwordReusePrevention;
+        this.requireLowercaseCharacters = <any>args.requireLowercaseCharacters;
+        this.requireNumbers = <any>args.requireNumbers;
+        this.requireSymbols = <any>args.requireSymbols;
+        this.requireUppercaseCharacters = <any>args.requireUppercaseCharacters;
     }
 }
 

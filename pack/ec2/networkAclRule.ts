@@ -27,29 +27,29 @@ export class NetworkAclRule extends lumi.NamedResource implements NetworkAclRule
 
     constructor(name: string, args: NetworkAclRuleArgs) {
         super(name);
-        this.cidrBlock = args.cidrBlock;
-        this.egress = args.egress;
-        this.fromPort = args.fromPort;
-        this.icmpCode = args.icmpCode;
-        this.icmpType = args.icmpType;
-        this.ipv6CidrBlock = args.ipv6CidrBlock;
+        this.cidrBlock = <any>args.cidrBlock;
+        this.egress = <any>args.egress;
+        this.fromPort = <any>args.fromPort;
+        this.icmpCode = <any>args.icmpCode;
+        this.icmpType = <any>args.icmpType;
+        this.ipv6CidrBlock = <any>args.ipv6CidrBlock;
         if (lumirt.defaultIfComputed(args.networkAclId, "") === undefined) {
             throw new Error("Property argument 'networkAclId' is required, but was missing");
         }
-        this.networkAclId = args.networkAclId;
+        this.networkAclId = <any>args.networkAclId;
         if (lumirt.defaultIfComputed(args.protocol, "") === undefined) {
             throw new Error("Property argument 'protocol' is required, but was missing");
         }
-        this.protocol = args.protocol;
+        this.protocol = <any>args.protocol;
         if (lumirt.defaultIfComputed(args.ruleAction, "") === undefined) {
             throw new Error("Property argument 'ruleAction' is required, but was missing");
         }
-        this.ruleAction = args.ruleAction;
+        this.ruleAction = <any>args.ruleAction;
         if (lumirt.defaultIfComputed(args.ruleNumber, "") === undefined) {
             throw new Error("Property argument 'ruleNumber' is required, but was missing");
         }
-        this.ruleNumber = args.ruleNumber;
-        this.toPort = args.toPort;
+        this.ruleNumber = <any>args.ruleNumber;
+        this.toPort = <any>args.toPort;
     }
 }
 

@@ -21,11 +21,11 @@ export class AmiLaunchPermission extends lumi.NamedResource implements AmiLaunch
         if (lumirt.defaultIfComputed(args.accountId, "") === undefined) {
             throw new Error("Property argument 'accountId' is required, but was missing");
         }
-        this.accountId = args.accountId;
+        this.accountId = <any>args.accountId;
         if (lumirt.defaultIfComputed(args.imageId, "") === undefined) {
             throw new Error("Property argument 'imageId' is required, but was missing");
         }
-        this.imageId = args.imageId;
+        this.imageId = <any>args.imageId;
     }
 }
 

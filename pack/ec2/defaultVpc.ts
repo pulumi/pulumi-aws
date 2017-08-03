@@ -31,11 +31,11 @@ export class DefaultVpc extends lumi.NamedResource implements DefaultVpcArgs {
 
     constructor(name: string, args: DefaultVpcArgs) {
         super(name);
-        this.enableClassiclink = args.enableClassiclink;
-        this.enableClassiclinkDnsSupport = args.enableClassiclinkDnsSupport;
-        this.enableDnsHostnames = args.enableDnsHostnames;
-        this.enableDnsSupport = args.enableDnsSupport;
-        this.tags = args.tags;
+        this.enableClassiclink = <any>args.enableClassiclink;
+        this.enableClassiclinkDnsSupport = <any>args.enableClassiclinkDnsSupport;
+        this.enableDnsHostnames = <any>args.enableDnsHostnames;
+        this.enableDnsSupport = <any>args.enableDnsSupport;
+        this.tags = <any>args.tags;
     }
 }
 

@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class WebAcl extends lumi.NamedResource implements WebAclArgs {
     public readonly defaultAction: { type: string }[];
     public readonly metricName: string;
-    public readonly webAclName?: string;
+    public readonly webAclName: string;
     public readonly rules?: { action: { type: string }[], priority: number, ruleId: string }[];
 
     public static get(id: lumi.ID): WebAcl {
@@ -23,13 +23,13 @@ export class WebAcl extends lumi.NamedResource implements WebAclArgs {
         if (lumirt.defaultIfComputed(args.defaultAction, "") === undefined) {
             throw new Error("Property argument 'defaultAction' is required, but was missing");
         }
-        this.defaultAction = args.defaultAction;
+        this.defaultAction = <any>args.defaultAction;
         if (lumirt.defaultIfComputed(args.metricName, "") === undefined) {
             throw new Error("Property argument 'metricName' is required, but was missing");
         }
-        this.metricName = args.metricName;
-        this.webAclName = args.webAclName;
-        this.rules = args.rules;
+        this.metricName = <any>args.metricName;
+        this.webAclName = <any>args.webAclName;
+        this.rules = <any>args.rules;
     }
 }
 

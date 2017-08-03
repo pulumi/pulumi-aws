@@ -22,21 +22,21 @@ export class FlowLog extends lumi.NamedResource implements FlowLogArgs {
 
     constructor(name: string, args: FlowLogArgs) {
         super(name);
-        this.eniId = args.eniId;
+        this.eniId = <any>args.eniId;
         if (lumirt.defaultIfComputed(args.iamRoleArn, "") === undefined) {
             throw new Error("Property argument 'iamRoleArn' is required, but was missing");
         }
-        this.iamRoleArn = args.iamRoleArn;
+        this.iamRoleArn = <any>args.iamRoleArn;
         if (lumirt.defaultIfComputed(args.logGroupName, "") === undefined) {
             throw new Error("Property argument 'logGroupName' is required, but was missing");
         }
-        this.logGroupName = args.logGroupName;
-        this.subnetId = args.subnetId;
+        this.logGroupName = <any>args.logGroupName;
+        this.subnetId = <any>args.subnetId;
         if (lumirt.defaultIfComputed(args.trafficType, "") === undefined) {
             throw new Error("Property argument 'trafficType' is required, but was missing");
         }
-        this.trafficType = args.trafficType;
-        this.vpcId = args.vpcId;
+        this.trafficType = <any>args.trafficType;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

@@ -23,15 +23,15 @@ export class ParameterGroup extends lumi.NamedResource implements ParameterGroup
 
     constructor(name: string, args: ParameterGroupArgs) {
         super(name);
-        this.description = args.description;
+        this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.family, "") === undefined) {
             throw new Error("Property argument 'family' is required, but was missing");
         }
-        this.family = args.family;
-        this.parameterGroupName = args.parameterGroupName;
-        this.namePrefix = args.namePrefix;
-        this.parameter = args.parameter;
-        this.tags = args.tags;
+        this.family = <any>args.family;
+        this.parameterGroupName = <any>args.parameterGroupName;
+        this.namePrefix = <any>args.namePrefix;
+        this.parameter = <any>args.parameter;
+        this.tags = <any>args.tags;
     }
 }
 

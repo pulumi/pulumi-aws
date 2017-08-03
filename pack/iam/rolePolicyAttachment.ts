@@ -24,11 +24,11 @@ export class RolePolicyAttachment extends lumi.NamedResource implements RolePoli
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {
             throw new Error("Property argument 'policyArn' is required, but was missing");
         }
-        this.policyArn = args.policyArn;
+        this.policyArn = <any>args.policyArn;
         if (lumirt.defaultIfComputed(args.role, "") === undefined) {
             throw new Error("Property argument 'role' is required, but was missing");
         }
-        this.role = args.role;
+        this.role = <any>args.role;
     }
 }
 

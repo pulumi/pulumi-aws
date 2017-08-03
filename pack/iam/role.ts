@@ -28,12 +28,12 @@ export class Role extends lumi.NamedResource implements RoleArgs {
         if (lumirt.defaultIfComputed(args.assumeRolePolicy, "") === undefined) {
             throw new Error("Property argument 'assumeRolePolicy' is required, but was missing");
         }
-        this.assumeRolePolicy = args.assumeRolePolicy;
-        this.description = args.description;
-        this.forceDetachPolicies = args.forceDetachPolicies;
-        this.roleName = args.roleName;
-        this.namePrefix = args.namePrefix;
-        this.path = args.path;
+        this.assumeRolePolicy = <any>args.assumeRolePolicy;
+        this.description = <any>args.description;
+        this.forceDetachPolicies = <any>args.forceDetachPolicies;
+        this.roleName = <any>args.roleName;
+        this.namePrefix = <any>args.namePrefix;
+        this.path = <any>args.path;
     }
 }
 

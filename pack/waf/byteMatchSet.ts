@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class ByteMatchSet extends lumi.NamedResource implements ByteMatchSetArgs {
     public readonly byteMatchTuples?: { fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[];
-    public readonly byteMatchSetName?: string;
+    public readonly byteMatchSetName: string;
 
     public static get(id: lumi.ID): ByteMatchSet {
         return <any>undefined; // functionality provided by the runtime
@@ -18,8 +18,8 @@ export class ByteMatchSet extends lumi.NamedResource implements ByteMatchSetArgs
 
     constructor(name: string, args: ByteMatchSetArgs) {
         super(name);
-        this.byteMatchTuples = args.byteMatchTuples;
-        this.byteMatchSetName = args.byteMatchSetName;
+        this.byteMatchTuples = <any>args.byteMatchTuples;
+        this.byteMatchSetName = <any>args.byteMatchSetName;
     }
 }
 

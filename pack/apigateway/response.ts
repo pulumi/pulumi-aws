@@ -21,17 +21,17 @@ export class Response extends lumi.NamedResource implements ResponseArgs {
 
     constructor(name: string, args: ResponseArgs) {
         super(name);
-        this.responseParameters = args.responseParameters;
-        this.responseTemplates = args.responseTemplates;
+        this.responseParameters = <any>args.responseParameters;
+        this.responseTemplates = <any>args.responseTemplates;
         if (lumirt.defaultIfComputed(args.responseType, "") === undefined) {
             throw new Error("Property argument 'responseType' is required, but was missing");
         }
-        this.responseType = args.responseType;
+        this.responseType = <any>args.responseType;
         if (lumirt.defaultIfComputed(args.restApiId, "") === undefined) {
             throw new Error("Property argument 'restApiId' is required, but was missing");
         }
-        this.restApiId = args.restApiId;
-        this.statusCode = args.statusCode;
+        this.restApiId = <any>args.restApiId;
+        this.statusCode = <any>args.statusCode;
     }
 }
 

@@ -36,25 +36,25 @@ export class Bucket extends lumi.NamedResource implements BucketArgs {
 
     constructor(name: string, args: BucketArgs) {
         super(name);
-        this.accelerationStatus = args.accelerationStatus;
-        this.acl = args.acl;
-        this.arn = args.arn;
-        this.bucket = args.bucket;
-        this.bucketPrefix = args.bucketPrefix;
-        this.corsRule = args.corsRule;
-        this.forceDestroy = args.forceDestroy;
-        this.hostedZoneId = args.hostedZoneId;
-        this.lifecycleRule = args.lifecycleRule;
-        this.logging = args.logging;
-        this.policy = args.policy;
-        this.region = args.region;
-        this.replicationConfiguration = args.replicationConfiguration;
-        this.requestPayer = args.requestPayer;
-        this.tags = args.tags;
-        this.versioning = args.versioning;
-        this.website = args.website;
-        this.websiteDomain = args.websiteDomain;
-        this.websiteEndpoint = args.websiteEndpoint;
+        this.accelerationStatus = <any>args.accelerationStatus;
+        this.acl = <any>args.acl;
+        this.arn = <any>args.arn;
+        this.bucket = <any>args.bucket;
+        this.bucketPrefix = <any>args.bucketPrefix;
+        this.corsRule = <any>args.corsRule;
+        this.forceDestroy = <any>args.forceDestroy;
+        this.hostedZoneId = <any>args.hostedZoneId;
+        this.lifecycleRule = <any>args.lifecycleRule;
+        this.logging = <any>args.logging;
+        this.policy = <any>args.policy;
+        this.region = <any>args.region;
+        this.replicationConfiguration = <any>args.replicationConfiguration;
+        this.requestPayer = <any>args.requestPayer;
+        this.tags = <any>args.tags;
+        this.versioning = <any>args.versioning;
+        this.website = <any>args.website;
+        this.websiteDomain = <any>args.websiteDomain;
+        this.websiteEndpoint = <any>args.websiteEndpoint;
     }
 }
 
@@ -67,7 +67,7 @@ export interface BucketArgs {
     readonly corsRule?: { allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[];
     readonly forceDestroy?: boolean;
     readonly hostedZoneId?: string;
-    readonly lifecycleRule?: { abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[];
+    readonly lifecycleRule?: { abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id?: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[];
     readonly logging?: { targetBucket: string, targetPrefix?: string }[];
     readonly policy?: string;
     readonly region?: string;

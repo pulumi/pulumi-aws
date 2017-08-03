@@ -21,11 +21,11 @@ export class ProxyProtocolPolicy extends lumi.NamedResource implements ProxyProt
         if (lumirt.defaultIfComputed(args.instancePorts, "") === undefined) {
             throw new Error("Property argument 'instancePorts' is required, but was missing");
         }
-        this.instancePorts = args.instancePorts;
+        this.instancePorts = <any>args.instancePorts;
         if (lumirt.defaultIfComputed(args.loadBalancer, "") === undefined) {
             throw new Error("Property argument 'loadBalancer' is required, but was missing");
         }
-        this.loadBalancer = args.loadBalancer;
+        this.loadBalancer = <any>args.loadBalancer;
     }
 }
 

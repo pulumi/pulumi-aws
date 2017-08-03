@@ -22,14 +22,14 @@ export class SubnetGroup extends lumi.NamedResource implements SubnetGroupArgs {
 
     constructor(name: string, args: SubnetGroupArgs) {
         super(name);
-        this.description = args.description;
-        this.subnetGroupName = args.subnetGroupName;
-        this.namePrefix = args.namePrefix;
+        this.description = <any>args.description;
+        this.subnetGroupName = <any>args.subnetGroupName;
+        this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.subnetIds, "") === undefined) {
             throw new Error("Property argument 'subnetIds' is required, but was missing");
         }
-        this.subnetIds = args.subnetIds;
-        this.tags = args.tags;
+        this.subnetIds = <any>args.subnetIds;
+        this.tags = <any>args.tags;
     }
 }
 

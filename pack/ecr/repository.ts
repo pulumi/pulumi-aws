@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Repository extends lumi.NamedResource implements RepositoryArgs {
     public /*out*/ readonly arn: string;
-    public readonly repositoryName?: string;
+    public readonly repositoryName: string;
     public /*out*/ readonly registryId: string;
     public /*out*/ readonly repositoryUrl: string;
 
@@ -20,7 +20,7 @@ export class Repository extends lumi.NamedResource implements RepositoryArgs {
 
     constructor(name: string, args: RepositoryArgs) {
         super(name);
-        this.repositoryName = args.repositoryName;
+        this.repositoryName = <any>args.repositoryName;
     }
 }
 

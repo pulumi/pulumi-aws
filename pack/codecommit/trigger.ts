@@ -22,11 +22,11 @@ export class Trigger extends lumi.NamedResource implements TriggerArgs {
         if (lumirt.defaultIfComputed(args.repositoryName, "") === undefined) {
             throw new Error("Property argument 'repositoryName' is required, but was missing");
         }
-        this.repositoryName = args.repositoryName;
+        this.repositoryName = <any>args.repositoryName;
         if (lumirt.defaultIfComputed(args.trigger, "") === undefined) {
             throw new Error("Property argument 'trigger' is required, but was missing");
         }
-        this.trigger = args.trigger;
+        this.trigger = <any>args.trigger;
     }
 }
 

@@ -26,11 +26,11 @@ export class InstanceProfile extends lumi.NamedResource implements InstanceProfi
 
     constructor(name: string, args: InstanceProfileArgs) {
         super(name);
-        this.instanceProfileName = args.instanceProfileName;
-        this.namePrefix = args.namePrefix;
-        this.path = args.path;
-        this.role = args.role;
-        this.roles = args.roles;
+        this.instanceProfileName = <any>args.instanceProfileName;
+        this.namePrefix = <any>args.namePrefix;
+        this.path = <any>args.path;
+        this.role = <any>args.role;
+        this.roles = <any>args.roles;
     }
 }
 

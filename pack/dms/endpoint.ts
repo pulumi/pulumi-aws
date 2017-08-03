@@ -31,29 +31,29 @@ export class Endpoint extends lumi.NamedResource implements EndpointArgs {
 
     constructor(name: string, args: EndpointArgs) {
         super(name);
-        this.certificateArn = args.certificateArn;
-        this.databaseName = args.databaseName;
+        this.certificateArn = <any>args.certificateArn;
+        this.databaseName = <any>args.databaseName;
         if (lumirt.defaultIfComputed(args.endpointId, "") === undefined) {
             throw new Error("Property argument 'endpointId' is required, but was missing");
         }
-        this.endpointId = args.endpointId;
+        this.endpointId = <any>args.endpointId;
         if (lumirt.defaultIfComputed(args.endpointType, "") === undefined) {
             throw new Error("Property argument 'endpointType' is required, but was missing");
         }
-        this.endpointType = args.endpointType;
+        this.endpointType = <any>args.endpointType;
         if (lumirt.defaultIfComputed(args.engineName, "") === undefined) {
             throw new Error("Property argument 'engineName' is required, but was missing");
         }
-        this.engineName = args.engineName;
-        this.extraConnectionAttributes = args.extraConnectionAttributes;
-        this.kmsKeyArn = args.kmsKeyArn;
-        this.password = args.password;
-        this.port = args.port;
-        this.serverName = args.serverName;
-        this.serviceAccessRole = args.serviceAccessRole;
-        this.sslMode = args.sslMode;
-        this.tags = args.tags;
-        this.username = args.username;
+        this.engineName = <any>args.engineName;
+        this.extraConnectionAttributes = <any>args.extraConnectionAttributes;
+        this.kmsKeyArn = <any>args.kmsKeyArn;
+        this.password = <any>args.password;
+        this.port = <any>args.port;
+        this.serverName = <any>args.serverName;
+        this.serviceAccessRole = <any>args.serviceAccessRole;
+        this.sslMode = <any>args.sslMode;
+        this.tags = <any>args.tags;
+        this.username = <any>args.username;
     }
 }
 

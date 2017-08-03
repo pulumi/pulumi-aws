@@ -8,7 +8,7 @@ export class Zone extends lumi.NamedResource implements ZoneArgs {
     public readonly comment?: string;
     public readonly delegationSetId?: string;
     public readonly forceDestroy?: boolean;
-    public readonly zoneName?: string;
+    public readonly zoneName: string;
     public /*out*/ readonly nameServers: string[];
     public readonly tags?: {[key: string]: any};
     public readonly vpcId?: string;
@@ -25,13 +25,13 @@ export class Zone extends lumi.NamedResource implements ZoneArgs {
 
     constructor(name: string, args: ZoneArgs) {
         super(name);
-        this.comment = args.comment;
-        this.delegationSetId = args.delegationSetId;
-        this.forceDestroy = args.forceDestroy;
-        this.zoneName = args.zoneName;
-        this.tags = args.tags;
-        this.vpcId = args.vpcId;
-        this.vpcRegion = args.vpcRegion;
+        this.comment = <any>args.comment;
+        this.delegationSetId = <any>args.delegationSetId;
+        this.forceDestroy = <any>args.forceDestroy;
+        this.zoneName = <any>args.zoneName;
+        this.tags = <any>args.tags;
+        this.vpcId = <any>args.vpcId;
+        this.vpcRegion = <any>args.vpcRegion;
     }
 }
 

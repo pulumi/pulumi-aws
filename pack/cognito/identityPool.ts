@@ -23,16 +23,16 @@ export class IdentityPool extends lumi.NamedResource implements IdentityPoolArgs
 
     constructor(name: string, args: IdentityPoolArgs) {
         super(name);
-        this.allowUnauthenticatedIdentities = args.allowUnauthenticatedIdentities;
-        this.cognitoIdentityProviders = args.cognitoIdentityProviders;
-        this.developerProviderName = args.developerProviderName;
+        this.allowUnauthenticatedIdentities = <any>args.allowUnauthenticatedIdentities;
+        this.cognitoIdentityProviders = <any>args.cognitoIdentityProviders;
+        this.developerProviderName = <any>args.developerProviderName;
         if (lumirt.defaultIfComputed(args.identityPoolName, "") === undefined) {
             throw new Error("Property argument 'identityPoolName' is required, but was missing");
         }
-        this.identityPoolName = args.identityPoolName;
-        this.openidConnectProviderArns = args.openidConnectProviderArns;
-        this.samlProviderArns = args.samlProviderArns;
-        this.supportedLoginProviders = args.supportedLoginProviders;
+        this.identityPoolName = <any>args.identityPoolName;
+        this.openidConnectProviderArns = <any>args.openidConnectProviderArns;
+        this.samlProviderArns = <any>args.samlProviderArns;
+        this.supportedLoginProviders = <any>args.supportedLoginProviders;
     }
 }
 

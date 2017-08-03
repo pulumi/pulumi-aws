@@ -22,12 +22,12 @@ export class ZoneAssociation extends lumi.NamedResource implements ZoneAssociati
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
-        this.vpcRegion = args.vpcRegion;
+        this.vpcId = <any>args.vpcId;
+        this.vpcRegion = <any>args.vpcRegion;
         if (lumirt.defaultIfComputed(args.zoneId, "") === undefined) {
             throw new Error("Property argument 'zoneId' is required, but was missing");
         }
-        this.zoneId = args.zoneId;
+        this.zoneId = <any>args.zoneId;
     }
 }
 

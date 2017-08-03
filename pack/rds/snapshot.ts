@@ -38,11 +38,11 @@ export class Snapshot extends lumi.NamedResource implements SnapshotArgs {
         if (lumirt.defaultIfComputed(args.dbInstanceIdentifier, "") === undefined) {
             throw new Error("Property argument 'dbInstanceIdentifier' is required, but was missing");
         }
-        this.dbInstanceIdentifier = args.dbInstanceIdentifier;
+        this.dbInstanceIdentifier = <any>args.dbInstanceIdentifier;
         if (lumirt.defaultIfComputed(args.dbSnapshotIdentifier, "") === undefined) {
             throw new Error("Property argument 'dbSnapshotIdentifier' is required, but was missing");
         }
-        this.dbSnapshotIdentifier = args.dbSnapshotIdentifier;
+        this.dbSnapshotIdentifier = <any>args.dbSnapshotIdentifier;
     }
 }
 

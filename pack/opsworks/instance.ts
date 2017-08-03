@@ -62,57 +62,57 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
 
     constructor(name: string, args: InstanceArgs) {
         super(name);
-        this.agentVersion = args.agentVersion;
-        this.amiId = args.amiId;
-        this.architecture = args.architecture;
-        this.autoScalingType = args.autoScalingType;
-        this.availabilityZone = args.availabilityZone;
-        this.createdAt = args.createdAt;
-        this.deleteEbs = args.deleteEbs;
-        this.deleteEip = args.deleteEip;
-        this.ebsBlockDevice = args.ebsBlockDevice;
-        this.ebsOptimized = args.ebsOptimized;
-        this.ec2InstanceId = args.ec2InstanceId;
-        this.ecsClusterArn = args.ecsClusterArn;
-        this.elasticIp = args.elasticIp;
-        this.ephemeralBlockDevice = args.ephemeralBlockDevice;
-        this.hostname = args.hostname;
-        this.infrastructureClass = args.infrastructureClass;
-        this.installUpdatesOnBoot = args.installUpdatesOnBoot;
-        this.instanceProfileArn = args.instanceProfileArn;
-        this.instanceType = args.instanceType;
-        this.lastServiceErrorId = args.lastServiceErrorId;
+        this.agentVersion = <any>args.agentVersion;
+        this.amiId = <any>args.amiId;
+        this.architecture = <any>args.architecture;
+        this.autoScalingType = <any>args.autoScalingType;
+        this.availabilityZone = <any>args.availabilityZone;
+        this.createdAt = <any>args.createdAt;
+        this.deleteEbs = <any>args.deleteEbs;
+        this.deleteEip = <any>args.deleteEip;
+        this.ebsBlockDevice = <any>args.ebsBlockDevice;
+        this.ebsOptimized = <any>args.ebsOptimized;
+        this.ec2InstanceId = <any>args.ec2InstanceId;
+        this.ecsClusterArn = <any>args.ecsClusterArn;
+        this.elasticIp = <any>args.elasticIp;
+        this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
+        this.hostname = <any>args.hostname;
+        this.infrastructureClass = <any>args.infrastructureClass;
+        this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
+        this.instanceProfileArn = <any>args.instanceProfileArn;
+        this.instanceType = <any>args.instanceType;
+        this.lastServiceErrorId = <any>args.lastServiceErrorId;
         if (lumirt.defaultIfComputed(args.layerIds, "") === undefined) {
             throw new Error("Property argument 'layerIds' is required, but was missing");
         }
-        this.layerIds = args.layerIds;
-        this.os = args.os;
-        this.platform = args.platform;
-        this.privateDns = args.privateDns;
-        this.privateIp = args.privateIp;
-        this.publicDns = args.publicDns;
-        this.publicIp = args.publicIp;
-        this.registeredBy = args.registeredBy;
-        this.reportedAgentVersion = args.reportedAgentVersion;
-        this.reportedOsFamily = args.reportedOsFamily;
-        this.reportedOsName = args.reportedOsName;
-        this.reportedOsVersion = args.reportedOsVersion;
-        this.rootBlockDevice = args.rootBlockDevice;
-        this.rootDeviceType = args.rootDeviceType;
-        this.rootDeviceVolumeId = args.rootDeviceVolumeId;
-        this.securityGroupIds = args.securityGroupIds;
-        this.sshHostDsaKeyFingerprint = args.sshHostDsaKeyFingerprint;
-        this.sshHostRsaKeyFingerprint = args.sshHostRsaKeyFingerprint;
-        this.sshKeyName = args.sshKeyName;
+        this.layerIds = <any>args.layerIds;
+        this.os = <any>args.os;
+        this.platform = <any>args.platform;
+        this.privateDns = <any>args.privateDns;
+        this.privateIp = <any>args.privateIp;
+        this.publicDns = <any>args.publicDns;
+        this.publicIp = <any>args.publicIp;
+        this.registeredBy = <any>args.registeredBy;
+        this.reportedAgentVersion = <any>args.reportedAgentVersion;
+        this.reportedOsFamily = <any>args.reportedOsFamily;
+        this.reportedOsName = <any>args.reportedOsName;
+        this.reportedOsVersion = <any>args.reportedOsVersion;
+        this.rootBlockDevice = <any>args.rootBlockDevice;
+        this.rootDeviceType = <any>args.rootDeviceType;
+        this.rootDeviceVolumeId = <any>args.rootDeviceVolumeId;
+        this.securityGroupIds = <any>args.securityGroupIds;
+        this.sshHostDsaKeyFingerprint = <any>args.sshHostDsaKeyFingerprint;
+        this.sshHostRsaKeyFingerprint = <any>args.sshHostRsaKeyFingerprint;
+        this.sshKeyName = <any>args.sshKeyName;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
-        this.stackId = args.stackId;
-        this.state = args.state;
-        this.status = args.status;
-        this.subnetId = args.subnetId;
-        this.tenancy = args.tenancy;
-        this.virtualizationType = args.virtualizationType;
+        this.stackId = <any>args.stackId;
+        this.state = <any>args.state;
+        this.status = <any>args.status;
+        this.subnetId = <any>args.subnetId;
+        this.tenancy = <any>args.tenancy;
+        this.virtualizationType = <any>args.virtualizationType;
     }
 }
 
@@ -125,7 +125,7 @@ export interface InstanceArgs {
     readonly createdAt?: string;
     readonly deleteEbs?: boolean;
     readonly deleteEip?: boolean;
-    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName: string, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName: string, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     readonly ebsOptimized?: boolean;
     readonly ec2InstanceId?: string;
     readonly ecsClusterArn?: string;
@@ -149,7 +149,7 @@ export interface InstanceArgs {
     readonly reportedOsFamily?: string;
     readonly reportedOsName?: string;
     readonly reportedOsVersion?: string;
-    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[];
     readonly rootDeviceType?: string;
     readonly rootDeviceVolumeId?: string;
     readonly securityGroupIds?: string[];

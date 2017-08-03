@@ -31,19 +31,19 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
 
     constructor(name: string, args: LoadBalancerArgs) {
         super(name);
-        this.accessLogs = args.accessLogs;
-        this.enableDeletionProtection = args.enableDeletionProtection;
-        this.idleTimeout = args.idleTimeout;
-        this.internal = args.internal;
-        this.ipAddressType = args.ipAddressType;
-        this.loadBalancerName = args.loadBalancerName;
-        this.namePrefix = args.namePrefix;
-        this.securityGroups = args.securityGroups;
+        this.accessLogs = <any>args.accessLogs;
+        this.enableDeletionProtection = <any>args.enableDeletionProtection;
+        this.idleTimeout = <any>args.idleTimeout;
+        this.internal = <any>args.internal;
+        this.ipAddressType = <any>args.ipAddressType;
+        this.loadBalancerName = <any>args.loadBalancerName;
+        this.namePrefix = <any>args.namePrefix;
+        this.securityGroups = <any>args.securityGroups;
         if (lumirt.defaultIfComputed(args.subnets, "") === undefined) {
             throw new Error("Property argument 'subnets' is required, but was missing");
         }
-        this.subnets = args.subnets;
-        this.tags = args.tags;
+        this.subnets = <any>args.subnets;
+        this.tags = <any>args.tags;
     }
 }
 

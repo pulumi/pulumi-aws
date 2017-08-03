@@ -22,15 +22,15 @@ export class Notification extends lumi.NamedResource implements NotificationArgs
         if (lumirt.defaultIfComputed(args.groupNames, "") === undefined) {
             throw new Error("Property argument 'groupNames' is required, but was missing");
         }
-        this.groupNames = args.groupNames;
+        this.groupNames = <any>args.groupNames;
         if (lumirt.defaultIfComputed(args.notifications, "") === undefined) {
             throw new Error("Property argument 'notifications' is required, but was missing");
         }
-        this.notifications = args.notifications;
+        this.notifications = <any>args.notifications;
         if (lumirt.defaultIfComputed(args.topicArn, "") === undefined) {
             throw new Error("Property argument 'topicArn' is required, but was missing");
         }
-        this.topicArn = args.topicArn;
+        this.topicArn = <any>args.topicArn;
     }
 }
 

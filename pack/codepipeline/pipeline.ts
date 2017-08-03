@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Pipeline extends lumi.NamedResource implements PipelineArgs {
     public readonly artifactStore: { encryptionKey?: { id: string, type: string }[], location: string, type: string }[];
-    public readonly pipelineName?: string;
+    public readonly pipelineName: string;
     public readonly roleArn: string;
     public readonly stage: { action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[];
 
@@ -23,16 +23,16 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
         if (lumirt.defaultIfComputed(args.artifactStore, "") === undefined) {
             throw new Error("Property argument 'artifactStore' is required, but was missing");
         }
-        this.artifactStore = args.artifactStore;
-        this.pipelineName = args.pipelineName;
+        this.artifactStore = <any>args.artifactStore;
+        this.pipelineName = <any>args.pipelineName;
         if (lumirt.defaultIfComputed(args.roleArn, "") === undefined) {
             throw new Error("Property argument 'roleArn' is required, but was missing");
         }
-        this.roleArn = args.roleArn;
+        this.roleArn = <any>args.roleArn;
         if (lumirt.defaultIfComputed(args.stage, "") === undefined) {
             throw new Error("Property argument 'stage' is required, but was missing");
         }
-        this.stage = args.stage;
+        this.stage = <any>args.stage;
     }
 }
 
@@ -40,6 +40,6 @@ export interface PipelineArgs {
     readonly artifactStore: { encryptionKey?: { id: string, type: string }[], location: string, type: string }[];
     readonly pipelineName?: string;
     readonly roleArn: string;
-    readonly stage: { action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[];
+    readonly stage: { action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder?: number, version: string }[], name: string }[];
 }
 

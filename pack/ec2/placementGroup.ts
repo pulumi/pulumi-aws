@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class PlacementGroup extends lumi.NamedResource implements PlacementGroupArgs {
-    public readonly placementGroupName?: string;
+    public readonly placementGroupName: string;
     public readonly strategy: string;
 
     public static get(id: lumi.ID): PlacementGroup {
@@ -18,11 +18,11 @@ export class PlacementGroup extends lumi.NamedResource implements PlacementGroup
 
     constructor(name: string, args: PlacementGroupArgs) {
         super(name);
-        this.placementGroupName = args.placementGroupName;
+        this.placementGroupName = <any>args.placementGroupName;
         if (lumirt.defaultIfComputed(args.strategy, "") === undefined) {
             throw new Error("Property argument 'strategy' is required, but was missing");
         }
-        this.strategy = args.strategy;
+        this.strategy = <any>args.strategy;
     }
 }
 

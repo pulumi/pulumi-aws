@@ -21,11 +21,11 @@ export class VpcDhcpOptionsAssociation extends lumi.NamedResource implements Vpc
         if (lumirt.defaultIfComputed(args.dhcpOptionsId, "") === undefined) {
             throw new Error("Property argument 'dhcpOptionsId' is required, but was missing");
         }
-        this.dhcpOptionsId = args.dhcpOptionsId;
+        this.dhcpOptionsId = <any>args.dhcpOptionsId;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

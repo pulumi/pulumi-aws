@@ -27,24 +27,24 @@ export class TargetGroup extends lumi.NamedResource implements TargetGroupArgs {
 
     constructor(name: string, args: TargetGroupArgs) {
         super(name);
-        this.deregistrationDelay = args.deregistrationDelay;
-        this.healthCheck = args.healthCheck;
-        this.targetGroupName = args.targetGroupName;
-        this.namePrefix = args.namePrefix;
+        this.deregistrationDelay = <any>args.deregistrationDelay;
+        this.healthCheck = <any>args.healthCheck;
+        this.targetGroupName = <any>args.targetGroupName;
+        this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.port, "") === undefined) {
             throw new Error("Property argument 'port' is required, but was missing");
         }
-        this.port = args.port;
+        this.port = <any>args.port;
         if (lumirt.defaultIfComputed(args.protocol, "") === undefined) {
             throw new Error("Property argument 'protocol' is required, but was missing");
         }
-        this.protocol = args.protocol;
-        this.stickiness = args.stickiness;
-        this.tags = args.tags;
+        this.protocol = <any>args.protocol;
+        this.stickiness = <any>args.stickiness;
+        this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }
-        this.vpcId = args.vpcId;
+        this.vpcId = <any>args.vpcId;
     }
 }
 

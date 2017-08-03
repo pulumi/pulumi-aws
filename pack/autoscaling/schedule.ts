@@ -28,17 +28,17 @@ export class Schedule extends lumi.NamedResource implements ScheduleArgs {
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {
             throw new Error("Property argument 'autoscalingGroupName' is required, but was missing");
         }
-        this.autoscalingGroupName = args.autoscalingGroupName;
-        this.desiredCapacity = args.desiredCapacity;
-        this.endTime = args.endTime;
-        this.maxSize = args.maxSize;
-        this.minSize = args.minSize;
-        this.recurrence = args.recurrence;
+        this.autoscalingGroupName = <any>args.autoscalingGroupName;
+        this.desiredCapacity = <any>args.desiredCapacity;
+        this.endTime = <any>args.endTime;
+        this.maxSize = <any>args.maxSize;
+        this.minSize = <any>args.minSize;
+        this.recurrence = <any>args.recurrence;
         if (lumirt.defaultIfComputed(args.scheduledActionName, "") === undefined) {
             throw new Error("Property argument 'scheduledActionName' is required, but was missing");
         }
-        this.scheduledActionName = args.scheduledActionName;
-        this.startTime = args.startTime;
+        this.scheduledActionName = <any>args.scheduledActionName;
+        this.startTime = <any>args.startTime;
     }
 }
 
