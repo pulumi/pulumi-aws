@@ -57,5 +57,6 @@ export {apigateway, appautoscaling, autoscaling, cfg, cloudformation, cloudfront
 
 // Export members:
 export * from "./arn";
+export * from "./function";
 export * from "./region";
 
