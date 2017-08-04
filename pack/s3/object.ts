@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 import {Bucket} from "./bucket";
 
-export class Object extends lumi.Resource implements ObjectArgs {
+export class Object extends lumi.NamedResource implements ObjectArgs {
     public readonly acl?: string;
     public readonly bucket: Bucket;
     public readonly cacheControl?: string;
@@ -33,8 +33,8 @@ export class Object extends lumi.Resource implements ObjectArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(args: ObjectArgs) {
-        super();
+    constructor(name: string, args: ObjectArgs) {
+        super(name);
         this.acl = <any>args.acl;
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
@@ -47,9 +47,6 @@ export class Object extends lumi.Resource implements ObjectArgs {
         this.contentLanguage = <any>args.contentLanguage;
         this.contentType = <any>args.contentType;
         this.etag = <any>args.etag;
-        if (lumirt.defaultIfComputed(args.key, "") === undefined) {
-            throw new Error("Property argument 'key' is required, but was missing");
-        }
         this.key = <any>args.key;
         this.kmsKeyId = <any>args.kmsKeyId;
         this.serverSideEncryption = <any>args.serverSideEncryption;
@@ -70,7 +67,7 @@ export interface ObjectArgs {
     readonly contentLanguage?: string;
     readonly contentType?: string;
     readonly etag?: string;
-    readonly key: string;
+    readonly key?: string;
     readonly kmsKeyId?: string;
     readonly serverSideEncryption?: string;
     readonly source?: lumi.asset.Asset;
