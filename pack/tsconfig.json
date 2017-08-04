@@ -272,6 +272,7 @@
         "wafregional/ipSet.ts",
         "arn.ts",
         "region.ts",
+        "function.ts",
         "apigateway/index.ts",
         "appautoscaling/index.ts",
         "autoscaling/index.ts",

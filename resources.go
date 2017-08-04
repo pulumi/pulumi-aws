@@ -803,8 +803,9 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Overlay: tfbridge.OverlayInfo{
 			Files: []string{
-				"arn.ts",    // ARN typedef
-				"region.ts", // Region union type and constants
+				"arn.ts",      // ARN typedef
+				"region.ts",   // Region union type and constants
+				"function.ts", // a higher-level Function for using lambdas as code.
 			},
 			Modules: map[string]tfbridge.OverlayInfo{
 				"config": {

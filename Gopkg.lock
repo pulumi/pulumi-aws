@@ -124,8 +124,8 @@
 [[projects]]
   name = "github.com/hashicorp/terraform"
   packages = ["config","config/module","dag","flatmap","helper/config","helper/encryption","helper/experiment","helper/hashcode","helper/hilmapstructure","helper/logging","helper/mutexkv","helper/resource","helper/schema","helper/shadow","helper/structure","helper/validation","moduledeps","plugin","plugin/discovery","terraform"]
-  revision = "243951c70a07a8495212ea75501cc02f8d286c3e"
-  version = "v0.10.0-rc1"
+  revision = "2041053ee9444fa8175a298093b55a89586a1823"
+  version = "v0.10.0"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -233,7 +233,7 @@
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "7d52bd66e6eefc881e086caf956ff734251fd20e"
+  revision = "77f206ae1867dccc44bd8665d0e08704edb079d4"
 
 [[projects]]
   branch = "master"
@@ -282,7 +282,7 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["bcrypt","blowfish","cast5","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","ssh/terminal"]
-  revision = "358f15eacb587b056fc93273b930314a5cda12fe"
+  revision = "42ff06aea7c329876e5a0fe94acc96902accf0ad"
 
 [[projects]]
   branch = "master"
@@ -293,8 +293,8 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = ["unix"]
-  revision = "e312636bdaa2fac4f0acde9d17ab9fbad2b4ad10"
+  packages = ["unix","windows"]
+  revision = "d8f5ea21b9295e315e612b4bcf4bedea93454d4d"
 
 [[projects]]
   branch = "master"
