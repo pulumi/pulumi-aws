@@ -736,12 +736,16 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_s3_bucket_policy": {Tok: awsrestok(s3Mod, "BucketPolicy")},
 			"aws_s3_bucket_object": {
-				Tok:                 awsrestok(s3Mod, "Object"),
-				IDFields:            []string{"bucket", "key"},
-				NameFields:          []string{"bucket", "key"},
-				NameFieldsDelimiter: ":",
+				Tok:      awsrestok(s3Mod, "Object"),
+				IDFields: []string{"bucket", "key"},
 				Fields: map[string]tfbridge.SchemaInfo{
 					"bucket": {Type: awsrestok(s3Mod, "Bucket")},
+					"key": {
+						// By default, use the name as the key.  It may of course be overridden.
+						Default: tfbridge.DefaultInfo{
+							From: tfbridge.NameProperty,
+						},
+					},
 					"source": {
 						Asset: &tfbridge.AssetTranslation{
 							Kind: tfbridge.FileAsset,

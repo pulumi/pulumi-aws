@@ -7,9 +7,8 @@ import { File } from "@lumi/lumi/asset";
 import { jsonStringify } from "@lumi/lumirt";
 
 let sourceBucket = new Bucket("sourceBucket", {});
-let source = new Object({
+let source = new Object("testSource/app.zip", {
     bucket: sourceBucket,
-    key: "testSource/app.zip",
     source: new File("app.zip"),
 });
 
