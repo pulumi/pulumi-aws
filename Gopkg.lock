@@ -226,8 +226,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-fabric"
-  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/integrationtesting","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
-  revision = "ff0eb81944183bfc88ec2c8da54beab3d496a928"
+  packages = ["pkg/compiler/ast","pkg/compiler/binder","pkg/compiler/core","pkg/compiler/errors","pkg/compiler/metadata","pkg/compiler/symbols","pkg/compiler/types","pkg/compiler/types/predef","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/eval","pkg/eval/rt","pkg/pack","pkg/resource","pkg/resource/plugin","pkg/resource/provider","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/go/pkg/lumirpc"]
+  revision = "ed58a2cbd1a2207cefa33dcb653de70b4cf51837"
 
 [[projects]]
   branch = "master"
@@ -323,6 +323,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b309c063b42e8855d3710608e90491e9589412ad1115b6ae00f5ffba9bef4cf4"
+  inputs-digest = "a89583b6297134c73dd17160494313f3eac55c781c0a30d4761e429df9161814"
   solver-name = "gps-cdcl"
   solver-version = 1

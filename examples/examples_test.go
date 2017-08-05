@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pulumi/pulumi-fabric/pkg/integrationtesting"
+	"github.com/pulumi/pulumi-fabric/pkg/testing/integration"
 )
 
 func TestExamples(t *testing.T) {
@@ -35,7 +35,7 @@ func TestExamples(t *testing.T) {
 			path.Join(cwd, "cpuwatch"),
 		}
 	}
-	options := integrationtesting.LumiProgramTestOptions{
+	options := integration.LumiProgramTestOptions{
 		Config: map[string]string{
 			"aws:config:region": region,
 		},
@@ -48,7 +48,7 @@ func TestExamples(t *testing.T) {
 	for _, ex := range examples {
 		example := ex
 		t.Run(example, func(t *testing.T) {
-			integrationtesting.LumiProgramTest(t, example, options)
+			integration.LumiProgramTest(t, example, options)
 		})
 	}
 }
