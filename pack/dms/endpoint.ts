@@ -29,8 +29,8 @@ export class Endpoint extends lumi.NamedResource implements EndpointArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EndpointArgs) {
-        super(name);
+    constructor(urnName: string, args: EndpointArgs) {
+        super(urnName);
         this.certificateArn = <any>args.certificateArn;
         this.databaseName = <any>args.databaseName;
         if (lumirt.defaultIfComputed(args.endpointId, "") === undefined) {

@@ -23,8 +23,8 @@ export class VpcPeeringConnectionAccepter extends lumi.NamedResource implements 
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpcPeeringConnectionAccepterArgs) {
-        super(name);
+    constructor(urnName: string, args: VpcPeeringConnectionAccepterArgs) {
+        super(urnName);
         this.accepter = <any>args.accepter;
         this.autoAccept = <any>args.autoAccept;
         this.requester = <any>args.requester;

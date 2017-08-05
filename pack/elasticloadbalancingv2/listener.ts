@@ -21,8 +21,8 @@ export class Listener extends lumi.NamedResource implements ListenerArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ListenerArgs) {
-        super(name);
+    constructor(urnName: string, args: ListenerArgs) {
+        super(urnName);
         this.certificateArn = <any>args.certificateArn;
         if (lumirt.defaultIfComputed(args.defaultAction, "") === undefined) {
             throw new Error("Property argument 'defaultAction' is required, but was missing");

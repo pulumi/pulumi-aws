@@ -18,8 +18,8 @@ export class RouteTable extends lumi.NamedResource implements RouteTableArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RouteTableArgs) {
-        super(name);
+    constructor(urnName: string, args: RouteTableArgs) {
+        super(urnName);
         this.propagatingVgws = <any>args.propagatingVgws;
         this.route = <any>args.route;
         this.tags = <any>args.tags;

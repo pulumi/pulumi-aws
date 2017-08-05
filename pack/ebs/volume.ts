@@ -22,8 +22,8 @@ export class Volume extends lumi.NamedResource implements VolumeArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VolumeArgs) {
-        super(name);
+    constructor(urnName: string, args: VolumeArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {
             throw new Error("Property argument 'availabilityZone' is required, but was missing");
         }

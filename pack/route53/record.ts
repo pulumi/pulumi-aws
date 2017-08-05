@@ -11,7 +11,7 @@ export class Record extends lumi.NamedResource implements RecordArgs {
     public readonly geolocationRoutingPolicy?: { continent?: string, country?: string, subdivision?: string }[];
     public readonly healthCheckId?: string;
     public readonly latencyRoutingPolicy?: { region: string }[];
-    public readonly recordName: string;
+    public readonly name: string;
     public readonly records?: string[];
     public readonly setIdentifier?: string;
     public readonly ttl?: number;
@@ -27,14 +27,14 @@ export class Record extends lumi.NamedResource implements RecordArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RecordArgs) {
-        super(name);
+    constructor(urnName: string, args: RecordArgs) {
+        super(urnName);
         this.alias = <any>args.alias;
         this.failoverRoutingPolicy = <any>args.failoverRoutingPolicy;
         this.geolocationRoutingPolicy = <any>args.geolocationRoutingPolicy;
         this.healthCheckId = <any>args.healthCheckId;
         this.latencyRoutingPolicy = <any>args.latencyRoutingPolicy;
-        this.recordName = <any>args.recordName;
+        this.name = <any>args.name;
         this.records = <any>args.records;
         this.setIdentifier = <any>args.setIdentifier;
         this.ttl = <any>args.ttl;
@@ -56,7 +56,7 @@ export interface RecordArgs {
     readonly geolocationRoutingPolicy?: { continent?: string, country?: string, subdivision?: string }[];
     readonly healthCheckId?: string;
     readonly latencyRoutingPolicy?: { region: string }[];
-    readonly recordName?: string;
+    readonly name?: string;
     readonly records?: string[];
     readonly setIdentifier?: string;
     readonly ttl?: number;

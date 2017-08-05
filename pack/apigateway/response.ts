@@ -19,8 +19,8 @@ export class Response extends lumi.NamedResource implements ResponseArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ResponseArgs) {
-        super(name);
+    constructor(urnName: string, args: ResponseArgs) {
+        super(urnName);
         this.responseParameters = <any>args.responseParameters;
         this.responseTemplates = <any>args.responseTemplates;
         if (lumirt.defaultIfComputed(args.responseType, "") === undefined) {

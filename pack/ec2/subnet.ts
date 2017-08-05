@@ -22,8 +22,8 @@ export class Subnet extends lumi.NamedResource implements SubnetArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SubnetArgs) {
-        super(name);
+    constructor(urnName: string, args: SubnetArgs) {
+        super(urnName);
         this.assignIpv6AddressOnCreation = <any>args.assignIpv6AddressOnCreation;
         this.availabilityZone = <any>args.availabilityZone;
         if (lumirt.defaultIfComputed(args.cidrBlock, "") === undefined) {

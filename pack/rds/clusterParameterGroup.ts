@@ -8,7 +8,7 @@ export class ClusterParameterGroup extends lumi.NamedResource implements Cluster
     public /*out*/ readonly arn: string;
     public readonly description?: string;
     public readonly family: string;
-    public readonly clusterParameterGroupName: string;
+    public readonly name: string;
     public readonly namePrefix: string;
     public readonly parameter?: { applyMethod?: string, name: string, value: string }[];
     public readonly tags?: {[key: string]: any};
@@ -21,14 +21,14 @@ export class ClusterParameterGroup extends lumi.NamedResource implements Cluster
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ClusterParameterGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: ClusterParameterGroupArgs) {
+        super(urnName);
         this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.family, "") === undefined) {
             throw new Error("Property argument 'family' is required, but was missing");
         }
         this.family = <any>args.family;
-        this.clusterParameterGroupName = <any>args.clusterParameterGroupName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.parameter = <any>args.parameter;
         this.tags = <any>args.tags;
@@ -38,7 +38,7 @@ export class ClusterParameterGroup extends lumi.NamedResource implements Cluster
 export interface ClusterParameterGroupArgs {
     readonly description?: string;
     readonly family: string;
-    readonly clusterParameterGroupName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly parameter?: { applyMethod?: string, name: string, value: string }[];
     readonly tags?: {[key: string]: any};

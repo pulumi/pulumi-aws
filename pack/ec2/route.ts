@@ -27,8 +27,8 @@ export class Route extends lumi.NamedResource implements RouteArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RouteArgs) {
-        super(name);
+    constructor(urnName: string, args: RouteArgs) {
+        super(urnName);
         this.destinationCidrBlock = <any>args.destinationCidrBlock;
         this.destinationIpv6CidrBlock = <any>args.destinationIpv6CidrBlock;
         this.egressOnlyGatewayId = <any>args.egressOnlyGatewayId;

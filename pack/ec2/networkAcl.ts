@@ -20,8 +20,8 @@ export class NetworkAcl extends lumi.NamedResource implements NetworkAclArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NetworkAclArgs) {
-        super(name);
+    constructor(urnName: string, args: NetworkAclArgs) {
+        super(urnName);
         this.egress = <any>args.egress;
         this.ingress = <any>args.ingress;
         this.subnetId = <any>args.subnetId;

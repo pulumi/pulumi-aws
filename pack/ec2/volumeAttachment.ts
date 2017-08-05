@@ -19,8 +19,8 @@ export class VolumeAttachment extends lumi.NamedResource implements VolumeAttach
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VolumeAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: VolumeAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.deviceName, "") === undefined) {
             throw new Error("Property argument 'deviceName' is required, but was missing");
         }

@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class UsagePlan extends lumi.NamedResource implements UsagePlanArgs {
     public readonly apiStages?: { apiId: string, stage: string }[];
     public readonly description?: string;
-    public readonly usagePlanName: string;
+    public readonly name: string;
     public readonly productCode?: string;
     public readonly quotaSettings?: { limit: number, offset?: number, period: string }[];
     public readonly throttleSettings?: { burstLimit?: number, rateLimit?: number }[];
@@ -20,11 +20,11 @@ export class UsagePlan extends lumi.NamedResource implements UsagePlanArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: UsagePlanArgs) {
-        super(name);
+    constructor(urnName: string, args: UsagePlanArgs) {
+        super(urnName);
         this.apiStages = <any>args.apiStages;
         this.description = <any>args.description;
-        this.usagePlanName = <any>args.usagePlanName;
+        this.name = <any>args.name;
         this.productCode = <any>args.productCode;
         this.quotaSettings = <any>args.quotaSettings;
         this.throttleSettings = <any>args.throttleSettings;
@@ -34,7 +34,7 @@ export class UsagePlan extends lumi.NamedResource implements UsagePlanArgs {
 export interface UsagePlanArgs {
     readonly apiStages?: { apiId: string, stage: string }[];
     readonly description?: string;
-    readonly usagePlanName?: string;
+    readonly name?: string;
     readonly productCode?: string;
     readonly quotaSettings?: { limit: number, offset?: number, period: string }[];
     readonly throttleSettings?: { burstLimit?: number, rateLimit?: number }[];

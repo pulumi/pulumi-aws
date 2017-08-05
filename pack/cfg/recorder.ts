@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class Recorder extends lumi.NamedResource implements RecorderArgs {
-    public readonly recorderName: string;
+    public readonly name: string;
     public readonly recordingGroup: { allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[];
     public readonly roleArn: string;
 
@@ -17,9 +17,9 @@ export class Recorder extends lumi.NamedResource implements RecorderArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RecorderArgs) {
-        super(name);
-        this.recorderName = <any>args.recorderName;
+    constructor(urnName: string, args: RecorderArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.recordingGroup = <any>args.recordingGroup;
         if (lumirt.defaultIfComputed(args.roleArn, "") === undefined) {
             throw new Error("Property argument 'roleArn' is required, but was missing");
@@ -29,7 +29,7 @@ export class Recorder extends lumi.NamedResource implements RecorderArgs {
 }
 
 export interface RecorderArgs {
-    readonly recorderName?: string;
+    readonly name?: string;
     readonly recordingGroup?: { allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[];
     readonly roleArn: string;
 }

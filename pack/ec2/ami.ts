@@ -13,7 +13,7 @@ export class Ami extends lumi.NamedResource implements AmiArgs {
     public readonly imageLocation: string;
     public readonly kernelId?: string;
     public /*out*/ readonly manageEbsSnapshots: boolean;
-    public readonly amiName: string;
+    public readonly name: string;
     public readonly ramdiskId?: string;
     public readonly rootDeviceName?: string;
     public readonly sriovNetSupport?: string;
@@ -28,15 +28,15 @@ export class Ami extends lumi.NamedResource implements AmiArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AmiArgs) {
-        super(name);
+    constructor(urnName: string, args: AmiArgs) {
+        super(urnName);
         this.architecture = <any>args.architecture;
         this.description = <any>args.description;
         this.ebsBlockDevice = <any>args.ebsBlockDevice;
         this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
         this.imageLocation = <any>args.imageLocation;
         this.kernelId = <any>args.kernelId;
-        this.amiName = <any>args.amiName;
+        this.name = <any>args.name;
         this.ramdiskId = <any>args.ramdiskId;
         this.rootDeviceName = <any>args.rootDeviceName;
         this.sriovNetSupport = <any>args.sriovNetSupport;
@@ -52,7 +52,7 @@ export interface AmiArgs {
     readonly ephemeralBlockDevice?: { deviceName: string, virtualName: string }[];
     readonly imageLocation?: string;
     readonly kernelId?: string;
-    readonly amiName?: string;
+    readonly name?: string;
     readonly ramdiskId?: string;
     readonly rootDeviceName?: string;
     readonly sriovNetSupport?: string;

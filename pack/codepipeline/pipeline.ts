@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Pipeline extends lumi.NamedResource implements PipelineArgs {
     public readonly artifactStore: { encryptionKey?: { id: string, type: string }[], location: string, type: string }[];
-    public readonly pipelineName: string;
+    public readonly name: string;
     public readonly roleArn: string;
     public readonly stage: { action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[];
 
@@ -18,13 +18,13 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PipelineArgs) {
-        super(name);
+    constructor(urnName: string, args: PipelineArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.artifactStore, "") === undefined) {
             throw new Error("Property argument 'artifactStore' is required, but was missing");
         }
         this.artifactStore = <any>args.artifactStore;
-        this.pipelineName = <any>args.pipelineName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.roleArn, "") === undefined) {
             throw new Error("Property argument 'roleArn' is required, but was missing");
         }
@@ -38,7 +38,7 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
 
 export interface PipelineArgs {
     readonly artifactStore: { encryptionKey?: { id: string, type: string }[], location: string, type: string }[];
-    readonly pipelineName?: string;
+    readonly name?: string;
     readonly roleArn: string;
     readonly stage: { action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder?: number, version: string }[], name: string }[];
 }

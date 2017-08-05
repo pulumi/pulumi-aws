@@ -16,8 +16,8 @@ export class PatchGroup extends lumi.NamedResource implements PatchGroupArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PatchGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: PatchGroupArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.baselineId, "") === undefined) {
             throw new Error("Property argument 'baselineId' is required, but was missing");
         }

@@ -9,7 +9,7 @@ import {RestApi} from "./restApi";
 export class Model extends lumi.NamedResource implements ModelArgs {
     public readonly contentType: string;
     public readonly description?: string;
-    public readonly modelName: string;
+    public readonly name: string;
     public readonly restApi: RestApi;
     public readonly schema?: string;
 
@@ -21,14 +21,14 @@ export class Model extends lumi.NamedResource implements ModelArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ModelArgs) {
-        super(name);
+    constructor(urnName: string, args: ModelArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.contentType, "") === undefined) {
             throw new Error("Property argument 'contentType' is required, but was missing");
         }
         this.contentType = <any>args.contentType;
         this.description = <any>args.description;
-        this.modelName = <any>args.modelName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
@@ -40,7 +40,7 @@ export class Model extends lumi.NamedResource implements ModelArgs {
 export interface ModelArgs {
     readonly contentType: string;
     readonly description?: string;
-    readonly modelName?: string;
+    readonly name?: string;
     readonly restApi: RestApi;
     readonly schema?: string;
 }

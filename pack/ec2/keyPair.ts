@@ -18,8 +18,8 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: KeyPairArgs) {
-        super(name);
+    constructor(urnName: string, args: KeyPairArgs) {
+        super(urnName);
         this.keyName = <any>args.keyName;
         this.keyNamePrefix = <any>args.keyNamePrefix;
         if (lumirt.defaultIfComputed(args.publicKey, "") === undefined) {

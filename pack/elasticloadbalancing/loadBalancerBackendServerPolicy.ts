@@ -17,8 +17,8 @@ export class LoadBalancerBackendServerPolicy extends lumi.NamedResource implemen
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LoadBalancerBackendServerPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: LoadBalancerBackendServerPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.instancePort, "") === undefined) {
             throw new Error("Property argument 'instancePort' is required, but was missing");
         }

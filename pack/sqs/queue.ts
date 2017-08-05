@@ -13,7 +13,7 @@ export class Queue extends lumi.NamedResource implements QueueArgs {
     public readonly kmsMasterKeyId?: string;
     public readonly maxMessageSize?: number;
     public readonly messageRetentionSeconds?: number;
-    public readonly queueName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly policy: string;
     public readonly receiveWaitTimeSeconds?: number;
@@ -28,8 +28,8 @@ export class Queue extends lumi.NamedResource implements QueueArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: QueueArgs) {
-        super(name);
+    constructor(urnName: string, args: QueueArgs) {
+        super(urnName);
         this.contentBasedDeduplication = <any>args.contentBasedDeduplication;
         this.delaySeconds = <any>args.delaySeconds;
         this.fifoQueue = <any>args.fifoQueue;
@@ -37,7 +37,7 @@ export class Queue extends lumi.NamedResource implements QueueArgs {
         this.kmsMasterKeyId = <any>args.kmsMasterKeyId;
         this.maxMessageSize = <any>args.maxMessageSize;
         this.messageRetentionSeconds = <any>args.messageRetentionSeconds;
-        this.queueName = <any>args.queueName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.policy = <any>args.policy;
         this.receiveWaitTimeSeconds = <any>args.receiveWaitTimeSeconds;
@@ -54,7 +54,7 @@ export interface QueueArgs {
     readonly kmsMasterKeyId?: string;
     readonly maxMessageSize?: number;
     readonly messageRetentionSeconds?: number;
-    readonly queueName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly policy?: string;
     readonly receiveWaitTimeSeconds?: number;

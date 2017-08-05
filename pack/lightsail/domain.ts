@@ -16,8 +16,8 @@ export class Domain extends lumi.NamedResource implements DomainArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DomainArgs) {
-        super(name);
+    constructor(urnName: string, args: DomainArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.domainName, "") === undefined) {
             throw new Error("Property argument 'domainName' is required, but was missing");
         }

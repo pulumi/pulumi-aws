@@ -10,7 +10,7 @@ export class Topic extends lumi.NamedResource implements TopicArgs {
     public /*out*/ readonly arn: ARN;
     public readonly deliveryPolicy?: string;
     public readonly displayName?: string;
-    public readonly topicName: string;
+    public readonly name: string;
     public readonly policy: string;
 
     public static get(id: lumi.ID): Topic {
@@ -21,11 +21,11 @@ export class Topic extends lumi.NamedResource implements TopicArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TopicArgs) {
-        super(name);
+    constructor(urnName: string, args: TopicArgs) {
+        super(urnName);
         this.deliveryPolicy = <any>args.deliveryPolicy;
         this.displayName = <any>args.displayName;
-        this.topicName = <any>args.topicName;
+        this.name = <any>args.name;
         this.policy = <any>args.policy;
     }
 }
@@ -33,7 +33,7 @@ export class Topic extends lumi.NamedResource implements TopicArgs {
 export interface TopicArgs {
     readonly deliveryPolicy?: string;
     readonly displayName?: string;
-    readonly topicName?: string;
+    readonly name?: string;
     readonly policy?: string;
 }
 

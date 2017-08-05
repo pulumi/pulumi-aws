@@ -16,8 +16,8 @@ export class SpotDatafeedSubscription extends lumi.NamedResource implements Spot
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SpotDatafeedSubscriptionArgs) {
-        super(name);
+    constructor(urnName: string, args: SpotDatafeedSubscriptionArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
         }

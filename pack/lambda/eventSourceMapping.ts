@@ -25,8 +25,8 @@ export class EventSourceMapping extends lumi.NamedResource implements EventSourc
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EventSourceMappingArgs) {
-        super(name);
+    constructor(urnName: string, args: EventSourceMappingArgs) {
+        super(urnName);
         this.batchSize = <any>args.batchSize;
         this.enabled = <any>args.enabled;
         if (lumirt.defaultIfComputed(args.eventSourceArn, "") === undefined) {

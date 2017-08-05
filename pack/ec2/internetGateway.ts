@@ -16,8 +16,8 @@ export class InternetGateway extends lumi.NamedResource implements InternetGatew
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: InternetGatewayArgs) {
-        super(name);
+    constructor(urnName: string, args: InternetGatewayArgs) {
+        super(urnName);
         this.tags = <any>args.tags;
         this.vpcId = <any>args.vpcId;
     }

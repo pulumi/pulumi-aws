@@ -26,8 +26,8 @@ export class Method extends lumi.NamedResource implements MethodArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MethodArgs) {
-        super(name);
+    constructor(urnName: string, args: MethodArgs) {
+        super(urnName);
         this.apiKeyRequired = <any>args.apiKeyRequired;
         if (lumirt.defaultIfComputed(args.authorization, "") === undefined) {
             throw new Error("Property argument 'authorization' is required, but was missing");

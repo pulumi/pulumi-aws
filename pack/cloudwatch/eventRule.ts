@@ -9,7 +9,7 @@ export class EventRule extends lumi.NamedResource implements EventRuleArgs {
     public readonly description?: string;
     public readonly eventPattern?: string;
     public readonly isEnabled?: boolean;
-    public readonly eventRuleName: string;
+    public readonly name: string;
     public readonly roleArn?: string;
     public readonly scheduleExpression?: string;
 
@@ -21,12 +21,12 @@ export class EventRule extends lumi.NamedResource implements EventRuleArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EventRuleArgs) {
-        super(name);
+    constructor(urnName: string, args: EventRuleArgs) {
+        super(urnName);
         this.description = <any>args.description;
         this.eventPattern = <any>args.eventPattern;
         this.isEnabled = <any>args.isEnabled;
-        this.eventRuleName = <any>args.eventRuleName;
+        this.name = <any>args.name;
         this.roleArn = <any>args.roleArn;
         this.scheduleExpression = <any>args.scheduleExpression;
     }
@@ -36,7 +36,7 @@ export interface EventRuleArgs {
     readonly description?: string;
     readonly eventPattern?: string;
     readonly isEnabled?: boolean;
-    readonly eventRuleName?: string;
+    readonly name?: string;
     readonly roleArn?: string;
     readonly scheduleExpression?: string;
 }

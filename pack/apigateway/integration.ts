@@ -30,8 +30,8 @@ export class Integration extends lumi.NamedResource implements IntegrationArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: IntegrationArgs) {
-        super(name);
+    constructor(urnName: string, args: IntegrationArgs) {
+        super(urnName);
         this.cacheKeyParameters = <any>args.cacheKeyParameters;
         this.cacheNamespace = <any>args.cacheNamespace;
         this.contentHandling = <any>args.contentHandling;

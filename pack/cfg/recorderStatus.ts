@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class RecorderStatus extends lumi.NamedResource implements RecorderStatusArgs {
     public readonly isEnabled: boolean;
-    public readonly recorderStatusName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): RecorderStatus {
         return <any>undefined; // functionality provided by the runtime
@@ -16,18 +16,18 @@ export class RecorderStatus extends lumi.NamedResource implements RecorderStatus
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RecorderStatusArgs) {
-        super(name);
+    constructor(urnName: string, args: RecorderStatusArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.isEnabled, "") === undefined) {
             throw new Error("Property argument 'isEnabled' is required, but was missing");
         }
         this.isEnabled = <any>args.isEnabled;
-        this.recorderStatusName = <any>args.recorderStatusName;
+        this.name = <any>args.name;
     }
 }
 
 export interface RecorderStatusArgs {
     readonly isEnabled: boolean;
-    readonly recorderStatusName?: string;
+    readonly name?: string;
 }
 

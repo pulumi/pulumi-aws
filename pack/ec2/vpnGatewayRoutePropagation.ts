@@ -16,8 +16,8 @@ export class VpnGatewayRoutePropagation extends lumi.NamedResource implements Vp
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpnGatewayRoutePropagationArgs) {
-        super(name);
+    constructor(urnName: string, args: VpnGatewayRoutePropagationArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }

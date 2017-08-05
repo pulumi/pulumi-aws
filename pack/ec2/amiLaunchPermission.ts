@@ -16,8 +16,8 @@ export class AmiLaunchPermission extends lumi.NamedResource implements AmiLaunch
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AmiLaunchPermissionArgs) {
-        super(name);
+    constructor(urnName: string, args: AmiLaunchPermissionArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.accountId, "") === undefined) {
             throw new Error("Property argument 'accountId' is required, but was missing");
         }

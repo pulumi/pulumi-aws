@@ -16,7 +16,7 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
     public readonly instances: string[];
     public readonly internal: boolean;
     public readonly listener: { instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId?: string }[];
-    public readonly loadBalancerName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly securityGroups: string[];
     public readonly sourceSecurityGroup: string;
@@ -33,8 +33,8 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LoadBalancerArgs) {
-        super(name);
+    constructor(urnName: string, args: LoadBalancerArgs) {
+        super(urnName);
         this.accessLogs = <any>args.accessLogs;
         this.availabilityZones = <any>args.availabilityZones;
         this.connectionDraining = <any>args.connectionDraining;
@@ -48,7 +48,7 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
             throw new Error("Property argument 'listener' is required, but was missing");
         }
         this.listener = <any>args.listener;
-        this.loadBalancerName = <any>args.loadBalancerName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.securityGroups = <any>args.securityGroups;
         this.sourceSecurityGroup = <any>args.sourceSecurityGroup;
@@ -68,7 +68,7 @@ export interface LoadBalancerArgs {
     readonly instances?: string[];
     readonly internal?: boolean;
     readonly listener: { instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId?: string }[];
-    readonly loadBalancerName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly securityGroups?: string[];
     readonly sourceSecurityGroup?: string;

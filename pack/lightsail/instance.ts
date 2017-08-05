@@ -14,7 +14,7 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
     public /*out*/ readonly ipv6Address: string;
     public /*out*/ readonly isStaticIp: boolean;
     public readonly keyPairName?: string;
-    public readonly instanceName: string;
+    public readonly name: string;
     public /*out*/ readonly privateIpAddress: string;
     public /*out*/ readonly publicIpAddress: string;
     public /*out*/ readonly ramSize: number;
@@ -29,8 +29,8 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: InstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: InstanceArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {
             throw new Error("Property argument 'availabilityZone' is required, but was missing");
         }
@@ -44,7 +44,7 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         }
         this.bundleId = <any>args.bundleId;
         this.keyPairName = <any>args.keyPairName;
-        this.instanceName = <any>args.instanceName;
+        this.name = <any>args.name;
         this.userData = <any>args.userData;
     }
 }
@@ -54,7 +54,7 @@ export interface InstanceArgs {
     readonly blueprintId: string;
     readonly bundleId: string;
     readonly keyPairName?: string;
-    readonly instanceName?: string;
+    readonly name?: string;
     readonly userData?: string;
 }
 

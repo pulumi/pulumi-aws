@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class User extends lumi.NamedResource implements UserArgs {
     public /*out*/ readonly arn: string;
     public readonly forceDestroy?: boolean;
-    public readonly userName: string;
+    public readonly name: string;
     public readonly path?: string;
     public /*out*/ readonly uniqueId: string;
 
@@ -19,10 +19,10 @@ export class User extends lumi.NamedResource implements UserArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: UserArgs) {
-        super(name);
+    constructor(urnName: string, args: UserArgs) {
+        super(urnName);
         this.forceDestroy = <any>args.forceDestroy;
-        this.userName = <any>args.userName;
+        this.name = <any>args.name;
         this.path = <any>args.path;
     }
 }
@@ -30,7 +30,7 @@ export class User extends lumi.NamedResource implements UserArgs {
 export interface UserArgs {
     // Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
     readonly forceDestroy?: boolean;
-    readonly userName?: string;
+    readonly name?: string;
     readonly path?: string;
 }
 

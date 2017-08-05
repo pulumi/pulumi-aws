@@ -21,8 +21,8 @@ export class Repository extends lumi.NamedResource implements RepositoryArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RepositoryArgs) {
-        super(name);
+    constructor(urnName: string, args: RepositoryArgs) {
+        super(urnName);
         this.defaultBranch = <any>args.defaultBranch;
         this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.repositoryName, "") === undefined) {

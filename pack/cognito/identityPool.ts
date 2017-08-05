@@ -21,8 +21,8 @@ export class IdentityPool extends lumi.NamedResource implements IdentityPoolArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: IdentityPoolArgs) {
-        super(name);
+    constructor(urnName: string, args: IdentityPoolArgs) {
+        super(urnName);
         this.allowUnauthenticatedIdentities = <any>args.allowUnauthenticatedIdentities;
         this.cognitoIdentityProviders = <any>args.cognitoIdentityProviders;
         this.developerProviderName = <any>args.developerProviderName;

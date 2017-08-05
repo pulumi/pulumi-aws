@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class SizeConstraintSet extends lumi.NamedResource implements SizeConstraintSetArgs {
-    public readonly sizeConstraintSetName: string;
+    public readonly name: string;
     public readonly sizeConstraints?: { comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[];
 
     public static get(id: lumi.ID): SizeConstraintSet {
@@ -16,15 +16,15 @@ export class SizeConstraintSet extends lumi.NamedResource implements SizeConstra
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SizeConstraintSetArgs) {
-        super(name);
-        this.sizeConstraintSetName = <any>args.sizeConstraintSetName;
+    constructor(urnName: string, args: SizeConstraintSetArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.sizeConstraints = <any>args.sizeConstraints;
     }
 }
 
 export interface SizeConstraintSetArgs {
-    readonly sizeConstraintSetName?: string;
+    readonly name?: string;
     readonly sizeConstraints?: { comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[];
 }
 

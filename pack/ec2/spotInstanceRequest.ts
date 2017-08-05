@@ -54,8 +54,8 @@ export class SpotInstanceRequest extends lumi.NamedResource implements SpotInsta
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SpotInstanceRequestArgs) {
-        super(name);
+    constructor(urnName: string, args: SpotInstanceRequestArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.ami, "") === undefined) {
             throw new Error("Property argument 'ami' is required, but was missing");
         }

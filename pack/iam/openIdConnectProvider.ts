@@ -18,8 +18,8 @@ export class OpenIdConnectProvider extends lumi.NamedResource implements OpenIdC
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: OpenIdConnectProviderArgs) {
-        super(name);
+    constructor(urnName: string, args: OpenIdConnectProviderArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.clientIdList, "") === undefined) {
             throw new Error("Property argument 'clientIdList' is required, but was missing");
         }

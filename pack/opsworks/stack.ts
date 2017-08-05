@@ -21,7 +21,7 @@ export class Stack extends lumi.NamedResource implements StackArgs {
     public readonly hostnameTheme?: string;
     public /*out*/ readonly stackId: string;
     public readonly manageBerkshelf?: boolean;
-    public readonly stackName: string;
+    public readonly name: string;
     public readonly region: string;
     public readonly serviceRoleArn: string;
     public /*out*/ readonly stackEndpoint: string;
@@ -37,8 +37,8 @@ export class Stack extends lumi.NamedResource implements StackArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: StackArgs) {
-        super(name);
+    constructor(urnName: string, args: StackArgs) {
+        super(urnName);
         this.agentVersion = <any>args.agentVersion;
         this.berkshelfVersion = <any>args.berkshelfVersion;
         this.color = <any>args.color;
@@ -57,7 +57,7 @@ export class Stack extends lumi.NamedResource implements StackArgs {
         this.defaultSubnetId = <any>args.defaultSubnetId;
         this.hostnameTheme = <any>args.hostnameTheme;
         this.manageBerkshelf = <any>args.manageBerkshelf;
-        this.stackName = <any>args.stackName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.region, "") === undefined) {
             throw new Error("Property argument 'region' is required, but was missing");
         }
@@ -88,7 +88,7 @@ export interface StackArgs {
     readonly defaultSubnetId?: string;
     readonly hostnameTheme?: string;
     readonly manageBerkshelf?: boolean;
-    readonly stackName?: string;
+    readonly name?: string;
     readonly region: string;
     readonly serviceRoleArn: string;
     readonly useCustomCookbooks?: boolean;

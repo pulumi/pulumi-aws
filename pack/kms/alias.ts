@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Alias extends lumi.NamedResource implements AliasArgs {
     public /*out*/ readonly arn: string;
-    public readonly aliasName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly targetKeyId: string;
 
@@ -18,9 +18,9 @@ export class Alias extends lumi.NamedResource implements AliasArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AliasArgs) {
-        super(name);
-        this.aliasName = <any>args.aliasName;
+    constructor(urnName: string, args: AliasArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.targetKeyId, "") === undefined) {
             throw new Error("Property argument 'targetKeyId' is required, but was missing");
@@ -30,7 +30,7 @@ export class Alias extends lumi.NamedResource implements AliasArgs {
 }
 
 export interface AliasArgs {
-    readonly aliasName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly targetKeyId: string;
 }

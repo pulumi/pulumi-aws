@@ -19,8 +19,8 @@ export class NatGateway extends lumi.NamedResource implements NatGatewayArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NatGatewayArgs) {
-        super(name);
+    constructor(urnName: string, args: NatGatewayArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.allocationId, "") === undefined) {
             throw new Error("Property argument 'allocationId' is required, but was missing");
         }

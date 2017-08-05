@@ -16,8 +16,8 @@ export class Attachment extends lumi.NamedResource implements AttachmentArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: AttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.elb, "") === undefined) {
             throw new Error("Property argument 'elb' is required, but was missing");
         }

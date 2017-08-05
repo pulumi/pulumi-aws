@@ -8,7 +8,7 @@ export class CookieStickinessPolicy extends lumi.NamedResource implements Cookie
     public readonly cookieExpirationPeriod?: number;
     public readonly lbPort: number;
     public readonly loadBalancer: string;
-    public readonly cookieStickinessPolicyName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): CookieStickinessPolicy {
         return <any>undefined; // functionality provided by the runtime
@@ -18,8 +18,8 @@ export class CookieStickinessPolicy extends lumi.NamedResource implements Cookie
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: CookieStickinessPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: CookieStickinessPolicyArgs) {
+        super(urnName);
         this.cookieExpirationPeriod = <any>args.cookieExpirationPeriod;
         if (lumirt.defaultIfComputed(args.lbPort, "") === undefined) {
             throw new Error("Property argument 'lbPort' is required, but was missing");
@@ -29,7 +29,7 @@ export class CookieStickinessPolicy extends lumi.NamedResource implements Cookie
             throw new Error("Property argument 'loadBalancer' is required, but was missing");
         }
         this.loadBalancer = <any>args.loadBalancer;
-        this.cookieStickinessPolicyName = <any>args.cookieStickinessPolicyName;
+        this.name = <any>args.name;
     }
 }
 
@@ -37,6 +37,6 @@ export interface CookieStickinessPolicyArgs {
     readonly cookieExpirationPeriod?: number;
     readonly lbPort: number;
     readonly loadBalancer: string;
-    readonly cookieStickinessPolicyName?: string;
+    readonly name?: string;
 }
 

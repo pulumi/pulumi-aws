@@ -20,8 +20,8 @@ export class MethodSettings extends lumi.NamedResource implements MethodSettings
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MethodSettingsArgs) {
-        super(name);
+    constructor(urnName: string, args: MethodSettingsArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.methodPath, "") === undefined) {
             throw new Error("Property argument 'methodPath' is required, but was missing");
         }

@@ -22,8 +22,8 @@ export class DefaultSubnet extends lumi.NamedResource implements DefaultSubnetAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DefaultSubnetArgs) {
-        super(name);
+    constructor(urnName: string, args: DefaultSubnetArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.availabilityZone, "") === undefined) {
             throw new Error("Property argument 'availabilityZone' is required, but was missing");
         }

@@ -19,8 +19,8 @@ export class ListenerRule extends lumi.NamedResource implements ListenerRuleArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ListenerRuleArgs) {
-        super(name);
+    constructor(urnName: string, args: ListenerRuleArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.action, "") === undefined) {
             throw new Error("Property argument 'action' is required, but was missing");
         }

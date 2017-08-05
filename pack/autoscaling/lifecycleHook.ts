@@ -9,7 +9,7 @@ export class LifecycleHook extends lumi.NamedResource implements LifecycleHookAr
     public readonly defaultResult: string;
     public readonly heartbeatTimeout?: number;
     public readonly lifecycleTransition: string;
-    public readonly lifecycleHookName: string;
+    public readonly name: string;
     public readonly notificationMetadata?: string;
     public readonly notificationTargetArn?: string;
     public readonly roleArn?: string;
@@ -22,8 +22,8 @@ export class LifecycleHook extends lumi.NamedResource implements LifecycleHookAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LifecycleHookArgs) {
-        super(name);
+    constructor(urnName: string, args: LifecycleHookArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {
             throw new Error("Property argument 'autoscalingGroupName' is required, but was missing");
         }
@@ -34,7 +34,7 @@ export class LifecycleHook extends lumi.NamedResource implements LifecycleHookAr
             throw new Error("Property argument 'lifecycleTransition' is required, but was missing");
         }
         this.lifecycleTransition = <any>args.lifecycleTransition;
-        this.lifecycleHookName = <any>args.lifecycleHookName;
+        this.name = <any>args.name;
         this.notificationMetadata = <any>args.notificationMetadata;
         this.notificationTargetArn = <any>args.notificationTargetArn;
         this.roleArn = <any>args.roleArn;
@@ -46,7 +46,7 @@ export interface LifecycleHookArgs {
     readonly defaultResult?: string;
     readonly heartbeatTimeout?: number;
     readonly lifecycleTransition: string;
-    readonly lifecycleHookName?: string;
+    readonly name?: string;
     readonly notificationMetadata?: string;
     readonly notificationTargetArn?: string;
     readonly roleArn?: string;

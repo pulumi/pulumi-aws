@@ -25,8 +25,8 @@ export class Domain extends lumi.NamedResource implements DomainArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DomainArgs) {
-        super(name);
+    constructor(urnName: string, args: DomainArgs) {
+        super(urnName);
         this.accessPolicies = <any>args.accessPolicies;
         this.advancedOptions = <any>args.advancedOptions;
         this.clusterConfig = <any>args.clusterConfig;

@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class ParameterGroup extends lumi.NamedResource implements ParameterGroupArgs {
     public readonly description?: string;
     public readonly family: string;
-    public readonly parameterGroupName: string;
+    public readonly name: string;
     public readonly parameter?: { name: string, value: string }[];
 
     public static get(id: lumi.ID): ParameterGroup {
@@ -18,14 +18,14 @@ export class ParameterGroup extends lumi.NamedResource implements ParameterGroup
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ParameterGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: ParameterGroupArgs) {
+        super(urnName);
         this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.family, "") === undefined) {
             throw new Error("Property argument 'family' is required, but was missing");
         }
         this.family = <any>args.family;
-        this.parameterGroupName = <any>args.parameterGroupName;
+        this.name = <any>args.name;
         this.parameter = <any>args.parameter;
     }
 }
@@ -33,7 +33,7 @@ export class ParameterGroup extends lumi.NamedResource implements ParameterGroup
 export interface ParameterGroupArgs {
     readonly description?: string;
     readonly family: string;
-    readonly parameterGroupName?: string;
+    readonly name?: string;
     readonly parameter?: { name: string, value: string }[];
 }
 

@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class StaticIp extends lumi.NamedResource implements StaticIpArgs {
     public /*out*/ readonly arn: string;
     public /*out*/ readonly ipAddress: string;
-    public readonly staticIpName: string;
+    public readonly name: string;
     public /*out*/ readonly supportCode: string;
 
     public static get(id: lumi.ID): StaticIp {
@@ -18,13 +18,13 @@ export class StaticIp extends lumi.NamedResource implements StaticIpArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: StaticIpArgs) {
-        super(name);
-        this.staticIpName = <any>args.staticIpName;
+    constructor(urnName: string, args: StaticIpArgs) {
+        super(urnName);
+        this.name = <any>args.name;
     }
 }
 
 export interface StaticIpArgs {
-    readonly staticIpName?: string;
+    readonly name?: string;
 }
 

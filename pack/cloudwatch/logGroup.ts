@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class LogGroup extends lumi.NamedResource implements LogGroupArgs {
     public /*out*/ readonly arn: string;
-    public readonly logGroupName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly retentionInDays?: number;
     public readonly tags?: {[key: string]: any};
@@ -19,9 +19,9 @@ export class LogGroup extends lumi.NamedResource implements LogGroupArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LogGroupArgs) {
-        super(name);
-        this.logGroupName = <any>args.logGroupName;
+    constructor(urnName: string, args: LogGroupArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.retentionInDays = <any>args.retentionInDays;
         this.tags = <any>args.tags;
@@ -29,7 +29,7 @@ export class LogGroup extends lumi.NamedResource implements LogGroupArgs {
 }
 
 export interface LogGroupArgs {
-    readonly logGroupName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly retentionInDays?: number;
     readonly tags?: {[key: string]: any};

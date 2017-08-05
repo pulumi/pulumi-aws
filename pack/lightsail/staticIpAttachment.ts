@@ -16,8 +16,8 @@ export class StaticIpAttachment extends lumi.NamedResource implements StaticIpAt
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: StaticIpAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: StaticIpAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.instanceName, "") === undefined) {
             throw new Error("Property argument 'instanceName' is required, but was missing");
         }

@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class LogStream extends lumi.NamedResource implements LogStreamArgs {
     public /*out*/ readonly arn: string;
     public readonly logGroupName: string;
-    public readonly logStreamName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): LogStream {
         return <any>undefined; // functionality provided by the runtime
@@ -17,18 +17,18 @@ export class LogStream extends lumi.NamedResource implements LogStreamArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LogStreamArgs) {
-        super(name);
+    constructor(urnName: string, args: LogStreamArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.logGroupName, "") === undefined) {
             throw new Error("Property argument 'logGroupName' is required, but was missing");
         }
         this.logGroupName = <any>args.logGroupName;
-        this.logStreamName = <any>args.logStreamName;
+        this.name = <any>args.name;
     }
 }
 
 export interface LogStreamArgs {
     readonly logGroupName: string;
-    readonly logStreamName?: string;
+    readonly name?: string;
 }
 

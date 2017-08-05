@@ -20,8 +20,8 @@ export class UserLoginProfile extends lumi.NamedResource implements UserLoginPro
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: UserLoginProfileArgs) {
-        super(name);
+    constructor(urnName: string, args: UserLoginProfileArgs) {
+        super(urnName);
         this.passwordLength = <any>args.passwordLength;
         this.passwordResetRequired = <any>args.passwordResetRequired;
         if (lumirt.defaultIfComputed(args.pgpKey, "") === undefined) {

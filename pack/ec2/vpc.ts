@@ -29,8 +29,8 @@ export class Vpc extends lumi.NamedResource implements VpcArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpcArgs) {
-        super(name);
+    constructor(urnName: string, args: VpcArgs) {
+        super(urnName);
         this.assignGeneratedIpv6CidrBlock = <any>args.assignGeneratedIpv6CidrBlock;
         if (lumirt.defaultIfComputed(args.cidrBlock, "") === undefined) {
             throw new Error("Property argument 'cidrBlock' is required, but was missing");

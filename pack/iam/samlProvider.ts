@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class SamlProvider extends lumi.NamedResource implements SamlProviderArgs {
     public /*out*/ readonly arn: string;
-    public readonly samlProviderName: string;
+    public readonly name: string;
     public readonly samlMetadataDocument: string;
     public /*out*/ readonly validUntil: string;
 
@@ -18,9 +18,9 @@ export class SamlProvider extends lumi.NamedResource implements SamlProviderArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SamlProviderArgs) {
-        super(name);
-        this.samlProviderName = <any>args.samlProviderName;
+    constructor(urnName: string, args: SamlProviderArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.samlMetadataDocument, "") === undefined) {
             throw new Error("Property argument 'samlMetadataDocument' is required, but was missing");
         }
@@ -29,7 +29,7 @@ export class SamlProvider extends lumi.NamedResource implements SamlProviderArgs
 }
 
 export interface SamlProviderArgs {
-    readonly samlProviderName?: string;
+    readonly name?: string;
     readonly samlMetadataDocument: string;
 }
 

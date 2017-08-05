@@ -17,8 +17,8 @@ export class DeploymentConfig extends lumi.NamedResource implements DeploymentCo
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DeploymentConfigArgs) {
-        super(name);
+    constructor(urnName: string, args: DeploymentConfigArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.deploymentConfigName, "") === undefined) {
             throw new Error("Property argument 'deploymentConfigName' is required, but was missing");
         }

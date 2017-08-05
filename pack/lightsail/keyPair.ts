@@ -9,7 +9,7 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
     public /*out*/ readonly encryptedFingerprint: string;
     public /*out*/ readonly encryptedPrivateKey: string;
     public /*out*/ readonly fingerprint: string;
-    public readonly keyPairName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly pgpKey?: string;
     public /*out*/ readonly privateKey: string;
@@ -23,9 +23,9 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: KeyPairArgs) {
-        super(name);
-        this.keyPairName = <any>args.keyPairName;
+    constructor(urnName: string, args: KeyPairArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.pgpKey = <any>args.pgpKey;
         this.publicKey = <any>args.publicKey;
@@ -33,7 +33,7 @@ export class KeyPair extends lumi.NamedResource implements KeyPairArgs {
 }
 
 export interface KeyPairArgs {
-    readonly keyPairName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly pgpKey?: string;
     readonly publicKey?: string;

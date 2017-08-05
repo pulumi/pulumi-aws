@@ -16,8 +16,8 @@ export class SnapshotCreateVolumePermission extends lumi.NamedResource implement
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SnapshotCreateVolumePermissionArgs) {
-        super(name);
+    constructor(urnName: string, args: SnapshotCreateVolumePermissionArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.accountId, "") === undefined) {
             throw new Error("Property argument 'accountId' is required, but was missing");
         }

@@ -16,8 +16,8 @@ export class VpnGatewayAttachment extends lumi.NamedResource implements VpnGatew
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpnGatewayAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: VpnGatewayAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.vpcId, "") === undefined) {
             throw new Error("Property argument 'vpcId' is required, but was missing");
         }

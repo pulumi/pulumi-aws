@@ -24,8 +24,8 @@ export class DeploymentGroup extends lumi.NamedResource implements DeploymentGro
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DeploymentGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: DeploymentGroupArgs) {
+        super(urnName);
         this.alarmConfiguration = <any>args.alarmConfiguration;
         if (lumirt.defaultIfComputed(args.appName, "") === undefined) {
             throw new Error("Property argument 'appName' is required, but was missing");

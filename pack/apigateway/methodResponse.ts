@@ -23,8 +23,8 @@ export class MethodResponse extends lumi.NamedResource implements MethodResponse
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MethodResponseArgs) {
-        super(name);
+    constructor(urnName: string, args: MethodResponseArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {
             throw new Error("Property argument 'httpMethod' is required, but was missing");
         }

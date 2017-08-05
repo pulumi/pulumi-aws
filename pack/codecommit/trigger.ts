@@ -17,8 +17,8 @@ export class Trigger extends lumi.NamedResource implements TriggerArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TriggerArgs) {
-        super(name);
+    constructor(urnName: string, args: TriggerArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.repositoryName, "") === undefined) {
             throw new Error("Property argument 'repositoryName' is required, but was missing");
         }

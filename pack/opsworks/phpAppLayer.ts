@@ -22,7 +22,7 @@ export class PhpAppLayer extends lumi.NamedResource implements PhpAppLayerArgs {
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly phpAppLayerName: string;
+    public readonly name: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
@@ -35,8 +35,8 @@ export class PhpAppLayer extends lumi.NamedResource implements PhpAppLayerArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PhpAppLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: PhpAppLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -53,7 +53,7 @@ export class PhpAppLayer extends lumi.NamedResource implements PhpAppLayerArgs {
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.phpAppLayerName = <any>args.phpAppLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
@@ -80,7 +80,7 @@ export interface PhpAppLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly phpAppLayerName?: string;
+    readonly name?: string;
     readonly stackId: string;
     readonly systemPackages?: string[];
     readonly useEbsOptimizedInstances?: boolean;

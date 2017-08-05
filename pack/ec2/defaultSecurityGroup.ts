@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class DefaultSecurityGroup extends lumi.NamedResource implements DefaultSecurityGroupArgs {
     public readonly egress?: { cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
     public readonly ingress?: { cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
-    public /*out*/ readonly defaultSecurityGroupName: string;
+    public /*out*/ readonly name: string;
     public /*out*/ readonly ownerId: string;
     public readonly tags?: {[key: string]: any};
     public readonly vpcId: string;
@@ -20,8 +20,8 @@ export class DefaultSecurityGroup extends lumi.NamedResource implements DefaultS
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DefaultSecurityGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: DefaultSecurityGroupArgs) {
+        super(urnName);
         this.egress = <any>args.egress;
         this.ingress = <any>args.ingress;
         this.tags = <any>args.tags;

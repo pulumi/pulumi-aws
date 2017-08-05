@@ -10,7 +10,7 @@ export class MetricAlarm extends lumi.NamedResource implements MetricAlarmArgs {
     public readonly actionsEnabled?: boolean;
     public readonly alarmActions?: Topic[];
     public readonly alarmDescription?: string;
-    public readonly alarmName: string;
+    public readonly name: string;
     public readonly comparisonOperator: string;
     public readonly dimensions?: {[key: string]: any};
     public readonly evaluateLowSampleCountPercentiles: string;
@@ -34,12 +34,12 @@ export class MetricAlarm extends lumi.NamedResource implements MetricAlarmArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MetricAlarmArgs) {
-        super(name);
+    constructor(urnName: string, args: MetricAlarmArgs) {
+        super(urnName);
         this.actionsEnabled = <any>args.actionsEnabled;
         this.alarmActions = <any>args.alarmActions;
         this.alarmDescription = <any>args.alarmDescription;
-        this.alarmName = <any>args.alarmName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.comparisonOperator, "") === undefined) {
             throw new Error("Property argument 'comparisonOperator' is required, but was missing");
         }
@@ -79,7 +79,7 @@ export interface MetricAlarmArgs {
     readonly actionsEnabled?: boolean;
     readonly alarmActions?: Topic[];
     readonly alarmDescription?: string;
-    readonly alarmName?: string;
+    readonly name?: string;
     readonly comparisonOperator: string;
     readonly dimensions?: {[key: string]: any};
     readonly evaluateLowSampleCountPercentiles?: string;

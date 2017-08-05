@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Parameter extends lumi.NamedResource implements ParameterArgs {
     public readonly keyId?: string;
-    public readonly parameterName: string;
+    public readonly name: string;
     public readonly overwrite?: boolean;
     public readonly type: string;
     public readonly value: string;
@@ -19,10 +19,10 @@ export class Parameter extends lumi.NamedResource implements ParameterArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ParameterArgs) {
-        super(name);
+    constructor(urnName: string, args: ParameterArgs) {
+        super(urnName);
         this.keyId = <any>args.keyId;
-        this.parameterName = <any>args.parameterName;
+        this.name = <any>args.name;
         this.overwrite = <any>args.overwrite;
         if (lumirt.defaultIfComputed(args.type, "") === undefined) {
             throw new Error("Property argument 'type' is required, but was missing");
@@ -37,7 +37,7 @@ export class Parameter extends lumi.NamedResource implements ParameterArgs {
 
 export interface ParameterArgs {
     readonly keyId?: string;
-    readonly parameterName?: string;
+    readonly name?: string;
     readonly overwrite?: boolean;
     readonly type: string;
     readonly value: string;

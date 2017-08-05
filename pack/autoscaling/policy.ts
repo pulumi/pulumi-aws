@@ -13,7 +13,7 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
     public readonly metricAggregationType: string;
     public readonly minAdjustmentMagnitude?: number;
     public readonly minAdjustmentStep?: number;
-    public readonly policyName: string;
+    public readonly name: string;
     public readonly policyType?: string;
     public readonly scalingAdjustment?: number;
     public readonly stepAdjustment?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
@@ -26,8 +26,8 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: PolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.adjustmentType, "") === undefined) {
             throw new Error("Property argument 'adjustmentType' is required, but was missing");
         }
@@ -41,7 +41,7 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
         this.metricAggregationType = <any>args.metricAggregationType;
         this.minAdjustmentMagnitude = <any>args.minAdjustmentMagnitude;
         this.minAdjustmentStep = <any>args.minAdjustmentStep;
-        this.policyName = <any>args.policyName;
+        this.name = <any>args.name;
         this.policyType = <any>args.policyType;
         this.scalingAdjustment = <any>args.scalingAdjustment;
         this.stepAdjustment = <any>args.stepAdjustment;
@@ -56,7 +56,7 @@ export interface PolicyArgs {
     readonly metricAggregationType?: string;
     readonly minAdjustmentMagnitude?: number;
     readonly minAdjustmentStep?: number;
-    readonly policyName?: string;
+    readonly name?: string;
     readonly policyType?: string;
     readonly scalingAdjustment?: number;
     readonly stepAdjustment?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];

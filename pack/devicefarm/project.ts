@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Project extends lumi.NamedResource implements ProjectArgs {
     public /*out*/ readonly arn: string;
-    public readonly projectName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): Project {
         return <any>undefined; // functionality provided by the runtime
@@ -16,13 +16,13 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ProjectArgs) {
-        super(name);
-        this.projectName = <any>args.projectName;
+    constructor(urnName: string, args: ProjectArgs) {
+        super(urnName);
+        this.name = <any>args.name;
     }
 }
 
 export interface ProjectArgs {
-    readonly projectName?: string;
+    readonly name?: string;
 }
 

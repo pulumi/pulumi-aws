@@ -16,8 +16,8 @@ export class VpnConnectionRoute extends lumi.NamedResource implements VpnConnect
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpnConnectionRouteArgs) {
-        super(name);
+    constructor(urnName: string, args: VpnConnectionRouteArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.destinationCidrBlock, "") === undefined) {
             throw new Error("Property argument 'destinationCidrBlock' is required, but was missing");
         }

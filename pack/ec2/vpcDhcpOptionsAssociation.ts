@@ -16,8 +16,8 @@ export class VpcDhcpOptionsAssociation extends lumi.NamedResource implements Vpc
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpcDhcpOptionsAssociationArgs) {
-        super(name);
+    constructor(urnName: string, args: VpcDhcpOptionsAssociationArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.dhcpOptionsId, "") === undefined) {
             throw new Error("Property argument 'dhcpOptionsId' is required, but was missing");
         }

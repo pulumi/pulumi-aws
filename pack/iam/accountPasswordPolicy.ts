@@ -24,8 +24,8 @@ export class AccountPasswordPolicy extends lumi.NamedResource implements Account
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AccountPasswordPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: AccountPasswordPolicyArgs) {
+        super(urnName);
         this.allowUsersToChangePassword = <any>args.allowUsersToChangePassword;
         this.hardExpiry = <any>args.hardExpiry;
         this.maxPasswordAge = <any>args.maxPasswordAge;

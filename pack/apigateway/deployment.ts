@@ -24,8 +24,8 @@ export class Deployment extends lumi.NamedResource implements DeploymentArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DeploymentArgs) {
-        super(name);
+    constructor(urnName: string, args: DeploymentArgs) {
+        super(urnName);
         this.description = <any>args.description;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");

@@ -23,7 +23,7 @@ export class MemcachedLayer extends lumi.NamedResource implements MemcachedLayer
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly memcachedLayerName: string;
+    public readonly name: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
@@ -36,8 +36,8 @@ export class MemcachedLayer extends lumi.NamedResource implements MemcachedLayer
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MemcachedLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: MemcachedLayerArgs) {
+        super(urnName);
         this.allocatedMemory = <any>args.allocatedMemory;
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
@@ -55,7 +55,7 @@ export class MemcachedLayer extends lumi.NamedResource implements MemcachedLayer
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.memcachedLayerName = <any>args.memcachedLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
@@ -83,7 +83,7 @@ export interface MemcachedLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly memcachedLayerName?: string;
+    readonly name?: string;
     readonly stackId: string;
     readonly systemPackages?: string[];
     readonly useEbsOptimizedInstances?: boolean;

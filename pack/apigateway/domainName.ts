@@ -23,8 +23,8 @@ export class DomainName extends lumi.NamedResource implements DomainNameArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DomainNameArgs) {
-        super(name);
+    constructor(urnName: string, args: DomainNameArgs) {
+        super(urnName);
         this.certificateArn = <any>args.certificateArn;
         this.certificateBody = <any>args.certificateBody;
         this.certificateChain = <any>args.certificateChain;

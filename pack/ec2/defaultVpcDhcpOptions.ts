@@ -20,8 +20,8 @@ export class DefaultVpcDhcpOptions extends lumi.NamedResource implements Default
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DefaultVpcDhcpOptionsArgs) {
-        super(name);
+    constructor(urnName: string, args: DefaultVpcDhcpOptionsArgs) {
+        super(urnName);
         this.netbiosNameServers = <any>args.netbiosNameServers;
         this.netbiosNodeType = <any>args.netbiosNodeType;
         this.tags = <any>args.tags;

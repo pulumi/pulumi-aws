@@ -20,8 +20,8 @@ export class OriginAccessIdentity extends lumi.NamedResource implements OriginAc
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: OriginAccessIdentityArgs) {
-        super(name);
+    constructor(urnName: string, args: OriginAccessIdentityArgs) {
+        super(urnName);
         this.comment = <any>args.comment;
     }
 }

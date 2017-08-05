@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class Domain extends lumi.NamedResource implements DomainArgs {
-    public readonly domainName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): Domain {
         return <any>undefined; // functionality provided by the runtime
@@ -15,13 +15,13 @@ export class Domain extends lumi.NamedResource implements DomainArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DomainArgs) {
-        super(name);
-        this.domainName = <any>args.domainName;
+    constructor(urnName: string, args: DomainArgs) {
+        super(urnName);
+        this.name = <any>args.name;
     }
 }
 
 export interface DomainArgs {
-    readonly domainName?: string;
+    readonly name?: string;
 }
 

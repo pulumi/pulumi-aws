@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class SecurityConfiguration extends lumi.NamedResource implements SecurityConfigurationArgs {
     public readonly configuration: string;
     public /*out*/ readonly creationDate: string;
-    public readonly securityConfigurationName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
 
     public static get(id: lumi.ID): SecurityConfiguration {
@@ -18,20 +18,20 @@ export class SecurityConfiguration extends lumi.NamedResource implements Securit
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SecurityConfigurationArgs) {
-        super(name);
+    constructor(urnName: string, args: SecurityConfigurationArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.configuration, "") === undefined) {
             throw new Error("Property argument 'configuration' is required, but was missing");
         }
         this.configuration = <any>args.configuration;
-        this.securityConfigurationName = <any>args.securityConfigurationName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
     }
 }
 
 export interface SecurityConfigurationArgs {
     readonly configuration: string;
-    readonly securityConfigurationName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
 }
 

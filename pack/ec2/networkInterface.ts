@@ -23,8 +23,8 @@ export class NetworkInterface extends lumi.NamedResource implements NetworkInter
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NetworkInterfaceArgs) {
-        super(name);
+    constructor(urnName: string, args: NetworkInterfaceArgs) {
+        super(urnName);
         this.attachment = <any>args.attachment;
         this.description = <any>args.description;
         this.privateIp = <any>args.privateIp;

@@ -10,7 +10,7 @@ export class Table extends lumi.NamedResource implements TableArgs {
     public readonly globalSecondaryIndex?: { hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[];
     public readonly hashKey: string;
     public readonly localSecondaryIndex?: { name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[];
-    public readonly tableName: string;
+    public readonly name: string;
     public readonly rangeKey?: string;
     public readonly readCapacity: number;
     public /*out*/ readonly streamArn: string;
@@ -29,8 +29,8 @@ export class Table extends lumi.NamedResource implements TableArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TableArgs) {
-        super(name);
+    constructor(urnName: string, args: TableArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.attribute, "") === undefined) {
             throw new Error("Property argument 'attribute' is required, but was missing");
         }
@@ -41,7 +41,7 @@ export class Table extends lumi.NamedResource implements TableArgs {
         }
         this.hashKey = <any>args.hashKey;
         this.localSecondaryIndex = <any>args.localSecondaryIndex;
-        this.tableName = <any>args.tableName;
+        this.name = <any>args.name;
         this.rangeKey = <any>args.rangeKey;
         if (lumirt.defaultIfComputed(args.readCapacity, "") === undefined) {
             throw new Error("Property argument 'readCapacity' is required, but was missing");
@@ -63,7 +63,7 @@ export interface TableArgs {
     readonly globalSecondaryIndex?: { hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[];
     readonly hashKey: string;
     readonly localSecondaryIndex?: { name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[];
-    readonly tableName?: string;
+    readonly name?: string;
     readonly rangeKey?: string;
     readonly readCapacity: number;
     readonly streamEnabled?: boolean;

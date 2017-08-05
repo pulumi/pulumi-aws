@@ -9,7 +9,7 @@ export class Rule extends lumi.NamedResource implements RuleArgs {
     public readonly description?: string;
     public readonly inputParameters?: string;
     public readonly maximumExecutionFrequency?: string;
-    public readonly ruleName: string;
+    public readonly name: string;
     public /*out*/ readonly ruleId: string;
     public readonly scope?: { complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[];
     public readonly source: { owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[];
@@ -22,12 +22,12 @@ export class Rule extends lumi.NamedResource implements RuleArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RuleArgs) {
-        super(name);
+    constructor(urnName: string, args: RuleArgs) {
+        super(urnName);
         this.description = <any>args.description;
         this.inputParameters = <any>args.inputParameters;
         this.maximumExecutionFrequency = <any>args.maximumExecutionFrequency;
-        this.ruleName = <any>args.ruleName;
+        this.name = <any>args.name;
         this.scope = <any>args.scope;
         if (lumirt.defaultIfComputed(args.source, "") === undefined) {
             throw new Error("Property argument 'source' is required, but was missing");
@@ -40,7 +40,7 @@ export interface RuleArgs {
     readonly description?: string;
     readonly inputParameters?: string;
     readonly maximumExecutionFrequency?: string;
-    readonly ruleName?: string;
+    readonly name?: string;
     readonly scope?: { complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[];
     readonly source: { owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[];
 }

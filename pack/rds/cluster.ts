@@ -41,8 +41,8 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ClusterArgs) {
-        super(name);
+    constructor(urnName: string, args: ClusterArgs) {
+        super(urnName);
         this.applyImmediately = <any>args.applyImmediately;
         this.availabilityZones = <any>args.availabilityZones;
         this.backupRetentionPeriod = <any>args.backupRetentionPeriod;

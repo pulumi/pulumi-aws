@@ -11,7 +11,7 @@ export class Service extends lumi.NamedResource implements ServiceArgs {
     public readonly desiredCount?: number;
     public readonly iamRole?: string;
     public readonly loadBalancer?: { containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[];
-    public readonly serviceName: string;
+    public readonly name: string;
     public readonly placementConstraints?: { expression?: string, type: string }[];
     public readonly placementStrategy?: { field?: string, type: string }[];
     public readonly taskDefinition: string;
@@ -24,15 +24,15 @@ export class Service extends lumi.NamedResource implements ServiceArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ServiceArgs) {
-        super(name);
+    constructor(urnName: string, args: ServiceArgs) {
+        super(urnName);
         this.cluster = <any>args.cluster;
         this.deploymentMaximumPercent = <any>args.deploymentMaximumPercent;
         this.deploymentMinimumHealthyPercent = <any>args.deploymentMinimumHealthyPercent;
         this.desiredCount = <any>args.desiredCount;
         this.iamRole = <any>args.iamRole;
         this.loadBalancer = <any>args.loadBalancer;
-        this.serviceName = <any>args.serviceName;
+        this.name = <any>args.name;
         this.placementConstraints = <any>args.placementConstraints;
         this.placementStrategy = <any>args.placementStrategy;
         if (lumirt.defaultIfComputed(args.taskDefinition, "") === undefined) {
@@ -49,7 +49,7 @@ export interface ServiceArgs {
     readonly desiredCount?: number;
     readonly iamRole?: string;
     readonly loadBalancer?: { containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[];
-    readonly serviceName?: string;
+    readonly name?: string;
     readonly placementConstraints?: { expression?: string, type: string }[];
     readonly placementStrategy?: { field?: string, type: string }[];
     readonly taskDefinition: string;

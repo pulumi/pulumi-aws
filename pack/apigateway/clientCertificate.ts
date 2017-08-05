@@ -18,8 +18,8 @@ export class ClientCertificate extends lumi.NamedResource implements ClientCerti
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ClientCertificateArgs) {
-        super(name);
+    constructor(urnName: string, args: ClientCertificateArgs) {
+        super(urnName);
         this.description = <any>args.description;
     }
 }

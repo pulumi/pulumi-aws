@@ -8,7 +8,7 @@ export class OptionGroup extends lumi.NamedResource implements OptionGroupArgs {
     public /*out*/ readonly arn: string;
     public readonly engineName: string;
     public readonly majorEngineVersion: string;
-    public readonly optionGroupName: string;
+    public readonly name: string;
     public readonly namePrefix: string;
     public readonly option?: { dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, vpcSecurityGroupMemberships?: string[] }[];
     public readonly optionGroupDescription?: string;
@@ -22,8 +22,8 @@ export class OptionGroup extends lumi.NamedResource implements OptionGroupArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: OptionGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: OptionGroupArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.engineName, "") === undefined) {
             throw new Error("Property argument 'engineName' is required, but was missing");
         }
@@ -32,7 +32,7 @@ export class OptionGroup extends lumi.NamedResource implements OptionGroupArgs {
             throw new Error("Property argument 'majorEngineVersion' is required, but was missing");
         }
         this.majorEngineVersion = <any>args.majorEngineVersion;
-        this.optionGroupName = <any>args.optionGroupName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.option = <any>args.option;
         this.optionGroupDescription = <any>args.optionGroupDescription;
@@ -43,7 +43,7 @@ export class OptionGroup extends lumi.NamedResource implements OptionGroupArgs {
 export interface OptionGroupArgs {
     readonly engineName: string;
     readonly majorEngineVersion: string;
-    readonly optionGroupName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly option?: { dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, vpcSecurityGroupMemberships?: string[] }[];
     readonly optionGroupDescription?: string;

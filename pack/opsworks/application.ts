@@ -17,7 +17,7 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
     public readonly enableSsl?: boolean;
     public readonly environment?: { key: string, secure?: boolean, value: string }[];
     public /*out*/ readonly applicationId: string;
-    public readonly applicationName: string;
+    public readonly name: string;
     public readonly railsEnv?: string;
     public readonly shortName: string;
     public readonly sslConfiguration?: { certificate: string, chain?: string, privateKey: string }[];
@@ -32,8 +32,8 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ApplicationArgs) {
-        super(name);
+    constructor(urnName: string, args: ApplicationArgs) {
+        super(urnName);
         this.appSource = <any>args.appSource;
         this.autoBundleOnDeploy = <any>args.autoBundleOnDeploy;
         this.awsFlowRubySettings = <any>args.awsFlowRubySettings;
@@ -45,7 +45,7 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
         this.domains = <any>args.domains;
         this.enableSsl = <any>args.enableSsl;
         this.environment = <any>args.environment;
-        this.applicationName = <any>args.applicationName;
+        this.name = <any>args.name;
         this.railsEnv = <any>args.railsEnv;
         this.shortName = <any>args.shortName;
         this.sslConfiguration = <any>args.sslConfiguration;
@@ -72,7 +72,7 @@ export interface ApplicationArgs {
     readonly domains?: string[];
     readonly enableSsl?: boolean;
     readonly environment?: { key: string, secure?: boolean, value: string }[];
-    readonly applicationName?: string;
+    readonly name?: string;
     readonly railsEnv?: string;
     readonly shortName?: string;
     readonly sslConfiguration?: { certificate: string, chain?: string, privateKey: string }[];

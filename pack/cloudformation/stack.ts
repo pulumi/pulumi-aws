@@ -8,7 +8,7 @@ export class Stack extends lumi.NamedResource implements StackArgs {
     public readonly capabilities?: string[];
     public readonly disableRollback?: boolean;
     public readonly iamRoleArn?: string;
-    public readonly stackName: string;
+    public readonly name: string;
     public readonly notificationArns?: string[];
     public readonly onFailure?: string;
     public /*out*/ readonly outputs: {[key: string]: any};
@@ -28,12 +28,12 @@ export class Stack extends lumi.NamedResource implements StackArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: StackArgs) {
-        super(name);
+    constructor(urnName: string, args: StackArgs) {
+        super(urnName);
         this.capabilities = <any>args.capabilities;
         this.disableRollback = <any>args.disableRollback;
         this.iamRoleArn = <any>args.iamRoleArn;
-        this.stackName = <any>args.stackName;
+        this.name = <any>args.name;
         this.notificationArns = <any>args.notificationArns;
         this.onFailure = <any>args.onFailure;
         this.parameters = <any>args.parameters;
@@ -50,7 +50,7 @@ export interface StackArgs {
     readonly capabilities?: string[];
     readonly disableRollback?: boolean;
     readonly iamRoleArn?: string;
-    readonly stackName?: string;
+    readonly name?: string;
     readonly notificationArns?: string[];
     readonly onFailure?: string;
     readonly parameters?: {[key: string]: any};

@@ -24,7 +24,7 @@ export class HaproxyLayer extends lumi.NamedResource implements HaproxyLayerArgs
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly haproxyLayerName: string;
+    public readonly name: string;
     public readonly stackId: string;
     public readonly statsEnabled?: boolean;
     public readonly statsPassword: string;
@@ -41,8 +41,8 @@ export class HaproxyLayer extends lumi.NamedResource implements HaproxyLayerArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: HaproxyLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: HaproxyLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -61,7 +61,7 @@ export class HaproxyLayer extends lumi.NamedResource implements HaproxyLayerArgs
         this.healthcheckUrl = <any>args.healthcheckUrl;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.haproxyLayerName = <any>args.haproxyLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
@@ -97,7 +97,7 @@ export interface HaproxyLayerArgs {
     readonly healthcheckUrl?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly haproxyLayerName?: string;
+    readonly name?: string;
     readonly stackId: string;
     readonly statsEnabled?: boolean;
     readonly statsPassword: string;

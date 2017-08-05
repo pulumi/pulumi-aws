@@ -22,8 +22,8 @@ export class EventTarget extends lumi.NamedResource implements EventTargetArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EventTargetArgs) {
-        super(name);
+    constructor(urnName: string, args: EventTargetArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.arn, "") === undefined) {
             throw new Error("Property argument 'arn' is required, but was missing");
         }

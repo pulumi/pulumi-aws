@@ -16,8 +16,8 @@ export class VpcEndpointRouteTableAssociation extends lumi.NamedResource impleme
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpcEndpointRouteTableAssociationArgs) {
-        super(name);
+    constructor(urnName: string, args: VpcEndpointRouteTableAssociationArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }

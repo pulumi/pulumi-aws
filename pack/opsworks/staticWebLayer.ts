@@ -22,7 +22,7 @@ export class StaticWebLayer extends lumi.NamedResource implements StaticWebLayer
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly staticWebLayerName: string;
+    public readonly name: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
@@ -35,8 +35,8 @@ export class StaticWebLayer extends lumi.NamedResource implements StaticWebLayer
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: StaticWebLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: StaticWebLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -53,7 +53,7 @@ export class StaticWebLayer extends lumi.NamedResource implements StaticWebLayer
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.staticWebLayerName = <any>args.staticWebLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
@@ -80,7 +80,7 @@ export interface StaticWebLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly staticWebLayerName?: string;
+    readonly name?: string;
     readonly stackId: string;
     readonly systemPackages?: string[];
     readonly useEbsOptimizedInstances?: boolean;

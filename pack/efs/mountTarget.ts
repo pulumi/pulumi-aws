@@ -20,8 +20,8 @@ export class MountTarget extends lumi.NamedResource implements MountTargetArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MountTargetArgs) {
-        super(name);
+    constructor(urnName: string, args: MountTargetArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.fileSystemId, "") === undefined) {
             throw new Error("Property argument 'fileSystemId' is required, but was missing");
         }

@@ -25,7 +25,7 @@ export class RailsAppLayer extends lumi.NamedResource implements RailsAppLayerAr
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
     public readonly manageBundler?: boolean;
-    public readonly railsAppLayerName: string;
+    public readonly name: string;
     public readonly passengerVersion?: string;
     public readonly rubyVersion?: string;
     public readonly rubygemsVersion?: string;
@@ -41,8 +41,8 @@ export class RailsAppLayer extends lumi.NamedResource implements RailsAppLayerAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RailsAppLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: RailsAppLayerArgs) {
+        super(urnName);
         this.appServer = <any>args.appServer;
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
@@ -62,7 +62,7 @@ export class RailsAppLayer extends lumi.NamedResource implements RailsAppLayerAr
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
         this.manageBundler = <any>args.manageBundler;
-        this.railsAppLayerName = <any>args.railsAppLayerName;
+        this.name = <any>args.name;
         this.passengerVersion = <any>args.passengerVersion;
         this.rubyVersion = <any>args.rubyVersion;
         this.rubygemsVersion = <any>args.rubygemsVersion;
@@ -95,7 +95,7 @@ export interface RailsAppLayerArgs {
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
     readonly manageBundler?: boolean;
-    readonly railsAppLayerName?: string;
+    readonly name?: string;
     readonly passengerVersion?: string;
     readonly rubyVersion?: string;
     readonly rubygemsVersion?: string;

@@ -10,7 +10,7 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
     public readonly contentConfig: { bucket: string, storageClass?: string }[];
     public readonly contentConfigPermissions?: { access?: string[], grantee?: string, granteeType?: string }[];
     public readonly inputBucket: string;
-    public readonly pipelineName: string;
+    public readonly name: string;
     public readonly notifications?: { completed?: string, error?: string, progressing?: string, warning?: string }[];
     public readonly outputBucket: string;
     public readonly role: string;
@@ -25,8 +25,8 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PipelineArgs) {
-        super(name);
+    constructor(urnName: string, args: PipelineArgs) {
+        super(urnName);
         this.awsKmsKeyArn = <any>args.awsKmsKeyArn;
         this.contentConfig = <any>args.contentConfig;
         this.contentConfigPermissions = <any>args.contentConfigPermissions;
@@ -34,7 +34,7 @@ export class Pipeline extends lumi.NamedResource implements PipelineArgs {
             throw new Error("Property argument 'inputBucket' is required, but was missing");
         }
         this.inputBucket = <any>args.inputBucket;
-        this.pipelineName = <any>args.pipelineName;
+        this.name = <any>args.name;
         this.notifications = <any>args.notifications;
         this.outputBucket = <any>args.outputBucket;
         if (lumirt.defaultIfComputed(args.role, "") === undefined) {
@@ -51,7 +51,7 @@ export interface PipelineArgs {
     readonly contentConfig?: { bucket?: string, storageClass?: string }[];
     readonly contentConfigPermissions?: { access?: string[], grantee?: string, granteeType?: string }[];
     readonly inputBucket: string;
-    readonly pipelineName?: string;
+    readonly name?: string;
     readonly notifications?: { completed?: string, error?: string, progressing?: string, warning?: string }[];
     readonly outputBucket?: string;
     readonly role: string;

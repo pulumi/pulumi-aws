@@ -22,7 +22,7 @@ export class CustomLayer extends lumi.NamedResource implements CustomLayerArgs {
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly customLayerName: string;
+    public readonly name: string;
     public readonly shortName: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
@@ -36,8 +36,8 @@ export class CustomLayer extends lumi.NamedResource implements CustomLayerArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: CustomLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: CustomLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -54,7 +54,7 @@ export class CustomLayer extends lumi.NamedResource implements CustomLayerArgs {
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.customLayerName = <any>args.customLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.shortName, "") === undefined) {
             throw new Error("Property argument 'shortName' is required, but was missing");
         }
@@ -85,7 +85,7 @@ export interface CustomLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly customLayerName?: string;
+    readonly name?: string;
     readonly shortName: string;
     readonly stackId: string;
     readonly systemPackages?: string[];

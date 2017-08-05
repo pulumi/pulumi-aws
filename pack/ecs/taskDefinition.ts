@@ -22,8 +22,8 @@ export class TaskDefinition extends lumi.NamedResource implements TaskDefinition
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TaskDefinitionArgs) {
-        super(name);
+    constructor(urnName: string, args: TaskDefinitionArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.containerDefinitions, "") === undefined) {
             throw new Error("Property argument 'containerDefinitions' is required, but was missing");
         }

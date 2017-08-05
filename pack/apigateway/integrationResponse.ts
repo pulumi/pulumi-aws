@@ -25,8 +25,8 @@ export class IntegrationResponse extends lumi.NamedResource implements Integrati
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: IntegrationResponseArgs) {
-        super(name);
+    constructor(urnName: string, args: IntegrationResponseArgs) {
+        super(urnName);
         this.contentHandling = <any>args.contentHandling;
         if (lumirt.defaultIfComputed(args.httpMethod, "") === undefined) {
             throw new Error("Property argument 'httpMethod' is required, but was missing");

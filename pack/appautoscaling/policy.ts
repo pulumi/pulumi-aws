@@ -11,7 +11,7 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
     public readonly cooldown: number;
     public readonly metricAggregationType: string;
     public readonly minAdjustmentMagnitude?: number;
-    public readonly policyName: string;
+    public readonly name: string;
     public readonly policyType?: string;
     public readonly resourceId: string;
     public readonly scalableDimension: string;
@@ -26,8 +26,8 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: PolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.adjustmentType, "") === undefined) {
             throw new Error("Property argument 'adjustmentType' is required, but was missing");
         }
@@ -42,7 +42,7 @@ export class Policy extends lumi.NamedResource implements PolicyArgs {
         }
         this.metricAggregationType = <any>args.metricAggregationType;
         this.minAdjustmentMagnitude = <any>args.minAdjustmentMagnitude;
-        this.policyName = <any>args.policyName;
+        this.name = <any>args.name;
         this.policyType = <any>args.policyType;
         if (lumirt.defaultIfComputed(args.resourceId, "") === undefined) {
             throw new Error("Property argument 'resourceId' is required, but was missing");
@@ -66,7 +66,7 @@ export interface PolicyArgs {
     readonly cooldown: number;
     readonly metricAggregationType: string;
     readonly minAdjustmentMagnitude?: number;
-    readonly policyName?: string;
+    readonly name?: string;
     readonly policyType?: string;
     readonly resourceId: string;
     readonly scalableDimension: string;

@@ -10,13 +10,13 @@ export function enableAlarm(instance: aws.ec2.Instance, threshold: number): void
         throw new Error("Missing email address configuration");
     }
 
-    let topic = new aws.sns.Topic(instance.name + "-topic", {});
-    let topicSubscription = new aws.sns.TopicSubscription(instance.name + "-subscription", {
+    let topic = new aws.sns.Topic(instance.urnName + "-topic", {});
+    let topicSubscription = new aws.sns.TopicSubscription(instance.urnName + "-subscription", {
         topic: topic,
         protocol: "email",
         endpoint: emailAddress,
     });
-    let alarm = new aws.cloudwatch.MetricAlarm(instance.name + "-alarm", {
+    let alarm = new aws.cloudwatch.MetricAlarm(instance.urnName + "-alarm", {
         alarmActions: [ topic ],
         metricName: "CPUUtilization",
         namespace: "AWS/EC2",

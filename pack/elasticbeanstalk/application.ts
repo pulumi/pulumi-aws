@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Application extends lumi.NamedResource implements ApplicationArgs {
     public readonly description?: string;
-    public readonly applicationName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): Application {
         return <any>undefined; // functionality provided by the runtime
@@ -16,15 +16,15 @@ export class Application extends lumi.NamedResource implements ApplicationArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ApplicationArgs) {
-        super(name);
+    constructor(urnName: string, args: ApplicationArgs) {
+        super(urnName);
         this.description = <any>args.description;
-        this.applicationName = <any>args.applicationName;
+        this.name = <any>args.name;
     }
 }
 
 export interface ApplicationArgs {
     readonly description?: string;
-    readonly applicationName?: string;
+    readonly name?: string;
 }
 

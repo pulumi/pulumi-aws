@@ -9,7 +9,7 @@ import {Role} from "./role";
 export class InstanceProfile extends lumi.NamedResource implements InstanceProfileArgs {
     public /*out*/ readonly arn: string;
     public /*out*/ readonly createDate: string;
-    public readonly instanceProfileName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly path?: string;
     public readonly role: Role;
@@ -24,9 +24,9 @@ export class InstanceProfile extends lumi.NamedResource implements InstanceProfi
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: InstanceProfileArgs) {
-        super(name);
-        this.instanceProfileName = <any>args.instanceProfileName;
+    constructor(urnName: string, args: InstanceProfileArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.path = <any>args.path;
         this.role = <any>args.role;
@@ -35,7 +35,7 @@ export class InstanceProfile extends lumi.NamedResource implements InstanceProfi
 }
 
 export interface InstanceProfileArgs {
-    readonly instanceProfileName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly path?: string;
     readonly role?: Role;

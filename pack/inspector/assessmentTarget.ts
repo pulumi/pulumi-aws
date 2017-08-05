@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class AssessmentTarget extends lumi.NamedResource implements AssessmentTargetArgs {
     public /*out*/ readonly arn: string;
-    public readonly assessmentTargetName: string;
+    public readonly name: string;
     public readonly resourceGroupArn: string;
 
     public static get(id: lumi.ID): AssessmentTarget {
@@ -17,9 +17,9 @@ export class AssessmentTarget extends lumi.NamedResource implements AssessmentTa
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AssessmentTargetArgs) {
-        super(name);
-        this.assessmentTargetName = <any>args.assessmentTargetName;
+    constructor(urnName: string, args: AssessmentTargetArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.resourceGroupArn, "") === undefined) {
             throw new Error("Property argument 'resourceGroupArn' is required, but was missing");
         }
@@ -28,7 +28,7 @@ export class AssessmentTarget extends lumi.NamedResource implements AssessmentTa
 }
 
 export interface AssessmentTargetArgs {
-    readonly assessmentTargetName?: string;
+    readonly name?: string;
     readonly resourceGroupArn: string;
 }
 

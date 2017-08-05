@@ -33,7 +33,7 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
     public readonly monitoringInterval?: number;
     public readonly monitoringRoleArn: string;
     public readonly multiAz: boolean;
-    public readonly instanceName: string;
+    public readonly name: string;
     public readonly optionGroupName: string;
     public readonly parameterGroupName: string;
     public readonly password?: string;
@@ -61,8 +61,8 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: InstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: InstanceArgs) {
+        super(urnName);
         this.allocatedStorage = <any>args.allocatedStorage;
         this.allowMajorVersionUpgrade = <any>args.allowMajorVersionUpgrade;
         this.applyImmediately = <any>args.applyImmediately;
@@ -90,7 +90,7 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         this.monitoringInterval = <any>args.monitoringInterval;
         this.monitoringRoleArn = <any>args.monitoringRoleArn;
         this.multiAz = <any>args.multiAz;
-        this.instanceName = <any>args.instanceName;
+        this.name = <any>args.name;
         this.optionGroupName = <any>args.optionGroupName;
         this.parameterGroupName = <any>args.parameterGroupName;
         this.password = <any>args.password;
@@ -134,7 +134,7 @@ export interface InstanceArgs {
     readonly monitoringInterval?: number;
     readonly monitoringRoleArn?: string;
     readonly multiAz?: boolean;
-    readonly instanceName?: string;
+    readonly name?: string;
     readonly optionGroupName?: string;
     readonly parameterGroupName?: string;
     readonly password?: string;

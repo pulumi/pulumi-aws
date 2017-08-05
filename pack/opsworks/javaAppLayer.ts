@@ -27,7 +27,7 @@ export class JavaAppLayer extends lumi.NamedResource implements JavaAppLayerArgs
     public readonly jvmOptions?: string;
     public readonly jvmType?: string;
     public readonly jvmVersion?: string;
-    public readonly javaAppLayerName: string;
+    public readonly name: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
     public readonly useEbsOptimizedInstances?: boolean;
@@ -40,8 +40,8 @@ export class JavaAppLayer extends lumi.NamedResource implements JavaAppLayerArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: JavaAppLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: JavaAppLayerArgs) {
+        super(urnName);
         this.appServer = <any>args.appServer;
         this.appServerVersion = <any>args.appServerVersion;
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
@@ -63,7 +63,7 @@ export class JavaAppLayer extends lumi.NamedResource implements JavaAppLayerArgs
         this.jvmOptions = <any>args.jvmOptions;
         this.jvmType = <any>args.jvmType;
         this.jvmVersion = <any>args.jvmVersion;
-        this.javaAppLayerName = <any>args.javaAppLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
         }
@@ -95,7 +95,7 @@ export interface JavaAppLayerArgs {
     readonly jvmOptions?: string;
     readonly jvmType?: string;
     readonly jvmVersion?: string;
-    readonly javaAppLayerName?: string;
+    readonly name?: string;
     readonly stackId: string;
     readonly systemPackages?: string[];
     readonly useEbsOptimizedInstances?: boolean;

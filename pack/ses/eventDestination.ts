@@ -10,7 +10,7 @@ export class EventDestination extends lumi.NamedResource implements EventDestina
     public readonly enabled?: boolean;
     public readonly kinesisDestination?: { roleArn: string, streamArn: string }[];
     public readonly matchingTypes: string[];
-    public readonly eventDestinationName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): EventDestination {
         return <any>undefined; // functionality provided by the runtime
@@ -20,8 +20,8 @@ export class EventDestination extends lumi.NamedResource implements EventDestina
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EventDestinationArgs) {
-        super(name);
+    constructor(urnName: string, args: EventDestinationArgs) {
+        super(urnName);
         this.cloudwatchDestination = <any>args.cloudwatchDestination;
         if (lumirt.defaultIfComputed(args.configurationSetName, "") === undefined) {
             throw new Error("Property argument 'configurationSetName' is required, but was missing");
@@ -33,7 +33,7 @@ export class EventDestination extends lumi.NamedResource implements EventDestina
             throw new Error("Property argument 'matchingTypes' is required, but was missing");
         }
         this.matchingTypes = <any>args.matchingTypes;
-        this.eventDestinationName = <any>args.eventDestinationName;
+        this.name = <any>args.name;
     }
 }
 
@@ -43,6 +43,6 @@ export interface EventDestinationArgs {
     readonly enabled?: boolean;
     readonly kinesisDestination?: { roleArn: string, streamArn: string }[];
     readonly matchingTypes: string[];
-    readonly eventDestinationName?: string;
+    readonly name?: string;
 }
 

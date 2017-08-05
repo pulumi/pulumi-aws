@@ -19,8 +19,8 @@ export class DefaultRouteTable extends lumi.NamedResource implements DefaultRout
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DefaultRouteTableArgs) {
-        super(name);
+    constructor(urnName: string, args: DefaultRouteTableArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.defaultRouteTableId, "") === undefined) {
             throw new Error("Property argument 'defaultRouteTableId' is required, but was missing");
         }

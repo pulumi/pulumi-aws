@@ -18,8 +18,8 @@ export class MaintenanceWindowTarget extends lumi.NamedResource implements Maint
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MaintenanceWindowTargetArgs) {
-        super(name);
+    constructor(urnName: string, args: MaintenanceWindowTargetArgs) {
+        super(urnName);
         this.ownerInformation = <any>args.ownerInformation;
         if (lumirt.defaultIfComputed(args.resourceType, "") === undefined) {
             throw new Error("Property argument 'resourceType' is required, but was missing");

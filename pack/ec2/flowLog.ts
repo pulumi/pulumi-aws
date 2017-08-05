@@ -20,8 +20,8 @@ export class FlowLog extends lumi.NamedResource implements FlowLogArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: FlowLogArgs) {
-        super(name);
+    constructor(urnName: string, args: FlowLogArgs) {
+        super(urnName);
         this.eniId = <any>args.eniId;
         if (lumirt.defaultIfComputed(args.iamRoleArn, "") === undefined) {
             throw new Error("Property argument 'iamRoleArn' is required, but was missing");

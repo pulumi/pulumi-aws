@@ -17,8 +17,8 @@ export class VpnGateway extends lumi.NamedResource implements VpnGatewayArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpnGatewayArgs) {
-        super(name);
+    constructor(urnName: string, args: VpnGatewayArgs) {
+        super(urnName);
         this.availabilityZone = <any>args.availabilityZone;
         this.tags = <any>args.tags;
         this.vpcId = <any>args.vpcId;

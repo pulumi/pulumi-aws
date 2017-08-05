@@ -19,8 +19,8 @@ export class UserProfile extends lumi.NamedResource implements UserProfileArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: UserProfileArgs) {
-        super(name);
+    constructor(urnName: string, args: UserProfileArgs) {
+        super(urnName);
         this.allowSelfManagement = <any>args.allowSelfManagement;
         this.sshPublicKey = <any>args.sshPublicKey;
         if (lumirt.defaultIfComputed(args.sshUsername, "") === undefined) {

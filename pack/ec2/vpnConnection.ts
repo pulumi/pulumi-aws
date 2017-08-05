@@ -34,8 +34,8 @@ export class VpnConnection extends lumi.NamedResource implements VpnConnectionAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpnConnectionArgs) {
-        super(name);
+    constructor(urnName: string, args: VpnConnectionArgs) {
+        super(urnName);
         this.customerGatewayConfiguration = <any>args.customerGatewayConfiguration;
         if (lumirt.defaultIfComputed(args.customerGatewayId, "") === undefined) {
             throw new Error("Property argument 'customerGatewayId' is required, but was missing");

@@ -14,7 +14,7 @@ let group = new aws.ec2.SecurityGroup("web-secgrp", {
 
 let server = new aws.ec2.Instance("web-server-www", {
     instanceType: size,
-    securityGroups: [ group.securityGroupName ],
+    securityGroups: [ group.name ],
     ami: aws.ec2.getLinuxAMI(size),
 });
 

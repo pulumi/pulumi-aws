@@ -23,8 +23,8 @@ export class Snapshot extends lumi.NamedResource implements SnapshotArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SnapshotArgs) {
-        super(name);
+    constructor(urnName: string, args: SnapshotArgs) {
+        super(urnName);
         this.description = <any>args.description;
         this.tags = <any>args.tags;
         if (lumirt.defaultIfComputed(args.volumeId, "") === undefined) {

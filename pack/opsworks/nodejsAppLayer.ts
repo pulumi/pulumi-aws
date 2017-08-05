@@ -22,7 +22,7 @@ export class NodejsAppLayer extends lumi.NamedResource implements NodejsAppLayer
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly nodejsAppLayerName: string;
+    public readonly name: string;
     public readonly nodejsVersion?: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
@@ -36,8 +36,8 @@ export class NodejsAppLayer extends lumi.NamedResource implements NodejsAppLayer
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NodejsAppLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: NodejsAppLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -54,7 +54,7 @@ export class NodejsAppLayer extends lumi.NamedResource implements NodejsAppLayer
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.nodejsAppLayerName = <any>args.nodejsAppLayerName;
+        this.name = <any>args.name;
         this.nodejsVersion = <any>args.nodejsVersion;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
             throw new Error("Property argument 'stackId' is required, but was missing");
@@ -82,7 +82,7 @@ export interface NodejsAppLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly nodejsAppLayerName?: string;
+    readonly name?: string;
     readonly nodejsVersion?: string;
     readonly stackId: string;
     readonly systemPackages?: string[];

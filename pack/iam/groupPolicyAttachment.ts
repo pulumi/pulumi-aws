@@ -19,8 +19,8 @@ export class GroupPolicyAttachment extends lumi.NamedResource implements GroupPo
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: GroupPolicyAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: GroupPolicyAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {
             throw new Error("Property argument 'group' is required, but was missing");
         }

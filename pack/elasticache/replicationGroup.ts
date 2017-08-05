@@ -39,8 +39,8 @@ export class ReplicationGroup extends lumi.NamedResource implements ReplicationG
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ReplicationGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: ReplicationGroupArgs) {
+        super(urnName);
         this.applyImmediately = <any>args.applyImmediately;
         this.autoMinorVersionUpgrade = <any>args.autoMinorVersionUpgrade;
         this.automaticFailoverEnabled = <any>args.automaticFailoverEnabled;

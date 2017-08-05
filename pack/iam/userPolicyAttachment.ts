@@ -19,8 +19,8 @@ export class UserPolicyAttachment extends lumi.NamedResource implements UserPoli
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: UserPolicyAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: UserPolicyAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {
             throw new Error("Property argument 'policyArn' is required, but was missing");
         }

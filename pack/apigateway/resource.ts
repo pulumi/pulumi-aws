@@ -20,8 +20,8 @@ export class Resource extends lumi.NamedResource implements ResourceArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ResourceArgs) {
-        super(name);
+    constructor(urnName: string, args: ResourceArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.parentId, "") === undefined) {
             throw new Error("Property argument 'parentId' is required, but was missing");
         }

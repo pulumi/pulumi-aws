@@ -15,7 +15,7 @@ export class AmiCopy extends lumi.NamedResource implements AmiCopyArgs {
     public /*out*/ readonly kernelId: string;
     public readonly kmsKeyId: string;
     public /*out*/ readonly manageEbsSnapshots: boolean;
-    public readonly amiCopyName: string;
+    public readonly name: string;
     public /*out*/ readonly ramdiskId: string;
     public /*out*/ readonly rootDeviceName: string;
     public readonly sourceAmiId: string;
@@ -32,14 +32,14 @@ export class AmiCopy extends lumi.NamedResource implements AmiCopyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AmiCopyArgs) {
-        super(name);
+    constructor(urnName: string, args: AmiCopyArgs) {
+        super(urnName);
         this.description = <any>args.description;
         this.ebsBlockDevice = <any>args.ebsBlockDevice;
         this.encrypted = <any>args.encrypted;
         this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
         this.kmsKeyId = <any>args.kmsKeyId;
-        this.amiCopyName = <any>args.amiCopyName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.sourceAmiId, "") === undefined) {
             throw new Error("Property argument 'sourceAmiId' is required, but was missing");
         }
@@ -58,7 +58,7 @@ export interface AmiCopyArgs {
     readonly encrypted?: boolean;
     readonly ephemeralBlockDevice?: { deviceName?: string, virtualName?: string }[];
     readonly kmsKeyId?: string;
-    readonly amiCopyName?: string;
+    readonly name?: string;
     readonly sourceAmiId: string;
     readonly sourceAmiRegion: string;
     readonly tags?: {[key: string]: any};

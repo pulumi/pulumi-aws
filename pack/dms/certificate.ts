@@ -18,8 +18,8 @@ export class Certificate extends lumi.NamedResource implements CertificateArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: CertificateArgs) {
-        super(name);
+    constructor(urnName: string, args: CertificateArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.certificateId, "") === undefined) {
             throw new Error("Property argument 'certificateId' is required, but was missing");
         }

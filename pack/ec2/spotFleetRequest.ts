@@ -26,8 +26,8 @@ export class SpotFleetRequest extends lumi.NamedResource implements SpotFleetReq
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SpotFleetRequestArgs) {
-        super(name);
+    constructor(urnName: string, args: SpotFleetRequestArgs) {
+        super(urnName);
         this.allocationStrategy = <any>args.allocationStrategy;
         this.excessCapacityTerminationPolicy = <any>args.excessCapacityTerminationPolicy;
         if (lumirt.defaultIfComputed(args.iamFleetRole, "") === undefined) {

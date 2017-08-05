@@ -8,7 +8,7 @@ export class Vault extends lumi.NamedResource implements VaultArgs {
     public readonly accessPolicy?: string;
     public /*out*/ readonly arn: string;
     public /*out*/ readonly location: string;
-    public readonly vaultName: string;
+    public readonly name: string;
     public readonly notification?: { events: string[], snsTopic: string }[];
     public readonly tags?: {[key: string]: any};
 
@@ -20,10 +20,10 @@ export class Vault extends lumi.NamedResource implements VaultArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VaultArgs) {
-        super(name);
+    constructor(urnName: string, args: VaultArgs) {
+        super(urnName);
         this.accessPolicy = <any>args.accessPolicy;
-        this.vaultName = <any>args.vaultName;
+        this.name = <any>args.name;
         this.notification = <any>args.notification;
         this.tags = <any>args.tags;
     }
@@ -31,7 +31,7 @@ export class Vault extends lumi.NamedResource implements VaultArgs {
 
 export interface VaultArgs {
     readonly accessPolicy?: string;
-    readonly vaultName?: string;
+    readonly name?: string;
     readonly notification?: { events: string[], snsTopic: string }[];
     readonly tags?: {[key: string]: any};
 }

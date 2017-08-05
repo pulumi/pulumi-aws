@@ -14,7 +14,7 @@ export class Document extends lumi.NamedResource implements DocumentArgs {
     public /*out*/ readonly hash: string;
     public /*out*/ readonly hashType: string;
     public /*out*/ readonly latestVersion: string;
-    public readonly documentName: string;
+    public readonly name: string;
     public /*out*/ readonly owner: string;
     public /*out*/ readonly parameter: { defaultValue?: string, description?: string, name?: string, type?: string }[];
     public readonly permissions?: {[key: string]: { accountIds: string, type: string }};
@@ -30,8 +30,8 @@ export class Document extends lumi.NamedResource implements DocumentArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DocumentArgs) {
-        super(name);
+    constructor(urnName: string, args: DocumentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.content, "") === undefined) {
             throw new Error("Property argument 'content' is required, but was missing");
         }
@@ -40,7 +40,7 @@ export class Document extends lumi.NamedResource implements DocumentArgs {
             throw new Error("Property argument 'documentType' is required, but was missing");
         }
         this.documentType = <any>args.documentType;
-        this.documentName = <any>args.documentName;
+        this.name = <any>args.name;
         this.permissions = <any>args.permissions;
     }
 }
@@ -48,7 +48,7 @@ export class Document extends lumi.NamedResource implements DocumentArgs {
 export interface DocumentArgs {
     readonly content: string;
     readonly documentType: string;
-    readonly documentName?: string;
+    readonly name?: string;
     readonly permissions?: {[key: string]: { accountIds: string, type: string }};
 }
 

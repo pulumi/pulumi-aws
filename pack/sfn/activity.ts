@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class Activity extends lumi.NamedResource implements ActivityArgs {
     public /*out*/ readonly creationDate: string;
-    public readonly activityName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): Activity {
         return <any>undefined; // functionality provided by the runtime
@@ -16,13 +16,13 @@ export class Activity extends lumi.NamedResource implements ActivityArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ActivityArgs) {
-        super(name);
-        this.activityName = <any>args.activityName;
+    constructor(urnName: string, args: ActivityArgs) {
+        super(urnName);
+        this.name = <any>args.name;
     }
 }
 
 export interface ActivityArgs {
-    readonly activityName?: string;
+    readonly name?: string;
 }
 

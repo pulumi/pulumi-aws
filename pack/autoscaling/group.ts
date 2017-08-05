@@ -20,7 +20,7 @@ export class Group extends lumi.NamedResource implements GroupArgs {
     public readonly metricsGranularity?: string;
     public readonly minElbCapacity?: number;
     public readonly minSize: number;
-    public readonly groupName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly placementGroup?: string;
     public readonly protectFromScaleIn?: boolean;
@@ -41,8 +41,8 @@ export class Group extends lumi.NamedResource implements GroupArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: GroupArgs) {
-        super(name);
+    constructor(urnName: string, args: GroupArgs) {
+        super(urnName);
         this.availabilityZones = <any>args.availabilityZones;
         this.defaultCooldown = <any>args.defaultCooldown;
         this.desiredCapacity = <any>args.desiredCapacity;
@@ -66,7 +66,7 @@ export class Group extends lumi.NamedResource implements GroupArgs {
             throw new Error("Property argument 'minSize' is required, but was missing");
         }
         this.minSize = <any>args.minSize;
-        this.groupName = <any>args.groupName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.placementGroup = <any>args.placementGroup;
         this.protectFromScaleIn = <any>args.protectFromScaleIn;
@@ -96,7 +96,7 @@ export interface GroupArgs {
     readonly metricsGranularity?: string;
     readonly minElbCapacity?: number;
     readonly minSize: number;
-    readonly groupName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly placementGroup?: string;
     readonly protectFromScaleIn?: boolean;

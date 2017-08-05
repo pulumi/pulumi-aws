@@ -24,8 +24,8 @@ export class TopicSubscription extends lumi.NamedResource implements TopicSubscr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TopicSubscriptionArgs) {
-        super(name);
+    constructor(urnName: string, args: TopicSubscriptionArgs) {
+        super(urnName);
         this.confirmationTimeoutInMinutes = <any>args.confirmationTimeoutInMinutes;
         this.deliveryPolicy = <any>args.deliveryPolicy;
         if (lumirt.defaultIfComputed(args.endpoint, "") === undefined) {

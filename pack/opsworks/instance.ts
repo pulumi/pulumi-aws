@@ -60,8 +60,8 @@ export class Instance extends lumi.NamedResource implements InstanceArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: InstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: InstanceArgs) {
+        super(urnName);
         this.agentVersion = <any>args.agentVersion;
         this.amiId = <any>args.amiId;
         this.architecture = <any>args.architecture;

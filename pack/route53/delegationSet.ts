@@ -16,8 +16,8 @@ export class DelegationSet extends lumi.NamedResource implements DelegationSetAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DelegationSetArgs) {
-        super(name);
+    constructor(urnName: string, args: DelegationSetArgs) {
+        super(urnName);
         this.referenceName = <any>args.referenceName;
     }
 }

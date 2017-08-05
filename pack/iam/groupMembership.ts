@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class GroupMembership extends lumi.NamedResource implements GroupMembershipArgs {
     public readonly group: string;
-    public readonly groupMembershipName: string;
+    public readonly name: string;
     public readonly users: string[];
 
     public static get(id: lumi.ID): GroupMembership {
@@ -17,13 +17,13 @@ export class GroupMembership extends lumi.NamedResource implements GroupMembersh
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: GroupMembershipArgs) {
-        super(name);
+    constructor(urnName: string, args: GroupMembershipArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {
             throw new Error("Property argument 'group' is required, but was missing");
         }
         this.group = <any>args.group;
-        this.groupMembershipName = <any>args.groupMembershipName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.users, "") === undefined) {
             throw new Error("Property argument 'users' is required, but was missing");
         }
@@ -33,7 +33,7 @@ export class GroupMembership extends lumi.NamedResource implements GroupMembersh
 
 export interface GroupMembershipArgs {
     readonly group: string;
-    readonly groupMembershipName?: string;
+    readonly name?: string;
     readonly users: string[];
 }
 

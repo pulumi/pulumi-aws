@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class AssessmentTemplate extends lumi.NamedResource implements AssessmentTemplateArgs {
     public /*out*/ readonly arn: string;
     public readonly duration: number;
-    public readonly assessmentTemplateName: string;
+    public readonly name: string;
     public readonly rulesPackageArns: string[];
     public readonly targetArn: string;
 
@@ -19,13 +19,13 @@ export class AssessmentTemplate extends lumi.NamedResource implements Assessment
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AssessmentTemplateArgs) {
-        super(name);
+    constructor(urnName: string, args: AssessmentTemplateArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.duration, "") === undefined) {
             throw new Error("Property argument 'duration' is required, but was missing");
         }
         this.duration = <any>args.duration;
-        this.assessmentTemplateName = <any>args.assessmentTemplateName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.rulesPackageArns, "") === undefined) {
             throw new Error("Property argument 'rulesPackageArns' is required, but was missing");
         }
@@ -39,7 +39,7 @@ export class AssessmentTemplate extends lumi.NamedResource implements Assessment
 
 export interface AssessmentTemplateArgs {
     readonly duration: number;
-    readonly assessmentTemplateName?: string;
+    readonly name?: string;
     readonly rulesPackageArns: string[];
     readonly targetArn: string;
 }

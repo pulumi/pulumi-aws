@@ -34,8 +34,8 @@ export class Bucket extends lumi.NamedResource implements BucketArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: BucketArgs) {
-        super(name);
+    constructor(urnName: string, args: BucketArgs) {
+        super(urnName);
         this.accelerationStatus = <any>args.accelerationStatus;
         this.acl = <any>args.acl;
         this.arn = <any>args.arn;

@@ -13,7 +13,7 @@ export class AmiFromInstance extends lumi.NamedResource implements AmiFromInstan
     public /*out*/ readonly imageLocation: string;
     public /*out*/ readonly kernelId: string;
     public /*out*/ readonly manageEbsSnapshots: boolean;
-    public readonly amiFromInstanceName: string;
+    public readonly name: string;
     public /*out*/ readonly ramdiskId: string;
     public /*out*/ readonly rootDeviceName: string;
     public readonly snapshotWithoutReboot?: boolean;
@@ -30,12 +30,12 @@ export class AmiFromInstance extends lumi.NamedResource implements AmiFromInstan
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AmiFromInstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: AmiFromInstanceArgs) {
+        super(urnName);
         this.description = <any>args.description;
         this.ebsBlockDevice = <any>args.ebsBlockDevice;
         this.ephemeralBlockDevice = <any>args.ephemeralBlockDevice;
-        this.amiFromInstanceName = <any>args.amiFromInstanceName;
+        this.name = <any>args.name;
         this.snapshotWithoutReboot = <any>args.snapshotWithoutReboot;
         if (lumirt.defaultIfComputed(args.sourceInstanceId, "") === undefined) {
             throw new Error("Property argument 'sourceInstanceId' is required, but was missing");
@@ -49,7 +49,7 @@ export interface AmiFromInstanceArgs {
     readonly description?: string;
     readonly ebsBlockDevice?: { deleteOnTermination?: boolean, deviceName?: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     readonly ephemeralBlockDevice?: { deviceName?: string, virtualName?: string }[];
-    readonly amiFromInstanceName?: string;
+    readonly name?: string;
     readonly snapshotWithoutReboot?: boolean;
     readonly sourceInstanceId: string;
     readonly tags?: {[key: string]: any};

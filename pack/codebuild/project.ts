@@ -10,7 +10,7 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
     public readonly description: string;
     public readonly encryptionKey: string;
     public readonly environment: { computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[];
-    public readonly projectName: string;
+    public readonly name: string;
     public readonly serviceRole: string;
     public readonly source: { auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[];
     public readonly tags?: {[key: string]: any};
@@ -23,8 +23,8 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ProjectArgs) {
-        super(name);
+    constructor(urnName: string, args: ProjectArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.artifacts, "") === undefined) {
             throw new Error("Property argument 'artifacts' is required, but was missing");
         }
@@ -36,7 +36,7 @@ export class Project extends lumi.NamedResource implements ProjectArgs {
             throw new Error("Property argument 'environment' is required, but was missing");
         }
         this.environment = <any>args.environment;
-        this.projectName = <any>args.projectName;
+        this.name = <any>args.name;
         this.serviceRole = <any>args.serviceRole;
         if (lumirt.defaultIfComputed(args.source, "") === undefined) {
             throw new Error("Property argument 'source' is required, but was missing");
@@ -52,7 +52,7 @@ export interface ProjectArgs {
     readonly description?: string;
     readonly encryptionKey?: string;
     readonly environment: { computeType: string, environmentVariable?: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[];
-    readonly projectName?: string;
+    readonly name?: string;
     readonly serviceRole?: string;
     readonly source: { auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[];
     readonly tags?: {[key: string]: any};

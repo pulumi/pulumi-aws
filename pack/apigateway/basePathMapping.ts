@@ -20,8 +20,8 @@ export class BasePathMapping extends lumi.NamedResource implements BasePathMappi
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: BasePathMappingArgs) {
-        super(name);
+    constructor(urnName: string, args: BasePathMappingArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }

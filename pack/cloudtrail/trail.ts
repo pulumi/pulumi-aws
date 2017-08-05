@@ -14,7 +14,7 @@ export class Trail extends lumi.NamedResource implements TrailArgs {
     public readonly includeGlobalServiceEvents?: boolean;
     public readonly isMultiRegionTrail?: boolean;
     public readonly kmsKeyId?: string;
-    public readonly trailName: string;
+    public readonly name: string;
     public readonly s3BucketName: string;
     public readonly s3KeyPrefix?: string;
     public readonly snsTopicName?: string;
@@ -28,8 +28,8 @@ export class Trail extends lumi.NamedResource implements TrailArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TrailArgs) {
-        super(name);
+    constructor(urnName: string, args: TrailArgs) {
+        super(urnName);
         this.cloudWatchLogsGroupArn = <any>args.cloudWatchLogsGroupArn;
         this.cloudWatchLogsRoleArn = <any>args.cloudWatchLogsRoleArn;
         this.enableLogFileValidation = <any>args.enableLogFileValidation;
@@ -37,7 +37,7 @@ export class Trail extends lumi.NamedResource implements TrailArgs {
         this.includeGlobalServiceEvents = <any>args.includeGlobalServiceEvents;
         this.isMultiRegionTrail = <any>args.isMultiRegionTrail;
         this.kmsKeyId = <any>args.kmsKeyId;
-        this.trailName = <any>args.trailName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.s3BucketName, "") === undefined) {
             throw new Error("Property argument 's3BucketName' is required, but was missing");
         }
@@ -56,7 +56,7 @@ export interface TrailArgs {
     readonly includeGlobalServiceEvents?: boolean;
     readonly isMultiRegionTrail?: boolean;
     readonly kmsKeyId?: string;
-    readonly trailName?: string;
+    readonly name?: string;
     readonly s3BucketName: string;
     readonly s3KeyPrefix?: string;
     readonly snsTopicName?: string;

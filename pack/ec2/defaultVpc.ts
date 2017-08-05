@@ -29,8 +29,8 @@ export class DefaultVpc extends lumi.NamedResource implements DefaultVpcArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DefaultVpcArgs) {
-        super(name);
+    constructor(urnName: string, args: DefaultVpcArgs) {
+        super(urnName);
         this.enableClassiclink = <any>args.enableClassiclink;
         this.enableClassiclinkDnsSupport = <any>args.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = <any>args.enableDnsHostnames;

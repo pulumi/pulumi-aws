@@ -10,7 +10,7 @@ export class InstanceGroup extends lumi.NamedResource implements InstanceGroupAr
     public readonly ebsOptimized?: boolean;
     public readonly instanceCount?: number;
     public readonly instanceType: string;
-    public readonly instanceGroupName: string;
+    public readonly name: string;
     public /*out*/ readonly runningInstanceCount: number;
     public /*out*/ readonly status: string;
 
@@ -22,8 +22,8 @@ export class InstanceGroup extends lumi.NamedResource implements InstanceGroupAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: InstanceGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: InstanceGroupArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.clusterId, "") === undefined) {
             throw new Error("Property argument 'clusterId' is required, but was missing");
         }
@@ -35,7 +35,7 @@ export class InstanceGroup extends lumi.NamedResource implements InstanceGroupAr
             throw new Error("Property argument 'instanceType' is required, but was missing");
         }
         this.instanceType = <any>args.instanceType;
-        this.instanceGroupName = <any>args.instanceGroupName;
+        this.name = <any>args.name;
     }
 }
 
@@ -45,6 +45,6 @@ export interface InstanceGroupArgs {
     readonly ebsOptimized?: boolean;
     readonly instanceCount?: number;
     readonly instanceType: string;
-    readonly instanceGroupName?: string;
+    readonly name?: string;
 }
 

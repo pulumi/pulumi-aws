@@ -10,7 +10,7 @@ export class LogSubscriptionFilter extends lumi.NamedResource implements LogSubs
     public readonly destinationArn: string;
     public readonly filterPattern: string;
     public readonly logGroup: LogGroup;
-    public readonly logSubscriptionFilterName: string;
+    public readonly name: string;
     public readonly roleArn: string;
 
     public static get(id: lumi.ID): LogSubscriptionFilter {
@@ -21,8 +21,8 @@ export class LogSubscriptionFilter extends lumi.NamedResource implements LogSubs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LogSubscriptionFilterArgs) {
-        super(name);
+    constructor(urnName: string, args: LogSubscriptionFilterArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.destinationArn, "") === undefined) {
             throw new Error("Property argument 'destinationArn' is required, but was missing");
         }
@@ -35,7 +35,7 @@ export class LogSubscriptionFilter extends lumi.NamedResource implements LogSubs
             throw new Error("Property argument 'logGroup' is required, but was missing");
         }
         this.logGroup = <any>args.logGroup;
-        this.logSubscriptionFilterName = <any>args.logSubscriptionFilterName;
+        this.name = <any>args.name;
         this.roleArn = <any>args.roleArn;
     }
 }
@@ -44,7 +44,7 @@ export interface LogSubscriptionFilterArgs {
     readonly destinationArn: string;
     readonly filterPattern: string;
     readonly logGroup: LogGroup;
-    readonly logSubscriptionFilterName?: string;
+    readonly name?: string;
     readonly roleArn?: string;
 }
 

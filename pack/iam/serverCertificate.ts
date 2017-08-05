@@ -8,7 +8,7 @@ export class ServerCertificate extends lumi.NamedResource implements ServerCerti
     public readonly arn: string;
     public readonly certificateBody: string;
     public readonly certificateChain?: string;
-    public readonly serverCertificateName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly path?: string;
     public readonly privateKey: string;
@@ -21,15 +21,15 @@ export class ServerCertificate extends lumi.NamedResource implements ServerCerti
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ServerCertificateArgs) {
-        super(name);
+    constructor(urnName: string, args: ServerCertificateArgs) {
+        super(urnName);
         this.arn = <any>args.arn;
         if (lumirt.defaultIfComputed(args.certificateBody, "") === undefined) {
             throw new Error("Property argument 'certificateBody' is required, but was missing");
         }
         this.certificateBody = <any>args.certificateBody;
         this.certificateChain = <any>args.certificateChain;
-        this.serverCertificateName = <any>args.serverCertificateName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.path = <any>args.path;
         if (lumirt.defaultIfComputed(args.privateKey, "") === undefined) {
@@ -43,7 +43,7 @@ export interface ServerCertificateArgs {
     readonly arn?: string;
     readonly certificateBody: string;
     readonly certificateChain?: string;
-    readonly serverCertificateName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly path?: string;
     readonly privateKey: string;

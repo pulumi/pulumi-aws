@@ -31,8 +31,8 @@ export class ReplicationInstance extends lumi.NamedResource implements Replicati
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ReplicationInstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: ReplicationInstanceArgs) {
+        super(urnName);
         this.allocatedStorage = <any>args.allocatedStorage;
         this.applyImmediately = <any>args.applyImmediately;
         this.autoMinorVersionUpgrade = <any>args.autoMinorVersionUpgrade;

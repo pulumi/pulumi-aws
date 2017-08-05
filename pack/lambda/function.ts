@@ -12,7 +12,7 @@ export class Function extends lumi.NamedResource implements FunctionArgs {
     public readonly description?: string;
     public readonly environment?: { variables?: {[key: string]: string} }[];
     public readonly code?: lumi.asset.Archive;
-    public readonly functionName: string;
+    public readonly name: string;
     public readonly handler: string;
     public /*out*/ readonly invokeArn: string;
     public readonly kmsKeyArn?: string;
@@ -40,13 +40,13 @@ export class Function extends lumi.NamedResource implements FunctionArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: FunctionArgs) {
-        super(name);
+    constructor(urnName: string, args: FunctionArgs) {
+        super(urnName);
         this.deadLetterConfig = <any>args.deadLetterConfig;
         this.description = <any>args.description;
         this.environment = <any>args.environment;
         this.code = <any>args.code;
-        this.functionName = <any>args.functionName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.handler, "") === undefined) {
             throw new Error("Property argument 'handler' is required, but was missing");
         }
@@ -78,7 +78,7 @@ export interface FunctionArgs {
     readonly description?: string;
     readonly environment?: { variables?: {[key: string]: string} }[];
     readonly code?: lumi.asset.Archive;
-    readonly functionName?: string;
+    readonly name?: string;
     readonly handler: string;
     readonly kmsKeyArn?: string;
     readonly memorySize?: number;

@@ -16,8 +16,8 @@ export class Account extends lumi.NamedResource implements AccountArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: AccountArgs) {
-        super(name);
+    constructor(urnName: string, args: AccountArgs) {
+        super(urnName);
         this.cloudwatchRoleArn = <any>args.cloudwatchRoleArn;
     }
 }

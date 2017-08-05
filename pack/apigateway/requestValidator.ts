@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 import {RestApi} from "./restApi";
 
 export class RequestValidator extends lumi.NamedResource implements RequestValidatorArgs {
-    public readonly requestValidatorName: string;
+    public readonly name: string;
     public readonly restApi: RestApi;
     public readonly validateRequestBody?: boolean;
     public readonly validateRequestParameters?: boolean;
@@ -20,9 +20,9 @@ export class RequestValidator extends lumi.NamedResource implements RequestValid
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RequestValidatorArgs) {
-        super(name);
-        this.requestValidatorName = <any>args.requestValidatorName;
+    constructor(urnName: string, args: RequestValidatorArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.restApi, "") === undefined) {
             throw new Error("Property argument 'restApi' is required, but was missing");
         }
@@ -33,7 +33,7 @@ export class RequestValidator extends lumi.NamedResource implements RequestValid
 }
 
 export interface RequestValidatorArgs {
-    readonly requestValidatorName?: string;
+    readonly name?: string;
     readonly restApi: RestApi;
     readonly validateRequestBody?: boolean;
     readonly validateRequestParameters?: boolean;

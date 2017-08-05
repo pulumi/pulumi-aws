@@ -26,8 +26,8 @@ export class Stage extends lumi.NamedResource implements StageArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: StageArgs) {
-        super(name);
+    constructor(urnName: string, args: StageArgs) {
+        super(urnName);
         this.cacheClusterEnabled = <any>args.cacheClusterEnabled;
         this.cacheClusterSize = <any>args.cacheClusterSize;
         this.clientCertificateId = <any>args.clientCertificateId;

@@ -18,8 +18,8 @@ export class LoadBalancerPolicy extends lumi.NamedResource implements LoadBalanc
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LoadBalancerPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: LoadBalancerPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.loadBalancerName, "") === undefined) {
             throw new Error("Property argument 'loadBalancerName' is required, but was missing");
         }

@@ -18,8 +18,8 @@ export class CustomerGateway extends lumi.NamedResource implements CustomerGatew
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: CustomerGatewayArgs) {
-        super(name);
+    constructor(urnName: string, args: CustomerGatewayArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.bgpAsn, "") === undefined) {
             throw new Error("Property argument 'bgpAsn' is required, but was missing");
         }

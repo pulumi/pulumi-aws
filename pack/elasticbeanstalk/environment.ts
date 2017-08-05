@@ -17,7 +17,7 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
     public /*out*/ readonly instances: string[];
     public /*out*/ readonly launchConfigurations: string[];
     public /*out*/ readonly loadBalancers: string[];
-    public readonly environmentName: string;
+    public readonly name: string;
     public readonly pollInterval?: string;
     public /*out*/ readonly queues: string[];
     public readonly setting?: { name: string, namespace: string, resource?: string, value: string }[];
@@ -37,15 +37,15 @@ export class Environment extends lumi.NamedResource implements EnvironmentArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EnvironmentArgs) {
-        super(name);
+    constructor(urnName: string, args: EnvironmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {
             throw new Error("Property argument 'application' is required, but was missing");
         }
         this.application = <any>args.application;
         this.cnamePrefix = <any>args.cnamePrefix;
         this.description = <any>args.description;
-        this.environmentName = <any>args.environmentName;
+        this.name = <any>args.name;
         this.pollInterval = <any>args.pollInterval;
         this.setting = <any>args.setting;
         this.solutionStackName = <any>args.solutionStackName;
@@ -61,7 +61,7 @@ export interface EnvironmentArgs {
     readonly application: Application;
     readonly cnamePrefix?: string;
     readonly description?: string;
-    readonly environmentName?: string;
+    readonly name?: string;
     readonly pollInterval?: string;
     readonly setting?: { name: string, namespace: string, resource?: string, value: string }[];
     readonly solutionStackName?: string;

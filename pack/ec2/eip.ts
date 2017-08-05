@@ -23,8 +23,8 @@ export class Eip extends lumi.NamedResource implements EipArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EipArgs) {
-        super(name);
+    constructor(urnName: string, args: EipArgs) {
+        super(urnName);
         this.associateWithPrivateIp = <any>args.associateWithPrivateIp;
         this.instance = <any>args.instance;
         this.networkInterface = <any>args.networkInterface;

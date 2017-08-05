@@ -17,8 +17,8 @@ export class Notification extends lumi.NamedResource implements NotificationArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NotificationArgs) {
-        super(name);
+    constructor(urnName: string, args: NotificationArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.groupNames, "") === undefined) {
             throw new Error("Property argument 'groupNames' is required, but was missing");
         }

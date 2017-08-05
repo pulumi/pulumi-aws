@@ -35,8 +35,8 @@ export class ClusterInstance extends lumi.NamedResource implements ClusterInstan
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ClusterInstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: ClusterInstanceArgs) {
+        super(urnName);
         this.applyImmediately = <any>args.applyImmediately;
         this.autoMinorVersionUpgrade = <any>args.autoMinorVersionUpgrade;
         if (lumirt.defaultIfComputed(args.clusterIdentifier, "") === undefined) {

@@ -10,7 +10,7 @@ export class Preset extends lumi.NamedResource implements PresetArgs {
     public readonly audioCodecOptions?: { bitDepth?: string, bitOrder?: string, profile?: string, signed?: string }[];
     public readonly container: string;
     public readonly description?: string;
-    public readonly presetName: string;
+    public readonly name: string;
     public readonly thumbnails?: { aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[];
     public readonly type: string;
     public readonly video?: { aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[];
@@ -25,8 +25,8 @@ export class Preset extends lumi.NamedResource implements PresetArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PresetArgs) {
-        super(name);
+    constructor(urnName: string, args: PresetArgs) {
+        super(urnName);
         this.audio = <any>args.audio;
         this.audioCodecOptions = <any>args.audioCodecOptions;
         if (lumirt.defaultIfComputed(args.container, "") === undefined) {
@@ -34,7 +34,7 @@ export class Preset extends lumi.NamedResource implements PresetArgs {
         }
         this.container = <any>args.container;
         this.description = <any>args.description;
-        this.presetName = <any>args.presetName;
+        this.name = <any>args.name;
         this.thumbnails = <any>args.thumbnails;
         this.type = <any>args.type;
         this.video = <any>args.video;
@@ -48,7 +48,7 @@ export interface PresetArgs {
     readonly audioCodecOptions?: { bitDepth?: string, bitOrder?: string, profile?: string, signed?: string }[];
     readonly container: string;
     readonly description?: string;
-    readonly presetName?: string;
+    readonly name?: string;
     readonly thumbnails?: { aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[];
     readonly type?: string;
     readonly video?: { aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[];

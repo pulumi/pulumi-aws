@@ -24,8 +24,8 @@ export class MaintenanceWindowTask extends lumi.NamedResource implements Mainten
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MaintenanceWindowTaskArgs) {
-        super(name);
+    constructor(urnName: string, args: MaintenanceWindowTaskArgs) {
+        super(urnName);
         this.loggingInfo = <any>args.loggingInfo;
         if (lumirt.defaultIfComputed(args.maxConcurrency, "") === undefined) {
             throw new Error("Property argument 'maxConcurrency' is required, but was missing");

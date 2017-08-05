@@ -13,7 +13,7 @@ export class ApplicationVersion extends lumi.NamedResource implements Applicatio
     public readonly description?: string;
     public readonly forceDelete?: boolean;
     public readonly key: string;
-    public readonly applicationVersionName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): ApplicationVersion {
         return <any>undefined; // functionality provided by the runtime
@@ -23,8 +23,8 @@ export class ApplicationVersion extends lumi.NamedResource implements Applicatio
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ApplicationVersionArgs) {
-        super(name);
+    constructor(urnName: string, args: ApplicationVersionArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {
             throw new Error("Property argument 'application' is required, but was missing");
         }
@@ -39,7 +39,7 @@ export class ApplicationVersion extends lumi.NamedResource implements Applicatio
             throw new Error("Property argument 'key' is required, but was missing");
         }
         this.key = <any>args.key;
-        this.applicationVersionName = <any>args.applicationVersionName;
+        this.name = <any>args.name;
     }
 }
 
@@ -49,6 +49,6 @@ export interface ApplicationVersionArgs {
     readonly description?: string;
     readonly forceDelete?: boolean;
     readonly key: string;
-    readonly applicationVersionName?: string;
+    readonly name?: string;
 }
 

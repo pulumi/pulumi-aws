@@ -22,7 +22,7 @@ export class GangliaLayer extends lumi.NamedResource implements GangliaLayerArgs
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly gangliaLayerName: string;
+    public readonly name: string;
     public readonly password: string;
     public readonly stackId: string;
     public readonly systemPackages?: string[];
@@ -38,8 +38,8 @@ export class GangliaLayer extends lumi.NamedResource implements GangliaLayerArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: GangliaLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: GangliaLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -56,7 +56,7 @@ export class GangliaLayer extends lumi.NamedResource implements GangliaLayerArgs
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.gangliaLayerName = <any>args.gangliaLayerName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.password, "") === undefined) {
             throw new Error("Property argument 'password' is required, but was missing");
         }
@@ -89,7 +89,7 @@ export interface GangliaLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly gangliaLayerName?: string;
+    readonly name?: string;
     readonly password: string;
     readonly stackId: string;
     readonly systemPackages?: string[];

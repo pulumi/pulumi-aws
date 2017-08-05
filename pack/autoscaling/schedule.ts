@@ -23,8 +23,8 @@ export class Schedule extends lumi.NamedResource implements ScheduleArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ScheduleArgs) {
-        super(name);
+    constructor(urnName: string, args: ScheduleArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.autoscalingGroupName, "") === undefined) {
             throw new Error("Property argument 'autoscalingGroupName' is required, but was missing");
         }

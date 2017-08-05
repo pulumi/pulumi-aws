@@ -33,8 +33,8 @@ export class HealthCheck extends lumi.NamedResource implements HealthCheckArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: HealthCheckArgs) {
-        super(name);
+    constructor(urnName: string, args: HealthCheckArgs) {
+        super(urnName);
         this.childHealthThreshold = <any>args.childHealthThreshold;
         this.childHealthchecks = <any>args.childHealthchecks;
         this.cloudwatchAlarmName = <any>args.cloudwatchAlarmName;

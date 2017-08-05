@@ -22,7 +22,7 @@ export class MysqlLayer extends lumi.NamedResource implements MysqlLayerArgs {
     public /*out*/ readonly layerId: string;
     public readonly installUpdatesOnBoot?: boolean;
     public readonly instanceShutdownTimeout?: number;
-    public readonly mysqlLayerName: string;
+    public readonly name: string;
     public readonly rootPassword?: string;
     public readonly rootPasswordOnAllInstances?: boolean;
     public readonly stackId: string;
@@ -37,8 +37,8 @@ export class MysqlLayer extends lumi.NamedResource implements MysqlLayerArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: MysqlLayerArgs) {
-        super(name);
+    constructor(urnName: string, args: MysqlLayerArgs) {
+        super(urnName);
         this.autoAssignElasticIps = <any>args.autoAssignElasticIps;
         this.autoAssignPublicIps = <any>args.autoAssignPublicIps;
         this.autoHealing = <any>args.autoHealing;
@@ -55,7 +55,7 @@ export class MysqlLayer extends lumi.NamedResource implements MysqlLayerArgs {
         this.elasticLoadBalancer = <any>args.elasticLoadBalancer;
         this.installUpdatesOnBoot = <any>args.installUpdatesOnBoot;
         this.instanceShutdownTimeout = <any>args.instanceShutdownTimeout;
-        this.mysqlLayerName = <any>args.mysqlLayerName;
+        this.name = <any>args.name;
         this.rootPassword = <any>args.rootPassword;
         this.rootPasswordOnAllInstances = <any>args.rootPasswordOnAllInstances;
         if (lumirt.defaultIfComputed(args.stackId, "") === undefined) {
@@ -84,7 +84,7 @@ export interface MysqlLayerArgs {
     readonly elasticLoadBalancer?: string;
     readonly installUpdatesOnBoot?: boolean;
     readonly instanceShutdownTimeout?: number;
-    readonly mysqlLayerName?: string;
+    readonly name?: string;
     readonly rootPassword?: string;
     readonly rootPasswordOnAllInstances?: boolean;
     readonly stackId: string;

@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class GroupPolicy extends lumi.NamedResource implements GroupPolicyArgs {
     public readonly group: string;
-    public readonly groupPolicyName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly policy: string;
 
@@ -18,13 +18,13 @@ export class GroupPolicy extends lumi.NamedResource implements GroupPolicyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: GroupPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: GroupPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.group, "") === undefined) {
             throw new Error("Property argument 'group' is required, but was missing");
         }
         this.group = <any>args.group;
-        this.groupPolicyName = <any>args.groupPolicyName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
@@ -35,7 +35,7 @@ export class GroupPolicy extends lumi.NamedResource implements GroupPolicyArgs {
 
 export interface GroupPolicyArgs {
     readonly group: string;
-    readonly groupPolicyName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly policy: string;
 }

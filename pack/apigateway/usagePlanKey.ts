@@ -7,7 +7,7 @@ import * as lumirt from "@lumi/lumirt";
 export class UsagePlanKey extends lumi.NamedResource implements UsagePlanKeyArgs {
     public readonly keyId: string;
     public readonly keyType: string;
-    public /*out*/ readonly usagePlanKeyName: string;
+    public /*out*/ readonly name: string;
     public readonly usagePlanId: string;
     public /*out*/ readonly value: string;
 
@@ -19,8 +19,8 @@ export class UsagePlanKey extends lumi.NamedResource implements UsagePlanKeyArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: UsagePlanKeyArgs) {
-        super(name);
+    constructor(urnName: string, args: UsagePlanKeyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.keyId, "") === undefined) {
             throw new Error("Property argument 'keyId' is required, but was missing");
         }

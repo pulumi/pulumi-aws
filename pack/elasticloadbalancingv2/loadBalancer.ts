@@ -13,7 +13,7 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
     public readonly idleTimeout?: number;
     public readonly internal: boolean;
     public readonly ipAddressType: string;
-    public readonly loadBalancerName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly securityGroups: string[];
     public readonly subnets: string[];
@@ -29,14 +29,14 @@ export class LoadBalancer extends lumi.NamedResource implements LoadBalancerArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LoadBalancerArgs) {
-        super(name);
+    constructor(urnName: string, args: LoadBalancerArgs) {
+        super(urnName);
         this.accessLogs = <any>args.accessLogs;
         this.enableDeletionProtection = <any>args.enableDeletionProtection;
         this.idleTimeout = <any>args.idleTimeout;
         this.internal = <any>args.internal;
         this.ipAddressType = <any>args.ipAddressType;
-        this.loadBalancerName = <any>args.loadBalancerName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.securityGroups = <any>args.securityGroups;
         if (lumirt.defaultIfComputed(args.subnets, "") === undefined) {
@@ -53,7 +53,7 @@ export interface LoadBalancerArgs {
     readonly idleTimeout?: number;
     readonly internal?: boolean;
     readonly ipAddressType?: string;
-    readonly loadBalancerName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly securityGroups?: string[];
     readonly subnets: string[];

@@ -19,8 +19,8 @@ export class RdsDbInstance extends lumi.NamedResource implements RdsDbInstanceAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RdsDbInstanceArgs) {
-        super(name);
+    constructor(urnName: string, args: RdsDbInstanceArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.dbPassword, "") === undefined) {
             throw new Error("Property argument 'dbPassword' is required, but was missing");
         }

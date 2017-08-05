@@ -24,8 +24,8 @@ export class ReplicationTask extends lumi.NamedResource implements ReplicationTa
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ReplicationTaskArgs) {
-        super(name);
+    constructor(urnName: string, args: ReplicationTaskArgs) {
+        super(urnName);
         this.cdcStartTime = <any>args.cdcStartTime;
         if (lumirt.defaultIfComputed(args.migrationType, "") === undefined) {
             throw new Error("Property argument 'migrationType' is required, but was missing");

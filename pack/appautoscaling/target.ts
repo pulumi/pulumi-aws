@@ -20,8 +20,8 @@ export class Target extends lumi.NamedResource implements TargetArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TargetArgs) {
-        super(name);
+    constructor(urnName: string, args: TargetArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.maxCapacity, "") === undefined) {
             throw new Error("Property argument 'maxCapacity' is required, but was missing");
         }

@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class RolePolicy extends lumi.NamedResource implements RolePolicyArgs {
-    public readonly rolePolicyName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly policy: string;
     public readonly role: string;
@@ -18,9 +18,9 @@ export class RolePolicy extends lumi.NamedResource implements RolePolicyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RolePolicyArgs) {
-        super(name);
-        this.rolePolicyName = <any>args.rolePolicyName;
+    constructor(urnName: string, args: RolePolicyArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
@@ -34,7 +34,7 @@ export class RolePolicy extends lumi.NamedResource implements RolePolicyArgs {
 }
 
 export interface RolePolicyArgs {
-    readonly rolePolicyName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly policy: string;
     readonly role: string;

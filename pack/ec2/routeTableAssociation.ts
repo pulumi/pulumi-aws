@@ -16,8 +16,8 @@ export class RouteTableAssociation extends lumi.NamedResource implements RouteTa
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: RouteTableAssociationArgs) {
-        super(name);
+    constructor(urnName: string, args: RouteTableAssociationArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.routeTableId, "") === undefined) {
             throw new Error("Property argument 'routeTableId' is required, but was missing");
         }

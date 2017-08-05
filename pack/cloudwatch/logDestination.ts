@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class LogDestination extends lumi.NamedResource implements LogDestinationArgs {
     public /*out*/ readonly arn: string;
-    public readonly logDestinationName: string;
+    public readonly name: string;
     public readonly roleArn: string;
     public readonly targetArn: string;
 
@@ -18,9 +18,9 @@ export class LogDestination extends lumi.NamedResource implements LogDestination
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LogDestinationArgs) {
-        super(name);
-        this.logDestinationName = <any>args.logDestinationName;
+    constructor(urnName: string, args: LogDestinationArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.roleArn, "") === undefined) {
             throw new Error("Property argument 'roleArn' is required, but was missing");
         }
@@ -33,7 +33,7 @@ export class LogDestination extends lumi.NamedResource implements LogDestination
 }
 
 export interface LogDestinationArgs {
-    readonly logDestinationName?: string;
+    readonly name?: string;
     readonly roleArn: string;
     readonly targetArn: string;
 }

@@ -16,8 +16,8 @@ export class ResourceGroup extends lumi.NamedResource implements ResourceGroupAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ResourceGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: ResourceGroupArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.tags, "") === undefined) {
             throw new Error("Property argument 'tags' is required, but was missing");
         }

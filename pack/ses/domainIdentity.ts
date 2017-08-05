@@ -17,8 +17,8 @@ export class DomainIdentity extends lumi.NamedResource implements DomainIdentity
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DomainIdentityArgs) {
-        super(name);
+    constructor(urnName: string, args: DomainIdentityArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.domain, "") === undefined) {
             throw new Error("Property argument 'domain' is required, but was missing");
         }

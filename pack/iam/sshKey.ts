@@ -20,8 +20,8 @@ export class SshKey extends lumi.NamedResource implements SshKeyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SshKeyArgs) {
-        super(name);
+    constructor(urnName: string, args: SshKeyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.encoding, "") === undefined) {
             throw new Error("Property argument 'encoding' is required, but was missing");
         }

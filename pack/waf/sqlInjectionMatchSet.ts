@@ -5,7 +5,7 @@ import * as lumi from "@lumi/lumi";
 import * as lumirt from "@lumi/lumirt";
 
 export class SqlInjectionMatchSet extends lumi.NamedResource implements SqlInjectionMatchSetArgs {
-    public readonly sqlInjectionMatchSetName: string;
+    public readonly name: string;
     public readonly sqlInjectionMatchTuples?: { fieldToMatch: { data?: string, type: string }[], textTransformation: string }[];
 
     public static get(id: lumi.ID): SqlInjectionMatchSet {
@@ -16,15 +16,15 @@ export class SqlInjectionMatchSet extends lumi.NamedResource implements SqlInjec
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SqlInjectionMatchSetArgs) {
-        super(name);
-        this.sqlInjectionMatchSetName = <any>args.sqlInjectionMatchSetName;
+    constructor(urnName: string, args: SqlInjectionMatchSetArgs) {
+        super(urnName);
+        this.name = <any>args.name;
         this.sqlInjectionMatchTuples = <any>args.sqlInjectionMatchTuples;
     }
 }
 
 export interface SqlInjectionMatchSetArgs {
-    readonly sqlInjectionMatchSetName?: string;
+    readonly name?: string;
     readonly sqlInjectionMatchTuples?: { fieldToMatch: { data?: string, type: string }[], textTransformation: string }[];
 }
 

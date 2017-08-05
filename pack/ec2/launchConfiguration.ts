@@ -14,7 +14,7 @@ export class LaunchConfiguration extends lumi.NamedResource implements LaunchCon
     public readonly imageId: string;
     public readonly instanceType: string;
     public readonly keyName: string;
-    public readonly launchConfigurationName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public readonly placementTenancy?: string;
     public readonly rootBlockDevice: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[];
@@ -32,8 +32,8 @@ export class LaunchConfiguration extends lumi.NamedResource implements LaunchCon
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: LaunchConfigurationArgs) {
-        super(name);
+    constructor(urnName: string, args: LaunchConfigurationArgs) {
+        super(urnName);
         this.associatePublicIpAddress = <any>args.associatePublicIpAddress;
         this.ebsBlockDevice = <any>args.ebsBlockDevice;
         this.ebsOptimized = <any>args.ebsOptimized;
@@ -49,7 +49,7 @@ export class LaunchConfiguration extends lumi.NamedResource implements LaunchCon
         }
         this.instanceType = <any>args.instanceType;
         this.keyName = <any>args.keyName;
-        this.launchConfigurationName = <any>args.launchConfigurationName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.placementTenancy = <any>args.placementTenancy;
         this.rootBlockDevice = <any>args.rootBlockDevice;
@@ -71,7 +71,7 @@ export interface LaunchConfigurationArgs {
     readonly imageId: string;
     readonly instanceType: string;
     readonly keyName?: string;
-    readonly launchConfigurationName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly placementTenancy?: string;
     readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[];

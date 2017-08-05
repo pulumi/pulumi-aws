@@ -19,8 +19,8 @@ export class NetworkInterfaceAttachment extends lumi.NamedResource implements Ne
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NetworkInterfaceAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: NetworkInterfaceAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.deviceIndex, "") === undefined) {
             throw new Error("Property argument 'deviceIndex' is required, but was missing");
         }

@@ -16,8 +16,8 @@ export class BucketPolicy extends lumi.NamedResource implements BucketPolicyArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: BucketPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: BucketPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");
         }

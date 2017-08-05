@@ -6,7 +6,7 @@ import * as lumirt from "@lumi/lumirt";
 
 export class IpSet extends lumi.NamedResource implements IpSetArgs {
     public readonly ipSetDescriptors?: { type: string, value: string }[];
-    public readonly ipSetName: string;
+    public readonly name: string;
 
     public static get(id: lumi.ID): IpSet {
         return <any>undefined; // functionality provided by the runtime
@@ -16,15 +16,15 @@ export class IpSet extends lumi.NamedResource implements IpSetArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: IpSetArgs) {
-        super(name);
+    constructor(urnName: string, args: IpSetArgs) {
+        super(urnName);
         this.ipSetDescriptors = <any>args.ipSetDescriptors;
-        this.ipSetName = <any>args.ipSetName;
+        this.name = <any>args.name;
     }
 }
 
 export interface IpSetArgs {
     readonly ipSetDescriptors?: { type: string, value: string }[];
-    readonly ipSetName?: string;
+    readonly name?: string;
 }
 

@@ -25,8 +25,8 @@ export class NetworkAclRule extends lumi.NamedResource implements NetworkAclRule
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NetworkAclRuleArgs) {
-        super(name);
+    constructor(urnName: string, args: NetworkAclRuleArgs) {
+        super(urnName);
         this.cidrBlock = <any>args.cidrBlock;
         this.egress = <any>args.egress;
         this.fromPort = <any>args.fromPort;

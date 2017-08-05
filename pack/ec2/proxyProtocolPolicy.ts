@@ -16,8 +16,8 @@ export class ProxyProtocolPolicy extends lumi.NamedResource implements ProxyProt
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ProxyProtocolPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: ProxyProtocolPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.instancePorts, "") === undefined) {
             throw new Error("Property argument 'instancePorts' is required, but was missing");
         }

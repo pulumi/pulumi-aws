@@ -16,8 +16,8 @@ export class TopicPolicy extends lumi.NamedResource implements TopicPolicyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TopicPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: TopicPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.arn, "") === undefined) {
             throw new Error("Property argument 'arn' is required, but was missing");
         }

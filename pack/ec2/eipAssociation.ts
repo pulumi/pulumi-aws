@@ -20,8 +20,8 @@ export class EipAssociation extends lumi.NamedResource implements EipAssociation
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: EipAssociationArgs) {
-        super(name);
+    constructor(urnName: string, args: EipAssociationArgs) {
+        super(urnName);
         this.allocationId = <any>args.allocationId;
         this.allowReassociation = <any>args.allowReassociation;
         this.instanceId = <any>args.instanceId;

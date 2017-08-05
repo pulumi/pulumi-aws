@@ -93,20 +93,20 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:   p,
 		Git: git,
-		Config: map[string]tfbridge.SchemaInfo{
+		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awstok("region", "Region"),
 			},
 		},
-		Resources: map[string]tfbridge.ResourceInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsrestok(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
 				Tok: awsrestok(apigatewayMod, "ApiKey"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"stage_key": {
 						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
 								"rest_api_id": {
 									Name: "restApi",
 									Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -118,7 +118,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_authorizer": {
 				Tok: awsrestok(apigatewayMod, "Authorizer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -127,7 +127,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_base_path_mapping": {
 				Tok: awsrestok(apigatewayMod, "BasePathMapping"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -137,7 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_client_certificate": {Tok: awsrestok(apigatewayMod, "ClientCertificate")},
 			"aws_api_gateway_deployment": {
 				Tok: awsrestok(apigatewayMod, "Deployment"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -147,7 +147,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_domain_name": {Tok: awsrestok(apigatewayMod, "DomainName")},
 			"aws_api_gateway_integration": {
 				Tok: awsrestok(apigatewayMod, "Integration"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -156,7 +156,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_integration_response": {
 				Tok: awsrestok(apigatewayMod, "IntegrationResponse"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -165,7 +165,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_method": {
 				Tok: awsrestok(apigatewayMod, "Method"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -174,7 +174,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_method_response": {
 				Tok: awsrestok(apigatewayMod, "MethodResponse"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -182,7 +182,7 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"aws_api_gateway_method_settings": {
 				Tok: awsrestok(apigatewayMod, "MethodSettings"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -190,7 +190,7 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"aws_api_gateway_model": {
 				Tok: awsrestok(apigatewayMod, "Model"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -198,7 +198,7 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"aws_api_gateway_request_validator": {
 				Tok: awsrestok(apigatewayMod, "RequestValidator"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
 						Type: awstok(apigatewayMod+"/restApi", "RestApi"),
@@ -207,7 +207,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_resource": {
 				Tok: awsrestok(apigatewayMod, "Resource"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					// TODO[pulumi/terraform-bridge#5] Strongly type the parent refernence to align with other uses
 					// "parent_id": {
 					// 	Name: "parent",
@@ -223,7 +223,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_rest_api":         {Tok: awsrestok(apigatewayMod, "RestApi")},
 			"aws_api_gateway_stage": {
 				Tok: awsrestok(apigatewayMod, "Stage"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"deployment_id": {
 						Name: "deployment",
 						Type: awstok(apigatewayMod+"/deployment", "Deployment"),
@@ -266,7 +266,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_stream":        {Tok: awsrestok(cloudwatchMod, "LogStream")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsrestok(cloudwatchMod, "LogSubscriptionFilter"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"log_group_name": {
 						Name: "logGroup",
 						Type: awsrestok(cloudwatchMod, "LogGroup"),
@@ -275,8 +275,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_cloudwatch_metric_alarm": {
 				Tok: awsrestok(cloudwatchMod, "MetricAlarm"),
-				Fields: map[string]tfbridge.SchemaInfo{
-					"alarm_name": tfbridge.AutoNameInfo("alarmName", -1),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"alarm_name": tfbridge.AutoName("name", -1),
 					"alarm_actions": {
 						Elem: &tfbridge.SchemaInfo{
 							Type: awsrestok(snsMod, "Topic"),
@@ -328,7 +328,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_application": {Tok: awsrestok(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
 				Tok: awsrestok(elasticbeanstalkMod, "ApplicationVersion"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
 					"bucket":      {Type: awsrestok(s3Mod, "Bucket")},
 				},
@@ -336,8 +336,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsrestok(elasticbeanstalkMod, "ConfigurationTemplate")},
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsrestok(elasticbeanstalkMod, "Environment"),
-				Fields: map[string]tfbridge.SchemaInfo{
-					"name":        tfbridge.AutoNameInfo("environmentName", 40),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name":        tfbridge.AutoName("name", 40),
 					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
 					"version_label": {
 						Name: "version",
@@ -357,19 +357,19 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Compute (EC2)
 			"aws_ami": {
 				Tok: awsrestok(ec2Mod, "Ami"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
 				},
 			},
 			"aws_ami_copy": {
 				Tok: awsrestok(ec2Mod, "AmiCopy"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
 				},
 			},
 			"aws_ami_from_instance": {
 				Tok: awsrestok(ec2Mod, "AmiFromInstance"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
 				},
 			},
@@ -381,7 +381,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_flow_log":                     {Tok: awsrestok(ec2Mod, "FlowLog")},
 			"aws_instance": {
 				Tok: awsrestok(ec2Mod, "Instance"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"instance_type": {
 						Type: awstok(ec2Mod+"/instanceType", "InstanceType"),
 					},
@@ -478,7 +478,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_group_membership":        {Tok: awsrestok(iamMod, "GroupMembership")},
 			"aws_iam_group_policy_attachment": {
 				Tok: awsrestok(iamMod, "GroupPolicyAttachment"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"group": {Type: awstok(iamMod+"/group", "Group")},
 					"policy_arn": {
 						Name: "policyArn",
@@ -488,7 +488,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_iam_instance_profile": {
 				Tok: awsrestok(iamMod, "InstanceProfile"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {Type: awsrestok(iamMod, "Role")},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{Type: awsrestok(iamMod, "Role")},
@@ -499,7 +499,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_policy":                  {Tok: awsrestok(iamMod, "Policy")},
 			"aws_iam_policy_attachment": {
 				Tok: awsrestok(iamMod, "PolicyAttachment"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"users": {
 						Elem: &tfbridge.SchemaInfo{Type: awstok(iamMod+"/user", "User")},
 					},
@@ -517,7 +517,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_iam_role_policy_attachment": {
 				Tok: awsrestok(iamMod, "RolePolicyAttachment"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {Type: awstok(iamMod+"/role", "Role")},
 					"policy_arn": {
 						Name: "policyArn",
@@ -528,15 +528,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role_policy": {Tok: awsrestok(iamMod, "RolePolicy")},
 			"aws_iam_role": {
 				Tok: awsrestok(iamMod, "Role"),
-				Fields: map[string]tfbridge.SchemaInfo{
-					"name": tfbridge.AutoNameInfo("roleName", 64),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoName("name", 64),
 				},
 			},
 			"aws_iam_saml_provider":      {Tok: awsrestok(iamMod, "SamlProvider")},
 			"aws_iam_server_certificate": {Tok: awsrestok(iamMod, "ServerCertificate")},
 			"aws_iam_user_policy_attachment": {
 				Tok: awsrestok(iamMod, "UserPolicyAttachment"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"user": {Type: awstok(iamMod+"/user", "User")},
 					"policy_arn": {
 						Name: "policyArn",
@@ -562,8 +562,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_function": {
 				Tok:      awsrestok(lambdaMod, "Function"),
 				IDFields: []string{"function_name"},
-				Fields: map[string]tfbridge.SchemaInfo{
-					"function_name": tfbridge.AutoNameInfo("functionName", 64),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"function_name": tfbridge.AutoName("name", 64),
 					"role":          {Type: awstok(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
@@ -584,12 +584,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_permission": {
 				Tok:      awsrestok(lambdaMod, "Permission"),
 				IDFields: []string{"statement_id"},
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": {
 						Name: "function",
 						Type: awstok(lambdaMod+"/function", "Function"),
 					},
-					"statement_id": tfbridge.AutoNameInfo("statementId", -1),
+					"statement_id": tfbridge.AutoName("statementId", -1),
 				},
 			},
 			// LightSail
@@ -601,97 +601,97 @@ func Provider() tfbridge.ProviderInfo {
 			// OpsWorks
 			"aws_opsworks_application": {
 				Tok: awsrestok(opsworksMod, "Application"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "applicationId"},
 				},
 			},
 			"aws_opsworks_stack": {
 				Tok: awsrestok(opsworksMod, "Stack"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "stackId"},
 				},
 			},
 			"aws_opsworks_java_app_layer": {
 				Tok: awsrestok(opsworksMod, "JavaAppLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_haproxy_layer": {
 				Tok: awsrestok(opsworksMod, "HaproxyLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_static_web_layer": {
 				Tok: awsrestok(opsworksMod, "StaticWebLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_php_app_layer": {
 				Tok: awsrestok(opsworksMod, "PhpAppLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_rails_app_layer": {
 				Tok: awsrestok(opsworksMod, "RailsAppLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_nodejs_app_layer": {
 				Tok: awsrestok(opsworksMod, "NodejsAppLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_memcached_layer": {
 				Tok: awsrestok(opsworksMod, "MemcachedLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_mysql_layer": {
 				Tok: awsrestok(opsworksMod, "MysqlLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_ganglia_layer": {
 				Tok: awsrestok(opsworksMod, "GangliaLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_custom_layer": {
 				Tok: awsrestok(opsworksMod, "CustomLayer"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "layerId"},
 				},
 			},
 			"aws_opsworks_instance": {
 				Tok: awsrestok(opsworksMod, "Instance"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "instanceId"},
 				},
 			},
 			"aws_opsworks_user_profile": {
 				Tok: awsrestok(opsworksMod, "UserProfile"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "profileId"},
 				},
 			},
 			"aws_opsworks_permission": {
 				Tok: awsrestok(opsworksMod, "Permission"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "permissionId"},
 				},
 			},
 			"aws_opsworks_rds_db_instance": {
 				Tok: awsrestok(opsworksMod, "RdsDbInstance"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "instanceId"},
 				},
 			},
@@ -728,8 +728,8 @@ func Provider() tfbridge.ProviderInfo {
 			// S3
 			"aws_s3_bucket": {
 				Tok: awsrestok(s3Mod, "Bucket"),
-				Fields: map[string]tfbridge.SchemaInfo{
-					"bucket": tfbridge.AutoNameInfoRename("bucket", -1, func(name string) string {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"bucket": tfbridge.AutoNameTransform("bucket", -1, func(name string) string {
 						return strings.ToLower(name)
 					}),
 				},
@@ -738,12 +738,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket_object": {
 				Tok:      awsrestok(s3Mod, "Object"),
 				IDFields: []string{"bucket", "key"},
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": {Type: awsrestok(s3Mod, "Bucket")},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
-						Default: tfbridge.DefaultInfo{
-							From: tfbridge.NameProperty,
+						Default: &tfbridge.DefaultInfo{
+							From: string(resource.URNNamePropertyKey),
 						},
 					},
 					"source": {
@@ -772,14 +772,14 @@ func Provider() tfbridge.ProviderInfo {
 			// Simple Notification Service (SNS)
 			"aws_sns_topic": {
 				Tok: awsrestok(snsMod, "Topic"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"arn": {Type: awstok(awsMod, "ARN")},
 				},
 			},
 			"aws_sns_topic_policy": {Tok: awsrestok(snsMod, "TopicPolicy")},
 			"aws_sns_topic_subscription": {
 				Tok: awsrestok(snsMod, "TopicSubscription"),
-				Fields: map[string]tfbridge.SchemaInfo{
+				Fields: map[string]*tfbridge.SchemaInfo{
 					"topic_arn": {
 						Name: "topic",
 						Type: awsrestok(snsMod, "Topic"),
@@ -801,12 +801,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_byte_match_set": {Tok: awsrestok(wafregionalMod, "ByteMatchSet")},
 			"aws_wafregional_ipset":          {Tok: awsrestok(wafregionalMod, "IpSet")},
 		},
-		Overlay: tfbridge.OverlayInfo{
+		Overlay: &tfbridge.OverlayInfo{
 			Files: []string{
 				"arn.ts",    // ARN typedef
 				"region.ts", // Region union type and constants
 			},
-			Modules: map[string]tfbridge.OverlayInfo{
+			Modules: map[string]*tfbridge.OverlayInfo{
 				"config": {
 					Files: []string{
 						"require.ts", // requireRegion helpers for validating proper config
@@ -834,12 +834,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
 	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
-	for resname := range prov.Resources {
+	const awsName = "name"
+	for resname, res := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
-			if _, has := schema.Schema[tfbridge.NameProperty]; has {
-				res := prov.Resources[resname]
-				if _, hasfield := res.Fields[tfbridge.NameProperty]; !hasfield {
-					prov.Resources[resname] = tfbridge.AutoName(res, 255)
+			if _, has := schema.Schema[awsName]; has {
+				if _, hasfield := res.Fields[awsName]; !hasfield {
+					if res.Fields == nil {
+						res.Fields = make(map[string]*tfbridge.SchemaInfo)
+					}
+					res.Fields[awsName] = tfbridge.AutoName(awsName, 255)
 				}
 			}
 		}

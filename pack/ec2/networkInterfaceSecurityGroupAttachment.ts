@@ -16,8 +16,8 @@ export class NetworkInterfaceSecurityGroupAttachment extends lumi.NamedResource 
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: NetworkInterfaceSecurityGroupAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: NetworkInterfaceSecurityGroupAttachmentArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.networkInterfaceId, "") === undefined) {
             throw new Error("Property argument 'networkInterfaceId' is required, but was missing");
         }

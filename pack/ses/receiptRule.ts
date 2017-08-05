@@ -10,7 +10,7 @@ export class ReceiptRule extends lumi.NamedResource implements ReceiptRuleArgs {
     public readonly bounceAction?: { message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[];
     public readonly enabled: boolean;
     public readonly lambdaAction?: { functionArn: string, invocationType: string, position: number, topicArn?: string }[];
-    public readonly receiptRuleName: string;
+    public readonly name: string;
     public readonly recipients?: string[];
     public readonly ruleSetName: string;
     public readonly s3Action?: { bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[];
@@ -28,14 +28,14 @@ export class ReceiptRule extends lumi.NamedResource implements ReceiptRuleArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ReceiptRuleArgs) {
-        super(name);
+    constructor(urnName: string, args: ReceiptRuleArgs) {
+        super(urnName);
         this.addHeaderAction = <any>args.addHeaderAction;
         this.after = <any>args.after;
         this.bounceAction = <any>args.bounceAction;
         this.enabled = <any>args.enabled;
         this.lambdaAction = <any>args.lambdaAction;
-        this.receiptRuleName = <any>args.receiptRuleName;
+        this.name = <any>args.name;
         this.recipients = <any>args.recipients;
         if (lumirt.defaultIfComputed(args.ruleSetName, "") === undefined) {
             throw new Error("Property argument 'ruleSetName' is required, but was missing");
@@ -56,7 +56,7 @@ export interface ReceiptRuleArgs {
     readonly bounceAction?: { message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[];
     readonly enabled?: boolean;
     readonly lambdaAction?: { functionArn: string, invocationType?: string, position: number, topicArn?: string }[];
-    readonly receiptRuleName?: string;
+    readonly name?: string;
     readonly recipients?: string[];
     readonly ruleSetName: string;
     readonly s3Action?: { bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[];

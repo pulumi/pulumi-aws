@@ -8,7 +8,7 @@ export class ConfigurationTemplate extends lumi.NamedResource implements Configu
     public readonly application: string;
     public readonly description?: string;
     public readonly environmentId?: string;
-    public readonly configurationTemplateName: string;
+    public readonly name: string;
     public readonly setting: { name: string, namespace: string, resource?: string, value: string }[];
     public readonly solutionStackName?: string;
 
@@ -20,15 +20,15 @@ export class ConfigurationTemplate extends lumi.NamedResource implements Configu
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ConfigurationTemplateArgs) {
-        super(name);
+    constructor(urnName: string, args: ConfigurationTemplateArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.application, "") === undefined) {
             throw new Error("Property argument 'application' is required, but was missing");
         }
         this.application = <any>args.application;
         this.description = <any>args.description;
         this.environmentId = <any>args.environmentId;
-        this.configurationTemplateName = <any>args.configurationTemplateName;
+        this.name = <any>args.name;
         this.setting = <any>args.setting;
         this.solutionStackName = <any>args.solutionStackName;
     }
@@ -38,7 +38,7 @@ export interface ConfigurationTemplateArgs {
     readonly application: string;
     readonly description?: string;
     readonly environmentId?: string;
-    readonly configurationTemplateName?: string;
+    readonly name?: string;
     readonly setting?: { name: string, namespace: string, resource?: string, value: string }[];
     readonly solutionStackName?: string;
 }

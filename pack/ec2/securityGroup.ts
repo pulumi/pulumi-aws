@@ -8,7 +8,7 @@ export class SecurityGroup extends lumi.NamedResource implements SecurityGroupAr
     public readonly description?: string;
     public readonly egress: { cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
     public readonly ingress: { cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
-    public readonly securityGroupName: string;
+    public readonly name: string;
     public readonly namePrefix?: string;
     public /*out*/ readonly ownerId: string;
     public readonly tags?: {[key: string]: any};
@@ -22,12 +22,12 @@ export class SecurityGroup extends lumi.NamedResource implements SecurityGroupAr
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SecurityGroupArgs) {
-        super(name);
+    constructor(urnName: string, args: SecurityGroupArgs) {
+        super(urnName);
         this.description = <any>args.description;
         this.egress = <any>args.egress;
         this.ingress = <any>args.ingress;
-        this.securityGroupName = <any>args.securityGroupName;
+        this.name = <any>args.name;
         this.namePrefix = <any>args.namePrefix;
         this.tags = <any>args.tags;
         this.vpcId = <any>args.vpcId;
@@ -38,7 +38,7 @@ export interface SecurityGroupArgs {
     readonly description?: string;
     readonly egress?: { cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
     readonly ingress?: { cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
-    readonly securityGroupName?: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     readonly tags?: {[key: string]: any};
     readonly vpcId?: string;

@@ -17,7 +17,7 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
     public readonly logUri?: string;
     public readonly masterInstanceType: string;
     public /*out*/ readonly masterPublicDns: string;
-    public readonly clusterName: string;
+    public readonly name: string;
     public readonly releaseLabel: string;
     public readonly securityConfiguration?: string;
     public readonly serviceRole: string;
@@ -33,8 +33,8 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ClusterArgs) {
-        super(name);
+    constructor(urnName: string, args: ClusterArgs) {
+        super(urnName);
         this.applications = <any>args.applications;
         this.autoscalingRole = <any>args.autoscalingRole;
         this.bootstrapAction = <any>args.bootstrapAction;
@@ -48,7 +48,7 @@ export class Cluster extends lumi.NamedResource implements ClusterArgs {
             throw new Error("Property argument 'masterInstanceType' is required, but was missing");
         }
         this.masterInstanceType = <any>args.masterInstanceType;
-        this.clusterName = <any>args.clusterName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.releaseLabel, "") === undefined) {
             throw new Error("Property argument 'releaseLabel' is required, but was missing");
         }
@@ -75,7 +75,7 @@ export interface ClusterArgs {
     readonly keepJobFlowAliveWhenNoSteps?: boolean;
     readonly logUri?: string;
     readonly masterInstanceType: string;
-    readonly clusterName?: string;
+    readonly name?: string;
     readonly releaseLabel: string;
     readonly securityConfiguration?: string;
     readonly serviceRole: string;

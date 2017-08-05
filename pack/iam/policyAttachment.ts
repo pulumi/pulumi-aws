@@ -11,7 +11,7 @@ import {User} from "./user";
 
 export class PolicyAttachment extends lumi.NamedResource implements PolicyAttachmentArgs {
     public readonly groups?: Group[];
-    public readonly policyAttachmentName: string;
+    public readonly name: string;
     public readonly policyArn: ARN;
     public readonly roles?: Role[];
     public readonly users?: User[];
@@ -24,10 +24,10 @@ export class PolicyAttachment extends lumi.NamedResource implements PolicyAttach
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PolicyAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: PolicyAttachmentArgs) {
+        super(urnName);
         this.groups = <any>args.groups;
-        this.policyAttachmentName = <any>args.policyAttachmentName;
+        this.name = <any>args.name;
         if (lumirt.defaultIfComputed(args.policyArn, "") === undefined) {
             throw new Error("Property argument 'policyArn' is required, but was missing");
         }
@@ -39,7 +39,7 @@ export class PolicyAttachment extends lumi.NamedResource implements PolicyAttach
 
 export interface PolicyAttachmentArgs {
     readonly groups?: Group[];
-    readonly policyAttachmentName?: string;
+    readonly name?: string;
     readonly policyArn: ARN;
     readonly roles?: Role[];
     readonly users?: User[];

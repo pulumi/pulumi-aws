@@ -40,8 +40,8 @@ export class Distribution extends lumi.NamedResource implements DistributionArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DistributionArgs) {
-        super(name);
+    constructor(urnName: string, args: DistributionArgs) {
+        super(urnName);
         this.aliases = <any>args.aliases;
         this.cacheBehavior = <any>args.cacheBehavior;
         this.comment = <any>args.comment;

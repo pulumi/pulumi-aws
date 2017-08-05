@@ -16,8 +16,8 @@ export class DomainPolicy extends lumi.NamedResource implements DomainPolicyArgs
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: DomainPolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: DomainPolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.accessPolicies, "") === undefined) {
             throw new Error("Property argument 'accessPolicies' is required, but was missing");
         }

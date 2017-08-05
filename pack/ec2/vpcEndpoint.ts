@@ -20,8 +20,8 @@ export class VpcEndpoint extends lumi.NamedResource implements VpcEndpointArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: VpcEndpointArgs) {
-        super(name);
+    constructor(urnName: string, args: VpcEndpointArgs) {
+        super(urnName);
         this.policy = <any>args.policy;
         this.routeTableIds = <any>args.routeTableIds;
         if (lumirt.defaultIfComputed(args.serviceName, "") === undefined) {

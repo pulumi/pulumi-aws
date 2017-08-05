@@ -23,8 +23,8 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PermissionArgs) {
-        super(name);
+    constructor(urnName: string, args: PermissionArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.action, "") === undefined) {
             throw new Error("Property argument 'action' is required, but was missing");
         }

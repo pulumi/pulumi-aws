@@ -24,8 +24,8 @@ export class SecurityGroupRule extends lumi.NamedResource implements SecurityGro
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: SecurityGroupRuleArgs) {
-        super(name);
+    constructor(urnName: string, args: SecurityGroupRuleArgs) {
+        super(urnName);
         this.cidrBlocks = <any>args.cidrBlocks;
         if (lumirt.defaultIfComputed(args.fromPort, "") === undefined) {
             throw new Error("Property argument 'fromPort' is required, but was missing");

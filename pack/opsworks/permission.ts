@@ -20,8 +20,8 @@ export class Permission extends lumi.NamedResource implements PermissionArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: PermissionArgs) {
-        super(name);
+    constructor(urnName: string, args: PermissionArgs) {
+        super(urnName);
         this.allowSsh = <any>args.allowSsh;
         this.allowSudo = <any>args.allowSudo;
         this.level = <any>args.level;

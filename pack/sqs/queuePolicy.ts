@@ -16,8 +16,8 @@ export class QueuePolicy extends lumi.NamedResource implements QueuePolicyArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: QueuePolicyArgs) {
-        super(name);
+    constructor(urnName: string, args: QueuePolicyArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.policy, "") === undefined) {
             throw new Error("Property argument 'policy' is required, but was missing");
         }

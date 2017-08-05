@@ -33,8 +33,8 @@ export class Object extends lumi.NamedResource implements ObjectArgs {
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ObjectArgs) {
-        super(name);
+    constructor(urnName: string, args: ObjectArgs) {
+        super(urnName);
         this.acl = <any>args.acl;
         if (lumirt.defaultIfComputed(args.bucket, "") === undefined) {
             throw new Error("Property argument 'bucket' is required, but was missing");

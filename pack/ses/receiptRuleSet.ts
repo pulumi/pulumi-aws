@@ -15,8 +15,8 @@ export class ReceiptRuleSet extends lumi.NamedResource implements ReceiptRuleSet
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: ReceiptRuleSetArgs) {
-        super(name);
+    constructor(urnName: string, args: ReceiptRuleSetArgs) {
+        super(urnName);
         if (lumirt.defaultIfComputed(args.ruleSetName, "") === undefined) {
             throw new Error("Property argument 'ruleSetName' is required, but was missing");
         }

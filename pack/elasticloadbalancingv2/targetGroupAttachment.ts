@@ -17,8 +17,8 @@ export class TargetGroupAttachment extends lumi.NamedResource implements TargetG
         return <any>undefined; // functionality provided by the runtime
     }
 
-    constructor(name: string, args: TargetGroupAttachmentArgs) {
-        super(name);
+    constructor(urnName: string, args: TargetGroupAttachmentArgs) {
+        super(urnName);
         this.port = <any>args.port;
         if (lumirt.defaultIfComputed(args.targetGroupArn, "") === undefined) {
             throw new Error("Property argument 'targetGroupArn' is required, but was missing");
