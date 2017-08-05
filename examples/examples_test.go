@@ -33,6 +33,8 @@ func TestExamples(t *testing.T) {
 			path.Join(cwd, "webserver-comp"),
 			path.Join(cwd, "beanstalk"),
 			path.Join(cwd, "cpuwatch"),
+			path.Join(cwd, "serverless-raw"),
+			path.Join(cwd, "serverless"),
 		}
 	}
 	options := integration.LumiProgramTestOptions{
