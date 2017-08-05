@@ -45,6 +45,7 @@ import * as rds from "./rds/index";
 import * as redshift from "./redshift/index";
 import * as route53 from "./route53/index";
 import * as s3 from "./s3/index";
+import * as serverless from "./serverless/index";
 import * as ses from "./ses/index";
 import * as sfn from "./sfn/index";
 import * as simpledb from "./simpledb/index";
@@ -53,7 +54,7 @@ import * as sqs from "./sqs/index";
 import * as ssm from "./ssm/index";
 import * as waf from "./waf/index";
 import * as wafregional from "./wafregional/index";
-export {apigateway, appautoscaling, autoscaling, cfg, cloudformation, cloudfront, cloudtrail, cloudwatch, codebuild, codecommit, codedeploy, codepipeline, cognito, config, devicefarm, directoryservice, dms, dynamodb, ebs, ec2, ecr, ecs, efs, elasticache, elasticbeanstalk, elasticloadbalancing, elasticloadbalancingv2, elasticsearch, elastictranscoder, emr, glacier, iam, inspector, iot, kinesis, kms, lambda, lightsail, opsworks, rds, redshift, route53, s3, ses, sfn, simpledb, sns, sqs, ssm, waf, wafregional};
+export {apigateway, appautoscaling, autoscaling, cfg, cloudformation, cloudfront, cloudtrail, cloudwatch, codebuild, codecommit, codedeploy, codepipeline, cognito, config, devicefarm, directoryservice, dms, dynamodb, ebs, ec2, ecr, ecs, efs, elasticache, elasticbeanstalk, elasticloadbalancing, elasticloadbalancingv2, elasticsearch, elastictranscoder, emr, glacier, iam, inspector, iot, kinesis, kms, lambda, lightsail, opsworks, rds, redshift, route53, s3, serverless, ses, sfn, simpledb, sns, sqs, ssm, waf, wafregional};
 
 // Export members:
 export * from "./arn";
