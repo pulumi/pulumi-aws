@@ -1,7 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@lumi/aws";
-import * as serverless from "@lumi/aws-serverless";
 import * as lumi from "@lumi/lumi";
 
 let music = new aws.dynamodb.Table("music", {
@@ -38,7 +37,7 @@ let music = new aws.dynamodb.Table("music", {
 });
 
 let hello = "Hello, world!";
-let lambda = new serverless.Function(
+let lambda = new aws.serverless.Function(
   "mylambda",
   { policies: [aws.iam.AWSLambdaFullAccess] },
   (event, context, callback) => {
@@ -50,11 +49,4 @@ let lambda = new serverless.Function(
     });
   },
 );
-
-// BUGBUG[pulumi/aws-serverless#1]: because we don't recursively create resources, we use bambam rather than /bambam.
-let api = new serverless.API("frontend");
-api.route("GET", "/bambam/{foo}", lambda);
-//api.route("PUT", "/bambam", lambda);
-api.route("POST", "/", lambda);
-let stage = api.publish();
 
