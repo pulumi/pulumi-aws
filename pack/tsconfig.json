@@ -315,6 +315,7 @@
         "redshift/index.ts",
         "route53/index.ts",
         "s3/index.ts",
+        "serverless/index.ts",
         "ses/index.ts",
         "sfn/index.ts",
         "simpledb/index.ts",
@@ -328,6 +329,7 @@
         "ec2/instanceType.ts",
         "iam/managedPolicies.ts",
         "lambda/runtimes.ts",
+        "serverless/function.ts",
         "index.ts"
     ]
 }

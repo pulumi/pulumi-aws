@@ -828,6 +828,11 @@ func Provider() tfbridge.ProviderInfo {
 						"runtimes.ts", // a union type and constants for available Lambda runtimes.
 					},
 				},
+				"serverless": {
+					Files: []string{
+						"function.ts", // a union type and constants for available Lambda runtimes.
+					},
+				},
 			},
 		},
 	}
