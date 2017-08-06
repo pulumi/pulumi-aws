@@ -13,7 +13,6 @@ import (
 )
 
 func TestExamples(t *testing.T) {
-	var examples []string
 	region := os.Getenv("AWS_REGION")
 	if region == "" {
 		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
@@ -22,22 +21,9 @@ func TestExamples(t *testing.T) {
 	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
 		return
 	}
-	if testing.Short() {
-		examples = []string{
-			path.Join(cwd, "minimal"),
-		}
-	} else {
-		examples = []string{
-			path.Join(cwd, "minimal"),
-			path.Join(cwd, "webserver"),
-			path.Join(cwd, "webserver-comp"),
-			path.Join(cwd, "beanstalk"),
-			path.Join(cwd, "cpuwatch"),
-			path.Join(cwd, "serverless-raw"),
-			path.Join(cwd, "serverless"),
-		}
-	}
-	options := integration.LumiProgramTestOptions{
+
+	// base options shared amongst all tests.
+	base := integration.LumiProgramTestOptions{
 		Config: map[string]string{
 			"aws:config:region": region,
 		},
@@ -47,10 +33,28 @@ func TestExamples(t *testing.T) {
 			"@lumi/aws",
 		},
 	}
+
+	examples := []integration.LumiProgramTestOptions{
+		base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+	}
+	if !testing.Short() {
+		examples = append(examples, []integration.LumiProgramTestOptions{
+			base.With(integration.LumiProgramTestOptions{
+				Dir:      path.Join(cwd, "webserver"),
+				EditDirs: []string{path.Join(cwd, "webserver", "variants", "ssh")},
+			}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "cpuwatch")}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
+		}...)
+	}
+
 	for _, ex := range examples {
 		example := ex
-		t.Run(example, func(t *testing.T) {
-			integration.LumiProgramTest(t, example, options)
+		t.Run(example.Dir, func(t *testing.T) {
+			integration.LumiProgramTest(t, example)
 		})
 	}
 }
