@@ -40,8 +40,15 @@ func TestExamples(t *testing.T) {
 	if !testing.Short() {
 		examples = append(examples, []integration.LumiProgramTestOptions{
 			base.With(integration.LumiProgramTestOptions{
-				Dir:      path.Join(cwd, "webserver"),
-				EditDirs: []string{path.Join(cwd, "webserver", "variants", "ssh")},
+				Dir: path.Join(cwd, "webserver"),
+				EditDirs: []string{
+					// First just patch the ingress rules by adding port 20: should be a quick update.
+					path.Join(cwd, "webserver", "variants", "ssh"),
+					// Now do the reverse; this basically ensures that an update that deletes a property works.
+					path.Join(cwd, "webserver"),
+					// Next patch the security group description, necessitating a full replacement of resources.
+					path.Join(cwd, "webserver", "variants", "ssh_description"),
+				},
 			}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
