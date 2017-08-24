@@ -276,7 +276,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_metric_alarm": {
 				Tok: awsrestok(cloudwatchMod, "MetricAlarm"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"alarm_name": tfbridge.AutoName("name", -1),
+					"alarm_name": tfbridge.AutoName("name", 255),
 					"alarm_actions": {
 						Elem: &tfbridge.SchemaInfo{
 							Type: awsrestok(snsMod, "Topic"),
@@ -589,7 +589,7 @@ func Provider() tfbridge.ProviderInfo {
 						Name: "function",
 						Type: awstok(lambdaMod+"/function", "Function"),
 					},
-					"statement_id": tfbridge.AutoName("statementId", -1),
+					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
 			},
 			// LightSail
@@ -729,7 +729,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket": {
 				Tok: awsrestok(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"bucket": tfbridge.AutoNameTransform("bucket", -1, func(name string) string {
+					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
 				},
