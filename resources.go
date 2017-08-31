@@ -85,14 +85,10 @@ func awsrestok(mod string, res string) tokens.Type {
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
-	git, err := tfbridge.GetGitInfo("aws")
-	if err != nil {
-		panic(err)
-	}
 	p := aws.Provider().(*schema.Provider)
 	prov := tfbridge.ProviderInfo{
-		P:   p,
-		Git: git,
+		P:    p,
+		Name: "aws",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awstok("region", "Region"),
