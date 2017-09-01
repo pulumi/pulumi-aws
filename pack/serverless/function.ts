@@ -1,7 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import {AssetArchive, File, String as StringAsset} from "@lumi/lumi/asset";
-import {Closure, jsonStringify, objectKeys, serializeClosure, toString, sha1hash, EnvObj, EnvEntry} from "@lumi/lumirt";
+import {AssetArchive, File, String as StringAsset} from "@pulumi/pulumi-fabric/asset";
 import {Role, RolePolicyAttachment} from "../iam";
 import * as lambda from "../lambda";
 import {ARN} from "../arn";
@@ -71,8 +70,8 @@ class FuncsForClosure {
 
     private envFromEnvObj(env: EnvObj): {[key: string]: string} {
         let envObj: {[key: string]: string} = {};
-        let keys = objectKeys(env);
-        for (let i = 0; i < (<any>keys).length; i++) {
+        let keys = Object.keys(env);
+        for (let i = 0; i < keys.length; i++) {
             let key = keys[i];
             let envEntry = env[key];
             let val = this.envEntryToString(envEntry);
@@ -117,8 +116,8 @@ class FuncsForClosure {
 function envObjToString(envObj: { [key: string]: string; }): string {
     let ret = "{";
     let isStart = true;
-    let keys = objectKeys(envObj);
-    for (let i = 0; i < (<any>keys).length; i++) {
+    let keys = Object.keys(envObj);
+    for (let i = 0; i < keys.length; i++) {
         let key = keys[i];
         let val = envObj[key];
         // Lumi generates the special name `.this` for references to `this`.
@@ -165,8 +164,8 @@ function createJavaScriptLambda(
     let funcsForClosure = new FuncsForClosure(closure);
     let funcs = funcsForClosure.funcs;
     let str = "exports.handler = " + funcsForClosure.root + ";\n\n";
-    let fkeys = objectKeys(funcs);
-    for (let i = 0; i < (<any>fkeys).length; i++) {
+    let fkeys = Object.keys(funcs);
+    for (let i = 0; i < fkeys.length; i++) {
         let name = fkeys[i];
         str +=
             "function " + name + "() {\n" +
@@ -277,11 +276,11 @@ export class Function {
 
         // Attach a role and then, if there are policies, attach those too.
         this.role = new Role(name + "-iamrole", {
-            assumeRolePolicy: jsonStringify(policy),
+            assumeRolePolicy: JSON.stringify(policy),
         });
         this.policies = [];
-        for (let i = 0; i < (<any>options.policies).length; i++) {
-            (<any>this.policies).push(new RolePolicyAttachment(name + "-iampolicy-" + toString(i), {
+        for (let i = 0; i < options.policies.length; i++) {
+            this.policies.push(new RolePolicyAttachment(name + "-iampolicy-" + toString(i), {
                 role: this.role,
                 policyArn: options.policies[i],
             }));

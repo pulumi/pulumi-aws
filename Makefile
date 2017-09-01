@@ -9,12 +9,8 @@ PROJECT =github.com/pulumi/pulumi-aws
 TFGEN           = lumi-tfgen-${PACK}
 TFBRIDGE        = lumi-tfbridge-${PACK}
 TFBRIDGE_BIN    = ${GOPATH}/bin/${TFBRIDGE}
-LUMIROOT       ?= /usr/local/lumi
-LUMILIB         = ${LUMIROOT}/packs
 LUMIPLUG        = lumi-resource
 TESTPARALLELISM = 10
-
-INSTALLDIR      = ${LUMILIB}/${PACK}
 
 ECHO=echo -e
 GOMETALINTERBIN=gometalinter
@@ -42,9 +38,8 @@ gen:
 
 build:
 	@$(ECHO) "[Building ${PACK} package:]"
-	cd ${PACKDIR} && yarn link @lumi/lumi @lumi/lumirt      # ensure we resolve to Lumi's stdlibs.
-	cd ${PACKDIR} && lumijs                                 # compile the LumiPack.
-	cd ${PACKDIR} && lumi pack verify                       # ensure the pack verifies.
+	cd ${PACKDIR} && yarn link @pulumi/pulumi-fabric # ensure we resolve to Lumi's stdlibs.
+	cd ${PACKDIR} && yarn run build                  # compile into a JavaScript NPM package.
 .PHONY: build
 
 test:
@@ -56,14 +51,8 @@ test:
 .PHONY: test
 
 install:
-	@$(ECHO) "[Installing ${PACK} package to ${INSTALLDIR}:]"
-	mkdir -p ${INSTALLDIR}
-	cp ${PACKDIR}/VERSION ${INSTALLDIR}                     # remember the version we gen'd this from.
-	cp -r ${PACKDIR}/.lumi/bin/* ${INSTALLDIR}              # copy the binary/metadata.
-	cp ${TFBRIDGE_BIN} ${INSTALLDIR}/${LUMIPLUG}-${PACK}    # bring along the Lumi plugin.
-	cp ${PACKDIR}/package.json ${INSTALLDIR}                # ensure the result is a proper NPM package.
-	cp -RL ${PACKDIR}/node_modules ${INSTALLDIR}            # copy the links we installed.
-	cd ${INSTALLDIR} && yarn link --force                   # make the pack easily available for devs.
+	@$(ECHO) "[Installing ${PACK} package:]"
+	cd ${PACKDIR} && yarn link --force               # ensure this pack is made available.
 .PHONY: install
 
 publish:

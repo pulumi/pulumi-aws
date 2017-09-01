@@ -1,6 +1,0 @@
-name: aws
-description: A Lumi resource provider for aws.
-dependencies:
-    lumi: "*"
-    lumirt: "*"
-

@@ -28,9 +28,8 @@ func TestExamples(t *testing.T) {
 			"aws:config:region": region,
 		},
 		Dependencies: []string{
-			"@lumi/lumirt",
-			"@lumi/lumi",
-			"@lumi/aws",
+			"@pulumi/pulumi-fabric",
+			"@pulumi/aws",
 		},
 	}
 

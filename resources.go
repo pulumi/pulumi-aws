@@ -739,7 +739,7 @@ func Provider() tfbridge.ProviderInfo {
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
-							From: string(resource.URNNamePropertyKey),
+							From: tfbridge.FromName(false, 0, nil),
 						},
 					},
 					"source": {

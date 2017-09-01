@@ -1,8 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import * as aws from "@lumi/aws";
-import * as lumi from "@lumi/lumi";
-import { jsonStringify } from "@lumi/lumirt";
+import * as aws from "@pulumi/aws";
+import { asset } from "@pulumi/pulumi-fabric";
 let region = aws.config.requireRegion();
 
 ///////////////////
@@ -23,15 +22,15 @@ let policy = {
 };
 
 let role = new aws.iam.Role("mylambda-role", {
-    assumeRolePolicy: jsonStringify(policy),
+    assumeRolePolicy: JSON.stringify(policy),
 });
 let fullAccess = new aws.iam.RolePolicyAttachment("mylambda-access", {
     role: role,
     policyArn: aws.iam.AWSLambdaFullAccess,
 });
 let lambda = new aws.lambda.Function("mylambda", {
-    code: new lumi.asset.AssetArchive({
-        "index.js": new lumi.asset.String(
+    code: new asset.AssetArchive({
+        "index.js": new asset.String(
             "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});",
         ),
     }),
@@ -48,7 +47,7 @@ let logGroup = new aws.cloudwatch.LogGroup("/aws/lambda/mylambda", {
 });
 
 let logcollector = new aws.lambda.Function("mylambda-logcollector", {
-    code: new lumi.asset.AssetArchive({
+    code: new asset.AssetArchive({
         "index.js": new lumi.asset.String(
             "exports.handler = (e, c, cb) => console.log(e);",
         ),
