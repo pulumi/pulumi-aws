@@ -17,12 +17,6 @@ install:
     - ${GOPATH}/src/github.com/pulumi/pulumi-fabric/scripts/install_release.sh lumi HEAD ~/.lumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
-    # Finally, clone and install the Pulumi fork of the AWS Terraform provider.  This needs to be done explicitly
-    # because we need to "fake out" the Go package name so it's found underneath terraform-providers/...
-    - git clone -b pulumi-master
-        git@github.com:pulumi/terraform-provider-aws
-        ${GOPATH}/src/github.com/terraform-providers/terraform-provider-aws
-    - go install github.com/terraform-providers/terraform-provider-aws
 script:
     - make all
 before_script:
