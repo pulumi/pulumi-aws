@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SpotInstanceRequest
-        extends fabric.Resource implements SpotInstanceRequestArgs {
+export class SpotInstanceRequest extends fabric.Resource {
     public readonly ami: fabric.Property<string>;
     public readonly associatePublicIpAddress: fabric.Property<boolean>;
     public readonly availabilityZone: fabric.Property<string>;
@@ -98,22 +97,22 @@ export interface SpotInstanceRequestArgs {
     readonly availabilityZone?: fabric.PropertyValue<string>;
     readonly blockDurationMinutes?: fabric.PropertyValue<number>;
     readonly disableApiTermination?: fabric.PropertyValue<boolean>;
-    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[]>;
+    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceName: fabric.PropertyValue<string>, encrypted?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, snapshotId?: fabric.PropertyValue<string>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
     readonly ebsOptimized?: fabric.PropertyValue<boolean>;
-    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: string, noDevice?: boolean, virtualName?: string }[]>;
+    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: fabric.PropertyValue<string>, noDevice?: fabric.PropertyValue<boolean>, virtualName?: fabric.PropertyValue<string> }>[];
     readonly iamInstanceProfile?: fabric.PropertyValue<string>;
     readonly instanceInitiatedShutdownBehavior?: fabric.PropertyValue<string>;
     readonly instanceType: fabric.PropertyValue<string>;
     readonly ipv6AddressCount?: fabric.PropertyValue<number>;
-    readonly ipv6Addresses?: fabric.PropertyValue<string[]>;
+    readonly ipv6Addresses?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly keyName?: fabric.PropertyValue<string>;
     readonly launchGroup?: fabric.PropertyValue<string>;
     readonly monitoring?: fabric.PropertyValue<boolean>;
-    readonly networkInterface?: fabric.PropertyValue<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
+    readonly networkInterface?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceIndex: fabric.PropertyValue<number>, networkInterfaceId: fabric.PropertyValue<string> }>[];
     readonly placementGroup?: fabric.PropertyValue<string>;
     readonly privateIp?: fabric.PropertyValue<string>;
-    readonly rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[]>;
-    readonly securityGroups?: fabric.PropertyValue<string[]>;
+    readonly rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
+    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly sourceDestCheck?: fabric.PropertyValue<boolean>;
     readonly spotPrice: fabric.PropertyValue<string>;
     readonly spotType?: fabric.PropertyValue<string>;
@@ -122,7 +121,7 @@ export interface SpotInstanceRequestArgs {
     readonly tenancy?: fabric.PropertyValue<string>;
     readonly userData?: fabric.PropertyValue<string>;
     readonly volumeTags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.PropertyValue<string[]>;
+    readonly vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly waitForFulfillment?: fabric.PropertyValue<boolean>;
 }
 

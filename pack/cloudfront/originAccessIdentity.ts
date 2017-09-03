@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class OriginAccessIdentity
-        extends fabric.Resource implements OriginAccessIdentityArgs {
+export class OriginAccessIdentity extends fabric.Resource {
     public /*out*/ readonly callerReference: fabric.Property<string>;
     public /*out*/ readonly cloudfrontAccessIdentityPath: fabric.Property<string>;
     public readonly comment?: fabric.Property<string>;

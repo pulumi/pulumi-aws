@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class OpenIdConnectProvider
-        extends fabric.Resource implements OpenIdConnectProviderArgs {
+export class OpenIdConnectProvider extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly clientIdList: fabric.Property<string[]>;
     public readonly thumbprintList: fabric.Property<string[]>;
@@ -29,8 +28,8 @@ export class OpenIdConnectProvider
 }
 
 export interface OpenIdConnectProviderArgs {
-    readonly clientIdList: fabric.PropertyValue<string[]>;
-    readonly thumbprintList: fabric.PropertyValue<string[]>;
+    readonly clientIdList: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly thumbprintList: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly url: fabric.PropertyValue<string>;
 }
 

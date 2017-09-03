@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Topic} from "./topic";
 
-export class TopicSubscription
-        extends fabric.Resource implements TopicSubscriptionArgs {
+export class TopicSubscription extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly confirmationTimeoutInMinutes?: fabric.Property<number>;
     public readonly deliveryPolicy?: fabric.Property<string>;

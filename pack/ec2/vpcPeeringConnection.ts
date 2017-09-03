@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpcPeeringConnection
-        extends fabric.Resource implements VpcPeeringConnectionArgs {
+export class VpcPeeringConnection extends fabric.Resource {
     public /*out*/ readonly acceptStatus: fabric.Property<string>;
     public readonly accepter: fabric.Property<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
     public readonly autoAccept?: fabric.Property<boolean>;
@@ -34,11 +33,11 @@ export class VpcPeeringConnection
 }
 
 export interface VpcPeeringConnectionArgs {
-    readonly accepter?: fabric.PropertyValue<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
+    readonly accepter?: fabric.PropertyValue<{ allowClassicLinkToRemoteVpc?: fabric.PropertyValue<boolean>, allowRemoteVpcDnsResolution?: fabric.PropertyValue<boolean>, allowVpcToRemoteClassicLink?: fabric.PropertyValue<boolean> }>[];
     readonly autoAccept?: fabric.PropertyValue<boolean>;
     readonly peerOwnerId?: fabric.PropertyValue<string>;
     readonly peerVpcId: fabric.PropertyValue<string>;
-    readonly requester?: fabric.PropertyValue<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
+    readonly requester?: fabric.PropertyValue<{ allowClassicLinkToRemoteVpc?: fabric.PropertyValue<boolean>, allowRemoteVpcDnsResolution?: fabric.PropertyValue<boolean>, allowVpcToRemoteClassicLink?: fabric.PropertyValue<boolean> }>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly vpcId: fabric.PropertyValue<string>;
 }

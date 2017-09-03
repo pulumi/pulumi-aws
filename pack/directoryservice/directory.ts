@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Directory
-        extends fabric.Resource implements DirectoryArgs {
+export class Directory extends fabric.Resource {
     public /*out*/ readonly accessUrl: fabric.Property<string>;
     public readonly alias: fabric.Property<string>;
     public readonly connectSettings?: fabric.Property<{ customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string }[]>;
@@ -39,7 +38,7 @@ export class Directory
 
 export interface DirectoryArgs {
     readonly alias?: fabric.PropertyValue<string>;
-    readonly connectSettings?: fabric.PropertyValue<{ customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string }[]>;
+    readonly connectSettings?: fabric.PropertyValue<{ customerDnsIps: fabric.PropertyValue<fabric.PropertyValue<string>>[], customerUsername: fabric.PropertyValue<string>, subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[], vpcId: fabric.PropertyValue<string> }>[];
     readonly description?: fabric.PropertyValue<string>;
     readonly enableSso?: fabric.PropertyValue<boolean>;
     readonly name?: fabric.PropertyValue<string>;
@@ -47,6 +46,6 @@ export interface DirectoryArgs {
     readonly shortName?: fabric.PropertyValue<string>;
     readonly size?: fabric.PropertyValue<string>;
     readonly type?: fabric.PropertyValue<string>;
-    readonly vpcSettings?: fabric.PropertyValue<{ subnetIds: string[], vpcId: string }[]>;
+    readonly vpcSettings?: fabric.PropertyValue<{ subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[], vpcId: fabric.PropertyValue<string> }>[];
 }
 

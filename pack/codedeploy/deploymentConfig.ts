@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DeploymentConfig
-        extends fabric.Resource implements DeploymentConfigArgs {
+export class DeploymentConfig extends fabric.Resource {
     public /*out*/ readonly deploymentConfigId: fabric.Property<string>;
     public readonly deploymentConfigName: fabric.Property<string>;
     public readonly minimumHealthyHosts: fabric.Property<{ type: string, value?: number }[]>;
@@ -25,6 +24,6 @@ export class DeploymentConfig
 
 export interface DeploymentConfigArgs {
     readonly deploymentConfigName: fabric.PropertyValue<string>;
-    readonly minimumHealthyHosts: fabric.PropertyValue<{ type: string, value?: number }[]>;
+    readonly minimumHealthyHosts: fabric.PropertyValue<{ type: fabric.PropertyValue<string>, value?: fabric.PropertyValue<number> }>[];
 }
 

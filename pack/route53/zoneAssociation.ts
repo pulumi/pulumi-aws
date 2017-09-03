@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ZoneAssociation
-        extends fabric.Resource implements ZoneAssociationArgs {
+export class ZoneAssociation extends fabric.Resource {
     public readonly vpcId: fabric.Property<string>;
     public readonly vpcRegion: fabric.Property<string>;
     public readonly zoneId: fabric.Property<string>;

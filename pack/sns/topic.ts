@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {ARN} from "../index";
 
-export class Topic
-        extends fabric.Resource implements TopicArgs {
+export class Topic extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<ARN>;
     public readonly deliveryPolicy?: fabric.Property<string>;
     public readonly displayName?: fabric.Property<string>;

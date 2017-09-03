@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SamlProvider
-        extends fabric.Resource implements SamlProviderArgs {
+export class SamlProvider extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly samlMetadataDocument: fabric.Property<string>;

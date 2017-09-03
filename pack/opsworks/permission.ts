@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Permission
-        extends fabric.Resource implements PermissionArgs {
+export class Permission extends fabric.Resource {
     public readonly allowSsh: fabric.Property<boolean>;
     public readonly allowSudo: fabric.Property<boolean>;
     public /*out*/ readonly permissionId: fabric.Property<string>;

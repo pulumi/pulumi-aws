@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class AmiLaunchPermission
-        extends fabric.Resource implements AmiLaunchPermissionArgs {
+export class AmiLaunchPermission extends fabric.Resource {
     public readonly accountId: fabric.Property<string>;
     public readonly imageId: fabric.Property<string>;
 

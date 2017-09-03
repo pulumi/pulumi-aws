@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Volume
-        extends fabric.Resource implements VolumeArgs {
+export class Volume extends fabric.Resource {
     public readonly availabilityZone: fabric.Property<string>;
     public readonly encrypted: fabric.Property<boolean>;
     public readonly iops: fabric.Property<number>;

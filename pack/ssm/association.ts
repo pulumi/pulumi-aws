@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Association
-        extends fabric.Resource implements AssociationArgs {
+export class Association extends fabric.Resource {
     public /*out*/ readonly associationId: fabric.Property<string>;
     public readonly instanceId?: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
@@ -25,6 +24,6 @@ export interface AssociationArgs {
     readonly instanceId?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly parameters?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly targets?: fabric.PropertyValue<{ key: string, values: string[] }[]>;
+    readonly targets?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
 }
 

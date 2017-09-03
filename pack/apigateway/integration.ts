@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class Integration
-        extends fabric.Resource implements IntegrationArgs {
+export class Integration extends fabric.Resource {
     public readonly cacheKeyParameters?: fabric.Property<string[]>;
     public readonly cacheNamespace: fabric.Property<string>;
     public readonly contentHandling?: fabric.Property<string>;
@@ -55,16 +54,16 @@ export class Integration
 }
 
 export interface IntegrationArgs {
-    readonly cacheKeyParameters?: fabric.PropertyValue<string[]>;
+    readonly cacheKeyParameters?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly cacheNamespace?: fabric.PropertyValue<string>;
     readonly contentHandling?: fabric.PropertyValue<string>;
     readonly credentials?: fabric.PropertyValue<string>;
     readonly httpMethod: fabric.PropertyValue<string>;
     readonly integrationHttpMethod?: fabric.PropertyValue<string>;
     readonly passthroughBehavior?: fabric.PropertyValue<string>;
-    readonly requestParameters?: fabric.PropertyValue<{[key: string]: string}>;
+    readonly requestParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
     readonly requestParametersInJson?: fabric.PropertyValue<string>;
-    readonly requestTemplates?: fabric.PropertyValue<{[key: string]: string}>;
+    readonly requestTemplates?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
     readonly resourceId: fabric.PropertyValue<string>;
     readonly restApi: fabric.PropertyValue<RestApi>;
     readonly type: fabric.PropertyValue<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Activity
-        extends fabric.Resource implements ActivityArgs {
+export class Activity extends fabric.Resource {
     public /*out*/ readonly creationDate: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
 

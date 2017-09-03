@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class ApiKey
-        extends fabric.Resource implements ApiKeyArgs {
+export class ApiKey extends fabric.Resource {
     public /*out*/ readonly createdDate: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly enabled?: fabric.Property<boolean>;
@@ -30,7 +29,7 @@ export interface ApiKeyArgs {
     readonly description?: fabric.PropertyValue<string>;
     readonly enabled?: fabric.PropertyValue<boolean>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly stageKey?: fabric.PropertyValue<{ restApi: RestApi, stageName: string }[]>;
+    readonly stageKey?: fabric.PropertyValue<{ restApi: fabric.PropertyValue<RestApi>, stageName: fabric.PropertyValue<string> }>[];
     readonly value?: fabric.PropertyValue<string>;
 }
 

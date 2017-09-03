@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ConfigurationTemplate
-        extends fabric.Resource implements ConfigurationTemplateArgs {
+export class ConfigurationTemplate extends fabric.Resource {
     public readonly application: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly environmentId?: fabric.Property<string>;
@@ -32,7 +31,7 @@ export interface ConfigurationTemplateArgs {
     readonly description?: fabric.PropertyValue<string>;
     readonly environmentId?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly setting?: fabric.PropertyValue<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    readonly setting?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, namespace: fabric.PropertyValue<string>, resource?: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
     readonly solutionStackName?: fabric.PropertyValue<string>;
 }
 

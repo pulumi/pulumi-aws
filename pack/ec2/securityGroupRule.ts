@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SecurityGroupRule
-        extends fabric.Resource implements SecurityGroupRuleArgs {
+export class SecurityGroupRule extends fabric.Resource {
     public readonly cidrBlocks?: fabric.Property<string[]>;
     public readonly fromPort: fabric.Property<number>;
     public readonly ipv6CidrBlocks?: fabric.Property<string[]>;
@@ -48,10 +47,10 @@ export class SecurityGroupRule
 }
 
 export interface SecurityGroupRuleArgs {
-    readonly cidrBlocks?: fabric.PropertyValue<string[]>;
+    readonly cidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly fromPort: fabric.PropertyValue<number>;
-    readonly ipv6CidrBlocks?: fabric.PropertyValue<string[]>;
-    readonly prefixListIds?: fabric.PropertyValue<string[]>;
+    readonly ipv6CidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly prefixListIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly protocol: fabric.PropertyValue<string>;
     readonly securityGroupId: fabric.PropertyValue<string>;
     readonly self?: fabric.PropertyValue<boolean>;

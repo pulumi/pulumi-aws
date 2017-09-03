@@ -6,8 +6,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Application} from "./application";
 import {ApplicationVersion} from "./applicationVersion";
 
-export class Environment
-        extends fabric.Resource implements EnvironmentArgs {
+export class Environment extends fabric.Resource {
     public /*out*/ readonly allSettings: fabric.Property<{ name: string, namespace: string, resource?: string, value: string }[]>;
     public readonly application: fabric.Property<Application>;
     public /*out*/ readonly autoscalingGroups: fabric.Property<string[]>;
@@ -56,7 +55,7 @@ export interface EnvironmentArgs {
     readonly description?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly pollInterval?: fabric.PropertyValue<string>;
-    readonly setting?: fabric.PropertyValue<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    readonly setting?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, namespace: fabric.PropertyValue<string>, resource?: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
     readonly solutionStackName?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly templateName?: fabric.PropertyValue<string>;

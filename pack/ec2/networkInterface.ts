@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class NetworkInterface
-        extends fabric.Resource implements NetworkInterfaceArgs {
+export class NetworkInterface extends fabric.Resource {
     public readonly attachment: fabric.Property<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
     public readonly description?: fabric.Property<string>;
     public readonly privateIp: fabric.Property<string>;
@@ -34,12 +33,12 @@ export class NetworkInterface
 }
 
 export interface NetworkInterfaceArgs {
-    readonly attachment?: fabric.PropertyValue<{ attachmentId?: string, deviceIndex: number, instance: string }[]>;
+    readonly attachment?: fabric.PropertyValue<{ attachmentId?: fabric.PropertyValue<string>, deviceIndex: fabric.PropertyValue<number>, instance: fabric.PropertyValue<string> }>[];
     readonly description?: fabric.PropertyValue<string>;
     readonly privateIp?: fabric.PropertyValue<string>;
-    readonly privateIps?: fabric.PropertyValue<string[]>;
+    readonly privateIps?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly privateIpsCount?: fabric.PropertyValue<number>;
-    readonly securityGroups?: fabric.PropertyValue<string[]>;
+    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly sourceDestCheck?: fabric.PropertyValue<boolean>;
     readonly subnetId: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;

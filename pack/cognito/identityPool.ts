@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class IdentityPool
-        extends fabric.Resource implements IdentityPoolArgs {
+export class IdentityPool extends fabric.Resource {
     public readonly allowUnauthenticatedIdentities?: fabric.Property<boolean>;
     public readonly cognitoIdentityProviders?: fabric.Property<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[]>;
     public readonly developerProviderName?: fabric.Property<string>;
@@ -31,11 +30,11 @@ export class IdentityPool
 
 export interface IdentityPoolArgs {
     readonly allowUnauthenticatedIdentities?: fabric.PropertyValue<boolean>;
-    readonly cognitoIdentityProviders?: fabric.PropertyValue<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[]>;
+    readonly cognitoIdentityProviders?: fabric.PropertyValue<{ clientId?: fabric.PropertyValue<string>, providerName?: fabric.PropertyValue<string>, serverSideTokenCheck?: fabric.PropertyValue<boolean> }>[];
     readonly developerProviderName?: fabric.PropertyValue<string>;
     readonly identityPoolName: fabric.PropertyValue<string>;
-    readonly openidConnectProviderArns?: fabric.PropertyValue<string[]>;
-    readonly samlProviderArns?: fabric.PropertyValue<string[]>;
-    readonly supportedLoginProviders?: fabric.PropertyValue<{[key: string]: string}>;
+    readonly openidConnectProviderArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly samlProviderArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly supportedLoginProviders?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
 }
 

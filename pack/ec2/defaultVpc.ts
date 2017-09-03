@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DefaultVpc
-        extends fabric.Resource implements DefaultVpcArgs {
+export class DefaultVpc extends fabric.Resource {
     public /*out*/ readonly assignGeneratedIpv6CidrBlock: fabric.Property<boolean>;
     public /*out*/ readonly cidrBlock: fabric.Property<string>;
     public /*out*/ readonly defaultNetworkAclId: fabric.Property<string>;

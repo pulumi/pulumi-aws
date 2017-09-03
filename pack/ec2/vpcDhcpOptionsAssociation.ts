@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpcDhcpOptionsAssociation
-        extends fabric.Resource implements VpcDhcpOptionsAssociationArgs {
+export class VpcDhcpOptionsAssociation extends fabric.Resource {
     public readonly dhcpOptionsId: fabric.Property<string>;
     public readonly vpcId: fabric.Property<string>;
 

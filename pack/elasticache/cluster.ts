@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Cluster
-        extends fabric.Resource implements ClusterArgs {
+export class Cluster extends fabric.Resource {
     public readonly applyImmediately: fabric.Property<boolean>;
     public readonly availabilityZone: fabric.Property<string>;
     public readonly availabilityZones?: fabric.Property<string[]>;
@@ -76,7 +75,7 @@ export class Cluster
 export interface ClusterArgs {
     readonly applyImmediately?: fabric.PropertyValue<boolean>;
     readonly availabilityZone?: fabric.PropertyValue<string>;
-    readonly availabilityZones?: fabric.PropertyValue<string[]>;
+    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly azMode?: fabric.PropertyValue<string>;
     readonly clusterId: fabric.PropertyValue<string>;
     readonly engine: fabric.PropertyValue<string>;
@@ -87,9 +86,9 @@ export interface ClusterArgs {
     readonly numCacheNodes: fabric.PropertyValue<number>;
     readonly parameterGroupName?: fabric.PropertyValue<string>;
     readonly port: fabric.PropertyValue<number>;
-    readonly securityGroupIds?: fabric.PropertyValue<string[]>;
-    readonly securityGroupNames?: fabric.PropertyValue<string[]>;
-    readonly snapshotArns?: fabric.PropertyValue<string[]>;
+    readonly securityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly securityGroupNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly snapshotArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly snapshotName?: fabric.PropertyValue<string>;
     readonly snapshotRetentionLimit?: fabric.PropertyValue<number>;
     readonly snapshotWindow?: fabric.PropertyValue<string>;

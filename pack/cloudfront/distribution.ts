@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Distribution
-        extends fabric.Resource implements DistributionArgs {
+export class Distribution extends fabric.Resource {
     public /*out*/ readonly activeTrustedSigners: fabric.Property<{[key: string]: any}>;
     public readonly aliases?: fabric.Property<string[]>;
     public /*out*/ readonly arn: fabric.Property<string>;
@@ -71,22 +70,22 @@ export class Distribution
 }
 
 export interface DistributionArgs {
-    readonly aliases?: fabric.PropertyValue<string[]>;
-    readonly cacheBehavior?: fabric.PropertyValue<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl: number, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }[], headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }[], lambdaFunctionAssociation?: { eventType: string, lambdaArn: string }[], maxTtl: number, minTtl: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[]>;
+    readonly aliases?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly cacheBehavior?: fabric.PropertyValue<{ allowedMethods: fabric.PropertyValue<fabric.PropertyValue<string>>[], cachedMethods: fabric.PropertyValue<fabric.PropertyValue<string>>[], compress?: fabric.PropertyValue<boolean>, defaultTtl: fabric.PropertyValue<number>, forwardedValues: fabric.PropertyValue<{ cookies: fabric.PropertyValue<{ forward: fabric.PropertyValue<string>, whitelistedNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[], headers?: fabric.PropertyValue<fabric.PropertyValue<string>>[], queryString: fabric.PropertyValue<boolean>, queryStringCacheKeys?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[], lambdaFunctionAssociation?: fabric.PropertyValue<{ eventType: fabric.PropertyValue<string>, lambdaArn: fabric.PropertyValue<string> }>[], maxTtl: fabric.PropertyValue<number>, minTtl: fabric.PropertyValue<number>, pathPattern: fabric.PropertyValue<string>, smoothStreaming?: fabric.PropertyValue<boolean>, targetOriginId: fabric.PropertyValue<string>, trustedSigners?: fabric.PropertyValue<fabric.PropertyValue<string>>[], viewerProtocolPolicy: fabric.PropertyValue<string> }>[];
     readonly comment?: fabric.PropertyValue<string>;
-    readonly customErrorResponse?: fabric.PropertyValue<{ errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[]>;
-    readonly defaultCacheBehavior: fabric.PropertyValue<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl: number, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }[], headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }[], lambdaFunctionAssociation?: { eventType: string, lambdaArn: string }[], maxTtl: number, minTtl: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[]>;
+    readonly customErrorResponse?: fabric.PropertyValue<{ errorCachingMinTtl?: fabric.PropertyValue<number>, errorCode: fabric.PropertyValue<number>, responseCode?: fabric.PropertyValue<number>, responsePagePath?: fabric.PropertyValue<string> }>[];
+    readonly defaultCacheBehavior: fabric.PropertyValue<{ allowedMethods: fabric.PropertyValue<fabric.PropertyValue<string>>[], cachedMethods: fabric.PropertyValue<fabric.PropertyValue<string>>[], compress?: fabric.PropertyValue<boolean>, defaultTtl: fabric.PropertyValue<number>, forwardedValues: fabric.PropertyValue<{ cookies: fabric.PropertyValue<{ forward: fabric.PropertyValue<string>, whitelistedNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[], headers?: fabric.PropertyValue<fabric.PropertyValue<string>>[], queryString: fabric.PropertyValue<boolean>, queryStringCacheKeys?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[], lambdaFunctionAssociation?: fabric.PropertyValue<{ eventType: fabric.PropertyValue<string>, lambdaArn: fabric.PropertyValue<string> }>[], maxTtl: fabric.PropertyValue<number>, minTtl: fabric.PropertyValue<number>, smoothStreaming?: fabric.PropertyValue<boolean>, targetOriginId: fabric.PropertyValue<string>, trustedSigners?: fabric.PropertyValue<fabric.PropertyValue<string>>[], viewerProtocolPolicy: fabric.PropertyValue<string> }>[];
     readonly defaultRootObject?: fabric.PropertyValue<string>;
     readonly enabled: fabric.PropertyValue<boolean>;
     readonly httpVersion?: fabric.PropertyValue<string>;
     readonly isIpv6Enabled?: fabric.PropertyValue<boolean>;
-    readonly loggingConfig?: fabric.PropertyValue<{ bucket: string, includeCookies?: boolean, prefix?: string }[]>;
-    readonly origin: fabric.PropertyValue<{ customHeader?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }[], domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string }[] }[]>;
+    readonly loggingConfig?: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, includeCookies?: fabric.PropertyValue<boolean>, prefix?: fabric.PropertyValue<string> }>[];
+    readonly origin: fabric.PropertyValue<{ customHeader?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[], customOriginConfig?: fabric.PropertyValue<{ httpPort: fabric.PropertyValue<number>, httpsPort: fabric.PropertyValue<number>, originKeepaliveTimeout?: fabric.PropertyValue<number>, originProtocolPolicy: fabric.PropertyValue<string>, originReadTimeout?: fabric.PropertyValue<number>, originSslProtocols: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[], domainName: fabric.PropertyValue<string>, originId: fabric.PropertyValue<string>, originPath?: fabric.PropertyValue<string>, s3OriginConfig?: fabric.PropertyValue<{ originAccessIdentity: fabric.PropertyValue<string> }>[] }>[];
     readonly priceClass?: fabric.PropertyValue<string>;
-    readonly restrictions: fabric.PropertyValue<{ geoRestriction: { locations?: string[], restrictionType: string }[] }[]>;
+    readonly restrictions: fabric.PropertyValue<{ geoRestriction: fabric.PropertyValue<{ locations?: fabric.PropertyValue<fabric.PropertyValue<string>>[], restrictionType: fabric.PropertyValue<string> }>[] }>[];
     readonly retainOnDelete?: fabric.PropertyValue<boolean>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly viewerCertificate: fabric.PropertyValue<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }[]>;
+    readonly viewerCertificate: fabric.PropertyValue<{ acmCertificateArn?: fabric.PropertyValue<string>, cloudfrontDefaultCertificate?: fabric.PropertyValue<boolean>, iamCertificateId?: fabric.PropertyValue<string>, minimumProtocolVersion?: fabric.PropertyValue<string>, sslSupportMethod?: fabric.PropertyValue<string> }>[];
     readonly webAclId?: fabric.PropertyValue<string>;
 }
 

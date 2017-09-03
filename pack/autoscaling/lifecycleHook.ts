@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LifecycleHook
-        extends fabric.Resource implements LifecycleHookArgs {
+export class LifecycleHook extends fabric.Resource {
     public readonly autoscalingGroupName: fabric.Property<string>;
     public readonly defaultResult: fabric.Property<string>;
     public readonly heartbeatTimeout?: fabric.Property<number>;

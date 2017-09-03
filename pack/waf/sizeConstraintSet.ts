@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SizeConstraintSet
-        extends fabric.Resource implements SizeConstraintSetArgs {
+export class SizeConstraintSet extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly sizeConstraints?: fabric.Property<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[]>;
 
@@ -18,6 +17,6 @@ export class SizeConstraintSet
 
 export interface SizeConstraintSetArgs {
     readonly name?: fabric.PropertyValue<string>;
-    readonly sizeConstraints?: fabric.PropertyValue<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[]>;
+    readonly sizeConstraints?: fabric.PropertyValue<{ comparisonOperator: fabric.PropertyValue<string>, fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], size: fabric.PropertyValue<number>, textTransformation: fabric.PropertyValue<string> }>[];
 }
 

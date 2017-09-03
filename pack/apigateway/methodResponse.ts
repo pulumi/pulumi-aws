@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class MethodResponse
-        extends fabric.Resource implements MethodResponseArgs {
+export class MethodResponse extends fabric.Resource {
     public readonly httpMethod: fabric.Property<string>;
     public readonly resourceId: fabric.Property<string>;
     public readonly responseModels?: fabric.Property<{[key: string]: string}>;
@@ -43,8 +42,8 @@ export class MethodResponse
 export interface MethodResponseArgs {
     readonly httpMethod: fabric.PropertyValue<string>;
     readonly resourceId: fabric.PropertyValue<string>;
-    readonly responseModels?: fabric.PropertyValue<{[key: string]: string}>;
-    readonly responseParameters?: fabric.PropertyValue<{[key: string]: boolean}>;
+    readonly responseModels?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
+    readonly responseParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<boolean>}>;
     readonly responseParametersInJson?: fabric.PropertyValue<string>;
     readonly restApi: fabric.PropertyValue<RestApi>;
     readonly statusCode: fabric.PropertyValue<string>;

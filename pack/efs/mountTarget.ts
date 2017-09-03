@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class MountTarget
-        extends fabric.Resource implements MountTargetArgs {
+export class MountTarget extends fabric.Resource {
     public /*out*/ readonly dnsName: fabric.Property<string>;
     public readonly fileSystemId: fabric.Property<string>;
     public readonly ipAddress: fabric.Property<string>;
@@ -31,7 +30,7 @@ export class MountTarget
 export interface MountTargetArgs {
     readonly fileSystemId: fabric.PropertyValue<string>;
     readonly ipAddress?: fabric.PropertyValue<string>;
-    readonly securityGroups?: fabric.PropertyValue<string[]>;
+    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly subnetId: fabric.PropertyValue<string>;
 }
 

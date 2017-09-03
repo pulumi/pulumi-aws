@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class OptionGroup
-        extends fabric.Resource implements OptionGroupArgs {
+export class OptionGroup extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly engineName: fabric.Property<string>;
     public readonly majorEngineVersion: fabric.Property<string>;
@@ -38,7 +37,7 @@ export interface OptionGroupArgs {
     readonly majorEngineVersion: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly option?: fabric.PropertyValue<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, vpcSecurityGroupMemberships?: string[] }[]>;
+    readonly option?: fabric.PropertyValue<{ dbSecurityGroupMemberships?: fabric.PropertyValue<fabric.PropertyValue<string>>[], optionName: fabric.PropertyValue<string>, optionSettings?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[], port?: fabric.PropertyValue<number>, vpcSecurityGroupMemberships?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly optionGroupDescription?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class RestApi
-        extends fabric.Resource implements RestApiArgs {
+export class RestApi extends fabric.Resource {
     public readonly binaryMediaTypes?: fabric.Property<string[]>;
     public readonly body?: fabric.Property<string>;
     public /*out*/ readonly createdDate: fabric.Property<string>;
@@ -23,7 +22,7 @@ export class RestApi
 }
 
 export interface RestApiArgs {
-    readonly binaryMediaTypes?: fabric.PropertyValue<string[]>;
+    readonly binaryMediaTypes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly body?: fabric.PropertyValue<string>;
     readonly description?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;

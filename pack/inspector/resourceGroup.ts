@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ResourceGroup
-        extends fabric.Resource implements ResourceGroupArgs {
+export class ResourceGroup extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly tags: fabric.Property<{[key: string]: any}>;
 

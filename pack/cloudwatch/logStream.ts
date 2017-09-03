@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LogStream
-        extends fabric.Resource implements LogStreamArgs {
+export class LogStream extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly logGroupName: fabric.Property<string>;
     public readonly name: fabric.Property<string>;

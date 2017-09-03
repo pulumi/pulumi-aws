@@ -6,8 +6,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Deployment} from "./deployment";
 import {RestApi} from "./restApi";
 
-export class Stage
-        extends fabric.Resource implements StageArgs {
+export class Stage extends fabric.Resource {
     public readonly cacheClusterEnabled?: fabric.Property<boolean>;
     public readonly cacheClusterSize?: fabric.Property<string>;
     public readonly clientCertificateId?: fabric.Property<string>;

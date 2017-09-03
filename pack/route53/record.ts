@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Record
-        extends fabric.Resource implements RecordArgs {
+export class Record extends fabric.Resource {
     public readonly alias?: fabric.Property<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[]>;
     public readonly failoverRoutingPolicy?: fabric.Property<{ type: string }[]>;
     public /*out*/ readonly fqdn: fabric.Property<string>;
@@ -44,17 +43,17 @@ export class Record
 }
 
 export interface RecordArgs {
-    readonly alias?: fabric.PropertyValue<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[]>;
-    readonly failoverRoutingPolicy?: fabric.PropertyValue<{ type: string }[]>;
-    readonly geolocationRoutingPolicy?: fabric.PropertyValue<{ continent?: string, country?: string, subdivision?: string }[]>;
+    readonly alias?: fabric.PropertyValue<{ evaluateTargetHealth: fabric.PropertyValue<boolean>, name: fabric.PropertyValue<string>, zoneId: fabric.PropertyValue<string> }>[];
+    readonly failoverRoutingPolicy?: fabric.PropertyValue<{ type: fabric.PropertyValue<string> }>[];
+    readonly geolocationRoutingPolicy?: fabric.PropertyValue<{ continent?: fabric.PropertyValue<string>, country?: fabric.PropertyValue<string>, subdivision?: fabric.PropertyValue<string> }>[];
     readonly healthCheckId?: fabric.PropertyValue<string>;
-    readonly latencyRoutingPolicy?: fabric.PropertyValue<{ region: string }[]>;
+    readonly latencyRoutingPolicy?: fabric.PropertyValue<{ region: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
-    readonly records?: fabric.PropertyValue<string[]>;
+    readonly records?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly setIdentifier?: fabric.PropertyValue<string>;
     readonly ttl?: fabric.PropertyValue<number>;
     readonly type: fabric.PropertyValue<string>;
-    readonly weightedRoutingPolicy?: fabric.PropertyValue<{ weight: number }[]>;
+    readonly weightedRoutingPolicy?: fabric.PropertyValue<{ weight: fabric.PropertyValue<number> }>[];
     readonly zoneId: fabric.PropertyValue<string>;
 }
 

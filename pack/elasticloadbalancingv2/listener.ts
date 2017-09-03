@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Listener
-        extends fabric.Resource implements ListenerArgs {
+export class Listener extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly certificateArn?: fabric.Property<string>;
     public readonly defaultAction: fabric.Property<{ targetGroupArn: string, type: string }[]>;
@@ -36,7 +35,7 @@ export class Listener
 
 export interface ListenerArgs {
     readonly certificateArn?: fabric.PropertyValue<string>;
-    readonly defaultAction: fabric.PropertyValue<{ targetGroupArn: string, type: string }[]>;
+    readonly defaultAction: fabric.PropertyValue<{ targetGroupArn: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
     readonly loadBalancerArn: fabric.PropertyValue<string>;
     readonly port: fabric.PropertyValue<number>;
     readonly protocol?: fabric.PropertyValue<string>;

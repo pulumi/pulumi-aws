@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class TargetGroupAttachment
-        extends fabric.Resource implements TargetGroupAttachmentArgs {
+export class TargetGroupAttachment extends fabric.Resource {
     public readonly port?: fabric.Property<number>;
     public readonly targetGroupArn: fabric.Property<string>;
     public readonly targetId: fabric.Property<string>;

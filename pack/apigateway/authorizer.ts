@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class Authorizer
-        extends fabric.Resource implements AuthorizerArgs {
+export class Authorizer extends fabric.Resource {
     public readonly authorizerCredentials?: fabric.Property<string>;
     public readonly authorizerResultTtlInSeconds?: fabric.Property<number>;
     public readonly authorizerUri: fabric.Property<string>;

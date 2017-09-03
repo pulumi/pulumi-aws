@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class StaticIp
-        extends fabric.Resource implements StaticIpArgs {
+export class StaticIp extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly ipAddress: fabric.Property<string>;
     public readonly name: fabric.Property<string>;

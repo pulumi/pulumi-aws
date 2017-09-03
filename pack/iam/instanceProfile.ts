@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Role} from "./role";
 
-export class InstanceProfile
-        extends fabric.Resource implements InstanceProfileArgs {
+export class InstanceProfile extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly createDate: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
@@ -32,6 +31,6 @@ export interface InstanceProfileArgs {
     readonly namePrefix?: fabric.PropertyValue<string>;
     readonly path?: fabric.PropertyValue<string>;
     readonly role?: fabric.PropertyValue<Role>;
-    readonly roles?: fabric.PropertyValue<Role[]>;
+    readonly roles?: fabric.PropertyValue<fabric.PropertyValue<Role>>[];
 }
 

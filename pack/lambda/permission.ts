@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Function} from "./function";
 
-export class Permission
-        extends fabric.Resource implements PermissionArgs {
+export class Permission extends fabric.Resource {
     public readonly action: fabric.Property<string>;
     public readonly function: fabric.Property<Function>;
     public readonly principal: fabric.Property<string>;

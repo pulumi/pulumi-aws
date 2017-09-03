@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {ARN} from "../index";
 
-export class Function
-        extends fabric.Resource implements FunctionArgs {
+export class Function extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly deadLetterConfig?: fabric.Property<{ targetArn: string }[]>;
     public readonly description?: fabric.Property<string>;
@@ -67,10 +66,10 @@ export class Function
 }
 
 export interface FunctionArgs {
-    readonly deadLetterConfig?: fabric.PropertyValue<{ targetArn: string }[]>;
+    readonly deadLetterConfig?: fabric.PropertyValue<{ targetArn: fabric.PropertyValue<string> }>[];
     readonly description?: fabric.PropertyValue<string>;
-    readonly environment?: fabric.PropertyValue<{ variables?: {[key: string]: string} }[]>;
-    readonly code?: fabric.PropertyValue<fabric.asset.Archive>;
+    readonly environment?: fabric.PropertyValue<{ variables?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}> }>[];
+    readonly code?: fabric.asset.Archive;
     readonly name?: fabric.PropertyValue<string>;
     readonly handler: fabric.PropertyValue<string>;
     readonly kmsKeyArn?: fabric.PropertyValue<string>;
@@ -84,7 +83,7 @@ export interface FunctionArgs {
     readonly sourceCodeHash?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly timeout?: fabric.PropertyValue<number>;
-    readonly tracingConfig?: fabric.PropertyValue<{ mode: string }[]>;
-    readonly vpcConfig?: fabric.PropertyValue<{ securityGroupIds: string[], subnetIds: string[], vpcId?: string }[]>;
+    readonly tracingConfig?: fabric.PropertyValue<{ mode: fabric.PropertyValue<string> }>[];
+    readonly vpcConfig?: fabric.PropertyValue<{ securityGroupIds: fabric.PropertyValue<fabric.PropertyValue<string>>[], subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[], vpcId?: fabric.PropertyValue<string> }>[];
 }
 

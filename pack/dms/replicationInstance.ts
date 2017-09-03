@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ReplicationInstance
-        extends fabric.Resource implements ReplicationInstanceArgs {
+export class ReplicationInstance extends fabric.Resource {
     public readonly allocatedStorage: fabric.Property<number>;
     public readonly applyImmediately?: fabric.Property<boolean>;
     public readonly autoMinorVersionUpgrade: fabric.Property<boolean>;
@@ -63,6 +62,6 @@ export interface ReplicationInstanceArgs {
     readonly replicationInstanceId: fabric.PropertyValue<string>;
     readonly replicationSubnetGroupId?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.PropertyValue<string[]>;
+    readonly vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class InternetGateway
-        extends fabric.Resource implements InternetGatewayArgs {
+export class InternetGateway extends fabric.Resource {
     public readonly tags?: fabric.Property<{[key: string]: any}>;
     public readonly vpcId?: fabric.Property<string>;
 

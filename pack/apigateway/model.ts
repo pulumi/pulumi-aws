@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class Model
-        extends fabric.Resource implements ModelArgs {
+export class Model extends fabric.Resource {
     public readonly contentType: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly name: fabric.Property<string>;

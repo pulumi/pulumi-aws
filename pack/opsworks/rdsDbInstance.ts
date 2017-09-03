@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class RdsDbInstance
-        extends fabric.Resource implements RdsDbInstanceArgs {
+export class RdsDbInstance extends fabric.Resource {
     public readonly dbPassword: fabric.Property<string>;
     public readonly dbUser: fabric.Property<string>;
     public /*out*/ readonly instanceId: fabric.Property<string>;

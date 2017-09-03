@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class RolePolicy
-        extends fabric.Resource implements RolePolicyArgs {
+export class RolePolicy extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly namePrefix?: fabric.Property<string>;
     public readonly policy: fabric.Property<string>;

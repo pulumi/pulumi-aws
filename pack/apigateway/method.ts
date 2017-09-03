@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class Method
-        extends fabric.Resource implements MethodArgs {
+export class Method extends fabric.Resource {
     public readonly apiKeyRequired?: fabric.Property<boolean>;
     public readonly authorization: fabric.Property<string>;
     public readonly authorizerId?: fabric.Property<string>;
@@ -51,8 +50,8 @@ export interface MethodArgs {
     readonly authorization: fabric.PropertyValue<string>;
     readonly authorizerId?: fabric.PropertyValue<string>;
     readonly httpMethod: fabric.PropertyValue<string>;
-    readonly requestModels?: fabric.PropertyValue<{[key: string]: string}>;
-    readonly requestParameters?: fabric.PropertyValue<{[key: string]: boolean}>;
+    readonly requestModels?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
+    readonly requestParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<boolean>}>;
     readonly requestParametersInJson?: fabric.PropertyValue<string>;
     readonly requestValidatorId?: fabric.PropertyValue<string>;
     readonly resourceId: fabric.PropertyValue<string>;

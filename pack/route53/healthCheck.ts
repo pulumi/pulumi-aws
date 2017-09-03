@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class HealthCheck
-        extends fabric.Resource implements HealthCheckArgs {
+export class HealthCheck extends fabric.Resource {
     public readonly childHealthThreshold?: fabric.Property<number>;
     public readonly childHealthchecks?: fabric.Property<string[]>;
     public readonly cloudwatchAlarmName?: fabric.Property<string>;
@@ -55,7 +54,7 @@ export class HealthCheck
 
 export interface HealthCheckArgs {
     readonly childHealthThreshold?: fabric.PropertyValue<number>;
-    readonly childHealthchecks?: fabric.PropertyValue<string[]>;
+    readonly childHealthchecks?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly cloudwatchAlarmName?: fabric.PropertyValue<string>;
     readonly cloudwatchAlarmRegion?: fabric.PropertyValue<string>;
     readonly enableSni?: fabric.PropertyValue<boolean>;
@@ -67,7 +66,7 @@ export interface HealthCheckArgs {
     readonly measureLatency?: fabric.PropertyValue<boolean>;
     readonly port?: fabric.PropertyValue<number>;
     readonly referenceName?: fabric.PropertyValue<string>;
-    readonly regions?: fabric.PropertyValue<string[]>;
+    readonly regions?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly requestInterval?: fabric.PropertyValue<number>;
     readonly resourcePath?: fabric.PropertyValue<string>;
     readonly searchString?: fabric.PropertyValue<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Cluster
-        extends fabric.Resource implements ClusterArgs {
+export class Cluster extends fabric.Resource {
     public readonly name: fabric.Property<string>;
 
     constructor(urnName: string, args: ClusterArgs) {

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class IpSet
-        extends fabric.Resource implements IpSetArgs {
+export class IpSet extends fabric.Resource {
     public readonly ipSetDescriptors?: fabric.Property<{ type: string, value: string }[]>;
     public readonly name: fabric.Property<string>;
 
@@ -17,7 +16,7 @@ export class IpSet
 }
 
 export interface IpSetArgs {
-    readonly ipSetDescriptors?: fabric.PropertyValue<{ type: string, value: string }[]>;
+    readonly ipSetDescriptors?: fabric.PropertyValue<{ type: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
 }
 

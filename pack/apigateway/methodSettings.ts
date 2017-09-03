@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class MethodSettings
-        extends fabric.Resource implements MethodSettingsArgs {
+export class MethodSettings extends fabric.Resource {
     public readonly methodPath: fabric.Property<string>;
     public readonly restApi: fabric.Property<RestApi>;
     public readonly settings: fabric.Property<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[]>;
@@ -37,7 +36,7 @@ export class MethodSettings
 export interface MethodSettingsArgs {
     readonly methodPath: fabric.PropertyValue<string>;
     readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly settings: fabric.PropertyValue<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[]>;
+    readonly settings: fabric.PropertyValue<{ cacheDataEncrypted?: fabric.PropertyValue<boolean>, cacheTtlInSeconds?: fabric.PropertyValue<number>, cachingEnabled?: fabric.PropertyValue<boolean>, dataTraceEnabled?: fabric.PropertyValue<boolean>, loggingLevel?: fabric.PropertyValue<string>, metricsEnabled?: fabric.PropertyValue<boolean>, requireAuthorizationForCacheControl?: fabric.PropertyValue<boolean>, throttlingBurstLimit?: fabric.PropertyValue<number>, throttlingRateLimit?: fabric.PropertyValue<number>, unauthorizedCacheControlHeaderStrategy?: fabric.PropertyValue<string> }>[];
     readonly stageName: fabric.PropertyValue<string>;
 }
 

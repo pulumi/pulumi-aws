@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Domain
-        extends fabric.Resource implements DomainArgs {
+export class Domain extends fabric.Resource {
     public readonly accessPolicies: fabric.Property<string>;
     public readonly advancedOptions: fabric.Property<{[key: string]: any}>;
     public /*out*/ readonly arn: fabric.Property<string>;
@@ -37,11 +36,11 @@ export class Domain
 export interface DomainArgs {
     readonly accessPolicies?: fabric.PropertyValue<string>;
     readonly advancedOptions?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly clusterConfig?: fabric.PropertyValue<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }[]>;
+    readonly clusterConfig?: fabric.PropertyValue<{ dedicatedMasterCount?: fabric.PropertyValue<number>, dedicatedMasterEnabled?: fabric.PropertyValue<boolean>, dedicatedMasterType?: fabric.PropertyValue<string>, instanceCount?: fabric.PropertyValue<number>, instanceType?: fabric.PropertyValue<string>, zoneAwarenessEnabled?: fabric.PropertyValue<boolean> }>[];
     readonly domainName: fabric.PropertyValue<string>;
-    readonly ebsOptions?: fabric.PropertyValue<{ ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType?: string }[]>;
+    readonly ebsOptions?: fabric.PropertyValue<{ ebsEnabled: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
     readonly elasticsearchVersion?: fabric.PropertyValue<string>;
-    readonly snapshotOptions?: fabric.PropertyValue<{ automatedSnapshotStartHour: number }[]>;
+    readonly snapshotOptions?: fabric.PropertyValue<{ automatedSnapshotStartHour: fabric.PropertyValue<number> }>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

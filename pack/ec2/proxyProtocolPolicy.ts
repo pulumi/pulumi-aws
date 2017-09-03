@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ProxyProtocolPolicy
-        extends fabric.Resource implements ProxyProtocolPolicyArgs {
+export class ProxyProtocolPolicy extends fabric.Resource {
     public readonly instancePorts: fabric.Property<string[]>;
     public readonly loadBalancer: fabric.Property<string>;
 
@@ -23,7 +22,7 @@ export class ProxyProtocolPolicy
 }
 
 export interface ProxyProtocolPolicyArgs {
-    readonly instancePorts: fabric.PropertyValue<string[]>;
+    readonly instancePorts: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly loadBalancer: fabric.PropertyValue<string>;
 }
 

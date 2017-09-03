@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SecurityGroup
-        extends fabric.Resource implements SecurityGroupArgs {
+export class SecurityGroup extends fabric.Resource {
     public readonly description?: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly securityGroupNames: fabric.Property<string[]>;
@@ -24,6 +23,6 @@ export class SecurityGroup
 export interface SecurityGroupArgs {
     readonly description?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly securityGroupNames: fabric.PropertyValue<string[]>;
+    readonly securityGroupNames: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Activation
-        extends fabric.Resource implements ActivationArgs {
+export class Activation extends fabric.Resource {
     public readonly description?: fabric.Property<string>;
     public readonly expirationDate?: fabric.Property<string>;
     public /*out*/ readonly expired: fabric.Property<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class TaskDefinition
-        extends fabric.Resource implements TaskDefinitionArgs {
+export class TaskDefinition extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly containerDefinitions: fabric.Property<string>;
     public readonly family: fabric.Property<string>;
@@ -36,8 +35,8 @@ export interface TaskDefinitionArgs {
     readonly containerDefinitions: fabric.PropertyValue<string>;
     readonly family: fabric.PropertyValue<string>;
     readonly networkMode?: fabric.PropertyValue<string>;
-    readonly placementConstraints?: fabric.PropertyValue<{ expression?: string, type: string }[]>;
+    readonly placementConstraints?: fabric.PropertyValue<{ expression?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
     readonly taskRoleArn?: fabric.PropertyValue<string>;
-    readonly volume?: fabric.PropertyValue<{ hostPath?: string, name: string }[]>;
+    readonly volume?: fabric.PropertyValue<{ hostPath?: fabric.PropertyValue<string>, name: fabric.PropertyValue<string> }>[];
 }
 

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class NetworkAcl
-        extends fabric.Resource implements NetworkAclArgs {
+export class NetworkAcl extends fabric.Resource {
     public readonly egress: fabric.Property<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
     public readonly ingress: fabric.Property<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
     public readonly subnetId?: fabric.Property<string>;
@@ -28,10 +27,10 @@ export class NetworkAcl
 }
 
 export interface NetworkAclArgs {
-    readonly egress?: fabric.PropertyValue<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
-    readonly ingress?: fabric.PropertyValue<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    readonly egress?: fabric.PropertyValue<{ action: fabric.PropertyValue<string>, cidrBlock?: fabric.PropertyValue<string>, fromPort: fabric.PropertyValue<number>, icmpCode?: fabric.PropertyValue<number>, icmpType?: fabric.PropertyValue<number>, ipv6CidrBlock?: fabric.PropertyValue<string>, protocol: fabric.PropertyValue<string>, ruleNo: fabric.PropertyValue<number>, toPort: fabric.PropertyValue<number> }>[];
+    readonly ingress?: fabric.PropertyValue<{ action: fabric.PropertyValue<string>, cidrBlock?: fabric.PropertyValue<string>, fromPort: fabric.PropertyValue<number>, icmpCode?: fabric.PropertyValue<number>, icmpType?: fabric.PropertyValue<number>, ipv6CidrBlock?: fabric.PropertyValue<string>, protocol: fabric.PropertyValue<string>, ruleNo: fabric.PropertyValue<number>, toPort: fabric.PropertyValue<number> }>[];
     readonly subnetId?: fabric.PropertyValue<string>;
-    readonly subnetIds?: fabric.PropertyValue<string[]>;
+    readonly subnetIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly vpcId: fabric.PropertyValue<string>;
 }

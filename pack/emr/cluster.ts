@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Cluster
-        extends fabric.Resource implements ClusterArgs {
+export class Cluster extends fabric.Resource {
     public readonly applications?: fabric.Property<string[]>;
     public readonly autoscalingRole?: fabric.Property<string>;
     public readonly bootstrapAction?: fabric.Property<{ args?: string[], name: string, path: string }[]>;
@@ -58,13 +57,13 @@ export class Cluster
 }
 
 export interface ClusterArgs {
-    readonly applications?: fabric.PropertyValue<string[]>;
+    readonly applications?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly autoscalingRole?: fabric.PropertyValue<string>;
-    readonly bootstrapAction?: fabric.PropertyValue<{ args?: string[], name: string, path: string }[]>;
+    readonly bootstrapAction?: fabric.PropertyValue<{ args?: fabric.PropertyValue<fabric.PropertyValue<string>>[], name: fabric.PropertyValue<string>, path: fabric.PropertyValue<string> }>[];
     readonly configurations?: fabric.PropertyValue<string>;
     readonly coreInstanceCount?: fabric.PropertyValue<number>;
     readonly coreInstanceType?: fabric.PropertyValue<string>;
-    readonly ec2Attributes?: fabric.PropertyValue<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string }[]>;
+    readonly ec2Attributes?: fabric.PropertyValue<{ additionalMasterSecurityGroups?: fabric.PropertyValue<string>, additionalSlaveSecurityGroups?: fabric.PropertyValue<string>, emrManagedMasterSecurityGroup?: fabric.PropertyValue<string>, emrManagedSlaveSecurityGroup?: fabric.PropertyValue<string>, instanceProfile: fabric.PropertyValue<string>, keyName?: fabric.PropertyValue<string>, serviceAccessSecurityGroup?: fabric.PropertyValue<string>, subnetId?: fabric.PropertyValue<string> }>[];
     readonly keepJobFlowAliveWhenNoSteps?: fabric.PropertyValue<boolean>;
     readonly logUri?: fabric.PropertyValue<string>;
     readonly masterInstanceType: fabric.PropertyValue<string>;

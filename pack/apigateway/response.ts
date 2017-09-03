@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Response
-        extends fabric.Resource implements ResponseArgs {
+export class Response extends fabric.Resource {
     public readonly responseParameters?: fabric.Property<{[key: string]: string}>;
     public readonly responseTemplates?: fabric.Property<{[key: string]: string}>;
     public readonly responseType: fabric.Property<string>;
@@ -29,8 +28,8 @@ export class Response
 }
 
 export interface ResponseArgs {
-    readonly responseParameters?: fabric.PropertyValue<{[key: string]: string}>;
-    readonly responseTemplates?: fabric.PropertyValue<{[key: string]: string}>;
+    readonly responseParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
+    readonly responseTemplates?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
     readonly responseType: fabric.PropertyValue<string>;
     readonly restApiId: fabric.PropertyValue<string>;
     readonly statusCode?: fabric.PropertyValue<string>;

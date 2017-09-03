@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpnGatewayRoutePropagation
-        extends fabric.Resource implements VpnGatewayRoutePropagationArgs {
+export class VpnGatewayRoutePropagation extends fabric.Resource {
     public readonly routeTableId: fabric.Property<string>;
     public readonly vpnGatewayId: fabric.Property<string>;
 

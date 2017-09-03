@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LogDestinationPolicy
-        extends fabric.Resource implements LogDestinationPolicyArgs {
+export class LogDestinationPolicy extends fabric.Resource {
     public readonly accessPolicy: fabric.Property<string>;
     public readonly destinationName: fabric.Property<string>;
 

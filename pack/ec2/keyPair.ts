@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class KeyPair
-        extends fabric.Resource implements KeyPairArgs {
+export class KeyPair extends fabric.Resource {
     public /*out*/ readonly fingerprint: fabric.Property<string>;
     public readonly keyName: fabric.Property<string>;
     public readonly keyNamePrefix?: fabric.Property<string>;

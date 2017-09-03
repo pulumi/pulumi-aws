@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class AssessmentTarget
-        extends fabric.Resource implements AssessmentTargetArgs {
+export class AssessmentTarget extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly resourceGroupArn: fabric.Property<string>;

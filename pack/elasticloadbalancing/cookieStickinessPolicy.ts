@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class CookieStickinessPolicy
-        extends fabric.Resource implements CookieStickinessPolicyArgs {
+export class CookieStickinessPolicy extends fabric.Resource {
     public readonly cookieExpirationPeriod?: fabric.Property<number>;
     public readonly lbPort: fabric.Property<number>;
     public readonly loadBalancer: fabric.Property<string>;

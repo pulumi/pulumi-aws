@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DeploymentGroup
-        extends fabric.Resource implements DeploymentGroupArgs {
+export class DeploymentGroup extends fabric.Resource {
     public readonly alarmConfiguration?: fabric.Property<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean }[]>;
     public readonly appName: fabric.Property<string>;
     public readonly autoRollbackConfiguration?: fabric.Property<{ enabled?: boolean, events?: string[] }[]>;
@@ -42,15 +41,15 @@ export class DeploymentGroup
 }
 
 export interface DeploymentGroupArgs {
-    readonly alarmConfiguration?: fabric.PropertyValue<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean }[]>;
+    readonly alarmConfiguration?: fabric.PropertyValue<{ alarms?: fabric.PropertyValue<fabric.PropertyValue<string>>[], enabled?: fabric.PropertyValue<boolean>, ignorePollAlarmFailure?: fabric.PropertyValue<boolean> }>[];
     readonly appName: fabric.PropertyValue<string>;
-    readonly autoRollbackConfiguration?: fabric.PropertyValue<{ enabled?: boolean, events?: string[] }[]>;
-    readonly autoscalingGroups?: fabric.PropertyValue<string[]>;
+    readonly autoRollbackConfiguration?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, events?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
+    readonly autoscalingGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly deploymentConfigName?: fabric.PropertyValue<string>;
     readonly deploymentGroupName: fabric.PropertyValue<string>;
-    readonly ec2TagFilter?: fabric.PropertyValue<{ key?: string, type?: string, value?: string }[]>;
-    readonly onPremisesInstanceTagFilter?: fabric.PropertyValue<{ key?: string, type?: string, value?: string }[]>;
+    readonly ec2TagFilter?: fabric.PropertyValue<{ key?: fabric.PropertyValue<string>, type?: fabric.PropertyValue<string>, value?: fabric.PropertyValue<string> }>[];
+    readonly onPremisesInstanceTagFilter?: fabric.PropertyValue<{ key?: fabric.PropertyValue<string>, type?: fabric.PropertyValue<string>, value?: fabric.PropertyValue<string> }>[];
     readonly serviceRoleArn: fabric.PropertyValue<string>;
-    readonly triggerConfiguration?: fabric.PropertyValue<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[]>;
+    readonly triggerConfiguration?: fabric.PropertyValue<{ triggerEvents: fabric.PropertyValue<fabric.PropertyValue<string>>[], triggerName: fabric.PropertyValue<string>, triggerTargetArn: fabric.PropertyValue<string> }>[];
 }
 

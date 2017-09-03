@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class CustomerGateway
-        extends fabric.Resource implements CustomerGatewayArgs {
+export class CustomerGateway extends fabric.Resource {
     public readonly bgpAsn: fabric.Property<number>;
     public readonly ipAddress: fabric.Property<string>;
     public readonly tags?: fabric.Property<{[key: string]: any}>;

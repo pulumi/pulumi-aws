@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class RequestValidator
-        extends fabric.Resource implements RequestValidatorArgs {
+export class RequestValidator extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly restApi: fabric.Property<RestApi>;
     public readonly validateRequestBody?: fabric.Property<boolean>;

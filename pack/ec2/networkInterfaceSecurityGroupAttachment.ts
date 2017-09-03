@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class NetworkInterfaceSecurityGroupAttachment
-        extends fabric.Resource implements NetworkInterfaceSecurityGroupAttachmentArgs {
+export class NetworkInterfaceSecurityGroupAttachment extends fabric.Resource {
     public readonly networkInterfaceId: fabric.Property<string>;
     public readonly securityGroupId: fabric.Property<string>;
 

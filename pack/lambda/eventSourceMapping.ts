@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class EventSourceMapping
-        extends fabric.Resource implements EventSourceMappingArgs {
+export class EventSourceMapping extends fabric.Resource {
     public readonly batchSize?: fabric.Property<number>;
     public readonly enabled?: fabric.Property<boolean>;
     public readonly eventSourceArn: fabric.Property<string>;

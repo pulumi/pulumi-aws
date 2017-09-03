@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class NetworkAclRule
-        extends fabric.Resource implements NetworkAclRuleArgs {
+export class NetworkAclRule extends fabric.Resource {
     public readonly cidrBlock?: fabric.Property<string>;
     public readonly egress?: fabric.Property<boolean>;
     public readonly fromPort?: fabric.Property<number>;

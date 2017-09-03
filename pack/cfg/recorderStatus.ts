@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class RecorderStatus
-        extends fabric.Resource implements RecorderStatusArgs {
+export class RecorderStatus extends fabric.Resource {
     public readonly isEnabled: fabric.Property<boolean>;
     public readonly name: fabric.Property<string>;
 

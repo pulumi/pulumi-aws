@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class EgressOnlyInternetGateway
-        extends fabric.Resource implements EgressOnlyInternetGatewayArgs {
+export class EgressOnlyInternetGateway extends fabric.Resource {
     public readonly vpcId: fabric.Property<string>;
 
     constructor(urnName: string, args: EgressOnlyInternetGatewayArgs) {

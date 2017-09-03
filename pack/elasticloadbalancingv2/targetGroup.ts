@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class TargetGroup
-        extends fabric.Resource implements TargetGroupArgs {
+export class TargetGroup extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly arnSuffix: fabric.Property<string>;
     public readonly deregistrationDelay?: fabric.Property<number>;
@@ -43,12 +42,12 @@ export class TargetGroup
 
 export interface TargetGroupArgs {
     readonly deregistrationDelay?: fabric.PropertyValue<number>;
-    readonly healthCheck?: fabric.PropertyValue<{ healthyThreshold?: number, interval?: number, matcher?: string, path?: string, port?: string, protocol?: string, timeout?: number, unhealthyThreshold?: number }[]>;
+    readonly healthCheck?: fabric.PropertyValue<{ healthyThreshold?: fabric.PropertyValue<number>, interval?: fabric.PropertyValue<number>, matcher?: fabric.PropertyValue<string>, path?: fabric.PropertyValue<string>, port?: fabric.PropertyValue<string>, protocol?: fabric.PropertyValue<string>, timeout?: fabric.PropertyValue<number>, unhealthyThreshold?: fabric.PropertyValue<number> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly namePrefix?: fabric.PropertyValue<string>;
     readonly port: fabric.PropertyValue<number>;
     readonly protocol: fabric.PropertyValue<string>;
-    readonly stickiness?: fabric.PropertyValue<{ cookieDuration?: number, enabled?: boolean, type: string }[]>;
+    readonly stickiness?: fabric.PropertyValue<{ cookieDuration?: fabric.PropertyValue<number>, enabled?: fabric.PropertyValue<boolean>, type: fabric.PropertyValue<string> }>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly vpcId: fabric.PropertyValue<string>;
 }

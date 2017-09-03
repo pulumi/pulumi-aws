@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DomainPolicy
-        extends fabric.Resource implements DomainPolicyArgs {
+export class DomainPolicy extends fabric.Resource {
     public readonly accessPolicies: fabric.Property<string>;
     public readonly domainName: fabric.Property<string>;
 

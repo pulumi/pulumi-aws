@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DomainName
-        extends fabric.Resource implements DomainNameArgs {
+export class DomainName extends fabric.Resource {
     public readonly certificateArn?: fabric.Property<string>;
     public readonly certificateBody?: fabric.Property<string>;
     public readonly certificateChain?: fabric.Property<string>;

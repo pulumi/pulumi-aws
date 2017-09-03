@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LoadBalancer
-        extends fabric.Resource implements LoadBalancerArgs {
+export class LoadBalancer extends fabric.Resource {
     public readonly accessLogs?: fabric.Property<{ bucket: string, enabled?: boolean, prefix?: string }[]>;
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly arnSuffix: fabric.Property<string>;
@@ -41,15 +40,15 @@ export class LoadBalancer
 }
 
 export interface LoadBalancerArgs {
-    readonly accessLogs?: fabric.PropertyValue<{ bucket: string, enabled?: boolean, prefix?: string }[]>;
+    readonly accessLogs?: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, enabled?: fabric.PropertyValue<boolean>, prefix?: fabric.PropertyValue<string> }>[];
     readonly enableDeletionProtection?: fabric.PropertyValue<boolean>;
     readonly idleTimeout?: fabric.PropertyValue<number>;
     readonly internal?: fabric.PropertyValue<boolean>;
     readonly ipAddressType?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly securityGroups?: fabric.PropertyValue<string[]>;
-    readonly subnets: fabric.PropertyValue<string[]>;
+    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly subnets: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

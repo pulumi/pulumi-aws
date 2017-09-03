@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Recorder
-        extends fabric.Resource implements RecorderArgs {
+export class Recorder extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly recordingGroup: fabric.Property<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
     public readonly roleArn: fabric.Property<string>;
@@ -23,7 +22,7 @@ export class Recorder
 
 export interface RecorderArgs {
     readonly name?: fabric.PropertyValue<string>;
-    readonly recordingGroup?: fabric.PropertyValue<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
+    readonly recordingGroup?: fabric.PropertyValue<{ allSupported?: fabric.PropertyValue<boolean>, includeGlobalResourceTypes?: fabric.PropertyValue<boolean>, resourceTypes?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly roleArn: fabric.PropertyValue<string>;
 }
 

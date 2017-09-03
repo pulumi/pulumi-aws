@@ -3,8 +3,9 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Role
-        extends fabric.Resource implements RoleArgs {
+import {ARN} from "../index";
+
+export class Role extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly assumeRolePolicy: fabric.Property<string>;
     public /*out*/ readonly createDate: fabric.Property<string>;

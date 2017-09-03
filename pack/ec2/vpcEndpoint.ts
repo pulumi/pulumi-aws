@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpcEndpoint
-        extends fabric.Resource implements VpcEndpointArgs {
+export class VpcEndpoint extends fabric.Resource {
     public /*out*/ readonly cidrBlocks: fabric.Property<string[]>;
     public readonly policy: fabric.Property<string>;
     public /*out*/ readonly prefixListId: fabric.Property<string>;
@@ -30,7 +29,7 @@ export class VpcEndpoint
 
 export interface VpcEndpointArgs {
     readonly policy?: fabric.PropertyValue<string>;
-    readonly routeTableIds?: fabric.PropertyValue<string[]>;
+    readonly routeTableIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly serviceName: fabric.PropertyValue<string>;
     readonly vpcId: fabric.PropertyValue<string>;
 }

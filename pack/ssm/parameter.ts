@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Parameter
-        extends fabric.Resource implements ParameterArgs {
+export class Parameter extends fabric.Resource {
     public readonly keyId?: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly overwrite?: fabric.Property<boolean>;

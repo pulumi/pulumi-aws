@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ByteMatchSet
-        extends fabric.Resource implements ByteMatchSetArgs {
+export class ByteMatchSet extends fabric.Resource {
     public readonly byteMatchTuples?: fabric.Property<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
     public readonly name: fabric.Property<string>;
 
@@ -17,7 +16,7 @@ export class ByteMatchSet
 }
 
 export interface ByteMatchSetArgs {
-    readonly byteMatchTuples?: fabric.PropertyValue<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
+    readonly byteMatchTuples?: fabric.PropertyValue<{ fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], positionalConstraint: fabric.PropertyValue<string>, targetString?: fabric.PropertyValue<string>, textTransformation: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
 }
 

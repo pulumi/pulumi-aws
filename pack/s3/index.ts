@@ -2,8 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./bucket";
-export * from "./bucketPolicy";
-export * from "./notification";
-export * from "./object";
+export * from "./s3Bucket";
+export * from "./s3BucketNotification";
+export * from "./s3BucketPolicy";
+export * from "./s3Object";
 

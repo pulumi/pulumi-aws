@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpnConnectionRoute
-        extends fabric.Resource implements VpnConnectionRouteArgs {
+export class VpnConnectionRoute extends fabric.Resource {
     public readonly destinationCidrBlock: fabric.Property<string>;
     public readonly vpnConnectionId: fabric.Property<string>;
 

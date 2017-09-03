@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class UserProfile
-        extends fabric.Resource implements UserProfileArgs {
+export class UserProfile extends fabric.Resource {
     public readonly allowSelfManagement?: fabric.Property<boolean>;
     public /*out*/ readonly profileId: fabric.Property<string>;
     public readonly sshPublicKey?: fabric.Property<string>;

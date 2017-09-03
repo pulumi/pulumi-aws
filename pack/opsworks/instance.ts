@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Instance
-        extends fabric.Resource implements InstanceArgs {
+export class Instance extends fabric.Resource {
     public readonly agentVersion?: fabric.Property<string>;
     public readonly amiId: fabric.Property<string>;
     public readonly architecture?: fabric.Property<string>;
@@ -118,19 +117,19 @@ export interface InstanceArgs {
     readonly createdAt?: fabric.PropertyValue<string>;
     readonly deleteEbs?: fabric.PropertyValue<boolean>;
     readonly deleteEip?: fabric.PropertyValue<boolean>;
-    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, deviceName: string, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[]>;
+    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceName: fabric.PropertyValue<string>, iops?: fabric.PropertyValue<number>, snapshotId?: fabric.PropertyValue<string>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
     readonly ebsOptimized?: fabric.PropertyValue<boolean>;
     readonly ec2InstanceId?: fabric.PropertyValue<string>;
     readonly ecsClusterArn?: fabric.PropertyValue<string>;
     readonly elasticIp?: fabric.PropertyValue<string>;
-    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: string, virtualName: string }[]>;
+    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: fabric.PropertyValue<string>, virtualName: fabric.PropertyValue<string> }>[];
     readonly hostname?: fabric.PropertyValue<string>;
     readonly infrastructureClass?: fabric.PropertyValue<string>;
     readonly installUpdatesOnBoot?: fabric.PropertyValue<boolean>;
     readonly instanceProfileArn?: fabric.PropertyValue<string>;
     readonly instanceType?: fabric.PropertyValue<string>;
     readonly lastServiceErrorId?: fabric.PropertyValue<string>;
-    readonly layerIds: fabric.PropertyValue<string[]>;
+    readonly layerIds: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly os?: fabric.PropertyValue<string>;
     readonly platform?: fabric.PropertyValue<string>;
     readonly privateDns?: fabric.PropertyValue<string>;
@@ -142,10 +141,10 @@ export interface InstanceArgs {
     readonly reportedOsFamily?: fabric.PropertyValue<string>;
     readonly reportedOsName?: fabric.PropertyValue<string>;
     readonly reportedOsVersion?: fabric.PropertyValue<string>;
-    readonly rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[]>;
+    readonly rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
     readonly rootDeviceType?: fabric.PropertyValue<string>;
     readonly rootDeviceVolumeId?: fabric.PropertyValue<string>;
-    readonly securityGroupIds?: fabric.PropertyValue<string[]>;
+    readonly securityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly sshHostDsaKeyFingerprint?: fabric.PropertyValue<string>;
     readonly sshHostRsaKeyFingerprint?: fabric.PropertyValue<string>;
     readonly sshKeyName?: fabric.PropertyValue<string>;

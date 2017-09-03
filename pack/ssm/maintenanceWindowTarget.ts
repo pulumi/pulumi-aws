@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class MaintenanceWindowTarget
-        extends fabric.Resource implements MaintenanceWindowTargetArgs {
+export class MaintenanceWindowTarget extends fabric.Resource {
     public readonly ownerInformation?: fabric.Property<string>;
     public readonly resourceType: fabric.Property<string>;
     public readonly targets: fabric.Property<{ key: string, values: string[] }[]>;
@@ -32,7 +31,7 @@ export class MaintenanceWindowTarget
 export interface MaintenanceWindowTargetArgs {
     readonly ownerInformation?: fabric.PropertyValue<string>;
     readonly resourceType: fabric.PropertyValue<string>;
-    readonly targets: fabric.PropertyValue<{ key: string, values: string[] }[]>;
+    readonly targets: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly windowId: fabric.PropertyValue<string>;
 }
 

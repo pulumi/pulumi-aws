@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {LogGroup} from "./logGroup";
 
-export class LogSubscriptionFilter
-        extends fabric.Resource implements LogSubscriptionFilterArgs {
+export class LogSubscriptionFilter extends fabric.Resource {
     public readonly destinationArn: fabric.Property<string>;
     public readonly filterPattern: fabric.Property<string>;
     public readonly logGroup: fabric.Property<LogGroup>;

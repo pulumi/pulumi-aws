@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Service
-        extends fabric.Resource implements ServiceArgs {
+export class Service extends fabric.Resource {
     public readonly cluster: fabric.Property<string>;
     public readonly deploymentMaximumPercent?: fabric.Property<number>;
     public readonly deploymentMinimumHealthyPercent?: fabric.Property<number>;
@@ -41,10 +40,10 @@ export interface ServiceArgs {
     readonly deploymentMinimumHealthyPercent?: fabric.PropertyValue<number>;
     readonly desiredCount?: fabric.PropertyValue<number>;
     readonly iamRole?: fabric.PropertyValue<string>;
-    readonly loadBalancer?: fabric.PropertyValue<{ containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[]>;
+    readonly loadBalancer?: fabric.PropertyValue<{ containerName: fabric.PropertyValue<string>, containerPort: fabric.PropertyValue<number>, elbName?: fabric.PropertyValue<string>, targetGroupArn?: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
-    readonly placementConstraints?: fabric.PropertyValue<{ expression?: string, type: string }[]>;
-    readonly placementStrategy?: fabric.PropertyValue<{ field?: string, type: string }[]>;
+    readonly placementConstraints?: fabric.PropertyValue<{ expression?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
+    readonly placementStrategy?: fabric.PropertyValue<{ field?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
     readonly taskDefinition: fabric.PropertyValue<string>;
 }
 

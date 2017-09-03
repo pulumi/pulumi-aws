@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Account
-        extends fabric.Resource implements AccountArgs {
+export class Account extends fabric.Resource {
     public readonly cloudwatchRoleArn?: fabric.Property<string>;
     public /*out*/ readonly throttleSettings: fabric.Property<{ burstLimit: number, rateLimit: number }[]>;
 

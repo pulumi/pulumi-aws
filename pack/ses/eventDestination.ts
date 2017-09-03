@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class EventDestination
-        extends fabric.Resource implements EventDestinationArgs {
+export class EventDestination extends fabric.Resource {
     public readonly cloudwatchDestination?: fabric.Property<{ defaultValue: string, dimensionName: string, valueSource: string }[]>;
     public readonly configurationSetName: fabric.Property<string>;
     public readonly enabled?: fabric.Property<boolean>;
@@ -31,11 +30,11 @@ export class EventDestination
 }
 
 export interface EventDestinationArgs {
-    readonly cloudwatchDestination?: fabric.PropertyValue<{ defaultValue: string, dimensionName: string, valueSource: string }[]>;
+    readonly cloudwatchDestination?: fabric.PropertyValue<{ defaultValue: fabric.PropertyValue<string>, dimensionName: fabric.PropertyValue<string>, valueSource: fabric.PropertyValue<string> }>[];
     readonly configurationSetName: fabric.PropertyValue<string>;
     readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly kinesisDestination?: fabric.PropertyValue<{ roleArn: string, streamArn: string }[]>;
-    readonly matchingTypes: fabric.PropertyValue<string[]>;
+    readonly kinesisDestination?: fabric.PropertyValue<{ roleArn: fabric.PropertyValue<string>, streamArn: fabric.PropertyValue<string> }>[];
+    readonly matchingTypes: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly name?: fabric.PropertyValue<string>;
 }
 

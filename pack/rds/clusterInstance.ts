@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ClusterInstance
-        extends fabric.Resource implements ClusterInstanceArgs {
+export class ClusterInstance extends fabric.Resource {
     public readonly applyImmediately: fabric.Property<boolean>;
     public readonly autoMinorVersionUpgrade?: fabric.Property<boolean>;
     public readonly clusterIdentifier: fabric.Property<string>;

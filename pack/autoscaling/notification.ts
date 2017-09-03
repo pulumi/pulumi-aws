@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Notification
-        extends fabric.Resource implements NotificationArgs {
+export class Notification extends fabric.Resource {
     public readonly groupNames: fabric.Property<string[]>;
     public readonly notifications: fabric.Property<string[]>;
     public readonly topicArn: fabric.Property<string>;
@@ -28,8 +27,8 @@ export class Notification
 }
 
 export interface NotificationArgs {
-    readonly groupNames: fabric.PropertyValue<string[]>;
-    readonly notifications: fabric.PropertyValue<string[]>;
+    readonly groupNames: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly notifications: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly topicArn: fabric.PropertyValue<string>;
 }
 

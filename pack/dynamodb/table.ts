@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Table
-        extends fabric.Resource implements TableArgs {
+export class Table extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly attribute: fabric.Property<{ name: string, type: string }[]>;
     public readonly globalSecondaryIndex?: fabric.Property<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[]>;
@@ -52,17 +51,17 @@ export class Table
 }
 
 export interface TableArgs {
-    readonly attribute: fabric.PropertyValue<{ name: string, type: string }[]>;
-    readonly globalSecondaryIndex?: fabric.PropertyValue<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[]>;
+    readonly attribute: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
+    readonly globalSecondaryIndex?: fabric.PropertyValue<{ hashKey: fabric.PropertyValue<string>, name: fabric.PropertyValue<string>, nonKeyAttributes?: fabric.PropertyValue<fabric.PropertyValue<string>>[], projectionType: fabric.PropertyValue<string>, rangeKey?: fabric.PropertyValue<string>, readCapacity: fabric.PropertyValue<number>, writeCapacity: fabric.PropertyValue<number> }>[];
     readonly hashKey: fabric.PropertyValue<string>;
-    readonly localSecondaryIndex?: fabric.PropertyValue<{ name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[]>;
+    readonly localSecondaryIndex?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, nonKeyAttributes?: fabric.PropertyValue<fabric.PropertyValue<string>>[], projectionType: fabric.PropertyValue<string>, rangeKey: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly rangeKey?: fabric.PropertyValue<string>;
     readonly readCapacity: fabric.PropertyValue<number>;
     readonly streamEnabled?: fabric.PropertyValue<boolean>;
     readonly streamViewType?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly ttl?: fabric.PropertyValue<{ attributeName: string, enabled: boolean }[]>;
+    readonly ttl?: fabric.PropertyValue<{ attributeName: fabric.PropertyValue<string>, enabled: fabric.PropertyValue<boolean> }>[];
     readonly writeCapacity: fabric.PropertyValue<number>;
 }
 

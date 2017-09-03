@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class PlacementGroup
-        extends fabric.Resource implements PlacementGroupArgs {
+export class PlacementGroup extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly strategy: fabric.Property<string>;
 

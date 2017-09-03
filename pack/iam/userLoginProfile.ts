@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class UserLoginProfile
-        extends fabric.Resource implements UserLoginProfileArgs {
+export class UserLoginProfile extends fabric.Resource {
     public /*out*/ readonly encryptedPassword: fabric.Property<string>;
     public /*out*/ readonly keyFingerprint: fabric.Property<string>;
     public readonly passwordLength?: fabric.Property<number>;

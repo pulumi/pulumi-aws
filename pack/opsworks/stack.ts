@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Stack
-        extends fabric.Resource implements StackArgs {
+export class Stack extends fabric.Resource {
     public readonly agentVersion: fabric.Property<string>;
     public readonly berkshelfVersion?: fabric.Property<string>;
     public readonly color?: fabric.Property<string>;
@@ -71,7 +70,7 @@ export interface StackArgs {
     readonly color?: fabric.PropertyValue<string>;
     readonly configurationManagerName?: fabric.PropertyValue<string>;
     readonly configurationManagerVersion?: fabric.PropertyValue<string>;
-    readonly customCookbooksSource?: fabric.PropertyValue<{ password?: string, revision?: string, sshKey?: string, type: string, url: string, username?: string }[]>;
+    readonly customCookbooksSource?: fabric.PropertyValue<{ password?: fabric.PropertyValue<string>, revision?: fabric.PropertyValue<string>, sshKey?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string>, url: fabric.PropertyValue<string>, username?: fabric.PropertyValue<string> }>[];
     readonly customJson?: fabric.PropertyValue<string>;
     readonly defaultAvailabilityZone?: fabric.PropertyValue<string>;
     readonly defaultInstanceProfileArn: fabric.PropertyValue<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Vault
-        extends fabric.Resource implements VaultArgs {
+export class Vault extends fabric.Resource {
     public readonly accessPolicy?: fabric.Property<string>;
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly location: fabric.Property<string>;
@@ -25,7 +24,7 @@ export class Vault
 export interface VaultArgs {
     readonly accessPolicy?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly notification?: fabric.PropertyValue<{ events: string[], snsTopic: string }[]>;
+    readonly notification?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], snsTopic: fabric.PropertyValue<string> }>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

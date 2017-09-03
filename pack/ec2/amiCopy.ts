@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class AmiCopy
-        extends fabric.Resource implements AmiCopyArgs {
+export class AmiCopy extends fabric.Resource {
     public /*out*/ readonly architecture: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly ebsBlockDevice: fabric.Property<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
@@ -47,9 +46,9 @@ export class AmiCopy
 
 export interface AmiCopyArgs {
     readonly description?: fabric.PropertyValue<string>;
-    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, deviceName?: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[]>;
+    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceName?: fabric.PropertyValue<string>, encrypted?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, snapshotId?: fabric.PropertyValue<string>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
     readonly encrypted?: fabric.PropertyValue<boolean>;
-    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName?: string, virtualName?: string }[]>;
+    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName?: fabric.PropertyValue<string>, virtualName?: fabric.PropertyValue<string> }>[];
     readonly kmsKeyId?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly sourceAmiId: fabric.PropertyValue<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Trail
-        extends fabric.Resource implements TrailArgs {
+export class Trail extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly cloudWatchLogsGroupArn?: fabric.Property<string>;
     public readonly cloudWatchLogsRoleArn?: fabric.Property<string>;

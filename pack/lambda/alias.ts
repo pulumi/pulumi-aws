@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Alias
-        extends fabric.Resource implements AliasArgs {
+export class Alias extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly functionName: fabric.Property<string>;

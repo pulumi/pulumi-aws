@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class StateMachine
-        extends fabric.Resource implements StateMachineArgs {
+export class StateMachine extends fabric.Resource {
     public /*out*/ readonly creationDate: fabric.Property<string>;
     public readonly definition: fabric.Property<string>;
     public readonly name: fabric.Property<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SecurityConfiguration
-        extends fabric.Resource implements SecurityConfigurationArgs {
+export class SecurityConfiguration extends fabric.Resource {
     public readonly configuration: fabric.Property<string>;
     public /*out*/ readonly creationDate: fabric.Property<string>;
     public readonly name: fabric.Property<string>;

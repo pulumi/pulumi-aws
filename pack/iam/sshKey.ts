@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SshKey
-        extends fabric.Resource implements SshKeyArgs {
+export class SshKey extends fabric.Resource {
     public readonly encoding: fabric.Property<string>;
     public /*out*/ readonly fingerprint: fabric.Property<string>;
     public readonly publicKey: fabric.Property<string>;

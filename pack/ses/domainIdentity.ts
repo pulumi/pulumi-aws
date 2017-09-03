@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DomainIdentity
-        extends fabric.Resource implements DomainIdentityArgs {
+export class DomainIdentity extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly domain: fabric.Property<string>;
     public /*out*/ readonly verificationToken: fabric.Property<string>;

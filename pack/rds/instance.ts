@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Instance
-        extends fabric.Resource implements InstanceArgs {
+export class Instance extends fabric.Resource {
     public /*out*/ readonly address: fabric.Property<string>;
     public readonly allocatedStorage: fabric.Property<number>;
     public readonly allowMajorVersionUpgrade?: fabric.Property<boolean>;
@@ -134,7 +133,7 @@ export interface InstanceArgs {
     readonly port?: fabric.PropertyValue<number>;
     readonly publiclyAccessible?: fabric.PropertyValue<boolean>;
     readonly replicateSourceDb?: fabric.PropertyValue<string>;
-    readonly securityGroupNames?: fabric.PropertyValue<string[]>;
+    readonly securityGroupNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly skipFinalSnapshot?: fabric.PropertyValue<boolean>;
     readonly snapshotIdentifier?: fabric.PropertyValue<string>;
     readonly storageEncrypted?: fabric.PropertyValue<boolean>;
@@ -142,6 +141,6 @@ export interface InstanceArgs {
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly timezone?: fabric.PropertyValue<string>;
     readonly username?: fabric.PropertyValue<string>;
-    readonly vpcSecurityGroupIds?: fabric.PropertyValue<string[]>;
+    readonly vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

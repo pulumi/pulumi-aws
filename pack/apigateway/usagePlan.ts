@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class UsagePlan
-        extends fabric.Resource implements UsagePlanArgs {
+export class UsagePlan extends fabric.Resource {
     public readonly apiStages?: fabric.Property<{ apiId: string, stage: string }[]>;
     public readonly description?: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
@@ -25,11 +24,11 @@ export class UsagePlan
 }
 
 export interface UsagePlanArgs {
-    readonly apiStages?: fabric.PropertyValue<{ apiId: string, stage: string }[]>;
+    readonly apiStages?: fabric.PropertyValue<{ apiId: fabric.PropertyValue<string>, stage: fabric.PropertyValue<string> }>[];
     readonly description?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly productCode?: fabric.PropertyValue<string>;
-    readonly quotaSettings?: fabric.PropertyValue<{ limit: number, offset?: number, period: string }[]>;
-    readonly throttleSettings?: fabric.PropertyValue<{ burstLimit?: number, rateLimit?: number }[]>;
+    readonly quotaSettings?: fabric.PropertyValue<{ limit: fabric.PropertyValue<number>, offset?: fabric.PropertyValue<number>, period: fabric.PropertyValue<string> }>[];
+    readonly throttleSettings?: fabric.PropertyValue<{ burstLimit?: fabric.PropertyValue<number>, rateLimit?: fabric.PropertyValue<number> }>[];
 }
 

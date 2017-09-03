@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class XssMatchSet
-        extends fabric.Resource implements XssMatchSetArgs {
+export class XssMatchSet extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly xssMatchTuples?: fabric.Property<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
@@ -18,6 +17,6 @@ export class XssMatchSet
 
 export interface XssMatchSetArgs {
     readonly name?: fabric.PropertyValue<string>;
-    readonly xssMatchTuples?: fabric.PropertyValue<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
+    readonly xssMatchTuples?: fabric.PropertyValue<{ fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], textTransformation: fabric.PropertyValue<string> }>[];
 }
 

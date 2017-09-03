@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DeliveryChannel
-        extends fabric.Resource implements DeliveryChannelArgs {
+export class DeliveryChannel extends fabric.Resource {
     public readonly name: fabric.Property<string>;
     public readonly s3BucketName: fabric.Property<string>;
     public readonly s3KeyPrefix?: fabric.Property<string>;
@@ -29,7 +28,7 @@ export interface DeliveryChannelArgs {
     readonly name?: fabric.PropertyValue<string>;
     readonly s3BucketName: fabric.PropertyValue<string>;
     readonly s3KeyPrefix?: fabric.PropertyValue<string>;
-    readonly snapshotDeliveryProperties?: fabric.PropertyValue<{ deliveryFrequency?: string }[]>;
+    readonly snapshotDeliveryProperties?: fabric.PropertyValue<{ deliveryFrequency?: fabric.PropertyValue<string> }>[];
     readonly snsTopicArn?: fabric.PropertyValue<string>;
 }
 

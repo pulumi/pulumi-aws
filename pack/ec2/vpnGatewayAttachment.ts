@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpnGatewayAttachment
-        extends fabric.Resource implements VpnGatewayAttachmentArgs {
+export class VpnGatewayAttachment extends fabric.Resource {
     public readonly vpcId: fabric.Property<string>;
     public readonly vpnGatewayId: fabric.Property<string>;
 

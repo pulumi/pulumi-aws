@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Subnet
-        extends fabric.Resource implements SubnetArgs {
+export class Subnet extends fabric.Resource {
     public readonly assignIpv6AddressOnCreation?: fabric.Property<boolean>;
     public readonly availabilityZone: fabric.Property<string>;
     public readonly cidrBlock: fabric.Property<string>;

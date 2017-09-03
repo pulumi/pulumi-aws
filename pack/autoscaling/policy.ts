@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Policy
-        extends fabric.Resource implements PolicyArgs {
+export class Policy extends fabric.Resource {
     public readonly adjustmentType: fabric.Property<string>;
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly autoscalingGroupName: fabric.Property<string>;
@@ -52,6 +51,6 @@ export interface PolicyArgs {
     readonly name?: fabric.PropertyValue<string>;
     readonly policyType?: fabric.PropertyValue<string>;
     readonly scalingAdjustment?: fabric.PropertyValue<number>;
-    readonly stepAdjustment?: fabric.PropertyValue<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[]>;
+    readonly stepAdjustment?: fabric.PropertyValue<{ metricIntervalLowerBound?: fabric.PropertyValue<string>, metricIntervalUpperBound?: fabric.PropertyValue<string>, scalingAdjustment: fabric.PropertyValue<number> }>[];
 }
 

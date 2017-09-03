@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Rule
-        extends fabric.Resource implements RuleArgs {
+export class Rule extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly inputParameters?: fabric.Property<string>;
@@ -34,7 +33,7 @@ export interface RuleArgs {
     readonly inputParameters?: fabric.PropertyValue<string>;
     readonly maximumExecutionFrequency?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly scope?: fabric.PropertyValue<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[]>;
-    readonly source: fabric.PropertyValue<{ owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[]>;
+    readonly scope?: fabric.PropertyValue<{ complianceResourceId?: fabric.PropertyValue<string>, complianceResourceTypes?: fabric.PropertyValue<fabric.PropertyValue<string>>[], tagKey?: fabric.PropertyValue<string>, tagValue?: fabric.PropertyValue<string> }>[];
+    readonly source: fabric.PropertyValue<{ owner: fabric.PropertyValue<string>, sourceDetail?: fabric.PropertyValue<{ eventSource?: fabric.PropertyValue<string>, maximumExecutionFrequency?: fabric.PropertyValue<string>, messageType?: fabric.PropertyValue<string> }>[], sourceIdentifier: fabric.PropertyValue<string> }>[];
 }
 

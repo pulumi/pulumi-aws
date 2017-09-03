@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Schedule
-        extends fabric.Resource implements ScheduleArgs {
+export class Schedule extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly autoscalingGroupName: fabric.Property<string>;
     public readonly desiredCapacity: fabric.Property<number>;

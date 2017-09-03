@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Endpoint
-        extends fabric.Resource implements EndpointArgs {
+export class Endpoint extends fabric.Resource {
     public readonly certificateArn: fabric.Property<string>;
     public readonly databaseName?: fabric.Property<string>;
     public /*out*/ readonly endpointArn: fabric.Property<string>;

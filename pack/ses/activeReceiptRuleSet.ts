@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ActiveReceiptRuleSet
-        extends fabric.Resource implements ActiveReceiptRuleSetArgs {
+export class ActiveReceiptRuleSet extends fabric.Resource {
     public readonly ruleSetName: fabric.Property<string>;
 
     constructor(urnName: string, args: ActiveReceiptRuleSetArgs) {

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Notification
-        extends fabric.Resource implements NotificationArgs {
+export class Notification extends fabric.Resource {
     public readonly bucket: fabric.Property<string>;
     public readonly lambdaFunction?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[]>;
     public readonly queue?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[]>;
@@ -25,8 +24,8 @@ export class Notification
 
 export interface NotificationArgs {
     readonly bucket: fabric.PropertyValue<string>;
-    readonly lambdaFunction?: fabric.PropertyValue<{ events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, lambdaFunctionArn?: string }[]>;
-    readonly queue?: fabric.PropertyValue<{ events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, queueArn: string }[]>;
-    readonly topic?: fabric.PropertyValue<{ events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, topicArn: string }[]>;
+    readonly lambdaFunction?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, lambdaFunctionArn?: fabric.PropertyValue<string> }>[];
+    readonly queue?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, queueArn: fabric.PropertyValue<string> }>[];
+    readonly topic?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, topicArn: fabric.PropertyValue<string> }>[];
 }
 

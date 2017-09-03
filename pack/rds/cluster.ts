@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Cluster
-        extends fabric.Resource implements ClusterArgs {
+export class Cluster extends fabric.Resource {
     public readonly applyImmediately: fabric.Property<boolean>;
     public readonly availabilityZones: fabric.Property<string[]>;
     public readonly backupRetentionPeriod?: fabric.Property<number>;
@@ -64,11 +63,11 @@ export class Cluster
 
 export interface ClusterArgs {
     readonly applyImmediately?: fabric.PropertyValue<boolean>;
-    readonly availabilityZones?: fabric.PropertyValue<string[]>;
+    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly backupRetentionPeriod?: fabric.PropertyValue<number>;
     readonly clusterIdentifier?: fabric.PropertyValue<string>;
     readonly clusterIdentifierPrefix?: fabric.PropertyValue<string>;
-    readonly clusterMembers?: fabric.PropertyValue<string[]>;
+    readonly clusterMembers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly databaseName?: fabric.PropertyValue<string>;
     readonly dbClusterParameterGroupName?: fabric.PropertyValue<string>;
     readonly dbSubnetGroupName?: fabric.PropertyValue<string>;
@@ -85,6 +84,6 @@ export interface ClusterArgs {
     readonly snapshotIdentifier?: fabric.PropertyValue<string>;
     readonly storageEncrypted?: fabric.PropertyValue<boolean>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.PropertyValue<string[]>;
+    readonly vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

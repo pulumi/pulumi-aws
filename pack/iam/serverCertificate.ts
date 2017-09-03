@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ServerCertificate
-        extends fabric.Resource implements ServerCertificateArgs {
+export class ServerCertificate extends fabric.Resource {
     public readonly arn: fabric.Property<string>;
     public readonly certificateBody: fabric.Property<string>;
     public readonly certificateChain?: fabric.Property<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Stream
-        extends fabric.Resource implements StreamArgs {
+export class Stream extends fabric.Resource {
     public readonly arn: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly retentionPeriod?: fabric.Property<number>;
@@ -32,7 +31,7 @@ export interface StreamArgs {
     readonly name?: fabric.PropertyValue<string>;
     readonly retentionPeriod?: fabric.PropertyValue<number>;
     readonly shardCount: fabric.PropertyValue<number>;
-    readonly shardLevelMetrics?: fabric.PropertyValue<string[]>;
+    readonly shardLevelMetrics?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

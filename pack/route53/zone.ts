@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Zone
-        extends fabric.Resource implements ZoneArgs {
+export class Zone extends fabric.Resource {
     public readonly comment?: fabric.Property<string>;
     public readonly delegationSetId?: fabric.Property<string>;
     public readonly forceDestroy?: fabric.Property<boolean>;

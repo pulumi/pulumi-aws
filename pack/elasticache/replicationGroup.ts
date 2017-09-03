@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ReplicationGroup
-        extends fabric.Resource implements ReplicationGroupArgs {
+export class ReplicationGroup extends fabric.Resource {
     public readonly applyImmediately: fabric.Property<boolean>;
     public readonly autoMinorVersionUpgrade?: fabric.Property<boolean>;
     public readonly automaticFailoverEnabled?: fabric.Property<boolean>;
@@ -76,8 +75,8 @@ export interface ReplicationGroupArgs {
     readonly applyImmediately?: fabric.PropertyValue<boolean>;
     readonly autoMinorVersionUpgrade?: fabric.PropertyValue<boolean>;
     readonly automaticFailoverEnabled?: fabric.PropertyValue<boolean>;
-    readonly availabilityZones?: fabric.PropertyValue<string[]>;
-    readonly clusterMode?: fabric.PropertyValue<{ numNodeGroups: number, replicasPerNodeGroup: number }[]>;
+    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly clusterMode?: fabric.PropertyValue<{ numNodeGroups: fabric.PropertyValue<number>, replicasPerNodeGroup: fabric.PropertyValue<number> }>[];
     readonly engine?: fabric.PropertyValue<string>;
     readonly engineVersion?: fabric.PropertyValue<string>;
     readonly maintenanceWindow?: fabric.PropertyValue<string>;
@@ -88,9 +87,9 @@ export interface ReplicationGroupArgs {
     readonly port: fabric.PropertyValue<number>;
     readonly replicationGroupDescription: fabric.PropertyValue<string>;
     readonly replicationGroupId: fabric.PropertyValue<string>;
-    readonly securityGroupIds?: fabric.PropertyValue<string[]>;
-    readonly securityGroupNames?: fabric.PropertyValue<string[]>;
-    readonly snapshotArns?: fabric.PropertyValue<string[]>;
+    readonly securityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly securityGroupNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly snapshotArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly snapshotName?: fabric.PropertyValue<string>;
     readonly snapshotRetentionLimit?: fabric.PropertyValue<number>;
     readonly snapshotWindow?: fabric.PropertyValue<string>;

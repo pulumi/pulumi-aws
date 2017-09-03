@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Key
-        extends fabric.Resource implements KeyArgs {
+export class Key extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly deletionWindowInDays?: fabric.Property<number>;
     public readonly description: fabric.Property<string>;

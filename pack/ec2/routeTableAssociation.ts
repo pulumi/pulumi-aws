@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class RouteTableAssociation
-        extends fabric.Resource implements RouteTableAssociationArgs {
+export class RouteTableAssociation extends fabric.Resource {
     public readonly routeTableId: fabric.Property<string>;
     public readonly subnetId: fabric.Property<string>;
 

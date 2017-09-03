@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Bucket
-        extends fabric.Resource implements BucketArgs {
+export class Bucket extends fabric.Resource {
     public readonly accelerationStatus: fabric.Property<string>;
     public readonly acl?: fabric.Property<string>;
     public readonly arn: fabric.Property<string>;
@@ -57,18 +56,18 @@ export interface BucketArgs {
     readonly arn?: fabric.PropertyValue<string>;
     readonly bucket?: fabric.PropertyValue<string>;
     readonly bucketPrefix?: fabric.PropertyValue<string>;
-    readonly corsRule?: fabric.PropertyValue<{ allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[]>;
+    readonly corsRule?: fabric.PropertyValue<{ allowedHeaders?: fabric.PropertyValue<fabric.PropertyValue<string>>[], allowedMethods: fabric.PropertyValue<fabric.PropertyValue<string>>[], allowedOrigins: fabric.PropertyValue<fabric.PropertyValue<string>>[], exposeHeaders?: fabric.PropertyValue<fabric.PropertyValue<string>>[], maxAgeSeconds?: fabric.PropertyValue<number> }>[];
     readonly forceDestroy?: fabric.PropertyValue<boolean>;
     readonly hostedZoneId?: fabric.PropertyValue<string>;
-    readonly lifecycleRule?: fabric.PropertyValue<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id?: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[]>;
-    readonly logging?: fabric.PropertyValue<{ targetBucket: string, targetPrefix?: string }[]>;
+    readonly lifecycleRule?: fabric.PropertyValue<{ abortIncompleteMultipartUploadDays?: fabric.PropertyValue<number>, enabled: fabric.PropertyValue<boolean>, expiration?: fabric.PropertyValue<{ date?: fabric.PropertyValue<string>, days?: fabric.PropertyValue<number>, expiredObjectDeleteMarker?: fabric.PropertyValue<boolean> }>[], id?: fabric.PropertyValue<string>, noncurrentVersionExpiration?: fabric.PropertyValue<{ days?: fabric.PropertyValue<number> }>[], noncurrentVersionTransition?: fabric.PropertyValue<{ days?: fabric.PropertyValue<number>, storageClass: fabric.PropertyValue<string> }>[], prefix?: fabric.PropertyValue<string>, tags?: fabric.PropertyValue<{[key: string]: any}>, transition?: fabric.PropertyValue<{ date?: fabric.PropertyValue<string>, days?: fabric.PropertyValue<number>, storageClass: fabric.PropertyValue<string> }>[] }>[];
+    readonly logging?: fabric.PropertyValue<{ targetBucket: fabric.PropertyValue<string>, targetPrefix?: fabric.PropertyValue<string> }>[];
     readonly policy?: fabric.PropertyValue<string>;
     readonly region?: fabric.PropertyValue<string>;
-    readonly replicationConfiguration?: fabric.PropertyValue<{ role: string, rules: { destination: { bucket: string, storageClass?: string }[], id?: string, prefix: string, status: string }[] }[]>;
+    readonly replicationConfiguration?: fabric.PropertyValue<{ role: fabric.PropertyValue<string>, rules: fabric.PropertyValue<{ destination: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, storageClass?: fabric.PropertyValue<string> }>[], id?: fabric.PropertyValue<string>, prefix: fabric.PropertyValue<string>, status: fabric.PropertyValue<string> }>[] }>[];
     readonly requestPayer?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly versioning?: fabric.PropertyValue<{ enabled?: boolean, mfaDelete?: boolean }[]>;
-    readonly website?: fabric.PropertyValue<{ errorDocument?: string, indexDocument?: string, redirectAllRequestsTo?: string, routingRules?: string }[]>;
+    readonly versioning?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, mfaDelete?: fabric.PropertyValue<boolean> }>[];
+    readonly website?: fabric.PropertyValue<{ errorDocument?: fabric.PropertyValue<string>, indexDocument?: fabric.PropertyValue<string>, redirectAllRequestsTo?: fabric.PropertyValue<string>, routingRules?: fabric.PropertyValue<string> }>[];
     readonly websiteDomain?: fabric.PropertyValue<string>;
     readonly websiteEndpoint?: fabric.PropertyValue<string>;
 }

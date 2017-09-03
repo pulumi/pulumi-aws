@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class KeyPair
-        extends fabric.Resource implements KeyPairArgs {
+export class KeyPair extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly encryptedFingerprint: fabric.Property<string>;
     public /*out*/ readonly encryptedPrivateKey: fabric.Property<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Application
-        extends fabric.Resource implements ApplicationArgs {
+export class Application extends fabric.Resource {
     public readonly appSource: fabric.Property<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
     public readonly autoBundleOnDeploy?: fabric.Property<string>;
     public readonly awsFlowRubySettings?: fabric.Property<string>;
@@ -54,7 +53,7 @@ export class Application
 }
 
 export interface ApplicationArgs {
-    readonly appSource?: fabric.PropertyValue<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
+    readonly appSource?: fabric.PropertyValue<{ password?: fabric.PropertyValue<string>, revision?: fabric.PropertyValue<string>, sshKey?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string>, url?: fabric.PropertyValue<string>, username?: fabric.PropertyValue<string> }>[];
     readonly autoBundleOnDeploy?: fabric.PropertyValue<string>;
     readonly awsFlowRubySettings?: fabric.PropertyValue<string>;
     readonly dataSourceArn?: fabric.PropertyValue<string>;
@@ -62,13 +61,13 @@ export interface ApplicationArgs {
     readonly dataSourceType?: fabric.PropertyValue<string>;
     readonly description?: fabric.PropertyValue<string>;
     readonly documentRoot?: fabric.PropertyValue<string>;
-    readonly domains?: fabric.PropertyValue<string[]>;
+    readonly domains?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly enableSsl?: fabric.PropertyValue<boolean>;
-    readonly environment?: fabric.PropertyValue<{ key: string, secure?: boolean, value: string }[]>;
+    readonly environment?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, secure?: fabric.PropertyValue<boolean>, value: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly railsEnv?: fabric.PropertyValue<string>;
     readonly shortName?: fabric.PropertyValue<string>;
-    readonly sslConfiguration?: fabric.PropertyValue<{ certificate: string, chain?: string, privateKey: string }[]>;
+    readonly sslConfiguration?: fabric.PropertyValue<{ certificate: fabric.PropertyValue<string>, chain?: fabric.PropertyValue<string>, privateKey: fabric.PropertyValue<string> }>[];
     readonly stackId: fabric.PropertyValue<string>;
     readonly type: fabric.PropertyValue<string>;
 }

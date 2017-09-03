@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class WebAcl
-        extends fabric.Resource implements WebAclArgs {
+export class WebAcl extends fabric.Resource {
     public readonly defaultAction: fabric.Property<{ type: string }[]>;
     public readonly metricName: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
@@ -27,9 +26,9 @@ export class WebAcl
 }
 
 export interface WebAclArgs {
-    readonly defaultAction: fabric.PropertyValue<{ type: string }[]>;
+    readonly defaultAction: fabric.PropertyValue<{ type: fabric.PropertyValue<string> }>[];
     readonly metricName: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly rules?: fabric.PropertyValue<{ action: { type: string }[], priority: number, ruleId: string }[]>;
+    readonly rules?: fabric.PropertyValue<{ action: fabric.PropertyValue<{ type: fabric.PropertyValue<string> }>[], priority: fabric.PropertyValue<number>, ruleId: fabric.PropertyValue<string> }>[];
 }
 

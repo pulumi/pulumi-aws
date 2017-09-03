@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Eip
-        extends fabric.Resource implements EipArgs {
+export class Eip extends fabric.Resource {
     public /*out*/ readonly allocationId: fabric.Property<string>;
     public readonly associateWithPrivateIp?: fabric.Property<string>;
     public /*out*/ readonly associationId: fabric.Property<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Snapshot
-        extends fabric.Resource implements SnapshotArgs {
+export class Snapshot extends fabric.Resource {
     public /*out*/ readonly dataEncryptionKeyId: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public /*out*/ readonly encrypted: fabric.Property<boolean>;

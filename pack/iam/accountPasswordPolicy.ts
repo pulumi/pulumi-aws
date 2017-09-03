@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class AccountPasswordPolicy
-        extends fabric.Resource implements AccountPasswordPolicyArgs {
+export class AccountPasswordPolicy extends fabric.Resource {
     public readonly allowUsersToChangePassword?: fabric.Property<boolean>;
     public /*out*/ readonly expirePasswords: fabric.Property<boolean>;
     public readonly hardExpiry: fabric.Property<boolean>;

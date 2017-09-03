@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class AccountAlias
-        extends fabric.Resource implements AccountAliasArgs {
+export class AccountAlias extends fabric.Resource {
     public readonly accountAlias: fabric.Property<string>;
 
     constructor(urnName: string, args: AccountAliasArgs) {

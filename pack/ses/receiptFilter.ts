@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ReceiptFilter
-        extends fabric.Resource implements ReceiptFilterArgs {
+export class ReceiptFilter extends fabric.Resource {
     public readonly cidr: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly policy: fabric.Property<string>;

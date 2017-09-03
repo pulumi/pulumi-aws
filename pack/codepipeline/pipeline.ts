@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Pipeline
-        extends fabric.Resource implements PipelineArgs {
+export class Pipeline extends fabric.Resource {
     public readonly artifactStore: fabric.Property<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
     public readonly name: fabric.Property<string>;
     public readonly roleArn: fabric.Property<string>;
@@ -30,9 +29,9 @@ export class Pipeline
 }
 
 export interface PipelineArgs {
-    readonly artifactStore: fabric.PropertyValue<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
+    readonly artifactStore: fabric.PropertyValue<{ encryptionKey?: fabric.PropertyValue<{ id: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], location: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly roleArn: fabric.PropertyValue<string>;
-    readonly stage: fabric.PropertyValue<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder?: number, version: string }[], name: string }[]>;
+    readonly stage: fabric.PropertyValue<{ action: fabric.PropertyValue<{ category: fabric.PropertyValue<string>, configuration?: fabric.PropertyValue<{[key: string]: any}>, inputArtifacts?: fabric.PropertyValue<fabric.PropertyValue<string>>[], name: fabric.PropertyValue<string>, outputArtifacts?: fabric.PropertyValue<fabric.PropertyValue<string>>[], owner: fabric.PropertyValue<string>, provider: fabric.PropertyValue<string>, roleArn?: fabric.PropertyValue<string>, runOrder?: fabric.PropertyValue<number>, version: fabric.PropertyValue<string> }>[], name: fabric.PropertyValue<string> }>[];
 }
 

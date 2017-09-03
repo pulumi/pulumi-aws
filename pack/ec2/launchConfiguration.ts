@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LaunchConfiguration
-        extends fabric.Resource implements LaunchConfigurationArgs {
+export class LaunchConfiguration extends fabric.Resource {
     public readonly associatePublicIpAddress?: fabric.Property<boolean>;
     public readonly ebsBlockDevice: fabric.Property<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     public readonly ebsOptimized: fabric.Property<boolean>;
@@ -56,10 +55,10 @@ export class LaunchConfiguration
 
 export interface LaunchConfigurationArgs {
     readonly associatePublicIpAddress?: fabric.PropertyValue<boolean>;
-    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[]>;
+    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceName: fabric.PropertyValue<string>, encrypted?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, snapshotId?: fabric.PropertyValue<string>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
     readonly ebsOptimized?: fabric.PropertyValue<boolean>;
     readonly enableMonitoring?: fabric.PropertyValue<boolean>;
-    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: string, virtualName: string }[]>;
+    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: fabric.PropertyValue<string>, virtualName: fabric.PropertyValue<string> }>[];
     readonly iamInstanceProfile?: fabric.PropertyValue<string>;
     readonly imageId: fabric.PropertyValue<string>;
     readonly instanceType: fabric.PropertyValue<string>;
@@ -67,11 +66,11 @@ export interface LaunchConfigurationArgs {
     readonly name?: fabric.PropertyValue<string>;
     readonly namePrefix?: fabric.PropertyValue<string>;
     readonly placementTenancy?: fabric.PropertyValue<string>;
-    readonly rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string }[]>;
-    readonly securityGroups?: fabric.PropertyValue<string[]>;
+    readonly rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
+    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly spotPrice?: fabric.PropertyValue<string>;
     readonly userData?: fabric.PropertyValue<string>;
     readonly vpcClassicLinkId?: fabric.PropertyValue<string>;
-    readonly vpcClassicLinkSecurityGroups?: fabric.PropertyValue<string[]>;
+    readonly vpcClassicLinkSecurityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ReplicationTask
-        extends fabric.Resource implements ReplicationTaskArgs {
+export class ReplicationTask extends fabric.Resource {
     public readonly cdcStartTime?: fabric.Property<string>;
     public readonly migrationType: fabric.Property<string>;
     public readonly replicationInstanceArn: fabric.Property<string>;

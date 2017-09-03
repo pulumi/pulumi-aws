@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Group
-        extends fabric.Resource implements GroupArgs {
+export class Group extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly availabilityZones: fabric.Property<string[]>;
     public readonly defaultCooldown: fabric.Property<number>;
@@ -75,16 +74,16 @@ export class Group
 }
 
 export interface GroupArgs {
-    readonly availabilityZones?: fabric.PropertyValue<string[]>;
+    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly defaultCooldown?: fabric.PropertyValue<number>;
     readonly desiredCapacity?: fabric.PropertyValue<number>;
-    readonly enabledMetrics?: fabric.PropertyValue<string[]>;
+    readonly enabledMetrics?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly forceDelete?: fabric.PropertyValue<boolean>;
     readonly healthCheckGracePeriod?: fabric.PropertyValue<number>;
     readonly healthCheckType?: fabric.PropertyValue<string>;
-    readonly initialLifecycleHook?: fabric.PropertyValue<{ defaultResult?: string, heartbeatTimeout?: number, lifecycleTransition: string, name: string, notificationMetadata?: string, notificationTargetArn?: string, roleArn?: string }[]>;
+    readonly initialLifecycleHook?: fabric.PropertyValue<{ defaultResult?: fabric.PropertyValue<string>, heartbeatTimeout?: fabric.PropertyValue<number>, lifecycleTransition: fabric.PropertyValue<string>, name: fabric.PropertyValue<string>, notificationMetadata?: fabric.PropertyValue<string>, notificationTargetArn?: fabric.PropertyValue<string>, roleArn?: fabric.PropertyValue<string> }>[];
     readonly launchConfiguration: fabric.PropertyValue<string>;
-    readonly loadBalancers?: fabric.PropertyValue<string[]>;
+    readonly loadBalancers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly maxSize: fabric.PropertyValue<number>;
     readonly metricsGranularity?: fabric.PropertyValue<string>;
     readonly minElbCapacity?: fabric.PropertyValue<number>;
@@ -93,12 +92,12 @@ export interface GroupArgs {
     readonly namePrefix?: fabric.PropertyValue<string>;
     readonly placementGroup?: fabric.PropertyValue<string>;
     readonly protectFromScaleIn?: fabric.PropertyValue<boolean>;
-    readonly suspendedProcesses?: fabric.PropertyValue<string[]>;
-    readonly tag?: fabric.PropertyValue<{ key: string, propagateAtLaunch: boolean, value: string }[]>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}[]>;
-    readonly targetGroupArns?: fabric.PropertyValue<string[]>;
-    readonly terminationPolicies?: fabric.PropertyValue<string[]>;
-    readonly vpcZoneIdentifier?: fabric.PropertyValue<string[]>;
+    readonly suspendedProcesses?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly tag?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, propagateAtLaunch: fabric.PropertyValue<boolean>, value: fabric.PropertyValue<string> }>[];
+    readonly tags?: fabric.PropertyValue<fabric.PropertyValue<{[key: string]: any}>>[];
+    readonly targetGroupArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly terminationPolicies?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly vpcZoneIdentifier?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly waitForCapacityTimeout?: fabric.PropertyValue<string>;
     readonly waitForElbCapacity?: fabric.PropertyValue<number>;
 }

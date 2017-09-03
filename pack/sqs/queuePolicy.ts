@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class QueuePolicy
-        extends fabric.Resource implements QueuePolicyArgs {
+export class QueuePolicy extends fabric.Resource {
     public readonly policy: fabric.Property<string>;
     public readonly queueUrl: fabric.Property<string>;
 

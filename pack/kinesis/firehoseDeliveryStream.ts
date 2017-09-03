@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class FirehoseDeliveryStream
-        extends fabric.Resource implements FirehoseDeliveryStreamArgs {
+export class FirehoseDeliveryStream extends fabric.Resource {
     public readonly arn: fabric.Property<string>;
     public readonly destination: fabric.Property<string>;
     public readonly destinationId: fabric.Property<string>;
@@ -38,10 +37,10 @@ export interface FirehoseDeliveryStreamArgs {
     readonly arn?: fabric.PropertyValue<string>;
     readonly destination: fabric.PropertyValue<string>;
     readonly destinationId?: fabric.PropertyValue<string>;
-    readonly elasticsearchConfiguration?: fabric.PropertyValue<{ bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions?: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], domainArn: string, indexName: string, indexRotationPeriod?: string, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string }[]>;
+    readonly elasticsearchConfiguration?: fabric.PropertyValue<{ bufferingInterval?: fabric.PropertyValue<number>, bufferingSize?: fabric.PropertyValue<number>, cloudwatchLoggingOptions?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, logGroupName?: fabric.PropertyValue<string>, logStreamName?: fabric.PropertyValue<string> }>[], domainArn: fabric.PropertyValue<string>, indexName: fabric.PropertyValue<string>, indexRotationPeriod?: fabric.PropertyValue<string>, retryDuration?: fabric.PropertyValue<number>, roleArn: fabric.PropertyValue<string>, s3BackupMode?: fabric.PropertyValue<string>, typeName?: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
-    readonly redshiftConfiguration?: fabric.PropertyValue<{ cloudwatchLoggingOptions?: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], clusterJdbcurl: string, copyOptions?: string, dataTableColumns?: string, dataTableName: string, password: string, retryDuration?: number, roleArn: string, username: string }[]>;
-    readonly s3Configuration: fabric.PropertyValue<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions?: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }[]>;
+    readonly redshiftConfiguration?: fabric.PropertyValue<{ cloudwatchLoggingOptions?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, logGroupName?: fabric.PropertyValue<string>, logStreamName?: fabric.PropertyValue<string> }>[], clusterJdbcurl: fabric.PropertyValue<string>, copyOptions?: fabric.PropertyValue<string>, dataTableColumns?: fabric.PropertyValue<string>, dataTableName: fabric.PropertyValue<string>, password: fabric.PropertyValue<string>, retryDuration?: fabric.PropertyValue<number>, roleArn: fabric.PropertyValue<string>, username: fabric.PropertyValue<string> }>[];
+    readonly s3Configuration: fabric.PropertyValue<{ bucketArn: fabric.PropertyValue<string>, bufferInterval?: fabric.PropertyValue<number>, bufferSize?: fabric.PropertyValue<number>, cloudwatchLoggingOptions?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, logGroupName?: fabric.PropertyValue<string>, logStreamName?: fabric.PropertyValue<string> }>[], compressionFormat?: fabric.PropertyValue<string>, kmsKeyArn?: fabric.PropertyValue<string>, prefix?: fabric.PropertyValue<string>, roleArn: fabric.PropertyValue<string> }>[];
     readonly versionId?: fabric.PropertyValue<string>;
 }
 

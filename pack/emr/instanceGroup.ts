@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class InstanceGroup
-        extends fabric.Resource implements InstanceGroupArgs {
+export class InstanceGroup extends fabric.Resource {
     public readonly clusterId: fabric.Property<string>;
     public readonly ebsConfig?: fabric.Property<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
     public readonly ebsOptimized?: fabric.Property<boolean>;
@@ -34,7 +33,7 @@ export class InstanceGroup
 
 export interface InstanceGroupArgs {
     readonly clusterId: fabric.PropertyValue<string>;
-    readonly ebsConfig?: fabric.PropertyValue<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
+    readonly ebsConfig?: fabric.PropertyValue<{ iops?: fabric.PropertyValue<number>, size: fabric.PropertyValue<number>, type: fabric.PropertyValue<string>, volumesPerInstance?: fabric.PropertyValue<number> }>[];
     readonly ebsOptimized?: fabric.PropertyValue<boolean>;
     readonly instanceCount?: fabric.PropertyValue<number>;
     readonly instanceType: fabric.PropertyValue<string>;

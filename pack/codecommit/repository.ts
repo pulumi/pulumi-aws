@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Repository
-        extends fabric.Resource implements RepositoryArgs {
+export class Repository extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public /*out*/ readonly cloneUrlHttp: fabric.Property<string>;
     public /*out*/ readonly cloneUrlSsh: fabric.Property<string>;

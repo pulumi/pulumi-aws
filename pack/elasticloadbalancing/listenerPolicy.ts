@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ListenerPolicy
-        extends fabric.Resource implements ListenerPolicyArgs {
+export class ListenerPolicy extends fabric.Resource {
     public readonly loadBalancerName: fabric.Property<string>;
     public readonly loadBalancerPort: fabric.Property<number>;
     public readonly policyNames?: fabric.Property<string[]>;
@@ -27,6 +26,6 @@ export class ListenerPolicy
 export interface ListenerPolicyArgs {
     readonly loadBalancerName: fabric.PropertyValue<string>;
     readonly loadBalancerPort: fabric.PropertyValue<number>;
-    readonly policyNames?: fabric.PropertyValue<string[]>;
+    readonly policyNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

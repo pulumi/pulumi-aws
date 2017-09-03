@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class GroupPolicy
-        extends fabric.Resource implements GroupPolicyArgs {
+export class GroupPolicy extends fabric.Resource {
     public readonly group: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly namePrefix?: fabric.Property<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class MaintenanceWindow
-        extends fabric.Resource implements MaintenanceWindowArgs {
+export class MaintenanceWindow extends fabric.Resource {
     public readonly allowUnassociatedTargets?: fabric.Property<boolean>;
     public readonly cutoff: fabric.Property<number>;
     public readonly duration: fabric.Property<number>;

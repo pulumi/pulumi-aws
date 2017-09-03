@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Target
-        extends fabric.Resource implements TargetArgs {
+export class Target extends fabric.Resource {
     public readonly maxCapacity: fabric.Property<number>;
     public readonly minCapacity: fabric.Property<number>;
     public readonly resourceId: fabric.Property<string>;

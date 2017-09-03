@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DefaultVpcDhcpOptions
-        extends fabric.Resource implements DefaultVpcDhcpOptionsArgs {
+export class DefaultVpcDhcpOptions extends fabric.Resource {
     public /*out*/ readonly domainName: fabric.Property<string>;
     public /*out*/ readonly domainNameServers: fabric.Property<string>;
     public readonly netbiosNameServers?: fabric.Property<string[]>;
@@ -22,7 +21,7 @@ export class DefaultVpcDhcpOptions
 }
 
 export interface DefaultVpcDhcpOptionsArgs {
-    readonly netbiosNameServers?: fabric.PropertyValue<string[]>;
+    readonly netbiosNameServers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly netbiosNodeType?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }

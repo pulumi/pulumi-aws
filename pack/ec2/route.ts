@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Route
-        extends fabric.Resource implements RouteArgs {
+export class Route extends fabric.Resource {
     public readonly destinationCidrBlock?: fabric.Property<string>;
     public readonly destinationIpv6CidrBlock?: fabric.Property<string>;
     public /*out*/ readonly destinationPrefixListId: fabric.Property<string>;

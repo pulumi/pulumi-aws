@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class EventRule
-        extends fabric.Resource implements EventRuleArgs {
+export class EventRule extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly eventPattern?: fabric.Property<string>;

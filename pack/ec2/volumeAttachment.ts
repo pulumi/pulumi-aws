@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VolumeAttachment
-        extends fabric.Resource implements VolumeAttachmentArgs {
+export class VolumeAttachment extends fabric.Resource {
     public readonly deviceName: fabric.Property<string>;
     public readonly forceDetach: fabric.Property<boolean>;
     public readonly instanceId: fabric.Property<string>;

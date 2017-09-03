@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class NetworkInterfaceAttachment
-        extends fabric.Resource implements NetworkInterfaceAttachmentArgs {
+export class NetworkInterfaceAttachment extends fabric.Resource {
     public /*out*/ readonly attachmentId: fabric.Property<string>;
     public readonly deviceIndex: fabric.Property<number>;
     public readonly instanceId: fabric.Property<string>;

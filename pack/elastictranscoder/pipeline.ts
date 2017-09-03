@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Pipeline
-        extends fabric.Resource implements PipelineArgs {
+export class Pipeline extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly awsKmsKeyArn?: fabric.Property<string>;
     public readonly contentConfig: fabric.Property<{ bucket: string, storageClass?: string }[]>;
@@ -41,14 +40,14 @@ export class Pipeline
 
 export interface PipelineArgs {
     readonly awsKmsKeyArn?: fabric.PropertyValue<string>;
-    readonly contentConfig?: fabric.PropertyValue<{ bucket?: string, storageClass?: string }[]>;
-    readonly contentConfigPermissions?: fabric.PropertyValue<{ access?: string[], grantee?: string, granteeType?: string }[]>;
+    readonly contentConfig?: fabric.PropertyValue<{ bucket?: fabric.PropertyValue<string>, storageClass?: fabric.PropertyValue<string> }>[];
+    readonly contentConfigPermissions?: fabric.PropertyValue<{ access?: fabric.PropertyValue<fabric.PropertyValue<string>>[], grantee?: fabric.PropertyValue<string>, granteeType?: fabric.PropertyValue<string> }>[];
     readonly inputBucket: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly notifications?: fabric.PropertyValue<{ completed?: string, error?: string, progressing?: string, warning?: string }[]>;
+    readonly notifications?: fabric.PropertyValue<{ completed?: fabric.PropertyValue<string>, error?: fabric.PropertyValue<string>, progressing?: fabric.PropertyValue<string>, warning?: fabric.PropertyValue<string> }>[];
     readonly outputBucket?: fabric.PropertyValue<string>;
     readonly role: fabric.PropertyValue<string>;
-    readonly thumbnailConfig?: fabric.PropertyValue<{ bucket?: string, storageClass?: string }[]>;
-    readonly thumbnailConfigPermissions?: fabric.PropertyValue<{ access?: string[], grantee?: string, granteeType?: string }[]>;
+    readonly thumbnailConfig?: fabric.PropertyValue<{ bucket?: fabric.PropertyValue<string>, storageClass?: fabric.PropertyValue<string> }>[];
+    readonly thumbnailConfigPermissions?: fabric.PropertyValue<{ access?: fabric.PropertyValue<fabric.PropertyValue<string>>[], grantee?: fabric.PropertyValue<string>, granteeType?: fabric.PropertyValue<string> }>[];
 }
 

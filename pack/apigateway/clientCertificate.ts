@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ClientCertificate
-        extends fabric.Resource implements ClientCertificateArgs {
+export class ClientCertificate extends fabric.Resource {
     public /*out*/ readonly createdDate: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public /*out*/ readonly expirationDate: fabric.Property<string>;

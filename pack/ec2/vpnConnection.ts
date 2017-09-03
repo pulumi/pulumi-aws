@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpnConnection
-        extends fabric.Resource implements VpnConnectionArgs {
+export class VpnConnection extends fabric.Resource {
     public readonly customerGatewayConfiguration: fabric.Property<string>;
     public readonly customerGatewayId: fabric.Property<string>;
     public readonly routes: fabric.Property<{ destinationCidrBlock: string, source: string, state: string }[]>;
@@ -52,11 +51,11 @@ export class VpnConnection
 export interface VpnConnectionArgs {
     readonly customerGatewayConfiguration?: fabric.PropertyValue<string>;
     readonly customerGatewayId: fabric.PropertyValue<string>;
-    readonly routes?: fabric.PropertyValue<{ destinationCidrBlock?: string, source?: string, state?: string }[]>;
+    readonly routes?: fabric.PropertyValue<{ destinationCidrBlock?: fabric.PropertyValue<string>, source?: fabric.PropertyValue<string>, state?: fabric.PropertyValue<string> }>[];
     readonly staticRoutesOnly?: fabric.PropertyValue<boolean>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly type: fabric.PropertyValue<string>;
-    readonly vgwTelemetry?: fabric.PropertyValue<{ acceptedRouteCount?: number, lastStatusChange?: string, outsideIpAddress?: string, status?: string, statusMessage?: string }[]>;
+    readonly vgwTelemetry?: fabric.PropertyValue<{ acceptedRouteCount?: fabric.PropertyValue<number>, lastStatusChange?: fabric.PropertyValue<string>, outsideIpAddress?: fabric.PropertyValue<string>, status?: fabric.PropertyValue<string>, statusMessage?: fabric.PropertyValue<string> }>[];
     readonly vpnGatewayId: fabric.PropertyValue<string>;
 }
 

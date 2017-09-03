@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class Deployment
-        extends fabric.Resource implements DeploymentArgs {
+export class Deployment extends fabric.Resource {
     public /*out*/ readonly createdDate: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public /*out*/ readonly executionArn: fabric.Property<string>;
@@ -38,6 +37,6 @@ export interface DeploymentArgs {
     readonly restApi: fabric.PropertyValue<RestApi>;
     readonly stageDescription?: fabric.PropertyValue<string>;
     readonly stageName: fabric.PropertyValue<string>;
-    readonly variables?: fabric.PropertyValue<{[key: string]: string}>;
+    readonly variables?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
 }
 

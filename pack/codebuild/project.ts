@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Project
-        extends fabric.Resource implements ProjectArgs {
+export class Project extends fabric.Resource {
     public readonly artifacts: fabric.Property<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[]>;
     public readonly buildTimeout?: fabric.Property<number>;
     public readonly description: fabric.Property<string>;
@@ -40,14 +39,14 @@ export class Project
 }
 
 export interface ProjectArgs {
-    readonly artifacts: fabric.PropertyValue<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[]>;
+    readonly artifacts: fabric.PropertyValue<{ location?: fabric.PropertyValue<string>, name?: fabric.PropertyValue<string>, namespaceType?: fabric.PropertyValue<string>, packaging?: fabric.PropertyValue<string>, path?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
     readonly buildTimeout?: fabric.PropertyValue<number>;
     readonly description?: fabric.PropertyValue<string>;
     readonly encryptionKey?: fabric.PropertyValue<string>;
-    readonly environment: fabric.PropertyValue<{ computeType: string, environmentVariable?: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[]>;
+    readonly environment: fabric.PropertyValue<{ computeType: fabric.PropertyValue<string>, environmentVariable?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[], image: fabric.PropertyValue<string>, privilegedMode?: fabric.PropertyValue<boolean>, type: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly serviceRole?: fabric.PropertyValue<string>;
-    readonly source: fabric.PropertyValue<{ auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[]>;
+    readonly source: fabric.PropertyValue<{ auth?: fabric.PropertyValue<{ resource?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], buildspec?: fabric.PropertyValue<string>, location?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class PhpAppLayer
-        extends fabric.Resource implements PhpAppLayerArgs {
+export class PhpAppLayer extends fabric.Resource {
     public readonly autoAssignElasticIps?: fabric.Property<boolean>;
     public readonly autoAssignPublicIps?: fabric.Property<boolean>;
     public readonly autoHealing?: fabric.Property<boolean>;
@@ -60,22 +59,22 @@ export interface PhpAppLayerArgs {
     readonly autoAssignElasticIps?: fabric.PropertyValue<boolean>;
     readonly autoAssignPublicIps?: fabric.PropertyValue<boolean>;
     readonly autoHealing?: fabric.PropertyValue<boolean>;
-    readonly customConfigureRecipes?: fabric.PropertyValue<string[]>;
-    readonly customDeployRecipes?: fabric.PropertyValue<string[]>;
+    readonly customConfigureRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly customDeployRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly customInstanceProfileArn?: fabric.PropertyValue<string>;
     readonly customJson?: fabric.PropertyValue<string>;
-    readonly customSecurityGroupIds?: fabric.PropertyValue<string[]>;
-    readonly customSetupRecipes?: fabric.PropertyValue<string[]>;
-    readonly customShutdownRecipes?: fabric.PropertyValue<string[]>;
-    readonly customUndeployRecipes?: fabric.PropertyValue<string[]>;
+    readonly customSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly customSetupRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly customShutdownRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly customUndeployRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly drainElbOnShutdown?: fabric.PropertyValue<boolean>;
-    readonly ebsVolume?: fabric.PropertyValue<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[]>;
+    readonly ebsVolume?: fabric.PropertyValue<{ iops?: fabric.PropertyValue<number>, mountPoint: fabric.PropertyValue<string>, numberOfDisks: fabric.PropertyValue<number>, raidLevel?: fabric.PropertyValue<string>, size: fabric.PropertyValue<number>, type?: fabric.PropertyValue<string> }>[];
     readonly elasticLoadBalancer?: fabric.PropertyValue<string>;
     readonly installUpdatesOnBoot?: fabric.PropertyValue<boolean>;
     readonly instanceShutdownTimeout?: fabric.PropertyValue<number>;
     readonly name?: fabric.PropertyValue<string>;
     readonly stackId: fabric.PropertyValue<string>;
-    readonly systemPackages?: fabric.PropertyValue<string[]>;
+    readonly systemPackages?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly useEbsOptimizedInstances?: fabric.PropertyValue<boolean>;
 }
 

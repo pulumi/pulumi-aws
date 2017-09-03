@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class FileSystem
-        extends fabric.Resource implements FileSystemArgs {
+export class FileSystem extends fabric.Resource {
     public readonly creationToken: fabric.Property<string>;
     public readonly performanceMode: fabric.Property<string>;
     public readonly referenceName: fabric.Property<string>;

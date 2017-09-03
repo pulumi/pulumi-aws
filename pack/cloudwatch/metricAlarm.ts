@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Topic} from "../sns/topic";
 
-export class MetricAlarm
-        extends fabric.Resource implements MetricAlarmArgs {
+export class MetricAlarm extends fabric.Resource {
     public readonly actionsEnabled?: fabric.Property<boolean>;
     public readonly alarmActions?: fabric.Property<Topic[]>;
     public readonly alarmDescription?: fabric.Property<string>;
@@ -70,7 +69,7 @@ export class MetricAlarm
 
 export interface MetricAlarmArgs {
     readonly actionsEnabled?: fabric.PropertyValue<boolean>;
-    readonly alarmActions?: fabric.PropertyValue<Topic[]>;
+    readonly alarmActions?: fabric.PropertyValue<fabric.PropertyValue<Topic>>[];
     readonly alarmDescription?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly comparisonOperator: fabric.PropertyValue<string>;
@@ -78,10 +77,10 @@ export interface MetricAlarmArgs {
     readonly evaluateLowSampleCountPercentiles?: fabric.PropertyValue<string>;
     readonly evaluationPeriods: fabric.PropertyValue<number>;
     readonly extendedStatistic?: fabric.PropertyValue<string>;
-    readonly insufficientDataActions?: fabric.PropertyValue<Topic[]>;
+    readonly insufficientDataActions?: fabric.PropertyValue<fabric.PropertyValue<Topic>>[];
     readonly metricName: fabric.PropertyValue<string>;
     readonly namespace: fabric.PropertyValue<string>;
-    readonly okActions?: fabric.PropertyValue<Topic[]>;
+    readonly okActions?: fabric.PropertyValue<fabric.PropertyValue<Topic>>[];
     readonly period: fabric.PropertyValue<number>;
     readonly statistic?: fabric.PropertyValue<string>;
     readonly threshold: fabric.PropertyValue<number>;

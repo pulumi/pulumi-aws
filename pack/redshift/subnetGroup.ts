@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SubnetGroup
-        extends fabric.Resource implements SubnetGroupArgs {
+export class SubnetGroup extends fabric.Resource {
     public readonly description?: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly subnetIds: fabric.Property<string[]>;
@@ -26,7 +25,7 @@ export class SubnetGroup
 export interface SubnetGroupArgs {
     readonly description?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly subnetIds: fabric.PropertyValue<string[]>;
+    readonly subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

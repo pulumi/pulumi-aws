@@ -6,8 +6,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 import {User} from "./user";
 
-export class UserPolicyAttachment
-        extends fabric.Resource implements UserPolicyAttachmentArgs {
+export class UserPolicyAttachment extends fabric.Resource {
     public readonly policyArn: fabric.Property<ARN>;
     public readonly user: fabric.Property<User>;
 

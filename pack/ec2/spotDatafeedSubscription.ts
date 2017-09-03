@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SpotDatafeedSubscription
-        extends fabric.Resource implements SpotDatafeedSubscriptionArgs {
+export class SpotDatafeedSubscription extends fabric.Resource {
     public readonly bucket: fabric.Property<string>;
     public readonly prefix?: fabric.Property<string>;
 

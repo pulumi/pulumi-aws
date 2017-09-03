@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class PatchGroup
-        extends fabric.Resource implements PatchGroupArgs {
+export class PatchGroup extends fabric.Resource {
     public readonly baselineId: fabric.Property<string>;
     public readonly patchGroup: fabric.Property<string>;
 

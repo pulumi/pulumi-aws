@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SslNegotiationPolicy
-        extends fabric.Resource implements SslNegotiationPolicyArgs {
+export class SslNegotiationPolicy extends fabric.Resource {
     public readonly attribute?: fabric.Property<{ name: string, value: string }[]>;
     public readonly lbPort: fabric.Property<number>;
     public readonly loadBalancer: fabric.Property<string>;
@@ -27,7 +26,7 @@ export class SslNegotiationPolicy
 }
 
 export interface SslNegotiationPolicyArgs {
-    readonly attribute?: fabric.PropertyValue<{ name: string, value: string }[]>;
+    readonly attribute?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
     readonly lbPort: fabric.PropertyValue<number>;
     readonly loadBalancer: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Document
-        extends fabric.Resource implements DocumentArgs {
+export class Document extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly content: fabric.Property<string>;
     public /*out*/ readonly createdDate: fabric.Property<string>;
@@ -42,6 +41,6 @@ export interface DocumentArgs {
     readonly content: fabric.PropertyValue<string>;
     readonly documentType: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly permissions?: fabric.PropertyValue<{[key: string]: { accountIds: string, type: string }}>;
+    readonly permissions?: fabric.PropertyValue<{[key: string]: { accountIds: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }}>;
 }
 

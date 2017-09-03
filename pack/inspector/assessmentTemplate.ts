@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class AssessmentTemplate
-        extends fabric.Resource implements AssessmentTemplateArgs {
+export class AssessmentTemplate extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly duration: fabric.Property<number>;
     public readonly name: fabric.Property<string>;
@@ -33,7 +32,7 @@ export class AssessmentTemplate
 export interface AssessmentTemplateArgs {
     readonly duration: fabric.PropertyValue<number>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly rulesPackageArns: fabric.PropertyValue<string[]>;
+    readonly rulesPackageArns: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly targetArn: fabric.PropertyValue<string>;
 }
 

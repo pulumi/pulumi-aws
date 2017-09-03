@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class BucketPolicy
-        extends fabric.Resource implements BucketPolicyArgs {
+export class BucketPolicy extends fabric.Resource {
     public readonly bucket: fabric.Property<string>;
     public readonly policy: fabric.Property<string>;
 

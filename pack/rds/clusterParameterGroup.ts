@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ClusterParameterGroup
-        extends fabric.Resource implements ClusterParameterGroupArgs {
+export class ClusterParameterGroup extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly description?: fabric.Property<string>;
     public readonly family: fabric.Property<string>;
@@ -33,7 +32,7 @@ export interface ClusterParameterGroupArgs {
     readonly family: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
     readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly parameter?: fabric.PropertyValue<{ applyMethod?: string, name: string, value: string }[]>;
+    readonly parameter?: fabric.PropertyValue<{ applyMethod?: fabric.PropertyValue<string>, name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

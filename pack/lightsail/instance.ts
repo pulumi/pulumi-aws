@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Instance
-        extends fabric.Resource implements InstanceArgs {
+export class Instance extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly availabilityZone: fabric.Property<string>;
     public readonly blueprintId: fabric.Property<string>;

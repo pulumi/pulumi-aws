@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class EventSubscription
-        extends fabric.Resource implements EventSubscriptionArgs {
+export class EventSubscription extends fabric.Resource {
     public /*out*/ readonly customerAwsId: fabric.Property<string>;
     public readonly enabled?: fabric.Property<boolean>;
     public readonly eventCategories?: fabric.Property<string[]>;
@@ -32,10 +31,10 @@ export class EventSubscription
 
 export interface EventSubscriptionArgs {
     readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly eventCategories?: fabric.PropertyValue<string[]>;
+    readonly eventCategories?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly snsTopic: fabric.PropertyValue<string>;
-    readonly sourceIds?: fabric.PropertyValue<string[]>;
+    readonly sourceIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly sourceType?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }

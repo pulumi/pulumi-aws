@@ -8,8 +8,7 @@ import {Group} from "./group";
 import {Role} from "./role";
 import {User} from "./user";
 
-export class PolicyAttachment
-        extends fabric.Resource implements PolicyAttachmentArgs {
+export class PolicyAttachment extends fabric.Resource {
     public readonly groups?: fabric.Property<Group[]>;
     public readonly name: fabric.Property<string>;
     public readonly policyArn: fabric.Property<ARN>;
@@ -31,10 +30,10 @@ export class PolicyAttachment
 }
 
 export interface PolicyAttachmentArgs {
-    readonly groups?: fabric.PropertyValue<Group[]>;
+    readonly groups?: fabric.PropertyValue<fabric.PropertyValue<Group>>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly policyArn: fabric.PropertyValue<ARN>;
-    readonly roles?: fabric.PropertyValue<Role[]>;
-    readonly users?: fabric.PropertyValue<User[]>;
+    readonly roles?: fabric.PropertyValue<fabric.PropertyValue<Role>>[];
+    readonly users?: fabric.PropertyValue<fabric.PropertyValue<User>>[];
 }
 

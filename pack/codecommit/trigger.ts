@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Trigger
-        extends fabric.Resource implements TriggerArgs {
+export class Trigger extends fabric.Resource {
     public /*out*/ readonly configurationId: fabric.Property<string>;
     public readonly repositoryName: fabric.Property<string>;
     public readonly trigger: fabric.Property<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
@@ -25,6 +24,6 @@ export class Trigger
 
 export interface TriggerArgs {
     readonly repositoryName: fabric.PropertyValue<string>;
-    readonly trigger: fabric.PropertyValue<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
+    readonly trigger: fabric.PropertyValue<{ branches?: fabric.PropertyValue<fabric.PropertyValue<string>>[], customData?: fabric.PropertyValue<string>, destinationArn: fabric.PropertyValue<string>, events: fabric.PropertyValue<fabric.PropertyValue<string>>[], name: fabric.PropertyValue<string> }>[];
 }
 

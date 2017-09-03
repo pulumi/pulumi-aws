@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class DelegationSet
-        extends fabric.Resource implements DelegationSetArgs {
+export class DelegationSet extends fabric.Resource {
     public /*out*/ readonly nameServers: fabric.Property<string[]>;
     public readonly referenceName?: fabric.Property<string>;
 

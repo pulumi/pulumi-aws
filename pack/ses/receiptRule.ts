@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ReceiptRule
-        extends fabric.Resource implements ReceiptRuleArgs {
+export class ReceiptRule extends fabric.Resource {
     public readonly addHeaderAction?: fabric.Property<{ headerName: string, headerValue: string, position: number }[]>;
     public readonly after?: fabric.Property<string>;
     public readonly bounceAction?: fabric.Property<{ message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[]>;
@@ -44,19 +43,19 @@ export class ReceiptRule
 }
 
 export interface ReceiptRuleArgs {
-    readonly addHeaderAction?: fabric.PropertyValue<{ headerName: string, headerValue: string, position: number }[]>;
+    readonly addHeaderAction?: fabric.PropertyValue<{ headerName: fabric.PropertyValue<string>, headerValue: fabric.PropertyValue<string>, position: fabric.PropertyValue<number> }>[];
     readonly after?: fabric.PropertyValue<string>;
-    readonly bounceAction?: fabric.PropertyValue<{ message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[]>;
+    readonly bounceAction?: fabric.PropertyValue<{ message: fabric.PropertyValue<string>, position: fabric.PropertyValue<number>, sender: fabric.PropertyValue<string>, smtpReplyCode: fabric.PropertyValue<string>, statusCode?: fabric.PropertyValue<string>, topicArn?: fabric.PropertyValue<string> }>[];
     readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly lambdaAction?: fabric.PropertyValue<{ functionArn: string, invocationType?: string, position: number, topicArn?: string }[]>;
+    readonly lambdaAction?: fabric.PropertyValue<{ functionArn: fabric.PropertyValue<string>, invocationType?: fabric.PropertyValue<string>, position: fabric.PropertyValue<number>, topicArn?: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
-    readonly recipients?: fabric.PropertyValue<string[]>;
+    readonly recipients?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly ruleSetName: fabric.PropertyValue<string>;
-    readonly s3Action?: fabric.PropertyValue<{ bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[]>;
+    readonly s3Action?: fabric.PropertyValue<{ bucketName: fabric.PropertyValue<string>, kmsKeyArn?: fabric.PropertyValue<string>, objectKeyPrefix?: fabric.PropertyValue<string>, position: fabric.PropertyValue<number>, topicArn?: fabric.PropertyValue<string> }>[];
     readonly scanEnabled?: fabric.PropertyValue<boolean>;
-    readonly snsAction?: fabric.PropertyValue<{ position: number, topicArn: string }[]>;
-    readonly stopAction?: fabric.PropertyValue<{ position: number, scope: string, topicArn?: string }[]>;
+    readonly snsAction?: fabric.PropertyValue<{ position: fabric.PropertyValue<number>, topicArn: fabric.PropertyValue<string> }>[];
+    readonly stopAction?: fabric.PropertyValue<{ position: fabric.PropertyValue<number>, scope: fabric.PropertyValue<string>, topicArn?: fabric.PropertyValue<string> }>[];
     readonly tlsPolicy?: fabric.PropertyValue<string>;
-    readonly workmailAction?: fabric.PropertyValue<{ organizationArn: string, position: number, topicArn?: string }[]>;
+    readonly workmailAction?: fabric.PropertyValue<{ organizationArn: fabric.PropertyValue<string>, position: fabric.PropertyValue<number>, topicArn?: fabric.PropertyValue<string> }>[];
 }
 

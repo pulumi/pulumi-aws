@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class PatchBaseline
-        extends fabric.Resource implements PatchBaselineArgs {
+export class PatchBaseline extends fabric.Resource {
     public readonly approvalRule?: fabric.Property<{ approveAfterDays: number, patchFilter: { key: string, values: string[] }[] }[]>;
     public readonly approvedPatches?: fabric.Property<string[]>;
     public readonly description?: fabric.Property<string>;
@@ -25,11 +24,11 @@ export class PatchBaseline
 }
 
 export interface PatchBaselineArgs {
-    readonly approvalRule?: fabric.PropertyValue<{ approveAfterDays: number, patchFilter: { key: string, values: string[] }[] }[]>;
-    readonly approvedPatches?: fabric.PropertyValue<string[]>;
+    readonly approvalRule?: fabric.PropertyValue<{ approveAfterDays: fabric.PropertyValue<number>, patchFilter: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[] }>[];
+    readonly approvedPatches?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly description?: fabric.PropertyValue<string>;
-    readonly globalFilter?: fabric.PropertyValue<{ key: string, values: string[] }[]>;
+    readonly globalFilter?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly name?: fabric.PropertyValue<string>;
-    readonly rejectedPatches?: fabric.PropertyValue<string[]>;
+    readonly rejectedPatches?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

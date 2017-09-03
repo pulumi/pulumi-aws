@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LoadBalancerPolicy
-        extends fabric.Resource implements LoadBalancerPolicyArgs {
+export class LoadBalancerPolicy extends fabric.Resource {
     public readonly loadBalancerName: fabric.Property<string>;
     public readonly policyAttribute?: fabric.Property<{ name?: string, value?: string }[]>;
     public readonly policyName: fabric.Property<string>;
@@ -31,7 +30,7 @@ export class LoadBalancerPolicy
 
 export interface LoadBalancerPolicyArgs {
     readonly loadBalancerName: fabric.PropertyValue<string>;
-    readonly policyAttribute?: fabric.PropertyValue<{ name?: string, value?: string }[]>;
+    readonly policyAttribute?: fabric.PropertyValue<{ name?: fabric.PropertyValue<string>, value?: fabric.PropertyValue<string> }>[];
     readonly policyName: fabric.PropertyValue<string>;
     readonly policyTypeName: fabric.PropertyValue<string>;
 }

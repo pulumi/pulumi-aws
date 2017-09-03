@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Rule
-        extends fabric.Resource implements RuleArgs {
+export class Rule extends fabric.Resource {
     public readonly metricName: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly predicates?: fabric.Property<{ dataId?: string, negated: boolean, type: string }[]>;
@@ -24,6 +23,6 @@ export class Rule
 export interface RuleArgs {
     readonly metricName: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly predicates?: fabric.PropertyValue<{ dataId?: string, negated: boolean, type: string }[]>;
+    readonly predicates?: fabric.PropertyValue<{ dataId?: fabric.PropertyValue<string>, negated: fabric.PropertyValue<boolean>, type: fabric.PropertyValue<string> }>[];
 }
 

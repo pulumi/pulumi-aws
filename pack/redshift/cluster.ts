@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Cluster
-        extends fabric.Resource implements ClusterArgs {
+export class Cluster extends fabric.Resource {
     public readonly allowVersionUpgrade?: fabric.Property<boolean>;
     public readonly automatedSnapshotRetentionPeriod?: fabric.Property<number>;
     public readonly availabilityZone: fabric.Property<string>;
@@ -97,7 +96,7 @@ export interface ClusterArgs {
     readonly clusterParameterGroupName?: fabric.PropertyValue<string>;
     readonly clusterPublicKey?: fabric.PropertyValue<string>;
     readonly clusterRevisionNumber?: fabric.PropertyValue<string>;
-    readonly clusterSecurityGroups?: fabric.PropertyValue<string[]>;
+    readonly clusterSecurityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly clusterSubnetGroupName?: fabric.PropertyValue<string>;
     readonly clusterType?: fabric.PropertyValue<string>;
     readonly clusterVersion?: fabric.PropertyValue<string>;
@@ -108,7 +107,7 @@ export interface ClusterArgs {
     readonly endpoint?: fabric.PropertyValue<string>;
     readonly enhancedVpcRouting?: fabric.PropertyValue<boolean>;
     readonly finalSnapshotIdentifier?: fabric.PropertyValue<string>;
-    readonly iamRoles?: fabric.PropertyValue<string[]>;
+    readonly iamRoles?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly kmsKeyId?: fabric.PropertyValue<string>;
     readonly masterPassword?: fabric.PropertyValue<string>;
     readonly masterUsername?: fabric.PropertyValue<string>;
@@ -123,6 +122,6 @@ export interface ClusterArgs {
     readonly snapshotClusterIdentifier?: fabric.PropertyValue<string>;
     readonly snapshotIdentifier?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.PropertyValue<string[]>;
+    readonly vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
 }
 

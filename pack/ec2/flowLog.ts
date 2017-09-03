@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class FlowLog
-        extends fabric.Resource implements FlowLogArgs {
+export class FlowLog extends fabric.Resource {
     public readonly eniId?: fabric.Property<string>;
     public readonly iamRoleArn: fabric.Property<string>;
     public readonly logGroupName: fabric.Property<string>;

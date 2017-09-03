@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Attachment
-        extends fabric.Resource implements AttachmentArgs {
+export class Attachment extends fabric.Resource {
     public readonly albTargetGroupArn?: fabric.Property<string>;
     public readonly autoscalingGroupName: fabric.Property<string>;
     public readonly elb?: fabric.Property<string>;

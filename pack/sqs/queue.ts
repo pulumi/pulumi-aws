@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Queue
-        extends fabric.Resource implements QueueArgs {
+export class Queue extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly contentBasedDeduplication?: fabric.Property<boolean>;
     public readonly delaySeconds?: fabric.Property<number>;

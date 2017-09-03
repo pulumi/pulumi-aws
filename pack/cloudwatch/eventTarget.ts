@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class EventTarget
-        extends fabric.Resource implements EventTargetArgs {
+export class EventTarget extends fabric.Resource {
     public readonly arn: fabric.Property<string>;
     public readonly ecsTarget?: fabric.Property<{ taskCount?: number, taskDefinitionArn: string }[]>;
     public readonly input?: fabric.Property<string>;
@@ -36,12 +35,12 @@ export class EventTarget
 
 export interface EventTargetArgs {
     readonly arn: fabric.PropertyValue<string>;
-    readonly ecsTarget?: fabric.PropertyValue<{ taskCount?: number, taskDefinitionArn: string }[]>;
+    readonly ecsTarget?: fabric.PropertyValue<{ taskCount?: fabric.PropertyValue<number>, taskDefinitionArn: fabric.PropertyValue<string> }>[];
     readonly input?: fabric.PropertyValue<string>;
     readonly inputPath?: fabric.PropertyValue<string>;
     readonly roleArn?: fabric.PropertyValue<string>;
     readonly rule: fabric.PropertyValue<string>;
-    readonly runCommandTargets?: fabric.PropertyValue<{ key: string, values: string[] }[]>;
+    readonly runCommandTargets?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly targetId?: fabric.PropertyValue<string>;
 }
 

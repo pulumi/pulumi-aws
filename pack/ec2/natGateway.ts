@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class NatGateway
-        extends fabric.Resource implements NatGatewayArgs {
+export class NatGateway extends fabric.Resource {
     public readonly allocationId: fabric.Property<string>;
     public readonly networkInterfaceId: fabric.Property<string>;
     public readonly privateIp: fabric.Property<string>;

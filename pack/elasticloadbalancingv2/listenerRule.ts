@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ListenerRule
-        extends fabric.Resource implements ListenerRuleArgs {
+export class ListenerRule extends fabric.Resource {
     public readonly action: fabric.Property<{ targetGroupArn: string, type: string }[]>;
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly condition: fabric.Property<{ field?: string, values?: string[] }[]>;
@@ -34,8 +33,8 @@ export class ListenerRule
 }
 
 export interface ListenerRuleArgs {
-    readonly action: fabric.PropertyValue<{ targetGroupArn: string, type: string }[]>;
-    readonly condition: fabric.PropertyValue<{ field?: string, values?: string[] }[]>;
+    readonly action: fabric.PropertyValue<{ targetGroupArn: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
+    readonly condition: fabric.PropertyValue<{ field?: fabric.PropertyValue<string>, values?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly listenerArn: fabric.PropertyValue<string>;
     readonly priority: fabric.PropertyValue<number>;
 }

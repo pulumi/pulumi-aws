@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Group
-        extends fabric.Resource implements GroupArgs {
+export class Group extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
     public readonly path?: fabric.Property<string>;

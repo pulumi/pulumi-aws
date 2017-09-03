@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LogMetricFilter
-        extends fabric.Resource implements LogMetricFilterArgs {
+export class LogMetricFilter extends fabric.Resource {
     public readonly logGroupName: fabric.Property<string>;
     public readonly metricTransformation: fabric.Property<{ name: string, namespace: string, value: string }[]>;
     public readonly name: fabric.Property<string>;
@@ -31,7 +30,7 @@ export class LogMetricFilter
 
 export interface LogMetricFilterArgs {
     readonly logGroupName: fabric.PropertyValue<string>;
-    readonly metricTransformation: fabric.PropertyValue<{ name: string, namespace: string, value: string }[]>;
+    readonly metricTransformation: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, namespace: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly pattern: fabric.PropertyValue<string>;
 }

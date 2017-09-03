@@ -6,8 +6,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 import {Group} from "./group";
 
-export class GroupPolicyAttachment
-        extends fabric.Resource implements GroupPolicyAttachmentArgs {
+export class GroupPolicyAttachment extends fabric.Resource {
     public readonly group: fabric.Property<Group>;
     public readonly policyArn: fabric.Property<ARN>;
 

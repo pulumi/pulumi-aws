@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class Stack
-        extends fabric.Resource implements StackArgs {
+export class Stack extends fabric.Resource {
     public readonly capabilities?: fabric.Property<string[]>;
     public readonly disableRollback?: fabric.Property<boolean>;
     public readonly iamRoleArn?: fabric.Property<string>;
@@ -40,11 +39,11 @@ export class Stack
 }
 
 export interface StackArgs {
-    readonly capabilities?: fabric.PropertyValue<string[]>;
+    readonly capabilities?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly disableRollback?: fabric.PropertyValue<boolean>;
     readonly iamRoleArn?: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly notificationArns?: fabric.PropertyValue<string[]>;
+    readonly notificationArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly onFailure?: fabric.PropertyValue<string>;
     readonly parameters?: fabric.PropertyValue<{[key: string]: any}>;
     readonly policyBody?: fabric.PropertyValue<string>;

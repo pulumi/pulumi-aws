@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class LoadBalancer
-        extends fabric.Resource implements LoadBalancerArgs {
+export class LoadBalancer extends fabric.Resource {
     public readonly accessLogs?: fabric.Property<{ bucket: string, bucketPrefix?: string, enabled?: boolean, interval?: number }[]>;
     public readonly availabilityZones: fabric.Property<string[]>;
     public readonly connectionDraining?: fabric.Property<boolean>;
@@ -51,21 +50,21 @@ export class LoadBalancer
 }
 
 export interface LoadBalancerArgs {
-    readonly accessLogs?: fabric.PropertyValue<{ bucket: string, bucketPrefix?: string, enabled?: boolean, interval?: number }[]>;
-    readonly availabilityZones?: fabric.PropertyValue<string[]>;
+    readonly accessLogs?: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, bucketPrefix?: fabric.PropertyValue<string>, enabled?: fabric.PropertyValue<boolean>, interval?: fabric.PropertyValue<number> }>[];
+    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly connectionDraining?: fabric.PropertyValue<boolean>;
     readonly connectionDrainingTimeout?: fabric.PropertyValue<number>;
     readonly crossZoneLoadBalancing?: fabric.PropertyValue<boolean>;
-    readonly healthCheck?: fabric.PropertyValue<{ healthyThreshold: number, interval: number, target: string, timeout: number, unhealthyThreshold: number }[]>;
+    readonly healthCheck?: fabric.PropertyValue<{ healthyThreshold: fabric.PropertyValue<number>, interval: fabric.PropertyValue<number>, target: fabric.PropertyValue<string>, timeout: fabric.PropertyValue<number>, unhealthyThreshold: fabric.PropertyValue<number> }>[];
     readonly idleTimeout?: fabric.PropertyValue<number>;
-    readonly instances?: fabric.PropertyValue<string[]>;
+    readonly instances?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly internal?: fabric.PropertyValue<boolean>;
-    readonly listener: fabric.PropertyValue<{ instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId?: string }[]>;
+    readonly listener: fabric.PropertyValue<{ instancePort: fabric.PropertyValue<number>, instanceProtocol: fabric.PropertyValue<string>, lbPort: fabric.PropertyValue<number>, lbProtocol: fabric.PropertyValue<string>, sslCertificateId?: fabric.PropertyValue<string> }>[];
     readonly name?: fabric.PropertyValue<string>;
     readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly securityGroups?: fabric.PropertyValue<string[]>;
+    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly sourceSecurityGroup?: fabric.PropertyValue<string>;
-    readonly subnets?: fabric.PropertyValue<string[]>;
+    readonly subnets?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
 }
 

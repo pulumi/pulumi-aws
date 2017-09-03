@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class UsagePlanKey
-        extends fabric.Resource implements UsagePlanKeyArgs {
+export class UsagePlanKey extends fabric.Resource {
     public readonly keyId: fabric.Property<string>;
     public readonly keyType: fabric.Property<string>;
     public /*out*/ readonly name: fabric.Property<string>;

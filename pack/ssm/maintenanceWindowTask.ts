@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class MaintenanceWindowTask
-        extends fabric.Resource implements MaintenanceWindowTaskArgs {
+export class MaintenanceWindowTask extends fabric.Resource {
     public readonly loggingInfo?: fabric.Property<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string }[]>;
     public readonly maxConcurrency: fabric.Property<string>;
     public readonly maxErrors: fabric.Property<string>;
@@ -54,14 +53,14 @@ export class MaintenanceWindowTask
 }
 
 export interface MaintenanceWindowTaskArgs {
-    readonly loggingInfo?: fabric.PropertyValue<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string }[]>;
+    readonly loggingInfo?: fabric.PropertyValue<{ s3BucketName: fabric.PropertyValue<string>, s3BucketPrefix?: fabric.PropertyValue<string>, s3Region: fabric.PropertyValue<string> }>[];
     readonly maxConcurrency: fabric.PropertyValue<string>;
     readonly maxErrors: fabric.PropertyValue<string>;
     readonly priority?: fabric.PropertyValue<number>;
     readonly serviceRoleArn: fabric.PropertyValue<string>;
-    readonly targets: fabric.PropertyValue<{ key: string, values: string[] }[]>;
+    readonly targets: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly taskArn: fabric.PropertyValue<string>;
-    readonly taskParameters?: fabric.PropertyValue<{ name: string, values: string[] }[]>;
+    readonly taskParameters?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
     readonly taskType: fabric.PropertyValue<string>;
     readonly windowId: fabric.PropertyValue<string>;
 }

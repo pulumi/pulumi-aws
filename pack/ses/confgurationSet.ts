@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ConfgurationSet
-        extends fabric.Resource implements ConfgurationSetArgs {
+export class ConfgurationSet extends fabric.Resource {
     public readonly name: fabric.Property<string>;
 
     constructor(urnName: string, args: ConfgurationSetArgs) {

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class ParameterGroup
-        extends fabric.Resource implements ParameterGroupArgs {
+export class ParameterGroup extends fabric.Resource {
     public readonly description?: fabric.Property<string>;
     public readonly family: fabric.Property<string>;
     public readonly name: fabric.Property<string>;
@@ -27,6 +26,6 @@ export interface ParameterGroupArgs {
     readonly description?: fabric.PropertyValue<string>;
     readonly family: fabric.PropertyValue<string>;
     readonly name?: fabric.PropertyValue<string>;
-    readonly parameter?: fabric.PropertyValue<{ name: string, value: string }[]>;
+    readonly parameter?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
 }
 

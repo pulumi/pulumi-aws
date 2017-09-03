@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Bucket} from "./bucket";
 
-export class Object
-        extends fabric.Resource implements ObjectArgs {
+export class Object extends fabric.Resource {
     public readonly acl?: fabric.Property<string>;
     public readonly bucket: fabric.Property<Bucket>;
     public readonly cacheControl?: fabric.Property<string>;
@@ -63,7 +62,7 @@ export interface ObjectArgs {
     readonly key?: fabric.PropertyValue<string>;
     readonly kmsKeyId?: fabric.PropertyValue<string>;
     readonly serverSideEncryption?: fabric.PropertyValue<string>;
-    readonly source?: fabric.PropertyValue<fabric.asset.Asset>;
+    readonly source?: fabric.asset.Asset;
     readonly storageClass?: fabric.PropertyValue<string>;
     readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
     readonly websiteRedirect?: fabric.PropertyValue<string>;

@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class VpcEndpointRouteTableAssociation
-        extends fabric.Resource implements VpcEndpointRouteTableAssociationArgs {
+export class VpcEndpointRouteTableAssociation extends fabric.Resource {
     public readonly routeTableId: fabric.Property<string>;
     public readonly vpcEndpointId: fabric.Property<string>;
 

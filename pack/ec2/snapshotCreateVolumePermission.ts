@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class SnapshotCreateVolumePermission
-        extends fabric.Resource implements SnapshotCreateVolumePermissionArgs {
+export class SnapshotCreateVolumePermission extends fabric.Resource {
     public readonly accountId: fabric.Property<string>;
     public readonly snapshotId: fabric.Property<string>;
 

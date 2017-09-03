@@ -5,8 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
-export class BasePathMapping
-        extends fabric.Resource implements BasePathMappingArgs {
+export class BasePathMapping extends fabric.Resource {
     public readonly restApi: fabric.Property<RestApi>;
     public readonly basePath?: fabric.Property<string>;
     public readonly domainName: fabric.Property<string>;

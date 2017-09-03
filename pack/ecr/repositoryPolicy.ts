@@ -3,8 +3,7 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class RepositoryPolicy
-        extends fabric.Resource implements RepositoryPolicyArgs {
+export class RepositoryPolicy extends fabric.Resource {
     public readonly policy: fabric.Property<string>;
     public /*out*/ readonly registryId: fabric.Property<string>;
     public readonly repository: fabric.Property<string>;
