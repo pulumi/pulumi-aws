@@ -326,7 +326,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsrestok(elasticbeanstalkMod, "ApplicationVersion"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"application": {Type: awsrestok(elasticbeanstalkMod, "Application")},
-					"bucket":      {Type: awsrestok(s3Mod, "Bucket")},
+					"bucket":      {Type: awsrestok(s3Mod, "S3Bucket")},
 				},
 			},
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsrestok(elasticbeanstalkMod, "ConfigurationTemplate")},
@@ -526,6 +526,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsrestok(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 64),
+					"role": {Type: awstok(awsMod, "ARN")},
 				},
 			},
 			"aws_iam_saml_provider":      {Tok: awsrestok(iamMod, "SamlProvider")},
@@ -723,16 +724,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_event_destination":       {Tok: awsrestok(sesMod, "EventDestination")},
 			// S3
 			"aws_s3_bucket": {
-				Tok: awsrestok(s3Mod, "Bucket"),
+				Tok: awsrestok(s3Mod, "S3Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
 				},
 			},
-			"aws_s3_bucket_policy": {Tok: awsrestok(s3Mod, "BucketPolicy")},
+			"aws_s3_bucket_policy": {Tok: awsrestok(s3Mod, "S3BucketPolicy")},
 			"aws_s3_bucket_object": {
-				Tok:      awsrestok(s3Mod, "Object"),
+				Tok:      awsrestok(s3Mod, "S3Object"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": {Type: awsrestok(s3Mod, "Bucket")},
@@ -749,7 +750,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_s3_bucket_notification": {Tok: awsrestok(s3Mod, "Notification")},
+			"aws_s3_bucket_notification": {Tok: awsrestok(s3Mod, "S3BucketNotification")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsrestok(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsrestok(ssmMod, "Association")},
