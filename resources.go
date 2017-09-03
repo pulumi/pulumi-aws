@@ -830,6 +830,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			Dependencies: map[string]string{
+				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+			},
 		},
 	}
 

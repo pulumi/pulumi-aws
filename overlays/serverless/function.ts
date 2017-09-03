@@ -1,6 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import {AssetArchive, File, String as StringAsset} from "@pulumi/pulumi-fabric/asset";
+import * as crypto from "crypto";
+import {asset, runtime} from "@pulumi/pulumi-fabric";
 import {Role, RolePolicyAttachment} from "../iam";
 import * as lambda from "../lambda";
 import {ARN} from "../arn";
@@ -51,13 +52,15 @@ class FuncsForClosure {
     public funcs: { [hash: string]: FuncEnv };
     public root: string;
 
-    constructor(closure: Closure) {
+    constructor(closure: runtime.Closure) {
         this.funcs = {};
         this.root = this.createFuncForClosure(closure);
     }
 
-    private createFuncForClosure(closure: Closure): string {
-        let hash = "__" + sha1hash(closure.code);
+    private createFuncForClosure(closure: runtime.Closure): string {
+        let shasum: crypto.Hash = crypto.createHash("sha1");
+        shasum.update(closure.code);
+        let hash: string = "__" + shasum.digest("hex");
         if (this.funcs[hash] === undefined) {
             this.funcs[hash] = {
                 code: closure.code,
@@ -68,7 +71,7 @@ class FuncsForClosure {
         return hash;
     }
 
-    private envFromEnvObj(env: EnvObj): {[key: string]: string} {
+    private envFromEnvObj(env: runtime.EnvObj): {[key: string]: string} {
         let envObj: {[key: string]: string} = {};
         let keys = Object.keys(env);
         for (let i = 0; i < keys.length; i++) {
@@ -158,7 +161,7 @@ function envArrToString(envArr: string[]): string {
 function createJavaScriptLambda(
     functionName: string,
     role: Role,
-    closure: Closure,
+    closure: runtime.Closure,
     opts: FunctionOptions): lambda.Function {
 
     let funcsForClosure = new FuncsForClosure(closure);
@@ -235,9 +238,9 @@ function __generator(thisArg, body) {
     }
 
     return new lambda.Function(functionName, {
-        code: new AssetArchive({
-            "node_modules": new File("node_modules"),
-            "index.js": new StringAsset(str),
+        code: new asset.AssetArchive({
+            "node_modules": new asset.File("node_modules"),
+            "index.js": new asset.String(str),
         }),
         handler: "index.handler",
         runtime: lambda.NodeJS6d10Runtime,
@@ -269,7 +272,7 @@ export class Function {
         if (func === undefined) {
             throw new Error("Missing required function callback");
         }
-        let closure = serializeClosure(func);
+        let closure = runtime.serializeClosure(func);
         if (closure === undefined) {
             throw new Error("Failed to serialize function.");
         }
@@ -286,12 +289,12 @@ export class Function {
             }));
         }
 
-        switch (closure.language) {
-            case ".js":
+        switch (closure.runtime) {
+            case "nodejs":
                 this.lambda = createJavaScriptLambda(name, this.role, closure, options);
                 break;
             default:
-                throw new Error("Language '" + closure.language + "' not yet supported (currently only JavaScript).");
+                throw new Error(`Runtime '${closure.runtime}' not yet supported (currently only 'nodejs')`);
         }
     }
 }
