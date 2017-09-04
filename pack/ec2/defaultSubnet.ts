@@ -20,6 +20,12 @@ export class DefaultSubnet extends fabric.Resource {
         super("aws:ec2/defaultSubnet:DefaultSubnet", urnName, {
             "availabilityZone": args.availabilityZone,
             "tags": args.tags,
+            "assignIpv6AddressOnCreation": undefined,
+            "cidrBlock": undefined,
+            "ipv6CidrBlock": undefined,
+            "ipv6CidrBlockAssociationId": undefined,
+            "mapPublicIpOnLaunch": undefined,
+            "vpcId": undefined,
         });
     }
 }

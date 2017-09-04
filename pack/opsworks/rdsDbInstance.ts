@@ -28,6 +28,7 @@ export class RdsDbInstance extends fabric.Resource {
             "dbUser": args.dbUser,
             "rdsDbInstanceArn": args.rdsDbInstanceArn,
             "stackId": args.stackId,
+            "instanceId": undefined,
         });
     }
 }

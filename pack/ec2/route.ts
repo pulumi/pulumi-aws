@@ -32,6 +32,10 @@ export class Route extends fabric.Resource {
             "networkInterfaceId": args.networkInterfaceId,
             "routeTableId": args.routeTableId,
             "vpcPeeringConnectionId": args.vpcPeeringConnectionId,
+            "destinationPrefixListId": undefined,
+            "instanceOwnerId": undefined,
+            "origin": undefined,
+            "state": undefined,
         });
     }
 }

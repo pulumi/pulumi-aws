@@ -41,6 +41,8 @@ export class SpotFleetRequest extends fabric.Resource {
             "terminateInstancesWithExpiration": args.terminateInstancesWithExpiration,
             "validFrom": args.validFrom,
             "validUntil": args.validUntil,
+            "clientToken": undefined,
+            "spotRequestState": undefined,
         });
     }
 }

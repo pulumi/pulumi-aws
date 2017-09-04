@@ -87,6 +87,15 @@ export class SpotInstanceRequest extends fabric.Resource {
             "volumeTags": args.volumeTags,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
             "waitForFulfillment": args.waitForFulfillment,
+            "instanceState": undefined,
+            "networkInterfaceId": undefined,
+            "primaryNetworkInterfaceId": undefined,
+            "privateDns": undefined,
+            "publicDns": undefined,
+            "publicIp": undefined,
+            "spotBidStatus": undefined,
+            "spotInstanceId": undefined,
+            "spotRequestState": undefined,
         });
     }
 }

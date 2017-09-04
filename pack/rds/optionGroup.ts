@@ -28,6 +28,7 @@ export class OptionGroup extends fabric.Resource {
             "option": args.option,
             "optionGroupDescription": args.optionGroupDescription,
             "tags": args.tags,
+            "arn": undefined,
         });
     }
 }

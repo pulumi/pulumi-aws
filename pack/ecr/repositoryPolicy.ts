@@ -18,6 +18,7 @@ export class RepositoryPolicy extends fabric.Resource {
         super("aws:ecr/repositoryPolicy:RepositoryPolicy", urnName, {
             "policy": args.policy,
             "repository": args.repository,
+            "registryId": undefined,
         });
     }
 }

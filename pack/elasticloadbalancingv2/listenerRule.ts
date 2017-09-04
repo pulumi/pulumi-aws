@@ -28,6 +28,7 @@ export class ListenerRule extends fabric.Resource {
             "condition": args.condition,
             "listenerArn": args.listenerArn,
             "priority": args.priority,
+            "arn": undefined,
         });
     }
 }

@@ -20,6 +20,10 @@ export class Repository extends fabric.Resource {
             "defaultBranch": args.defaultBranch,
             "description": args.description,
             "repositoryName": args.repositoryName,
+            "arn": undefined,
+            "cloneUrlHttp": undefined,
+            "cloneUrlSsh": undefined,
+            "repositoryId": undefined,
         });
     }
 }

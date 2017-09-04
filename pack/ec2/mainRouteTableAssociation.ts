@@ -18,6 +18,7 @@ export class MainRouteTableAssociation extends fabric.Resource {
         super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", urnName, {
             "routeTableId": args.routeTableId,
             "vpcId": args.vpcId,
+            "originalRouteTableId": undefined,
         });
     }
 }

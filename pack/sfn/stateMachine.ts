@@ -21,6 +21,8 @@ export class StateMachine extends fabric.Resource {
             "definition": args.definition,
             "name": args.name,
             "roleArn": args.roleArn,
+            "creationDate": undefined,
+            "status": undefined,
         });
     }
 }

@@ -23,6 +23,7 @@ export class ClusterParameterGroup extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "parameter": args.parameter,
             "tags": args.tags,
+            "arn": undefined,
         });
     }
 }

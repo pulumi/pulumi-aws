@@ -29,6 +29,9 @@ export class Domain extends fabric.Resource {
             "elasticsearchVersion": args.elasticsearchVersion,
             "snapshotOptions": args.snapshotOptions,
             "tags": args.tags,
+            "arn": undefined,
+            "domainId": undefined,
+            "endpoint": undefined,
         });
     }
 }

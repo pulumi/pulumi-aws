@@ -25,6 +25,7 @@ export class AssessmentTemplate extends fabric.Resource {
             "name": args.name,
             "rulesPackageArns": args.rulesPackageArns,
             "targetArn": args.targetArn,
+            "arn": undefined,
         });
     }
 }

@@ -15,6 +15,7 @@ export class LogStream extends fabric.Resource {
         super("aws:cloudwatch/logStream:LogStream", urnName, {
             "logGroupName": args.logGroupName,
             "name": args.name,
+            "arn": undefined,
         });
     }
 }

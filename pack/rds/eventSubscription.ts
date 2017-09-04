@@ -25,6 +25,7 @@ export class EventSubscription extends fabric.Resource {
             "sourceIds": args.sourceIds,
             "sourceType": args.sourceType,
             "tags": args.tags,
+            "customerAwsId": undefined,
         });
     }
 }

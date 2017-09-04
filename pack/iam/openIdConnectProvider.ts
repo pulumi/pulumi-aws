@@ -23,6 +23,7 @@ export class OpenIdConnectProvider extends fabric.Resource {
             "clientIdList": args.clientIdList,
             "thumbprintList": args.thumbprintList,
             "url": args.url,
+            "arn": undefined,
         });
     }
 }

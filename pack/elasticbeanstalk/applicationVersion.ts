@@ -3,12 +3,12 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-import {S3Bucket} from "../s3/s3Bucket";
+import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
 
 export class ApplicationVersion extends fabric.Resource {
     public readonly application: fabric.Property<Application>;
-    public readonly bucket: fabric.Property<S3Bucket>;
+    public readonly bucket: fabric.Property<Bucket>;
     public readonly description?: fabric.Property<string>;
     public readonly forceDelete?: fabric.Property<boolean>;
     public readonly key: fabric.Property<string>;
@@ -37,7 +37,7 @@ export class ApplicationVersion extends fabric.Resource {
 
 export interface ApplicationVersionArgs {
     readonly application: fabric.PropertyValue<Application>;
-    readonly bucket: fabric.PropertyValue<S3Bucket>;
+    readonly bucket: fabric.PropertyValue<Bucket>;
     readonly description?: fabric.PropertyValue<string>;
     readonly forceDelete?: fabric.PropertyValue<boolean>;
     readonly key: fabric.PropertyValue<string>;

@@ -66,6 +66,7 @@ export class HaproxyLayer extends fabric.Resource {
             "statsUser": args.statsUser,
             "systemPackages": args.systemPackages,
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
+            "layerId": undefined,
         });
     }
 }

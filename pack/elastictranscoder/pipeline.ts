@@ -34,6 +34,7 @@ export class Pipeline extends fabric.Resource {
             "role": args.role,
             "thumbnailConfig": args.thumbnailConfig,
             "thumbnailConfigPermissions": args.thumbnailConfigPermissions,
+            "arn": undefined,
         });
     }
 }

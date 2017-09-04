@@ -12,6 +12,9 @@ export class Repository extends fabric.Resource {
     constructor(urnName: string, args: RepositoryArgs) {
         super("aws:ecr/repository:Repository", urnName, {
             "name": args.name,
+            "arn": undefined,
+            "registryId": undefined,
+            "repositoryUrl": undefined,
         });
     }
 }

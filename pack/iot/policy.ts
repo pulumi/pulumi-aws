@@ -16,6 +16,8 @@ export class Policy extends fabric.Resource {
         super("aws:iot/policy:Policy", urnName, {
             "name": args.name,
             "policy": args.policy,
+            "arn": undefined,
+            "defaultVersionId": undefined,
         });
     }
 }

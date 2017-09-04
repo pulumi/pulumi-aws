@@ -25,6 +25,7 @@ export class Resource extends fabric.Resource {
             "parentId": args.parentId,
             "pathPart": args.pathPart,
             "restApi": args.restApi,
+            "path": undefined,
         });
     }
 }

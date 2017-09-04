@@ -34,6 +34,7 @@ export class Queue extends fabric.Resource {
             "receiveWaitTimeSeconds": args.receiveWaitTimeSeconds,
             "redrivePolicy": args.redrivePolicy,
             "visibilityTimeoutSeconds": args.visibilityTimeoutSeconds,
+            "arn": undefined,
         });
     }
 }

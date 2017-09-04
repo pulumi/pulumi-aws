@@ -34,6 +34,23 @@ export class Snapshot extends fabric.Resource {
         super("aws:rds/snapshot:Snapshot", urnName, {
             "dbInstanceIdentifier": args.dbInstanceIdentifier,
             "dbSnapshotIdentifier": args.dbSnapshotIdentifier,
+            "allocatedStorage": undefined,
+            "availabilityZone": undefined,
+            "dbSnapshotArn": undefined,
+            "encrypted": undefined,
+            "engine": undefined,
+            "engineVersion": undefined,
+            "iops": undefined,
+            "kmsKeyId": undefined,
+            "licenseModel": undefined,
+            "optionGroupName": undefined,
+            "port": undefined,
+            "snapshotType": undefined,
+            "sourceDbSnapshotIdentifier": undefined,
+            "sourceRegion": undefined,
+            "status": undefined,
+            "storageType": undefined,
+            "vpcId": undefined,
         });
     }
 }

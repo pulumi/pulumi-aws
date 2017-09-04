@@ -26,6 +26,8 @@ export class ReplicationSubnetGroup extends fabric.Resource {
             "replicationSubnetGroupId": args.replicationSubnetGroupId,
             "subnetIds": args.subnetIds,
             "tags": args.tags,
+            "replicationSubnetGroupArn": undefined,
+            "vpcId": undefined,
         });
     }
 }

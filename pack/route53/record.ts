@@ -38,6 +38,7 @@ export class Record extends fabric.Resource {
             "type": args.type,
             "weightedRoutingPolicy": args.weightedRoutingPolicy,
             "zoneId": args.zoneId,
+            "fqdn": undefined,
         });
     }
 }

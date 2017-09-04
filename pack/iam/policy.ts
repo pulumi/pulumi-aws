@@ -21,6 +21,7 @@ export class Policy extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "path": args.path,
             "policy": args.policy,
+            "arn": undefined,
         });
     }
 }

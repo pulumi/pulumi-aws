@@ -36,6 +36,7 @@ export class Policy extends fabric.Resource {
             "policyType": args.policyType,
             "scalingAdjustment": args.scalingAdjustment,
             "stepAdjustment": args.stepAdjustment,
+            "arn": undefined,
         });
     }
 }

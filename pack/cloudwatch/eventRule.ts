@@ -20,6 +20,7 @@ export class EventRule extends fabric.Resource {
             "name": args.name,
             "roleArn": args.roleArn,
             "scheduleExpression": args.scheduleExpression,
+            "arn": undefined,
         });
     }
 }

@@ -44,6 +44,9 @@ export class ReplicationInstance extends fabric.Resource {
             "replicationSubnetGroupId": args.replicationSubnetGroupId,
             "tags": args.tags,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
+            "replicationInstanceArn": undefined,
+            "replicationInstancePrivateIps": undefined,
+            "replicationInstancePublicIps": undefined,
         });
     }
 }

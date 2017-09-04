@@ -48,6 +48,7 @@ export class Application extends fabric.Resource {
             "sslConfiguration": args.sslConfiguration,
             "stackId": args.stackId,
             "type": args.type,
+            "applicationId": undefined,
         });
     }
 }

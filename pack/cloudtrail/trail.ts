@@ -36,6 +36,8 @@ export class Trail extends fabric.Resource {
             "s3KeyPrefix": args.s3KeyPrefix,
             "snsTopicName": args.snsTopicName,
             "tags": args.tags,
+            "arn": undefined,
+            "homeRegion": undefined,
         });
     }
 }

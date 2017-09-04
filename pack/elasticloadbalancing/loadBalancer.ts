@@ -45,6 +45,9 @@ export class LoadBalancer extends fabric.Resource {
             "sourceSecurityGroup": args.sourceSecurityGroup,
             "subnets": args.subnets,
             "tags": args.tags,
+            "dnsName": undefined,
+            "sourceSecurityGroupId": undefined,
+            "zoneId": undefined,
         });
     }
 }

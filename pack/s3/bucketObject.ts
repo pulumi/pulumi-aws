@@ -5,7 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Bucket} from "./bucket";
 
-export class S3Object extends fabric.Resource {
+export class BucketObject extends fabric.Resource {
     public readonly acl?: fabric.Property<string>;
     public readonly bucket: fabric.Property<Bucket>;
     public readonly cacheControl?: fabric.Property<string>;
@@ -24,11 +24,11 @@ export class S3Object extends fabric.Resource {
     public /*out*/ readonly versionId: fabric.Property<string>;
     public readonly websiteRedirect?: fabric.Property<string>;
 
-    constructor(urnName: string, args: S3ObjectArgs) {
+    constructor(urnName: string, args: BucketObjectArgs) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
         }
-        super("aws:s3/s3Object:S3Object", urnName, {
+        super("aws:s3/bucketObject:BucketObject", urnName, {
             "acl": args.acl,
             "bucket": args.bucket,
             "cacheControl": args.cacheControl,
@@ -45,11 +45,12 @@ export class S3Object extends fabric.Resource {
             "storageClass": args.storageClass,
             "tags": args.tags,
             "websiteRedirect": args.websiteRedirect,
+            "versionId": undefined,
         });
     }
 }
 
-export interface S3ObjectArgs {
+export interface BucketObjectArgs {
     readonly acl?: fabric.PropertyValue<string>;
     readonly bucket: fabric.PropertyValue<Bucket>;
     readonly cacheControl?: fabric.PropertyValue<string>;

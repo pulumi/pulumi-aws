@@ -17,6 +17,7 @@ export class Certificate extends fabric.Resource {
             "certificateId": args.certificateId,
             "certificatePem": args.certificatePem,
             "certificateWallet": args.certificateWallet,
+            "certificateArn": undefined,
         });
     }
 }

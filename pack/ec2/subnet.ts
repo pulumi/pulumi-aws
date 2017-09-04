@@ -28,6 +28,7 @@ export class Subnet extends fabric.Resource {
             "mapPublicIpOnLaunch": args.mapPublicIpOnLaunch,
             "tags": args.tags,
             "vpcId": args.vpcId,
+            "ipv6CidrBlockAssociationId": undefined,
         });
     }
 }

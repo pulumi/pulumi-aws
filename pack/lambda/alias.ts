@@ -22,6 +22,7 @@ export class Alias extends fabric.Resource {
             "functionName": args.functionName,
             "functionVersion": args.functionVersion,
             "name": args.name,
+            "arn": undefined,
         });
     }
 }

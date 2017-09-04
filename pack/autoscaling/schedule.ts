@@ -30,6 +30,7 @@ export class Schedule extends fabric.Resource {
             "recurrence": args.recurrence,
             "scheduledActionName": args.scheduledActionName,
             "startTime": args.startTime,
+            "arn": undefined,
         });
     }
 }

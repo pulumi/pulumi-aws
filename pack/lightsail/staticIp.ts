@@ -12,6 +12,9 @@ export class StaticIp extends fabric.Resource {
     constructor(urnName: string, args: StaticIpArgs) {
         super("aws:lightsail/staticIp:StaticIp", urnName, {
             "name": args.name,
+            "arn": undefined,
+            "ipAddress": undefined,
+            "supportCode": undefined,
         });
     }
 }

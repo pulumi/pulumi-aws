@@ -27,6 +27,16 @@ export class DefaultVpc extends fabric.Resource {
             "enableDnsHostnames": args.enableDnsHostnames,
             "enableDnsSupport": args.enableDnsSupport,
             "tags": args.tags,
+            "assignGeneratedIpv6CidrBlock": undefined,
+            "cidrBlock": undefined,
+            "defaultNetworkAclId": undefined,
+            "defaultRouteTableId": undefined,
+            "defaultSecurityGroupId": undefined,
+            "dhcpOptionsId": undefined,
+            "instanceTenancy": undefined,
+            "ipv6AssociationId": undefined,
+            "ipv6CidrBlock": undefined,
+            "mainRouteTableId": undefined,
         });
     }
 }

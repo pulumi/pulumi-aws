@@ -32,6 +32,8 @@ export class Directory extends fabric.Resource {
             "size": args.size,
             "type": args.type,
             "vpcSettings": args.vpcSettings,
+            "accessUrl": undefined,
+            "dnsIpAddresses": undefined,
         });
     }
 }

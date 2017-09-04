@@ -34,6 +34,7 @@ export class Stack extends fabric.Resource {
             "templateBody": args.templateBody,
             "templateUrl": args.templateUrl,
             "timeoutInMinutes": args.timeoutInMinutes,
+            "outputs": undefined,
         });
     }
 }

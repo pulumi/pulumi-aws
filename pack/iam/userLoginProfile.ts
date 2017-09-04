@@ -23,6 +23,8 @@ export class UserLoginProfile extends fabric.Resource {
             "passwordResetRequired": args.passwordResetRequired,
             "pgpKey": args.pgpKey,
             "user": args.user,
+            "encryptedPassword": undefined,
+            "keyFingerprint": undefined,
         });
     }
 }

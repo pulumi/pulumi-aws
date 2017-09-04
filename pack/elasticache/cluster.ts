@@ -68,6 +68,10 @@ export class Cluster extends fabric.Resource {
             "snapshotWindow": args.snapshotWindow,
             "subnetGroupName": args.subnetGroupName,
             "tags": args.tags,
+            "cacheNodes": undefined,
+            "clusterAddress": undefined,
+            "configurationEndpoint": undefined,
+            "replicationGroupId": undefined,
         });
     }
 }

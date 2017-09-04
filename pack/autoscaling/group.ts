@@ -69,6 +69,7 @@ export class Group extends fabric.Resource {
             "vpcZoneIdentifier": args.vpcZoneIdentifier,
             "waitForCapacityTimeout": args.waitForCapacityTimeout,
             "waitForElbCapacity": args.waitForElbCapacity,
+            "arn": undefined,
         });
     }
 }

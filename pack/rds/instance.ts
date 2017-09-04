@@ -97,6 +97,13 @@ export class Instance extends fabric.Resource {
             "timezone": args.timezone,
             "username": args.username,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
+            "address": undefined,
+            "arn": undefined,
+            "endpoint": undefined,
+            "hostedZoneId": undefined,
+            "replicas": undefined,
+            "resourceId": undefined,
+            "status": undefined,
         });
     }
 }

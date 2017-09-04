@@ -23,6 +23,8 @@ export class Key extends fabric.Resource {
             "keyUsage": args.keyUsage,
             "policy": args.policy,
             "tags": args.tags,
+            "arn": undefined,
+            "keyId": undefined,
         });
     }
 }

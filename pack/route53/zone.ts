@@ -23,6 +23,8 @@ export class Zone extends fabric.Resource {
             "tags": args.tags,
             "vpcId": args.vpcId,
             "vpcRegion": args.vpcRegion,
+            "nameServers": undefined,
+            "zoneId": undefined,
         });
     }
 }

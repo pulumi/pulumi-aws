@@ -52,6 +52,8 @@ export class Cluster extends fabric.Resource {
             "tags": args.tags,
             "terminationProtection": args.terminationProtection,
             "visibleToAllUsers": args.visibleToAllUsers,
+            "clusterState": undefined,
+            "masterPublicDns": undefined,
         });
     }
 }

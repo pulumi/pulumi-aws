@@ -19,6 +19,7 @@ export class SecurityGroup extends fabric.Resource {
             "ingress": args.ingress,
             "name": args.name,
             "tags": args.tags,
+            "arn": undefined,
         });
     }
 }

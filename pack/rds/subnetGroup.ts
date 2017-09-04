@@ -21,6 +21,7 @@ export class SubnetGroup extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "subnetIds": args.subnetIds,
             "tags": args.tags,
+            "arn": undefined,
         });
     }
 }

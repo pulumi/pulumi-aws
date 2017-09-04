@@ -23,6 +23,8 @@ export class MountTarget extends fabric.Resource {
             "ipAddress": args.ipAddress,
             "securityGroups": args.securityGroups,
             "subnetId": args.subnetId,
+            "dnsName": undefined,
+            "networkInterfaceId": undefined,
         });
     }
 }

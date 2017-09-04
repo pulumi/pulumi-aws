@@ -27,6 +27,9 @@ export class Role extends fabric.Resource {
             "name": args.name,
             "namePrefix": args.namePrefix,
             "path": args.path,
+            "arn": undefined,
+            "createDate": undefined,
+            "uniqueId": undefined,
         });
     }
 }

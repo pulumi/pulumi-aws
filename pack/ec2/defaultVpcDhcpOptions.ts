@@ -16,6 +16,9 @@ export class DefaultVpcDhcpOptions extends fabric.Resource {
             "netbiosNameServers": args.netbiosNameServers,
             "netbiosNodeType": args.netbiosNodeType,
             "tags": args.tags,
+            "domainName": undefined,
+            "domainNameServers": undefined,
+            "ntpServers": undefined,
         });
     }
 }

@@ -17,6 +17,7 @@ export class Alias extends fabric.Resource {
             "name": args.name,
             "namePrefix": args.namePrefix,
             "targetKeyId": args.targetKeyId,
+            "arn": undefined,
         });
     }
 }

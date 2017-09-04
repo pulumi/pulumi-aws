@@ -25,6 +25,9 @@ export class DomainName extends fabric.Resource {
             "certificateName": args.certificateName,
             "certificatePrivateKey": args.certificatePrivateKey,
             "domainName": args.domainName,
+            "certificateUploadDate": undefined,
+            "cloudfrontDomainName": undefined,
+            "cloudfrontZoneId": undefined,
         });
     }
 }

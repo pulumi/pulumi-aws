@@ -26,6 +26,8 @@ export class SshKey extends fabric.Resource {
             "publicKey": args.publicKey,
             "status": args.status,
             "username": args.username,
+            "fingerprint": undefined,
+            "sshPublicKeyId": undefined,
         });
     }
 }

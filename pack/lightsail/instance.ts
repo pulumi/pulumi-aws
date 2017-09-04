@@ -37,6 +37,15 @@ export class Instance extends fabric.Resource {
             "keyPairName": args.keyPairName,
             "name": args.name,
             "userData": args.userData,
+            "arn": undefined,
+            "cpuCount": undefined,
+            "createdAt": undefined,
+            "ipv6Address": undefined,
+            "isStaticIp": undefined,
+            "privateIpAddress": undefined,
+            "publicIpAddress": undefined,
+            "ramSize": undefined,
+            "username": undefined,
         });
     }
 }

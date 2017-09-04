@@ -51,6 +51,7 @@ export class PhpAppLayer extends fabric.Resource {
             "stackId": args.stackId,
             "systemPackages": args.systemPackages,
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
+            "layerId": undefined,
         });
     }
 }

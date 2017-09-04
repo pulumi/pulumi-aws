@@ -19,6 +19,7 @@ export class DefaultRouteTable extends fabric.Resource {
             "propagatingVgws": args.propagatingVgws,
             "route": args.route,
             "tags": args.tags,
+            "vpcId": undefined,
         });
     }
 }

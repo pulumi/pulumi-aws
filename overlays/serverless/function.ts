@@ -85,7 +85,7 @@ class FuncsForClosure {
         return envObj;
     }
 
-    private envFromEnvArr(arr: EnvEntry[]): string[] {
+    private envFromEnvArr(arr: runtime.EnvEntry[]): string[] {
         let envArr = [];
         for (let i = 0; i < (<any>arr).length; i++) {
             envArr[i] = this.envEntryToString(arr[i]);
@@ -93,9 +93,9 @@ class FuncsForClosure {
         return envArr;
     }
 
-    private envEntryToString(envEntry: EnvEntry): string | undefined {
+    private envEntryToString(envEntry: runtime.EnvEntry): string | undefined {
         if (envEntry.json !== undefined) {
-            return jsonStringify(envEntry.json);
+            return JSON.stringify(envEntry.json);
         } else if (envEntry.closure !== undefined) {
             let innerHash = this.createFuncForClosure(envEntry.closure);
             return innerHash;
@@ -239,8 +239,8 @@ function __generator(thisArg, body) {
 
     return new lambda.Function(functionName, {
         code: new asset.AssetArchive({
-            "node_modules": new asset.File("node_modules"),
-            "index.js": new asset.String(str),
+            "node_modules": new asset.FileAsset("node_modules"),
+            "index.js": new asset.StringAsset(str),
         }),
         handler: "index.handler",
         runtime: lambda.NodeJS6d10Runtime,

@@ -32,6 +32,12 @@ export class EventSourceMapping extends fabric.Resource {
             "eventSourceArn": args.eventSourceArn,
             "functionName": args.functionName,
             "startingPosition": args.startingPosition,
+            "functionArn": undefined,
+            "lastModified": undefined,
+            "lastProcessingResult": undefined,
+            "state": undefined,
+            "stateTransitionReason": undefined,
+            "uuid": undefined,
         });
     }
 }

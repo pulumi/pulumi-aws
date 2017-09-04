@@ -16,6 +16,7 @@ export class Association extends fabric.Resource {
             "name": args.name,
             "parameters": args.parameters,
             "targets": args.targets,
+            "associationId": undefined,
         });
     }
 }

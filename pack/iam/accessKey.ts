@@ -19,6 +19,11 @@ export class AccessKey extends fabric.Resource {
         super("aws:iam/accessKey:AccessKey", urnName, {
             "pgpKey": args.pgpKey,
             "user": args.user,
+            "encryptedSecret": undefined,
+            "keyFingerprint": undefined,
+            "secret": undefined,
+            "sesSmtpPassword": undefined,
+            "status": undefined,
         });
     }
 }

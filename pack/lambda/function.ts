@@ -61,6 +61,11 @@ export class Function extends fabric.Resource {
             "timeout": args.timeout,
             "tracingConfig": args.tracingConfig,
             "vpcConfig": args.vpcConfig,
+            "arn": undefined,
+            "invokeArn": undefined,
+            "lastModified": undefined,
+            "qualifiedArn": undefined,
+            "version": undefined,
         });
     }
 }

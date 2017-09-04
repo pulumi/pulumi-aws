@@ -18,6 +18,7 @@ export class Trigger extends fabric.Resource {
         super("aws:codecommit/trigger:Trigger", urnName, {
             "repositoryName": args.repositoryName,
             "trigger": args.trigger,
+            "configurationId": undefined,
         });
     }
 }

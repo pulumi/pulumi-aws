@@ -65,6 +65,15 @@ export class Distribution extends fabric.Resource {
             "tags": args.tags,
             "viewerCertificate": args.viewerCertificate,
             "webAclId": args.webAclId,
+            "activeTrustedSigners": undefined,
+            "arn": undefined,
+            "callerReference": undefined,
+            "domainName": undefined,
+            "etag": undefined,
+            "hostedZoneId": undefined,
+            "inProgressValidationBatches": undefined,
+            "lastModifiedTime": undefined,
+            "status": undefined,
         });
     }
 }

@@ -16,6 +16,8 @@ export class SamlProvider extends fabric.Resource {
         super("aws:iam/samlProvider:SamlProvider", urnName, {
             "name": args.name,
             "samlMetadataDocument": args.samlMetadataDocument,
+            "arn": undefined,
+            "validUntil": undefined,
         });
     }
 }

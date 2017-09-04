@@ -28,6 +28,7 @@ export class VpcPeeringConnection extends fabric.Resource {
             "requester": args.requester,
             "tags": args.tags,
             "vpcId": args.vpcId,
+            "acceptStatus": undefined,
         });
     }
 }

@@ -23,6 +23,8 @@ export class VpcEndpoint extends fabric.Resource {
             "routeTableIds": args.routeTableIds,
             "serviceName": args.serviceName,
             "vpcId": args.vpcId,
+            "cidrBlocks": undefined,
+            "prefixListId": undefined,
         });
     }
 }

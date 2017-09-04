@@ -18,6 +18,7 @@ export class DeploymentConfig extends fabric.Resource {
         super("aws:codedeploy/deploymentConfig:DeploymentConfig", urnName, {
             "deploymentConfigName": args.deploymentConfigName,
             "minimumHealthyHosts": args.minimumHealthyHosts,
+            "deploymentConfigId": undefined,
         });
     }
 }

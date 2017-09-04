@@ -24,6 +24,8 @@ export class UsagePlanKey extends fabric.Resource {
             "keyId": args.keyId,
             "keyType": args.keyType,
             "usagePlanId": args.usagePlanId,
+            "name": undefined,
+            "value": undefined,
         });
     }
 }

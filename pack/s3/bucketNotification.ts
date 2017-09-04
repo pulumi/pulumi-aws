@@ -3,17 +3,17 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-export class S3BucketNotification extends fabric.Resource {
+export class BucketNotification extends fabric.Resource {
     public readonly bucket: fabric.Property<string>;
     public readonly lambdaFunction?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[]>;
     public readonly queue?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[]>;
     public readonly topic?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[]>;
 
-    constructor(urnName: string, args: S3BucketNotificationArgs) {
+    constructor(urnName: string, args: BucketNotificationArgs) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
         }
-        super("aws:s3/s3BucketNotification:S3BucketNotification", urnName, {
+        super("aws:s3/bucketNotification:BucketNotification", urnName, {
             "bucket": args.bucket,
             "lambdaFunction": args.lambdaFunction,
             "queue": args.queue,
@@ -22,7 +22,7 @@ export class S3BucketNotification extends fabric.Resource {
     }
 }
 
-export interface S3BucketNotificationArgs {
+export interface BucketNotificationArgs {
     readonly bucket: fabric.PropertyValue<string>;
     readonly lambdaFunction?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, lambdaFunctionArn?: fabric.PropertyValue<string> }>[];
     readonly queue?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, queueArn: fabric.PropertyValue<string> }>[];

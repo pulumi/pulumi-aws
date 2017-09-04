@@ -33,6 +33,7 @@ export class TopicSubscription extends fabric.Resource {
             "protocol": args.protocol,
             "rawMessageDelivery": args.rawMessageDelivery,
             "topic": args.topic,
+            "arn": undefined,
         });
     }
 }

@@ -12,6 +12,9 @@ export class ClientCertificate extends fabric.Resource {
     constructor(urnName: string, args: ClientCertificateArgs) {
         super("aws:apigateway/clientCertificate:ClientCertificate", urnName, {
             "description": args.description,
+            "createdDate": undefined,
+            "expirationDate": undefined,
+            "pemEncodedCertificate": undefined,
         });
     }
 }

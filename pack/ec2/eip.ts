@@ -20,6 +20,11 @@ export class Eip extends fabric.Resource {
             "instance": args.instance,
             "networkInterface": args.networkInterface,
             "vpc": args.vpc,
+            "allocationId": undefined,
+            "associationId": undefined,
+            "domain": undefined,
+            "privateIp": undefined,
+            "publicIp": undefined,
         });
     }
 }

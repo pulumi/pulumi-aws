@@ -28,6 +28,9 @@ export class Deployment extends fabric.Resource {
             "stageDescription": args.stageDescription,
             "stageName": args.stageName,
             "variables": args.variables,
+            "createdDate": undefined,
+            "executionArn": undefined,
+            "invokeUrl": undefined,
         });
     }
 }

@@ -24,6 +24,8 @@ export class NetworkInterfaceAttachment extends fabric.Resource {
             "deviceIndex": args.deviceIndex,
             "instanceId": args.instanceId,
             "networkInterfaceId": args.networkInterfaceId,
+            "attachmentId": undefined,
+            "status": undefined,
         });
     }
 }

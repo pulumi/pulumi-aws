@@ -16,6 +16,7 @@ export class LogGroup extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "retentionInDays": args.retentionInDays,
             "tags": args.tags,
+            "arn": undefined,
         });
     }
 }

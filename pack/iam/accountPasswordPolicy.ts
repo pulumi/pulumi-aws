@@ -26,6 +26,7 @@ export class AccountPasswordPolicy extends fabric.Resource {
             "requireNumbers": args.requireNumbers,
             "requireSymbols": args.requireSymbols,
             "requireUppercaseCharacters": args.requireUppercaseCharacters,
+            "expirePasswords": undefined,
         });
     }
 }

@@ -21,6 +21,7 @@ export class Permission extends fabric.Resource {
             "level": args.level,
             "stackId": args.stackId,
             "userArn": args.userArn,
+            "permissionId": undefined,
         });
     }
 }

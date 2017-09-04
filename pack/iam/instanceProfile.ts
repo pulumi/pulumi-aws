@@ -22,6 +22,9 @@ export class InstanceProfile extends fabric.Resource {
             "path": args.path,
             "role": args.role,
             "roles": args.roles,
+            "arn": undefined,
+            "createDate": undefined,
+            "uniqueId": undefined,
         });
     }
 }

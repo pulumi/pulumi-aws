@@ -17,6 +17,8 @@ export class Vault extends fabric.Resource {
             "name": args.name,
             "notification": args.notification,
             "tags": args.tags,
+            "arn": undefined,
+            "location": undefined,
         });
     }
 }

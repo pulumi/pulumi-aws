@@ -13,6 +13,7 @@ export class Domain extends fabric.Resource {
         }
         super("aws:lightsail/domain:Domain", urnName, {
             "domainName": args.domainName,
+            "arn": undefined,
         });
     }
 }

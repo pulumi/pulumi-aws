@@ -13,6 +13,8 @@ export class Group extends fabric.Resource {
         super("aws:iam/group:Group", urnName, {
             "name": args.name,
             "path": args.path,
+            "arn": undefined,
+            "uniqueId": undefined,
         });
     }
 }

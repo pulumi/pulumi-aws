@@ -22,6 +22,7 @@ export class UserProfile extends fabric.Resource {
             "sshPublicKey": args.sshPublicKey,
             "sshUsername": args.sshUsername,
             "userArn": args.userArn,
+            "profileId": undefined,
         });
     }
 }

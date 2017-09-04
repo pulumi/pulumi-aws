@@ -46,6 +46,9 @@ export class Table extends fabric.Resource {
             "tags": args.tags,
             "ttl": args.ttl,
             "writeCapacity": args.writeCapacity,
+            "arn": undefined,
+            "streamArn": undefined,
+            "streamLabel": undefined,
         });
     }
 }

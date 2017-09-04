@@ -24,6 +24,8 @@ export class Rule extends fabric.Resource {
             "name": args.name,
             "scope": args.scope,
             "source": args.source,
+            "arn": undefined,
+            "ruleId": undefined,
         });
     }
 }

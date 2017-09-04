@@ -10,6 +10,7 @@ export class Project extends fabric.Resource {
     constructor(urnName: string, args: ProjectArgs) {
         super("aws:devicefarm/project:Project", urnName, {
             "name": args.name,
+            "arn": undefined,
         });
     }
 }

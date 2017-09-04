@@ -29,6 +29,7 @@ export class Listener extends fabric.Resource {
             "port": args.port,
             "protocol": args.protocol,
             "sslPolicy": args.sslPolicy,
+            "arn": undefined,
         });
     }
 }

@@ -45,6 +45,14 @@ export class Environment extends fabric.Resource {
             "tier": args.tier,
             "version": args.version,
             "waitForReadyTimeout": args.waitForReadyTimeout,
+            "allSettings": undefined,
+            "autoscalingGroups": undefined,
+            "cname": undefined,
+            "instances": undefined,
+            "launchConfigurations": undefined,
+            "loadBalancers": undefined,
+            "queues": undefined,
+            "triggers": undefined,
         });
     }
 }

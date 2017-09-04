@@ -44,6 +44,7 @@ export class ReplicationTask extends fabric.Resource {
             "tableMappings": args.tableMappings,
             "tags": args.tags,
             "targetEndpointArn": args.targetEndpointArn,
+            "replicationTaskArn": undefined,
         });
     }
 }

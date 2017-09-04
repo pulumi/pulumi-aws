@@ -44,6 +44,18 @@ export class VpnConnection extends fabric.Resource {
             "type": args.type,
             "vgwTelemetry": args.vgwTelemetry,
             "vpnGatewayId": args.vpnGatewayId,
+            "tunnel1Address": undefined,
+            "tunnel1BgpAsn": undefined,
+            "tunnel1BgpHoldtime": undefined,
+            "tunnel1CgwInsideAddress": undefined,
+            "tunnel1PresharedKey": undefined,
+            "tunnel1VgwInsideAddress": undefined,
+            "tunnel2Address": undefined,
+            "tunnel2BgpAsn": undefined,
+            "tunnel2BgpHoldtime": undefined,
+            "tunnel2CgwInsideAddress": undefined,
+            "tunnel2PresharedKey": undefined,
+            "tunnel2VgwInsideAddress": undefined,
         });
     }
 }

@@ -13,6 +13,7 @@ export class ResourceGroup extends fabric.Resource {
         }
         super("aws:inspector/resourceGroup:ResourceGroup", urnName, {
             "tags": args.tags,
+            "arn": undefined,
         });
     }
 }

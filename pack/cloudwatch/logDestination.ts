@@ -20,6 +20,7 @@ export class LogDestination extends fabric.Resource {
             "name": args.name,
             "roleArn": args.roleArn,
             "targetArn": args.targetArn,
+            "arn": undefined,
         });
     }
 }

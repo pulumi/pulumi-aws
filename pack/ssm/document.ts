@@ -33,6 +33,18 @@ export class Document extends fabric.Resource {
             "documentType": args.documentType,
             "name": args.name,
             "permissions": args.permissions,
+            "arn": undefined,
+            "createdDate": undefined,
+            "defaultVersion": undefined,
+            "description": undefined,
+            "hash": undefined,
+            "hashType": undefined,
+            "latestVersion": undefined,
+            "owner": undefined,
+            "parameter": undefined,
+            "platformTypes": undefined,
+            "schemaVersion": undefined,
+            "status": undefined,
         });
     }
 }

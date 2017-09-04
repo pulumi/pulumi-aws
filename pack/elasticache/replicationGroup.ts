@@ -67,6 +67,8 @@ export class ReplicationGroup extends fabric.Resource {
             "snapshotWindow": args.snapshotWindow,
             "subnetGroupName": args.subnetGroupName,
             "tags": args.tags,
+            "configurationEndpointAddress": undefined,
+            "primaryEndpointAddress": undefined,
         });
     }
 }

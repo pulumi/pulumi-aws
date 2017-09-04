@@ -15,6 +15,8 @@ export class User extends fabric.Resource {
             "forceDestroy": args.forceDestroy,
             "name": args.name,
             "path": args.path,
+            "arn": undefined,
+            "uniqueId": undefined,
         });
     }
 }

@@ -104,6 +104,7 @@ export class Instance extends fabric.Resource {
             "subnetId": args.subnetId,
             "tenancy": args.tenancy,
             "virtualizationType": args.virtualizationType,
+            "instanceId": undefined,
         });
     }
 }

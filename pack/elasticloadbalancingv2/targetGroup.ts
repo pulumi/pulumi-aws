@@ -36,6 +36,8 @@ export class TargetGroup extends fabric.Resource {
             "stickiness": args.stickiness,
             "tags": args.tags,
             "vpcId": args.vpcId,
+            "arn": undefined,
+            "arnSuffix": undefined,
         });
     }
 }

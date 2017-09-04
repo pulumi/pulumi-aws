@@ -48,6 +48,7 @@ export class Policy extends fabric.Resource {
             "scalableDimension": args.scalableDimension,
             "serviceNamespace": args.serviceNamespace,
             "stepAdjustment": args.stepAdjustment,
+            "arn": undefined,
         });
     }
 }

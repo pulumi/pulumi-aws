@@ -27,6 +27,8 @@ export class TaskDefinition extends fabric.Resource {
             "placementConstraints": args.placementConstraints,
             "taskRoleArn": args.taskRoleArn,
             "volume": args.volume,
+            "arn": undefined,
+            "revision": undefined,
         });
     }
 }

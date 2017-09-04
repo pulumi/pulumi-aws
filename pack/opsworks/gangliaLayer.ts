@@ -60,6 +60,7 @@ export class GangliaLayer extends fabric.Resource {
             "url": args.url,
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
             "username": args.username,
+            "layerId": undefined,
         });
     }
 }

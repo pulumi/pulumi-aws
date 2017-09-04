@@ -17,6 +17,7 @@ export class KeyPair extends fabric.Resource {
             "keyName": args.keyName,
             "keyNamePrefix": args.keyNamePrefix,
             "publicKey": args.publicKey,
+            "fingerprint": undefined,
         });
     }
 }

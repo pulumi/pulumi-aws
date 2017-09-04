@@ -17,6 +17,8 @@ export class DefaultSecurityGroup extends fabric.Resource {
             "ingress": args.ingress,
             "tags": args.tags,
             "vpcId": args.vpcId,
+            "name": undefined,
+            "ownerId": undefined,
         });
     }
 }

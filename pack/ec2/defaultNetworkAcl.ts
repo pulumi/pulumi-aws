@@ -21,6 +21,7 @@ export class DefaultNetworkAcl extends fabric.Resource {
             "ingress": args.ingress,
             "subnetIds": args.subnetIds,
             "tags": args.tags,
+            "vpcId": undefined,
         });
     }
 }

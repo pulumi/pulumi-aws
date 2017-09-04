@@ -10,6 +10,7 @@ export class DelegationSet extends fabric.Resource {
     constructor(urnName: string, args: DelegationSetArgs) {
         super("aws:route53/delegationSet:DelegationSet", urnName, {
             "referenceName": args.referenceName,
+            "nameServers": undefined,
         });
     }
 }

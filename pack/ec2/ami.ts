@@ -33,6 +33,8 @@ export class Ami extends fabric.Resource {
             "sriovNetSupport": args.sriovNetSupport,
             "tags": args.tags,
             "virtualizationType": args.virtualizationType,
+            "amiId": undefined,
+            "manageEbsSnapshots": undefined,
         });
     }
 }

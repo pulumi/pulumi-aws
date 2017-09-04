@@ -27,6 +27,8 @@ export class InstanceGroup extends fabric.Resource {
             "instanceCount": args.instanceCount,
             "instanceType": args.instanceType,
             "name": args.name,
+            "runningInstanceCount": undefined,
+            "status": undefined,
         });
     }
 }

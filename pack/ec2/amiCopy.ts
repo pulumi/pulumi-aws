@@ -40,6 +40,15 @@ export class AmiCopy extends fabric.Resource {
             "sourceAmiId": args.sourceAmiId,
             "sourceAmiRegion": args.sourceAmiRegion,
             "tags": args.tags,
+            "architecture": undefined,
+            "amiId": undefined,
+            "imageLocation": undefined,
+            "kernelId": undefined,
+            "manageEbsSnapshots": undefined,
+            "ramdiskId": undefined,
+            "rootDeviceName": undefined,
+            "sriovNetSupport": undefined,
+            "virtualizationType": undefined,
         });
     }
 }

@@ -18,6 +18,7 @@ export class Topic extends fabric.Resource {
             "displayName": args.displayName,
             "name": args.name,
             "policy": args.policy,
+            "arn": undefined,
         });
     }
 }

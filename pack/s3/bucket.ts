@@ -46,6 +46,7 @@ export class Bucket extends fabric.Resource {
             "website": args.website,
             "websiteDomain": args.websiteDomain,
             "websiteEndpoint": args.websiteEndpoint,
+            "bucketDomainName": undefined,
         });
     }
 }

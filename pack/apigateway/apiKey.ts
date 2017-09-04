@@ -21,6 +21,8 @@ export class ApiKey extends fabric.Resource {
             "name": args.name,
             "stageKey": args.stageKey,
             "value": args.value,
+            "createdDate": undefined,
+            "lastUpdatedDate": undefined,
         });
     }
 }

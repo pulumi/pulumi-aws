@@ -31,6 +31,7 @@ export class Preset extends fabric.Resource {
             "video": args.video,
             "videoCodecOptions": args.videoCodecOptions,
             "videoWatermarks": args.videoWatermarks,
+            "arn": undefined,
         });
     }
 }

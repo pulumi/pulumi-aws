@@ -22,6 +22,8 @@ export class Activation extends fabric.Resource {
             "iamRole": args.iamRole,
             "name": args.name,
             "registrationLimit": args.registrationLimit,
+            "expired": undefined,
+            "registrationCount": undefined,
         });
     }
 }

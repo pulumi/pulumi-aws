@@ -17,6 +17,7 @@ export class SecurityConfiguration extends fabric.Resource {
             "configuration": args.configuration,
             "name": args.name,
             "namePrefix": args.namePrefix,
+            "creationDate": undefined,
         });
     }
 }

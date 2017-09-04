@@ -60,6 +60,8 @@ export class Stack extends fabric.Resource {
             "useCustomCookbooks": args.useCustomCookbooks,
             "useOpsworksSecurityGroups": args.useOpsworksSecurityGroups,
             "vpcId": args.vpcId,
+            "stackId": undefined,
+            "stackEndpoint": undefined,
         });
     }
 }

@@ -33,6 +33,15 @@ export class AmiFromInstance extends fabric.Resource {
             "snapshotWithoutReboot": args.snapshotWithoutReboot,
             "sourceInstanceId": args.sourceInstanceId,
             "tags": args.tags,
+            "architecture": undefined,
+            "amiId": undefined,
+            "imageLocation": undefined,
+            "kernelId": undefined,
+            "manageEbsSnapshots": undefined,
+            "ramdiskId": undefined,
+            "rootDeviceName": undefined,
+            "sriovNetSupport": undefined,
+            "virtualizationType": undefined,
         });
     }
 }

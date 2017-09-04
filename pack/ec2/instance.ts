@@ -73,6 +73,12 @@ export class Instance extends fabric.Resource {
             "userData": args.userData,
             "volumeTags": args.volumeTags,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
+            "instanceState": undefined,
+            "networkInterfaceId": undefined,
+            "primaryNetworkInterfaceId": undefined,
+            "privateDns": undefined,
+            "publicDns": undefined,
+            "publicIp": undefined,
         });
     }
 }

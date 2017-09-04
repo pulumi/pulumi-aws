@@ -20,6 +20,11 @@ export class KeyPair extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "pgpKey": args.pgpKey,
             "publicKey": args.publicKey,
+            "arn": undefined,
+            "encryptedFingerprint": undefined,
+            "encryptedPrivateKey": undefined,
+            "fingerprint": undefined,
+            "privateKey": undefined,
         });
     }
 }

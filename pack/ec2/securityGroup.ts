@@ -22,6 +22,7 @@ export class SecurityGroup extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "tags": args.tags,
             "vpcId": args.vpcId,
+            "ownerId": undefined,
         });
     }
 }

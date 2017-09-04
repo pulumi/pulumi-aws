@@ -10,6 +10,7 @@ export class Account extends fabric.Resource {
     constructor(urnName: string, args: AccountArgs) {
         super("aws:apigateway/account:Account", urnName, {
             "cloudwatchRoleArn": args.cloudwatchRoleArn,
+            "throttleSettings": undefined,
         });
     }
 }

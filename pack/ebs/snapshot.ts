@@ -22,6 +22,12 @@ export class Snapshot extends fabric.Resource {
             "description": args.description,
             "tags": args.tags,
             "volumeId": args.volumeId,
+            "dataEncryptionKeyId": undefined,
+            "encrypted": undefined,
+            "kmsKeyId": undefined,
+            "ownerAlias": undefined,
+            "ownerId": undefined,
+            "volumeSize": undefined,
         });
     }
 }

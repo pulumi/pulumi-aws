@@ -10,6 +10,7 @@ export class Activity extends fabric.Resource {
     constructor(urnName: string, args: ActivityArgs) {
         super("aws:sfn/activity:Activity", urnName, {
             "name": args.name,
+            "creationDate": undefined,
         });
     }
 }

@@ -57,6 +57,10 @@ export class Cluster extends fabric.Resource {
             "storageEncrypted": args.storageEncrypted,
             "tags": args.tags,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
+            "clusterResourceId": undefined,
+            "endpoint": undefined,
+            "engine": undefined,
+            "readerEndpoint": undefined,
         });
     }
 }

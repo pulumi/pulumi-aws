@@ -45,6 +45,7 @@ export class Endpoint extends fabric.Resource {
             "sslMode": args.sslMode,
             "tags": args.tags,
             "username": args.username,
+            "endpointArn": undefined,
         });
     }
 }

@@ -14,6 +14,11 @@ export class OriginAccessIdentity extends fabric.Resource {
     constructor(urnName: string, args: OriginAccessIdentityArgs) {
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", urnName, {
             "comment": args.comment,
+            "callerReference": undefined,
+            "cloudfrontAccessIdentityPath": undefined,
+            "etag": undefined,
+            "iamArn": undefined,
+            "s3CanonicalUserId": undefined,
         });
     }
 }

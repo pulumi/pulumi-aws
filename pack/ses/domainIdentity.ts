@@ -14,6 +14,8 @@ export class DomainIdentity extends fabric.Resource {
         }
         super("aws:ses/domainIdentity:DomainIdentity", urnName, {
             "domain": args.domain,
+            "arn": undefined,
+            "verificationToken": undefined,
         });
     }
 }

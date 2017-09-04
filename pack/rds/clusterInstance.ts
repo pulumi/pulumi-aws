@@ -49,6 +49,12 @@ export class ClusterInstance extends fabric.Resource {
             "promotionTier": args.promotionTier,
             "publiclyAccessible": args.publiclyAccessible,
             "tags": args.tags,
+            "dbiResourceId": undefined,
+            "endpoint": undefined,
+            "kmsKeyId": undefined,
+            "port": undefined,
+            "storageEncrypted": undefined,
+            "writer": undefined,
         });
     }
 }

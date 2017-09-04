@@ -17,6 +17,8 @@ export class RestApi extends fabric.Resource {
             "body": args.body,
             "description": args.description,
             "name": args.name,
+            "createdDate": undefined,
+            "rootResourceId": undefined,
         });
     }
 }

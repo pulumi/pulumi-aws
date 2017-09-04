@@ -15,6 +15,7 @@ export class AssessmentTarget extends fabric.Resource {
         super("aws:inspector/assessmentTarget:AssessmentTarget", urnName, {
             "name": args.name,
             "resourceGroupArn": args.resourceGroupArn,
+            "arn": undefined,
         });
     }
 }

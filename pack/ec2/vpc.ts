@@ -33,6 +33,13 @@ export class Vpc extends fabric.Resource {
             "enableDnsSupport": args.enableDnsSupport,
             "instanceTenancy": args.instanceTenancy,
             "tags": args.tags,
+            "defaultNetworkAclId": undefined,
+            "defaultRouteTableId": undefined,
+            "defaultSecurityGroupId": undefined,
+            "dhcpOptionsId": undefined,
+            "ipv6AssociationId": undefined,
+            "ipv6CidrBlock": undefined,
+            "mainRouteTableId": undefined,
         });
     }
 }
