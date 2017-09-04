@@ -6,10 +6,9 @@ PACKDIR =pack
 PACKNAME=Amazon Web Services (AWS)
 PROJECT =github.com/pulumi/pulumi-aws
 
-TFGEN           = lumi-tfgen-${PACK}
-TFBRIDGE        = lumi-tfbridge-${PACK}
-TFBRIDGE_BIN    = ${GOPATH}/bin/${TFBRIDGE}
-LUMIPLUG        = lumi-resource
+TFGEN           = pulumi-tfgen-${PACK}
+PROVIDER        = pulumi-provider-${PACK}
+PROVIDER_BIN    = ${GOPATH}/bin/${PROVIDER}
 TESTPARALLELISM = 10
 
 ECHO=echo -e
@@ -30,10 +29,11 @@ banner:
 
 buildtools:
 	go install ${PROJECT}/cmd/${TFGEN}
-	go install ${PROJECT}/cmd/${TFBRIDGE}
+	go install ${PROJECT}/cmd/${PROVIDER}
 
 gen:
 	$(TFGEN) --out pack/
+	cd pack/ && yarn install
 .PHONY: gen
 
 build:
