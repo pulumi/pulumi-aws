@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class MountTarget extends fabric.Resource {
-    public /*out*/ readonly dnsName: fabric.Property<string>;
-    public readonly fileSystemId: fabric.Property<string>;
-    public readonly ipAddress: fabric.Property<string>;
-    public /*out*/ readonly networkInterfaceId: fabric.Property<string>;
-    public readonly securityGroups: fabric.Property<string[]>;
-    public readonly subnetId: fabric.Property<string>;
+    public /*out*/ readonly dnsName: fabric.Computed<string>;
+    public readonly fileSystemId: fabric.Computed<string>;
+    public readonly ipAddress: fabric.Computed<string>;
+    public /*out*/ readonly networkInterfaceId: fabric.Computed<string>;
+    public readonly securityGroups: fabric.Computed<string[]>;
+    public readonly subnetId: fabric.Computed<string>;
 
     constructor(urnName: string, args: MountTargetArgs) {
         if (args.fileSystemId === undefined) {
@@ -30,9 +30,9 @@ export class MountTarget extends fabric.Resource {
 }
 
 export interface MountTargetArgs {
-    readonly fileSystemId: fabric.PropertyValue<string>;
-    readonly ipAddress?: fabric.PropertyValue<string>;
-    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly subnetId: fabric.PropertyValue<string>;
+    readonly fileSystemId: fabric.MaybeComputed<string>;
+    readonly ipAddress?: fabric.MaybeComputed<string>;
+    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnetId: fabric.MaybeComputed<string>;
 }
 

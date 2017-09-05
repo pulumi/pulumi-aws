@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RdsDbInstance extends fabric.Resource {
-    public readonly dbPassword: fabric.Property<string>;
-    public readonly dbUser: fabric.Property<string>;
-    public /*out*/ readonly instanceId: fabric.Property<string>;
-    public readonly rdsDbInstanceArn: fabric.Property<string>;
-    public readonly stackId: fabric.Property<string>;
+    public readonly dbPassword: fabric.Computed<string>;
+    public readonly dbUser: fabric.Computed<string>;
+    public /*out*/ readonly instanceId: fabric.Computed<string>;
+    public readonly rdsDbInstanceArn: fabric.Computed<string>;
+    public readonly stackId: fabric.Computed<string>;
 
     constructor(urnName: string, args: RdsDbInstanceArgs) {
         if (args.dbPassword === undefined) {
@@ -34,9 +34,9 @@ export class RdsDbInstance extends fabric.Resource {
 }
 
 export interface RdsDbInstanceArgs {
-    readonly dbPassword: fabric.PropertyValue<string>;
-    readonly dbUser: fabric.PropertyValue<string>;
-    readonly rdsDbInstanceArn: fabric.PropertyValue<string>;
-    readonly stackId: fabric.PropertyValue<string>;
+    readonly dbPassword: fabric.MaybeComputed<string>;
+    readonly dbUser: fabric.MaybeComputed<string>;
+    readonly rdsDbInstanceArn: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.MaybeComputed<string>;
 }
 

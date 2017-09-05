@@ -6,13 +6,13 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class ApiKey extends fabric.Resource {
-    public /*out*/ readonly createdDate: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly enabled?: fabric.Property<boolean>;
-    public /*out*/ readonly lastUpdatedDate: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly stageKey?: fabric.Property<{ restApi: RestApi, stageName: string }[]>;
-    public readonly value: fabric.Property<string>;
+    public /*out*/ readonly createdDate: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly enabled?: fabric.Computed<boolean>;
+    public /*out*/ readonly lastUpdatedDate: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly stageKey?: fabric.Computed<{ restApi: RestApi, stageName: string }[]>;
+    public readonly value: fabric.Computed<string>;
 
     constructor(urnName: string, args: ApiKeyArgs) {
         super("aws:apigateway/apiKey:ApiKey", urnName, {
@@ -28,10 +28,10 @@ export class ApiKey extends fabric.Resource {
 }
 
 export interface ApiKeyArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly stageKey?: fabric.PropertyValue<{ restApi: fabric.PropertyValue<RestApi>, stageName: fabric.PropertyValue<string> }>[];
-    readonly value?: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly stageKey?: fabric.MaybeComputed<{ restApi: fabric.MaybeComputed<RestApi>, stageName: fabric.MaybeComputed<string> }>[];
+    readonly value?: fabric.MaybeComputed<string>;
 }
 

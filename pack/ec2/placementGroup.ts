@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class PlacementGroup extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly strategy: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly strategy: fabric.Computed<string>;
 
     constructor(urnName: string, args: PlacementGroupArgs) {
         if (args.strategy === undefined) {
@@ -19,7 +19,7 @@ export class PlacementGroup extends fabric.Resource {
 }
 
 export interface PlacementGroupArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly strategy: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly strategy: fabric.MaybeComputed<string>;
 }
 

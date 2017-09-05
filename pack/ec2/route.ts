@@ -4,19 +4,19 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Route extends fabric.Resource {
-    public readonly destinationCidrBlock?: fabric.Property<string>;
-    public readonly destinationIpv6CidrBlock?: fabric.Property<string>;
-    public /*out*/ readonly destinationPrefixListId: fabric.Property<string>;
-    public readonly egressOnlyGatewayId: fabric.Property<string>;
-    public readonly gatewayId: fabric.Property<string>;
-    public readonly instanceId: fabric.Property<string>;
-    public /*out*/ readonly instanceOwnerId: fabric.Property<string>;
-    public readonly natGatewayId: fabric.Property<string>;
-    public readonly networkInterfaceId: fabric.Property<string>;
-    public /*out*/ readonly origin: fabric.Property<string>;
-    public readonly routeTableId: fabric.Property<string>;
-    public /*out*/ readonly state: fabric.Property<string>;
-    public readonly vpcPeeringConnectionId?: fabric.Property<string>;
+    public readonly destinationCidrBlock?: fabric.Computed<string>;
+    public readonly destinationIpv6CidrBlock?: fabric.Computed<string>;
+    public /*out*/ readonly destinationPrefixListId: fabric.Computed<string>;
+    public readonly egressOnlyGatewayId: fabric.Computed<string>;
+    public readonly gatewayId: fabric.Computed<string>;
+    public readonly instanceId: fabric.Computed<string>;
+    public /*out*/ readonly instanceOwnerId: fabric.Computed<string>;
+    public readonly natGatewayId: fabric.Computed<string>;
+    public readonly networkInterfaceId: fabric.Computed<string>;
+    public /*out*/ readonly origin: fabric.Computed<string>;
+    public readonly routeTableId: fabric.Computed<string>;
+    public /*out*/ readonly state: fabric.Computed<string>;
+    public readonly vpcPeeringConnectionId?: fabric.Computed<string>;
 
     constructor(urnName: string, args: RouteArgs) {
         if (args.routeTableId === undefined) {
@@ -41,14 +41,14 @@ export class Route extends fabric.Resource {
 }
 
 export interface RouteArgs {
-    readonly destinationCidrBlock?: fabric.PropertyValue<string>;
-    readonly destinationIpv6CidrBlock?: fabric.PropertyValue<string>;
-    readonly egressOnlyGatewayId?: fabric.PropertyValue<string>;
-    readonly gatewayId?: fabric.PropertyValue<string>;
-    readonly instanceId?: fabric.PropertyValue<string>;
-    readonly natGatewayId?: fabric.PropertyValue<string>;
-    readonly networkInterfaceId?: fabric.PropertyValue<string>;
-    readonly routeTableId: fabric.PropertyValue<string>;
-    readonly vpcPeeringConnectionId?: fabric.PropertyValue<string>;
+    readonly destinationCidrBlock?: fabric.MaybeComputed<string>;
+    readonly destinationIpv6CidrBlock?: fabric.MaybeComputed<string>;
+    readonly egressOnlyGatewayId?: fabric.MaybeComputed<string>;
+    readonly gatewayId?: fabric.MaybeComputed<string>;
+    readonly instanceId?: fabric.MaybeComputed<string>;
+    readonly natGatewayId?: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly vpcPeeringConnectionId?: fabric.MaybeComputed<string>;
 }
 

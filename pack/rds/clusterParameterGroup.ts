@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ClusterParameterGroup extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly family: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix: fabric.Property<string>;
-    public readonly parameter?: fabric.Property<{ applyMethod?: string, name: string, value: string }[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly family: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix: fabric.Computed<string>;
+    public readonly parameter?: fabric.Computed<{ applyMethod?: string, name: string, value: string }[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: ClusterParameterGroupArgs) {
         if (args.family === undefined) {
@@ -29,11 +29,11 @@ export class ClusterParameterGroup extends fabric.Resource {
 }
 
 export interface ClusterParameterGroupArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly family: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly parameter?: fabric.PropertyValue<{ applyMethod?: fabric.PropertyValue<string>, name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly family: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly parameter?: fabric.MaybeComputed<{ applyMethod?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

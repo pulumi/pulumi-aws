@@ -6,13 +6,13 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Function} from "./function";
 
 export class Permission extends fabric.Resource {
-    public readonly action: fabric.Property<string>;
-    public readonly function: fabric.Property<Function>;
-    public readonly principal: fabric.Property<string>;
-    public readonly qualifier?: fabric.Property<string>;
-    public readonly sourceAccount?: fabric.Property<string>;
-    public readonly sourceArn?: fabric.Property<string>;
-    public readonly statementId: fabric.Property<string>;
+    public readonly action: fabric.Computed<string>;
+    public readonly function: fabric.Computed<Function>;
+    public readonly principal: fabric.Computed<string>;
+    public readonly qualifier?: fabric.Computed<string>;
+    public readonly sourceAccount?: fabric.Computed<string>;
+    public readonly sourceArn?: fabric.Computed<string>;
+    public readonly statementId: fabric.Computed<string>;
 
     constructor(urnName: string, args: PermissionArgs) {
         if (args.action === undefined) {
@@ -37,12 +37,12 @@ export class Permission extends fabric.Resource {
 }
 
 export interface PermissionArgs {
-    readonly action: fabric.PropertyValue<string>;
-    readonly function: fabric.PropertyValue<Function>;
-    readonly principal: fabric.PropertyValue<string>;
-    readonly qualifier?: fabric.PropertyValue<string>;
-    readonly sourceAccount?: fabric.PropertyValue<string>;
-    readonly sourceArn?: fabric.PropertyValue<string>;
-    readonly statementId?: fabric.PropertyValue<string>;
+    readonly action: fabric.MaybeComputed<string>;
+    readonly function: fabric.MaybeComputed<Function>;
+    readonly principal: fabric.MaybeComputed<string>;
+    readonly qualifier?: fabric.MaybeComputed<string>;
+    readonly sourceAccount?: fabric.MaybeComputed<string>;
+    readonly sourceArn?: fabric.MaybeComputed<string>;
+    readonly statementId?: fabric.MaybeComputed<string>;
 }
 

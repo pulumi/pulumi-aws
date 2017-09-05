@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Group extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly path?: fabric.Property<string>;
-    public /*out*/ readonly uniqueId: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly path?: fabric.Computed<string>;
+    public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
     constructor(urnName: string, args: GroupArgs) {
         super("aws:iam/group:Group", urnName, {
@@ -20,7 +20,7 @@ export class Group extends fabric.Resource {
 }
 
 export interface GroupArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly path?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.MaybeComputed<string>;
 }
 

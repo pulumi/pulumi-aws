@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class OriginAccessIdentity extends fabric.Resource {
-    public /*out*/ readonly callerReference: fabric.Property<string>;
-    public /*out*/ readonly cloudfrontAccessIdentityPath: fabric.Property<string>;
-    public readonly comment?: fabric.Property<string>;
-    public /*out*/ readonly etag: fabric.Property<string>;
-    public /*out*/ readonly iamArn: fabric.Property<string>;
-    public /*out*/ readonly s3CanonicalUserId: fabric.Property<string>;
+    public /*out*/ readonly callerReference: fabric.Computed<string>;
+    public /*out*/ readonly cloudfrontAccessIdentityPath: fabric.Computed<string>;
+    public readonly comment?: fabric.Computed<string>;
+    public /*out*/ readonly etag: fabric.Computed<string>;
+    public /*out*/ readonly iamArn: fabric.Computed<string>;
+    public /*out*/ readonly s3CanonicalUserId: fabric.Computed<string>;
 
     constructor(urnName: string, args: OriginAccessIdentityArgs) {
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", urnName, {
@@ -24,6 +24,6 @@ export class OriginAccessIdentity extends fabric.Resource {
 }
 
 export interface OriginAccessIdentityArgs {
-    readonly comment?: fabric.PropertyValue<string>;
+    readonly comment?: fabric.MaybeComputed<string>;
 }
 

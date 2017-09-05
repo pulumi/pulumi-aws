@@ -4,16 +4,16 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Service extends fabric.Resource {
-    public readonly cluster: fabric.Property<string>;
-    public readonly deploymentMaximumPercent?: fabric.Property<number>;
-    public readonly deploymentMinimumHealthyPercent?: fabric.Property<number>;
-    public readonly desiredCount?: fabric.Property<number>;
-    public readonly iamRole?: fabric.Property<string>;
-    public readonly loadBalancer?: fabric.Property<{ containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly placementConstraints?: fabric.Property<{ expression?: string, type: string }[]>;
-    public readonly placementStrategy?: fabric.Property<{ field?: string, type: string }[]>;
-    public readonly taskDefinition: fabric.Property<string>;
+    public readonly cluster: fabric.Computed<string>;
+    public readonly deploymentMaximumPercent?: fabric.Computed<number>;
+    public readonly deploymentMinimumHealthyPercent?: fabric.Computed<number>;
+    public readonly desiredCount?: fabric.Computed<number>;
+    public readonly iamRole?: fabric.Computed<string>;
+    public readonly loadBalancer?: fabric.Computed<{ containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly placementConstraints?: fabric.Computed<{ expression?: string, type: string }[]>;
+    public readonly placementStrategy?: fabric.Computed<{ field?: string, type: string }[]>;
+    public readonly taskDefinition: fabric.Computed<string>;
 
     constructor(urnName: string, args: ServiceArgs) {
         if (args.taskDefinition === undefined) {
@@ -35,15 +35,15 @@ export class Service extends fabric.Resource {
 }
 
 export interface ServiceArgs {
-    readonly cluster?: fabric.PropertyValue<string>;
-    readonly deploymentMaximumPercent?: fabric.PropertyValue<number>;
-    readonly deploymentMinimumHealthyPercent?: fabric.PropertyValue<number>;
-    readonly desiredCount?: fabric.PropertyValue<number>;
-    readonly iamRole?: fabric.PropertyValue<string>;
-    readonly loadBalancer?: fabric.PropertyValue<{ containerName: fabric.PropertyValue<string>, containerPort: fabric.PropertyValue<number>, elbName?: fabric.PropertyValue<string>, targetGroupArn?: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly placementConstraints?: fabric.PropertyValue<{ expression?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly placementStrategy?: fabric.PropertyValue<{ field?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly taskDefinition: fabric.PropertyValue<string>;
+    readonly cluster?: fabric.MaybeComputed<string>;
+    readonly deploymentMaximumPercent?: fabric.MaybeComputed<number>;
+    readonly deploymentMinimumHealthyPercent?: fabric.MaybeComputed<number>;
+    readonly desiredCount?: fabric.MaybeComputed<number>;
+    readonly iamRole?: fabric.MaybeComputed<string>;
+    readonly loadBalancer?: fabric.MaybeComputed<{ containerName: fabric.MaybeComputed<string>, containerPort: fabric.MaybeComputed<number>, elbName?: fabric.MaybeComputed<string>, targetGroupArn?: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly placementStrategy?: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly taskDefinition: fabric.MaybeComputed<string>;
 }
 

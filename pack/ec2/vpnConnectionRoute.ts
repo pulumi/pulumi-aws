@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpnConnectionRoute extends fabric.Resource {
-    public readonly destinationCidrBlock: fabric.Property<string>;
-    public readonly vpnConnectionId: fabric.Property<string>;
+    public readonly destinationCidrBlock: fabric.Computed<string>;
+    public readonly vpnConnectionId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpnConnectionRouteArgs) {
         if (args.destinationCidrBlock === undefined) {
@@ -22,7 +22,7 @@ export class VpnConnectionRoute extends fabric.Resource {
 }
 
 export interface VpnConnectionRouteArgs {
-    readonly destinationCidrBlock: fabric.PropertyValue<string>;
-    readonly vpnConnectionId: fabric.PropertyValue<string>;
+    readonly destinationCidrBlock: fabric.MaybeComputed<string>;
+    readonly vpnConnectionId: fabric.MaybeComputed<string>;
 }
 

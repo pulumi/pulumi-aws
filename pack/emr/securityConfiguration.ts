@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SecurityConfiguration extends fabric.Resource {
-    public readonly configuration: fabric.Property<string>;
-    public /*out*/ readonly creationDate: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
+    public readonly configuration: fabric.Computed<string>;
+    public /*out*/ readonly creationDate: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
 
     constructor(urnName: string, args: SecurityConfigurationArgs) {
         if (args.configuration === undefined) {
@@ -23,8 +23,8 @@ export class SecurityConfiguration extends fabric.Resource {
 }
 
 export interface SecurityConfigurationArgs {
-    readonly configuration: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
+    readonly configuration: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
 }
 

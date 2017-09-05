@@ -4,17 +4,17 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Pipeline extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly awsKmsKeyArn?: fabric.Property<string>;
-    public readonly contentConfig: fabric.Property<{ bucket: string, storageClass?: string }[]>;
-    public readonly contentConfigPermissions?: fabric.Property<{ access?: string[], grantee?: string, granteeType?: string }[]>;
-    public readonly inputBucket: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly notifications?: fabric.Property<{ completed?: string, error?: string, progressing?: string, warning?: string }[]>;
-    public readonly outputBucket: fabric.Property<string>;
-    public readonly role: fabric.Property<string>;
-    public readonly thumbnailConfig: fabric.Property<{ bucket: string, storageClass?: string }[]>;
-    public readonly thumbnailConfigPermissions?: fabric.Property<{ access?: string[], grantee?: string, granteeType?: string }[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly awsKmsKeyArn?: fabric.Computed<string>;
+    public readonly contentConfig: fabric.Computed<{ bucket: string, storageClass?: string }[]>;
+    public readonly contentConfigPermissions?: fabric.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
+    public readonly inputBucket: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly notifications?: fabric.Computed<{ completed?: string, error?: string, progressing?: string, warning?: string }[]>;
+    public readonly outputBucket: fabric.Computed<string>;
+    public readonly role: fabric.Computed<string>;
+    public readonly thumbnailConfig: fabric.Computed<{ bucket: string, storageClass?: string }[]>;
+    public readonly thumbnailConfigPermissions?: fabric.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
 
     constructor(urnName: string, args: PipelineArgs) {
         if (args.inputBucket === undefined) {
@@ -40,15 +40,15 @@ export class Pipeline extends fabric.Resource {
 }
 
 export interface PipelineArgs {
-    readonly awsKmsKeyArn?: fabric.PropertyValue<string>;
-    readonly contentConfig?: fabric.PropertyValue<{ bucket?: fabric.PropertyValue<string>, storageClass?: fabric.PropertyValue<string> }>[];
-    readonly contentConfigPermissions?: fabric.PropertyValue<{ access?: fabric.PropertyValue<fabric.PropertyValue<string>>[], grantee?: fabric.PropertyValue<string>, granteeType?: fabric.PropertyValue<string> }>[];
-    readonly inputBucket: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly notifications?: fabric.PropertyValue<{ completed?: fabric.PropertyValue<string>, error?: fabric.PropertyValue<string>, progressing?: fabric.PropertyValue<string>, warning?: fabric.PropertyValue<string> }>[];
-    readonly outputBucket?: fabric.PropertyValue<string>;
-    readonly role: fabric.PropertyValue<string>;
-    readonly thumbnailConfig?: fabric.PropertyValue<{ bucket?: fabric.PropertyValue<string>, storageClass?: fabric.PropertyValue<string> }>[];
-    readonly thumbnailConfigPermissions?: fabric.PropertyValue<{ access?: fabric.PropertyValue<fabric.PropertyValue<string>>[], grantee?: fabric.PropertyValue<string>, granteeType?: fabric.PropertyValue<string> }>[];
+    readonly awsKmsKeyArn?: fabric.MaybeComputed<string>;
+    readonly contentConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];
+    readonly contentConfigPermissions?: fabric.MaybeComputed<{ access?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], grantee?: fabric.MaybeComputed<string>, granteeType?: fabric.MaybeComputed<string> }>[];
+    readonly inputBucket: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly notifications?: fabric.MaybeComputed<{ completed?: fabric.MaybeComputed<string>, error?: fabric.MaybeComputed<string>, progressing?: fabric.MaybeComputed<string>, warning?: fabric.MaybeComputed<string> }>[];
+    readonly outputBucket?: fabric.MaybeComputed<string>;
+    readonly role: fabric.MaybeComputed<string>;
+    readonly thumbnailConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];
+    readonly thumbnailConfigPermissions?: fabric.MaybeComputed<{ access?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], grantee?: fabric.MaybeComputed<string>, granteeType?: fabric.MaybeComputed<string> }>[];
 }
 

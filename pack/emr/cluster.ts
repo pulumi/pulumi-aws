@@ -4,25 +4,25 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Cluster extends fabric.Resource {
-    public readonly applications?: fabric.Property<string[]>;
-    public readonly autoscalingRole?: fabric.Property<string>;
-    public readonly bootstrapAction?: fabric.Property<{ args?: string[], name: string, path: string }[]>;
-    public /*out*/ readonly clusterState: fabric.Property<string>;
-    public readonly configurations?: fabric.Property<string>;
-    public readonly coreInstanceCount?: fabric.Property<number>;
-    public readonly coreInstanceType: fabric.Property<string>;
-    public readonly ec2Attributes?: fabric.Property<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string }[]>;
-    public readonly keepJobFlowAliveWhenNoSteps: fabric.Property<boolean>;
-    public readonly logUri?: fabric.Property<string>;
-    public readonly masterInstanceType: fabric.Property<string>;
-    public /*out*/ readonly masterPublicDns: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly releaseLabel: fabric.Property<string>;
-    public readonly securityConfiguration?: fabric.Property<string>;
-    public readonly serviceRole: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly terminationProtection: fabric.Property<boolean>;
-    public readonly visibleToAllUsers?: fabric.Property<boolean>;
+    public readonly applications?: fabric.Computed<string[]>;
+    public readonly autoscalingRole?: fabric.Computed<string>;
+    public readonly bootstrapAction?: fabric.Computed<{ args?: string[], name: string, path: string }[]>;
+    public /*out*/ readonly clusterState: fabric.Computed<string>;
+    public readonly configurations?: fabric.Computed<string>;
+    public readonly coreInstanceCount?: fabric.Computed<number>;
+    public readonly coreInstanceType: fabric.Computed<string>;
+    public readonly ec2Attributes?: fabric.Computed<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string }[]>;
+    public readonly keepJobFlowAliveWhenNoSteps: fabric.Computed<boolean>;
+    public readonly logUri?: fabric.Computed<string>;
+    public readonly masterInstanceType: fabric.Computed<string>;
+    public /*out*/ readonly masterPublicDns: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly releaseLabel: fabric.Computed<string>;
+    public readonly securityConfiguration?: fabric.Computed<string>;
+    public readonly serviceRole: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly terminationProtection: fabric.Computed<boolean>;
+    public readonly visibleToAllUsers?: fabric.Computed<boolean>;
 
     constructor(urnName: string, args: ClusterArgs) {
         if (args.masterInstanceType === undefined) {
@@ -59,22 +59,22 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly applications?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly autoscalingRole?: fabric.PropertyValue<string>;
-    readonly bootstrapAction?: fabric.PropertyValue<{ args?: fabric.PropertyValue<fabric.PropertyValue<string>>[], name: fabric.PropertyValue<string>, path: fabric.PropertyValue<string> }>[];
-    readonly configurations?: fabric.PropertyValue<string>;
-    readonly coreInstanceCount?: fabric.PropertyValue<number>;
-    readonly coreInstanceType?: fabric.PropertyValue<string>;
-    readonly ec2Attributes?: fabric.PropertyValue<{ additionalMasterSecurityGroups?: fabric.PropertyValue<string>, additionalSlaveSecurityGroups?: fabric.PropertyValue<string>, emrManagedMasterSecurityGroup?: fabric.PropertyValue<string>, emrManagedSlaveSecurityGroup?: fabric.PropertyValue<string>, instanceProfile: fabric.PropertyValue<string>, keyName?: fabric.PropertyValue<string>, serviceAccessSecurityGroup?: fabric.PropertyValue<string>, subnetId?: fabric.PropertyValue<string> }>[];
-    readonly keepJobFlowAliveWhenNoSteps?: fabric.PropertyValue<boolean>;
-    readonly logUri?: fabric.PropertyValue<string>;
-    readonly masterInstanceType: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly releaseLabel: fabric.PropertyValue<string>;
-    readonly securityConfiguration?: fabric.PropertyValue<string>;
-    readonly serviceRole: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly terminationProtection?: fabric.PropertyValue<boolean>;
-    readonly visibleToAllUsers?: fabric.PropertyValue<boolean>;
+    readonly applications?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly autoscalingRole?: fabric.MaybeComputed<string>;
+    readonly bootstrapAction?: fabric.MaybeComputed<{ args?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string>, path: fabric.MaybeComputed<string> }>[];
+    readonly configurations?: fabric.MaybeComputed<string>;
+    readonly coreInstanceCount?: fabric.MaybeComputed<number>;
+    readonly coreInstanceType?: fabric.MaybeComputed<string>;
+    readonly ec2Attributes?: fabric.MaybeComputed<{ additionalMasterSecurityGroups?: fabric.MaybeComputed<string>, additionalSlaveSecurityGroups?: fabric.MaybeComputed<string>, emrManagedMasterSecurityGroup?: fabric.MaybeComputed<string>, emrManagedSlaveSecurityGroup?: fabric.MaybeComputed<string>, instanceProfile: fabric.MaybeComputed<string>, keyName?: fabric.MaybeComputed<string>, serviceAccessSecurityGroup?: fabric.MaybeComputed<string>, subnetId?: fabric.MaybeComputed<string> }>[];
+    readonly keepJobFlowAliveWhenNoSteps?: fabric.MaybeComputed<boolean>;
+    readonly logUri?: fabric.MaybeComputed<string>;
+    readonly masterInstanceType: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly releaseLabel: fabric.MaybeComputed<string>;
+    readonly securityConfiguration?: fabric.MaybeComputed<string>;
+    readonly serviceRole: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly terminationProtection?: fabric.MaybeComputed<boolean>;
+    readonly visibleToAllUsers?: fabric.MaybeComputed<boolean>;
 }
 

@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class MainRouteTableAssociation extends fabric.Resource {
-    public /*out*/ readonly originalRouteTableId: fabric.Property<string>;
-    public readonly routeTableId: fabric.Property<string>;
-    public readonly vpcId: fabric.Property<string>;
+    public /*out*/ readonly originalRouteTableId: fabric.Computed<string>;
+    public readonly routeTableId: fabric.Computed<string>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: MainRouteTableAssociationArgs) {
         if (args.routeTableId === undefined) {
@@ -24,7 +24,7 @@ export class MainRouteTableAssociation extends fabric.Resource {
 }
 
 export interface MainRouteTableAssociationArgs {
-    readonly routeTableId: fabric.PropertyValue<string>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

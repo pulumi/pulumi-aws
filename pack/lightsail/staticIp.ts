@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class StaticIp extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public /*out*/ readonly ipAddress: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly supportCode: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public /*out*/ readonly ipAddress: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly supportCode: fabric.Computed<string>;
 
     constructor(urnName: string, args: StaticIpArgs) {
         super("aws:lightsail/staticIp:StaticIp", urnName, {
@@ -20,6 +20,6 @@ export class StaticIp extends fabric.Resource {
 }
 
 export interface StaticIpArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

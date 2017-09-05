@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AmiLaunchPermission extends fabric.Resource {
-    public readonly accountId: fabric.Property<string>;
-    public readonly imageId: fabric.Property<string>;
+    public readonly accountId: fabric.Computed<string>;
+    public readonly imageId: fabric.Computed<string>;
 
     constructor(urnName: string, args: AmiLaunchPermissionArgs) {
         if (args.accountId === undefined) {
@@ -22,7 +22,7 @@ export class AmiLaunchPermission extends fabric.Resource {
 }
 
 export interface AmiLaunchPermissionArgs {
-    readonly accountId: fabric.PropertyValue<string>;
-    readonly imageId: fabric.PropertyValue<string>;
+    readonly accountId: fabric.MaybeComputed<string>;
+    readonly imageId: fabric.MaybeComputed<string>;
 }
 

@@ -4,7 +4,7 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ActiveReceiptRuleSet extends fabric.Resource {
-    public readonly ruleSetName: fabric.Property<string>;
+    public readonly ruleSetName: fabric.Computed<string>;
 
     constructor(urnName: string, args: ActiveReceiptRuleSetArgs) {
         if (args.ruleSetName === undefined) {
@@ -17,6 +17,6 @@ export class ActiveReceiptRuleSet extends fabric.Resource {
 }
 
 export interface ActiveReceiptRuleSetArgs {
-    readonly ruleSetName: fabric.PropertyValue<string>;
+    readonly ruleSetName: fabric.MaybeComputed<string>;
 }
 

@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LogGroup extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly retentionInDays?: fabric.Property<number>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly retentionInDays?: fabric.Computed<number>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: LogGroupArgs) {
         super("aws:cloudwatch/logGroup:LogGroup", urnName, {
@@ -22,9 +22,9 @@ export class LogGroup extends fabric.Resource {
 }
 
 export interface LogGroupArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly retentionInDays?: fabric.PropertyValue<number>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly retentionInDays?: fabric.MaybeComputed<number>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

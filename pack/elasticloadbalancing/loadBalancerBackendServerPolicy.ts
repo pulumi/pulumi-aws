@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LoadBalancerBackendServerPolicy extends fabric.Resource {
-    public readonly instancePort: fabric.Property<number>;
-    public readonly loadBalancerName: fabric.Property<string>;
-    public readonly policyNames?: fabric.Property<string[]>;
+    public readonly instancePort: fabric.Computed<number>;
+    public readonly loadBalancerName: fabric.Computed<string>;
+    public readonly policyNames?: fabric.Computed<string[]>;
 
     constructor(urnName: string, args: LoadBalancerBackendServerPolicyArgs) {
         if (args.instancePort === undefined) {
@@ -24,8 +24,8 @@ export class LoadBalancerBackendServerPolicy extends fabric.Resource {
 }
 
 export interface LoadBalancerBackendServerPolicyArgs {
-    readonly instancePort: fabric.PropertyValue<number>;
-    readonly loadBalancerName: fabric.PropertyValue<string>;
-    readonly policyNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly instancePort: fabric.MaybeComputed<number>;
+    readonly loadBalancerName: fabric.MaybeComputed<string>;
+    readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

@@ -4,26 +4,26 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpnConnection extends fabric.Resource {
-    public readonly customerGatewayConfiguration: fabric.Property<string>;
-    public readonly customerGatewayId: fabric.Property<string>;
-    public readonly routes: fabric.Property<{ destinationCidrBlock: string, source: string, state: string }[]>;
-    public readonly staticRoutesOnly: fabric.Property<boolean>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly tunnel1Address: fabric.Property<string>;
-    public /*out*/ readonly tunnel1BgpAsn: fabric.Property<string>;
-    public /*out*/ readonly tunnel1BgpHoldtime: fabric.Property<number>;
-    public /*out*/ readonly tunnel1CgwInsideAddress: fabric.Property<string>;
-    public /*out*/ readonly tunnel1PresharedKey: fabric.Property<string>;
-    public /*out*/ readonly tunnel1VgwInsideAddress: fabric.Property<string>;
-    public /*out*/ readonly tunnel2Address: fabric.Property<string>;
-    public /*out*/ readonly tunnel2BgpAsn: fabric.Property<string>;
-    public /*out*/ readonly tunnel2BgpHoldtime: fabric.Property<number>;
-    public /*out*/ readonly tunnel2CgwInsideAddress: fabric.Property<string>;
-    public /*out*/ readonly tunnel2PresharedKey: fabric.Property<string>;
-    public /*out*/ readonly tunnel2VgwInsideAddress: fabric.Property<string>;
-    public readonly type: fabric.Property<string>;
-    public readonly vgwTelemetry: fabric.Property<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
-    public readonly vpnGatewayId: fabric.Property<string>;
+    public readonly customerGatewayConfiguration: fabric.Computed<string>;
+    public readonly customerGatewayId: fabric.Computed<string>;
+    public readonly routes: fabric.Computed<{ destinationCidrBlock: string, source: string, state: string }[]>;
+    public readonly staticRoutesOnly: fabric.Computed<boolean>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly tunnel1Address: fabric.Computed<string>;
+    public /*out*/ readonly tunnel1BgpAsn: fabric.Computed<string>;
+    public /*out*/ readonly tunnel1BgpHoldtime: fabric.Computed<number>;
+    public /*out*/ readonly tunnel1CgwInsideAddress: fabric.Computed<string>;
+    public /*out*/ readonly tunnel1PresharedKey: fabric.Computed<string>;
+    public /*out*/ readonly tunnel1VgwInsideAddress: fabric.Computed<string>;
+    public /*out*/ readonly tunnel2Address: fabric.Computed<string>;
+    public /*out*/ readonly tunnel2BgpAsn: fabric.Computed<string>;
+    public /*out*/ readonly tunnel2BgpHoldtime: fabric.Computed<number>;
+    public /*out*/ readonly tunnel2CgwInsideAddress: fabric.Computed<string>;
+    public /*out*/ readonly tunnel2PresharedKey: fabric.Computed<string>;
+    public /*out*/ readonly tunnel2VgwInsideAddress: fabric.Computed<string>;
+    public readonly type: fabric.Computed<string>;
+    public readonly vgwTelemetry: fabric.Computed<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
+    public readonly vpnGatewayId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpnConnectionArgs) {
         if (args.customerGatewayId === undefined) {
@@ -61,13 +61,13 @@ export class VpnConnection extends fabric.Resource {
 }
 
 export interface VpnConnectionArgs {
-    readonly customerGatewayConfiguration?: fabric.PropertyValue<string>;
-    readonly customerGatewayId: fabric.PropertyValue<string>;
-    readonly routes?: fabric.PropertyValue<{ destinationCidrBlock?: fabric.PropertyValue<string>, source?: fabric.PropertyValue<string>, state?: fabric.PropertyValue<string> }>[];
-    readonly staticRoutesOnly?: fabric.PropertyValue<boolean>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly type: fabric.PropertyValue<string>;
-    readonly vgwTelemetry?: fabric.PropertyValue<{ acceptedRouteCount?: fabric.PropertyValue<number>, lastStatusChange?: fabric.PropertyValue<string>, outsideIpAddress?: fabric.PropertyValue<string>, status?: fabric.PropertyValue<string>, statusMessage?: fabric.PropertyValue<string> }>[];
-    readonly vpnGatewayId: fabric.PropertyValue<string>;
+    readonly customerGatewayConfiguration?: fabric.MaybeComputed<string>;
+    readonly customerGatewayId: fabric.MaybeComputed<string>;
+    readonly routes?: fabric.MaybeComputed<{ destinationCidrBlock?: fabric.MaybeComputed<string>, source?: fabric.MaybeComputed<string>, state?: fabric.MaybeComputed<string> }>[];
+    readonly staticRoutesOnly?: fabric.MaybeComputed<boolean>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly type: fabric.MaybeComputed<string>;
+    readonly vgwTelemetry?: fabric.MaybeComputed<{ acceptedRouteCount?: fabric.MaybeComputed<number>, lastStatusChange?: fabric.MaybeComputed<string>, outsideIpAddress?: fabric.MaybeComputed<string>, status?: fabric.MaybeComputed<string>, statusMessage?: fabric.MaybeComputed<string> }>[];
+    readonly vpnGatewayId: fabric.MaybeComputed<string>;
 }
 

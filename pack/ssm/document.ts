@@ -4,22 +4,22 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Document extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly content: fabric.Property<string>;
-    public /*out*/ readonly createdDate: fabric.Property<string>;
-    public /*out*/ readonly defaultVersion: fabric.Property<string>;
-    public /*out*/ readonly description: fabric.Property<string>;
-    public readonly documentType: fabric.Property<string>;
-    public /*out*/ readonly hash: fabric.Property<string>;
-    public /*out*/ readonly hashType: fabric.Property<string>;
-    public /*out*/ readonly latestVersion: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly owner: fabric.Property<string>;
-    public /*out*/ readonly parameter: fabric.Property<{ defaultValue?: string, description?: string, name?: string, type?: string }[]>;
-    public readonly permissions?: fabric.Property<{[key: string]: { accountIds: string, type: string }}>;
-    public /*out*/ readonly platformTypes: fabric.Property<string[]>;
-    public /*out*/ readonly schemaVersion: fabric.Property<string>;
-    public /*out*/ readonly status: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly content: fabric.Computed<string>;
+    public /*out*/ readonly createdDate: fabric.Computed<string>;
+    public /*out*/ readonly defaultVersion: fabric.Computed<string>;
+    public /*out*/ readonly description: fabric.Computed<string>;
+    public readonly documentType: fabric.Computed<string>;
+    public /*out*/ readonly hash: fabric.Computed<string>;
+    public /*out*/ readonly hashType: fabric.Computed<string>;
+    public /*out*/ readonly latestVersion: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly owner: fabric.Computed<string>;
+    public /*out*/ readonly parameter: fabric.Computed<{ defaultValue?: string, description?: string, name?: string, type?: string }[]>;
+    public readonly permissions?: fabric.Computed<{[key: string]: { accountIds: string, type: string }}>;
+    public /*out*/ readonly platformTypes: fabric.Computed<string[]>;
+    public /*out*/ readonly schemaVersion: fabric.Computed<string>;
+    public /*out*/ readonly status: fabric.Computed<string>;
 
     constructor(urnName: string, args: DocumentArgs) {
         if (args.content === undefined) {
@@ -50,9 +50,9 @@ export class Document extends fabric.Resource {
 }
 
 export interface DocumentArgs {
-    readonly content: fabric.PropertyValue<string>;
-    readonly documentType: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly permissions?: fabric.PropertyValue<{[key: string]: { accountIds: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }}>;
+    readonly content: fabric.MaybeComputed<string>;
+    readonly documentType: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly permissions?: fabric.MaybeComputed<{[key: string]: { accountIds: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }}>;
 }
 

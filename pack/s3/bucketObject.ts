@@ -6,23 +6,23 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Bucket} from "./bucket";
 
 export class BucketObject extends fabric.Resource {
-    public readonly acl?: fabric.Property<string>;
-    public readonly bucket: fabric.Property<Bucket>;
-    public readonly cacheControl?: fabric.Property<string>;
-    public readonly content?: fabric.Property<string>;
-    public readonly contentDisposition?: fabric.Property<string>;
-    public readonly contentEncoding?: fabric.Property<string>;
-    public readonly contentLanguage?: fabric.Property<string>;
-    public readonly contentType: fabric.Property<string>;
-    public readonly etag: fabric.Property<string>;
-    public readonly key: fabric.Property<string>;
-    public readonly kmsKeyId?: fabric.Property<string>;
-    public readonly serverSideEncryption: fabric.Property<string>;
-    public readonly source?: fabric.Property<fabric.asset.Asset>;
-    public readonly storageClass: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly versionId: fabric.Property<string>;
-    public readonly websiteRedirect?: fabric.Property<string>;
+    public readonly acl?: fabric.Computed<string>;
+    public readonly bucket: fabric.Computed<Bucket>;
+    public readonly cacheControl?: fabric.Computed<string>;
+    public readonly content?: fabric.Computed<string>;
+    public readonly contentDisposition?: fabric.Computed<string>;
+    public readonly contentEncoding?: fabric.Computed<string>;
+    public readonly contentLanguage?: fabric.Computed<string>;
+    public readonly contentType: fabric.Computed<string>;
+    public readonly etag: fabric.Computed<string>;
+    public readonly key: fabric.Computed<string>;
+    public readonly kmsKeyId?: fabric.Computed<string>;
+    public readonly serverSideEncryption: fabric.Computed<string>;
+    public readonly source?: fabric.Computed<fabric.asset.Asset>;
+    public readonly storageClass: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly versionId: fabric.Computed<string>;
+    public readonly websiteRedirect?: fabric.Computed<string>;
 
     constructor(urnName: string, args: BucketObjectArgs) {
         if (args.bucket === undefined) {
@@ -51,21 +51,21 @@ export class BucketObject extends fabric.Resource {
 }
 
 export interface BucketObjectArgs {
-    readonly acl?: fabric.PropertyValue<string>;
-    readonly bucket: fabric.PropertyValue<Bucket>;
-    readonly cacheControl?: fabric.PropertyValue<string>;
-    readonly content?: fabric.PropertyValue<string>;
-    readonly contentDisposition?: fabric.PropertyValue<string>;
-    readonly contentEncoding?: fabric.PropertyValue<string>;
-    readonly contentLanguage?: fabric.PropertyValue<string>;
-    readonly contentType?: fabric.PropertyValue<string>;
-    readonly etag?: fabric.PropertyValue<string>;
-    readonly key?: fabric.PropertyValue<string>;
-    readonly kmsKeyId?: fabric.PropertyValue<string>;
-    readonly serverSideEncryption?: fabric.PropertyValue<string>;
+    readonly acl?: fabric.MaybeComputed<string>;
+    readonly bucket: fabric.MaybeComputed<Bucket>;
+    readonly cacheControl?: fabric.MaybeComputed<string>;
+    readonly content?: fabric.MaybeComputed<string>;
+    readonly contentDisposition?: fabric.MaybeComputed<string>;
+    readonly contentEncoding?: fabric.MaybeComputed<string>;
+    readonly contentLanguage?: fabric.MaybeComputed<string>;
+    readonly contentType?: fabric.MaybeComputed<string>;
+    readonly etag?: fabric.MaybeComputed<string>;
+    readonly key?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly serverSideEncryption?: fabric.MaybeComputed<string>;
     readonly source?: fabric.asset.Asset;
-    readonly storageClass?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly websiteRedirect?: fabric.PropertyValue<string>;
+    readonly storageClass?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly websiteRedirect?: fabric.MaybeComputed<string>;
 }
 

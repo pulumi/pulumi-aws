@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Key extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly deletionWindowInDays?: fabric.Property<number>;
-    public readonly description: fabric.Property<string>;
-    public readonly enableKeyRotation?: fabric.Property<boolean>;
-    public readonly isEnabled?: fabric.Property<boolean>;
-    public /*out*/ readonly keyId: fabric.Property<string>;
-    public readonly keyUsage: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly deletionWindowInDays?: fabric.Computed<number>;
+    public readonly description: fabric.Computed<string>;
+    public readonly enableKeyRotation?: fabric.Computed<boolean>;
+    public readonly isEnabled?: fabric.Computed<boolean>;
+    public /*out*/ readonly keyId: fabric.Computed<string>;
+    public readonly keyUsage: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: KeyArgs) {
         super("aws:kms/key:Key", urnName, {
@@ -30,12 +30,12 @@ export class Key extends fabric.Resource {
 }
 
 export interface KeyArgs {
-    readonly deletionWindowInDays?: fabric.PropertyValue<number>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly enableKeyRotation?: fabric.PropertyValue<boolean>;
-    readonly isEnabled?: fabric.PropertyValue<boolean>;
-    readonly keyUsage?: fabric.PropertyValue<string>;
-    readonly policy?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly deletionWindowInDays?: fabric.MaybeComputed<number>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly enableKeyRotation?: fabric.MaybeComputed<boolean>;
+    readonly isEnabled?: fabric.MaybeComputed<boolean>;
+    readonly keyUsage?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

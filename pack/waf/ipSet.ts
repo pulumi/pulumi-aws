@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class IpSet extends fabric.Resource {
-    public readonly ipSetDescriptors?: fabric.Property<{ type: string, value: string }[]>;
-    public readonly name: fabric.Property<string>;
+    public readonly ipSetDescriptors?: fabric.Computed<{ type: string, value: string }[]>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: IpSetArgs) {
         super("aws:waf/ipSet:IpSet", urnName, {
@@ -16,7 +16,7 @@ export class IpSet extends fabric.Resource {
 }
 
 export interface IpSetArgs {
-    readonly ipSetDescriptors?: fabric.PropertyValue<{ type: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
+    readonly ipSetDescriptors?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

@@ -4,21 +4,21 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LoadBalancer extends fabric.Resource {
-    public readonly accessLogs?: fabric.Property<{ bucket: string, enabled?: boolean, prefix?: string }[]>;
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public /*out*/ readonly arnSuffix: fabric.Property<string>;
-    public /*out*/ readonly dnsName: fabric.Property<string>;
-    public readonly enableDeletionProtection?: fabric.Property<boolean>;
-    public readonly idleTimeout?: fabric.Property<number>;
-    public readonly internal: fabric.Property<boolean>;
-    public readonly ipAddressType: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly securityGroups: fabric.Property<string[]>;
-    public readonly subnets: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly vpcId: fabric.Property<string>;
-    public /*out*/ readonly zoneId: fabric.Property<string>;
+    public readonly accessLogs?: fabric.Computed<{ bucket: string, enabled?: boolean, prefix?: string }[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public /*out*/ readonly arnSuffix: fabric.Computed<string>;
+    public /*out*/ readonly dnsName: fabric.Computed<string>;
+    public readonly enableDeletionProtection?: fabric.Computed<boolean>;
+    public readonly idleTimeout?: fabric.Computed<number>;
+    public readonly internal: fabric.Computed<boolean>;
+    public readonly ipAddressType: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly securityGroups: fabric.Computed<string[]>;
+    public readonly subnets: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly vpcId: fabric.Computed<string>;
+    public /*out*/ readonly zoneId: fabric.Computed<string>;
 
     constructor(urnName: string, args: LoadBalancerArgs) {
         if (args.subnets === undefined) {
@@ -45,15 +45,15 @@ export class LoadBalancer extends fabric.Resource {
 }
 
 export interface LoadBalancerArgs {
-    readonly accessLogs?: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, enabled?: fabric.PropertyValue<boolean>, prefix?: fabric.PropertyValue<string> }>[];
-    readonly enableDeletionProtection?: fabric.PropertyValue<boolean>;
-    readonly idleTimeout?: fabric.PropertyValue<number>;
-    readonly internal?: fabric.PropertyValue<boolean>;
-    readonly ipAddressType?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly subnets: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly accessLogs?: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, enabled?: fabric.MaybeComputed<boolean>, prefix?: fabric.MaybeComputed<string> }>[];
+    readonly enableDeletionProtection?: fabric.MaybeComputed<boolean>;
+    readonly idleTimeout?: fabric.MaybeComputed<number>;
+    readonly internal?: fabric.MaybeComputed<boolean>;
+    readonly ipAddressType?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnets: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

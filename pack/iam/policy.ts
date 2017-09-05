@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Policy extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly path?: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly path?: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
 
     constructor(urnName: string, args: PolicyArgs) {
         if (args.policy === undefined) {
@@ -27,10 +27,10 @@ export class Policy extends fabric.Resource {
 }
 
 export interface PolicyArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly path?: fabric.PropertyValue<string>;
-    readonly policy: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.MaybeComputed<string>;
+    readonly policy: fabric.MaybeComputed<string>;
 }
 

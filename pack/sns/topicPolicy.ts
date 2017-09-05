@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class TopicPolicy extends fabric.Resource {
-    public readonly arn: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
+    public readonly arn: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
 
     constructor(urnName: string, args: TopicPolicyArgs) {
         if (args.arn === undefined) {
@@ -22,7 +22,7 @@ export class TopicPolicy extends fabric.Resource {
 }
 
 export interface TopicPolicyArgs {
-    readonly arn: fabric.PropertyValue<string>;
-    readonly policy: fabric.PropertyValue<string>;
+    readonly arn: fabric.MaybeComputed<string>;
+    readonly policy: fabric.MaybeComputed<string>;
 }
 

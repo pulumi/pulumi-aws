@@ -4,18 +4,18 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Directory extends fabric.Resource {
-    public /*out*/ readonly accessUrl: fabric.Property<string>;
-    public readonly alias: fabric.Property<string>;
-    public readonly connectSettings?: fabric.Property<{ customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string }[]>;
-    public readonly description?: fabric.Property<string>;
-    public /*out*/ readonly dnsIpAddresses: fabric.Property<string[]>;
-    public readonly enableSso?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public readonly password: fabric.Property<string>;
-    public readonly shortName: fabric.Property<string>;
-    public readonly size?: fabric.Property<string>;
-    public readonly type?: fabric.Property<string>;
-    public readonly vpcSettings?: fabric.Property<{ subnetIds: string[], vpcId: string }[]>;
+    public /*out*/ readonly accessUrl: fabric.Computed<string>;
+    public readonly alias: fabric.Computed<string>;
+    public readonly connectSettings?: fabric.Computed<{ customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string }[]>;
+    public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly dnsIpAddresses: fabric.Computed<string[]>;
+    public readonly enableSso?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly password: fabric.Computed<string>;
+    public readonly shortName: fabric.Computed<string>;
+    public readonly size?: fabric.Computed<string>;
+    public readonly type?: fabric.Computed<string>;
+    public readonly vpcSettings?: fabric.Computed<{ subnetIds: string[], vpcId: string }[]>;
 
     constructor(urnName: string, args: DirectoryArgs) {
         if (args.password === undefined) {
@@ -39,15 +39,15 @@ export class Directory extends fabric.Resource {
 }
 
 export interface DirectoryArgs {
-    readonly alias?: fabric.PropertyValue<string>;
-    readonly connectSettings?: fabric.PropertyValue<{ customerDnsIps: fabric.PropertyValue<fabric.PropertyValue<string>>[], customerUsername: fabric.PropertyValue<string>, subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[], vpcId: fabric.PropertyValue<string> }>[];
-    readonly description?: fabric.PropertyValue<string>;
-    readonly enableSso?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly password: fabric.PropertyValue<string>;
-    readonly shortName?: fabric.PropertyValue<string>;
-    readonly size?: fabric.PropertyValue<string>;
-    readonly type?: fabric.PropertyValue<string>;
-    readonly vpcSettings?: fabric.PropertyValue<{ subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[], vpcId: fabric.PropertyValue<string> }>[];
+    readonly alias?: fabric.MaybeComputed<string>;
+    readonly connectSettings?: fabric.MaybeComputed<{ customerDnsIps: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customerUsername: fabric.MaybeComputed<string>, subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId: fabric.MaybeComputed<string> }>[];
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly enableSso?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly password: fabric.MaybeComputed<string>;
+    readonly shortName?: fabric.MaybeComputed<string>;
+    readonly size?: fabric.MaybeComputed<string>;
+    readonly type?: fabric.MaybeComputed<string>;
+    readonly vpcSettings?: fabric.MaybeComputed<{ subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId: fabric.MaybeComputed<string> }>[];
 }
 

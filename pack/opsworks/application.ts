@@ -4,24 +4,24 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Application extends fabric.Resource {
-    public readonly appSource: fabric.Property<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
-    public readonly autoBundleOnDeploy?: fabric.Property<string>;
-    public readonly awsFlowRubySettings?: fabric.Property<string>;
-    public readonly dataSourceArn?: fabric.Property<string>;
-    public readonly dataSourceDatabaseName?: fabric.Property<string>;
-    public readonly dataSourceType?: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly documentRoot?: fabric.Property<string>;
-    public readonly domains?: fabric.Property<string[]>;
-    public readonly enableSsl?: fabric.Property<boolean>;
-    public readonly environment?: fabric.Property<{ key: string, secure?: boolean, value: string }[]>;
-    public /*out*/ readonly applicationId: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly railsEnv?: fabric.Property<string>;
-    public readonly shortName: fabric.Property<string>;
-    public readonly sslConfiguration?: fabric.Property<{ certificate: string, chain?: string, privateKey: string }[]>;
-    public readonly stackId: fabric.Property<string>;
-    public readonly type: fabric.Property<string>;
+    public readonly appSource: fabric.Computed<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
+    public readonly autoBundleOnDeploy?: fabric.Computed<string>;
+    public readonly awsFlowRubySettings?: fabric.Computed<string>;
+    public readonly dataSourceArn?: fabric.Computed<string>;
+    public readonly dataSourceDatabaseName?: fabric.Computed<string>;
+    public readonly dataSourceType?: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly documentRoot?: fabric.Computed<string>;
+    public readonly domains?: fabric.Computed<string[]>;
+    public readonly enableSsl?: fabric.Computed<boolean>;
+    public readonly environment?: fabric.Computed<{ key: string, secure?: boolean, value: string }[]>;
+    public /*out*/ readonly applicationId: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly railsEnv?: fabric.Computed<string>;
+    public readonly shortName: fabric.Computed<string>;
+    public readonly sslConfiguration?: fabric.Computed<{ certificate: string, chain?: string, privateKey: string }[]>;
+    public readonly stackId: fabric.Computed<string>;
+    public readonly type: fabric.Computed<string>;
 
     constructor(urnName: string, args: ApplicationArgs) {
         if (args.stackId === undefined) {
@@ -54,22 +54,22 @@ export class Application extends fabric.Resource {
 }
 
 export interface ApplicationArgs {
-    readonly appSource?: fabric.PropertyValue<{ password?: fabric.PropertyValue<string>, revision?: fabric.PropertyValue<string>, sshKey?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string>, url?: fabric.PropertyValue<string>, username?: fabric.PropertyValue<string> }>[];
-    readonly autoBundleOnDeploy?: fabric.PropertyValue<string>;
-    readonly awsFlowRubySettings?: fabric.PropertyValue<string>;
-    readonly dataSourceArn?: fabric.PropertyValue<string>;
-    readonly dataSourceDatabaseName?: fabric.PropertyValue<string>;
-    readonly dataSourceType?: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly documentRoot?: fabric.PropertyValue<string>;
-    readonly domains?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly enableSsl?: fabric.PropertyValue<boolean>;
-    readonly environment?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, secure?: fabric.PropertyValue<boolean>, value: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly railsEnv?: fabric.PropertyValue<string>;
-    readonly shortName?: fabric.PropertyValue<string>;
-    readonly sslConfiguration?: fabric.PropertyValue<{ certificate: fabric.PropertyValue<string>, chain?: fabric.PropertyValue<string>, privateKey: fabric.PropertyValue<string> }>[];
-    readonly stackId: fabric.PropertyValue<string>;
-    readonly type: fabric.PropertyValue<string>;
+    readonly appSource?: fabric.MaybeComputed<{ password?: fabric.MaybeComputed<string>, revision?: fabric.MaybeComputed<string>, sshKey?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string>, url?: fabric.MaybeComputed<string>, username?: fabric.MaybeComputed<string> }>[];
+    readonly autoBundleOnDeploy?: fabric.MaybeComputed<string>;
+    readonly awsFlowRubySettings?: fabric.MaybeComputed<string>;
+    readonly dataSourceArn?: fabric.MaybeComputed<string>;
+    readonly dataSourceDatabaseName?: fabric.MaybeComputed<string>;
+    readonly dataSourceType?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly documentRoot?: fabric.MaybeComputed<string>;
+    readonly domains?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly enableSsl?: fabric.MaybeComputed<boolean>;
+    readonly environment?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, secure?: fabric.MaybeComputed<boolean>, value: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly railsEnv?: fabric.MaybeComputed<string>;
+    readonly shortName?: fabric.MaybeComputed<string>;
+    readonly sslConfiguration?: fabric.MaybeComputed<{ certificate: fabric.MaybeComputed<string>, chain?: fabric.MaybeComputed<string>, privateKey: fabric.MaybeComputed<string> }>[];
+    readonly stackId: fabric.MaybeComputed<string>;
+    readonly type: fabric.MaybeComputed<string>;
 }
 

@@ -4,16 +4,16 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ReplicationTask extends fabric.Resource {
-    public readonly cdcStartTime?: fabric.Property<string>;
-    public readonly migrationType: fabric.Property<string>;
-    public readonly replicationInstanceArn: fabric.Property<string>;
-    public /*out*/ readonly replicationTaskArn: fabric.Property<string>;
-    public readonly replicationTaskId: fabric.Property<string>;
-    public readonly replicationTaskSettings?: fabric.Property<string>;
-    public readonly sourceEndpointArn: fabric.Property<string>;
-    public readonly tableMappings: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly targetEndpointArn: fabric.Property<string>;
+    public readonly cdcStartTime?: fabric.Computed<string>;
+    public readonly migrationType: fabric.Computed<string>;
+    public readonly replicationInstanceArn: fabric.Computed<string>;
+    public /*out*/ readonly replicationTaskArn: fabric.Computed<string>;
+    public readonly replicationTaskId: fabric.Computed<string>;
+    public readonly replicationTaskSettings?: fabric.Computed<string>;
+    public readonly sourceEndpointArn: fabric.Computed<string>;
+    public readonly tableMappings: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly targetEndpointArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: ReplicationTaskArgs) {
         if (args.migrationType === undefined) {
@@ -50,14 +50,14 @@ export class ReplicationTask extends fabric.Resource {
 }
 
 export interface ReplicationTaskArgs {
-    readonly cdcStartTime?: fabric.PropertyValue<string>;
-    readonly migrationType: fabric.PropertyValue<string>;
-    readonly replicationInstanceArn: fabric.PropertyValue<string>;
-    readonly replicationTaskId: fabric.PropertyValue<string>;
-    readonly replicationTaskSettings?: fabric.PropertyValue<string>;
-    readonly sourceEndpointArn: fabric.PropertyValue<string>;
-    readonly tableMappings: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly targetEndpointArn: fabric.PropertyValue<string>;
+    readonly cdcStartTime?: fabric.MaybeComputed<string>;
+    readonly migrationType: fabric.MaybeComputed<string>;
+    readonly replicationInstanceArn: fabric.MaybeComputed<string>;
+    readonly replicationTaskId: fabric.MaybeComputed<string>;
+    readonly replicationTaskSettings?: fabric.MaybeComputed<string>;
+    readonly sourceEndpointArn: fabric.MaybeComputed<string>;
+    readonly tableMappings: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly targetEndpointArn: fabric.MaybeComputed<string>;
 }
 

@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Application extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly uniqueId: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly uniqueId: fabric.Computed<string>;
 
     constructor(urnName: string, args: ApplicationArgs) {
         super("aws:codedeploy/application:Application", urnName, {
@@ -16,7 +16,7 @@ export class Application extends fabric.Resource {
 }
 
 export interface ApplicationArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly uniqueId?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly uniqueId?: fabric.MaybeComputed<string>;
 }
 

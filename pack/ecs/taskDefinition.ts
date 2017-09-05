@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class TaskDefinition extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly containerDefinitions: fabric.Property<string>;
-    public readonly family: fabric.Property<string>;
-    public readonly networkMode: fabric.Property<string>;
-    public readonly placementConstraints?: fabric.Property<{ expression?: string, type: string }[]>;
-    public /*out*/ readonly revision: fabric.Property<number>;
-    public readonly taskRoleArn?: fabric.Property<string>;
-    public readonly volume?: fabric.Property<{ hostPath?: string, name: string }[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly containerDefinitions: fabric.Computed<string>;
+    public readonly family: fabric.Computed<string>;
+    public readonly networkMode: fabric.Computed<string>;
+    public readonly placementConstraints?: fabric.Computed<{ expression?: string, type: string }[]>;
+    public /*out*/ readonly revision: fabric.Computed<number>;
+    public readonly taskRoleArn?: fabric.Computed<string>;
+    public readonly volume?: fabric.Computed<{ hostPath?: string, name: string }[]>;
 
     constructor(urnName: string, args: TaskDefinitionArgs) {
         if (args.containerDefinitions === undefined) {
@@ -34,11 +34,11 @@ export class TaskDefinition extends fabric.Resource {
 }
 
 export interface TaskDefinitionArgs {
-    readonly containerDefinitions: fabric.PropertyValue<string>;
-    readonly family: fabric.PropertyValue<string>;
-    readonly networkMode?: fabric.PropertyValue<string>;
-    readonly placementConstraints?: fabric.PropertyValue<{ expression?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly taskRoleArn?: fabric.PropertyValue<string>;
-    readonly volume?: fabric.PropertyValue<{ hostPath?: fabric.PropertyValue<string>, name: fabric.PropertyValue<string> }>[];
+    readonly containerDefinitions: fabric.MaybeComputed<string>;
+    readonly family: fabric.MaybeComputed<string>;
+    readonly networkMode?: fabric.MaybeComputed<string>;
+    readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly taskRoleArn?: fabric.MaybeComputed<string>;
+    readonly volume?: fabric.MaybeComputed<{ hostPath?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string> }>[];
 }
 

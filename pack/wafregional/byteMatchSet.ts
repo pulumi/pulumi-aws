@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ByteMatchSet extends fabric.Resource {
-    public readonly byteMatchTuple?: fabric.Property<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
-    public readonly name: fabric.Property<string>;
+    public readonly byteMatchTuple?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ByteMatchSetArgs) {
         super("aws:wafregional/byteMatchSet:ByteMatchSet", urnName, {
@@ -16,7 +16,7 @@ export class ByteMatchSet extends fabric.Resource {
 }
 
 export interface ByteMatchSetArgs {
-    readonly byteMatchTuple?: fabric.PropertyValue<{ fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], positionalConstraint: fabric.PropertyValue<string>, targetString?: fabric.PropertyValue<string>, textTransformation: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
+    readonly byteMatchTuple?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], positionalConstraint: fabric.MaybeComputed<string>, targetString?: fabric.MaybeComputed<string>, textTransformation: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

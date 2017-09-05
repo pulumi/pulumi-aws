@@ -4,26 +4,26 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Bucket extends fabric.Resource {
-    public readonly accelerationStatus: fabric.Property<string>;
-    public readonly acl?: fabric.Property<string>;
-    public readonly arn: fabric.Property<string>;
-    public readonly bucket: fabric.Property<string>;
-    public /*out*/ readonly bucketDomainName: fabric.Property<string>;
-    public readonly bucketPrefix?: fabric.Property<string>;
-    public readonly corsRule?: fabric.Property<{ allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[]>;
-    public readonly forceDestroy?: fabric.Property<boolean>;
-    public readonly hostedZoneId: fabric.Property<string>;
-    public readonly lifecycleRule?: fabric.Property<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[]>;
-    public readonly logging?: fabric.Property<{ targetBucket: string, targetPrefix?: string }[]>;
-    public readonly policy?: fabric.Property<string>;
-    public readonly region: fabric.Property<string>;
-    public readonly replicationConfiguration?: fabric.Property<{ role: string, rules: { destination: { bucket: string, storageClass?: string }[], id?: string, prefix: string, status: string }[] }[]>;
-    public readonly requestPayer: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly versioning: fabric.Property<{ enabled?: boolean, mfaDelete?: boolean }[]>;
-    public readonly website?: fabric.Property<{ errorDocument?: string, indexDocument?: string, redirectAllRequestsTo?: string, routingRules?: string }[]>;
-    public readonly websiteDomain: fabric.Property<string>;
-    public readonly websiteEndpoint: fabric.Property<string>;
+    public readonly accelerationStatus: fabric.Computed<string>;
+    public readonly acl?: fabric.Computed<string>;
+    public readonly arn: fabric.Computed<string>;
+    public readonly bucket: fabric.Computed<string>;
+    public /*out*/ readonly bucketDomainName: fabric.Computed<string>;
+    public readonly bucketPrefix?: fabric.Computed<string>;
+    public readonly corsRule?: fabric.Computed<{ allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[]>;
+    public readonly forceDestroy?: fabric.Computed<boolean>;
+    public readonly hostedZoneId: fabric.Computed<string>;
+    public readonly lifecycleRule?: fabric.Computed<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[]>;
+    public readonly logging?: fabric.Computed<{ targetBucket: string, targetPrefix?: string }[]>;
+    public readonly policy?: fabric.Computed<string>;
+    public readonly region: fabric.Computed<string>;
+    public readonly replicationConfiguration?: fabric.Computed<{ role: string, rules: { destination: { bucket: string, storageClass?: string }[], id?: string, prefix: string, status: string }[] }[]>;
+    public readonly requestPayer: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly versioning: fabric.Computed<{ enabled?: boolean, mfaDelete?: boolean }[]>;
+    public readonly website?: fabric.Computed<{ errorDocument?: string, indexDocument?: string, redirectAllRequestsTo?: string, routingRules?: string }[]>;
+    public readonly websiteDomain: fabric.Computed<string>;
+    public readonly websiteEndpoint: fabric.Computed<string>;
 
     constructor(urnName: string, args: BucketArgs) {
         super("aws:s3/bucket:Bucket", urnName, {
@@ -52,24 +52,24 @@ export class Bucket extends fabric.Resource {
 }
 
 export interface BucketArgs {
-    readonly accelerationStatus?: fabric.PropertyValue<string>;
-    readonly acl?: fabric.PropertyValue<string>;
-    readonly arn?: fabric.PropertyValue<string>;
-    readonly bucket?: fabric.PropertyValue<string>;
-    readonly bucketPrefix?: fabric.PropertyValue<string>;
-    readonly corsRule?: fabric.PropertyValue<{ allowedHeaders?: fabric.PropertyValue<fabric.PropertyValue<string>>[], allowedMethods: fabric.PropertyValue<fabric.PropertyValue<string>>[], allowedOrigins: fabric.PropertyValue<fabric.PropertyValue<string>>[], exposeHeaders?: fabric.PropertyValue<fabric.PropertyValue<string>>[], maxAgeSeconds?: fabric.PropertyValue<number> }>[];
-    readonly forceDestroy?: fabric.PropertyValue<boolean>;
-    readonly hostedZoneId?: fabric.PropertyValue<string>;
-    readonly lifecycleRule?: fabric.PropertyValue<{ abortIncompleteMultipartUploadDays?: fabric.PropertyValue<number>, enabled: fabric.PropertyValue<boolean>, expiration?: fabric.PropertyValue<{ date?: fabric.PropertyValue<string>, days?: fabric.PropertyValue<number>, expiredObjectDeleteMarker?: fabric.PropertyValue<boolean> }>[], id?: fabric.PropertyValue<string>, noncurrentVersionExpiration?: fabric.PropertyValue<{ days?: fabric.PropertyValue<number> }>[], noncurrentVersionTransition?: fabric.PropertyValue<{ days?: fabric.PropertyValue<number>, storageClass: fabric.PropertyValue<string> }>[], prefix?: fabric.PropertyValue<string>, tags?: fabric.PropertyValue<{[key: string]: any}>, transition?: fabric.PropertyValue<{ date?: fabric.PropertyValue<string>, days?: fabric.PropertyValue<number>, storageClass: fabric.PropertyValue<string> }>[] }>[];
-    readonly logging?: fabric.PropertyValue<{ targetBucket: fabric.PropertyValue<string>, targetPrefix?: fabric.PropertyValue<string> }>[];
-    readonly policy?: fabric.PropertyValue<string>;
-    readonly region?: fabric.PropertyValue<string>;
-    readonly replicationConfiguration?: fabric.PropertyValue<{ role: fabric.PropertyValue<string>, rules: fabric.PropertyValue<{ destination: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, storageClass?: fabric.PropertyValue<string> }>[], id?: fabric.PropertyValue<string>, prefix: fabric.PropertyValue<string>, status: fabric.PropertyValue<string> }>[] }>[];
-    readonly requestPayer?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly versioning?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, mfaDelete?: fabric.PropertyValue<boolean> }>[];
-    readonly website?: fabric.PropertyValue<{ errorDocument?: fabric.PropertyValue<string>, indexDocument?: fabric.PropertyValue<string>, redirectAllRequestsTo?: fabric.PropertyValue<string>, routingRules?: fabric.PropertyValue<string> }>[];
-    readonly websiteDomain?: fabric.PropertyValue<string>;
-    readonly websiteEndpoint?: fabric.PropertyValue<string>;
+    readonly accelerationStatus?: fabric.MaybeComputed<string>;
+    readonly acl?: fabric.MaybeComputed<string>;
+    readonly arn?: fabric.MaybeComputed<string>;
+    readonly bucket?: fabric.MaybeComputed<string>;
+    readonly bucketPrefix?: fabric.MaybeComputed<string>;
+    readonly corsRule?: fabric.MaybeComputed<{ allowedHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedOrigins: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], exposeHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], maxAgeSeconds?: fabric.MaybeComputed<number> }>[];
+    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
+    readonly hostedZoneId?: fabric.MaybeComputed<string>;
+    readonly lifecycleRule?: fabric.MaybeComputed<{ abortIncompleteMultipartUploadDays?: fabric.MaybeComputed<number>, enabled: fabric.MaybeComputed<boolean>, expiration?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, expiredObjectDeleteMarker?: fabric.MaybeComputed<boolean> }>[], id?: fabric.MaybeComputed<string>, noncurrentVersionExpiration?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number> }>[], noncurrentVersionTransition?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[], prefix?: fabric.MaybeComputed<string>, tags?: fabric.MaybeComputed<{[key: string]: any}>, transition?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[] }>[];
+    readonly logging?: fabric.MaybeComputed<{ targetBucket: fabric.MaybeComputed<string>, targetPrefix?: fabric.MaybeComputed<string> }>[];
+    readonly policy?: fabric.MaybeComputed<string>;
+    readonly region?: fabric.MaybeComputed<string>;
+    readonly replicationConfiguration?: fabric.MaybeComputed<{ role: fabric.MaybeComputed<string>, rules: fabric.MaybeComputed<{ destination: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[], id?: fabric.MaybeComputed<string>, prefix: fabric.MaybeComputed<string>, status: fabric.MaybeComputed<string> }>[] }>[];
+    readonly requestPayer?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly versioning?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, mfaDelete?: fabric.MaybeComputed<boolean> }>[];
+    readonly website?: fabric.MaybeComputed<{ errorDocument?: fabric.MaybeComputed<string>, indexDocument?: fabric.MaybeComputed<string>, redirectAllRequestsTo?: fabric.MaybeComputed<string>, routingRules?: fabric.MaybeComputed<string> }>[];
+    readonly websiteDomain?: fabric.MaybeComputed<string>;
+    readonly websiteEndpoint?: fabric.MaybeComputed<string>;
 }
 

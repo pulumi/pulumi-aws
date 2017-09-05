@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpcDhcpOptions extends fabric.Resource {
-    public readonly domainName?: fabric.Property<string>;
-    public readonly domainNameServers?: fabric.Property<string[]>;
-    public readonly netbiosNameServers?: fabric.Property<string[]>;
-    public readonly netbiosNodeType?: fabric.Property<string>;
-    public readonly ntpServers?: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly domainName?: fabric.Computed<string>;
+    public readonly domainNameServers?: fabric.Computed<string[]>;
+    public readonly netbiosNameServers?: fabric.Computed<string[]>;
+    public readonly netbiosNodeType?: fabric.Computed<string>;
+    public readonly ntpServers?: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: VpcDhcpOptionsArgs) {
         super("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", urnName, {
@@ -24,11 +24,11 @@ export class VpcDhcpOptions extends fabric.Resource {
 }
 
 export interface VpcDhcpOptionsArgs {
-    readonly domainName?: fabric.PropertyValue<string>;
-    readonly domainNameServers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly netbiosNameServers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly netbiosNodeType?: fabric.PropertyValue<string>;
-    readonly ntpServers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly domainName?: fabric.MaybeComputed<string>;
+    readonly domainNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly netbiosNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly netbiosNodeType?: fabric.MaybeComputed<string>;
+    readonly ntpServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

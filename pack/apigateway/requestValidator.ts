@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class RequestValidator extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly validateRequestBody?: fabric.Property<boolean>;
-    public readonly validateRequestParameters?: fabric.Property<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly validateRequestBody?: fabric.Computed<boolean>;
+    public readonly validateRequestParameters?: fabric.Computed<boolean>;
 
     constructor(urnName: string, args: RequestValidatorArgs) {
         if (args.restApi === undefined) {
@@ -25,9 +25,9 @@ export class RequestValidator extends fabric.Resource {
 }
 
 export interface RequestValidatorArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly validateRequestBody?: fabric.PropertyValue<boolean>;
-    readonly validateRequestParameters?: fabric.PropertyValue<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly validateRequestBody?: fabric.MaybeComputed<boolean>;
+    readonly validateRequestParameters?: fabric.MaybeComputed<boolean>;
 }
 

@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ClientCertificate extends fabric.Resource {
-    public /*out*/ readonly createdDate: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public /*out*/ readonly expirationDate: fabric.Property<string>;
-    public /*out*/ readonly pemEncodedCertificate: fabric.Property<string>;
+    public /*out*/ readonly createdDate: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly expirationDate: fabric.Computed<string>;
+    public /*out*/ readonly pemEncodedCertificate: fabric.Computed<string>;
 
     constructor(urnName: string, args: ClientCertificateArgs) {
         super("aws:apigateway/clientCertificate:ClientCertificate", urnName, {
@@ -20,6 +20,6 @@ export class ClientCertificate extends fabric.Resource {
 }
 
 export interface ClientCertificateArgs {
-    readonly description?: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
 }
 

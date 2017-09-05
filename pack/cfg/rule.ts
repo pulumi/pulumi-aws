@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Rule extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly inputParameters?: fabric.Property<string>;
-    public readonly maximumExecutionFrequency?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly ruleId: fabric.Property<string>;
-    public readonly scope?: fabric.Property<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[]>;
-    public readonly source: fabric.Property<{ owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly inputParameters?: fabric.Computed<string>;
+    public readonly maximumExecutionFrequency?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly ruleId: fabric.Computed<string>;
+    public readonly scope?: fabric.Computed<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[]>;
+    public readonly source: fabric.Computed<{ owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[]>;
 
     constructor(urnName: string, args: RuleArgs) {
         if (args.source === undefined) {
@@ -31,11 +31,11 @@ export class Rule extends fabric.Resource {
 }
 
 export interface RuleArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly inputParameters?: fabric.PropertyValue<string>;
-    readonly maximumExecutionFrequency?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly scope?: fabric.PropertyValue<{ complianceResourceId?: fabric.PropertyValue<string>, complianceResourceTypes?: fabric.PropertyValue<fabric.PropertyValue<string>>[], tagKey?: fabric.PropertyValue<string>, tagValue?: fabric.PropertyValue<string> }>[];
-    readonly source: fabric.PropertyValue<{ owner: fabric.PropertyValue<string>, sourceDetail?: fabric.PropertyValue<{ eventSource?: fabric.PropertyValue<string>, maximumExecutionFrequency?: fabric.PropertyValue<string>, messageType?: fabric.PropertyValue<string> }>[], sourceIdentifier: fabric.PropertyValue<string> }>[];
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly inputParameters?: fabric.MaybeComputed<string>;
+    readonly maximumExecutionFrequency?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly scope?: fabric.MaybeComputed<{ complianceResourceId?: fabric.MaybeComputed<string>, complianceResourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], tagKey?: fabric.MaybeComputed<string>, tagValue?: fabric.MaybeComputed<string> }>[];
+    readonly source: fabric.MaybeComputed<{ owner: fabric.MaybeComputed<string>, sourceDetail?: fabric.MaybeComputed<{ eventSource?: fabric.MaybeComputed<string>, maximumExecutionFrequency?: fabric.MaybeComputed<string>, messageType?: fabric.MaybeComputed<string> }>[], sourceIdentifier: fabric.MaybeComputed<string> }>[];
 }
 

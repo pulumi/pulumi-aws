@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Rule extends fabric.Resource {
-    public readonly metricName: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly predicates?: fabric.Property<{ dataId?: string, negated: boolean, type: string }[]>;
+    public readonly metricName: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly predicates?: fabric.Computed<{ dataId?: string, negated: boolean, type: string }[]>;
 
     constructor(urnName: string, args: RuleArgs) {
         if (args.metricName === undefined) {
@@ -21,8 +21,8 @@ export class Rule extends fabric.Resource {
 }
 
 export interface RuleArgs {
-    readonly metricName: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly predicates?: fabric.PropertyValue<{ dataId?: fabric.PropertyValue<string>, negated: fabric.PropertyValue<boolean>, type: fabric.PropertyValue<string> }>[];
+    readonly metricName: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly predicates?: fabric.MaybeComputed<{ dataId?: fabric.MaybeComputed<string>, negated: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
 }
 

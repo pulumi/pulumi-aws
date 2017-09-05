@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class StaticIpAttachment extends fabric.Resource {
-    public readonly instanceName: fabric.Property<string>;
-    public readonly staticIpName: fabric.Property<string>;
+    public readonly instanceName: fabric.Computed<string>;
+    public readonly staticIpName: fabric.Computed<string>;
 
     constructor(urnName: string, args: StaticIpAttachmentArgs) {
         if (args.instanceName === undefined) {
@@ -22,7 +22,7 @@ export class StaticIpAttachment extends fabric.Resource {
 }
 
 export interface StaticIpAttachmentArgs {
-    readonly instanceName: fabric.PropertyValue<string>;
-    readonly staticIpName: fabric.PropertyValue<string>;
+    readonly instanceName: fabric.MaybeComputed<string>;
+    readonly staticIpName: fabric.MaybeComputed<string>;
 }
 

@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Trigger extends fabric.Resource {
-    public /*out*/ readonly configurationId: fabric.Property<string>;
-    public readonly repositoryName: fabric.Property<string>;
-    public readonly trigger: fabric.Property<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
+    public /*out*/ readonly configurationId: fabric.Computed<string>;
+    public readonly repositoryName: fabric.Computed<string>;
+    public readonly trigger: fabric.Computed<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
     constructor(urnName: string, args: TriggerArgs) {
         if (args.repositoryName === undefined) {
@@ -24,7 +24,7 @@ export class Trigger extends fabric.Resource {
 }
 
 export interface TriggerArgs {
-    readonly repositoryName: fabric.PropertyValue<string>;
-    readonly trigger: fabric.PropertyValue<{ branches?: fabric.PropertyValue<fabric.PropertyValue<string>>[], customData?: fabric.PropertyValue<string>, destinationArn: fabric.PropertyValue<string>, events: fabric.PropertyValue<fabric.PropertyValue<string>>[], name: fabric.PropertyValue<string> }>[];
+    readonly repositoryName: fabric.MaybeComputed<string>;
+    readonly trigger: fabric.MaybeComputed<{ branches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customData?: fabric.MaybeComputed<string>, destinationArn: fabric.MaybeComputed<string>, events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string> }>[];
 }
 

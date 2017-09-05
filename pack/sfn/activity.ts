@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Activity extends fabric.Resource {
-    public /*out*/ readonly creationDate: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public /*out*/ readonly creationDate: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ActivityArgs) {
         super("aws:sfn/activity:Activity", urnName, {
@@ -16,6 +16,6 @@ export class Activity extends fabric.Resource {
 }
 
 export interface ActivityArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

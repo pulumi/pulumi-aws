@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RepositoryPolicy extends fabric.Resource {
-    public readonly policy: fabric.Property<string>;
-    public /*out*/ readonly registryId: fabric.Property<string>;
-    public readonly repository: fabric.Property<string>;
+    public readonly policy: fabric.Computed<string>;
+    public /*out*/ readonly registryId: fabric.Computed<string>;
+    public readonly repository: fabric.Computed<string>;
 
     constructor(urnName: string, args: RepositoryPolicyArgs) {
         if (args.policy === undefined) {
@@ -24,7 +24,7 @@ export class RepositoryPolicy extends fabric.Resource {
 }
 
 export interface RepositoryPolicyArgs {
-    readonly policy: fabric.PropertyValue<string>;
-    readonly repository: fabric.PropertyValue<string>;
+    readonly policy: fabric.MaybeComputed<string>;
+    readonly repository: fabric.MaybeComputed<string>;
 }
 

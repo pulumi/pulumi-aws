@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DomainName extends fabric.Resource {
-    public readonly certificateArn?: fabric.Property<string>;
-    public readonly certificateBody?: fabric.Property<string>;
-    public readonly certificateChain?: fabric.Property<string>;
-    public readonly certificateName?: fabric.Property<string>;
-    public readonly certificatePrivateKey?: fabric.Property<string>;
-    public /*out*/ readonly certificateUploadDate: fabric.Property<string>;
-    public /*out*/ readonly cloudfrontDomainName: fabric.Property<string>;
-    public /*out*/ readonly cloudfrontZoneId: fabric.Property<string>;
-    public readonly domainName: fabric.Property<string>;
+    public readonly certificateArn?: fabric.Computed<string>;
+    public readonly certificateBody?: fabric.Computed<string>;
+    public readonly certificateChain?: fabric.Computed<string>;
+    public readonly certificateName?: fabric.Computed<string>;
+    public readonly certificatePrivateKey?: fabric.Computed<string>;
+    public /*out*/ readonly certificateUploadDate: fabric.Computed<string>;
+    public /*out*/ readonly cloudfrontDomainName: fabric.Computed<string>;
+    public /*out*/ readonly cloudfrontZoneId: fabric.Computed<string>;
+    public readonly domainName: fabric.Computed<string>;
 
     constructor(urnName: string, args: DomainNameArgs) {
         if (args.domainName === undefined) {
@@ -33,11 +33,11 @@ export class DomainName extends fabric.Resource {
 }
 
 export interface DomainNameArgs {
-    readonly certificateArn?: fabric.PropertyValue<string>;
-    readonly certificateBody?: fabric.PropertyValue<string>;
-    readonly certificateChain?: fabric.PropertyValue<string>;
-    readonly certificateName?: fabric.PropertyValue<string>;
-    readonly certificatePrivateKey?: fabric.PropertyValue<string>;
-    readonly domainName: fabric.PropertyValue<string>;
+    readonly certificateArn?: fabric.MaybeComputed<string>;
+    readonly certificateBody?: fabric.MaybeComputed<string>;
+    readonly certificateChain?: fabric.MaybeComputed<string>;
+    readonly certificateName?: fabric.MaybeComputed<string>;
+    readonly certificatePrivateKey?: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.MaybeComputed<string>;
 }
 

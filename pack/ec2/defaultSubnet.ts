@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DefaultSubnet extends fabric.Resource {
-    public /*out*/ readonly assignIpv6AddressOnCreation: fabric.Property<boolean>;
-    public readonly availabilityZone: fabric.Property<string>;
-    public /*out*/ readonly cidrBlock: fabric.Property<string>;
-    public /*out*/ readonly ipv6CidrBlock: fabric.Property<string>;
-    public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Property<string>;
-    public /*out*/ readonly mapPublicIpOnLaunch: fabric.Property<boolean>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly vpcId: fabric.Property<string>;
+    public /*out*/ readonly assignIpv6AddressOnCreation: fabric.Computed<boolean>;
+    public readonly availabilityZone: fabric.Computed<string>;
+    public /*out*/ readonly cidrBlock: fabric.Computed<string>;
+    public /*out*/ readonly ipv6CidrBlock: fabric.Computed<string>;
+    public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Computed<string>;
+    public /*out*/ readonly mapPublicIpOnLaunch: fabric.Computed<boolean>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: DefaultSubnetArgs) {
         if (args.availabilityZone === undefined) {
@@ -31,7 +31,7 @@ export class DefaultSubnet extends fabric.Resource {
 }
 
 export interface DefaultSubnetArgs {
-    readonly availabilityZone: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly availabilityZone: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

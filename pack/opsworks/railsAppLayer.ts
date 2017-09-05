@@ -4,33 +4,33 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RailsAppLayer extends fabric.Resource {
-    public readonly appServer?: fabric.Property<string>;
-    public readonly autoAssignElasticIps?: fabric.Property<boolean>;
-    public readonly autoAssignPublicIps?: fabric.Property<boolean>;
-    public readonly autoHealing?: fabric.Property<boolean>;
-    public readonly bundlerVersion?: fabric.Property<string>;
-    public readonly customConfigureRecipes?: fabric.Property<string[]>;
-    public readonly customDeployRecipes?: fabric.Property<string[]>;
-    public readonly customInstanceProfileArn?: fabric.Property<string>;
-    public readonly customJson?: fabric.Property<string>;
-    public readonly customSecurityGroupIds?: fabric.Property<string[]>;
-    public readonly customSetupRecipes?: fabric.Property<string[]>;
-    public readonly customShutdownRecipes?: fabric.Property<string[]>;
-    public readonly customUndeployRecipes?: fabric.Property<string[]>;
-    public readonly drainElbOnShutdown?: fabric.Property<boolean>;
-    public readonly ebsVolume?: fabric.Property<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[]>;
-    public readonly elasticLoadBalancer?: fabric.Property<string>;
-    public /*out*/ readonly layerId: fabric.Property<string>;
-    public readonly installUpdatesOnBoot?: fabric.Property<boolean>;
-    public readonly instanceShutdownTimeout?: fabric.Property<number>;
-    public readonly manageBundler?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public readonly passengerVersion?: fabric.Property<string>;
-    public readonly rubyVersion?: fabric.Property<string>;
-    public readonly rubygemsVersion?: fabric.Property<string>;
-    public readonly stackId: fabric.Property<string>;
-    public readonly systemPackages?: fabric.Property<string[]>;
-    public readonly useEbsOptimizedInstances?: fabric.Property<boolean>;
+    public readonly appServer?: fabric.Computed<string>;
+    public readonly autoAssignElasticIps?: fabric.Computed<boolean>;
+    public readonly autoAssignPublicIps?: fabric.Computed<boolean>;
+    public readonly autoHealing?: fabric.Computed<boolean>;
+    public readonly bundlerVersion?: fabric.Computed<string>;
+    public readonly customConfigureRecipes?: fabric.Computed<string[]>;
+    public readonly customDeployRecipes?: fabric.Computed<string[]>;
+    public readonly customInstanceProfileArn?: fabric.Computed<string>;
+    public readonly customJson?: fabric.Computed<string>;
+    public readonly customSecurityGroupIds?: fabric.Computed<string[]>;
+    public readonly customSetupRecipes?: fabric.Computed<string[]>;
+    public readonly customShutdownRecipes?: fabric.Computed<string[]>;
+    public readonly customUndeployRecipes?: fabric.Computed<string[]>;
+    public readonly drainElbOnShutdown?: fabric.Computed<boolean>;
+    public readonly ebsVolume?: fabric.Computed<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[]>;
+    public readonly elasticLoadBalancer?: fabric.Computed<string>;
+    public /*out*/ readonly layerId: fabric.Computed<string>;
+    public readonly installUpdatesOnBoot?: fabric.Computed<boolean>;
+    public readonly instanceShutdownTimeout?: fabric.Computed<number>;
+    public readonly manageBundler?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly passengerVersion?: fabric.Computed<string>;
+    public readonly rubyVersion?: fabric.Computed<string>;
+    public readonly rubygemsVersion?: fabric.Computed<string>;
+    public readonly stackId: fabric.Computed<string>;
+    public readonly systemPackages?: fabric.Computed<string[]>;
+    public readonly useEbsOptimizedInstances?: fabric.Computed<boolean>;
 
     constructor(urnName: string, args: RailsAppLayerArgs) {
         if (args.stackId === undefined) {
@@ -69,31 +69,31 @@ export class RailsAppLayer extends fabric.Resource {
 }
 
 export interface RailsAppLayerArgs {
-    readonly appServer?: fabric.PropertyValue<string>;
-    readonly autoAssignElasticIps?: fabric.PropertyValue<boolean>;
-    readonly autoAssignPublicIps?: fabric.PropertyValue<boolean>;
-    readonly autoHealing?: fabric.PropertyValue<boolean>;
-    readonly bundlerVersion?: fabric.PropertyValue<string>;
-    readonly customConfigureRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly customDeployRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly customInstanceProfileArn?: fabric.PropertyValue<string>;
-    readonly customJson?: fabric.PropertyValue<string>;
-    readonly customSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly customSetupRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly customShutdownRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly customUndeployRecipes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly drainElbOnShutdown?: fabric.PropertyValue<boolean>;
-    readonly ebsVolume?: fabric.PropertyValue<{ iops?: fabric.PropertyValue<number>, mountPoint: fabric.PropertyValue<string>, numberOfDisks: fabric.PropertyValue<number>, raidLevel?: fabric.PropertyValue<string>, size: fabric.PropertyValue<number>, type?: fabric.PropertyValue<string> }>[];
-    readonly elasticLoadBalancer?: fabric.PropertyValue<string>;
-    readonly installUpdatesOnBoot?: fabric.PropertyValue<boolean>;
-    readonly instanceShutdownTimeout?: fabric.PropertyValue<number>;
-    readonly manageBundler?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly passengerVersion?: fabric.PropertyValue<string>;
-    readonly rubyVersion?: fabric.PropertyValue<string>;
-    readonly rubygemsVersion?: fabric.PropertyValue<string>;
-    readonly stackId: fabric.PropertyValue<string>;
-    readonly systemPackages?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly useEbsOptimizedInstances?: fabric.PropertyValue<boolean>;
+    readonly appServer?: fabric.MaybeComputed<string>;
+    readonly autoAssignElasticIps?: fabric.MaybeComputed<boolean>;
+    readonly autoAssignPublicIps?: fabric.MaybeComputed<boolean>;
+    readonly autoHealing?: fabric.MaybeComputed<boolean>;
+    readonly bundlerVersion?: fabric.MaybeComputed<string>;
+    readonly customConfigureRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customDeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customInstanceProfileArn?: fabric.MaybeComputed<string>;
+    readonly customJson?: fabric.MaybeComputed<string>;
+    readonly customSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customSetupRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customShutdownRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customUndeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly drainElbOnShutdown?: fabric.MaybeComputed<boolean>;
+    readonly ebsVolume?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, mountPoint: fabric.MaybeComputed<string>, numberOfDisks: fabric.MaybeComputed<number>, raidLevel?: fabric.MaybeComputed<string>, size: fabric.MaybeComputed<number>, type?: fabric.MaybeComputed<string> }>[];
+    readonly elasticLoadBalancer?: fabric.MaybeComputed<string>;
+    readonly installUpdatesOnBoot?: fabric.MaybeComputed<boolean>;
+    readonly instanceShutdownTimeout?: fabric.MaybeComputed<number>;
+    readonly manageBundler?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly passengerVersion?: fabric.MaybeComputed<string>;
+    readonly rubyVersion?: fabric.MaybeComputed<string>;
+    readonly rubygemsVersion?: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.MaybeComputed<string>;
+    readonly systemPackages?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly useEbsOptimizedInstances?: fabric.MaybeComputed<boolean>;
 }
 

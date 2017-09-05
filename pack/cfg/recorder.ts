@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Recorder extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly recordingGroup: fabric.Property<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
-    public readonly roleArn: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly recordingGroup: fabric.Computed<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
+    public readonly roleArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: RecorderArgs) {
         if (args.roleArn === undefined) {
@@ -21,8 +21,8 @@ export class Recorder extends fabric.Resource {
 }
 
 export interface RecorderArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly recordingGroup?: fabric.PropertyValue<{ allSupported?: fabric.PropertyValue<boolean>, includeGlobalResourceTypes?: fabric.PropertyValue<boolean>, resourceTypes?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly roleArn: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly recordingGroup?: fabric.MaybeComputed<{ allSupported?: fabric.MaybeComputed<boolean>, includeGlobalResourceTypes?: fabric.MaybeComputed<boolean>, resourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly roleArn: fabric.MaybeComputed<string>;
 }
 

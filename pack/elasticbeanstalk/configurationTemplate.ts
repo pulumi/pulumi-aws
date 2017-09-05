@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ConfigurationTemplate extends fabric.Resource {
-    public readonly application: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly environmentId?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly setting: fabric.Property<{ name: string, namespace: string, resource?: string, value: string }[]>;
-    public readonly solutionStackName?: fabric.Property<string>;
+    public readonly application: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly environmentId?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly setting: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    public readonly solutionStackName?: fabric.Computed<string>;
 
     constructor(urnName: string, args: ConfigurationTemplateArgs) {
         if (args.application === undefined) {
@@ -27,11 +27,11 @@ export class ConfigurationTemplate extends fabric.Resource {
 }
 
 export interface ConfigurationTemplateArgs {
-    readonly application: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly environmentId?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly setting?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, namespace: fabric.PropertyValue<string>, resource?: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
-    readonly solutionStackName?: fabric.PropertyValue<string>;
+    readonly application: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly environmentId?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly solutionStackName?: fabric.MaybeComputed<string>;
 }
 

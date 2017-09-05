@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class EventRule extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly eventPattern?: fabric.Property<string>;
-    public readonly isEnabled?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public readonly roleArn?: fabric.Property<string>;
-    public readonly scheduleExpression?: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly eventPattern?: fabric.Computed<string>;
+    public readonly isEnabled?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly roleArn?: fabric.Computed<string>;
+    public readonly scheduleExpression?: fabric.Computed<string>;
 
     constructor(urnName: string, args: EventRuleArgs) {
         super("aws:cloudwatch/eventRule:EventRule", urnName, {
@@ -26,11 +26,11 @@ export class EventRule extends fabric.Resource {
 }
 
 export interface EventRuleArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly eventPattern?: fabric.PropertyValue<string>;
-    readonly isEnabled?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly roleArn?: fabric.PropertyValue<string>;
-    readonly scheduleExpression?: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly eventPattern?: fabric.MaybeComputed<string>;
+    readonly isEnabled?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly scheduleExpression?: fabric.MaybeComputed<string>;
 }
 

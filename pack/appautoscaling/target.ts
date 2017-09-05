@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Target extends fabric.Resource {
-    public readonly maxCapacity: fabric.Property<number>;
-    public readonly minCapacity: fabric.Property<number>;
-    public readonly resourceId: fabric.Property<string>;
-    public readonly roleArn: fabric.Property<string>;
-    public readonly scalableDimension: fabric.Property<string>;
-    public readonly serviceNamespace: fabric.Property<string>;
+    public readonly maxCapacity: fabric.Computed<number>;
+    public readonly minCapacity: fabric.Computed<number>;
+    public readonly resourceId: fabric.Computed<string>;
+    public readonly roleArn: fabric.Computed<string>;
+    public readonly scalableDimension: fabric.Computed<string>;
+    public readonly serviceNamespace: fabric.Computed<string>;
 
     constructor(urnName: string, args: TargetArgs) {
         if (args.maxCapacity === undefined) {
@@ -42,11 +42,11 @@ export class Target extends fabric.Resource {
 }
 
 export interface TargetArgs {
-    readonly maxCapacity: fabric.PropertyValue<number>;
-    readonly minCapacity: fabric.PropertyValue<number>;
-    readonly resourceId: fabric.PropertyValue<string>;
-    readonly roleArn: fabric.PropertyValue<string>;
-    readonly scalableDimension: fabric.PropertyValue<string>;
-    readonly serviceNamespace: fabric.PropertyValue<string>;
+    readonly maxCapacity: fabric.MaybeComputed<number>;
+    readonly minCapacity: fabric.MaybeComputed<number>;
+    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly scalableDimension: fabric.MaybeComputed<string>;
+    readonly serviceNamespace: fabric.MaybeComputed<string>;
 }
 

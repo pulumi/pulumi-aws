@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpnGatewayRoutePropagation extends fabric.Resource {
-    public readonly routeTableId: fabric.Property<string>;
-    public readonly vpnGatewayId: fabric.Property<string>;
+    public readonly routeTableId: fabric.Computed<string>;
+    public readonly vpnGatewayId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpnGatewayRoutePropagationArgs) {
         if (args.routeTableId === undefined) {
@@ -22,7 +22,7 @@ export class VpnGatewayRoutePropagation extends fabric.Resource {
 }
 
 export interface VpnGatewayRoutePropagationArgs {
-    readonly routeTableId: fabric.PropertyValue<string>;
-    readonly vpnGatewayId: fabric.PropertyValue<string>;
+    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly vpnGatewayId: fabric.MaybeComputed<string>;
 }
 

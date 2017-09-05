@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Vault extends fabric.Resource {
-    public readonly accessPolicy?: fabric.Property<string>;
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public /*out*/ readonly location: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly notification?: fabric.Property<{ events: string[], snsTopic: string }[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly accessPolicy?: fabric.Computed<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public /*out*/ readonly location: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly notification?: fabric.Computed<{ events: string[], snsTopic: string }[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: VaultArgs) {
         super("aws:glacier/vault:Vault", urnName, {
@@ -24,9 +24,9 @@ export class Vault extends fabric.Resource {
 }
 
 export interface VaultArgs {
-    readonly accessPolicy?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly notification?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], snsTopic: fabric.PropertyValue<string> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly accessPolicy?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly notification?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], snsTopic: fabric.MaybeComputed<string> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

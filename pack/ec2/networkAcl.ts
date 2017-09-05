@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class NetworkAcl extends fabric.Resource {
-    public readonly egress: fabric.Property<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
-    public readonly ingress: fabric.Property<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
-    public readonly subnetId?: fabric.Property<string>;
-    public readonly subnetIds: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId: fabric.Property<string>;
+    public readonly egress: fabric.Computed<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    public readonly ingress: fabric.Computed<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    public readonly subnetId?: fabric.Computed<string>;
+    public readonly subnetIds: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: NetworkAclArgs) {
         if (args.vpcId === undefined) {
@@ -27,11 +27,11 @@ export class NetworkAcl extends fabric.Resource {
 }
 
 export interface NetworkAclArgs {
-    readonly egress?: fabric.PropertyValue<{ action: fabric.PropertyValue<string>, cidrBlock?: fabric.PropertyValue<string>, fromPort: fabric.PropertyValue<number>, icmpCode?: fabric.PropertyValue<number>, icmpType?: fabric.PropertyValue<number>, ipv6CidrBlock?: fabric.PropertyValue<string>, protocol: fabric.PropertyValue<string>, ruleNo: fabric.PropertyValue<number>, toPort: fabric.PropertyValue<number> }>[];
-    readonly ingress?: fabric.PropertyValue<{ action: fabric.PropertyValue<string>, cidrBlock?: fabric.PropertyValue<string>, fromPort: fabric.PropertyValue<number>, icmpCode?: fabric.PropertyValue<number>, icmpType?: fabric.PropertyValue<number>, ipv6CidrBlock?: fabric.PropertyValue<string>, protocol: fabric.PropertyValue<string>, ruleNo: fabric.PropertyValue<number>, toPort: fabric.PropertyValue<number> }>[];
-    readonly subnetId?: fabric.PropertyValue<string>;
-    readonly subnetIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly egress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly ingress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly subnetId?: fabric.MaybeComputed<string>;
+    readonly subnetIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

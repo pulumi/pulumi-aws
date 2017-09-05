@@ -7,8 +7,8 @@ import {ARN} from "../index";
 import {Group} from "./group";
 
 export class GroupPolicyAttachment extends fabric.Resource {
-    public readonly group: fabric.Property<Group>;
-    public readonly policyArn: fabric.Property<ARN>;
+    public readonly group: fabric.Computed<Group>;
+    public readonly policyArn: fabric.Computed<ARN>;
 
     constructor(urnName: string, args: GroupPolicyAttachmentArgs) {
         if (args.group === undefined) {
@@ -25,7 +25,7 @@ export class GroupPolicyAttachment extends fabric.Resource {
 }
 
 export interface GroupPolicyAttachmentArgs {
-    readonly group: fabric.PropertyValue<Group>;
-    readonly policyArn: fabric.PropertyValue<ARN>;
+    readonly group: fabric.MaybeComputed<Group>;
+    readonly policyArn: fabric.MaybeComputed<ARN>;
 }
 

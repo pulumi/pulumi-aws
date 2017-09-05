@@ -4,25 +4,25 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class HealthCheck extends fabric.Resource {
-    public readonly childHealthThreshold?: fabric.Property<number>;
-    public readonly childHealthchecks?: fabric.Property<string[]>;
-    public readonly cloudwatchAlarmName?: fabric.Property<string>;
-    public readonly cloudwatchAlarmRegion?: fabric.Property<string>;
-    public readonly enableSni: fabric.Property<boolean>;
-    public readonly failureThreshold?: fabric.Property<number>;
-    public readonly fqdn?: fabric.Property<string>;
-    public readonly insufficientDataHealthStatus?: fabric.Property<string>;
-    public readonly invertHealthcheck?: fabric.Property<boolean>;
-    public readonly ipAddress?: fabric.Property<string>;
-    public readonly measureLatency?: fabric.Property<boolean>;
-    public readonly port?: fabric.Property<number>;
-    public readonly referenceName?: fabric.Property<string>;
-    public readonly regions?: fabric.Property<string[]>;
-    public readonly requestInterval?: fabric.Property<number>;
-    public readonly resourcePath?: fabric.Property<string>;
-    public readonly searchString?: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly type: fabric.Property<string>;
+    public readonly childHealthThreshold?: fabric.Computed<number>;
+    public readonly childHealthchecks?: fabric.Computed<string[]>;
+    public readonly cloudwatchAlarmName?: fabric.Computed<string>;
+    public readonly cloudwatchAlarmRegion?: fabric.Computed<string>;
+    public readonly enableSni: fabric.Computed<boolean>;
+    public readonly failureThreshold?: fabric.Computed<number>;
+    public readonly fqdn?: fabric.Computed<string>;
+    public readonly insufficientDataHealthStatus?: fabric.Computed<string>;
+    public readonly invertHealthcheck?: fabric.Computed<boolean>;
+    public readonly ipAddress?: fabric.Computed<string>;
+    public readonly measureLatency?: fabric.Computed<boolean>;
+    public readonly port?: fabric.Computed<number>;
+    public readonly referenceName?: fabric.Computed<string>;
+    public readonly regions?: fabric.Computed<string[]>;
+    public readonly requestInterval?: fabric.Computed<number>;
+    public readonly resourcePath?: fabric.Computed<string>;
+    public readonly searchString?: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly type: fabric.Computed<string>;
 
     constructor(urnName: string, args: HealthCheckArgs) {
         if (args.type === undefined) {
@@ -53,24 +53,24 @@ export class HealthCheck extends fabric.Resource {
 }
 
 export interface HealthCheckArgs {
-    readonly childHealthThreshold?: fabric.PropertyValue<number>;
-    readonly childHealthchecks?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly cloudwatchAlarmName?: fabric.PropertyValue<string>;
-    readonly cloudwatchAlarmRegion?: fabric.PropertyValue<string>;
-    readonly enableSni?: fabric.PropertyValue<boolean>;
-    readonly failureThreshold?: fabric.PropertyValue<number>;
-    readonly fqdn?: fabric.PropertyValue<string>;
-    readonly insufficientDataHealthStatus?: fabric.PropertyValue<string>;
-    readonly invertHealthcheck?: fabric.PropertyValue<boolean>;
-    readonly ipAddress?: fabric.PropertyValue<string>;
-    readonly measureLatency?: fabric.PropertyValue<boolean>;
-    readonly port?: fabric.PropertyValue<number>;
-    readonly referenceName?: fabric.PropertyValue<string>;
-    readonly regions?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly requestInterval?: fabric.PropertyValue<number>;
-    readonly resourcePath?: fabric.PropertyValue<string>;
-    readonly searchString?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly type: fabric.PropertyValue<string>;
+    readonly childHealthThreshold?: fabric.MaybeComputed<number>;
+    readonly childHealthchecks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly cloudwatchAlarmName?: fabric.MaybeComputed<string>;
+    readonly cloudwatchAlarmRegion?: fabric.MaybeComputed<string>;
+    readonly enableSni?: fabric.MaybeComputed<boolean>;
+    readonly failureThreshold?: fabric.MaybeComputed<number>;
+    readonly fqdn?: fabric.MaybeComputed<string>;
+    readonly insufficientDataHealthStatus?: fabric.MaybeComputed<string>;
+    readonly invertHealthcheck?: fabric.MaybeComputed<boolean>;
+    readonly ipAddress?: fabric.MaybeComputed<string>;
+    readonly measureLatency?: fabric.MaybeComputed<boolean>;
+    readonly port?: fabric.MaybeComputed<number>;
+    readonly referenceName?: fabric.MaybeComputed<string>;
+    readonly regions?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly requestInterval?: fabric.MaybeComputed<number>;
+    readonly resourcePath?: fabric.MaybeComputed<string>;
+    readonly searchString?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly type: fabric.MaybeComputed<string>;
 }
 

@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class FileSystem extends fabric.Resource {
-    public readonly creationToken: fabric.Property<string>;
-    public readonly performanceMode: fabric.Property<string>;
-    public readonly referenceName: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly creationToken: fabric.Computed<string>;
+    public readonly performanceMode: fabric.Computed<string>;
+    public readonly referenceName: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: FileSystemArgs) {
         super("aws:efs/fileSystem:FileSystem", urnName, {
@@ -20,9 +20,9 @@ export class FileSystem extends fabric.Resource {
 }
 
 export interface FileSystemArgs {
-    readonly creationToken?: fabric.PropertyValue<string>;
-    readonly performanceMode?: fabric.PropertyValue<string>;
-    readonly referenceName?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly creationToken?: fabric.MaybeComputed<string>;
+    readonly performanceMode?: fabric.MaybeComputed<string>;
+    readonly referenceName?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

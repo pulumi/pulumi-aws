@@ -6,11 +6,11 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class Model extends fabric.Resource {
-    public readonly contentType: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly schema?: fabric.Property<string>;
+    public readonly contentType: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly schema?: fabric.Computed<string>;
 
     constructor(urnName: string, args: ModelArgs) {
         if (args.contentType === undefined) {
@@ -30,10 +30,10 @@ export class Model extends fabric.Resource {
 }
 
 export interface ModelArgs {
-    readonly contentType: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly schema?: fabric.PropertyValue<string>;
+    readonly contentType: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly schema?: fabric.MaybeComputed<string>;
 }
 

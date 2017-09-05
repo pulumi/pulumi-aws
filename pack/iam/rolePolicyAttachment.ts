@@ -7,8 +7,8 @@ import {ARN} from "../index";
 import {Role} from "./role";
 
 export class RolePolicyAttachment extends fabric.Resource {
-    public readonly policyArn: fabric.Property<ARN>;
-    public readonly role: fabric.Property<Role>;
+    public readonly policyArn: fabric.Computed<ARN>;
+    public readonly role: fabric.Computed<Role>;
 
     constructor(urnName: string, args: RolePolicyAttachmentArgs) {
         if (args.policyArn === undefined) {
@@ -25,7 +25,7 @@ export class RolePolicyAttachment extends fabric.Resource {
 }
 
 export interface RolePolicyAttachmentArgs {
-    readonly policyArn: fabric.PropertyValue<ARN>;
-    readonly role: fabric.PropertyValue<Role>;
+    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly role: fabric.MaybeComputed<Role>;
 }
 

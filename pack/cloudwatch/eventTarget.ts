@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class EventTarget extends fabric.Resource {
-    public readonly arn: fabric.Property<string>;
-    public readonly ecsTarget?: fabric.Property<{ taskCount?: number, taskDefinitionArn: string }[]>;
-    public readonly input?: fabric.Property<string>;
-    public readonly inputPath?: fabric.Property<string>;
-    public readonly roleArn?: fabric.Property<string>;
-    public readonly rule: fabric.Property<string>;
-    public readonly runCommandTargets?: fabric.Property<{ key: string, values: string[] }[]>;
-    public readonly targetId: fabric.Property<string>;
+    public readonly arn: fabric.Computed<string>;
+    public readonly ecsTarget?: fabric.Computed<{ taskCount?: number, taskDefinitionArn: string }[]>;
+    public readonly input?: fabric.Computed<string>;
+    public readonly inputPath?: fabric.Computed<string>;
+    public readonly roleArn?: fabric.Computed<string>;
+    public readonly rule: fabric.Computed<string>;
+    public readonly runCommandTargets?: fabric.Computed<{ key: string, values: string[] }[]>;
+    public readonly targetId: fabric.Computed<string>;
 
     constructor(urnName: string, args: EventTargetArgs) {
         if (args.arn === undefined) {
@@ -34,13 +34,13 @@ export class EventTarget extends fabric.Resource {
 }
 
 export interface EventTargetArgs {
-    readonly arn: fabric.PropertyValue<string>;
-    readonly ecsTarget?: fabric.PropertyValue<{ taskCount?: fabric.PropertyValue<number>, taskDefinitionArn: fabric.PropertyValue<string> }>[];
-    readonly input?: fabric.PropertyValue<string>;
-    readonly inputPath?: fabric.PropertyValue<string>;
-    readonly roleArn?: fabric.PropertyValue<string>;
-    readonly rule: fabric.PropertyValue<string>;
-    readonly runCommandTargets?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly targetId?: fabric.PropertyValue<string>;
+    readonly arn: fabric.MaybeComputed<string>;
+    readonly ecsTarget?: fabric.MaybeComputed<{ taskCount?: fabric.MaybeComputed<number>, taskDefinitionArn: fabric.MaybeComputed<string> }>[];
+    readonly input?: fabric.MaybeComputed<string>;
+    readonly inputPath?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly rule: fabric.MaybeComputed<string>;
+    readonly runCommandTargets?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly targetId?: fabric.MaybeComputed<string>;
 }
 

@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpnGateway extends fabric.Resource {
-    public readonly availabilityZone?: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId: fabric.Property<string>;
+    public readonly availabilityZone?: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpnGatewayArgs) {
         super("aws:ec2/vpnGateway:VpnGateway", urnName, {
@@ -18,8 +18,8 @@ export class VpnGateway extends fabric.Resource {
 }
 
 export interface VpnGatewayArgs {
-    readonly availabilityZone?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId?: fabric.PropertyValue<string>;
+    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

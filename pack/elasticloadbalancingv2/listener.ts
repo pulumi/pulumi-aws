@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Listener extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly certificateArn?: fabric.Property<string>;
-    public readonly defaultAction: fabric.Property<{ targetGroupArn: string, type: string }[]>;
-    public readonly loadBalancerArn: fabric.Property<string>;
-    public readonly port: fabric.Property<number>;
-    public readonly protocol?: fabric.Property<string>;
-    public readonly sslPolicy: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly certificateArn?: fabric.Computed<string>;
+    public readonly defaultAction: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
+    public readonly loadBalancerArn: fabric.Computed<string>;
+    public readonly port: fabric.Computed<number>;
+    public readonly protocol?: fabric.Computed<string>;
+    public readonly sslPolicy: fabric.Computed<string>;
 
     constructor(urnName: string, args: ListenerArgs) {
         if (args.defaultAction === undefined) {
@@ -35,11 +35,11 @@ export class Listener extends fabric.Resource {
 }
 
 export interface ListenerArgs {
-    readonly certificateArn?: fabric.PropertyValue<string>;
-    readonly defaultAction: fabric.PropertyValue<{ targetGroupArn: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly loadBalancerArn: fabric.PropertyValue<string>;
-    readonly port: fabric.PropertyValue<number>;
-    readonly protocol?: fabric.PropertyValue<string>;
-    readonly sslPolicy?: fabric.PropertyValue<string>;
+    readonly certificateArn?: fabric.MaybeComputed<string>;
+    readonly defaultAction: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly loadBalancerArn: fabric.MaybeComputed<string>;
+    readonly port: fabric.MaybeComputed<number>;
+    readonly protocol?: fabric.MaybeComputed<string>;
+    readonly sslPolicy?: fabric.MaybeComputed<string>;
 }
 

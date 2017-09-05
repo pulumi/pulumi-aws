@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class PatchGroup extends fabric.Resource {
-    public readonly baselineId: fabric.Property<string>;
-    public readonly patchGroup: fabric.Property<string>;
+    public readonly baselineId: fabric.Computed<string>;
+    public readonly patchGroup: fabric.Computed<string>;
 
     constructor(urnName: string, args: PatchGroupArgs) {
         if (args.baselineId === undefined) {
@@ -22,7 +22,7 @@ export class PatchGroup extends fabric.Resource {
 }
 
 export interface PatchGroupArgs {
-    readonly baselineId: fabric.PropertyValue<string>;
-    readonly patchGroup: fabric.PropertyValue<string>;
+    readonly baselineId: fabric.MaybeComputed<string>;
+    readonly patchGroup: fabric.MaybeComputed<string>;
 }
 

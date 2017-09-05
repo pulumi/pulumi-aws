@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class GroupPolicy extends fabric.Resource {
-    public readonly group: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
+    public readonly group: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
 
     constructor(urnName: string, args: GroupPolicyArgs) {
         if (args.group === undefined) {
@@ -26,9 +26,9 @@ export class GroupPolicy extends fabric.Resource {
 }
 
 export interface GroupPolicyArgs {
-    readonly group: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly policy: fabric.PropertyValue<string>;
+    readonly group: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly policy: fabric.MaybeComputed<string>;
 }
 

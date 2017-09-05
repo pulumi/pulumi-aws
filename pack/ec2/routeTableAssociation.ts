@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RouteTableAssociation extends fabric.Resource {
-    public readonly routeTableId: fabric.Property<string>;
-    public readonly subnetId: fabric.Property<string>;
+    public readonly routeTableId: fabric.Computed<string>;
+    public readonly subnetId: fabric.Computed<string>;
 
     constructor(urnName: string, args: RouteTableAssociationArgs) {
         if (args.routeTableId === undefined) {
@@ -22,7 +22,7 @@ export class RouteTableAssociation extends fabric.Resource {
 }
 
 export interface RouteTableAssociationArgs {
-    readonly routeTableId: fabric.PropertyValue<string>;
-    readonly subnetId: fabric.PropertyValue<string>;
+    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly subnetId: fabric.MaybeComputed<string>;
 }
 

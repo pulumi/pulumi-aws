@@ -4,33 +4,33 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Cluster extends fabric.Resource {
-    public readonly applyImmediately: fabric.Property<boolean>;
-    public readonly availabilityZones: fabric.Property<string[]>;
-    public readonly backupRetentionPeriod?: fabric.Property<number>;
-    public readonly clusterIdentifier: fabric.Property<string>;
-    public readonly clusterIdentifierPrefix: fabric.Property<string>;
-    public readonly clusterMembers: fabric.Property<string[]>;
-    public /*out*/ readonly clusterResourceId: fabric.Property<string>;
-    public readonly databaseName: fabric.Property<string>;
-    public readonly dbClusterParameterGroupName: fabric.Property<string>;
-    public readonly dbSubnetGroupName: fabric.Property<string>;
-    public /*out*/ readonly endpoint: fabric.Property<string>;
-    public /*out*/ readonly engine: fabric.Property<string>;
-    public readonly finalSnapshotIdentifier?: fabric.Property<string>;
-    public readonly iamDatabaseAuthenticationEnabled?: fabric.Property<boolean>;
-    public readonly kmsKeyId: fabric.Property<string>;
-    public readonly masterPassword?: fabric.Property<string>;
-    public readonly masterUsername: fabric.Property<string>;
-    public readonly port: fabric.Property<number>;
-    public readonly preferredBackupWindow: fabric.Property<string>;
-    public readonly preferredMaintenanceWindow: fabric.Property<string>;
-    public /*out*/ readonly readerEndpoint: fabric.Property<string>;
-    public readonly replicationSourceIdentifier?: fabric.Property<string>;
-    public readonly skipFinalSnapshot?: fabric.Property<boolean>;
-    public readonly snapshotIdentifier?: fabric.Property<string>;
-    public readonly storageEncrypted?: fabric.Property<boolean>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcSecurityGroupIds: fabric.Property<string[]>;
+    public readonly applyImmediately: fabric.Computed<boolean>;
+    public readonly availabilityZones: fabric.Computed<string[]>;
+    public readonly backupRetentionPeriod?: fabric.Computed<number>;
+    public readonly clusterIdentifier: fabric.Computed<string>;
+    public readonly clusterIdentifierPrefix: fabric.Computed<string>;
+    public readonly clusterMembers: fabric.Computed<string[]>;
+    public /*out*/ readonly clusterResourceId: fabric.Computed<string>;
+    public readonly databaseName: fabric.Computed<string>;
+    public readonly dbClusterParameterGroupName: fabric.Computed<string>;
+    public readonly dbSubnetGroupName: fabric.Computed<string>;
+    public /*out*/ readonly endpoint: fabric.Computed<string>;
+    public /*out*/ readonly engine: fabric.Computed<string>;
+    public readonly finalSnapshotIdentifier?: fabric.Computed<string>;
+    public readonly iamDatabaseAuthenticationEnabled?: fabric.Computed<boolean>;
+    public readonly kmsKeyId: fabric.Computed<string>;
+    public readonly masterPassword?: fabric.Computed<string>;
+    public readonly masterUsername: fabric.Computed<string>;
+    public readonly port: fabric.Computed<number>;
+    public readonly preferredBackupWindow: fabric.Computed<string>;
+    public readonly preferredMaintenanceWindow: fabric.Computed<string>;
+    public /*out*/ readonly readerEndpoint: fabric.Computed<string>;
+    public readonly replicationSourceIdentifier?: fabric.Computed<string>;
+    public readonly skipFinalSnapshot?: fabric.Computed<boolean>;
+    public readonly snapshotIdentifier?: fabric.Computed<string>;
+    public readonly storageEncrypted?: fabric.Computed<boolean>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
     constructor(urnName: string, args: ClusterArgs) {
         super("aws:rds/cluster:Cluster", urnName, {
@@ -66,28 +66,28 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly applyImmediately?: fabric.PropertyValue<boolean>;
-    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly backupRetentionPeriod?: fabric.PropertyValue<number>;
-    readonly clusterIdentifier?: fabric.PropertyValue<string>;
-    readonly clusterIdentifierPrefix?: fabric.PropertyValue<string>;
-    readonly clusterMembers?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly databaseName?: fabric.PropertyValue<string>;
-    readonly dbClusterParameterGroupName?: fabric.PropertyValue<string>;
-    readonly dbSubnetGroupName?: fabric.PropertyValue<string>;
-    readonly finalSnapshotIdentifier?: fabric.PropertyValue<string>;
-    readonly iamDatabaseAuthenticationEnabled?: fabric.PropertyValue<boolean>;
-    readonly kmsKeyId?: fabric.PropertyValue<string>;
-    readonly masterPassword?: fabric.PropertyValue<string>;
-    readonly masterUsername?: fabric.PropertyValue<string>;
-    readonly port?: fabric.PropertyValue<number>;
-    readonly preferredBackupWindow?: fabric.PropertyValue<string>;
-    readonly preferredMaintenanceWindow?: fabric.PropertyValue<string>;
-    readonly replicationSourceIdentifier?: fabric.PropertyValue<string>;
-    readonly skipFinalSnapshot?: fabric.PropertyValue<boolean>;
-    readonly snapshotIdentifier?: fabric.PropertyValue<string>;
-    readonly storageEncrypted?: fabric.PropertyValue<boolean>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly backupRetentionPeriod?: fabric.MaybeComputed<number>;
+    readonly clusterIdentifier?: fabric.MaybeComputed<string>;
+    readonly clusterIdentifierPrefix?: fabric.MaybeComputed<string>;
+    readonly clusterMembers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly databaseName?: fabric.MaybeComputed<string>;
+    readonly dbClusterParameterGroupName?: fabric.MaybeComputed<string>;
+    readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
+    readonly finalSnapshotIdentifier?: fabric.MaybeComputed<string>;
+    readonly iamDatabaseAuthenticationEnabled?: fabric.MaybeComputed<boolean>;
+    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly masterPassword?: fabric.MaybeComputed<string>;
+    readonly masterUsername?: fabric.MaybeComputed<string>;
+    readonly port?: fabric.MaybeComputed<number>;
+    readonly preferredBackupWindow?: fabric.MaybeComputed<string>;
+    readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly replicationSourceIdentifier?: fabric.MaybeComputed<string>;
+    readonly skipFinalSnapshot?: fabric.MaybeComputed<boolean>;
+    readonly snapshotIdentifier?: fabric.MaybeComputed<string>;
+    readonly storageEncrypted?: fabric.MaybeComputed<boolean>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

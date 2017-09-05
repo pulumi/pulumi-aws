@@ -6,11 +6,11 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 
 export class Topic extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<ARN>;
-    public readonly deliveryPolicy?: fabric.Property<string>;
-    public readonly displayName?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<ARN>;
+    public readonly deliveryPolicy?: fabric.Computed<string>;
+    public readonly displayName?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
 
     constructor(urnName: string, args: TopicArgs) {
         super("aws:sns/topic:Topic", urnName, {
@@ -24,9 +24,9 @@ export class Topic extends fabric.Resource {
 }
 
 export interface TopicArgs {
-    readonly deliveryPolicy?: fabric.PropertyValue<string>;
-    readonly displayName?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly policy?: fabric.PropertyValue<string>;
+    readonly deliveryPolicy?: fabric.MaybeComputed<string>;
+    readonly displayName?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.MaybeComputed<string>;
 }
 

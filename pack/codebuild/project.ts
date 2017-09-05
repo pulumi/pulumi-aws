@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Project extends fabric.Resource {
-    public readonly artifacts: fabric.Property<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[]>;
-    public readonly buildTimeout?: fabric.Property<number>;
-    public readonly description: fabric.Property<string>;
-    public readonly encryptionKey: fabric.Property<string>;
-    public readonly environment: fabric.Property<{ computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly serviceRole: fabric.Property<string>;
-    public readonly source: fabric.Property<{ auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly artifacts: fabric.Computed<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[]>;
+    public readonly buildTimeout?: fabric.Computed<number>;
+    public readonly description: fabric.Computed<string>;
+    public readonly encryptionKey: fabric.Computed<string>;
+    public readonly environment: fabric.Computed<{ computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly serviceRole: fabric.Computed<string>;
+    public readonly source: fabric.Computed<{ auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: ProjectArgs) {
         if (args.artifacts === undefined) {
@@ -39,14 +39,14 @@ export class Project extends fabric.Resource {
 }
 
 export interface ProjectArgs {
-    readonly artifacts: fabric.PropertyValue<{ location?: fabric.PropertyValue<string>, name?: fabric.PropertyValue<string>, namespaceType?: fabric.PropertyValue<string>, packaging?: fabric.PropertyValue<string>, path?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly buildTimeout?: fabric.PropertyValue<number>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly encryptionKey?: fabric.PropertyValue<string>;
-    readonly environment: fabric.PropertyValue<{ computeType: fabric.PropertyValue<string>, environmentVariable?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[], image: fabric.PropertyValue<string>, privilegedMode?: fabric.PropertyValue<boolean>, type: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly serviceRole?: fabric.PropertyValue<string>;
-    readonly source: fabric.PropertyValue<{ auth?: fabric.PropertyValue<{ resource?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], buildspec?: fabric.PropertyValue<string>, location?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly artifacts: fabric.MaybeComputed<{ location?: fabric.MaybeComputed<string>, name?: fabric.MaybeComputed<string>, namespaceType?: fabric.MaybeComputed<string>, packaging?: fabric.MaybeComputed<string>, path?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly buildTimeout?: fabric.MaybeComputed<number>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly encryptionKey?: fabric.MaybeComputed<string>;
+    readonly environment: fabric.MaybeComputed<{ computeType: fabric.MaybeComputed<string>, environmentVariable?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], image: fabric.MaybeComputed<string>, privilegedMode?: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly serviceRole?: fabric.MaybeComputed<string>;
+    readonly source: fabric.MaybeComputed<{ auth?: fabric.MaybeComputed<{ resource?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], buildspec?: fabric.MaybeComputed<string>, location?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

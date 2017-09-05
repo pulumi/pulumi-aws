@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SqlInjectionMatchSet extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly sqlInjectionMatchTuples?: fabric.Property<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly sqlInjectionMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
     constructor(urnName: string, args: SqlInjectionMatchSetArgs) {
         super("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", urnName, {
@@ -16,7 +16,7 @@ export class SqlInjectionMatchSet extends fabric.Resource {
 }
 
 export interface SqlInjectionMatchSetArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly sqlInjectionMatchTuples?: fabric.PropertyValue<{ fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], textTransformation: fabric.PropertyValue<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly sqlInjectionMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], textTransformation: fabric.MaybeComputed<string> }>[];
 }
 

@@ -6,15 +6,15 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class IntegrationResponse extends fabric.Resource {
-    public readonly contentHandling?: fabric.Property<string>;
-    public readonly httpMethod: fabric.Property<string>;
-    public readonly resourceId: fabric.Property<string>;
-    public readonly responseParameters?: fabric.Property<{[key: string]: string}>;
-    public readonly responseParametersInJson?: fabric.Property<string>;
-    public readonly responseTemplates?: fabric.Property<{[key: string]: string}>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly selectionPattern?: fabric.Property<string>;
-    public readonly statusCode: fabric.Property<string>;
+    public readonly contentHandling?: fabric.Computed<string>;
+    public readonly httpMethod: fabric.Computed<string>;
+    public readonly resourceId: fabric.Computed<string>;
+    public readonly responseParameters?: fabric.Computed<{[key: string]: string}>;
+    public readonly responseParametersInJson?: fabric.Computed<string>;
+    public readonly responseTemplates?: fabric.Computed<{[key: string]: string}>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly selectionPattern?: fabric.Computed<string>;
+    public readonly statusCode: fabric.Computed<string>;
 
     constructor(urnName: string, args: IntegrationResponseArgs) {
         if (args.httpMethod === undefined) {
@@ -44,14 +44,14 @@ export class IntegrationResponse extends fabric.Resource {
 }
 
 export interface IntegrationResponseArgs {
-    readonly contentHandling?: fabric.PropertyValue<string>;
-    readonly httpMethod: fabric.PropertyValue<string>;
-    readonly resourceId: fabric.PropertyValue<string>;
-    readonly responseParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
-    readonly responseParametersInJson?: fabric.PropertyValue<string>;
-    readonly responseTemplates?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly selectionPattern?: fabric.PropertyValue<string>;
-    readonly statusCode: fabric.PropertyValue<string>;
+    readonly contentHandling?: fabric.MaybeComputed<string>;
+    readonly httpMethod: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseParametersInJson?: fabric.MaybeComputed<string>;
+    readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly selectionPattern?: fabric.MaybeComputed<string>;
+    readonly statusCode: fabric.MaybeComputed<string>;
 }
 

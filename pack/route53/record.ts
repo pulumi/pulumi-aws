@@ -4,19 +4,19 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Record extends fabric.Resource {
-    public readonly alias?: fabric.Property<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[]>;
-    public readonly failoverRoutingPolicy?: fabric.Property<{ type: string }[]>;
-    public /*out*/ readonly fqdn: fabric.Property<string>;
-    public readonly geolocationRoutingPolicy?: fabric.Property<{ continent?: string, country?: string, subdivision?: string }[]>;
-    public readonly healthCheckId?: fabric.Property<string>;
-    public readonly latencyRoutingPolicy?: fabric.Property<{ region: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly records?: fabric.Property<string[]>;
-    public readonly setIdentifier?: fabric.Property<string>;
-    public readonly ttl?: fabric.Property<number>;
-    public readonly type: fabric.Property<string>;
-    public readonly weightedRoutingPolicy?: fabric.Property<{ weight: number }[]>;
-    public readonly zoneId: fabric.Property<string>;
+    public readonly alias?: fabric.Computed<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[]>;
+    public readonly failoverRoutingPolicy?: fabric.Computed<{ type: string }[]>;
+    public /*out*/ readonly fqdn: fabric.Computed<string>;
+    public readonly geolocationRoutingPolicy?: fabric.Computed<{ continent?: string, country?: string, subdivision?: string }[]>;
+    public readonly healthCheckId?: fabric.Computed<string>;
+    public readonly latencyRoutingPolicy?: fabric.Computed<{ region: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly records?: fabric.Computed<string[]>;
+    public readonly setIdentifier?: fabric.Computed<string>;
+    public readonly ttl?: fabric.Computed<number>;
+    public readonly type: fabric.Computed<string>;
+    public readonly weightedRoutingPolicy?: fabric.Computed<{ weight: number }[]>;
+    public readonly zoneId: fabric.Computed<string>;
 
     constructor(urnName: string, args: RecordArgs) {
         if (args.type === undefined) {
@@ -44,17 +44,17 @@ export class Record extends fabric.Resource {
 }
 
 export interface RecordArgs {
-    readonly alias?: fabric.PropertyValue<{ evaluateTargetHealth: fabric.PropertyValue<boolean>, name: fabric.PropertyValue<string>, zoneId: fabric.PropertyValue<string> }>[];
-    readonly failoverRoutingPolicy?: fabric.PropertyValue<{ type: fabric.PropertyValue<string> }>[];
-    readonly geolocationRoutingPolicy?: fabric.PropertyValue<{ continent?: fabric.PropertyValue<string>, country?: fabric.PropertyValue<string>, subdivision?: fabric.PropertyValue<string> }>[];
-    readonly healthCheckId?: fabric.PropertyValue<string>;
-    readonly latencyRoutingPolicy?: fabric.PropertyValue<{ region: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly records?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly setIdentifier?: fabric.PropertyValue<string>;
-    readonly ttl?: fabric.PropertyValue<number>;
-    readonly type: fabric.PropertyValue<string>;
-    readonly weightedRoutingPolicy?: fabric.PropertyValue<{ weight: fabric.PropertyValue<number> }>[];
-    readonly zoneId: fabric.PropertyValue<string>;
+    readonly alias?: fabric.MaybeComputed<{ evaluateTargetHealth: fabric.MaybeComputed<boolean>, name: fabric.MaybeComputed<string>, zoneId: fabric.MaybeComputed<string> }>[];
+    readonly failoverRoutingPolicy?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
+    readonly geolocationRoutingPolicy?: fabric.MaybeComputed<{ continent?: fabric.MaybeComputed<string>, country?: fabric.MaybeComputed<string>, subdivision?: fabric.MaybeComputed<string> }>[];
+    readonly healthCheckId?: fabric.MaybeComputed<string>;
+    readonly latencyRoutingPolicy?: fabric.MaybeComputed<{ region: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly records?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly setIdentifier?: fabric.MaybeComputed<string>;
+    readonly ttl?: fabric.MaybeComputed<number>;
+    readonly type: fabric.MaybeComputed<string>;
+    readonly weightedRoutingPolicy?: fabric.MaybeComputed<{ weight: fabric.MaybeComputed<number> }>[];
+    readonly zoneId: fabric.MaybeComputed<string>;
 }
 

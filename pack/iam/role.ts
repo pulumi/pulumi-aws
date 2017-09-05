@@ -6,15 +6,15 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 
 export class Role extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly assumeRolePolicy: fabric.Property<string>;
-    public /*out*/ readonly createDate: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly forceDetachPolicies?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly path?: fabric.Property<string>;
-    public /*out*/ readonly uniqueId: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly assumeRolePolicy: fabric.Computed<string>;
+    public /*out*/ readonly createDate: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly forceDetachPolicies?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly path?: fabric.Computed<string>;
+    public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
     constructor(urnName: string, args: RoleArgs) {
         if (args.assumeRolePolicy === undefined) {
@@ -35,11 +35,11 @@ export class Role extends fabric.Resource {
 }
 
 export interface RoleArgs {
-    readonly assumeRolePolicy: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly forceDetachPolicies?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly path?: fabric.PropertyValue<string>;
+    readonly assumeRolePolicy: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly forceDetachPolicies?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.MaybeComputed<string>;
 }
 

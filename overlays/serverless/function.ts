@@ -1,10 +1,10 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as crypto from "crypto";
-import {asset, runtime} from "@pulumi/pulumi-fabric";
-import {Role, RolePolicyAttachment} from "../iam";
+import * as fabric from "@pulumi/pulumi-fabric";
+import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
-import {ARN} from "../arn";
+import { ARN } from "../arn";
 
 // Context is the shape of the context object passed to a Function callback.
 export interface Context {
@@ -52,12 +52,12 @@ class FuncsForClosure {
     public funcs: { [hash: string]: FuncEnv };
     public root: string;
 
-    constructor(closure: runtime.Closure) {
+    constructor(closure: fabric.runtime.Closure) {
         this.funcs = {};
         this.root = this.createFuncForClosure(closure);
     }
 
-    private createFuncForClosure(closure: runtime.Closure): string {
+    private createFuncForClosure(closure: fabric.runtime.Closure): string {
         let shasum: crypto.Hash = crypto.createHash("sha1");
         shasum.update(closure.code);
         let hash: string = "__" + shasum.digest("hex");
@@ -71,7 +71,7 @@ class FuncsForClosure {
         return hash;
     }
 
-    private envFromEnvObj(env: runtime.EnvObj): {[key: string]: string} {
+    private envFromEnvObj(env: fabric.runtime.EnvObj): {[key: string]: string} {
         let envObj: {[key: string]: string} = {};
         let keys = Object.keys(env);
         for (let i = 0; i < keys.length; i++) {
@@ -85,15 +85,15 @@ class FuncsForClosure {
         return envObj;
     }
 
-    private envFromEnvArr(arr: runtime.EnvEntry[]): string[] {
-        let envArr = [];
+    private envFromEnvArr(arr: fabric.runtime.EnvEntry[]): (string | undefined)[] {
+        let envArr: (string | undefined)[] = [];
         for (let i = 0; i < (<any>arr).length; i++) {
             envArr[i] = this.envEntryToString(arr[i]);
         }
         return envArr;
     }
 
-    private envEntryToString(envEntry: runtime.EnvEntry): string | undefined {
+    private envEntryToString(envEntry: fabric.runtime.EnvEntry): string | undefined {
         if (envEntry.json !== undefined) {
             return JSON.stringify(envEntry.json);
         } else if (envEntry.closure !== undefined) {
@@ -141,7 +141,7 @@ function envObjToString(envObj: { [key: string]: string; }): string {
     return ret;
 }
 
-function envArrToString(envArr: string[]): string {
+function envArrToString(envArr: (string | undefined)[]): string {
     let ret = "[";
     let isStart = true;
     for (let i = 0; i < (<any>envArr).length; i++) {
@@ -161,7 +161,7 @@ function envArrToString(envArr: string[]): string {
 function createJavaScriptLambda(
     functionName: string,
     role: Role,
-    closure: runtime.Closure,
+    closure: fabric.runtime.Closure,
     opts: FunctionOptions): lambda.Function {
 
     let funcsForClosure = new FuncsForClosure(closure);
@@ -232,15 +232,15 @@ function __generator(thisArg, body) {
         timeout = opts.timeout;
     }
 
-    let deadLetterConfig: { targetArn: string; }[] | undefined;
+    let deadLetterConfig: { targetArn: fabric.MaybeComputed<string>; }[] | undefined;
     if (opts.deadLetterConfig !== undefined) {
         deadLetterConfig = [ opts.deadLetterConfig ];
     }
 
     return new lambda.Function(functionName, {
-        code: new asset.AssetArchive({
-            "node_modules": new asset.FileAsset("node_modules"),
-            "index.js": new asset.StringAsset(str),
+        code: new fabric.asset.AssetArchive({
+            "node_modules": new fabric.asset.FileAsset("node_modules"),
+            "index.js": new fabric.asset.StringAsset(str),
         }),
         handler: "index.handler",
         runtime: lambda.NodeJS6d10Runtime,
@@ -255,7 +255,7 @@ export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
-    deadLetterConfig?: { targetArn: string; };
+    deadLetterConfig?: { targetArn: fabric.MaybeComputed<string>; };
 }
 
 // Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
@@ -272,7 +272,7 @@ export class Function {
         if (func === undefined) {
             throw new Error("Missing required function callback");
         }
-        let closure = runtime.serializeClosure(func);
+        let closure = fabric.runtime.serializeClosure(func);
         if (closure === undefined) {
             throw new Error("Failed to serialize function.");
         }

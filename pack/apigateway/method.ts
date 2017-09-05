@@ -6,16 +6,16 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class Method extends fabric.Resource {
-    public readonly apiKeyRequired?: fabric.Property<boolean>;
-    public readonly authorization: fabric.Property<string>;
-    public readonly authorizerId?: fabric.Property<string>;
-    public readonly httpMethod: fabric.Property<string>;
-    public readonly requestModels?: fabric.Property<{[key: string]: string}>;
-    public readonly requestParameters?: fabric.Property<{[key: string]: boolean}>;
-    public readonly requestParametersInJson?: fabric.Property<string>;
-    public readonly requestValidatorId?: fabric.Property<string>;
-    public readonly resourceId: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
+    public readonly apiKeyRequired?: fabric.Computed<boolean>;
+    public readonly authorization: fabric.Computed<string>;
+    public readonly authorizerId?: fabric.Computed<string>;
+    public readonly httpMethod: fabric.Computed<string>;
+    public readonly requestModels?: fabric.Computed<{[key: string]: string}>;
+    public readonly requestParameters?: fabric.Computed<{[key: string]: boolean}>;
+    public readonly requestParametersInJson?: fabric.Computed<string>;
+    public readonly requestValidatorId?: fabric.Computed<string>;
+    public readonly resourceId: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
 
     constructor(urnName: string, args: MethodArgs) {
         if (args.authorization === undefined) {
@@ -46,15 +46,15 @@ export class Method extends fabric.Resource {
 }
 
 export interface MethodArgs {
-    readonly apiKeyRequired?: fabric.PropertyValue<boolean>;
-    readonly authorization: fabric.PropertyValue<string>;
-    readonly authorizerId?: fabric.PropertyValue<string>;
-    readonly httpMethod: fabric.PropertyValue<string>;
-    readonly requestModels?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
-    readonly requestParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<boolean>}>;
-    readonly requestParametersInJson?: fabric.PropertyValue<string>;
-    readonly requestValidatorId?: fabric.PropertyValue<string>;
-    readonly resourceId: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
+    readonly apiKeyRequired?: fabric.MaybeComputed<boolean>;
+    readonly authorization: fabric.MaybeComputed<string>;
+    readonly authorizerId?: fabric.MaybeComputed<string>;
+    readonly httpMethod: fabric.MaybeComputed<string>;
+    readonly requestModels?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly requestParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<boolean>}>;
+    readonly requestParametersInJson?: fabric.MaybeComputed<string>;
+    readonly requestValidatorId?: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
 }
 

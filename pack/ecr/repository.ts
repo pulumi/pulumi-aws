@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Repository extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly registryId: fabric.Property<string>;
-    public /*out*/ readonly repositoryUrl: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly registryId: fabric.Computed<string>;
+    public /*out*/ readonly repositoryUrl: fabric.Computed<string>;
 
     constructor(urnName: string, args: RepositoryArgs) {
         super("aws:ecr/repository:Repository", urnName, {
@@ -20,6 +20,6 @@ export class Repository extends fabric.Resource {
 }
 
 export interface RepositoryArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

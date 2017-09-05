@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ReceiptFilter extends fabric.Resource {
-    public readonly cidr: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
+    public readonly cidr: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
 
     constructor(urnName: string, args: ReceiptFilterArgs) {
         if (args.cidr === undefined) {
@@ -24,8 +24,8 @@ export class ReceiptFilter extends fabric.Resource {
 }
 
 export interface ReceiptFilterArgs {
-    readonly cidr: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly policy: fabric.PropertyValue<string>;
+    readonly cidr: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly policy: fabric.MaybeComputed<string>;
 }
 

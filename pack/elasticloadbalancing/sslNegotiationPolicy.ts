@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SslNegotiationPolicy extends fabric.Resource {
-    public readonly attribute?: fabric.Property<{ name: string, value: string }[]>;
-    public readonly lbPort: fabric.Property<number>;
-    public readonly loadBalancer: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public readonly attribute?: fabric.Computed<{ name: string, value: string }[]>;
+    public readonly lbPort: fabric.Computed<number>;
+    public readonly loadBalancer: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: SslNegotiationPolicyArgs) {
         if (args.lbPort === undefined) {
@@ -26,9 +26,9 @@ export class SslNegotiationPolicy extends fabric.Resource {
 }
 
 export interface SslNegotiationPolicyArgs {
-    readonly attribute?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
-    readonly lbPort: fabric.PropertyValue<number>;
-    readonly loadBalancer: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly attribute?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly lbPort: fabric.MaybeComputed<number>;
+    readonly loadBalancer: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

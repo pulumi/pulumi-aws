@@ -4,16 +4,16 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AccountPasswordPolicy extends fabric.Resource {
-    public readonly allowUsersToChangePassword?: fabric.Property<boolean>;
-    public /*out*/ readonly expirePasswords: fabric.Property<boolean>;
-    public readonly hardExpiry: fabric.Property<boolean>;
-    public readonly maxPasswordAge: fabric.Property<number>;
-    public readonly minimumPasswordLength?: fabric.Property<number>;
-    public readonly passwordReusePrevention: fabric.Property<number>;
-    public readonly requireLowercaseCharacters: fabric.Property<boolean>;
-    public readonly requireNumbers: fabric.Property<boolean>;
-    public readonly requireSymbols: fabric.Property<boolean>;
-    public readonly requireUppercaseCharacters: fabric.Property<boolean>;
+    public readonly allowUsersToChangePassword?: fabric.Computed<boolean>;
+    public /*out*/ readonly expirePasswords: fabric.Computed<boolean>;
+    public readonly hardExpiry: fabric.Computed<boolean>;
+    public readonly maxPasswordAge: fabric.Computed<number>;
+    public readonly minimumPasswordLength?: fabric.Computed<number>;
+    public readonly passwordReusePrevention: fabric.Computed<number>;
+    public readonly requireLowercaseCharacters: fabric.Computed<boolean>;
+    public readonly requireNumbers: fabric.Computed<boolean>;
+    public readonly requireSymbols: fabric.Computed<boolean>;
+    public readonly requireUppercaseCharacters: fabric.Computed<boolean>;
 
     constructor(urnName: string, args: AccountPasswordPolicyArgs) {
         super("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", urnName, {
@@ -32,14 +32,14 @@ export class AccountPasswordPolicy extends fabric.Resource {
 }
 
 export interface AccountPasswordPolicyArgs {
-    readonly allowUsersToChangePassword?: fabric.PropertyValue<boolean>;
-    readonly hardExpiry?: fabric.PropertyValue<boolean>;
-    readonly maxPasswordAge?: fabric.PropertyValue<number>;
-    readonly minimumPasswordLength?: fabric.PropertyValue<number>;
-    readonly passwordReusePrevention?: fabric.PropertyValue<number>;
-    readonly requireLowercaseCharacters?: fabric.PropertyValue<boolean>;
-    readonly requireNumbers?: fabric.PropertyValue<boolean>;
-    readonly requireSymbols?: fabric.PropertyValue<boolean>;
-    readonly requireUppercaseCharacters?: fabric.PropertyValue<boolean>;
+    readonly allowUsersToChangePassword?: fabric.MaybeComputed<boolean>;
+    readonly hardExpiry?: fabric.MaybeComputed<boolean>;
+    readonly maxPasswordAge?: fabric.MaybeComputed<number>;
+    readonly minimumPasswordLength?: fabric.MaybeComputed<number>;
+    readonly passwordReusePrevention?: fabric.MaybeComputed<number>;
+    readonly requireLowercaseCharacters?: fabric.MaybeComputed<boolean>;
+    readonly requireNumbers?: fabric.MaybeComputed<boolean>;
+    readonly requireSymbols?: fabric.MaybeComputed<boolean>;
+    readonly requireUppercaseCharacters?: fabric.MaybeComputed<boolean>;
 }
 

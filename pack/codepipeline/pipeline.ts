@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Pipeline extends fabric.Resource {
-    public readonly artifactStore: fabric.Property<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly roleArn: fabric.Property<string>;
-    public readonly stage: fabric.Property<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
+    public readonly artifactStore: fabric.Computed<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly roleArn: fabric.Computed<string>;
+    public readonly stage: fabric.Computed<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
     constructor(urnName: string, args: PipelineArgs) {
         if (args.artifactStore === undefined) {
@@ -29,9 +29,9 @@ export class Pipeline extends fabric.Resource {
 }
 
 export interface PipelineArgs {
-    readonly artifactStore: fabric.PropertyValue<{ encryptionKey?: fabric.PropertyValue<{ id: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], location: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly roleArn: fabric.PropertyValue<string>;
-    readonly stage: fabric.PropertyValue<{ action: fabric.PropertyValue<{ category: fabric.PropertyValue<string>, configuration?: fabric.PropertyValue<{[key: string]: any}>, inputArtifacts?: fabric.PropertyValue<fabric.PropertyValue<string>>[], name: fabric.PropertyValue<string>, outputArtifacts?: fabric.PropertyValue<fabric.PropertyValue<string>>[], owner: fabric.PropertyValue<string>, provider: fabric.PropertyValue<string>, roleArn?: fabric.PropertyValue<string>, runOrder?: fabric.PropertyValue<number>, version: fabric.PropertyValue<string> }>[], name: fabric.PropertyValue<string> }>[];
+    readonly artifactStore: fabric.MaybeComputed<{ encryptionKey?: fabric.MaybeComputed<{ id: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], location: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly stage: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ category: fabric.MaybeComputed<string>, configuration?: fabric.MaybeComputed<{[key: string]: any}>, inputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string>, outputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], owner: fabric.MaybeComputed<string>, provider: fabric.MaybeComputed<string>, roleArn?: fabric.MaybeComputed<string>, runOrder?: fabric.MaybeComputed<number>, version: fabric.MaybeComputed<string> }>[], name: fabric.MaybeComputed<string> }>[];
 }
 

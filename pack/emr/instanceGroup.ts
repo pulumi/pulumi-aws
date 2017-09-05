@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class InstanceGroup extends fabric.Resource {
-    public readonly clusterId: fabric.Property<string>;
-    public readonly ebsConfig?: fabric.Property<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
-    public readonly ebsOptimized?: fabric.Property<boolean>;
-    public readonly instanceCount?: fabric.Property<number>;
-    public readonly instanceType: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly runningInstanceCount: fabric.Property<number>;
-    public /*out*/ readonly status: fabric.Property<string>;
+    public readonly clusterId: fabric.Computed<string>;
+    public readonly ebsConfig?: fabric.Computed<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
+    public readonly ebsOptimized?: fabric.Computed<boolean>;
+    public readonly instanceCount?: fabric.Computed<number>;
+    public readonly instanceType: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly runningInstanceCount: fabric.Computed<number>;
+    public /*out*/ readonly status: fabric.Computed<string>;
 
     constructor(urnName: string, args: InstanceGroupArgs) {
         if (args.clusterId === undefined) {
@@ -34,11 +34,11 @@ export class InstanceGroup extends fabric.Resource {
 }
 
 export interface InstanceGroupArgs {
-    readonly clusterId: fabric.PropertyValue<string>;
-    readonly ebsConfig?: fabric.PropertyValue<{ iops?: fabric.PropertyValue<number>, size: fabric.PropertyValue<number>, type: fabric.PropertyValue<string>, volumesPerInstance?: fabric.PropertyValue<number> }>[];
-    readonly ebsOptimized?: fabric.PropertyValue<boolean>;
-    readonly instanceCount?: fabric.PropertyValue<number>;
-    readonly instanceType: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly clusterId: fabric.MaybeComputed<string>;
+    readonly ebsConfig?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, size: fabric.MaybeComputed<number>, type: fabric.MaybeComputed<string>, volumesPerInstance?: fabric.MaybeComputed<number> }>[];
+    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
+    readonly instanceCount?: fabric.MaybeComputed<number>;
+    readonly instanceType: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

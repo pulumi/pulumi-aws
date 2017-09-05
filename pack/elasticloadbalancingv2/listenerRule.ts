@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ListenerRule extends fabric.Resource {
-    public readonly action: fabric.Property<{ targetGroupArn: string, type: string }[]>;
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly condition: fabric.Property<{ field?: string, values?: string[] }[]>;
-    public readonly listenerArn: fabric.Property<string>;
-    public readonly priority: fabric.Property<number>;
+    public readonly action: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly condition: fabric.Computed<{ field?: string, values?: string[] }[]>;
+    public readonly listenerArn: fabric.Computed<string>;
+    public readonly priority: fabric.Computed<number>;
 
     constructor(urnName: string, args: ListenerRuleArgs) {
         if (args.action === undefined) {
@@ -34,9 +34,9 @@ export class ListenerRule extends fabric.Resource {
 }
 
 export interface ListenerRuleArgs {
-    readonly action: fabric.PropertyValue<{ targetGroupArn: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[];
-    readonly condition: fabric.PropertyValue<{ field?: fabric.PropertyValue<string>, values?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly listenerArn: fabric.PropertyValue<string>;
-    readonly priority: fabric.PropertyValue<number>;
+    readonly action: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly condition: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, values?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly listenerArn: fabric.MaybeComputed<string>;
+    readonly priority: fabric.MaybeComputed<number>;
 }
 

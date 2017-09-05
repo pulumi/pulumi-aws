@@ -4,7 +4,7 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ConfgurationSet extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ConfgurationSetArgs) {
         super("aws:ses/confgurationSet:ConfgurationSet", urnName, {
@@ -14,6 +14,6 @@ export class ConfgurationSet extends fabric.Resource {
 }
 
 export interface ConfgurationSetArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class StateMachine extends fabric.Resource {
-    public /*out*/ readonly creationDate: fabric.Property<string>;
-    public readonly definition: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly roleArn: fabric.Property<string>;
-    public /*out*/ readonly status: fabric.Property<string>;
+    public /*out*/ readonly creationDate: fabric.Computed<string>;
+    public readonly definition: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly roleArn: fabric.Computed<string>;
+    public /*out*/ readonly status: fabric.Computed<string>;
 
     constructor(urnName: string, args: StateMachineArgs) {
         if (args.definition === undefined) {
@@ -28,8 +28,8 @@ export class StateMachine extends fabric.Resource {
 }
 
 export interface StateMachineArgs {
-    readonly definition: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly roleArn: fabric.PropertyValue<string>;
+    readonly definition: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly roleArn: fabric.MaybeComputed<string>;
 }
 

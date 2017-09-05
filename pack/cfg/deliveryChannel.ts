@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DeliveryChannel extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly s3BucketName: fabric.Property<string>;
-    public readonly s3KeyPrefix?: fabric.Property<string>;
-    public readonly snapshotDeliveryProperties?: fabric.Property<{ deliveryFrequency?: string }[]>;
-    public readonly snsTopicArn?: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly s3BucketName: fabric.Computed<string>;
+    public readonly s3KeyPrefix?: fabric.Computed<string>;
+    public readonly snapshotDeliveryProperties?: fabric.Computed<{ deliveryFrequency?: string }[]>;
+    public readonly snsTopicArn?: fabric.Computed<string>;
 
     constructor(urnName: string, args: DeliveryChannelArgs) {
         if (args.s3BucketName === undefined) {
@@ -25,10 +25,10 @@ export class DeliveryChannel extends fabric.Resource {
 }
 
 export interface DeliveryChannelArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly s3BucketName: fabric.PropertyValue<string>;
-    readonly s3KeyPrefix?: fabric.PropertyValue<string>;
-    readonly snapshotDeliveryProperties?: fabric.PropertyValue<{ deliveryFrequency?: fabric.PropertyValue<string> }>[];
-    readonly snsTopicArn?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly s3BucketName: fabric.MaybeComputed<string>;
+    readonly s3KeyPrefix?: fabric.MaybeComputed<string>;
+    readonly snapshotDeliveryProperties?: fabric.MaybeComputed<{ deliveryFrequency?: fabric.MaybeComputed<string> }>[];
+    readonly snsTopicArn?: fabric.MaybeComputed<string>;
 }
 

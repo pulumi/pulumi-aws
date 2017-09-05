@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class IdentityPool extends fabric.Resource {
-    public readonly allowUnauthenticatedIdentities?: fabric.Property<boolean>;
-    public readonly cognitoIdentityProviders?: fabric.Property<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[]>;
-    public readonly developerProviderName?: fabric.Property<string>;
-    public readonly identityPoolName: fabric.Property<string>;
-    public readonly openidConnectProviderArns?: fabric.Property<string[]>;
-    public readonly samlProviderArns?: fabric.Property<string[]>;
-    public readonly supportedLoginProviders?: fabric.Property<{[key: string]: string}>;
+    public readonly allowUnauthenticatedIdentities?: fabric.Computed<boolean>;
+    public readonly cognitoIdentityProviders?: fabric.Computed<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[]>;
+    public readonly developerProviderName?: fabric.Computed<string>;
+    public readonly identityPoolName: fabric.Computed<string>;
+    public readonly openidConnectProviderArns?: fabric.Computed<string[]>;
+    public readonly samlProviderArns?: fabric.Computed<string[]>;
+    public readonly supportedLoginProviders?: fabric.Computed<{[key: string]: string}>;
 
     constructor(urnName: string, args: IdentityPoolArgs) {
         if (args.identityPoolName === undefined) {
@@ -29,12 +29,12 @@ export class IdentityPool extends fabric.Resource {
 }
 
 export interface IdentityPoolArgs {
-    readonly allowUnauthenticatedIdentities?: fabric.PropertyValue<boolean>;
-    readonly cognitoIdentityProviders?: fabric.PropertyValue<{ clientId?: fabric.PropertyValue<string>, providerName?: fabric.PropertyValue<string>, serverSideTokenCheck?: fabric.PropertyValue<boolean> }>[];
-    readonly developerProviderName?: fabric.PropertyValue<string>;
-    readonly identityPoolName: fabric.PropertyValue<string>;
-    readonly openidConnectProviderArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly samlProviderArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly supportedLoginProviders?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
+    readonly allowUnauthenticatedIdentities?: fabric.MaybeComputed<boolean>;
+    readonly cognitoIdentityProviders?: fabric.MaybeComputed<{ clientId?: fabric.MaybeComputed<string>, providerName?: fabric.MaybeComputed<string>, serverSideTokenCheck?: fabric.MaybeComputed<boolean> }>[];
+    readonly developerProviderName?: fabric.MaybeComputed<string>;
+    readonly identityPoolName: fabric.MaybeComputed<string>;
+    readonly openidConnectProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly samlProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly supportedLoginProviders?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
 }
 

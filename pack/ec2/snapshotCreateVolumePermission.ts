@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SnapshotCreateVolumePermission extends fabric.Resource {
-    public readonly accountId: fabric.Property<string>;
-    public readonly snapshotId: fabric.Property<string>;
+    public readonly accountId: fabric.Computed<string>;
+    public readonly snapshotId: fabric.Computed<string>;
 
     constructor(urnName: string, args: SnapshotCreateVolumePermissionArgs) {
         if (args.accountId === undefined) {
@@ -22,7 +22,7 @@ export class SnapshotCreateVolumePermission extends fabric.Resource {
 }
 
 export interface SnapshotCreateVolumePermissionArgs {
-    readonly accountId: fabric.PropertyValue<string>;
-    readonly snapshotId: fabric.PropertyValue<string>;
+    readonly accountId: fabric.MaybeComputed<string>;
+    readonly snapshotId: fabric.MaybeComputed<string>;
 }
 

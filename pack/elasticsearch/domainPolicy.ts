@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DomainPolicy extends fabric.Resource {
-    public readonly accessPolicies: fabric.Property<string>;
-    public readonly domainName: fabric.Property<string>;
+    public readonly accessPolicies: fabric.Computed<string>;
+    public readonly domainName: fabric.Computed<string>;
 
     constructor(urnName: string, args: DomainPolicyArgs) {
         if (args.accessPolicies === undefined) {
@@ -22,7 +22,7 @@ export class DomainPolicy extends fabric.Resource {
 }
 
 export interface DomainPolicyArgs {
-    readonly accessPolicies: fabric.PropertyValue<string>;
-    readonly domainName: fabric.PropertyValue<string>;
+    readonly accessPolicies: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.MaybeComputed<string>;
 }
 

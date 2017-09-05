@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Permission extends fabric.Resource {
-    public readonly allowSsh: fabric.Property<boolean>;
-    public readonly allowSudo: fabric.Property<boolean>;
-    public /*out*/ readonly permissionId: fabric.Property<string>;
-    public readonly level: fabric.Property<string>;
-    public readonly stackId: fabric.Property<string>;
-    public readonly userArn: fabric.Property<string>;
+    public readonly allowSsh: fabric.Computed<boolean>;
+    public readonly allowSudo: fabric.Computed<boolean>;
+    public /*out*/ readonly permissionId: fabric.Computed<string>;
+    public readonly level: fabric.Computed<string>;
+    public readonly stackId: fabric.Computed<string>;
+    public readonly userArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: PermissionArgs) {
         if (args.userArn === undefined) {
@@ -27,10 +27,10 @@ export class Permission extends fabric.Resource {
 }
 
 export interface PermissionArgs {
-    readonly allowSsh?: fabric.PropertyValue<boolean>;
-    readonly allowSudo?: fabric.PropertyValue<boolean>;
-    readonly level?: fabric.PropertyValue<string>;
-    readonly stackId?: fabric.PropertyValue<string>;
-    readonly userArn: fabric.PropertyValue<string>;
+    readonly allowSsh?: fabric.MaybeComputed<boolean>;
+    readonly allowSudo?: fabric.MaybeComputed<boolean>;
+    readonly level?: fabric.MaybeComputed<string>;
+    readonly stackId?: fabric.MaybeComputed<string>;
+    readonly userArn: fabric.MaybeComputed<string>;
 }
 

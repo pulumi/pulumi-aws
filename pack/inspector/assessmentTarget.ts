@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AssessmentTarget extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly resourceGroupArn: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly resourceGroupArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: AssessmentTargetArgs) {
         if (args.resourceGroupArn === undefined) {
@@ -21,7 +21,7 @@ export class AssessmentTarget extends fabric.Resource {
 }
 
 export interface AssessmentTargetArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly resourceGroupArn: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly resourceGroupArn: fabric.MaybeComputed<string>;
 }
 

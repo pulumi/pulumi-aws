@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ListenerPolicy extends fabric.Resource {
-    public readonly loadBalancerName: fabric.Property<string>;
-    public readonly loadBalancerPort: fabric.Property<number>;
-    public readonly policyNames?: fabric.Property<string[]>;
+    public readonly loadBalancerName: fabric.Computed<string>;
+    public readonly loadBalancerPort: fabric.Computed<number>;
+    public readonly policyNames?: fabric.Computed<string[]>;
 
     constructor(urnName: string, args: ListenerPolicyArgs) {
         if (args.loadBalancerName === undefined) {
@@ -24,8 +24,8 @@ export class ListenerPolicy extends fabric.Resource {
 }
 
 export interface ListenerPolicyArgs {
-    readonly loadBalancerName: fabric.PropertyValue<string>;
-    readonly loadBalancerPort: fabric.PropertyValue<number>;
-    readonly policyNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly loadBalancerName: fabric.MaybeComputed<string>;
+    readonly loadBalancerPort: fabric.MaybeComputed<number>;
+    readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

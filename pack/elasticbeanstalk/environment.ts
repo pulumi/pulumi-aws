@@ -7,26 +7,26 @@ import {Application} from "./application";
 import {ApplicationVersion} from "./applicationVersion";
 
 export class Environment extends fabric.Resource {
-    public /*out*/ readonly allSettings: fabric.Property<{ name: string, namespace: string, resource?: string, value: string }[]>;
-    public readonly application: fabric.Property<Application>;
-    public /*out*/ readonly autoscalingGroups: fabric.Property<string[]>;
-    public /*out*/ readonly cname: fabric.Property<string>;
-    public readonly cnamePrefix: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public /*out*/ readonly instances: fabric.Property<string[]>;
-    public /*out*/ readonly launchConfigurations: fabric.Property<string[]>;
-    public /*out*/ readonly loadBalancers: fabric.Property<string[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly pollInterval?: fabric.Property<string>;
-    public /*out*/ readonly queues: fabric.Property<string[]>;
-    public readonly setting?: fabric.Property<{ name: string, namespace: string, resource?: string, value: string }[]>;
-    public readonly solutionStackName: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly templateName?: fabric.Property<string>;
-    public readonly tier?: fabric.Property<string>;
-    public /*out*/ readonly triggers: fabric.Property<string[]>;
-    public readonly version: fabric.Property<ApplicationVersion>;
-    public readonly waitForReadyTimeout?: fabric.Property<string>;
+    public /*out*/ readonly allSettings: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    public readonly application: fabric.Computed<Application>;
+    public /*out*/ readonly autoscalingGroups: fabric.Computed<string[]>;
+    public /*out*/ readonly cname: fabric.Computed<string>;
+    public readonly cnamePrefix: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly instances: fabric.Computed<string[]>;
+    public /*out*/ readonly launchConfigurations: fabric.Computed<string[]>;
+    public /*out*/ readonly loadBalancers: fabric.Computed<string[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly pollInterval?: fabric.Computed<string>;
+    public /*out*/ readonly queues: fabric.Computed<string[]>;
+    public readonly setting?: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    public readonly solutionStackName: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly templateName?: fabric.Computed<string>;
+    public readonly tier?: fabric.Computed<string>;
+    public /*out*/ readonly triggers: fabric.Computed<string[]>;
+    public readonly version: fabric.Computed<ApplicationVersion>;
+    public readonly waitForReadyTimeout?: fabric.Computed<string>;
 
     constructor(urnName: string, args: EnvironmentArgs) {
         if (args.application === undefined) {
@@ -58,17 +58,17 @@ export class Environment extends fabric.Resource {
 }
 
 export interface EnvironmentArgs {
-    readonly application: fabric.PropertyValue<Application>;
-    readonly cnamePrefix?: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly pollInterval?: fabric.PropertyValue<string>;
-    readonly setting?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, namespace: fabric.PropertyValue<string>, resource?: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
-    readonly solutionStackName?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly templateName?: fabric.PropertyValue<string>;
-    readonly tier?: fabric.PropertyValue<string>;
-    readonly version?: fabric.PropertyValue<ApplicationVersion>;
-    readonly waitForReadyTimeout?: fabric.PropertyValue<string>;
+    readonly application: fabric.MaybeComputed<Application>;
+    readonly cnamePrefix?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly pollInterval?: fabric.MaybeComputed<string>;
+    readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly solutionStackName?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly templateName?: fabric.MaybeComputed<string>;
+    readonly tier?: fabric.MaybeComputed<string>;
+    readonly version?: fabric.MaybeComputed<ApplicationVersion>;
+    readonly waitForReadyTimeout?: fabric.MaybeComputed<string>;
 }
 

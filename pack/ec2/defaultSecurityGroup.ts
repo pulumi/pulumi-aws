@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DefaultSecurityGroup extends fabric.Resource {
-    public readonly egress?: fabric.Property<{ cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
-    public readonly ingress?: fabric.Property<{ cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
-    public /*out*/ readonly name: fabric.Property<string>;
-    public /*out*/ readonly ownerId: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId: fabric.Property<string>;
+    public readonly egress?: fabric.Computed<{ cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
+    public readonly ingress?: fabric.Computed<{ cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
+    public /*out*/ readonly name: fabric.Computed<string>;
+    public /*out*/ readonly ownerId: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: DefaultSecurityGroupArgs) {
         super("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", urnName, {
@@ -24,9 +24,9 @@ export class DefaultSecurityGroup extends fabric.Resource {
 }
 
 export interface DefaultSecurityGroupArgs {
-    readonly egress?: fabric.PropertyValue<{ cidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[], fromPort: fabric.PropertyValue<number>, ipv6CidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[], prefixListIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[], protocol: fabric.PropertyValue<string>, securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[], self?: fabric.PropertyValue<boolean>, toPort: fabric.PropertyValue<number> }>[];
-    readonly ingress?: fabric.PropertyValue<{ cidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[], fromPort: fabric.PropertyValue<number>, ipv6CidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[], protocol: fabric.PropertyValue<string>, securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[], self?: fabric.PropertyValue<boolean>, toPort: fabric.PropertyValue<number> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId?: fabric.PropertyValue<string>;
+    readonly egress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly ingress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

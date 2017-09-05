@@ -4,20 +4,20 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Stack extends fabric.Resource {
-    public readonly capabilities?: fabric.Property<string[]>;
-    public readonly disableRollback?: fabric.Property<boolean>;
-    public readonly iamRoleArn?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly notificationArns?: fabric.Property<string[]>;
-    public readonly onFailure?: fabric.Property<string>;
-    public /*out*/ readonly outputs: fabric.Property<{[key: string]: any}>;
-    public readonly parameters: fabric.Property<{[key: string]: any}>;
-    public readonly policyBody: fabric.Property<string>;
-    public readonly policyUrl?: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly templateBody: fabric.Property<string>;
-    public readonly templateUrl?: fabric.Property<string>;
-    public readonly timeoutInMinutes?: fabric.Property<number>;
+    public readonly capabilities?: fabric.Computed<string[]>;
+    public readonly disableRollback?: fabric.Computed<boolean>;
+    public readonly iamRoleArn?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly notificationArns?: fabric.Computed<string[]>;
+    public readonly onFailure?: fabric.Computed<string>;
+    public /*out*/ readonly outputs: fabric.Computed<{[key: string]: any}>;
+    public readonly parameters: fabric.Computed<{[key: string]: any}>;
+    public readonly policyBody: fabric.Computed<string>;
+    public readonly policyUrl?: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly templateBody: fabric.Computed<string>;
+    public readonly templateUrl?: fabric.Computed<string>;
+    public readonly timeoutInMinutes?: fabric.Computed<number>;
 
     constructor(urnName: string, args: StackArgs) {
         super("aws:cloudformation/stack:Stack", urnName, {
@@ -40,18 +40,18 @@ export class Stack extends fabric.Resource {
 }
 
 export interface StackArgs {
-    readonly capabilities?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly disableRollback?: fabric.PropertyValue<boolean>;
-    readonly iamRoleArn?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly notificationArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly onFailure?: fabric.PropertyValue<string>;
-    readonly parameters?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly policyBody?: fabric.PropertyValue<string>;
-    readonly policyUrl?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly templateBody?: fabric.PropertyValue<string>;
-    readonly templateUrl?: fabric.PropertyValue<string>;
-    readonly timeoutInMinutes?: fabric.PropertyValue<number>;
+    readonly capabilities?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly disableRollback?: fabric.MaybeComputed<boolean>;
+    readonly iamRoleArn?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly notificationArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly onFailure?: fabric.MaybeComputed<string>;
+    readonly parameters?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly policyBody?: fabric.MaybeComputed<string>;
+    readonly policyUrl?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly templateBody?: fabric.MaybeComputed<string>;
+    readonly templateUrl?: fabric.MaybeComputed<string>;
+    readonly timeoutInMinutes?: fabric.MaybeComputed<number>;
 }
 

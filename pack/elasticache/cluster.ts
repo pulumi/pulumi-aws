@@ -4,31 +4,31 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Cluster extends fabric.Resource {
-    public readonly applyImmediately: fabric.Property<boolean>;
-    public readonly availabilityZone: fabric.Property<string>;
-    public readonly availabilityZones?: fabric.Property<string[]>;
-    public readonly azMode: fabric.Property<string>;
-    public /*out*/ readonly cacheNodes: fabric.Property<{ address: string, availabilityZone: string, id: string, port: number }[]>;
-    public /*out*/ readonly clusterAddress: fabric.Property<string>;
-    public readonly clusterId: fabric.Property<string>;
-    public /*out*/ readonly configurationEndpoint: fabric.Property<string>;
-    public readonly engine: fabric.Property<string>;
-    public readonly engineVersion: fabric.Property<string>;
-    public readonly maintenanceWindow: fabric.Property<string>;
-    public readonly nodeType: fabric.Property<string>;
-    public readonly notificationTopicArn?: fabric.Property<string>;
-    public readonly numCacheNodes: fabric.Property<number>;
-    public readonly parameterGroupName: fabric.Property<string>;
-    public readonly port: fabric.Property<number>;
-    public /*out*/ readonly replicationGroupId: fabric.Property<string>;
-    public readonly securityGroupIds: fabric.Property<string[]>;
-    public readonly securityGroupNames: fabric.Property<string[]>;
-    public readonly snapshotArns?: fabric.Property<string[]>;
-    public readonly snapshotName?: fabric.Property<string>;
-    public readonly snapshotRetentionLimit?: fabric.Property<number>;
-    public readonly snapshotWindow: fabric.Property<string>;
-    public readonly subnetGroupName: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly applyImmediately: fabric.Computed<boolean>;
+    public readonly availabilityZone: fabric.Computed<string>;
+    public readonly availabilityZones?: fabric.Computed<string[]>;
+    public readonly azMode: fabric.Computed<string>;
+    public /*out*/ readonly cacheNodes: fabric.Computed<{ address: string, availabilityZone: string, id: string, port: number }[]>;
+    public /*out*/ readonly clusterAddress: fabric.Computed<string>;
+    public readonly clusterId: fabric.Computed<string>;
+    public /*out*/ readonly configurationEndpoint: fabric.Computed<string>;
+    public readonly engine: fabric.Computed<string>;
+    public readonly engineVersion: fabric.Computed<string>;
+    public readonly maintenanceWindow: fabric.Computed<string>;
+    public readonly nodeType: fabric.Computed<string>;
+    public readonly notificationTopicArn?: fabric.Computed<string>;
+    public readonly numCacheNodes: fabric.Computed<number>;
+    public readonly parameterGroupName: fabric.Computed<string>;
+    public readonly port: fabric.Computed<number>;
+    public /*out*/ readonly replicationGroupId: fabric.Computed<string>;
+    public readonly securityGroupIds: fabric.Computed<string[]>;
+    public readonly securityGroupNames: fabric.Computed<string[]>;
+    public readonly snapshotArns?: fabric.Computed<string[]>;
+    public readonly snapshotName?: fabric.Computed<string>;
+    public readonly snapshotRetentionLimit?: fabric.Computed<number>;
+    public readonly snapshotWindow: fabric.Computed<string>;
+    public readonly subnetGroupName: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: ClusterArgs) {
         if (args.clusterId === undefined) {
@@ -77,26 +77,26 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly applyImmediately?: fabric.PropertyValue<boolean>;
-    readonly availabilityZone?: fabric.PropertyValue<string>;
-    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly azMode?: fabric.PropertyValue<string>;
-    readonly clusterId: fabric.PropertyValue<string>;
-    readonly engine: fabric.PropertyValue<string>;
-    readonly engineVersion?: fabric.PropertyValue<string>;
-    readonly maintenanceWindow?: fabric.PropertyValue<string>;
-    readonly nodeType: fabric.PropertyValue<string>;
-    readonly notificationTopicArn?: fabric.PropertyValue<string>;
-    readonly numCacheNodes: fabric.PropertyValue<number>;
-    readonly parameterGroupName?: fabric.PropertyValue<string>;
-    readonly port: fabric.PropertyValue<number>;
-    readonly securityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly securityGroupNames?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly snapshotArns?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly snapshotName?: fabric.PropertyValue<string>;
-    readonly snapshotRetentionLimit?: fabric.PropertyValue<number>;
-    readonly snapshotWindow?: fabric.PropertyValue<string>;
-    readonly subnetGroupName?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly azMode?: fabric.MaybeComputed<string>;
+    readonly clusterId: fabric.MaybeComputed<string>;
+    readonly engine: fabric.MaybeComputed<string>;
+    readonly engineVersion?: fabric.MaybeComputed<string>;
+    readonly maintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly nodeType: fabric.MaybeComputed<string>;
+    readonly notificationTopicArn?: fabric.MaybeComputed<string>;
+    readonly numCacheNodes: fabric.MaybeComputed<number>;
+    readonly parameterGroupName?: fabric.MaybeComputed<string>;
+    readonly port: fabric.MaybeComputed<number>;
+    readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly snapshotArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly snapshotName?: fabric.MaybeComputed<string>;
+    readonly snapshotRetentionLimit?: fabric.MaybeComputed<number>;
+    readonly snapshotWindow?: fabric.MaybeComputed<string>;
+    readonly subnetGroupName?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

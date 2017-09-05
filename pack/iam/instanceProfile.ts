@@ -6,14 +6,14 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Role} from "./role";
 
 export class InstanceProfile extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public /*out*/ readonly createDate: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly path?: fabric.Property<string>;
-    public readonly role: fabric.Property<Role>;
-    public readonly roles: fabric.Property<Role[]>;
-    public /*out*/ readonly uniqueId: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public /*out*/ readonly createDate: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly path?: fabric.Computed<string>;
+    public readonly role: fabric.Computed<Role>;
+    public readonly roles: fabric.Computed<Role[]>;
+    public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
     constructor(urnName: string, args: InstanceProfileArgs) {
         super("aws:iam/instanceProfile:InstanceProfile", urnName, {
@@ -30,10 +30,10 @@ export class InstanceProfile extends fabric.Resource {
 }
 
 export interface InstanceProfileArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly path?: fabric.PropertyValue<string>;
-    readonly role?: fabric.PropertyValue<Role>;
-    readonly roles?: fabric.PropertyValue<fabric.PropertyValue<Role>>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.MaybeComputed<string>;
+    readonly role?: fabric.MaybeComputed<Role>;
+    readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
 }
 

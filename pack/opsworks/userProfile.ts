@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class UserProfile extends fabric.Resource {
-    public readonly allowSelfManagement?: fabric.Property<boolean>;
-    public /*out*/ readonly profileId: fabric.Property<string>;
-    public readonly sshPublicKey?: fabric.Property<string>;
-    public readonly sshUsername: fabric.Property<string>;
-    public readonly userArn: fabric.Property<string>;
+    public readonly allowSelfManagement?: fabric.Computed<boolean>;
+    public /*out*/ readonly profileId: fabric.Computed<string>;
+    public readonly sshPublicKey?: fabric.Computed<string>;
+    public readonly sshUsername: fabric.Computed<string>;
+    public readonly userArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: UserProfileArgs) {
         if (args.sshUsername === undefined) {
@@ -28,9 +28,9 @@ export class UserProfile extends fabric.Resource {
 }
 
 export interface UserProfileArgs {
-    readonly allowSelfManagement?: fabric.PropertyValue<boolean>;
-    readonly sshPublicKey?: fabric.PropertyValue<string>;
-    readonly sshUsername: fabric.PropertyValue<string>;
-    readonly userArn: fabric.PropertyValue<string>;
+    readonly allowSelfManagement?: fabric.MaybeComputed<boolean>;
+    readonly sshPublicKey?: fabric.MaybeComputed<string>;
+    readonly sshUsername: fabric.MaybeComputed<string>;
+    readonly userArn: fabric.MaybeComputed<string>;
 }
 

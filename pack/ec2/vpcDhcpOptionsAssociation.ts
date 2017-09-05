@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpcDhcpOptionsAssociation extends fabric.Resource {
-    public readonly dhcpOptionsId: fabric.Property<string>;
-    public readonly vpcId: fabric.Property<string>;
+    public readonly dhcpOptionsId: fabric.Computed<string>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpcDhcpOptionsAssociationArgs) {
         if (args.dhcpOptionsId === undefined) {
@@ -22,7 +22,7 @@ export class VpcDhcpOptionsAssociation extends fabric.Resource {
 }
 
 export interface VpcDhcpOptionsAssociationArgs {
-    readonly dhcpOptionsId: fabric.PropertyValue<string>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly dhcpOptionsId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

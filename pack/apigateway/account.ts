@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Account extends fabric.Resource {
-    public readonly cloudwatchRoleArn?: fabric.Property<string>;
-    public /*out*/ readonly throttleSettings: fabric.Property<{ burstLimit: number, rateLimit: number }[]>;
+    public readonly cloudwatchRoleArn?: fabric.Computed<string>;
+    public /*out*/ readonly throttleSettings: fabric.Computed<{ burstLimit: number, rateLimit: number }[]>;
 
     constructor(urnName: string, args: AccountArgs) {
         super("aws:apigateway/account:Account", urnName, {
@@ -16,6 +16,6 @@ export class Account extends fabric.Resource {
 }
 
 export interface AccountArgs {
-    readonly cloudwatchRoleArn?: fabric.PropertyValue<string>;
+    readonly cloudwatchRoleArn?: fabric.MaybeComputed<string>;
 }
 

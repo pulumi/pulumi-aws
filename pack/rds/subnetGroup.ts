@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SubnetGroup extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix: fabric.Property<string>;
-    public readonly subnetIds: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix: fabric.Computed<string>;
+    public readonly subnetIds: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: SubnetGroupArgs) {
         if (args.subnetIds === undefined) {
@@ -27,10 +27,10 @@ export class SubnetGroup extends fabric.Resource {
 }
 
 export interface SubnetGroupArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

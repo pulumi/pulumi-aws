@@ -4,18 +4,18 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Policy extends fabric.Resource {
-    public readonly adjustmentType: fabric.Property<string>;
-    public readonly alarms?: fabric.Property<string[]>;
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly cooldown: fabric.Property<number>;
-    public readonly metricAggregationType: fabric.Property<string>;
-    public readonly minAdjustmentMagnitude?: fabric.Property<number>;
-    public readonly name: fabric.Property<string>;
-    public readonly policyType?: fabric.Property<string>;
-    public readonly resourceId: fabric.Property<string>;
-    public readonly scalableDimension: fabric.Property<string>;
-    public readonly serviceNamespace: fabric.Property<string>;
-    public readonly stepAdjustment?: fabric.Property<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[]>;
+    public readonly adjustmentType: fabric.Computed<string>;
+    public readonly alarms?: fabric.Computed<string[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly cooldown: fabric.Computed<number>;
+    public readonly metricAggregationType: fabric.Computed<string>;
+    public readonly minAdjustmentMagnitude?: fabric.Computed<number>;
+    public readonly name: fabric.Computed<string>;
+    public readonly policyType?: fabric.Computed<string>;
+    public readonly resourceId: fabric.Computed<string>;
+    public readonly scalableDimension: fabric.Computed<string>;
+    public readonly serviceNamespace: fabric.Computed<string>;
+    public readonly stepAdjustment?: fabric.Computed<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[]>;
 
     constructor(urnName: string, args: PolicyArgs) {
         if (args.adjustmentType === undefined) {
@@ -54,16 +54,16 @@ export class Policy extends fabric.Resource {
 }
 
 export interface PolicyArgs {
-    readonly adjustmentType: fabric.PropertyValue<string>;
-    readonly alarms?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly cooldown: fabric.PropertyValue<number>;
-    readonly metricAggregationType: fabric.PropertyValue<string>;
-    readonly minAdjustmentMagnitude?: fabric.PropertyValue<number>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly policyType?: fabric.PropertyValue<string>;
-    readonly resourceId: fabric.PropertyValue<string>;
-    readonly scalableDimension: fabric.PropertyValue<string>;
-    readonly serviceNamespace: fabric.PropertyValue<string>;
-    readonly stepAdjustment?: fabric.PropertyValue<{ metricIntervalLowerBound?: fabric.PropertyValue<string>, metricIntervalUpperBound?: fabric.PropertyValue<string>, scalingAdjustment: fabric.PropertyValue<number> }>[];
+    readonly adjustmentType: fabric.MaybeComputed<string>;
+    readonly alarms?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly cooldown: fabric.MaybeComputed<number>;
+    readonly metricAggregationType: fabric.MaybeComputed<string>;
+    readonly minAdjustmentMagnitude?: fabric.MaybeComputed<number>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly policyType?: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly scalableDimension: fabric.MaybeComputed<string>;
+    readonly serviceNamespace: fabric.MaybeComputed<string>;
+    readonly stepAdjustment?: fabric.MaybeComputed<{ metricIntervalLowerBound?: fabric.MaybeComputed<string>, metricIntervalUpperBound?: fabric.MaybeComputed<string>, scalingAdjustment: fabric.MaybeComputed<number> }>[];
 }
 

@@ -6,14 +6,14 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Topic} from "./topic";
 
 export class TopicSubscription extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly confirmationTimeoutInMinutes?: fabric.Property<number>;
-    public readonly deliveryPolicy?: fabric.Property<string>;
-    public readonly endpoint: fabric.Property<string>;
-    public readonly endpointAutoConfirms?: fabric.Property<boolean>;
-    public readonly protocol: fabric.Property<string>;
-    public readonly rawMessageDelivery?: fabric.Property<boolean>;
-    public readonly topic: fabric.Property<Topic>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly confirmationTimeoutInMinutes?: fabric.Computed<number>;
+    public readonly deliveryPolicy?: fabric.Computed<string>;
+    public readonly endpoint: fabric.Computed<string>;
+    public readonly endpointAutoConfirms?: fabric.Computed<boolean>;
+    public readonly protocol: fabric.Computed<string>;
+    public readonly rawMessageDelivery?: fabric.Computed<boolean>;
+    public readonly topic: fabric.Computed<Topic>;
 
     constructor(urnName: string, args: TopicSubscriptionArgs) {
         if (args.endpoint === undefined) {
@@ -39,12 +39,12 @@ export class TopicSubscription extends fabric.Resource {
 }
 
 export interface TopicSubscriptionArgs {
-    readonly confirmationTimeoutInMinutes?: fabric.PropertyValue<number>;
-    readonly deliveryPolicy?: fabric.PropertyValue<string>;
-    readonly endpoint: fabric.PropertyValue<string>;
-    readonly endpointAutoConfirms?: fabric.PropertyValue<boolean>;
-    readonly protocol: fabric.PropertyValue<string>;
-    readonly rawMessageDelivery?: fabric.PropertyValue<boolean>;
-    readonly topic: fabric.PropertyValue<Topic>;
+    readonly confirmationTimeoutInMinutes?: fabric.MaybeComputed<number>;
+    readonly deliveryPolicy?: fabric.MaybeComputed<string>;
+    readonly endpoint: fabric.MaybeComputed<string>;
+    readonly endpointAutoConfirms?: fabric.MaybeComputed<boolean>;
+    readonly protocol: fabric.MaybeComputed<string>;
+    readonly rawMessageDelivery?: fabric.MaybeComputed<boolean>;
+    readonly topic: fabric.MaybeComputed<Topic>;
 }
 

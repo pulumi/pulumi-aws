@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RestApi extends fabric.Resource {
-    public readonly binaryMediaTypes?: fabric.Property<string[]>;
-    public readonly body?: fabric.Property<string>;
-    public /*out*/ readonly createdDate: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly rootResourceId: fabric.Property<string>;
+    public readonly binaryMediaTypes?: fabric.Computed<string[]>;
+    public readonly body?: fabric.Computed<string>;
+    public /*out*/ readonly createdDate: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly rootResourceId: fabric.Computed<string>;
 
     constructor(urnName: string, args: RestApiArgs) {
         super("aws:apigateway/restApi:RestApi", urnName, {
@@ -24,9 +24,9 @@ export class RestApi extends fabric.Resource {
 }
 
 export interface RestApiArgs {
-    readonly binaryMediaTypes?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly body?: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly binaryMediaTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly body?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

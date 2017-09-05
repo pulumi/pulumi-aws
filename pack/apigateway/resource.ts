@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class Resource extends fabric.Resource {
-    public readonly parentId: fabric.Property<string>;
-    public /*out*/ readonly path: fabric.Property<string>;
-    public readonly pathPart: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
+    public readonly parentId: fabric.Computed<string>;
+    public /*out*/ readonly path: fabric.Computed<string>;
+    public readonly pathPart: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
 
     constructor(urnName: string, args: ResourceArgs) {
         if (args.parentId === undefined) {
@@ -31,8 +31,8 @@ export class Resource extends fabric.Resource {
 }
 
 export interface ResourceArgs {
-    readonly parentId: fabric.PropertyValue<string>;
-    readonly pathPart: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
+    readonly parentId: fabric.MaybeComputed<string>;
+    readonly pathPart: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
 }
 

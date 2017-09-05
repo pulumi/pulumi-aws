@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class UsagePlanKey extends fabric.Resource {
-    public readonly keyId: fabric.Property<string>;
-    public readonly keyType: fabric.Property<string>;
-    public /*out*/ readonly name: fabric.Property<string>;
-    public readonly usagePlanId: fabric.Property<string>;
-    public /*out*/ readonly value: fabric.Property<string>;
+    public readonly keyId: fabric.Computed<string>;
+    public readonly keyType: fabric.Computed<string>;
+    public /*out*/ readonly name: fabric.Computed<string>;
+    public readonly usagePlanId: fabric.Computed<string>;
+    public /*out*/ readonly value: fabric.Computed<string>;
 
     constructor(urnName: string, args: UsagePlanKeyArgs) {
         if (args.keyId === undefined) {
@@ -31,8 +31,8 @@ export class UsagePlanKey extends fabric.Resource {
 }
 
 export interface UsagePlanKeyArgs {
-    readonly keyId: fabric.PropertyValue<string>;
-    readonly keyType: fabric.PropertyValue<string>;
-    readonly usagePlanId: fabric.PropertyValue<string>;
+    readonly keyId: fabric.MaybeComputed<string>;
+    readonly keyType: fabric.MaybeComputed<string>;
+    readonly usagePlanId: fabric.MaybeComputed<string>;
 }
 

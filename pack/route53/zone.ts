@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Zone extends fabric.Resource {
-    public readonly comment?: fabric.Property<string>;
-    public readonly delegationSetId?: fabric.Property<string>;
-    public readonly forceDestroy?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly nameServers: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId?: fabric.Property<string>;
-    public readonly vpcRegion: fabric.Property<string>;
-    public /*out*/ readonly zoneId: fabric.Property<string>;
+    public readonly comment?: fabric.Computed<string>;
+    public readonly delegationSetId?: fabric.Computed<string>;
+    public readonly forceDestroy?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly nameServers: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId?: fabric.Computed<string>;
+    public readonly vpcRegion: fabric.Computed<string>;
+    public /*out*/ readonly zoneId: fabric.Computed<string>;
 
     constructor(urnName: string, args: ZoneArgs) {
         super("aws:route53/zone:Zone", urnName, {
@@ -30,12 +30,12 @@ export class Zone extends fabric.Resource {
 }
 
 export interface ZoneArgs {
-    readonly comment?: fabric.PropertyValue<string>;
-    readonly delegationSetId?: fabric.PropertyValue<string>;
-    readonly forceDestroy?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId?: fabric.PropertyValue<string>;
-    readonly vpcRegion?: fabric.PropertyValue<string>;
+    readonly comment?: fabric.MaybeComputed<string>;
+    readonly delegationSetId?: fabric.MaybeComputed<string>;
+    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcRegion?: fabric.MaybeComputed<string>;
 }
 

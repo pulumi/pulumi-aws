@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ZoneAssociation extends fabric.Resource {
-    public readonly vpcId: fabric.Property<string>;
-    public readonly vpcRegion: fabric.Property<string>;
-    public readonly zoneId: fabric.Property<string>;
+    public readonly vpcId: fabric.Computed<string>;
+    public readonly vpcRegion: fabric.Computed<string>;
+    public readonly zoneId: fabric.Computed<string>;
 
     constructor(urnName: string, args: ZoneAssociationArgs) {
         if (args.vpcId === undefined) {
@@ -24,8 +24,8 @@ export class ZoneAssociation extends fabric.Resource {
 }
 
 export interface ZoneAssociationArgs {
-    readonly vpcId: fabric.PropertyValue<string>;
-    readonly vpcRegion?: fabric.PropertyValue<string>;
-    readonly zoneId: fabric.PropertyValue<string>;
+    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcRegion?: fabric.MaybeComputed<string>;
+    readonly zoneId: fabric.MaybeComputed<string>;
 }
 

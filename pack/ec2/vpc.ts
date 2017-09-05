@@ -4,21 +4,21 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Vpc extends fabric.Resource {
-    public readonly assignGeneratedIpv6CidrBlock?: fabric.Property<boolean>;
-    public readonly cidrBlock: fabric.Property<string>;
-    public /*out*/ readonly defaultNetworkAclId: fabric.Property<string>;
-    public /*out*/ readonly defaultRouteTableId: fabric.Property<string>;
-    public /*out*/ readonly defaultSecurityGroupId: fabric.Property<string>;
-    public /*out*/ readonly dhcpOptionsId: fabric.Property<string>;
-    public readonly enableClassiclink: fabric.Property<boolean>;
-    public readonly enableClassiclinkDnsSupport: fabric.Property<boolean>;
-    public readonly enableDnsHostnames: fabric.Property<boolean>;
-    public readonly enableDnsSupport?: fabric.Property<boolean>;
-    public readonly instanceTenancy: fabric.Property<string>;
-    public /*out*/ readonly ipv6AssociationId: fabric.Property<string>;
-    public /*out*/ readonly ipv6CidrBlock: fabric.Property<string>;
-    public /*out*/ readonly mainRouteTableId: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly assignGeneratedIpv6CidrBlock?: fabric.Computed<boolean>;
+    public readonly cidrBlock: fabric.Computed<string>;
+    public /*out*/ readonly defaultNetworkAclId: fabric.Computed<string>;
+    public /*out*/ readonly defaultRouteTableId: fabric.Computed<string>;
+    public /*out*/ readonly defaultSecurityGroupId: fabric.Computed<string>;
+    public /*out*/ readonly dhcpOptionsId: fabric.Computed<string>;
+    public readonly enableClassiclink: fabric.Computed<boolean>;
+    public readonly enableClassiclinkDnsSupport: fabric.Computed<boolean>;
+    public readonly enableDnsHostnames: fabric.Computed<boolean>;
+    public readonly enableDnsSupport?: fabric.Computed<boolean>;
+    public readonly instanceTenancy: fabric.Computed<string>;
+    public /*out*/ readonly ipv6AssociationId: fabric.Computed<string>;
+    public /*out*/ readonly ipv6CidrBlock: fabric.Computed<string>;
+    public /*out*/ readonly mainRouteTableId: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: VpcArgs) {
         if (args.cidrBlock === undefined) {
@@ -45,13 +45,13 @@ export class Vpc extends fabric.Resource {
 }
 
 export interface VpcArgs {
-    readonly assignGeneratedIpv6CidrBlock?: fabric.PropertyValue<boolean>;
-    readonly cidrBlock: fabric.PropertyValue<string>;
-    readonly enableClassiclink?: fabric.PropertyValue<boolean>;
-    readonly enableClassiclinkDnsSupport?: fabric.PropertyValue<boolean>;
-    readonly enableDnsHostnames?: fabric.PropertyValue<boolean>;
-    readonly enableDnsSupport?: fabric.PropertyValue<boolean>;
-    readonly instanceTenancy?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly assignGeneratedIpv6CidrBlock?: fabric.MaybeComputed<boolean>;
+    readonly cidrBlock: fabric.MaybeComputed<string>;
+    readonly enableClassiclink?: fabric.MaybeComputed<boolean>;
+    readonly enableClassiclinkDnsSupport?: fabric.MaybeComputed<boolean>;
+    readonly enableDnsHostnames?: fabric.MaybeComputed<boolean>;
+    readonly enableDnsSupport?: fabric.MaybeComputed<boolean>;
+    readonly instanceTenancy?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

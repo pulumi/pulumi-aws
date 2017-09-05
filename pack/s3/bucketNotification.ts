@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class BucketNotification extends fabric.Resource {
-    public readonly bucket: fabric.Property<string>;
-    public readonly lambdaFunction?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[]>;
-    public readonly queue?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[]>;
-    public readonly topic?: fabric.Property<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[]>;
+    public readonly bucket: fabric.Computed<string>;
+    public readonly lambdaFunction?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[]>;
+    public readonly queue?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[]>;
+    public readonly topic?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[]>;
 
     constructor(urnName: string, args: BucketNotificationArgs) {
         if (args.bucket === undefined) {
@@ -23,9 +23,9 @@ export class BucketNotification extends fabric.Resource {
 }
 
 export interface BucketNotificationArgs {
-    readonly bucket: fabric.PropertyValue<string>;
-    readonly lambdaFunction?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, lambdaFunctionArn?: fabric.PropertyValue<string> }>[];
-    readonly queue?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, queueArn: fabric.PropertyValue<string> }>[];
-    readonly topic?: fabric.PropertyValue<{ events: fabric.PropertyValue<fabric.PropertyValue<string>>[], filterPrefix?: fabric.PropertyValue<string>, filterSuffix?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, topicArn: fabric.PropertyValue<string> }>[];
+    readonly bucket: fabric.MaybeComputed<string>;
+    readonly lambdaFunction?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], filterPrefix?: fabric.MaybeComputed<string>, filterSuffix?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, lambdaFunctionArn?: fabric.MaybeComputed<string> }>[];
+    readonly queue?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], filterPrefix?: fabric.MaybeComputed<string>, filterSuffix?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, queueArn: fabric.MaybeComputed<string> }>[];
+    readonly topic?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], filterPrefix?: fabric.MaybeComputed<string>, filterSuffix?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, topicArn: fabric.MaybeComputed<string> }>[];
 }
 

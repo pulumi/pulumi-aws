@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Alias extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly functionName: fabric.Property<string>;
-    public readonly functionVersion: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly functionName: fabric.Computed<string>;
+    public readonly functionVersion: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: AliasArgs) {
         if (args.functionName === undefined) {
@@ -28,9 +28,9 @@ export class Alias extends fabric.Resource {
 }
 
 export interface AliasArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly functionName: fabric.PropertyValue<string>;
-    readonly functionVersion: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly functionName: fabric.MaybeComputed<string>;
+    readonly functionVersion: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

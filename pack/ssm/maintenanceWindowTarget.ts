@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class MaintenanceWindowTarget extends fabric.Resource {
-    public readonly ownerInformation?: fabric.Property<string>;
-    public readonly resourceType: fabric.Property<string>;
-    public readonly targets: fabric.Property<{ key: string, values: string[] }[]>;
-    public readonly windowId: fabric.Property<string>;
+    public readonly ownerInformation?: fabric.Computed<string>;
+    public readonly resourceType: fabric.Computed<string>;
+    public readonly targets: fabric.Computed<{ key: string, values: string[] }[]>;
+    public readonly windowId: fabric.Computed<string>;
 
     constructor(urnName: string, args: MaintenanceWindowTargetArgs) {
         if (args.resourceType === undefined) {
@@ -29,9 +29,9 @@ export class MaintenanceWindowTarget extends fabric.Resource {
 }
 
 export interface MaintenanceWindowTargetArgs {
-    readonly ownerInformation?: fabric.PropertyValue<string>;
-    readonly resourceType: fabric.PropertyValue<string>;
-    readonly targets: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly windowId: fabric.PropertyValue<string>;
+    readonly ownerInformation?: fabric.MaybeComputed<string>;
+    readonly resourceType: fabric.MaybeComputed<string>;
+    readonly targets: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly windowId: fabric.MaybeComputed<string>;
 }
 

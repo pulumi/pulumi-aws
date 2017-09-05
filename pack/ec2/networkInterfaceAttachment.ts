@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class NetworkInterfaceAttachment extends fabric.Resource {
-    public /*out*/ readonly attachmentId: fabric.Property<string>;
-    public readonly deviceIndex: fabric.Property<number>;
-    public readonly instanceId: fabric.Property<string>;
-    public readonly networkInterfaceId: fabric.Property<string>;
-    public /*out*/ readonly status: fabric.Property<string>;
+    public /*out*/ readonly attachmentId: fabric.Computed<string>;
+    public readonly deviceIndex: fabric.Computed<number>;
+    public readonly instanceId: fabric.Computed<string>;
+    public readonly networkInterfaceId: fabric.Computed<string>;
+    public /*out*/ readonly status: fabric.Computed<string>;
 
     constructor(urnName: string, args: NetworkInterfaceAttachmentArgs) {
         if (args.deviceIndex === undefined) {
@@ -31,8 +31,8 @@ export class NetworkInterfaceAttachment extends fabric.Resource {
 }
 
 export interface NetworkInterfaceAttachmentArgs {
-    readonly deviceIndex: fabric.PropertyValue<number>;
-    readonly instanceId: fabric.PropertyValue<string>;
-    readonly networkInterfaceId: fabric.PropertyValue<string>;
+    readonly deviceIndex: fabric.MaybeComputed<number>;
+    readonly instanceId: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId: fabric.MaybeComputed<string>;
 }
 

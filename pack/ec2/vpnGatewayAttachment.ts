@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpnGatewayAttachment extends fabric.Resource {
-    public readonly vpcId: fabric.Property<string>;
-    public readonly vpnGatewayId: fabric.Property<string>;
+    public readonly vpcId: fabric.Computed<string>;
+    public readonly vpnGatewayId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpnGatewayAttachmentArgs) {
         if (args.vpcId === undefined) {
@@ -22,7 +22,7 @@ export class VpnGatewayAttachment extends fabric.Resource {
 }
 
 export interface VpnGatewayAttachmentArgs {
-    readonly vpcId: fabric.PropertyValue<string>;
-    readonly vpnGatewayId: fabric.PropertyValue<string>;
+    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpnGatewayId: fabric.MaybeComputed<string>;
 }
 

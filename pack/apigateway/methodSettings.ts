@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class MethodSettings extends fabric.Resource {
-    public readonly methodPath: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly settings: fabric.Property<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[]>;
-    public readonly stageName: fabric.Property<string>;
+    public readonly methodPath: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly settings: fabric.Computed<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[]>;
+    public readonly stageName: fabric.Computed<string>;
 
     constructor(urnName: string, args: MethodSettingsArgs) {
         if (args.methodPath === undefined) {
@@ -34,9 +34,9 @@ export class MethodSettings extends fabric.Resource {
 }
 
 export interface MethodSettingsArgs {
-    readonly methodPath: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly settings: fabric.PropertyValue<{ cacheDataEncrypted?: fabric.PropertyValue<boolean>, cacheTtlInSeconds?: fabric.PropertyValue<number>, cachingEnabled?: fabric.PropertyValue<boolean>, dataTraceEnabled?: fabric.PropertyValue<boolean>, loggingLevel?: fabric.PropertyValue<string>, metricsEnabled?: fabric.PropertyValue<boolean>, requireAuthorizationForCacheControl?: fabric.PropertyValue<boolean>, throttlingBurstLimit?: fabric.PropertyValue<number>, throttlingRateLimit?: fabric.PropertyValue<number>, unauthorizedCacheControlHeaderStrategy?: fabric.PropertyValue<string> }>[];
-    readonly stageName: fabric.PropertyValue<string>;
+    readonly methodPath: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly settings: fabric.MaybeComputed<{ cacheDataEncrypted?: fabric.MaybeComputed<boolean>, cacheTtlInSeconds?: fabric.MaybeComputed<number>, cachingEnabled?: fabric.MaybeComputed<boolean>, dataTraceEnabled?: fabric.MaybeComputed<boolean>, loggingLevel?: fabric.MaybeComputed<string>, metricsEnabled?: fabric.MaybeComputed<boolean>, requireAuthorizationForCacheControl?: fabric.MaybeComputed<boolean>, throttlingBurstLimit?: fabric.MaybeComputed<number>, throttlingRateLimit?: fabric.MaybeComputed<number>, unauthorizedCacheControlHeaderStrategy?: fabric.MaybeComputed<string> }>[];
+    readonly stageName: fabric.MaybeComputed<string>;
 }
 

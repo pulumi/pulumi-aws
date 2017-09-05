@@ -4,20 +4,20 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Queue extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly contentBasedDeduplication?: fabric.Property<boolean>;
-    public readonly delaySeconds?: fabric.Property<number>;
-    public readonly fifoQueue?: fabric.Property<boolean>;
-    public readonly kmsDataKeyReusePeriodSeconds: fabric.Property<number>;
-    public readonly kmsMasterKeyId?: fabric.Property<string>;
-    public readonly maxMessageSize?: fabric.Property<number>;
-    public readonly messageRetentionSeconds?: fabric.Property<number>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
-    public readonly receiveWaitTimeSeconds?: fabric.Property<number>;
-    public readonly redrivePolicy?: fabric.Property<string>;
-    public readonly visibilityTimeoutSeconds?: fabric.Property<number>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly contentBasedDeduplication?: fabric.Computed<boolean>;
+    public readonly delaySeconds?: fabric.Computed<number>;
+    public readonly fifoQueue?: fabric.Computed<boolean>;
+    public readonly kmsDataKeyReusePeriodSeconds: fabric.Computed<number>;
+    public readonly kmsMasterKeyId?: fabric.Computed<string>;
+    public readonly maxMessageSize?: fabric.Computed<number>;
+    public readonly messageRetentionSeconds?: fabric.Computed<number>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
+    public readonly receiveWaitTimeSeconds?: fabric.Computed<number>;
+    public readonly redrivePolicy?: fabric.Computed<string>;
+    public readonly visibilityTimeoutSeconds?: fabric.Computed<number>;
 
     constructor(urnName: string, args: QueueArgs) {
         super("aws:sqs/queue:Queue", urnName, {
@@ -40,18 +40,18 @@ export class Queue extends fabric.Resource {
 }
 
 export interface QueueArgs {
-    readonly contentBasedDeduplication?: fabric.PropertyValue<boolean>;
-    readonly delaySeconds?: fabric.PropertyValue<number>;
-    readonly fifoQueue?: fabric.PropertyValue<boolean>;
-    readonly kmsDataKeyReusePeriodSeconds?: fabric.PropertyValue<number>;
-    readonly kmsMasterKeyId?: fabric.PropertyValue<string>;
-    readonly maxMessageSize?: fabric.PropertyValue<number>;
-    readonly messageRetentionSeconds?: fabric.PropertyValue<number>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly policy?: fabric.PropertyValue<string>;
-    readonly receiveWaitTimeSeconds?: fabric.PropertyValue<number>;
-    readonly redrivePolicy?: fabric.PropertyValue<string>;
-    readonly visibilityTimeoutSeconds?: fabric.PropertyValue<number>;
+    readonly contentBasedDeduplication?: fabric.MaybeComputed<boolean>;
+    readonly delaySeconds?: fabric.MaybeComputed<number>;
+    readonly fifoQueue?: fabric.MaybeComputed<boolean>;
+    readonly kmsDataKeyReusePeriodSeconds?: fabric.MaybeComputed<number>;
+    readonly kmsMasterKeyId?: fabric.MaybeComputed<string>;
+    readonly maxMessageSize?: fabric.MaybeComputed<number>;
+    readonly messageRetentionSeconds?: fabric.MaybeComputed<number>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.MaybeComputed<string>;
+    readonly receiveWaitTimeSeconds?: fabric.MaybeComputed<number>;
+    readonly redrivePolicy?: fabric.MaybeComputed<string>;
+    readonly visibilityTimeoutSeconds?: fabric.MaybeComputed<number>;
 }
 

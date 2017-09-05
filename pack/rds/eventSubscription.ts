@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class EventSubscription extends fabric.Resource {
-    public /*out*/ readonly customerAwsId: fabric.Property<string>;
-    public readonly enabled?: fabric.Property<boolean>;
-    public readonly eventCategories?: fabric.Property<string[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly snsTopic: fabric.Property<string>;
-    public readonly sourceIds?: fabric.Property<string[]>;
-    public readonly sourceType?: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly customerAwsId: fabric.Computed<string>;
+    public readonly enabled?: fabric.Computed<boolean>;
+    public readonly eventCategories?: fabric.Computed<string[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly snsTopic: fabric.Computed<string>;
+    public readonly sourceIds?: fabric.Computed<string[]>;
+    public readonly sourceType?: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: EventSubscriptionArgs) {
         if (args.snsTopic === undefined) {
@@ -31,12 +31,12 @@ export class EventSubscription extends fabric.Resource {
 }
 
 export interface EventSubscriptionArgs {
-    readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly eventCategories?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly snsTopic: fabric.PropertyValue<string>;
-    readonly sourceIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly sourceType?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly eventCategories?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly snsTopic: fabric.MaybeComputed<string>;
+    readonly sourceIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly sourceType?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

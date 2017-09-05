@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SshKey extends fabric.Resource {
-    public readonly encoding: fabric.Property<string>;
-    public /*out*/ readonly fingerprint: fabric.Property<string>;
-    public readonly publicKey: fabric.Property<string>;
-    public /*out*/ readonly sshPublicKeyId: fabric.Property<string>;
-    public readonly status: fabric.Property<string>;
-    public readonly username: fabric.Property<string>;
+    public readonly encoding: fabric.Computed<string>;
+    public /*out*/ readonly fingerprint: fabric.Computed<string>;
+    public readonly publicKey: fabric.Computed<string>;
+    public /*out*/ readonly sshPublicKeyId: fabric.Computed<string>;
+    public readonly status: fabric.Computed<string>;
+    public readonly username: fabric.Computed<string>;
 
     constructor(urnName: string, args: SshKeyArgs) {
         if (args.encoding === undefined) {
@@ -33,9 +33,9 @@ export class SshKey extends fabric.Resource {
 }
 
 export interface SshKeyArgs {
-    readonly encoding: fabric.PropertyValue<string>;
-    readonly publicKey: fabric.PropertyValue<string>;
-    readonly status?: fabric.PropertyValue<string>;
-    readonly username: fabric.PropertyValue<string>;
+    readonly encoding: fabric.MaybeComputed<string>;
+    readonly publicKey: fabric.MaybeComputed<string>;
+    readonly status?: fabric.MaybeComputed<string>;
+    readonly username: fabric.MaybeComputed<string>;
 }
 

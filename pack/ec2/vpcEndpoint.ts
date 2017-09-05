@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpcEndpoint extends fabric.Resource {
-    public /*out*/ readonly cidrBlocks: fabric.Property<string[]>;
-    public readonly policy: fabric.Property<string>;
-    public /*out*/ readonly prefixListId: fabric.Property<string>;
-    public readonly routeTableIds: fabric.Property<string[]>;
-    public readonly serviceName: fabric.Property<string>;
-    public readonly vpcId: fabric.Property<string>;
+    public /*out*/ readonly cidrBlocks: fabric.Computed<string[]>;
+    public readonly policy: fabric.Computed<string>;
+    public /*out*/ readonly prefixListId: fabric.Computed<string>;
+    public readonly routeTableIds: fabric.Computed<string[]>;
+    public readonly serviceName: fabric.Computed<string>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpcEndpointArgs) {
         if (args.serviceName === undefined) {
@@ -30,9 +30,9 @@ export class VpcEndpoint extends fabric.Resource {
 }
 
 export interface VpcEndpointArgs {
-    readonly policy?: fabric.PropertyValue<string>;
-    readonly routeTableIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly serviceName: fabric.PropertyValue<string>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly policy?: fabric.MaybeComputed<string>;
+    readonly routeTableIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly serviceName: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

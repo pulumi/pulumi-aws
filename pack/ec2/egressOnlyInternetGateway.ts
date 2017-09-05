@@ -4,7 +4,7 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class EgressOnlyInternetGateway extends fabric.Resource {
-    public readonly vpcId: fabric.Property<string>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: EgressOnlyInternetGatewayArgs) {
         if (args.vpcId === undefined) {
@@ -17,6 +17,6 @@ export class EgressOnlyInternetGateway extends fabric.Resource {
 }
 
 export interface EgressOnlyInternetGatewayArgs {
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

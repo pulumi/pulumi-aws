@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class PatchBaseline extends fabric.Resource {
-    public readonly approvalRule?: fabric.Property<{ approveAfterDays: number, patchFilter: { key: string, values: string[] }[] }[]>;
-    public readonly approvedPatches?: fabric.Property<string[]>;
-    public readonly description?: fabric.Property<string>;
-    public readonly globalFilter?: fabric.Property<{ key: string, values: string[] }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly rejectedPatches?: fabric.Property<string[]>;
+    public readonly approvalRule?: fabric.Computed<{ approveAfterDays: number, patchFilter: { key: string, values: string[] }[] }[]>;
+    public readonly approvedPatches?: fabric.Computed<string[]>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly globalFilter?: fabric.Computed<{ key: string, values: string[] }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly rejectedPatches?: fabric.Computed<string[]>;
 
     constructor(urnName: string, args: PatchBaselineArgs) {
         super("aws:ssm/patchBaseline:PatchBaseline", urnName, {
@@ -24,11 +24,11 @@ export class PatchBaseline extends fabric.Resource {
 }
 
 export interface PatchBaselineArgs {
-    readonly approvalRule?: fabric.PropertyValue<{ approveAfterDays: fabric.PropertyValue<number>, patchFilter: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[] }>[];
-    readonly approvedPatches?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly description?: fabric.PropertyValue<string>;
-    readonly globalFilter?: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly rejectedPatches?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly approvalRule?: fabric.MaybeComputed<{ approveAfterDays: fabric.MaybeComputed<number>, patchFilter: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[] }>[];
+    readonly approvedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly globalFilter?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly rejectedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

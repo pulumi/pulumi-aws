@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Certificate extends fabric.Resource {
-    public /*out*/ readonly certificateArn: fabric.Property<string>;
-    public readonly certificateId: fabric.Property<string>;
-    public readonly certificatePem?: fabric.Property<string>;
-    public readonly certificateWallet?: fabric.Property<string>;
+    public /*out*/ readonly certificateArn: fabric.Computed<string>;
+    public readonly certificateId: fabric.Computed<string>;
+    public readonly certificatePem?: fabric.Computed<string>;
+    public readonly certificateWallet?: fabric.Computed<string>;
 
     constructor(urnName: string, args: CertificateArgs) {
         if (args.certificateId === undefined) {
@@ -23,8 +23,8 @@ export class Certificate extends fabric.Resource {
 }
 
 export interface CertificateArgs {
-    readonly certificateId: fabric.PropertyValue<string>;
-    readonly certificatePem?: fabric.PropertyValue<string>;
-    readonly certificateWallet?: fabric.PropertyValue<string>;
+    readonly certificateId: fabric.MaybeComputed<string>;
+    readonly certificatePem?: fabric.MaybeComputed<string>;
+    readonly certificateWallet?: fabric.MaybeComputed<string>;
 }
 

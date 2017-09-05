@@ -6,24 +6,24 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Topic} from "../sns/topic";
 
 export class MetricAlarm extends fabric.Resource {
-    public readonly actionsEnabled?: fabric.Property<boolean>;
-    public readonly alarmActions?: fabric.Property<Topic[]>;
-    public readonly alarmDescription?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly comparisonOperator: fabric.Property<string>;
-    public readonly dimensions?: fabric.Property<{[key: string]: any}>;
-    public readonly evaluateLowSampleCountPercentiles: fabric.Property<string>;
-    public readonly evaluationPeriods: fabric.Property<number>;
-    public readonly extendedStatistic?: fabric.Property<string>;
-    public readonly insufficientDataActions?: fabric.Property<Topic[]>;
-    public readonly metricName: fabric.Property<string>;
-    public readonly namespace: fabric.Property<string>;
-    public readonly okActions?: fabric.Property<Topic[]>;
-    public readonly period: fabric.Property<number>;
-    public readonly statistic?: fabric.Property<string>;
-    public readonly threshold: fabric.Property<number>;
-    public readonly treatMissingData?: fabric.Property<string>;
-    public readonly unit?: fabric.Property<string>;
+    public readonly actionsEnabled?: fabric.Computed<boolean>;
+    public readonly alarmActions?: fabric.Computed<Topic[]>;
+    public readonly alarmDescription?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly comparisonOperator: fabric.Computed<string>;
+    public readonly dimensions?: fabric.Computed<{[key: string]: any}>;
+    public readonly evaluateLowSampleCountPercentiles: fabric.Computed<string>;
+    public readonly evaluationPeriods: fabric.Computed<number>;
+    public readonly extendedStatistic?: fabric.Computed<string>;
+    public readonly insufficientDataActions?: fabric.Computed<Topic[]>;
+    public readonly metricName: fabric.Computed<string>;
+    public readonly namespace: fabric.Computed<string>;
+    public readonly okActions?: fabric.Computed<Topic[]>;
+    public readonly period: fabric.Computed<number>;
+    public readonly statistic?: fabric.Computed<string>;
+    public readonly threshold: fabric.Computed<number>;
+    public readonly treatMissingData?: fabric.Computed<string>;
+    public readonly unit?: fabric.Computed<string>;
 
     constructor(urnName: string, args: MetricAlarmArgs) {
         if (args.comparisonOperator === undefined) {
@@ -68,23 +68,23 @@ export class MetricAlarm extends fabric.Resource {
 }
 
 export interface MetricAlarmArgs {
-    readonly actionsEnabled?: fabric.PropertyValue<boolean>;
-    readonly alarmActions?: fabric.PropertyValue<fabric.PropertyValue<Topic>>[];
-    readonly alarmDescription?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly comparisonOperator: fabric.PropertyValue<string>;
-    readonly dimensions?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly evaluateLowSampleCountPercentiles?: fabric.PropertyValue<string>;
-    readonly evaluationPeriods: fabric.PropertyValue<number>;
-    readonly extendedStatistic?: fabric.PropertyValue<string>;
-    readonly insufficientDataActions?: fabric.PropertyValue<fabric.PropertyValue<Topic>>[];
-    readonly metricName: fabric.PropertyValue<string>;
-    readonly namespace: fabric.PropertyValue<string>;
-    readonly okActions?: fabric.PropertyValue<fabric.PropertyValue<Topic>>[];
-    readonly period: fabric.PropertyValue<number>;
-    readonly statistic?: fabric.PropertyValue<string>;
-    readonly threshold: fabric.PropertyValue<number>;
-    readonly treatMissingData?: fabric.PropertyValue<string>;
-    readonly unit?: fabric.PropertyValue<string>;
+    readonly actionsEnabled?: fabric.MaybeComputed<boolean>;
+    readonly alarmActions?: fabric.MaybeComputed<fabric.MaybeComputed<Topic>>[];
+    readonly alarmDescription?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly comparisonOperator: fabric.MaybeComputed<string>;
+    readonly dimensions?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly evaluateLowSampleCountPercentiles?: fabric.MaybeComputed<string>;
+    readonly evaluationPeriods: fabric.MaybeComputed<number>;
+    readonly extendedStatistic?: fabric.MaybeComputed<string>;
+    readonly insufficientDataActions?: fabric.MaybeComputed<fabric.MaybeComputed<Topic>>[];
+    readonly metricName: fabric.MaybeComputed<string>;
+    readonly namespace: fabric.MaybeComputed<string>;
+    readonly okActions?: fabric.MaybeComputed<fabric.MaybeComputed<Topic>>[];
+    readonly period: fabric.MaybeComputed<number>;
+    readonly statistic?: fabric.MaybeComputed<string>;
+    readonly threshold: fabric.MaybeComputed<number>;
+    readonly treatMissingData?: fabric.MaybeComputed<string>;
+    readonly unit?: fabric.MaybeComputed<string>;
 }
 

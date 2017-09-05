@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Project extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ProjectArgs) {
         super("aws:devicefarm/project:Project", urnName, {
@@ -16,6 +16,6 @@ export class Project extends fabric.Resource {
 }
 
 export interface ProjectArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

@@ -4,16 +4,16 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SecurityGroupRule extends fabric.Resource {
-    public readonly cidrBlocks?: fabric.Property<string[]>;
-    public readonly fromPort: fabric.Property<number>;
-    public readonly ipv6CidrBlocks?: fabric.Property<string[]>;
-    public readonly prefixListIds?: fabric.Property<string[]>;
-    public readonly protocol: fabric.Property<string>;
-    public readonly securityGroupId: fabric.Property<string>;
-    public readonly self?: fabric.Property<boolean>;
-    public readonly sourceSecurityGroupId: fabric.Property<string>;
-    public readonly toPort: fabric.Property<number>;
-    public readonly type: fabric.Property<string>;
+    public readonly cidrBlocks?: fabric.Computed<string[]>;
+    public readonly fromPort: fabric.Computed<number>;
+    public readonly ipv6CidrBlocks?: fabric.Computed<string[]>;
+    public readonly prefixListIds?: fabric.Computed<string[]>;
+    public readonly protocol: fabric.Computed<string>;
+    public readonly securityGroupId: fabric.Computed<string>;
+    public readonly self?: fabric.Computed<boolean>;
+    public readonly sourceSecurityGroupId: fabric.Computed<string>;
+    public readonly toPort: fabric.Computed<number>;
+    public readonly type: fabric.Computed<string>;
 
     constructor(urnName: string, args: SecurityGroupRuleArgs) {
         if (args.fromPort === undefined) {
@@ -47,16 +47,16 @@ export class SecurityGroupRule extends fabric.Resource {
 }
 
 export interface SecurityGroupRuleArgs {
-    readonly cidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly fromPort: fabric.PropertyValue<number>;
-    readonly ipv6CidrBlocks?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly prefixListIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly protocol: fabric.PropertyValue<string>;
-    readonly securityGroupId: fabric.PropertyValue<string>;
-    readonly self?: fabric.PropertyValue<boolean>;
-    readonly sourceSecurityGroupId?: fabric.PropertyValue<string>;
-    readonly toPort: fabric.PropertyValue<number>;
+    readonly cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly fromPort: fabric.MaybeComputed<number>;
+    readonly ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly protocol: fabric.MaybeComputed<string>;
+    readonly securityGroupId: fabric.MaybeComputed<string>;
+    readonly self?: fabric.MaybeComputed<boolean>;
+    readonly sourceSecurityGroupId?: fabric.MaybeComputed<string>;
+    readonly toPort: fabric.MaybeComputed<number>;
     // Type of rule, ingress (inbound) or egress (outbound).
-    readonly type: fabric.PropertyValue<string>;
+    readonly type: fabric.MaybeComputed<string>;
 }
 

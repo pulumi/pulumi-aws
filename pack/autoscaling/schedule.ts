@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Schedule extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly autoscalingGroupName: fabric.Property<string>;
-    public readonly desiredCapacity: fabric.Property<number>;
-    public readonly endTime: fabric.Property<string>;
-    public readonly maxSize: fabric.Property<number>;
-    public readonly minSize: fabric.Property<number>;
-    public readonly recurrence: fabric.Property<string>;
-    public readonly scheduledActionName: fabric.Property<string>;
-    public readonly startTime: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly autoscalingGroupName: fabric.Computed<string>;
+    public readonly desiredCapacity: fabric.Computed<number>;
+    public readonly endTime: fabric.Computed<string>;
+    public readonly maxSize: fabric.Computed<number>;
+    public readonly minSize: fabric.Computed<number>;
+    public readonly recurrence: fabric.Computed<string>;
+    public readonly scheduledActionName: fabric.Computed<string>;
+    public readonly startTime: fabric.Computed<string>;
 
     constructor(urnName: string, args: ScheduleArgs) {
         if (args.autoscalingGroupName === undefined) {
@@ -36,13 +36,13 @@ export class Schedule extends fabric.Resource {
 }
 
 export interface ScheduleArgs {
-    readonly autoscalingGroupName: fabric.PropertyValue<string>;
-    readonly desiredCapacity?: fabric.PropertyValue<number>;
-    readonly endTime?: fabric.PropertyValue<string>;
-    readonly maxSize?: fabric.PropertyValue<number>;
-    readonly minSize?: fabric.PropertyValue<number>;
-    readonly recurrence?: fabric.PropertyValue<string>;
-    readonly scheduledActionName: fabric.PropertyValue<string>;
-    readonly startTime?: fabric.PropertyValue<string>;
+    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
+    readonly desiredCapacity?: fabric.MaybeComputed<number>;
+    readonly endTime?: fabric.MaybeComputed<string>;
+    readonly maxSize?: fabric.MaybeComputed<number>;
+    readonly minSize?: fabric.MaybeComputed<number>;
+    readonly recurrence?: fabric.MaybeComputed<string>;
+    readonly scheduledActionName: fabric.MaybeComputed<string>;
+    readonly startTime?: fabric.MaybeComputed<string>;
 }
 

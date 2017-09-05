@@ -4,17 +4,17 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Domain extends fabric.Resource {
-    public readonly accessPolicies: fabric.Property<string>;
-    public readonly advancedOptions: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly clusterConfig: fabric.Property<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }[]>;
-    public /*out*/ readonly domainId: fabric.Property<string>;
-    public readonly domainName: fabric.Property<string>;
-    public readonly ebsOptions: fabric.Property<{ ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType: string }[]>;
-    public readonly elasticsearchVersion?: fabric.Property<string>;
-    public /*out*/ readonly endpoint: fabric.Property<string>;
-    public readonly snapshotOptions?: fabric.Property<{ automatedSnapshotStartHour: number }[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly accessPolicies: fabric.Computed<string>;
+    public readonly advancedOptions: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly clusterConfig: fabric.Computed<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }[]>;
+    public /*out*/ readonly domainId: fabric.Computed<string>;
+    public readonly domainName: fabric.Computed<string>;
+    public readonly ebsOptions: fabric.Computed<{ ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType: string }[]>;
+    public readonly elasticsearchVersion?: fabric.Computed<string>;
+    public /*out*/ readonly endpoint: fabric.Computed<string>;
+    public readonly snapshotOptions?: fabric.Computed<{ automatedSnapshotStartHour: number }[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: DomainArgs) {
         if (args.domainName === undefined) {
@@ -37,13 +37,13 @@ export class Domain extends fabric.Resource {
 }
 
 export interface DomainArgs {
-    readonly accessPolicies?: fabric.PropertyValue<string>;
-    readonly advancedOptions?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly clusterConfig?: fabric.PropertyValue<{ dedicatedMasterCount?: fabric.PropertyValue<number>, dedicatedMasterEnabled?: fabric.PropertyValue<boolean>, dedicatedMasterType?: fabric.PropertyValue<string>, instanceCount?: fabric.PropertyValue<number>, instanceType?: fabric.PropertyValue<string>, zoneAwarenessEnabled?: fabric.PropertyValue<boolean> }>[];
-    readonly domainName: fabric.PropertyValue<string>;
-    readonly ebsOptions?: fabric.PropertyValue<{ ebsEnabled: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
-    readonly elasticsearchVersion?: fabric.PropertyValue<string>;
-    readonly snapshotOptions?: fabric.PropertyValue<{ automatedSnapshotStartHour: fabric.PropertyValue<number> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly accessPolicies?: fabric.MaybeComputed<string>;
+    readonly advancedOptions?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly clusterConfig?: fabric.MaybeComputed<{ dedicatedMasterCount?: fabric.MaybeComputed<number>, dedicatedMasterEnabled?: fabric.MaybeComputed<boolean>, dedicatedMasterType?: fabric.MaybeComputed<string>, instanceCount?: fabric.MaybeComputed<number>, instanceType?: fabric.MaybeComputed<string>, zoneAwarenessEnabled?: fabric.MaybeComputed<boolean> }>[];
+    readonly domainName: fabric.MaybeComputed<string>;
+    readonly ebsOptions?: fabric.MaybeComputed<{ ebsEnabled: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly elasticsearchVersion?: fabric.MaybeComputed<string>;
+    readonly snapshotOptions?: fabric.MaybeComputed<{ automatedSnapshotStartHour: fabric.MaybeComputed<number> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

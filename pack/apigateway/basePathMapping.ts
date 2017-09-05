@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class BasePathMapping extends fabric.Resource {
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly basePath?: fabric.Property<string>;
-    public readonly domainName: fabric.Property<string>;
-    public readonly stageName?: fabric.Property<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly basePath?: fabric.Computed<string>;
+    public readonly domainName: fabric.Computed<string>;
+    public readonly stageName?: fabric.Computed<string>;
 
     constructor(urnName: string, args: BasePathMappingArgs) {
         if (args.restApi === undefined) {
@@ -28,9 +28,9 @@ export class BasePathMapping extends fabric.Resource {
 }
 
 export interface BasePathMappingArgs {
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly basePath?: fabric.PropertyValue<string>;
-    readonly domainName: fabric.PropertyValue<string>;
-    readonly stageName?: fabric.PropertyValue<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly basePath?: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.MaybeComputed<string>;
+    readonly stageName?: fabric.MaybeComputed<string>;
 }
 

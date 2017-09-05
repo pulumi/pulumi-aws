@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Stream extends fabric.Resource {
-    public readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly retentionPeriod?: fabric.Property<number>;
-    public readonly shardCount: fabric.Property<number>;
-    public readonly shardLevelMetrics?: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly retentionPeriod?: fabric.Computed<number>;
+    public readonly shardCount: fabric.Computed<number>;
+    public readonly shardLevelMetrics?: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: StreamArgs) {
         if (args.shardCount === undefined) {
@@ -27,11 +27,11 @@ export class Stream extends fabric.Resource {
 }
 
 export interface StreamArgs {
-    readonly arn?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly retentionPeriod?: fabric.PropertyValue<number>;
-    readonly shardCount: fabric.PropertyValue<number>;
-    readonly shardLevelMetrics?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly arn?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly retentionPeriod?: fabric.MaybeComputed<number>;
+    readonly shardCount: fabric.MaybeComputed<number>;
+    readonly shardLevelMetrics?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

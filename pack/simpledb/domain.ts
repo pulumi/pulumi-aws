@@ -4,7 +4,7 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Domain extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: DomainArgs) {
         super("aws:simpledb/domain:Domain", urnName, {
@@ -14,6 +14,6 @@ export class Domain extends fabric.Resource {
 }
 
 export interface DomainArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

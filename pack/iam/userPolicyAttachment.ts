@@ -7,8 +7,8 @@ import {ARN} from "../index";
 import {User} from "./user";
 
 export class UserPolicyAttachment extends fabric.Resource {
-    public readonly policyArn: fabric.Property<ARN>;
-    public readonly user: fabric.Property<User>;
+    public readonly policyArn: fabric.Computed<ARN>;
+    public readonly user: fabric.Computed<User>;
 
     constructor(urnName: string, args: UserPolicyAttachmentArgs) {
         if (args.policyArn === undefined) {
@@ -25,7 +25,7 @@ export class UserPolicyAttachment extends fabric.Resource {
 }
 
 export interface UserPolicyAttachmentArgs {
-    readonly policyArn: fabric.PropertyValue<ARN>;
-    readonly user: fabric.PropertyValue<User>;
+    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly user: fabric.MaybeComputed<User>;
 }
 

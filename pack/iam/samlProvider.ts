@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SamlProvider extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly samlMetadataDocument: fabric.Property<string>;
-    public /*out*/ readonly validUntil: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly samlMetadataDocument: fabric.Computed<string>;
+    public /*out*/ readonly validUntil: fabric.Computed<string>;
 
     constructor(urnName: string, args: SamlProviderArgs) {
         if (args.samlMetadataDocument === undefined) {
@@ -23,7 +23,7 @@ export class SamlProvider extends fabric.Resource {
 }
 
 export interface SamlProviderArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly samlMetadataDocument: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly samlMetadataDocument: fabric.MaybeComputed<string>;
 }
 

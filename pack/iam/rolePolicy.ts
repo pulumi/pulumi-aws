@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RolePolicy extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
-    public readonly role: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
+    public readonly role: fabric.Computed<string>;
 
     constructor(urnName: string, args: RolePolicyArgs) {
         if (args.policy === undefined) {
@@ -26,9 +26,9 @@ export class RolePolicy extends fabric.Resource {
 }
 
 export interface RolePolicyArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly policy: fabric.PropertyValue<string>;
-    readonly role: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly policy: fabric.MaybeComputed<string>;
+    readonly role: fabric.MaybeComputed<string>;
 }
 

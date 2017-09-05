@@ -4,16 +4,16 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DeploymentGroup extends fabric.Resource {
-    public readonly alarmConfiguration?: fabric.Property<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean }[]>;
-    public readonly appName: fabric.Property<string>;
-    public readonly autoRollbackConfiguration?: fabric.Property<{ enabled?: boolean, events?: string[] }[]>;
-    public readonly autoscalingGroups?: fabric.Property<string[]>;
-    public readonly deploymentConfigName?: fabric.Property<string>;
-    public readonly deploymentGroupName: fabric.Property<string>;
-    public readonly ec2TagFilter?: fabric.Property<{ key?: string, type?: string, value?: string }[]>;
-    public readonly onPremisesInstanceTagFilter?: fabric.Property<{ key?: string, type?: string, value?: string }[]>;
-    public readonly serviceRoleArn: fabric.Property<string>;
-    public readonly triggerConfiguration?: fabric.Property<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[]>;
+    public readonly alarmConfiguration?: fabric.Computed<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean }[]>;
+    public readonly appName: fabric.Computed<string>;
+    public readonly autoRollbackConfiguration?: fabric.Computed<{ enabled?: boolean, events?: string[] }[]>;
+    public readonly autoscalingGroups?: fabric.Computed<string[]>;
+    public readonly deploymentConfigName?: fabric.Computed<string>;
+    public readonly deploymentGroupName: fabric.Computed<string>;
+    public readonly ec2TagFilter?: fabric.Computed<{ key?: string, type?: string, value?: string }[]>;
+    public readonly onPremisesInstanceTagFilter?: fabric.Computed<{ key?: string, type?: string, value?: string }[]>;
+    public readonly serviceRoleArn: fabric.Computed<string>;
+    public readonly triggerConfiguration?: fabric.Computed<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[]>;
 
     constructor(urnName: string, args: DeploymentGroupArgs) {
         if (args.appName === undefined) {
@@ -41,15 +41,15 @@ export class DeploymentGroup extends fabric.Resource {
 }
 
 export interface DeploymentGroupArgs {
-    readonly alarmConfiguration?: fabric.PropertyValue<{ alarms?: fabric.PropertyValue<fabric.PropertyValue<string>>[], enabled?: fabric.PropertyValue<boolean>, ignorePollAlarmFailure?: fabric.PropertyValue<boolean> }>[];
-    readonly appName: fabric.PropertyValue<string>;
-    readonly autoRollbackConfiguration?: fabric.PropertyValue<{ enabled?: fabric.PropertyValue<boolean>, events?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly autoscalingGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly deploymentConfigName?: fabric.PropertyValue<string>;
-    readonly deploymentGroupName: fabric.PropertyValue<string>;
-    readonly ec2TagFilter?: fabric.PropertyValue<{ key?: fabric.PropertyValue<string>, type?: fabric.PropertyValue<string>, value?: fabric.PropertyValue<string> }>[];
-    readonly onPremisesInstanceTagFilter?: fabric.PropertyValue<{ key?: fabric.PropertyValue<string>, type?: fabric.PropertyValue<string>, value?: fabric.PropertyValue<string> }>[];
-    readonly serviceRoleArn: fabric.PropertyValue<string>;
-    readonly triggerConfiguration?: fabric.PropertyValue<{ triggerEvents: fabric.PropertyValue<fabric.PropertyValue<string>>[], triggerName: fabric.PropertyValue<string>, triggerTargetArn: fabric.PropertyValue<string> }>[];
+    readonly alarmConfiguration?: fabric.MaybeComputed<{ alarms?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], enabled?: fabric.MaybeComputed<boolean>, ignorePollAlarmFailure?: fabric.MaybeComputed<boolean> }>[];
+    readonly appName: fabric.MaybeComputed<string>;
+    readonly autoRollbackConfiguration?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, events?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly autoscalingGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly deploymentConfigName?: fabric.MaybeComputed<string>;
+    readonly deploymentGroupName: fabric.MaybeComputed<string>;
+    readonly ec2TagFilter?: fabric.MaybeComputed<{ key?: fabric.MaybeComputed<string>, type?: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<string> }>[];
+    readonly onPremisesInstanceTagFilter?: fabric.MaybeComputed<{ key?: fabric.MaybeComputed<string>, type?: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<string> }>[];
+    readonly serviceRoleArn: fabric.MaybeComputed<string>;
+    readonly triggerConfiguration?: fabric.MaybeComputed<{ triggerEvents: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], triggerName: fabric.MaybeComputed<string>, triggerTargetArn: fabric.MaybeComputed<string> }>[];
 }
 

@@ -4,7 +4,7 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AccountAlias extends fabric.Resource {
-    public readonly accountAlias: fabric.Property<string>;
+    public readonly accountAlias: fabric.Computed<string>;
 
     constructor(urnName: string, args: AccountAliasArgs) {
         if (args.accountAlias === undefined) {
@@ -17,6 +17,6 @@ export class AccountAlias extends fabric.Resource {
 }
 
 export interface AccountAliasArgs {
-    readonly accountAlias: fabric.PropertyValue<string>;
+    readonly accountAlias: fabric.MaybeComputed<string>;
 }
 

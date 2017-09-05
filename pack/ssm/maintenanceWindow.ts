@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class MaintenanceWindow extends fabric.Resource {
-    public readonly allowUnassociatedTargets?: fabric.Property<boolean>;
-    public readonly cutoff: fabric.Property<number>;
-    public readonly duration: fabric.Property<number>;
-    public readonly enabled?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public readonly schedule: fabric.Property<string>;
+    public readonly allowUnassociatedTargets?: fabric.Computed<boolean>;
+    public readonly cutoff: fabric.Computed<number>;
+    public readonly duration: fabric.Computed<number>;
+    public readonly enabled?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly schedule: fabric.Computed<string>;
 
     constructor(urnName: string, args: MaintenanceWindowArgs) {
         if (args.cutoff === undefined) {
@@ -33,11 +33,11 @@ export class MaintenanceWindow extends fabric.Resource {
 }
 
 export interface MaintenanceWindowArgs {
-    readonly allowUnassociatedTargets?: fabric.PropertyValue<boolean>;
-    readonly cutoff: fabric.PropertyValue<number>;
-    readonly duration: fabric.PropertyValue<number>;
-    readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly schedule: fabric.PropertyValue<string>;
+    readonly allowUnassociatedTargets?: fabric.MaybeComputed<boolean>;
+    readonly cutoff: fabric.MaybeComputed<number>;
+    readonly duration: fabric.MaybeComputed<number>;
+    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly schedule: fabric.MaybeComputed<string>;
 }
 

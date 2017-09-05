@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Response extends fabric.Resource {
-    public readonly responseParameters?: fabric.Property<{[key: string]: string}>;
-    public readonly responseTemplates?: fabric.Property<{[key: string]: string}>;
-    public readonly responseType: fabric.Property<string>;
-    public readonly restApiId: fabric.Property<string>;
-    public readonly statusCode?: fabric.Property<string>;
+    public readonly responseParameters?: fabric.Computed<{[key: string]: string}>;
+    public readonly responseTemplates?: fabric.Computed<{[key: string]: string}>;
+    public readonly responseType: fabric.Computed<string>;
+    public readonly restApiId: fabric.Computed<string>;
+    public readonly statusCode?: fabric.Computed<string>;
 
     constructor(urnName: string, args: ResponseArgs) {
         if (args.responseType === undefined) {
@@ -28,10 +28,10 @@ export class Response extends fabric.Resource {
 }
 
 export interface ResponseArgs {
-    readonly responseParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
-    readonly responseTemplates?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
-    readonly responseType: fabric.PropertyValue<string>;
-    readonly restApiId: fabric.PropertyValue<string>;
-    readonly statusCode?: fabric.PropertyValue<string>;
+    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseType: fabric.MaybeComputed<string>;
+    readonly restApiId: fabric.MaybeComputed<string>;
+    readonly statusCode?: fabric.MaybeComputed<string>;
 }
 

@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class BucketPolicy extends fabric.Resource {
-    public readonly bucket: fabric.Property<string>;
-    public readonly policy: fabric.Property<string>;
+    public readonly bucket: fabric.Computed<string>;
+    public readonly policy: fabric.Computed<string>;
 
     constructor(urnName: string, args: BucketPolicyArgs) {
         if (args.bucket === undefined) {
@@ -22,7 +22,7 @@ export class BucketPolicy extends fabric.Resource {
 }
 
 export interface BucketPolicyArgs {
-    readonly bucket: fabric.PropertyValue<string>;
-    readonly policy: fabric.PropertyValue<string>;
+    readonly bucket: fabric.MaybeComputed<string>;
+    readonly policy: fabric.MaybeComputed<string>;
 }
 

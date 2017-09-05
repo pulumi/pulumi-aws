@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Snapshot extends fabric.Resource {
-    public /*out*/ readonly dataEncryptionKeyId: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public /*out*/ readonly encrypted: fabric.Property<boolean>;
-    public /*out*/ readonly kmsKeyId: fabric.Property<string>;
-    public /*out*/ readonly ownerAlias: fabric.Property<string>;
-    public /*out*/ readonly ownerId: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly volumeId: fabric.Property<string>;
-    public /*out*/ readonly volumeSize: fabric.Property<number>;
+    public /*out*/ readonly dataEncryptionKeyId: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly encrypted: fabric.Computed<boolean>;
+    public /*out*/ readonly kmsKeyId: fabric.Computed<string>;
+    public /*out*/ readonly ownerAlias: fabric.Computed<string>;
+    public /*out*/ readonly ownerId: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly volumeId: fabric.Computed<string>;
+    public /*out*/ readonly volumeSize: fabric.Computed<number>;
 
     constructor(urnName: string, args: SnapshotArgs) {
         if (args.volumeId === undefined) {
@@ -33,8 +33,8 @@ export class Snapshot extends fabric.Resource {
 }
 
 export interface SnapshotArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly volumeId: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly volumeId: fabric.MaybeComputed<string>;
 }
 

@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class OpenIdConnectProvider extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly clientIdList: fabric.Property<string[]>;
-    public readonly thumbprintList: fabric.Property<string[]>;
-    public readonly url: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly clientIdList: fabric.Computed<string[]>;
+    public readonly thumbprintList: fabric.Computed<string[]>;
+    public readonly url: fabric.Computed<string>;
 
     constructor(urnName: string, args: OpenIdConnectProviderArgs) {
         if (args.clientIdList === undefined) {
@@ -29,8 +29,8 @@ export class OpenIdConnectProvider extends fabric.Resource {
 }
 
 export interface OpenIdConnectProviderArgs {
-    readonly clientIdList: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly thumbprintList: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly url: fabric.PropertyValue<string>;
+    readonly clientIdList: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly thumbprintList: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly url: fabric.MaybeComputed<string>;
 }
 

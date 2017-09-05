@@ -4,18 +4,18 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SpotFleetRequest extends fabric.Resource {
-    public readonly allocationStrategy?: fabric.Property<string>;
-    public /*out*/ readonly clientToken: fabric.Property<string>;
-    public readonly excessCapacityTerminationPolicy?: fabric.Property<string>;
-    public readonly iamFleetRole: fabric.Property<string>;
-    public readonly launchSpecification: fabric.Property<{ ami: string, associatePublicIpAddress?: boolean, availabilityZone: string, ebsBlockDevice: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[], ebsOptimized?: boolean, ephemeralBlockDevice: { deviceName: string, virtualName: string }[], iamInstanceProfile?: string, instanceType: string, keyName: string, monitoring?: boolean, placementGroup: string, placementTenancy?: string, rootBlockDevice: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[], spotPrice?: string, subnetId: string, userData?: string, vpcSecurityGroupIds: string[], weightedCapacity?: string }[]>;
-    public readonly replaceUnhealthyInstances?: fabric.Property<boolean>;
-    public readonly spotPrice: fabric.Property<string>;
-    public /*out*/ readonly spotRequestState: fabric.Property<string>;
-    public readonly targetCapacity: fabric.Property<number>;
-    public readonly terminateInstancesWithExpiration?: fabric.Property<boolean>;
-    public readonly validFrom?: fabric.Property<string>;
-    public readonly validUntil?: fabric.Property<string>;
+    public readonly allocationStrategy?: fabric.Computed<string>;
+    public /*out*/ readonly clientToken: fabric.Computed<string>;
+    public readonly excessCapacityTerminationPolicy?: fabric.Computed<string>;
+    public readonly iamFleetRole: fabric.Computed<string>;
+    public readonly launchSpecification: fabric.Computed<{ ami: string, associatePublicIpAddress?: boolean, availabilityZone: string, ebsBlockDevice: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[], ebsOptimized?: boolean, ephemeralBlockDevice: { deviceName: string, virtualName: string }[], iamInstanceProfile?: string, instanceType: string, keyName: string, monitoring?: boolean, placementGroup: string, placementTenancy?: string, rootBlockDevice: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[], spotPrice?: string, subnetId: string, userData?: string, vpcSecurityGroupIds: string[], weightedCapacity?: string }[]>;
+    public readonly replaceUnhealthyInstances?: fabric.Computed<boolean>;
+    public readonly spotPrice: fabric.Computed<string>;
+    public /*out*/ readonly spotRequestState: fabric.Computed<string>;
+    public readonly targetCapacity: fabric.Computed<number>;
+    public readonly terminateInstancesWithExpiration?: fabric.Computed<boolean>;
+    public readonly validFrom?: fabric.Computed<string>;
+    public readonly validUntil?: fabric.Computed<string>;
 
     constructor(urnName: string, args: SpotFleetRequestArgs) {
         if (args.iamFleetRole === undefined) {
@@ -48,15 +48,15 @@ export class SpotFleetRequest extends fabric.Resource {
 }
 
 export interface SpotFleetRequestArgs {
-    readonly allocationStrategy?: fabric.PropertyValue<string>;
-    readonly excessCapacityTerminationPolicy?: fabric.PropertyValue<string>;
-    readonly iamFleetRole: fabric.PropertyValue<string>;
-    readonly launchSpecification: fabric.PropertyValue<{ ami: fabric.PropertyValue<string>, associatePublicIpAddress?: fabric.PropertyValue<boolean>, availabilityZone?: fabric.PropertyValue<string>, ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceName: fabric.PropertyValue<string>, encrypted?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, snapshotId?: fabric.PropertyValue<string>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[], ebsOptimized?: fabric.PropertyValue<boolean>, ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName: fabric.PropertyValue<string>, virtualName: fabric.PropertyValue<string> }>[], iamInstanceProfile?: fabric.PropertyValue<string>, instanceType: fabric.PropertyValue<string>, keyName?: fabric.PropertyValue<string>, monitoring?: fabric.PropertyValue<boolean>, placementGroup?: fabric.PropertyValue<string>, placementTenancy?: fabric.PropertyValue<string>, rootBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[], spotPrice?: fabric.PropertyValue<string>, subnetId?: fabric.PropertyValue<string>, userData?: fabric.PropertyValue<string>, vpcSecurityGroupIds?: fabric.PropertyValue<fabric.PropertyValue<string>>[], weightedCapacity?: fabric.PropertyValue<string> }>[];
-    readonly replaceUnhealthyInstances?: fabric.PropertyValue<boolean>;
-    readonly spotPrice: fabric.PropertyValue<string>;
-    readonly targetCapacity: fabric.PropertyValue<number>;
-    readonly terminateInstancesWithExpiration?: fabric.PropertyValue<boolean>;
-    readonly validFrom?: fabric.PropertyValue<string>;
-    readonly validUntil?: fabric.PropertyValue<string>;
+    readonly allocationStrategy?: fabric.MaybeComputed<string>;
+    readonly excessCapacityTerminationPolicy?: fabric.MaybeComputed<string>;
+    readonly iamFleetRole: fabric.MaybeComputed<string>;
+    readonly launchSpecification: fabric.MaybeComputed<{ ami: fabric.MaybeComputed<string>, associatePublicIpAddress?: fabric.MaybeComputed<boolean>, availabilityZone?: fabric.MaybeComputed<string>, ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], ebsOptimized?: fabric.MaybeComputed<boolean>, ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[], iamInstanceProfile?: fabric.MaybeComputed<string>, instanceType: fabric.MaybeComputed<string>, keyName?: fabric.MaybeComputed<string>, monitoring?: fabric.MaybeComputed<boolean>, placementGroup?: fabric.MaybeComputed<string>, placementTenancy?: fabric.MaybeComputed<string>, rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], spotPrice?: fabric.MaybeComputed<string>, subnetId?: fabric.MaybeComputed<string>, userData?: fabric.MaybeComputed<string>, vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], weightedCapacity?: fabric.MaybeComputed<string> }>[];
+    readonly replaceUnhealthyInstances?: fabric.MaybeComputed<boolean>;
+    readonly spotPrice: fabric.MaybeComputed<string>;
+    readonly targetCapacity: fabric.MaybeComputed<number>;
+    readonly terminateInstancesWithExpiration?: fabric.MaybeComputed<boolean>;
+    readonly validFrom?: fabric.MaybeComputed<string>;
+    readonly validUntil?: fabric.MaybeComputed<string>;
 }
 

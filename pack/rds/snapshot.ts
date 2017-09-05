@@ -4,25 +4,25 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Snapshot extends fabric.Resource {
-    public /*out*/ readonly allocatedStorage: fabric.Property<number>;
-    public /*out*/ readonly availabilityZone: fabric.Property<string>;
-    public readonly dbInstanceIdentifier: fabric.Property<string>;
-    public /*out*/ readonly dbSnapshotArn: fabric.Property<string>;
-    public readonly dbSnapshotIdentifier: fabric.Property<string>;
-    public /*out*/ readonly encrypted: fabric.Property<boolean>;
-    public /*out*/ readonly engine: fabric.Property<string>;
-    public /*out*/ readonly engineVersion: fabric.Property<string>;
-    public /*out*/ readonly iops: fabric.Property<number>;
-    public /*out*/ readonly kmsKeyId: fabric.Property<string>;
-    public /*out*/ readonly licenseModel: fabric.Property<string>;
-    public /*out*/ readonly optionGroupName: fabric.Property<string>;
-    public /*out*/ readonly port: fabric.Property<number>;
-    public /*out*/ readonly snapshotType: fabric.Property<string>;
-    public /*out*/ readonly sourceDbSnapshotIdentifier: fabric.Property<string>;
-    public /*out*/ readonly sourceRegion: fabric.Property<string>;
-    public /*out*/ readonly status: fabric.Property<string>;
-    public /*out*/ readonly storageType: fabric.Property<string>;
-    public /*out*/ readonly vpcId: fabric.Property<string>;
+    public /*out*/ readonly allocatedStorage: fabric.Computed<number>;
+    public /*out*/ readonly availabilityZone: fabric.Computed<string>;
+    public readonly dbInstanceIdentifier: fabric.Computed<string>;
+    public /*out*/ readonly dbSnapshotArn: fabric.Computed<string>;
+    public readonly dbSnapshotIdentifier: fabric.Computed<string>;
+    public /*out*/ readonly encrypted: fabric.Computed<boolean>;
+    public /*out*/ readonly engine: fabric.Computed<string>;
+    public /*out*/ readonly engineVersion: fabric.Computed<string>;
+    public /*out*/ readonly iops: fabric.Computed<number>;
+    public /*out*/ readonly kmsKeyId: fabric.Computed<string>;
+    public /*out*/ readonly licenseModel: fabric.Computed<string>;
+    public /*out*/ readonly optionGroupName: fabric.Computed<string>;
+    public /*out*/ readonly port: fabric.Computed<number>;
+    public /*out*/ readonly snapshotType: fabric.Computed<string>;
+    public /*out*/ readonly sourceDbSnapshotIdentifier: fabric.Computed<string>;
+    public /*out*/ readonly sourceRegion: fabric.Computed<string>;
+    public /*out*/ readonly status: fabric.Computed<string>;
+    public /*out*/ readonly storageType: fabric.Computed<string>;
+    public /*out*/ readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: SnapshotArgs) {
         if (args.dbInstanceIdentifier === undefined) {
@@ -56,7 +56,7 @@ export class Snapshot extends fabric.Resource {
 }
 
 export interface SnapshotArgs {
-    readonly dbInstanceIdentifier: fabric.PropertyValue<string>;
-    readonly dbSnapshotIdentifier: fabric.PropertyValue<string>;
+    readonly dbInstanceIdentifier: fabric.MaybeComputed<string>;
+    readonly dbSnapshotIdentifier: fabric.MaybeComputed<string>;
 }
 

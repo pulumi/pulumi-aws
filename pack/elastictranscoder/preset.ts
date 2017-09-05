@@ -4,17 +4,17 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Preset extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly audio?: fabric.Property<{ audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string }[]>;
-    public readonly audioCodecOptions?: fabric.Property<{ bitDepth?: string, bitOrder?: string, profile?: string, signed?: string }[]>;
-    public readonly container: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly thumbnails?: fabric.Property<{ aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[]>;
-    public readonly type: fabric.Property<string>;
-    public readonly video?: fabric.Property<{ aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[]>;
-    public readonly videoCodecOptions?: fabric.Property<{[key: string]: any}>;
-    public readonly videoWatermarks?: fabric.Property<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[]>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly audio?: fabric.Computed<{ audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string }[]>;
+    public readonly audioCodecOptions?: fabric.Computed<{ bitDepth?: string, bitOrder?: string, profile?: string, signed?: string }[]>;
+    public readonly container: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly thumbnails?: fabric.Computed<{ aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[]>;
+    public readonly type: fabric.Computed<string>;
+    public readonly video?: fabric.Computed<{ aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[]>;
+    public readonly videoCodecOptions?: fabric.Computed<{[key: string]: any}>;
+    public readonly videoWatermarks?: fabric.Computed<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[]>;
 
     constructor(urnName: string, args: PresetArgs) {
         if (args.container === undefined) {
@@ -37,15 +37,15 @@ export class Preset extends fabric.Resource {
 }
 
 export interface PresetArgs {
-    readonly audio?: fabric.PropertyValue<{ audioPackingMode?: fabric.PropertyValue<string>, bitRate?: fabric.PropertyValue<string>, channels?: fabric.PropertyValue<string>, codec?: fabric.PropertyValue<string>, sampleRate?: fabric.PropertyValue<string> }>[];
-    readonly audioCodecOptions?: fabric.PropertyValue<{ bitDepth?: fabric.PropertyValue<string>, bitOrder?: fabric.PropertyValue<string>, profile?: fabric.PropertyValue<string>, signed?: fabric.PropertyValue<string> }>[];
-    readonly container: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly thumbnails?: fabric.PropertyValue<{ aspectRatio?: fabric.PropertyValue<string>, format?: fabric.PropertyValue<string>, interval?: fabric.PropertyValue<string>, maxHeight?: fabric.PropertyValue<string>, maxWidth?: fabric.PropertyValue<string>, paddingPolicy?: fabric.PropertyValue<string>, resolution?: fabric.PropertyValue<string>, sizingPolicy?: fabric.PropertyValue<string> }>[];
-    readonly type?: fabric.PropertyValue<string>;
-    readonly video?: fabric.PropertyValue<{ aspectRatio?: fabric.PropertyValue<string>, bitRate?: fabric.PropertyValue<string>, codec?: fabric.PropertyValue<string>, displayAspectRatio?: fabric.PropertyValue<string>, fixedGop?: fabric.PropertyValue<string>, frameRate?: fabric.PropertyValue<string>, keyframesMaxDist?: fabric.PropertyValue<string>, maxFrameRate?: fabric.PropertyValue<string>, maxHeight?: fabric.PropertyValue<string>, maxWidth?: fabric.PropertyValue<string>, paddingPolicy?: fabric.PropertyValue<string>, resolution?: fabric.PropertyValue<string>, sizingPolicy?: fabric.PropertyValue<string> }>[];
-    readonly videoCodecOptions?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly videoWatermarks?: fabric.PropertyValue<{ horizontalAlign?: fabric.PropertyValue<string>, horizontalOffset?: fabric.PropertyValue<string>, id?: fabric.PropertyValue<string>, maxHeight?: fabric.PropertyValue<string>, maxWidth?: fabric.PropertyValue<string>, opacity?: fabric.PropertyValue<string>, sizingPolicy?: fabric.PropertyValue<string>, target?: fabric.PropertyValue<string>, verticalAlign?: fabric.PropertyValue<string>, verticalOffset?: fabric.PropertyValue<string> }>[];
+    readonly audio?: fabric.MaybeComputed<{ audioPackingMode?: fabric.MaybeComputed<string>, bitRate?: fabric.MaybeComputed<string>, channels?: fabric.MaybeComputed<string>, codec?: fabric.MaybeComputed<string>, sampleRate?: fabric.MaybeComputed<string> }>[];
+    readonly audioCodecOptions?: fabric.MaybeComputed<{ bitDepth?: fabric.MaybeComputed<string>, bitOrder?: fabric.MaybeComputed<string>, profile?: fabric.MaybeComputed<string>, signed?: fabric.MaybeComputed<string> }>[];
+    readonly container: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly thumbnails?: fabric.MaybeComputed<{ aspectRatio?: fabric.MaybeComputed<string>, format?: fabric.MaybeComputed<string>, interval?: fabric.MaybeComputed<string>, maxHeight?: fabric.MaybeComputed<string>, maxWidth?: fabric.MaybeComputed<string>, paddingPolicy?: fabric.MaybeComputed<string>, resolution?: fabric.MaybeComputed<string>, sizingPolicy?: fabric.MaybeComputed<string> }>[];
+    readonly type?: fabric.MaybeComputed<string>;
+    readonly video?: fabric.MaybeComputed<{ aspectRatio?: fabric.MaybeComputed<string>, bitRate?: fabric.MaybeComputed<string>, codec?: fabric.MaybeComputed<string>, displayAspectRatio?: fabric.MaybeComputed<string>, fixedGop?: fabric.MaybeComputed<string>, frameRate?: fabric.MaybeComputed<string>, keyframesMaxDist?: fabric.MaybeComputed<string>, maxFrameRate?: fabric.MaybeComputed<string>, maxHeight?: fabric.MaybeComputed<string>, maxWidth?: fabric.MaybeComputed<string>, paddingPolicy?: fabric.MaybeComputed<string>, resolution?: fabric.MaybeComputed<string>, sizingPolicy?: fabric.MaybeComputed<string> }>[];
+    readonly videoCodecOptions?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly videoWatermarks?: fabric.MaybeComputed<{ horizontalAlign?: fabric.MaybeComputed<string>, horizontalOffset?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, maxHeight?: fabric.MaybeComputed<string>, maxWidth?: fabric.MaybeComputed<string>, opacity?: fabric.MaybeComputed<string>, sizingPolicy?: fabric.MaybeComputed<string>, target?: fabric.MaybeComputed<string>, verticalAlign?: fabric.MaybeComputed<string>, verticalOffset?: fabric.MaybeComputed<string> }>[];
 }
 

@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SecurityGroup extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly ingress: fabric.Property<{ cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly ingress: fabric.Computed<{ cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: SecurityGroupArgs) {
         if (args.ingress === undefined) {
@@ -25,9 +25,9 @@ export class SecurityGroup extends fabric.Resource {
 }
 
 export interface SecurityGroupArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly ingress: fabric.PropertyValue<{ cidr?: fabric.PropertyValue<string>, securityGroupId?: fabric.PropertyValue<string>, securityGroupName?: fabric.PropertyValue<string>, securityGroupOwnerId?: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly ingress: fabric.MaybeComputed<{ cidr?: fabric.MaybeComputed<string>, securityGroupId?: fabric.MaybeComputed<string>, securityGroupName?: fabric.MaybeComputed<string>, securityGroupOwnerId?: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

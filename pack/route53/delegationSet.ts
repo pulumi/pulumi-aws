@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DelegationSet extends fabric.Resource {
-    public /*out*/ readonly nameServers: fabric.Property<string[]>;
-    public readonly referenceName?: fabric.Property<string>;
+    public /*out*/ readonly nameServers: fabric.Computed<string[]>;
+    public readonly referenceName?: fabric.Computed<string>;
 
     constructor(urnName: string, args: DelegationSetArgs) {
         super("aws:route53/delegationSet:DelegationSet", urnName, {
@@ -16,6 +16,6 @@ export class DelegationSet extends fabric.Resource {
 }
 
 export interface DelegationSetArgs {
-    readonly referenceName?: fabric.PropertyValue<string>;
+    readonly referenceName?: fabric.MaybeComputed<string>;
 }
 

@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class User extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly forceDestroy?: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public readonly path?: fabric.Property<string>;
-    public /*out*/ readonly uniqueId: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly forceDestroy?: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public readonly path?: fabric.Computed<string>;
+    public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
     constructor(urnName: string, args: UserArgs) {
         super("aws:iam/user:User", urnName, {
@@ -23,8 +23,8 @@ export class User extends fabric.Resource {
 
 export interface UserArgs {
     // Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
-    readonly forceDestroy?: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly path?: fabric.PropertyValue<string>;
+    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.MaybeComputed<string>;
 }
 

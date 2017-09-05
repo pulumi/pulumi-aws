@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class QueuePolicy extends fabric.Resource {
-    public readonly policy: fabric.Property<string>;
-    public readonly queueUrl: fabric.Property<string>;
+    public readonly policy: fabric.Computed<string>;
+    public readonly queueUrl: fabric.Computed<string>;
 
     constructor(urnName: string, args: QueuePolicyArgs) {
         if (args.policy === undefined) {
@@ -22,7 +22,7 @@ export class QueuePolicy extends fabric.Resource {
 }
 
 export interface QueuePolicyArgs {
-    readonly policy: fabric.PropertyValue<string>;
-    readonly queueUrl: fabric.PropertyValue<string>;
+    readonly policy: fabric.MaybeComputed<string>;
+    readonly queueUrl: fabric.MaybeComputed<string>;
 }
 

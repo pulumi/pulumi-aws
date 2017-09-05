@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class KeyPair extends fabric.Resource {
-    public /*out*/ readonly fingerprint: fabric.Property<string>;
-    public readonly keyName: fabric.Property<string>;
-    public readonly keyNamePrefix?: fabric.Property<string>;
-    public readonly publicKey: fabric.Property<string>;
+    public /*out*/ readonly fingerprint: fabric.Computed<string>;
+    public readonly keyName: fabric.Computed<string>;
+    public readonly keyNamePrefix?: fabric.Computed<string>;
+    public readonly publicKey: fabric.Computed<string>;
 
     constructor(urnName: string, args: KeyPairArgs) {
         if (args.publicKey === undefined) {
@@ -23,8 +23,8 @@ export class KeyPair extends fabric.Resource {
 }
 
 export interface KeyPairArgs {
-    readonly keyName?: fabric.PropertyValue<string>;
-    readonly keyNamePrefix?: fabric.PropertyValue<string>;
-    readonly publicKey: fabric.PropertyValue<string>;
+    readonly keyName?: fabric.MaybeComputed<string>;
+    readonly keyNamePrefix?: fabric.MaybeComputed<string>;
+    readonly publicKey: fabric.MaybeComputed<string>;
 }
 

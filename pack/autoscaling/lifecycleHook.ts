@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LifecycleHook extends fabric.Resource {
-    public readonly autoscalingGroupName: fabric.Property<string>;
-    public readonly defaultResult: fabric.Property<string>;
-    public readonly heartbeatTimeout?: fabric.Property<number>;
-    public readonly lifecycleTransition: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly notificationMetadata?: fabric.Property<string>;
-    public readonly notificationTargetArn?: fabric.Property<string>;
-    public readonly roleArn?: fabric.Property<string>;
+    public readonly autoscalingGroupName: fabric.Computed<string>;
+    public readonly defaultResult: fabric.Computed<string>;
+    public readonly heartbeatTimeout?: fabric.Computed<number>;
+    public readonly lifecycleTransition: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly notificationMetadata?: fabric.Computed<string>;
+    public readonly notificationTargetArn?: fabric.Computed<string>;
+    public readonly roleArn?: fabric.Computed<string>;
 
     constructor(urnName: string, args: LifecycleHookArgs) {
         if (args.autoscalingGroupName === undefined) {
@@ -34,13 +34,13 @@ export class LifecycleHook extends fabric.Resource {
 }
 
 export interface LifecycleHookArgs {
-    readonly autoscalingGroupName: fabric.PropertyValue<string>;
-    readonly defaultResult?: fabric.PropertyValue<string>;
-    readonly heartbeatTimeout?: fabric.PropertyValue<number>;
-    readonly lifecycleTransition: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly notificationMetadata?: fabric.PropertyValue<string>;
-    readonly notificationTargetArn?: fabric.PropertyValue<string>;
-    readonly roleArn?: fabric.PropertyValue<string>;
+    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
+    readonly defaultResult?: fabric.MaybeComputed<string>;
+    readonly heartbeatTimeout?: fabric.MaybeComputed<number>;
+    readonly lifecycleTransition: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly notificationMetadata?: fabric.MaybeComputed<string>;
+    readonly notificationTargetArn?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.MaybeComputed<string>;
 }
 

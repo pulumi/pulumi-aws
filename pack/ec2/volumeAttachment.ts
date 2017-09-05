@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VolumeAttachment extends fabric.Resource {
-    public readonly deviceName: fabric.Property<string>;
-    public readonly forceDetach: fabric.Property<boolean>;
-    public readonly instanceId: fabric.Property<string>;
-    public readonly skipDestroy: fabric.Property<boolean>;
-    public readonly volumeId: fabric.Property<string>;
+    public readonly deviceName: fabric.Computed<string>;
+    public readonly forceDetach: fabric.Computed<boolean>;
+    public readonly instanceId: fabric.Computed<string>;
+    public readonly skipDestroy: fabric.Computed<boolean>;
+    public readonly volumeId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VolumeAttachmentArgs) {
         if (args.deviceName === undefined) {
@@ -31,10 +31,10 @@ export class VolumeAttachment extends fabric.Resource {
 }
 
 export interface VolumeAttachmentArgs {
-    readonly deviceName: fabric.PropertyValue<string>;
-    readonly forceDetach?: fabric.PropertyValue<boolean>;
-    readonly instanceId: fabric.PropertyValue<string>;
-    readonly skipDestroy?: fabric.PropertyValue<boolean>;
-    readonly volumeId: fabric.PropertyValue<string>;
+    readonly deviceName: fabric.MaybeComputed<string>;
+    readonly forceDetach?: fabric.MaybeComputed<boolean>;
+    readonly instanceId: fabric.MaybeComputed<string>;
+    readonly skipDestroy?: fabric.MaybeComputed<boolean>;
+    readonly volumeId: fabric.MaybeComputed<string>;
 }
 

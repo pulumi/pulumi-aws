@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SpotDatafeedSubscription extends fabric.Resource {
-    public readonly bucket: fabric.Property<string>;
-    public readonly prefix?: fabric.Property<string>;
+    public readonly bucket: fabric.Computed<string>;
+    public readonly prefix?: fabric.Computed<string>;
 
     constructor(urnName: string, args: SpotDatafeedSubscriptionArgs) {
         if (args.bucket === undefined) {
@@ -19,7 +19,7 @@ export class SpotDatafeedSubscription extends fabric.Resource {
 }
 
 export interface SpotDatafeedSubscriptionArgs {
-    readonly bucket: fabric.PropertyValue<string>;
-    readonly prefix?: fabric.PropertyValue<string>;
+    readonly bucket: fabric.MaybeComputed<string>;
+    readonly prefix?: fabric.MaybeComputed<string>;
 }
 

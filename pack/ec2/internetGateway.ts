@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class InternetGateway extends fabric.Resource {
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId?: fabric.Property<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId?: fabric.Computed<string>;
 
     constructor(urnName: string, args: InternetGatewayArgs) {
         super("aws:ec2/internetGateway:InternetGateway", urnName, {
@@ -16,7 +16,7 @@ export class InternetGateway extends fabric.Resource {
 }
 
 export interface InternetGatewayArgs {
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId?: fabric.PropertyValue<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

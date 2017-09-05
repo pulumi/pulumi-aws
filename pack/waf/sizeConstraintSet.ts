@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class SizeConstraintSet extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly sizeConstraints?: fabric.Property<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly sizeConstraints?: fabric.Computed<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[]>;
 
     constructor(urnName: string, args: SizeConstraintSetArgs) {
         super("aws:waf/sizeConstraintSet:SizeConstraintSet", urnName, {
@@ -16,7 +16,7 @@ export class SizeConstraintSet extends fabric.Resource {
 }
 
 export interface SizeConstraintSetArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly sizeConstraints?: fabric.PropertyValue<{ comparisonOperator: fabric.PropertyValue<string>, fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], size: fabric.PropertyValue<number>, textTransformation: fabric.PropertyValue<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly sizeConstraints?: fabric.MaybeComputed<{ comparisonOperator: fabric.MaybeComputed<string>, fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], size: fabric.MaybeComputed<number>, textTransformation: fabric.MaybeComputed<string> }>[];
 }
 

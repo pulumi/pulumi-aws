@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Repository extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public /*out*/ readonly cloneUrlHttp: fabric.Property<string>;
-    public /*out*/ readonly cloneUrlSsh: fabric.Property<string>;
-    public readonly defaultBranch?: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public /*out*/ readonly repositoryId: fabric.Property<string>;
-    public readonly repositoryName: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public /*out*/ readonly cloneUrlHttp: fabric.Computed<string>;
+    public /*out*/ readonly cloneUrlSsh: fabric.Computed<string>;
+    public readonly defaultBranch?: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly repositoryId: fabric.Computed<string>;
+    public readonly repositoryName: fabric.Computed<string>;
 
     constructor(urnName: string, args: RepositoryArgs) {
         if (args.repositoryName === undefined) {
@@ -29,8 +29,8 @@ export class Repository extends fabric.Resource {
 }
 
 export interface RepositoryArgs {
-    readonly defaultBranch?: fabric.PropertyValue<string>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly repositoryName: fabric.PropertyValue<string>;
+    readonly defaultBranch?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly repositoryName: fabric.MaybeComputed<string>;
 }
 

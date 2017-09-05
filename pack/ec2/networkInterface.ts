@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class NetworkInterface extends fabric.Resource {
-    public readonly attachment: fabric.Property<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
-    public readonly description?: fabric.Property<string>;
-    public readonly privateIp: fabric.Property<string>;
-    public readonly privateIps: fabric.Property<string[]>;
-    public readonly privateIpsCount: fabric.Property<number>;
-    public readonly securityGroups: fabric.Property<string[]>;
-    public readonly sourceDestCheck?: fabric.Property<boolean>;
-    public readonly subnetId: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public readonly attachment: fabric.Computed<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly privateIp: fabric.Computed<string>;
+    public readonly privateIps: fabric.Computed<string[]>;
+    public readonly privateIpsCount: fabric.Computed<number>;
+    public readonly securityGroups: fabric.Computed<string[]>;
+    public readonly sourceDestCheck?: fabric.Computed<boolean>;
+    public readonly subnetId: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: NetworkInterfaceArgs) {
         if (args.subnetId === undefined) {
@@ -33,14 +33,14 @@ export class NetworkInterface extends fabric.Resource {
 }
 
 export interface NetworkInterfaceArgs {
-    readonly attachment?: fabric.PropertyValue<{ attachmentId?: fabric.PropertyValue<string>, deviceIndex: fabric.PropertyValue<number>, instance: fabric.PropertyValue<string> }>[];
-    readonly description?: fabric.PropertyValue<string>;
-    readonly privateIp?: fabric.PropertyValue<string>;
-    readonly privateIps?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly privateIpsCount?: fabric.PropertyValue<number>;
-    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly sourceDestCheck?: fabric.PropertyValue<boolean>;
-    readonly subnetId: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly attachment?: fabric.MaybeComputed<{ attachmentId?: fabric.MaybeComputed<string>, deviceIndex: fabric.MaybeComputed<number>, instance: fabric.MaybeComputed<string> }>[];
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly privateIp?: fabric.MaybeComputed<string>;
+    readonly privateIps?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly privateIpsCount?: fabric.MaybeComputed<number>;
+    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
+    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

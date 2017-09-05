@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class VpcPeeringConnection extends fabric.Resource {
-    public /*out*/ readonly acceptStatus: fabric.Property<string>;
-    public readonly accepter: fabric.Property<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
-    public readonly autoAccept?: fabric.Property<boolean>;
-    public readonly peerOwnerId: fabric.Property<string>;
-    public readonly peerVpcId: fabric.Property<string>;
-    public readonly requester: fabric.Property<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId: fabric.Property<string>;
+    public /*out*/ readonly acceptStatus: fabric.Computed<string>;
+    public readonly accepter: fabric.Computed<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
+    public readonly autoAccept?: fabric.Computed<boolean>;
+    public readonly peerOwnerId: fabric.Computed<string>;
+    public readonly peerVpcId: fabric.Computed<string>;
+    public readonly requester: fabric.Computed<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: VpcPeeringConnectionArgs) {
         if (args.peerVpcId === undefined) {
@@ -34,12 +34,12 @@ export class VpcPeeringConnection extends fabric.Resource {
 }
 
 export interface VpcPeeringConnectionArgs {
-    readonly accepter?: fabric.PropertyValue<{ allowClassicLinkToRemoteVpc?: fabric.PropertyValue<boolean>, allowRemoteVpcDnsResolution?: fabric.PropertyValue<boolean>, allowVpcToRemoteClassicLink?: fabric.PropertyValue<boolean> }>[];
-    readonly autoAccept?: fabric.PropertyValue<boolean>;
-    readonly peerOwnerId?: fabric.PropertyValue<string>;
-    readonly peerVpcId: fabric.PropertyValue<string>;
-    readonly requester?: fabric.PropertyValue<{ allowClassicLinkToRemoteVpc?: fabric.PropertyValue<boolean>, allowRemoteVpcDnsResolution?: fabric.PropertyValue<boolean>, allowVpcToRemoteClassicLink?: fabric.PropertyValue<boolean> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly accepter?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
+    readonly autoAccept?: fabric.MaybeComputed<boolean>;
+    readonly peerOwnerId?: fabric.MaybeComputed<string>;
+    readonly peerVpcId: fabric.MaybeComputed<string>;
+    readonly requester?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Attachment extends fabric.Resource {
-    public readonly albTargetGroupArn?: fabric.Property<string>;
-    public readonly autoscalingGroupName: fabric.Property<string>;
-    public readonly elb?: fabric.Property<string>;
+    public readonly albTargetGroupArn?: fabric.Computed<string>;
+    public readonly autoscalingGroupName: fabric.Computed<string>;
+    public readonly elb?: fabric.Computed<string>;
 
     constructor(urnName: string, args: AttachmentArgs) {
         if (args.autoscalingGroupName === undefined) {
@@ -21,8 +21,8 @@ export class Attachment extends fabric.Resource {
 }
 
 export interface AttachmentArgs {
-    readonly albTargetGroupArn?: fabric.PropertyValue<string>;
-    readonly autoscalingGroupName: fabric.PropertyValue<string>;
-    readonly elb?: fabric.PropertyValue<string>;
+    readonly albTargetGroupArn?: fabric.MaybeComputed<string>;
+    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
+    readonly elb?: fabric.MaybeComputed<string>;
 }
 

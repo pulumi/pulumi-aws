@@ -9,11 +9,11 @@ import {Role} from "./role";
 import {User} from "./user";
 
 export class PolicyAttachment extends fabric.Resource {
-    public readonly groups?: fabric.Property<Group[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly policyArn: fabric.Property<ARN>;
-    public readonly roles?: fabric.Property<Role[]>;
-    public readonly users?: fabric.Property<User[]>;
+    public readonly groups?: fabric.Computed<Group[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly policyArn: fabric.Computed<ARN>;
+    public readonly roles?: fabric.Computed<Role[]>;
+    public readonly users?: fabric.Computed<User[]>;
 
     constructor(urnName: string, args: PolicyAttachmentArgs) {
         if (args.policyArn === undefined) {
@@ -30,10 +30,10 @@ export class PolicyAttachment extends fabric.Resource {
 }
 
 export interface PolicyAttachmentArgs {
-    readonly groups?: fabric.PropertyValue<fabric.PropertyValue<Group>>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly policyArn: fabric.PropertyValue<ARN>;
-    readonly roles?: fabric.PropertyValue<fabric.PropertyValue<Role>>[];
-    readonly users?: fabric.PropertyValue<fabric.PropertyValue<User>>[];
+    readonly groups?: fabric.MaybeComputed<fabric.MaybeComputed<Group>>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
+    readonly users?: fabric.MaybeComputed<fabric.MaybeComputed<User>>[];
 }
 

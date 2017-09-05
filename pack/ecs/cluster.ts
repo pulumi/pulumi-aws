@@ -4,7 +4,7 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Cluster extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ClusterArgs) {
         super("aws:ecs/cluster:Cluster", urnName, {
@@ -14,6 +14,6 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly name?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

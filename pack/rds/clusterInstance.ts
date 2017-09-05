@@ -4,27 +4,27 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ClusterInstance extends fabric.Resource {
-    public readonly applyImmediately: fabric.Property<boolean>;
-    public readonly autoMinorVersionUpgrade?: fabric.Property<boolean>;
-    public readonly clusterIdentifier: fabric.Property<string>;
-    public readonly dbParameterGroupName: fabric.Property<string>;
-    public readonly dbSubnetGroupName: fabric.Property<string>;
-    public /*out*/ readonly dbiResourceId: fabric.Property<string>;
-    public /*out*/ readonly endpoint: fabric.Property<string>;
-    public readonly identifier: fabric.Property<string>;
-    public readonly identifierPrefix: fabric.Property<string>;
-    public readonly instanceClass: fabric.Property<string>;
-    public /*out*/ readonly kmsKeyId: fabric.Property<string>;
-    public readonly monitoringInterval?: fabric.Property<number>;
-    public readonly monitoringRoleArn: fabric.Property<string>;
-    public /*out*/ readonly port: fabric.Property<number>;
-    public readonly preferredBackupWindow: fabric.Property<string>;
-    public readonly preferredMaintenanceWindow: fabric.Property<string>;
-    public readonly promotionTier?: fabric.Property<number>;
-    public readonly publiclyAccessible?: fabric.Property<boolean>;
-    public /*out*/ readonly storageEncrypted: fabric.Property<boolean>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly writer: fabric.Property<boolean>;
+    public readonly applyImmediately: fabric.Computed<boolean>;
+    public readonly autoMinorVersionUpgrade?: fabric.Computed<boolean>;
+    public readonly clusterIdentifier: fabric.Computed<string>;
+    public readonly dbParameterGroupName: fabric.Computed<string>;
+    public readonly dbSubnetGroupName: fabric.Computed<string>;
+    public /*out*/ readonly dbiResourceId: fabric.Computed<string>;
+    public /*out*/ readonly endpoint: fabric.Computed<string>;
+    public readonly identifier: fabric.Computed<string>;
+    public readonly identifierPrefix: fabric.Computed<string>;
+    public readonly instanceClass: fabric.Computed<string>;
+    public /*out*/ readonly kmsKeyId: fabric.Computed<string>;
+    public readonly monitoringInterval?: fabric.Computed<number>;
+    public readonly monitoringRoleArn: fabric.Computed<string>;
+    public /*out*/ readonly port: fabric.Computed<number>;
+    public readonly preferredBackupWindow: fabric.Computed<string>;
+    public readonly preferredMaintenanceWindow: fabric.Computed<string>;
+    public readonly promotionTier?: fabric.Computed<number>;
+    public readonly publiclyAccessible?: fabric.Computed<boolean>;
+    public /*out*/ readonly storageEncrypted: fabric.Computed<boolean>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly writer: fabric.Computed<boolean>;
 
     constructor(urnName: string, args: ClusterInstanceArgs) {
         if (args.clusterIdentifier === undefined) {
@@ -60,20 +60,20 @@ export class ClusterInstance extends fabric.Resource {
 }
 
 export interface ClusterInstanceArgs {
-    readonly applyImmediately?: fabric.PropertyValue<boolean>;
-    readonly autoMinorVersionUpgrade?: fabric.PropertyValue<boolean>;
-    readonly clusterIdentifier: fabric.PropertyValue<string>;
-    readonly dbParameterGroupName?: fabric.PropertyValue<string>;
-    readonly dbSubnetGroupName?: fabric.PropertyValue<string>;
-    readonly identifier?: fabric.PropertyValue<string>;
-    readonly identifierPrefix?: fabric.PropertyValue<string>;
-    readonly instanceClass: fabric.PropertyValue<string>;
-    readonly monitoringInterval?: fabric.PropertyValue<number>;
-    readonly monitoringRoleArn?: fabric.PropertyValue<string>;
-    readonly preferredBackupWindow?: fabric.PropertyValue<string>;
-    readonly preferredMaintenanceWindow?: fabric.PropertyValue<string>;
-    readonly promotionTier?: fabric.PropertyValue<number>;
-    readonly publiclyAccessible?: fabric.PropertyValue<boolean>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
+    readonly clusterIdentifier: fabric.MaybeComputed<string>;
+    readonly dbParameterGroupName?: fabric.MaybeComputed<string>;
+    readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
+    readonly identifier?: fabric.MaybeComputed<string>;
+    readonly identifierPrefix?: fabric.MaybeComputed<string>;
+    readonly instanceClass: fabric.MaybeComputed<string>;
+    readonly monitoringInterval?: fabric.MaybeComputed<number>;
+    readonly monitoringRoleArn?: fabric.MaybeComputed<string>;
+    readonly preferredBackupWindow?: fabric.MaybeComputed<string>;
+    readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly promotionTier?: fabric.MaybeComputed<number>;
+    readonly publiclyAccessible?: fabric.MaybeComputed<boolean>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

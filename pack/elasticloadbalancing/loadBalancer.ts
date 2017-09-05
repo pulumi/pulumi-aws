@@ -4,25 +4,25 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LoadBalancer extends fabric.Resource {
-    public readonly accessLogs?: fabric.Property<{ bucket: string, bucketPrefix?: string, enabled?: boolean, interval?: number }[]>;
-    public readonly availabilityZones: fabric.Property<string[]>;
-    public readonly connectionDraining?: fabric.Property<boolean>;
-    public readonly connectionDrainingTimeout?: fabric.Property<number>;
-    public readonly crossZoneLoadBalancing?: fabric.Property<boolean>;
-    public /*out*/ readonly dnsName: fabric.Property<string>;
-    public readonly healthCheck: fabric.Property<{ healthyThreshold: number, interval: number, target: string, timeout: number, unhealthyThreshold: number }[]>;
-    public readonly idleTimeout?: fabric.Property<number>;
-    public readonly instances: fabric.Property<string[]>;
-    public readonly internal: fabric.Property<boolean>;
-    public readonly listener: fabric.Property<{ instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId?: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly securityGroups: fabric.Property<string[]>;
-    public readonly sourceSecurityGroup: fabric.Property<string>;
-    public /*out*/ readonly sourceSecurityGroupId: fabric.Property<string>;
-    public readonly subnets: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly zoneId: fabric.Property<string>;
+    public readonly accessLogs?: fabric.Computed<{ bucket: string, bucketPrefix?: string, enabled?: boolean, interval?: number }[]>;
+    public readonly availabilityZones: fabric.Computed<string[]>;
+    public readonly connectionDraining?: fabric.Computed<boolean>;
+    public readonly connectionDrainingTimeout?: fabric.Computed<number>;
+    public readonly crossZoneLoadBalancing?: fabric.Computed<boolean>;
+    public /*out*/ readonly dnsName: fabric.Computed<string>;
+    public readonly healthCheck: fabric.Computed<{ healthyThreshold: number, interval: number, target: string, timeout: number, unhealthyThreshold: number }[]>;
+    public readonly idleTimeout?: fabric.Computed<number>;
+    public readonly instances: fabric.Computed<string[]>;
+    public readonly internal: fabric.Computed<boolean>;
+    public readonly listener: fabric.Computed<{ instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId?: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly securityGroups: fabric.Computed<string[]>;
+    public readonly sourceSecurityGroup: fabric.Computed<string>;
+    public /*out*/ readonly sourceSecurityGroupId: fabric.Computed<string>;
+    public readonly subnets: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly zoneId: fabric.Computed<string>;
 
     constructor(urnName: string, args: LoadBalancerArgs) {
         if (args.listener === undefined) {
@@ -53,21 +53,21 @@ export class LoadBalancer extends fabric.Resource {
 }
 
 export interface LoadBalancerArgs {
-    readonly accessLogs?: fabric.PropertyValue<{ bucket: fabric.PropertyValue<string>, bucketPrefix?: fabric.PropertyValue<string>, enabled?: fabric.PropertyValue<boolean>, interval?: fabric.PropertyValue<number> }>[];
-    readonly availabilityZones?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly connectionDraining?: fabric.PropertyValue<boolean>;
-    readonly connectionDrainingTimeout?: fabric.PropertyValue<number>;
-    readonly crossZoneLoadBalancing?: fabric.PropertyValue<boolean>;
-    readonly healthCheck?: fabric.PropertyValue<{ healthyThreshold: fabric.PropertyValue<number>, interval: fabric.PropertyValue<number>, target: fabric.PropertyValue<string>, timeout: fabric.PropertyValue<number>, unhealthyThreshold: fabric.PropertyValue<number> }>[];
-    readonly idleTimeout?: fabric.PropertyValue<number>;
-    readonly instances?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly internal?: fabric.PropertyValue<boolean>;
-    readonly listener: fabric.PropertyValue<{ instancePort: fabric.PropertyValue<number>, instanceProtocol: fabric.PropertyValue<string>, lbPort: fabric.PropertyValue<number>, lbProtocol: fabric.PropertyValue<string>, sslCertificateId?: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly securityGroups?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly sourceSecurityGroup?: fabric.PropertyValue<string>;
-    readonly subnets?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly accessLogs?: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, bucketPrefix?: fabric.MaybeComputed<string>, enabled?: fabric.MaybeComputed<boolean>, interval?: fabric.MaybeComputed<number> }>[];
+    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly connectionDraining?: fabric.MaybeComputed<boolean>;
+    readonly connectionDrainingTimeout?: fabric.MaybeComputed<number>;
+    readonly crossZoneLoadBalancing?: fabric.MaybeComputed<boolean>;
+    readonly healthCheck?: fabric.MaybeComputed<{ healthyThreshold: fabric.MaybeComputed<number>, interval: fabric.MaybeComputed<number>, target: fabric.MaybeComputed<string>, timeout: fabric.MaybeComputed<number>, unhealthyThreshold: fabric.MaybeComputed<number> }>[];
+    readonly idleTimeout?: fabric.MaybeComputed<number>;
+    readonly instances?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly internal?: fabric.MaybeComputed<boolean>;
+    readonly listener: fabric.MaybeComputed<{ instancePort: fabric.MaybeComputed<number>, instanceProtocol: fabric.MaybeComputed<string>, lbPort: fabric.MaybeComputed<number>, lbProtocol: fabric.MaybeComputed<string>, sslCertificateId?: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly sourceSecurityGroup?: fabric.MaybeComputed<string>;
+    readonly subnets?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

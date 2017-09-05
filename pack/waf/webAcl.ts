@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class WebAcl extends fabric.Resource {
-    public readonly defaultAction: fabric.Property<{ type: string }[]>;
-    public readonly metricName: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly rules?: fabric.Property<{ action: { type: string }[], priority: number, ruleId: string }[]>;
+    public readonly defaultAction: fabric.Computed<{ type: string }[]>;
+    public readonly metricName: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly rules?: fabric.Computed<{ action: { type: string }[], priority: number, ruleId: string }[]>;
 
     constructor(urnName: string, args: WebAclArgs) {
         if (args.defaultAction === undefined) {
@@ -26,9 +26,9 @@ export class WebAcl extends fabric.Resource {
 }
 
 export interface WebAclArgs {
-    readonly defaultAction: fabric.PropertyValue<{ type: fabric.PropertyValue<string> }>[];
-    readonly metricName: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly rules?: fabric.PropertyValue<{ action: fabric.PropertyValue<{ type: fabric.PropertyValue<string> }>[], priority: fabric.PropertyValue<number>, ruleId: fabric.PropertyValue<string> }>[];
+    readonly defaultAction: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
+    readonly metricName: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly rules?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[], priority: fabric.MaybeComputed<number>, ruleId: fabric.MaybeComputed<string> }>[];
 }
 

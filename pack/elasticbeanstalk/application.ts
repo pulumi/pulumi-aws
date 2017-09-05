@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Application extends fabric.Resource {
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ApplicationArgs) {
         super("aws:elasticbeanstalk/application:Application", urnName, {
@@ -16,7 +16,7 @@ export class Application extends fabric.Resource {
 }
 
 export interface ApplicationArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

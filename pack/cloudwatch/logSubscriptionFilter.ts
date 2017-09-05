@@ -6,11 +6,11 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {LogGroup} from "./logGroup";
 
 export class LogSubscriptionFilter extends fabric.Resource {
-    public readonly destinationArn: fabric.Property<string>;
-    public readonly filterPattern: fabric.Property<string>;
-    public readonly logGroup: fabric.Property<LogGroup>;
-    public readonly name: fabric.Property<string>;
-    public readonly roleArn: fabric.Property<string>;
+    public readonly destinationArn: fabric.Computed<string>;
+    public readonly filterPattern: fabric.Computed<string>;
+    public readonly logGroup: fabric.Computed<LogGroup>;
+    public readonly name: fabric.Computed<string>;
+    public readonly roleArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: LogSubscriptionFilterArgs) {
         if (args.destinationArn === undefined) {
@@ -33,10 +33,10 @@ export class LogSubscriptionFilter extends fabric.Resource {
 }
 
 export interface LogSubscriptionFilterArgs {
-    readonly destinationArn: fabric.PropertyValue<string>;
-    readonly filterPattern: fabric.PropertyValue<string>;
-    readonly logGroup: fabric.PropertyValue<LogGroup>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly roleArn?: fabric.PropertyValue<string>;
+    readonly destinationArn: fabric.MaybeComputed<string>;
+    readonly filterPattern: fabric.MaybeComputed<string>;
+    readonly logGroup: fabric.MaybeComputed<LogGroup>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.MaybeComputed<string>;
 }
 

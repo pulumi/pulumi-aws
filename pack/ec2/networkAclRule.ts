@@ -4,17 +4,17 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class NetworkAclRule extends fabric.Resource {
-    public readonly cidrBlock?: fabric.Property<string>;
-    public readonly egress?: fabric.Property<boolean>;
-    public readonly fromPort?: fabric.Property<number>;
-    public readonly icmpCode?: fabric.Property<string>;
-    public readonly icmpType?: fabric.Property<string>;
-    public readonly ipv6CidrBlock?: fabric.Property<string>;
-    public readonly networkAclId: fabric.Property<string>;
-    public readonly protocol: fabric.Property<string>;
-    public readonly ruleAction: fabric.Property<string>;
-    public readonly ruleNumber: fabric.Property<number>;
-    public readonly toPort?: fabric.Property<number>;
+    public readonly cidrBlock?: fabric.Computed<string>;
+    public readonly egress?: fabric.Computed<boolean>;
+    public readonly fromPort?: fabric.Computed<number>;
+    public readonly icmpCode?: fabric.Computed<string>;
+    public readonly icmpType?: fabric.Computed<string>;
+    public readonly ipv6CidrBlock?: fabric.Computed<string>;
+    public readonly networkAclId: fabric.Computed<string>;
+    public readonly protocol: fabric.Computed<string>;
+    public readonly ruleAction: fabric.Computed<string>;
+    public readonly ruleNumber: fabric.Computed<number>;
+    public readonly toPort?: fabric.Computed<number>;
 
     constructor(urnName: string, args: NetworkAclRuleArgs) {
         if (args.networkAclId === undefined) {
@@ -46,16 +46,16 @@ export class NetworkAclRule extends fabric.Resource {
 }
 
 export interface NetworkAclRuleArgs {
-    readonly cidrBlock?: fabric.PropertyValue<string>;
-    readonly egress?: fabric.PropertyValue<boolean>;
-    readonly fromPort?: fabric.PropertyValue<number>;
-    readonly icmpCode?: fabric.PropertyValue<string>;
-    readonly icmpType?: fabric.PropertyValue<string>;
-    readonly ipv6CidrBlock?: fabric.PropertyValue<string>;
-    readonly networkAclId: fabric.PropertyValue<string>;
-    readonly protocol: fabric.PropertyValue<string>;
-    readonly ruleAction: fabric.PropertyValue<string>;
-    readonly ruleNumber: fabric.PropertyValue<number>;
-    readonly toPort?: fabric.PropertyValue<number>;
+    readonly cidrBlock?: fabric.MaybeComputed<string>;
+    readonly egress?: fabric.MaybeComputed<boolean>;
+    readonly fromPort?: fabric.MaybeComputed<number>;
+    readonly icmpCode?: fabric.MaybeComputed<string>;
+    readonly icmpType?: fabric.MaybeComputed<string>;
+    readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
+    readonly networkAclId: fabric.MaybeComputed<string>;
+    readonly protocol: fabric.MaybeComputed<string>;
+    readonly ruleAction: fabric.MaybeComputed<string>;
+    readonly ruleNumber: fabric.MaybeComputed<number>;
+    readonly toPort?: fabric.MaybeComputed<number>;
 }
 

@@ -6,14 +6,14 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class Authorizer extends fabric.Resource {
-    public readonly authorizerCredentials?: fabric.Property<string>;
-    public readonly authorizerResultTtlInSeconds?: fabric.Property<number>;
-    public readonly authorizerUri: fabric.Property<string>;
-    public readonly identitySource?: fabric.Property<string>;
-    public readonly identityValidationExpression?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly type?: fabric.Property<string>;
+    public readonly authorizerCredentials?: fabric.Computed<string>;
+    public readonly authorizerResultTtlInSeconds?: fabric.Computed<number>;
+    public readonly authorizerUri: fabric.Computed<string>;
+    public readonly identitySource?: fabric.Computed<string>;
+    public readonly identityValidationExpression?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly type?: fabric.Computed<string>;
 
     constructor(urnName: string, args: AuthorizerArgs) {
         if (args.authorizerUri === undefined) {
@@ -36,13 +36,13 @@ export class Authorizer extends fabric.Resource {
 }
 
 export interface AuthorizerArgs {
-    readonly authorizerCredentials?: fabric.PropertyValue<string>;
-    readonly authorizerResultTtlInSeconds?: fabric.PropertyValue<number>;
-    readonly authorizerUri: fabric.PropertyValue<string>;
-    readonly identitySource?: fabric.PropertyValue<string>;
-    readonly identityValidationExpression?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly type?: fabric.PropertyValue<string>;
+    readonly authorizerCredentials?: fabric.MaybeComputed<string>;
+    readonly authorizerResultTtlInSeconds?: fabric.MaybeComputed<number>;
+    readonly authorizerUri: fabric.MaybeComputed<string>;
+    readonly identitySource?: fabric.MaybeComputed<string>;
+    readonly identityValidationExpression?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly type?: fabric.MaybeComputed<string>;
 }
 

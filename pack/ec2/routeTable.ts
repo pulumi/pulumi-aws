@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RouteTable extends fabric.Resource {
-    public readonly propagatingVgws: fabric.Property<string[]>;
-    public readonly route: fabric.Property<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, vpcPeeringConnectionId?: string }[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId: fabric.Property<string>;
+    public readonly propagatingVgws: fabric.Computed<string[]>;
+    public readonly route: fabric.Computed<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, vpcPeeringConnectionId?: string }[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: RouteTableArgs) {
         if (args.vpcId === undefined) {
@@ -23,9 +23,9 @@ export class RouteTable extends fabric.Resource {
 }
 
 export interface RouteTableArgs {
-    readonly propagatingVgws?: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly route?: fabric.PropertyValue<{ cidrBlock?: fabric.PropertyValue<string>, egressOnlyGatewayId?: fabric.PropertyValue<string>, gatewayId?: fabric.PropertyValue<string>, instanceId?: fabric.PropertyValue<string>, ipv6CidrBlock?: fabric.PropertyValue<string>, natGatewayId?: fabric.PropertyValue<string>, networkInterfaceId?: fabric.PropertyValue<string>, vpcPeeringConnectionId?: fabric.PropertyValue<string> }>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly propagatingVgws?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly route?: fabric.MaybeComputed<{ cidrBlock?: fabric.MaybeComputed<string>, egressOnlyGatewayId?: fabric.MaybeComputed<string>, gatewayId?: fabric.MaybeComputed<string>, instanceId?: fabric.MaybeComputed<string>, ipv6CidrBlock?: fabric.MaybeComputed<string>, natGatewayId?: fabric.MaybeComputed<string>, networkInterfaceId?: fabric.MaybeComputed<string>, vpcPeeringConnectionId?: fabric.MaybeComputed<string> }>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

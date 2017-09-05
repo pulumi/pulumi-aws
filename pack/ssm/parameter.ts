@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Parameter extends fabric.Resource {
-    public readonly keyId?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly overwrite?: fabric.Property<boolean>;
-    public readonly type: fabric.Property<string>;
-    public readonly value: fabric.Property<string>;
+    public readonly keyId?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly overwrite?: fabric.Computed<boolean>;
+    public readonly type: fabric.Computed<string>;
+    public readonly value: fabric.Computed<string>;
 
     constructor(urnName: string, args: ParameterArgs) {
         if (args.type === undefined) {
@@ -28,10 +28,10 @@ export class Parameter extends fabric.Resource {
 }
 
 export interface ParameterArgs {
-    readonly keyId?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly overwrite?: fabric.PropertyValue<boolean>;
-    readonly type: fabric.PropertyValue<string>;
-    readonly value: fabric.PropertyValue<string>;
+    readonly keyId?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly overwrite?: fabric.MaybeComputed<boolean>;
+    readonly type: fabric.MaybeComputed<string>;
+    readonly value: fabric.MaybeComputed<string>;
 }
 

@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class UsagePlan extends fabric.Resource {
-    public readonly apiStages?: fabric.Property<{ apiId: string, stage: string }[]>;
-    public readonly description?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly productCode?: fabric.Property<string>;
-    public readonly quotaSettings?: fabric.Property<{ limit: number, offset?: number, period: string }[]>;
-    public readonly throttleSettings?: fabric.Property<{ burstLimit?: number, rateLimit?: number }[]>;
+    public readonly apiStages?: fabric.Computed<{ apiId: string, stage: string }[]>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly productCode?: fabric.Computed<string>;
+    public readonly quotaSettings?: fabric.Computed<{ limit: number, offset?: number, period: string }[]>;
+    public readonly throttleSettings?: fabric.Computed<{ burstLimit?: number, rateLimit?: number }[]>;
 
     constructor(urnName: string, args: UsagePlanArgs) {
         super("aws:apigateway/usagePlan:UsagePlan", urnName, {
@@ -24,11 +24,11 @@ export class UsagePlan extends fabric.Resource {
 }
 
 export interface UsagePlanArgs {
-    readonly apiStages?: fabric.PropertyValue<{ apiId: fabric.PropertyValue<string>, stage: fabric.PropertyValue<string> }>[];
-    readonly description?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly productCode?: fabric.PropertyValue<string>;
-    readonly quotaSettings?: fabric.PropertyValue<{ limit: fabric.PropertyValue<number>, offset?: fabric.PropertyValue<number>, period: fabric.PropertyValue<string> }>[];
-    readonly throttleSettings?: fabric.PropertyValue<{ burstLimit?: fabric.PropertyValue<number>, rateLimit?: fabric.PropertyValue<number> }>[];
+    readonly apiStages?: fabric.MaybeComputed<{ apiId: fabric.MaybeComputed<string>, stage: fabric.MaybeComputed<string> }>[];
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly productCode?: fabric.MaybeComputed<string>;
+    readonly quotaSettings?: fabric.MaybeComputed<{ limit: fabric.MaybeComputed<number>, offset?: fabric.MaybeComputed<number>, period: fabric.MaybeComputed<string> }>[];
+    readonly throttleSettings?: fabric.MaybeComputed<{ burstLimit?: fabric.MaybeComputed<number>, rateLimit?: fabric.MaybeComputed<number> }>[];
 }
 

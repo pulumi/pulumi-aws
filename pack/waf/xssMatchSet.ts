@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class XssMatchSet extends fabric.Resource {
-    public readonly name: fabric.Property<string>;
-    public readonly xssMatchTuples?: fabric.Property<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly xssMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
     constructor(urnName: string, args: XssMatchSetArgs) {
         super("aws:waf/xssMatchSet:XssMatchSet", urnName, {
@@ -16,7 +16,7 @@ export class XssMatchSet extends fabric.Resource {
 }
 
 export interface XssMatchSetArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly xssMatchTuples?: fabric.PropertyValue<{ fieldToMatch: fabric.PropertyValue<{ data?: fabric.PropertyValue<string>, type: fabric.PropertyValue<string> }>[], textTransformation: fabric.PropertyValue<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly xssMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], textTransformation: fabric.MaybeComputed<string> }>[];
 }
 

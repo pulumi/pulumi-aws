@@ -6,13 +6,13 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class MethodResponse extends fabric.Resource {
-    public readonly httpMethod: fabric.Property<string>;
-    public readonly resourceId: fabric.Property<string>;
-    public readonly responseModels?: fabric.Property<{[key: string]: string}>;
-    public readonly responseParameters?: fabric.Property<{[key: string]: boolean}>;
-    public readonly responseParametersInJson?: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly statusCode: fabric.Property<string>;
+    public readonly httpMethod: fabric.Computed<string>;
+    public readonly resourceId: fabric.Computed<string>;
+    public readonly responseModels?: fabric.Computed<{[key: string]: string}>;
+    public readonly responseParameters?: fabric.Computed<{[key: string]: boolean}>;
+    public readonly responseParametersInJson?: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly statusCode: fabric.Computed<string>;
 
     constructor(urnName: string, args: MethodResponseArgs) {
         if (args.httpMethod === undefined) {
@@ -40,12 +40,12 @@ export class MethodResponse extends fabric.Resource {
 }
 
 export interface MethodResponseArgs {
-    readonly httpMethod: fabric.PropertyValue<string>;
-    readonly resourceId: fabric.PropertyValue<string>;
-    readonly responseModels?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
-    readonly responseParameters?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<boolean>}>;
-    readonly responseParametersInJson?: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly statusCode: fabric.PropertyValue<string>;
+    readonly httpMethod: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly responseModels?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<boolean>}>;
+    readonly responseParametersInJson?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly statusCode: fabric.MaybeComputed<string>;
 }
 

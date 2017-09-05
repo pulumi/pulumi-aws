@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class CookieStickinessPolicy extends fabric.Resource {
-    public readonly cookieExpirationPeriod?: fabric.Property<number>;
-    public readonly lbPort: fabric.Property<number>;
-    public readonly loadBalancer: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public readonly cookieExpirationPeriod?: fabric.Computed<number>;
+    public readonly lbPort: fabric.Computed<number>;
+    public readonly loadBalancer: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: CookieStickinessPolicyArgs) {
         if (args.lbPort === undefined) {
@@ -26,9 +26,9 @@ export class CookieStickinessPolicy extends fabric.Resource {
 }
 
 export interface CookieStickinessPolicyArgs {
-    readonly cookieExpirationPeriod?: fabric.PropertyValue<number>;
-    readonly lbPort: fabric.PropertyValue<number>;
-    readonly loadBalancer: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly cookieExpirationPeriod?: fabric.MaybeComputed<number>;
+    readonly lbPort: fabric.MaybeComputed<number>;
+    readonly loadBalancer: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

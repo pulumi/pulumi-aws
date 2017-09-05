@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ProxyProtocolPolicy extends fabric.Resource {
-    public readonly instancePorts: fabric.Property<string[]>;
-    public readonly loadBalancer: fabric.Property<string>;
+    public readonly instancePorts: fabric.Computed<string[]>;
+    public readonly loadBalancer: fabric.Computed<string>;
 
     constructor(urnName: string, args: ProxyProtocolPolicyArgs) {
         if (args.instancePorts === undefined) {
@@ -22,7 +22,7 @@ export class ProxyProtocolPolicy extends fabric.Resource {
 }
 
 export interface ProxyProtocolPolicyArgs {
-    readonly instancePorts: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly loadBalancer: fabric.PropertyValue<string>;
+    readonly instancePorts: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly loadBalancer: fabric.MaybeComputed<string>;
 }
 

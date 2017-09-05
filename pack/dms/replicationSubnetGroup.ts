@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ReplicationSubnetGroup extends fabric.Resource {
-    public /*out*/ readonly replicationSubnetGroupArn: fabric.Property<string>;
-    public readonly replicationSubnetGroupDescription: fabric.Property<string>;
-    public readonly replicationSubnetGroupId: fabric.Property<string>;
-    public readonly subnetIds: fabric.Property<string[]>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly vpcId: fabric.Property<string>;
+    public /*out*/ readonly replicationSubnetGroupArn: fabric.Computed<string>;
+    public readonly replicationSubnetGroupDescription: fabric.Computed<string>;
+    public readonly replicationSubnetGroupId: fabric.Computed<string>;
+    public readonly subnetIds: fabric.Computed<string[]>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: ReplicationSubnetGroupArgs) {
         if (args.replicationSubnetGroupDescription === undefined) {
@@ -33,9 +33,9 @@ export class ReplicationSubnetGroup extends fabric.Resource {
 }
 
 export interface ReplicationSubnetGroupArgs {
-    readonly replicationSubnetGroupDescription: fabric.PropertyValue<string>;
-    readonly replicationSubnetGroupId: fabric.PropertyValue<string>;
-    readonly subnetIds: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly replicationSubnetGroupDescription: fabric.MaybeComputed<string>;
+    readonly replicationSubnetGroupId: fabric.MaybeComputed<string>;
+    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

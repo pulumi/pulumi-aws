@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class DeploymentConfig extends fabric.Resource {
-    public /*out*/ readonly deploymentConfigId: fabric.Property<string>;
-    public readonly deploymentConfigName: fabric.Property<string>;
-    public readonly minimumHealthyHosts: fabric.Property<{ type: string, value?: number }[]>;
+    public /*out*/ readonly deploymentConfigId: fabric.Computed<string>;
+    public readonly deploymentConfigName: fabric.Computed<string>;
+    public readonly minimumHealthyHosts: fabric.Computed<{ type: string, value?: number }[]>;
 
     constructor(urnName: string, args: DeploymentConfigArgs) {
         if (args.deploymentConfigName === undefined) {
@@ -24,7 +24,7 @@ export class DeploymentConfig extends fabric.Resource {
 }
 
 export interface DeploymentConfigArgs {
-    readonly deploymentConfigName: fabric.PropertyValue<string>;
-    readonly minimumHealthyHosts: fabric.PropertyValue<{ type: fabric.PropertyValue<string>, value?: fabric.PropertyValue<number> }>[];
+    readonly deploymentConfigName: fabric.MaybeComputed<string>;
+    readonly minimumHealthyHosts: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<number> }>[];
 }
 

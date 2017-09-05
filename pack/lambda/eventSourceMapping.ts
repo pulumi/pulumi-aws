@@ -4,17 +4,17 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class EventSourceMapping extends fabric.Resource {
-    public readonly batchSize?: fabric.Property<number>;
-    public readonly enabled?: fabric.Property<boolean>;
-    public readonly eventSourceArn: fabric.Property<string>;
-    public /*out*/ readonly functionArn: fabric.Property<string>;
-    public readonly functionName: fabric.Property<string>;
-    public /*out*/ readonly lastModified: fabric.Property<string>;
-    public /*out*/ readonly lastProcessingResult: fabric.Property<string>;
-    public readonly startingPosition: fabric.Property<string>;
-    public /*out*/ readonly state: fabric.Property<string>;
-    public /*out*/ readonly stateTransitionReason: fabric.Property<string>;
-    public /*out*/ readonly uuid: fabric.Property<string>;
+    public readonly batchSize?: fabric.Computed<number>;
+    public readonly enabled?: fabric.Computed<boolean>;
+    public readonly eventSourceArn: fabric.Computed<string>;
+    public /*out*/ readonly functionArn: fabric.Computed<string>;
+    public readonly functionName: fabric.Computed<string>;
+    public /*out*/ readonly lastModified: fabric.Computed<string>;
+    public /*out*/ readonly lastProcessingResult: fabric.Computed<string>;
+    public readonly startingPosition: fabric.Computed<string>;
+    public /*out*/ readonly state: fabric.Computed<string>;
+    public /*out*/ readonly stateTransitionReason: fabric.Computed<string>;
+    public /*out*/ readonly uuid: fabric.Computed<string>;
 
     constructor(urnName: string, args: EventSourceMappingArgs) {
         if (args.eventSourceArn === undefined) {
@@ -43,10 +43,10 @@ export class EventSourceMapping extends fabric.Resource {
 }
 
 export interface EventSourceMappingArgs {
-    readonly batchSize?: fabric.PropertyValue<number>;
-    readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly eventSourceArn: fabric.PropertyValue<string>;
-    readonly functionName: fabric.PropertyValue<string>;
-    readonly startingPosition: fabric.PropertyValue<string>;
+    readonly batchSize?: fabric.MaybeComputed<number>;
+    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly eventSourceArn: fabric.MaybeComputed<string>;
+    readonly functionName: fabric.MaybeComputed<string>;
+    readonly startingPosition: fabric.MaybeComputed<string>;
 }
 

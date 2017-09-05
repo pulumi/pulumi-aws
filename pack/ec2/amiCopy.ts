@@ -4,24 +4,24 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AmiCopy extends fabric.Resource {
-    public /*out*/ readonly architecture: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public readonly ebsBlockDevice: fabric.Property<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
-    public readonly encrypted?: fabric.Property<boolean>;
-    public readonly ephemeralBlockDevice: fabric.Property<{ deviceName: string, virtualName: string }[]>;
-    public /*out*/ readonly amiId: fabric.Property<string>;
-    public /*out*/ readonly imageLocation: fabric.Property<string>;
-    public /*out*/ readonly kernelId: fabric.Property<string>;
-    public readonly kmsKeyId: fabric.Property<string>;
-    public /*out*/ readonly manageEbsSnapshots: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly ramdiskId: fabric.Property<string>;
-    public /*out*/ readonly rootDeviceName: fabric.Property<string>;
-    public readonly sourceAmiId: fabric.Property<string>;
-    public readonly sourceAmiRegion: fabric.Property<string>;
-    public /*out*/ readonly sriovNetSupport: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public /*out*/ readonly virtualizationType: fabric.Property<string>;
+    public /*out*/ readonly architecture: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly encrypted?: fabric.Computed<boolean>;
+    public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
+    public /*out*/ readonly amiId: fabric.Computed<string>;
+    public /*out*/ readonly imageLocation: fabric.Computed<string>;
+    public /*out*/ readonly kernelId: fabric.Computed<string>;
+    public readonly kmsKeyId: fabric.Computed<string>;
+    public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly ramdiskId: fabric.Computed<string>;
+    public /*out*/ readonly rootDeviceName: fabric.Computed<string>;
+    public readonly sourceAmiId: fabric.Computed<string>;
+    public readonly sourceAmiRegion: fabric.Computed<string>;
+    public /*out*/ readonly sriovNetSupport: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
     constructor(urnName: string, args: AmiCopyArgs) {
         if (args.sourceAmiId === undefined) {
@@ -54,14 +54,14 @@ export class AmiCopy extends fabric.Resource {
 }
 
 export interface AmiCopyArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly ebsBlockDevice?: fabric.PropertyValue<{ deleteOnTermination?: fabric.PropertyValue<boolean>, deviceName?: fabric.PropertyValue<string>, encrypted?: fabric.PropertyValue<boolean>, iops?: fabric.PropertyValue<number>, snapshotId?: fabric.PropertyValue<string>, volumeSize?: fabric.PropertyValue<number>, volumeType?: fabric.PropertyValue<string> }>[];
-    readonly encrypted?: fabric.PropertyValue<boolean>;
-    readonly ephemeralBlockDevice?: fabric.PropertyValue<{ deviceName?: fabric.PropertyValue<string>, virtualName?: fabric.PropertyValue<string> }>[];
-    readonly kmsKeyId?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly sourceAmiId: fabric.PropertyValue<string>;
-    readonly sourceAmiRegion: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly encrypted?: fabric.MaybeComputed<boolean>;
+    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
+    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly sourceAmiId: fabric.MaybeComputed<string>;
+    readonly sourceAmiRegion: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

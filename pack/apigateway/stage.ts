@@ -7,15 +7,15 @@ import {Deployment} from "./deployment";
 import {RestApi} from "./restApi";
 
 export class Stage extends fabric.Resource {
-    public readonly cacheClusterEnabled?: fabric.Property<boolean>;
-    public readonly cacheClusterSize?: fabric.Property<string>;
-    public readonly clientCertificateId?: fabric.Property<string>;
-    public readonly deployment: fabric.Property<Deployment>;
-    public readonly description?: fabric.Property<string>;
-    public readonly documentationVersion?: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly stageName: fabric.Property<string>;
-    public readonly variables?: fabric.Property<{[key: string]: any}>;
+    public readonly cacheClusterEnabled?: fabric.Computed<boolean>;
+    public readonly cacheClusterSize?: fabric.Computed<string>;
+    public readonly clientCertificateId?: fabric.Computed<string>;
+    public readonly deployment: fabric.Computed<Deployment>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly documentationVersion?: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly stageName: fabric.Computed<string>;
+    public readonly variables?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: StageArgs) {
         if (args.deployment === undefined) {
@@ -42,14 +42,14 @@ export class Stage extends fabric.Resource {
 }
 
 export interface StageArgs {
-    readonly cacheClusterEnabled?: fabric.PropertyValue<boolean>;
-    readonly cacheClusterSize?: fabric.PropertyValue<string>;
-    readonly clientCertificateId?: fabric.PropertyValue<string>;
-    readonly deployment: fabric.PropertyValue<Deployment>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly documentationVersion?: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly stageName: fabric.PropertyValue<string>;
-    readonly variables?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly cacheClusterEnabled?: fabric.MaybeComputed<boolean>;
+    readonly cacheClusterSize?: fabric.MaybeComputed<string>;
+    readonly clientCertificateId?: fabric.MaybeComputed<string>;
+    readonly deployment: fabric.MaybeComputed<Deployment>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly documentationVersion?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly stageName: fabric.MaybeComputed<string>;
+    readonly variables?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

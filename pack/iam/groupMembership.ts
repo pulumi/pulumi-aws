@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class GroupMembership extends fabric.Resource {
-    public readonly group: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly users: fabric.Property<string[]>;
+    public readonly group: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly users: fabric.Computed<string[]>;
 
     constructor(urnName: string, args: GroupMembershipArgs) {
         if (args.group === undefined) {
@@ -24,8 +24,8 @@ export class GroupMembership extends fabric.Resource {
 }
 
 export interface GroupMembershipArgs {
-    readonly group: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly users: fabric.PropertyValue<fabric.PropertyValue<string>>[];
+    readonly group: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly users: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

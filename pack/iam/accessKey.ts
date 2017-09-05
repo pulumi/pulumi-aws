@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AccessKey extends fabric.Resource {
-    public /*out*/ readonly encryptedSecret: fabric.Property<string>;
-    public /*out*/ readonly keyFingerprint: fabric.Property<string>;
-    public readonly pgpKey?: fabric.Property<string>;
-    public /*out*/ readonly secret: fabric.Property<string>;
-    public /*out*/ readonly sesSmtpPassword: fabric.Property<string>;
-    public /*out*/ readonly status: fabric.Property<string>;
-    public readonly user: fabric.Property<string>;
+    public /*out*/ readonly encryptedSecret: fabric.Computed<string>;
+    public /*out*/ readonly keyFingerprint: fabric.Computed<string>;
+    public readonly pgpKey?: fabric.Computed<string>;
+    public /*out*/ readonly secret: fabric.Computed<string>;
+    public /*out*/ readonly sesSmtpPassword: fabric.Computed<string>;
+    public /*out*/ readonly status: fabric.Computed<string>;
+    public readonly user: fabric.Computed<string>;
 
     constructor(urnName: string, args: AccessKeyArgs) {
         if (args.user === undefined) {
@@ -29,7 +29,7 @@ export class AccessKey extends fabric.Resource {
 }
 
 export interface AccessKeyArgs {
-    readonly pgpKey?: fabric.PropertyValue<string>;
-    readonly user: fabric.PropertyValue<string>;
+    readonly pgpKey?: fabric.MaybeComputed<string>;
+    readonly user: fabric.MaybeComputed<string>;
 }
 

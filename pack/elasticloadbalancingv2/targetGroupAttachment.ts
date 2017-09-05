@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class TargetGroupAttachment extends fabric.Resource {
-    public readonly port?: fabric.Property<number>;
-    public readonly targetGroupArn: fabric.Property<string>;
-    public readonly targetId: fabric.Property<string>;
+    public readonly port?: fabric.Computed<number>;
+    public readonly targetGroupArn: fabric.Computed<string>;
+    public readonly targetId: fabric.Computed<string>;
 
     constructor(urnName: string, args: TargetGroupAttachmentArgs) {
         if (args.targetGroupArn === undefined) {
@@ -24,8 +24,8 @@ export class TargetGroupAttachment extends fabric.Resource {
 }
 
 export interface TargetGroupAttachmentArgs {
-    readonly port?: fabric.PropertyValue<number>;
-    readonly targetGroupArn: fabric.PropertyValue<string>;
-    readonly targetId: fabric.PropertyValue<string>;
+    readonly port?: fabric.MaybeComputed<number>;
+    readonly targetGroupArn: fabric.MaybeComputed<string>;
+    readonly targetId: fabric.MaybeComputed<string>;
 }
 

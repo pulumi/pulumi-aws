@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Domain extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly domainName: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly domainName: fabric.Computed<string>;
 
     constructor(urnName: string, args: DomainArgs) {
         if (args.domainName === undefined) {
@@ -19,6 +19,6 @@ export class Domain extends fabric.Resource {
 }
 
 export interface DomainArgs {
-    readonly domainName: fabric.PropertyValue<string>;
+    readonly domainName: fabric.MaybeComputed<string>;
 }
 

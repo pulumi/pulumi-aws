@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class KeyPair extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public /*out*/ readonly encryptedFingerprint: fabric.Property<string>;
-    public /*out*/ readonly encryptedPrivateKey: fabric.Property<string>;
-    public /*out*/ readonly fingerprint: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly pgpKey?: fabric.Property<string>;
-    public /*out*/ readonly privateKey: fabric.Property<string>;
-    public readonly publicKey: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public /*out*/ readonly encryptedFingerprint: fabric.Computed<string>;
+    public /*out*/ readonly encryptedPrivateKey: fabric.Computed<string>;
+    public /*out*/ readonly fingerprint: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly pgpKey?: fabric.Computed<string>;
+    public /*out*/ readonly privateKey: fabric.Computed<string>;
+    public readonly publicKey: fabric.Computed<string>;
 
     constructor(urnName: string, args: KeyPairArgs) {
         super("aws:lightsail/keyPair:KeyPair", urnName, {
@@ -30,9 +30,9 @@ export class KeyPair extends fabric.Resource {
 }
 
 export interface KeyPairArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly pgpKey?: fabric.PropertyValue<string>;
-    readonly publicKey?: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly pgpKey?: fabric.MaybeComputed<string>;
+    readonly publicKey?: fabric.MaybeComputed<string>;
 }
 

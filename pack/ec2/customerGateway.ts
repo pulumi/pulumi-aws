@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class CustomerGateway extends fabric.Resource {
-    public readonly bgpAsn: fabric.Property<number>;
-    public readonly ipAddress: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly type: fabric.Property<string>;
+    public readonly bgpAsn: fabric.Computed<number>;
+    public readonly ipAddress: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly type: fabric.Computed<string>;
 
     constructor(urnName: string, args: CustomerGatewayArgs) {
         if (args.bgpAsn === undefined) {
@@ -29,9 +29,9 @@ export class CustomerGateway extends fabric.Resource {
 }
 
 export interface CustomerGatewayArgs {
-    readonly bgpAsn: fabric.PropertyValue<number>;
-    readonly ipAddress: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly type: fabric.PropertyValue<string>;
+    readonly bgpAsn: fabric.MaybeComputed<number>;
+    readonly ipAddress: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly type: fabric.MaybeComputed<string>;
 }
 

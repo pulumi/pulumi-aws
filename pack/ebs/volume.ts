@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Volume extends fabric.Resource {
-    public readonly availabilityZone: fabric.Property<string>;
-    public readonly encrypted: fabric.Property<boolean>;
-    public readonly iops: fabric.Property<number>;
-    public readonly kmsKeyId: fabric.Property<string>;
-    public readonly size: fabric.Property<number>;
-    public readonly snapshotId: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly type: fabric.Property<string>;
+    public readonly availabilityZone: fabric.Computed<string>;
+    public readonly encrypted: fabric.Computed<boolean>;
+    public readonly iops: fabric.Computed<number>;
+    public readonly kmsKeyId: fabric.Computed<string>;
+    public readonly size: fabric.Computed<number>;
+    public readonly snapshotId: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly type: fabric.Computed<string>;
 
     constructor(urnName: string, args: VolumeArgs) {
         if (args.availabilityZone === undefined) {
@@ -31,13 +31,13 @@ export class Volume extends fabric.Resource {
 }
 
 export interface VolumeArgs {
-    readonly availabilityZone: fabric.PropertyValue<string>;
-    readonly encrypted?: fabric.PropertyValue<boolean>;
-    readonly iops?: fabric.PropertyValue<number>;
-    readonly kmsKeyId?: fabric.PropertyValue<string>;
-    readonly size?: fabric.PropertyValue<number>;
-    readonly snapshotId?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly type?: fabric.PropertyValue<string>;
+    readonly availabilityZone: fabric.MaybeComputed<string>;
+    readonly encrypted?: fabric.MaybeComputed<boolean>;
+    readonly iops?: fabric.MaybeComputed<number>;
+    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly size?: fabric.MaybeComputed<number>;
+    readonly snapshotId?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly type?: fabric.MaybeComputed<string>;
 }
 

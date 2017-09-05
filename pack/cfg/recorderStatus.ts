@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class RecorderStatus extends fabric.Resource {
-    public readonly isEnabled: fabric.Property<boolean>;
-    public readonly name: fabric.Property<string>;
+    public readonly isEnabled: fabric.Computed<boolean>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: RecorderStatusArgs) {
         if (args.isEnabled === undefined) {
@@ -19,7 +19,7 @@ export class RecorderStatus extends fabric.Resource {
 }
 
 export interface RecorderStatusArgs {
-    readonly isEnabled: fabric.PropertyValue<boolean>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly isEnabled: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

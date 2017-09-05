@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Attachment extends fabric.Resource {
-    public readonly elb: fabric.Property<string>;
-    public readonly instance: fabric.Property<string>;
+    public readonly elb: fabric.Computed<string>;
+    public readonly instance: fabric.Computed<string>;
 
     constructor(urnName: string, args: AttachmentArgs) {
         if (args.elb === undefined) {
@@ -22,7 +22,7 @@ export class Attachment extends fabric.Resource {
 }
 
 export interface AttachmentArgs {
-    readonly elb: fabric.PropertyValue<string>;
-    readonly instance: fabric.PropertyValue<string>;
+    readonly elb: fabric.MaybeComputed<string>;
+    readonly instance: fabric.MaybeComputed<string>;
 }
 

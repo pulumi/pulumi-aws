@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class EventDestination extends fabric.Resource {
-    public readonly cloudwatchDestination?: fabric.Property<{ defaultValue: string, dimensionName: string, valueSource: string }[]>;
-    public readonly configurationSetName: fabric.Property<string>;
-    public readonly enabled?: fabric.Property<boolean>;
-    public readonly kinesisDestination?: fabric.Property<{ roleArn: string, streamArn: string }[]>;
-    public readonly matchingTypes: fabric.Property<string[]>;
-    public readonly name: fabric.Property<string>;
+    public readonly cloudwatchDestination?: fabric.Computed<{ defaultValue: string, dimensionName: string, valueSource: string }[]>;
+    public readonly configurationSetName: fabric.Computed<string>;
+    public readonly enabled?: fabric.Computed<boolean>;
+    public readonly kinesisDestination?: fabric.Computed<{ roleArn: string, streamArn: string }[]>;
+    public readonly matchingTypes: fabric.Computed<string[]>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: EventDestinationArgs) {
         if (args.configurationSetName === undefined) {
@@ -30,11 +30,11 @@ export class EventDestination extends fabric.Resource {
 }
 
 export interface EventDestinationArgs {
-    readonly cloudwatchDestination?: fabric.PropertyValue<{ defaultValue: fabric.PropertyValue<string>, dimensionName: fabric.PropertyValue<string>, valueSource: fabric.PropertyValue<string> }>[];
-    readonly configurationSetName: fabric.PropertyValue<string>;
-    readonly enabled?: fabric.PropertyValue<boolean>;
-    readonly kinesisDestination?: fabric.PropertyValue<{ roleArn: fabric.PropertyValue<string>, streamArn: fabric.PropertyValue<string> }>[];
-    readonly matchingTypes: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly name?: fabric.PropertyValue<string>;
+    readonly cloudwatchDestination?: fabric.MaybeComputed<{ defaultValue: fabric.MaybeComputed<string>, dimensionName: fabric.MaybeComputed<string>, valueSource: fabric.MaybeComputed<string> }>[];
+    readonly configurationSetName: fabric.MaybeComputed<string>;
+    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly kinesisDestination?: fabric.MaybeComputed<{ roleArn: fabric.MaybeComputed<string>, streamArn: fabric.MaybeComputed<string> }>[];
+    readonly matchingTypes: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly name?: fabric.MaybeComputed<string>;
 }
 

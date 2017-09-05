@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LogMetricFilter extends fabric.Resource {
-    public readonly logGroupName: fabric.Property<string>;
-    public readonly metricTransformation: fabric.Property<{ name: string, namespace: string, value: string }[]>;
-    public readonly name: fabric.Property<string>;
-    public readonly pattern: fabric.Property<string>;
+    public readonly logGroupName: fabric.Computed<string>;
+    public readonly metricTransformation: fabric.Computed<{ name: string, namespace: string, value: string }[]>;
+    public readonly name: fabric.Computed<string>;
+    public readonly pattern: fabric.Computed<string>;
 
     constructor(urnName: string, args: LogMetricFilterArgs) {
         if (args.logGroupName === undefined) {
@@ -29,9 +29,9 @@ export class LogMetricFilter extends fabric.Resource {
 }
 
 export interface LogMetricFilterArgs {
-    readonly logGroupName: fabric.PropertyValue<string>;
-    readonly metricTransformation: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, namespace: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[];
-    readonly name?: fabric.PropertyValue<string>;
-    readonly pattern: fabric.PropertyValue<string>;
+    readonly logGroupName: fabric.MaybeComputed<string>;
+    readonly metricTransformation: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly pattern: fabric.MaybeComputed<string>;
 }
 

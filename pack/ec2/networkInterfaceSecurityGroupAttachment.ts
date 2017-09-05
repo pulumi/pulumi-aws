@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class NetworkInterfaceSecurityGroupAttachment extends fabric.Resource {
-    public readonly networkInterfaceId: fabric.Property<string>;
-    public readonly securityGroupId: fabric.Property<string>;
+    public readonly networkInterfaceId: fabric.Computed<string>;
+    public readonly securityGroupId: fabric.Computed<string>;
 
     constructor(urnName: string, args: NetworkInterfaceSecurityGroupAttachmentArgs) {
         if (args.networkInterfaceId === undefined) {
@@ -22,7 +22,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends fabric.Resource {
 }
 
 export interface NetworkInterfaceSecurityGroupAttachmentArgs {
-    readonly networkInterfaceId: fabric.PropertyValue<string>;
-    readonly securityGroupId: fabric.PropertyValue<string>;
+    readonly networkInterfaceId: fabric.MaybeComputed<string>;
+    readonly securityGroupId: fabric.MaybeComputed<string>;
 }
 

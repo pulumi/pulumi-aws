@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class NatGateway extends fabric.Resource {
-    public readonly allocationId: fabric.Property<string>;
-    public readonly networkInterfaceId: fabric.Property<string>;
-    public readonly privateIp: fabric.Property<string>;
-    public readonly publicIp: fabric.Property<string>;
-    public readonly subnetId: fabric.Property<string>;
+    public readonly allocationId: fabric.Computed<string>;
+    public readonly networkInterfaceId: fabric.Computed<string>;
+    public readonly privateIp: fabric.Computed<string>;
+    public readonly publicIp: fabric.Computed<string>;
+    public readonly subnetId: fabric.Computed<string>;
 
     constructor(urnName: string, args: NatGatewayArgs) {
         if (args.allocationId === undefined) {
@@ -28,10 +28,10 @@ export class NatGateway extends fabric.Resource {
 }
 
 export interface NatGatewayArgs {
-    readonly allocationId: fabric.PropertyValue<string>;
-    readonly networkInterfaceId?: fabric.PropertyValue<string>;
-    readonly privateIp?: fabric.PropertyValue<string>;
-    readonly publicIp?: fabric.PropertyValue<string>;
-    readonly subnetId: fabric.PropertyValue<string>;
+    readonly allocationId: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
+    readonly privateIp?: fabric.MaybeComputed<string>;
+    readonly publicIp?: fabric.MaybeComputed<string>;
+    readonly subnetId: fabric.MaybeComputed<string>;
 }
 

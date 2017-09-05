@@ -6,14 +6,14 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {RestApi} from "./restApi";
 
 export class Deployment extends fabric.Resource {
-    public /*out*/ readonly createdDate: fabric.Property<string>;
-    public readonly description?: fabric.Property<string>;
-    public /*out*/ readonly executionArn: fabric.Property<string>;
-    public /*out*/ readonly invokeUrl: fabric.Property<string>;
-    public readonly restApi: fabric.Property<RestApi>;
-    public readonly stageDescription?: fabric.Property<string>;
-    public readonly stageName: fabric.Property<string>;
-    public readonly variables?: fabric.Property<{[key: string]: string}>;
+    public /*out*/ readonly createdDate: fabric.Computed<string>;
+    public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly executionArn: fabric.Computed<string>;
+    public /*out*/ readonly invokeUrl: fabric.Computed<string>;
+    public readonly restApi: fabric.Computed<RestApi>;
+    public readonly stageDescription?: fabric.Computed<string>;
+    public readonly stageName: fabric.Computed<string>;
+    public readonly variables?: fabric.Computed<{[key: string]: string}>;
 
     constructor(urnName: string, args: DeploymentArgs) {
         if (args.restApi === undefined) {
@@ -36,10 +36,10 @@ export class Deployment extends fabric.Resource {
 }
 
 export interface DeploymentArgs {
-    readonly description?: fabric.PropertyValue<string>;
-    readonly restApi: fabric.PropertyValue<RestApi>;
-    readonly stageDescription?: fabric.PropertyValue<string>;
-    readonly stageName: fabric.PropertyValue<string>;
-    readonly variables?: fabric.PropertyValue<{[key: string]: fabric.PropertyValue<string>}>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly stageDescription?: fabric.MaybeComputed<string>;
+    readonly stageName: fabric.MaybeComputed<string>;
+    readonly variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
 }
 

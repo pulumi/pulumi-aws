@@ -4,9 +4,9 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Notification extends fabric.Resource {
-    public readonly groupNames: fabric.Property<string[]>;
-    public readonly notifications: fabric.Property<string[]>;
-    public readonly topicArn: fabric.Property<string>;
+    public readonly groupNames: fabric.Computed<string[]>;
+    public readonly notifications: fabric.Computed<string[]>;
+    public readonly topicArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: NotificationArgs) {
         if (args.groupNames === undefined) {
@@ -27,8 +27,8 @@ export class Notification extends fabric.Resource {
 }
 
 export interface NotificationArgs {
-    readonly groupNames: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly notifications: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly topicArn: fabric.PropertyValue<string>;
+    readonly groupNames: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly notifications: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly topicArn: fabric.MaybeComputed<string>;
 }
 

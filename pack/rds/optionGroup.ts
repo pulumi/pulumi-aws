@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class OptionGroup extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly engineName: fabric.Property<string>;
-    public readonly majorEngineVersion: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix: fabric.Property<string>;
-    public readonly option?: fabric.Property<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, vpcSecurityGroupMemberships?: string[] }[]>;
-    public readonly optionGroupDescription?: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly engineName: fabric.Computed<string>;
+    public readonly majorEngineVersion: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix: fabric.Computed<string>;
+    public readonly option?: fabric.Computed<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, vpcSecurityGroupMemberships?: string[] }[]>;
+    public readonly optionGroupDescription?: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: OptionGroupArgs) {
         if (args.engineName === undefined) {
@@ -34,12 +34,12 @@ export class OptionGroup extends fabric.Resource {
 }
 
 export interface OptionGroupArgs {
-    readonly engineName: fabric.PropertyValue<string>;
-    readonly majorEngineVersion: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly option?: fabric.PropertyValue<{ dbSecurityGroupMemberships?: fabric.PropertyValue<fabric.PropertyValue<string>>[], optionName: fabric.PropertyValue<string>, optionSettings?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, value: fabric.PropertyValue<string> }>[], port?: fabric.PropertyValue<number>, vpcSecurityGroupMemberships?: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly optionGroupDescription?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly engineName: fabric.MaybeComputed<string>;
+    readonly majorEngineVersion: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly option?: fabric.MaybeComputed<{ dbSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], optionName: fabric.MaybeComputed<string>, optionSettings?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], port?: fabric.MaybeComputed<number>, vpcSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly optionGroupDescription?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

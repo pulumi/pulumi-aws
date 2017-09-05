@@ -4,11 +4,11 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class AssessmentTemplate extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly duration: fabric.Property<number>;
-    public readonly name: fabric.Property<string>;
-    public readonly rulesPackageArns: fabric.Property<string[]>;
-    public readonly targetArn: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly duration: fabric.Computed<number>;
+    public readonly name: fabric.Computed<string>;
+    public readonly rulesPackageArns: fabric.Computed<string[]>;
+    public readonly targetArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: AssessmentTemplateArgs) {
         if (args.duration === undefined) {
@@ -31,9 +31,9 @@ export class AssessmentTemplate extends fabric.Resource {
 }
 
 export interface AssessmentTemplateArgs {
-    readonly duration: fabric.PropertyValue<number>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly rulesPackageArns: fabric.PropertyValue<fabric.PropertyValue<string>>[];
-    readonly targetArn: fabric.PropertyValue<string>;
+    readonly duration: fabric.MaybeComputed<number>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly rulesPackageArns: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly targetArn: fabric.MaybeComputed<string>;
 }
 

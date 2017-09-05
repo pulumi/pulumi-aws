@@ -4,21 +4,21 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Instance extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly availabilityZone: fabric.Property<string>;
-    public readonly blueprintId: fabric.Property<string>;
-    public readonly bundleId: fabric.Property<string>;
-    public /*out*/ readonly cpuCount: fabric.Property<number>;
-    public /*out*/ readonly createdAt: fabric.Property<string>;
-    public /*out*/ readonly ipv6Address: fabric.Property<string>;
-    public /*out*/ readonly isStaticIp: fabric.Property<boolean>;
-    public readonly keyPairName?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public /*out*/ readonly privateIpAddress: fabric.Property<string>;
-    public /*out*/ readonly publicIpAddress: fabric.Property<string>;
-    public /*out*/ readonly ramSize: fabric.Property<number>;
-    public readonly userData?: fabric.Property<string>;
-    public /*out*/ readonly username: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly availabilityZone: fabric.Computed<string>;
+    public readonly blueprintId: fabric.Computed<string>;
+    public readonly bundleId: fabric.Computed<string>;
+    public /*out*/ readonly cpuCount: fabric.Computed<number>;
+    public /*out*/ readonly createdAt: fabric.Computed<string>;
+    public /*out*/ readonly ipv6Address: fabric.Computed<string>;
+    public /*out*/ readonly isStaticIp: fabric.Computed<boolean>;
+    public readonly keyPairName?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public /*out*/ readonly privateIpAddress: fabric.Computed<string>;
+    public /*out*/ readonly publicIpAddress: fabric.Computed<string>;
+    public /*out*/ readonly ramSize: fabric.Computed<number>;
+    public readonly userData?: fabric.Computed<string>;
+    public /*out*/ readonly username: fabric.Computed<string>;
 
     constructor(urnName: string, args: InstanceArgs) {
         if (args.availabilityZone === undefined) {
@@ -51,11 +51,11 @@ export class Instance extends fabric.Resource {
 }
 
 export interface InstanceArgs {
-    readonly availabilityZone: fabric.PropertyValue<string>;
-    readonly blueprintId: fabric.PropertyValue<string>;
-    readonly bundleId: fabric.PropertyValue<string>;
-    readonly keyPairName?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly userData?: fabric.PropertyValue<string>;
+    readonly availabilityZone: fabric.MaybeComputed<string>;
+    readonly blueprintId: fabric.MaybeComputed<string>;
+    readonly bundleId: fabric.MaybeComputed<string>;
+    readonly keyPairName?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly userData?: fabric.MaybeComputed<string>;
 }
 

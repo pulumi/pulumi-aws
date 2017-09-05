@@ -4,20 +4,20 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Trail extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly cloudWatchLogsGroupArn?: fabric.Property<string>;
-    public readonly cloudWatchLogsRoleArn?: fabric.Property<string>;
-    public readonly enableLogFileValidation?: fabric.Property<boolean>;
-    public readonly enableLogging?: fabric.Property<boolean>;
-    public /*out*/ readonly homeRegion: fabric.Property<string>;
-    public readonly includeGlobalServiceEvents?: fabric.Property<boolean>;
-    public readonly isMultiRegionTrail?: fabric.Property<boolean>;
-    public readonly kmsKeyId?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly s3BucketName: fabric.Property<string>;
-    public readonly s3KeyPrefix?: fabric.Property<string>;
-    public readonly snsTopicName?: fabric.Property<string>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly cloudWatchLogsGroupArn?: fabric.Computed<string>;
+    public readonly cloudWatchLogsRoleArn?: fabric.Computed<string>;
+    public readonly enableLogFileValidation?: fabric.Computed<boolean>;
+    public readonly enableLogging?: fabric.Computed<boolean>;
+    public /*out*/ readonly homeRegion: fabric.Computed<string>;
+    public readonly includeGlobalServiceEvents?: fabric.Computed<boolean>;
+    public readonly isMultiRegionTrail?: fabric.Computed<boolean>;
+    public readonly kmsKeyId?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly s3BucketName: fabric.Computed<string>;
+    public readonly s3KeyPrefix?: fabric.Computed<string>;
+    public readonly snsTopicName?: fabric.Computed<string>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: TrailArgs) {
         if (args.s3BucketName === undefined) {
@@ -43,17 +43,17 @@ export class Trail extends fabric.Resource {
 }
 
 export interface TrailArgs {
-    readonly cloudWatchLogsGroupArn?: fabric.PropertyValue<string>;
-    readonly cloudWatchLogsRoleArn?: fabric.PropertyValue<string>;
-    readonly enableLogFileValidation?: fabric.PropertyValue<boolean>;
-    readonly enableLogging?: fabric.PropertyValue<boolean>;
-    readonly includeGlobalServiceEvents?: fabric.PropertyValue<boolean>;
-    readonly isMultiRegionTrail?: fabric.PropertyValue<boolean>;
-    readonly kmsKeyId?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly s3BucketName: fabric.PropertyValue<string>;
-    readonly s3KeyPrefix?: fabric.PropertyValue<string>;
-    readonly snsTopicName?: fabric.PropertyValue<string>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
+    readonly cloudWatchLogsGroupArn?: fabric.MaybeComputed<string>;
+    readonly cloudWatchLogsRoleArn?: fabric.MaybeComputed<string>;
+    readonly enableLogFileValidation?: fabric.MaybeComputed<boolean>;
+    readonly enableLogging?: fabric.MaybeComputed<boolean>;
+    readonly includeGlobalServiceEvents?: fabric.MaybeComputed<boolean>;
+    readonly isMultiRegionTrail?: fabric.MaybeComputed<boolean>;
+    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly s3BucketName: fabric.MaybeComputed<string>;
+    readonly s3KeyPrefix?: fabric.MaybeComputed<string>;
+    readonly snsTopicName?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

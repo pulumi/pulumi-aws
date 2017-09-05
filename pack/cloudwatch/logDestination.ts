@@ -4,10 +4,10 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LogDestination extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly roleArn: fabric.Property<string>;
-    public readonly targetArn: fabric.Property<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly roleArn: fabric.Computed<string>;
+    public readonly targetArn: fabric.Computed<string>;
 
     constructor(urnName: string, args: LogDestinationArgs) {
         if (args.roleArn === undefined) {
@@ -26,8 +26,8 @@ export class LogDestination extends fabric.Resource {
 }
 
 export interface LogDestinationArgs {
-    readonly name?: fabric.PropertyValue<string>;
-    readonly roleArn: fabric.PropertyValue<string>;
-    readonly targetArn: fabric.PropertyValue<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly targetArn: fabric.MaybeComputed<string>;
 }
 

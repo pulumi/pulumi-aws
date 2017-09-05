@@ -4,13 +4,13 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ServerCertificate extends fabric.Resource {
-    public readonly arn: fabric.Property<string>;
-    public readonly certificateBody: fabric.Property<string>;
-    public readonly certificateChain?: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
-    public readonly namePrefix?: fabric.Property<string>;
-    public readonly path?: fabric.Property<string>;
-    public readonly privateKey: fabric.Property<string>;
+    public readonly arn: fabric.Computed<string>;
+    public readonly certificateBody: fabric.Computed<string>;
+    public readonly certificateChain?: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
+    public readonly namePrefix?: fabric.Computed<string>;
+    public readonly path?: fabric.Computed<string>;
+    public readonly privateKey: fabric.Computed<string>;
 
     constructor(urnName: string, args: ServerCertificateArgs) {
         if (args.certificateBody === undefined) {
@@ -32,12 +32,12 @@ export class ServerCertificate extends fabric.Resource {
 }
 
 export interface ServerCertificateArgs {
-    readonly arn?: fabric.PropertyValue<string>;
-    readonly certificateBody: fabric.PropertyValue<string>;
-    readonly certificateChain?: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
-    readonly namePrefix?: fabric.PropertyValue<string>;
-    readonly path?: fabric.PropertyValue<string>;
-    readonly privateKey: fabric.PropertyValue<string>;
+    readonly arn?: fabric.MaybeComputed<string>;
+    readonly certificateBody: fabric.MaybeComputed<string>;
+    readonly certificateChain?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.MaybeComputed<string>;
+    readonly privateKey: fabric.MaybeComputed<string>;
 }
 

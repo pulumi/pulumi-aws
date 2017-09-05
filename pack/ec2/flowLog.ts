@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class FlowLog extends fabric.Resource {
-    public readonly eniId?: fabric.Property<string>;
-    public readonly iamRoleArn: fabric.Property<string>;
-    public readonly logGroupName: fabric.Property<string>;
-    public readonly subnetId?: fabric.Property<string>;
-    public readonly trafficType: fabric.Property<string>;
-    public readonly vpcId?: fabric.Property<string>;
+    public readonly eniId?: fabric.Computed<string>;
+    public readonly iamRoleArn: fabric.Computed<string>;
+    public readonly logGroupName: fabric.Computed<string>;
+    public readonly subnetId?: fabric.Computed<string>;
+    public readonly trafficType: fabric.Computed<string>;
+    public readonly vpcId?: fabric.Computed<string>;
 
     constructor(urnName: string, args: FlowLogArgs) {
         if (args.iamRoleArn === undefined) {
@@ -33,11 +33,11 @@ export class FlowLog extends fabric.Resource {
 }
 
 export interface FlowLogArgs {
-    readonly eniId?: fabric.PropertyValue<string>;
-    readonly iamRoleArn: fabric.PropertyValue<string>;
-    readonly logGroupName: fabric.PropertyValue<string>;
-    readonly subnetId?: fabric.PropertyValue<string>;
-    readonly trafficType: fabric.PropertyValue<string>;
-    readonly vpcId?: fabric.PropertyValue<string>;
+    readonly eniId?: fabric.MaybeComputed<string>;
+    readonly iamRoleArn: fabric.MaybeComputed<string>;
+    readonly logGroupName: fabric.MaybeComputed<string>;
+    readonly subnetId?: fabric.MaybeComputed<string>;
+    readonly trafficType: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

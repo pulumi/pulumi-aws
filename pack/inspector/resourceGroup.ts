@@ -4,8 +4,8 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ResourceGroup extends fabric.Resource {
-    public /*out*/ readonly arn: fabric.Property<string>;
-    public readonly tags: fabric.Property<{[key: string]: any}>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
+    public readonly tags: fabric.Computed<{[key: string]: any}>;
 
     constructor(urnName: string, args: ResourceGroupArgs) {
         if (args.tags === undefined) {
@@ -19,6 +19,6 @@ export class ResourceGroup extends fabric.Resource {
 }
 
 export interface ResourceGroupArgs {
-    readonly tags: fabric.PropertyValue<{[key: string]: any}>;
+    readonly tags: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

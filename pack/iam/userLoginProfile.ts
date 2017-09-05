@@ -4,12 +4,12 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class UserLoginProfile extends fabric.Resource {
-    public /*out*/ readonly encryptedPassword: fabric.Property<string>;
-    public /*out*/ readonly keyFingerprint: fabric.Property<string>;
-    public readonly passwordLength?: fabric.Property<number>;
-    public readonly passwordResetRequired?: fabric.Property<boolean>;
-    public readonly pgpKey: fabric.Property<string>;
-    public readonly user: fabric.Property<string>;
+    public /*out*/ readonly encryptedPassword: fabric.Computed<string>;
+    public /*out*/ readonly keyFingerprint: fabric.Computed<string>;
+    public readonly passwordLength?: fabric.Computed<number>;
+    public readonly passwordResetRequired?: fabric.Computed<boolean>;
+    public readonly pgpKey: fabric.Computed<string>;
+    public readonly user: fabric.Computed<string>;
 
     constructor(urnName: string, args: UserLoginProfileArgs) {
         if (args.pgpKey === undefined) {
@@ -30,9 +30,9 @@ export class UserLoginProfile extends fabric.Resource {
 }
 
 export interface UserLoginProfileArgs {
-    readonly passwordLength?: fabric.PropertyValue<number>;
-    readonly passwordResetRequired?: fabric.PropertyValue<boolean>;
-    readonly pgpKey: fabric.PropertyValue<string>;
-    readonly user: fabric.PropertyValue<string>;
+    readonly passwordLength?: fabric.MaybeComputed<number>;
+    readonly passwordResetRequired?: fabric.MaybeComputed<boolean>;
+    readonly pgpKey: fabric.MaybeComputed<string>;
+    readonly user: fabric.MaybeComputed<string>;
 }
 

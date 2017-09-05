@@ -4,14 +4,14 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Subnet extends fabric.Resource {
-    public readonly assignIpv6AddressOnCreation?: fabric.Property<boolean>;
-    public readonly availabilityZone: fabric.Property<string>;
-    public readonly cidrBlock: fabric.Property<string>;
-    public readonly ipv6CidrBlock: fabric.Property<string>;
-    public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Property<string>;
-    public readonly mapPublicIpOnLaunch?: fabric.Property<boolean>;
-    public readonly tags?: fabric.Property<{[key: string]: any}>;
-    public readonly vpcId: fabric.Property<string>;
+    public readonly assignIpv6AddressOnCreation?: fabric.Computed<boolean>;
+    public readonly availabilityZone: fabric.Computed<string>;
+    public readonly cidrBlock: fabric.Computed<string>;
+    public readonly ipv6CidrBlock: fabric.Computed<string>;
+    public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Computed<string>;
+    public readonly mapPublicIpOnLaunch?: fabric.Computed<boolean>;
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    public readonly vpcId: fabric.Computed<string>;
 
     constructor(urnName: string, args: SubnetArgs) {
         if (args.cidrBlock === undefined) {
@@ -34,12 +34,12 @@ export class Subnet extends fabric.Resource {
 }
 
 export interface SubnetArgs {
-    readonly assignIpv6AddressOnCreation?: fabric.PropertyValue<boolean>;
-    readonly availabilityZone?: fabric.PropertyValue<string>;
-    readonly cidrBlock: fabric.PropertyValue<string>;
-    readonly ipv6CidrBlock?: fabric.PropertyValue<string>;
-    readonly mapPublicIpOnLaunch?: fabric.PropertyValue<boolean>;
-    readonly tags?: fabric.PropertyValue<{[key: string]: any}>;
-    readonly vpcId: fabric.PropertyValue<string>;
+    readonly assignIpv6AddressOnCreation?: fabric.MaybeComputed<boolean>;
+    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly cidrBlock: fabric.MaybeComputed<string>;
+    readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
+    readonly mapPublicIpOnLaunch?: fabric.MaybeComputed<boolean>;
+    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly vpcId: fabric.MaybeComputed<string>;
 }
 

@@ -4,15 +4,15 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Eip extends fabric.Resource {
-    public /*out*/ readonly allocationId: fabric.Property<string>;
-    public readonly associateWithPrivateIp?: fabric.Property<string>;
-    public /*out*/ readonly associationId: fabric.Property<string>;
-    public /*out*/ readonly domain: fabric.Property<string>;
-    public readonly instance: fabric.Property<string>;
-    public readonly networkInterface: fabric.Property<string>;
-    public /*out*/ readonly privateIp: fabric.Property<string>;
-    public /*out*/ readonly publicIp: fabric.Property<string>;
-    public readonly vpc: fabric.Property<boolean>;
+    public /*out*/ readonly allocationId: fabric.Computed<string>;
+    public readonly associateWithPrivateIp?: fabric.Computed<string>;
+    public /*out*/ readonly associationId: fabric.Computed<string>;
+    public /*out*/ readonly domain: fabric.Computed<string>;
+    public readonly instance: fabric.Computed<string>;
+    public readonly networkInterface: fabric.Computed<string>;
+    public /*out*/ readonly privateIp: fabric.Computed<string>;
+    public /*out*/ readonly publicIp: fabric.Computed<string>;
+    public readonly vpc: fabric.Computed<boolean>;
 
     constructor(urnName: string, args: EipArgs) {
         super("aws:ec2/eip:Eip", urnName, {
@@ -30,9 +30,9 @@ export class Eip extends fabric.Resource {
 }
 
 export interface EipArgs {
-    readonly associateWithPrivateIp?: fabric.PropertyValue<string>;
-    readonly instance?: fabric.PropertyValue<string>;
-    readonly networkInterface?: fabric.PropertyValue<string>;
-    readonly vpc?: fabric.PropertyValue<boolean>;
+    readonly associateWithPrivateIp?: fabric.MaybeComputed<string>;
+    readonly instance?: fabric.MaybeComputed<string>;
+    readonly networkInterface?: fabric.MaybeComputed<string>;
+    readonly vpc?: fabric.MaybeComputed<boolean>;
 }
 

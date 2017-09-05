@@ -4,16 +4,16 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class MaintenanceWindowTask extends fabric.Resource {
-    public readonly loggingInfo?: fabric.Property<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string }[]>;
-    public readonly maxConcurrency: fabric.Property<string>;
-    public readonly maxErrors: fabric.Property<string>;
-    public readonly priority?: fabric.Property<number>;
-    public readonly serviceRoleArn: fabric.Property<string>;
-    public readonly targets: fabric.Property<{ key: string, values: string[] }[]>;
-    public readonly taskArn: fabric.Property<string>;
-    public readonly taskParameters?: fabric.Property<{ name: string, values: string[] }[]>;
-    public readonly taskType: fabric.Property<string>;
-    public readonly windowId: fabric.Property<string>;
+    public readonly loggingInfo?: fabric.Computed<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string }[]>;
+    public readonly maxConcurrency: fabric.Computed<string>;
+    public readonly maxErrors: fabric.Computed<string>;
+    public readonly priority?: fabric.Computed<number>;
+    public readonly serviceRoleArn: fabric.Computed<string>;
+    public readonly targets: fabric.Computed<{ key: string, values: string[] }[]>;
+    public readonly taskArn: fabric.Computed<string>;
+    public readonly taskParameters?: fabric.Computed<{ name: string, values: string[] }[]>;
+    public readonly taskType: fabric.Computed<string>;
+    public readonly windowId: fabric.Computed<string>;
 
     constructor(urnName: string, args: MaintenanceWindowTaskArgs) {
         if (args.maxConcurrency === undefined) {
@@ -53,15 +53,15 @@ export class MaintenanceWindowTask extends fabric.Resource {
 }
 
 export interface MaintenanceWindowTaskArgs {
-    readonly loggingInfo?: fabric.PropertyValue<{ s3BucketName: fabric.PropertyValue<string>, s3BucketPrefix?: fabric.PropertyValue<string>, s3Region: fabric.PropertyValue<string> }>[];
-    readonly maxConcurrency: fabric.PropertyValue<string>;
-    readonly maxErrors: fabric.PropertyValue<string>;
-    readonly priority?: fabric.PropertyValue<number>;
-    readonly serviceRoleArn: fabric.PropertyValue<string>;
-    readonly targets: fabric.PropertyValue<{ key: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly taskArn: fabric.PropertyValue<string>;
-    readonly taskParameters?: fabric.PropertyValue<{ name: fabric.PropertyValue<string>, values: fabric.PropertyValue<fabric.PropertyValue<string>>[] }>[];
-    readonly taskType: fabric.PropertyValue<string>;
-    readonly windowId: fabric.PropertyValue<string>;
+    readonly loggingInfo?: fabric.MaybeComputed<{ s3BucketName: fabric.MaybeComputed<string>, s3BucketPrefix?: fabric.MaybeComputed<string>, s3Region: fabric.MaybeComputed<string> }>[];
+    readonly maxConcurrency: fabric.MaybeComputed<string>;
+    readonly maxErrors: fabric.MaybeComputed<string>;
+    readonly priority?: fabric.MaybeComputed<number>;
+    readonly serviceRoleArn: fabric.MaybeComputed<string>;
+    readonly targets: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly taskArn: fabric.MaybeComputed<string>;
+    readonly taskParameters?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly taskType: fabric.MaybeComputed<string>;
+    readonly windowId: fabric.MaybeComputed<string>;
 }
 

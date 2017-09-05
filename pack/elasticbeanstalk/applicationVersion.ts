@@ -7,12 +7,12 @@ import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
 
 export class ApplicationVersion extends fabric.Resource {
-    public readonly application: fabric.Property<Application>;
-    public readonly bucket: fabric.Property<Bucket>;
-    public readonly description?: fabric.Property<string>;
-    public readonly forceDelete?: fabric.Property<boolean>;
-    public readonly key: fabric.Property<string>;
-    public readonly name: fabric.Property<string>;
+    public readonly application: fabric.Computed<Application>;
+    public readonly bucket: fabric.Computed<Bucket>;
+    public readonly description?: fabric.Computed<string>;
+    public readonly forceDelete?: fabric.Computed<boolean>;
+    public readonly key: fabric.Computed<string>;
+    public readonly name: fabric.Computed<string>;
 
     constructor(urnName: string, args: ApplicationVersionArgs) {
         if (args.application === undefined) {
@@ -36,11 +36,11 @@ export class ApplicationVersion extends fabric.Resource {
 }
 
 export interface ApplicationVersionArgs {
-    readonly application: fabric.PropertyValue<Application>;
-    readonly bucket: fabric.PropertyValue<Bucket>;
-    readonly description?: fabric.PropertyValue<string>;
-    readonly forceDelete?: fabric.PropertyValue<boolean>;
-    readonly key: fabric.PropertyValue<string>;
-    readonly name?: fabric.PropertyValue<string>;
+    readonly application: fabric.MaybeComputed<Application>;
+    readonly bucket: fabric.MaybeComputed<Bucket>;
+    readonly description?: fabric.MaybeComputed<string>;
+    readonly forceDelete?: fabric.MaybeComputed<boolean>;
+    readonly key: fabric.MaybeComputed<string>;
+    readonly name?: fabric.MaybeComputed<string>;
 }
 
