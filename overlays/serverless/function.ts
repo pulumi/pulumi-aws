@@ -43,14 +43,12 @@ interface FuncEnv {
     env: { [key: string]: string; };
 }
 
-// FuncsForClosure collects all the function defintions needed to
-// support serialization of a given Closure object.  Note that
-// a Closure object can reference other Closure objects and
-// can also have cycles, so we recursively walk the graph and
-// cache serialized nodes along the way to avoid cycles.
+// FuncsForClosure collects all the function defintions needed to support serialization of a given Closure object.
+// Note that a Closure object can reference other Closure objects and can also have cycles, so we recursively walk the
+// graph and cache serialized nodes along the way to avoid cycles.
 class FuncsForClosure {
-    public funcs: { [hash: string]: FuncEnv };
-    public root: string;
+    public funcs: { [hash: string]: FuncEnv }; // a cache of functions.
+    public root: string;                       // the root closure hash.
 
     constructor(closure: fabric.runtime.Closure) {
         this.funcs = {};
@@ -58,9 +56,12 @@ class FuncsForClosure {
     }
 
     private createFuncForClosure(closure: fabric.runtime.Closure): string {
+        // Produce a hash to identify the function.
         let shasum: crypto.Hash = crypto.createHash("sha1");
         shasum.update(closure.code);
         let hash: string = "__" + shasum.digest("hex");
+
+        // Now only store if this function hasn't already been hashed.
         if (this.funcs[hash] === undefined) {
             this.funcs[hash] = {
                 code: closure.code,
@@ -68,16 +69,14 @@ class FuncsForClosure {
             };
             this.funcs[hash].env = this.envFromEnvObj(closure.environment);
         }
+
         return hash;
     }
 
-    private envFromEnvObj(env: fabric.runtime.EnvObj): {[key: string]: string} {
+    private envFromEnvObj(env: fabric.runtime.Environment): {[key: string]: string} {
         let envObj: {[key: string]: string} = {};
-        let keys = Object.keys(env);
-        for (let i = 0; i < keys.length; i++) {
-            let key = keys[i];
-            let envEntry = env[key];
-            let val = this.envEntryToString(envEntry);
+        for (let key of Object.keys(env)) {
+            let val = this.envEntryToString(env[key]);
             if (val !== undefined) {
                 envObj[key] = val;
             }
@@ -85,28 +84,29 @@ class FuncsForClosure {
         return envObj;
     }
 
-    private envFromEnvArr(arr: fabric.runtime.EnvEntry[]): (string | undefined)[] {
+    private envFromEnvArr(arr: fabric.runtime.EnvironmentEntry[]): (string | undefined)[] {
         let envArr: (string | undefined)[] = [];
-        for (let i = 0; i < (<any>arr).length; i++) {
+        for (let i = 0; i < arr.length; i++) {
             envArr[i] = this.envEntryToString(arr[i]);
         }
         return envArr;
     }
 
-    private envEntryToString(envEntry: fabric.runtime.EnvEntry): string | undefined {
+    private envEntryToString(envEntry: fabric.runtime.EnvironmentEntry): string | undefined {
         if (envEntry.json !== undefined) {
             return JSON.stringify(envEntry.json);
-        } else if (envEntry.closure !== undefined) {
+        }
+        else if (envEntry.closure !== undefined) {
             let innerHash = this.createFuncForClosure(envEntry.closure);
             return innerHash;
-        } else if (envEntry.obj !== undefined) {
+        }
+        else if (envEntry.obj !== undefined) {
             return envObjToString(this.envFromEnvObj(envEntry.obj));
-        } else if (envEntry.arr !== undefined) {
+        }
+        else if (envEntry.arr !== undefined) {
             return envArrToString(this.envFromEnvArr(envEntry.arr));
-        } else {
-            // TODO[pulumi/pulumi-fabric#239]: For now we will skip serialziing when the captured JSON object is
-            // null/undefined. This is not technically correct, as it will cause references to these to
-            // fail instead of return undefined.
+        }
+        else {
             return undefined;
         }
     }
@@ -117,11 +117,9 @@ class FuncsForClosure {
 // values which are variable references to other global functions.  In other words,
 // there can be free variables in the resulting object literal.
 function envObjToString(envObj: { [key: string]: string; }): string {
-    let ret = "{";
-    let isStart = true;
-    let keys = Object.keys(envObj);
-    for (let i = 0; i < keys.length; i++) {
-        let key = keys[i];
+    let result = "";
+    let first = true;
+    for (let key of Object.keys(envObj)) {
         let val = envObj[key];
         // Lumi generates the special name `.this` for references to `this`.
         // We will rewrite to the name `_this` and then pass that as the
@@ -129,48 +127,43 @@ function envObjToString(envObj: { [key: string]: string; }): string {
         if (key === ".this") {
             key = "_this";
         }
-        if (isStart) {
-            ret += " ";
-        } else {
-            ret += ", ";
+
+        if (!first) {
+            result += ", ";
         }
-        isStart = false;
-        ret += key + ": " + val;
+
+        result += key + ": " + envObj[key];
+        first = false;
     }
-    ret += " }";
-    return ret;
+    return "{ " + result + " }";
 }
 
 function envArrToString(envArr: (string | undefined)[]): string {
-    let ret = "[";
-    let isStart = true;
-    for (let i = 0; i < (<any>envArr).length; i++) {
-        let val = envArr[i];
-        if (isStart) {
-            ret += " ";
-        } else {
-            ret += ", ";
+    let result = "";
+    let first = true;
+    for (let i = 0; i < envArr.length; i++) {
+        if (!first) {
+            result += ", ";
         }
-        isStart = false;
-        ret += val;
+        result += envArr[i];
+        first = false;
     }
-    ret += "]";
-    return ret;
+    return "[ " + result + " ]";
 }
 
 function createJavaScriptLambda(
-    functionName: string,
-    role: Role,
-    closure: fabric.runtime.Closure,
-    opts: FunctionOptions): lambda.Function {
+    functionName: string, role: Role, closure: fabric.runtime.Closure, opts: FunctionOptions): lambda.Function {
+    // Ensure the closure is targeting a supported runtime.
+    if (closure.runtime !== "nodejs") {
+        throw new Error(`Runtime '${closure.runtime}' not yet supported (currently only 'nodejs')`);
+    }
 
+    // Now produce a textual representation of the closure and its serialized captured environment.
     let funcsForClosure = new FuncsForClosure(closure);
     let funcs = funcsForClosure.funcs;
-    let str = "exports.handler = " + funcsForClosure.root + ";\n\n";
-    let fkeys = Object.keys(funcs);
-    for (let i = 0; i < fkeys.length; i++) {
-        let name = fkeys[i];
-        str +=
+    let text = "exports.handler = " + funcsForClosure.root + ";\n\n";
+    for (let name of Object.keys(funcs)) {
+        text +=
             "function " + name + "() {\n" +
             "  var _this;\n" +
             "  with(" + envObjToString(funcs[name].env) + ") {\n" +
@@ -182,6 +175,7 @@ function createJavaScriptLambda(
             "\n";
     }
 
+    // Finally create a lambda out of it.
     let timeout = 180;
     if (opts.timeout !== undefined) {
         timeout = opts.timeout;
@@ -195,7 +189,7 @@ function createJavaScriptLambda(
     return new lambda.Function(functionName, {
         code: new fabric.asset.AssetArchive({
             "node_modules": new fabric.asset.FileAsset("node_modules"),
-            "index.js": new fabric.asset.StringAsset(str),
+            "index.js": new fabric.asset.StringAsset(text),
         }),
         handler: "index.handler",
         runtime: lambda.NodeJS6d10Runtime,
@@ -216,20 +210,22 @@ export interface FunctionOptions {
 // Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
 // by a Lumi lambda expression and with a set of attached policies.
 export class Function {
-    public readonly lambda: lambda.Function;
+    public readonly arn: fabric.Computed<ARN>;
+    public readonly lambda: fabric.Computed<lambda.Function>;
     public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
 
     constructor(name: string, options: FunctionOptions, func: Handler) {
-        if (name === undefined) {
+        if (!name) {
             throw new Error("Missing required resource name");
         }
-        if (func === undefined) {
+        if (!func) {
             throw new Error("Missing required function callback");
         }
-        let closure = fabric.runtime.serializeClosure(func);
-        if (closure === undefined) {
-            throw new Error("Failed to serialize function.");
+        let closure: fabric.Computed<fabric.runtime.Closure> =
+            fabric.runtime.serializeClosure(func);
+        if (!closure) {
+            throw new Error("Failed to serialize function closure");
         }
 
         // Attach a role and then, if there are policies, attach those too.
@@ -244,13 +240,9 @@ export class Function {
             }));
         }
 
-        switch (closure.runtime) {
-            case "nodejs":
-                this.lambda = createJavaScriptLambda(name, this.role, closure, options);
-                break;
-            default:
-                throw new Error(`Runtime '${closure.runtime}' not yet supported (currently only 'nodejs')`);
-        }
+        // Now compile the function text into an asset we can use to create the lambda.
+        this.lambda = closure.mapValue((c: fabric.runtime.Closure) =>
+            createJavaScriptLambda(name, this.role, c, options));
     }
 }
 
