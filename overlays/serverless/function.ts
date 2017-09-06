@@ -151,52 +151,47 @@ function envArrToString(envArr: (string | undefined)[]): string {
     return "[ " + result + " ]";
 }
 
+function serializeClosureText(closure: fabric.Computed<fabric.runtime.Closure>): fabric.asset.StringAsset {
+    return new fabric.asset.StringAsset(closure.mapValue((c: fabric.runtime.Closure) => {
+        // Ensure the closure is targeting a supported runtime.
+        if (c.runtime !== "nodejs") {
+            throw new Error(`Runtime '${c.runtime}' not yet supported (currently only 'nodejs')`);
+        }
+
+        // Now produce a textual representation of the closure and its serialized captured environment.
+        let funcsForClosure = new FuncsForClosure(c);
+        let funcs = funcsForClosure.funcs;
+        let text = "exports.handler = " + funcsForClosure.root + ";\n\n";
+        for (let name of Object.keys(funcs)) {
+            text +=
+                "function " + name + "() {\n" +
+                "  var _this;\n" +
+                "  with(" + envObjToString(funcs[name].env) + ") {\n" +
+                "    return (function() {\n\n" +
+                funcs[name].code + "\n" +
+                "    }).apply(_this).apply(undefined, arguments);\n" +
+                "  }\n" +
+                "}\n" +
+                "\n";
+        }
+        return text;
+    }));
+}
+
 function createJavaScriptLambda(
-    functionName: string, role: Role, closure: fabric.runtime.Closure, opts: FunctionOptions): lambda.Function {
-    // Ensure the closure is targeting a supported runtime.
-    if (closure.runtime !== "nodejs") {
-        throw new Error(`Runtime '${closure.runtime}' not yet supported (currently only 'nodejs')`);
-    }
-
-    // Now produce a textual representation of the closure and its serialized captured environment.
-    let funcsForClosure = new FuncsForClosure(closure);
-    let funcs = funcsForClosure.funcs;
-    let text = "exports.handler = " + funcsForClosure.root + ";\n\n";
-    for (let name of Object.keys(funcs)) {
-        text +=
-            "function " + name + "() {\n" +
-            "  var _this;\n" +
-            "  with(" + envObjToString(funcs[name].env) + ") {\n" +
-            "    return (function() {\n\n" +
-            funcs[name].code + "\n" +
-            "    }).apply(_this).apply(undefined, arguments);\n" +
-            "  }\n" +
-            "}\n" +
-            "\n";
-    }
-
-    // Finally create a lambda out of it.
-    let timeout = 180;
-    if (opts.timeout !== undefined) {
-        timeout = opts.timeout;
-    }
-
-    let deadLetterConfig: { targetArn: fabric.MaybeComputed<string>; }[] | undefined;
-    if (opts.deadLetterConfig !== undefined) {
-        deadLetterConfig = [ opts.deadLetterConfig ];
-    }
-
+    functionName: string, role: Role,
+    closure: fabric.Computed<fabric.runtime.Closure>, opts: FunctionOptions): lambda.Function {
     return new lambda.Function(functionName, {
         code: new fabric.asset.AssetArchive({
             "node_modules": new fabric.asset.FileAsset("node_modules"),
-            "index.js": new fabric.asset.StringAsset(text),
+            "index.js": serializeClosureText(closure),
         }),
         handler: "index.handler",
         runtime: lambda.NodeJS6d10Runtime,
         role: role.arn,
-        timeout: timeout,
+        timeout: opts.timeout === undefined ? 180 : opts.timeout,
         memorySize: opts.memorySize,
-        deadLetterConfig: deadLetterConfig,
+        deadLetterConfig: opts.deadLetterConfig === undefined ? undefined : [ opts.deadLetterConfig ],
     });
 }
 
@@ -210,8 +205,7 @@ export interface FunctionOptions {
 // Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
 // by a Lumi lambda expression and with a set of attached policies.
 export class Function {
-    public readonly arn: fabric.Computed<ARN>;
-    public readonly lambda: fabric.Computed<lambda.Function>;
+    public readonly lambda: lambda.Function;
     public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
 
@@ -241,8 +235,7 @@ export class Function {
         }
 
         // Now compile the function text into an asset we can use to create the lambda.
-        this.lambda = closure.mapValue((c: fabric.runtime.Closure) =>
-            createJavaScriptLambda(name, this.role, c, options));
+        this.lambda = createJavaScriptLambda(name, this.role, closure, options);
     }
 }
 
