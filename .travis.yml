@@ -7,8 +7,8 @@ before_install:
     # Gometalinter for good Go linting/hygiene.
     - go get -v github.com/alecthomas/gometalinter
     - gometalinter --install
-    # Node.js 7.x for LumiJS and associated JS code.
-    - nvm install v7
+    # Node.js 6.10.2 for Pulumi Fabric's Node.js runtime.
+    - nvm install v6.10.2
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
 install:
