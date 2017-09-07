@@ -1,10 +1,9 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import { Application, ApplicationVersion, Environment } from "@lumi/aws/elasticbeanstalk";
-import * as iam from "@lumi/aws/iam";
-import { Bucket, Object } from "@lumi/aws/s3";
-import { File } from "@lumi/lumi/asset";
-import { jsonStringify } from "@lumi/lumirt";
+import { Application, ApplicationVersion, Environment } from "@pulumi/aws/elasticbeanstalk";
+import * as iam from "@pulumi/aws/iam";
+import { Bucket, Object } from "@pulumi/aws/s3";
+import { File } from "@pulumi/lumi/asset";
 
 let sourceBucket = new Bucket("sourceBucket", {});
 let source = new Object("testSource/app.zip", {
@@ -33,7 +32,7 @@ let instanceRolePolicyDocument = {
     ],
 };
 let instanceRole = new iam.Role("myapp-instanceRole", {
-    assumeRolePolicy: jsonStringify(instanceRolePolicyDocument),
+    assumeRolePolicy: JSON.stringify(instanceRolePolicyDocument),
 });
 let instanceWebTierPolicyAttach = new iam.RolePolicyAttachment("myapp-instanceRole-webtierPolicy", {
     role: instanceRole,
@@ -61,7 +60,7 @@ let serviceRolePolicyDocument = {
     ],
 };
 let serviceRole = new iam.Role("myapp", {
-    assumeRolePolicy: jsonStringify(serviceRolePolicyDocument),
+    assumeRolePolicy: JSON.stringify(serviceRolePolicyDocument),
 });
 let serviceServiceTierServiceHealthAttach = new iam.RolePolicyAttachment("myapp-healthPolicy", {
     role: serviceRole,

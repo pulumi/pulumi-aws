@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": ".lumi/bin",
+        "outDir": "bin",
         "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
@@ -214,8 +214,8 @@
         "ec2/routeTable.ts",
         "ec2/routeTableAssociation.ts",
         "s3/bucket.ts",
-        "s3/notification.ts",
-        "s3/object.ts",
+        "s3/bucketNotification.ts",
+        "s3/bucketObject.ts",
         "s3/bucketPolicy.ts",
         "ec2/securityGroup.ts",
         "ec2/securityGroupRule.ts",

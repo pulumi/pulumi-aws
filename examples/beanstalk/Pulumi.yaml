@@ -1,7 +1,4 @@
 name: beanstalk
 description: Basic Elastic Beanstalk application.
-dependencies:
-    lumi: "*"
-    lumirt: "*"
-    aws: "*"
+runtime: nodejs
 

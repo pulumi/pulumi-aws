@@ -1,6 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import * as aws from "@lumi/aws";
+import * as aws from "@pulumi/aws";
 
 export let size: aws.ec2.InstanceType = "t2.micro";
 

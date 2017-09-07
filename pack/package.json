@@ -1,4 +1,17 @@
 {
-    "name": "@lumi/aws"
+    "name": "@pulumi/aws",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+         "@types/node": "^8.0.25"
+    },
+    "devDependencies": {
+        "typescript": "^2.5.0"
+    },
+    "peerDependencies": {
+        "@pulumi/pulumi-fabric": "*"
+    }
 }
-

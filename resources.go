@@ -526,6 +526,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsrestok(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 64),
+					"role": {Type: awstok(awsMod, "ARN")},
 				},
 			},
 			"aws_iam_saml_provider":      {Tok: awsrestok(iamMod, "SamlProvider")},
@@ -732,14 +733,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_s3_bucket_policy": {Tok: awsrestok(s3Mod, "BucketPolicy")},
 			"aws_s3_bucket_object": {
-				Tok:      awsrestok(s3Mod, "Object"),
+				Tok:      awsrestok(s3Mod, "BucketObject"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": {Type: awsrestok(s3Mod, "Bucket")},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
-							From: string(resource.URNNamePropertyKey),
+							From: tfbridge.FromName(false, 0, nil),
 						},
 					},
 					"source": {
@@ -749,7 +750,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_s3_bucket_notification": {Tok: awsrestok(s3Mod, "Notification")},
+			"aws_s3_bucket_notification": {Tok: awsrestok(s3Mod, "BucketNotification")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsrestok(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsrestok(ssmMod, "Association")},
@@ -829,6 +830,9 @@ func Provider() tfbridge.ProviderInfo {
 						"function.ts", // a union type and constants for available Lambda runtimes.
 					},
 				},
+			},
+			Dependencies: map[string]string{
+				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 		},
 	}

@@ -1,16 +1,19 @@
 {
     "name": "webserver",
     "version": "0.1",
-    "typings": ".lumi/bin/index.d.ts",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
     "scripts": {
-        "build": "lumijs"
+        "build": "tsc"
     },
     "devDependencies": {
         "typescript": "^2.1.4"
     },
     "peerDependencies": {
-        "@lumi/mu": "*",
-        "@lumi/aws": "*"
+        "@pulumi/aws": "*",
+        "@pulumi/pulumi-fabric": "*"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.26"
     }
 }
-
