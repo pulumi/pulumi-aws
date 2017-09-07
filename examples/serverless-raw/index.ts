@@ -30,7 +30,7 @@ let fullAccess = new aws.iam.RolePolicyAttachment("mylambda-access", {
 });
 let lambda = new aws.lambda.Function("mylambda", {
     code: new asset.AssetArchive({
-        "index.js": new asset.String(
+        "index.js": new asset.StringAsset(
             "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});",
         ),
     }),
@@ -48,7 +48,7 @@ let logGroup = new aws.cloudwatch.LogGroup("/aws/lambda/mylambda", {
 
 let logcollector = new aws.lambda.Function("mylambda-logcollector", {
     code: new asset.AssetArchive({
-        "index.js": new lumi.asset.String(
+        "index.js": new asset.StringAsset(
             "exports.handler = (e, c, cb) => console.log(e);",
         ),
     }),

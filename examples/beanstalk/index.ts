@@ -2,13 +2,13 @@
 
 import { Application, ApplicationVersion, Environment } from "@pulumi/aws/elasticbeanstalk";
 import * as iam from "@pulumi/aws/iam";
-import { Bucket, Object } from "@pulumi/aws/s3";
-import { File } from "@pulumi/lumi/asset";
+import { Bucket, BucketObject } from "@pulumi/aws/s3";
+import { FileAsset } from "@pulumi/pulumi-fabric/asset";
 
 let sourceBucket = new Bucket("sourceBucket", {});
-let source = new Object("testSource/app.zip", {
+let source = new BucketObject("testSource/app.zip", {
     bucket: sourceBucket,
-    source: new File("app.zip"),
+    source: new FileAsset("app.zip"),
 });
 
 let myapp = new Application("myapp", {});

@@ -51,7 +51,6 @@ func TestExamples(t *testing.T) {
 			}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
-			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "cpuwatch")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 		}...)
