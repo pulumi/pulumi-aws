@@ -12,16 +12,16 @@ before_install:
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
 install:
-    # Clone the Lumi repo and use its script to fetch the latest installation packages.
-    - git clone git@github.com:pulumi/pulumi-fabric ${GOPATH}/src/github.com/pulumi/pulumi-fabric
-    - ${GOPATH}/src/github.com/pulumi/pulumi-fabric/scripts/install_release.sh lumi HEAD ~/.lumi
+    # Clone the Pulumi repo and use its script to fetch the latest installation packages.
+    - git clone git@github.com:pulumi/pulumi ${GOPATH}/src/github.com/pulumi/pulumi
+    - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install.sh pulumi-fabric HEAD ~/.pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
+before_script:
+    - export PULUMI=~/.pulumi
+    - export PATH=$PULUMI/bin:$PATH
 script:
     - make all
-before_script:
-    - export LUMIROOT=~/.lumi
-    - export PATH=$LUMIROOT/cmd:$PATH
 after_script:
     - if [ $TRAVIS_EVENT_TYPE = "push" ] && [ $TRAVIS_BRANCH = "master" ]; then PUBFORCE=true make publish; fi
 notifications:
