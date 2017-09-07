@@ -19,7 +19,7 @@ install:
     - dep ensure
 before_script:
     - export PULUMI=~/.pulumi
-    - export PATH=$PULUMI/bin:$PATH
+    - export PATH=$PULUMI/bin:$PULUMI/sdk/nodejs:$PATH
 script:
     - make all
 after_script:
