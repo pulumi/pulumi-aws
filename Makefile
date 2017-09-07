@@ -52,7 +52,8 @@ test:
 
 install:
 	@$(ECHO) "[Installing ${PACK} package:]"
-	cd ${PACKDIR} && yarn link --force               # ensure this pack is made available.
+	cp ${PACKDIR}/package.json ${PACKDIR}/bin/
+	cd ${PACKDIR}/bin && yarn link --force               # ensure this pack is made available.
 .PHONY: install
 
 publish:
