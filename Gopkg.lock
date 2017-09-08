@@ -233,13 +233,13 @@
   branch = "master"
   name = "github.com/posener/complete"
   packages = [".","cmd","cmd/install","match"]
-  revision = "9f41f7636a724791a3b8b1d35e84caa1124f0d3c"
+  revision = "88e59760adaddb8276c9b15511302890690e2dae"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-fabric"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/environment","pkg/resource/plugin","pkg/resource/provider","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","sdk/proto/go"]
-  revision = "527aee7b15d2c6b9965509fe08f8c6e1a08590b1"
+  revision = "6aae0287683a0e9b8e989754bee64a66e3475036"
 
 [[projects]]
   branch = "master"
