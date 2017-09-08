@@ -20,6 +20,9 @@
         "vet",
         "vetshadow"
     ],
+    "Exclude": [
+        "/usr/local/go"
+    ],
     "LineLength": 120
 }
 
