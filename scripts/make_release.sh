@@ -8,9 +8,10 @@ GITVER=$(git rev-parse HEAD)
 PUBFILE=$(dirname ${PUBDIR})/${GITVER}.tgz
 declare -a PUBTARGETS=(${GITVER} $(git describe --tags 2>/dev/null) $(git rev-parse --abbrev-ref HEAD))
 
-# Copy the pack.
+# Copy the pack, and include metadata about it and its dependencies.
 cp -R ${ROOT}/pack/bin/. ${PUBDIR}/
 echo . >> ${PUBDIR}/packs.txt
+echo . @pulumi/pulumi-fabric >> ${PUBDIR}/packdeps.txt
 
 # Tar up the file and then print it out for use by the caller or script.
 tar -czf ${PUBFILE} -C ${PUBDIR} .
