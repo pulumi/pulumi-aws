@@ -50,10 +50,8 @@ func TestExamples(t *testing.T) {
 				},
 			}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
-			// TODO[pulumi/pulumi-fabric#311]: reenable once we're done rolling out the new runtime.
-			// base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
-			// TODO[pulumi/pulumi-fabric#335]: reenable once we can deal with hidden resource dependencies.
-			// base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 		}...)
 	}
