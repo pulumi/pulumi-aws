@@ -8,7 +8,9 @@ GITVER=$(git rev-parse HEAD)
 PUBFILE=$(dirname ${PUBDIR})/${GITVER}.tgz
 declare -a PUBTARGETS=(${GITVER} $(git describe --tags 2>/dev/null) $(git rev-parse --abbrev-ref HEAD))
 
-# Copy the pack, and include metadata about it and its dependencies.
+# Copy the provider, and the pack, including metadata about it and its dependencies.
+mkdir -p $PUBDIR
+cp $GOPATH/bin/pulumi-provider-aws ${PUBDIR}/
 cp -R ${ROOT}/pack/bin/. ${PUBDIR}/
 echo . >> ${PUBDIR}/packs.txt
 echo . @pulumi/pulumi-fabric >> ${PUBDIR}/packdeps.txt
