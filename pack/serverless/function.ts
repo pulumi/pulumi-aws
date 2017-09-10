@@ -166,7 +166,7 @@ function serializeClosureText(closure: fabric.Computed<fabric.runtime.Closure>):
                 "  var _this;\n" +
                 "  with(" + envObjToString(funcs[name].env) + ") {\n" +
                 "    return (function() {\n\n" +
-                funcs[name].code + "\n" +
+                "return " + funcs[name].code + "\n" +
                 "    }).apply(_this).apply(undefined, arguments);\n" +
                 "  }\n" +
                 "}\n" +
