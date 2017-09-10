@@ -112,19 +112,17 @@ class FuncsForClosure {
     }
 }
 
-// Converts an environment object into a string which can be embedded into a serialized
-// function body.  Note that this is not JSON serialization, as we may have proeprty
-// values which are variable references to other global functions.  In other words,
-// there can be free variables in the resulting object literal.
+// Converts an environment object into a string which can be embedded into a serialized function body.  Note that this
+// is not JSON serialization, as we may have proeprty values which are variable references to other global functions.
+// In other words, there can be free variables in the resulting object literal.
 function envObjToString(envObj: { [key: string]: string; }): string {
     let result = "";
     let first = true;
     for (let key of Object.keys(envObj)) {
         let val = envObj[key];
-        // Lumi generates the special name `.this` for references to `this`.
-        // We will rewrite to the name `_this` and then pass that as the
-        // receiver to `.apply` later on.
-        if (key === ".this") {
+
+        // Rewrite references to `this` to the special name `_this`.  This will get rewritten to use `.apply` later.
+        if (key === "this") {
             key = "_this";
         }
 
@@ -132,7 +130,7 @@ function envObjToString(envObj: { [key: string]: string; }): string {
             result += ", ";
         }
 
-        result += key + ": " + envObj[key];
+        result += key + ": " + val;
         first = false;
     }
     return "{ " + result + " }";
