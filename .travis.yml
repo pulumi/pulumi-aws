@@ -14,11 +14,11 @@ before_install:
 install:
     # Clone the Pulumi repo and use its script to fetch the latest installation packages.
     - git clone git@github.com:pulumi/pulumi ${GOPATH}/src/github.com/pulumi/pulumi
-    - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install.sh pulumi-fabric HEAD /usr/local/pulumi
+    - ${GOPATH}/src/github.com/pulumi/pulumi/scripts/install.sh pulumi-fabric HEAD /opt/pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
 before_script:
-    - export PULUMI=/usr/local/pulumi
+    - export PULUMI=/opt/pulumi
     - export PATH=$PULUMI/bin:$PULUMI/sdk/nodejs:$PATH
 script:
     - make all
