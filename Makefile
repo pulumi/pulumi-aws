@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-.SHELLFLAGS=-e
+.SHELLFLAGS=-ec
 
 PACK    =aws
 PACKDIR =pack
