@@ -16,8 +16,8 @@
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
   packages = ["aws","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/ec2query","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restjson","private/protocol/restxml","private/protocol/xml/xmlutil","private/signer/v2","service/acm","service/apigateway","service/applicationautoscaling","service/autoscaling","service/cloudformation","service/cloudfront","service/cloudtrail","service/cloudwatch","service/cloudwatchevents","service/cloudwatchlogs","service/codebuild","service/codecommit","service/codedeploy","service/codepipeline","service/cognitoidentity","service/configservice","service/databasemigrationservice","service/devicefarm","service/directoryservice","service/dynamodb","service/ec2","service/ecr","service/ecs","service/efs","service/elasticache","service/elasticbeanstalk","service/elasticsearchservice","service/elastictranscoder","service/elb","service/elbv2","service/emr","service/firehose","service/glacier","service/iam","service/inspector","service/iot","service/kinesis","service/kms","service/lambda","service/lightsail","service/opsworks","service/rds","service/redshift","service/route53","service/s3","service/ses","service/sfn","service/simpledb","service/sns","service/sqs","service/ssm","service/sts","service/waf","service/wafregional"]
-  revision = "124a6dabcd822d9b88383d8e2186e696a12d791d"
-  version = "v1.10.44"
+  revision = "cbd6949bf5611b581f686f8fbacd7858c7464767"
+  version = "v1.10.45"
 
 [[projects]]
   branch = "master"
@@ -59,7 +59,7 @@
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto","protoc-gen-go/descriptor","ptypes","ptypes/any","ptypes/duration","ptypes/empty","ptypes/struct","ptypes/timestamp"]
-  revision = "17ce1425424ab154092bbb43af630bd647f3bb0d"
+  revision = "11b8df160996e00fd4b55cbaafb3d84ec6d50fa8"
 
 [[projects]]
   branch = "master"
@@ -239,13 +239,13 @@
   branch = "master"
   name = "github.com/pulumi/pulumi-fabric"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/environment","pkg/resource/plugin","pkg/resource/provider","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","sdk/proto/go"]
-  revision = "94207acf65d4e529075a5785f6829485884d87a4"
+  revision = "5b779798c4cceda4f51dfa52bb5fa01b905706a0"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "d18932f2bdd0c74853cc4a3a30e5656f97a9e866"
+  revision = "4e666f23a25fedf23118ee3ca4a5c3a8767cb66e"
 
 [[projects]]
   branch = "master"
