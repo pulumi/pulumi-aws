@@ -6,15 +6,15 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class Listener extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
     public readonly certificateArn?: fabric.Computed<string>;
-    public readonly defaultAction: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
+    public readonly defaultActions: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
     public readonly loadBalancerArn: fabric.Computed<string>;
     public readonly port: fabric.Computed<number>;
     public readonly protocol?: fabric.Computed<string>;
     public readonly sslPolicy: fabric.Computed<string>;
 
     constructor(urnName: string, args: ListenerArgs, dependsOn?: fabric.Resource[]) {
-        if (args.defaultAction === undefined) {
-            throw new Error("Missing required property 'defaultAction'");
+        if (args.defaultActions === undefined) {
+            throw new Error("Missing required property 'defaultActions'");
         }
         if (args.loadBalancerArn === undefined) {
             throw new Error("Missing required property 'loadBalancerArn'");
@@ -24,7 +24,7 @@ export class Listener extends fabric.Resource {
         }
         super("aws:elasticloadbalancingv2/listener:Listener", urnName, {
             "certificateArn": args.certificateArn,
-            "defaultAction": args.defaultAction,
+            "defaultActions": args.defaultActions,
             "loadBalancerArn": args.loadBalancerArn,
             "port": args.port,
             "protocol": args.protocol,
@@ -36,7 +36,7 @@ export class Listener extends fabric.Resource {
 
 export interface ListenerArgs {
     readonly certificateArn?: fabric.MaybeComputed<string>;
-    readonly defaultAction: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly defaultActions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
     readonly loadBalancerArn: fabric.MaybeComputed<string>;
     readonly port: fabric.MaybeComputed<number>;
     readonly protocol?: fabric.MaybeComputed<string>;

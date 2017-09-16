@@ -7,7 +7,7 @@ export class TargetGroup extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
     public /*out*/ readonly arnSuffix: fabric.Computed<string>;
     public readonly deregistrationDelay?: fabric.Computed<number>;
-    public readonly healthCheck: fabric.Computed<{ healthyThreshold?: number, interval?: number, matcher?: string, path?: string, port?: string, protocol?: string, timeout?: number, unhealthyThreshold?: number }[]>;
+    public readonly healthChecks: fabric.Computed<{ healthyThreshold?: number, interval?: number, matcher?: string, path?: string, port?: string, protocol?: string, timeout?: number, unhealthyThreshold?: number }[]>;
     public readonly name: fabric.Computed<string>;
     public readonly namePrefix?: fabric.Computed<string>;
     public readonly port: fabric.Computed<number>;
@@ -28,7 +28,7 @@ export class TargetGroup extends fabric.Resource {
         }
         super("aws:elasticloadbalancingv2/targetGroup:TargetGroup", urnName, {
             "deregistrationDelay": args.deregistrationDelay,
-            "healthCheck": args.healthCheck,
+            "healthChecks": args.healthChecks,
             "name": args.name,
             "namePrefix": args.namePrefix,
             "port": args.port,
@@ -44,7 +44,7 @@ export class TargetGroup extends fabric.Resource {
 
 export interface TargetGroupArgs {
     readonly deregistrationDelay?: fabric.MaybeComputed<number>;
-    readonly healthCheck?: fabric.MaybeComputed<{ healthyThreshold?: fabric.MaybeComputed<number>, interval?: fabric.MaybeComputed<number>, matcher?: fabric.MaybeComputed<string>, path?: fabric.MaybeComputed<string>, port?: fabric.MaybeComputed<string>, protocol?: fabric.MaybeComputed<string>, timeout?: fabric.MaybeComputed<number>, unhealthyThreshold?: fabric.MaybeComputed<number> }>[];
+    readonly healthChecks?: fabric.MaybeComputed<{ healthyThreshold?: fabric.MaybeComputed<number>, interval?: fabric.MaybeComputed<number>, matcher?: fabric.MaybeComputed<string>, path?: fabric.MaybeComputed<string>, port?: fabric.MaybeComputed<string>, protocol?: fabric.MaybeComputed<string>, timeout?: fabric.MaybeComputed<number>, unhealthyThreshold?: fabric.MaybeComputed<number> }>[];
     readonly name?: fabric.MaybeComputed<string>;
     readonly namePrefix?: fabric.MaybeComputed<string>;
     readonly port: fabric.MaybeComputed<number>;

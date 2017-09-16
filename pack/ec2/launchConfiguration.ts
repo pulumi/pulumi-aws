@@ -5,7 +5,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 export class LaunchConfiguration extends fabric.Resource {
     public readonly associatePublicIpAddress?: fabric.Computed<boolean>;
-    public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices: fabric.Computed<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     public readonly ebsOptimized: fabric.Computed<boolean>;
     public readonly enableMonitoring?: fabric.Computed<boolean>;
     public readonly ephemeralBlockDevice?: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
@@ -32,7 +32,7 @@ export class LaunchConfiguration extends fabric.Resource {
         }
         super("aws:ec2/launchConfiguration:LaunchConfiguration", urnName, {
             "associatePublicIpAddress": args.associatePublicIpAddress,
-            "ebsBlockDevice": args.ebsBlockDevice,
+            "ebsBlockDevices": args.ebsBlockDevices,
             "ebsOptimized": args.ebsOptimized,
             "enableMonitoring": args.enableMonitoring,
             "ephemeralBlockDevice": args.ephemeralBlockDevice,
@@ -55,7 +55,7 @@ export class LaunchConfiguration extends fabric.Resource {
 
 export interface LaunchConfigurationArgs {
     readonly associatePublicIpAddress?: fabric.MaybeComputed<boolean>;
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly ebsBlockDevices?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
     readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
     readonly enableMonitoring?: fabric.MaybeComputed<boolean>;
     readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[];

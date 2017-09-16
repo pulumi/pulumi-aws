@@ -4,18 +4,18 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class ListenerRule extends fabric.Resource {
-    public readonly action: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
+    public readonly actions: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
     public /*out*/ readonly arn: fabric.Computed<string>;
-    public readonly condition: fabric.Computed<{ field?: string, values?: string[] }[]>;
+    public readonly conditions: fabric.Computed<{ field?: string, values?: string[] }[]>;
     public readonly listenerArn: fabric.Computed<string>;
     public readonly priority: fabric.Computed<number>;
 
     constructor(urnName: string, args: ListenerRuleArgs, dependsOn?: fabric.Resource[]) {
-        if (args.action === undefined) {
-            throw new Error("Missing required property 'action'");
+        if (args.actions === undefined) {
+            throw new Error("Missing required property 'actions'");
         }
-        if (args.condition === undefined) {
-            throw new Error("Missing required property 'condition'");
+        if (args.conditions === undefined) {
+            throw new Error("Missing required property 'conditions'");
         }
         if (args.listenerArn === undefined) {
             throw new Error("Missing required property 'listenerArn'");
@@ -24,8 +24,8 @@ export class ListenerRule extends fabric.Resource {
             throw new Error("Missing required property 'priority'");
         }
         super("aws:elasticloadbalancingv2/listenerRule:ListenerRule", urnName, {
-            "action": args.action,
-            "condition": args.condition,
+            "actions": args.actions,
+            "conditions": args.conditions,
             "listenerArn": args.listenerArn,
             "priority": args.priority,
             "arn": undefined,
@@ -34,8 +34,8 @@ export class ListenerRule extends fabric.Resource {
 }
 
 export interface ListenerRuleArgs {
-    readonly action: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly condition: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, values?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly actions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly conditions: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, values?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
     readonly listenerArn: fabric.MaybeComputed<string>;
     readonly priority: fabric.MaybeComputed<number>;
 }

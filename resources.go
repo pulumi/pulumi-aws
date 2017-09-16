@@ -388,8 +388,13 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:      awsrestok(iotMod, "Policy"),
 				IDFields: []string{"name"},
 			},
-			"aws_key_pair":                             {Tok: awsrestok(ec2Mod, "KeyPair")},
-			"aws_launch_configuration":                 {Tok: awsrestok(ec2Mod, "LaunchConfiguration")},
+			"aws_key_pair": {Tok: awsrestok(ec2Mod, "KeyPair")},
+			"aws_launch_configuration": {
+				Tok: awsrestok(ec2Mod, "LaunchConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"ebs_block_device": {Name: "ebsBlockDevices"},
+				},
+			},
 			"aws_main_route_table_association":         {Tok: awsrestok(ec2Mod, "MainRouteTableAssociation")},
 			"aws_nat_gateway":                          {Tok: awsrestok(ec2Mod, "NatGateway")},
 			"aws_network_acl":                          {Tok: awsrestok(ec2Mod, "NetworkAcl")},
@@ -432,8 +437,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecr_repository":        {Tok: awsrestok(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsrestok(ecrMod, "RepositoryPolicy")},
 			// Elastic Container Service
-			"aws_ecs_cluster":         {Tok: awsrestok(ecsMod, "Cluster")},
-			"aws_ecs_service":         {Tok: awsrestok(ecsMod, "Service")},
+			"aws_ecs_cluster": {Tok: awsrestok(ecsMod, "Cluster")},
+			"aws_ecs_service": {
+				Tok: awsrestok(ecsMod, "Service"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"load_balancer": {Name: "loadBalancers"},
+				},
+			},
 			"aws_ecs_task_definition": {Tok: awsrestok(ecsMod, "TaskDefinition")},
 			// Elastic File System
 			"aws_efs_file_system":  {Tok: awsrestok(efsMod, "FileSystem")},
@@ -449,10 +459,26 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Load Balancing (V2: Application)
 			"aws_app_cookie_stickiness_policy": {Tok: awsrestok(elbMod, "CookieStickinessPolicy")},
 			"aws_alb":                          {Tok: awsrestok(elbv2Mod, "LoadBalancer")},
-			"aws_alb_listener":                 {Tok: awsrestok(elbv2Mod, "Listener")},
-			"aws_alb_listener_rule":            {Tok: awsrestok(elbv2Mod, "ListenerRule")},
-			"aws_alb_target_group":             {Tok: awsrestok(elbv2Mod, "TargetGroup")},
-			"aws_alb_target_group_attachment":  {Tok: awsrestok(elbv2Mod, "TargetGroupAttachment")},
+			"aws_alb_listener": {
+				Tok: awsrestok(elbv2Mod, "Listener"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"default_action": {Name: "defaultActions"},
+				},
+			},
+			"aws_alb_listener_rule": {
+				Tok: awsrestok(elbv2Mod, "ListenerRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"action":    {Name: "actions"},
+					"condition": {Name: "conditions"},
+				},
+			},
+			"aws_alb_target_group": {
+				Tok: awsrestok(elbv2Mod, "TargetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"health_check": {Name: "healthChecks"},
+				},
+			},
+			"aws_alb_target_group_attachment": {Tok: awsrestok(elbv2Mod, "TargetGroupAttachment")},
 			// Elastic Search
 			"aws_elasticsearch_domain":        {Tok: awsrestok(elasticsearchMod, "Domain")},
 			"aws_elasticsearch_domain_policy": {Tok: awsrestok(elasticsearchMod, "DomainPolicy")},

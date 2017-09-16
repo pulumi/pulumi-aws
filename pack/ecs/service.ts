@@ -9,7 +9,7 @@ export class Service extends fabric.Resource {
     public readonly deploymentMinimumHealthyPercent?: fabric.Computed<number>;
     public readonly desiredCount?: fabric.Computed<number>;
     public readonly iamRole?: fabric.Computed<string>;
-    public readonly loadBalancer?: fabric.Computed<{ containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[]>;
+    public readonly loadBalancers?: fabric.Computed<{ containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[]>;
     public readonly name: fabric.Computed<string>;
     public readonly placementConstraints?: fabric.Computed<{ expression?: string, type: string }[]>;
     public readonly placementStrategy?: fabric.Computed<{ field?: string, type: string }[]>;
@@ -25,7 +25,7 @@ export class Service extends fabric.Resource {
             "deploymentMinimumHealthyPercent": args.deploymentMinimumHealthyPercent,
             "desiredCount": args.desiredCount,
             "iamRole": args.iamRole,
-            "loadBalancer": args.loadBalancer,
+            "loadBalancers": args.loadBalancers,
             "name": args.name,
             "placementConstraints": args.placementConstraints,
             "placementStrategy": args.placementStrategy,
@@ -40,7 +40,7 @@ export interface ServiceArgs {
     readonly deploymentMinimumHealthyPercent?: fabric.MaybeComputed<number>;
     readonly desiredCount?: fabric.MaybeComputed<number>;
     readonly iamRole?: fabric.MaybeComputed<string>;
-    readonly loadBalancer?: fabric.MaybeComputed<{ containerName: fabric.MaybeComputed<string>, containerPort: fabric.MaybeComputed<number>, elbName?: fabric.MaybeComputed<string>, targetGroupArn?: fabric.MaybeComputed<string> }>[];
+    readonly loadBalancers?: fabric.MaybeComputed<{ containerName: fabric.MaybeComputed<string>, containerPort: fabric.MaybeComputed<number>, elbName?: fabric.MaybeComputed<string>, targetGroupArn?: fabric.MaybeComputed<string> }>[];
     readonly name?: fabric.MaybeComputed<string>;
     readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
     readonly placementStrategy?: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
