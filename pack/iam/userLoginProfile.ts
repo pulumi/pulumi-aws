@@ -11,7 +11,7 @@ export class UserLoginProfile extends fabric.Resource {
     public readonly pgpKey: fabric.Computed<string>;
     public readonly user: fabric.Computed<string>;
 
-    constructor(urnName: string, args: UserLoginProfileArgs) {
+    constructor(urnName: string, args: UserLoginProfileArgs, dependsOn?: fabric.Resource[]) {
         if (args.pgpKey === undefined) {
             throw new Error("Missing required property 'pgpKey'");
         }
@@ -25,7 +25,7 @@ export class UserLoginProfile extends fabric.Resource {
             "user": args.user,
             "encryptedPassword": undefined,
             "keyFingerprint": undefined,
-        });
+        }, dependsOn);
     }
 }
 

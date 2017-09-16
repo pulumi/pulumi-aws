@@ -9,7 +9,7 @@ export class GroupPolicy extends fabric.Resource {
     public readonly namePrefix?: fabric.Computed<string>;
     public readonly policy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: GroupPolicyArgs) {
+    constructor(urnName: string, args: GroupPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.group === undefined) {
             throw new Error("Missing required property 'group'");
         }
@@ -21,7 +21,7 @@ export class GroupPolicy extends fabric.Resource {
             "name": args.name,
             "namePrefix": args.namePrefix,
             "policy": args.policy,
-        });
+        }, dependsOn);
     }
 }
 

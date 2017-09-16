@@ -9,13 +9,13 @@ export class ClientCertificate extends fabric.Resource {
     public /*out*/ readonly expirationDate: fabric.Computed<string>;
     public /*out*/ readonly pemEncodedCertificate: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ClientCertificateArgs) {
+    constructor(urnName: string, args?: ClientCertificateArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/clientCertificate:ClientCertificate", urnName, {
             "description": args.description,
             "createdDate": undefined,
             "expirationDate": undefined,
             "pemEncodedCertificate": undefined,
-        });
+        }, dependsOn);
     }
 }
 

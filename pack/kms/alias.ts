@@ -9,7 +9,7 @@ export class Alias extends fabric.Resource {
     public readonly namePrefix?: fabric.Computed<string>;
     public readonly targetKeyId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AliasArgs) {
+    constructor(urnName: string, args: AliasArgs, dependsOn?: fabric.Resource[]) {
         if (args.targetKeyId === undefined) {
             throw new Error("Missing required property 'targetKeyId'");
         }
@@ -18,7 +18,7 @@ export class Alias extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "targetKeyId": args.targetKeyId,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

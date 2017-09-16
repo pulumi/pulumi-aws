@@ -20,7 +20,7 @@ export class DefaultVpc extends fabric.Resource {
     public /*out*/ readonly mainRouteTableId: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: DefaultVpcArgs) {
+    constructor(urnName: string, args?: DefaultVpcArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/defaultVpc:DefaultVpc", urnName, {
             "enableClassiclink": args.enableClassiclink,
             "enableClassiclinkDnsSupport": args.enableClassiclinkDnsSupport,
@@ -37,7 +37,7 @@ export class DefaultVpc extends fabric.Resource {
             "ipv6AssociationId": undefined,
             "ipv6CidrBlock": undefined,
             "mainRouteTableId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

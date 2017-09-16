@@ -7,11 +7,11 @@ export class Activity extends fabric.Resource {
     public /*out*/ readonly creationDate: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ActivityArgs) {
+    constructor(urnName: string, args?: ActivityArgs, dependsOn?: fabric.Resource[]) {
         super("aws:sfn/activity:Activity", urnName, {
             "name": args.name,
             "creationDate": undefined,
-        });
+        }, dependsOn);
     }
 }
 

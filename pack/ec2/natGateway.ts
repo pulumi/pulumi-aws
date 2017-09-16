@@ -10,7 +10,7 @@ export class NatGateway extends fabric.Resource {
     public readonly publicIp: fabric.Computed<string>;
     public readonly subnetId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: NatGatewayArgs) {
+    constructor(urnName: string, args: NatGatewayArgs, dependsOn?: fabric.Resource[]) {
         if (args.allocationId === undefined) {
             throw new Error("Missing required property 'allocationId'");
         }
@@ -23,7 +23,7 @@ export class NatGateway extends fabric.Resource {
             "privateIp": args.privateIp,
             "publicIp": args.publicIp,
             "subnetId": args.subnetId,
-        });
+        }, dependsOn);
     }
 }
 

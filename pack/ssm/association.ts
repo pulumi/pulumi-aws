@@ -10,14 +10,14 @@ export class Association extends fabric.Resource {
     public readonly parameters: fabric.Computed<{[key: string]: any}>;
     public readonly targets: fabric.Computed<{ key: string, values: string[] }[]>;
 
-    constructor(urnName: string, args: AssociationArgs) {
+    constructor(urnName: string, args?: AssociationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ssm/association:Association", urnName, {
             "instanceId": args.instanceId,
             "name": args.name,
             "parameters": args.parameters,
             "targets": args.targets,
             "associationId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

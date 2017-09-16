@@ -13,7 +13,7 @@ export class Volume extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly type: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VolumeArgs) {
+    constructor(urnName: string, args: VolumeArgs, dependsOn?: fabric.Resource[]) {
         if (args.availabilityZone === undefined) {
             throw new Error("Missing required property 'availabilityZone'");
         }
@@ -26,7 +26,7 @@ export class Volume extends fabric.Resource {
             "snapshotId": args.snapshotId,
             "tags": args.tags,
             "type": args.type,
-        });
+        }, dependsOn);
     }
 }
 

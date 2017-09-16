@@ -13,7 +13,7 @@ export class FirehoseDeliveryStream extends fabric.Resource {
     public readonly s3Configuration: fabric.Computed<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }[]>;
     public readonly versionId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: FirehoseDeliveryStreamArgs) {
+    constructor(urnName: string, args: FirehoseDeliveryStreamArgs, dependsOn?: fabric.Resource[]) {
         if (args.destination === undefined) {
             throw new Error("Missing required property 'destination'");
         }
@@ -29,7 +29,7 @@ export class FirehoseDeliveryStream extends fabric.Resource {
             "redshiftConfiguration": args.redshiftConfiguration,
             "s3Configuration": args.s3Configuration,
             "versionId": args.versionId,
-        });
+        }, dependsOn);
     }
 }
 

@@ -8,7 +8,7 @@ export class Trigger extends fabric.Resource {
     public readonly repositoryName: fabric.Computed<string>;
     public readonly trigger: fabric.Computed<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
-    constructor(urnName: string, args: TriggerArgs) {
+    constructor(urnName: string, args: TriggerArgs, dependsOn?: fabric.Resource[]) {
         if (args.repositoryName === undefined) {
             throw new Error("Missing required property 'repositoryName'");
         }
@@ -19,7 +19,7 @@ export class Trigger extends fabric.Resource {
             "repositoryName": args.repositoryName,
             "trigger": args.trigger,
             "configurationId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

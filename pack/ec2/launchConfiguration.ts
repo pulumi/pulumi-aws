@@ -23,7 +23,7 @@ export class LaunchConfiguration extends fabric.Resource {
     public readonly vpcClassicLinkId?: fabric.Computed<string>;
     public readonly vpcClassicLinkSecurityGroups?: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: LaunchConfigurationArgs) {
+    constructor(urnName: string, args: LaunchConfigurationArgs, dependsOn?: fabric.Resource[]) {
         if (args.imageId === undefined) {
             throw new Error("Missing required property 'imageId'");
         }
@@ -49,7 +49,7 @@ export class LaunchConfiguration extends fabric.Resource {
             "userData": args.userData,
             "vpcClassicLinkId": args.vpcClassicLinkId,
             "vpcClassicLinkSecurityGroups": args.vpcClassicLinkSecurityGroups,
-        });
+        }, dependsOn);
     }
 }
 

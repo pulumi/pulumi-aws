@@ -7,11 +7,11 @@ export class XssMatchSet extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly xssMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
-    constructor(urnName: string, args: XssMatchSetArgs) {
+    constructor(urnName: string, args?: XssMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/xssMatchSet:XssMatchSet", urnName, {
             "name": args.name,
             "xssMatchTuples": args.xssMatchTuples,
-        });
+        }, dependsOn);
     }
 }
 

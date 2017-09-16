@@ -7,11 +7,11 @@ export class SizeConstraintSet extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly sizeConstraints?: fabric.Computed<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[]>;
 
-    constructor(urnName: string, args: SizeConstraintSetArgs) {
+    constructor(urnName: string, args?: SizeConstraintSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/sizeConstraintSet:SizeConstraintSet", urnName, {
             "name": args.name,
             "sizeConstraints": args.sizeConstraints,
-        });
+        }, dependsOn);
     }
 }
 

@@ -10,14 +10,14 @@ export class LogGroup extends fabric.Resource {
     public readonly retentionInDays?: fabric.Computed<number>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: LogGroupArgs) {
+    constructor(urnName: string, args?: LogGroupArgs, dependsOn?: fabric.Resource[]) {
         super("aws:cloudwatch/logGroup:LogGroup", urnName, {
             "name": args.name,
             "namePrefix": args.namePrefix,
             "retentionInDays": args.retentionInDays,
             "tags": args.tags,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

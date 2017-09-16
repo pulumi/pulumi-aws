@@ -8,7 +8,7 @@ export class Notification extends fabric.Resource {
     public readonly notifications: fabric.Computed<string[]>;
     public readonly topicArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: NotificationArgs) {
+    constructor(urnName: string, args: NotificationArgs, dependsOn?: fabric.Resource[]) {
         if (args.groupNames === undefined) {
             throw new Error("Missing required property 'groupNames'");
         }
@@ -22,7 +22,7 @@ export class Notification extends fabric.Resource {
             "groupNames": args.groupNames,
             "notifications": args.notifications,
             "topicArn": args.topicArn,
-        });
+        }, dependsOn);
     }
 }
 

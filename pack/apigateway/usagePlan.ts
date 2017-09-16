@@ -11,7 +11,7 @@ export class UsagePlan extends fabric.Resource {
     public readonly quotaSettings?: fabric.Computed<{ limit: number, offset?: number, period: string }[]>;
     public readonly throttleSettings?: fabric.Computed<{ burstLimit?: number, rateLimit?: number }[]>;
 
-    constructor(urnName: string, args: UsagePlanArgs) {
+    constructor(urnName: string, args?: UsagePlanArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/usagePlan:UsagePlan", urnName, {
             "apiStages": args.apiStages,
             "description": args.description,
@@ -19,7 +19,7 @@ export class UsagePlan extends fabric.Resource {
             "productCode": args.productCode,
             "quotaSettings": args.quotaSettings,
             "throttleSettings": args.throttleSettings,
-        });
+        }, dependsOn);
     }
 }
 

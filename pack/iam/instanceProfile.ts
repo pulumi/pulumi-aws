@@ -15,7 +15,7 @@ export class InstanceProfile extends fabric.Resource {
     public readonly roles: fabric.Computed<Role[]>;
     public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: InstanceProfileArgs) {
+    constructor(urnName: string, args?: InstanceProfileArgs, dependsOn?: fabric.Resource[]) {
         super("aws:iam/instanceProfile:InstanceProfile", urnName, {
             "name": args.name,
             "namePrefix": args.namePrefix,
@@ -25,7 +25,7 @@ export class InstanceProfile extends fabric.Resource {
             "arn": undefined,
             "createDate": undefined,
             "uniqueId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -15,7 +15,7 @@ export class ReplicationTask extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly targetEndpointArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ReplicationTaskArgs) {
+    constructor(urnName: string, args: ReplicationTaskArgs, dependsOn?: fabric.Resource[]) {
         if (args.migrationType === undefined) {
             throw new Error("Missing required property 'migrationType'");
         }
@@ -45,7 +45,7 @@ export class ReplicationTask extends fabric.Resource {
             "tags": args.tags,
             "targetEndpointArn": args.targetEndpointArn,
             "replicationTaskArn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

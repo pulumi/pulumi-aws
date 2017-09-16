@@ -9,7 +9,7 @@ export class Certificate extends fabric.Resource {
     public readonly certificatePem?: fabric.Computed<string>;
     public readonly certificateWallet?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: CertificateArgs) {
+    constructor(urnName: string, args: CertificateArgs, dependsOn?: fabric.Resource[]) {
         if (args.certificateId === undefined) {
             throw new Error("Missing required property 'certificateId'");
         }
@@ -18,7 +18,7 @@ export class Certificate extends fabric.Resource {
             "certificatePem": args.certificatePem,
             "certificateWallet": args.certificateWallet,
             "certificateArn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

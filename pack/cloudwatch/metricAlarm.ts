@@ -25,7 +25,7 @@ export class MetricAlarm extends fabric.Resource {
     public readonly treatMissingData?: fabric.Computed<string>;
     public readonly unit?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MetricAlarmArgs) {
+    constructor(urnName: string, args: MetricAlarmArgs, dependsOn?: fabric.Resource[]) {
         if (args.comparisonOperator === undefined) {
             throw new Error("Missing required property 'comparisonOperator'");
         }
@@ -63,7 +63,7 @@ export class MetricAlarm extends fabric.Resource {
             "threshold": args.threshold,
             "treatMissingData": args.treatMissingData,
             "unit": args.unit,
-        });
+        }, dependsOn);
     }
 }
 

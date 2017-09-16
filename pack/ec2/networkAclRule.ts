@@ -16,7 +16,7 @@ export class NetworkAclRule extends fabric.Resource {
     public readonly ruleNumber: fabric.Computed<number>;
     public readonly toPort?: fabric.Computed<number>;
 
-    constructor(urnName: string, args: NetworkAclRuleArgs) {
+    constructor(urnName: string, args: NetworkAclRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.networkAclId === undefined) {
             throw new Error("Missing required property 'networkAclId'");
         }
@@ -41,7 +41,7 @@ export class NetworkAclRule extends fabric.Resource {
             "ruleAction": args.ruleAction,
             "ruleNumber": args.ruleNumber,
             "toPort": args.toPort,
-        });
+        }, dependsOn);
     }
 }
 

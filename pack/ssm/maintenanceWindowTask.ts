@@ -15,7 +15,7 @@ export class MaintenanceWindowTask extends fabric.Resource {
     public readonly taskType: fabric.Computed<string>;
     public readonly windowId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MaintenanceWindowTaskArgs) {
+    constructor(urnName: string, args: MaintenanceWindowTaskArgs, dependsOn?: fabric.Resource[]) {
         if (args.maxConcurrency === undefined) {
             throw new Error("Missing required property 'maxConcurrency'");
         }
@@ -48,7 +48,7 @@ export class MaintenanceWindowTask extends fabric.Resource {
             "taskParameters": args.taskParameters,
             "taskType": args.taskType,
             "windowId": args.windowId,
-        });
+        }, dependsOn);
     }
 }
 

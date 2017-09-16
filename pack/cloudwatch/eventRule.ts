@@ -12,7 +12,7 @@ export class EventRule extends fabric.Resource {
     public readonly roleArn?: fabric.Computed<string>;
     public readonly scheduleExpression?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EventRuleArgs) {
+    constructor(urnName: string, args?: EventRuleArgs, dependsOn?: fabric.Resource[]) {
         super("aws:cloudwatch/eventRule:EventRule", urnName, {
             "description": args.description,
             "eventPattern": args.eventPattern,
@@ -21,7 +21,7 @@ export class EventRule extends fabric.Resource {
             "roleArn": args.roleArn,
             "scheduleExpression": args.scheduleExpression,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

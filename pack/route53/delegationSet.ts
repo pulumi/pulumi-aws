@@ -7,11 +7,11 @@ export class DelegationSet extends fabric.Resource {
     public /*out*/ readonly nameServers: fabric.Computed<string[]>;
     public readonly referenceName?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DelegationSetArgs) {
+    constructor(urnName: string, args?: DelegationSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:route53/delegationSet:DelegationSet", urnName, {
             "referenceName": args.referenceName,
             "nameServers": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -20,7 +20,7 @@ export class Endpoint extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly username?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EndpointArgs) {
+    constructor(urnName: string, args: EndpointArgs, dependsOn?: fabric.Resource[]) {
         if (args.endpointId === undefined) {
             throw new Error("Missing required property 'endpointId'");
         }
@@ -46,7 +46,7 @@ export class Endpoint extends fabric.Resource {
             "tags": args.tags,
             "username": args.username,
             "endpointArn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

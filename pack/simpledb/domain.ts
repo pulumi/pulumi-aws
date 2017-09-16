@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class Domain extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DomainArgs) {
+    constructor(urnName: string, args?: DomainArgs, dependsOn?: fabric.Resource[]) {
         super("aws:simpledb/domain:Domain", urnName, {
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

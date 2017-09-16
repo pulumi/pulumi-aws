@@ -51,7 +51,7 @@ export class Instance extends fabric.Resource {
     public readonly tenancy: fabric.Computed<string>;
     public readonly virtualizationType: fabric.Computed<string>;
 
-    constructor(urnName: string, args: InstanceArgs) {
+    constructor(urnName: string, args: InstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.layerIds === undefined) {
             throw new Error("Missing required property 'layerIds'");
         }
@@ -105,7 +105,7 @@ export class Instance extends fabric.Resource {
             "tenancy": args.tenancy,
             "virtualizationType": args.virtualizationType,
             "instanceId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

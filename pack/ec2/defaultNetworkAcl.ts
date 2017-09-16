@@ -11,7 +11,7 @@ export class DefaultNetworkAcl extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DefaultNetworkAclArgs) {
+    constructor(urnName: string, args: DefaultNetworkAclArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultNetworkAclId === undefined) {
             throw new Error("Missing required property 'defaultNetworkAclId'");
         }
@@ -22,7 +22,7 @@ export class DefaultNetworkAcl extends fabric.Resource {
             "subnetIds": args.subnetIds,
             "tags": args.tags,
             "vpcId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

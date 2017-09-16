@@ -10,7 +10,7 @@ export class Alias extends fabric.Resource {
     public readonly functionVersion: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AliasArgs) {
+    constructor(urnName: string, args: AliasArgs, dependsOn?: fabric.Resource[]) {
         if (args.functionName === undefined) {
             throw new Error("Missing required property 'functionName'");
         }
@@ -23,7 +23,7 @@ export class Alias extends fabric.Resource {
             "functionVersion": args.functionVersion,
             "name": args.name,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

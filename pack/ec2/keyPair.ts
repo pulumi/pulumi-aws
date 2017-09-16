@@ -9,7 +9,7 @@ export class KeyPair extends fabric.Resource {
     public readonly keyNamePrefix?: fabric.Computed<string>;
     public readonly publicKey: fabric.Computed<string>;
 
-    constructor(urnName: string, args: KeyPairArgs) {
+    constructor(urnName: string, args: KeyPairArgs, dependsOn?: fabric.Resource[]) {
         if (args.publicKey === undefined) {
             throw new Error("Missing required property 'publicKey'");
         }
@@ -18,7 +18,7 @@ export class KeyPair extends fabric.Resource {
             "keyNamePrefix": args.keyNamePrefix,
             "publicKey": args.publicKey,
             "fingerprint": undefined,
-        });
+        }, dependsOn);
     }
 }
 

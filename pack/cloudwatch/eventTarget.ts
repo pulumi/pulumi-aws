@@ -13,7 +13,7 @@ export class EventTarget extends fabric.Resource {
     public readonly runCommandTargets?: fabric.Computed<{ key: string, values: string[] }[]>;
     public readonly targetId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EventTargetArgs) {
+    constructor(urnName: string, args: EventTargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.arn === undefined) {
             throw new Error("Missing required property 'arn'");
         }
@@ -29,7 +29,7 @@ export class EventTarget extends fabric.Resource {
             "rule": args.rule,
             "runCommandTargets": args.runCommandTargets,
             "targetId": args.targetId,
-        });
+        }, dependsOn);
     }
 }
 

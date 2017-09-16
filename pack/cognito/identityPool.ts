@@ -12,7 +12,7 @@ export class IdentityPool extends fabric.Resource {
     public readonly samlProviderArns?: fabric.Computed<string[]>;
     public readonly supportedLoginProviders?: fabric.Computed<{[key: string]: string}>;
 
-    constructor(urnName: string, args: IdentityPoolArgs) {
+    constructor(urnName: string, args: IdentityPoolArgs, dependsOn?: fabric.Resource[]) {
         if (args.identityPoolName === undefined) {
             throw new Error("Missing required property 'identityPoolName'");
         }
@@ -24,7 +24,7 @@ export class IdentityPool extends fabric.Resource {
             "openidConnectProviderArns": args.openidConnectProviderArns,
             "samlProviderArns": args.samlProviderArns,
             "supportedLoginProviders": args.supportedLoginProviders,
-        });
+        }, dependsOn);
     }
 }
 

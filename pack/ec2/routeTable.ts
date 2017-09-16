@@ -9,7 +9,7 @@ export class RouteTable extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RouteTableArgs) {
+    constructor(urnName: string, args: RouteTableArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
         }
@@ -18,7 +18,7 @@ export class RouteTable extends fabric.Resource {
             "route": args.route,
             "tags": args.tags,
             "vpcId": args.vpcId,
-        });
+        }, dependsOn);
     }
 }
 

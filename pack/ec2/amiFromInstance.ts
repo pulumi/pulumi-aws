@@ -21,7 +21,7 @@ export class AmiFromInstance extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AmiFromInstanceArgs) {
+    constructor(urnName: string, args: AmiFromInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.sourceInstanceId === undefined) {
             throw new Error("Missing required property 'sourceInstanceId'");
         }
@@ -42,7 +42,7 @@ export class AmiFromInstance extends fabric.Resource {
             "rootDeviceName": undefined,
             "sriovNetSupport": undefined,
             "virtualizationType": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -32,7 +32,7 @@ export class Group extends fabric.Resource {
     public readonly waitForCapacityTimeout?: fabric.Computed<string>;
     public readonly waitForElbCapacity?: fabric.Computed<number>;
 
-    constructor(urnName: string, args: GroupArgs) {
+    constructor(urnName: string, args: GroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.launchConfiguration === undefined) {
             throw new Error("Missing required property 'launchConfiguration'");
         }
@@ -70,7 +70,7 @@ export class Group extends fabric.Resource {
             "waitForCapacityTimeout": args.waitForCapacityTimeout,
             "waitForElbCapacity": args.waitForElbCapacity,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class Cluster extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ClusterArgs) {
+    constructor(urnName: string, args?: ClusterArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ecs/cluster:Cluster", urnName, {
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

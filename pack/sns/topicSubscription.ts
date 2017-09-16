@@ -15,7 +15,7 @@ export class TopicSubscription extends fabric.Resource {
     public readonly rawMessageDelivery?: fabric.Computed<boolean>;
     public readonly topic: fabric.Computed<Topic>;
 
-    constructor(urnName: string, args: TopicSubscriptionArgs) {
+    constructor(urnName: string, args: TopicSubscriptionArgs, dependsOn?: fabric.Resource[]) {
         if (args.endpoint === undefined) {
             throw new Error("Missing required property 'endpoint'");
         }
@@ -34,7 +34,7 @@ export class TopicSubscription extends fabric.Resource {
             "rawMessageDelivery": args.rawMessageDelivery,
             "topic": args.topic,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

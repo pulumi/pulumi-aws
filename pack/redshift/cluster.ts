@@ -40,7 +40,7 @@ export class Cluster extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: ClusterArgs) {
+    constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterIdentifier === undefined) {
             throw new Error("Missing required property 'clusterIdentifier'");
         }
@@ -83,7 +83,7 @@ export class Cluster extends fabric.Resource {
             "snapshotIdentifier": args.snapshotIdentifier,
             "tags": args.tags,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
-        });
+        }, dependsOn);
     }
 }
 

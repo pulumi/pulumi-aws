@@ -11,7 +11,7 @@ export class DefaultVpcDhcpOptions extends fabric.Resource {
     public /*out*/ readonly ntpServers: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: DefaultVpcDhcpOptionsArgs) {
+    constructor(urnName: string, args?: DefaultVpcDhcpOptionsArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", urnName, {
             "netbiosNameServers": args.netbiosNameServers,
             "netbiosNodeType": args.netbiosNodeType,
@@ -19,7 +19,7 @@ export class DefaultVpcDhcpOptions extends fabric.Resource {
             "domainName": undefined,
             "domainNameServers": undefined,
             "ntpServers": undefined,
-        });
+        }, dependsOn);
     }
 }
 

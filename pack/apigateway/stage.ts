@@ -17,7 +17,7 @@ export class Stage extends fabric.Resource {
     public readonly stageName: fabric.Computed<string>;
     public readonly variables?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: StageArgs) {
+    constructor(urnName: string, args: StageArgs, dependsOn?: fabric.Resource[]) {
         if (args.deployment === undefined) {
             throw new Error("Missing required property 'deployment'");
         }
@@ -37,7 +37,7 @@ export class Stage extends fabric.Resource {
             "restApi": args.restApi,
             "stageName": args.stageName,
             "variables": args.variables,
-        });
+        }, dependsOn);
     }
 }
 

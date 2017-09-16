@@ -7,14 +7,14 @@ export class Domain extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
     public readonly domainName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DomainArgs) {
+    constructor(urnName: string, args: DomainArgs, dependsOn?: fabric.Resource[]) {
         if (args.domainName === undefined) {
             throw new Error("Missing required property 'domainName'");
         }
         super("aws:lightsail/domain:Domain", urnName, {
             "domainName": args.domainName,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

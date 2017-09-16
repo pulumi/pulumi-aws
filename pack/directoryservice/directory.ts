@@ -17,7 +17,7 @@ export class Directory extends fabric.Resource {
     public readonly type?: fabric.Computed<string>;
     public readonly vpcSettings?: fabric.Computed<{ subnetIds: string[], vpcId: string }[]>;
 
-    constructor(urnName: string, args: DirectoryArgs) {
+    constructor(urnName: string, args: DirectoryArgs, dependsOn?: fabric.Resource[]) {
         if (args.password === undefined) {
             throw new Error("Missing required property 'password'");
         }
@@ -34,7 +34,7 @@ export class Directory extends fabric.Resource {
             "vpcSettings": args.vpcSettings,
             "accessUrl": undefined,
             "dnsIpAddresses": undefined,
-        });
+        }, dependsOn);
     }
 }
 

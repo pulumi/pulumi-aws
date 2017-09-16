@@ -24,7 +24,7 @@ export class Snapshot extends fabric.Resource {
     public /*out*/ readonly storageType: fabric.Computed<string>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SnapshotArgs) {
+    constructor(urnName: string, args: SnapshotArgs, dependsOn?: fabric.Resource[]) {
         if (args.dbInstanceIdentifier === undefined) {
             throw new Error("Missing required property 'dbInstanceIdentifier'");
         }
@@ -51,7 +51,7 @@ export class Snapshot extends fabric.Resource {
             "status": undefined,
             "storageType": undefined,
             "vpcId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

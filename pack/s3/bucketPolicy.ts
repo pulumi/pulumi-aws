@@ -7,7 +7,7 @@ export class BucketPolicy extends fabric.Resource {
     public readonly bucket: fabric.Computed<string>;
     public readonly policy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: BucketPolicyArgs) {
+    constructor(urnName: string, args: BucketPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
         }
@@ -17,7 +17,7 @@ export class BucketPolicy extends fabric.Resource {
         super("aws:s3/bucketPolicy:BucketPolicy", urnName, {
             "bucket": args.bucket,
             "policy": args.policy,
-        });
+        }, dependsOn);
     }
 }
 

@@ -8,7 +8,7 @@ export class LoadBalancerBackendServerPolicy extends fabric.Resource {
     public readonly loadBalancerName: fabric.Computed<string>;
     public readonly policyNames?: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: LoadBalancerBackendServerPolicyArgs) {
+    constructor(urnName: string, args: LoadBalancerBackendServerPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.instancePort === undefined) {
             throw new Error("Missing required property 'instancePort'");
         }
@@ -19,7 +19,7 @@ export class LoadBalancerBackendServerPolicy extends fabric.Resource {
             "instancePort": args.instancePort,
             "loadBalancerName": args.loadBalancerName,
             "policyNames": args.policyNames,
-        });
+        }, dependsOn);
     }
 }
 

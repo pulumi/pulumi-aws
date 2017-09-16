@@ -17,7 +17,7 @@ export class Method extends fabric.Resource {
     public readonly resourceId: fabric.Computed<string>;
     public readonly restApi: fabric.Computed<RestApi>;
 
-    constructor(urnName: string, args: MethodArgs) {
+    constructor(urnName: string, args: MethodArgs, dependsOn?: fabric.Resource[]) {
         if (args.authorization === undefined) {
             throw new Error("Missing required property 'authorization'");
         }
@@ -41,7 +41,7 @@ export class Method extends fabric.Resource {
             "requestValidatorId": args.requestValidatorId,
             "resourceId": args.resourceId,
             "restApi": args.restApi,
-        });
+        }, dependsOn);
     }
 }
 

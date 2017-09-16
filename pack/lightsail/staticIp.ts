@@ -9,13 +9,13 @@ export class StaticIp extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public /*out*/ readonly supportCode: fabric.Computed<string>;
 
-    constructor(urnName: string, args: StaticIpArgs) {
+    constructor(urnName: string, args?: StaticIpArgs, dependsOn?: fabric.Resource[]) {
         super("aws:lightsail/staticIp:StaticIp", urnName, {
             "name": args.name,
             "arn": undefined,
             "ipAddress": undefined,
             "supportCode": undefined,
-        });
+        }, dependsOn);
     }
 }
 

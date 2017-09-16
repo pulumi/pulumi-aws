@@ -11,7 +11,7 @@ export class SshKey extends fabric.Resource {
     public readonly status: fabric.Computed<string>;
     public readonly username: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SshKeyArgs) {
+    constructor(urnName: string, args: SshKeyArgs, dependsOn?: fabric.Resource[]) {
         if (args.encoding === undefined) {
             throw new Error("Missing required property 'encoding'");
         }
@@ -28,7 +28,7 @@ export class SshKey extends fabric.Resource {
             "username": args.username,
             "fingerprint": undefined,
             "sshPublicKeyId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

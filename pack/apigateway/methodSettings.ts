@@ -11,7 +11,7 @@ export class MethodSettings extends fabric.Resource {
     public readonly settings: fabric.Computed<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[]>;
     public readonly stageName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MethodSettingsArgs) {
+    constructor(urnName: string, args: MethodSettingsArgs, dependsOn?: fabric.Resource[]) {
         if (args.methodPath === undefined) {
             throw new Error("Missing required property 'methodPath'");
         }
@@ -29,7 +29,7 @@ export class MethodSettings extends fabric.Resource {
             "restApi": args.restApi,
             "settings": args.settings,
             "stageName": args.stageName,
-        });
+        }, dependsOn);
     }
 }
 

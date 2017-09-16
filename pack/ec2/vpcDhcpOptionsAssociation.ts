@@ -7,7 +7,7 @@ export class VpcDhcpOptionsAssociation extends fabric.Resource {
     public readonly dhcpOptionsId: fabric.Computed<string>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpcDhcpOptionsAssociationArgs) {
+    constructor(urnName: string, args: VpcDhcpOptionsAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.dhcpOptionsId === undefined) {
             throw new Error("Missing required property 'dhcpOptionsId'");
         }
@@ -17,7 +17,7 @@ export class VpcDhcpOptionsAssociation extends fabric.Resource {
         super("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", urnName, {
             "dhcpOptionsId": args.dhcpOptionsId,
             "vpcId": args.vpcId,
-        });
+        }, dependsOn);
     }
 }
 

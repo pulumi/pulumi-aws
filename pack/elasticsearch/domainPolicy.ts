@@ -7,7 +7,7 @@ export class DomainPolicy extends fabric.Resource {
     public readonly accessPolicies: fabric.Computed<string>;
     public readonly domainName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DomainPolicyArgs) {
+    constructor(urnName: string, args: DomainPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.accessPolicies === undefined) {
             throw new Error("Missing required property 'accessPolicies'");
         }
@@ -17,7 +17,7 @@ export class DomainPolicy extends fabric.Resource {
         super("aws:elasticsearch/domainPolicy:DomainPolicy", urnName, {
             "accessPolicies": args.accessPolicies,
             "domainName": args.domainName,
-        });
+        }, dependsOn);
     }
 }
 

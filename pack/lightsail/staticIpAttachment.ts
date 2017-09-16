@@ -7,7 +7,7 @@ export class StaticIpAttachment extends fabric.Resource {
     public readonly instanceName: fabric.Computed<string>;
     public readonly staticIpName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: StaticIpAttachmentArgs) {
+    constructor(urnName: string, args: StaticIpAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.instanceName === undefined) {
             throw new Error("Missing required property 'instanceName'");
         }
@@ -17,7 +17,7 @@ export class StaticIpAttachment extends fabric.Resource {
         super("aws:lightsail/staticIpAttachment:StaticIpAttachment", urnName, {
             "instanceName": args.instanceName,
             "staticIpName": args.staticIpName,
-        });
+        }, dependsOn);
     }
 }
 

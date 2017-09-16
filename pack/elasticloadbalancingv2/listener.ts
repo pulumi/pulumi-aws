@@ -12,7 +12,7 @@ export class Listener extends fabric.Resource {
     public readonly protocol?: fabric.Computed<string>;
     public readonly sslPolicy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ListenerArgs) {
+    constructor(urnName: string, args: ListenerArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultAction === undefined) {
             throw new Error("Missing required property 'defaultAction'");
         }
@@ -30,7 +30,7 @@ export class Listener extends fabric.Resource {
             "protocol": args.protocol,
             "sslPolicy": args.sslPolicy,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,7 +7,7 @@ export class LogDestinationPolicy extends fabric.Resource {
     public readonly accessPolicy: fabric.Computed<string>;
     public readonly destinationName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LogDestinationPolicyArgs) {
+    constructor(urnName: string, args: LogDestinationPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.accessPolicy === undefined) {
             throw new Error("Missing required property 'accessPolicy'");
         }
@@ -17,7 +17,7 @@ export class LogDestinationPolicy extends fabric.Resource {
         super("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", urnName, {
             "accessPolicy": args.accessPolicy,
             "destinationName": args.destinationName,
-        });
+        }, dependsOn);
     }
 }
 

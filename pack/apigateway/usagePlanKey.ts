@@ -10,7 +10,7 @@ export class UsagePlanKey extends fabric.Resource {
     public readonly usagePlanId: fabric.Computed<string>;
     public /*out*/ readonly value: fabric.Computed<string>;
 
-    constructor(urnName: string, args: UsagePlanKeyArgs) {
+    constructor(urnName: string, args: UsagePlanKeyArgs, dependsOn?: fabric.Resource[]) {
         if (args.keyId === undefined) {
             throw new Error("Missing required property 'keyId'");
         }
@@ -26,7 +26,7 @@ export class UsagePlanKey extends fabric.Resource {
             "usagePlanId": args.usagePlanId,
             "name": undefined,
             "value": undefined,
-        });
+        }, dependsOn);
     }
 }
 

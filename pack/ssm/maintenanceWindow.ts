@@ -11,7 +11,7 @@ export class MaintenanceWindow extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly schedule: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MaintenanceWindowArgs) {
+    constructor(urnName: string, args: MaintenanceWindowArgs, dependsOn?: fabric.Resource[]) {
         if (args.cutoff === undefined) {
             throw new Error("Missing required property 'cutoff'");
         }
@@ -28,7 +28,7 @@ export class MaintenanceWindow extends fabric.Resource {
             "enabled": args.enabled,
             "name": args.name,
             "schedule": args.schedule,
-        });
+        }, dependsOn);
     }
 }
 

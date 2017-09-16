@@ -69,3 +69,4 @@ examples:
 	@echo "\033[0;32mTEST EXAMPLES:\033[0m"
 	go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
 .PHONY: examples
+

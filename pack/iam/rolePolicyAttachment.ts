@@ -10,7 +10,7 @@ export class RolePolicyAttachment extends fabric.Resource {
     public readonly policyArn: fabric.Computed<ARN>;
     public readonly role: fabric.Computed<Role>;
 
-    constructor(urnName: string, args: RolePolicyAttachmentArgs) {
+    constructor(urnName: string, args: RolePolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.policyArn === undefined) {
             throw new Error("Missing required property 'policyArn'");
         }
@@ -20,7 +20,7 @@ export class RolePolicyAttachment extends fabric.Resource {
         super("aws:iam/rolePolicyAttachment:RolePolicyAttachment", urnName, {
             "policyArn": args.policyArn,
             "role": args.role,
-        });
+        }, dependsOn);
     }
 }
 

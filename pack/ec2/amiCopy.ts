@@ -23,7 +23,7 @@ export class AmiCopy extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AmiCopyArgs) {
+    constructor(urnName: string, args: AmiCopyArgs, dependsOn?: fabric.Resource[]) {
         if (args.sourceAmiId === undefined) {
             throw new Error("Missing required property 'sourceAmiId'");
         }
@@ -49,7 +49,7 @@ export class AmiCopy extends fabric.Resource {
             "rootDeviceName": undefined,
             "sriovNetSupport": undefined,
             "virtualizationType": undefined,
-        });
+        }, dependsOn);
     }
 }
 

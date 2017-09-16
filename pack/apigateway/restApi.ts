@@ -11,7 +11,7 @@ export class RestApi extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public /*out*/ readonly rootResourceId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RestApiArgs) {
+    constructor(urnName: string, args?: RestApiArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/restApi:RestApi", urnName, {
             "binaryMediaTypes": args.binaryMediaTypes,
             "body": args.body,
@@ -19,7 +19,7 @@ export class RestApi extends fabric.Resource {
             "name": args.name,
             "createdDate": undefined,
             "rootResourceId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

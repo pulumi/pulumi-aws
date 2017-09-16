@@ -31,7 +31,7 @@ export class Distribution extends fabric.Resource {
     public readonly viewerCertificate: fabric.Computed<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }[]>;
     public readonly webAclId?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DistributionArgs) {
+    constructor(urnName: string, args: DistributionArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultCacheBehavior === undefined) {
             throw new Error("Missing required property 'defaultCacheBehavior'");
         }
@@ -74,7 +74,7 @@ export class Distribution extends fabric.Resource {
             "inProgressValidationBatches": undefined,
             "lastModifiedTime": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -10,7 +10,7 @@ export class Response extends fabric.Resource {
     public readonly restApiId: fabric.Computed<string>;
     public readonly statusCode?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ResponseArgs) {
+    constructor(urnName: string, args: ResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.responseType === undefined) {
             throw new Error("Missing required property 'responseType'");
         }
@@ -23,7 +23,7 @@ export class Response extends fabric.Resource {
             "responseType": args.responseType,
             "restApiId": args.restApiId,
             "statusCode": args.statusCode,
-        });
+        }, dependsOn);
     }
 }
 

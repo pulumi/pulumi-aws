@@ -8,7 +8,7 @@ export class DomainIdentity extends fabric.Resource {
     public readonly domain: fabric.Computed<string>;
     public /*out*/ readonly verificationToken: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DomainIdentityArgs) {
+    constructor(urnName: string, args: DomainIdentityArgs, dependsOn?: fabric.Resource[]) {
         if (args.domain === undefined) {
             throw new Error("Missing required property 'domain'");
         }
@@ -16,7 +16,7 @@ export class DomainIdentity extends fabric.Resource {
             "domain": args.domain,
             "arn": undefined,
             "verificationToken": undefined,
-        });
+        }, dependsOn);
     }
 }
 

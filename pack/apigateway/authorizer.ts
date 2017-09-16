@@ -15,7 +15,7 @@ export class Authorizer extends fabric.Resource {
     public readonly restApi: fabric.Computed<RestApi>;
     public readonly type?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AuthorizerArgs) {
+    constructor(urnName: string, args: AuthorizerArgs, dependsOn?: fabric.Resource[]) {
         if (args.authorizerUri === undefined) {
             throw new Error("Missing required property 'authorizerUri'");
         }
@@ -31,7 +31,7 @@ export class Authorizer extends fabric.Resource {
             "name": args.name,
             "restApi": args.restApi,
             "type": args.type,
-        });
+        }, dependsOn);
     }
 }
 

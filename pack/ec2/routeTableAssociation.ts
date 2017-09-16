@@ -7,7 +7,7 @@ export class RouteTableAssociation extends fabric.Resource {
     public readonly routeTableId: fabric.Computed<string>;
     public readonly subnetId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RouteTableAssociationArgs) {
+    constructor(urnName: string, args: RouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
         }
@@ -17,7 +17,7 @@ export class RouteTableAssociation extends fabric.Resource {
         super("aws:ec2/routeTableAssociation:RouteTableAssociation", urnName, {
             "routeTableId": args.routeTableId,
             "subnetId": args.subnetId,
-        });
+        }, dependsOn);
     }
 }
 

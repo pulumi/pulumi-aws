@@ -6,13 +6,13 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class AccountAlias extends fabric.Resource {
     public readonly accountAlias: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AccountAliasArgs) {
+    constructor(urnName: string, args: AccountAliasArgs, dependsOn?: fabric.Resource[]) {
         if (args.accountAlias === undefined) {
             throw new Error("Missing required property 'accountAlias'");
         }
         super("aws:iam/accountAlias:AccountAlias", urnName, {
             "accountAlias": args.accountAlias,
-        });
+        }, dependsOn);
     }
 }
 

@@ -18,7 +18,7 @@ export class Record extends fabric.Resource {
     public readonly weightedRoutingPolicy?: fabric.Computed<{ weight: number }[]>;
     public readonly zoneId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RecordArgs) {
+    constructor(urnName: string, args: RecordArgs, dependsOn?: fabric.Resource[]) {
         if (args.type === undefined) {
             throw new Error("Missing required property 'type'");
         }
@@ -39,7 +39,7 @@ export class Record extends fabric.Resource {
             "weightedRoutingPolicy": args.weightedRoutingPolicy,
             "zoneId": args.zoneId,
             "fqdn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,7 +7,7 @@ export class VpnGatewayAttachment extends fabric.Resource {
     public readonly vpcId: fabric.Computed<string>;
     public readonly vpnGatewayId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpnGatewayAttachmentArgs) {
+    constructor(urnName: string, args: VpnGatewayAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
         }
@@ -17,7 +17,7 @@ export class VpnGatewayAttachment extends fabric.Resource {
         super("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", urnName, {
             "vpcId": args.vpcId,
             "vpnGatewayId": args.vpnGatewayId,
-        });
+        }, dependsOn);
     }
 }
 

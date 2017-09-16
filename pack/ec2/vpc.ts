@@ -20,7 +20,7 @@ export class Vpc extends fabric.Resource {
     public /*out*/ readonly mainRouteTableId: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: VpcArgs) {
+    constructor(urnName: string, args: VpcArgs, dependsOn?: fabric.Resource[]) {
         if (args.cidrBlock === undefined) {
             throw new Error("Missing required property 'cidrBlock'");
         }
@@ -40,7 +40,7 @@ export class Vpc extends fabric.Resource {
             "ipv6AssociationId": undefined,
             "ipv6CidrBlock": undefined,
             "mainRouteTableId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

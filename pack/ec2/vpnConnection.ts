@@ -25,7 +25,7 @@ export class VpnConnection extends fabric.Resource {
     public readonly vgwTelemetry: fabric.Computed<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
     public readonly vpnGatewayId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpnConnectionArgs) {
+    constructor(urnName: string, args: VpnConnectionArgs, dependsOn?: fabric.Resource[]) {
         if (args.customerGatewayId === undefined) {
             throw new Error("Missing required property 'customerGatewayId'");
         }
@@ -56,7 +56,7 @@ export class VpnConnection extends fabric.Resource {
             "tunnel2CgwInsideAddress": undefined,
             "tunnel2PresharedKey": undefined,
             "tunnel2VgwInsideAddress": undefined,
-        });
+        }, dependsOn);
     }
 }
 

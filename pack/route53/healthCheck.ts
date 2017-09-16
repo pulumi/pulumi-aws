@@ -24,7 +24,7 @@ export class HealthCheck extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly type: fabric.Computed<string>;
 
-    constructor(urnName: string, args: HealthCheckArgs) {
+    constructor(urnName: string, args: HealthCheckArgs, dependsOn?: fabric.Resource[]) {
         if (args.type === undefined) {
             throw new Error("Missing required property 'type'");
         }
@@ -48,7 +48,7 @@ export class HealthCheck extends fabric.Resource {
             "searchString": args.searchString,
             "tags": args.tags,
             "type": args.type,
-        });
+        }, dependsOn);
     }
 }
 

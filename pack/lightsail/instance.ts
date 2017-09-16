@@ -20,7 +20,7 @@ export class Instance extends fabric.Resource {
     public readonly userData?: fabric.Computed<string>;
     public /*out*/ readonly username: fabric.Computed<string>;
 
-    constructor(urnName: string, args: InstanceArgs) {
+    constructor(urnName: string, args: InstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.availabilityZone === undefined) {
             throw new Error("Missing required property 'availabilityZone'");
         }
@@ -46,7 +46,7 @@ export class Instance extends fabric.Resource {
             "publicIpAddress": undefined,
             "ramSize": undefined,
             "username": undefined,
-        });
+        }, dependsOn);
     }
 }
 

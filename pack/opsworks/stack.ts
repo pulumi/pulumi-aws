@@ -28,7 +28,7 @@ export class Stack extends fabric.Resource {
     public readonly useOpsworksSecurityGroups?: fabric.Computed<boolean>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: StackArgs) {
+    constructor(urnName: string, args: StackArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultInstanceProfileArn === undefined) {
             throw new Error("Missing required property 'defaultInstanceProfileArn'");
         }
@@ -62,7 +62,7 @@ export class Stack extends fabric.Resource {
             "vpcId": args.vpcId,
             "stackId": undefined,
             "stackEndpoint": undefined,
-        });
+        }, dependsOn);
     }
 }
 

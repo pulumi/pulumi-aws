@@ -8,7 +8,7 @@ export class RepositoryPolicy extends fabric.Resource {
     public /*out*/ readonly registryId: fabric.Computed<string>;
     public readonly repository: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RepositoryPolicyArgs) {
+    constructor(urnName: string, args: RepositoryPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
         }
@@ -19,7 +19,7 @@ export class RepositoryPolicy extends fabric.Resource {
             "policy": args.policy,
             "repository": args.repository,
             "registryId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

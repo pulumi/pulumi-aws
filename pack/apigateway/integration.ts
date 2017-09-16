@@ -21,7 +21,7 @@ export class Integration extends fabric.Resource {
     public readonly type: fabric.Computed<string>;
     public readonly uri?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: IntegrationArgs) {
+    constructor(urnName: string, args: IntegrationArgs, dependsOn?: fabric.Resource[]) {
         if (args.httpMethod === undefined) {
             throw new Error("Missing required property 'httpMethod'");
         }
@@ -49,7 +49,7 @@ export class Integration extends fabric.Resource {
             "restApi": args.restApi,
             "type": args.type,
             "uri": args.uri,
-        });
+        }, dependsOn);
     }
 }
 

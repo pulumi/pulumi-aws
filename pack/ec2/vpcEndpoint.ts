@@ -11,7 +11,7 @@ export class VpcEndpoint extends fabric.Resource {
     public readonly serviceName: fabric.Computed<string>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpcEndpointArgs) {
+    constructor(urnName: string, args: VpcEndpointArgs, dependsOn?: fabric.Resource[]) {
         if (args.serviceName === undefined) {
             throw new Error("Missing required property 'serviceName'");
         }
@@ -25,7 +25,7 @@ export class VpcEndpoint extends fabric.Resource {
             "vpcId": args.vpcId,
             "cidrBlocks": undefined,
             "prefixListId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

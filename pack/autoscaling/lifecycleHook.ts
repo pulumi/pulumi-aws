@@ -13,7 +13,7 @@ export class LifecycleHook extends fabric.Resource {
     public readonly notificationTargetArn?: fabric.Computed<string>;
     public readonly roleArn?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LifecycleHookArgs) {
+    constructor(urnName: string, args: LifecycleHookArgs, dependsOn?: fabric.Resource[]) {
         if (args.autoscalingGroupName === undefined) {
             throw new Error("Missing required property 'autoscalingGroupName'");
         }
@@ -29,7 +29,7 @@ export class LifecycleHook extends fabric.Resource {
             "notificationMetadata": args.notificationMetadata,
             "notificationTargetArn": args.notificationTargetArn,
             "roleArn": args.roleArn,
-        });
+        }, dependsOn);
     }
 }
 

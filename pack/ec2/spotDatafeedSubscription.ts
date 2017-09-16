@@ -7,14 +7,14 @@ export class SpotDatafeedSubscription extends fabric.Resource {
     public readonly bucket: fabric.Computed<string>;
     public readonly prefix?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SpotDatafeedSubscriptionArgs) {
+    constructor(urnName: string, args: SpotDatafeedSubscriptionArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
         }
         super("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", urnName, {
             "bucket": args.bucket,
             "prefix": args.prefix,
-        });
+        }, dependsOn);
     }
 }
 

@@ -13,7 +13,7 @@ export class EventSubscription extends fabric.Resource {
     public readonly sourceType?: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: EventSubscriptionArgs) {
+    constructor(urnName: string, args: EventSubscriptionArgs, dependsOn?: fabric.Resource[]) {
         if (args.snsTopic === undefined) {
             throw new Error("Missing required property 'snsTopic'");
         }
@@ -26,7 +26,7 @@ export class EventSubscription extends fabric.Resource {
             "sourceType": args.sourceType,
             "tags": args.tags,
             "customerAwsId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

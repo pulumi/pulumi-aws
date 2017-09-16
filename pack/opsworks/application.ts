@@ -23,7 +23,7 @@ export class Application extends fabric.Resource {
     public readonly stackId: fabric.Computed<string>;
     public readonly type: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ApplicationArgs) {
+    constructor(urnName: string, args: ApplicationArgs, dependsOn?: fabric.Resource[]) {
         if (args.stackId === undefined) {
             throw new Error("Missing required property 'stackId'");
         }
@@ -49,7 +49,7 @@ export class Application extends fabric.Resource {
             "stackId": args.stackId,
             "type": args.type,
             "applicationId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

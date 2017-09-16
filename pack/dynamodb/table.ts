@@ -20,7 +20,7 @@ export class Table extends fabric.Resource {
     public readonly ttl?: fabric.Computed<{ attributeName: string, enabled: boolean }[]>;
     public readonly writeCapacity: fabric.Computed<number>;
 
-    constructor(urnName: string, args: TableArgs) {
+    constructor(urnName: string, args: TableArgs, dependsOn?: fabric.Resource[]) {
         if (args.attribute === undefined) {
             throw new Error("Missing required property 'attribute'");
         }
@@ -49,7 +49,7 @@ export class Table extends fabric.Resource {
             "arn": undefined,
             "streamArn": undefined,
             "streamLabel": undefined,
-        });
+        }, dependsOn);
     }
 }
 

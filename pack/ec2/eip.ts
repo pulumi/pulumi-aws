@@ -14,7 +14,7 @@ export class Eip extends fabric.Resource {
     public /*out*/ readonly publicIp: fabric.Computed<string>;
     public readonly vpc: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: EipArgs) {
+    constructor(urnName: string, args?: EipArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/eip:Eip", urnName, {
             "associateWithPrivateIp": args.associateWithPrivateIp,
             "instance": args.instance,
@@ -25,7 +25,7 @@ export class Eip extends fabric.Resource {
             "domain": undefined,
             "privateIp": undefined,
             "publicIp": undefined,
-        });
+        }, dependsOn);
     }
 }
 

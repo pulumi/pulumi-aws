@@ -9,7 +9,7 @@ export class CookieStickinessPolicy extends fabric.Resource {
     public readonly loadBalancer: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: CookieStickinessPolicyArgs) {
+    constructor(urnName: string, args: CookieStickinessPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.lbPort === undefined) {
             throw new Error("Missing required property 'lbPort'");
         }
@@ -21,7 +21,7 @@ export class CookieStickinessPolicy extends fabric.Resource {
             "lbPort": args.lbPort,
             "loadBalancer": args.loadBalancer,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

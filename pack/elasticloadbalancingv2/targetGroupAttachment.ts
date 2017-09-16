@@ -8,7 +8,7 @@ export class TargetGroupAttachment extends fabric.Resource {
     public readonly targetGroupArn: fabric.Computed<string>;
     public readonly targetId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: TargetGroupAttachmentArgs) {
+    constructor(urnName: string, args: TargetGroupAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.targetGroupArn === undefined) {
             throw new Error("Missing required property 'targetGroupArn'");
         }
@@ -19,7 +19,7 @@ export class TargetGroupAttachment extends fabric.Resource {
             "port": args.port,
             "targetGroupArn": args.targetGroupArn,
             "targetId": args.targetId,
-        });
+        }, dependsOn);
     }
 }
 

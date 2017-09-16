@@ -10,7 +10,7 @@ export class GroupPolicyAttachment extends fabric.Resource {
     public readonly group: fabric.Computed<Group>;
     public readonly policyArn: fabric.Computed<ARN>;
 
-    constructor(urnName: string, args: GroupPolicyAttachmentArgs) {
+    constructor(urnName: string, args: GroupPolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.group === undefined) {
             throw new Error("Missing required property 'group'");
         }
@@ -20,7 +20,7 @@ export class GroupPolicyAttachment extends fabric.Resource {
         super("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", urnName, {
             "group": args.group,
             "policyArn": args.policyArn,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,11 +7,11 @@ export class Project extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ProjectArgs) {
+    constructor(urnName: string, args?: ProjectArgs, dependsOn?: fabric.Resource[]) {
         super("aws:devicefarm/project:Project", urnName, {
             "name": args.name,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

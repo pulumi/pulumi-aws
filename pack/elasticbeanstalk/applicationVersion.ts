@@ -14,7 +14,7 @@ export class ApplicationVersion extends fabric.Resource {
     public readonly key: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ApplicationVersionArgs) {
+    constructor(urnName: string, args: ApplicationVersionArgs, dependsOn?: fabric.Resource[]) {
         if (args.application === undefined) {
             throw new Error("Missing required property 'application'");
         }
@@ -31,7 +31,7 @@ export class ApplicationVersion extends fabric.Resource {
             "forceDelete": args.forceDelete,
             "key": args.key,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

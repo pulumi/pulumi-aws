@@ -10,7 +10,7 @@ export class StateMachine extends fabric.Resource {
     public readonly roleArn: fabric.Computed<string>;
     public /*out*/ readonly status: fabric.Computed<string>;
 
-    constructor(urnName: string, args: StateMachineArgs) {
+    constructor(urnName: string, args: StateMachineArgs, dependsOn?: fabric.Resource[]) {
         if (args.definition === undefined) {
             throw new Error("Missing required property 'definition'");
         }
@@ -23,7 +23,7 @@ export class StateMachine extends fabric.Resource {
             "roleArn": args.roleArn,
             "creationDate": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

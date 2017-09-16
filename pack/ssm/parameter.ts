@@ -10,7 +10,7 @@ export class Parameter extends fabric.Resource {
     public readonly type: fabric.Computed<string>;
     public readonly value: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ParameterArgs) {
+    constructor(urnName: string, args: ParameterArgs, dependsOn?: fabric.Resource[]) {
         if (args.type === undefined) {
             throw new Error("Missing required property 'type'");
         }
@@ -23,7 +23,7 @@ export class Parameter extends fabric.Resource {
             "overwrite": args.overwrite,
             "type": args.type,
             "value": args.value,
-        });
+        }, dependsOn);
     }
 }
 

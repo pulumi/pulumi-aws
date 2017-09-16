@@ -8,7 +8,7 @@ export class ReceiptFilter extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly policy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ReceiptFilterArgs) {
+    constructor(urnName: string, args: ReceiptFilterArgs, dependsOn?: fabric.Resource[]) {
         if (args.cidr === undefined) {
             throw new Error("Missing required property 'cidr'");
         }
@@ -19,7 +19,7 @@ export class ReceiptFilter extends fabric.Resource {
             "cidr": args.cidr,
             "name": args.name,
             "policy": args.policy,
-        });
+        }, dependsOn);
     }
 }
 

@@ -19,7 +19,7 @@ export class ReceiptRule extends fabric.Resource {
     public readonly tlsPolicy: fabric.Computed<string>;
     public readonly workmailAction?: fabric.Computed<{ organizationArn: string, position: number, topicArn?: string }[]>;
 
-    constructor(urnName: string, args: ReceiptRuleArgs) {
+    constructor(urnName: string, args: ReceiptRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.ruleSetName === undefined) {
             throw new Error("Missing required property 'ruleSetName'");
         }
@@ -38,7 +38,7 @@ export class ReceiptRule extends fabric.Resource {
             "stopAction": args.stopAction,
             "tlsPolicy": args.tlsPolicy,
             "workmailAction": args.workmailAction,
-        });
+        }, dependsOn);
     }
 }
 

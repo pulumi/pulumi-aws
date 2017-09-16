@@ -9,13 +9,13 @@ export class Group extends fabric.Resource {
     public readonly path?: fabric.Computed<string>;
     public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: GroupArgs) {
+    constructor(urnName: string, args?: GroupArgs, dependsOn?: fabric.Resource[]) {
         super("aws:iam/group:Group", urnName, {
             "name": args.name,
             "path": args.path,
             "arn": undefined,
             "uniqueId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

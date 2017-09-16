@@ -12,7 +12,7 @@ export class Activation extends fabric.Resource {
     public /*out*/ readonly registrationCount: fabric.Computed<number>;
     public readonly registrationLimit?: fabric.Computed<number>;
 
-    constructor(urnName: string, args: ActivationArgs) {
+    constructor(urnName: string, args: ActivationArgs, dependsOn?: fabric.Resource[]) {
         if (args.iamRole === undefined) {
             throw new Error("Missing required property 'iamRole'");
         }
@@ -24,7 +24,7 @@ export class Activation extends fabric.Resource {
             "registrationLimit": args.registrationLimit,
             "expired": undefined,
             "registrationCount": undefined,
-        });
+        }, dependsOn);
     }
 }
 

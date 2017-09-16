@@ -18,7 +18,7 @@ export class Route extends fabric.Resource {
     public /*out*/ readonly state: fabric.Computed<string>;
     public readonly vpcPeeringConnectionId?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RouteArgs) {
+    constructor(urnName: string, args: RouteArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
         }
@@ -36,7 +36,7 @@ export class Route extends fabric.Resource {
             "instanceOwnerId": undefined,
             "origin": undefined,
             "state": undefined,
-        });
+        }, dependsOn);
     }
 }
 

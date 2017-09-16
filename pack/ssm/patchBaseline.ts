@@ -11,7 +11,7 @@ export class PatchBaseline extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly rejectedPatches?: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: PatchBaselineArgs) {
+    constructor(urnName: string, args?: PatchBaselineArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ssm/patchBaseline:PatchBaseline", urnName, {
             "approvalRule": args.approvalRule,
             "approvedPatches": args.approvedPatches,
@@ -19,7 +19,7 @@ export class PatchBaseline extends fabric.Resource {
             "globalFilter": args.globalFilter,
             "name": args.name,
             "rejectedPatches": args.rejectedPatches,
-        });
+        }, dependsOn);
     }
 }
 

@@ -8,7 +8,7 @@ export class GroupMembership extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly users: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: GroupMembershipArgs) {
+    constructor(urnName: string, args: GroupMembershipArgs, dependsOn?: fabric.Resource[]) {
         if (args.group === undefined) {
             throw new Error("Missing required property 'group'");
         }
@@ -19,7 +19,7 @@ export class GroupMembership extends fabric.Resource {
             "group": args.group,
             "name": args.name,
             "users": args.users,
-        });
+        }, dependsOn);
     }
 }
 

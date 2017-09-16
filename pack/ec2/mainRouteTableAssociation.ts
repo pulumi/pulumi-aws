@@ -8,7 +8,7 @@ export class MainRouteTableAssociation extends fabric.Resource {
     public readonly routeTableId: fabric.Computed<string>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MainRouteTableAssociationArgs) {
+    constructor(urnName: string, args: MainRouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
         }
@@ -19,7 +19,7 @@ export class MainRouteTableAssociation extends fabric.Resource {
             "routeTableId": args.routeTableId,
             "vpcId": args.vpcId,
             "originalRouteTableId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

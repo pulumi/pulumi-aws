@@ -13,7 +13,7 @@ export class InstanceGroup extends fabric.Resource {
     public /*out*/ readonly runningInstanceCount: fabric.Computed<number>;
     public /*out*/ readonly status: fabric.Computed<string>;
 
-    constructor(urnName: string, args: InstanceGroupArgs) {
+    constructor(urnName: string, args: InstanceGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterId === undefined) {
             throw new Error("Missing required property 'clusterId'");
         }
@@ -29,7 +29,7 @@ export class InstanceGroup extends fabric.Resource {
             "name": args.name,
             "runningInstanceCount": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

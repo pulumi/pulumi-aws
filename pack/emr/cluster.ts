@@ -24,7 +24,7 @@ export class Cluster extends fabric.Resource {
     public readonly terminationProtection: fabric.Computed<boolean>;
     public readonly visibleToAllUsers?: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: ClusterArgs) {
+    constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
         if (args.masterInstanceType === undefined) {
             throw new Error("Missing required property 'masterInstanceType'");
         }
@@ -54,7 +54,7 @@ export class Cluster extends fabric.Resource {
             "visibleToAllUsers": args.visibleToAllUsers,
             "clusterState": undefined,
             "masterPublicDns": undefined,
-        });
+        }, dependsOn);
     }
 }
 

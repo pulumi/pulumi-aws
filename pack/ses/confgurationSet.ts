@@ -6,10 +6,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class ConfgurationSet extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ConfgurationSetArgs) {
+    constructor(urnName: string, args?: ConfgurationSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ses/confgurationSet:ConfgurationSet", urnName, {
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

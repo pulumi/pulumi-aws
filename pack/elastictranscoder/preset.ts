@@ -16,7 +16,7 @@ export class Preset extends fabric.Resource {
     public readonly videoCodecOptions?: fabric.Computed<{[key: string]: any}>;
     public readonly videoWatermarks?: fabric.Computed<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[]>;
 
-    constructor(urnName: string, args: PresetArgs) {
+    constructor(urnName: string, args: PresetArgs, dependsOn?: fabric.Resource[]) {
         if (args.container === undefined) {
             throw new Error("Missing required property 'container'");
         }
@@ -32,7 +32,7 @@ export class Preset extends fabric.Resource {
             "videoCodecOptions": args.videoCodecOptions,
             "videoWatermarks": args.videoWatermarks,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

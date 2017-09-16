@@ -9,7 +9,7 @@ export class SamlProvider extends fabric.Resource {
     public readonly samlMetadataDocument: fabric.Computed<string>;
     public /*out*/ readonly validUntil: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SamlProviderArgs) {
+    constructor(urnName: string, args: SamlProviderArgs, dependsOn?: fabric.Resource[]) {
         if (args.samlMetadataDocument === undefined) {
             throw new Error("Missing required property 'samlMetadataDocument'");
         }
@@ -18,7 +18,7 @@ export class SamlProvider extends fabric.Resource {
             "samlMetadataDocument": args.samlMetadataDocument,
             "arn": undefined,
             "validUntil": undefined,
-        });
+        }, dependsOn);
     }
 }
 

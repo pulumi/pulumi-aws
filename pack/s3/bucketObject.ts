@@ -24,7 +24,7 @@ export class BucketObject extends fabric.Resource {
     public /*out*/ readonly versionId: fabric.Computed<string>;
     public readonly websiteRedirect?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: BucketObjectArgs) {
+    constructor(urnName: string, args: BucketObjectArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
         }
@@ -46,7 +46,7 @@ export class BucketObject extends fabric.Resource {
             "tags": args.tags,
             "websiteRedirect": args.websiteRedirect,
             "versionId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

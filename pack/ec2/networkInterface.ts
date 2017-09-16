@@ -14,7 +14,7 @@ export class NetworkInterface extends fabric.Resource {
     public readonly subnetId: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: NetworkInterfaceArgs) {
+    constructor(urnName: string, args: NetworkInterfaceArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnetId === undefined) {
             throw new Error("Missing required property 'subnetId'");
         }
@@ -28,7 +28,7 @@ export class NetworkInterface extends fabric.Resource {
             "sourceDestCheck": args.sourceDestCheck,
             "subnetId": args.subnetId,
             "tags": args.tags,
-        });
+        }, dependsOn);
     }
 }
 

@@ -11,7 +11,7 @@ export class Target extends fabric.Resource {
     public readonly scalableDimension: fabric.Computed<string>;
     public readonly serviceNamespace: fabric.Computed<string>;
 
-    constructor(urnName: string, args: TargetArgs) {
+    constructor(urnName: string, args: TargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.maxCapacity === undefined) {
             throw new Error("Missing required property 'maxCapacity'");
         }
@@ -37,7 +37,7 @@ export class Target extends fabric.Resource {
             "roleArn": args.roleArn,
             "scalableDimension": args.scalableDimension,
             "serviceNamespace": args.serviceNamespace,
-        });
+        }, dependsOn);
     }
 }
 

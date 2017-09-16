@@ -39,7 +39,7 @@ export class Instance extends fabric.Resource {
     public readonly volumeTags: fabric.Computed<{[key: string]: any}>;
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: InstanceArgs) {
+    constructor(urnName: string, args: InstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.ami === undefined) {
             throw new Error("Missing required property 'ami'");
         }
@@ -79,7 +79,7 @@ export class Instance extends fabric.Resource {
             "privateDns": undefined,
             "publicDns": undefined,
             "publicIp": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,7 +7,7 @@ export class TopicPolicy extends fabric.Resource {
     public readonly arn: fabric.Computed<string>;
     public readonly policy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: TopicPolicyArgs) {
+    constructor(urnName: string, args: TopicPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.arn === undefined) {
             throw new Error("Missing required property 'arn'");
         }
@@ -17,7 +17,7 @@ export class TopicPolicy extends fabric.Resource {
         super("aws:sns/topicPolicy:TopicPolicy", urnName, {
             "arn": args.arn,
             "policy": args.policy,
-        });
+        }, dependsOn);
     }
 }
 

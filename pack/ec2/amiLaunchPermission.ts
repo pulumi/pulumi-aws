@@ -7,7 +7,7 @@ export class AmiLaunchPermission extends fabric.Resource {
     public readonly accountId: fabric.Computed<string>;
     public readonly imageId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AmiLaunchPermissionArgs) {
+    constructor(urnName: string, args: AmiLaunchPermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.accountId === undefined) {
             throw new Error("Missing required property 'accountId'");
         }
@@ -17,7 +17,7 @@ export class AmiLaunchPermission extends fabric.Resource {
         super("aws:ec2/amiLaunchPermission:AmiLaunchPermission", urnName, {
             "accountId": args.accountId,
             "imageId": args.imageId,
-        });
+        }, dependsOn);
     }
 }
 

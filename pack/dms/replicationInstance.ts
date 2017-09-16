@@ -22,7 +22,7 @@ export class ReplicationInstance extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: ReplicationInstanceArgs) {
+    constructor(urnName: string, args: ReplicationInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.replicationInstanceClass === undefined) {
             throw new Error("Missing required property 'replicationInstanceClass'");
         }
@@ -47,7 +47,7 @@ export class ReplicationInstance extends fabric.Resource {
             "replicationInstanceArn": undefined,
             "replicationInstancePrivateIps": undefined,
             "replicationInstancePublicIps": undefined,
-        });
+        }, dependsOn);
     }
 }
 

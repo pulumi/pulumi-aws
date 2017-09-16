@@ -12,7 +12,7 @@ export class AccessKey extends fabric.Resource {
     public /*out*/ readonly status: fabric.Computed<string>;
     public readonly user: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AccessKeyArgs) {
+    constructor(urnName: string, args: AccessKeyArgs, dependsOn?: fabric.Resource[]) {
         if (args.user === undefined) {
             throw new Error("Missing required property 'user'");
         }
@@ -24,7 +24,7 @@ export class AccessKey extends fabric.Resource {
             "secret": undefined,
             "sesSmtpPassword": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

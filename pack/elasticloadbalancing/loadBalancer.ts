@@ -24,7 +24,7 @@ export class LoadBalancer extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly zoneId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LoadBalancerArgs) {
+    constructor(urnName: string, args: LoadBalancerArgs, dependsOn?: fabric.Resource[]) {
         if (args.listener === undefined) {
             throw new Error("Missing required property 'listener'");
         }
@@ -48,7 +48,7 @@ export class LoadBalancer extends fabric.Resource {
             "dnsName": undefined,
             "sourceSecurityGroupId": undefined,
             "zoneId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

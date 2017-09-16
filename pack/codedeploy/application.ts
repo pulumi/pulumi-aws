@@ -7,11 +7,11 @@ export class Application extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly uniqueId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ApplicationArgs) {
+    constructor(urnName: string, args?: ApplicationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:codedeploy/application:Application", urnName, {
             "name": args.name,
             "uniqueId": args.uniqueId,
-        });
+        }, dependsOn);
     }
 }
 

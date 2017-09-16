@@ -9,7 +9,7 @@ export class BucketNotification extends fabric.Resource {
     public readonly queue?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[]>;
     public readonly topic?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[]>;
 
-    constructor(urnName: string, args: BucketNotificationArgs) {
+    constructor(urnName: string, args: BucketNotificationArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
         }
@@ -18,7 +18,7 @@ export class BucketNotification extends fabric.Resource {
             "lambdaFunction": args.lambdaFunction,
             "queue": args.queue,
             "topic": args.topic,
-        });
+        }, dependsOn);
     }
 }
 

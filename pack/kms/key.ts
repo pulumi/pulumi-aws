@@ -14,7 +14,7 @@ export class Key extends fabric.Resource {
     public readonly policy: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: KeyArgs) {
+    constructor(urnName: string, args?: KeyArgs, dependsOn?: fabric.Resource[]) {
         super("aws:kms/key:Key", urnName, {
             "deletionWindowInDays": args.deletionWindowInDays,
             "description": args.description,
@@ -25,7 +25,7 @@ export class Key extends fabric.Resource {
             "tags": args.tags,
             "arn": undefined,
             "keyId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

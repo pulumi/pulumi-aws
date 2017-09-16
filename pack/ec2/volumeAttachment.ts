@@ -10,7 +10,7 @@ export class VolumeAttachment extends fabric.Resource {
     public readonly skipDestroy: fabric.Computed<boolean>;
     public readonly volumeId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VolumeAttachmentArgs) {
+    constructor(urnName: string, args: VolumeAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.deviceName === undefined) {
             throw new Error("Missing required property 'deviceName'");
         }
@@ -26,7 +26,7 @@ export class VolumeAttachment extends fabric.Resource {
             "instanceId": args.instanceId,
             "skipDestroy": args.skipDestroy,
             "volumeId": args.volumeId,
-        });
+        }, dependsOn);
     }
 }
 

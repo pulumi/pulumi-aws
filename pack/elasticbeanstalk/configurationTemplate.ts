@@ -11,7 +11,7 @@ export class ConfigurationTemplate extends fabric.Resource {
     public readonly setting: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
     public readonly solutionStackName?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ConfigurationTemplateArgs) {
+    constructor(urnName: string, args: ConfigurationTemplateArgs, dependsOn?: fabric.Resource[]) {
         if (args.application === undefined) {
             throw new Error("Missing required property 'application'");
         }
@@ -22,7 +22,7 @@ export class ConfigurationTemplate extends fabric.Resource {
             "name": args.name,
             "setting": args.setting,
             "solutionStackName": args.solutionStackName,
-        });
+        }, dependsOn);
     }
 }
 

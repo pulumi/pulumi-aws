@@ -19,7 +19,7 @@ export class Stack extends fabric.Resource {
     public readonly templateUrl?: fabric.Computed<string>;
     public readonly timeoutInMinutes?: fabric.Computed<number>;
 
-    constructor(urnName: string, args: StackArgs) {
+    constructor(urnName: string, args?: StackArgs, dependsOn?: fabric.Resource[]) {
         super("aws:cloudformation/stack:Stack", urnName, {
             "capabilities": args.capabilities,
             "disableRollback": args.disableRollback,
@@ -35,7 +35,7 @@ export class Stack extends fabric.Resource {
             "templateUrl": args.templateUrl,
             "timeoutInMinutes": args.timeoutInMinutes,
             "outputs": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -13,7 +13,7 @@ export class OptionGroup extends fabric.Resource {
     public readonly optionGroupDescription?: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: OptionGroupArgs) {
+    constructor(urnName: string, args: OptionGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.engineName === undefined) {
             throw new Error("Missing required property 'engineName'");
         }
@@ -29,7 +29,7 @@ export class OptionGroup extends fabric.Resource {
             "optionGroupDescription": args.optionGroupDescription,
             "tags": args.tags,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

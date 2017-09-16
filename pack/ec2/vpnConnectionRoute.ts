@@ -7,7 +7,7 @@ export class VpnConnectionRoute extends fabric.Resource {
     public readonly destinationCidrBlock: fabric.Computed<string>;
     public readonly vpnConnectionId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpnConnectionRouteArgs) {
+    constructor(urnName: string, args: VpnConnectionRouteArgs, dependsOn?: fabric.Resource[]) {
         if (args.destinationCidrBlock === undefined) {
             throw new Error("Missing required property 'destinationCidrBlock'");
         }
@@ -17,7 +17,7 @@ export class VpnConnectionRoute extends fabric.Resource {
         super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", urnName, {
             "destinationCidrBlock": args.destinationCidrBlock,
             "vpnConnectionId": args.vpnConnectionId,
-        });
+        }, dependsOn);
     }
 }
 

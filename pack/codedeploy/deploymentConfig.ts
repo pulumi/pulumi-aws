@@ -8,7 +8,7 @@ export class DeploymentConfig extends fabric.Resource {
     public readonly deploymentConfigName: fabric.Computed<string>;
     public readonly minimumHealthyHosts: fabric.Computed<{ type: string, value?: number }[]>;
 
-    constructor(urnName: string, args: DeploymentConfigArgs) {
+    constructor(urnName: string, args: DeploymentConfigArgs, dependsOn?: fabric.Resource[]) {
         if (args.deploymentConfigName === undefined) {
             throw new Error("Missing required property 'deploymentConfigName'");
         }
@@ -19,7 +19,7 @@ export class DeploymentConfig extends fabric.Resource {
             "deploymentConfigName": args.deploymentConfigName,
             "minimumHealthyHosts": args.minimumHealthyHosts,
             "deploymentConfigId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

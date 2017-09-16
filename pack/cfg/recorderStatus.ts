@@ -7,14 +7,14 @@ export class RecorderStatus extends fabric.Resource {
     public readonly isEnabled: fabric.Computed<boolean>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RecorderStatusArgs) {
+    constructor(urnName: string, args: RecorderStatusArgs, dependsOn?: fabric.Resource[]) {
         if (args.isEnabled === undefined) {
             throw new Error("Missing required property 'isEnabled'");
         }
         super("aws:cfg/recorderStatus:RecorderStatus", urnName, {
             "isEnabled": args.isEnabled,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

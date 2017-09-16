@@ -7,7 +7,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends fabric.Resource {
     public readonly networkInterfaceId: fabric.Computed<string>;
     public readonly securityGroupId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: NetworkInterfaceSecurityGroupAttachmentArgs) {
+    constructor(urnName: string, args: NetworkInterfaceSecurityGroupAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.networkInterfaceId === undefined) {
             throw new Error("Missing required property 'networkInterfaceId'");
         }
@@ -17,7 +17,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends fabric.Resource {
         super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", urnName, {
             "networkInterfaceId": args.networkInterfaceId,
             "securityGroupId": args.securityGroupId,
-        });
+        }, dependsOn);
     }
 }
 

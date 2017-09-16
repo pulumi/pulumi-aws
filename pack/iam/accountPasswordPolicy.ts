@@ -15,7 +15,7 @@ export class AccountPasswordPolicy extends fabric.Resource {
     public readonly requireSymbols: fabric.Computed<boolean>;
     public readonly requireUppercaseCharacters: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: AccountPasswordPolicyArgs) {
+    constructor(urnName: string, args?: AccountPasswordPolicyArgs, dependsOn?: fabric.Resource[]) {
         super("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", urnName, {
             "allowUsersToChangePassword": args.allowUsersToChangePassword,
             "hardExpiry": args.hardExpiry,
@@ -27,7 +27,7 @@ export class AccountPasswordPolicy extends fabric.Resource {
             "requireSymbols": args.requireSymbols,
             "requireUppercaseCharacters": args.requireUppercaseCharacters,
             "expirePasswords": undefined,
-        });
+        }, dependsOn);
     }
 }
 

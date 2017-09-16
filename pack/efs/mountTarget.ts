@@ -11,7 +11,7 @@ export class MountTarget extends fabric.Resource {
     public readonly securityGroups: fabric.Computed<string[]>;
     public readonly subnetId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MountTargetArgs) {
+    constructor(urnName: string, args: MountTargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.fileSystemId === undefined) {
             throw new Error("Missing required property 'fileSystemId'");
         }
@@ -25,7 +25,7 @@ export class MountTarget extends fabric.Resource {
             "subnetId": args.subnetId,
             "dnsName": undefined,
             "networkInterfaceId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

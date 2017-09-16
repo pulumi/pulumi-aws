@@ -12,7 +12,7 @@ export class Model extends fabric.Resource {
     public readonly restApi: fabric.Computed<RestApi>;
     public readonly schema?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ModelArgs) {
+    constructor(urnName: string, args: ModelArgs, dependsOn?: fabric.Resource[]) {
         if (args.contentType === undefined) {
             throw new Error("Missing required property 'contentType'");
         }
@@ -25,7 +25,7 @@ export class Model extends fabric.Resource {
             "name": args.name,
             "restApi": args.restApi,
             "schema": args.schema,
-        });
+        }, dependsOn);
     }
 }
 

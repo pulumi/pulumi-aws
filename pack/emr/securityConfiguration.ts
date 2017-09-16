@@ -9,7 +9,7 @@ export class SecurityConfiguration extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly namePrefix?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SecurityConfigurationArgs) {
+    constructor(urnName: string, args: SecurityConfigurationArgs, dependsOn?: fabric.Resource[]) {
         if (args.configuration === undefined) {
             throw new Error("Missing required property 'configuration'");
         }
@@ -18,7 +18,7 @@ export class SecurityConfiguration extends fabric.Resource {
             "name": args.name,
             "namePrefix": args.namePrefix,
             "creationDate": undefined,
-        });
+        }, dependsOn);
     }
 }
 

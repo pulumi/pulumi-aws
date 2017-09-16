@@ -9,7 +9,7 @@ export class OpenIdConnectProvider extends fabric.Resource {
     public readonly thumbprintList: fabric.Computed<string[]>;
     public readonly url: fabric.Computed<string>;
 
-    constructor(urnName: string, args: OpenIdConnectProviderArgs) {
+    constructor(urnName: string, args: OpenIdConnectProviderArgs, dependsOn?: fabric.Resource[]) {
         if (args.clientIdList === undefined) {
             throw new Error("Missing required property 'clientIdList'");
         }
@@ -24,7 +24,7 @@ export class OpenIdConnectProvider extends fabric.Resource {
             "thumbprintList": args.thumbprintList,
             "url": args.url,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

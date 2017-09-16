@@ -7,7 +7,7 @@ export class SnapshotCreateVolumePermission extends fabric.Resource {
     public readonly accountId: fabric.Computed<string>;
     public readonly snapshotId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SnapshotCreateVolumePermissionArgs) {
+    constructor(urnName: string, args: SnapshotCreateVolumePermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.accountId === undefined) {
             throw new Error("Missing required property 'accountId'");
         }
@@ -17,7 +17,7 @@ export class SnapshotCreateVolumePermission extends fabric.Resource {
         super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", urnName, {
             "accountId": args.accountId,
             "snapshotId": args.snapshotId,
-        });
+        }, dependsOn);
     }
 }
 

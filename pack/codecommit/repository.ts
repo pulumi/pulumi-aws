@@ -12,7 +12,7 @@ export class Repository extends fabric.Resource {
     public /*out*/ readonly repositoryId: fabric.Computed<string>;
     public readonly repositoryName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RepositoryArgs) {
+    constructor(urnName: string, args: RepositoryArgs, dependsOn?: fabric.Resource[]) {
         if (args.repositoryName === undefined) {
             throw new Error("Missing required property 'repositoryName'");
         }
@@ -24,7 +24,7 @@ export class Repository extends fabric.Resource {
             "cloneUrlHttp": undefined,
             "cloneUrlSsh": undefined,
             "repositoryId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

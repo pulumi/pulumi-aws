@@ -14,7 +14,7 @@ export class MethodResponse extends fabric.Resource {
     public readonly restApi: fabric.Computed<RestApi>;
     public readonly statusCode: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MethodResponseArgs) {
+    constructor(urnName: string, args: MethodResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.httpMethod === undefined) {
             throw new Error("Missing required property 'httpMethod'");
         }
@@ -35,7 +35,7 @@ export class MethodResponse extends fabric.Resource {
             "responseParametersInJson": args.responseParametersInJson,
             "restApi": args.restApi,
             "statusCode": args.statusCode,
-        });
+        }, dependsOn);
     }
 }
 

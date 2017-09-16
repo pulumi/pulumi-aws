@@ -31,7 +31,7 @@ export class JavaAppLayer extends fabric.Resource {
     public readonly systemPackages?: fabric.Computed<string[]>;
     public readonly useEbsOptimizedInstances?: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: JavaAppLayerArgs) {
+    constructor(urnName: string, args: JavaAppLayerArgs, dependsOn?: fabric.Resource[]) {
         if (args.stackId === undefined) {
             throw new Error("Missing required property 'stackId'");
         }
@@ -62,7 +62,7 @@ export class JavaAppLayer extends fabric.Resource {
             "systemPackages": args.systemPackages,
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
             "layerId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

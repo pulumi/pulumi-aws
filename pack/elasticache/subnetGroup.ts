@@ -8,7 +8,7 @@ export class SubnetGroup extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly subnetIds: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: SubnetGroupArgs) {
+    constructor(urnName: string, args: SubnetGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnetIds === undefined) {
             throw new Error("Missing required property 'subnetIds'");
         }
@@ -16,7 +16,7 @@ export class SubnetGroup extends fabric.Resource {
             "description": args.description,
             "name": args.name,
             "subnetIds": args.subnetIds,
-        });
+        }, dependsOn);
     }
 }
 

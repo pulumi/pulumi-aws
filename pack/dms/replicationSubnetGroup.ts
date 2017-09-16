@@ -11,7 +11,7 @@ export class ReplicationSubnetGroup extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ReplicationSubnetGroupArgs) {
+    constructor(urnName: string, args: ReplicationSubnetGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.replicationSubnetGroupDescription === undefined) {
             throw new Error("Missing required property 'replicationSubnetGroupDescription'");
         }
@@ -28,7 +28,7 @@ export class ReplicationSubnetGroup extends fabric.Resource {
             "tags": args.tags,
             "replicationSubnetGroupArn": undefined,
             "vpcId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -14,7 +14,7 @@ export class Project extends fabric.Resource {
     public readonly source: fabric.Computed<{ auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[]>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: ProjectArgs) {
+    constructor(urnName: string, args: ProjectArgs, dependsOn?: fabric.Resource[]) {
         if (args.artifacts === undefined) {
             throw new Error("Missing required property 'artifacts'");
         }
@@ -34,7 +34,7 @@ export class Project extends fabric.Resource {
             "serviceRole": args.serviceRole,
             "source": args.source,
             "tags": args.tags,
-        });
+        }, dependsOn);
     }
 }
 

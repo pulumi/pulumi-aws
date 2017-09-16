@@ -21,7 +21,7 @@ export class Document extends fabric.Resource {
     public /*out*/ readonly schemaVersion: fabric.Computed<string>;
     public /*out*/ readonly status: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DocumentArgs) {
+    constructor(urnName: string, args: DocumentArgs, dependsOn?: fabric.Resource[]) {
         if (args.content === undefined) {
             throw new Error("Missing required property 'content'");
         }
@@ -45,7 +45,7 @@ export class Document extends fabric.Resource {
             "platformTypes": undefined,
             "schemaVersion": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

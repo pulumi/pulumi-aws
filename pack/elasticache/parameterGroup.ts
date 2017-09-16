@@ -9,7 +9,7 @@ export class ParameterGroup extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly parameter?: fabric.Computed<{ name: string, value: string }[]>;
 
-    constructor(urnName: string, args: ParameterGroupArgs) {
+    constructor(urnName: string, args: ParameterGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.family === undefined) {
             throw new Error("Missing required property 'family'");
         }
@@ -18,7 +18,7 @@ export class ParameterGroup extends fabric.Resource {
             "family": args.family,
             "name": args.name,
             "parameter": args.parameter,
-        });
+        }, dependsOn);
     }
 }
 

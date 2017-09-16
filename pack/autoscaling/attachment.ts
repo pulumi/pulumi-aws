@@ -8,7 +8,7 @@ export class Attachment extends fabric.Resource {
     public readonly autoscalingGroupName: fabric.Computed<string>;
     public readonly elb?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AttachmentArgs) {
+    constructor(urnName: string, args: AttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.autoscalingGroupName === undefined) {
             throw new Error("Missing required property 'autoscalingGroupName'");
         }
@@ -16,7 +16,7 @@ export class Attachment extends fabric.Resource {
             "albTargetGroupArn": args.albTargetGroupArn,
             "autoscalingGroupName": args.autoscalingGroupName,
             "elb": args.elb,
-        });
+        }, dependsOn);
     }
 }
 

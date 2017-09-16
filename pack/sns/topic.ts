@@ -12,14 +12,14 @@ export class Topic extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly policy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: TopicArgs) {
+    constructor(urnName: string, args?: TopicArgs, dependsOn?: fabric.Resource[]) {
         super("aws:sns/topic:Topic", urnName, {
             "deliveryPolicy": args.deliveryPolicy,
             "displayName": args.displayName,
             "name": args.name,
             "policy": args.policy,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

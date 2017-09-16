@@ -11,7 +11,7 @@ export class Permission extends fabric.Resource {
     public readonly stackId: fabric.Computed<string>;
     public readonly userArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: PermissionArgs) {
+    constructor(urnName: string, args: PermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.userArn === undefined) {
             throw new Error("Missing required property 'userArn'");
         }
@@ -22,7 +22,7 @@ export class Permission extends fabric.Resource {
             "stackId": args.stackId,
             "userArn": args.userArn,
             "permissionId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

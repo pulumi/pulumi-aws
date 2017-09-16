@@ -14,7 +14,7 @@ export class DomainName extends fabric.Resource {
     public /*out*/ readonly cloudfrontZoneId: fabric.Computed<string>;
     public readonly domainName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DomainNameArgs) {
+    constructor(urnName: string, args: DomainNameArgs, dependsOn?: fabric.Resource[]) {
         if (args.domainName === undefined) {
             throw new Error("Missing required property 'domainName'");
         }
@@ -28,7 +28,7 @@ export class DomainName extends fabric.Resource {
             "certificateUploadDate": undefined,
             "cloudfrontDomainName": undefined,
             "cloudfrontZoneId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

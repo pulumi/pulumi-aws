@@ -9,7 +9,7 @@ export class Policy extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly policy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: PolicyArgs) {
+    constructor(urnName: string, args: PolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
         }
@@ -18,7 +18,7 @@ export class Policy extends fabric.Resource {
             "policy": args.policy,
             "arn": undefined,
             "defaultVersionId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

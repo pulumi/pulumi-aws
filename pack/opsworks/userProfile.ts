@@ -10,7 +10,7 @@ export class UserProfile extends fabric.Resource {
     public readonly sshUsername: fabric.Computed<string>;
     public readonly userArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: UserProfileArgs) {
+    constructor(urnName: string, args: UserProfileArgs, dependsOn?: fabric.Resource[]) {
         if (args.sshUsername === undefined) {
             throw new Error("Missing required property 'sshUsername'");
         }
@@ -23,7 +23,7 @@ export class UserProfile extends fabric.Resource {
             "sshUsername": args.sshUsername,
             "userArn": args.userArn,
             "profileId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

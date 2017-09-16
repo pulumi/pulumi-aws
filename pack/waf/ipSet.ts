@@ -7,11 +7,11 @@ export class IpSet extends fabric.Resource {
     public readonly ipSetDescriptors?: fabric.Computed<{ type: string, value: string }[]>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: IpSetArgs) {
+    constructor(urnName: string, args?: IpSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/ipSet:IpSet", urnName, {
             "ipSetDescriptors": args.ipSetDescriptors,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

@@ -8,7 +8,7 @@ export class Rule extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly predicates?: fabric.Computed<{ dataId?: string, negated: boolean, type: string }[]>;
 
-    constructor(urnName: string, args: RuleArgs) {
+    constructor(urnName: string, args: RuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.metricName === undefined) {
             throw new Error("Missing required property 'metricName'");
         }
@@ -16,7 +16,7 @@ export class Rule extends fabric.Resource {
             "metricName": args.metricName,
             "name": args.name,
             "predicates": args.predicates,
-        });
+        }, dependsOn);
     }
 }
 

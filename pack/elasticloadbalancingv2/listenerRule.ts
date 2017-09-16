@@ -10,7 +10,7 @@ export class ListenerRule extends fabric.Resource {
     public readonly listenerArn: fabric.Computed<string>;
     public readonly priority: fabric.Computed<number>;
 
-    constructor(urnName: string, args: ListenerRuleArgs) {
+    constructor(urnName: string, args: ListenerRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.action === undefined) {
             throw new Error("Missing required property 'action'");
         }
@@ -29,7 +29,7 @@ export class ListenerRule extends fabric.Resource {
             "listenerArn": args.listenerArn,
             "priority": args.priority,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

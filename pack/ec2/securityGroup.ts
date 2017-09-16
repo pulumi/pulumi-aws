@@ -13,7 +13,7 @@ export class SecurityGroup extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SecurityGroupArgs) {
+    constructor(urnName: string, args?: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/securityGroup:SecurityGroup", urnName, {
             "description": args.description,
             "egress": args.egress,
@@ -23,7 +23,7 @@ export class SecurityGroup extends fabric.Resource {
             "tags": args.tags,
             "vpcId": args.vpcId,
             "ownerId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

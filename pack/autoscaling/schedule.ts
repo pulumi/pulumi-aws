@@ -14,7 +14,7 @@ export class Schedule extends fabric.Resource {
     public readonly scheduledActionName: fabric.Computed<string>;
     public readonly startTime: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ScheduleArgs) {
+    constructor(urnName: string, args: ScheduleArgs, dependsOn?: fabric.Resource[]) {
         if (args.autoscalingGroupName === undefined) {
             throw new Error("Missing required property 'autoscalingGroupName'");
         }
@@ -31,7 +31,7 @@ export class Schedule extends fabric.Resource {
             "scheduledActionName": args.scheduledActionName,
             "startTime": args.startTime,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

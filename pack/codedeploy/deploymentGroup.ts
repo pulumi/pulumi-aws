@@ -15,7 +15,7 @@ export class DeploymentGroup extends fabric.Resource {
     public readonly serviceRoleArn: fabric.Computed<string>;
     public readonly triggerConfiguration?: fabric.Computed<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[]>;
 
-    constructor(urnName: string, args: DeploymentGroupArgs) {
+    constructor(urnName: string, args: DeploymentGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.appName === undefined) {
             throw new Error("Missing required property 'appName'");
         }
@@ -36,7 +36,7 @@ export class DeploymentGroup extends fabric.Resource {
             "onPremisesInstanceTagFilter": args.onPremisesInstanceTagFilter,
             "serviceRoleArn": args.serviceRoleArn,
             "triggerConfiguration": args.triggerConfiguration,
-        });
+        }, dependsOn);
     }
 }
 

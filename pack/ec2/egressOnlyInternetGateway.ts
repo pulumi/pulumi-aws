@@ -6,13 +6,13 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class EgressOnlyInternetGateway extends fabric.Resource {
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EgressOnlyInternetGatewayArgs) {
+    constructor(urnName: string, args: EgressOnlyInternetGatewayArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
         }
         super("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", urnName, {
             "vpcId": args.vpcId,
-        });
+        }, dependsOn);
     }
 }
 

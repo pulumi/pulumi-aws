@@ -32,7 +32,7 @@ export class RailsAppLayer extends fabric.Resource {
     public readonly systemPackages?: fabric.Computed<string[]>;
     public readonly useEbsOptimizedInstances?: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: RailsAppLayerArgs) {
+    constructor(urnName: string, args: RailsAppLayerArgs, dependsOn?: fabric.Resource[]) {
         if (args.stackId === undefined) {
             throw new Error("Missing required property 'stackId'");
         }
@@ -64,7 +64,7 @@ export class RailsAppLayer extends fabric.Resource {
             "systemPackages": args.systemPackages,
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
             "layerId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

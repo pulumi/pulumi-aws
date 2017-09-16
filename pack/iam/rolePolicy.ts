@@ -9,7 +9,7 @@ export class RolePolicy extends fabric.Resource {
     public readonly policy: fabric.Computed<string>;
     public readonly role: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RolePolicyArgs) {
+    constructor(urnName: string, args: RolePolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
         }
@@ -21,7 +21,7 @@ export class RolePolicy extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "policy": args.policy,
             "role": args.role,
-        });
+        }, dependsOn);
     }
 }
 

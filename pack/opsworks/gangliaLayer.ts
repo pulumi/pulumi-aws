@@ -29,7 +29,7 @@ export class GangliaLayer extends fabric.Resource {
     public readonly useEbsOptimizedInstances?: fabric.Computed<boolean>;
     public readonly username?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: GangliaLayerArgs) {
+    constructor(urnName: string, args: GangliaLayerArgs, dependsOn?: fabric.Resource[]) {
         if (args.password === undefined) {
             throw new Error("Missing required property 'password'");
         }
@@ -61,7 +61,7 @@ export class GangliaLayer extends fabric.Resource {
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
             "username": args.username,
             "layerId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

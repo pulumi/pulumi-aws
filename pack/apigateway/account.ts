@@ -7,11 +7,11 @@ export class Account extends fabric.Resource {
     public readonly cloudwatchRoleArn?: fabric.Computed<string>;
     public /*out*/ readonly throttleSettings: fabric.Computed<{ burstLimit: number, rateLimit: number }[]>;
 
-    constructor(urnName: string, args: AccountArgs) {
+    constructor(urnName: string, args?: AccountArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/account:Account", urnName, {
             "cloudwatchRoleArn": args.cloudwatchRoleArn,
             "throttleSettings": undefined,
-        });
+        }, dependsOn);
     }
 }
 

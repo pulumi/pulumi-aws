@@ -8,7 +8,7 @@ export class Recorder extends fabric.Resource {
     public readonly recordingGroup: fabric.Computed<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
     public readonly roleArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RecorderArgs) {
+    constructor(urnName: string, args: RecorderArgs, dependsOn?: fabric.Resource[]) {
         if (args.roleArn === undefined) {
             throw new Error("Missing required property 'roleArn'");
         }
@@ -16,7 +16,7 @@ export class Recorder extends fabric.Resource {
             "name": args.name,
             "recordingGroup": args.recordingGroup,
             "roleArn": args.roleArn,
-        });
+        }, dependsOn);
     }
 }
 

@@ -11,7 +11,7 @@ export class BasePathMapping extends fabric.Resource {
     public readonly domainName: fabric.Computed<string>;
     public readonly stageName?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: BasePathMappingArgs) {
+    constructor(urnName: string, args: BasePathMappingArgs, dependsOn?: fabric.Resource[]) {
         if (args.restApi === undefined) {
             throw new Error("Missing required property 'restApi'");
         }
@@ -23,7 +23,7 @@ export class BasePathMapping extends fabric.Resource {
             "basePath": args.basePath,
             "domainName": args.domainName,
             "stageName": args.stageName,
-        });
+        }, dependsOn);
     }
 }
 

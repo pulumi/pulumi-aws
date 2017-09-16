@@ -14,7 +14,7 @@ export class Permission extends fabric.Resource {
     public readonly sourceArn?: fabric.Computed<string>;
     public readonly statementId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: PermissionArgs) {
+    constructor(urnName: string, args: PermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.action === undefined) {
             throw new Error("Missing required property 'action'");
         }
@@ -32,7 +32,7 @@ export class Permission extends fabric.Resource {
             "sourceAccount": args.sourceAccount,
             "sourceArn": args.sourceArn,
             "statementId": args.statementId,
-        });
+        }, dependsOn);
     }
 }
 

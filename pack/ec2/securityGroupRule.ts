@@ -15,7 +15,7 @@ export class SecurityGroupRule extends fabric.Resource {
     public readonly toPort: fabric.Computed<number>;
     public readonly type: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SecurityGroupRuleArgs) {
+    constructor(urnName: string, args: SecurityGroupRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.fromPort === undefined) {
             throw new Error("Missing required property 'fromPort'");
         }
@@ -42,7 +42,7 @@ export class SecurityGroupRule extends fabric.Resource {
             "sourceSecurityGroupId": args.sourceSecurityGroupId,
             "toPort": args.toPort,
             "type": args.type,
-        });
+        }, dependsOn);
     }
 }
 

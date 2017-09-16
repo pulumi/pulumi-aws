@@ -9,7 +9,7 @@ export class LogMetricFilter extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly pattern: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LogMetricFilterArgs) {
+    constructor(urnName: string, args: LogMetricFilterArgs, dependsOn?: fabric.Resource[]) {
         if (args.logGroupName === undefined) {
             throw new Error("Missing required property 'logGroupName'");
         }
@@ -24,7 +24,7 @@ export class LogMetricFilter extends fabric.Resource {
             "metricTransformation": args.metricTransformation,
             "name": args.name,
             "pattern": args.pattern,
-        });
+        }, dependsOn);
     }
 }
 

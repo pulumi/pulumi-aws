@@ -30,7 +30,7 @@ export class ReplicationGroup extends fabric.Resource {
     public readonly subnetGroupName: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: ReplicationGroupArgs) {
+    constructor(urnName: string, args: ReplicationGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.nodeType === undefined) {
             throw new Error("Missing required property 'nodeType'");
         }
@@ -69,7 +69,7 @@ export class ReplicationGroup extends fabric.Resource {
             "tags": args.tags,
             "configurationEndpointAddress": undefined,
             "primaryEndpointAddress": undefined,
-        });
+        }, dependsOn);
     }
 }
 

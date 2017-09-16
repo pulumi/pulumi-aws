@@ -7,7 +7,7 @@ export class PatchGroup extends fabric.Resource {
     public readonly baselineId: fabric.Computed<string>;
     public readonly patchGroup: fabric.Computed<string>;
 
-    constructor(urnName: string, args: PatchGroupArgs) {
+    constructor(urnName: string, args: PatchGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.baselineId === undefined) {
             throw new Error("Missing required property 'baselineId'");
         }
@@ -17,7 +17,7 @@ export class PatchGroup extends fabric.Resource {
         super("aws:ssm/patchGroup:PatchGroup", urnName, {
             "baselineId": args.baselineId,
             "patchGroup": args.patchGroup,
-        });
+        }, dependsOn);
     }
 }
 

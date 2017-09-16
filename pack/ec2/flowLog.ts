@@ -11,7 +11,7 @@ export class FlowLog extends fabric.Resource {
     public readonly trafficType: fabric.Computed<string>;
     public readonly vpcId?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: FlowLogArgs) {
+    constructor(urnName: string, args: FlowLogArgs, dependsOn?: fabric.Resource[]) {
         if (args.iamRoleArn === undefined) {
             throw new Error("Missing required property 'iamRoleArn'");
         }
@@ -28,7 +28,7 @@ export class FlowLog extends fabric.Resource {
             "subnetId": args.subnetId,
             "trafficType": args.trafficType,
             "vpcId": args.vpcId,
-        });
+        }, dependsOn);
     }
 }
 

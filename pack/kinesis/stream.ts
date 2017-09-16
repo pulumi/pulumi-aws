@@ -11,7 +11,7 @@ export class Stream extends fabric.Resource {
     public readonly shardLevelMetrics?: fabric.Computed<string[]>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: StreamArgs) {
+    constructor(urnName: string, args: StreamArgs, dependsOn?: fabric.Resource[]) {
         if (args.shardCount === undefined) {
             throw new Error("Missing required property 'shardCount'");
         }
@@ -22,7 +22,7 @@ export class Stream extends fabric.Resource {
             "shardCount": args.shardCount,
             "shardLevelMetrics": args.shardLevelMetrics,
             "tags": args.tags,
-        });
+        }, dependsOn);
     }
 }
 

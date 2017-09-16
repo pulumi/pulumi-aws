@@ -20,7 +20,7 @@ export class LoadBalancer extends fabric.Resource {
     public /*out*/ readonly vpcId: fabric.Computed<string>;
     public /*out*/ readonly zoneId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LoadBalancerArgs) {
+    constructor(urnName: string, args: LoadBalancerArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnets === undefined) {
             throw new Error("Missing required property 'subnets'");
         }
@@ -40,7 +40,7 @@ export class LoadBalancer extends fabric.Resource {
             "dnsName": undefined,
             "vpcId": undefined,
             "zoneId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

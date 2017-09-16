@@ -13,7 +13,7 @@ export class TaskDefinition extends fabric.Resource {
     public readonly taskRoleArn?: fabric.Computed<string>;
     public readonly volume?: fabric.Computed<{ hostPath?: string, name: string }[]>;
 
-    constructor(urnName: string, args: TaskDefinitionArgs) {
+    constructor(urnName: string, args: TaskDefinitionArgs, dependsOn?: fabric.Resource[]) {
         if (args.containerDefinitions === undefined) {
             throw new Error("Missing required property 'containerDefinitions'");
         }
@@ -29,7 +29,7 @@ export class TaskDefinition extends fabric.Resource {
             "volume": args.volume,
             "arn": undefined,
             "revision": undefined,
-        });
+        }, dependsOn);
     }
 }
 

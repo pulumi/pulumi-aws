@@ -13,7 +13,7 @@ export class DefaultSubnet extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DefaultSubnetArgs) {
+    constructor(urnName: string, args: DefaultSubnetArgs, dependsOn?: fabric.Resource[]) {
         if (args.availabilityZone === undefined) {
             throw new Error("Missing required property 'availabilityZone'");
         }
@@ -26,7 +26,7 @@ export class DefaultSubnet extends fabric.Resource {
             "ipv6CidrBlockAssociationId": undefined,
             "mapPublicIpOnLaunch": undefined,
             "vpcId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

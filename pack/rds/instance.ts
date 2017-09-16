@@ -52,7 +52,7 @@ export class Instance extends fabric.Resource {
     public readonly username: fabric.Computed<string>;
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: InstanceArgs) {
+    constructor(urnName: string, args: InstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.instanceClass === undefined) {
             throw new Error("Missing required property 'instanceClass'");
         }
@@ -104,7 +104,7 @@ export class Instance extends fabric.Resource {
             "replicas": undefined,
             "resourceId": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

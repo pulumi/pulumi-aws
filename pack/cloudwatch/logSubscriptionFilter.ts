@@ -12,7 +12,7 @@ export class LogSubscriptionFilter extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly roleArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LogSubscriptionFilterArgs) {
+    constructor(urnName: string, args: LogSubscriptionFilterArgs, dependsOn?: fabric.Resource[]) {
         if (args.destinationArn === undefined) {
             throw new Error("Missing required property 'destinationArn'");
         }
@@ -28,7 +28,7 @@ export class LogSubscriptionFilter extends fabric.Resource {
             "logGroup": args.logGroup,
             "name": args.name,
             "roleArn": args.roleArn,
-        });
+        }, dependsOn);
     }
 }
 

@@ -13,7 +13,7 @@ export class VpcPeeringConnection extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpcPeeringConnectionArgs) {
+    constructor(urnName: string, args: VpcPeeringConnectionArgs, dependsOn?: fabric.Resource[]) {
         if (args.peerVpcId === undefined) {
             throw new Error("Missing required property 'peerVpcId'");
         }
@@ -29,7 +29,7 @@ export class VpcPeeringConnection extends fabric.Resource {
             "tags": args.tags,
             "vpcId": args.vpcId,
             "acceptStatus": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -9,7 +9,7 @@ export class Pipeline extends fabric.Resource {
     public readonly roleArn: fabric.Computed<string>;
     public readonly stage: fabric.Computed<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
-    constructor(urnName: string, args: PipelineArgs) {
+    constructor(urnName: string, args: PipelineArgs, dependsOn?: fabric.Resource[]) {
         if (args.artifactStore === undefined) {
             throw new Error("Missing required property 'artifactStore'");
         }
@@ -24,7 +24,7 @@ export class Pipeline extends fabric.Resource {
             "name": args.name,
             "roleArn": args.roleArn,
             "stage": args.stage,
-        });
+        }, dependsOn);
     }
 }
 

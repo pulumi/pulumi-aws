@@ -9,7 +9,7 @@ export class WebAcl extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly rules?: fabric.Computed<{ action: { type: string }[], priority: number, ruleId: string }[]>;
 
-    constructor(urnName: string, args: WebAclArgs) {
+    constructor(urnName: string, args: WebAclArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultAction === undefined) {
             throw new Error("Missing required property 'defaultAction'");
         }
@@ -21,7 +21,7 @@ export class WebAcl extends fabric.Resource {
             "metricName": args.metricName,
             "name": args.name,
             "rules": args.rules,
-        });
+        }, dependsOn);
     }
 }
 

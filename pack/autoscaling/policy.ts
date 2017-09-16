@@ -17,7 +17,7 @@ export class Policy extends fabric.Resource {
     public readonly scalingAdjustment?: fabric.Computed<number>;
     public readonly stepAdjustment?: fabric.Computed<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[]>;
 
-    constructor(urnName: string, args: PolicyArgs) {
+    constructor(urnName: string, args: PolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.adjustmentType === undefined) {
             throw new Error("Missing required property 'adjustmentType'");
         }
@@ -37,7 +37,7 @@ export class Policy extends fabric.Resource {
             "scalingAdjustment": args.scalingAdjustment,
             "stepAdjustment": args.stepAdjustment,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -8,7 +8,7 @@ export class ZoneAssociation extends fabric.Resource {
     public readonly vpcRegion: fabric.Computed<string>;
     public readonly zoneId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ZoneAssociationArgs) {
+    constructor(urnName: string, args: ZoneAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
         }
@@ -19,7 +19,7 @@ export class ZoneAssociation extends fabric.Resource {
             "vpcId": args.vpcId,
             "vpcRegion": args.vpcRegion,
             "zoneId": args.zoneId,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,14 +7,14 @@ export class ResourceGroup extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
     public readonly tags: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: ResourceGroupArgs) {
+    constructor(urnName: string, args: ResourceGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.tags === undefined) {
             throw new Error("Missing required property 'tags'");
         }
         super("aws:inspector/resourceGroup:ResourceGroup", urnName, {
             "tags": args.tags,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

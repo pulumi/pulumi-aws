@@ -10,7 +10,7 @@ export class DefaultRouteTable extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DefaultRouteTableArgs) {
+    constructor(urnName: string, args: DefaultRouteTableArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultRouteTableId === undefined) {
             throw new Error("Missing required property 'defaultRouteTableId'");
         }
@@ -20,7 +20,7 @@ export class DefaultRouteTable extends fabric.Resource {
             "route": args.route,
             "tags": args.tags,
             "vpcId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

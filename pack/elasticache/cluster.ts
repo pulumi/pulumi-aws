@@ -30,7 +30,7 @@ export class Cluster extends fabric.Resource {
     public readonly subnetGroupName: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: ClusterArgs) {
+    constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterId === undefined) {
             throw new Error("Missing required property 'clusterId'");
         }
@@ -72,7 +72,7 @@ export class Cluster extends fabric.Resource {
             "clusterAddress": undefined,
             "configurationEndpoint": undefined,
             "replicationGroupId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

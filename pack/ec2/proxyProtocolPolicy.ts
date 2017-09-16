@@ -7,7 +7,7 @@ export class ProxyProtocolPolicy extends fabric.Resource {
     public readonly instancePorts: fabric.Computed<string[]>;
     public readonly loadBalancer: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ProxyProtocolPolicyArgs) {
+    constructor(urnName: string, args: ProxyProtocolPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.instancePorts === undefined) {
             throw new Error("Missing required property 'instancePorts'");
         }
@@ -17,7 +17,7 @@ export class ProxyProtocolPolicy extends fabric.Resource {
         super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", urnName, {
             "instancePorts": args.instancePorts,
             "loadBalancer": args.loadBalancer,
-        });
+        }, dependsOn);
     }
 }
 

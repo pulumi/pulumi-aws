@@ -25,7 +25,7 @@ export class Bucket extends fabric.Resource {
     public readonly websiteDomain: fabric.Computed<string>;
     public readonly websiteEndpoint: fabric.Computed<string>;
 
-    constructor(urnName: string, args: BucketArgs) {
+    constructor(urnName: string, args?: BucketArgs, dependsOn?: fabric.Resource[]) {
         super("aws:s3/bucket:Bucket", urnName, {
             "accelerationStatus": args.accelerationStatus,
             "acl": args.acl,
@@ -47,7 +47,7 @@ export class Bucket extends fabric.Resource {
             "websiteDomain": args.websiteDomain,
             "websiteEndpoint": args.websiteEndpoint,
             "bucketDomainName": undefined,
-        });
+        }, dependsOn);
     }
 }
 

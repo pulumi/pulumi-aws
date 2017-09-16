@@ -14,7 +14,7 @@ export class KeyPair extends fabric.Resource {
     public /*out*/ readonly privateKey: fabric.Computed<string>;
     public readonly publicKey: fabric.Computed<string>;
 
-    constructor(urnName: string, args: KeyPairArgs) {
+    constructor(urnName: string, args?: KeyPairArgs, dependsOn?: fabric.Resource[]) {
         super("aws:lightsail/keyPair:KeyPair", urnName, {
             "name": args.name,
             "namePrefix": args.namePrefix,
@@ -25,7 +25,7 @@ export class KeyPair extends fabric.Resource {
             "encryptedPrivateKey": undefined,
             "fingerprint": undefined,
             "privateKey": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -8,7 +8,7 @@ export class ListenerPolicy extends fabric.Resource {
     public readonly loadBalancerPort: fabric.Computed<number>;
     public readonly policyNames?: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: ListenerPolicyArgs) {
+    constructor(urnName: string, args: ListenerPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.loadBalancerName === undefined) {
             throw new Error("Missing required property 'loadBalancerName'");
         }
@@ -19,7 +19,7 @@ export class ListenerPolicy extends fabric.Resource {
             "loadBalancerName": args.loadBalancerName,
             "loadBalancerPort": args.loadBalancerPort,
             "policyNames": args.policyNames,
-        });
+        }, dependsOn);
     }
 }
 

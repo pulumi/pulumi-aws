@@ -12,7 +12,7 @@ export class ServerCertificate extends fabric.Resource {
     public readonly path?: fabric.Computed<string>;
     public readonly privateKey: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ServerCertificateArgs) {
+    constructor(urnName: string, args: ServerCertificateArgs, dependsOn?: fabric.Resource[]) {
         if (args.certificateBody === undefined) {
             throw new Error("Missing required property 'certificateBody'");
         }
@@ -27,7 +27,7 @@ export class ServerCertificate extends fabric.Resource {
             "namePrefix": args.namePrefix,
             "path": args.path,
             "privateKey": args.privateKey,
-        });
+        }, dependsOn);
     }
 }
 

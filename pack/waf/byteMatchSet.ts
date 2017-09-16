@@ -7,11 +7,11 @@ export class ByteMatchSet extends fabric.Resource {
     public readonly byteMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ByteMatchSetArgs) {
+    constructor(urnName: string, args?: ByteMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/byteMatchSet:ByteMatchSet", urnName, {
             "byteMatchTuples": args.byteMatchTuples,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,7 +7,7 @@ export class VpnGatewayRoutePropagation extends fabric.Resource {
     public readonly routeTableId: fabric.Computed<string>;
     public readonly vpnGatewayId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpnGatewayRoutePropagationArgs) {
+    constructor(urnName: string, args: VpnGatewayRoutePropagationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
         }
@@ -17,7 +17,7 @@ export class VpnGatewayRoutePropagation extends fabric.Resource {
         super("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", urnName, {
             "routeTableId": args.routeTableId,
             "vpnGatewayId": args.vpnGatewayId,
-        });
+        }, dependsOn);
     }
 }
 

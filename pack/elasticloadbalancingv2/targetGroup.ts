@@ -16,7 +16,7 @@ export class TargetGroup extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: TargetGroupArgs) {
+    constructor(urnName: string, args: TargetGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.port === undefined) {
             throw new Error("Missing required property 'port'");
         }
@@ -38,7 +38,7 @@ export class TargetGroup extends fabric.Resource {
             "vpcId": args.vpcId,
             "arn": undefined,
             "arnSuffix": undefined,
-        });
+        }, dependsOn);
     }
 }
 

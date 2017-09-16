@@ -11,7 +11,7 @@ export class EventDestination extends fabric.Resource {
     public readonly matchingTypes: fabric.Computed<string[]>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EventDestinationArgs) {
+    constructor(urnName: string, args: EventDestinationArgs, dependsOn?: fabric.Resource[]) {
         if (args.configurationSetName === undefined) {
             throw new Error("Missing required property 'configurationSetName'");
         }
@@ -25,7 +25,7 @@ export class EventDestination extends fabric.Resource {
             "kinesisDestination": args.kinesisDestination,
             "matchingTypes": args.matchingTypes,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

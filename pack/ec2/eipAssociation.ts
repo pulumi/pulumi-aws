@@ -11,7 +11,7 @@ export class EipAssociation extends fabric.Resource {
     public readonly privateIpAddress: fabric.Computed<string>;
     public readonly publicIp: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EipAssociationArgs) {
+    constructor(urnName: string, args?: EipAssociationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/eipAssociation:EipAssociation", urnName, {
             "allocationId": args.allocationId,
             "allowReassociation": args.allowReassociation,
@@ -19,7 +19,7 @@ export class EipAssociation extends fabric.Resource {
             "networkInterfaceId": args.networkInterfaceId,
             "privateIpAddress": args.privateIpAddress,
             "publicIp": args.publicIp,
-        });
+        }, dependsOn);
     }
 }
 

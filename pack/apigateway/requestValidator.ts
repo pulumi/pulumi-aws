@@ -11,7 +11,7 @@ export class RequestValidator extends fabric.Resource {
     public readonly validateRequestBody?: fabric.Computed<boolean>;
     public readonly validateRequestParameters?: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: RequestValidatorArgs) {
+    constructor(urnName: string, args: RequestValidatorArgs, dependsOn?: fabric.Resource[]) {
         if (args.restApi === undefined) {
             throw new Error("Missing required property 'restApi'");
         }
@@ -20,7 +20,7 @@ export class RequestValidator extends fabric.Resource {
             "restApi": args.restApi,
             "validateRequestBody": args.validateRequestBody,
             "validateRequestParameters": args.validateRequestParameters,
-        });
+        }, dependsOn);
     }
 }
 

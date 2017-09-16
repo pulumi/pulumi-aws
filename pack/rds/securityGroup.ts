@@ -10,7 +10,7 @@ export class SecurityGroup extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: SecurityGroupArgs) {
+    constructor(urnName: string, args: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.ingress === undefined) {
             throw new Error("Missing required property 'ingress'");
         }
@@ -20,7 +20,7 @@ export class SecurityGroup extends fabric.Resource {
             "name": args.name,
             "tags": args.tags,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

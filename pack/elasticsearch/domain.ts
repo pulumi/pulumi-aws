@@ -16,7 +16,7 @@ export class Domain extends fabric.Resource {
     public readonly snapshotOptions?: fabric.Computed<{ automatedSnapshotStartHour: number }[]>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: DomainArgs) {
+    constructor(urnName: string, args: DomainArgs, dependsOn?: fabric.Resource[]) {
         if (args.domainName === undefined) {
             throw new Error("Missing required property 'domainName'");
         }
@@ -32,7 +32,7 @@ export class Domain extends fabric.Resource {
             "arn": undefined,
             "domainId": undefined,
             "endpoint": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -9,13 +9,13 @@ export class Repository extends fabric.Resource {
     public /*out*/ readonly registryId: fabric.Computed<string>;
     public /*out*/ readonly repositoryUrl: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RepositoryArgs) {
+    constructor(urnName: string, args?: RepositoryArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ecr/repository:Repository", urnName, {
             "name": args.name,
             "arn": undefined,
             "registryId": undefined,
             "repositoryUrl": undefined,
-        });
+        }, dependsOn);
     }
 }
 

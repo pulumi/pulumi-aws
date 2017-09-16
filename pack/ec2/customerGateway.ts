@@ -9,7 +9,7 @@ export class CustomerGateway extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly type: fabric.Computed<string>;
 
-    constructor(urnName: string, args: CustomerGatewayArgs) {
+    constructor(urnName: string, args: CustomerGatewayArgs, dependsOn?: fabric.Resource[]) {
         if (args.bgpAsn === undefined) {
             throw new Error("Missing required property 'bgpAsn'");
         }
@@ -24,7 +24,7 @@ export class CustomerGateway extends fabric.Resource {
             "ipAddress": args.ipAddress,
             "tags": args.tags,
             "type": args.type,
-        });
+        }, dependsOn);
     }
 }
 

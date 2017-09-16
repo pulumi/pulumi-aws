@@ -10,14 +10,14 @@ export class User extends fabric.Resource {
     public readonly path?: fabric.Computed<string>;
     public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: UserArgs) {
+    constructor(urnName: string, args?: UserArgs, dependsOn?: fabric.Resource[]) {
         super("aws:iam/user:User", urnName, {
             "forceDestroy": args.forceDestroy,
             "name": args.name,
             "path": args.path,
             "arn": undefined,
             "uniqueId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

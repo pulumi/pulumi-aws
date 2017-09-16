@@ -7,7 +7,7 @@ export class QueuePolicy extends fabric.Resource {
     public readonly policy: fabric.Computed<string>;
     public readonly queueUrl: fabric.Computed<string>;
 
-    constructor(urnName: string, args: QueuePolicyArgs) {
+    constructor(urnName: string, args: QueuePolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
         }
@@ -17,7 +17,7 @@ export class QueuePolicy extends fabric.Resource {
         super("aws:sqs/queuePolicy:QueuePolicy", urnName, {
             "policy": args.policy,
             "queueUrl": args.queueUrl,
-        });
+        }, dependsOn);
     }
 }
 

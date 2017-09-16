@@ -17,7 +17,7 @@ export class SpotFleetRequest extends fabric.Resource {
     public readonly validFrom?: fabric.Computed<string>;
     public readonly validUntil?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: SpotFleetRequestArgs) {
+    constructor(urnName: string, args: SpotFleetRequestArgs, dependsOn?: fabric.Resource[]) {
         if (args.iamFleetRole === undefined) {
             throw new Error("Missing required property 'iamFleetRole'");
         }
@@ -43,7 +43,7 @@ export class SpotFleetRequest extends fabric.Resource {
             "validUntil": args.validUntil,
             "clientToken": undefined,
             "spotRequestState": undefined,
-        });
+        }, dependsOn);
     }
 }
 

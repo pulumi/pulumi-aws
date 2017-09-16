@@ -32,7 +32,7 @@ export class Cluster extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: ClusterArgs) {
+    constructor(urnName: string, args?: ClusterArgs, dependsOn?: fabric.Resource[]) {
         super("aws:rds/cluster:Cluster", urnName, {
             "applyImmediately": args.applyImmediately,
             "availabilityZones": args.availabilityZones,
@@ -61,7 +61,7 @@ export class Cluster extends fabric.Resource {
             "endpoint": undefined,
             "engine": undefined,
             "readerEndpoint": undefined,
-        });
+        }, dependsOn);
     }
 }
 

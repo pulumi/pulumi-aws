@@ -7,7 +7,7 @@ export class VpcEndpointRouteTableAssociation extends fabric.Resource {
     public readonly routeTableId: fabric.Computed<string>;
     public readonly vpcEndpointId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpcEndpointRouteTableAssociationArgs) {
+    constructor(urnName: string, args: VpcEndpointRouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
         }
@@ -17,7 +17,7 @@ export class VpcEndpointRouteTableAssociation extends fabric.Resource {
         super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", urnName, {
             "routeTableId": args.routeTableId,
             "vpcEndpointId": args.vpcEndpointId,
-        });
+        }, dependsOn);
     }
 }
 

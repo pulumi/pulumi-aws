@@ -9,7 +9,7 @@ export class MaintenanceWindowTarget extends fabric.Resource {
     public readonly targets: fabric.Computed<{ key: string, values: string[] }[]>;
     public readonly windowId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: MaintenanceWindowTargetArgs) {
+    constructor(urnName: string, args: MaintenanceWindowTargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.resourceType === undefined) {
             throw new Error("Missing required property 'resourceType'");
         }
@@ -24,7 +24,7 @@ export class MaintenanceWindowTarget extends fabric.Resource {
             "resourceType": args.resourceType,
             "targets": args.targets,
             "windowId": args.windowId,
-        });
+        }, dependsOn);
     }
 }
 

@@ -7,11 +7,11 @@ export class InternetGateway extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: InternetGatewayArgs) {
+    constructor(urnName: string, args?: InternetGatewayArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/internetGateway:InternetGateway", urnName, {
             "tags": args.tags,
             "vpcId": args.vpcId,
-        });
+        }, dependsOn);
     }
 }
 

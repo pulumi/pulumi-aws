@@ -13,7 +13,7 @@ export class Rule extends fabric.Resource {
     public readonly scope?: fabric.Computed<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[]>;
     public readonly source: fabric.Computed<{ owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[]>;
 
-    constructor(urnName: string, args: RuleArgs) {
+    constructor(urnName: string, args: RuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.source === undefined) {
             throw new Error("Missing required property 'source'");
         }
@@ -26,7 +26,7 @@ export class Rule extends fabric.Resource {
             "source": args.source,
             "arn": undefined,
             "ruleId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

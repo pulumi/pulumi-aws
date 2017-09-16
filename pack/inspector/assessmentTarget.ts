@@ -8,7 +8,7 @@ export class AssessmentTarget extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly resourceGroupArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AssessmentTargetArgs) {
+    constructor(urnName: string, args: AssessmentTargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.resourceGroupArn === undefined) {
             throw new Error("Missing required property 'resourceGroupArn'");
         }
@@ -16,7 +16,7 @@ export class AssessmentTarget extends fabric.Resource {
             "name": args.name,
             "resourceGroupArn": args.resourceGroupArn,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

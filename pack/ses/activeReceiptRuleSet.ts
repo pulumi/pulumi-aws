@@ -6,13 +6,13 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class ActiveReceiptRuleSet extends fabric.Resource {
     public readonly ruleSetName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ActiveReceiptRuleSetArgs) {
+    constructor(urnName: string, args: ActiveReceiptRuleSetArgs, dependsOn?: fabric.Resource[]) {
         if (args.ruleSetName === undefined) {
             throw new Error("Missing required property 'ruleSetName'");
         }
         super("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", urnName, {
             "ruleSetName": args.ruleSetName,
-        });
+        }, dependsOn);
     }
 }
 

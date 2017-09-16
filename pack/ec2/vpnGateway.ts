@@ -8,12 +8,12 @@ export class VpnGateway extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: VpnGatewayArgs) {
+    constructor(urnName: string, args?: VpnGatewayArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/vpnGateway:VpnGateway", urnName, {
             "availabilityZone": args.availabilityZone,
             "tags": args.tags,
             "vpcId": args.vpcId,
-        });
+        }, dependsOn);
     }
 }
 

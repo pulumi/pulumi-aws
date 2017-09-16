@@ -9,13 +9,13 @@ export class FileSystem extends fabric.Resource {
     public readonly referenceName: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: FileSystemArgs) {
+    constructor(urnName: string, args?: FileSystemArgs, dependsOn?: fabric.Resource[]) {
         super("aws:efs/fileSystem:FileSystem", urnName, {
             "creationToken": args.creationToken,
             "performanceMode": args.performanceMode,
             "referenceName": args.referenceName,
             "tags": args.tags,
-        });
+        }, dependsOn);
     }
 }
 

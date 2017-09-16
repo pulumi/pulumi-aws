@@ -7,11 +7,11 @@ export class SqlInjectionMatchSet extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly sqlInjectionMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
-    constructor(urnName: string, args: SqlInjectionMatchSetArgs) {
+    constructor(urnName: string, args?: SqlInjectionMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", urnName, {
             "name": args.name,
             "sqlInjectionMatchTuples": args.sqlInjectionMatchTuples,
-        });
+        }, dependsOn);
     }
 }
 

@@ -28,7 +28,7 @@ export class Environment extends fabric.Resource {
     public readonly version: fabric.Computed<ApplicationVersion>;
     public readonly waitForReadyTimeout?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EnvironmentArgs) {
+    constructor(urnName: string, args: EnvironmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.application === undefined) {
             throw new Error("Missing required property 'application'");
         }
@@ -53,7 +53,7 @@ export class Environment extends fabric.Resource {
             "loadBalancers": undefined,
             "queues": undefined,
             "triggers": undefined,
-        });
+        }, dependsOn);
     }
 }
 

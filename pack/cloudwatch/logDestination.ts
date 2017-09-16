@@ -9,7 +9,7 @@ export class LogDestination extends fabric.Resource {
     public readonly roleArn: fabric.Computed<string>;
     public readonly targetArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LogDestinationArgs) {
+    constructor(urnName: string, args: LogDestinationArgs, dependsOn?: fabric.Resource[]) {
         if (args.roleArn === undefined) {
             throw new Error("Missing required property 'roleArn'");
         }
@@ -21,7 +21,7 @@ export class LogDestination extends fabric.Resource {
             "roleArn": args.roleArn,
             "targetArn": args.targetArn,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

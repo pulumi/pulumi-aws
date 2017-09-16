@@ -10,7 +10,7 @@ export class RdsDbInstance extends fabric.Resource {
     public readonly rdsDbInstanceArn: fabric.Computed<string>;
     public readonly stackId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RdsDbInstanceArgs) {
+    constructor(urnName: string, args: RdsDbInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.dbPassword === undefined) {
             throw new Error("Missing required property 'dbPassword'");
         }
@@ -29,7 +29,7 @@ export class RdsDbInstance extends fabric.Resource {
             "rdsDbInstanceArn": args.rdsDbInstanceArn,
             "stackId": args.stackId,
             "instanceId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

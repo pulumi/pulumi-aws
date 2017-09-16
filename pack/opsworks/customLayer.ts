@@ -27,7 +27,7 @@ export class CustomLayer extends fabric.Resource {
     public readonly systemPackages?: fabric.Computed<string[]>;
     public readonly useEbsOptimizedInstances?: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: CustomLayerArgs) {
+    constructor(urnName: string, args: CustomLayerArgs, dependsOn?: fabric.Resource[]) {
         if (args.shortName === undefined) {
             throw new Error("Missing required property 'shortName'");
         }
@@ -57,7 +57,7 @@ export class CustomLayer extends fabric.Resource {
             "systemPackages": args.systemPackages,
             "useEbsOptimizedInstances": args.useEbsOptimizedInstances,
             "layerId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

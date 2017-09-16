@@ -11,7 +11,7 @@ export class Vault extends fabric.Resource {
     public readonly notification?: fabric.Computed<{ events: string[], snsTopic: string }[]>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: VaultArgs) {
+    constructor(urnName: string, args?: VaultArgs, dependsOn?: fabric.Resource[]) {
         super("aws:glacier/vault:Vault", urnName, {
             "accessPolicy": args.accessPolicy,
             "name": args.name,
@@ -19,7 +19,7 @@ export class Vault extends fabric.Resource {
             "tags": args.tags,
             "arn": undefined,
             "location": undefined,
-        });
+        }, dependsOn);
     }
 }
 

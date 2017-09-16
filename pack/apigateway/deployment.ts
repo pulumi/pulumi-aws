@@ -15,7 +15,7 @@ export class Deployment extends fabric.Resource {
     public readonly stageName: fabric.Computed<string>;
     public readonly variables?: fabric.Computed<{[key: string]: string}>;
 
-    constructor(urnName: string, args: DeploymentArgs) {
+    constructor(urnName: string, args: DeploymentArgs, dependsOn?: fabric.Resource[]) {
         if (args.restApi === undefined) {
             throw new Error("Missing required property 'restApi'");
         }
@@ -31,7 +31,7 @@ export class Deployment extends fabric.Resource {
             "createdDate": undefined,
             "executionArn": undefined,
             "invokeUrl": undefined,
-        });
+        }, dependsOn);
     }
 }
 

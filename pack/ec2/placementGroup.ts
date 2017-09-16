@@ -7,14 +7,14 @@ export class PlacementGroup extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly strategy: fabric.Computed<string>;
 
-    constructor(urnName: string, args: PlacementGroupArgs) {
+    constructor(urnName: string, args: PlacementGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.strategy === undefined) {
             throw new Error("Missing required property 'strategy'");
         }
         super("aws:ec2/placementGroup:PlacementGroup", urnName, {
             "name": args.name,
             "strategy": args.strategy,
-        });
+        }, dependsOn);
     }
 }
 

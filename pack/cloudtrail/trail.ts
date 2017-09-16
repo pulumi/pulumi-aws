@@ -19,7 +19,7 @@ export class Trail extends fabric.Resource {
     public readonly snsTopicName?: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
-    constructor(urnName: string, args: TrailArgs) {
+    constructor(urnName: string, args: TrailArgs, dependsOn?: fabric.Resource[]) {
         if (args.s3BucketName === undefined) {
             throw new Error("Missing required property 's3BucketName'");
         }
@@ -38,7 +38,7 @@ export class Trail extends fabric.Resource {
             "tags": args.tags,
             "arn": undefined,
             "homeRegion": undefined,
-        });
+        }, dependsOn);
     }
 }
 

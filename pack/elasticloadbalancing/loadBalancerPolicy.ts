@@ -9,7 +9,7 @@ export class LoadBalancerPolicy extends fabric.Resource {
     public readonly policyName: fabric.Computed<string>;
     public readonly policyTypeName: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LoadBalancerPolicyArgs) {
+    constructor(urnName: string, args: LoadBalancerPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.loadBalancerName === undefined) {
             throw new Error("Missing required property 'loadBalancerName'");
         }
@@ -24,7 +24,7 @@ export class LoadBalancerPolicy extends fabric.Resource {
             "policyAttribute": args.policyAttribute,
             "policyName": args.policyName,
             "policyTypeName": args.policyTypeName,
-        });
+        }, dependsOn);
     }
 }
 

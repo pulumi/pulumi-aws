@@ -11,7 +11,7 @@ export class DefaultSecurityGroup extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DefaultSecurityGroupArgs) {
+    constructor(urnName: string, args?: DefaultSecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", urnName, {
             "egress": args.egress,
             "ingress": args.ingress,
@@ -19,7 +19,7 @@ export class DefaultSecurityGroup extends fabric.Resource {
             "vpcId": args.vpcId,
             "name": undefined,
             "ownerId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

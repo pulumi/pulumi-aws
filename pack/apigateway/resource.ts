@@ -11,7 +11,7 @@ export class Resource extends fabric.Resource {
     public readonly pathPart: fabric.Computed<string>;
     public readonly restApi: fabric.Computed<RestApi>;
 
-    constructor(urnName: string, args: ResourceArgs) {
+    constructor(urnName: string, args: ResourceArgs, dependsOn?: fabric.Resource[]) {
         if (args.parentId === undefined) {
             throw new Error("Missing required property 'parentId'");
         }
@@ -26,7 +26,7 @@ export class Resource extends fabric.Resource {
             "pathPart": args.pathPart,
             "restApi": args.restApi,
             "path": undefined,
-        });
+        }, dependsOn);
     }
 }
 

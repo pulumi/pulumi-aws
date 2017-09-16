@@ -10,7 +10,7 @@ export class AssessmentTemplate extends fabric.Resource {
     public readonly rulesPackageArns: fabric.Computed<string[]>;
     public readonly targetArn: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AssessmentTemplateArgs) {
+    constructor(urnName: string, args: AssessmentTemplateArgs, dependsOn?: fabric.Resource[]) {
         if (args.duration === undefined) {
             throw new Error("Missing required property 'duration'");
         }
@@ -26,7 +26,7 @@ export class AssessmentTemplate extends fabric.Resource {
             "rulesPackageArns": args.rulesPackageArns,
             "targetArn": args.targetArn,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

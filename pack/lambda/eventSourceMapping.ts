@@ -16,7 +16,7 @@ export class EventSourceMapping extends fabric.Resource {
     public /*out*/ readonly stateTransitionReason: fabric.Computed<string>;
     public /*out*/ readonly uuid: fabric.Computed<string>;
 
-    constructor(urnName: string, args: EventSourceMappingArgs) {
+    constructor(urnName: string, args: EventSourceMappingArgs, dependsOn?: fabric.Resource[]) {
         if (args.eventSourceArn === undefined) {
             throw new Error("Missing required property 'eventSourceArn'");
         }
@@ -38,7 +38,7 @@ export class EventSourceMapping extends fabric.Resource {
             "state": undefined,
             "stateTransitionReason": undefined,
             "uuid": undefined,
-        });
+        }, dependsOn);
     }
 }
 

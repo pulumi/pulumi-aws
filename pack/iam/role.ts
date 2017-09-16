@@ -16,7 +16,7 @@ export class Role extends fabric.Resource {
     public readonly path?: fabric.Computed<string>;
     public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: RoleArgs) {
+    constructor(urnName: string, args: RoleArgs, dependsOn?: fabric.Resource[]) {
         if (args.assumeRolePolicy === undefined) {
             throw new Error("Missing required property 'assumeRolePolicy'");
         }
@@ -30,7 +30,7 @@ export class Role extends fabric.Resource {
             "arn": undefined,
             "createDate": undefined,
             "uniqueId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

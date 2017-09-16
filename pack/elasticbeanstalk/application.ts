@@ -7,11 +7,11 @@ export class Application extends fabric.Resource {
     public readonly description?: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ApplicationArgs) {
+    constructor(urnName: string, args?: ApplicationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:elasticbeanstalk/application:Application", urnName, {
             "description": args.description,
             "name": args.name,
-        });
+        }, dependsOn);
     }
 }
 

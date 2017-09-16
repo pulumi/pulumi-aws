@@ -19,7 +19,7 @@ export class Ami extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly virtualizationType?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: AmiArgs) {
+    constructor(urnName: string, args?: AmiArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/ami:Ami", urnName, {
             "architecture": args.architecture,
             "description": args.description,
@@ -35,7 +35,7 @@ export class Ami extends fabric.Resource {
             "virtualizationType": args.virtualizationType,
             "amiId": undefined,
             "manageEbsSnapshots": undefined,
-        });
+        }, dependsOn);
     }
 }
 

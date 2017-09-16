@@ -15,7 +15,7 @@ export class Service extends fabric.Resource {
     public readonly placementStrategy?: fabric.Computed<{ field?: string, type: string }[]>;
     public readonly taskDefinition: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ServiceArgs) {
+    constructor(urnName: string, args: ServiceArgs, dependsOn?: fabric.Resource[]) {
         if (args.taskDefinition === undefined) {
             throw new Error("Missing required property 'taskDefinition'");
         }
@@ -30,7 +30,7 @@ export class Service extends fabric.Resource {
             "placementConstraints": args.placementConstraints,
             "placementStrategy": args.placementStrategy,
             "taskDefinition": args.taskDefinition,
-        });
+        }, dependsOn);
     }
 }
 

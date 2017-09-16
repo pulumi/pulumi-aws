@@ -8,7 +8,7 @@ export class LogStream extends fabric.Resource {
     public readonly logGroupName: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
 
-    constructor(urnName: string, args: LogStreamArgs) {
+    constructor(urnName: string, args: LogStreamArgs, dependsOn?: fabric.Resource[]) {
         if (args.logGroupName === undefined) {
             throw new Error("Missing required property 'logGroupName'");
         }
@@ -16,7 +16,7 @@ export class LogStream extends fabric.Resource {
             "logGroupName": args.logGroupName,
             "name": args.name,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

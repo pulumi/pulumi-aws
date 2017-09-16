@@ -16,7 +16,7 @@ export class Pipeline extends fabric.Resource {
     public readonly thumbnailConfig: fabric.Computed<{ bucket: string, storageClass?: string }[]>;
     public readonly thumbnailConfigPermissions?: fabric.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
 
-    constructor(urnName: string, args: PipelineArgs) {
+    constructor(urnName: string, args: PipelineArgs, dependsOn?: fabric.Resource[]) {
         if (args.inputBucket === undefined) {
             throw new Error("Missing required property 'inputBucket'");
         }
@@ -35,7 +35,7 @@ export class Pipeline extends fabric.Resource {
             "thumbnailConfig": args.thumbnailConfig,
             "thumbnailConfigPermissions": args.thumbnailConfigPermissions,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

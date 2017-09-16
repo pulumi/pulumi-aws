@@ -14,7 +14,7 @@ export class ApiKey extends fabric.Resource {
     public readonly stageKey?: fabric.Computed<{ restApi: RestApi, stageName: string }[]>;
     public readonly value: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ApiKeyArgs) {
+    constructor(urnName: string, args?: ApiKeyArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/apiKey:ApiKey", urnName, {
             "description": args.description,
             "enabled": args.enabled,
@@ -23,7 +23,7 @@ export class ApiKey extends fabric.Resource {
             "value": args.value,
             "createdDate": undefined,
             "lastUpdatedDate": undefined,
-        });
+        }, dependsOn);
     }
 }
 

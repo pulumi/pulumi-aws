@@ -26,7 +26,7 @@ export class ClusterInstance extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly writer: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: ClusterInstanceArgs) {
+    constructor(urnName: string, args: ClusterInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterIdentifier === undefined) {
             throw new Error("Missing required property 'clusterIdentifier'");
         }
@@ -55,7 +55,7 @@ export class ClusterInstance extends fabric.Resource {
             "port": undefined,
             "storageEncrypted": undefined,
             "writer": undefined,
-        });
+        }, dependsOn);
     }
 }
 

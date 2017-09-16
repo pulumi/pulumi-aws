@@ -16,7 +16,7 @@ export class IntegrationResponse extends fabric.Resource {
     public readonly selectionPattern?: fabric.Computed<string>;
     public readonly statusCode: fabric.Computed<string>;
 
-    constructor(urnName: string, args: IntegrationResponseArgs) {
+    constructor(urnName: string, args: IntegrationResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.httpMethod === undefined) {
             throw new Error("Missing required property 'httpMethod'");
         }
@@ -39,7 +39,7 @@ export class IntegrationResponse extends fabric.Resource {
             "restApi": args.restApi,
             "selectionPattern": args.selectionPattern,
             "statusCode": args.statusCode,
-        });
+        }, dependsOn);
     }
 }
 

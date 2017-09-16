@@ -19,7 +19,7 @@ export class Queue extends fabric.Resource {
     public readonly redrivePolicy?: fabric.Computed<string>;
     public readonly visibilityTimeoutSeconds?: fabric.Computed<number>;
 
-    constructor(urnName: string, args: QueueArgs) {
+    constructor(urnName: string, args?: QueueArgs, dependsOn?: fabric.Resource[]) {
         super("aws:sqs/queue:Queue", urnName, {
             "contentBasedDeduplication": args.contentBasedDeduplication,
             "delaySeconds": args.delaySeconds,
@@ -35,7 +35,7 @@ export class Queue extends fabric.Resource {
             "redrivePolicy": args.redrivePolicy,
             "visibilityTimeoutSeconds": args.visibilityTimeoutSeconds,
             "arn": undefined,
-        });
+        }, dependsOn);
     }
 }
 

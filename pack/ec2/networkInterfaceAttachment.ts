@@ -10,7 +10,7 @@ export class NetworkInterfaceAttachment extends fabric.Resource {
     public readonly networkInterfaceId: fabric.Computed<string>;
     public /*out*/ readonly status: fabric.Computed<string>;
 
-    constructor(urnName: string, args: NetworkInterfaceAttachmentArgs) {
+    constructor(urnName: string, args: NetworkInterfaceAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.deviceIndex === undefined) {
             throw new Error("Missing required property 'deviceIndex'");
         }
@@ -26,7 +26,7 @@ export class NetworkInterfaceAttachment extends fabric.Resource {
             "networkInterfaceId": args.networkInterfaceId,
             "attachmentId": undefined,
             "status": undefined,
-        });
+        }, dependsOn);
     }
 }
 

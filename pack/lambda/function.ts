@@ -31,7 +31,7 @@ export class Function extends fabric.Resource {
     public /*out*/ readonly version: fabric.Computed<string>;
     public readonly vpcConfig?: fabric.Computed<{ securityGroupIds: string[], subnetIds: string[], vpcId: string }[]>;
 
-    constructor(urnName: string, args: FunctionArgs) {
+    constructor(urnName: string, args: FunctionArgs, dependsOn?: fabric.Resource[]) {
         if (args.handler === undefined) {
             throw new Error("Missing required property 'handler'");
         }
@@ -66,7 +66,7 @@ export class Function extends fabric.Resource {
             "lastModified": undefined,
             "qualifiedArn": undefined,
             "version": undefined,
-        });
+        }, dependsOn);
     }
 }
 

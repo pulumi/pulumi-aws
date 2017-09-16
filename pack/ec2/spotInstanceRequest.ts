@@ -45,7 +45,7 @@ export class SpotInstanceRequest extends fabric.Resource {
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
     public readonly waitForFulfillment?: fabric.Computed<boolean>;
 
-    constructor(urnName: string, args: SpotInstanceRequestArgs) {
+    constructor(urnName: string, args: SpotInstanceRequestArgs, dependsOn?: fabric.Resource[]) {
         if (args.ami === undefined) {
             throw new Error("Missing required property 'ami'");
         }
@@ -96,7 +96,7 @@ export class SpotInstanceRequest extends fabric.Resource {
             "spotBidStatus": undefined,
             "spotInstanceId": undefined,
             "spotRequestState": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -11,7 +11,7 @@ export class OriginAccessIdentity extends fabric.Resource {
     public /*out*/ readonly iamArn: fabric.Computed<string>;
     public /*out*/ readonly s3CanonicalUserId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: OriginAccessIdentityArgs) {
+    constructor(urnName: string, args?: OriginAccessIdentityArgs, dependsOn?: fabric.Resource[]) {
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", urnName, {
             "comment": args.comment,
             "callerReference": undefined,
@@ -19,7 +19,7 @@ export class OriginAccessIdentity extends fabric.Resource {
             "etag": undefined,
             "iamArn": undefined,
             "s3CanonicalUserId": undefined,
-        });
+        }, dependsOn);
     }
 }
 

@@ -15,7 +15,7 @@ export class PolicyAttachment extends fabric.Resource {
     public readonly roles?: fabric.Computed<Role[]>;
     public readonly users?: fabric.Computed<User[]>;
 
-    constructor(urnName: string, args: PolicyAttachmentArgs) {
+    constructor(urnName: string, args: PolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.policyArn === undefined) {
             throw new Error("Missing required property 'policyArn'");
         }
@@ -25,7 +25,7 @@ export class PolicyAttachment extends fabric.Resource {
             "policyArn": args.policyArn,
             "roles": args.roles,
             "users": args.users,
-        });
+        }, dependsOn);
     }
 }
 

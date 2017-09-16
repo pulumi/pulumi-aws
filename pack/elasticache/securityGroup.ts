@@ -8,7 +8,7 @@ export class SecurityGroup extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     public readonly securityGroupNames: fabric.Computed<string[]>;
 
-    constructor(urnName: string, args: SecurityGroupArgs) {
+    constructor(urnName: string, args: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.securityGroupNames === undefined) {
             throw new Error("Missing required property 'securityGroupNames'");
         }
@@ -16,7 +16,7 @@ export class SecurityGroup extends fabric.Resource {
             "description": args.description,
             "name": args.name,
             "securityGroupNames": args.securityGroupNames,
-        });
+        }, dependsOn);
     }
 }
 

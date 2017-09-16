@@ -10,7 +10,7 @@ export class DeliveryChannel extends fabric.Resource {
     public readonly snapshotDeliveryProperties?: fabric.Computed<{ deliveryFrequency?: string }[]>;
     public readonly snsTopicArn?: fabric.Computed<string>;
 
-    constructor(urnName: string, args: DeliveryChannelArgs) {
+    constructor(urnName: string, args: DeliveryChannelArgs, dependsOn?: fabric.Resource[]) {
         if (args.s3BucketName === undefined) {
             throw new Error("Missing required property 's3BucketName'");
         }
@@ -20,7 +20,7 @@ export class DeliveryChannel extends fabric.Resource {
             "s3KeyPrefix": args.s3KeyPrefix,
             "snapshotDeliveryProperties": args.snapshotDeliveryProperties,
             "snsTopicArn": args.snsTopicArn,
-        });
+        }, dependsOn);
     }
 }
 

@@ -14,7 +14,7 @@ export class Zone extends fabric.Resource {
     public readonly vpcRegion: fabric.Computed<string>;
     public /*out*/ readonly zoneId: fabric.Computed<string>;
 
-    constructor(urnName: string, args: ZoneArgs) {
+    constructor(urnName: string, args?: ZoneArgs, dependsOn?: fabric.Resource[]) {
         super("aws:route53/zone:Zone", urnName, {
             "comment": args.comment,
             "delegationSetId": args.delegationSetId,
@@ -25,7 +25,7 @@ export class Zone extends fabric.Resource {
             "vpcRegion": args.vpcRegion,
             "nameServers": undefined,
             "zoneId": undefined,
-        });
+        }, dependsOn);
     }
 }
 
