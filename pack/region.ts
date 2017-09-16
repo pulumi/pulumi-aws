@@ -5,7 +5,7 @@ export let APNortheast2Region: Region = "ap-northeast-2";
 export let APSouth1Region: Region     = "ap-south-1";
 export let APSouthEast2Region: Region = "ap-southeast-2";
 export let APSoutheast1Region: Region = "ap-southeast-1";
-export let CACentralRegion: Region    = "ca-central";
+export let CACentralRegion: Region    = "ca-central-1";
 export let EUCentral1Region: Region   = "eu-central-1";
 export let EUWest1Region: Region      = "eu-west-1";
 export let EUWest2Region: Region      = "eu-west-2";
@@ -22,7 +22,7 @@ export type Region =
     "ap-south-1"     |
     "ap-southeast-2" |
     "ap-southeast-1" |
-    "ca-central"     |
+    "ca-central-1"   |
     "eu-central-1"   |
     "eu-west-1"      |
     "eu-west-2"      |
