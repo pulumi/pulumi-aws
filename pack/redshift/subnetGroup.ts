@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+ */
 export class SubnetGroup extends fabric.Resource {
+    /**
+     * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the Redshift Subnet group.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * An array of VPC subnet IDs.
+     */
     public readonly subnetIds: fabric.Computed<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a SubnetGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SubnetGroup instance
+     * @param args A collection of arguments for creating this SubnetGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SubnetGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnetIds === undefined) {
             throw new Error("Missing required property 'subnetIds'");
@@ -22,10 +45,25 @@ export class SubnetGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SubnetGroup resource.
+ */
 export interface SubnetGroupArgs {
+    /**
+     * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the Redshift Subnet group.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * An array of VPC subnet IDs.
+     */
     readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

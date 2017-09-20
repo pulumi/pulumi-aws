@@ -3,11 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an ElastiCache Security Group to control access to one or more cache
+ * clusters.
+ * 
+ * ~> **NOTE:** ElastiCache Security Groups are for use only when working with an
+ * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+ * [ElastiCache Subnet Group resource](elasticache_subnet_group.html).
+ */
 export class SecurityGroup extends fabric.Resource {
     public readonly description?: fabric.Computed<string>;
     public readonly name: fabric.Computed<string>;
     public readonly securityGroupNames: fabric.Computed<string[]>;
 
+    /**
+     * Create a SecurityGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SecurityGroup instance
+     * @param args A collection of arguments for creating this SecurityGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.securityGroupNames === undefined) {
             throw new Error("Missing required property 'securityGroupNames'");
@@ -20,6 +36,9 @@ export class SecurityGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SecurityGroup resource.
+ */
 export interface SecurityGroupArgs {
     readonly description?: fabric.MaybeComputed<string>;
     readonly name?: fabric.MaybeComputed<string>;

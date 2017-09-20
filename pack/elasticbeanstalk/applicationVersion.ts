@@ -6,14 +6,59 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
 
+/**
+ * Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
+ * you to deploy and manage applications in the AWS cloud without worrying about
+ * the infrastructure that runs those applications.
+ * 
+ * This resource creates a Beanstalk Application Version that can be deployed to a Beanstalk
+ * Environment.
+ * 
+ * ~> **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
+ * [Elastic Beanstalk Environments](elastic_beanstalk_environment.html) it is possible that an error may be returned
+ * when attempting to delete an Application Version while it is still in use by a different environment.
+ * To work around this you can:
+ * <ol>
+ * <li>Create each environment in a separate AWS account</li>
+ * <li>Create your `aws_elastic_beanstalk_application_version` resources with a unique names in your 
+ * Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
+ * </ol>
+ */
 export class ApplicationVersion extends fabric.Resource {
+    /**
+     * Name of the Beanstalk Application the version is associated with.
+     */
     public readonly application: fabric.Computed<Application>;
+    /**
+     * S3 bucket that contains the Application Version source bundle.
+     */
     public readonly bucket: fabric.Computed<Bucket>;
+    /**
+     * Short description of the Application Version.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * On delete, force an Application Version to be deleted when it may be in use
+     * by multiple Elastic Beanstalk Environments.
+     */
     public readonly forceDelete?: fabric.Computed<boolean>;
+    /**
+     * S3 object that is the Application Version source bundle.
+     */
     public readonly key: fabric.Computed<string>;
+    /**
+     * A unique name for the this Application Version.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a ApplicationVersion resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ApplicationVersion instance
+     * @param args A collection of arguments for creating this ApplicationVersion intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ApplicationVersionArgs, dependsOn?: fabric.Resource[]) {
         if (args.application === undefined) {
             throw new Error("Missing required property 'application'");
@@ -35,12 +80,34 @@ export class ApplicationVersion extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ApplicationVersion resource.
+ */
 export interface ApplicationVersionArgs {
+    /**
+     * Name of the Beanstalk Application the version is associated with.
+     */
     readonly application: fabric.MaybeComputed<Application>;
+    /**
+     * S3 bucket that contains the Application Version source bundle.
+     */
     readonly bucket: fabric.MaybeComputed<Bucket>;
+    /**
+     * Short description of the Application Version.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * On delete, force an Application Version to be deleted when it may be in use
+     * by multiple Elastic Beanstalk Environments.
+     */
     readonly forceDelete?: fabric.MaybeComputed<boolean>;
+    /**
+     * S3 object that is the Application Version source bundle.
+     */
     readonly key: fabric.MaybeComputed<string>;
+    /**
+     * A unique name for the this Application Version.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

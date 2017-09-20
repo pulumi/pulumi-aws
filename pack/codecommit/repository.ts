@@ -12,6 +12,14 @@ export class Repository extends fabric.Resource {
     public /*out*/ readonly repositoryId: fabric.Computed<string>;
     public readonly repositoryName: fabric.Computed<string>;
 
+    /**
+     * Create a Repository resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Repository instance
+     * @param args A collection of arguments for creating this Repository intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RepositoryArgs, dependsOn?: fabric.Resource[]) {
         if (args.repositoryName === undefined) {
             throw new Error("Missing required property 'repositoryName'");
@@ -28,6 +36,9 @@ export class Repository extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Repository resource.
+ */
 export interface RepositoryArgs {
     readonly defaultBranch?: fabric.MaybeComputed<string>;
     readonly description?: fabric.MaybeComputed<string>;

@@ -3,14 +3,43 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an RDS DB subnet group resource.
+ */
 export class SubnetGroup extends fabric.Resource {
+    /**
+     * The ARN of the db subnet group.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The description of the DB subnet group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix: fabric.Computed<string>;
+    /**
+     * A list of VPC subnet IDs.
+     */
     public readonly subnetIds: fabric.Computed<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a SubnetGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SubnetGroup instance
+     * @param args A collection of arguments for creating this SubnetGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SubnetGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnetIds === undefined) {
             throw new Error("Missing required property 'subnetIds'");
@@ -26,11 +55,29 @@ export class SubnetGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SubnetGroup resource.
+ */
 export interface SubnetGroupArgs {
+    /**
+     * The description of the DB subnet group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * A list of VPC subnet IDs.
+     */
     readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

@@ -3,16 +3,65 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a security group resource.
+ * 
+ * ~> **NOTE on Security Groups and Security Group Rules:** Terraform currently
+ * provides both a standalone [Security Group Rule resource](security_group_rule.html) (a single `ingress` or
+ * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+ * defined in-line. At this time you cannot use a Security Group with in-line rules
+ * in conjunction with any Security Group Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ */
 export class SecurityGroup extends fabric.Resource {
+    /**
+     * The security group description. Defaults to
+     * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
+     * `GroupDescription` attribute, for which there is no Update API. If you'd like
+     * to classify your security groups in a way that can be updated, use `tags`.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Can be specified multiple times for each
+     * egress rule. Each egress block supports fields documented below.
+     */
     public readonly egress: fabric.Computed<{ cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
+    /**
+     * Can be specified multiple times for each
+     * ingress rule. Each ingress block supports fields documented below.
+     */
     public readonly ingress: fabric.Computed<{ cidrBlocks?: string[], fromPort: number, ipv6CidrBlocks?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
+    /**
+     * The name of the security group. If omitted, Terraform will
+     * assign a random, unique name
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The owner ID.
+     */
     public /*out*/ readonly ownerId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The VPC ID.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a SecurityGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SecurityGroup instance
+     * @param args A collection of arguments for creating this SecurityGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/securityGroup:SecurityGroup", urnName, {
             "description": args.description,
@@ -27,13 +76,44 @@ export class SecurityGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SecurityGroup resource.
+ */
 export interface SecurityGroupArgs {
+    /**
+     * The security group description. Defaults to
+     * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
+     * `GroupDescription` attribute, for which there is no Update API. If you'd like
+     * to classify your security groups in a way that can be updated, use `tags`.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * Can be specified multiple times for each
+     * egress rule. Each egress block supports fields documented below.
+     */
     readonly egress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
+    /**
+     * Can be specified multiple times for each
+     * ingress rule. Each ingress block supports fields documented below.
+     */
     readonly ingress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
+    /**
+     * The name of the security group. If omitted, Terraform will
+     * assign a random, unique name
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The VPC ID.
+     */
     readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

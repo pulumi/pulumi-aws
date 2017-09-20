@@ -12,6 +12,14 @@ export class ClusterParameterGroup extends fabric.Resource {
     public readonly parameter?: fabric.Computed<{ applyMethod?: string, name: string, value: string }[]>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a ClusterParameterGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ClusterParameterGroup instance
+     * @param args A collection of arguments for creating this ClusterParameterGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ClusterParameterGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.family === undefined) {
             throw new Error("Missing required property 'family'");
@@ -28,6 +36,9 @@ export class ClusterParameterGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ClusterParameterGroup resource.
+ */
 export interface ClusterParameterGroupArgs {
     readonly description?: fabric.MaybeComputed<string>;
     readonly family: fabric.MaybeComputed<string>;

@@ -3,11 +3,32 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Attaches a load balancer policy to an ELB backend server.
+ * 
+ */
 export class LoadBalancerBackendServerPolicy extends fabric.Resource {
+    /**
+     * The instance port to apply the policy to.
+     */
     public readonly instancePort: fabric.Computed<number>;
+    /**
+     * The load balancer to attach the policy to.
+     */
     public readonly loadBalancerName: fabric.Computed<string>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     public readonly policyNames?: fabric.Computed<string[]>;
 
+    /**
+     * Create a LoadBalancerBackendServerPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LoadBalancerBackendServerPolicy instance
+     * @param args A collection of arguments for creating this LoadBalancerBackendServerPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LoadBalancerBackendServerPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.instancePort === undefined) {
             throw new Error("Missing required property 'instancePort'");
@@ -23,9 +44,21 @@ export class LoadBalancerBackendServerPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LoadBalancerBackendServerPolicy resource.
+ */
 export interface LoadBalancerBackendServerPolicyArgs {
+    /**
+     * The instance port to apply the policy to.
+     */
     readonly instancePort: fabric.MaybeComputed<number>;
+    /**
+     * The load balancer to attach the policy to.
+     */
     readonly loadBalancerName: fabric.MaybeComputed<string>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create a VPC Internet Gateway.
+ */
 export class InternetGateway extends fabric.Resource {
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The VPC ID to create in.
+     */
     public readonly vpcId?: fabric.Computed<string>;
 
+    /**
+     * Create a InternetGateway resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this InternetGateway instance
+     * @param args A collection of arguments for creating this InternetGateway intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: InternetGatewayArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/internetGateway:InternetGateway", urnName, {
             "tags": args.tags,
@@ -15,8 +32,17 @@ export class InternetGateway extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a InternetGateway resource.
+ */
 export interface InternetGatewayArgs {
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The VPC ID to create in.
+     */
     readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

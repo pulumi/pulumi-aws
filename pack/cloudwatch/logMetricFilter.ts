@@ -3,12 +3,37 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CloudWatch Log Metric Filter resource.
+ */
 export class LogMetricFilter extends fabric.Resource {
+    /**
+     * The name of the log group to associate the metric filter with.
+     */
     public readonly logGroupName: fabric.Computed<string>;
+    /**
+     * A block defining collection of information
+     * needed to define how metric data gets emitted. See below.
+     */
     public readonly metricTransformation: fabric.Computed<{ name: string, namespace: string, value: string }[]>;
+    /**
+     * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
+     * for extracting metric data out of ingested log events.
+     */
     public readonly pattern: fabric.Computed<string>;
 
+    /**
+     * Create a LogMetricFilter resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LogMetricFilter instance
+     * @param args A collection of arguments for creating this LogMetricFilter intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LogMetricFilterArgs, dependsOn?: fabric.Resource[]) {
         if (args.logGroupName === undefined) {
             throw new Error("Missing required property 'logGroupName'");
@@ -28,10 +53,27 @@ export class LogMetricFilter extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LogMetricFilter resource.
+ */
 export interface LogMetricFilterArgs {
+    /**
+     * The name of the log group to associate the metric filter with.
+     */
     readonly logGroupName: fabric.MaybeComputed<string>;
+    /**
+     * A block defining collection of information
+     * needed to define how metric data gets emitted. See below.
+     */
     readonly metricTransformation: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
+     * for extracting metric data out of ingested log events.
+     */
     readonly pattern: fabric.MaybeComputed<string>;
 }
 

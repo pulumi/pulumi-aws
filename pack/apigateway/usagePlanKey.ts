@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an API Gateway Usage Plan Key.
+ */
 export class UsagePlanKey extends fabric.Resource {
+    /**
+     * The identifier of the API key resource.
+     */
     public readonly keyId: fabric.Computed<string>;
+    /**
+     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     */
     public readonly keyType: fabric.Computed<string>;
+    /**
+     * The name of a usage plan key.
+     */
     public /*out*/ readonly name: fabric.Computed<string>;
+    /**
+     * The Id of the usage plan resource representing to associate the key to.
+     */
     public readonly usagePlanId: fabric.Computed<string>;
+    /**
+     * The value of a usage plan key.
+     */
     public /*out*/ readonly value: fabric.Computed<string>;
 
+    /**
+     * Create a UsagePlanKey resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this UsagePlanKey instance
+     * @param args A collection of arguments for creating this UsagePlanKey intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: UsagePlanKeyArgs, dependsOn?: fabric.Resource[]) {
         if (args.keyId === undefined) {
             throw new Error("Missing required property 'keyId'");
@@ -30,9 +56,21 @@ export class UsagePlanKey extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a UsagePlanKey resource.
+ */
 export interface UsagePlanKeyArgs {
+    /**
+     * The identifier of the API key resource.
+     */
     readonly keyId: fabric.MaybeComputed<string>;
+    /**
+     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     */
     readonly keyType: fabric.MaybeComputed<string>;
+    /**
+     * The Id of the usage plan resource representing to associate the key to.
+     */
     readonly usagePlanId: fabric.MaybeComputed<string>;
 }
 

@@ -3,14 +3,43 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an API Gateway Usage Plan.
+ */
 export class UsagePlan extends fabric.Resource {
+    /**
+     * of the usage plan.
+     */
     public readonly apiStages?: fabric.Computed<{ apiId: string, stage: string }[]>;
+    /**
+     * The description of a usage plan.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the usage plan.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     */
     public readonly productCode?: fabric.Computed<string>;
+    /**
+     * of the usage plan.
+     */
     public readonly quotaSettings?: fabric.Computed<{ limit: number, offset?: number, period: string }[]>;
+    /**
+     * of the usage plan.
+     */
     public readonly throttleSettings?: fabric.Computed<{ burstLimit?: number, rateLimit?: number }[]>;
 
+    /**
+     * Create a UsagePlan resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this UsagePlan instance
+     * @param args A collection of arguments for creating this UsagePlan intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: UsagePlanArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/usagePlan:UsagePlan", urnName, {
             "apiStages": args.apiStages,
@@ -23,12 +52,33 @@ export class UsagePlan extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a UsagePlan resource.
+ */
 export interface UsagePlanArgs {
+    /**
+     * of the usage plan.
+     */
     readonly apiStages?: fabric.MaybeComputed<{ apiId: fabric.MaybeComputed<string>, stage: fabric.MaybeComputed<string> }>[];
+    /**
+     * The description of a usage plan.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the usage plan.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     */
     readonly productCode?: fabric.MaybeComputed<string>;
+    /**
+     * of the usage plan.
+     */
     readonly quotaSettings?: fabric.MaybeComputed<{ limit: fabric.MaybeComputed<number>, offset?: fabric.MaybeComputed<number>, period: fabric.MaybeComputed<string> }>[];
+    /**
+     * of the usage plan.
+     */
     readonly throttleSettings?: fabric.MaybeComputed<{ burstLimit?: fabric.MaybeComputed<number>, rateLimit?: fabric.MaybeComputed<number> }>[];
 }
 

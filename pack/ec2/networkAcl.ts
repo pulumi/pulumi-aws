@@ -3,14 +3,45 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an network ACL resource. You might set up network ACLs with rules similar
+ * to your security groups in order to add an additional layer of security to your VPC.
+ */
 export class NetworkAcl extends fabric.Resource {
+    /**
+     * Specifies an egress rule. Parameters defined below.
+     */
     public readonly egress: fabric.Computed<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    /**
+     * Specifies an ingress rule. Parameters defined below.
+     */
     public readonly ingress: fabric.Computed<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    /**
+     * The ID of the associated Subnet. This
+     * attribute is deprecated, please use the `subnet_ids` attribute instead
+     */
     public readonly subnetId?: fabric.Computed<string>;
+    /**
+     * A list of Subnet IDs to apply the ACL to
+     */
     public readonly subnetIds: fabric.Computed<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The ID of the associated VPC.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a NetworkAcl resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this NetworkAcl instance
+     * @param args A collection of arguments for creating this NetworkAcl intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: NetworkAclArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
@@ -26,12 +57,34 @@ export class NetworkAcl extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a NetworkAcl resource.
+ */
 export interface NetworkAclArgs {
+    /**
+     * Specifies an egress rule. Parameters defined below.
+     */
     readonly egress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    /**
+     * Specifies an ingress rule. Parameters defined below.
+     */
     readonly ingress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    /**
+     * The ID of the associated Subnet. This
+     * attribute is deprecated, please use the `subnet_ids` attribute instead
+     */
     readonly subnetId?: fabric.MaybeComputed<string>;
+    /**
+     * A list of Subnet IDs to apply the ACL to
+     */
     readonly subnetIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The ID of the associated VPC.
+     */
     readonly vpcId: fabric.MaybeComputed<string>;
 }
 

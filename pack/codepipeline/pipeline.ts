@@ -9,6 +9,14 @@ export class Pipeline extends fabric.Resource {
     public readonly roleArn: fabric.Computed<string>;
     public readonly stage: fabric.Computed<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
+    /**
+     * Create a Pipeline resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Pipeline instance
+     * @param args A collection of arguments for creating this Pipeline intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PipelineArgs, dependsOn?: fabric.Resource[]) {
         if (args.artifactStore === undefined) {
             throw new Error("Missing required property 'artifactStore'");
@@ -28,6 +36,9 @@ export class Pipeline extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Pipeline resource.
+ */
 export interface PipelineArgs {
     readonly artifactStore: fabric.MaybeComputed<{ encryptionKey?: fabric.MaybeComputed<{ id: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], location: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
     readonly name?: fabric.MaybeComputed<string>;

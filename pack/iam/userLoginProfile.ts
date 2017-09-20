@@ -3,14 +3,49 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides one-time creation of a IAM user login profile, and uses PGP to
+ * encrypt the password for safe transport to the user. PGP keys can be
+ * obtained from Keybase.
+ */
 export class UserLoginProfile extends fabric.Resource {
+    /**
+     * The encrypted password, base64 encoded.
+     */
     public /*out*/ readonly encryptedPassword: fabric.Computed<string>;
+    /**
+     * The fingerprint of the PGP key used to encrypt
+     * the password
+     */
     public /*out*/ readonly keyFingerprint: fabric.Computed<string>;
+    /**
+     * The length of the generated
+     * password.
+     */
     public readonly passwordLength?: fabric.Computed<number>;
+    /**
+     * Whether the
+     * user should be forced to reset the generated password on first login.
+     */
     public readonly passwordResetRequired?: fabric.Computed<boolean>;
+    /**
+     * Either a base-64 encoded PGP public key, or a
+     * keybase username in the form `keybase:username`.
+     */
     public readonly pgpKey: fabric.Computed<string>;
+    /**
+     * The IAM user's name.
+     */
     public readonly user: fabric.Computed<string>;
 
+    /**
+     * Create a UserLoginProfile resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this UserLoginProfile instance
+     * @param args A collection of arguments for creating this UserLoginProfile intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: UserLoginProfileArgs, dependsOn?: fabric.Resource[]) {
         if (args.pgpKey === undefined) {
             throw new Error("Missing required property 'pgpKey'");
@@ -29,10 +64,28 @@ export class UserLoginProfile extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a UserLoginProfile resource.
+ */
 export interface UserLoginProfileArgs {
+    /**
+     * The length of the generated
+     * password.
+     */
     readonly passwordLength?: fabric.MaybeComputed<number>;
+    /**
+     * Whether the
+     * user should be forced to reset the generated password on first login.
+     */
     readonly passwordResetRequired?: fabric.MaybeComputed<boolean>;
+    /**
+     * Either a base-64 encoded PGP public key, or a
+     * keybase username in the form `keybase:username`.
+     */
     readonly pgpKey: fabric.MaybeComputed<string>;
+    /**
+     * The IAM user's name.
+     */
     readonly user: fabric.MaybeComputed<string>;
 }
 

@@ -3,14 +3,47 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SSM Patch Baseline resource
+ * 
+ * ~> **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
+ * both marked as optional fields, but the Patch Baseline requires that at least one
+ * of them is specified.
+ */
 export class PatchBaseline extends fabric.Resource {
+    /**
+     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     */
     public readonly approvalRule?: fabric.Computed<{ approveAfterDays: number, patchFilter: { key: string, values: string[] }[] }[]>;
+    /**
+     * A list of explicitly approved patches for the baseline.
+     */
     public readonly approvedPatches?: fabric.Computed<string[]>;
+    /**
+     * The description of the patch baseline.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+     */
     public readonly globalFilter?: fabric.Computed<{ key: string, values: string[] }[]>;
+    /**
+     * The name of the patch baseline.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A list of rejected patches.
+     */
     public readonly rejectedPatches?: fabric.Computed<string[]>;
 
+    /**
+     * Create a PatchBaseline resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this PatchBaseline instance
+     * @param args A collection of arguments for creating this PatchBaseline intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: PatchBaselineArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ssm/patchBaseline:PatchBaseline", urnName, {
             "approvalRule": args.approvalRule,
@@ -23,12 +56,33 @@ export class PatchBaseline extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a PatchBaseline resource.
+ */
 export interface PatchBaselineArgs {
+    /**
+     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     */
     readonly approvalRule?: fabric.MaybeComputed<{ approveAfterDays: fabric.MaybeComputed<number>, patchFilter: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[] }>[];
+    /**
+     * A list of explicitly approved patches for the baseline.
+     */
     readonly approvedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * The description of the patch baseline.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+     */
     readonly globalFilter?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    /**
+     * The name of the patch baseline.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * A list of rejected patches.
+     */
     readonly rejectedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

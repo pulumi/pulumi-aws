@@ -13,6 +13,14 @@ export class Volume extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public readonly type: fabric.Computed<string>;
 
+    /**
+     * Create a Volume resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Volume instance
+     * @param args A collection of arguments for creating this Volume intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VolumeArgs, dependsOn?: fabric.Resource[]) {
         if (args.availabilityZone === undefined) {
             throw new Error("Missing required property 'availabilityZone'");
@@ -30,6 +38,9 @@ export class Volume extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Volume resource.
+ */
 export interface VolumeArgs {
     readonly availabilityZone: fabric.MaybeComputed<string>;
     readonly encrypted?: fabric.MaybeComputed<boolean>;

@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
+ */
 export class ByteMatchSet extends fabric.Resource {
+    /**
+     * that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     public readonly byteMatchTuple?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a ByteMatchSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ByteMatchSet instance
+     * @param args A collection of arguments for creating this ByteMatchSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ByteMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:wafregional/byteMatchSet:ByteMatchSet", urnName, {
             "byteMatchTuple": args.byteMatchTuple,
@@ -15,8 +32,17 @@ export class ByteMatchSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ByteMatchSet resource.
+ */
 export interface ByteMatchSetArgs {
+    /**
+     * that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     readonly byteMatchTuple?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], positionalConstraint: fabric.MaybeComputed<string>, targetString?: fabric.MaybeComputed<string>, textTransformation: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

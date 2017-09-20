@@ -3,15 +3,47 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an RDS DB parameter group resource.
+ */
 export class ParameterGroup extends fabric.Resource {
+    /**
+     * The ARN of the db parameter group.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The description of the DB parameter group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The family of the DB parameter group.
+     */
     public readonly family: fabric.Computed<string>;
+    /**
+     * The name of the DB parameter.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix: fabric.Computed<string>;
+    /**
+     * after initial creation of the group.
+     */
     public readonly parameter?: fabric.Computed<{ applyMethod?: string, name: string, value: string }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a ParameterGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ParameterGroup instance
+     * @param args A collection of arguments for creating this ParameterGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ParameterGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.family === undefined) {
             throw new Error("Missing required property 'family'");
@@ -28,12 +60,33 @@ export class ParameterGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ParameterGroup resource.
+ */
 export interface ParameterGroupArgs {
+    /**
+     * The description of the DB parameter group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The family of the DB parameter group.
+     */
     readonly family: fabric.MaybeComputed<string>;
+    /**
+     * The name of the DB parameter.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * after initial creation of the group.
+     */
     readonly parameter?: fabric.MaybeComputed<{ applyMethod?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

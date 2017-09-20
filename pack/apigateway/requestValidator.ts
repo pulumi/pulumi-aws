@@ -11,6 +11,14 @@ export class RequestValidator extends fabric.Resource {
     public readonly validateRequestBody?: fabric.Computed<boolean>;
     public readonly validateRequestParameters?: fabric.Computed<boolean>;
 
+    /**
+     * Create a RequestValidator resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RequestValidator instance
+     * @param args A collection of arguments for creating this RequestValidator intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RequestValidatorArgs, dependsOn?: fabric.Resource[]) {
         if (args.restApi === undefined) {
             throw new Error("Missing required property 'restApi'");
@@ -24,6 +32,9 @@ export class RequestValidator extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RequestValidator resource.
+ */
 export interface RequestValidatorArgs {
     readonly name?: fabric.MaybeComputed<string>;
     readonly restApi: fabric.MaybeComputed<RestApi>;

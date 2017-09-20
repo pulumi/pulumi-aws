@@ -5,15 +5,57 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Function} from "./function";
 
+/**
+ * Creates a Lambda permission to allow external sources invoking the Lambda function
+ * (e.g. CloudWatch Event Rule, SNS or S3).
+ */
 export class Permission extends fabric.Resource {
+    /**
+     * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+     */
     public readonly action: fabric.Computed<string>;
+    /**
+     * Name of the Lambda function whose resource policy you are updating
+     */
     public readonly function: fabric.Computed<Function>;
+    /**
+     * The principal who is getting this permission.
+     * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
+     * such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     */
     public readonly principal: fabric.Computed<string>;
+    /**
+     * Query parameter to specify function version or alias name.
+     * The permission will then apply to the specific qualified ARN.
+     * e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     */
     public readonly qualifier?: fabric.Computed<string>;
+    /**
+     * of the source owner.
+     */
     public readonly sourceAccount?: fabric.Computed<string>;
+    /**
+     * When granting Amazon S3 or CloudWatch Events permission to
+     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
+     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
+     * generated from the specified bucket or rule can invoke the function.
+     * API Gateway ARNs have a unique structure described
+     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     */
     public readonly sourceArn?: fabric.Computed<string>;
+    /**
+     * A unique statement identifier.
+     */
     public readonly statementId: fabric.Computed<string>;
 
+    /**
+     * Create a Permission resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Permission instance
+     * @param args A collection of arguments for creating this Permission intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.action === undefined) {
             throw new Error("Missing required property 'action'");
@@ -36,13 +78,46 @@ export class Permission extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Permission resource.
+ */
 export interface PermissionArgs {
+    /**
+     * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+     */
     readonly action: fabric.MaybeComputed<string>;
+    /**
+     * Name of the Lambda function whose resource policy you are updating
+     */
     readonly function: fabric.MaybeComputed<Function>;
+    /**
+     * The principal who is getting this permission.
+     * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
+     * such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     */
     readonly principal: fabric.MaybeComputed<string>;
+    /**
+     * Query parameter to specify function version or alias name.
+     * The permission will then apply to the specific qualified ARN.
+     * e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     */
     readonly qualifier?: fabric.MaybeComputed<string>;
+    /**
+     * of the source owner.
+     */
     readonly sourceAccount?: fabric.MaybeComputed<string>;
+    /**
+     * When granting Amazon S3 or CloudWatch Events permission to
+     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
+     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
+     * generated from the specified bucket or rule can invoke the function.
+     * API Gateway ARNs have a unique structure described
+     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     */
     readonly sourceArn?: fabric.MaybeComputed<string>;
+    /**
+     * A unique statement identifier.
+     */
     readonly statementId?: fabric.MaybeComputed<string>;
 }
 

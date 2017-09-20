@@ -3,16 +3,51 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an RDS DB option group resource.
+ */
 export class OptionGroup extends fabric.Resource {
+    /**
+     * The ARN of the db option group.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Specifies the name of the engine that this option group should be associated with.
+     */
     public readonly engineName: fabric.Computed<string>;
+    /**
+     * Specifies the major version of the engine that this option group should be associated with.
+     */
     public readonly majorEngineVersion: fabric.Computed<string>;
+    /**
+     * The Name of the setting.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+     */
     public readonly namePrefix: fabric.Computed<string>;
+    /**
+     * A list of Options to apply.
+     */
     public readonly option?: fabric.Computed<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, vpcSecurityGroupMemberships?: string[] }[]>;
+    /**
+     * The description of the option group. Defaults to "Managed by Terraform".
+     */
     public readonly optionGroupDescription?: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a OptionGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this OptionGroup instance
+     * @param args A collection of arguments for creating this OptionGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: OptionGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.engineName === undefined) {
             throw new Error("Missing required property 'engineName'");
@@ -33,13 +68,37 @@ export class OptionGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a OptionGroup resource.
+ */
 export interface OptionGroupArgs {
+    /**
+     * Specifies the name of the engine that this option group should be associated with.
+     */
     readonly engineName: fabric.MaybeComputed<string>;
+    /**
+     * Specifies the major version of the engine that this option group should be associated with.
+     */
     readonly majorEngineVersion: fabric.MaybeComputed<string>;
+    /**
+     * The Name of the setting.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * A list of Options to apply.
+     */
     readonly option?: fabric.MaybeComputed<{ dbSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], optionName: fabric.MaybeComputed<string>, optionSettings?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], port?: fabric.MaybeComputed<number>, vpcSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    /**
+     * The description of the option group. Defaults to "Managed by Terraform".
+     */
     readonly optionGroupDescription?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

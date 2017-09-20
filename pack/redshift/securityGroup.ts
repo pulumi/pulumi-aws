@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
+ */
 export class SecurityGroup extends fabric.Resource {
+    /**
+     * The description of the Redshift security group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * A list of ingress rules.
+     */
     public readonly ingress: fabric.Computed<{ cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
+    /**
+     * The name of the Redshift security group.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a SecurityGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SecurityGroup instance
+     * @param args A collection of arguments for creating this SecurityGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.ingress === undefined) {
             throw new Error("Missing required property 'ingress'");
@@ -20,9 +40,21 @@ export class SecurityGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SecurityGroup resource.
+ */
 export interface SecurityGroupArgs {
+    /**
+     * The description of the Redshift security group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * A list of ingress rules.
+     */
     readonly ingress: fabric.MaybeComputed<{ cidr?: fabric.MaybeComputed<string>, securityGroupName?: fabric.MaybeComputed<string>, securityGroupOwnerId?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name of the Redshift security group.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

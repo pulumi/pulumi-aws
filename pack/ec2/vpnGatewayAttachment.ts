@@ -3,10 +3,32 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Virtual Private Gateway attachment resource, allowing for an existing
+ * hardware VPN gateway to be attached and/or detached from a VPC.
+ * 
+ * -> **Note:** The [`aws_vpn_gateway`](vpn_gateway.html)
+ * resource can also automatically attach the Virtual Private Gateway it creates
+ * to an existing VPC by setting the [`vpc_id`](vpn_gateway.html#vpc_id) attribute accordingly.
+ */
 export class VpnGatewayAttachment extends fabric.Resource {
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId: fabric.Computed<string>;
+    /**
+     * The ID of the Virtual Private Gateway.
+     */
     public readonly vpnGatewayId: fabric.Computed<string>;
 
+    /**
+     * Create a VpnGatewayAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpnGatewayAttachment instance
+     * @param args A collection of arguments for creating this VpnGatewayAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpnGatewayAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
@@ -21,8 +43,17 @@ export class VpnGatewayAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpnGatewayAttachment resource.
+ */
 export interface VpnGatewayAttachmentArgs {
+    /**
+     * The ID of the VPC.
+     */
     readonly vpcId: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the Virtual Private Gateway.
+     */
     readonly vpnGatewayId: fabric.MaybeComputed<string>;
 }
 

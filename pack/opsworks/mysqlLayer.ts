@@ -3,31 +3,99 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an OpsWorks MySQL layer resource.
+ * 
+ * ~> **Note:** All arguments including the root password will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class MysqlLayer extends fabric.Resource {
+    /**
+     * Whether to automatically assign an elastic IP address to the layer's instances.
+     */
     public readonly autoAssignElasticIps?: fabric.Computed<boolean>;
+    /**
+     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+     */
     public readonly autoAssignPublicIps?: fabric.Computed<boolean>;
+    /**
+     * Whether to enable auto-healing for the layer.
+     */
     public readonly autoHealing?: fabric.Computed<boolean>;
     public readonly customConfigureRecipes?: fabric.Computed<string[]>;
     public readonly customDeployRecipes?: fabric.Computed<string[]>;
+    /**
+     * The ARN of an IAM profile that will be used for the layer's instances.
+     */
     public readonly customInstanceProfileArn?: fabric.Computed<string>;
+    /**
+     * Custom JSON attributes to apply to the layer.
+     */
     public readonly customJson?: fabric.Computed<string>;
+    /**
+     * Ids for a set of security groups to apply to the layer's instances.
+     */
     public readonly customSecurityGroupIds?: fabric.Computed<string[]>;
     public readonly customSetupRecipes?: fabric.Computed<string[]>;
     public readonly customShutdownRecipes?: fabric.Computed<string[]>;
     public readonly customUndeployRecipes?: fabric.Computed<string[]>;
+    /**
+     * Whether to enable Elastic Load Balancing connection draining.
+     */
     public readonly drainElbOnShutdown?: fabric.Computed<boolean>;
+    /**
+     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     */
     public readonly ebsVolume?: fabric.Computed<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[]>;
+    /**
+     * Name of an Elastic Load Balancer to attach to this layer
+     */
     public readonly elasticLoadBalancer?: fabric.Computed<string>;
+    /**
+     * The id of the layer.
+     */
     public /*out*/ readonly layerId: fabric.Computed<string>;
+    /**
+     * Whether to install OS and package updates on each instance when it boots.
+     */
     public readonly installUpdatesOnBoot?: fabric.Computed<boolean>;
+    /**
+     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+     */
     public readonly instanceShutdownTimeout?: fabric.Computed<number>;
+    /**
+     * A human-readable name for the layer.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Root password to use for MySQL.
+     */
     public readonly rootPassword?: fabric.Computed<string>;
+    /**
+     * Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
+     */
     public readonly rootPasswordOnAllInstances?: fabric.Computed<boolean>;
+    /**
+     * The id of the stack the layer will belong to.
+     */
     public readonly stackId: fabric.Computed<string>;
+    /**
+     * Names of a set of system packages to install on the layer's instances.
+     */
     public readonly systemPackages?: fabric.Computed<string[]>;
+    /**
+     * Whether to use EBS-optimized instances.
+     */
     public readonly useEbsOptimizedInstances?: fabric.Computed<boolean>;
 
+    /**
+     * Create a MysqlLayer resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MysqlLayer instance
+     * @param args A collection of arguments for creating this MysqlLayer intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MysqlLayerArgs, dependsOn?: fabric.Resource[]) {
         if (args.stackId === undefined) {
             throw new Error("Missing required property 'stackId'");
@@ -60,28 +128,82 @@ export class MysqlLayer extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MysqlLayer resource.
+ */
 export interface MysqlLayerArgs {
+    /**
+     * Whether to automatically assign an elastic IP address to the layer's instances.
+     */
     readonly autoAssignElasticIps?: fabric.MaybeComputed<boolean>;
+    /**
+     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+     */
     readonly autoAssignPublicIps?: fabric.MaybeComputed<boolean>;
+    /**
+     * Whether to enable auto-healing for the layer.
+     */
     readonly autoHealing?: fabric.MaybeComputed<boolean>;
     readonly customConfigureRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly customDeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * The ARN of an IAM profile that will be used for the layer's instances.
+     */
     readonly customInstanceProfileArn?: fabric.MaybeComputed<string>;
+    /**
+     * Custom JSON attributes to apply to the layer.
+     */
     readonly customJson?: fabric.MaybeComputed<string>;
+    /**
+     * Ids for a set of security groups to apply to the layer's instances.
+     */
     readonly customSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly customSetupRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly customShutdownRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly customUndeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Whether to enable Elastic Load Balancing connection draining.
+     */
     readonly drainElbOnShutdown?: fabric.MaybeComputed<boolean>;
+    /**
+     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     */
     readonly ebsVolume?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, mountPoint: fabric.MaybeComputed<string>, numberOfDisks: fabric.MaybeComputed<number>, raidLevel?: fabric.MaybeComputed<string>, size: fabric.MaybeComputed<number>, type?: fabric.MaybeComputed<string> }>[];
+    /**
+     * Name of an Elastic Load Balancer to attach to this layer
+     */
     readonly elasticLoadBalancer?: fabric.MaybeComputed<string>;
+    /**
+     * Whether to install OS and package updates on each instance when it boots.
+     */
     readonly installUpdatesOnBoot?: fabric.MaybeComputed<boolean>;
+    /**
+     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+     */
     readonly instanceShutdownTimeout?: fabric.MaybeComputed<number>;
+    /**
+     * A human-readable name for the layer.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Root password to use for MySQL.
+     */
     readonly rootPassword?: fabric.MaybeComputed<string>;
+    /**
+     * Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
+     */
     readonly rootPasswordOnAllInstances?: fabric.MaybeComputed<boolean>;
+    /**
+     * The id of the stack the layer will belong to.
+     */
     readonly stackId: fabric.MaybeComputed<string>;
+    /**
+     * Names of a set of system packages to install on the layer's instances.
+     */
     readonly systemPackages?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Whether to use EBS-optimized instances.
+     */
     readonly useEbsOptimizedInstances?: fabric.MaybeComputed<boolean>;
 }
 

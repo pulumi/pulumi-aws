@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an OpsWorks User Profile resource.
+ */
 export class UserProfile extends fabric.Resource {
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     */
     public readonly allowSelfManagement?: fabric.Computed<boolean>;
+    /**
+     * Same value as `user_arn`
+     */
     public /*out*/ readonly profileId: fabric.Computed<string>;
+    /**
+     * The users public key
+     */
     public readonly sshPublicKey?: fabric.Computed<string>;
+    /**
+     * The ssh username, with witch this user wants to log in
+     */
     public readonly sshUsername: fabric.Computed<string>;
+    /**
+     * The user's IAM ARN
+     */
     public readonly userArn: fabric.Computed<string>;
 
+    /**
+     * Create a UserProfile resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this UserProfile instance
+     * @param args A collection of arguments for creating this UserProfile intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: UserProfileArgs, dependsOn?: fabric.Resource[]) {
         if (args.sshUsername === undefined) {
             throw new Error("Missing required property 'sshUsername'");
@@ -27,10 +53,25 @@ export class UserProfile extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a UserProfile resource.
+ */
 export interface UserProfileArgs {
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     */
     readonly allowSelfManagement?: fabric.MaybeComputed<boolean>;
+    /**
+     * The users public key
+     */
     readonly sshPublicKey?: fabric.MaybeComputed<string>;
+    /**
+     * The ssh username, with witch this user wants to log in
+     */
     readonly sshUsername: fabric.MaybeComputed<string>;
+    /**
+     * The user's IAM ARN
+     */
     readonly userArn: fabric.MaybeComputed<string>;
 }
 

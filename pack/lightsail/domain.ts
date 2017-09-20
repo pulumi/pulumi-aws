@@ -3,10 +3,33 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates a domain resource for the specified domain (e.g., example.com).
+ * You cannot register a new domain name using Lightsail. You must register
+ * a domain name using Amazon Route 53 or another domain name registrar.
+ * If you have already registered your domain, you can enter its name in
+ * this parameter to manage the DNS records for that domain.
+ * 
+ * ~> **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ */
 export class Domain extends fabric.Resource {
+    /**
+     * The ARN of the Lightsail domain
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The name of the Lightsail domain to manage
+     */
     public readonly domainName: fabric.Computed<string>;
 
+    /**
+     * Create a Domain resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Domain instance
+     * @param args A collection of arguments for creating this Domain intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DomainArgs, dependsOn?: fabric.Resource[]) {
         if (args.domainName === undefined) {
             throw new Error("Missing required property 'domainName'");
@@ -18,7 +41,13 @@ export class Domain extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Domain resource.
+ */
 export interface DomainArgs {
+    /**
+     * The name of the Lightsail domain to manage
+     */
     readonly domainName: fabric.MaybeComputed<string>;
 }
 

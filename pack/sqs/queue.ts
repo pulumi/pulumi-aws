@@ -4,21 +4,71 @@
 import * as fabric from "@pulumi/pulumi-fabric";
 
 export class Queue extends fabric.Resource {
+    /**
+     * The ARN of the SQS queue
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
+     */
     public readonly contentBasedDeduplication?: fabric.Computed<boolean>;
+    /**
+     * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
+     */
     public readonly delaySeconds?: fabric.Computed<number>;
+    /**
+     * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+     */
     public readonly fifoQueue?: fabric.Computed<boolean>;
+    /**
+     * and 86,400 seconds (24 hours). The default is 300 (5 minutes).
+     */
     public readonly kmsDataKeyReusePeriodSeconds: fabric.Computed<number>;
+    /**
+     * for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+     */
     public readonly kmsMasterKeyId?: fabric.Computed<string>;
+    /**
+     * up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+     */
     public readonly maxMessageSize?: fabric.Computed<number>;
+    /**
+     * to 1209600 (14 days). The default for this attribute is 345600 (4 days).
+     */
     public readonly messageRetentionSeconds?: fabric.Computed<number>;
+    /**
+     * This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The JSON policy for the SQS queue
+     */
     public readonly policy: fabric.Computed<string>;
+    /**
+     * before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+     */
     public readonly receiveWaitTimeSeconds?: fabric.Computed<number>;
+    /**
+     * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+     */
     public readonly redrivePolicy?: fabric.Computed<string>;
+    /**
+     * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
+     */
     public readonly visibilityTimeoutSeconds?: fabric.Computed<number>;
 
+    /**
+     * Create a Queue resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Queue instance
+     * @param args A collection of arguments for creating this Queue intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: QueueArgs, dependsOn?: fabric.Resource[]) {
         super("aws:sqs/queue:Queue", urnName, {
             "contentBasedDeduplication": args.contentBasedDeduplication,
@@ -39,19 +89,61 @@ export class Queue extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Queue resource.
+ */
 export interface QueueArgs {
+    /**
+     * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
+     */
     readonly contentBasedDeduplication?: fabric.MaybeComputed<boolean>;
+    /**
+     * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
+     */
     readonly delaySeconds?: fabric.MaybeComputed<number>;
+    /**
+     * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+     */
     readonly fifoQueue?: fabric.MaybeComputed<boolean>;
+    /**
+     * and 86,400 seconds (24 hours). The default is 300 (5 minutes).
+     */
     readonly kmsDataKeyReusePeriodSeconds?: fabric.MaybeComputed<number>;
+    /**
+     * for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+     */
     readonly kmsMasterKeyId?: fabric.MaybeComputed<string>;
+    /**
+     * up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+     */
     readonly maxMessageSize?: fabric.MaybeComputed<number>;
+    /**
+     * to 1209600 (14 days). The default for this attribute is 345600 (4 days).
+     */
     readonly messageRetentionSeconds?: fabric.MaybeComputed<number>;
+    /**
+     * This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * The JSON policy for the SQS queue
+     */
     readonly policy?: fabric.MaybeComputed<string>;
+    /**
+     * before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+     */
     readonly receiveWaitTimeSeconds?: fabric.MaybeComputed<number>;
+    /**
+     * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+     */
     readonly redrivePolicy?: fabric.MaybeComputed<string>;
+    /**
+     * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
+     */
     readonly visibilityTimeoutSeconds?: fabric.MaybeComputed<number>;
 }
 

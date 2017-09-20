@@ -10,6 +10,14 @@ export class UserPolicyAttachment extends fabric.Resource {
     public readonly policyArn: fabric.Computed<ARN>;
     public readonly user: fabric.Computed<User>;
 
+    /**
+     * Create a UserPolicyAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this UserPolicyAttachment instance
+     * @param args A collection of arguments for creating this UserPolicyAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: UserPolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.policyArn === undefined) {
             throw new Error("Missing required property 'policyArn'");
@@ -24,6 +32,9 @@ export class UserPolicyAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a UserPolicyAttachment resource.
+ */
 export interface UserPolicyAttachmentArgs {
     readonly policyArn: fabric.MaybeComputed<ARN>;
     readonly user: fabric.MaybeComputed<User>;

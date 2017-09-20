@@ -3,14 +3,53 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an ElastiCache Cluster resource.
+ * 
+ * Changes to a Cache Cluster can occur when you manually change a
+ * parameter, such as `node_type`, and are reflected in the next maintenance
+ * window. Because of this, Terraform may report a difference in its planning
+ * phase because a modification has not yet taken place. You can use the
+ * `apply_immediately` flag to instruct the service to apply the change immediately
+ * (see documentation below).
+ * 
+ * ~> **Note:** using `apply_immediately` can result in a
+ * brief downtime as the server reboots. See the AWS Docs on
+ * [Modifying an ElastiCache Cache Cluster][2] for more information.
+ */
 export class Cluster extends fabric.Resource {
+    /**
+     * Specifies whether any database modifications
+     * are applied immediately, or during the next maintenance window. Default is
+     * `false`. See [Amazon ElastiCache Documentation for more information.][1]
+     * (Available since v0.6.0)
+     */
     public readonly applyImmediately: fabric.Computed<boolean>;
+    /**
+     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+     */
     public readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+     */
     public readonly availabilityZones?: fabric.Computed<string[]>;
+    /**
+     * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
+     */
     public readonly azMode: fabric.Computed<string>;
+    /**
+     * List of node objects including `id`, `address`, `port` and `availability_zone`.
+     * Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
+     */
     public /*out*/ readonly cacheNodes: fabric.Computed<{ address: string, availabilityZone: string, id: string, port: number }[]>;
+    /**
+     * (Memcached only) The DNS name of the cache cluster without the port appended.
+     */
     public /*out*/ readonly clusterAddress: fabric.Computed<string>;
     public readonly clusterId: fabric.Computed<string>;
+    /**
+     * (Memcached only) The configuration endpoint to allow host discovery.
+     */
     public /*out*/ readonly configurationEndpoint: fabric.Computed<string>;
     public readonly engine: fabric.Computed<string>;
     public readonly engineVersion: fabric.Computed<string>;
@@ -24,12 +63,37 @@ export class Cluster extends fabric.Resource {
     public readonly securityGroupIds: fabric.Computed<string[]>;
     public readonly securityGroupNames: fabric.Computed<string[]>;
     public readonly snapshotArns?: fabric.Computed<string[]>;
+    /**
+     * The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+     */
     public readonly snapshotName?: fabric.Computed<string>;
+    /**
+     * The number of days for which ElastiCache will
+     * retain automatic cache cluster snapshots before deleting them. For example, if you set
+     * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
+     * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+     * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     */
     public readonly snapshotRetentionLimit?: fabric.Computed<number>;
+    /**
+     * during which ElastiCache will
+     * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
+     */
     public readonly snapshotWindow: fabric.Computed<string>;
     public readonly subnetGroupName: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Cluster resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Cluster instance
+     * @param args A collection of arguments for creating this Cluster intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterId === undefined) {
             throw new Error("Missing required property 'clusterId'");
@@ -76,10 +140,28 @@ export class Cluster extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Cluster resource.
+ */
 export interface ClusterArgs {
+    /**
+     * Specifies whether any database modifications
+     * are applied immediately, or during the next maintenance window. Default is
+     * `false`. See [Amazon ElastiCache Documentation for more information.][1]
+     * (Available since v0.6.0)
+     */
     readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    /**
+     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+     */
     readonly availabilityZone?: fabric.MaybeComputed<string>;
+    /**
+     * List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+     */
     readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
+     */
     readonly azMode?: fabric.MaybeComputed<string>;
     readonly clusterId: fabric.MaybeComputed<string>;
     readonly engine: fabric.MaybeComputed<string>;
@@ -93,10 +175,27 @@ export interface ClusterArgs {
     readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly snapshotArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+     */
     readonly snapshotName?: fabric.MaybeComputed<string>;
+    /**
+     * The number of days for which ElastiCache will
+     * retain automatic cache cluster snapshots before deleting them. For example, if you set
+     * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
+     * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+     * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     */
     readonly snapshotRetentionLimit?: fabric.MaybeComputed<number>;
+    /**
+     * during which ElastiCache will
+     * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
+     */
     readonly snapshotWindow?: fabric.MaybeComputed<string>;
     readonly subnetGroupName?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

@@ -5,13 +5,39 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides a Model for a API Gateway.
+ */
 export class Model extends fabric.Resource {
+    /**
+     * The content type of the model
+     */
     public readonly contentType: fabric.Computed<string>;
+    /**
+     * The description of the model
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the model
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The schema of the model in a JSON form
+     */
     public readonly schema?: fabric.Computed<string>;
 
+    /**
+     * Create a Model resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Model instance
+     * @param args A collection of arguments for creating this Model intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ModelArgs, dependsOn?: fabric.Resource[]) {
         if (args.contentType === undefined) {
             throw new Error("Missing required property 'contentType'");
@@ -29,11 +55,29 @@ export class Model extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Model resource.
+ */
 export interface ModelArgs {
+    /**
+     * The content type of the model
+     */
     readonly contentType: fabric.MaybeComputed<string>;
+    /**
+     * The description of the model
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the model
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.MaybeComputed<RestApi>;
+    /**
+     * The schema of the model in a JSON form
+     */
     readonly schema?: fabric.MaybeComputed<string>;
 }
 

@@ -3,17 +3,55 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeBuild Project resource.
+ */
 export class Project extends fabric.Resource {
+    /**
+     * Information about the project's build output artifacts. Artifact blocks are documented below.
+     */
     public readonly artifacts: fabric.Computed<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[]>;
+    /**
+     * How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     */
     public readonly buildTimeout?: fabric.Computed<number>;
+    /**
+     * A short description of the project.
+     */
     public readonly description: fabric.Computed<string>;
+    /**
+     * to be used for encrypting the build project's build output artifacts.
+     */
     public readonly encryptionKey: fabric.Computed<string>;
+    /**
+     * Information about the project's build environment. Environment blocks are documented below.
+     */
     public readonly environment: fabric.Computed<{ computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[]>;
+    /**
+     * The environment variable's name or key.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     */
     public readonly serviceRole: fabric.Computed<string>;
+    /**
+     * Information about the project's input source code. Source blocks are documented below.
+     */
     public readonly source: fabric.Computed<{ auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Project resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Project instance
+     * @param args A collection of arguments for creating this Project intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ProjectArgs, dependsOn?: fabric.Resource[]) {
         if (args.artifacts === undefined) {
             throw new Error("Missing required property 'artifacts'");
@@ -38,15 +76,45 @@ export class Project extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Project resource.
+ */
 export interface ProjectArgs {
+    /**
+     * Information about the project's build output artifacts. Artifact blocks are documented below.
+     */
     readonly artifacts: fabric.MaybeComputed<{ location?: fabric.MaybeComputed<string>, name?: fabric.MaybeComputed<string>, namespaceType?: fabric.MaybeComputed<string>, packaging?: fabric.MaybeComputed<string>, path?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     */
     readonly buildTimeout?: fabric.MaybeComputed<number>;
+    /**
+     * A short description of the project.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * to be used for encrypting the build project's build output artifacts.
+     */
     readonly encryptionKey?: fabric.MaybeComputed<string>;
+    /**
+     * Information about the project's build environment. Environment blocks are documented below.
+     */
     readonly environment: fabric.MaybeComputed<{ computeType: fabric.MaybeComputed<string>, environmentVariable?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], image: fabric.MaybeComputed<string>, privilegedMode?: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * The environment variable's name or key.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     */
     readonly serviceRole?: fabric.MaybeComputed<string>;
+    /**
+     * Information about the project's input source code. Source blocks are documented below.
+     */
     readonly source: fabric.MaybeComputed<{ auth?: fabric.MaybeComputed<{ resource?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], buildspec?: fabric.MaybeComputed<string>, location?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

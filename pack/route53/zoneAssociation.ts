@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Route53 private Hosted Zone to VPC association resource.
+ */
 export class ZoneAssociation extends fabric.Resource {
+    /**
+     * The VPC to associate with the private hosted zone.
+     */
     public readonly vpcId: fabric.Computed<string>;
+    /**
+     * The VPC's region. Defaults to the region of the AWS provider.
+     */
     public readonly vpcRegion: fabric.Computed<string>;
+    /**
+     * The private hosted zone to associate.
+     */
     public readonly zoneId: fabric.Computed<string>;
 
+    /**
+     * Create a ZoneAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ZoneAssociation instance
+     * @param args A collection of arguments for creating this ZoneAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ZoneAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
@@ -23,9 +43,21 @@ export class ZoneAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ZoneAssociation resource.
+ */
 export interface ZoneAssociationArgs {
+    /**
+     * The VPC to associate with the private hosted zone.
+     */
     readonly vpcId: fabric.MaybeComputed<string>;
+    /**
+     * The VPC's region. Defaults to the region of the AWS provider.
+     */
     readonly vpcRegion?: fabric.MaybeComputed<string>;
+    /**
+     * The private hosted zone to associate.
+     */
     readonly zoneId: fabric.MaybeComputed<string>;
 }
 

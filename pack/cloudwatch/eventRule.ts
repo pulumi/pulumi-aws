@@ -3,15 +3,50 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CloudWatch Event Rule resource.
+ */
 export class EventRule extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The description of the rule.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Event pattern
+     * described a JSON object.
+     * See full documentation of [CloudWatch Events and Event Patterns](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CloudWatchEventsandEventPatterns.html) for details.
+     */
     public readonly eventPattern?: fabric.Computed<string>;
+    /**
+     * Whether the rule should be enabled (defaults to `true`).
+     */
     public readonly isEnabled?: fabric.Computed<boolean>;
+    /**
+     * The rule's name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * associated with the role that is used for target invocation.
+     */
     public readonly roleArn?: fabric.Computed<string>;
+    /**
+     * The scheduling expression.
+     * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
+     */
     public readonly scheduleExpression?: fabric.Computed<string>;
 
+    /**
+     * Create a EventRule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EventRule instance
+     * @param args A collection of arguments for creating this EventRule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: EventRuleArgs, dependsOn?: fabric.Resource[]) {
         super("aws:cloudwatch/eventRule:EventRule", urnName, {
             "description": args.description,
@@ -25,12 +60,36 @@ export class EventRule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EventRule resource.
+ */
 export interface EventRuleArgs {
+    /**
+     * The description of the rule.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * Event pattern
+     * described a JSON object.
+     * See full documentation of [CloudWatch Events and Event Patterns](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CloudWatchEventsandEventPatterns.html) for details.
+     */
     readonly eventPattern?: fabric.MaybeComputed<string>;
+    /**
+     * Whether the rule should be enabled (defaults to `true`).
+     */
     readonly isEnabled?: fabric.MaybeComputed<boolean>;
+    /**
+     * The rule's name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * associated with the role that is used for target invocation.
+     */
     readonly roleArn?: fabric.MaybeComputed<string>;
+    /**
+     * The scheduling expression.
+     * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
+     */
     readonly scheduleExpression?: fabric.MaybeComputed<string>;
 }
 

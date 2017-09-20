@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF Web ACL Resource
+ */
 export class WebAcl extends fabric.Resource {
+    /**
+     * The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+     */
     public readonly defaultAction: fabric.Computed<{ type: string }[]>;
+    /**
+     * The name or description for the Amazon CloudWatch metric of this web ACL.
+     */
     public readonly metricName: fabric.Computed<string>;
+    /**
+     * The name or description of the web ACL.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The rules to associate with the web ACL and the settings for each rule.
+     */
     public readonly rules?: fabric.Computed<{ action: { type: string }[], priority: number, ruleId: string }[]>;
 
+    /**
+     * Create a WebAcl resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this WebAcl instance
+     * @param args A collection of arguments for creating this WebAcl intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: WebAclArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultAction === undefined) {
             throw new Error("Missing required property 'defaultAction'");
@@ -25,10 +48,25 @@ export class WebAcl extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a WebAcl resource.
+ */
 export interface WebAclArgs {
+    /**
+     * The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+     */
     readonly defaultAction: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name or description for the Amazon CloudWatch metric of this web ACL.
+     */
     readonly metricName: fabric.MaybeComputed<string>;
+    /**
+     * The name or description of the web ACL.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The rules to associate with the web ACL and the settings for each rule.
+     */
     readonly rules?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[], priority: fabric.MaybeComputed<number>, ruleId: fabric.MaybeComputed<string> }>[];
 }
 

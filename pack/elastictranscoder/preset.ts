@@ -16,6 +16,14 @@ export class Preset extends fabric.Resource {
     public readonly videoCodecOptions?: fabric.Computed<{[key: string]: any}>;
     public readonly videoWatermarks?: fabric.Computed<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[]>;
 
+    /**
+     * Create a Preset resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Preset instance
+     * @param args A collection of arguments for creating this Preset intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PresetArgs, dependsOn?: fabric.Resource[]) {
         if (args.container === undefined) {
             throw new Error("Missing required property 'container'");
@@ -36,6 +44,9 @@ export class Preset extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Preset resource.
+ */
 export interface PresetArgs {
     readonly audio?: fabric.MaybeComputed<{ audioPackingMode?: fabric.MaybeComputed<string>, bitRate?: fabric.MaybeComputed<string>, channels?: fabric.MaybeComputed<string>, codec?: fabric.MaybeComputed<string>, sampleRate?: fabric.MaybeComputed<string> }>[];
     readonly audioCodecOptions?: fabric.MaybeComputed<{ bitDepth?: fabric.MaybeComputed<string>, bitOrder?: fabric.MaybeComputed<string>, profile?: fabric.MaybeComputed<string>, signed?: fabric.MaybeComputed<string> }>[];

@@ -3,17 +3,63 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to manage the accepter's side of a cross-account VPC Peering Connection.
+ * 
+ * When a cross-account (requester's AWS account differs from the accepter's AWS account) VPC Peering Connection
+ * is created, a VPC Peering Connection resource is automatically created in the accepter's account.
+ * The requester can use the `aws_vpc_peering_connection` resource to manage its side of the connection
+ * and the accepter can use the `aws_vpc_peering_connection_accepter` resource to "adopt" its side of the
+ * connection into management.
+ */
 export class VpcPeeringConnectionAccepter extends fabric.Resource {
+    /**
+     * The status of the VPC Peering Connection request.
+     */
     public /*out*/ readonly acceptStatus: fabric.Computed<string>;
+    /**
+     * A configuration block that describes [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     */
     public readonly accepter: fabric.Computed<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
+    /**
+     * Whether or not to accept the peering request. Defaults to `false`.
+     */
     public readonly autoAccept?: fabric.Computed<boolean>;
+    /**
+     * The AWS account ID of the owner of the requester VPC.
+     */
     public /*out*/ readonly peerOwnerId: fabric.Computed<string>;
+    /**
+     * The ID of the requester VPC.
+     */
     public /*out*/ readonly peerVpcId: fabric.Computed<string>;
+    /**
+     * A configuration block that describes [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     */
     public readonly requester: fabric.Computed<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The ID of the accepter VPC.
+     */
     public /*out*/ readonly vpcId: fabric.Computed<string>;
+    /**
+     * The VPC Peering Connection ID to manage.
+     */
     public readonly vpcPeeringConnectionId: fabric.Computed<string>;
 
+    /**
+     * Create a VpcPeeringConnectionAccepter resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpcPeeringConnectionAccepter instance
+     * @param args A collection of arguments for creating this VpcPeeringConnectionAccepter intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpcPeeringConnectionAccepterArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcPeeringConnectionId === undefined) {
             throw new Error("Missing required property 'vpcPeeringConnectionId'");
@@ -32,11 +78,23 @@ export class VpcPeeringConnectionAccepter extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
+ */
 export interface VpcPeeringConnectionAccepterArgs {
     readonly accepter?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
+    /**
+     * Whether or not to accept the peering request. Defaults to `false`.
+     */
     readonly autoAccept?: fabric.MaybeComputed<boolean>;
     readonly requester?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The VPC Peering Connection ID to manage.
+     */
     readonly vpcPeeringConnectionId: fabric.MaybeComputed<string>;
 }
 

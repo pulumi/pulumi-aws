@@ -3,18 +3,59 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
+ */
 export class ReplicationTask extends fabric.Resource {
+    /**
+     * operation.
+     */
     public readonly cdcStartTime?: fabric.Computed<string>;
+    /**
+     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     */
     public readonly migrationType: fabric.Computed<string>;
+    /**
+     * of the replication instance.
+     */
     public readonly replicationInstanceArn: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the replication task.
+     */
     public /*out*/ readonly replicationTaskArn: fabric.Computed<string>;
+    /**
+     * The replication task identifier.
+     */
     public readonly replicationTaskId: fabric.Computed<string>;
+    /**
+     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     */
     public readonly replicationTaskSettings?: fabric.Computed<string>;
+    /**
+     * string that uniquely identifies the source endpoint.
+     */
     public readonly sourceEndpointArn: fabric.Computed<string>;
+    /**
+     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     */
     public readonly tableMappings: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * string that uniquely identifies the target endpoint.
+     */
     public readonly targetEndpointArn: fabric.Computed<string>;
 
+    /**
+     * Create a ReplicationTask resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ReplicationTask instance
+     * @param args A collection of arguments for creating this ReplicationTask intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ReplicationTaskArgs, dependsOn?: fabric.Resource[]) {
         if (args.migrationType === undefined) {
             throw new Error("Missing required property 'migrationType'");
@@ -49,15 +90,45 @@ export class ReplicationTask extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ReplicationTask resource.
+ */
 export interface ReplicationTaskArgs {
+    /**
+     * operation.
+     */
     readonly cdcStartTime?: fabric.MaybeComputed<string>;
+    /**
+     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     */
     readonly migrationType: fabric.MaybeComputed<string>;
+    /**
+     * of the replication instance.
+     */
     readonly replicationInstanceArn: fabric.MaybeComputed<string>;
+    /**
+     * The replication task identifier.
+     */
     readonly replicationTaskId: fabric.MaybeComputed<string>;
+    /**
+     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     */
     readonly replicationTaskSettings?: fabric.MaybeComputed<string>;
+    /**
+     * string that uniquely identifies the source endpoint.
+     */
     readonly sourceEndpointArn: fabric.MaybeComputed<string>;
+    /**
+     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     */
     readonly tableMappings: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * string that uniquely identifies the target endpoint.
+     */
     readonly targetEndpointArn: fabric.MaybeComputed<string>;
 }
 

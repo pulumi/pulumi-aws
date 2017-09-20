@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Attach an Elastic network interface (ENI) resource with EC2 instance.
+ */
 export class NetworkInterfaceAttachment extends fabric.Resource {
+    /**
+     * The ENI Attachment ID.
+     */
     public /*out*/ readonly attachmentId: fabric.Computed<string>;
+    /**
+     * Network interface index (int).
+     */
     public readonly deviceIndex: fabric.Computed<number>;
+    /**
+     * Instance ID to attach.
+     */
     public readonly instanceId: fabric.Computed<string>;
+    /**
+     * ENI ID to attach.
+     */
     public readonly networkInterfaceId: fabric.Computed<string>;
+    /**
+     * The status of the Network Interface Attachment.
+     */
     public /*out*/ readonly status: fabric.Computed<string>;
 
+    /**
+     * Create a NetworkInterfaceAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this NetworkInterfaceAttachment instance
+     * @param args A collection of arguments for creating this NetworkInterfaceAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: NetworkInterfaceAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.deviceIndex === undefined) {
             throw new Error("Missing required property 'deviceIndex'");
@@ -30,9 +56,21 @@ export class NetworkInterfaceAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a NetworkInterfaceAttachment resource.
+ */
 export interface NetworkInterfaceAttachmentArgs {
+    /**
+     * Network interface index (int).
+     */
     readonly deviceIndex: fabric.MaybeComputed<number>;
+    /**
+     * Instance ID to attach.
+     */
     readonly instanceId: fabric.MaybeComputed<string>;
+    /**
+     * ENI ID to attach.
+     */
     readonly networkInterfaceId: fabric.MaybeComputed<string>;
 }
 

@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
+ */
 export class IpSet extends fabric.Resource {
+    /**
+     * from which web requests originate.
+     */
     public readonly ipSetDescriptor?: fabric.Computed<{ type: string, value: string }[]>;
+    /**
+     * The name or description of the IPSet.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a IpSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this IpSet instance
+     * @param args A collection of arguments for creating this IpSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: IpSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:wafregional/ipSet:IpSet", urnName, {
             "ipSetDescriptor": args.ipSetDescriptor,
@@ -15,8 +32,17 @@ export class IpSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a IpSet resource.
+ */
 export interface IpSetArgs {
+    /**
+     * from which web requests originate.
+     */
     readonly ipSetDescriptor?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name or description of the IPSet.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

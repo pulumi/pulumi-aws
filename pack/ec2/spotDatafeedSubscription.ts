@@ -3,10 +3,30 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * -> **Note:** There is only a single subscription allowed per account.
+ * 
+ * To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
+ * This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
+ */
 export class SpotDatafeedSubscription extends fabric.Resource {
+    /**
+     * The Amazon S3 bucket in which to store the Spot instance data feed.
+     */
     public readonly bucket: fabric.Computed<string>;
+    /**
+     * Path of folder inside bucket to place spot pricing data.
+     */
     public readonly prefix?: fabric.Computed<string>;
 
+    /**
+     * Create a SpotDatafeedSubscription resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SpotDatafeedSubscription instance
+     * @param args A collection of arguments for creating this SpotDatafeedSubscription intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SpotDatafeedSubscriptionArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
@@ -18,8 +38,17 @@ export class SpotDatafeedSubscription extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SpotDatafeedSubscription resource.
+ */
 export interface SpotDatafeedSubscriptionArgs {
+    /**
+     * The Amazon S3 bucket in which to store the Spot instance data feed.
+     */
     readonly bucket: fabric.MaybeComputed<string>;
+    /**
+     * Path of folder inside bucket to place spot pricing data.
+     */
     readonly prefix?: fabric.MaybeComputed<string>;
 }
 

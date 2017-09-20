@@ -14,6 +14,14 @@ export class Snapshot extends fabric.Resource {
     public readonly volumeId: fabric.Computed<string>;
     public /*out*/ readonly volumeSize: fabric.Computed<number>;
 
+    /**
+     * Create a Snapshot resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Snapshot instance
+     * @param args A collection of arguments for creating this Snapshot intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SnapshotArgs, dependsOn?: fabric.Resource[]) {
         if (args.volumeId === undefined) {
             throw new Error("Missing required property 'volumeId'");
@@ -32,6 +40,9 @@ export class Snapshot extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Snapshot resource.
+ */
 export interface SnapshotArgs {
     readonly description?: fabric.MaybeComputed<string>;
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;

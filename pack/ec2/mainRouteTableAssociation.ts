@@ -8,6 +8,14 @@ export class MainRouteTableAssociation extends fabric.Resource {
     public readonly routeTableId: fabric.Computed<string>;
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a MainRouteTableAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MainRouteTableAssociation instance
+     * @param args A collection of arguments for creating this MainRouteTableAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MainRouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
@@ -23,6 +31,9 @@ export class MainRouteTableAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MainRouteTableAssociation resource.
+ */
 export interface MainRouteTableAssociationArgs {
     readonly routeTableId: fabric.MaybeComputed<string>;
     readonly vpcId: fabric.MaybeComputed<string>;

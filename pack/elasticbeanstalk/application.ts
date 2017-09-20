@@ -3,10 +3,32 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
+ * you to deploy and manage applications in the AWS cloud without worrying about
+ * the infrastructure that runs those applications.
+ * 
+ * This resource creates an application that has one configuration template named
+ * `default`, and no application versions
+ */
 export class Application extends fabric.Resource {
+    /**
+     * Short description of the application
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the application, must be unique within your account
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a Application resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Application instance
+     * @param args A collection of arguments for creating this Application intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ApplicationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:elasticbeanstalk/application:Application", urnName, {
             "description": args.description,
@@ -15,8 +37,17 @@ export class Application extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Application resource.
+ */
 export interface ApplicationArgs {
+    /**
+     * Short description of the application
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the application, must be unique within your account
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

@@ -3,20 +3,76 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
+ * instances to be requested on the Spot market.
+ */
 export class SpotFleetRequest extends fabric.Resource {
+    /**
+     * Indicates how to allocate the target capacity across
+     * the Spot pools specified by the Spot fleet request. The default is
+     * lowestPrice.
+     */
     public readonly allocationStrategy?: fabric.Computed<string>;
     public /*out*/ readonly clientToken: fabric.Computed<string>;
+    /**
+     * Indicates whether running Spot
+     * instances should be terminated if the target capacity of the Spot fleet
+     * request is decreased below the current size of the Spot fleet.
+     */
     public readonly excessCapacityTerminationPolicy?: fabric.Computed<string>;
+    /**
+     * Grants the Spot fleet permission to terminate
+     * Spot instances on your behalf when you cancel its Spot fleet request using
+     * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+     * terminateInstancesWithExpiration.
+     */
     public readonly iamFleetRole: fabric.Computed<string>;
+    /**
+     * Used to define the launch configuration of the
+     * spot-fleet request. Can be specified multiple times to define different bids
+     * across different markets and instance types.
+     */
     public readonly launchSpecification: fabric.Computed<{ ami: string, associatePublicIpAddress?: boolean, availabilityZone: string, ebsBlockDevice: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[], ebsOptimized?: boolean, ephemeralBlockDevice: { deviceName: string, virtualName: string }[], iamInstanceProfile?: string, instanceType: string, keyName: string, monitoring?: boolean, placementGroup: string, placementTenancy?: string, rootBlockDevice: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[], spotPrice?: string, subnetId: string, userData?: string, vpcSecurityGroupIds: string[], weightedCapacity?: string }[]>;
+    /**
+     * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+     */
     public readonly replaceUnhealthyInstances?: fabric.Computed<boolean>;
+    /**
+     * The bid price per unit hour.
+     */
     public readonly spotPrice: fabric.Computed<string>;
+    /**
+     * The state of the Spot fleet request.
+     */
     public /*out*/ readonly spotRequestState: fabric.Computed<string>;
+    /**
+     * The number of units to request. You can choose to set the
+     * target capacity in terms of instances or a performance characteristic that is
+     * important to your application workload, such as vCPUs, memory, or I/O.
+     */
     public readonly targetCapacity: fabric.Computed<number>;
+    /**
+     * Indicates whether running Spot
+     * instances should be terminated when the Spot fleet request expires.
+     */
     public readonly terminateInstancesWithExpiration?: fabric.Computed<boolean>;
     public readonly validFrom?: fabric.Computed<string>;
+    /**
+     * The end date and time of the request, in UTC ISO8601 format
+     * (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance
+     * requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+     */
     public readonly validUntil?: fabric.Computed<string>;
 
+    /**
+     * Create a SpotFleetRequest resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SpotFleetRequest instance
+     * @param args A collection of arguments for creating this SpotFleetRequest intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SpotFleetRequestArgs, dependsOn?: fabric.Resource[]) {
         if (args.iamFleetRole === undefined) {
             throw new Error("Missing required property 'iamFleetRole'");
@@ -47,16 +103,60 @@ export class SpotFleetRequest extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SpotFleetRequest resource.
+ */
 export interface SpotFleetRequestArgs {
+    /**
+     * Indicates how to allocate the target capacity across
+     * the Spot pools specified by the Spot fleet request. The default is
+     * lowestPrice.
+     */
     readonly allocationStrategy?: fabric.MaybeComputed<string>;
+    /**
+     * Indicates whether running Spot
+     * instances should be terminated if the target capacity of the Spot fleet
+     * request is decreased below the current size of the Spot fleet.
+     */
     readonly excessCapacityTerminationPolicy?: fabric.MaybeComputed<string>;
+    /**
+     * Grants the Spot fleet permission to terminate
+     * Spot instances on your behalf when you cancel its Spot fleet request using
+     * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+     * terminateInstancesWithExpiration.
+     */
     readonly iamFleetRole: fabric.MaybeComputed<string>;
+    /**
+     * Used to define the launch configuration of the
+     * spot-fleet request. Can be specified multiple times to define different bids
+     * across different markets and instance types.
+     */
     readonly launchSpecification: fabric.MaybeComputed<{ ami: fabric.MaybeComputed<string>, associatePublicIpAddress?: fabric.MaybeComputed<boolean>, availabilityZone?: fabric.MaybeComputed<string>, ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], ebsOptimized?: fabric.MaybeComputed<boolean>, ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[], iamInstanceProfile?: fabric.MaybeComputed<string>, instanceType: fabric.MaybeComputed<string>, keyName?: fabric.MaybeComputed<string>, monitoring?: fabric.MaybeComputed<boolean>, placementGroup?: fabric.MaybeComputed<string>, placementTenancy?: fabric.MaybeComputed<string>, rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], spotPrice?: fabric.MaybeComputed<string>, subnetId?: fabric.MaybeComputed<string>, userData?: fabric.MaybeComputed<string>, vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], weightedCapacity?: fabric.MaybeComputed<string> }>[];
+    /**
+     * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+     */
     readonly replaceUnhealthyInstances?: fabric.MaybeComputed<boolean>;
+    /**
+     * The bid price per unit hour.
+     */
     readonly spotPrice: fabric.MaybeComputed<string>;
+    /**
+     * The number of units to request. You can choose to set the
+     * target capacity in terms of instances or a performance characteristic that is
+     * important to your application workload, such as vCPUs, memory, or I/O.
+     */
     readonly targetCapacity: fabric.MaybeComputed<number>;
+    /**
+     * Indicates whether running Spot
+     * instances should be terminated when the Spot fleet request expires.
+     */
     readonly terminateInstancesWithExpiration?: fabric.MaybeComputed<boolean>;
     readonly validFrom?: fabric.MaybeComputed<string>;
+    /**
+     * The end date and time of the request, in UTC ISO8601 format
+     * (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance
+     * requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+     */
     readonly validUntil?: fabric.MaybeComputed<string>;
 }
 

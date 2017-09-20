@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a top level resource to manage IAM Group membership for IAM Users. For
+ * more information on managing IAM Groups or IAM Users, see [IAM Groups][1] or
+ * [IAM Users][2]
+ */
 export class GroupMembership extends fabric.Resource {
     public readonly group: fabric.Computed<string>;
+    /**
+     * The name to identify the Group Membership
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A list of IAM User names to associate with the Group
+     * * `group` – (Required) The IAM Group name to attach the list of `users` to
+     */
     public readonly users: fabric.Computed<string[]>;
 
+    /**
+     * Create a GroupMembership resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this GroupMembership instance
+     * @param args A collection of arguments for creating this GroupMembership intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: GroupMembershipArgs, dependsOn?: fabric.Resource[]) {
         if (args.group === undefined) {
             throw new Error("Missing required property 'group'");
@@ -23,9 +43,19 @@ export class GroupMembership extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a GroupMembership resource.
+ */
 export interface GroupMembershipArgs {
     readonly group: fabric.MaybeComputed<string>;
+    /**
+     * The name to identify the Group Membership
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * A list of IAM User names to associate with the Group
+     * * `group` – (Required) The IAM Group name to attach the list of `users` to
+     */
     readonly users: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

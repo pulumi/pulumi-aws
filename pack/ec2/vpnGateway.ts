@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create a VPC VPN Gateway.
+ */
 export class VpnGateway extends fabric.Resource {
+    /**
+     * The Availability Zone for the virtual private gateway.
+     */
     public readonly availabilityZone?: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The VPC ID to create in.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a VpnGateway resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpnGateway instance
+     * @param args A collection of arguments for creating this VpnGateway intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: VpnGatewayArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/vpnGateway:VpnGateway", urnName, {
             "availabilityZone": args.availabilityZone,
@@ -17,9 +37,21 @@ export class VpnGateway extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpnGateway resource.
+ */
 export interface VpnGatewayArgs {
+    /**
+     * The Availability Zone for the virtual private gateway.
+     */
     readonly availabilityZone?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The VPC ID to create in.
+     */
     readonly vpcId?: fabric.MaybeComputed<string>;
 }
 

@@ -3,13 +3,42 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an OpsWorks RDS DB Instance resource.
+ * 
+ * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class RdsDbInstance extends fabric.Resource {
+    /**
+     * A db password
+     */
     public readonly dbPassword: fabric.Computed<string>;
+    /**
+     * A db username
+     */
     public readonly dbUser: fabric.Computed<string>;
+    /**
+     * The computed id. Please note that this is only used internally to identify the stack <-> instance relation. This value is not used in aws.
+     */
     public /*out*/ readonly instanceId: fabric.Computed<string>;
+    /**
+     * The db instance to register for this stack. Changing this will force a new resource.
+     */
     public readonly rdsDbInstanceArn: fabric.Computed<string>;
+    /**
+     * The stack to register a db inatance for. Changing this will force a new resource.
+     */
     public readonly stackId: fabric.Computed<string>;
 
+    /**
+     * Create a RdsDbInstance resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RdsDbInstance instance
+     * @param args A collection of arguments for creating this RdsDbInstance intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RdsDbInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.dbPassword === undefined) {
             throw new Error("Missing required property 'dbPassword'");
@@ -33,10 +62,25 @@ export class RdsDbInstance extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RdsDbInstance resource.
+ */
 export interface RdsDbInstanceArgs {
+    /**
+     * A db password
+     */
     readonly dbPassword: fabric.MaybeComputed<string>;
+    /**
+     * A db username
+     */
     readonly dbUser: fabric.MaybeComputed<string>;
+    /**
+     * The db instance to register for this stack. Changing this will force a new resource.
+     */
     readonly rdsDbInstanceArn: fabric.MaybeComputed<string>;
+    /**
+     * The stack to register a db inatance for. Changing this will force a new resource.
+     */
     readonly stackId: fabric.MaybeComputed<string>;
 }
 

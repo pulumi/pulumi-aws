@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create a VPC NAT Gateway.
+ */
 export class NatGateway extends fabric.Resource {
+    /**
+     * The Allocation ID of the Elastic IP address for the gateway.
+     */
     public readonly allocationId: fabric.Computed<string>;
+    /**
+     * The ENI ID of the network interface created by the NAT gateway.
+     */
     public readonly networkInterfaceId: fabric.Computed<string>;
+    /**
+     * The private IP address of the NAT Gateway.
+     */
     public readonly privateIp: fabric.Computed<string>;
+    /**
+     * The public IP address of the NAT Gateway.
+     */
     public readonly publicIp: fabric.Computed<string>;
+    /**
+     * The Subnet ID of the subnet in which to place the gateway.
+     */
     public readonly subnetId: fabric.Computed<string>;
 
+    /**
+     * Create a NatGateway resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this NatGateway instance
+     * @param args A collection of arguments for creating this NatGateway intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: NatGatewayArgs, dependsOn?: fabric.Resource[]) {
         if (args.allocationId === undefined) {
             throw new Error("Missing required property 'allocationId'");
@@ -27,11 +53,20 @@ export class NatGateway extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a NatGateway resource.
+ */
 export interface NatGatewayArgs {
+    /**
+     * The Allocation ID of the Elastic IP address for the gateway.
+     */
     readonly allocationId: fabric.MaybeComputed<string>;
     readonly networkInterfaceId?: fabric.MaybeComputed<string>;
     readonly privateIp?: fabric.MaybeComputed<string>;
     readonly publicIp?: fabric.MaybeComputed<string>;
+    /**
+     * The Subnet ID of the subnet in which to place the gateway.
+     */
     readonly subnetId: fabric.MaybeComputed<string>;
 }
 

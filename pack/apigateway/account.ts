@@ -3,10 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
+ * 
+ * -> **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
+ */
 export class Account extends fabric.Resource {
+    /**
+     * The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
+     * See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
+     * Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+     */
     public readonly cloudwatchRoleArn?: fabric.Computed<string>;
+    /**
+     * Account-Level throttle settings. See exported fields below.
+     */
     public /*out*/ readonly throttleSettings: fabric.Computed<{ burstLimit: number, rateLimit: number }[]>;
 
+    /**
+     * Create a Account resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Account instance
+     * @param args A collection of arguments for creating this Account intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: AccountArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/account:Account", urnName, {
             "cloudwatchRoleArn": args.cloudwatchRoleArn,
@@ -15,7 +36,15 @@ export class Account extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Account resource.
+ */
 export interface AccountArgs {
+    /**
+     * The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
+     * See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
+     * Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+     */
     readonly cloudwatchRoleArn?: fabric.MaybeComputed<string>;
 }
 

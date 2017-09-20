@@ -14,6 +14,14 @@ export class NetworkInterface extends fabric.Resource {
     public readonly subnetId: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a NetworkInterface resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this NetworkInterface instance
+     * @param args A collection of arguments for creating this NetworkInterface intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: NetworkInterfaceArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnetId === undefined) {
             throw new Error("Missing required property 'subnetId'");
@@ -32,6 +40,9 @@ export class NetworkInterface extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a NetworkInterface resource.
+ */
 export interface NetworkInterfaceArgs {
     readonly attachment?: fabric.MaybeComputed<{ attachmentId?: fabric.MaybeComputed<string>, deviceIndex: fabric.MaybeComputed<number>, instance: fabric.MaybeComputed<string> }>[];
     readonly description?: fabric.MaybeComputed<string>;

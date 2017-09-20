@@ -3,18 +3,66 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * -> **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws_iam_role_policy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+ * 
+ * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+ * 
+ * See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
+ */
 export class Service extends fabric.Resource {
+    /**
+     * ARN of an ECS cluster
+     */
     public readonly cluster: fabric.Computed<string>;
+    /**
+     * of the number of running tasks that can be running in a service during a deployment.
+     */
     public readonly deploymentMaximumPercent?: fabric.Computed<number>;
+    /**
+     * of the number of running tasks that must remain running and healthy in a service during a deployment.
+     */
     public readonly deploymentMinimumHealthyPercent?: fabric.Computed<number>;
+    /**
+     * The number of instances of the task definition to place and keep running
+     */
     public readonly desiredCount?: fabric.Computed<number>;
+    /**
+     * The ARN of IAM role that allows your Amazon ECS container agent to make calls to your load balancer on your behalf. This parameter is only required if you are using a load balancer with your service.
+     */
     public readonly iamRole?: fabric.Computed<string>;
+    /**
+     * A load balancer block. Load balancers documented below.
+     */
     public readonly loadBalancers?: fabric.Computed<{ containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[]>;
+    /**
+     * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * rules that are taken into consideration during task placement. Maximum number of
+     * `placement_constraints` is `10`. Defined below.
+     */
     public readonly placementConstraints?: fabric.Computed<{ expression?: string, type: string }[]>;
+    /**
+     * Service level strategy rules that are taken
+     * into consideration during task placement. The maximum number of
+     * `placement_strategy` blocks is `5`. Defined below.
+     */
     public readonly placementStrategy?: fabric.Computed<{ field?: string, type: string }[]>;
+    /**
+     * or full ARN of the task definition that you want to run in your service.
+     */
     public readonly taskDefinition: fabric.Computed<string>;
 
+    /**
+     * Create a Service resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Service instance
+     * @param args A collection of arguments for creating this Service intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ServiceArgs, dependsOn?: fabric.Resource[]) {
         if (args.taskDefinition === undefined) {
             throw new Error("Missing required property 'taskDefinition'");
@@ -34,16 +82,52 @@ export class Service extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Service resource.
+ */
 export interface ServiceArgs {
+    /**
+     * ARN of an ECS cluster
+     */
     readonly cluster?: fabric.MaybeComputed<string>;
+    /**
+     * of the number of running tasks that can be running in a service during a deployment.
+     */
     readonly deploymentMaximumPercent?: fabric.MaybeComputed<number>;
+    /**
+     * of the number of running tasks that must remain running and healthy in a service during a deployment.
+     */
     readonly deploymentMinimumHealthyPercent?: fabric.MaybeComputed<number>;
+    /**
+     * The number of instances of the task definition to place and keep running
+     */
     readonly desiredCount?: fabric.MaybeComputed<number>;
+    /**
+     * The ARN of IAM role that allows your Amazon ECS container agent to make calls to your load balancer on your behalf. This parameter is only required if you are using a load balancer with your service.
+     */
     readonly iamRole?: fabric.MaybeComputed<string>;
+    /**
+     * A load balancer block. Load balancers documented below.
+     */
     readonly loadBalancers?: fabric.MaybeComputed<{ containerName: fabric.MaybeComputed<string>, containerPort: fabric.MaybeComputed<number>, elbName?: fabric.MaybeComputed<string>, targetGroupArn?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * rules that are taken into consideration during task placement. Maximum number of
+     * `placement_constraints` is `10`. Defined below.
+     */
     readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * Service level strategy rules that are taken
+     * into consideration during task placement. The maximum number of
+     * `placement_strategy` blocks is `5`. Defined below.
+     */
     readonly placementStrategy?: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * or full ARN of the task definition that you want to run in your service.
+     */
     readonly taskDefinition: fabric.MaybeComputed<string>;
 }
 

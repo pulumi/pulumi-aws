@@ -3,10 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
+ * 
+ * ~> **Note:** Starting Configuration Recorder requires a [Delivery Channel](/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ */
 export class RecorderStatus extends fabric.Resource {
+    /**
+     * Whether the configuration recorder should be enabled or disabled.
+     */
     public readonly isEnabled: fabric.Computed<boolean>;
+    /**
+     * The name of the recorder
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a RecorderStatus resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RecorderStatus instance
+     * @param args A collection of arguments for creating this RecorderStatus intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RecorderStatusArgs, dependsOn?: fabric.Resource[]) {
         if (args.isEnabled === undefined) {
             throw new Error("Missing required property 'isEnabled'");
@@ -18,8 +37,17 @@ export class RecorderStatus extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RecorderStatus resource.
+ */
 export interface RecorderStatusArgs {
+    /**
+     * Whether the configuration recorder should be enabled or disabled.
+     */
     readonly isEnabled: fabric.MaybeComputed<boolean>;
+    /**
+     * The name of the recorder
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

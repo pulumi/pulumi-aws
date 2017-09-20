@@ -3,15 +3,56 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
+ */
 export class AccessKey extends fabric.Resource {
+    /**
+     * The encrypted secret, base64 encoded.
+     * ~> **NOTE:** The encrypted secret may be decrypted using the command line,
+     * for example: `terraform output secret | base64 --decode | keybase pgp decrypt`.
+     */
     public /*out*/ readonly encryptedSecret: fabric.Computed<string>;
+    /**
+     * The fingerprint of the PGP key used to encrypt
+     * the secret
+     */
     public /*out*/ readonly keyFingerprint: fabric.Computed<string>;
+    /**
+     * Either a base-64 encoded PGP public key, or a
+     * keybase username in the form `keybase:some_person_that_exists`.
+     */
     public readonly pgpKey?: fabric.Computed<string>;
+    /**
+     * The secret access key. Note that this will be written
+     * to the state file. Please supply a `pgp_key` instead, which will prevent the
+     * secret from being stored in plain text
+     */
     public /*out*/ readonly secret: fabric.Computed<string>;
+    /**
+     * The secret access key converted into an SES SMTP
+     * password by applying [AWS's documented conversion
+     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+     */
     public /*out*/ readonly sesSmtpPassword: fabric.Computed<string>;
+    /**
+     * "Active" or "Inactive". Keys are initially active, but can be made
+     * inactive by other means.
+     */
     public /*out*/ readonly status: fabric.Computed<string>;
+    /**
+     * The IAM user to associate with this access key.
+     */
     public readonly user: fabric.Computed<string>;
 
+    /**
+     * Create a AccessKey resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AccessKey instance
+     * @param args A collection of arguments for creating this AccessKey intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AccessKeyArgs, dependsOn?: fabric.Resource[]) {
         if (args.user === undefined) {
             throw new Error("Missing required property 'user'");
@@ -28,8 +69,18 @@ export class AccessKey extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AccessKey resource.
+ */
 export interface AccessKeyArgs {
+    /**
+     * Either a base-64 encoded PGP public key, or a
+     * keybase username in the form `keybase:some_person_that_exists`.
+     */
     readonly pgpKey?: fabric.MaybeComputed<string>;
+    /**
+     * The IAM user to associate with this access key.
+     */
     readonly user: fabric.MaybeComputed<string>;
 }
 

@@ -3,10 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF Byte Match Set Resource
+ */
 export class ByteMatchSet extends fabric.Resource {
+    /**
+     * Specifies the bytes (typically a string that corresponds
+     * with ASCII characters) that you want to search for in web requests,
+     * the location in requests that you want to search, and other settings.
+     */
     public readonly byteMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
+    /**
+     * The name or description of the Byte Match Set.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a ByteMatchSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ByteMatchSet instance
+     * @param args A collection of arguments for creating this ByteMatchSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ByteMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/byteMatchSet:ByteMatchSet", urnName, {
             "byteMatchTuples": args.byteMatchTuples,
@@ -15,8 +34,19 @@ export class ByteMatchSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ByteMatchSet resource.
+ */
 export interface ByteMatchSetArgs {
+    /**
+     * Specifies the bytes (typically a string that corresponds
+     * with ASCII characters) that you want to search for in web requests,
+     * the location in requests that you want to search, and other settings.
+     */
     readonly byteMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], positionalConstraint: fabric.MaybeComputed<string>, targetString?: fabric.MaybeComputed<string>, textTransformation: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name or description of the Byte Match Set.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

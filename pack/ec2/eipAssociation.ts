@@ -3,14 +3,56 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AWS EIP Association as a top level resource, to associate and
+ * disassociate Elastic IPs from AWS Instances and Network Interfaces.
+ * 
+ * ~> **NOTE:** `aws_eip_association` is useful in scenarios where EIPs are either
+ * pre-existing or distributed to customers or users and therefore cannot be changed.
+ */
 export class EipAssociation extends fabric.Resource {
+    /**
+     * The allocation ID. This is required for EC2-VPC.
+     */
     public readonly allocationId: fabric.Computed<string>;
+    /**
+     * Whether to allow an Elastic IP to
+     * be re-associated. Defaults to `true` in VPC.
+     */
     public readonly allowReassociation?: fabric.Computed<boolean>;
+    /**
+     * The ID of the instance. This is required for
+     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
+     * network interface ID, but not both. The operation fails if you specify an
+     * instance ID unless exactly one network interface is attached.
+     */
     public readonly instanceId: fabric.Computed<string>;
+    /**
+     * The ID of the network interface. If the
+     * instance has more than one network interface, you must specify a network
+     * interface ID.
+     */
     public readonly networkInterfaceId: fabric.Computed<string>;
+    /**
+     * The primary or secondary private IP address
+     * to associate with the Elastic IP address. If no private IP address is
+     * specified, the Elastic IP address is associated with the primary private IP
+     * address.
+     */
     public readonly privateIpAddress: fabric.Computed<string>;
+    /**
+     * The Elastic IP address. This is required for EC2-Classic.
+     */
     public readonly publicIp: fabric.Computed<string>;
 
+    /**
+     * Create a EipAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EipAssociation instance
+     * @param args A collection of arguments for creating this EipAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: EipAssociationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/eipAssociation:EipAssociation", urnName, {
             "allocationId": args.allocationId,
@@ -23,12 +65,42 @@ export class EipAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EipAssociation resource.
+ */
 export interface EipAssociationArgs {
+    /**
+     * The allocation ID. This is required for EC2-VPC.
+     */
     readonly allocationId?: fabric.MaybeComputed<string>;
+    /**
+     * Whether to allow an Elastic IP to
+     * be re-associated. Defaults to `true` in VPC.
+     */
     readonly allowReassociation?: fabric.MaybeComputed<boolean>;
+    /**
+     * The ID of the instance. This is required for
+     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
+     * network interface ID, but not both. The operation fails if you specify an
+     * instance ID unless exactly one network interface is attached.
+     */
     readonly instanceId?: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the network interface. If the
+     * instance has more than one network interface, you must specify a network
+     * interface ID.
+     */
     readonly networkInterfaceId?: fabric.MaybeComputed<string>;
+    /**
+     * The primary or secondary private IP address
+     * to associate with the Elastic IP address. If no private IP address is
+     * specified, the Elastic IP address is associated with the primary private IP
+     * address.
+     */
     readonly privateIpAddress?: fabric.MaybeComputed<string>;
+    /**
+     * The Elastic IP address. This is required for EC2-Classic.
+     */
     readonly publicIp?: fabric.MaybeComputed<string>;
 }
 

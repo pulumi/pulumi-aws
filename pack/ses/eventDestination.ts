@@ -11,6 +11,14 @@ export class EventDestination extends fabric.Resource {
     public readonly matchingTypes: fabric.Computed<string[]>;
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a EventDestination resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EventDestination instance
+     * @param args A collection of arguments for creating this EventDestination intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EventDestinationArgs, dependsOn?: fabric.Resource[]) {
         if (args.configurationSetName === undefined) {
             throw new Error("Missing required property 'configurationSetName'");
@@ -29,6 +37,9 @@ export class EventDestination extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EventDestination resource.
+ */
 export interface EventDestinationArgs {
     readonly cloudwatchDestination?: fabric.MaybeComputed<{ defaultValue: fabric.MaybeComputed<string>, dimensionName: fabric.MaybeComputed<string>, valueSource: fabric.MaybeComputed<string> }>[];
     readonly configurationSetName: fabric.MaybeComputed<string>;

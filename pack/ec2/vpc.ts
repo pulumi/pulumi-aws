@@ -3,23 +3,83 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an VPC resource.
+ */
 export class Vpc extends fabric.Resource {
+    /**
+     * Requests an Amazon-provided IPv6 CIDR 
+     * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
+     * the size of the CIDR block. Default is `false`.
+     */
     public readonly assignGeneratedIpv6CidrBlock?: fabric.Computed<boolean>;
+    /**
+     * The CIDR block for the VPC.
+     */
     public readonly cidrBlock: fabric.Computed<string>;
+    /**
+     * The ID of the network ACL created by default on VPC creation
+     */
     public /*out*/ readonly defaultNetworkAclId: fabric.Computed<string>;
+    /**
+     * The ID of the route table created by default on VPC creation
+     */
     public /*out*/ readonly defaultRouteTableId: fabric.Computed<string>;
+    /**
+     * The ID of the security group created by default on VPC creation
+     */
     public /*out*/ readonly defaultSecurityGroupId: fabric.Computed<string>;
     public /*out*/ readonly dhcpOptionsId: fabric.Computed<string>;
+    /**
+     * A boolean flag to enable/disable ClassicLink
+     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
+     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     */
     public readonly enableClassiclink: fabric.Computed<boolean>;
+    /**
+     * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
+     * Only valid in regions and accounts that support EC2 Classic.
+     */
     public readonly enableClassiclinkDnsSupport: fabric.Computed<boolean>;
+    /**
+     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     */
     public readonly enableDnsHostnames: fabric.Computed<boolean>;
+    /**
+     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+     */
     public readonly enableDnsSupport?: fabric.Computed<boolean>;
+    /**
+     * A tenancy option for instances launched into the VPC
+     */
     public readonly instanceTenancy: fabric.Computed<string>;
+    /**
+     * The association ID for the IPv6 CIDR block.
+     */
     public /*out*/ readonly ipv6AssociationId: fabric.Computed<string>;
+    /**
+     * The IPv6 CIDR block.
+     */
     public /*out*/ readonly ipv6CidrBlock: fabric.Computed<string>;
+    /**
+     * The ID of the main route table associated with
+     * this VPC. Note that you can change a VPC's main route table by using an
+     * [`aws_main_route_table_association`](/docs/providers/aws/r/main_route_table_assoc.html).
+     */
     public /*out*/ readonly mainRouteTableId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Vpc resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Vpc instance
+     * @param args A collection of arguments for creating this Vpc intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpcArgs, dependsOn?: fabric.Resource[]) {
         if (args.cidrBlock === undefined) {
             throw new Error("Missing required property 'cidrBlock'");
@@ -44,14 +104,46 @@ export class Vpc extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Vpc resource.
+ */
 export interface VpcArgs {
+    /**
+     * Requests an Amazon-provided IPv6 CIDR 
+     * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
+     * the size of the CIDR block. Default is `false`.
+     */
     readonly assignGeneratedIpv6CidrBlock?: fabric.MaybeComputed<boolean>;
+    /**
+     * The CIDR block for the VPC.
+     */
     readonly cidrBlock: fabric.MaybeComputed<string>;
+    /**
+     * A boolean flag to enable/disable ClassicLink
+     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
+     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     */
     readonly enableClassiclink?: fabric.MaybeComputed<boolean>;
+    /**
+     * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
+     * Only valid in regions and accounts that support EC2 Classic.
+     */
     readonly enableClassiclinkDnsSupport?: fabric.MaybeComputed<boolean>;
+    /**
+     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     */
     readonly enableDnsHostnames?: fabric.MaybeComputed<boolean>;
+    /**
+     * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+     */
     readonly enableDnsSupport?: fabric.MaybeComputed<boolean>;
+    /**
+     * A tenancy option for instances launched into the VPC
+     */
     readonly instanceTenancy?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

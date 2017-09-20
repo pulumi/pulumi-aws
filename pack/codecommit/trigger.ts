@@ -8,6 +8,14 @@ export class Trigger extends fabric.Resource {
     public readonly repositoryName: fabric.Computed<string>;
     public readonly trigger: fabric.Computed<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
+    /**
+     * Create a Trigger resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Trigger instance
+     * @param args A collection of arguments for creating this Trigger intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: TriggerArgs, dependsOn?: fabric.Resource[]) {
         if (args.repositoryName === undefined) {
             throw new Error("Missing required property 'repositoryName'");
@@ -23,6 +31,9 @@ export class Trigger extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Trigger resource.
+ */
 export interface TriggerArgs {
     readonly repositoryName: fabric.MaybeComputed<string>;
     readonly trigger: fabric.MaybeComputed<{ branches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customData?: fabric.MaybeComputed<string>, destinationArn: fabric.MaybeComputed<string>, events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string> }>[];

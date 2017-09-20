@@ -3,17 +3,59 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Route53 Hosted Zone resource.
+ */
 export class Zone extends fabric.Resource {
+    /**
+     * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
+     */
     public readonly comment?: fabric.Computed<string>;
+    /**
+     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone.
+     * Conflicts w/ `vpc_id` as delegation sets can only be used for public zones.
+     */
     public readonly delegationSetId?: fabric.Computed<string>;
+    /**
+     * Whether to destroy all records (possibly managed outside of Terraform)
+     * in the zone when destroying the zone.
+     */
     public readonly forceDestroy?: fabric.Computed<boolean>;
+    /**
+     * This is the name of the hosted zone.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A list of name servers in associated (or default) delegation set.
+     * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
+     */
     public /*out*/ readonly nameServers: fabric.Computed<string[]>;
+    /**
+     * A mapping of tags to assign to the zone.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
+     * Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.
+     */
     public readonly vpcId?: fabric.Computed<string>;
+    /**
+     * The VPC's region. Defaults to the region of the AWS provider.
+     */
     public readonly vpcRegion: fabric.Computed<string>;
+    /**
+     * The Hosted Zone ID. This can be referenced by zone records.
+     */
     public /*out*/ readonly zoneId: fabric.Computed<string>;
 
+    /**
+     * Create a Zone resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Zone instance
+     * @param args A collection of arguments for creating this Zone intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ZoneArgs, dependsOn?: fabric.Resource[]) {
         super("aws:route53/zone:Zone", urnName, {
             "comment": args.comment,
@@ -29,13 +71,40 @@ export class Zone extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Zone resource.
+ */
 export interface ZoneArgs {
+    /**
+     * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
+     */
     readonly comment?: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone.
+     * Conflicts w/ `vpc_id` as delegation sets can only be used for public zones.
+     */
     readonly delegationSetId?: fabric.MaybeComputed<string>;
+    /**
+     * Whether to destroy all records (possibly managed outside of Terraform)
+     * in the zone when destroying the zone.
+     */
     readonly forceDestroy?: fabric.MaybeComputed<boolean>;
+    /**
+     * This is the name of the hosted zone.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the zone.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
+     * Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.
+     */
     readonly vpcId?: fabric.MaybeComputed<string>;
+    /**
+     * The VPC's region. Defaults to the region of the AWS provider.
+     */
     readonly vpcRegion?: fabric.MaybeComputed<string>;
 }
 

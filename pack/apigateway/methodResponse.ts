@@ -5,15 +5,49 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an HTTP Method Response for an API Gateway Resource.
+ */
 export class MethodResponse extends fabric.Resource {
+    /**
+     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     */
     public readonly httpMethod: fabric.Computed<string>;
+    /**
+     * The API resource ID
+     */
     public readonly resourceId: fabric.Computed<string>;
+    /**
+     * A map of the API models used for the response's content type
+     */
     public readonly responseModels?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * A map of response parameters that can be sent to the caller.
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+     * would define that the header `X-Some-Header` can be provided on the response.
+     */
     public readonly responseParameters?: fabric.Computed<{[key: string]: boolean}>;
+    /**
+     * **Deprecated**, use `response_parameters` instead.
+     */
     public readonly responseParametersInJson?: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The HTTP status code
+     */
     public readonly statusCode: fabric.Computed<string>;
 
+    /**
+     * Create a MethodResponse resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MethodResponse instance
+     * @param args A collection of arguments for creating this MethodResponse intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MethodResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.httpMethod === undefined) {
             throw new Error("Missing required property 'httpMethod'");
@@ -39,13 +73,39 @@ export class MethodResponse extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MethodResponse resource.
+ */
 export interface MethodResponseArgs {
+    /**
+     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     */
     readonly httpMethod: fabric.MaybeComputed<string>;
+    /**
+     * The API resource ID
+     */
     readonly resourceId: fabric.MaybeComputed<string>;
+    /**
+     * A map of the API models used for the response's content type
+     */
     readonly responseModels?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    /**
+     * A map of response parameters that can be sent to the caller.
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+     * would define that the header `X-Some-Header` can be provided on the response.
+     */
     readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<boolean>}>;
+    /**
+     * **Deprecated**, use `response_parameters` instead.
+     */
     readonly responseParametersInJson?: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.MaybeComputed<RestApi>;
+    /**
+     * The HTTP status code
+     */
     readonly statusCode: fabric.MaybeComputed<string>;
 }
 

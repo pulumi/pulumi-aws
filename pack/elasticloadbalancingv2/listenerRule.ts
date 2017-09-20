@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Application Load Balancer Listener Rule resource.
+ */
 export class ListenerRule extends fabric.Resource {
+    /**
+     * An Action block. Action blocks are documented below.
+     */
     public readonly actions: fabric.Computed<{ targetGroupArn: string, type: string }[]>;
+    /**
+     * The ARN of the rule (matches `id`)
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * A Condition block. Condition blocks are documented below.
+     */
     public readonly conditions: fabric.Computed<{ field?: string, values?: string[] }[]>;
+    /**
+     * The ARN of the listener to which to attach the rule.
+     */
     public readonly listenerArn: fabric.Computed<string>;
+    /**
+     * The priority for the rule. A listener can't have multiple rules with the same priority.
+     */
     public readonly priority: fabric.Computed<number>;
 
+    /**
+     * Create a ListenerRule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ListenerRule instance
+     * @param args A collection of arguments for creating this ListenerRule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ListenerRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.actions === undefined) {
             throw new Error("Missing required property 'actions'");
@@ -33,10 +59,25 @@ export class ListenerRule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ListenerRule resource.
+ */
 export interface ListenerRuleArgs {
+    /**
+     * An Action block. Action blocks are documented below.
+     */
     readonly actions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * A Condition block. Condition blocks are documented below.
+     */
     readonly conditions: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, values?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    /**
+     * The ARN of the listener to which to attach the rule.
+     */
     readonly listenerArn: fabric.MaybeComputed<string>;
+    /**
+     * The priority for the rule. A listener can't have multiple rules with the same priority.
+     */
     readonly priority: fabric.MaybeComputed<number>;
 }
 

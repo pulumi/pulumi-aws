@@ -3,12 +3,37 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Allocates a static IP address.
+ * 
+ * ~> **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ */
 export class StaticIp extends fabric.Resource {
+    /**
+     * The ARN of the Lightsail static IP
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The allocated static IP address
+     */
     public /*out*/ readonly ipAddress: fabric.Computed<string>;
+    /**
+     * The name for the allocated static IP
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The support code.
+     */
     public /*out*/ readonly supportCode: fabric.Computed<string>;
 
+    /**
+     * Create a StaticIp resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this StaticIp instance
+     * @param args A collection of arguments for creating this StaticIp intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: StaticIpArgs, dependsOn?: fabric.Resource[]) {
         super("aws:lightsail/staticIp:StaticIp", urnName, {
             "name": args.name,
@@ -19,7 +44,13 @@ export class StaticIp extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a StaticIp resource.
+ */
 export interface StaticIpArgs {
+    /**
+     * The name for the allocated static IP
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

@@ -16,6 +16,14 @@ export class Pipeline extends fabric.Resource {
     public readonly thumbnailConfig: fabric.Computed<{ bucket: string, storageClass?: string }[]>;
     public readonly thumbnailConfigPermissions?: fabric.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
 
+    /**
+     * Create a Pipeline resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Pipeline instance
+     * @param args A collection of arguments for creating this Pipeline intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PipelineArgs, dependsOn?: fabric.Resource[]) {
         if (args.inputBucket === undefined) {
             throw new Error("Missing required property 'inputBucket'");
@@ -39,6 +47,9 @@ export class Pipeline extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Pipeline resource.
+ */
 export interface PipelineArgs {
     readonly awsKmsKeyArn?: fabric.MaybeComputed<string>;
     readonly contentConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];

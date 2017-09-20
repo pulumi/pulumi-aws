@@ -3,26 +3,67 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+ * including cross-region copies.
+ * 
+ * If the source AMI has associated EBS snapshots, those will also be duplicated
+ * along with the AMI.
+ * 
+ * This is useful for taking a single AMI provisioned in one region and making
+ * it available in another for a multi-region deployment.
+ * 
+ * Copying an AMI can take several minutes. The creation of this resource will
+ * block until the new AMI is available for use on new instances.
+ */
 export class AmiCopy extends fabric.Resource {
     public /*out*/ readonly architecture: fabric.Computed<string>;
     public readonly description?: fabric.Computed<string>;
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    /**
+     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     */
     public readonly encrypted?: fabric.Computed<boolean>;
     public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
+    /**
+     * The ID of the created AMI.
+     */
     public /*out*/ readonly amiId: fabric.Computed<string>;
     public /*out*/ readonly imageLocation: fabric.Computed<string>;
     public /*out*/ readonly kernelId: fabric.Computed<string>;
+    /**
+     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     */
     public readonly kmsKeyId: fabric.Computed<string>;
     public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
+    /**
+     * A region-unique name for the AMI.
+     */
     public readonly name: fabric.Computed<string>;
     public /*out*/ readonly ramdiskId: fabric.Computed<string>;
     public /*out*/ readonly rootDeviceName: fabric.Computed<string>;
+    /**
+     * The id of the AMI to copy. This id must be valid in the region
+     * given by `source_ami_region`.
+     */
     public readonly sourceAmiId: fabric.Computed<string>;
+    /**
+     * The region from which the AMI will be copied. This may be the
+     * same as the AWS provider region in order to create a copy within the same region.
+     */
     public readonly sourceAmiRegion: fabric.Computed<string>;
     public /*out*/ readonly sriovNetSupport: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
+    /**
+     * Create a AmiCopy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AmiCopy instance
+     * @param args A collection of arguments for creating this AmiCopy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AmiCopyArgs, dependsOn?: fabric.Resource[]) {
         if (args.sourceAmiId === undefined) {
             throw new Error("Missing required property 'sourceAmiId'");
@@ -53,14 +94,34 @@ export class AmiCopy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AmiCopy resource.
+ */
 export interface AmiCopyArgs {
     readonly description?: fabric.MaybeComputed<string>;
     readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    /**
+     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     */
     readonly encrypted?: fabric.MaybeComputed<boolean>;
     readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     */
     readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    /**
+     * A region-unique name for the AMI.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The id of the AMI to copy. This id must be valid in the region
+     * given by `source_ami_region`.
+     */
     readonly sourceAmiId: fabric.MaybeComputed<string>;
+    /**
+     * The region from which the AMI will be copied. This may be the
+     * same as the AWS provider region in order to create a copy within the same region.
+     */
     readonly sourceAmiRegion: fabric.MaybeComputed<string>;
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }

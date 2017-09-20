@@ -3,15 +3,61 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IAM Server Certificate resource to upload Server Certificates.
+ * Certs uploaded to IAM can easily work with other AWS services such as:
+ * 
+ * - AWS Elastic Beanstalk
+ * - Elastic Load Balancing
+ * - CloudFront
+ * - AWS OpsWorks
+ * 
+ * For information about server certificates in IAM, see [Managing Server
+ * Certificates][2] in AWS Documentation.
+ * 
+ * ~> **Note:** All arguments including the private key will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class ServerCertificate extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the server certificate.
+     */
     public readonly arn: fabric.Computed<string>;
     public readonly certificateBody: fabric.Computed<string>;
     public readonly certificateChain?: fabric.Computed<string>;
+    /**
+     * The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, Terraform will assign a random, unique name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     * * `certificate_body` – (Required) The contents of the public key certificate in
+     * PEM-encoded format.
+     * * `certificate_chain` – (Optional) The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     * * `private_key` – (Required) The contents of the private key in PEM-encoded format.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers][1] for more details on IAM Paths.
+     */
     public readonly path?: fabric.Computed<string>;
     public readonly privateKey: fabric.Computed<string>;
 
+    /**
+     * Create a ServerCertificate resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ServerCertificate instance
+     * @param args A collection of arguments for creating this ServerCertificate intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ServerCertificateArgs, dependsOn?: fabric.Resource[]) {
         if (args.certificateBody === undefined) {
             throw new Error("Missing required property 'certificateBody'");
@@ -31,12 +77,35 @@ export class ServerCertificate extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ServerCertificate resource.
+ */
 export interface ServerCertificateArgs {
     readonly arn?: fabric.MaybeComputed<string>;
     readonly certificateBody: fabric.MaybeComputed<string>;
     readonly certificateChain?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the Server Certificate. Do not include the
+     * path in this value. If omitted, Terraform will assign a random, unique name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     * * `certificate_body` – (Required) The contents of the public key certificate in
+     * PEM-encoded format.
+     * * `certificate_chain` – (Optional) The contents of the certificate chain.
+     * This is typically a concatenation of the PEM-encoded public key certificates
+     * of the chain.
+     * * `private_key` – (Required) The contents of the private key in PEM-encoded format.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * The IAM path for the server certificate.  If it is not
+     * included, it defaults to a slash (/). If this certificate is for use with
+     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+     * See [IAM Identifiers][1] for more details on IAM Paths.
+     */
     readonly path?: fabric.MaybeComputed<string>;
     readonly privateKey: fabric.MaybeComputed<string>;
 }

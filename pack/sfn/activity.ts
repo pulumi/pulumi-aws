@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Step Function Activity resource
+ */
 export class Activity extends fabric.Resource {
+    /**
+     * The date the activity was created.
+     */
     public /*out*/ readonly creationDate: fabric.Computed<string>;
+    /**
+     * The name of the activity to create.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a Activity resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Activity instance
+     * @param args A collection of arguments for creating this Activity intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ActivityArgs, dependsOn?: fabric.Resource[]) {
         super("aws:sfn/activity:Activity", urnName, {
             "name": args.name,
@@ -15,7 +32,13 @@ export class Activity extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Activity resource.
+ */
 export interface ActivityArgs {
+    /**
+     * The name of the activity to create.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

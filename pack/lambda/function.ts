@@ -5,32 +5,115 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {ARN} from "../index";
 
+/**
+ * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
+ * 
+ * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+ */
 export class Function extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) identifying your Lambda Function.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Nested block to configure the function's *dead letter queue*. See details below.
+     */
     public readonly deadLetterConfig?: fabric.Computed<{ targetArn: string }[]>;
+    /**
+     * Description of what your Lambda Function does.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The Lambda environment's configuration settings. Fields documented below.
+     */
     public readonly environment?: fabric.Computed<{ variables?: {[key: string]: string} }[]>;
+    /**
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     */
     public readonly code?: fabric.Computed<fabric.asset.Archive>;
+    /**
+     * A unique name for your Lambda Function.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The function [entrypoint][3] in your code.
+     */
     public readonly handler: fabric.Computed<string>;
+    /**
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     */
     public /*out*/ readonly invokeArn: fabric.Computed<string>;
+    /**
+     * The ARN for the KMS encryption key.
+     */
     public readonly kmsKeyArn?: fabric.Computed<string>;
+    /**
+     * The date this resource was last modified.
+     */
     public /*out*/ readonly lastModified: fabric.Computed<string>;
+    /**
+     * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+     */
     public readonly memorySize?: fabric.Computed<number>;
+    /**
+     * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     */
     public readonly publish?: fabric.Computed<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) identifying your Lambda Function Version
+     * (if versioning is enabled via `publish = true`).
+     */
     public /*out*/ readonly qualifiedArn: fabric.Computed<string>;
+    /**
+     * IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+     */
     public readonly role: fabric.Computed<ARN>;
+    /**
+     * See [Runtimes][6] for valid values.
+     */
     public readonly runtime: fabric.Computed<string>;
+    /**
+     * The S3 bucket location containing the function's deployment package. Conflicts with `filename`.
+     */
     public readonly s3Bucket?: fabric.Computed<string>;
+    /**
+     * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+     */
     public readonly s3Key?: fabric.Computed<string>;
+    /**
+     * The object version containing the function's deployment package. Conflicts with `filename`.
+     */
     public readonly s3ObjectVersion?: fabric.Computed<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
+     */
     public readonly sourceCodeHash: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+     */
     public readonly timeout?: fabric.Computed<number>;
     public readonly tracingConfig: fabric.Computed<{ mode: string }[]>;
+    /**
+     * Latest published version of your Lambda Function.
+     */
     public /*out*/ readonly version: fabric.Computed<string>;
+    /**
+     * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+     */
     public readonly vpcConfig?: fabric.Computed<{ securityGroupIds: string[], subnetIds: string[], vpcId: string }[]>;
 
+    /**
+     * Create a Function resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Function instance
+     * @param args A collection of arguments for creating this Function intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: FunctionArgs, dependsOn?: fabric.Resource[]) {
         if (args.handler === undefined) {
             throw new Error("Missing required property 'handler'");
@@ -70,25 +153,82 @@ export class Function extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Function resource.
+ */
 export interface FunctionArgs {
+    /**
+     * Nested block to configure the function's *dead letter queue*. See details below.
+     */
     readonly deadLetterConfig?: fabric.MaybeComputed<{ targetArn: fabric.MaybeComputed<string> }>[];
+    /**
+     * Description of what your Lambda Function does.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The Lambda environment's configuration settings. Fields documented below.
+     */
     readonly environment?: fabric.MaybeComputed<{ variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}> }>[];
+    /**
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     */
     readonly code?: fabric.asset.Archive;
+    /**
+     * A unique name for your Lambda Function.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The function [entrypoint][3] in your code.
+     */
     readonly handler: fabric.MaybeComputed<string>;
+    /**
+     * The ARN for the KMS encryption key.
+     */
     readonly kmsKeyArn?: fabric.MaybeComputed<string>;
+    /**
+     * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+     */
     readonly memorySize?: fabric.MaybeComputed<number>;
+    /**
+     * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     */
     readonly publish?: fabric.MaybeComputed<boolean>;
+    /**
+     * IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+     */
     readonly role: fabric.MaybeComputed<ARN>;
+    /**
+     * See [Runtimes][6] for valid values.
+     */
     readonly runtime: fabric.MaybeComputed<string>;
+    /**
+     * The S3 bucket location containing the function's deployment package. Conflicts with `filename`.
+     */
     readonly s3Bucket?: fabric.MaybeComputed<string>;
+    /**
+     * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+     */
     readonly s3Key?: fabric.MaybeComputed<string>;
+    /**
+     * The object version containing the function's deployment package. Conflicts with `filename`.
+     */
     readonly s3ObjectVersion?: fabric.MaybeComputed<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
+     */
     readonly sourceCodeHash?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+     */
     readonly timeout?: fabric.MaybeComputed<number>;
     readonly tracingConfig?: fabric.MaybeComputed<{ mode: fabric.MaybeComputed<string> }>[];
+    /**
+     * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+     */
     readonly vpcConfig?: fabric.MaybeComputed<{ securityGroupIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId?: fabric.MaybeComputed<string> }>[];
 }
 

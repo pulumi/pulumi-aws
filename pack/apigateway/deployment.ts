@@ -5,16 +5,57 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an API Gateway Deployment.
+ * 
+ * -> **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
+ * you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
+ */
 export class Deployment extends fabric.Resource {
+    /**
+     * The creation date of the deployment
+     */
     public /*out*/ readonly createdDate: fabric.Computed<string>;
+    /**
+     * The description of the deployment
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The execution ARN to be used in [`lambda_permission`](/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+     * when allowing API Gateway to invoke a Lambda function,
+     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     */
     public /*out*/ readonly executionArn: fabric.Computed<string>;
+    /**
+     * The URL to invoke the API pointing to the stage,
+     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     */
     public /*out*/ readonly invokeUrl: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The description of the stage
+     */
     public readonly stageDescription?: fabric.Computed<string>;
+    /**
+     * The name of the stage
+     */
     public readonly stageName: fabric.Computed<string>;
+    /**
+     * A map that defines variables for the stage
+     */
     public readonly variables?: fabric.Computed<{[key: string]: string}>;
 
+    /**
+     * Create a Deployment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Deployment instance
+     * @param args A collection of arguments for creating this Deployment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DeploymentArgs, dependsOn?: fabric.Resource[]) {
         if (args.restApi === undefined) {
             throw new Error("Missing required property 'restApi'");
@@ -35,11 +76,29 @@ export class Deployment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Deployment resource.
+ */
 export interface DeploymentArgs {
+    /**
+     * The description of the deployment
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.MaybeComputed<RestApi>;
+    /**
+     * The description of the stage
+     */
     readonly stageDescription?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the stage
+     */
     readonly stageName: fabric.MaybeComputed<string>;
+    /**
+     * A map that defines variables for the stage
+     */
     readonly variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
 }
 

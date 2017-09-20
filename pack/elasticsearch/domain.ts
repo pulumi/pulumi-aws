@@ -3,19 +3,62 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ */
 export class Domain extends fabric.Resource {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     */
     public readonly accessPolicies: fabric.Computed<string>;
+    /**
+     * Key-value string pairs to specify advanced configuration options.
+     */
     public readonly advancedOptions: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Amazon Resource Name (ARN) of the domain.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Cluster configuration of the domain, see below.
+     */
     public readonly clusterConfig: fabric.Computed<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }[]>;
+    /**
+     * Unique identifier for the domain.
+     */
     public /*out*/ readonly domainId: fabric.Computed<string>;
+    /**
+     * Name of the domain.
+     */
     public readonly domainName: fabric.Computed<string>;
+    /**
+     * EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+     */
     public readonly ebsOptions: fabric.Computed<{ ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType: string }[]>;
+    /**
+     * The version of ElasticSearch to deploy. Defaults to `1.5`
+     */
     public readonly elasticsearchVersion?: fabric.Computed<string>;
+    /**
+     * Domain-specific endpoint used to submit index, search, and data upload requests.
+     */
     public /*out*/ readonly endpoint: fabric.Computed<string>;
+    /**
+     * Snapshot related options, see below.
+     */
     public readonly snapshotOptions?: fabric.Computed<{ automatedSnapshotStartHour: number }[]>;
+    /**
+     * A mapping of tags to assign to the resource
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Domain resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Domain instance
+     * @param args A collection of arguments for creating this Domain intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DomainArgs, dependsOn?: fabric.Resource[]) {
         if (args.domainName === undefined) {
             throw new Error("Missing required property 'domainName'");
@@ -36,14 +79,41 @@ export class Domain extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Domain resource.
+ */
 export interface DomainArgs {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     */
     readonly accessPolicies?: fabric.MaybeComputed<string>;
+    /**
+     * Key-value string pairs to specify advanced configuration options.
+     */
     readonly advancedOptions?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * Cluster configuration of the domain, see below.
+     */
     readonly clusterConfig?: fabric.MaybeComputed<{ dedicatedMasterCount?: fabric.MaybeComputed<number>, dedicatedMasterEnabled?: fabric.MaybeComputed<boolean>, dedicatedMasterType?: fabric.MaybeComputed<string>, instanceCount?: fabric.MaybeComputed<number>, instanceType?: fabric.MaybeComputed<string>, zoneAwarenessEnabled?: fabric.MaybeComputed<boolean> }>[];
+    /**
+     * Name of the domain.
+     */
     readonly domainName: fabric.MaybeComputed<string>;
+    /**
+     * EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+     */
     readonly ebsOptions?: fabric.MaybeComputed<{ ebsEnabled: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The version of ElasticSearch to deploy. Defaults to `1.5`
+     */
     readonly elasticsearchVersion?: fabric.MaybeComputed<string>;
+    /**
+     * Snapshot related options, see below.
+     */
     readonly snapshotOptions?: fabric.MaybeComputed<{ automatedSnapshotStartHour: fabric.MaybeComputed<number> }>[];
+    /**
+     * A mapping of tags to assign to the resource
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

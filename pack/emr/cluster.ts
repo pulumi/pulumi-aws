@@ -24,6 +24,14 @@ export class Cluster extends fabric.Resource {
     public readonly terminationProtection: fabric.Computed<boolean>;
     public readonly visibleToAllUsers?: fabric.Computed<boolean>;
 
+    /**
+     * Create a Cluster resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Cluster instance
+     * @param args A collection of arguments for creating this Cluster intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
         if (args.masterInstanceType === undefined) {
             throw new Error("Missing required property 'masterInstanceType'");
@@ -58,6 +66,9 @@ export class Cluster extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Cluster resource.
+ */
 export interface ClusterArgs {
     readonly applications?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly autoscalingRole?: fabric.MaybeComputed<string>;

@@ -5,17 +5,62 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an HTTP Method Integration Response for an API Gateway Resource.
+ * 
+ * -> **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
+ * you might need to add an explicit `depends_on` for clean runs.
+ */
 export class IntegrationResponse extends fabric.Resource {
+    /**
+     * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+     */
     public readonly contentHandling?: fabric.Computed<string>;
+    /**
+     * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     */
     public readonly httpMethod: fabric.Computed<string>;
+    /**
+     * The API resource ID
+     */
     public readonly resourceId: fabric.Computed<string>;
+    /**
+     * A map of response parameters that can be read from the backend response.
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+     */
     public readonly responseParameters?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * **Deprecated**, use `response_parameters` instead.
+     */
     public readonly responseParametersInJson?: fabric.Computed<string>;
+    /**
+     * A map specifying the templates used to transform the integration response body
+     */
     public readonly responseTemplates?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * Specifies the regular expression pattern used to choose
+     * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+     * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
+     * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+     */
     public readonly selectionPattern?: fabric.Computed<string>;
+    /**
+     * The HTTP status code
+     */
     public readonly statusCode: fabric.Computed<string>;
 
+    /**
+     * Create a IntegrationResponse resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this IntegrationResponse instance
+     * @param args A collection of arguments for creating this IntegrationResponse intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: IntegrationResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.httpMethod === undefined) {
             throw new Error("Missing required property 'httpMethod'");
@@ -43,15 +88,49 @@ export class IntegrationResponse extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a IntegrationResponse resource.
+ */
 export interface IntegrationResponseArgs {
+    /**
+     * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+     */
     readonly contentHandling?: fabric.MaybeComputed<string>;
+    /**
+     * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     */
     readonly httpMethod: fabric.MaybeComputed<string>;
+    /**
+     * The API resource ID
+     */
     readonly resourceId: fabric.MaybeComputed<string>;
+    /**
+     * A map of response parameters that can be read from the backend response.
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+     */
     readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    /**
+     * **Deprecated**, use `response_parameters` instead.
+     */
     readonly responseParametersInJson?: fabric.MaybeComputed<string>;
+    /**
+     * A map specifying the templates used to transform the integration response body
+     */
     readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.MaybeComputed<RestApi>;
+    /**
+     * Specifies the regular expression pattern used to choose
+     * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+     * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
+     * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+     */
     readonly selectionPattern?: fabric.MaybeComputed<string>;
+    /**
+     * The HTTP status code
+     */
     readonly statusCode: fabric.MaybeComputed<string>;
 }
 

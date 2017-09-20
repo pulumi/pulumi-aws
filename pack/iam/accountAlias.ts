@@ -3,9 +3,25 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * -> **Note:** There is only a single account alias per AWS account.
+ * 
+ * Manages the account alias for the AWS Account.
+ */
 export class AccountAlias extends fabric.Resource {
+    /**
+     * The account alias
+     */
     public readonly accountAlias: fabric.Computed<string>;
 
+    /**
+     * Create a AccountAlias resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AccountAlias instance
+     * @param args A collection of arguments for creating this AccountAlias intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AccountAliasArgs, dependsOn?: fabric.Resource[]) {
         if (args.accountAlias === undefined) {
             throw new Error("Missing required property 'accountAlias'");
@@ -16,7 +32,13 @@ export class AccountAlias extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AccountAlias resource.
+ */
 export interface AccountAliasArgs {
+    /**
+     * The account alias
+     */
     readonly accountAlias: fabric.MaybeComputed<string>;
 }
 

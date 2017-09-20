@@ -3,10 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html) resource.
+ */
 export class DelegationSet extends fabric.Resource {
+    /**
+     * A list of authoritative name servers for the hosted zone
+     * (effectively a list of NS records).
+     */
     public /*out*/ readonly nameServers: fabric.Computed<string[]>;
+    /**
+     * This is a reference name used in Caller Reference
+     * (helpful for identifying single delegation set amongst others)
+     */
     public readonly referenceName?: fabric.Computed<string>;
 
+    /**
+     * Create a DelegationSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DelegationSet instance
+     * @param args A collection of arguments for creating this DelegationSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: DelegationSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:route53/delegationSet:DelegationSet", urnName, {
             "referenceName": args.referenceName,
@@ -15,7 +34,14 @@ export class DelegationSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DelegationSet resource.
+ */
 export interface DelegationSetArgs {
+    /**
+     * This is a reference name used in Caller Reference
+     * (helpful for identifying single delegation set amongst others)
+     */
     readonly referenceName?: fabric.MaybeComputed<string>;
 }
 

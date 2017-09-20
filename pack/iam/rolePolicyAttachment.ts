@@ -10,6 +10,14 @@ export class RolePolicyAttachment extends fabric.Resource {
     public readonly policyArn: fabric.Computed<ARN>;
     public readonly role: fabric.Computed<Role>;
 
+    /**
+     * Create a RolePolicyAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RolePolicyAttachment instance
+     * @param args A collection of arguments for creating this RolePolicyAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RolePolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.policyArn === undefined) {
             throw new Error("Missing required property 'policyArn'");
@@ -24,6 +32,9 @@ export class RolePolicyAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RolePolicyAttachment resource.
+ */
 export interface RolePolicyAttachmentArgs {
     readonly policyArn: fabric.MaybeComputed<ARN>;
     readonly role: fabric.MaybeComputed<Role>;

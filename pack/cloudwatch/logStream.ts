@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CloudWatch Log Stream resource.
+ */
 export class LogStream extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the log stream.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The name of the log group under which the log stream is to be created.
+     */
     public readonly logGroupName: fabric.Computed<string>;
+    /**
+     * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a LogStream resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LogStream instance
+     * @param args A collection of arguments for creating this LogStream intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LogStreamArgs, dependsOn?: fabric.Resource[]) {
         if (args.logGroupName === undefined) {
             throw new Error("Missing required property 'logGroupName'");
@@ -20,8 +40,17 @@ export class LogStream extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LogStream resource.
+ */
 export interface LogStreamArgs {
+    /**
+     * The name of the log group under which the log stream is to be created.
+     */
     readonly logGroupName: fabric.MaybeComputed<string>;
+    /**
+     * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

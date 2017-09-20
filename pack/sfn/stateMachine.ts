@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Step Function State Machine resource
+ */
 export class StateMachine extends fabric.Resource {
+    /**
+     * The date the state machine was created.
+     */
     public /*out*/ readonly creationDate: fabric.Computed<string>;
+    /**
+     * The Amazon States Language definition of the state machine.
+     */
     public readonly definition: fabric.Computed<string>;
+    /**
+     * The name of the state machine.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * of the IAM role to use for this state machine.
+     */
     public readonly roleArn: fabric.Computed<string>;
+    /**
+     * The current status of the state machine. Either "ACTIVE" or "DELETING".
+     */
     public /*out*/ readonly status: fabric.Computed<string>;
 
+    /**
+     * Create a StateMachine resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this StateMachine instance
+     * @param args A collection of arguments for creating this StateMachine intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: StateMachineArgs, dependsOn?: fabric.Resource[]) {
         if (args.definition === undefined) {
             throw new Error("Missing required property 'definition'");
@@ -27,9 +53,21 @@ export class StateMachine extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a StateMachine resource.
+ */
 export interface StateMachineArgs {
+    /**
+     * The Amazon States Language definition of the state machine.
+     */
     readonly definition: fabric.MaybeComputed<string>;
+    /**
+     * The name of the state machine.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * of the IAM role to use for this state machine.
+     */
     readonly roleArn: fabric.MaybeComputed<string>;
 }
 

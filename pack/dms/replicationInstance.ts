@@ -3,25 +3,87 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
+ */
 export class ReplicationInstance extends fabric.Resource {
+    /**
+     * to be initially allocated for the replication instance.
+     */
     public readonly allocatedStorage: fabric.Computed<number>;
+    /**
+     * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
+     */
     public readonly applyImmediately?: fabric.Computed<boolean>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+     */
     public readonly autoMinorVersionUpgrade: fabric.Computed<boolean>;
+    /**
+     * The EC2 Availability Zone that the replication instance will be created in.
+     */
     public readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * The engine version number of the replication instance.
+     */
     public readonly engineVersion: fabric.Computed<string>;
+    /**
+     * for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     */
     public readonly kmsKeyArn: fabric.Computed<string>;
+    /**
+     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     */
     public readonly multiAz: fabric.Computed<boolean>;
+    /**
+     * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     */
     public readonly preferredMaintenanceWindow: fabric.Computed<string>;
+    /**
+     * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+     */
     public readonly publiclyAccessible: fabric.Computed<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the replication instance.
+     */
     public /*out*/ readonly replicationInstanceArn: fabric.Computed<string>;
+    /**
+     * The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+     */
     public readonly replicationInstanceClass: fabric.Computed<string>;
+    /**
+     * The replication instance identifier. This parameter is stored as a lowercase string.
+     */
     public readonly replicationInstanceId: fabric.Computed<string>;
+    /**
+     *  A list of the private IP addresses of the replication instance.
+     */
     public /*out*/ readonly replicationInstancePrivateIps: fabric.Computed<string[]>;
+    /**
+     * A list of the public IP addresses of the replication instance.
+     */
     public /*out*/ readonly replicationInstancePublicIps: fabric.Computed<string[]>;
+    /**
+     * A subnet group to associate with the replication instance.
+     */
     public readonly replicationSubnetGroupId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+     */
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
+    /**
+     * Create a ReplicationInstance resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ReplicationInstance instance
+     * @param args A collection of arguments for creating this ReplicationInstance intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ReplicationInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.replicationInstanceClass === undefined) {
             throw new Error("Missing required property 'replicationInstanceClass'");
@@ -51,20 +113,65 @@ export class ReplicationInstance extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ReplicationInstance resource.
+ */
 export interface ReplicationInstanceArgs {
+    /**
+     * to be initially allocated for the replication instance.
+     */
     readonly allocatedStorage?: fabric.MaybeComputed<number>;
+    /**
+     * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
+     */
     readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+     */
     readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
+    /**
+     * The EC2 Availability Zone that the replication instance will be created in.
+     */
     readonly availabilityZone?: fabric.MaybeComputed<string>;
+    /**
+     * The engine version number of the replication instance.
+     */
     readonly engineVersion?: fabric.MaybeComputed<string>;
+    /**
+     * for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     */
     readonly kmsKeyArn?: fabric.MaybeComputed<string>;
+    /**
+     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     */
     readonly multiAz?: fabric.MaybeComputed<boolean>;
+    /**
+     * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     */
     readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
+    /**
+     * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+     */
     readonly publiclyAccessible?: fabric.MaybeComputed<boolean>;
+    /**
+     * The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+     */
     readonly replicationInstanceClass: fabric.MaybeComputed<string>;
+    /**
+     * The replication instance identifier. This parameter is stored as a lowercase string.
+     */
     readonly replicationInstanceId: fabric.MaybeComputed<string>;
+    /**
+     * A subnet group to associate with the replication instance.
+     */
     readonly replicationSubnetGroupId?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+     */
     readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

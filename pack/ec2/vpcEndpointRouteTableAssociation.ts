@@ -3,10 +3,33 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create an association between a VPC endpoint and routing table.
+ * 
+ * ~> **NOTE on VPC Endpoints and VPC Endpoint Route Table Associations:** Terraform provides
+ * both a standalone VPC Endpoint Route Table Association (an association between a VPC endpoint
+ * and a single `route_table_id`) and a [VPC Endpoint](vpc_endpoint.html) resource with a `route_table_ids`
+ * attribute. Do not use the same route table ID in both a VPC Endpoint resource and a VPC Endpoint Route
+ * Table Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+ */
 export class VpcEndpointRouteTableAssociation extends fabric.Resource {
+    /**
+     * The ID of the routing table to be associated with the VPC endpoint.
+     */
     public readonly routeTableId: fabric.Computed<string>;
+    /**
+     * The ID of the VPC endpoint with which the routing table will be associated.
+     */
     public readonly vpcEndpointId: fabric.Computed<string>;
 
+    /**
+     * Create a VpcEndpointRouteTableAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpcEndpointRouteTableAssociation instance
+     * @param args A collection of arguments for creating this VpcEndpointRouteTableAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpcEndpointRouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
@@ -21,8 +44,17 @@ export class VpcEndpointRouteTableAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
+ */
 export interface VpcEndpointRouteTableAssociationArgs {
+    /**
+     * The ID of the routing table to be associated with the VPC endpoint.
+     */
     readonly routeTableId: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the VPC endpoint with which the routing table will be associated.
+     */
     readonly vpcEndpointId: fabric.MaybeComputed<string>;
 }
 

@@ -3,10 +3,36 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an EC2 Spot Instance Request resource. This allows instances to be
+ * requested on the spot market.
+ * 
+ * Terraform always creates Spot Instance Requests with a `persistent` type, which
+ * means that for the duration of their lifetime, AWS will launch an instance
+ * with the configured details if and when the spot market will accept the
+ * requested price.
+ * 
+ * On destruction, Terraform will make an attempt to terminate the associated Spot
+ * Instance if there is one present.
+ * 
+ * ~> **NOTE:** Because their behavior depends on the live status of the spot
+ * market, Spot Instance Requests have a unique lifecycle that makes them behave
+ * differently than other Terraform resources. Most importantly: there is __no
+ * guarantee__ that a Spot Instance exists to fulfill the request at any given
+ * point in time. See the [AWS Spot Instance
+ * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+ * for more information.
+ * 
+ */
 export class SpotInstanceRequest extends fabric.Resource {
     public readonly ami: fabric.Computed<string>;
     public readonly associatePublicIpAddress: fabric.Computed<boolean>;
     public readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+     * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+     */
     public readonly blockDurationMinutes?: fabric.Computed<number>;
     public readonly disableApiTermination?: fabric.Computed<boolean>;
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
@@ -19,23 +45,62 @@ export class SpotInstanceRequest extends fabric.Resource {
     public readonly ipv6AddressCount: fabric.Computed<number>;
     public readonly ipv6Addresses: fabric.Computed<string[]>;
     public readonly keyName: fabric.Computed<string>;
+    /**
+     * A launch group is a group of spot instances that launch together and terminate together.
+     * If left empty instances are launched and terminated individually.
+     */
     public readonly launchGroup?: fabric.Computed<string>;
     public readonly monitoring?: fabric.Computed<boolean>;
     public readonly networkInterface: fabric.Computed<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
     public /*out*/ readonly networkInterfaceId: fabric.Computed<string>;
     public readonly placementGroup: fabric.Computed<string>;
     public /*out*/ readonly primaryNetworkInterfaceId: fabric.Computed<string>;
+    /**
+     * The private DNS name assigned to the instance. Can only be
+     * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
+     * for your VPC
+     */
     public /*out*/ readonly privateDns: fabric.Computed<string>;
+    /**
+     * The private IP address assigned to the instance
+     */
     public readonly privateIp: fabric.Computed<string>;
+    /**
+     * The public DNS name assigned to the instance. For EC2-VPC, this
+     * is only available if you've enabled DNS hostnames for your VPC
+     */
     public /*out*/ readonly publicDns: fabric.Computed<string>;
+    /**
+     * The public IP address assigned to the instance, if applicable.
+     */
     public /*out*/ readonly publicIp: fabric.Computed<string>;
     public readonly rootBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[]>;
     public readonly securityGroups: fabric.Computed<string[]>;
     public readonly sourceDestCheck?: fabric.Computed<boolean>;
+    /**
+     * The current [bid
+     * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
+     * of the Spot Instance Request.
+     * * `spot_request_state` The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     */
     public /*out*/ readonly spotBidStatus: fabric.Computed<string>;
+    /**
+     * The Instance ID (if any) that is currently fulfilling
+     * the Spot Instance request.
+     */
     public /*out*/ readonly spotInstanceId: fabric.Computed<string>;
+    /**
+     * The price to request on the spot market.
+     */
     public readonly spotPrice: fabric.Computed<string>;
     public /*out*/ readonly spotRequestState: fabric.Computed<string>;
+    /**
+     * If set to "one-time", after
+     * the instance is terminated, the spot request will be closed. Also, Terraform
+     * can't manage one-time spot requests, just launch them.
+     */
     public readonly spotType?: fabric.Computed<string>;
     public readonly subnetId: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
@@ -43,8 +108,21 @@ export class SpotInstanceRequest extends fabric.Resource {
     public readonly userData?: fabric.Computed<string>;
     public readonly volumeTags?: fabric.Computed<{[key: string]: any}>;
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
+    /**
+     * If set, Terraform will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
     public readonly waitForFulfillment?: fabric.Computed<boolean>;
 
+    /**
+     * Create a SpotInstanceRequest resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SpotInstanceRequest instance
+     * @param args A collection of arguments for creating this SpotInstanceRequest intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SpotInstanceRequestArgs, dependsOn?: fabric.Resource[]) {
         if (args.ami === undefined) {
             throw new Error("Missing required property 'ami'");
@@ -100,10 +178,18 @@ export class SpotInstanceRequest extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SpotInstanceRequest resource.
+ */
 export interface SpotInstanceRequestArgs {
     readonly ami: fabric.MaybeComputed<string>;
     readonly associatePublicIpAddress?: fabric.MaybeComputed<boolean>;
     readonly availabilityZone?: fabric.MaybeComputed<string>;
+    /**
+     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+     * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
+     */
     readonly blockDurationMinutes?: fabric.MaybeComputed<number>;
     readonly disableApiTermination?: fabric.MaybeComputed<boolean>;
     readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
@@ -115,6 +201,10 @@ export interface SpotInstanceRequestArgs {
     readonly ipv6AddressCount?: fabric.MaybeComputed<number>;
     readonly ipv6Addresses?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly keyName?: fabric.MaybeComputed<string>;
+    /**
+     * A launch group is a group of spot instances that launch together and terminate together.
+     * If left empty instances are launched and terminated individually.
+     */
     readonly launchGroup?: fabric.MaybeComputed<string>;
     readonly monitoring?: fabric.MaybeComputed<boolean>;
     readonly networkInterface?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceIndex: fabric.MaybeComputed<number>, networkInterfaceId: fabric.MaybeComputed<string> }>[];
@@ -123,7 +213,15 @@ export interface SpotInstanceRequestArgs {
     readonly rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
     readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
+    /**
+     * The price to request on the spot market.
+     */
     readonly spotPrice: fabric.MaybeComputed<string>;
+    /**
+     * If set to "one-time", after
+     * the instance is terminated, the spot request will be closed. Also, Terraform
+     * can't manage one-time spot requests, just launch them.
+     */
     readonly spotType?: fabric.MaybeComputed<string>;
     readonly subnetId?: fabric.MaybeComputed<string>;
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
@@ -131,6 +229,11 @@ export interface SpotInstanceRequestArgs {
     readonly userData?: fabric.MaybeComputed<string>;
     readonly volumeTags?: fabric.MaybeComputed<{[key: string]: any}>;
     readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * If set, Terraform will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
     readonly waitForFulfillment?: fabric.MaybeComputed<boolean>;
 }
 

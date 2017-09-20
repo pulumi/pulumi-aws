@@ -3,23 +3,83 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Application Load Balancer resource.
+ * 
+ * The official AWS CLI calls this "elbv2" while their documentation calls it
+ * an Application Load Balancer. Terraform uses "ALB" but they mean the same
+ * thing.
+ */
 export class LoadBalancer extends fabric.Resource {
+    /**
+     * An Access Logs block. Access Logs documented below.
+     */
     public readonly accessLogs?: fabric.Computed<{ bucket: string, enabled?: boolean, prefix?: string }[]>;
+    /**
+     * The ARN of the load balancer (matches `id`).
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The ARN suffix for use with CloudWatch Metrics.
+     */
     public /*out*/ readonly arnSuffix: fabric.Computed<string>;
+    /**
+     * The DNS name of the load balancer.
+     */
     public /*out*/ readonly dnsName: fabric.Computed<string>;
+    /**
+     * If true, deletion of the load balancer will be disabled via
+     * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
+     */
     public readonly enableDeletionProtection?: fabric.Computed<boolean>;
+    /**
+     * The time in seconds that the connection is allowed to be idle. Default: 60.
+     */
     public readonly idleTimeout?: fabric.Computed<number>;
+    /**
+     * If true, the ALB will be internal.
+     */
     public readonly internal: fabric.Computed<boolean>;
+    /**
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     */
     public readonly ipAddressType: fabric.Computed<string>;
+    /**
+     * The name of the ALB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+     * Terraform will autogenerate a name beginning with `tf-lb`.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * A list of security group IDs to assign to the ALB.
+     */
     public readonly securityGroups: fabric.Computed<string[]>;
+    /**
+     * A list of subnet IDs to attach to the ALB.
+     */
     public readonly subnets: fabric.Computed<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
+    /**
+     * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     */
     public /*out*/ readonly zoneId: fabric.Computed<string>;
 
+    /**
+     * Create a LoadBalancer resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LoadBalancer instance
+     * @param args A collection of arguments for creating this LoadBalancer intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LoadBalancerArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnets === undefined) {
             throw new Error("Missing required property 'subnets'");
@@ -44,16 +104,52 @@ export class LoadBalancer extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LoadBalancer resource.
+ */
 export interface LoadBalancerArgs {
+    /**
+     * An Access Logs block. Access Logs documented below.
+     */
     readonly accessLogs?: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, enabled?: fabric.MaybeComputed<boolean>, prefix?: fabric.MaybeComputed<string> }>[];
+    /**
+     * If true, deletion of the load balancer will be disabled via
+     * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
+     */
     readonly enableDeletionProtection?: fabric.MaybeComputed<boolean>;
+    /**
+     * The time in seconds that the connection is allowed to be idle. Default: 60.
+     */
     readonly idleTimeout?: fabric.MaybeComputed<number>;
+    /**
+     * If true, the ALB will be internal.
+     */
     readonly internal?: fabric.MaybeComputed<boolean>;
+    /**
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     */
     readonly ipAddressType?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the ALB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+     * Terraform will autogenerate a name beginning with `tf-lb`.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * A list of security group IDs to assign to the ALB.
+     */
     readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A list of subnet IDs to attach to the ALB.
+     */
     readonly subnets: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

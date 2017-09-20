@@ -5,12 +5,35 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an API Gateway Method Settings, e.g. logging or monitoring.
+ */
 export class MethodSettings extends fabric.Resource {
+    /**
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
+     */
     public readonly methodPath: fabric.Computed<string>;
+    /**
+     * The ID of the REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The settings block, see below.
+     */
     public readonly settings: fabric.Computed<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }[]>;
+    /**
+     * The name of the stage
+     */
     public readonly stageName: fabric.Computed<string>;
 
+    /**
+     * Create a MethodSettings resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MethodSettings instance
+     * @param args A collection of arguments for creating this MethodSettings intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MethodSettingsArgs, dependsOn?: fabric.Resource[]) {
         if (args.methodPath === undefined) {
             throw new Error("Missing required property 'methodPath'");
@@ -33,10 +56,25 @@ export class MethodSettings extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MethodSettings resource.
+ */
 export interface MethodSettingsArgs {
+    /**
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
+     */
     readonly methodPath: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the REST API
+     */
     readonly restApi: fabric.MaybeComputed<RestApi>;
+    /**
+     * The settings block, see below.
+     */
     readonly settings: fabric.MaybeComputed<{ cacheDataEncrypted?: fabric.MaybeComputed<boolean>, cacheTtlInSeconds?: fabric.MaybeComputed<number>, cachingEnabled?: fabric.MaybeComputed<boolean>, dataTraceEnabled?: fabric.MaybeComputed<boolean>, loggingLevel?: fabric.MaybeComputed<string>, metricsEnabled?: fabric.MaybeComputed<boolean>, requireAuthorizationForCacheControl?: fabric.MaybeComputed<boolean>, throttlingBurstLimit?: fabric.MaybeComputed<number>, throttlingRateLimit?: fabric.MaybeComputed<number>, unauthorizedCacheControlHeaderStrategy?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name of the stage
+     */
     readonly stageName: fabric.MaybeComputed<string>;
 }
 

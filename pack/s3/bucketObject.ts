@@ -5,25 +5,93 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Bucket} from "./bucket";
 
+/**
+ * Provides a S3 bucket object resource.
+ */
 export class BucketObject extends fabric.Resource {
+    /**
+     * to apply. Defaults to "private".
+     */
     public readonly acl?: fabric.Computed<string>;
+    /**
+     * The name of the bucket to put the file in.
+     */
     public readonly bucket: fabric.Computed<Bucket>;
+    /**
+     * for further details.
+     */
     public readonly cacheControl?: fabric.Computed<string>;
+    /**
+     * The literal content being uploaded to the bucket.
+     */
     public readonly content?: fabric.Computed<string>;
+    /**
+     * for further information.
+     */
     public readonly contentDisposition?: fabric.Computed<string>;
+    /**
+     * for further information.
+     */
     public readonly contentEncoding?: fabric.Computed<string>;
+    /**
+     * The language the content is in e.g. en-US or en-GB.
+     */
     public readonly contentLanguage?: fabric.Computed<string>;
+    /**
+     * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+     */
     public readonly contentType: fabric.Computed<string>;
+    /**
+     * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
+     * This attribute is not compatible with `kms_key_id`.
+     */
     public readonly etag: fabric.Computed<string>;
+    /**
+     * The name of the object once it is in the bucket.
+     */
     public readonly key: fabric.Computed<string>;
+    /**
+     * Specifies the AWS KMS Key ARN to use for object encryption.
+     * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+     * use the exported `arn` attribute:
+     * `kms_key_id = "${aws_kms_key.foo.arn}"`
+     */
     public readonly kmsKeyId?: fabric.Computed<string>;
+    /**
+     * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+     */
     public readonly serverSideEncryption: fabric.Computed<string>;
+    /**
+     * The path to the source file being uploaded to the bucket.
+     */
     public readonly source?: fabric.Computed<fabric.asset.Asset>;
+    /**
+     * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+     */
     public readonly storageClass: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * A unique version ID value for the object, if bucket versioning
+     * is enabled.
+     */
     public /*out*/ readonly versionId: fabric.Computed<string>;
+    /**
+     * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     */
     public readonly websiteRedirect?: fabric.Computed<string>;
 
+    /**
+     * Create a BucketObject resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this BucketObject instance
+     * @param args A collection of arguments for creating this BucketObject intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: BucketObjectArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
@@ -50,22 +118,78 @@ export class BucketObject extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a BucketObject resource.
+ */
 export interface BucketObjectArgs {
+    /**
+     * to apply. Defaults to "private".
+     */
     readonly acl?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the bucket to put the file in.
+     */
     readonly bucket: fabric.MaybeComputed<Bucket>;
+    /**
+     * for further details.
+     */
     readonly cacheControl?: fabric.MaybeComputed<string>;
+    /**
+     * The literal content being uploaded to the bucket.
+     */
     readonly content?: fabric.MaybeComputed<string>;
+    /**
+     * for further information.
+     */
     readonly contentDisposition?: fabric.MaybeComputed<string>;
+    /**
+     * for further information.
+     */
     readonly contentEncoding?: fabric.MaybeComputed<string>;
+    /**
+     * The language the content is in e.g. en-US or en-GB.
+     */
     readonly contentLanguage?: fabric.MaybeComputed<string>;
+    /**
+     * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+     */
     readonly contentType?: fabric.MaybeComputed<string>;
+    /**
+     * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
+     * This attribute is not compatible with `kms_key_id`.
+     */
     readonly etag?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the object once it is in the bucket.
+     */
     readonly key?: fabric.MaybeComputed<string>;
+    /**
+     * Specifies the AWS KMS Key ARN to use for object encryption.
+     * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+     * use the exported `arn` attribute:
+     * `kms_key_id = "${aws_kms_key.foo.arn}"`
+     */
     readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    /**
+     * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
+     */
     readonly serverSideEncryption?: fabric.MaybeComputed<string>;
+    /**
+     * The path to the source file being uploaded to the bucket.
+     */
     readonly source?: fabric.asset.Asset;
+    /**
+     * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+     */
     readonly storageClass?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     */
     readonly websiteRedirect?: fabric.MaybeComputed<string>;
 }
 

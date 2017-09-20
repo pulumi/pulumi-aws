@@ -3,16 +3,44 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
+ * in the current region.
+ * 
+ * The `aws_default_subnet` behaves differently from normal resources, in that
+ * Terraform does not _create_ this resource, but instead "adopts" it
+ * into management. 
+ */
 export class DefaultSubnet extends fabric.Resource {
     public /*out*/ readonly assignIpv6AddressOnCreation: fabric.Computed<boolean>;
     public readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * The CIDR block for the subnet.
+     */
     public /*out*/ readonly cidrBlock: fabric.Computed<string>;
+    /**
+     * The IPv6 CIDR block.
+     */
     public /*out*/ readonly ipv6CidrBlock: fabric.Computed<string>;
     public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Computed<string>;
     public /*out*/ readonly mapPublicIpOnLaunch: fabric.Computed<boolean>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The VPC ID.
+     */
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a DefaultSubnet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DefaultSubnet instance
+     * @param args A collection of arguments for creating this DefaultSubnet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DefaultSubnetArgs, dependsOn?: fabric.Resource[]) {
         if (args.availabilityZone === undefined) {
             throw new Error("Missing required property 'availabilityZone'");
@@ -30,8 +58,14 @@ export class DefaultSubnet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DefaultSubnet resource.
+ */
 export interface DefaultSubnetArgs {
     readonly availabilityZone: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

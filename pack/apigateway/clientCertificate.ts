@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an API Gateway Client Certificate.
+ */
 export class ClientCertificate extends fabric.Resource {
+    /**
+     * The date when the client certificate was created.
+     */
     public /*out*/ readonly createdDate: fabric.Computed<string>;
+    /**
+     * The description of the client certificate.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The date when the client certificate will expire.
+     */
     public /*out*/ readonly expirationDate: fabric.Computed<string>;
+    /**
+     * The PEM-encoded public key of the client certificate.
+     */
     public /*out*/ readonly pemEncodedCertificate: fabric.Computed<string>;
 
+    /**
+     * Create a ClientCertificate resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ClientCertificate instance
+     * @param args A collection of arguments for creating this ClientCertificate intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ClientCertificateArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/clientCertificate:ClientCertificate", urnName, {
             "description": args.description,
@@ -19,7 +42,13 @@ export class ClientCertificate extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ClientCertificate resource.
+ */
 export interface ClientCertificateArgs {
+    /**
+     * The description of the client certificate.
+     */
     readonly description?: fabric.MaybeComputed<string>;
 }
 

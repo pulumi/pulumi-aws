@@ -3,14 +3,43 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an OpsWorks permission resource.
+ */
 export class Permission extends fabric.Resource {
+    /**
+     * Whether the user is allowed to use SSH to communicate with the instance
+     */
     public readonly allowSsh: fabric.Computed<boolean>;
+    /**
+     * Whether the user is allowed to use sudo to elevate privileges
+     */
     public readonly allowSudo: fabric.Computed<boolean>;
+    /**
+     * The computed id of the permission. Please note that this is only used internally to identify the permission. This value is not used in aws.
+     */
     public /*out*/ readonly permissionId: fabric.Computed<string>;
+    /**
+     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+     */
     public readonly level: fabric.Computed<string>;
+    /**
+     * The stack to set the permissions for
+     */
     public readonly stackId: fabric.Computed<string>;
+    /**
+     * The user's IAM ARN to set permissions for
+     */
     public readonly userArn: fabric.Computed<string>;
 
+    /**
+     * Create a Permission resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Permission instance
+     * @param args A collection of arguments for creating this Permission intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.userArn === undefined) {
             throw new Error("Missing required property 'userArn'");
@@ -26,11 +55,29 @@ export class Permission extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Permission resource.
+ */
 export interface PermissionArgs {
+    /**
+     * Whether the user is allowed to use SSH to communicate with the instance
+     */
     readonly allowSsh?: fabric.MaybeComputed<boolean>;
+    /**
+     * Whether the user is allowed to use sudo to elevate privileges
+     */
     readonly allowSudo?: fabric.MaybeComputed<boolean>;
+    /**
+     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+     */
     readonly level?: fabric.MaybeComputed<string>;
+    /**
+     * The stack to set the permissions for
+     */
     readonly stackId?: fabric.MaybeComputed<string>;
+    /**
+     * The user's IAM ARN to set permissions for
+     */
     readonly userArn: fabric.MaybeComputed<string>;
 }
 

@@ -3,23 +3,88 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DynamoDB table resource
+ */
 export class Table extends fabric.Resource {
+    /**
+     * The arn of the table
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Define an attribute, has two properties:
+     */
     public readonly attribute: fabric.Computed<{ name: string, type: string }[]>;
+    /**
+     * Describe a GSO for the table;
+     * subject to the normal limits on the number of GSIs, projected
+     * attributes, etc.
+     */
     public readonly globalSecondaryIndex?: fabric.Computed<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[]>;
+    /**
+     * The name of the hash key in the index; must be
+     * defined as an attribute in the resource. Only applies to
+     * `global_secondary_index`
+     */
     public readonly hashKey: fabric.Computed<string>;
+    /**
+     * Describe an LSI on the table;
+     * these can only be allocated *at creation* so you cannot change this
+     * definition after you have created the resource.
+     */
     public readonly localSecondaryIndex?: fabric.Computed<{ name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[]>;
+    /**
+     * The name of the LSI or GSI
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The name of the range key; must be defined
+     */
     public readonly rangeKey?: fabric.Computed<string>;
+    /**
+     * The number of read units for this table
+     */
     public readonly readCapacity: fabric.Computed<number>;
+    /**
+     * The ARN of the Table Stream. Only available when `stream_enabled = true`
+     */
     public /*out*/ readonly streamArn: fabric.Computed<string>;
+    /**
+     * or disabled (false).
+     */
     public readonly streamEnabled: fabric.Computed<boolean>;
+    /**
+     * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
+     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
+     * table name and this field is guaranteed to be unique.
+     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     */
     public /*out*/ readonly streamLabel: fabric.Computed<string>;
+    /**
+     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES.
+     */
     public readonly streamViewType: fabric.Computed<string>;
+    /**
+     * A map of tags to populate on the created table.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Defines ttl, has two properties, and can only be specified once:
+     */
     public readonly ttl?: fabric.Computed<{ attributeName: string, enabled: boolean }[]>;
+    /**
+     * The number of write units for this table
+     */
     public readonly writeCapacity: fabric.Computed<number>;
 
+    /**
+     * Create a Table resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Table instance
+     * @param args A collection of arguments for creating this Table intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: TableArgs, dependsOn?: fabric.Resource[]) {
         if (args.attribute === undefined) {
             throw new Error("Missing required property 'attribute'");
@@ -53,18 +118,63 @@ export class Table extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Table resource.
+ */
 export interface TableArgs {
+    /**
+     * Define an attribute, has two properties:
+     */
     readonly attribute: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * Describe a GSO for the table;
+     * subject to the normal limits on the number of GSIs, projected
+     * attributes, etc.
+     */
     readonly globalSecondaryIndex?: fabric.MaybeComputed<{ hashKey: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, nonKeyAttributes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], projectionType: fabric.MaybeComputed<string>, rangeKey?: fabric.MaybeComputed<string>, readCapacity: fabric.MaybeComputed<number>, writeCapacity: fabric.MaybeComputed<number> }>[];
+    /**
+     * The name of the hash key in the index; must be
+     * defined as an attribute in the resource. Only applies to
+     * `global_secondary_index`
+     */
     readonly hashKey: fabric.MaybeComputed<string>;
+    /**
+     * Describe an LSI on the table;
+     * these can only be allocated *at creation* so you cannot change this
+     * definition after you have created the resource.
+     */
     readonly localSecondaryIndex?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, nonKeyAttributes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], projectionType: fabric.MaybeComputed<string>, rangeKey: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name of the LSI or GSI
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the range key; must be defined
+     */
     readonly rangeKey?: fabric.MaybeComputed<string>;
+    /**
+     * The number of read units for this table
+     */
     readonly readCapacity: fabric.MaybeComputed<number>;
+    /**
+     * or disabled (false).
+     */
     readonly streamEnabled?: fabric.MaybeComputed<boolean>;
+    /**
+     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES.
+     */
     readonly streamViewType?: fabric.MaybeComputed<string>;
+    /**
+     * A map of tags to populate on the created table.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * Defines ttl, has two properties, and can only be specified once:
+     */
     readonly ttl?: fabric.MaybeComputed<{ attributeName: fabric.MaybeComputed<string>, enabled: fabric.MaybeComputed<boolean> }>[];
+    /**
+     * The number of write units for this table
+     */
     readonly writeCapacity: fabric.MaybeComputed<number>;
 }
 

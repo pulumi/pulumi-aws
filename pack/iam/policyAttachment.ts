@@ -8,13 +8,57 @@ import {Group} from "./group";
 import {Role} from "./role";
 import {User} from "./user";
 
+/**
+ * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
+ * 
+ * !> **WARNING:** The aws_iam_policy_attachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws_iam_policy_attachment resource. This means that even any users/roles/groups that have the attached policy via some mechanism other than Terraform will have that attached policy revoked by Terraform. Consider `aws_iam_role_policy_attachment`, `iam_user_policy_attachment`, or `iam_group_policy_attachment` instead. These resources do not enforce exclusive attachment of an IAM policy. 
+ * 
+ * ```hcl
+ * resource "aws_iam_user" "user" {
+ *   name = "test-user"
+ * }
+ * 
+ * resource "aws_iam_role" "role" {
+ *   name = "test-role"
+ * }
+ * 
+ * resource "aws_iam_group" "group" {
+ *   name = "test-group"
+ * }
+ * 
+ * resource "aws_iam_policy" "policy" {
+ *   name        = "test-policy"
+ *   description = "A test policy"
+ *   policy      =  # omitted
+ * }
+ * 
+ * resource "aws_iam_policy_attachment" "test-attach" {
+ *   name       = "test-attachment"
+ *   users      = ["${aws_iam_user.user.name}"]
+ *   roles      = ["${aws_iam_role.role.name}"]
+ *   groups     = ["${aws_iam_group.group.name}"]
+ *   policy_arn = "${aws_iam_policy.policy.arn}"
+ * }
+ * ```
+ */
 export class PolicyAttachment extends fabric.Resource {
     public readonly groups?: fabric.Computed<Group[]>;
+    /**
+     * The name of the policy.
+     */
     public readonly name: fabric.Computed<string>;
     public readonly policyArn: fabric.Computed<ARN>;
     public readonly roles?: fabric.Computed<Role[]>;
     public readonly users?: fabric.Computed<User[]>;
 
+    /**
+     * Create a PolicyAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this PolicyAttachment instance
+     * @param args A collection of arguments for creating this PolicyAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.policyArn === undefined) {
             throw new Error("Missing required property 'policyArn'");
@@ -29,6 +73,9 @@ export class PolicyAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a PolicyAttachment resource.
+ */
 export interface PolicyAttachmentArgs {
     readonly groups?: fabric.MaybeComputed<fabric.MaybeComputed<Group>>[];
     readonly name?: fabric.MaybeComputed<string>;

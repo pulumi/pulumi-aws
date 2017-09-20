@@ -5,12 +5,37 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Connects a custom domain name registered via `aws_api_gateway_domain_name`
+ * with a deployed API so that its methods can be called via the
+ * custom domain name.
+ */
 export class BasePathMapping extends fabric.Resource {
+    /**
+     * The id of the API to connect.
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+     */
     public readonly basePath?: fabric.Computed<string>;
+    /**
+     * The already-registered domain name to connect the API to.
+     */
     public readonly domainName: fabric.Computed<string>;
+    /**
+     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     */
     public readonly stageName?: fabric.Computed<string>;
 
+    /**
+     * Create a BasePathMapping resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this BasePathMapping instance
+     * @param args A collection of arguments for creating this BasePathMapping intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: BasePathMappingArgs, dependsOn?: fabric.Resource[]) {
         if (args.restApi === undefined) {
             throw new Error("Missing required property 'restApi'");
@@ -27,10 +52,25 @@ export class BasePathMapping extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a BasePathMapping resource.
+ */
 export interface BasePathMappingArgs {
+    /**
+     * The id of the API to connect.
+     */
     readonly restApi: fabric.MaybeComputed<RestApi>;
+    /**
+     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+     */
     readonly basePath?: fabric.MaybeComputed<string>;
+    /**
+     * The already-registered domain name to connect the API to.
+     */
     readonly domainName: fabric.MaybeComputed<string>;
+    /**
+     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     */
     readonly stageName?: fabric.MaybeComputed<string>;
 }
 

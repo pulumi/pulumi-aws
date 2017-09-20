@@ -3,12 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
+ */
 export class CookieStickinessPolicy extends fabric.Resource {
+    /**
+     * The time period after which
+     * the session cookie should be considered stale, expressed in seconds.
+     */
     public readonly cookieExpirationPeriod?: fabric.Computed<number>;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     public readonly lbPort: fabric.Computed<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     public readonly loadBalancer: fabric.Computed<string>;
+    /**
+     * The name of the stickiness policy.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a CookieStickinessPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this CookieStickinessPolicy instance
+     * @param args A collection of arguments for creating this CookieStickinessPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: CookieStickinessPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.lbPort === undefined) {
             throw new Error("Missing required property 'lbPort'");
@@ -25,10 +52,29 @@ export class CookieStickinessPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a CookieStickinessPolicy resource.
+ */
 export interface CookieStickinessPolicyArgs {
+    /**
+     * The time period after which
+     * the session cookie should be considered stale, expressed in seconds.
+     */
     readonly cookieExpirationPeriod?: fabric.MaybeComputed<number>;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     readonly lbPort: fabric.MaybeComputed<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     readonly loadBalancer: fabric.MaybeComputed<string>;
+    /**
+     * The name of the stickiness policy.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

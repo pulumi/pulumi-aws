@@ -3,17 +3,77 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Registers a custom domain name for use with AWS API Gateway.
+ * 
+ * This resource just establishes ownership of and the TLS settings for
+ * a particular domain name. An API can be attached to a particular path
+ * under the registered domain name using
+ * [the `aws_api_gateway_base_path_mapping` resource](api_gateway_base_path_mapping.html).
+ * 
+ * Internally API Gateway creates a CloudFront distribution to
+ * route requests on the given hostname. In addition to this resource
+ * it's necessary to create a DNS record corresponding to the
+ * given domain name which is an alias (either Route53 alias or
+ * traditional CNAME) to the Cloudfront domain name exported in the
+ * `cloudfront_domain_name` attribute.
+ * 
+ * ~> **Note:** All arguments including the private key will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class DomainName extends fabric.Resource {
+    /**
+     * The ARN for an AWS-managed certificate. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain` and `certificate_private_key`.
+     */
     public readonly certificateArn?: fabric.Computed<string>;
+    /**
+     * The certificate issued for the domain name
+     * being registered, in PEM format. Conflicts with `certificate_arn`.
+     */
     public readonly certificateBody?: fabric.Computed<string>;
+    /**
+     * The certificate for the CA that issued the
+     * certificate, along with any intermediate CA certificates required to
+     * create an unbroken chain to a certificate trusted by the intended API clients. Conflicts with `certificate_arn`.
+     */
     public readonly certificateChain?: fabric.Computed<string>;
+    /**
+     * The unique name to use when registering this
+     * cert as an IAM server certificate. Conflicts with `certificate_arn`. Required if `certificate_arn` is not set.
+     */
     public readonly certificateName?: fabric.Computed<string>;
+    /**
+     * The private key associated with the
+     * domain certificate given in `certificate_body`. Conflicts with `certificate_arn`.
+     */
     public readonly certificatePrivateKey?: fabric.Computed<string>;
+    /**
+     * The upload date associated with the domain certificate.
+     */
     public /*out*/ readonly certificateUploadDate: fabric.Computed<string>;
+    /**
+     * The hostname created by Cloudfront to represent
+     * the distribution that implements this domain name mapping.
+     */
     public /*out*/ readonly cloudfrontDomainName: fabric.Computed<string>;
+    /**
+     * For convenience, the hosted zone id (`Z2FDTNDATAQYW2`)
+     * that can be used to create a Route53 alias record for the distribution.
+     */
     public /*out*/ readonly cloudfrontZoneId: fabric.Computed<string>;
+    /**
+     * The fully-qualified domain name to register
+     */
     public readonly domainName: fabric.Computed<string>;
 
+    /**
+     * Create a DomainName resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DomainName instance
+     * @param args A collection of arguments for creating this DomainName intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DomainNameArgs, dependsOn?: fabric.Resource[]) {
         if (args.domainName === undefined) {
             throw new Error("Missing required property 'domainName'");
@@ -32,12 +92,38 @@ export class DomainName extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DomainName resource.
+ */
 export interface DomainNameArgs {
+    /**
+     * The ARN for an AWS-managed certificate. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain` and `certificate_private_key`.
+     */
     readonly certificateArn?: fabric.MaybeComputed<string>;
+    /**
+     * The certificate issued for the domain name
+     * being registered, in PEM format. Conflicts with `certificate_arn`.
+     */
     readonly certificateBody?: fabric.MaybeComputed<string>;
+    /**
+     * The certificate for the CA that issued the
+     * certificate, along with any intermediate CA certificates required to
+     * create an unbroken chain to a certificate trusted by the intended API clients. Conflicts with `certificate_arn`.
+     */
     readonly certificateChain?: fabric.MaybeComputed<string>;
+    /**
+     * The unique name to use when registering this
+     * cert as an IAM server certificate. Conflicts with `certificate_arn`. Required if `certificate_arn` is not set.
+     */
     readonly certificateName?: fabric.MaybeComputed<string>;
+    /**
+     * The private key associated with the
+     * domain certificate given in `certificate_body`. Conflicts with `certificate_arn`.
+     */
     readonly certificatePrivateKey?: fabric.MaybeComputed<string>;
+    /**
+     * The fully-qualified domain name to register
+     */
     readonly domainName: fabric.MaybeComputed<string>;
 }
 

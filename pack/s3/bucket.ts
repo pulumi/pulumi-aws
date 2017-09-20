@@ -3,28 +3,102 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a S3 bucket resource.
+ */
 export class Bucket extends fabric.Resource {
+    /**
+     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
+     */
     public readonly accelerationStatus: fabric.Computed<string>;
+    /**
+     * to apply. Defaults to "private".
+     */
     public readonly acl?: fabric.Computed<string>;
+    /**
+     * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     */
     public readonly arn: fabric.Computed<string>;
+    /**
+     * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     */
     public readonly bucket: fabric.Computed<string>;
+    /**
+     * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+     */
     public /*out*/ readonly bucketDomainName: fabric.Computed<string>;
+    /**
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+     */
     public readonly bucketPrefix?: fabric.Computed<string>;
+    /**
+     * (documented below).
+     */
     public readonly corsRule?: fabric.Computed<{ allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[]>;
+    /**
+     * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     */
     public readonly forceDestroy?: fabric.Computed<boolean>;
+    /**
+     * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
+     */
     public readonly hostedZoneId: fabric.Computed<string>;
+    /**
+     * (documented below).
+     */
     public readonly lifecycleRule?: fabric.Computed<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[]>;
+    /**
+     * (documented below).
+     */
     public readonly logging?: fabric.Computed<{ targetBucket: string, targetPrefix?: string }[]>;
+    /**
+     * JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
+     */
     public readonly policy?: fabric.Computed<string>;
+    /**
+     * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+     */
     public readonly region: fabric.Computed<string>;
+    /**
+     * (documented below).
+     */
     public readonly replicationConfiguration?: fabric.Computed<{ role: string, rules: { destination: { bucket: string, storageClass?: string }[], id?: string, prefix: string, status: string }[] }[]>;
+    /**
+     * Specifies who should bear the cost of Amazon S3 data transfer.
+     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
+     * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
+     * developer guide for more information.
+     */
     public readonly requestPayer: fabric.Computed<string>;
+    /**
+     * Specifies object tags key and value.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * (documented below)
+     */
     public readonly versioning: fabric.Computed<{ enabled?: boolean, mfaDelete?: boolean }[]>;
+    /**
+     * A website object (documented below).
+     */
     public readonly website?: fabric.Computed<{ errorDocument?: string, indexDocument?: string, redirectAllRequestsTo?: string, routingRules?: string }[]>;
+    /**
+     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     */
     public readonly websiteDomain: fabric.Computed<string>;
+    /**
+     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     */
     public readonly websiteEndpoint: fabric.Computed<string>;
 
+    /**
+     * Create a Bucket resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Bucket instance
+     * @param args A collection of arguments for creating this Bucket intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: BucketArgs, dependsOn?: fabric.Resource[]) {
         super("aws:s3/bucket:Bucket", urnName, {
             "accelerationStatus": args.accelerationStatus,
@@ -51,23 +125,74 @@ export class Bucket extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Bucket resource.
+ */
 export interface BucketArgs {
+    /**
+     * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
+     */
     readonly accelerationStatus?: fabric.MaybeComputed<string>;
+    /**
+     * to apply. Defaults to "private".
+     */
     readonly acl?: fabric.MaybeComputed<string>;
     readonly arn?: fabric.MaybeComputed<string>;
+    /**
+     * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     */
     readonly bucket?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+     */
     readonly bucketPrefix?: fabric.MaybeComputed<string>;
+    /**
+     * (documented below).
+     */
     readonly corsRule?: fabric.MaybeComputed<{ allowedHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedOrigins: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], exposeHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], maxAgeSeconds?: fabric.MaybeComputed<number> }>[];
+    /**
+     * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     */
     readonly forceDestroy?: fabric.MaybeComputed<boolean>;
     readonly hostedZoneId?: fabric.MaybeComputed<string>;
+    /**
+     * (documented below).
+     */
     readonly lifecycleRule?: fabric.MaybeComputed<{ abortIncompleteMultipartUploadDays?: fabric.MaybeComputed<number>, enabled: fabric.MaybeComputed<boolean>, expiration?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, expiredObjectDeleteMarker?: fabric.MaybeComputed<boolean> }>[], id?: fabric.MaybeComputed<string>, noncurrentVersionExpiration?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number> }>[], noncurrentVersionTransition?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[], prefix?: fabric.MaybeComputed<string>, tags?: fabric.MaybeComputed<{[key: string]: any}>, transition?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[] }>[];
+    /**
+     * (documented below).
+     */
     readonly logging?: fabric.MaybeComputed<{ targetBucket: fabric.MaybeComputed<string>, targetPrefix?: fabric.MaybeComputed<string> }>[];
+    /**
+     * JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
+     */
     readonly policy?: fabric.MaybeComputed<string>;
+    /**
+     * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+     */
     readonly region?: fabric.MaybeComputed<string>;
+    /**
+     * (documented below).
+     */
     readonly replicationConfiguration?: fabric.MaybeComputed<{ role: fabric.MaybeComputed<string>, rules: fabric.MaybeComputed<{ destination: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[], id?: fabric.MaybeComputed<string>, prefix: fabric.MaybeComputed<string>, status: fabric.MaybeComputed<string> }>[] }>[];
+    /**
+     * Specifies who should bear the cost of Amazon S3 data transfer.
+     * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
+     * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
+     * developer guide for more information.
+     */
     readonly requestPayer?: fabric.MaybeComputed<string>;
+    /**
+     * Specifies object tags key and value.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * (documented below)
+     */
     readonly versioning?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, mfaDelete?: fabric.MaybeComputed<boolean> }>[];
+    /**
+     * A website object (documented below).
+     */
     readonly website?: fabric.MaybeComputed<{ errorDocument?: fabric.MaybeComputed<string>, indexDocument?: fabric.MaybeComputed<string>, redirectAllRequestsTo?: fabric.MaybeComputed<string>, routingRules?: fabric.MaybeComputed<string> }>[];
     readonly websiteDomain?: fabric.MaybeComputed<string>;
     readonly websiteEndpoint?: fabric.MaybeComputed<string>;

@@ -3,16 +3,50 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an VPC subnet resource.
+ */
 export class Subnet extends fabric.Resource {
+    /**
+     * Specify true to indicate
+     * that network interfaces created in the specified subnet should be
+     * assigned an IPv6 address. Default is `false`
+     */
     public readonly assignIpv6AddressOnCreation?: fabric.Computed<boolean>;
     public readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * The CIDR block for the subnet.
+     */
     public readonly cidrBlock: fabric.Computed<string>;
+    /**
+     * The IPv6 network range for the subnet,
+     * in CIDR notation. The subnet size must use a /64 prefix length.
+     */
     public readonly ipv6CidrBlock: fabric.Computed<string>;
     public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Computed<string>;
+    /**
+     *  (Optional) Specify true to indicate
+     * that instances launched into the subnet should be assigned
+     * a public IP address. Default is `false`.
+     */
     public readonly mapPublicIpOnLaunch?: fabric.Computed<boolean>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The VPC ID.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a Subnet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Subnet instance
+     * @param args A collection of arguments for creating this Subnet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SubnetArgs, dependsOn?: fabric.Resource[]) {
         if (args.cidrBlock === undefined) {
             throw new Error("Missing required property 'cidrBlock'");
@@ -33,13 +67,39 @@ export class Subnet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Subnet resource.
+ */
 export interface SubnetArgs {
+    /**
+     * Specify true to indicate
+     * that network interfaces created in the specified subnet should be
+     * assigned an IPv6 address. Default is `false`
+     */
     readonly assignIpv6AddressOnCreation?: fabric.MaybeComputed<boolean>;
     readonly availabilityZone?: fabric.MaybeComputed<string>;
+    /**
+     * The CIDR block for the subnet.
+     */
     readonly cidrBlock: fabric.MaybeComputed<string>;
+    /**
+     * The IPv6 network range for the subnet,
+     * in CIDR notation. The subnet size must use a /64 prefix length.
+     */
     readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
+    /**
+     *  (Optional) Specify true to indicate
+     * that instances launched into the subnet should be assigned
+     * a public IP address. Default is `false`.
+     */
     readonly mapPublicIpOnLaunch?: fabric.MaybeComputed<boolean>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The VPC ID.
+     */
     readonly vpcId: fabric.MaybeComputed<string>;
 }
 

@@ -3,12 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
+ * but API (hence Terraform too) allows you to create as many aliases as
+ * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
+ */
 export class Alias extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) of the key alias.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates an unique alias beginning with the specified prefix.
+     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
+     */
     public readonly targetKeyId: fabric.Computed<string>;
 
+    /**
+     * Create a Alias resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Alias instance
+     * @param args A collection of arguments for creating this Alias intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AliasArgs, dependsOn?: fabric.Resource[]) {
         if (args.targetKeyId === undefined) {
             throw new Error("Missing required property 'targetKeyId'");
@@ -22,9 +48,22 @@ export class Alias extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Alias resource.
+ */
 export interface AliasArgs {
+    /**
+     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates an unique alias beginning with the specified prefix.
+     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
+     */
     readonly targetKeyId: fabric.MaybeComputed<string>;
 }
 

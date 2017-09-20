@@ -3,12 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IAM policy attached to a group.
+ */
 export class GroupPolicy extends fabric.Resource {
+    /**
+     * The IAM group to attach to the policy.
+     */
     public readonly group: fabric.Computed<string>;
+    /**
+     * The name of the policy. If omitted, Terraform will
+     * assign a random, unique name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here.
+     */
     public readonly policy: fabric.Computed<string>;
 
+    /**
+     * Create a GroupPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this GroupPolicy instance
+     * @param args A collection of arguments for creating this GroupPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: GroupPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.group === undefined) {
             throw new Error("Missing required property 'group'");
@@ -25,10 +51,28 @@ export class GroupPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a GroupPolicy resource.
+ */
 export interface GroupPolicyArgs {
+    /**
+     * The IAM group to attach to the policy.
+     */
     readonly group: fabric.MaybeComputed<string>;
+    /**
+     * The name of the policy. If omitted, Terraform will
+     * assign a random, unique name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here.
+     */
     readonly policy: fabric.MaybeComputed<string>;
 }
 

@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF SQL Injection Match Set Resource
+ */
 export class SqlInjectionMatchSet extends fabric.Resource {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+     */
     public readonly sqlInjectionMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
+    /**
+     * Create a SqlInjectionMatchSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SqlInjectionMatchSet instance
+     * @param args A collection of arguments for creating this SqlInjectionMatchSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: SqlInjectionMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", urnName, {
             "name": args.name,
@@ -15,8 +32,17 @@ export class SqlInjectionMatchSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SqlInjectionMatchSet resource.
+ */
 export interface SqlInjectionMatchSetArgs {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+     */
     readonly sqlInjectionMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], textTransformation: fabric.MaybeComputed<string> }>[];
 }
 

@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SES receipt filter resource
+ */
 export class ReceiptFilter extends fabric.Resource {
+    /**
+     * The IP address or address range to filter, in CIDR notation
+     */
     public readonly cidr: fabric.Computed<string>;
+    /**
+     * The name of the filter
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Block or Allow
+     */
     public readonly policy: fabric.Computed<string>;
 
+    /**
+     * Create a ReceiptFilter resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ReceiptFilter instance
+     * @param args A collection of arguments for creating this ReceiptFilter intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ReceiptFilterArgs, dependsOn?: fabric.Resource[]) {
         if (args.cidr === undefined) {
             throw new Error("Missing required property 'cidr'");
@@ -23,9 +43,21 @@ export class ReceiptFilter extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ReceiptFilter resource.
+ */
 export interface ReceiptFilterArgs {
+    /**
+     * The IP address or address range to filter, in CIDR notation
+     */
     readonly cidr: fabric.MaybeComputed<string>;
+    /**
+     * The name of the filter
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Block or Allow
+     */
     readonly policy: fabric.MaybeComputed<string>;
 }
 

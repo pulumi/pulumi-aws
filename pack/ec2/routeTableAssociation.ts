@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create an association between a subnet and routing table.
+ */
 export class RouteTableAssociation extends fabric.Resource {
+    /**
+     * The ID of the routing table to associate with.
+     */
     public readonly routeTableId: fabric.Computed<string>;
+    /**
+     * The subnet ID to create an association.
+     */
     public readonly subnetId: fabric.Computed<string>;
 
+    /**
+     * Create a RouteTableAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RouteTableAssociation instance
+     * @param args A collection of arguments for creating this RouteTableAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
@@ -21,8 +38,17 @@ export class RouteTableAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RouteTableAssociation resource.
+ */
 export interface RouteTableAssociationArgs {
+    /**
+     * The ID of the routing table to associate with.
+     */
     readonly routeTableId: fabric.MaybeComputed<string>;
+    /**
+     * The subnet ID to create an association.
+     */
     readonly subnetId: fabric.MaybeComputed<string>;
 }
 

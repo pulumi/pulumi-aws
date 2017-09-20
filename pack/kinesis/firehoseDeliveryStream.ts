@@ -3,16 +3,46 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
+ * 
+ * For more details, see the [Amazon Kinesis Firehose Documentation][1].
+ */
 export class FirehoseDeliveryStream extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the Stream
+     */
     public readonly arn: fabric.Computed<string>;
     public readonly destination: fabric.Computed<string>;
     public readonly destinationId: fabric.Computed<string>;
     public readonly elasticsearchConfiguration?: fabric.Computed<{ bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], domainArn: string, indexName: string, indexRotationPeriod?: string, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string }[]>;
+    /**
+     * A name to identify the stream. This is unique to the
+     * AWS account and region the Stream is created in.
+     * * `destination` – (Required) This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Configuration options if redshift is the destination.
+     * Using `redshift_configuration` requires the user to also specify a
+     * `s3_configuration` block. More details are given below.
+     */
     public readonly redshiftConfiguration?: fabric.Computed<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], clusterJdbcurl: string, copyOptions?: string, dataTableColumns?: string, dataTableName: string, password: string, retryDuration?: number, roleArn: string, username: string }[]>;
+    /**
+     * Configuration options for the s3 destination (or the intermediate bucket if the destination
+     * is redshift). More details are given below.
+     */
     public readonly s3Configuration: fabric.Computed<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }[]>;
     public readonly versionId: fabric.Computed<string>;
 
+    /**
+     * Create a FirehoseDeliveryStream resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this FirehoseDeliveryStream instance
+     * @param args A collection of arguments for creating this FirehoseDeliveryStream intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: FirehoseDeliveryStreamArgs, dependsOn?: fabric.Resource[]) {
         if (args.destination === undefined) {
             throw new Error("Missing required property 'destination'");
@@ -33,13 +63,30 @@ export class FirehoseDeliveryStream extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a FirehoseDeliveryStream resource.
+ */
 export interface FirehoseDeliveryStreamArgs {
     readonly arn?: fabric.MaybeComputed<string>;
     readonly destination: fabric.MaybeComputed<string>;
     readonly destinationId?: fabric.MaybeComputed<string>;
     readonly elasticsearchConfiguration?: fabric.MaybeComputed<{ bufferingInterval?: fabric.MaybeComputed<number>, bufferingSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], domainArn: fabric.MaybeComputed<string>, indexName: fabric.MaybeComputed<string>, indexRotationPeriod?: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, s3BackupMode?: fabric.MaybeComputed<string>, typeName?: fabric.MaybeComputed<string> }>[];
+    /**
+     * A name to identify the stream. This is unique to the
+     * AWS account and region the Stream is created in.
+     * * `destination` – (Required) This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Configuration options if redshift is the destination.
+     * Using `redshift_configuration` requires the user to also specify a
+     * `s3_configuration` block. More details are given below.
+     */
     readonly redshiftConfiguration?: fabric.MaybeComputed<{ cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], clusterJdbcurl: fabric.MaybeComputed<string>, copyOptions?: fabric.MaybeComputed<string>, dataTableColumns?: fabric.MaybeComputed<string>, dataTableName: fabric.MaybeComputed<string>, password: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, username: fabric.MaybeComputed<string> }>[];
+    /**
+     * Configuration options for the s3 destination (or the intermediate bucket if the destination
+     * is redshift). More details are given below.
+     */
     readonly s3Configuration: fabric.MaybeComputed<{ bucketArn: fabric.MaybeComputed<string>, bufferInterval?: fabric.MaybeComputed<number>, bufferSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], compressionFormat?: fabric.MaybeComputed<string>, kmsKeyArn?: fabric.MaybeComputed<string>, prefix?: fabric.MaybeComputed<string>, roleArn: fabric.MaybeComputed<string> }>[];
     readonly versionId?: fabric.MaybeComputed<string>;
 }

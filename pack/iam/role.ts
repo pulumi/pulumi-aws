@@ -5,17 +5,56 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {ARN} from "../index";
 
+/**
+ * Provides an IAM role.
+ */
 export class Role extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the role.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The policy that grants an entity permission to assume the role.
+     */
     public readonly assumeRolePolicy: fabric.Computed<string>;
+    /**
+     * The creation date of the IAM role.
+     */
     public /*out*/ readonly createDate: fabric.Computed<string>;
+    /**
+     * The description of the role.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+     */
     public readonly forceDetachPolicies?: fabric.Computed<boolean>;
+    /**
+     * The name of the role. If omitted, Terraform will assign a random, unique name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The path to the role.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     */
     public readonly path?: fabric.Computed<string>;
+    /**
+     * The stable and unique string identifying the role.
+     */
     public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
+    /**
+     * Create a Role resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Role instance
+     * @param args A collection of arguments for creating this Role intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RoleArgs, dependsOn?: fabric.Resource[]) {
         if (args.assumeRolePolicy === undefined) {
             throw new Error("Missing required property 'assumeRolePolicy'");
@@ -34,12 +73,34 @@ export class Role extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Role resource.
+ */
 export interface RoleArgs {
+    /**
+     * The policy that grants an entity permission to assume the role.
+     */
     readonly assumeRolePolicy: fabric.MaybeComputed<string>;
+    /**
+     * The description of the role.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+     */
     readonly forceDetachPolicies?: fabric.MaybeComputed<boolean>;
+    /**
+     * The name of the role. If omitted, Terraform will assign a random, unique name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * The path to the role.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     */
     readonly path?: fabric.MaybeComputed<string>;
 }
 

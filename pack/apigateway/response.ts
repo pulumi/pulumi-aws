@@ -10,6 +10,14 @@ export class Response extends fabric.Resource {
     public readonly restApiId: fabric.Computed<string>;
     public readonly statusCode?: fabric.Computed<string>;
 
+    /**
+     * Create a Response resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Response instance
+     * @param args A collection of arguments for creating this Response intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.responseType === undefined) {
             throw new Error("Missing required property 'responseType'");
@@ -27,6 +35,9 @@ export class Response extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Response resource.
+ */
 export interface ResponseArgs {
     readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
     readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;

@@ -3,24 +3,66 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * The "AMI from instance" resource allows the creation of an Amazon Machine
+ * Image (AMI) modelled after an existing EBS-backed EC2 instance.
+ * 
+ * The created AMI will refer to implicitly-created snapshots of the instance's
+ * EBS volumes and mimick its assigned block device configuration at the time
+ * the resource is created.
+ * 
+ * This resource is best applied to an instance that is stopped when this instance
+ * is created, so that the contents of the created image are predictable. When
+ * applied to an instance that is running, *the instance will be stopped before taking
+ * the snapshots and then started back up again*, resulting in a period of
+ * downtime.
+ * 
+ * Note that the source instance is inspected only at the initial creation of this
+ * resource. Ongoing updates to the referenced instance will not be propagated into
+ * the generated AMI. Users may taint or otherwise recreate the resource in order
+ * to produce a fresh snapshot.
+ */
 export class AmiFromInstance extends fabric.Resource {
     public /*out*/ readonly architecture: fabric.Computed<string>;
     public readonly description?: fabric.Computed<string>;
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
+    /**
+     * The ID of the created AMI.
+     */
     public /*out*/ readonly amiId: fabric.Computed<string>;
     public /*out*/ readonly imageLocation: fabric.Computed<string>;
     public /*out*/ readonly kernelId: fabric.Computed<string>;
     public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
+    /**
+     * A region-unique name for the AMI.
+     */
     public readonly name: fabric.Computed<string>;
     public /*out*/ readonly ramdiskId: fabric.Computed<string>;
     public /*out*/ readonly rootDeviceName: fabric.Computed<string>;
+    /**
+     * Boolean that overrides the behavior of stopping
+     * the instance before snapshotting. This is risky since it may cause a snapshot of an
+     * inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
+     * guarantees that no filesystem writes will be underway at the time of snapshot.
+     */
     public readonly snapshotWithoutReboot?: fabric.Computed<boolean>;
+    /**
+     * The id of the instance to use as the basis of the AMI.
+     */
     public readonly sourceInstanceId: fabric.Computed<string>;
     public /*out*/ readonly sriovNetSupport: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
+    /**
+     * Create a AmiFromInstance resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AmiFromInstance instance
+     * @param args A collection of arguments for creating this AmiFromInstance intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AmiFromInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.sourceInstanceId === undefined) {
             throw new Error("Missing required property 'sourceInstanceId'");
@@ -46,12 +88,27 @@ export class AmiFromInstance extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AmiFromInstance resource.
+ */
 export interface AmiFromInstanceArgs {
     readonly description?: fabric.MaybeComputed<string>;
     readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
     readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
+    /**
+     * A region-unique name for the AMI.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Boolean that overrides the behavior of stopping
+     * the instance before snapshotting. This is risky since it may cause a snapshot of an
+     * inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
+     * guarantees that no filesystem writes will be underway at the time of snapshot.
+     */
     readonly snapshotWithoutReboot?: fabric.MaybeComputed<boolean>;
+    /**
+     * The id of the instance to use as the basis of the AMI.
+     */
     readonly sourceInstanceId: fabric.MaybeComputed<string>;
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }

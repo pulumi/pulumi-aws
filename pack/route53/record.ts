@@ -3,21 +3,72 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Route53 record resource.
+ */
 export class Record extends fabric.Resource {
+    /**
+     * An alias block. Conflicts with `ttl` & `records`.
+     * Alias record documented below.
+     */
     public readonly alias?: fabric.Computed<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[]>;
+    /**
+     * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+     */
     public readonly failoverRoutingPolicy?: fabric.Computed<{ type: string }[]>;
+    /**
+     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`
+     */
     public /*out*/ readonly fqdn: fabric.Computed<string>;
+    /**
+     * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+     */
     public readonly geolocationRoutingPolicy?: fabric.Computed<{ continent?: string, country?: string, subdivision?: string }[]>;
+    /**
+     * The health check the record should be associated with.
+     */
     public readonly healthCheckId?: fabric.Computed<string>;
+    /**
+     * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+     */
     public readonly latencyRoutingPolicy?: fabric.Computed<{ region: string }[]>;
+    /**
+     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A string list of records.
+     */
     public readonly records?: fabric.Computed<string[]>;
+    /**
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+     */
     public readonly setIdentifier?: fabric.Computed<string>;
+    /**
+     * The TTL of the record.
+     */
     public readonly ttl?: fabric.Computed<number>;
+    /**
+     * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+     */
     public readonly type: fabric.Computed<string>;
+    /**
+     * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+     */
     public readonly weightedRoutingPolicy?: fabric.Computed<{ weight: number }[]>;
+    /**
+     * for example.
+     */
     public readonly zoneId: fabric.Computed<string>;
 
+    /**
+     * Create a Record resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Record instance
+     * @param args A collection of arguments for creating this Record intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RecordArgs, dependsOn?: fabric.Resource[]) {
         if (args.type === undefined) {
             throw new Error("Missing required property 'type'");
@@ -43,18 +94,58 @@ export class Record extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Record resource.
+ */
 export interface RecordArgs {
+    /**
+     * An alias block. Conflicts with `ttl` & `records`.
+     * Alias record documented below.
+     */
     readonly alias?: fabric.MaybeComputed<{ evaluateTargetHealth: fabric.MaybeComputed<boolean>, name: fabric.MaybeComputed<string>, zoneId: fabric.MaybeComputed<string> }>[];
+    /**
+     * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+     */
     readonly failoverRoutingPolicy?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
+    /**
+     * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+     */
     readonly geolocationRoutingPolicy?: fabric.MaybeComputed<{ continent?: fabric.MaybeComputed<string>, country?: fabric.MaybeComputed<string>, subdivision?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The health check the record should be associated with.
+     */
     readonly healthCheckId?: fabric.MaybeComputed<string>;
+    /**
+     * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+     */
     readonly latencyRoutingPolicy?: fabric.MaybeComputed<{ region: fabric.MaybeComputed<string> }>[];
+    /**
+     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * A string list of records.
+     */
     readonly records?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+     */
     readonly setIdentifier?: fabric.MaybeComputed<string>;
+    /**
+     * The TTL of the record.
+     */
     readonly ttl?: fabric.MaybeComputed<number>;
+    /**
+     * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+     */
     readonly type: fabric.MaybeComputed<string>;
+    /**
+     * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+     */
     readonly weightedRoutingPolicy?: fabric.MaybeComputed<{ weight: fabric.MaybeComputed<number> }>[];
+    /**
+     * for example.
+     */
     readonly zoneId: fabric.MaybeComputed<string>;
 }
 

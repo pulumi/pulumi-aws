@@ -5,13 +5,39 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {LogGroup} from "./logGroup";
 
+/**
+ * Provides a CloudWatch Logs subscription filter resource.
+ */
 export class LogSubscriptionFilter extends fabric.Resource {
+    /**
+     * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+     */
     public readonly destinationArn: fabric.Computed<string>;
+    /**
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     */
     public readonly filterPattern: fabric.Computed<string>;
+    /**
+     * The name of the log group to associate the subscription filter with
+     */
     public readonly logGroup: fabric.Computed<LogGroup>;
+    /**
+     * A name for the subscription filter
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+     */
     public readonly roleArn: fabric.Computed<string>;
 
+    /**
+     * Create a LogSubscriptionFilter resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LogSubscriptionFilter instance
+     * @param args A collection of arguments for creating this LogSubscriptionFilter intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LogSubscriptionFilterArgs, dependsOn?: fabric.Resource[]) {
         if (args.destinationArn === undefined) {
             throw new Error("Missing required property 'destinationArn'");
@@ -32,11 +58,29 @@ export class LogSubscriptionFilter extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LogSubscriptionFilter resource.
+ */
 export interface LogSubscriptionFilterArgs {
+    /**
+     * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+     */
     readonly destinationArn: fabric.MaybeComputed<string>;
+    /**
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
+     */
     readonly filterPattern: fabric.MaybeComputed<string>;
+    /**
+     * The name of the log group to associate the subscription filter with
+     */
     readonly logGroup: fabric.MaybeComputed<LogGroup>;
+    /**
+     * A name for the subscription filter
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+     */
     readonly roleArn?: fabric.MaybeComputed<string>;
 }
 

@@ -12,6 +12,14 @@ export class IdentityPool extends fabric.Resource {
     public readonly samlProviderArns?: fabric.Computed<string[]>;
     public readonly supportedLoginProviders?: fabric.Computed<{[key: string]: string}>;
 
+    /**
+     * Create a IdentityPool resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this IdentityPool instance
+     * @param args A collection of arguments for creating this IdentityPool intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: IdentityPoolArgs, dependsOn?: fabric.Resource[]) {
         if (args.identityPoolName === undefined) {
             throw new Error("Missing required property 'identityPoolName'");
@@ -28,6 +36,9 @@ export class IdentityPool extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a IdentityPool resource.
+ */
 export interface IdentityPoolArgs {
     readonly allowUnauthenticatedIdentities?: fabric.MaybeComputed<boolean>;
     readonly cognitoIdentityProviders?: fabric.MaybeComputed<{ clientId?: fabric.MaybeComputed<string>, providerName?: fabric.MaybeComputed<string>, serverSideTokenCheck?: fabric.MaybeComputed<boolean> }>[];

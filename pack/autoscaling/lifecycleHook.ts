@@ -13,6 +13,14 @@ export class LifecycleHook extends fabric.Resource {
     public readonly notificationTargetArn?: fabric.Computed<string>;
     public readonly roleArn?: fabric.Computed<string>;
 
+    /**
+     * Create a LifecycleHook resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LifecycleHook instance
+     * @param args A collection of arguments for creating this LifecycleHook intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LifecycleHookArgs, dependsOn?: fabric.Resource[]) {
         if (args.autoscalingGroupName === undefined) {
             throw new Error("Missing required property 'autoscalingGroupName'");
@@ -33,6 +41,9 @@ export class LifecycleHook extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LifecycleHook resource.
+ */
 export interface LifecycleHookArgs {
     readonly autoscalingGroupName: fabric.MaybeComputed<string>;
     readonly defaultResult?: fabric.MaybeComputed<string>;

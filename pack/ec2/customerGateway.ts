@@ -3,12 +3,36 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
+ */
 export class CustomerGateway extends fabric.Resource {
+    /**
+     * Autonomous System Number (ASN).
+     */
     public readonly bgpAsn: fabric.Computed<number>;
+    /**
+     * The IP address of the gateway's Internet-routable external interface.
+     */
     public readonly ipAddress: fabric.Computed<string>;
+    /**
+     * Tags to apply to the gateway.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The type of customer gateway. The only type AWS
+     * supports at this time is "ipsec.1".
+     */
     public readonly type: fabric.Computed<string>;
 
+    /**
+     * Create a CustomerGateway resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this CustomerGateway instance
+     * @param args A collection of arguments for creating this CustomerGateway intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: CustomerGatewayArgs, dependsOn?: fabric.Resource[]) {
         if (args.bgpAsn === undefined) {
             throw new Error("Missing required property 'bgpAsn'");
@@ -28,10 +52,26 @@ export class CustomerGateway extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a CustomerGateway resource.
+ */
 export interface CustomerGatewayArgs {
+    /**
+     * Autonomous System Number (ASN).
+     */
     readonly bgpAsn: fabric.MaybeComputed<number>;
+    /**
+     * The IP address of the gateway's Internet-routable external interface.
+     */
     readonly ipAddress: fabric.MaybeComputed<string>;
+    /**
+     * Tags to apply to the gateway.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The type of customer gateway. The only type AWS
+     * supports at this time is "ipsec.1".
+     */
     readonly type: fabric.MaybeComputed<string>;
 }
 

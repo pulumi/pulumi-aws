@@ -3,16 +3,55 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AWS Config Rule.
+ * 
+ * ~> **Note:** Config Rule requires an existing [Configuration Recorder](/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+ */
 export class Rule extends fabric.Resource {
+    /**
+     * The ARN of the config rule
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Description of the rule
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * A string in JSON format that is passed to the AWS Config rule Lambda function.
+     */
     public readonly inputParameters?: fabric.Computed<string>;
+    /**
+     * The frequency that you want AWS Config to run evaluations for a rule that
+     * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     */
     public readonly maximumExecutionFrequency?: fabric.Computed<string>;
+    /**
+     * The name of the rule
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ID of the config rule
+     */
     public /*out*/ readonly ruleId: fabric.Computed<string>;
+    /**
+     * Scope defines which resources can trigger an evaluation for the rule as documented below.
+     */
     public readonly scope?: fabric.Computed<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string }[]>;
+    /**
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause
+     * the function to evaluate your AWS resources as documented below.
+     */
     public readonly source: fabric.Computed<{ owner: string, sourceDetail?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }[]>;
 
+    /**
+     * Create a Rule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Rule instance
+     * @param args A collection of arguments for creating this Rule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.source === undefined) {
             throw new Error("Missing required property 'source'");
@@ -30,12 +69,35 @@ export class Rule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Rule resource.
+ */
 export interface RuleArgs {
+    /**
+     * Description of the rule
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * A string in JSON format that is passed to the AWS Config rule Lambda function.
+     */
     readonly inputParameters?: fabric.MaybeComputed<string>;
+    /**
+     * The frequency that you want AWS Config to run evaluations for a rule that
+     * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     */
     readonly maximumExecutionFrequency?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the rule
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * Scope defines which resources can trigger an evaluation for the rule as documented below.
+     */
     readonly scope?: fabric.MaybeComputed<{ complianceResourceId?: fabric.MaybeComputed<string>, complianceResourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], tagKey?: fabric.MaybeComputed<string>, tagValue?: fabric.MaybeComputed<string> }>[];
+    /**
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause
+     * the function to evaluate your AWS resources as documented below.
+     */
     readonly source: fabric.MaybeComputed<{ owner: fabric.MaybeComputed<string>, sourceDetail?: fabric.MaybeComputed<{ eventSource?: fabric.MaybeComputed<string>, maximumExecutionFrequency?: fabric.MaybeComputed<string>, messageType?: fabric.MaybeComputed<string> }>[], sourceIdentifier: fabric.MaybeComputed<string> }>[];
 }
 

@@ -3,14 +3,45 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic File System (EFS) mount target.
+ */
 export class MountTarget extends fabric.Resource {
+    /**
+     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     */
     public /*out*/ readonly dnsName: fabric.Computed<string>;
+    /**
+     * The ID of the file system for which the mount target is intended.
+     */
     public readonly fileSystemId: fabric.Computed<string>;
+    /**
+     * at
+     * which the file system may be mounted via the mount target.
+     */
     public readonly ipAddress: fabric.Computed<string>;
+    /**
+     * The ID of the network interface that Amazon EFS created when it created the mount target.
+     */
     public /*out*/ readonly networkInterfaceId: fabric.Computed<string>;
+    /**
+     * A list of up to 5 VPC security group IDs (that must
+     * be for the same VPC as subnet specified) in effect for the mount target.
+     */
     public readonly securityGroups: fabric.Computed<string[]>;
+    /**
+     * The ID of the subnet to add the mount target in.
+     */
     public readonly subnetId: fabric.Computed<string>;
 
+    /**
+     * Create a MountTarget resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MountTarget instance
+     * @param args A collection of arguments for creating this MountTarget intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MountTargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.fileSystemId === undefined) {
             throw new Error("Missing required property 'fileSystemId'");
@@ -29,10 +60,27 @@ export class MountTarget extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MountTarget resource.
+ */
 export interface MountTargetArgs {
+    /**
+     * The ID of the file system for which the mount target is intended.
+     */
     readonly fileSystemId: fabric.MaybeComputed<string>;
+    /**
+     * at
+     * which the file system may be mounted via the mount target.
+     */
     readonly ipAddress?: fabric.MaybeComputed<string>;
+    /**
+     * A list of up to 5 VPC security group IDs (that must
+     * be for the same VPC as subnet specified) in effect for the mount target.
+     */
     readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * The ID of the subnet to add the mount target in.
+     */
     readonly subnetId: fabric.MaybeComputed<string>;
 }
 

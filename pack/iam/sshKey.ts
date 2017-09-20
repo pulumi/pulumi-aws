@@ -3,14 +3,43 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Uploads an SSH public key and associates it with the specified IAM user.
+ */
 export class SshKey extends fabric.Resource {
+    /**
+     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH . To retrieve the public key in PEM format, use PEM .
+     */
     public readonly encoding: fabric.Computed<string>;
+    /**
+     * The MD5 message digest of the SSH public key.
+     */
     public /*out*/ readonly fingerprint: fabric.Computed<string>;
+    /**
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+     */
     public readonly publicKey: fabric.Computed<string>;
+    /**
+     * The unique identifier for the SSH public key.
+     */
     public /*out*/ readonly sshPublicKeyId: fabric.Computed<string>;
+    /**
+     * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+     */
     public readonly status: fabric.Computed<string>;
+    /**
+     * The name of the IAM user to associate the SSH public key with.
+     */
     public readonly username: fabric.Computed<string>;
 
+    /**
+     * Create a SshKey resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SshKey instance
+     * @param args A collection of arguments for creating this SshKey intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SshKeyArgs, dependsOn?: fabric.Resource[]) {
         if (args.encoding === undefined) {
             throw new Error("Missing required property 'encoding'");
@@ -32,10 +61,25 @@ export class SshKey extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SshKey resource.
+ */
 export interface SshKeyArgs {
+    /**
+     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH . To retrieve the public key in PEM format, use PEM .
+     */
     readonly encoding: fabric.MaybeComputed<string>;
+    /**
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+     */
     readonly publicKey: fabric.MaybeComputed<string>;
+    /**
+     * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+     */
     readonly status?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the IAM user to associate the SSH public key with.
+     */
     readonly username: fabric.MaybeComputed<string>;
 }
 

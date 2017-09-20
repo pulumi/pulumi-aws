@@ -13,6 +13,14 @@ export class InstanceGroup extends fabric.Resource {
     public /*out*/ readonly runningInstanceCount: fabric.Computed<number>;
     public /*out*/ readonly status: fabric.Computed<string>;
 
+    /**
+     * Create a InstanceGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this InstanceGroup instance
+     * @param args A collection of arguments for creating this InstanceGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: InstanceGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterId === undefined) {
             throw new Error("Missing required property 'clusterId'");
@@ -33,6 +41,9 @@ export class InstanceGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a InstanceGroup resource.
+ */
 export interface InstanceGroupArgs {
     readonly clusterId: fabric.MaybeComputed<string>;
     readonly ebsConfig?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, size: fabric.MaybeComputed<number>, type: fabric.MaybeComputed<string>, volumesPerInstance?: fabric.MaybeComputed<number> }>[];
