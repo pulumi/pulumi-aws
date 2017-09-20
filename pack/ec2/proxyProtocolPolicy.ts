@@ -22,7 +22,7 @@ export class ProxyProtocolPolicy extends fabric.Resource {
 }
 
 export interface ProxyProtocolPolicyArgs {
-    readonly instancePorts: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly loadBalancer: fabric.MaybeComputed<string>;
+    readonly instancePorts: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly loadBalancer: fabric.ComputedValue<string>;
 }
 

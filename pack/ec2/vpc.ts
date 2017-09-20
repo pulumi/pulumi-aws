@@ -45,13 +45,13 @@ export class Vpc extends fabric.Resource {
 }
 
 export interface VpcArgs {
-    readonly assignGeneratedIpv6CidrBlock?: fabric.MaybeComputed<boolean>;
-    readonly cidrBlock: fabric.MaybeComputed<string>;
-    readonly enableClassiclink?: fabric.MaybeComputed<boolean>;
-    readonly enableClassiclinkDnsSupport?: fabric.MaybeComputed<boolean>;
-    readonly enableDnsHostnames?: fabric.MaybeComputed<boolean>;
-    readonly enableDnsSupport?: fabric.MaybeComputed<boolean>;
-    readonly instanceTenancy?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly assignGeneratedIpv6CidrBlock?: fabric.ComputedValue<boolean>;
+    readonly cidrBlock: fabric.ComputedValue<string>;
+    readonly enableClassiclink?: fabric.ComputedValue<boolean>;
+    readonly enableClassiclinkDnsSupport?: fabric.ComputedValue<boolean>;
+    readonly enableDnsHostnames?: fabric.ComputedValue<boolean>;
+    readonly enableDnsSupport?: fabric.ComputedValue<boolean>;
+    readonly instanceTenancy?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

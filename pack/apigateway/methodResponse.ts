@@ -40,12 +40,12 @@ export class MethodResponse extends fabric.Resource {
 }
 
 export interface MethodResponseArgs {
-    readonly httpMethod: fabric.MaybeComputed<string>;
-    readonly resourceId: fabric.MaybeComputed<string>;
-    readonly responseModels?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<boolean>}>;
-    readonly responseParametersInJson?: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly statusCode: fabric.MaybeComputed<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
+    readonly responseModels?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<boolean>}>;
+    readonly responseParametersInJson?: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly statusCode: fabric.ComputedValue<string>;
 }
 

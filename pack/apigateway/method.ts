@@ -46,15 +46,15 @@ export class Method extends fabric.Resource {
 }
 
 export interface MethodArgs {
-    readonly apiKeyRequired?: fabric.MaybeComputed<boolean>;
-    readonly authorization: fabric.MaybeComputed<string>;
-    readonly authorizerId?: fabric.MaybeComputed<string>;
-    readonly httpMethod: fabric.MaybeComputed<string>;
-    readonly requestModels?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly requestParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<boolean>}>;
-    readonly requestParametersInJson?: fabric.MaybeComputed<string>;
-    readonly requestValidatorId?: fabric.MaybeComputed<string>;
-    readonly resourceId: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly apiKeyRequired?: fabric.ComputedValue<boolean>;
+    readonly authorization: fabric.ComputedValue<string>;
+    readonly authorizerId?: fabric.ComputedValue<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
+    readonly requestModels?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly requestParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<boolean>}>;
+    readonly requestParametersInJson?: fabric.ComputedValue<string>;
+    readonly requestValidatorId?: fabric.ComputedValue<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
 }
 

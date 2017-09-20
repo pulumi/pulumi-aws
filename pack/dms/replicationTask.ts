@@ -50,14 +50,14 @@ export class ReplicationTask extends fabric.Resource {
 }
 
 export interface ReplicationTaskArgs {
-    readonly cdcStartTime?: fabric.MaybeComputed<string>;
-    readonly migrationType: fabric.MaybeComputed<string>;
-    readonly replicationInstanceArn: fabric.MaybeComputed<string>;
-    readonly replicationTaskId: fabric.MaybeComputed<string>;
-    readonly replicationTaskSettings?: fabric.MaybeComputed<string>;
-    readonly sourceEndpointArn: fabric.MaybeComputed<string>;
-    readonly tableMappings: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly targetEndpointArn: fabric.MaybeComputed<string>;
+    readonly cdcStartTime?: fabric.ComputedValue<string>;
+    readonly migrationType: fabric.ComputedValue<string>;
+    readonly replicationInstanceArn: fabric.ComputedValue<string>;
+    readonly replicationTaskId: fabric.ComputedValue<string>;
+    readonly replicationTaskSettings?: fabric.ComputedValue<string>;
+    readonly sourceEndpointArn: fabric.ComputedValue<string>;
+    readonly tableMappings: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly targetEndpointArn: fabric.ComputedValue<string>;
 }
 

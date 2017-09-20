@@ -20,6 +20,6 @@ export class StaticIp extends fabric.Resource {
 }
 
 export interface StaticIpArgs {
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

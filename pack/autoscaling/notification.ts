@@ -27,8 +27,8 @@ export class Notification extends fabric.Resource {
 }
 
 export interface NotificationArgs {
-    readonly groupNames: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly notifications: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly topicArn: fabric.MaybeComputed<string>;
+    readonly groupNames: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly notifications: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly topicArn: fabric.ComputedValue<string>;
 }
 

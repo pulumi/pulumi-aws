@@ -54,23 +54,23 @@ export class LaunchConfiguration extends fabric.Resource {
 }
 
 export interface LaunchConfigurationArgs {
-    readonly associatePublicIpAddress?: fabric.MaybeComputed<boolean>;
-    readonly ebsBlockDevices?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
-    readonly enableMonitoring?: fabric.MaybeComputed<boolean>;
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[];
-    readonly iamInstanceProfile?: fabric.MaybeComputed<string>;
-    readonly imageId: fabric.MaybeComputed<string>;
-    readonly instanceType: fabric.MaybeComputed<string>;
-    readonly keyName?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly placementTenancy?: fabric.MaybeComputed<string>;
-    readonly rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly spotPrice?: fabric.MaybeComputed<string>;
-    readonly userData?: fabric.MaybeComputed<string>;
-    readonly vpcClassicLinkId?: fabric.MaybeComputed<string>;
-    readonly vpcClassicLinkSecurityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly associatePublicIpAddress?: fabric.ComputedValue<boolean>;
+    readonly ebsBlockDevices?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly ebsOptimized?: fabric.ComputedValue<boolean>;
+    readonly enableMonitoring?: fabric.ComputedValue<boolean>;
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[];
+    readonly iamInstanceProfile?: fabric.ComputedValue<string>;
+    readonly imageId: fabric.ComputedValue<string>;
+    readonly instanceType: fabric.ComputedValue<string>;
+    readonly keyName?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly placementTenancy?: fabric.ComputedValue<string>;
+    readonly rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly spotPrice?: fabric.ComputedValue<string>;
+    readonly userData?: fabric.ComputedValue<string>;
+    readonly vpcClassicLinkId?: fabric.ComputedValue<string>;
+    readonly vpcClassicLinkSecurityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

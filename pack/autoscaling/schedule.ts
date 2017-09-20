@@ -36,13 +36,13 @@ export class Schedule extends fabric.Resource {
 }
 
 export interface ScheduleArgs {
-    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
-    readonly desiredCapacity?: fabric.MaybeComputed<number>;
-    readonly endTime?: fabric.MaybeComputed<string>;
-    readonly maxSize?: fabric.MaybeComputed<number>;
-    readonly minSize?: fabric.MaybeComputed<number>;
-    readonly recurrence?: fabric.MaybeComputed<string>;
-    readonly scheduledActionName: fabric.MaybeComputed<string>;
-    readonly startTime?: fabric.MaybeComputed<string>;
+    readonly autoscalingGroupName: fabric.ComputedValue<string>;
+    readonly desiredCapacity?: fabric.ComputedValue<number>;
+    readonly endTime?: fabric.ComputedValue<string>;
+    readonly maxSize?: fabric.ComputedValue<number>;
+    readonly minSize?: fabric.ComputedValue<number>;
+    readonly recurrence?: fabric.ComputedValue<string>;
+    readonly scheduledActionName: fabric.ComputedValue<string>;
+    readonly startTime?: fabric.ComputedValue<string>;
 }
 

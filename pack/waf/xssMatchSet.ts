@@ -16,7 +16,7 @@ export class XssMatchSet extends fabric.Resource {
 }
 
 export interface XssMatchSetArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly xssMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], textTransformation: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly xssMatchTuples?: fabric.ComputedValue<{ fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], textTransformation: fabric.ComputedValue<string> }>[];
 }
 

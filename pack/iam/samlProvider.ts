@@ -23,7 +23,7 @@ export class SamlProvider extends fabric.Resource {
 }
 
 export interface SamlProviderArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly samlMetadataDocument: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly samlMetadataDocument: fabric.ComputedValue<string>;
 }
 

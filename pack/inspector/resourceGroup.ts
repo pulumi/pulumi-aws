@@ -19,6 +19,6 @@ export class ResourceGroup extends fabric.Resource {
 }
 
 export interface ResourceGroupArgs {
-    readonly tags: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags: fabric.ComputedValue<{[key: string]: any}>;
 }
 

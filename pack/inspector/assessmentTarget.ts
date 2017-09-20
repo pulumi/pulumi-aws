@@ -21,7 +21,7 @@ export class AssessmentTarget extends fabric.Resource {
 }
 
 export interface AssessmentTargetArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly resourceGroupArn: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly resourceGroupArn: fabric.ComputedValue<string>;
 }
 

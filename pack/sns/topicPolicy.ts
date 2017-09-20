@@ -22,7 +22,7 @@ export class TopicPolicy extends fabric.Resource {
 }
 
 export interface TopicPolicyArgs {
-    readonly arn: fabric.MaybeComputed<string>;
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly arn: fabric.ComputedValue<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

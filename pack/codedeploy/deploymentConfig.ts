@@ -24,7 +24,7 @@ export class DeploymentConfig extends fabric.Resource {
 }
 
 export interface DeploymentConfigArgs {
-    readonly deploymentConfigName: fabric.MaybeComputed<string>;
-    readonly minimumHealthyHosts: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<number> }>[];
+    readonly deploymentConfigName: fabric.ComputedValue<string>;
+    readonly minimumHealthyHosts: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value?: fabric.ComputedValue<number> }>[];
 }
 

@@ -29,11 +29,11 @@ export class ParameterGroup extends fabric.Resource {
 }
 
 export interface ParameterGroupArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly family: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly parameter?: fabric.MaybeComputed<{ applyMethod?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly family: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly parameter?: fabric.ComputedValue<{ applyMethod?: fabric.ComputedValue<string>, name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

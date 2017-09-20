@@ -31,7 +31,7 @@ export class DefaultSubnet extends fabric.Resource {
 }
 
 export interface DefaultSubnetArgs {
-    readonly availabilityZone: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly availabilityZone: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

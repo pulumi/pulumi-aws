@@ -31,13 +31,13 @@ export class Volume extends fabric.Resource {
 }
 
 export interface VolumeArgs {
-    readonly availabilityZone: fabric.MaybeComputed<string>;
-    readonly encrypted?: fabric.MaybeComputed<boolean>;
-    readonly iops?: fabric.MaybeComputed<number>;
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
-    readonly size?: fabric.MaybeComputed<number>;
-    readonly snapshotId?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly type?: fabric.MaybeComputed<string>;
+    readonly availabilityZone: fabric.ComputedValue<string>;
+    readonly encrypted?: fabric.ComputedValue<boolean>;
+    readonly iops?: fabric.ComputedValue<number>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
+    readonly size?: fabric.ComputedValue<number>;
+    readonly snapshotId?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly type?: fabric.ComputedValue<string>;
 }
 

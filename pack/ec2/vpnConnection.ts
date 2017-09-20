@@ -61,13 +61,13 @@ export class VpnConnection extends fabric.Resource {
 }
 
 export interface VpnConnectionArgs {
-    readonly customerGatewayConfiguration?: fabric.MaybeComputed<string>;
-    readonly customerGatewayId: fabric.MaybeComputed<string>;
-    readonly routes?: fabric.MaybeComputed<{ destinationCidrBlock?: fabric.MaybeComputed<string>, source?: fabric.MaybeComputed<string>, state?: fabric.MaybeComputed<string> }>[];
-    readonly staticRoutesOnly?: fabric.MaybeComputed<boolean>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly type: fabric.MaybeComputed<string>;
-    readonly vgwTelemetry?: fabric.MaybeComputed<{ acceptedRouteCount?: fabric.MaybeComputed<number>, lastStatusChange?: fabric.MaybeComputed<string>, outsideIpAddress?: fabric.MaybeComputed<string>, status?: fabric.MaybeComputed<string>, statusMessage?: fabric.MaybeComputed<string> }>[];
-    readonly vpnGatewayId: fabric.MaybeComputed<string>;
+    readonly customerGatewayConfiguration?: fabric.ComputedValue<string>;
+    readonly customerGatewayId: fabric.ComputedValue<string>;
+    readonly routes?: fabric.ComputedValue<{ destinationCidrBlock?: fabric.ComputedValue<string>, source?: fabric.ComputedValue<string>, state?: fabric.ComputedValue<string> }>[];
+    readonly staticRoutesOnly?: fabric.ComputedValue<boolean>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly type: fabric.ComputedValue<string>;
+    readonly vgwTelemetry?: fabric.ComputedValue<{ acceptedRouteCount?: fabric.ComputedValue<number>, lastStatusChange?: fabric.ComputedValue<string>, outsideIpAddress?: fabric.ComputedValue<string>, status?: fabric.ComputedValue<string>, statusMessage?: fabric.ComputedValue<string> }>[];
+    readonly vpnGatewayId: fabric.ComputedValue<string>;
 }
 

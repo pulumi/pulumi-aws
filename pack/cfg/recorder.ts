@@ -21,8 +21,8 @@ export class Recorder extends fabric.Resource {
 }
 
 export interface RecorderArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly recordingGroup?: fabric.MaybeComputed<{ allSupported?: fabric.MaybeComputed<boolean>, includeGlobalResourceTypes?: fabric.MaybeComputed<boolean>, resourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly recordingGroup?: fabric.ComputedValue<{ allSupported?: fabric.ComputedValue<boolean>, includeGlobalResourceTypes?: fabric.ComputedValue<boolean>, resourceTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly roleArn: fabric.ComputedValue<string>;
 }
 

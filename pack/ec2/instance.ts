@@ -84,31 +84,31 @@ export class Instance extends fabric.Resource {
 }
 
 export interface InstanceArgs {
-    readonly ami: fabric.MaybeComputed<string>;
-    readonly associatePublicIpAddress?: fabric.MaybeComputed<boolean>;
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
-    readonly disableApiTermination?: fabric.MaybeComputed<boolean>;
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, noDevice?: fabric.MaybeComputed<boolean>, virtualName?: fabric.MaybeComputed<string> }>[];
-    readonly iamInstanceProfile?: fabric.MaybeComputed<string>;
-    readonly instanceInitiatedShutdownBehavior?: fabric.MaybeComputed<string>;
-    readonly instanceType: fabric.MaybeComputed<InstanceType>;
-    readonly ipv6AddressCount?: fabric.MaybeComputed<number>;
-    readonly ipv6Addresses?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly keyName?: fabric.MaybeComputed<string>;
-    readonly monitoring?: fabric.MaybeComputed<boolean>;
-    readonly networkInterface?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceIndex: fabric.MaybeComputed<number>, networkInterfaceId: fabric.MaybeComputed<string> }>[];
-    readonly placementGroup?: fabric.MaybeComputed<string>;
-    readonly privateIp?: fabric.MaybeComputed<string>;
-    readonly rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
-    readonly subnetId?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly tenancy?: fabric.MaybeComputed<string>;
-    readonly userData?: fabric.MaybeComputed<string>;
-    readonly volumeTags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly ami: fabric.ComputedValue<string>;
+    readonly associatePublicIpAddress?: fabric.ComputedValue<boolean>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
+    readonly disableApiTermination?: fabric.ComputedValue<boolean>;
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly ebsOptimized?: fabric.ComputedValue<boolean>;
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, noDevice?: fabric.ComputedValue<boolean>, virtualName?: fabric.ComputedValue<string> }>[];
+    readonly iamInstanceProfile?: fabric.ComputedValue<string>;
+    readonly instanceInitiatedShutdownBehavior?: fabric.ComputedValue<string>;
+    readonly instanceType: fabric.ComputedValue<InstanceType>;
+    readonly ipv6AddressCount?: fabric.ComputedValue<number>;
+    readonly ipv6Addresses?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly keyName?: fabric.ComputedValue<string>;
+    readonly monitoring?: fabric.ComputedValue<boolean>;
+    readonly networkInterface?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceIndex: fabric.ComputedValue<number>, networkInterfaceId: fabric.ComputedValue<string> }>[];
+    readonly placementGroup?: fabric.ComputedValue<string>;
+    readonly privateIp?: fabric.ComputedValue<string>;
+    readonly rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly sourceDestCheck?: fabric.ComputedValue<boolean>;
+    readonly subnetId?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly tenancy?: fabric.ComputedValue<string>;
+    readonly userData?: fabric.ComputedValue<string>;
+    readonly volumeTags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

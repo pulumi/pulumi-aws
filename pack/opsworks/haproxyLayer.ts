@@ -72,31 +72,31 @@ export class HaproxyLayer extends fabric.Resource {
 }
 
 export interface HaproxyLayerArgs {
-    readonly autoAssignElasticIps?: fabric.MaybeComputed<boolean>;
-    readonly autoAssignPublicIps?: fabric.MaybeComputed<boolean>;
-    readonly autoHealing?: fabric.MaybeComputed<boolean>;
-    readonly customConfigureRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customDeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customInstanceProfileArn?: fabric.MaybeComputed<string>;
-    readonly customJson?: fabric.MaybeComputed<string>;
-    readonly customSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customSetupRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customShutdownRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customUndeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly drainElbOnShutdown?: fabric.MaybeComputed<boolean>;
-    readonly ebsVolume?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, mountPoint: fabric.MaybeComputed<string>, numberOfDisks: fabric.MaybeComputed<number>, raidLevel?: fabric.MaybeComputed<string>, size: fabric.MaybeComputed<number>, type?: fabric.MaybeComputed<string> }>[];
-    readonly elasticLoadBalancer?: fabric.MaybeComputed<string>;
-    readonly healthcheckMethod?: fabric.MaybeComputed<string>;
-    readonly healthcheckUrl?: fabric.MaybeComputed<string>;
-    readonly installUpdatesOnBoot?: fabric.MaybeComputed<boolean>;
-    readonly instanceShutdownTimeout?: fabric.MaybeComputed<number>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly stackId: fabric.MaybeComputed<string>;
-    readonly statsEnabled?: fabric.MaybeComputed<boolean>;
-    readonly statsPassword: fabric.MaybeComputed<string>;
-    readonly statsUrl?: fabric.MaybeComputed<string>;
-    readonly statsUser?: fabric.MaybeComputed<string>;
-    readonly systemPackages?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly useEbsOptimizedInstances?: fabric.MaybeComputed<boolean>;
+    readonly autoAssignElasticIps?: fabric.ComputedValue<boolean>;
+    readonly autoAssignPublicIps?: fabric.ComputedValue<boolean>;
+    readonly autoHealing?: fabric.ComputedValue<boolean>;
+    readonly customConfigureRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customDeployRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customInstanceProfileArn?: fabric.ComputedValue<string>;
+    readonly customJson?: fabric.ComputedValue<string>;
+    readonly customSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customSetupRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customShutdownRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customUndeployRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly drainElbOnShutdown?: fabric.ComputedValue<boolean>;
+    readonly ebsVolume?: fabric.ComputedValue<{ iops?: fabric.ComputedValue<number>, mountPoint: fabric.ComputedValue<string>, numberOfDisks: fabric.ComputedValue<number>, raidLevel?: fabric.ComputedValue<string>, size: fabric.ComputedValue<number>, type?: fabric.ComputedValue<string> }>[];
+    readonly elasticLoadBalancer?: fabric.ComputedValue<string>;
+    readonly healthcheckMethod?: fabric.ComputedValue<string>;
+    readonly healthcheckUrl?: fabric.ComputedValue<string>;
+    readonly installUpdatesOnBoot?: fabric.ComputedValue<boolean>;
+    readonly instanceShutdownTimeout?: fabric.ComputedValue<number>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly stackId: fabric.ComputedValue<string>;
+    readonly statsEnabled?: fabric.ComputedValue<boolean>;
+    readonly statsPassword: fabric.ComputedValue<string>;
+    readonly statsUrl?: fabric.ComputedValue<string>;
+    readonly statsUser?: fabric.ComputedValue<string>;
+    readonly systemPackages?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly useEbsOptimizedInstances?: fabric.ComputedValue<boolean>;
 }
 

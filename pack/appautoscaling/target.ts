@@ -42,11 +42,11 @@ export class Target extends fabric.Resource {
 }
 
 export interface TargetArgs {
-    readonly maxCapacity: fabric.MaybeComputed<number>;
-    readonly minCapacity: fabric.MaybeComputed<number>;
-    readonly resourceId: fabric.MaybeComputed<string>;
-    readonly roleArn: fabric.MaybeComputed<string>;
-    readonly scalableDimension: fabric.MaybeComputed<string>;
-    readonly serviceNamespace: fabric.MaybeComputed<string>;
+    readonly maxCapacity: fabric.ComputedValue<number>;
+    readonly minCapacity: fabric.ComputedValue<number>;
+    readonly resourceId: fabric.ComputedValue<string>;
+    readonly roleArn: fabric.ComputedValue<string>;
+    readonly scalableDimension: fabric.ComputedValue<string>;
+    readonly serviceNamespace: fabric.ComputedValue<string>;
 }
 

@@ -50,9 +50,9 @@ export class Document extends fabric.Resource {
 }
 
 export interface DocumentArgs {
-    readonly content: fabric.MaybeComputed<string>;
-    readonly documentType: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly permissions?: fabric.MaybeComputed<{[key: string]: { accountIds: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }}>;
+    readonly content: fabric.ComputedValue<string>;
+    readonly documentType: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly permissions?: fabric.ComputedValue<{[key: string]: { accountIds: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }}>;
 }
 

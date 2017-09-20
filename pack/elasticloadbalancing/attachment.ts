@@ -22,7 +22,7 @@ export class Attachment extends fabric.Resource {
 }
 
 export interface AttachmentArgs {
-    readonly elb: fabric.MaybeComputed<string>;
-    readonly instance: fabric.MaybeComputed<string>;
+    readonly elb: fabric.ComputedValue<string>;
+    readonly instance: fabric.ComputedValue<string>;
 }
 

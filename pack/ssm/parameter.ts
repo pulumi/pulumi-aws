@@ -28,10 +28,10 @@ export class Parameter extends fabric.Resource {
 }
 
 export interface ParameterArgs {
-    readonly keyId?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly overwrite?: fabric.MaybeComputed<boolean>;
-    readonly type: fabric.MaybeComputed<string>;
-    readonly value: fabric.MaybeComputed<string>;
+    readonly keyId?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly overwrite?: fabric.ComputedValue<boolean>;
+    readonly type: fabric.ComputedValue<string>;
+    readonly value: fabric.ComputedValue<string>;
 }
 

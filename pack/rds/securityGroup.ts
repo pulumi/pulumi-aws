@@ -25,9 +25,9 @@ export class SecurityGroup extends fabric.Resource {
 }
 
 export interface SecurityGroupArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly ingress: fabric.MaybeComputed<{ cidr?: fabric.MaybeComputed<string>, securityGroupId?: fabric.MaybeComputed<string>, securityGroupName?: fabric.MaybeComputed<string>, securityGroupOwnerId?: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly ingress: fabric.ComputedValue<{ cidr?: fabric.ComputedValue<string>, securityGroupId?: fabric.ComputedValue<string>, securityGroupName?: fabric.ComputedValue<string>, securityGroupOwnerId?: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

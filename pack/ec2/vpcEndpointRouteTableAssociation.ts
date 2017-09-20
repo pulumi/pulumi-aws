@@ -22,7 +22,7 @@ export class VpcEndpointRouteTableAssociation extends fabric.Resource {
 }
 
 export interface VpcEndpointRouteTableAssociationArgs {
-    readonly routeTableId: fabric.MaybeComputed<string>;
-    readonly vpcEndpointId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
+    readonly vpcEndpointId: fabric.ComputedValue<string>;
 }
 

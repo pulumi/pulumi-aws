@@ -26,9 +26,9 @@ export class SslNegotiationPolicy extends fabric.Resource {
 }
 
 export interface SslNegotiationPolicyArgs {
-    readonly attribute?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly lbPort: fabric.MaybeComputed<number>;
-    readonly loadBalancer: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly attribute?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly lbPort: fabric.ComputedValue<number>;
+    readonly loadBalancer: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

@@ -58,17 +58,17 @@ export class Environment extends fabric.Resource {
 }
 
 export interface EnvironmentArgs {
-    readonly application: fabric.MaybeComputed<Application>;
-    readonly cnamePrefix?: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly pollInterval?: fabric.MaybeComputed<string>;
-    readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly solutionStackName?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly templateName?: fabric.MaybeComputed<string>;
-    readonly tier?: fabric.MaybeComputed<string>;
-    readonly version?: fabric.MaybeComputed<ApplicationVersion>;
-    readonly waitForReadyTimeout?: fabric.MaybeComputed<string>;
+    readonly application: fabric.ComputedValue<Application>;
+    readonly cnamePrefix?: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly pollInterval?: fabric.ComputedValue<string>;
+    readonly setting?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, resource?: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly solutionStackName?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly templateName?: fabric.ComputedValue<string>;
+    readonly tier?: fabric.ComputedValue<string>;
+    readonly version?: fabric.ComputedValue<ApplicationVersion>;
+    readonly waitForReadyTimeout?: fabric.ComputedValue<string>;
 }
 

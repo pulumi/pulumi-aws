@@ -60,20 +60,20 @@ export class ClusterInstance extends fabric.Resource {
 }
 
 export interface ClusterInstanceArgs {
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
-    readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
-    readonly clusterIdentifier: fabric.MaybeComputed<string>;
-    readonly dbParameterGroupName?: fabric.MaybeComputed<string>;
-    readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
-    readonly identifier?: fabric.MaybeComputed<string>;
-    readonly identifierPrefix?: fabric.MaybeComputed<string>;
-    readonly instanceClass: fabric.MaybeComputed<string>;
-    readonly monitoringInterval?: fabric.MaybeComputed<number>;
-    readonly monitoringRoleArn?: fabric.MaybeComputed<string>;
-    readonly preferredBackupWindow?: fabric.MaybeComputed<string>;
-    readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
-    readonly promotionTier?: fabric.MaybeComputed<number>;
-    readonly publiclyAccessible?: fabric.MaybeComputed<boolean>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
+    readonly autoMinorVersionUpgrade?: fabric.ComputedValue<boolean>;
+    readonly clusterIdentifier: fabric.ComputedValue<string>;
+    readonly dbParameterGroupName?: fabric.ComputedValue<string>;
+    readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
+    readonly identifier?: fabric.ComputedValue<string>;
+    readonly identifierPrefix?: fabric.ComputedValue<string>;
+    readonly instanceClass: fabric.ComputedValue<string>;
+    readonly monitoringInterval?: fabric.ComputedValue<number>;
+    readonly monitoringRoleArn?: fabric.ComputedValue<string>;
+    readonly preferredBackupWindow?: fabric.ComputedValue<string>;
+    readonly preferredMaintenanceWindow?: fabric.ComputedValue<string>;
+    readonly promotionTier?: fabric.ComputedValue<number>;
+    readonly publiclyAccessible?: fabric.ComputedValue<boolean>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

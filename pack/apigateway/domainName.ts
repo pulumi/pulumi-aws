@@ -33,11 +33,11 @@ export class DomainName extends fabric.Resource {
 }
 
 export interface DomainNameArgs {
-    readonly certificateArn?: fabric.MaybeComputed<string>;
-    readonly certificateBody?: fabric.MaybeComputed<string>;
-    readonly certificateChain?: fabric.MaybeComputed<string>;
-    readonly certificateName?: fabric.MaybeComputed<string>;
-    readonly certificatePrivateKey?: fabric.MaybeComputed<string>;
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly certificateArn?: fabric.ComputedValue<string>;
+    readonly certificateBody?: fabric.ComputedValue<string>;
+    readonly certificateChain?: fabric.ComputedValue<string>;
+    readonly certificateName?: fabric.ComputedValue<string>;
+    readonly certificatePrivateKey?: fabric.ComputedValue<string>;
+    readonly domainName: fabric.ComputedValue<string>;
 }
 

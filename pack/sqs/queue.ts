@@ -40,18 +40,18 @@ export class Queue extends fabric.Resource {
 }
 
 export interface QueueArgs {
-    readonly contentBasedDeduplication?: fabric.MaybeComputed<boolean>;
-    readonly delaySeconds?: fabric.MaybeComputed<number>;
-    readonly fifoQueue?: fabric.MaybeComputed<boolean>;
-    readonly kmsDataKeyReusePeriodSeconds?: fabric.MaybeComputed<number>;
-    readonly kmsMasterKeyId?: fabric.MaybeComputed<string>;
-    readonly maxMessageSize?: fabric.MaybeComputed<number>;
-    readonly messageRetentionSeconds?: fabric.MaybeComputed<number>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly policy?: fabric.MaybeComputed<string>;
-    readonly receiveWaitTimeSeconds?: fabric.MaybeComputed<number>;
-    readonly redrivePolicy?: fabric.MaybeComputed<string>;
-    readonly visibilityTimeoutSeconds?: fabric.MaybeComputed<number>;
+    readonly contentBasedDeduplication?: fabric.ComputedValue<boolean>;
+    readonly delaySeconds?: fabric.ComputedValue<number>;
+    readonly fifoQueue?: fabric.ComputedValue<boolean>;
+    readonly kmsDataKeyReusePeriodSeconds?: fabric.ComputedValue<number>;
+    readonly kmsMasterKeyId?: fabric.ComputedValue<string>;
+    readonly maxMessageSize?: fabric.ComputedValue<number>;
+    readonly messageRetentionSeconds?: fabric.ComputedValue<number>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly policy?: fabric.ComputedValue<string>;
+    readonly receiveWaitTimeSeconds?: fabric.ComputedValue<number>;
+    readonly redrivePolicy?: fabric.ComputedValue<string>;
+    readonly visibilityTimeoutSeconds?: fabric.ComputedValue<number>;
 }
 

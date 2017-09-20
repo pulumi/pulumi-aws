@@ -77,26 +77,26 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
-    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly azMode?: fabric.MaybeComputed<string>;
-    readonly clusterId: fabric.MaybeComputed<string>;
-    readonly engine: fabric.MaybeComputed<string>;
-    readonly engineVersion?: fabric.MaybeComputed<string>;
-    readonly maintenanceWindow?: fabric.MaybeComputed<string>;
-    readonly nodeType: fabric.MaybeComputed<string>;
-    readonly notificationTopicArn?: fabric.MaybeComputed<string>;
-    readonly numCacheNodes: fabric.MaybeComputed<number>;
-    readonly parameterGroupName?: fabric.MaybeComputed<string>;
-    readonly port: fabric.MaybeComputed<number>;
-    readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly snapshotArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly snapshotName?: fabric.MaybeComputed<string>;
-    readonly snapshotRetentionLimit?: fabric.MaybeComputed<number>;
-    readonly snapshotWindow?: fabric.MaybeComputed<string>;
-    readonly subnetGroupName?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
+    readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly azMode?: fabric.ComputedValue<string>;
+    readonly clusterId: fabric.ComputedValue<string>;
+    readonly engine: fabric.ComputedValue<string>;
+    readonly engineVersion?: fabric.ComputedValue<string>;
+    readonly maintenanceWindow?: fabric.ComputedValue<string>;
+    readonly nodeType: fabric.ComputedValue<string>;
+    readonly notificationTopicArn?: fabric.ComputedValue<string>;
+    readonly numCacheNodes: fabric.ComputedValue<number>;
+    readonly parameterGroupName?: fabric.ComputedValue<string>;
+    readonly port: fabric.ComputedValue<number>;
+    readonly securityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly securityGroupNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly snapshotArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly snapshotName?: fabric.ComputedValue<string>;
+    readonly snapshotRetentionLimit?: fabric.ComputedValue<number>;
+    readonly snapshotWindow?: fabric.ComputedValue<string>;
+    readonly subnetGroupName?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

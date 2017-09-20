@@ -22,7 +22,7 @@ export class PatchGroup extends fabric.Resource {
 }
 
 export interface PatchGroupArgs {
-    readonly baselineId: fabric.MaybeComputed<string>;
-    readonly patchGroup: fabric.MaybeComputed<string>;
+    readonly baselineId: fabric.ComputedValue<string>;
+    readonly patchGroup: fabric.ComputedValue<string>;
 }
 

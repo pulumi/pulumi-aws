@@ -21,8 +21,8 @@ export class Rule extends fabric.Resource {
 }
 
 export interface RuleArgs {
-    readonly metricName: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly predicates?: fabric.MaybeComputed<{ dataId?: fabric.MaybeComputed<string>, negated: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
+    readonly metricName: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly predicates?: fabric.ComputedValue<{ dataId?: fabric.ComputedValue<string>, negated: fabric.ComputedValue<boolean>, type: fabric.ComputedValue<string> }>[];
 }
 

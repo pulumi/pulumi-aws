@@ -31,8 +31,8 @@ export class UsagePlanKey extends fabric.Resource {
 }
 
 export interface UsagePlanKeyArgs {
-    readonly keyId: fabric.MaybeComputed<string>;
-    readonly keyType: fabric.MaybeComputed<string>;
-    readonly usagePlanId: fabric.MaybeComputed<string>;
+    readonly keyId: fabric.ComputedValue<string>;
+    readonly keyType: fabric.ComputedValue<string>;
+    readonly usagePlanId: fabric.ComputedValue<string>;
 }
 

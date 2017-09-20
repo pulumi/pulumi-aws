@@ -51,11 +51,11 @@ export class Instance extends fabric.Resource {
 }
 
 export interface InstanceArgs {
-    readonly availabilityZone: fabric.MaybeComputed<string>;
-    readonly blueprintId: fabric.MaybeComputed<string>;
-    readonly bundleId: fabric.MaybeComputed<string>;
-    readonly keyPairName?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly userData?: fabric.MaybeComputed<string>;
+    readonly availabilityZone: fabric.ComputedValue<string>;
+    readonly blueprintId: fabric.ComputedValue<string>;
+    readonly bundleId: fabric.ComputedValue<string>;
+    readonly keyPairName?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly userData?: fabric.ComputedValue<string>;
 }
 

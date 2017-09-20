@@ -30,10 +30,10 @@ export class PolicyAttachment extends fabric.Resource {
 }
 
 export interface PolicyAttachmentArgs {
-    readonly groups?: fabric.MaybeComputed<fabric.MaybeComputed<Group>>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly policyArn: fabric.MaybeComputed<ARN>;
-    readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
-    readonly users?: fabric.MaybeComputed<fabric.MaybeComputed<User>>[];
+    readonly groups?: fabric.ComputedValue<fabric.ComputedValue<Group>>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
+    readonly roles?: fabric.ComputedValue<fabric.ComputedValue<Role>>[];
+    readonly users?: fabric.ComputedValue<fabric.ComputedValue<User>>[];
 }
 

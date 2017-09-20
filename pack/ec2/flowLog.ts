@@ -33,11 +33,11 @@ export class FlowLog extends fabric.Resource {
 }
 
 export interface FlowLogArgs {
-    readonly eniId?: fabric.MaybeComputed<string>;
-    readonly iamRoleArn: fabric.MaybeComputed<string>;
-    readonly logGroupName: fabric.MaybeComputed<string>;
-    readonly subnetId?: fabric.MaybeComputed<string>;
-    readonly trafficType: fabric.MaybeComputed<string>;
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly eniId?: fabric.ComputedValue<string>;
+    readonly iamRoleArn: fabric.ComputedValue<string>;
+    readonly logGroupName: fabric.ComputedValue<string>;
+    readonly subnetId?: fabric.ComputedValue<string>;
+    readonly trafficType: fabric.ComputedValue<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

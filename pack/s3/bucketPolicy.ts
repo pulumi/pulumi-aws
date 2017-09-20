@@ -22,7 +22,7 @@ export class BucketPolicy extends fabric.Resource {
 }
 
 export interface BucketPolicyArgs {
-    readonly bucket: fabric.MaybeComputed<string>;
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly bucket: fabric.ComputedValue<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

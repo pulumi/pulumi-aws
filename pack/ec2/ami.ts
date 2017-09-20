@@ -40,17 +40,17 @@ export class Ami extends fabric.Resource {
 }
 
 export interface AmiArgs {
-    readonly architecture?: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[];
-    readonly imageLocation?: fabric.MaybeComputed<string>;
-    readonly kernelId?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly ramdiskId?: fabric.MaybeComputed<string>;
-    readonly rootDeviceName?: fabric.MaybeComputed<string>;
-    readonly sriovNetSupport?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly virtualizationType?: fabric.MaybeComputed<string>;
+    readonly architecture?: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[];
+    readonly imageLocation?: fabric.ComputedValue<string>;
+    readonly kernelId?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly ramdiskId?: fabric.ComputedValue<string>;
+    readonly rootDeviceName?: fabric.ComputedValue<string>;
+    readonly sriovNetSupport?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly virtualizationType?: fabric.ComputedValue<string>;
 }
 

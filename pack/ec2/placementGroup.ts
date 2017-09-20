@@ -19,7 +19,7 @@ export class PlacementGroup extends fabric.Resource {
 }
 
 export interface PlacementGroupArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly strategy: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly strategy: fabric.ComputedValue<string>;
 }
 

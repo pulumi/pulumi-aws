@@ -21,7 +21,7 @@ export class LogStream extends fabric.Resource {
 }
 
 export interface LogStreamArgs {
-    readonly logGroupName: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly logGroupName: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

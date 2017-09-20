@@ -40,18 +40,18 @@ export class Stack extends fabric.Resource {
 }
 
 export interface StackArgs {
-    readonly capabilities?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly disableRollback?: fabric.MaybeComputed<boolean>;
-    readonly iamRoleArn?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly notificationArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly onFailure?: fabric.MaybeComputed<string>;
-    readonly parameters?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly policyBody?: fabric.MaybeComputed<string>;
-    readonly policyUrl?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly templateBody?: fabric.MaybeComputed<string>;
-    readonly templateUrl?: fabric.MaybeComputed<string>;
-    readonly timeoutInMinutes?: fabric.MaybeComputed<number>;
+    readonly capabilities?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly disableRollback?: fabric.ComputedValue<boolean>;
+    readonly iamRoleArn?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly notificationArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly onFailure?: fabric.ComputedValue<string>;
+    readonly parameters?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly policyBody?: fabric.ComputedValue<string>;
+    readonly policyUrl?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly templateBody?: fabric.ComputedValue<string>;
+    readonly templateUrl?: fabric.ComputedValue<string>;
+    readonly timeoutInMinutes?: fabric.ComputedValue<number>;
 }
 

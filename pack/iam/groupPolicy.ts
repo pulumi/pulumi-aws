@@ -26,9 +26,9 @@ export class GroupPolicy extends fabric.Resource {
 }
 
 export interface GroupPolicyArgs {
-    readonly group: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly group: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

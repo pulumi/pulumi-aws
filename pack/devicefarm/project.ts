@@ -16,6 +16,6 @@ export class Project extends fabric.Resource {
 }
 
 export interface ProjectArgs {
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

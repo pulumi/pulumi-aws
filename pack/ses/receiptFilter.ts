@@ -24,8 +24,8 @@ export class ReceiptFilter extends fabric.Resource {
 }
 
 export interface ReceiptFilterArgs {
-    readonly cidr: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly cidr: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

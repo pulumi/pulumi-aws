@@ -22,7 +22,7 @@ export class AmiLaunchPermission extends fabric.Resource {
 }
 
 export interface AmiLaunchPermissionArgs {
-    readonly accountId: fabric.MaybeComputed<string>;
-    readonly imageId: fabric.MaybeComputed<string>;
+    readonly accountId: fabric.ComputedValue<string>;
+    readonly imageId: fabric.ComputedValue<string>;
 }
 

@@ -29,9 +29,9 @@ export class LoadBalancerPolicy extends fabric.Resource {
 }
 
 export interface LoadBalancerPolicyArgs {
-    readonly loadBalancerName: fabric.MaybeComputed<string>;
-    readonly policyAttribute?: fabric.MaybeComputed<{ name?: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<string> }>[];
-    readonly policyName: fabric.MaybeComputed<string>;
-    readonly policyTypeName: fabric.MaybeComputed<string>;
+    readonly loadBalancerName: fabric.ComputedValue<string>;
+    readonly policyAttribute?: fabric.ComputedValue<{ name?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
+    readonly policyName: fabric.ComputedValue<string>;
+    readonly policyTypeName: fabric.ComputedValue<string>;
 }
 

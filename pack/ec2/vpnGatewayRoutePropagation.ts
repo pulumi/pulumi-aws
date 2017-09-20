@@ -22,7 +22,7 @@ export class VpnGatewayRoutePropagation extends fabric.Resource {
 }
 
 export interface VpnGatewayRoutePropagationArgs {
-    readonly routeTableId: fabric.MaybeComputed<string>;
-    readonly vpnGatewayId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
+    readonly vpnGatewayId: fabric.ComputedValue<string>;
 }
 

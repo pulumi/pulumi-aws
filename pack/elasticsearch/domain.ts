@@ -37,13 +37,13 @@ export class Domain extends fabric.Resource {
 }
 
 export interface DomainArgs {
-    readonly accessPolicies?: fabric.MaybeComputed<string>;
-    readonly advancedOptions?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly clusterConfig?: fabric.MaybeComputed<{ dedicatedMasterCount?: fabric.MaybeComputed<number>, dedicatedMasterEnabled?: fabric.MaybeComputed<boolean>, dedicatedMasterType?: fabric.MaybeComputed<string>, instanceCount?: fabric.MaybeComputed<number>, instanceType?: fabric.MaybeComputed<string>, zoneAwarenessEnabled?: fabric.MaybeComputed<boolean> }>[];
-    readonly domainName: fabric.MaybeComputed<string>;
-    readonly ebsOptions?: fabric.MaybeComputed<{ ebsEnabled: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly elasticsearchVersion?: fabric.MaybeComputed<string>;
-    readonly snapshotOptions?: fabric.MaybeComputed<{ automatedSnapshotStartHour: fabric.MaybeComputed<number> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly accessPolicies?: fabric.ComputedValue<string>;
+    readonly advancedOptions?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly clusterConfig?: fabric.ComputedValue<{ dedicatedMasterCount?: fabric.ComputedValue<number>, dedicatedMasterEnabled?: fabric.ComputedValue<boolean>, dedicatedMasterType?: fabric.ComputedValue<string>, instanceCount?: fabric.ComputedValue<number>, instanceType?: fabric.ComputedValue<string>, zoneAwarenessEnabled?: fabric.ComputedValue<boolean> }>[];
+    readonly domainName: fabric.ComputedValue<string>;
+    readonly ebsOptions?: fabric.ComputedValue<{ ebsEnabled: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly elasticsearchVersion?: fabric.ComputedValue<string>;
+    readonly snapshotOptions?: fabric.ComputedValue<{ automatedSnapshotStartHour: fabric.ComputedValue<number> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

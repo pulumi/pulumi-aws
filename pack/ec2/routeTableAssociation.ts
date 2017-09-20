@@ -22,7 +22,7 @@ export class RouteTableAssociation extends fabric.Resource {
 }
 
 export interface RouteTableAssociationArgs {
-    readonly routeTableId: fabric.MaybeComputed<string>;
-    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
+    readonly subnetId: fabric.ComputedValue<string>;
 }
 

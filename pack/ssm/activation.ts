@@ -29,10 +29,10 @@ export class Activation extends fabric.Resource {
 }
 
 export interface ActivationArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly expirationDate?: fabric.MaybeComputed<string>;
-    readonly iamRole: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly registrationLimit?: fabric.MaybeComputed<number>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly expirationDate?: fabric.ComputedValue<string>;
+    readonly iamRole: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly registrationLimit?: fabric.ComputedValue<number>;
 }
 

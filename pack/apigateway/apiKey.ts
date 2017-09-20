@@ -28,10 +28,10 @@ export class ApiKey extends fabric.Resource {
 }
 
 export interface ApiKeyArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly enabled?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly stageKey?: fabric.MaybeComputed<{ restApi: fabric.MaybeComputed<RestApi>, stageName: fabric.MaybeComputed<string> }>[];
-    readonly value?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly stageKey?: fabric.ComputedValue<{ restApi: fabric.ComputedValue<RestApi>, stageName: fabric.ComputedValue<string> }>[];
+    readonly value?: fabric.ComputedValue<string>;
 }
 

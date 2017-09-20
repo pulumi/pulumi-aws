@@ -22,9 +22,9 @@ export class Association extends fabric.Resource {
 }
 
 export interface AssociationArgs {
-    readonly instanceId?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly parameters?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly targets?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly instanceId?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly parameters?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly targets?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
 }
 

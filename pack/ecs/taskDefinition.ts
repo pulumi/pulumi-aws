@@ -34,11 +34,11 @@ export class TaskDefinition extends fabric.Resource {
 }
 
 export interface TaskDefinitionArgs {
-    readonly containerDefinitions: fabric.MaybeComputed<string>;
-    readonly family: fabric.MaybeComputed<string>;
-    readonly networkMode?: fabric.MaybeComputed<string>;
-    readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly taskRoleArn?: fabric.MaybeComputed<string>;
-    readonly volume?: fabric.MaybeComputed<{ hostPath?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string> }>[];
+    readonly containerDefinitions: fabric.ComputedValue<string>;
+    readonly family: fabric.ComputedValue<string>;
+    readonly networkMode?: fabric.ComputedValue<string>;
+    readonly placementConstraints?: fabric.ComputedValue<{ expression?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly taskRoleArn?: fabric.ComputedValue<string>;
+    readonly volume?: fabric.ComputedValue<{ hostPath?: fabric.ComputedValue<string>, name: fabric.ComputedValue<string> }>[];
 }
 

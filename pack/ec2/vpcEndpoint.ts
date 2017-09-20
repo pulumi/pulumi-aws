@@ -30,9 +30,9 @@ export class VpcEndpoint extends fabric.Resource {
 }
 
 export interface VpcEndpointArgs {
-    readonly policy?: fabric.MaybeComputed<string>;
-    readonly routeTableIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly serviceName: fabric.MaybeComputed<string>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.ComputedValue<string>;
+    readonly routeTableIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly serviceName: fabric.ComputedValue<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

@@ -44,17 +44,17 @@ export class Record extends fabric.Resource {
 }
 
 export interface RecordArgs {
-    readonly alias?: fabric.MaybeComputed<{ evaluateTargetHealth: fabric.MaybeComputed<boolean>, name: fabric.MaybeComputed<string>, zoneId: fabric.MaybeComputed<string> }>[];
-    readonly failoverRoutingPolicy?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
-    readonly geolocationRoutingPolicy?: fabric.MaybeComputed<{ continent?: fabric.MaybeComputed<string>, country?: fabric.MaybeComputed<string>, subdivision?: fabric.MaybeComputed<string> }>[];
-    readonly healthCheckId?: fabric.MaybeComputed<string>;
-    readonly latencyRoutingPolicy?: fabric.MaybeComputed<{ region: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly records?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly setIdentifier?: fabric.MaybeComputed<string>;
-    readonly ttl?: fabric.MaybeComputed<number>;
-    readonly type: fabric.MaybeComputed<string>;
-    readonly weightedRoutingPolicy?: fabric.MaybeComputed<{ weight: fabric.MaybeComputed<number> }>[];
-    readonly zoneId: fabric.MaybeComputed<string>;
+    readonly alias?: fabric.ComputedValue<{ evaluateTargetHealth: fabric.ComputedValue<boolean>, name: fabric.ComputedValue<string>, zoneId: fabric.ComputedValue<string> }>[];
+    readonly failoverRoutingPolicy?: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[];
+    readonly geolocationRoutingPolicy?: fabric.ComputedValue<{ continent?: fabric.ComputedValue<string>, country?: fabric.ComputedValue<string>, subdivision?: fabric.ComputedValue<string> }>[];
+    readonly healthCheckId?: fabric.ComputedValue<string>;
+    readonly latencyRoutingPolicy?: fabric.ComputedValue<{ region: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly records?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly setIdentifier?: fabric.ComputedValue<string>;
+    readonly ttl?: fabric.ComputedValue<number>;
+    readonly type: fabric.ComputedValue<string>;
+    readonly weightedRoutingPolicy?: fabric.ComputedValue<{ weight: fabric.ComputedValue<number> }>[];
+    readonly zoneId: fabric.ComputedValue<string>;
 }
 

@@ -24,9 +24,9 @@ export class DefaultSecurityGroup extends fabric.Resource {
 }
 
 export interface DefaultSecurityGroupArgs {
-    readonly egress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
-    readonly ingress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly egress?: fabric.ComputedValue<{ cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], fromPort: fabric.ComputedValue<number>, ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], prefixListIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[], protocol: fabric.ComputedValue<string>, securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[], self?: fabric.ComputedValue<boolean>, toPort: fabric.ComputedValue<number> }>[];
+    readonly ingress?: fabric.ComputedValue<{ cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], fromPort: fabric.ComputedValue<number>, ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], protocol: fabric.ComputedValue<string>, securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[], self?: fabric.ComputedValue<boolean>, toPort: fabric.ComputedValue<number> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

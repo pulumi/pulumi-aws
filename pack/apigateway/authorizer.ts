@@ -36,13 +36,13 @@ export class Authorizer extends fabric.Resource {
 }
 
 export interface AuthorizerArgs {
-    readonly authorizerCredentials?: fabric.MaybeComputed<string>;
-    readonly authorizerResultTtlInSeconds?: fabric.MaybeComputed<number>;
-    readonly authorizerUri: fabric.MaybeComputed<string>;
-    readonly identitySource?: fabric.MaybeComputed<string>;
-    readonly identityValidationExpression?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly type?: fabric.MaybeComputed<string>;
+    readonly authorizerCredentials?: fabric.ComputedValue<string>;
+    readonly authorizerResultTtlInSeconds?: fabric.ComputedValue<number>;
+    readonly authorizerUri: fabric.ComputedValue<string>;
+    readonly identitySource?: fabric.ComputedValue<string>;
+    readonly identityValidationExpression?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly type?: fabric.ComputedValue<string>;
 }
 

@@ -45,15 +45,15 @@ export class LoadBalancer extends fabric.Resource {
 }
 
 export interface LoadBalancerArgs {
-    readonly accessLogs?: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, enabled?: fabric.MaybeComputed<boolean>, prefix?: fabric.MaybeComputed<string> }>[];
-    readonly enableDeletionProtection?: fabric.MaybeComputed<boolean>;
-    readonly idleTimeout?: fabric.MaybeComputed<number>;
-    readonly internal?: fabric.MaybeComputed<boolean>;
-    readonly ipAddressType?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly subnets: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly accessLogs?: fabric.ComputedValue<{ bucket: fabric.ComputedValue<string>, enabled?: fabric.ComputedValue<boolean>, prefix?: fabric.ComputedValue<string> }>[];
+    readonly enableDeletionProtection?: fabric.ComputedValue<boolean>;
+    readonly idleTimeout?: fabric.ComputedValue<number>;
+    readonly internal?: fabric.ComputedValue<boolean>;
+    readonly ipAddressType?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly subnets: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -75,31 +75,31 @@ export class Group extends fabric.Resource {
 }
 
 export interface GroupArgs {
-    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly defaultCooldown?: fabric.MaybeComputed<number>;
-    readonly desiredCapacity?: fabric.MaybeComputed<number>;
-    readonly enabledMetrics?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly forceDelete?: fabric.MaybeComputed<boolean>;
-    readonly healthCheckGracePeriod?: fabric.MaybeComputed<number>;
-    readonly healthCheckType?: fabric.MaybeComputed<string>;
-    readonly initialLifecycleHook?: fabric.MaybeComputed<{ defaultResult?: fabric.MaybeComputed<string>, heartbeatTimeout?: fabric.MaybeComputed<number>, lifecycleTransition: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, notificationMetadata?: fabric.MaybeComputed<string>, notificationTargetArn?: fabric.MaybeComputed<string>, roleArn?: fabric.MaybeComputed<string> }>[];
-    readonly launchConfiguration: fabric.MaybeComputed<string>;
-    readonly loadBalancers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly maxSize: fabric.MaybeComputed<number>;
-    readonly metricsGranularity?: fabric.MaybeComputed<string>;
-    readonly minElbCapacity?: fabric.MaybeComputed<number>;
-    readonly minSize: fabric.MaybeComputed<number>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly placementGroup?: fabric.MaybeComputed<string>;
-    readonly protectFromScaleIn?: fabric.MaybeComputed<boolean>;
-    readonly suspendedProcesses?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tag?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, propagateAtLaunch: fabric.MaybeComputed<boolean>, value: fabric.MaybeComputed<string> }>[];
-    readonly tags?: fabric.MaybeComputed<fabric.MaybeComputed<{[key: string]: any}>>[];
-    readonly targetGroupArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly terminationPolicies?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly vpcZoneIdentifier?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly waitForCapacityTimeout?: fabric.MaybeComputed<string>;
-    readonly waitForElbCapacity?: fabric.MaybeComputed<number>;
+    readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly defaultCooldown?: fabric.ComputedValue<number>;
+    readonly desiredCapacity?: fabric.ComputedValue<number>;
+    readonly enabledMetrics?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly forceDelete?: fabric.ComputedValue<boolean>;
+    readonly healthCheckGracePeriod?: fabric.ComputedValue<number>;
+    readonly healthCheckType?: fabric.ComputedValue<string>;
+    readonly initialLifecycleHook?: fabric.ComputedValue<{ defaultResult?: fabric.ComputedValue<string>, heartbeatTimeout?: fabric.ComputedValue<number>, lifecycleTransition: fabric.ComputedValue<string>, name: fabric.ComputedValue<string>, notificationMetadata?: fabric.ComputedValue<string>, notificationTargetArn?: fabric.ComputedValue<string>, roleArn?: fabric.ComputedValue<string> }>[];
+    readonly launchConfiguration: fabric.ComputedValue<string>;
+    readonly loadBalancers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly maxSize: fabric.ComputedValue<number>;
+    readonly metricsGranularity?: fabric.ComputedValue<string>;
+    readonly minElbCapacity?: fabric.ComputedValue<number>;
+    readonly minSize: fabric.ComputedValue<number>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly placementGroup?: fabric.ComputedValue<string>;
+    readonly protectFromScaleIn?: fabric.ComputedValue<boolean>;
+    readonly suspendedProcesses?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tag?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, propagateAtLaunch: fabric.ComputedValue<boolean>, value: fabric.ComputedValue<string> }>[];
+    readonly tags?: fabric.ComputedValue<fabric.ComputedValue<{[key: string]: any}>>[];
+    readonly targetGroupArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly terminationPolicies?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly vpcZoneIdentifier?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly waitForCapacityTimeout?: fabric.ComputedValue<string>;
+    readonly waitForElbCapacity?: fabric.ComputedValue<number>;
 }
 

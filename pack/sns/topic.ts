@@ -24,9 +24,9 @@ export class Topic extends fabric.Resource {
 }
 
 export interface TopicArgs {
-    readonly deliveryPolicy?: fabric.MaybeComputed<string>;
-    readonly displayName?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly policy?: fabric.MaybeComputed<string>;
+    readonly deliveryPolicy?: fabric.ComputedValue<string>;
+    readonly displayName?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly policy?: fabric.ComputedValue<string>;
 }
 

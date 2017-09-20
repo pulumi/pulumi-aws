@@ -23,8 +23,8 @@ export class SecurityConfiguration extends fabric.Resource {
 }
 
 export interface SecurityConfigurationArgs {
-    readonly configuration: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly configuration: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
 }
 

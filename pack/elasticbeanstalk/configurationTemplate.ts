@@ -27,11 +27,11 @@ export class ConfigurationTemplate extends fabric.Resource {
 }
 
 export interface ConfigurationTemplateArgs {
-    readonly application: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly environmentId?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly solutionStackName?: fabric.MaybeComputed<string>;
+    readonly application: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly environmentId?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly setting?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, resource?: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly solutionStackName?: fabric.ComputedValue<string>;
 }
 

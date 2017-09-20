@@ -19,6 +19,6 @@ export class Domain extends fabric.Resource {
 }
 
 export interface DomainArgs {
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.ComputedValue<string>;
 }
 

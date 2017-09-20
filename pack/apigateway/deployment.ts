@@ -36,10 +36,10 @@ export class Deployment extends fabric.Resource {
 }
 
 export interface DeploymentArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly stageDescription?: fabric.MaybeComputed<string>;
-    readonly stageName: fabric.MaybeComputed<string>;
-    readonly variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly stageDescription?: fabric.ComputedValue<string>;
+    readonly stageName: fabric.ComputedValue<string>;
+    readonly variables?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
 }
 

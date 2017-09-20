@@ -16,7 +16,7 @@ export class SizeConstraintSet extends fabric.Resource {
 }
 
 export interface SizeConstraintSetArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly sizeConstraints?: fabric.MaybeComputed<{ comparisonOperator: fabric.MaybeComputed<string>, fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], size: fabric.MaybeComputed<number>, textTransformation: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly sizeConstraints?: fabric.ComputedValue<{ comparisonOperator: fabric.ComputedValue<string>, fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], size: fabric.ComputedValue<number>, textTransformation: fabric.ComputedValue<string> }>[];
 }
 

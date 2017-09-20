@@ -35,11 +35,11 @@ export class Listener extends fabric.Resource {
 }
 
 export interface ListenerArgs {
-    readonly certificateArn?: fabric.MaybeComputed<string>;
-    readonly defaultActions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly loadBalancerArn: fabric.MaybeComputed<string>;
-    readonly port: fabric.MaybeComputed<number>;
-    readonly protocol?: fabric.MaybeComputed<string>;
-    readonly sslPolicy?: fabric.MaybeComputed<string>;
+    readonly certificateArn?: fabric.ComputedValue<string>;
+    readonly defaultActions: fabric.ComputedValue<{ targetGroupArn: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly loadBalancerArn: fabric.ComputedValue<string>;
+    readonly port: fabric.ComputedValue<number>;
+    readonly protocol?: fabric.ComputedValue<string>;
+    readonly sslPolicy?: fabric.ComputedValue<string>;
 }
 

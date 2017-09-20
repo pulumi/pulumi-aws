@@ -16,7 +16,7 @@ export class Application extends fabric.Resource {
 }
 
 export interface ApplicationArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly uniqueId?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly uniqueId?: fabric.ComputedValue<string>;
 }
 

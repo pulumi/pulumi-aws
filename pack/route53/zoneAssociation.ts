@@ -24,8 +24,8 @@ export class ZoneAssociation extends fabric.Resource {
 }
 
 export interface ZoneAssociationArgs {
-    readonly vpcId: fabric.MaybeComputed<string>;
-    readonly vpcRegion?: fabric.MaybeComputed<string>;
-    readonly zoneId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
+    readonly vpcRegion?: fabric.ComputedValue<string>;
+    readonly zoneId: fabric.ComputedValue<string>;
 }
 

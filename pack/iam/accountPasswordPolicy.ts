@@ -32,14 +32,14 @@ export class AccountPasswordPolicy extends fabric.Resource {
 }
 
 export interface AccountPasswordPolicyArgs {
-    readonly allowUsersToChangePassword?: fabric.MaybeComputed<boolean>;
-    readonly hardExpiry?: fabric.MaybeComputed<boolean>;
-    readonly maxPasswordAge?: fabric.MaybeComputed<number>;
-    readonly minimumPasswordLength?: fabric.MaybeComputed<number>;
-    readonly passwordReusePrevention?: fabric.MaybeComputed<number>;
-    readonly requireLowercaseCharacters?: fabric.MaybeComputed<boolean>;
-    readonly requireNumbers?: fabric.MaybeComputed<boolean>;
-    readonly requireSymbols?: fabric.MaybeComputed<boolean>;
-    readonly requireUppercaseCharacters?: fabric.MaybeComputed<boolean>;
+    readonly allowUsersToChangePassword?: fabric.ComputedValue<boolean>;
+    readonly hardExpiry?: fabric.ComputedValue<boolean>;
+    readonly maxPasswordAge?: fabric.ComputedValue<number>;
+    readonly minimumPasswordLength?: fabric.ComputedValue<number>;
+    readonly passwordReusePrevention?: fabric.ComputedValue<number>;
+    readonly requireLowercaseCharacters?: fabric.ComputedValue<boolean>;
+    readonly requireNumbers?: fabric.ComputedValue<boolean>;
+    readonly requireSymbols?: fabric.ComputedValue<boolean>;
+    readonly requireUppercaseCharacters?: fabric.ComputedValue<boolean>;
 }
 

@@ -31,8 +31,8 @@ export class NetworkInterfaceAttachment extends fabric.Resource {
 }
 
 export interface NetworkInterfaceAttachmentArgs {
-    readonly deviceIndex: fabric.MaybeComputed<number>;
-    readonly instanceId: fabric.MaybeComputed<string>;
-    readonly networkInterfaceId: fabric.MaybeComputed<string>;
+    readonly deviceIndex: fabric.ComputedValue<number>;
+    readonly instanceId: fabric.ComputedValue<string>;
+    readonly networkInterfaceId: fabric.ComputedValue<string>;
 }
 

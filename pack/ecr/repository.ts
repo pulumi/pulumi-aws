@@ -20,6 +20,6 @@ export class Repository extends fabric.Resource {
 }
 
 export interface RepositoryArgs {
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

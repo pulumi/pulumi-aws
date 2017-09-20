@@ -43,19 +43,19 @@ export class ReceiptRule extends fabric.Resource {
 }
 
 export interface ReceiptRuleArgs {
-    readonly addHeaderAction?: fabric.MaybeComputed<{ headerName: fabric.MaybeComputed<string>, headerValue: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number> }>[];
-    readonly after?: fabric.MaybeComputed<string>;
-    readonly bounceAction?: fabric.MaybeComputed<{ message: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, sender: fabric.MaybeComputed<string>, smtpReplyCode: fabric.MaybeComputed<string>, statusCode?: fabric.MaybeComputed<string>, topicArn?: fabric.MaybeComputed<string> }>[];
-    readonly enabled?: fabric.MaybeComputed<boolean>;
-    readonly lambdaAction?: fabric.MaybeComputed<{ functionArn: fabric.MaybeComputed<string>, invocationType?: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, topicArn?: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly recipients?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly ruleSetName: fabric.MaybeComputed<string>;
-    readonly s3Action?: fabric.MaybeComputed<{ bucketName: fabric.MaybeComputed<string>, kmsKeyArn?: fabric.MaybeComputed<string>, objectKeyPrefix?: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, topicArn?: fabric.MaybeComputed<string> }>[];
-    readonly scanEnabled?: fabric.MaybeComputed<boolean>;
-    readonly snsAction?: fabric.MaybeComputed<{ position: fabric.MaybeComputed<number>, topicArn: fabric.MaybeComputed<string> }>[];
-    readonly stopAction?: fabric.MaybeComputed<{ position: fabric.MaybeComputed<number>, scope: fabric.MaybeComputed<string>, topicArn?: fabric.MaybeComputed<string> }>[];
-    readonly tlsPolicy?: fabric.MaybeComputed<string>;
-    readonly workmailAction?: fabric.MaybeComputed<{ organizationArn: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, topicArn?: fabric.MaybeComputed<string> }>[];
+    readonly addHeaderAction?: fabric.ComputedValue<{ headerName: fabric.ComputedValue<string>, headerValue: fabric.ComputedValue<string>, position: fabric.ComputedValue<number> }>[];
+    readonly after?: fabric.ComputedValue<string>;
+    readonly bounceAction?: fabric.ComputedValue<{ message: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, sender: fabric.ComputedValue<string>, smtpReplyCode: fabric.ComputedValue<string>, statusCode?: fabric.ComputedValue<string>, topicArn?: fabric.ComputedValue<string> }>[];
+    readonly enabled?: fabric.ComputedValue<boolean>;
+    readonly lambdaAction?: fabric.ComputedValue<{ functionArn: fabric.ComputedValue<string>, invocationType?: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly recipients?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly ruleSetName: fabric.ComputedValue<string>;
+    readonly s3Action?: fabric.ComputedValue<{ bucketName: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, objectKeyPrefix?: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
+    readonly scanEnabled?: fabric.ComputedValue<boolean>;
+    readonly snsAction?: fabric.ComputedValue<{ position: fabric.ComputedValue<number>, topicArn: fabric.ComputedValue<string> }>[];
+    readonly stopAction?: fabric.ComputedValue<{ position: fabric.ComputedValue<number>, scope: fabric.ComputedValue<string>, topicArn?: fabric.ComputedValue<string> }>[];
+    readonly tlsPolicy?: fabric.ComputedValue<string>;
+    readonly workmailAction?: fabric.ComputedValue<{ organizationArn: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
 }
 

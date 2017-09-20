@@ -22,7 +22,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends fabric.Resource {
 }
 
 export interface NetworkInterfaceSecurityGroupAttachmentArgs {
-    readonly networkInterfaceId: fabric.MaybeComputed<string>;
-    readonly securityGroupId: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId: fabric.ComputedValue<string>;
+    readonly securityGroupId: fabric.ComputedValue<string>;
 }
 

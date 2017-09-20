@@ -29,8 +29,8 @@ export class OpenIdConnectProvider extends fabric.Resource {
 }
 
 export interface OpenIdConnectProviderArgs {
-    readonly clientIdList: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly thumbprintList: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly url: fabric.MaybeComputed<string>;
+    readonly clientIdList: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly thumbprintList: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly url: fabric.ComputedValue<string>;
 }
 

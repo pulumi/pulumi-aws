@@ -29,9 +29,9 @@ export class CustomerGateway extends fabric.Resource {
 }
 
 export interface CustomerGatewayArgs {
-    readonly bgpAsn: fabric.MaybeComputed<number>;
-    readonly ipAddress: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly type: fabric.MaybeComputed<string>;
+    readonly bgpAsn: fabric.ComputedValue<number>;
+    readonly ipAddress: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

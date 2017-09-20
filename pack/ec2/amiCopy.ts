@@ -54,14 +54,14 @@ export class AmiCopy extends fabric.Resource {
 }
 
 export interface AmiCopyArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly encrypted?: fabric.MaybeComputed<boolean>;
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly sourceAmiId: fabric.MaybeComputed<string>;
-    readonly sourceAmiRegion: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName?: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly encrypted?: fabric.ComputedValue<boolean>;
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName?: fabric.ComputedValue<string>, virtualName?: fabric.ComputedValue<string> }>[];
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly sourceAmiId: fabric.ComputedValue<string>;
+    readonly sourceAmiRegion: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

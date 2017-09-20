@@ -16,6 +16,6 @@ export class DelegationSet extends fabric.Resource {
 }
 
 export interface DelegationSetArgs {
-    readonly referenceName?: fabric.MaybeComputed<string>;
+    readonly referenceName?: fabric.ComputedValue<string>;
 }
 

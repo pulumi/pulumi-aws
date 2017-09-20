@@ -53,24 +53,24 @@ export class HealthCheck extends fabric.Resource {
 }
 
 export interface HealthCheckArgs {
-    readonly childHealthThreshold?: fabric.MaybeComputed<number>;
-    readonly childHealthchecks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly cloudwatchAlarmName?: fabric.MaybeComputed<string>;
-    readonly cloudwatchAlarmRegion?: fabric.MaybeComputed<string>;
-    readonly enableSni?: fabric.MaybeComputed<boolean>;
-    readonly failureThreshold?: fabric.MaybeComputed<number>;
-    readonly fqdn?: fabric.MaybeComputed<string>;
-    readonly insufficientDataHealthStatus?: fabric.MaybeComputed<string>;
-    readonly invertHealthcheck?: fabric.MaybeComputed<boolean>;
-    readonly ipAddress?: fabric.MaybeComputed<string>;
-    readonly measureLatency?: fabric.MaybeComputed<boolean>;
-    readonly port?: fabric.MaybeComputed<number>;
-    readonly referenceName?: fabric.MaybeComputed<string>;
-    readonly regions?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly requestInterval?: fabric.MaybeComputed<number>;
-    readonly resourcePath?: fabric.MaybeComputed<string>;
-    readonly searchString?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly type: fabric.MaybeComputed<string>;
+    readonly childHealthThreshold?: fabric.ComputedValue<number>;
+    readonly childHealthchecks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly cloudwatchAlarmName?: fabric.ComputedValue<string>;
+    readonly cloudwatchAlarmRegion?: fabric.ComputedValue<string>;
+    readonly enableSni?: fabric.ComputedValue<boolean>;
+    readonly failureThreshold?: fabric.ComputedValue<number>;
+    readonly fqdn?: fabric.ComputedValue<string>;
+    readonly insufficientDataHealthStatus?: fabric.ComputedValue<string>;
+    readonly invertHealthcheck?: fabric.ComputedValue<boolean>;
+    readonly ipAddress?: fabric.ComputedValue<string>;
+    readonly measureLatency?: fabric.ComputedValue<boolean>;
+    readonly port?: fabric.ComputedValue<number>;
+    readonly referenceName?: fabric.ComputedValue<string>;
+    readonly regions?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly requestInterval?: fabric.ComputedValue<number>;
+    readonly resourcePath?: fabric.ComputedValue<string>;
+    readonly searchString?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

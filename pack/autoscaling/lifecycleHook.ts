@@ -34,13 +34,13 @@ export class LifecycleHook extends fabric.Resource {
 }
 
 export interface LifecycleHookArgs {
-    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
-    readonly defaultResult?: fabric.MaybeComputed<string>;
-    readonly heartbeatTimeout?: fabric.MaybeComputed<number>;
-    readonly lifecycleTransition: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly notificationMetadata?: fabric.MaybeComputed<string>;
-    readonly notificationTargetArn?: fabric.MaybeComputed<string>;
-    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly autoscalingGroupName: fabric.ComputedValue<string>;
+    readonly defaultResult?: fabric.ComputedValue<string>;
+    readonly heartbeatTimeout?: fabric.ComputedValue<number>;
+    readonly lifecycleTransition: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly notificationMetadata?: fabric.ComputedValue<string>;
+    readonly notificationTargetArn?: fabric.ComputedValue<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
 }
 

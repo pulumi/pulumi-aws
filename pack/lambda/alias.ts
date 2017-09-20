@@ -28,9 +28,9 @@ export class Alias extends fabric.Resource {
 }
 
 export interface AliasArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly functionName: fabric.MaybeComputed<string>;
-    readonly functionVersion: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly functionName: fabric.ComputedValue<string>;
+    readonly functionVersion: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

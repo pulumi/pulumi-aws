@@ -16,7 +16,7 @@ export class IpSet extends fabric.Resource {
 }
 
 export interface IpSetArgs {
-    readonly ipSetDescriptor?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly ipSetDescriptor?: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
 }
 

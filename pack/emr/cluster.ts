@@ -59,22 +59,22 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly applications?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly autoscalingRole?: fabric.MaybeComputed<string>;
-    readonly bootstrapAction?: fabric.MaybeComputed<{ args?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string>, path: fabric.MaybeComputed<string> }>[];
-    readonly configurations?: fabric.MaybeComputed<string>;
-    readonly coreInstanceCount?: fabric.MaybeComputed<number>;
-    readonly coreInstanceType?: fabric.MaybeComputed<string>;
-    readonly ec2Attributes?: fabric.MaybeComputed<{ additionalMasterSecurityGroups?: fabric.MaybeComputed<string>, additionalSlaveSecurityGroups?: fabric.MaybeComputed<string>, emrManagedMasterSecurityGroup?: fabric.MaybeComputed<string>, emrManagedSlaveSecurityGroup?: fabric.MaybeComputed<string>, instanceProfile: fabric.MaybeComputed<string>, keyName?: fabric.MaybeComputed<string>, serviceAccessSecurityGroup?: fabric.MaybeComputed<string>, subnetId?: fabric.MaybeComputed<string> }>[];
-    readonly keepJobFlowAliveWhenNoSteps?: fabric.MaybeComputed<boolean>;
-    readonly logUri?: fabric.MaybeComputed<string>;
-    readonly masterInstanceType: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly releaseLabel: fabric.MaybeComputed<string>;
-    readonly securityConfiguration?: fabric.MaybeComputed<string>;
-    readonly serviceRole: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly terminationProtection?: fabric.MaybeComputed<boolean>;
-    readonly visibleToAllUsers?: fabric.MaybeComputed<boolean>;
+    readonly applications?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly autoscalingRole?: fabric.ComputedValue<string>;
+    readonly bootstrapAction?: fabric.ComputedValue<{ args?: fabric.ComputedValue<fabric.ComputedValue<string>>[], name: fabric.ComputedValue<string>, path: fabric.ComputedValue<string> }>[];
+    readonly configurations?: fabric.ComputedValue<string>;
+    readonly coreInstanceCount?: fabric.ComputedValue<number>;
+    readonly coreInstanceType?: fabric.ComputedValue<string>;
+    readonly ec2Attributes?: fabric.ComputedValue<{ additionalMasterSecurityGroups?: fabric.ComputedValue<string>, additionalSlaveSecurityGroups?: fabric.ComputedValue<string>, emrManagedMasterSecurityGroup?: fabric.ComputedValue<string>, emrManagedSlaveSecurityGroup?: fabric.ComputedValue<string>, instanceProfile: fabric.ComputedValue<string>, keyName?: fabric.ComputedValue<string>, serviceAccessSecurityGroup?: fabric.ComputedValue<string>, subnetId?: fabric.ComputedValue<string> }>[];
+    readonly keepJobFlowAliveWhenNoSteps?: fabric.ComputedValue<boolean>;
+    readonly logUri?: fabric.ComputedValue<string>;
+    readonly masterInstanceType: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly releaseLabel: fabric.ComputedValue<string>;
+    readonly securityConfiguration?: fabric.ComputedValue<string>;
+    readonly serviceRole: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly terminationProtection?: fabric.ComputedValue<boolean>;
+    readonly visibleToAllUsers?: fabric.ComputedValue<boolean>;
 }
 

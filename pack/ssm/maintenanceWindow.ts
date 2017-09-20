@@ -33,11 +33,11 @@ export class MaintenanceWindow extends fabric.Resource {
 }
 
 export interface MaintenanceWindowArgs {
-    readonly allowUnassociatedTargets?: fabric.MaybeComputed<boolean>;
-    readonly cutoff: fabric.MaybeComputed<number>;
-    readonly duration: fabric.MaybeComputed<number>;
-    readonly enabled?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly schedule: fabric.MaybeComputed<string>;
+    readonly allowUnassociatedTargets?: fabric.ComputedValue<boolean>;
+    readonly cutoff: fabric.ComputedValue<number>;
+    readonly duration: fabric.ComputedValue<number>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly schedule: fabric.ComputedValue<string>;
 }
 

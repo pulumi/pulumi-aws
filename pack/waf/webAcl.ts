@@ -26,9 +26,9 @@ export class WebAcl extends fabric.Resource {
 }
 
 export interface WebAclArgs {
-    readonly defaultAction: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
-    readonly metricName: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly rules?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[], priority: fabric.MaybeComputed<number>, ruleId: fabric.MaybeComputed<string> }>[];
+    readonly defaultAction: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[];
+    readonly metricName: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly rules?: fabric.ComputedValue<{ action: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[], priority: fabric.ComputedValue<number>, ruleId: fabric.ComputedValue<string> }>[];
 }
 

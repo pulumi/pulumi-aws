@@ -71,24 +71,24 @@ export class Function extends fabric.Resource {
 }
 
 export interface FunctionArgs {
-    readonly deadLetterConfig?: fabric.MaybeComputed<{ targetArn: fabric.MaybeComputed<string> }>[];
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly environment?: fabric.MaybeComputed<{ variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}> }>[];
+    readonly deadLetterConfig?: fabric.ComputedValue<{ targetArn: fabric.ComputedValue<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly environment?: fabric.ComputedValue<{ variables?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}> }>[];
     readonly code?: fabric.asset.Archive;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly handler: fabric.MaybeComputed<string>;
-    readonly kmsKeyArn?: fabric.MaybeComputed<string>;
-    readonly memorySize?: fabric.MaybeComputed<number>;
-    readonly publish?: fabric.MaybeComputed<boolean>;
-    readonly role: fabric.MaybeComputed<ARN>;
-    readonly runtime: fabric.MaybeComputed<string>;
-    readonly s3Bucket?: fabric.MaybeComputed<string>;
-    readonly s3Key?: fabric.MaybeComputed<string>;
-    readonly s3ObjectVersion?: fabric.MaybeComputed<string>;
-    readonly sourceCodeHash?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly timeout?: fabric.MaybeComputed<number>;
-    readonly tracingConfig?: fabric.MaybeComputed<{ mode: fabric.MaybeComputed<string> }>[];
-    readonly vpcConfig?: fabric.MaybeComputed<{ securityGroupIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId?: fabric.MaybeComputed<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly handler: fabric.ComputedValue<string>;
+    readonly kmsKeyArn?: fabric.ComputedValue<string>;
+    readonly memorySize?: fabric.ComputedValue<number>;
+    readonly publish?: fabric.ComputedValue<boolean>;
+    readonly role: fabric.ComputedValue<ARN>;
+    readonly runtime: fabric.ComputedValue<string>;
+    readonly s3Bucket?: fabric.ComputedValue<string>;
+    readonly s3Key?: fabric.ComputedValue<string>;
+    readonly s3ObjectVersion?: fabric.ComputedValue<string>;
+    readonly sourceCodeHash?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly timeout?: fabric.ComputedValue<number>;
+    readonly tracingConfig?: fabric.ComputedValue<{ mode: fabric.ComputedValue<string> }>[];
+    readonly vpcConfig?: fabric.ComputedValue<{ securityGroupIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], vpcId?: fabric.ComputedValue<string> }>[];
 }
 

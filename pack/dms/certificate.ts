@@ -23,8 +23,8 @@ export class Certificate extends fabric.Resource {
 }
 
 export interface CertificateArgs {
-    readonly certificateId: fabric.MaybeComputed<string>;
-    readonly certificatePem?: fabric.MaybeComputed<string>;
-    readonly certificateWallet?: fabric.MaybeComputed<string>;
+    readonly certificateId: fabric.ComputedValue<string>;
+    readonly certificatePem?: fabric.ComputedValue<string>;
+    readonly certificateWallet?: fabric.ComputedValue<string>;
 }
 

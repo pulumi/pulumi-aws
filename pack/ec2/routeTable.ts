@@ -23,9 +23,9 @@ export class RouteTable extends fabric.Resource {
 }
 
 export interface RouteTableArgs {
-    readonly propagatingVgws?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly route?: fabric.MaybeComputed<{ cidrBlock?: fabric.MaybeComputed<string>, egressOnlyGatewayId?: fabric.MaybeComputed<string>, gatewayId?: fabric.MaybeComputed<string>, instanceId?: fabric.MaybeComputed<string>, ipv6CidrBlock?: fabric.MaybeComputed<string>, natGatewayId?: fabric.MaybeComputed<string>, networkInterfaceId?: fabric.MaybeComputed<string>, vpcPeeringConnectionId?: fabric.MaybeComputed<string> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly propagatingVgws?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly route?: fabric.ComputedValue<{ cidrBlock?: fabric.ComputedValue<string>, egressOnlyGatewayId?: fabric.ComputedValue<string>, gatewayId?: fabric.ComputedValue<string>, instanceId?: fabric.ComputedValue<string>, ipv6CidrBlock?: fabric.ComputedValue<string>, natGatewayId?: fabric.ComputedValue<string>, networkInterfaceId?: fabric.ComputedValue<string>, vpcPeeringConnectionId?: fabric.ComputedValue<string> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

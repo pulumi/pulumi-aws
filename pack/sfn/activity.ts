@@ -16,6 +16,6 @@ export class Activity extends fabric.Resource {
 }
 
 export interface ActivityArgs {
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

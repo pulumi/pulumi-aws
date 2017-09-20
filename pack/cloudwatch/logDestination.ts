@@ -26,8 +26,8 @@ export class LogDestination extends fabric.Resource {
 }
 
 export interface LogDestinationArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly roleArn: fabric.MaybeComputed<string>;
-    readonly targetArn: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly roleArn: fabric.ComputedValue<string>;
+    readonly targetArn: fabric.ComputedValue<string>;
 }
 

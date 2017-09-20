@@ -30,10 +30,10 @@ export class Model extends fabric.Resource {
 }
 
 export interface ModelArgs {
-    readonly contentType: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly schema?: fabric.MaybeComputed<string>;
+    readonly contentType: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly schema?: fabric.ComputedValue<string>;
 }
 

@@ -29,12 +29,12 @@ export class IdentityPool extends fabric.Resource {
 }
 
 export interface IdentityPoolArgs {
-    readonly allowUnauthenticatedIdentities?: fabric.MaybeComputed<boolean>;
-    readonly cognitoIdentityProviders?: fabric.MaybeComputed<{ clientId?: fabric.MaybeComputed<string>, providerName?: fabric.MaybeComputed<string>, serverSideTokenCheck?: fabric.MaybeComputed<boolean> }>[];
-    readonly developerProviderName?: fabric.MaybeComputed<string>;
-    readonly identityPoolName: fabric.MaybeComputed<string>;
-    readonly openidConnectProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly samlProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly supportedLoginProviders?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly allowUnauthenticatedIdentities?: fabric.ComputedValue<boolean>;
+    readonly cognitoIdentityProviders?: fabric.ComputedValue<{ clientId?: fabric.ComputedValue<string>, providerName?: fabric.ComputedValue<string>, serverSideTokenCheck?: fabric.ComputedValue<boolean> }>[];
+    readonly developerProviderName?: fabric.ComputedValue<string>;
+    readonly identityPoolName: fabric.ComputedValue<string>;
+    readonly openidConnectProviderArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly samlProviderArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly supportedLoginProviders?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
 }
 

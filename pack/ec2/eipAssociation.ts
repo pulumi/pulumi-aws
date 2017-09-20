@@ -24,11 +24,11 @@ export class EipAssociation extends fabric.Resource {
 }
 
 export interface EipAssociationArgs {
-    readonly allocationId?: fabric.MaybeComputed<string>;
-    readonly allowReassociation?: fabric.MaybeComputed<boolean>;
-    readonly instanceId?: fabric.MaybeComputed<string>;
-    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
-    readonly privateIpAddress?: fabric.MaybeComputed<string>;
-    readonly publicIp?: fabric.MaybeComputed<string>;
+    readonly allocationId?: fabric.ComputedValue<string>;
+    readonly allowReassociation?: fabric.ComputedValue<boolean>;
+    readonly instanceId?: fabric.ComputedValue<string>;
+    readonly networkInterfaceId?: fabric.ComputedValue<string>;
+    readonly privateIpAddress?: fabric.ComputedValue<string>;
+    readonly publicIp?: fabric.ComputedValue<string>;
 }
 

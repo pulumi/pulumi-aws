@@ -67,26 +67,26 @@ export class Stack extends fabric.Resource {
 }
 
 export interface StackArgs {
-    readonly agentVersion?: fabric.MaybeComputed<string>;
-    readonly berkshelfVersion?: fabric.MaybeComputed<string>;
-    readonly color?: fabric.MaybeComputed<string>;
-    readonly configurationManagerName?: fabric.MaybeComputed<string>;
-    readonly configurationManagerVersion?: fabric.MaybeComputed<string>;
-    readonly customCookbooksSource?: fabric.MaybeComputed<{ password?: fabric.MaybeComputed<string>, revision?: fabric.MaybeComputed<string>, sshKey?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string>, url: fabric.MaybeComputed<string>, username?: fabric.MaybeComputed<string> }>[];
-    readonly customJson?: fabric.MaybeComputed<string>;
-    readonly defaultAvailabilityZone?: fabric.MaybeComputed<string>;
-    readonly defaultInstanceProfileArn: fabric.MaybeComputed<string>;
-    readonly defaultOs?: fabric.MaybeComputed<string>;
-    readonly defaultRootDeviceType?: fabric.MaybeComputed<string>;
-    readonly defaultSshKeyName?: fabric.MaybeComputed<string>;
-    readonly defaultSubnetId?: fabric.MaybeComputed<string>;
-    readonly hostnameTheme?: fabric.MaybeComputed<string>;
-    readonly manageBerkshelf?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly region: fabric.MaybeComputed<string>;
-    readonly serviceRoleArn: fabric.MaybeComputed<string>;
-    readonly useCustomCookbooks?: fabric.MaybeComputed<boolean>;
-    readonly useOpsworksSecurityGroups?: fabric.MaybeComputed<boolean>;
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly agentVersion?: fabric.ComputedValue<string>;
+    readonly berkshelfVersion?: fabric.ComputedValue<string>;
+    readonly color?: fabric.ComputedValue<string>;
+    readonly configurationManagerName?: fabric.ComputedValue<string>;
+    readonly configurationManagerVersion?: fabric.ComputedValue<string>;
+    readonly customCookbooksSource?: fabric.ComputedValue<{ password?: fabric.ComputedValue<string>, revision?: fabric.ComputedValue<string>, sshKey?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string>, url: fabric.ComputedValue<string>, username?: fabric.ComputedValue<string> }>[];
+    readonly customJson?: fabric.ComputedValue<string>;
+    readonly defaultAvailabilityZone?: fabric.ComputedValue<string>;
+    readonly defaultInstanceProfileArn: fabric.ComputedValue<string>;
+    readonly defaultOs?: fabric.ComputedValue<string>;
+    readonly defaultRootDeviceType?: fabric.ComputedValue<string>;
+    readonly defaultSshKeyName?: fabric.ComputedValue<string>;
+    readonly defaultSubnetId?: fabric.ComputedValue<string>;
+    readonly hostnameTheme?: fabric.ComputedValue<string>;
+    readonly manageBerkshelf?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly region: fabric.ComputedValue<string>;
+    readonly serviceRoleArn: fabric.ComputedValue<string>;
+    readonly useCustomCookbooks?: fabric.ComputedValue<boolean>;
+    readonly useOpsworksSecurityGroups?: fabric.ComputedValue<boolean>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

@@ -24,9 +24,9 @@ export class Vault extends fabric.Resource {
 }
 
 export interface VaultArgs {
-    readonly accessPolicy?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly notification?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], snsTopic: fabric.MaybeComputed<string> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly accessPolicy?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly notification?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], snsTopic: fabric.ComputedValue<string> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

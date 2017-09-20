@@ -54,19 +54,19 @@ export class Integration extends fabric.Resource {
 }
 
 export interface IntegrationArgs {
-    readonly cacheKeyParameters?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly cacheNamespace?: fabric.MaybeComputed<string>;
-    readonly contentHandling?: fabric.MaybeComputed<string>;
-    readonly credentials?: fabric.MaybeComputed<string>;
-    readonly httpMethod: fabric.MaybeComputed<string>;
-    readonly integrationHttpMethod?: fabric.MaybeComputed<string>;
-    readonly passthroughBehavior?: fabric.MaybeComputed<string>;
-    readonly requestParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly requestParametersInJson?: fabric.MaybeComputed<string>;
-    readonly requestTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly resourceId: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly type: fabric.MaybeComputed<string>;
-    readonly uri?: fabric.MaybeComputed<string>;
+    readonly cacheKeyParameters?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly cacheNamespace?: fabric.ComputedValue<string>;
+    readonly contentHandling?: fabric.ComputedValue<string>;
+    readonly credentials?: fabric.ComputedValue<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
+    readonly integrationHttpMethod?: fabric.ComputedValue<string>;
+    readonly passthroughBehavior?: fabric.ComputedValue<string>;
+    readonly requestParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly requestParametersInJson?: fabric.ComputedValue<string>;
+    readonly requestTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly resourceId: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly type: fabric.ComputedValue<string>;
+    readonly uri?: fabric.ComputedValue<string>;
 }
 

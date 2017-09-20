@@ -31,12 +31,12 @@ export class EventSubscription extends fabric.Resource {
 }
 
 export interface EventSubscriptionArgs {
-    readonly enabled?: fabric.MaybeComputed<boolean>;
-    readonly eventCategories?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly snsTopic: fabric.MaybeComputed<string>;
-    readonly sourceIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly sourceType?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
+    readonly eventCategories?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly snsTopic: fabric.ComputedValue<string>;
+    readonly sourceIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly sourceType?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

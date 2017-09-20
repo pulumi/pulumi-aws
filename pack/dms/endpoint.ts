@@ -51,19 +51,19 @@ export class Endpoint extends fabric.Resource {
 }
 
 export interface EndpointArgs {
-    readonly certificateArn?: fabric.MaybeComputed<string>;
-    readonly databaseName?: fabric.MaybeComputed<string>;
-    readonly endpointId: fabric.MaybeComputed<string>;
-    readonly endpointType: fabric.MaybeComputed<string>;
-    readonly engineName: fabric.MaybeComputed<string>;
-    readonly extraConnectionAttributes?: fabric.MaybeComputed<string>;
-    readonly kmsKeyArn?: fabric.MaybeComputed<string>;
-    readonly password?: fabric.MaybeComputed<string>;
-    readonly port?: fabric.MaybeComputed<number>;
-    readonly serverName?: fabric.MaybeComputed<string>;
-    readonly serviceAccessRole?: fabric.MaybeComputed<string>;
-    readonly sslMode?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly username?: fabric.MaybeComputed<string>;
+    readonly certificateArn?: fabric.ComputedValue<string>;
+    readonly databaseName?: fabric.ComputedValue<string>;
+    readonly endpointId: fabric.ComputedValue<string>;
+    readonly endpointType: fabric.ComputedValue<string>;
+    readonly engineName: fabric.ComputedValue<string>;
+    readonly extraConnectionAttributes?: fabric.ComputedValue<string>;
+    readonly kmsKeyArn?: fabric.ComputedValue<string>;
+    readonly password?: fabric.ComputedValue<string>;
+    readonly port?: fabric.ComputedValue<number>;
+    readonly serverName?: fabric.ComputedValue<string>;
+    readonly serviceAccessRole?: fabric.ComputedValue<string>;
+    readonly sslMode?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly username?: fabric.ComputedValue<string>;
 }
 

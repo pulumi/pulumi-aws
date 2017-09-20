@@ -22,7 +22,7 @@ export class VpnConnectionRoute extends fabric.Resource {
 }
 
 export interface VpnConnectionRouteArgs {
-    readonly destinationCidrBlock: fabric.MaybeComputed<string>;
-    readonly vpnConnectionId: fabric.MaybeComputed<string>;
+    readonly destinationCidrBlock: fabric.ComputedValue<string>;
+    readonly vpnConnectionId: fabric.ComputedValue<string>;
 }
 

@@ -24,11 +24,11 @@ export class PatchBaseline extends fabric.Resource {
 }
 
 export interface PatchBaselineArgs {
-    readonly approvalRule?: fabric.MaybeComputed<{ approveAfterDays: fabric.MaybeComputed<number>, patchFilter: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[] }>[];
-    readonly approvedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly globalFilter?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly rejectedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly approvalRule?: fabric.ComputedValue<{ approveAfterDays: fabric.ComputedValue<number>, patchFilter: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[] }>[];
+    readonly approvedPatches?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly globalFilter?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly rejectedPatches?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

@@ -46,16 +46,16 @@ export class NetworkAclRule extends fabric.Resource {
 }
 
 export interface NetworkAclRuleArgs {
-    readonly cidrBlock?: fabric.MaybeComputed<string>;
-    readonly egress?: fabric.MaybeComputed<boolean>;
-    readonly fromPort?: fabric.MaybeComputed<number>;
-    readonly icmpCode?: fabric.MaybeComputed<string>;
-    readonly icmpType?: fabric.MaybeComputed<string>;
-    readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
-    readonly networkAclId: fabric.MaybeComputed<string>;
-    readonly protocol: fabric.MaybeComputed<string>;
-    readonly ruleAction: fabric.MaybeComputed<string>;
-    readonly ruleNumber: fabric.MaybeComputed<number>;
-    readonly toPort?: fabric.MaybeComputed<number>;
+    readonly cidrBlock?: fabric.ComputedValue<string>;
+    readonly egress?: fabric.ComputedValue<boolean>;
+    readonly fromPort?: fabric.ComputedValue<number>;
+    readonly icmpCode?: fabric.ComputedValue<string>;
+    readonly icmpType?: fabric.ComputedValue<string>;
+    readonly ipv6CidrBlock?: fabric.ComputedValue<string>;
+    readonly networkAclId: fabric.ComputedValue<string>;
+    readonly protocol: fabric.ComputedValue<string>;
+    readonly ruleAction: fabric.ComputedValue<string>;
+    readonly ruleNumber: fabric.ComputedValue<number>;
+    readonly toPort?: fabric.ComputedValue<number>;
 }
 

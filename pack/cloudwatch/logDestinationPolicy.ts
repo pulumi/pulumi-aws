@@ -22,7 +22,7 @@ export class LogDestinationPolicy extends fabric.Resource {
 }
 
 export interface LogDestinationPolicyArgs {
-    readonly accessPolicy: fabric.MaybeComputed<string>;
-    readonly destinationName: fabric.MaybeComputed<string>;
+    readonly accessPolicy: fabric.ComputedValue<string>;
+    readonly destinationName: fabric.ComputedValue<string>;
 }
 

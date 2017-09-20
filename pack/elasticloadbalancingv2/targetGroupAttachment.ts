@@ -24,8 +24,8 @@ export class TargetGroupAttachment extends fabric.Resource {
 }
 
 export interface TargetGroupAttachmentArgs {
-    readonly port?: fabric.MaybeComputed<number>;
-    readonly targetGroupArn: fabric.MaybeComputed<string>;
-    readonly targetId: fabric.MaybeComputed<string>;
+    readonly port?: fabric.ComputedValue<number>;
+    readonly targetGroupArn: fabric.ComputedValue<string>;
+    readonly targetId: fabric.ComputedValue<string>;
 }
 

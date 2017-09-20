@@ -26,11 +26,11 @@ export class EventRule extends fabric.Resource {
 }
 
 export interface EventRuleArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly eventPattern?: fabric.MaybeComputed<string>;
-    readonly isEnabled?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly roleArn?: fabric.MaybeComputed<string>;
-    readonly scheduleExpression?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly eventPattern?: fabric.ComputedValue<string>;
+    readonly isEnabled?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
+    readonly scheduleExpression?: fabric.ComputedValue<string>;
 }
 

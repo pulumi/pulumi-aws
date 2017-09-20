@@ -20,9 +20,9 @@ export class FileSystem extends fabric.Resource {
 }
 
 export interface FileSystemArgs {
-    readonly creationToken?: fabric.MaybeComputed<string>;
-    readonly performanceMode?: fabric.MaybeComputed<string>;
-    readonly referenceName?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly creationToken?: fabric.ComputedValue<string>;
+    readonly performanceMode?: fabric.ComputedValue<string>;
+    readonly referenceName?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

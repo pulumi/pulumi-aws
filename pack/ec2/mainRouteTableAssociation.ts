@@ -24,7 +24,7 @@ export class MainRouteTableAssociation extends fabric.Resource {
 }
 
 export interface MainRouteTableAssociationArgs {
-    readonly routeTableId: fabric.MaybeComputed<string>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

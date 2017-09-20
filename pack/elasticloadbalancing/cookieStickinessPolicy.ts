@@ -26,9 +26,9 @@ export class CookieStickinessPolicy extends fabric.Resource {
 }
 
 export interface CookieStickinessPolicyArgs {
-    readonly cookieExpirationPeriod?: fabric.MaybeComputed<number>;
-    readonly lbPort: fabric.MaybeComputed<number>;
-    readonly loadBalancer: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly cookieExpirationPeriod?: fabric.ComputedValue<number>;
+    readonly lbPort: fabric.ComputedValue<number>;
+    readonly loadBalancer: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 
