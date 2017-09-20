@@ -24,8 +24,8 @@ export class DefaultVpcDhcpOptions extends fabric.Resource {
 }
 
 export interface DefaultVpcDhcpOptionsArgs {
-    readonly netbiosNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly netbiosNodeType?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly netbiosNameServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly netbiosNodeType?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

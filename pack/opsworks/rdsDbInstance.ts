@@ -34,9 +34,9 @@ export class RdsDbInstance extends fabric.Resource {
 }
 
 export interface RdsDbInstanceArgs {
-    readonly dbPassword: fabric.MaybeComputed<string>;
-    readonly dbUser: fabric.MaybeComputed<string>;
-    readonly rdsDbInstanceArn: fabric.MaybeComputed<string>;
-    readonly stackId: fabric.MaybeComputed<string>;
+    readonly dbPassword: fabric.ComputedValue<string>;
+    readonly dbUser: fabric.ComputedValue<string>;
+    readonly rdsDbInstanceArn: fabric.ComputedValue<string>;
+    readonly stackId: fabric.ComputedValue<string>;
 }
 

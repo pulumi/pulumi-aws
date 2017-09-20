@@ -19,7 +19,7 @@ export class SpotDatafeedSubscription extends fabric.Resource {
 }
 
 export interface SpotDatafeedSubscriptionArgs {
-    readonly bucket: fabric.MaybeComputed<string>;
-    readonly prefix?: fabric.MaybeComputed<string>;
+    readonly bucket: fabric.ComputedValue<string>;
+    readonly prefix?: fabric.ComputedValue<string>;
 }
 

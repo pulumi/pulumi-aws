@@ -23,9 +23,9 @@ export class ParameterGroup extends fabric.Resource {
 }
 
 export interface ParameterGroupArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly family: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly parameter?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly family: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly parameter?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
 }
 

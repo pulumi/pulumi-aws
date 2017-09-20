@@ -129,8 +129,8 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
     type: "AWS_PROXY",
     integrationHttpMethod: "POST",
     passthroughBehavior: "WHEN_NO_MATCH",
-    uri: lambda.arn.mapValue((arn: aws.ARN) =>
-        "arn:aws:apigateway:" + region + ":lambda:path/2015-03-31/functions/" + arn + "/invocations"),
+    uri: lambda.arn.then((arn: aws.ARN | undefined) =>
+        arn && "arn:aws:apigateway:" + region + ":lambda:path/2015-03-31/functions/" + arn + "/invocations"),
 }, [ method ]);
 
 let deployment = new aws.apigateway.Deployment("myrestapi-deployment-prod", {

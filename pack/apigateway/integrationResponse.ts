@@ -44,14 +44,14 @@ export class IntegrationResponse extends fabric.Resource {
 }
 
 export interface IntegrationResponseArgs {
-    readonly contentHandling?: fabric.MaybeComputed<string>;
-    readonly httpMethod: fabric.MaybeComputed<string>;
-    readonly resourceId: fabric.MaybeComputed<string>;
-    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly responseParametersInJson?: fabric.MaybeComputed<string>;
-    readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly selectionPattern?: fabric.MaybeComputed<string>;
-    readonly statusCode: fabric.MaybeComputed<string>;
+    readonly contentHandling?: fabric.ComputedValue<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
+    readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly responseParametersInJson?: fabric.ComputedValue<string>;
+    readonly responseTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly selectionPattern?: fabric.ComputedValue<string>;
+    readonly statusCode: fabric.ComputedValue<string>;
 }
 

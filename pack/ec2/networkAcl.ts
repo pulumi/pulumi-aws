@@ -27,11 +27,11 @@ export class NetworkAcl extends fabric.Resource {
 }
 
 export interface NetworkAclArgs {
-    readonly egress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
-    readonly ingress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
-    readonly subnetId?: fabric.MaybeComputed<string>;
-    readonly subnetIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly egress?: fabric.ComputedValue<{ action: fabric.ComputedValue<string>, cidrBlock?: fabric.ComputedValue<string>, fromPort: fabric.ComputedValue<number>, icmpCode?: fabric.ComputedValue<number>, icmpType?: fabric.ComputedValue<number>, ipv6CidrBlock?: fabric.ComputedValue<string>, protocol: fabric.ComputedValue<string>, ruleNo: fabric.ComputedValue<number>, toPort: fabric.ComputedValue<number> }>[];
+    readonly ingress?: fabric.ComputedValue<{ action: fabric.ComputedValue<string>, cidrBlock?: fabric.ComputedValue<string>, fromPort: fabric.ComputedValue<number>, icmpCode?: fabric.ComputedValue<number>, icmpType?: fabric.ComputedValue<number>, ipv6CidrBlock?: fabric.ComputedValue<string>, protocol: fabric.ComputedValue<string>, ruleNo: fabric.ComputedValue<number>, toPort: fabric.ComputedValue<number> }>[];
+    readonly subnetId?: fabric.ComputedValue<string>;
+    readonly subnetIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

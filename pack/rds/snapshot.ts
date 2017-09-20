@@ -56,7 +56,7 @@ export class Snapshot extends fabric.Resource {
 }
 
 export interface SnapshotArgs {
-    readonly dbInstanceIdentifier: fabric.MaybeComputed<string>;
-    readonly dbSnapshotIdentifier: fabric.MaybeComputed<string>;
+    readonly dbInstanceIdentifier: fabric.ComputedValue<string>;
+    readonly dbSnapshotIdentifier: fabric.ComputedValue<string>;
 }
 

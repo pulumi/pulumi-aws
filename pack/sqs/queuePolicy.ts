@@ -22,7 +22,7 @@ export class QueuePolicy extends fabric.Resource {
 }
 
 export interface QueuePolicyArgs {
-    readonly policy: fabric.MaybeComputed<string>;
-    readonly queueUrl: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
+    readonly queueUrl: fabric.ComputedValue<string>;
 }
 

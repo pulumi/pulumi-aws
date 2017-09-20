@@ -42,14 +42,14 @@ export class Stage extends fabric.Resource {
 }
 
 export interface StageArgs {
-    readonly cacheClusterEnabled?: fabric.MaybeComputed<boolean>;
-    readonly cacheClusterSize?: fabric.MaybeComputed<string>;
-    readonly clientCertificateId?: fabric.MaybeComputed<string>;
-    readonly deployment: fabric.MaybeComputed<Deployment>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly documentationVersion?: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly stageName: fabric.MaybeComputed<string>;
-    readonly variables?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly cacheClusterEnabled?: fabric.ComputedValue<boolean>;
+    readonly cacheClusterSize?: fabric.ComputedValue<string>;
+    readonly clientCertificateId?: fabric.ComputedValue<string>;
+    readonly deployment: fabric.ComputedValue<Deployment>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly documentationVersion?: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly stageName: fabric.ComputedValue<string>;
+    readonly variables?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

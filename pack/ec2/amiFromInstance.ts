@@ -47,12 +47,12 @@ export class AmiFromInstance extends fabric.Resource {
 }
 
 export interface AmiFromInstanceArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly snapshotWithoutReboot?: fabric.MaybeComputed<boolean>;
-    readonly sourceInstanceId: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName?: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName?: fabric.ComputedValue<string>, virtualName?: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly snapshotWithoutReboot?: fabric.ComputedValue<boolean>;
+    readonly sourceInstanceId: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

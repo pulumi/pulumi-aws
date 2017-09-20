@@ -33,10 +33,10 @@ export class LogSubscriptionFilter extends fabric.Resource {
 }
 
 export interface LogSubscriptionFilterArgs {
-    readonly destinationArn: fabric.MaybeComputed<string>;
-    readonly filterPattern: fabric.MaybeComputed<string>;
-    readonly logGroup: fabric.MaybeComputed<LogGroup>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly destinationArn: fabric.ComputedValue<string>;
+    readonly filterPattern: fabric.ComputedValue<string>;
+    readonly logGroup: fabric.ComputedValue<LogGroup>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
 }
 

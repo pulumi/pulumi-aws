@@ -33,9 +33,9 @@ export class SshKey extends fabric.Resource {
 }
 
 export interface SshKeyArgs {
-    readonly encoding: fabric.MaybeComputed<string>;
-    readonly publicKey: fabric.MaybeComputed<string>;
-    readonly status?: fabric.MaybeComputed<string>;
-    readonly username: fabric.MaybeComputed<string>;
+    readonly encoding: fabric.ComputedValue<string>;
+    readonly publicKey: fabric.ComputedValue<string>;
+    readonly status?: fabric.ComputedValue<string>;
+    readonly username: fabric.ComputedValue<string>;
 }
 

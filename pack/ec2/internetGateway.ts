@@ -16,7 +16,7 @@ export class InternetGateway extends fabric.Resource {
 }
 
 export interface InternetGatewayArgs {
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

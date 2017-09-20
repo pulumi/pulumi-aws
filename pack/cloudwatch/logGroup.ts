@@ -22,9 +22,9 @@ export class LogGroup extends fabric.Resource {
 }
 
 export interface LogGroupArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly retentionInDays?: fabric.MaybeComputed<number>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly retentionInDays?: fabric.ComputedValue<number>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

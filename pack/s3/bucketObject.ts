@@ -51,21 +51,21 @@ export class BucketObject extends fabric.Resource {
 }
 
 export interface BucketObjectArgs {
-    readonly acl?: fabric.MaybeComputed<string>;
-    readonly bucket: fabric.MaybeComputed<Bucket>;
-    readonly cacheControl?: fabric.MaybeComputed<string>;
-    readonly content?: fabric.MaybeComputed<string>;
-    readonly contentDisposition?: fabric.MaybeComputed<string>;
-    readonly contentEncoding?: fabric.MaybeComputed<string>;
-    readonly contentLanguage?: fabric.MaybeComputed<string>;
-    readonly contentType?: fabric.MaybeComputed<string>;
-    readonly etag?: fabric.MaybeComputed<string>;
-    readonly key?: fabric.MaybeComputed<string>;
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
-    readonly serverSideEncryption?: fabric.MaybeComputed<string>;
+    readonly acl?: fabric.ComputedValue<string>;
+    readonly bucket: fabric.ComputedValue<Bucket>;
+    readonly cacheControl?: fabric.ComputedValue<string>;
+    readonly content?: fabric.ComputedValue<string>;
+    readonly contentDisposition?: fabric.ComputedValue<string>;
+    readonly contentEncoding?: fabric.ComputedValue<string>;
+    readonly contentLanguage?: fabric.ComputedValue<string>;
+    readonly contentType?: fabric.ComputedValue<string>;
+    readonly etag?: fabric.ComputedValue<string>;
+    readonly key?: fabric.ComputedValue<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
+    readonly serverSideEncryption?: fabric.ComputedValue<string>;
     readonly source?: fabric.asset.Asset;
-    readonly storageClass?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly websiteRedirect?: fabric.MaybeComputed<string>;
+    readonly storageClass?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly websiteRedirect?: fabric.ComputedValue<string>;
 }
 

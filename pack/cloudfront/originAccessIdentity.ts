@@ -24,6 +24,6 @@ export class OriginAccessIdentity extends fabric.Resource {
 }
 
 export interface OriginAccessIdentityArgs {
-    readonly comment?: fabric.MaybeComputed<string>;
+    readonly comment?: fabric.ComputedValue<string>;
 }
 

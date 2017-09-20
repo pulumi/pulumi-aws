@@ -30,10 +30,10 @@ export class InstanceProfile extends fabric.Resource {
 }
 
 export interface InstanceProfileArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly path?: fabric.MaybeComputed<string>;
-    readonly role?: fabric.MaybeComputed<Role>;
-    readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly path?: fabric.ComputedValue<string>;
+    readonly role?: fabric.ComputedValue<Role>;
+    readonly roles?: fabric.ComputedValue<fabric.ComputedValue<Role>>[];
 }
 

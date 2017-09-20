@@ -31,10 +31,10 @@ export class VolumeAttachment extends fabric.Resource {
 }
 
 export interface VolumeAttachmentArgs {
-    readonly deviceName: fabric.MaybeComputed<string>;
-    readonly forceDetach?: fabric.MaybeComputed<boolean>;
-    readonly instanceId: fabric.MaybeComputed<string>;
-    readonly skipDestroy?: fabric.MaybeComputed<boolean>;
-    readonly volumeId: fabric.MaybeComputed<string>;
+    readonly deviceName: fabric.ComputedValue<string>;
+    readonly forceDetach?: fabric.ComputedValue<boolean>;
+    readonly instanceId: fabric.ComputedValue<string>;
+    readonly skipDestroy?: fabric.ComputedValue<boolean>;
+    readonly volumeId: fabric.ComputedValue<string>;
 }
 

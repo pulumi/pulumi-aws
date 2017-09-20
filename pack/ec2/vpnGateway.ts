@@ -18,8 +18,8 @@ export class VpnGateway extends fabric.Resource {
 }
 
 export interface VpnGatewayArgs {
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

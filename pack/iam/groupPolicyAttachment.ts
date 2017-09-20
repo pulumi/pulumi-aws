@@ -25,7 +25,7 @@ export class GroupPolicyAttachment extends fabric.Resource {
 }
 
 export interface GroupPolicyAttachmentArgs {
-    readonly group: fabric.MaybeComputed<Group>;
-    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly group: fabric.ComputedValue<Group>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
 }
 

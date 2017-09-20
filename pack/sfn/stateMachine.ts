@@ -28,8 +28,8 @@ export class StateMachine extends fabric.Resource {
 }
 
 export interface StateMachineArgs {
-    readonly definition: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly definition: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly roleArn: fabric.ComputedValue<string>;
 }
 

@@ -28,10 +28,10 @@ export class Response extends fabric.Resource {
 }
 
 export interface ResponseArgs {
-    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
-    readonly responseType: fabric.MaybeComputed<string>;
-    readonly restApiId: fabric.MaybeComputed<string>;
-    readonly statusCode?: fabric.MaybeComputed<string>;
+    readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly responseTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    readonly responseType: fabric.ComputedValue<string>;
+    readonly restApiId: fabric.ComputedValue<string>;
+    readonly statusCode?: fabric.ComputedValue<string>;
 }
 

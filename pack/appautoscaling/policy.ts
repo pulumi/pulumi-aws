@@ -54,16 +54,16 @@ export class Policy extends fabric.Resource {
 }
 
 export interface PolicyArgs {
-    readonly adjustmentType: fabric.MaybeComputed<string>;
-    readonly alarms?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly cooldown: fabric.MaybeComputed<number>;
-    readonly metricAggregationType: fabric.MaybeComputed<string>;
-    readonly minAdjustmentMagnitude?: fabric.MaybeComputed<number>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly policyType?: fabric.MaybeComputed<string>;
-    readonly resourceId: fabric.MaybeComputed<string>;
-    readonly scalableDimension: fabric.MaybeComputed<string>;
-    readonly serviceNamespace: fabric.MaybeComputed<string>;
-    readonly stepAdjustment?: fabric.MaybeComputed<{ metricIntervalLowerBound?: fabric.MaybeComputed<string>, metricIntervalUpperBound?: fabric.MaybeComputed<string>, scalingAdjustment: fabric.MaybeComputed<number> }>[];
+    readonly adjustmentType: fabric.ComputedValue<string>;
+    readonly alarms?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly cooldown: fabric.ComputedValue<number>;
+    readonly metricAggregationType: fabric.ComputedValue<string>;
+    readonly minAdjustmentMagnitude?: fabric.ComputedValue<number>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly policyType?: fabric.ComputedValue<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
+    readonly scalableDimension: fabric.ComputedValue<string>;
+    readonly serviceNamespace: fabric.ComputedValue<string>;
+    readonly stepAdjustment?: fabric.ComputedValue<{ metricIntervalLowerBound?: fabric.ComputedValue<string>, metricIntervalUpperBound?: fabric.ComputedValue<string>, scalingAdjustment: fabric.ComputedValue<number> }>[];
 }
 

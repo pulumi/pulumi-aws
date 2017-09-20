@@ -43,14 +43,14 @@ export class TargetGroup extends fabric.Resource {
 }
 
 export interface TargetGroupArgs {
-    readonly deregistrationDelay?: fabric.MaybeComputed<number>;
-    readonly healthChecks?: fabric.MaybeComputed<{ healthyThreshold?: fabric.MaybeComputed<number>, interval?: fabric.MaybeComputed<number>, matcher?: fabric.MaybeComputed<string>, path?: fabric.MaybeComputed<string>, port?: fabric.MaybeComputed<string>, protocol?: fabric.MaybeComputed<string>, timeout?: fabric.MaybeComputed<number>, unhealthyThreshold?: fabric.MaybeComputed<number> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly port: fabric.MaybeComputed<number>;
-    readonly protocol: fabric.MaybeComputed<string>;
-    readonly stickiness?: fabric.MaybeComputed<{ cookieDuration?: fabric.MaybeComputed<number>, enabled?: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly deregistrationDelay?: fabric.ComputedValue<number>;
+    readonly healthChecks?: fabric.ComputedValue<{ healthyThreshold?: fabric.ComputedValue<number>, interval?: fabric.ComputedValue<number>, matcher?: fabric.ComputedValue<string>, path?: fabric.ComputedValue<string>, port?: fabric.ComputedValue<string>, protocol?: fabric.ComputedValue<string>, timeout?: fabric.ComputedValue<number>, unhealthyThreshold?: fabric.ComputedValue<number> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly port: fabric.ComputedValue<number>;
+    readonly protocol: fabric.ComputedValue<string>;
+    readonly stickiness?: fabric.ComputedValue<{ cookieDuration?: fabric.ComputedValue<number>, enabled?: fabric.ComputedValue<boolean>, type: fabric.ComputedValue<string> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

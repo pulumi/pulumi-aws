@@ -34,9 +34,9 @@ export class ListenerRule extends fabric.Resource {
 }
 
 export interface ListenerRuleArgs {
-    readonly actions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly conditions: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, values?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly listenerArn: fabric.MaybeComputed<string>;
-    readonly priority: fabric.MaybeComputed<number>;
+    readonly actions: fabric.ComputedValue<{ targetGroupArn: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly conditions: fabric.ComputedValue<{ field?: fabric.ComputedValue<string>, values?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly listenerArn: fabric.ComputedValue<string>;
+    readonly priority: fabric.ComputedValue<number>;
 }
 

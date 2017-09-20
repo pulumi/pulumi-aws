@@ -30,11 +30,11 @@ export class EventDestination extends fabric.Resource {
 }
 
 export interface EventDestinationArgs {
-    readonly cloudwatchDestination?: fabric.MaybeComputed<{ defaultValue: fabric.MaybeComputed<string>, dimensionName: fabric.MaybeComputed<string>, valueSource: fabric.MaybeComputed<string> }>[];
-    readonly configurationSetName: fabric.MaybeComputed<string>;
-    readonly enabled?: fabric.MaybeComputed<boolean>;
-    readonly kinesisDestination?: fabric.MaybeComputed<{ roleArn: fabric.MaybeComputed<string>, streamArn: fabric.MaybeComputed<string> }>[];
-    readonly matchingTypes: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly cloudwatchDestination?: fabric.ComputedValue<{ defaultValue: fabric.ComputedValue<string>, dimensionName: fabric.ComputedValue<string>, valueSource: fabric.ComputedValue<string> }>[];
+    readonly configurationSetName: fabric.ComputedValue<string>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
+    readonly kinesisDestination?: fabric.ComputedValue<{ roleArn: fabric.ComputedValue<string>, streamArn: fabric.ComputedValue<string> }>[];
+    readonly matchingTypes: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly name?: fabric.ComputedValue<string>;
 }
 

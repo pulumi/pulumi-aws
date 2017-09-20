@@ -29,9 +29,9 @@ export class LogMetricFilter extends fabric.Resource {
 }
 
 export interface LogMetricFilterArgs {
-    readonly logGroupName: fabric.MaybeComputed<string>;
-    readonly metricTransformation: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly pattern: fabric.MaybeComputed<string>;
+    readonly logGroupName: fabric.ComputedValue<string>;
+    readonly metricTransformation: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly pattern: fabric.ComputedValue<string>;
 }
 

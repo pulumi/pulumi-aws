@@ -47,16 +47,16 @@ export class SecurityGroupRule extends fabric.Resource {
 }
 
 export interface SecurityGroupRuleArgs {
-    readonly cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly fromPort: fabric.MaybeComputed<number>;
-    readonly ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly protocol: fabric.MaybeComputed<string>;
-    readonly securityGroupId: fabric.MaybeComputed<string>;
-    readonly self?: fabric.MaybeComputed<boolean>;
-    readonly sourceSecurityGroupId?: fabric.MaybeComputed<string>;
-    readonly toPort: fabric.MaybeComputed<number>;
+    readonly cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly fromPort: fabric.ComputedValue<number>;
+    readonly ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly prefixListIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly protocol: fabric.ComputedValue<string>;
+    readonly securityGroupId: fabric.ComputedValue<string>;
+    readonly self?: fabric.ComputedValue<boolean>;
+    readonly sourceSecurityGroupId?: fabric.ComputedValue<string>;
+    readonly toPort: fabric.ComputedValue<number>;
     // Type of rule, ingress (inbound) or egress (outbound).
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

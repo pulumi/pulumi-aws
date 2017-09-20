@@ -27,11 +27,11 @@ export class Stream extends fabric.Resource {
 }
 
 export interface StreamArgs {
-    readonly arn?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly retentionPeriod?: fabric.MaybeComputed<number>;
-    readonly shardCount: fabric.MaybeComputed<number>;
-    readonly shardLevelMetrics?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly arn?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly retentionPeriod?: fabric.ComputedValue<number>;
+    readonly shardCount: fabric.ComputedValue<number>;
+    readonly shardLevelMetrics?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

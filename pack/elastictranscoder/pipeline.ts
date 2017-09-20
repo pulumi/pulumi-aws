@@ -40,15 +40,15 @@ export class Pipeline extends fabric.Resource {
 }
 
 export interface PipelineArgs {
-    readonly awsKmsKeyArn?: fabric.MaybeComputed<string>;
-    readonly contentConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];
-    readonly contentConfigPermissions?: fabric.MaybeComputed<{ access?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], grantee?: fabric.MaybeComputed<string>, granteeType?: fabric.MaybeComputed<string> }>[];
-    readonly inputBucket: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly notifications?: fabric.MaybeComputed<{ completed?: fabric.MaybeComputed<string>, error?: fabric.MaybeComputed<string>, progressing?: fabric.MaybeComputed<string>, warning?: fabric.MaybeComputed<string> }>[];
-    readonly outputBucket?: fabric.MaybeComputed<string>;
-    readonly role: fabric.MaybeComputed<string>;
-    readonly thumbnailConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];
-    readonly thumbnailConfigPermissions?: fabric.MaybeComputed<{ access?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], grantee?: fabric.MaybeComputed<string>, granteeType?: fabric.MaybeComputed<string> }>[];
+    readonly awsKmsKeyArn?: fabric.ComputedValue<string>;
+    readonly contentConfig?: fabric.ComputedValue<{ bucket?: fabric.ComputedValue<string>, storageClass?: fabric.ComputedValue<string> }>[];
+    readonly contentConfigPermissions?: fabric.ComputedValue<{ access?: fabric.ComputedValue<fabric.ComputedValue<string>>[], grantee?: fabric.ComputedValue<string>, granteeType?: fabric.ComputedValue<string> }>[];
+    readonly inputBucket: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly notifications?: fabric.ComputedValue<{ completed?: fabric.ComputedValue<string>, error?: fabric.ComputedValue<string>, progressing?: fabric.ComputedValue<string>, warning?: fabric.ComputedValue<string> }>[];
+    readonly outputBucket?: fabric.ComputedValue<string>;
+    readonly role: fabric.ComputedValue<string>;
+    readonly thumbnailConfig?: fabric.ComputedValue<{ bucket?: fabric.ComputedValue<string>, storageClass?: fabric.ComputedValue<string> }>[];
+    readonly thumbnailConfigPermissions?: fabric.ComputedValue<{ access?: fabric.ComputedValue<fabric.ComputedValue<string>>[], grantee?: fabric.ComputedValue<string>, granteeType?: fabric.ComputedValue<string> }>[];
 }
 

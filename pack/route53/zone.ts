@@ -30,12 +30,12 @@ export class Zone extends fabric.Resource {
 }
 
 export interface ZoneArgs {
-    readonly comment?: fabric.MaybeComputed<string>;
-    readonly delegationSetId?: fabric.MaybeComputed<string>;
-    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId?: fabric.MaybeComputed<string>;
-    readonly vpcRegion?: fabric.MaybeComputed<string>;
+    readonly comment?: fabric.ComputedValue<string>;
+    readonly delegationSetId?: fabric.ComputedValue<string>;
+    readonly forceDestroy?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId?: fabric.ComputedValue<string>;
+    readonly vpcRegion?: fabric.ComputedValue<string>;
 }
 

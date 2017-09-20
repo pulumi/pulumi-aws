@@ -54,17 +54,17 @@ export class Table extends fabric.Resource {
 }
 
 export interface TableArgs {
-    readonly attribute: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly globalSecondaryIndex?: fabric.MaybeComputed<{ hashKey: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, nonKeyAttributes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], projectionType: fabric.MaybeComputed<string>, rangeKey?: fabric.MaybeComputed<string>, readCapacity: fabric.MaybeComputed<number>, writeCapacity: fabric.MaybeComputed<number> }>[];
-    readonly hashKey: fabric.MaybeComputed<string>;
-    readonly localSecondaryIndex?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, nonKeyAttributes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], projectionType: fabric.MaybeComputed<string>, rangeKey: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly rangeKey?: fabric.MaybeComputed<string>;
-    readonly readCapacity: fabric.MaybeComputed<number>;
-    readonly streamEnabled?: fabric.MaybeComputed<boolean>;
-    readonly streamViewType?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly ttl?: fabric.MaybeComputed<{ attributeName: fabric.MaybeComputed<string>, enabled: fabric.MaybeComputed<boolean> }>[];
-    readonly writeCapacity: fabric.MaybeComputed<number>;
+    readonly attribute: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly globalSecondaryIndex?: fabric.ComputedValue<{ hashKey: fabric.ComputedValue<string>, name: fabric.ComputedValue<string>, nonKeyAttributes?: fabric.ComputedValue<fabric.ComputedValue<string>>[], projectionType: fabric.ComputedValue<string>, rangeKey?: fabric.ComputedValue<string>, readCapacity: fabric.ComputedValue<number>, writeCapacity: fabric.ComputedValue<number> }>[];
+    readonly hashKey: fabric.ComputedValue<string>;
+    readonly localSecondaryIndex?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, nonKeyAttributes?: fabric.ComputedValue<fabric.ComputedValue<string>>[], projectionType: fabric.ComputedValue<string>, rangeKey: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly rangeKey?: fabric.ComputedValue<string>;
+    readonly readCapacity: fabric.ComputedValue<number>;
+    readonly streamEnabled?: fabric.ComputedValue<boolean>;
+    readonly streamViewType?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly ttl?: fabric.ComputedValue<{ attributeName: fabric.ComputedValue<string>, enabled: fabric.ComputedValue<boolean> }>[];
+    readonly writeCapacity: fabric.ComputedValue<number>;
 }
 

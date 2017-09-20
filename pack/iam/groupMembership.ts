@@ -24,8 +24,8 @@ export class GroupMembership extends fabric.Resource {
 }
 
 export interface GroupMembershipArgs {
-    readonly group: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly users: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly group: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly users: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

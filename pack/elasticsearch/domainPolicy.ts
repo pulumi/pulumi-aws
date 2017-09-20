@@ -22,7 +22,7 @@ export class DomainPolicy extends fabric.Resource {
 }
 
 export interface DomainPolicyArgs {
-    readonly accessPolicies: fabric.MaybeComputed<string>;
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly accessPolicies: fabric.ComputedValue<string>;
+    readonly domainName: fabric.ComputedValue<string>;
 }
 

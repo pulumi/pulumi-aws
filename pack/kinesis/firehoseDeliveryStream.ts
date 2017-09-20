@@ -34,13 +34,13 @@ export class FirehoseDeliveryStream extends fabric.Resource {
 }
 
 export interface FirehoseDeliveryStreamArgs {
-    readonly arn?: fabric.MaybeComputed<string>;
-    readonly destination: fabric.MaybeComputed<string>;
-    readonly destinationId?: fabric.MaybeComputed<string>;
-    readonly elasticsearchConfiguration?: fabric.MaybeComputed<{ bufferingInterval?: fabric.MaybeComputed<number>, bufferingSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], domainArn: fabric.MaybeComputed<string>, indexName: fabric.MaybeComputed<string>, indexRotationPeriod?: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, s3BackupMode?: fabric.MaybeComputed<string>, typeName?: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly redshiftConfiguration?: fabric.MaybeComputed<{ cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], clusterJdbcurl: fabric.MaybeComputed<string>, copyOptions?: fabric.MaybeComputed<string>, dataTableColumns?: fabric.MaybeComputed<string>, dataTableName: fabric.MaybeComputed<string>, password: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, username: fabric.MaybeComputed<string> }>[];
-    readonly s3Configuration: fabric.MaybeComputed<{ bucketArn: fabric.MaybeComputed<string>, bufferInterval?: fabric.MaybeComputed<number>, bufferSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], compressionFormat?: fabric.MaybeComputed<string>, kmsKeyArn?: fabric.MaybeComputed<string>, prefix?: fabric.MaybeComputed<string>, roleArn: fabric.MaybeComputed<string> }>[];
-    readonly versionId?: fabric.MaybeComputed<string>;
+    readonly arn?: fabric.ComputedValue<string>;
+    readonly destination: fabric.ComputedValue<string>;
+    readonly destinationId?: fabric.ComputedValue<string>;
+    readonly elasticsearchConfiguration?: fabric.ComputedValue<{ bufferingInterval?: fabric.ComputedValue<number>, bufferingSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], domainArn: fabric.ComputedValue<string>, indexName: fabric.ComputedValue<string>, indexRotationPeriod?: fabric.ComputedValue<string>, retryDuration?: fabric.ComputedValue<number>, roleArn: fabric.ComputedValue<string>, s3BackupMode?: fabric.ComputedValue<string>, typeName?: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly redshiftConfiguration?: fabric.ComputedValue<{ cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], clusterJdbcurl: fabric.ComputedValue<string>, copyOptions?: fabric.ComputedValue<string>, dataTableColumns?: fabric.ComputedValue<string>, dataTableName: fabric.ComputedValue<string>, password: fabric.ComputedValue<string>, retryDuration?: fabric.ComputedValue<number>, roleArn: fabric.ComputedValue<string>, username: fabric.ComputedValue<string> }>[];
+    readonly s3Configuration: fabric.ComputedValue<{ bucketArn: fabric.ComputedValue<string>, bufferInterval?: fabric.ComputedValue<number>, bufferSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], compressionFormat?: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, prefix?: fabric.ComputedValue<string>, roleArn: fabric.ComputedValue<string> }>[];
+    readonly versionId?: fabric.ComputedValue<string>;
 }
 

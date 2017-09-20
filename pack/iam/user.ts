@@ -23,8 +23,8 @@ export class User extends fabric.Resource {
 
 export interface UserArgs {
     // Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
-    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly forceDestroy?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly path?: fabric.ComputedValue<string>;
 }
 

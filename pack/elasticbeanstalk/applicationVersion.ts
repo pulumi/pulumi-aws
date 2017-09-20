@@ -36,11 +36,11 @@ export class ApplicationVersion extends fabric.Resource {
 }
 
 export interface ApplicationVersionArgs {
-    readonly application: fabric.MaybeComputed<Application>;
-    readonly bucket: fabric.MaybeComputed<Bucket>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly forceDelete?: fabric.MaybeComputed<boolean>;
-    readonly key: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly application: fabric.ComputedValue<Application>;
+    readonly bucket: fabric.ComputedValue<Bucket>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly forceDelete?: fabric.ComputedValue<boolean>;
+    readonly key: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

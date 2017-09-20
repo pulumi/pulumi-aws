@@ -29,9 +29,9 @@ export class Pipeline extends fabric.Resource {
 }
 
 export interface PipelineArgs {
-    readonly artifactStore: fabric.MaybeComputed<{ encryptionKey?: fabric.MaybeComputed<{ id: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], location: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly roleArn: fabric.MaybeComputed<string>;
-    readonly stage: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ category: fabric.MaybeComputed<string>, configuration?: fabric.MaybeComputed<{[key: string]: any}>, inputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string>, outputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], owner: fabric.MaybeComputed<string>, provider: fabric.MaybeComputed<string>, roleArn?: fabric.MaybeComputed<string>, runOrder?: fabric.MaybeComputed<number>, version: fabric.MaybeComputed<string> }>[], name: fabric.MaybeComputed<string> }>[];
+    readonly artifactStore: fabric.ComputedValue<{ encryptionKey?: fabric.ComputedValue<{ id: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], location: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly roleArn: fabric.ComputedValue<string>;
+    readonly stage: fabric.ComputedValue<{ action: fabric.ComputedValue<{ category: fabric.ComputedValue<string>, configuration?: fabric.ComputedValue<{[key: string]: any}>, inputArtifacts?: fabric.ComputedValue<fabric.ComputedValue<string>>[], name: fabric.ComputedValue<string>, outputArtifacts?: fabric.ComputedValue<fabric.ComputedValue<string>>[], owner: fabric.ComputedValue<string>, provider: fabric.ComputedValue<string>, roleArn?: fabric.ComputedValue<string>, runOrder?: fabric.ComputedValue<number>, version: fabric.ComputedValue<string> }>[], name: fabric.ComputedValue<string> }>[];
 }
 

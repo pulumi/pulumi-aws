@@ -42,10 +42,10 @@ export class DefaultVpc extends fabric.Resource {
 }
 
 export interface DefaultVpcArgs {
-    readonly enableClassiclink?: fabric.MaybeComputed<boolean>;
-    readonly enableClassiclinkDnsSupport?: fabric.MaybeComputed<boolean>;
-    readonly enableDnsHostnames?: fabric.MaybeComputed<boolean>;
-    readonly enableDnsSupport?: fabric.MaybeComputed<boolean>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly enableClassiclink?: fabric.ComputedValue<boolean>;
+    readonly enableClassiclinkDnsSupport?: fabric.ComputedValue<boolean>;
+    readonly enableDnsHostnames?: fabric.ComputedValue<boolean>;
+    readonly enableDnsSupport?: fabric.ComputedValue<boolean>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

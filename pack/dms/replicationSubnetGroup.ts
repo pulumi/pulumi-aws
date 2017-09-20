@@ -33,9 +33,9 @@ export class ReplicationSubnetGroup extends fabric.Resource {
 }
 
 export interface ReplicationSubnetGroupArgs {
-    readonly replicationSubnetGroupDescription: fabric.MaybeComputed<string>;
-    readonly replicationSubnetGroupId: fabric.MaybeComputed<string>;
-    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly replicationSubnetGroupDescription: fabric.ComputedValue<string>;
+    readonly replicationSubnetGroupId: fabric.ComputedValue<string>;
+    readonly subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

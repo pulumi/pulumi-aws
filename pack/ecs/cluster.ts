@@ -14,6 +14,6 @@ export class Cluster extends fabric.Resource {
 }
 
 export interface ClusterArgs {
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

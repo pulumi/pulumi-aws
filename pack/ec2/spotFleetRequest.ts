@@ -48,15 +48,15 @@ export class SpotFleetRequest extends fabric.Resource {
 }
 
 export interface SpotFleetRequestArgs {
-    readonly allocationStrategy?: fabric.MaybeComputed<string>;
-    readonly excessCapacityTerminationPolicy?: fabric.MaybeComputed<string>;
-    readonly iamFleetRole: fabric.MaybeComputed<string>;
-    readonly launchSpecification: fabric.MaybeComputed<{ ami: fabric.MaybeComputed<string>, associatePublicIpAddress?: fabric.MaybeComputed<boolean>, availabilityZone?: fabric.MaybeComputed<string>, ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], ebsOptimized?: fabric.MaybeComputed<boolean>, ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[], iamInstanceProfile?: fabric.MaybeComputed<string>, instanceType: fabric.MaybeComputed<string>, keyName?: fabric.MaybeComputed<string>, monitoring?: fabric.MaybeComputed<boolean>, placementGroup?: fabric.MaybeComputed<string>, placementTenancy?: fabric.MaybeComputed<string>, rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], spotPrice?: fabric.MaybeComputed<string>, subnetId?: fabric.MaybeComputed<string>, userData?: fabric.MaybeComputed<string>, vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], weightedCapacity?: fabric.MaybeComputed<string> }>[];
-    readonly replaceUnhealthyInstances?: fabric.MaybeComputed<boolean>;
-    readonly spotPrice: fabric.MaybeComputed<string>;
-    readonly targetCapacity: fabric.MaybeComputed<number>;
-    readonly terminateInstancesWithExpiration?: fabric.MaybeComputed<boolean>;
-    readonly validFrom?: fabric.MaybeComputed<string>;
-    readonly validUntil?: fabric.MaybeComputed<string>;
+    readonly allocationStrategy?: fabric.ComputedValue<string>;
+    readonly excessCapacityTerminationPolicy?: fabric.ComputedValue<string>;
+    readonly iamFleetRole: fabric.ComputedValue<string>;
+    readonly launchSpecification: fabric.ComputedValue<{ ami: fabric.ComputedValue<string>, associatePublicIpAddress?: fabric.ComputedValue<boolean>, availabilityZone?: fabric.ComputedValue<string>, ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[], ebsOptimized?: fabric.ComputedValue<boolean>, ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[], iamInstanceProfile?: fabric.ComputedValue<string>, instanceType: fabric.ComputedValue<string>, keyName?: fabric.ComputedValue<string>, monitoring?: fabric.ComputedValue<boolean>, placementGroup?: fabric.ComputedValue<string>, placementTenancy?: fabric.ComputedValue<string>, rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[], spotPrice?: fabric.ComputedValue<string>, subnetId?: fabric.ComputedValue<string>, userData?: fabric.ComputedValue<string>, vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[], weightedCapacity?: fabric.ComputedValue<string> }>[];
+    readonly replaceUnhealthyInstances?: fabric.ComputedValue<boolean>;
+    readonly spotPrice: fabric.ComputedValue<string>;
+    readonly targetCapacity: fabric.ComputedValue<number>;
+    readonly terminateInstancesWithExpiration?: fabric.ComputedValue<boolean>;
+    readonly validFrom?: fabric.ComputedValue<string>;
+    readonly validUntil?: fabric.ComputedValue<string>;
 }
 

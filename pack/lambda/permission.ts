@@ -37,12 +37,12 @@ export class Permission extends fabric.Resource {
 }
 
 export interface PermissionArgs {
-    readonly action: fabric.MaybeComputed<string>;
-    readonly function: fabric.MaybeComputed<Function>;
-    readonly principal: fabric.MaybeComputed<string>;
-    readonly qualifier?: fabric.MaybeComputed<string>;
-    readonly sourceAccount?: fabric.MaybeComputed<string>;
-    readonly sourceArn?: fabric.MaybeComputed<string>;
-    readonly statementId?: fabric.MaybeComputed<string>;
+    readonly action: fabric.ComputedValue<string>;
+    readonly function: fabric.ComputedValue<Function>;
+    readonly principal: fabric.ComputedValue<string>;
+    readonly qualifier?: fabric.ComputedValue<string>;
+    readonly sourceAccount?: fabric.ComputedValue<string>;
+    readonly sourceArn?: fabric.ComputedValue<string>;
+    readonly statementId?: fabric.ComputedValue<string>;
 }
 

@@ -30,9 +30,9 @@ export class Eip extends fabric.Resource {
 }
 
 export interface EipArgs {
-    readonly associateWithPrivateIp?: fabric.MaybeComputed<string>;
-    readonly instance?: fabric.MaybeComputed<string>;
-    readonly networkInterface?: fabric.MaybeComputed<string>;
-    readonly vpc?: fabric.MaybeComputed<boolean>;
+    readonly associateWithPrivateIp?: fabric.ComputedValue<string>;
+    readonly instance?: fabric.ComputedValue<string>;
+    readonly networkInterface?: fabric.ComputedValue<string>;
+    readonly vpc?: fabric.ComputedValue<boolean>;
 }
 

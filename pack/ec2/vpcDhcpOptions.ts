@@ -24,11 +24,11 @@ export class VpcDhcpOptions extends fabric.Resource {
 }
 
 export interface VpcDhcpOptionsArgs {
-    readonly domainName?: fabric.MaybeComputed<string>;
-    readonly domainNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly netbiosNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly netbiosNodeType?: fabric.MaybeComputed<string>;
-    readonly ntpServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly domainName?: fabric.ComputedValue<string>;
+    readonly domainNameServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly netbiosNameServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly netbiosNodeType?: fabric.ComputedValue<string>;
+    readonly ntpServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

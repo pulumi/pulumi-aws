@@ -28,9 +28,9 @@ export class UserProfile extends fabric.Resource {
 }
 
 export interface UserProfileArgs {
-    readonly allowSelfManagement?: fabric.MaybeComputed<boolean>;
-    readonly sshPublicKey?: fabric.MaybeComputed<string>;
-    readonly sshUsername: fabric.MaybeComputed<string>;
-    readonly userArn: fabric.MaybeComputed<string>;
+    readonly allowSelfManagement?: fabric.ComputedValue<boolean>;
+    readonly sshPublicKey?: fabric.ComputedValue<string>;
+    readonly sshUsername: fabric.ComputedValue<string>;
+    readonly userArn: fabric.ComputedValue<string>;
 }
 

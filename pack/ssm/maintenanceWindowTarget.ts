@@ -29,9 +29,9 @@ export class MaintenanceWindowTarget extends fabric.Resource {
 }
 
 export interface MaintenanceWindowTargetArgs {
-    readonly ownerInformation?: fabric.MaybeComputed<string>;
-    readonly resourceType: fabric.MaybeComputed<string>;
-    readonly targets: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly windowId: fabric.MaybeComputed<string>;
+    readonly ownerInformation?: fabric.ComputedValue<string>;
+    readonly resourceType: fabric.ComputedValue<string>;
+    readonly targets: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly windowId: fabric.ComputedValue<string>;
 }
 

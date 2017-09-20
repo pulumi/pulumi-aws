@@ -17,6 +17,6 @@ export class AccountAlias extends fabric.Resource {
 }
 
 export interface AccountAliasArgs {
-    readonly accountAlias: fabric.MaybeComputed<string>;
+    readonly accountAlias: fabric.ComputedValue<string>;
 }
 

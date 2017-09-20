@@ -68,23 +68,23 @@ export class MetricAlarm extends fabric.Resource {
 }
 
 export interface MetricAlarmArgs {
-    readonly actionsEnabled?: fabric.MaybeComputed<boolean>;
-    readonly alarmActions?: fabric.MaybeComputed<fabric.MaybeComputed<Topic>>[];
-    readonly alarmDescription?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly comparisonOperator: fabric.MaybeComputed<string>;
-    readonly dimensions?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly evaluateLowSampleCountPercentiles?: fabric.MaybeComputed<string>;
-    readonly evaluationPeriods: fabric.MaybeComputed<number>;
-    readonly extendedStatistic?: fabric.MaybeComputed<string>;
-    readonly insufficientDataActions?: fabric.MaybeComputed<fabric.MaybeComputed<Topic>>[];
-    readonly metricName: fabric.MaybeComputed<string>;
-    readonly namespace: fabric.MaybeComputed<string>;
-    readonly okActions?: fabric.MaybeComputed<fabric.MaybeComputed<Topic>>[];
-    readonly period: fabric.MaybeComputed<number>;
-    readonly statistic?: fabric.MaybeComputed<string>;
-    readonly threshold: fabric.MaybeComputed<number>;
-    readonly treatMissingData?: fabric.MaybeComputed<string>;
-    readonly unit?: fabric.MaybeComputed<string>;
+    readonly actionsEnabled?: fabric.ComputedValue<boolean>;
+    readonly alarmActions?: fabric.ComputedValue<fabric.ComputedValue<Topic>>[];
+    readonly alarmDescription?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly comparisonOperator: fabric.ComputedValue<string>;
+    readonly dimensions?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly evaluateLowSampleCountPercentiles?: fabric.ComputedValue<string>;
+    readonly evaluationPeriods: fabric.ComputedValue<number>;
+    readonly extendedStatistic?: fabric.ComputedValue<string>;
+    readonly insufficientDataActions?: fabric.ComputedValue<fabric.ComputedValue<Topic>>[];
+    readonly metricName: fabric.ComputedValue<string>;
+    readonly namespace: fabric.ComputedValue<string>;
+    readonly okActions?: fabric.ComputedValue<fabric.ComputedValue<Topic>>[];
+    readonly period: fabric.ComputedValue<number>;
+    readonly statistic?: fabric.ComputedValue<string>;
+    readonly threshold: fabric.ComputedValue<number>;
+    readonly treatMissingData?: fabric.ComputedValue<string>;
+    readonly unit?: fabric.ComputedValue<string>;
 }
 

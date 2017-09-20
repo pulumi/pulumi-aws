@@ -37,15 +37,15 @@ export class Preset extends fabric.Resource {
 }
 
 export interface PresetArgs {
-    readonly audio?: fabric.MaybeComputed<{ audioPackingMode?: fabric.MaybeComputed<string>, bitRate?: fabric.MaybeComputed<string>, channels?: fabric.MaybeComputed<string>, codec?: fabric.MaybeComputed<string>, sampleRate?: fabric.MaybeComputed<string> }>[];
-    readonly audioCodecOptions?: fabric.MaybeComputed<{ bitDepth?: fabric.MaybeComputed<string>, bitOrder?: fabric.MaybeComputed<string>, profile?: fabric.MaybeComputed<string>, signed?: fabric.MaybeComputed<string> }>[];
-    readonly container: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly thumbnails?: fabric.MaybeComputed<{ aspectRatio?: fabric.MaybeComputed<string>, format?: fabric.MaybeComputed<string>, interval?: fabric.MaybeComputed<string>, maxHeight?: fabric.MaybeComputed<string>, maxWidth?: fabric.MaybeComputed<string>, paddingPolicy?: fabric.MaybeComputed<string>, resolution?: fabric.MaybeComputed<string>, sizingPolicy?: fabric.MaybeComputed<string> }>[];
-    readonly type?: fabric.MaybeComputed<string>;
-    readonly video?: fabric.MaybeComputed<{ aspectRatio?: fabric.MaybeComputed<string>, bitRate?: fabric.MaybeComputed<string>, codec?: fabric.MaybeComputed<string>, displayAspectRatio?: fabric.MaybeComputed<string>, fixedGop?: fabric.MaybeComputed<string>, frameRate?: fabric.MaybeComputed<string>, keyframesMaxDist?: fabric.MaybeComputed<string>, maxFrameRate?: fabric.MaybeComputed<string>, maxHeight?: fabric.MaybeComputed<string>, maxWidth?: fabric.MaybeComputed<string>, paddingPolicy?: fabric.MaybeComputed<string>, resolution?: fabric.MaybeComputed<string>, sizingPolicy?: fabric.MaybeComputed<string> }>[];
-    readonly videoCodecOptions?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly videoWatermarks?: fabric.MaybeComputed<{ horizontalAlign?: fabric.MaybeComputed<string>, horizontalOffset?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, maxHeight?: fabric.MaybeComputed<string>, maxWidth?: fabric.MaybeComputed<string>, opacity?: fabric.MaybeComputed<string>, sizingPolicy?: fabric.MaybeComputed<string>, target?: fabric.MaybeComputed<string>, verticalAlign?: fabric.MaybeComputed<string>, verticalOffset?: fabric.MaybeComputed<string> }>[];
+    readonly audio?: fabric.ComputedValue<{ audioPackingMode?: fabric.ComputedValue<string>, bitRate?: fabric.ComputedValue<string>, channels?: fabric.ComputedValue<string>, codec?: fabric.ComputedValue<string>, sampleRate?: fabric.ComputedValue<string> }>[];
+    readonly audioCodecOptions?: fabric.ComputedValue<{ bitDepth?: fabric.ComputedValue<string>, bitOrder?: fabric.ComputedValue<string>, profile?: fabric.ComputedValue<string>, signed?: fabric.ComputedValue<string> }>[];
+    readonly container: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly thumbnails?: fabric.ComputedValue<{ aspectRatio?: fabric.ComputedValue<string>, format?: fabric.ComputedValue<string>, interval?: fabric.ComputedValue<string>, maxHeight?: fabric.ComputedValue<string>, maxWidth?: fabric.ComputedValue<string>, paddingPolicy?: fabric.ComputedValue<string>, resolution?: fabric.ComputedValue<string>, sizingPolicy?: fabric.ComputedValue<string> }>[];
+    readonly type?: fabric.ComputedValue<string>;
+    readonly video?: fabric.ComputedValue<{ aspectRatio?: fabric.ComputedValue<string>, bitRate?: fabric.ComputedValue<string>, codec?: fabric.ComputedValue<string>, displayAspectRatio?: fabric.ComputedValue<string>, fixedGop?: fabric.ComputedValue<string>, frameRate?: fabric.ComputedValue<string>, keyframesMaxDist?: fabric.ComputedValue<string>, maxFrameRate?: fabric.ComputedValue<string>, maxHeight?: fabric.ComputedValue<string>, maxWidth?: fabric.ComputedValue<string>, paddingPolicy?: fabric.ComputedValue<string>, resolution?: fabric.ComputedValue<string>, sizingPolicy?: fabric.ComputedValue<string> }>[];
+    readonly videoCodecOptions?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly videoWatermarks?: fabric.ComputedValue<{ horizontalAlign?: fabric.ComputedValue<string>, horizontalOffset?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, maxHeight?: fabric.ComputedValue<string>, maxWidth?: fabric.ComputedValue<string>, opacity?: fabric.ComputedValue<string>, sizingPolicy?: fabric.ComputedValue<string>, target?: fabric.ComputedValue<string>, verticalAlign?: fabric.ComputedValue<string>, verticalOffset?: fabric.ComputedValue<string> }>[];
 }
 

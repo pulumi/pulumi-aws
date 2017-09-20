@@ -34,13 +34,13 @@ export class EventTarget extends fabric.Resource {
 }
 
 export interface EventTargetArgs {
-    readonly arn: fabric.MaybeComputed<string>;
-    readonly ecsTarget?: fabric.MaybeComputed<{ taskCount?: fabric.MaybeComputed<number>, taskDefinitionArn: fabric.MaybeComputed<string> }>[];
-    readonly input?: fabric.MaybeComputed<string>;
-    readonly inputPath?: fabric.MaybeComputed<string>;
-    readonly roleArn?: fabric.MaybeComputed<string>;
-    readonly rule: fabric.MaybeComputed<string>;
-    readonly runCommandTargets?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly targetId?: fabric.MaybeComputed<string>;
+    readonly arn: fabric.ComputedValue<string>;
+    readonly ecsTarget?: fabric.ComputedValue<{ taskCount?: fabric.ComputedValue<number>, taskDefinitionArn: fabric.ComputedValue<string> }>[];
+    readonly input?: fabric.ComputedValue<string>;
+    readonly inputPath?: fabric.ComputedValue<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
+    readonly rule: fabric.ComputedValue<string>;
+    readonly runCommandTargets?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly targetId?: fabric.ComputedValue<string>;
 }
 

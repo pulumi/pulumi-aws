@@ -35,11 +35,11 @@ export class Role extends fabric.Resource {
 }
 
 export interface RoleArgs {
-    readonly assumeRolePolicy: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly forceDetachPolicies?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly assumeRolePolicy: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly forceDetachPolicies?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly path?: fabric.ComputedValue<string>;
 }
 

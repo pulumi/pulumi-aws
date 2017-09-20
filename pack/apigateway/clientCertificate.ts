@@ -20,6 +20,6 @@ export class ClientCertificate extends fabric.Resource {
 }
 
 export interface ClientCertificateArgs {
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
 }
 

@@ -54,22 +54,22 @@ export class Application extends fabric.Resource {
 }
 
 export interface ApplicationArgs {
-    readonly appSource?: fabric.MaybeComputed<{ password?: fabric.MaybeComputed<string>, revision?: fabric.MaybeComputed<string>, sshKey?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string>, url?: fabric.MaybeComputed<string>, username?: fabric.MaybeComputed<string> }>[];
-    readonly autoBundleOnDeploy?: fabric.MaybeComputed<string>;
-    readonly awsFlowRubySettings?: fabric.MaybeComputed<string>;
-    readonly dataSourceArn?: fabric.MaybeComputed<string>;
-    readonly dataSourceDatabaseName?: fabric.MaybeComputed<string>;
-    readonly dataSourceType?: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly documentRoot?: fabric.MaybeComputed<string>;
-    readonly domains?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly enableSsl?: fabric.MaybeComputed<boolean>;
-    readonly environment?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, secure?: fabric.MaybeComputed<boolean>, value: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly railsEnv?: fabric.MaybeComputed<string>;
-    readonly shortName?: fabric.MaybeComputed<string>;
-    readonly sslConfiguration?: fabric.MaybeComputed<{ certificate: fabric.MaybeComputed<string>, chain?: fabric.MaybeComputed<string>, privateKey: fabric.MaybeComputed<string> }>[];
-    readonly stackId: fabric.MaybeComputed<string>;
-    readonly type: fabric.MaybeComputed<string>;
+    readonly appSource?: fabric.ComputedValue<{ password?: fabric.ComputedValue<string>, revision?: fabric.ComputedValue<string>, sshKey?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string>, url?: fabric.ComputedValue<string>, username?: fabric.ComputedValue<string> }>[];
+    readonly autoBundleOnDeploy?: fabric.ComputedValue<string>;
+    readonly awsFlowRubySettings?: fabric.ComputedValue<string>;
+    readonly dataSourceArn?: fabric.ComputedValue<string>;
+    readonly dataSourceDatabaseName?: fabric.ComputedValue<string>;
+    readonly dataSourceType?: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly documentRoot?: fabric.ComputedValue<string>;
+    readonly domains?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly enableSsl?: fabric.ComputedValue<boolean>;
+    readonly environment?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, secure?: fabric.ComputedValue<boolean>, value: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly railsEnv?: fabric.ComputedValue<string>;
+    readonly shortName?: fabric.ComputedValue<string>;
+    readonly sslConfiguration?: fabric.ComputedValue<{ certificate: fabric.ComputedValue<string>, chain?: fabric.ComputedValue<string>, privateKey: fabric.ComputedValue<string> }>[];
+    readonly stackId: fabric.ComputedValue<string>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

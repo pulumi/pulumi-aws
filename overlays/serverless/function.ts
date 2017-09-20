@@ -149,8 +149,8 @@ function envArrToString(envArr: (string | undefined)[]): string {
     return "[ " + result + " ]";
 }
 
-function serializeClosureText(closure: fabric.Computed<fabric.runtime.Closure>): fabric.asset.StringAsset {
-    return new fabric.asset.StringAsset(closure.mapValue((c: fabric.runtime.Closure) => {
+function serializeClosureText(closure: Promise<fabric.runtime.Closure>): fabric.asset.StringAsset {
+    return new fabric.asset.StringAsset(closure.then((c: fabric.runtime.Closure) => {
         // Ensure the closure is targeting a supported runtime.
         if (c.runtime !== "nodejs") {
             throw new Error(`Runtime '${c.runtime}' not yet supported (currently only 'nodejs')`);
@@ -178,7 +178,7 @@ function serializeClosureText(closure: fabric.Computed<fabric.runtime.Closure>):
 
 function createJavaScriptLambda(
     functionName: string, role: Role,
-    closure: fabric.Computed<fabric.runtime.Closure>, opts: FunctionOptions): lambda.Function {
+    closure: Promise<fabric.runtime.Closure>, opts: FunctionOptions): lambda.Function {
     return new lambda.Function(functionName, {
         code: new fabric.asset.AssetArchive({
             "node_modules": new fabric.asset.FileAsset("node_modules"),
@@ -197,7 +197,7 @@ export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
-    deadLetterConfig?: { targetArn: fabric.MaybeComputed<string>; };
+    deadLetterConfig?: { targetArn: fabric.Computed<string>; };
 }
 
 // Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
@@ -214,8 +214,7 @@ export class Function {
         if (!func) {
             throw new Error("Missing required function callback");
         }
-        let closure: fabric.Computed<fabric.runtime.Closure> =
-            fabric.runtime.serializeClosure(func);
+        let closure: Promise<fabric.runtime.Closure> = fabric.runtime.serializeClosure(func);
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }

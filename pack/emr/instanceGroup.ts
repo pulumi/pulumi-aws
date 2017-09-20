@@ -34,11 +34,11 @@ export class InstanceGroup extends fabric.Resource {
 }
 
 export interface InstanceGroupArgs {
-    readonly clusterId: fabric.MaybeComputed<string>;
-    readonly ebsConfig?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, size: fabric.MaybeComputed<number>, type: fabric.MaybeComputed<string>, volumesPerInstance?: fabric.MaybeComputed<number> }>[];
-    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
-    readonly instanceCount?: fabric.MaybeComputed<number>;
-    readonly instanceType: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly clusterId: fabric.ComputedValue<string>;
+    readonly ebsConfig?: fabric.ComputedValue<{ iops?: fabric.ComputedValue<number>, size: fabric.ComputedValue<number>, type: fabric.ComputedValue<string>, volumesPerInstance?: fabric.ComputedValue<number> }>[];
+    readonly ebsOptimized?: fabric.ComputedValue<boolean>;
+    readonly instanceCount?: fabric.ComputedValue<number>;
+    readonly instanceType: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

@@ -25,7 +25,7 @@ export class RolePolicyAttachment extends fabric.Resource {
 }
 
 export interface RolePolicyAttachmentArgs {
-    readonly policyArn: fabric.MaybeComputed<ARN>;
-    readonly role: fabric.MaybeComputed<Role>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
+    readonly role: fabric.ComputedValue<Role>;
 }
 

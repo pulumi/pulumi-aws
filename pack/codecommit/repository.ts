@@ -29,8 +29,8 @@ export class Repository extends fabric.Resource {
 }
 
 export interface RepositoryArgs {
-    readonly defaultBranch?: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly repositoryName: fabric.MaybeComputed<string>;
+    readonly defaultBranch?: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly repositoryName: fabric.ComputedValue<string>;
 }
 

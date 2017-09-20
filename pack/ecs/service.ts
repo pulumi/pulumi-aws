@@ -35,15 +35,15 @@ export class Service extends fabric.Resource {
 }
 
 export interface ServiceArgs {
-    readonly cluster?: fabric.MaybeComputed<string>;
-    readonly deploymentMaximumPercent?: fabric.MaybeComputed<number>;
-    readonly deploymentMinimumHealthyPercent?: fabric.MaybeComputed<number>;
-    readonly desiredCount?: fabric.MaybeComputed<number>;
-    readonly iamRole?: fabric.MaybeComputed<string>;
-    readonly loadBalancers?: fabric.MaybeComputed<{ containerName: fabric.MaybeComputed<string>, containerPort: fabric.MaybeComputed<number>, elbName?: fabric.MaybeComputed<string>, targetGroupArn?: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly placementStrategy?: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
-    readonly taskDefinition: fabric.MaybeComputed<string>;
+    readonly cluster?: fabric.ComputedValue<string>;
+    readonly deploymentMaximumPercent?: fabric.ComputedValue<number>;
+    readonly deploymentMinimumHealthyPercent?: fabric.ComputedValue<number>;
+    readonly desiredCount?: fabric.ComputedValue<number>;
+    readonly iamRole?: fabric.ComputedValue<string>;
+    readonly loadBalancers?: fabric.ComputedValue<{ containerName: fabric.ComputedValue<string>, containerPort: fabric.ComputedValue<number>, elbName?: fabric.ComputedValue<string>, targetGroupArn?: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
+    readonly placementConstraints?: fabric.ComputedValue<{ expression?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly placementStrategy?: fabric.ComputedValue<{ field?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    readonly taskDefinition: fabric.ComputedValue<string>;
 }
 

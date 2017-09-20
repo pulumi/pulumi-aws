@@ -24,8 +24,8 @@ export class ListenerPolicy extends fabric.Resource {
 }
 
 export interface ListenerPolicyArgs {
-    readonly loadBalancerName: fabric.MaybeComputed<string>;
-    readonly loadBalancerPort: fabric.MaybeComputed<number>;
-    readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly loadBalancerName: fabric.ComputedValue<string>;
+    readonly loadBalancerPort: fabric.ComputedValue<number>;
+    readonly policyNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

@@ -16,6 +16,6 @@ export class Account extends fabric.Resource {
 }
 
 export interface AccountArgs {
-    readonly cloudwatchRoleArn?: fabric.MaybeComputed<string>;
+    readonly cloudwatchRoleArn?: fabric.ComputedValue<string>;
 }
 

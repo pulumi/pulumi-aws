@@ -26,9 +26,9 @@ export class UserPolicy extends fabric.Resource {
 }
 
 export interface UserPolicyArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly policy: fabric.MaybeComputed<string>;
-    readonly user: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly policy: fabric.ComputedValue<string>;
+    readonly user: fabric.ComputedValue<string>;
 }
 

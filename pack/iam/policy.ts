@@ -27,10 +27,10 @@ export class Policy extends fabric.Resource {
 }
 
 export interface PolicyArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly path?: fabric.MaybeComputed<string>;
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly path?: fabric.ComputedValue<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

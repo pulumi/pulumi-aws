@@ -33,10 +33,10 @@ export class VpcPeeringConnectionAccepter extends fabric.Resource {
 }
 
 export interface VpcPeeringConnectionAccepterArgs {
-    readonly accepter?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
-    readonly autoAccept?: fabric.MaybeComputed<boolean>;
-    readonly requester?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcPeeringConnectionId: fabric.MaybeComputed<string>;
+    readonly accepter?: fabric.ComputedValue<{ allowClassicLinkToRemoteVpc?: fabric.ComputedValue<boolean>, allowRemoteVpcDnsResolution?: fabric.ComputedValue<boolean>, allowVpcToRemoteClassicLink?: fabric.ComputedValue<boolean> }>[];
+    readonly autoAccept?: fabric.ComputedValue<boolean>;
+    readonly requester?: fabric.ComputedValue<{ allowClassicLinkToRemoteVpc?: fabric.ComputedValue<boolean>, allowRemoteVpcDnsResolution?: fabric.ComputedValue<boolean>, allowVpcToRemoteClassicLink?: fabric.ComputedValue<boolean> }>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcPeeringConnectionId: fabric.ComputedValue<string>;
 }
 

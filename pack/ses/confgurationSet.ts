@@ -14,6 +14,6 @@ export class ConfgurationSet extends fabric.Resource {
 }
 
 export interface ConfgurationSetArgs {
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

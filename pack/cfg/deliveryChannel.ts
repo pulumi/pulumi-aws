@@ -25,10 +25,10 @@ export class DeliveryChannel extends fabric.Resource {
 }
 
 export interface DeliveryChannelArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly s3BucketName: fabric.MaybeComputed<string>;
-    readonly s3KeyPrefix?: fabric.MaybeComputed<string>;
-    readonly snapshotDeliveryProperties?: fabric.MaybeComputed<{ deliveryFrequency?: fabric.MaybeComputed<string> }>[];
-    readonly snsTopicArn?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly s3BucketName: fabric.ComputedValue<string>;
+    readonly s3KeyPrefix?: fabric.ComputedValue<string>;
+    readonly snapshotDeliveryProperties?: fabric.ComputedValue<{ deliveryFrequency?: fabric.ComputedValue<string> }>[];
+    readonly snsTopicArn?: fabric.ComputedValue<string>;
 }
 

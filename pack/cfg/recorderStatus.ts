@@ -19,7 +19,7 @@ export class RecorderStatus extends fabric.Resource {
 }
 
 export interface RecorderStatusArgs {
-    readonly isEnabled: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly isEnabled: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

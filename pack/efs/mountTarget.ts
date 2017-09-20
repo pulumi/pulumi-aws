@@ -30,9 +30,9 @@ export class MountTarget extends fabric.Resource {
 }
 
 export interface MountTargetArgs {
-    readonly fileSystemId: fabric.MaybeComputed<string>;
-    readonly ipAddress?: fabric.MaybeComputed<string>;
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly fileSystemId: fabric.ComputedValue<string>;
+    readonly ipAddress?: fabric.ComputedValue<string>;
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly subnetId: fabric.ComputedValue<string>;
 }
 

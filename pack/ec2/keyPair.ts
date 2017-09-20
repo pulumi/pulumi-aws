@@ -23,8 +23,8 @@ export class KeyPair extends fabric.Resource {
 }
 
 export interface KeyPairArgs {
-    readonly keyName?: fabric.MaybeComputed<string>;
-    readonly keyNamePrefix?: fabric.MaybeComputed<string>;
-    readonly publicKey: fabric.MaybeComputed<string>;
+    readonly keyName?: fabric.ComputedValue<string>;
+    readonly keyNamePrefix?: fabric.ComputedValue<string>;
+    readonly publicKey: fabric.ComputedValue<string>;
 }
 

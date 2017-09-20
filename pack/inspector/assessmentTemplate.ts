@@ -31,9 +31,9 @@ export class AssessmentTemplate extends fabric.Resource {
 }
 
 export interface AssessmentTemplateArgs {
-    readonly duration: fabric.MaybeComputed<number>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly rulesPackageArns: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly targetArn: fabric.MaybeComputed<string>;
+    readonly duration: fabric.ComputedValue<number>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly rulesPackageArns: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly targetArn: fabric.ComputedValue<string>;
 }
 

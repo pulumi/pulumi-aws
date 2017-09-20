@@ -39,15 +39,15 @@ export class Directory extends fabric.Resource {
 }
 
 export interface DirectoryArgs {
-    readonly alias?: fabric.MaybeComputed<string>;
-    readonly connectSettings?: fabric.MaybeComputed<{ customerDnsIps: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customerUsername: fabric.MaybeComputed<string>, subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId: fabric.MaybeComputed<string> }>[];
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly enableSso?: fabric.MaybeComputed<boolean>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly password: fabric.MaybeComputed<string>;
-    readonly shortName?: fabric.MaybeComputed<string>;
-    readonly size?: fabric.MaybeComputed<string>;
-    readonly type?: fabric.MaybeComputed<string>;
-    readonly vpcSettings?: fabric.MaybeComputed<{ subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId: fabric.MaybeComputed<string> }>[];
+    readonly alias?: fabric.ComputedValue<string>;
+    readonly connectSettings?: fabric.ComputedValue<{ customerDnsIps: fabric.ComputedValue<fabric.ComputedValue<string>>[], customerUsername: fabric.ComputedValue<string>, subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], vpcId: fabric.ComputedValue<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly enableSso?: fabric.ComputedValue<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly password: fabric.ComputedValue<string>;
+    readonly shortName?: fabric.ComputedValue<string>;
+    readonly size?: fabric.ComputedValue<string>;
+    readonly type?: fabric.ComputedValue<string>;
+    readonly vpcSettings?: fabric.ComputedValue<{ subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], vpcId: fabric.ComputedValue<string> }>[];
 }
 

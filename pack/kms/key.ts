@@ -30,12 +30,12 @@ export class Key extends fabric.Resource {
 }
 
 export interface KeyArgs {
-    readonly deletionWindowInDays?: fabric.MaybeComputed<number>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly enableKeyRotation?: fabric.MaybeComputed<boolean>;
-    readonly isEnabled?: fabric.MaybeComputed<boolean>;
-    readonly keyUsage?: fabric.MaybeComputed<string>;
-    readonly policy?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly deletionWindowInDays?: fabric.ComputedValue<number>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly enableKeyRotation?: fabric.ComputedValue<boolean>;
+    readonly isEnabled?: fabric.ComputedValue<boolean>;
+    readonly keyUsage?: fabric.ComputedValue<string>;
+    readonly policy?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -22,7 +22,7 @@ export class SnapshotCreateVolumePermission extends fabric.Resource {
 }
 
 export interface SnapshotCreateVolumePermissionArgs {
-    readonly accountId: fabric.MaybeComputed<string>;
-    readonly snapshotId: fabric.MaybeComputed<string>;
+    readonly accountId: fabric.ComputedValue<string>;
+    readonly snapshotId: fabric.ComputedValue<string>;
 }
 

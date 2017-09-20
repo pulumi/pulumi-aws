@@ -24,8 +24,8 @@ export class LoadBalancerBackendServerPolicy extends fabric.Resource {
 }
 
 export interface LoadBalancerBackendServerPolicyArgs {
-    readonly instancePort: fabric.MaybeComputed<number>;
-    readonly loadBalancerName: fabric.MaybeComputed<string>;
-    readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly instancePort: fabric.ComputedValue<number>;
+    readonly loadBalancerName: fabric.ComputedValue<string>;
+    readonly policyNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

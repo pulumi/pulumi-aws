@@ -24,9 +24,9 @@ export class RestApi extends fabric.Resource {
 }
 
 export interface RestApiArgs {
-    readonly binaryMediaTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly body?: fabric.MaybeComputed<string>;
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly binaryMediaTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly body?: fabric.ComputedValue<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

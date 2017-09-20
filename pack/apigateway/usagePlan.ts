@@ -24,11 +24,11 @@ export class UsagePlan extends fabric.Resource {
 }
 
 export interface UsagePlanArgs {
-    readonly apiStages?: fabric.MaybeComputed<{ apiId: fabric.MaybeComputed<string>, stage: fabric.MaybeComputed<string> }>[];
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly productCode?: fabric.MaybeComputed<string>;
-    readonly quotaSettings?: fabric.MaybeComputed<{ limit: fabric.MaybeComputed<number>, offset?: fabric.MaybeComputed<number>, period: fabric.MaybeComputed<string> }>[];
-    readonly throttleSettings?: fabric.MaybeComputed<{ burstLimit?: fabric.MaybeComputed<number>, rateLimit?: fabric.MaybeComputed<number> }>[];
+    readonly apiStages?: fabric.ComputedValue<{ apiId: fabric.ComputedValue<string>, stage: fabric.ComputedValue<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly productCode?: fabric.ComputedValue<string>;
+    readonly quotaSettings?: fabric.ComputedValue<{ limit: fabric.ComputedValue<number>, offset?: fabric.ComputedValue<number>, period: fabric.ComputedValue<string> }>[];
+    readonly throttleSettings?: fabric.ComputedValue<{ burstLimit?: fabric.ComputedValue<number>, rateLimit?: fabric.ComputedValue<number> }>[];
 }
 

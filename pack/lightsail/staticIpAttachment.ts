@@ -22,7 +22,7 @@ export class StaticIpAttachment extends fabric.Resource {
 }
 
 export interface StaticIpAttachmentArgs {
-    readonly instanceName: fabric.MaybeComputed<string>;
-    readonly staticIpName: fabric.MaybeComputed<string>;
+    readonly instanceName: fabric.ComputedValue<string>;
+    readonly staticIpName: fabric.ComputedValue<string>;
 }
 

@@ -52,19 +52,19 @@ export class ReplicationInstance extends fabric.Resource {
 }
 
 export interface ReplicationInstanceArgs {
-    readonly allocatedStorage?: fabric.MaybeComputed<number>;
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
-    readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
-    readonly engineVersion?: fabric.MaybeComputed<string>;
-    readonly kmsKeyArn?: fabric.MaybeComputed<string>;
-    readonly multiAz?: fabric.MaybeComputed<boolean>;
-    readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
-    readonly publiclyAccessible?: fabric.MaybeComputed<boolean>;
-    readonly replicationInstanceClass: fabric.MaybeComputed<string>;
-    readonly replicationInstanceId: fabric.MaybeComputed<string>;
-    readonly replicationSubnetGroupId?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly allocatedStorage?: fabric.ComputedValue<number>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
+    readonly autoMinorVersionUpgrade?: fabric.ComputedValue<boolean>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
+    readonly engineVersion?: fabric.ComputedValue<string>;
+    readonly kmsKeyArn?: fabric.ComputedValue<string>;
+    readonly multiAz?: fabric.ComputedValue<boolean>;
+    readonly preferredMaintenanceWindow?: fabric.ComputedValue<string>;
+    readonly publiclyAccessible?: fabric.ComputedValue<boolean>;
+    readonly replicationInstanceClass: fabric.ComputedValue<string>;
+    readonly replicationInstanceId: fabric.ComputedValue<string>;
+    readonly replicationSubnetGroupId?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

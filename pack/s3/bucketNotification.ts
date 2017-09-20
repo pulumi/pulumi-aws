@@ -23,9 +23,9 @@ export class BucketNotification extends fabric.Resource {
 }
 
 export interface BucketNotificationArgs {
-    readonly bucket: fabric.MaybeComputed<string>;
-    readonly lambdaFunction?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], filterPrefix?: fabric.MaybeComputed<string>, filterSuffix?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, lambdaFunctionArn?: fabric.MaybeComputed<string> }>[];
-    readonly queue?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], filterPrefix?: fabric.MaybeComputed<string>, filterSuffix?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, queueArn: fabric.MaybeComputed<string> }>[];
-    readonly topic?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], filterPrefix?: fabric.MaybeComputed<string>, filterSuffix?: fabric.MaybeComputed<string>, id?: fabric.MaybeComputed<string>, topicArn: fabric.MaybeComputed<string> }>[];
+    readonly bucket: fabric.ComputedValue<string>;
+    readonly lambdaFunction?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], filterPrefix?: fabric.ComputedValue<string>, filterSuffix?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, lambdaFunctionArn?: fabric.ComputedValue<string> }>[];
+    readonly queue?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], filterPrefix?: fabric.ComputedValue<string>, filterSuffix?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, queueArn: fabric.ComputedValue<string> }>[];
+    readonly topic?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], filterPrefix?: fabric.ComputedValue<string>, filterSuffix?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, topicArn: fabric.ComputedValue<string> }>[];
 }
 

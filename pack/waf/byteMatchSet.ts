@@ -16,7 +16,7 @@ export class ByteMatchSet extends fabric.Resource {
 }
 
 export interface ByteMatchSetArgs {
-    readonly byteMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], positionalConstraint: fabric.MaybeComputed<string>, targetString?: fabric.MaybeComputed<string>, textTransformation: fabric.MaybeComputed<string> }>[];
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly byteMatchTuples?: fabric.ComputedValue<{ fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], positionalConstraint: fabric.ComputedValue<string>, targetString?: fabric.ComputedValue<string>, textTransformation: fabric.ComputedValue<string> }>[];
+    readonly name?: fabric.ComputedValue<string>;
 }
 

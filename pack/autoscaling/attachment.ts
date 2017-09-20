@@ -21,8 +21,8 @@ export class Attachment extends fabric.Resource {
 }
 
 export interface AttachmentArgs {
-    readonly albTargetGroupArn?: fabric.MaybeComputed<string>;
-    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
-    readonly elb?: fabric.MaybeComputed<string>;
+    readonly albTargetGroupArn?: fabric.ComputedValue<string>;
+    readonly autoscalingGroupName: fabric.ComputedValue<string>;
+    readonly elb?: fabric.ComputedValue<string>;
 }
 

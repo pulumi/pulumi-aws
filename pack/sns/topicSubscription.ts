@@ -39,12 +39,12 @@ export class TopicSubscription extends fabric.Resource {
 }
 
 export interface TopicSubscriptionArgs {
-    readonly confirmationTimeoutInMinutes?: fabric.MaybeComputed<number>;
-    readonly deliveryPolicy?: fabric.MaybeComputed<string>;
-    readonly endpoint: fabric.MaybeComputed<string>;
-    readonly endpointAutoConfirms?: fabric.MaybeComputed<boolean>;
-    readonly protocol: fabric.MaybeComputed<string>;
-    readonly rawMessageDelivery?: fabric.MaybeComputed<boolean>;
-    readonly topic: fabric.MaybeComputed<Topic>;
+    readonly confirmationTimeoutInMinutes?: fabric.ComputedValue<number>;
+    readonly deliveryPolicy?: fabric.ComputedValue<string>;
+    readonly endpoint: fabric.ComputedValue<string>;
+    readonly endpointAutoConfirms?: fabric.ComputedValue<boolean>;
+    readonly protocol: fabric.ComputedValue<string>;
+    readonly rawMessageDelivery?: fabric.ComputedValue<boolean>;
+    readonly topic: fabric.ComputedValue<Topic>;
 }
 

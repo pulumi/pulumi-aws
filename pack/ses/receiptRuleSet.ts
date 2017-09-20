@@ -17,6 +17,6 @@ export class ReceiptRuleSet extends fabric.Resource {
 }
 
 export interface ReceiptRuleSetArgs {
-    readonly ruleSetName: fabric.MaybeComputed<string>;
+    readonly ruleSetName: fabric.ComputedValue<string>;
 }
 

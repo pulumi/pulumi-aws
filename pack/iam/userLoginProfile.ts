@@ -30,9 +30,9 @@ export class UserLoginProfile extends fabric.Resource {
 }
 
 export interface UserLoginProfileArgs {
-    readonly passwordLength?: fabric.MaybeComputed<number>;
-    readonly passwordResetRequired?: fabric.MaybeComputed<boolean>;
-    readonly pgpKey: fabric.MaybeComputed<string>;
-    readonly user: fabric.MaybeComputed<string>;
+    readonly passwordLength?: fabric.ComputedValue<number>;
+    readonly passwordResetRequired?: fabric.ComputedValue<boolean>;
+    readonly pgpKey: fabric.ComputedValue<string>;
+    readonly user: fabric.ComputedValue<string>;
 }
 

@@ -34,12 +34,12 @@ export class Subnet extends fabric.Resource {
 }
 
 export interface SubnetArgs {
-    readonly assignIpv6AddressOnCreation?: fabric.MaybeComputed<boolean>;
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
-    readonly cidrBlock: fabric.MaybeComputed<string>;
-    readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
-    readonly mapPublicIpOnLaunch?: fabric.MaybeComputed<boolean>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly assignIpv6AddressOnCreation?: fabric.ComputedValue<boolean>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
+    readonly cidrBlock: fabric.ComputedValue<string>;
+    readonly ipv6CidrBlock?: fabric.ComputedValue<string>;
+    readonly mapPublicIpOnLaunch?: fabric.ComputedValue<boolean>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

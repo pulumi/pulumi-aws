@@ -24,7 +24,7 @@ export class RepositoryPolicy extends fabric.Resource {
 }
 
 export interface RepositoryPolicyArgs {
-    readonly policy: fabric.MaybeComputed<string>;
-    readonly repository: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
+    readonly repository: fabric.ComputedValue<string>;
 }
 

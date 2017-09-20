@@ -53,15 +53,15 @@ export class MaintenanceWindowTask extends fabric.Resource {
 }
 
 export interface MaintenanceWindowTaskArgs {
-    readonly loggingInfo?: fabric.MaybeComputed<{ s3BucketName: fabric.MaybeComputed<string>, s3BucketPrefix?: fabric.MaybeComputed<string>, s3Region: fabric.MaybeComputed<string> }>[];
-    readonly maxConcurrency: fabric.MaybeComputed<string>;
-    readonly maxErrors: fabric.MaybeComputed<string>;
-    readonly priority?: fabric.MaybeComputed<number>;
-    readonly serviceRoleArn: fabric.MaybeComputed<string>;
-    readonly targets: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly taskArn: fabric.MaybeComputed<string>;
-    readonly taskParameters?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly taskType: fabric.MaybeComputed<string>;
-    readonly windowId: fabric.MaybeComputed<string>;
+    readonly loggingInfo?: fabric.ComputedValue<{ s3BucketName: fabric.ComputedValue<string>, s3BucketPrefix?: fabric.ComputedValue<string>, s3Region: fabric.ComputedValue<string> }>[];
+    readonly maxConcurrency: fabric.ComputedValue<string>;
+    readonly maxErrors: fabric.ComputedValue<string>;
+    readonly priority?: fabric.ComputedValue<number>;
+    readonly serviceRoleArn: fabric.ComputedValue<string>;
+    readonly targets: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly taskArn: fabric.ComputedValue<string>;
+    readonly taskParameters?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly taskType: fabric.ComputedValue<string>;
+    readonly windowId: fabric.ComputedValue<string>;
 }
 

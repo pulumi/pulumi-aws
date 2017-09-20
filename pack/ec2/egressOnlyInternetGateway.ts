@@ -17,6 +17,6 @@ export class EgressOnlyInternetGateway extends fabric.Resource {
 }
 
 export interface EgressOnlyInternetGatewayArgs {
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

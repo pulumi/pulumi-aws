@@ -25,7 +25,7 @@ export class UserPolicyAttachment extends fabric.Resource {
 }
 
 export interface UserPolicyAttachmentArgs {
-    readonly policyArn: fabric.MaybeComputed<ARN>;
-    readonly user: fabric.MaybeComputed<User>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
+    readonly user: fabric.ComputedValue<User>;
 }
 

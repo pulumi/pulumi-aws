@@ -29,7 +29,7 @@ export class AccessKey extends fabric.Resource {
 }
 
 export interface AccessKeyArgs {
-    readonly pgpKey?: fabric.MaybeComputed<string>;
-    readonly user: fabric.MaybeComputed<string>;
+    readonly pgpKey?: fabric.ComputedValue<string>;
+    readonly user: fabric.ComputedValue<string>;
 }
 

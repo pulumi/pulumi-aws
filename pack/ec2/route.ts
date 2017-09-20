@@ -41,14 +41,14 @@ export class Route extends fabric.Resource {
 }
 
 export interface RouteArgs {
-    readonly destinationCidrBlock?: fabric.MaybeComputed<string>;
-    readonly destinationIpv6CidrBlock?: fabric.MaybeComputed<string>;
-    readonly egressOnlyGatewayId?: fabric.MaybeComputed<string>;
-    readonly gatewayId?: fabric.MaybeComputed<string>;
-    readonly instanceId?: fabric.MaybeComputed<string>;
-    readonly natGatewayId?: fabric.MaybeComputed<string>;
-    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
-    readonly routeTableId: fabric.MaybeComputed<string>;
-    readonly vpcPeeringConnectionId?: fabric.MaybeComputed<string>;
+    readonly destinationCidrBlock?: fabric.ComputedValue<string>;
+    readonly destinationIpv6CidrBlock?: fabric.ComputedValue<string>;
+    readonly egressOnlyGatewayId?: fabric.ComputedValue<string>;
+    readonly gatewayId?: fabric.ComputedValue<string>;
+    readonly instanceId?: fabric.ComputedValue<string>;
+    readonly natGatewayId?: fabric.ComputedValue<string>;
+    readonly networkInterfaceId?: fabric.ComputedValue<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
+    readonly vpcPeeringConnectionId?: fabric.ComputedValue<string>;
 }
 

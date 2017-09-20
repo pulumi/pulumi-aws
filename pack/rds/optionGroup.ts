@@ -34,12 +34,12 @@ export class OptionGroup extends fabric.Resource {
 }
 
 export interface OptionGroupArgs {
-    readonly engineName: fabric.MaybeComputed<string>;
-    readonly majorEngineVersion: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly option?: fabric.MaybeComputed<{ dbSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], optionName: fabric.MaybeComputed<string>, optionSettings?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], port?: fabric.MaybeComputed<number>, vpcSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
-    readonly optionGroupDescription?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly engineName: fabric.ComputedValue<string>;
+    readonly majorEngineVersion: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly option?: fabric.ComputedValue<{ dbSecurityGroupMemberships?: fabric.ComputedValue<fabric.ComputedValue<string>>[], optionName: fabric.ComputedValue<string>, optionSettings?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[], port?: fabric.ComputedValue<number>, vpcSecurityGroupMemberships?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    readonly optionGroupDescription?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

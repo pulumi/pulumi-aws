@@ -27,10 +27,10 @@ export class Permission extends fabric.Resource {
 }
 
 export interface PermissionArgs {
-    readonly allowSsh?: fabric.MaybeComputed<boolean>;
-    readonly allowSudo?: fabric.MaybeComputed<boolean>;
-    readonly level?: fabric.MaybeComputed<string>;
-    readonly stackId?: fabric.MaybeComputed<string>;
-    readonly userArn: fabric.MaybeComputed<string>;
+    readonly allowSsh?: fabric.ComputedValue<boolean>;
+    readonly allowSudo?: fabric.ComputedValue<boolean>;
+    readonly level?: fabric.ComputedValue<string>;
+    readonly stackId?: fabric.ComputedValue<string>;
+    readonly userArn: fabric.ComputedValue<string>;
 }
 

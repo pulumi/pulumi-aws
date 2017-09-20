@@ -20,7 +20,7 @@ export class Group extends fabric.Resource {
 }
 
 export interface GroupArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly path?: fabric.ComputedValue<string>;
 }
 

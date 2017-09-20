@@ -43,10 +43,10 @@ export class EventSourceMapping extends fabric.Resource {
 }
 
 export interface EventSourceMappingArgs {
-    readonly batchSize?: fabric.MaybeComputed<number>;
-    readonly enabled?: fabric.MaybeComputed<boolean>;
-    readonly eventSourceArn: fabric.MaybeComputed<string>;
-    readonly functionName: fabric.MaybeComputed<string>;
-    readonly startingPosition: fabric.MaybeComputed<string>;
+    readonly batchSize?: fabric.ComputedValue<number>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
+    readonly eventSourceArn: fabric.ComputedValue<string>;
+    readonly functionName: fabric.ComputedValue<string>;
+    readonly startingPosition: fabric.ComputedValue<string>;
 }
 

@@ -28,9 +28,9 @@ export class BasePathMapping extends fabric.Resource {
 }
 
 export interface BasePathMappingArgs {
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly basePath?: fabric.MaybeComputed<string>;
-    readonly domainName: fabric.MaybeComputed<string>;
-    readonly stageName?: fabric.MaybeComputed<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly basePath?: fabric.ComputedValue<string>;
+    readonly domainName: fabric.ComputedValue<string>;
+    readonly stageName?: fabric.ComputedValue<string>;
 }
 

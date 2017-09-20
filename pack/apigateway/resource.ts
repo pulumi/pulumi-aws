@@ -31,8 +31,8 @@ export class Resource extends fabric.Resource {
 }
 
 export interface ResourceArgs {
-    readonly parentId: fabric.MaybeComputed<string>;
-    readonly pathPart: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly parentId: fabric.ComputedValue<string>;
+    readonly pathPart: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
 }
 

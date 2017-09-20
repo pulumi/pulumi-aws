@@ -33,8 +33,8 @@ export class Snapshot extends fabric.Resource {
 }
 
 export interface SnapshotArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
-    readonly volumeId: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    readonly volumeId: fabric.ComputedValue<string>;
 }
 

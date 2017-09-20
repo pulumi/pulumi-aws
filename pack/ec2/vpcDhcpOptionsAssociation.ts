@@ -22,7 +22,7 @@ export class VpcDhcpOptionsAssociation extends fabric.Resource {
 }
 
 export interface VpcDhcpOptionsAssociationArgs {
-    readonly dhcpOptionsId: fabric.MaybeComputed<string>;
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly dhcpOptionsId: fabric.ComputedValue<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

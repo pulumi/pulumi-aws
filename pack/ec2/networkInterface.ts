@@ -33,14 +33,14 @@ export class NetworkInterface extends fabric.Resource {
 }
 
 export interface NetworkInterfaceArgs {
-    readonly attachment?: fabric.MaybeComputed<{ attachmentId?: fabric.MaybeComputed<string>, deviceIndex: fabric.MaybeComputed<number>, instance: fabric.MaybeComputed<string> }>[];
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly privateIp?: fabric.MaybeComputed<string>;
-    readonly privateIps?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly privateIpsCount?: fabric.MaybeComputed<number>;
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
-    readonly subnetId: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly attachment?: fabric.ComputedValue<{ attachmentId?: fabric.ComputedValue<string>, deviceIndex: fabric.ComputedValue<number>, instance: fabric.ComputedValue<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly privateIp?: fabric.ComputedValue<string>;
+    readonly privateIps?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly privateIpsCount?: fabric.ComputedValue<number>;
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly sourceDestCheck?: fabric.ComputedValue<boolean>;
+    readonly subnetId: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

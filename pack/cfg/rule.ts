@@ -31,11 +31,11 @@ export class Rule extends fabric.Resource {
 }
 
 export interface RuleArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly inputParameters?: fabric.MaybeComputed<string>;
-    readonly maximumExecutionFrequency?: fabric.MaybeComputed<string>;
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly scope?: fabric.MaybeComputed<{ complianceResourceId?: fabric.MaybeComputed<string>, complianceResourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], tagKey?: fabric.MaybeComputed<string>, tagValue?: fabric.MaybeComputed<string> }>[];
-    readonly source: fabric.MaybeComputed<{ owner: fabric.MaybeComputed<string>, sourceDetail?: fabric.MaybeComputed<{ eventSource?: fabric.MaybeComputed<string>, maximumExecutionFrequency?: fabric.MaybeComputed<string>, messageType?: fabric.MaybeComputed<string> }>[], sourceIdentifier: fabric.MaybeComputed<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly inputParameters?: fabric.ComputedValue<string>;
+    readonly maximumExecutionFrequency?: fabric.ComputedValue<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly scope?: fabric.ComputedValue<{ complianceResourceId?: fabric.ComputedValue<string>, complianceResourceTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[], tagKey?: fabric.ComputedValue<string>, tagValue?: fabric.ComputedValue<string> }>[];
+    readonly source: fabric.ComputedValue<{ owner: fabric.ComputedValue<string>, sourceDetail?: fabric.ComputedValue<{ eventSource?: fabric.ComputedValue<string>, maximumExecutionFrequency?: fabric.ComputedValue<string>, messageType?: fabric.ComputedValue<string> }>[], sourceIdentifier: fabric.ComputedValue<string> }>[];
 }
 

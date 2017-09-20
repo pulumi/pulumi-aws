@@ -25,9 +25,9 @@ export class RequestValidator extends fabric.Resource {
 }
 
 export interface RequestValidatorArgs {
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly restApi: fabric.MaybeComputed<RestApi>;
-    readonly validateRequestBody?: fabric.MaybeComputed<boolean>;
-    readonly validateRequestParameters?: fabric.MaybeComputed<boolean>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
+    readonly validateRequestBody?: fabric.ComputedValue<boolean>;
+    readonly validateRequestParameters?: fabric.ComputedValue<boolean>;
 }
 
