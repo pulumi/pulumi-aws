@@ -50,7 +50,7 @@ export class Table extends fabric.Resource {
      */
     public /*out*/ readonly streamArn: fabric.Computed<string>;
     /**
-     * or disabled (false).
+     * Indicates whether Streams are to be enabled (true) or disabled (false).
      */
     public readonly streamEnabled: fabric.Computed<boolean>;
     /**
@@ -157,7 +157,7 @@ export interface TableArgs {
      */
     readonly readCapacity: fabric.MaybeComputed<number>;
     /**
-     * or disabled (false).
+     * Indicates whether Streams are to be enabled (true) or disabled (false).
      */
     readonly streamEnabled?: fabric.MaybeComputed<boolean>;
     /**

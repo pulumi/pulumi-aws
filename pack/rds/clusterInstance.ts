@@ -28,7 +28,7 @@ export class ClusterInstance extends fabric.Resource {
      */
     public readonly autoMinorVersionUpgrade?: fabric.Computed<boolean>;
     /**
-     * in which to launch this instance.
+     * The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
     public readonly clusterIdentifier: fabric.Computed<string>;
     /**
@@ -171,7 +171,7 @@ export interface ClusterInstanceArgs {
      */
     readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
     /**
-     * in which to launch this instance.
+     * The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier: fabric.MaybeComputed<string>;
     /**

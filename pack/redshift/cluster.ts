@@ -19,7 +19,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly automatedSnapshotRetentionPeriod?: fabric.Computed<number>;
     /**
-     * in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
      */
     public readonly availabilityZone: fabric.Computed<string>;
     /**
@@ -67,7 +67,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly databaseName: fabric.Computed<string>;
     /**
-     * address for the cluster.
+     * The Elastic IP (EIP) address for the cluster.
      */
     public readonly elasticIp?: fabric.Computed<string>;
     /**
@@ -126,7 +126,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly port?: fabric.Computed<number>;
     /**
-     * during which automated cluster maintenance can occur.
+     * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      */
     public readonly preferredMaintenanceWindow: fabric.Computed<string>;
@@ -155,7 +155,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     /**
-     * security groups to be associated with the cluster.
+     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
@@ -227,7 +227,7 @@ export interface ClusterArgs {
      */
     readonly automatedSnapshotRetentionPeriod?: fabric.MaybeComputed<number>;
     /**
-     * in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+     * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
      */
     readonly availabilityZone?: fabric.MaybeComputed<string>;
     /**
@@ -269,7 +269,7 @@ export interface ClusterArgs {
      */
     readonly databaseName?: fabric.MaybeComputed<string>;
     /**
-     * address for the cluster.
+     * The Elastic IP (EIP) address for the cluster.
      */
     readonly elasticIp?: fabric.MaybeComputed<string>;
     /**
@@ -325,7 +325,7 @@ export interface ClusterArgs {
      */
     readonly port?: fabric.MaybeComputed<number>;
     /**
-     * during which automated cluster maintenance can occur.
+     * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      */
     readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
@@ -354,7 +354,7 @@ export interface ClusterArgs {
      */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
     /**
-     * security groups to be associated with the cluster.
+     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
     readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }

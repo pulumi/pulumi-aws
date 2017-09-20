@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class CustomerGateway extends fabric.Resource {
     /**
-     * Autonomous System Number (ASN).
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     public readonly bgpAsn: fabric.Computed<number>;
     /**
@@ -57,7 +57,7 @@ export class CustomerGateway extends fabric.Resource {
  */
 export interface CustomerGatewayArgs {
     /**
-     * Autonomous System Number (ASN).
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: fabric.MaybeComputed<number>;
     /**

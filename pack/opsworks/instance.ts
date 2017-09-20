@@ -16,7 +16,7 @@ export class Instance extends fabric.Resource {
      */
     public readonly amiId: fabric.Computed<string>;
     /**
-     * or `"i386"`
+     * Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
      */
     public readonly architecture?: fabric.Computed<string>;
     /**
@@ -222,7 +222,7 @@ export interface InstanceArgs {
      */
     readonly amiId?: fabric.MaybeComputed<string>;
     /**
-     * or `"i386"`
+     * Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
      */
     readonly architecture?: fabric.MaybeComputed<string>;
     /**

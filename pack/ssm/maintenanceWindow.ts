@@ -25,7 +25,7 @@ export class MaintenanceWindow extends fabric.Resource {
      */
     public readonly name: fabric.Computed<string>;
     /**
-     * or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
     public readonly schedule: fabric.Computed<string>;
 
@@ -80,7 +80,7 @@ export interface MaintenanceWindowArgs {
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**
-     * or rate expression.
+     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
     readonly schedule: fabric.MaybeComputed<string>;
 }

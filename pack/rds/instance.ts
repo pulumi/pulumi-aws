@@ -69,7 +69,7 @@ export class Instance extends fabric.Resource {
      */
     public readonly backupRetentionPeriod: fabric.Computed<number>;
     /**
-     * during which
+     * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
      * not overlap with `maintenance_window`.
      */
@@ -178,7 +178,7 @@ export class Instance extends fabric.Resource {
      */
     public readonly multiAz: fabric.Computed<boolean>;
     /**
-     * for more details on what applies for those engines.
+     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
      */
     public readonly name: fabric.Computed<string>;
     /**
@@ -381,7 +381,7 @@ export interface InstanceArgs {
      */
     readonly backupRetentionPeriod?: fabric.MaybeComputed<number>;
     /**
-     * during which
+     * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
      * not overlap with `maintenance_window`.
      */
@@ -481,7 +481,7 @@ export interface InstanceArgs {
      */
     readonly multiAz?: fabric.MaybeComputed<boolean>;
     /**
-     * for more details on what applies for those engines.
+     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**

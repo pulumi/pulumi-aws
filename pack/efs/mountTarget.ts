@@ -16,7 +16,7 @@ export class MountTarget extends fabric.Resource {
      */
     public readonly fileSystemId: fabric.Computed<string>;
     /**
-     * at
+     * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
     public readonly ipAddress: fabric.Computed<string>;
@@ -69,7 +69,7 @@ export interface MountTargetArgs {
      */
     readonly fileSystemId: fabric.MaybeComputed<string>;
     /**
-     * at
+     * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
     readonly ipAddress?: fabric.MaybeComputed<string>;

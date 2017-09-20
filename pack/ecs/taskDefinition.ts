@@ -29,7 +29,7 @@ export class TaskDefinition extends fabric.Resource {
      */
     public readonly networkMode: fabric.Computed<string>;
     /**
-     * rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     public readonly placementConstraints?: fabric.Computed<{ expression?: string, type: string }[]>;
     /**
@@ -41,7 +41,7 @@ export class TaskDefinition extends fabric.Resource {
      */
     public readonly taskRoleArn?: fabric.Computed<string>;
     /**
-     * that containers in your task may use.
+     * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
      */
     public readonly volume?: fabric.Computed<{ hostPath?: string, name: string }[]>;
 
@@ -95,7 +95,7 @@ export interface TaskDefinitionArgs {
      */
     readonly networkMode?: fabric.MaybeComputed<string>;
     /**
-     * rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
     /**
@@ -103,7 +103,7 @@ export interface TaskDefinitionArgs {
      */
     readonly taskRoleArn?: fabric.MaybeComputed<string>;
     /**
-     * that containers in your task may use.
+     * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
      */
     readonly volume?: fabric.MaybeComputed<{ hostPath?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string> }>[];
 }

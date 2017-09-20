@@ -30,7 +30,7 @@ export class EventRule extends fabric.Resource {
      */
     public readonly name: fabric.Computed<string>;
     /**
-     * associated with the role that is used for target invocation.
+     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
     public readonly roleArn?: fabric.Computed<string>;
     /**
@@ -83,7 +83,7 @@ export interface EventRuleArgs {
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**
-     * associated with the role that is used for target invocation.
+     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
     readonly roleArn?: fabric.MaybeComputed<string>;
     /**

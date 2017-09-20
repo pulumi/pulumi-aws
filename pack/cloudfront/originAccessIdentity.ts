@@ -22,6 +22,9 @@ export class OriginAccessIdentity extends fabric.Resource {
      * origin access identity to use in CloudFront, see below.
      */
     public /*out*/ readonly cloudfrontAccessIdentityPath: fabric.Computed<string>;
+    /**
+     * An optional comment for the origin access identity.
+     */
     public readonly comment?: fabric.Computed<string>;
     /**
      * The current version of the origin access identity's information.
@@ -65,6 +68,9 @@ export class OriginAccessIdentity extends fabric.Resource {
  * The set of arguments for constructing a OriginAccessIdentity resource.
  */
 export interface OriginAccessIdentityArgs {
+    /**
+     * An optional comment for the origin access identity.
+     */
     readonly comment?: fabric.MaybeComputed<string>;
 }
 

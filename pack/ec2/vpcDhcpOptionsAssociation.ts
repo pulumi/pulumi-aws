@@ -5,7 +5,6 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 /**
  * Provides a VPC DHCP Options Association resource.
- * 
  * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
  */
 export class VpcDhcpOptionsAssociation extends fabric.Resource {

@@ -32,7 +32,6 @@ export class Directory extends fabric.Resource {
     public /*out*/ readonly dnsIpAddresses: fabric.Computed<string[]>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-     * * `type` (Optional) - The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
     public readonly enableSso?: fabric.Computed<boolean>;
     /**
@@ -51,6 +50,9 @@ export class Directory extends fabric.Resource {
      * The size of the directory (`Small` or `Large` are accepted values).
      */
     public readonly size?: fabric.Computed<string>;
+    /**
+     * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+     */
     public readonly type?: fabric.Computed<string>;
     /**
      * VPC related information about the directory. Fields documented below.
@@ -104,7 +106,6 @@ export interface DirectoryArgs {
     readonly description?: fabric.MaybeComputed<string>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-     * * `type` (Optional) - The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
     readonly enableSso?: fabric.MaybeComputed<boolean>;
     /**
@@ -123,6 +124,9 @@ export interface DirectoryArgs {
      * The size of the directory (`Small` or `Large` are accepted values).
      */
     readonly size?: fabric.MaybeComputed<string>;
+    /**
+     * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+     */
     readonly type?: fabric.MaybeComputed<string>;
     /**
      * VPC related information about the directory. Fields documented below.

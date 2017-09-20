@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class EventTarget extends fabric.Resource {
     /**
-     * associated of the target.
+     * The Amazon Resource Name (ARN) associated of the target.
      */
     public readonly arn: fabric.Computed<string>;
     /**
@@ -25,7 +25,7 @@ export class EventTarget extends fabric.Resource {
      */
     public readonly inputPath?: fabric.Computed<string>;
     /**
-     * of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
     public readonly roleArn?: fabric.Computed<string>;
     /**
@@ -74,7 +74,7 @@ export class EventTarget extends fabric.Resource {
  */
 export interface EventTargetArgs {
     /**
-     * associated of the target.
+     * The Amazon Resource Name (ARN) associated of the target.
      */
     readonly arn: fabric.MaybeComputed<string>;
     /**
@@ -91,7 +91,7 @@ export interface EventTargetArgs {
      */
     readonly inputPath?: fabric.MaybeComputed<string>;
     /**
-     * of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
     readonly roleArn?: fabric.MaybeComputed<string>;
     /**

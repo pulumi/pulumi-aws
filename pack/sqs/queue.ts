@@ -21,19 +21,19 @@ export class Queue extends fabric.Resource {
      */
     public readonly fifoQueue?: fabric.Computed<boolean>;
     /**
-     * and 86,400 seconds (24 hours). The default is 300 (5 minutes).
+     * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
     public readonly kmsDataKeyReusePeriodSeconds: fabric.Computed<number>;
     /**
-     * for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+     * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
      */
     public readonly kmsMasterKeyId?: fabric.Computed<string>;
     /**
-     * up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+     * The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
      */
     public readonly maxMessageSize?: fabric.Computed<number>;
     /**
-     * to 1209600 (14 days). The default for this attribute is 345600 (4 days).
+     * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
     public readonly messageRetentionSeconds?: fabric.Computed<number>;
     /**
@@ -49,7 +49,7 @@ export class Queue extends fabric.Resource {
      */
     public readonly policy: fabric.Computed<string>;
     /**
-     * before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+     * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
     public readonly receiveWaitTimeSeconds?: fabric.Computed<number>;
     /**
@@ -106,19 +106,19 @@ export interface QueueArgs {
      */
     readonly fifoQueue?: fabric.MaybeComputed<boolean>;
     /**
-     * and 86,400 seconds (24 hours). The default is 300 (5 minutes).
+     * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
     readonly kmsDataKeyReusePeriodSeconds?: fabric.MaybeComputed<number>;
     /**
-     * for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+     * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
      */
     readonly kmsMasterKeyId?: fabric.MaybeComputed<string>;
     /**
-     * up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+     * The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
      */
     readonly maxMessageSize?: fabric.MaybeComputed<number>;
     /**
-     * to 1209600 (14 days). The default for this attribute is 345600 (4 days).
+     * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
     readonly messageRetentionSeconds?: fabric.MaybeComputed<number>;
     /**
@@ -134,7 +134,7 @@ export interface QueueArgs {
      */
     readonly policy?: fabric.MaybeComputed<string>;
     /**
-     * before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+     * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
     readonly receiveWaitTimeSeconds?: fabric.MaybeComputed<number>;
     /**

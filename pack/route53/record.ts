@@ -57,7 +57,7 @@ export class Record extends fabric.Resource {
      */
     public readonly weightedRoutingPolicy?: fabric.Computed<{ weight: number }[]>;
     /**
-     * for example.
+     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](/docs/providers/aws/r/elb.html#zone_id) for example.
      */
     public readonly zoneId: fabric.Computed<string>;
 
@@ -144,7 +144,7 @@ export interface RecordArgs {
      */
     readonly weightedRoutingPolicy?: fabric.MaybeComputed<{ weight: fabric.MaybeComputed<number> }>[];
     /**
-     * for example.
+     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](/docs/providers/aws/r/elb.html#zone_id) for example.
      */
     readonly zoneId: fabric.MaybeComputed<string>;
 }

@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class ByteMatchSet extends fabric.Resource {
     /**
-     * that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
     public readonly byteMatchTuple?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
     /**
@@ -37,7 +37,7 @@ export class ByteMatchSet extends fabric.Resource {
  */
 export interface ByteMatchSetArgs {
     /**
-     * that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
     readonly byteMatchTuple?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], positionalConstraint: fabric.MaybeComputed<string>, targetString?: fabric.MaybeComputed<string>, textTransformation: fabric.MaybeComputed<string> }>[];
     /**

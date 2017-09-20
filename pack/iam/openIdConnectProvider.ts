@@ -16,7 +16,7 @@ export class OpenIdConnectProvider extends fabric.Resource {
      */
     public readonly clientIdList: fabric.Computed<string[]>;
     /**
-     * identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
      */
     public readonly thumbprintList: fabric.Computed<string[]>;
     /**
@@ -60,7 +60,7 @@ export interface OpenIdConnectProviderArgs {
      */
     readonly clientIdList: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     /**
-     * identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
      */
     readonly thumbprintList: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     /**

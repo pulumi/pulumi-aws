@@ -50,7 +50,7 @@ export class Group extends fabric.Resource {
      */
     public readonly forceDelete?: fabric.Computed<boolean>;
     /**
-     * after instance comes into service before checking health.
+     * Time (in seconds) after instance comes into service before checking health.
      */
     public readonly healthCheckGracePeriod?: fabric.Computed<number>;
     /**
@@ -222,7 +222,7 @@ export interface GroupArgs {
      */
     readonly forceDelete?: fabric.MaybeComputed<boolean>;
     /**
-     * after instance comes into service before checking health.
+     * Time (in seconds) after instance comes into service before checking health.
      */
     readonly healthCheckGracePeriod?: fabric.MaybeComputed<number>;
     /**

@@ -11,7 +11,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class Endpoint extends fabric.Resource {
     /**
-     * for the certificate.
+     * The Amazon Resource Name (ARN) for the certificate.
      */
     public readonly certificateArn: fabric.Computed<string>;
     /**
@@ -39,7 +39,7 @@ export class Endpoint extends fabric.Resource {
      */
     public readonly extraConnectionAttributes: fabric.Computed<string>;
     /**
-     * for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     public readonly kmsKeyArn: fabric.Computed<string>;
     /**
@@ -112,7 +112,7 @@ export class Endpoint extends fabric.Resource {
  */
 export interface EndpointArgs {
     /**
-     * for the certificate.
+     * The Amazon Resource Name (ARN) for the certificate.
      */
     readonly certificateArn?: fabric.MaybeComputed<string>;
     /**
@@ -136,7 +136,7 @@ export interface EndpointArgs {
      */
     readonly extraConnectionAttributes?: fabric.MaybeComputed<string>;
     /**
-     * for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     readonly kmsKeyArn?: fabric.MaybeComputed<string>;
     /**

@@ -40,7 +40,7 @@ export class Application extends fabric.Resource {
      */
     public readonly documentRoot?: fabric.Computed<string>;
     /**
-     *  (Optional) A list of virtual host alias.
+     * A list of virtual host alias.
      */
     public readonly domains?: fabric.Computed<string[]>;
     /**
@@ -155,7 +155,7 @@ export interface ApplicationArgs {
      */
     readonly documentRoot?: fabric.MaybeComputed<string>;
     /**
-     *  (Optional) A list of virtual host alias.
+     * A list of virtual host alias.
      */
     readonly domains?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     /**

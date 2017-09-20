@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class IpSet extends fabric.Resource {
     /**
-     * from which web requests originate.
+     * The IP address type and IP address range (in CIDR notation) from which web requests originate.
      */
     public readonly ipSetDescriptor?: fabric.Computed<{ type: string, value: string }[]>;
     /**
@@ -37,7 +37,7 @@ export class IpSet extends fabric.Resource {
  */
 export interface IpSetArgs {
     /**
-     * from which web requests originate.
+     * The IP address type and IP address range (in CIDR notation) from which web requests originate.
      */
     readonly ipSetDescriptor?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
     /**

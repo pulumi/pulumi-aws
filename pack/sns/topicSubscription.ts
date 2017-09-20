@@ -34,11 +34,11 @@ export class TopicSubscription extends fabric.Resource {
      */
     public readonly endpoint: fabric.Computed<string>;
     /**
-     * e.g., PagerDuty (default is false)
+     * Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
      */
     public readonly endpointAutoConfirms?: fabric.Computed<boolean>;
     /**
-     * (`email`, `sms`, are options but unsupported, see below).
+     * The protocol to use. The possible values for this are: `sqs`,  `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email`, `sms`, are options but unsupported, see below).
      */
     public readonly protocol: fabric.Computed<string>;
     /**
@@ -95,11 +95,11 @@ export interface TopicSubscriptionArgs {
      */
     readonly endpoint: fabric.MaybeComputed<string>;
     /**
-     * e.g., PagerDuty (default is false)
+     * Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
      */
     readonly endpointAutoConfirms?: fabric.MaybeComputed<boolean>;
     /**
-     * (`email`, `sms`, are options but unsupported, see below).
+     * The protocol to use. The possible values for this are: `sqs`,  `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email`, `sms`, are options but unsupported, see below).
      */
     readonly protocol: fabric.MaybeComputed<string>;
     /**

@@ -76,7 +76,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly snapshotRetentionLimit?: fabric.Computed<number>;
     /**
-     * during which ElastiCache will
+     * The daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
     public readonly snapshotWindow: fabric.Computed<string>;
@@ -188,7 +188,7 @@ export interface ClusterArgs {
      */
     readonly snapshotRetentionLimit?: fabric.MaybeComputed<number>;
     /**
-     * during which ElastiCache will
+     * The daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
     readonly snapshotWindow?: fabric.MaybeComputed<string>;

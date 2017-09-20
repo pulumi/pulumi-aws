@@ -25,7 +25,7 @@ export class Subnet extends fabric.Resource {
     public readonly ipv6CidrBlock: fabric.Computed<string>;
     public /*out*/ readonly ipv6CidrBlockAssociationId: fabric.Computed<string>;
     /**
-     *  (Optional) Specify true to indicate
+     * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
@@ -88,7 +88,7 @@ export interface SubnetArgs {
      */
     readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
     /**
-     *  (Optional) Specify true to indicate
+     * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */

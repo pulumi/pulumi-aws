@@ -12,7 +12,7 @@ export class Schedule extends fabric.Resource {
      */
     public /*out*/ readonly arn: fabric.Computed<string>;
     /**
-     * of the Auto Scaling group.
+     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
      */
     public readonly autoscalingGroupName: fabric.Computed<string>;
     /**
@@ -82,7 +82,7 @@ export class Schedule extends fabric.Resource {
  */
 export interface ScheduleArgs {
     /**
-     * of the Auto Scaling group.
+     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
      */
     readonly autoscalingGroupName: fabric.MaybeComputed<string>;
     /**

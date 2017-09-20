@@ -3,8 +3,6 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
-/**
- */
 export class Domain extends fabric.Resource {
     /**
      * IAM policy document specifying the access policies for the domain

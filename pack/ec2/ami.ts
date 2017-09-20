@@ -42,7 +42,7 @@ export class Ami extends fabric.Resource {
      */
     public readonly imageLocation: fabric.Computed<string>;
     /**
-     * that will be used as the paravirtual
+     * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
     public readonly kernelId?: fabric.Computed<string>;
@@ -52,7 +52,7 @@ export class Ami extends fabric.Resource {
      */
     public readonly name: fabric.Computed<string>;
     /**
-     * that will be used when booting the
+     * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
     public readonly ramdiskId?: fabric.Computed<string>;
@@ -126,7 +126,7 @@ export interface AmiArgs {
      */
     readonly imageLocation?: fabric.MaybeComputed<string>;
     /**
-     * that will be used as the paravirtual
+     * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
     readonly kernelId?: fabric.MaybeComputed<string>;
@@ -135,7 +135,7 @@ export interface AmiArgs {
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**
-     * that will be used when booting the
+     * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
     readonly ramdiskId?: fabric.MaybeComputed<string>;

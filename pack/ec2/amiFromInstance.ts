@@ -23,21 +23,47 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * to produce a fresh snapshot.
  */
 export class AmiFromInstance extends fabric.Resource {
+    /**
+     * Machine architecture for created instances. Defaults to "x86_64".
+     */
     public /*out*/ readonly architecture: fabric.Computed<string>;
+    /**
+     * A longer, human-readable description for the AMI.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
     public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
     /**
      * The ID of the created AMI.
      */
     public /*out*/ readonly amiId: fabric.Computed<string>;
+    /**
+     * Path to an S3 object containing an image manifest, e.g. created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     */
     public /*out*/ readonly imageLocation: fabric.Computed<string>;
+    /**
+     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     */
     public /*out*/ readonly kernelId: fabric.Computed<string>;
     public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
     /**
      * A region-unique name for the AMI.
      */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The id of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     */
     public /*out*/ readonly ramdiskId: fabric.Computed<string>;
     public /*out*/ readonly rootDeviceName: fabric.Computed<string>;
     /**
@@ -51,8 +77,17 @@ export class AmiFromInstance extends fabric.Resource {
      * The id of the instance to use as the basis of the AMI.
      */
     public readonly sourceInstanceId: fabric.Computed<string>;
+    /**
+     * When set to "simple" (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     */
     public /*out*/ readonly sriovNetSupport: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     */
     public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
     /**

@@ -362,11 +362,18 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
 				},
+				Docs: &tfbridge.DocInfo{
+					IncludeArgumentsFrom:           "aws_ami",
+					IncludeAttributesFromArguments: "aws_ami",
+				},
 			},
 			"aws_ami_from_instance": {
 				Tok: awsrestok(ec2Mod, "AmiFromInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
+				},
+				Docs: &tfbridge.DocInfo{
+					IncludeAttributesFromArguments: "aws_ami",
 				},
 			},
 			"aws_ami_launch_permission":        {Tok: awsrestok(ec2Mod, "AmiLaunchPermission")},

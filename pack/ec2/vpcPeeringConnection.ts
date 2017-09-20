@@ -15,15 +15,14 @@ export class VpcPeeringConnection extends fabric.Resource {
      * The status of the VPC Peering Connection request.
      */
     public /*out*/ readonly acceptStatus: fabric.Computed<string>;
+    /**
+     * An optional configuration block that allows for [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * the peering connection (a maximum of one).
+     */
     public readonly accepter: fabric.Computed<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account).
-     * * `accepter` (Optional) - An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
-     * the peering connection (a maximum of one).
-     * * `requester` (Optional) - A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
-     * the peering connection (a maximum of one).
      */
     public readonly autoAccept?: fabric.Computed<boolean>;
     /**
@@ -35,6 +34,11 @@ export class VpcPeeringConnection extends fabric.Resource {
      * The ID of the VPC with which you are creating the VPC Peering Connection.
      */
     public readonly peerVpcId: fabric.Computed<string>;
+    /**
+     * A optional configuration block that allows for [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * the peering connection (a maximum of one).
+     */
     public readonly requester: fabric.Computed<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }[]>;
     /**
      * A mapping of tags to assign to the resource.
@@ -77,15 +81,14 @@ export class VpcPeeringConnection extends fabric.Resource {
  * The set of arguments for constructing a VpcPeeringConnection resource.
  */
 export interface VpcPeeringConnectionArgs {
+    /**
+     * An optional configuration block that allows for [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * the peering connection (a maximum of one).
+     */
     readonly accepter?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
     /**
      * Accept the peering (both VPCs need to be in the same AWS account).
-     * * `accepter` (Optional) - An optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
-     * the peering connection (a maximum of one).
-     * * `requester` (Optional) - A optional configuration block that allows for [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
-     * the peering connection (a maximum of one).
      */
     readonly autoAccept?: fabric.MaybeComputed<boolean>;
     /**
@@ -97,6 +100,11 @@ export interface VpcPeeringConnectionArgs {
      * The ID of the VPC with which you are creating the VPC Peering Connection.
      */
     readonly peerVpcId: fabric.MaybeComputed<string>;
+    /**
+     * A optional configuration block that allows for [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * the peering connection (a maximum of one).
+     */
     readonly requester?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
     /**
      * A mapping of tags to assign to the resource.

@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class UsagePlan extends fabric.Resource {
     /**
-     * of the usage plan.
+     * The associated [API stages](#api-stages-arguments) of the usage plan.
      */
     public readonly apiStages?: fabric.Computed<{ apiId: string, stage: string }[]>;
     /**
@@ -24,11 +24,11 @@ export class UsagePlan extends fabric.Resource {
      */
     public readonly productCode?: fabric.Computed<string>;
     /**
-     * of the usage plan.
+     * The [quota settings](#quota-settings-arguments) of the usage plan.
      */
     public readonly quotaSettings?: fabric.Computed<{ limit: number, offset?: number, period: string }[]>;
     /**
-     * of the usage plan.
+     * The [throttling limits](#throttling-settings-arguments) of the usage plan.
      */
     public readonly throttleSettings?: fabric.Computed<{ burstLimit?: number, rateLimit?: number }[]>;
 
@@ -57,7 +57,7 @@ export class UsagePlan extends fabric.Resource {
  */
 export interface UsagePlanArgs {
     /**
-     * of the usage plan.
+     * The associated [API stages](#api-stages-arguments) of the usage plan.
      */
     readonly apiStages?: fabric.MaybeComputed<{ apiId: fabric.MaybeComputed<string>, stage: fabric.MaybeComputed<string> }>[];
     /**
@@ -73,11 +73,11 @@ export interface UsagePlanArgs {
      */
     readonly productCode?: fabric.MaybeComputed<string>;
     /**
-     * of the usage plan.
+     * The [quota settings](#quota-settings-arguments) of the usage plan.
      */
     readonly quotaSettings?: fabric.MaybeComputed<{ limit: fabric.MaybeComputed<number>, offset?: fabric.MaybeComputed<number>, period: fabric.MaybeComputed<string> }>[];
     /**
-     * of the usage plan.
+     * The [throttling limits](#throttling-settings-arguments) of the usage plan.
      */
     readonly throttleSettings?: fabric.MaybeComputed<{ burstLimit?: fabric.MaybeComputed<number>, rateLimit?: fabric.MaybeComputed<number> }>[];
 }

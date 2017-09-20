@@ -74,7 +74,7 @@ export class Instance extends fabric.Resource {
      */
     public readonly monitoring?: fabric.Computed<boolean>;
     /**
-     * below for more details.
+     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
      */
     public readonly networkInterface: fabric.Computed<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
     /**
@@ -268,7 +268,7 @@ export interface InstanceArgs {
      */
     readonly monitoring?: fabric.MaybeComputed<boolean>;
     /**
-     * below for more details.
+     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
      */
     readonly networkInterface?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceIndex: fabric.MaybeComputed<number>, networkInterfaceId: fabric.MaybeComputed<string> }>[];
     /**

@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class ReplicationInstance extends fabric.Resource {
     /**
-     * to be initially allocated for the replication instance.
+     * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     public readonly allocatedStorage: fabric.Computed<number>;
     /**
@@ -28,7 +28,7 @@ export class ReplicationInstance extends fabric.Resource {
      */
     public readonly engineVersion: fabric.Computed<string>;
     /**
-     * for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     public readonly kmsKeyArn: fabric.Computed<string>;
     /**
@@ -56,7 +56,7 @@ export class ReplicationInstance extends fabric.Resource {
      */
     public readonly replicationInstanceId: fabric.Computed<string>;
     /**
-     *  A list of the private IP addresses of the replication instance.
+     * A list of the private IP addresses of the replication instance.
      */
     public /*out*/ readonly replicationInstancePrivateIps: fabric.Computed<string[]>;
     /**
@@ -118,7 +118,7 @@ export class ReplicationInstance extends fabric.Resource {
  */
 export interface ReplicationInstanceArgs {
     /**
-     * to be initially allocated for the replication instance.
+     * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     readonly allocatedStorage?: fabric.MaybeComputed<number>;
     /**
@@ -138,7 +138,7 @@ export interface ReplicationInstanceArgs {
      */
     readonly engineVersion?: fabric.MaybeComputed<string>;
     /**
-     * for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     readonly kmsKeyArn?: fabric.MaybeComputed<string>;
     /**

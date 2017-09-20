@@ -57,7 +57,7 @@ export class Document extends fabric.Resource {
      */
     public /*out*/ readonly parameter: fabric.Computed<{ defaultValue?: string, description?: string, name?: string, type?: string }[]>;
     /**
-     * below for details.
+     * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
     public readonly permissions?: fabric.Computed<{[key: string]: { accountIds: string, type: string }}>;
     /**
@@ -126,7 +126,7 @@ export interface DocumentArgs {
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**
-     * below for details.
+     * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
     readonly permissions?: fabric.MaybeComputed<{[key: string]: { accountIds: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }}>;
 }

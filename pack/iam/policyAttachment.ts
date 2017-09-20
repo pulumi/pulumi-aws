@@ -42,13 +42,25 @@ import {User} from "./user";
  * ```
  */
 export class PolicyAttachment extends fabric.Resource {
+    /**
+     * The group(s) the policy should be applied to
+     */
     public readonly groups?: fabric.Computed<Group[]>;
     /**
-     * The name of the policy.
+     * The name of the policy. This cannot be an empty string.
      */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ARN of the policy you want to apply
+     */
     public readonly policyArn: fabric.Computed<ARN>;
+    /**
+     * The role(s) the policy should be applied to
+     */
     public readonly roles?: fabric.Computed<Role[]>;
+    /**
+     * The user(s) the policy should be applied to
+     */
     public readonly users?: fabric.Computed<User[]>;
 
     /**
@@ -77,10 +89,25 @@ export class PolicyAttachment extends fabric.Resource {
  * The set of arguments for constructing a PolicyAttachment resource.
  */
 export interface PolicyAttachmentArgs {
+    /**
+     * The group(s) the policy should be applied to
+     */
     readonly groups?: fabric.MaybeComputed<fabric.MaybeComputed<Group>>[];
+    /**
+     * The name of the policy. This cannot be an empty string.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The ARN of the policy you want to apply
+     */
     readonly policyArn: fabric.MaybeComputed<ARN>;
+    /**
+     * The role(s) the policy should be applied to
+     */
     readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
+    /**
+     * The user(s) the policy should be applied to
+     */
     readonly users?: fabric.MaybeComputed<fabric.MaybeComputed<User>>[];
 }
 

@@ -20,7 +20,7 @@ export class Project extends fabric.Resource {
      */
     public readonly description: fabric.Computed<string>;
     /**
-     * to be used for encrypting the build project's build output artifacts.
+     * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
      */
     public readonly encryptionKey: fabric.Computed<string>;
     /**
@@ -32,7 +32,7 @@ export class Project extends fabric.Resource {
      */
     public readonly name: fabric.Computed<string>;
     /**
-     * role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     public readonly serviceRole: fabric.Computed<string>;
     /**
@@ -93,7 +93,7 @@ export interface ProjectArgs {
      */
     readonly description?: fabric.MaybeComputed<string>;
     /**
-     * to be used for encrypting the build project's build output artifacts.
+     * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
      */
     readonly encryptionKey?: fabric.MaybeComputed<string>;
     /**
@@ -105,7 +105,7 @@ export interface ProjectArgs {
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**
-     * role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     readonly serviceRole?: fabric.MaybeComputed<string>;
     /**

@@ -67,7 +67,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly dbClusterParameterGroupName: fabric.Computed<string>;
     /**
-     * in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     public readonly dbSubnetGroupName: fabric.Computed<string>;
     /**
@@ -85,7 +85,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly finalSnapshotIdentifier?: fabric.Computed<string>;
     /**
-     * accounts to database accounts is enabled.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled?: fabric.Computed<boolean>;
     /**
@@ -111,7 +111,7 @@ export class Cluster extends fabric.Resource {
      */
     public readonly preferredBackupWindow: fabric.Computed<string>;
     /**
-     * e.g. wed:04:00-wed:04:30
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
      */
     public readonly preferredMaintenanceWindow: fabric.Computed<string>;
     /**
@@ -223,7 +223,7 @@ export interface ClusterArgs {
      */
     readonly dbClusterParameterGroupName?: fabric.MaybeComputed<string>;
     /**
-     * in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
     /**
@@ -233,7 +233,7 @@ export interface ClusterArgs {
      */
     readonly finalSnapshotIdentifier?: fabric.MaybeComputed<string>;
     /**
-     * accounts to database accounts is enabled.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: fabric.MaybeComputed<boolean>;
     /**
@@ -259,7 +259,7 @@ export interface ClusterArgs {
      */
     readonly preferredBackupWindow?: fabric.MaybeComputed<string>;
     /**
-     * e.g. wed:04:00-wed:04:30
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
      */
     readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
     readonly replicationSourceIdentifier?: fabric.MaybeComputed<string>;

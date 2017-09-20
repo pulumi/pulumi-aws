@@ -31,7 +31,7 @@ export class Permission extends fabric.Resource {
      */
     public readonly qualifier?: fabric.Computed<string>;
     /**
-     * of the source owner.
+     * The AWS account ID (without a hyphen) of the source owner.
      */
     public readonly sourceAccount?: fabric.Computed<string>;
     /**
@@ -103,7 +103,7 @@ export interface PermissionArgs {
      */
     readonly qualifier?: fabric.MaybeComputed<string>;
     /**
-     * of the source owner.
+     * The AWS account ID (without a hyphen) of the source owner.
      */
     readonly sourceAccount?: fabric.MaybeComputed<string>;
     /**

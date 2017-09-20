@@ -8,7 +8,7 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class ReplicationTask extends fabric.Resource {
     /**
-     * operation.
+     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
     public readonly cdcStartTime?: fabric.Computed<string>;
     /**
@@ -16,7 +16,7 @@ export class ReplicationTask extends fabric.Resource {
      */
     public readonly migrationType: fabric.Computed<string>;
     /**
-     * of the replication instance.
+     * The Amazon Resource Name (ARN) of the replication instance.
      */
     public readonly replicationInstanceArn: fabric.Computed<string>;
     /**
@@ -32,7 +32,7 @@ export class ReplicationTask extends fabric.Resource {
      */
     public readonly replicationTaskSettings?: fabric.Computed<string>;
     /**
-     * string that uniquely identifies the source endpoint.
+     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
     public readonly sourceEndpointArn: fabric.Computed<string>;
     /**
@@ -44,7 +44,7 @@ export class ReplicationTask extends fabric.Resource {
      */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     /**
-     * string that uniquely identifies the target endpoint.
+     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
     public readonly targetEndpointArn: fabric.Computed<string>;
 
@@ -95,7 +95,7 @@ export class ReplicationTask extends fabric.Resource {
  */
 export interface ReplicationTaskArgs {
     /**
-     * operation.
+     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
     readonly cdcStartTime?: fabric.MaybeComputed<string>;
     /**
@@ -103,7 +103,7 @@ export interface ReplicationTaskArgs {
      */
     readonly migrationType: fabric.MaybeComputed<string>;
     /**
-     * of the replication instance.
+     * The Amazon Resource Name (ARN) of the replication instance.
      */
     readonly replicationInstanceArn: fabric.MaybeComputed<string>;
     /**
@@ -115,7 +115,7 @@ export interface ReplicationTaskArgs {
      */
     readonly replicationTaskSettings?: fabric.MaybeComputed<string>;
     /**
-     * string that uniquely identifies the source endpoint.
+     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
     readonly sourceEndpointArn: fabric.MaybeComputed<string>;
     /**
@@ -127,7 +127,7 @@ export interface ReplicationTaskArgs {
      */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
     /**
-     * string that uniquely identifies the target endpoint.
+     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
     readonly targetEndpointArn: fabric.MaybeComputed<string>;
 }

@@ -28,7 +28,7 @@ export class ParameterGroup extends fabric.Resource {
      */
     public readonly namePrefix: fabric.Computed<string>;
     /**
-     * after initial creation of the group.
+     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     public readonly parameter?: fabric.Computed<{ applyMethod?: string, name: string, value: string }[]>;
     /**
@@ -81,7 +81,7 @@ export interface ParameterGroupArgs {
      */
     readonly namePrefix?: fabric.MaybeComputed<string>;
     /**
-     * after initial creation of the group.
+     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     readonly parameter?: fabric.MaybeComputed<{ applyMethod?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
     /**

@@ -53,7 +53,7 @@ export class DefaultNetworkAcl extends fabric.Resource {
      */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     /**
-     *  The ID of the associated VPC
+     * The ID of the associated VPC
      */
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 

@@ -20,7 +20,7 @@ export class StateMachine extends fabric.Resource {
      */
     public readonly name: fabric.Computed<string>;
     /**
-     * of the IAM role to use for this state machine.
+     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     public readonly roleArn: fabric.Computed<string>;
     /**
@@ -66,7 +66,7 @@ export interface StateMachineArgs {
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**
-     * of the IAM role to use for this state machine.
+     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     readonly roleArn: fabric.MaybeComputed<string>;
 }

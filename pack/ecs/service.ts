@@ -16,11 +16,11 @@ export class Service extends fabric.Resource {
      */
     public readonly cluster: fabric.Computed<string>;
     /**
-     * of the number of running tasks that can be running in a service during a deployment.
+     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
      */
     public readonly deploymentMaximumPercent?: fabric.Computed<number>;
     /**
-     * of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     public readonly deploymentMinimumHealthyPercent?: fabric.Computed<number>;
     /**
@@ -51,7 +51,7 @@ export class Service extends fabric.Resource {
      */
     public readonly placementStrategy?: fabric.Computed<{ field?: string, type: string }[]>;
     /**
-     * or full ARN of the task definition that you want to run in your service.
+     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
     public readonly taskDefinition: fabric.Computed<string>;
 
@@ -91,11 +91,11 @@ export interface ServiceArgs {
      */
     readonly cluster?: fabric.MaybeComputed<string>;
     /**
-     * of the number of running tasks that can be running in a service during a deployment.
+     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
      */
     readonly deploymentMaximumPercent?: fabric.MaybeComputed<number>;
     /**
-     * of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     readonly deploymentMinimumHealthyPercent?: fabric.MaybeComputed<number>;
     /**
@@ -126,7 +126,7 @@ export interface ServiceArgs {
      */
     readonly placementStrategy?: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
     /**
-     * or full ARN of the task definition that you want to run in your service.
+     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
     readonly taskDefinition: fabric.MaybeComputed<string>;
 }

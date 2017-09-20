@@ -18,7 +18,7 @@ export class Recorder extends fabric.Resource {
      */
     public readonly recordingGroup: fabric.Computed<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
     /**
-     * of the IAM role.
+     * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
@@ -57,7 +57,7 @@ export interface RecorderArgs {
      */
     readonly recordingGroup?: fabric.MaybeComputed<{ allSupported?: fabric.MaybeComputed<boolean>, includeGlobalResourceTypes?: fabric.MaybeComputed<boolean>, resourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
     /**
-     * of the IAM role.
+     * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */

@@ -12,7 +12,7 @@ export class Bucket extends fabric.Resource {
      */
     public readonly accelerationStatus: fabric.Computed<string>;
     /**
-     * to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
     public readonly acl?: fabric.Computed<string>;
     /**
@@ -32,7 +32,7 @@ export class Bucket extends fabric.Resource {
      */
     public readonly bucketPrefix?: fabric.Computed<string>;
     /**
-     * (documented below).
+     * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
     public readonly corsRule?: fabric.Computed<{ allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[]>;
     /**
@@ -44,15 +44,15 @@ export class Bucket extends fabric.Resource {
      */
     public readonly hostedZoneId: fabric.Computed<string>;
     /**
-     * (documented below).
+     * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
     public readonly lifecycleRule?: fabric.Computed<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id: string, noncurrentVersionExpiration?: { days?: number }[], noncurrentVersionTransition?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transition?: { date?: string, days?: number, storageClass: string }[] }[]>;
     /**
-     * (documented below).
+     * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
     public readonly logging?: fabric.Computed<{ targetBucket: string, targetPrefix?: string }[]>;
     /**
-     * JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
      */
     public readonly policy?: fabric.Computed<string>;
     /**
@@ -60,7 +60,7 @@ export class Bucket extends fabric.Resource {
      */
     public readonly region: fabric.Computed<string>;
     /**
-     * (documented below).
+     * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
     public readonly replicationConfiguration?: fabric.Computed<{ role: string, rules: { destination: { bucket: string, storageClass?: string }[], id?: string, prefix: string, status: string }[] }[]>;
     /**
@@ -75,7 +75,7 @@ export class Bucket extends fabric.Resource {
      */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     /**
-     * (documented below)
+     * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
     public readonly versioning: fabric.Computed<{ enabled?: boolean, mfaDelete?: boolean }[]>;
     /**
@@ -134,7 +134,7 @@ export interface BucketArgs {
      */
     readonly accelerationStatus?: fabric.MaybeComputed<string>;
     /**
-     * to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
     readonly acl?: fabric.MaybeComputed<string>;
     readonly arn?: fabric.MaybeComputed<string>;
@@ -147,7 +147,7 @@ export interface BucketArgs {
      */
     readonly bucketPrefix?: fabric.MaybeComputed<string>;
     /**
-     * (documented below).
+     * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
     readonly corsRule?: fabric.MaybeComputed<{ allowedHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedOrigins: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], exposeHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], maxAgeSeconds?: fabric.MaybeComputed<number> }>[];
     /**
@@ -156,15 +156,15 @@ export interface BucketArgs {
     readonly forceDestroy?: fabric.MaybeComputed<boolean>;
     readonly hostedZoneId?: fabric.MaybeComputed<string>;
     /**
-     * (documented below).
+     * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
     readonly lifecycleRule?: fabric.MaybeComputed<{ abortIncompleteMultipartUploadDays?: fabric.MaybeComputed<number>, enabled: fabric.MaybeComputed<boolean>, expiration?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, expiredObjectDeleteMarker?: fabric.MaybeComputed<boolean> }>[], id?: fabric.MaybeComputed<string>, noncurrentVersionExpiration?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number> }>[], noncurrentVersionTransition?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[], prefix?: fabric.MaybeComputed<string>, tags?: fabric.MaybeComputed<{[key: string]: any}>, transition?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[] }>[];
     /**
-     * (documented below).
+     * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
     readonly logging?: fabric.MaybeComputed<{ targetBucket: fabric.MaybeComputed<string>, targetPrefix?: fabric.MaybeComputed<string> }>[];
     /**
-     * JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
      */
     readonly policy?: fabric.MaybeComputed<string>;
     /**
@@ -172,7 +172,7 @@ export interface BucketArgs {
      */
     readonly region?: fabric.MaybeComputed<string>;
     /**
-     * (documented below).
+     * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
     readonly replicationConfiguration?: fabric.MaybeComputed<{ role: fabric.MaybeComputed<string>, rules: fabric.MaybeComputed<{ destination: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[], id?: fabric.MaybeComputed<string>, prefix: fabric.MaybeComputed<string>, status: fabric.MaybeComputed<string> }>[] }>[];
     /**
@@ -187,7 +187,7 @@ export interface BucketArgs {
      */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
     /**
-     * (documented below)
+     * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
     readonly versioning?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, mfaDelete?: fabric.MaybeComputed<boolean> }>[];
     /**

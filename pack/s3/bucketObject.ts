@@ -10,7 +10,7 @@ import {Bucket} from "./bucket";
  */
 export class BucketObject extends fabric.Resource {
     /**
-     * to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
     public readonly acl?: fabric.Computed<string>;
     /**
@@ -18,7 +18,7 @@ export class BucketObject extends fabric.Resource {
      */
     public readonly bucket: fabric.Computed<Bucket>;
     /**
-     * for further details.
+     * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     public readonly cacheControl?: fabric.Computed<string>;
     /**
@@ -26,11 +26,11 @@ export class BucketObject extends fabric.Resource {
      */
     public readonly content?: fabric.Computed<string>;
     /**
-     * for further information.
+     * Specifies presentational information for the object. Read [wc3 content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     public readonly contentDisposition?: fabric.Computed<string>;
     /**
-     * for further information.
+     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
     public readonly contentEncoding?: fabric.Computed<string>;
     /**
@@ -123,7 +123,7 @@ export class BucketObject extends fabric.Resource {
  */
 export interface BucketObjectArgs {
     /**
-     * to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
     readonly acl?: fabric.MaybeComputed<string>;
     /**
@@ -131,7 +131,7 @@ export interface BucketObjectArgs {
      */
     readonly bucket: fabric.MaybeComputed<Bucket>;
     /**
-     * for further details.
+     * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     readonly cacheControl?: fabric.MaybeComputed<string>;
     /**
@@ -139,11 +139,11 @@ export interface BucketObjectArgs {
      */
     readonly content?: fabric.MaybeComputed<string>;
     /**
-     * for further information.
+     * Specifies presentational information for the object. Read [wc3 content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     readonly contentDisposition?: fabric.MaybeComputed<string>;
     /**
-     * for further information.
+     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
     readonly contentEncoding?: fabric.MaybeComputed<string>;
     /**
