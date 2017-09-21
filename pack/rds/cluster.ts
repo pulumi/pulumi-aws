@@ -77,7 +77,11 @@ export class Cluster extends fabric.Resource {
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `aurora`.
      */
-    public /*out*/ readonly engine: fabric.Computed<string>;
+    public readonly engine?: fabric.Computed<string>;
+    /**
+     * The database engine version.
+     */
+    public readonly engineVersion: fabric.Computed<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -88,6 +92,10 @@ export class Cluster extends fabric.Resource {
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled?: fabric.Computed<boolean>;
+    /**
+     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     */
+    public readonly iamRoles?: fabric.Computed<string[]>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */
@@ -161,8 +169,11 @@ export class Cluster extends fabric.Resource {
             "databaseName": args.databaseName,
             "dbClusterParameterGroupName": args.dbClusterParameterGroupName,
             "dbSubnetGroupName": args.dbSubnetGroupName,
+            "engine": args.engine,
+            "engineVersion": args.engineVersion,
             "finalSnapshotIdentifier": args.finalSnapshotIdentifier,
             "iamDatabaseAuthenticationEnabled": args.iamDatabaseAuthenticationEnabled,
+            "iamRoles": args.iamRoles,
             "kmsKeyId": args.kmsKeyId,
             "masterPassword": args.masterPassword,
             "masterUsername": args.masterUsername,
@@ -177,7 +188,6 @@ export class Cluster extends fabric.Resource {
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
             "clusterResourceId": undefined,
             "endpoint": undefined,
-            "engine": undefined,
             "readerEndpoint": undefined,
         }, dependsOn);
     }
@@ -227,6 +237,14 @@ export interface ClusterArgs {
      */
     readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
     /**
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`.
+     */
+    readonly engine?: fabric.ComputedValue<string>;
+    /**
+     * The database engine version.
+     */
+    readonly engineVersion?: fabric.ComputedValue<string>;
+    /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
@@ -236,6 +254,10 @@ export interface ClusterArgs {
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: fabric.ComputedValue<boolean>;
+    /**
+     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     */
+    readonly iamRoles?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */

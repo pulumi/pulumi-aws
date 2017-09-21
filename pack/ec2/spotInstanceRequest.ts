@@ -189,6 +189,10 @@ export class SpotInstanceRequest extends fabric.Resource {
      */
     public readonly userData?: fabric.Computed<string>;
     /**
+     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     */
+    public readonly userDataBase64?: fabric.Computed<string>;
+    /**
      * A mapping of tags to assign to the devices created by the instance at launch time.
      */
     public readonly volumeTags?: fabric.Computed<{[key: string]: any}>;
@@ -250,6 +254,7 @@ export class SpotInstanceRequest extends fabric.Resource {
             "tags": args.tags,
             "tenancy": args.tenancy,
             "userData": args.userData,
+            "userDataBase64": args.userDataBase64,
             "volumeTags": args.volumeTags,
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
             "waitForFulfillment": args.waitForFulfillment,
@@ -397,6 +402,10 @@ export interface SpotInstanceRequestArgs {
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
     readonly userData?: fabric.ComputedValue<string>;
+    /**
+     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     */
+    readonly userDataBase64?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the devices created by the instance at launch time.
      */

@@ -22,7 +22,7 @@ export class WebAcl extends fabric.Resource {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    public readonly rules?: fabric.Computed<{ action: { type: string }[], priority: number, ruleId: string }[]>;
+    public readonly rules?: fabric.Computed<{ action: { type: string }[], priority: number, ruleId: string, type?: string }[]>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments and optional additional
@@ -67,6 +67,6 @@ export interface WebAclArgs {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    readonly rules?: fabric.ComputedValue<{ action: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[], priority: fabric.ComputedValue<number>, ruleId: fabric.ComputedValue<string> }>[];
+    readonly rules?: fabric.ComputedValue<{ action: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[], priority: fabric.ComputedValue<number>, ruleId: fabric.ComputedValue<string>, type?: fabric.ComputedValue<string> }>[];
 }
 

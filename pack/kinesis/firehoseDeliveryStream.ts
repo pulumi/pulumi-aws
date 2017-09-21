@@ -20,6 +20,10 @@ export class FirehoseDeliveryStream extends fabric.Resource {
     public readonly destinationId: fabric.Computed<string>;
     public readonly elasticsearchConfiguration?: fabric.Computed<{ bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], domainArn: string, indexName: string, indexRotationPeriod?: string, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string }[]>;
     /**
+     * Enhanced configuration options for the s3 destination. More details are given below.
+     */
+    public readonly extendedS3Configuration?: fabric.Computed<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }[], roleArn: string }[]>;
+    /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
@@ -34,7 +38,7 @@ export class FirehoseDeliveryStream extends fabric.Resource {
      * Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
-    public readonly s3Configuration: fabric.Computed<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }[]>;
+    public readonly s3Configuration?: fabric.Computed<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }[]>;
     public readonly versionId: fabric.Computed<string>;
 
     /**
@@ -49,14 +53,12 @@ export class FirehoseDeliveryStream extends fabric.Resource {
         if (args.destination === undefined) {
             throw new Error("Missing required property 'destination'");
         }
-        if (args.s3Configuration === undefined) {
-            throw new Error("Missing required property 's3Configuration'");
-        }
         super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", urnName, {
             "arn": args.arn,
             "destination": args.destination,
             "destinationId": args.destinationId,
             "elasticsearchConfiguration": args.elasticsearchConfiguration,
+            "extendedS3Configuration": args.extendedS3Configuration,
             "name": args.name,
             "redshiftConfiguration": args.redshiftConfiguration,
             "s3Configuration": args.s3Configuration,
@@ -77,6 +79,10 @@ export interface FirehoseDeliveryStreamArgs {
     readonly destinationId?: fabric.ComputedValue<string>;
     readonly elasticsearchConfiguration?: fabric.ComputedValue<{ bufferingInterval?: fabric.ComputedValue<number>, bufferingSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], domainArn: fabric.ComputedValue<string>, indexName: fabric.ComputedValue<string>, indexRotationPeriod?: fabric.ComputedValue<string>, retryDuration?: fabric.ComputedValue<number>, roleArn: fabric.ComputedValue<string>, s3BackupMode?: fabric.ComputedValue<string>, typeName?: fabric.ComputedValue<string> }>[];
     /**
+     * Enhanced configuration options for the s3 destination. More details are given below.
+     */
+    readonly extendedS3Configuration?: fabric.ComputedValue<{ bucketArn: fabric.ComputedValue<string>, bufferInterval?: fabric.ComputedValue<number>, bufferSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], compressionFormat?: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, prefix?: fabric.ComputedValue<string>, processingConfiguration?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, processors?: fabric.ComputedValue<{ parameters?: fabric.ComputedValue<{ parameterName: fabric.ComputedValue<string>, parameterValue: fabric.ComputedValue<string> }>[], type: fabric.ComputedValue<string> }>[] }>[], roleArn: fabric.ComputedValue<string> }>[];
+    /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
@@ -91,7 +97,7 @@ export interface FirehoseDeliveryStreamArgs {
      * Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
-    readonly s3Configuration: fabric.ComputedValue<{ bucketArn: fabric.ComputedValue<string>, bufferInterval?: fabric.ComputedValue<number>, bufferSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], compressionFormat?: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, prefix?: fabric.ComputedValue<string>, roleArn: fabric.ComputedValue<string> }>[];
+    readonly s3Configuration?: fabric.ComputedValue<{ bucketArn: fabric.ComputedValue<string>, bufferInterval?: fabric.ComputedValue<number>, bufferSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], compressionFormat?: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, prefix?: fabric.ComputedValue<string>, roleArn: fabric.ComputedValue<string> }>[];
     readonly versionId?: fabric.ComputedValue<string>;
 }
 

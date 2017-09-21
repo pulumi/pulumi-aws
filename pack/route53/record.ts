@@ -33,6 +33,10 @@ export class Record extends fabric.Resource {
      */
     public readonly latencyRoutingPolicy?: fabric.Computed<{ region: string }[]>;
     /**
+     * A block indicating a multivalue answer routing policy. Conflicts with any other routing policy.
+     */
+    public readonly multivalueAnswerRoutingPolicy?: fabric.Computed<boolean>;
+    /**
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     public readonly name: fabric.Computed<string>;
@@ -82,6 +86,7 @@ export class Record extends fabric.Resource {
             "geolocationRoutingPolicy": args.geolocationRoutingPolicy,
             "healthCheckId": args.healthCheckId,
             "latencyRoutingPolicy": args.latencyRoutingPolicy,
+            "multivalueAnswerRoutingPolicy": args.multivalueAnswerRoutingPolicy,
             "name": args.name,
             "records": args.records,
             "setIdentifier": args.setIdentifier,
@@ -119,6 +124,10 @@ export interface RecordArgs {
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
     readonly latencyRoutingPolicy?: fabric.ComputedValue<{ region: fabric.ComputedValue<string> }>[];
+    /**
+     * A block indicating a multivalue answer routing policy. Conflicts with any other routing policy.
+     */
+    readonly multivalueAnswerRoutingPolicy?: fabric.ComputedValue<boolean>;
     /**
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */

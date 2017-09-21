@@ -51,6 +51,10 @@ export class Directory extends fabric.Resource {
      */
     public readonly size?: fabric.Computed<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
      * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
     public readonly type?: fabric.Computed<string>;
@@ -80,6 +84,7 @@ export class Directory extends fabric.Resource {
             "password": args.password,
             "shortName": args.shortName,
             "size": args.size,
+            "tags": args.tags,
             "type": args.type,
             "vpcSettings": args.vpcSettings,
             "accessUrl": undefined,
@@ -124,6 +129,10 @@ export interface DirectoryArgs {
      * The size of the directory (`Small` or `Large` are accepted values).
      */
     readonly size?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */

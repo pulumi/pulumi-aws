@@ -11,6 +11,7 @@ export class Stack extends fabric.Resource {
      * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
      */
     public readonly agentVersion: fabric.Computed<string>;
+    public /*out*/ readonly arn: fabric.Computed<string>;
     /**
      * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
      */
@@ -90,6 +91,10 @@ export class Stack extends fabric.Resource {
     public readonly serviceRoleArn: fabric.Computed<string>;
     public /*out*/ readonly stackEndpoint: fabric.Computed<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
      */
@@ -141,9 +146,11 @@ export class Stack extends fabric.Resource {
             "name": args.name,
             "region": args.region,
             "serviceRoleArn": args.serviceRoleArn,
+            "tags": args.tags,
             "useCustomCookbooks": args.useCustomCookbooks,
             "useOpsworksSecurityGroups": args.useOpsworksSecurityGroups,
             "vpcId": args.vpcId,
+            "arn": undefined,
             "stackId": undefined,
             "stackEndpoint": undefined,
         }, dependsOn);
@@ -231,6 +238,10 @@ export interface StackArgs {
      * The ARN of an IAM role that the OpsWorks service will act as.
      */
     readonly serviceRoleArn: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.

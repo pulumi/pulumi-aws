@@ -10,14 +10,14 @@ export class Policy extends fabric.Resource {
     /**
      * The scaling policy's adjustment type.
      */
-    public readonly adjustmentType: fabric.Computed<string>;
+    public readonly adjustmentType?: fabric.Computed<string>;
     public readonly alarms?: fabric.Computed<string[]>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
     public /*out*/ readonly arn: fabric.Computed<string>;
-    public readonly cooldown: fabric.Computed<number>;
-    public readonly metricAggregationType: fabric.Computed<string>;
+    public readonly cooldown?: fabric.Computed<number>;
+    public readonly metricAggregationType?: fabric.Computed<string>;
     public readonly minAdjustmentMagnitude?: fabric.Computed<number>;
     /**
      * The name of the policy.
@@ -40,6 +40,10 @@ export class Policy extends fabric.Resource {
      */
     public readonly serviceNamespace: fabric.Computed<string>;
     public readonly stepAdjustment?: fabric.Computed<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[]>;
+    /**
+     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     */
+    public readonly stepScalingPolicyConfiguration?: fabric.Computed<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustment?: { metricIntervalLowerBound?: number, metricIntervalUpperBound?: number, scalingAdjustment: number }[] }[]>;
 
     /**
      * Create a Policy resource with the given unique name, arguments and optional additional
@@ -50,15 +54,6 @@ export class Policy extends fabric.Resource {
      * @param dependsOn A optional array of additional resources this intance depends on
      */
     constructor(urnName: string, args: PolicyArgs, dependsOn?: fabric.Resource[]) {
-        if (args.adjustmentType === undefined) {
-            throw new Error("Missing required property 'adjustmentType'");
-        }
-        if (args.cooldown === undefined) {
-            throw new Error("Missing required property 'cooldown'");
-        }
-        if (args.metricAggregationType === undefined) {
-            throw new Error("Missing required property 'metricAggregationType'");
-        }
         if (args.resourceId === undefined) {
             throw new Error("Missing required property 'resourceId'");
         }
@@ -80,6 +75,7 @@ export class Policy extends fabric.Resource {
             "scalableDimension": args.scalableDimension,
             "serviceNamespace": args.serviceNamespace,
             "stepAdjustment": args.stepAdjustment,
+            "stepScalingPolicyConfiguration": args.stepScalingPolicyConfiguration,
             "arn": undefined,
         }, dependsOn);
     }
@@ -89,10 +85,10 @@ export class Policy extends fabric.Resource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    readonly adjustmentType: fabric.ComputedValue<string>;
+    readonly adjustmentType?: fabric.ComputedValue<string>;
     readonly alarms?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
-    readonly cooldown: fabric.ComputedValue<number>;
-    readonly metricAggregationType: fabric.ComputedValue<string>;
+    readonly cooldown?: fabric.ComputedValue<number>;
+    readonly metricAggregationType?: fabric.ComputedValue<string>;
     readonly minAdjustmentMagnitude?: fabric.ComputedValue<number>;
     /**
      * The name of the policy.
@@ -115,5 +111,9 @@ export interface PolicyArgs {
      */
     readonly serviceNamespace: fabric.ComputedValue<string>;
     readonly stepAdjustment?: fabric.ComputedValue<{ metricIntervalLowerBound?: fabric.ComputedValue<string>, metricIntervalUpperBound?: fabric.ComputedValue<string>, scalingAdjustment: fabric.ComputedValue<number> }>[];
+    /**
+     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     */
+    readonly stepScalingPolicyConfiguration?: fabric.ComputedValue<{ adjustmentType?: fabric.ComputedValue<string>, cooldown?: fabric.ComputedValue<number>, metricAggregationType?: fabric.ComputedValue<string>, minAdjustmentMagnitude?: fabric.ComputedValue<number>, stepAdjustment?: fabric.ComputedValue<{ metricIntervalLowerBound?: fabric.ComputedValue<number>, metricIntervalUpperBound?: fabric.ComputedValue<number>, scalingAdjustment: fabric.ComputedValue<number> }>[] }>[];
 }
 

@@ -41,6 +41,10 @@ export class Cluster extends fabric.Resource {
      */
     public readonly ec2Attributes?: fabric.Computed<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string }[]>;
     /**
+     * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
+     */
+    public readonly instanceGroup?: fabric.Computed<{ bidPrice?: string, ebsConfig?: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
+    /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
     public readonly keepJobFlowAliveWhenNoSteps: fabric.Computed<boolean>;
@@ -52,7 +56,7 @@ export class Cluster extends fabric.Resource {
     /**
      * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    public readonly masterInstanceType: fabric.Computed<string>;
+    public readonly masterInstanceType?: fabric.Computed<string>;
     /**
      * The public DNS name of the master EC2 instance.
      */
@@ -95,9 +99,6 @@ export class Cluster extends fabric.Resource {
      * @param dependsOn A optional array of additional resources this intance depends on
      */
     constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
-        if (args.masterInstanceType === undefined) {
-            throw new Error("Missing required property 'masterInstanceType'");
-        }
         if (args.releaseLabel === undefined) {
             throw new Error("Missing required property 'releaseLabel'");
         }
@@ -112,6 +113,7 @@ export class Cluster extends fabric.Resource {
             "coreInstanceCount": args.coreInstanceCount,
             "coreInstanceType": args.coreInstanceType,
             "ec2Attributes": args.ec2Attributes,
+            "instanceGroup": args.instanceGroup,
             "keepJobFlowAliveWhenNoSteps": args.keepJobFlowAliveWhenNoSteps,
             "logUri": args.logUri,
             "masterInstanceType": args.masterInstanceType,
@@ -163,6 +165,10 @@ export interface ClusterArgs {
      */
     readonly ec2Attributes?: fabric.ComputedValue<{ additionalMasterSecurityGroups?: fabric.ComputedValue<string>, additionalSlaveSecurityGroups?: fabric.ComputedValue<string>, emrManagedMasterSecurityGroup?: fabric.ComputedValue<string>, emrManagedSlaveSecurityGroup?: fabric.ComputedValue<string>, instanceProfile: fabric.ComputedValue<string>, keyName?: fabric.ComputedValue<string>, serviceAccessSecurityGroup?: fabric.ComputedValue<string>, subnetId?: fabric.ComputedValue<string> }>[];
     /**
+     * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
+     */
+    readonly instanceGroup?: fabric.ComputedValue<{ bidPrice?: fabric.ComputedValue<string>, ebsConfig?: fabric.ComputedValue<{ iops?: fabric.ComputedValue<number>, size: fabric.ComputedValue<number>, type: fabric.ComputedValue<string>, volumesPerInstance?: fabric.ComputedValue<number> }>[], instanceCount?: fabric.ComputedValue<number>, instanceRole: fabric.ComputedValue<string>, instanceType: fabric.ComputedValue<string>, name?: fabric.ComputedValue<string> }>[];
+    /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
     readonly keepJobFlowAliveWhenNoSteps?: fabric.ComputedValue<boolean>;
@@ -174,7 +180,7 @@ export interface ClusterArgs {
     /**
      * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    readonly masterInstanceType: fabric.ComputedValue<string>;
+    readonly masterInstanceType?: fabric.ComputedValue<string>;
     /**
      * The name of the job flow
      */

@@ -9,6 +9,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
 export class Association extends fabric.Resource {
     public /*out*/ readonly associationId: fabric.Computed<string>;
     /**
+     * The document version you want to associate with the target(s). Can be a specific version or the default version.
+     */
+    public readonly documentVersion: fabric.Computed<string>;
+    /**
      * The instance id to apply an SSM document to.
      */
     public readonly instanceId?: fabric.Computed<string>;
@@ -17,9 +21,17 @@ export class Association extends fabric.Resource {
      */
     public readonly name: fabric.Computed<string>;
     /**
+     * An output location block. OutputLocation documented below.
+     */
+    public readonly outputLocation?: fabric.Computed<{ s3BucketName: string, s3KeyPrefix?: string }[]>;
+    /**
      * Additional parameters to pass to the SSM document.
      */
     public readonly parameters: fabric.Computed<{[key: string]: any}>;
+    /**
+     * A cron expression when the association will be applied to the target(s).
+     */
+    public readonly scheduleExpression?: fabric.Computed<string>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
      */
@@ -35,9 +47,12 @@ export class Association extends fabric.Resource {
      */
     constructor(urnName: string, args?: AssociationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ssm/association:Association", urnName, {
+            "documentVersion": args.documentVersion,
             "instanceId": args.instanceId,
             "name": args.name,
+            "outputLocation": args.outputLocation,
             "parameters": args.parameters,
+            "scheduleExpression": args.scheduleExpression,
             "targets": args.targets,
             "associationId": undefined,
         }, dependsOn);
@@ -49,6 +64,10 @@ export class Association extends fabric.Resource {
  */
 export interface AssociationArgs {
     /**
+     * The document version you want to associate with the target(s). Can be a specific version or the default version.
+     */
+    readonly documentVersion?: fabric.ComputedValue<string>;
+    /**
      * The instance id to apply an SSM document to.
      */
     readonly instanceId?: fabric.ComputedValue<string>;
@@ -57,9 +76,17 @@ export interface AssociationArgs {
      */
     readonly name?: fabric.ComputedValue<string>;
     /**
+     * An output location block. OutputLocation documented below.
+     */
+    readonly outputLocation?: fabric.ComputedValue<{ s3BucketName: fabric.ComputedValue<string>, s3KeyPrefix?: fabric.ComputedValue<string> }>[];
+    /**
      * Additional parameters to pass to the SSM document.
      */
     readonly parameters?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * A cron expression when the association will be applied to the target(s).
+     */
+    readonly scheduleExpression?: fabric.ComputedValue<string>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
      */

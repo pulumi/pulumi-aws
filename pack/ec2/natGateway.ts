@@ -27,6 +27,10 @@ export class NatGateway extends fabric.Resource {
      * The Subnet ID of the subnet in which to place the gateway.
      */
     public readonly subnetId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments and optional additional
@@ -49,6 +53,7 @@ export class NatGateway extends fabric.Resource {
             "privateIp": args.privateIp,
             "publicIp": args.publicIp,
             "subnetId": args.subnetId,
+            "tags": args.tags,
         }, dependsOn);
     }
 }
@@ -68,5 +73,9 @@ export interface NatGatewayArgs {
      * The Subnet ID of the subnet in which to place the gateway.
      */
     readonly subnetId: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

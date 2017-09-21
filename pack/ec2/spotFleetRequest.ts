@@ -64,6 +64,12 @@ export class SpotFleetRequest extends fabric.Resource {
      * requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
     public readonly validUntil?: fabric.Computed<string>;
+    /**
+     * If set, Terraform will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
+    public readonly waitForFulfillment?: fabric.Computed<boolean>;
 
     /**
      * Create a SpotFleetRequest resource with the given unique name, arguments and optional additional
@@ -97,6 +103,7 @@ export class SpotFleetRequest extends fabric.Resource {
             "terminateInstancesWithExpiration": args.terminateInstancesWithExpiration,
             "validFrom": args.validFrom,
             "validUntil": args.validUntil,
+            "waitForFulfillment": args.waitForFulfillment,
             "clientToken": undefined,
             "spotRequestState": undefined,
         }, dependsOn);
@@ -158,5 +165,11 @@ export interface SpotFleetRequestArgs {
      * requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
     readonly validUntil?: fabric.ComputedValue<string>;
+    /**
+     * If set, Terraform will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
+    readonly waitForFulfillment?: fabric.ComputedValue<boolean>;
 }
 

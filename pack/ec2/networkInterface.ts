@@ -15,6 +15,7 @@ export class NetworkInterface extends fabric.Resource {
      * A description for the network interface.
      */
     public readonly description?: fabric.Computed<string>;
+    public /*out*/ readonly privateDnsName: fabric.Computed<string>;
     public readonly privateIp: fabric.Computed<string>;
     /**
      * List of private IPs to assign to the ENI.
@@ -63,6 +64,7 @@ export class NetworkInterface extends fabric.Resource {
             "sourceDestCheck": args.sourceDestCheck,
             "subnetId": args.subnetId,
             "tags": args.tags,
+            "privateDnsName": undefined,
         }, dependsOn);
     }
 }

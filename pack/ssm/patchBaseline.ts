@@ -14,11 +14,15 @@ export class PatchBaseline extends fabric.Resource {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    public readonly approvalRule?: fabric.Computed<{ approveAfterDays: number, patchFilter: { key: string, values: string[] }[] }[]>;
+    public readonly approvalRule?: fabric.Computed<{ approveAfterDays: number, complianceLevel?: string, patchFilter: { key: string, values: string[] }[] }[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
     public readonly approvedPatches?: fabric.Computed<string[]>;
+    /**
+     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+     */
+    public readonly approvedPatchesComplianceLevel?: fabric.Computed<string>;
     /**
      * The description of the patch baseline.
      */
@@ -31,6 +35,10 @@ export class PatchBaseline extends fabric.Resource {
      * The name of the patch baseline.
      */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `UBUNTU` and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+     */
+    public readonly operatingSystem?: fabric.Computed<string>;
     /**
      * A list of rejected patches.
      */
@@ -48,9 +56,11 @@ export class PatchBaseline extends fabric.Resource {
         super("aws:ssm/patchBaseline:PatchBaseline", urnName, {
             "approvalRule": args.approvalRule,
             "approvedPatches": args.approvedPatches,
+            "approvedPatchesComplianceLevel": args.approvedPatchesComplianceLevel,
             "description": args.description,
             "globalFilter": args.globalFilter,
             "name": args.name,
+            "operatingSystem": args.operatingSystem,
             "rejectedPatches": args.rejectedPatches,
         }, dependsOn);
     }
@@ -63,11 +73,15 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    readonly approvalRule?: fabric.ComputedValue<{ approveAfterDays: fabric.ComputedValue<number>, patchFilter: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[] }>[];
+    readonly approvalRule?: fabric.ComputedValue<{ approveAfterDays: fabric.ComputedValue<number>, complianceLevel?: fabric.ComputedValue<string>, patchFilter: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[] }>[];
     /**
      * A list of explicitly approved patches for the baseline.
      */
     readonly approvedPatches?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+     */
+    readonly approvedPatchesComplianceLevel?: fabric.ComputedValue<string>;
     /**
      * The description of the patch baseline.
      */
@@ -80,6 +94,10 @@ export interface PatchBaselineArgs {
      * The name of the patch baseline.
      */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `UBUNTU` and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+     */
+    readonly operatingSystem?: fabric.ComputedValue<string>;
     /**
      * A list of rejected patches.
      */

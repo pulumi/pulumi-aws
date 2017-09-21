@@ -8,6 +8,10 @@ import * as fabric from "@pulumi/pulumi-fabric";
  */
 export class Activation extends fabric.Resource {
     /**
+     * The code the system generates when it processes the activation.
+     */
+    public /*out*/ readonly activationCode: fabric.Computed<string>;
+    /**
      * The description of the resource that you want to register.
      */
     public readonly description?: fabric.Computed<string>;
@@ -54,6 +58,7 @@ export class Activation extends fabric.Resource {
             "iamRole": args.iamRole,
             "name": args.name,
             "registrationLimit": args.registrationLimit,
+            "activationCode": undefined,
             "expired": undefined,
             "registrationCount": undefined,
         }, dependsOn);

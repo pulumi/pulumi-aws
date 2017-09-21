@@ -22,6 +22,7 @@ const (
 	apigatewayMod        = "apigateway"             // API Gateway
 	appautoscalingMod    = "appautoscaling"         // Application Auto Scaling
 	autoscalingMod       = "autoscaling"            // Auto Scaling
+	batchMod             = "batch"                  // Batch
 	cloudformationMod    = "cloudformation"         // Cloud Formation
 	cloudfrontMod        = "cloudfront"             // Cloud Front
 	cloudtrailMod        = "cloudtrail"             // Cloud Trail
@@ -247,6 +248,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_notification": {Tok: awsrestok(autoscalingMod, "Notification")},
 			"aws_autoscaling_policy":       {Tok: awsrestok(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule":     {Tok: awsrestok(autoscalingMod, "Schedule")},
+			// Batch
+			"aws_batch_compute_environment": {Tok: awsrestok(batchMod, "ComputeEnvironment")},
 			// CloudFormation
 			"aws_cloudformation_stack": {Tok: awsrestok(cloudformationMod, "Stack")},
 			// CloudFront
@@ -255,6 +258,7 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsrestok(cloudtrailMod, "Trail")},
 			// CloudWatch
+			"aws_cloudwatch_dashboard":              {Tok: awsrestok(cloudwatchMod, "Dashboard")},
 			"aws_cloudwatch_event_rule":             {Tok: awsrestok(cloudwatchMod, "EventRule")},
 			"aws_cloudwatch_event_target":           {Tok: awsrestok(cloudwatchMod, "EventTarget")},
 			"aws_cloudwatch_log_destination":        {Tok: awsrestok(cloudwatchMod, "LogDestination")},
@@ -406,11 +410,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_internet_gateway": {Tok: awsrestok(ec2Mod, "InternetGateway")},
-			"aws_iot_policy": {
-				Tok:      awsrestok(iotMod, "Policy"),
-				IDFields: []string{"name"},
-			},
-			"aws_key_pair": {Tok: awsrestok(ec2Mod, "KeyPair")},
+			"aws_key_pair":         {Tok: awsrestok(ec2Mod, "KeyPair")},
 			"aws_launch_configuration": {
 				Tok: awsrestok(ec2Mod, "LaunchConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -627,6 +627,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_inspector_assessment_target":   {Tok: awsrestok(inspectorMod, "AssessmentTarget")},
 			"aws_inspector_assessment_template": {Tok: awsrestok(inspectorMod, "AssessmentTemplate")},
 			"aws_inspector_resource_group":      {Tok: awsrestok(inspectorMod, "ResourceGroup")},
+			// IoT
+			"aws_iot_certificate": {Tok: awsrestok(iotMod, "Certificate")},
+			"aws_iot_policy": {
+				Tok:      awsrestok(iotMod, "Policy"),
+				IDFields: []string{"name"},
+			},
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsrestok(kinesisMod, "FirehoseDeliveryStream")},
 			"aws_kinesis_stream":                   {Tok: awsrestok(kinesisMod, "Stream")},
@@ -867,6 +873,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsrestok(wafMod, "ByteMatchSet")},
 			"aws_waf_ipset":                   {Tok: awsrestok(wafMod, "IpSet")},
+			"aws_waf_rate_based_rule":         {Tok: awsrestok(wafMod, "RateBasedRule")},
 			"aws_waf_rule":                    {Tok: awsrestok(wafMod, "Rule")},
 			"aws_waf_size_constraint_set":     {Tok: awsrestok(wafMod, "SizeConstraintSet")},
 			"aws_waf_web_acl":                 {Tok: awsrestok(wafMod, "WebAcl")},

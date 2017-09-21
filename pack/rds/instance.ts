@@ -75,6 +75,11 @@ export class Instance extends fabric.Resource {
      */
     public readonly backupWindow: fabric.Computed<string>;
     /**
+     * Specifies the identifier of the CA certificate for the
+     * DB instance.
+     */
+    public /*out*/ readonly caCertIdentifier: fabric.Computed<string>;
+    /**
      * The character set name to use for DB
      * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
      * Supported in Amazon
@@ -335,6 +340,7 @@ export class Instance extends fabric.Resource {
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
             "address": undefined,
             "arn": undefined,
+            "caCertIdentifier": undefined,
             "endpoint": undefined,
             "hostedZoneId": undefined,
             "replicas": undefined,

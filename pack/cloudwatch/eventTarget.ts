@@ -25,6 +25,10 @@ export class EventTarget extends fabric.Resource {
      */
     public readonly inputPath?: fabric.Computed<string>;
     /**
+     * Parameters used when you are providing a custom input to a target based on certain event data.
+     */
+    public readonly inputTransformer?: fabric.Computed<{ inputPaths?: {[key: string]: any}, inputTemplate: string }[]>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
     public readonly roleArn?: fabric.Computed<string>;
@@ -61,6 +65,7 @@ export class EventTarget extends fabric.Resource {
             "ecsTarget": args.ecsTarget,
             "input": args.input,
             "inputPath": args.inputPath,
+            "inputTransformer": args.inputTransformer,
             "roleArn": args.roleArn,
             "rule": args.rule,
             "runCommandTargets": args.runCommandTargets,
@@ -90,6 +95,10 @@ export interface EventTargetArgs {
      * that is used for extracting part of the matched event when passing it to the target.
      */
     readonly inputPath?: fabric.ComputedValue<string>;
+    /**
+     * Parameters used when you are providing a custom input to a target based on certain event data.
+     */
+    readonly inputTransformer?: fabric.ComputedValue<{ inputPaths?: fabric.ComputedValue<{[key: string]: any}>, inputTemplate: fabric.ComputedValue<string> }>[];
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */

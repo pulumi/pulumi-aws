@@ -28,6 +28,10 @@ export class ClusterInstance extends fabric.Resource {
      */
     public readonly autoMinorVersionUpgrade?: fabric.Computed<boolean>;
     /**
+     * The availability zone of the instance
+     */
+    public /*out*/ readonly availabilityZone: fabric.Computed<string>;
+    /**
      * The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
     public readonly clusterIdentifier: fabric.Computed<string>;
@@ -47,6 +51,14 @@ export class ClusterInstance extends fabric.Resource {
      * The DNS address for this instance. May not be writable
      */
     public /*out*/ readonly endpoint: fabric.Computed<string>;
+    /**
+     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`.
+     */
+    public readonly engine?: fabric.Computed<string>;
+    /**
+     * The database engine version.
+     */
+    public readonly engineVersion: fabric.Computed<string>;
     /**
      * The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
      */
@@ -137,6 +149,8 @@ export class ClusterInstance extends fabric.Resource {
             "clusterIdentifier": args.clusterIdentifier,
             "dbParameterGroupName": args.dbParameterGroupName,
             "dbSubnetGroupName": args.dbSubnetGroupName,
+            "engine": args.engine,
+            "engineVersion": args.engineVersion,
             "identifier": args.identifier,
             "identifierPrefix": args.identifierPrefix,
             "instanceClass": args.instanceClass,
@@ -147,6 +161,7 @@ export class ClusterInstance extends fabric.Resource {
             "promotionTier": args.promotionTier,
             "publiclyAccessible": args.publiclyAccessible,
             "tags": args.tags,
+            "availabilityZone": undefined,
             "dbiResourceId": undefined,
             "endpoint": undefined,
             "kmsKeyId": undefined,
@@ -182,6 +197,14 @@ export interface ClusterInstanceArgs {
      * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
      */
     readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
+    /**
+     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`.
+     */
+    readonly engine?: fabric.ComputedValue<string>;
+    /**
+     * The database engine version.
+     */
+    readonly engineVersion?: fabric.ComputedValue<string>;
     /**
      * The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
      */
