@@ -3,13 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AWS Cognito Identity Pool.
+ */
 export class IdentityPool extends fabric.Resource {
+    /**
+     * Whether the identity pool supports unauthenticated logins or not.
+     */
     public readonly allowUnauthenticatedIdentities?: fabric.Computed<boolean>;
+    /**
+     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     */
     public readonly cognitoIdentityProviders?: fabric.Computed<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[]>;
+    /**
+     * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
+     * backend and the Cognito service to communicate about the developer provider.
+     */
     public readonly developerProviderName?: fabric.Computed<string>;
+    /**
+     * The Cognito Identity Pool name.
+     */
     public readonly identityPoolName: fabric.Computed<string>;
+    /**
+     * A list of OpendID Connect provider ARNs.
+     */
     public readonly openidConnectProviderArns?: fabric.Computed<string[]>;
+    /**
+     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     */
     public readonly samlProviderArns?: fabric.Computed<string[]>;
+    /**
+     * Key-Value pairs mapping provider names to provider app IDs.
+     */
     public readonly supportedLoginProviders?: fabric.Computed<{[key: string]: string}>;
 
     /**
@@ -40,12 +65,34 @@ export class IdentityPool extends fabric.Resource {
  * The set of arguments for constructing a IdentityPool resource.
  */
 export interface IdentityPoolArgs {
+    /**
+     * Whether the identity pool supports unauthenticated logins or not.
+     */
     readonly allowUnauthenticatedIdentities?: fabric.MaybeComputed<boolean>;
+    /**
+     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     */
     readonly cognitoIdentityProviders?: fabric.MaybeComputed<{ clientId?: fabric.MaybeComputed<string>, providerName?: fabric.MaybeComputed<string>, serverSideTokenCheck?: fabric.MaybeComputed<boolean> }>[];
+    /**
+     * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
+     * backend and the Cognito service to communicate about the developer provider.
+     */
     readonly developerProviderName?: fabric.MaybeComputed<string>;
+    /**
+     * The Cognito Identity Pool name.
+     */
     readonly identityPoolName: fabric.MaybeComputed<string>;
+    /**
+     * A list of OpendID Connect provider ARNs.
+     */
     readonly openidConnectProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     */
     readonly samlProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Key-Value pairs mapping provider names to provider app IDs.
+     */
     readonly supportedLoginProviders?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
 }
 

@@ -3,6 +3,14 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic MapReduce Cluster Instance Group configuration.
+ * See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
+ * 
+ * ~> **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
+ * web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
+ * Terraform will resize any Instance Group to zero when destroying the resource.
+ */
 export class InstanceGroup extends fabric.Resource {
     public readonly clusterId: fabric.Computed<string>;
     public readonly ebsConfig?: fabric.Computed<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;

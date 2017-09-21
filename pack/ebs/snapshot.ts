@@ -3,15 +3,45 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates a Snapshot of an EBS Volume.
+ */
 export class Snapshot extends fabric.Resource {
+    /**
+     * The data encryption key identifier for the snapshot.
+     */
     public /*out*/ readonly dataEncryptionKeyId: fabric.Computed<string>;
+    /**
+     * A description of what the snapshot is.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Whether the snapshot is encrypted.
+     */
     public /*out*/ readonly encrypted: fabric.Computed<boolean>;
+    /**
+     * The ARN for the KMS encryption key.
+     */
     public /*out*/ readonly kmsKeyId: fabric.Computed<string>;
+    /**
+     * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+     */
     public /*out*/ readonly ownerAlias: fabric.Computed<string>;
+    /**
+     * The AWS account ID of the EBS snapshot owner.
+     */
     public /*out*/ readonly ownerId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the snapshot
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The Volume ID of which to make a snapshot.
+     */
     public readonly volumeId: fabric.Computed<string>;
+    /**
+     * The size of the drive in GiBs.
+     */
     public /*out*/ readonly volumeSize: fabric.Computed<number>;
 
     /**
@@ -44,8 +74,17 @@ export class Snapshot extends fabric.Resource {
  * The set of arguments for constructing a Snapshot resource.
  */
 export interface SnapshotArgs {
+    /**
+     * A description of what the snapshot is.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the snapshot
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The Volume ID of which to make a snapshot.
+     */
     readonly volumeId: fabric.MaybeComputed<string>;
 }
 

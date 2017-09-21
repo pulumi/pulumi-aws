@@ -3,8 +3,18 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeCommit Trigger Resource.
+ * 
+ * ~> **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
+ * in all regions - available regions are listed
+ * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
+ */
 export class Trigger extends fabric.Resource {
     public /*out*/ readonly configurationId: fabric.Computed<string>;
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     */
     public readonly repositoryName: fabric.Computed<string>;
     public readonly trigger: fabric.Computed<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
@@ -35,6 +45,9 @@ export class Trigger extends fabric.Resource {
  * The set of arguments for constructing a Trigger resource.
  */
 export interface TriggerArgs {
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     */
     readonly repositoryName: fabric.MaybeComputed<string>;
     readonly trigger: fabric.MaybeComputed<{ branches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customData?: fabric.MaybeComputed<string>, destinationArn: fabric.MaybeComputed<string>, events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string> }>[];
 }

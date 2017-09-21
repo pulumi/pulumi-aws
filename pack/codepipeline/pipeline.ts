@@ -3,9 +3,20 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodePipeline.
+ * 
+ * ~> **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+ */
 export class Pipeline extends fabric.Resource {
     public readonly artifactStore: fabric.Computed<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
+    /**
+     * The action declaration's name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     */
     public readonly roleArn: fabric.Computed<string>;
     public readonly stage: fabric.Computed<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
@@ -41,7 +52,13 @@ export class Pipeline extends fabric.Resource {
  */
 export interface PipelineArgs {
     readonly artifactStore: fabric.MaybeComputed<{ encryptionKey?: fabric.MaybeComputed<{ id: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], location: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    /**
+     * The action declaration's name.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     */
     readonly roleArn: fabric.MaybeComputed<string>;
     readonly stage: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ category: fabric.MaybeComputed<string>, configuration?: fabric.MaybeComputed<{[key: string]: any}>, inputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string>, outputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], owner: fabric.MaybeComputed<string>, provider: fabric.MaybeComputed<string>, roleArn?: fabric.MaybeComputed<string>, runOrder?: fabric.MaybeComputed<number>, version: fabric.MaybeComputed<string> }>[], name: fabric.MaybeComputed<string> }>[];
 }

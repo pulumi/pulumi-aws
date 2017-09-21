@@ -236,12 +236,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appautoscaling_target": {Tok: awsrestok(appautoscalingMod, "Target")},
 			"aws_appautoscaling_policy": {Tok: awsrestok(appautoscalingMod, "Policy")},
 			// Auto Scaling
-			"aws_autoscaling_attachment":     {Tok: awsrestok(autoscalingMod, "Attachment")},
-			"aws_autoscaling_group":          {Tok: awsrestok(autoscalingMod, "Group")},
-			"aws_autoscaling_lifecycle_hook": {Tok: awsrestok(autoscalingMod, "LifecycleHook")},
-			"aws_autoscaling_notification":   {Tok: awsrestok(autoscalingMod, "Notification")},
-			"aws_autoscaling_policy":         {Tok: awsrestok(autoscalingMod, "Policy")},
-			"aws_autoscaling_schedule":       {Tok: awsrestok(autoscalingMod, "Schedule")},
+			"aws_autoscaling_attachment": {Tok: awsrestok(autoscalingMod, "Attachment")},
+			"aws_autoscaling_group":      {Tok: awsrestok(autoscalingMod, "Group")},
+			"aws_autoscaling_lifecycle_hook": {
+				Tok: awsrestok(autoscalingMod, "LifecycleHook"),
+				Docs: &tfbridge.DocInfo{
+					Source: "autoscaling_lifecycle_hooks.html.markdown",
+				},
+			},
+			"aws_autoscaling_notification": {Tok: awsrestok(autoscalingMod, "Notification")},
+			"aws_autoscaling_policy":       {Tok: awsrestok(autoscalingMod, "Policy")},
+			"aws_autoscaling_schedule":     {Tok: awsrestok(autoscalingMod, "Schedule")},
 			// CloudFormation
 			"aws_cloudformation_stack": {Tok: awsrestok(cloudformationMod, "Stack")},
 			// CloudFront
@@ -297,8 +302,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codedeploy_deployment_config": {Tok: awsrestok(codedeployMod, "DeploymentConfig")},
 			"aws_codedeploy_deployment_group":  {Tok: awsrestok(codedeployMod, "DeploymentGroup")},
 			// CodeCommit
-			"aws_codecommit_repository": {Tok: awsrestok(codecommitMod, "Repository")},
-			"aws_codecommit_trigger":    {Tok: awsrestok(codecommitMod, "Trigger")},
+			"aws_codecommit_repository": {
+				Tok: awsrestok(codecommitMod, "Repository"),
+				Docs: &tfbridge.DocInfo{
+					Source: "code_commit_repository.html.markdown",
+				},
+			},
+			"aws_codecommit_trigger": {
+				Tok: awsrestok(codecommitMod, "Trigger"),
+				Docs: &tfbridge.DocInfo{
+					Source: "code_commit_trigger.html.markdown",
+				},
+			},
 			// CodePipeline
 			"aws_codepipeline": {Tok: awsrestok(codepipelineMod, "Pipeline")},
 			// Cognito
@@ -402,7 +417,12 @@ func Provider() tfbridge.ProviderInfo {
 					"ebs_block_device": {Name: "ebsBlockDevices"},
 				},
 			},
-			"aws_main_route_table_association":      {Tok: awsrestok(ec2Mod, "MainRouteTableAssociation")},
+			"aws_main_route_table_association": {
+				Tok: awsrestok(ec2Mod, "MainRouteTableAssociation"),
+				Docs: &tfbridge.DocInfo{
+					Source: "main_route_table_assoc.html.markdown",
+				},
+			},
 			"aws_nat_gateway":                       {Tok: awsrestok(ec2Mod, "NatGateway")},
 			"aws_network_acl":                       {Tok: awsrestok(ec2Mod, "NetworkAcl")},
 			"aws_default_network_acl":               {Tok: awsrestok(ec2Mod, "DefaultNetworkAcl")},
@@ -500,8 +520,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticsearch_domain":        {Tok: awsrestok(elasticsearchMod, "Domain")},
 			"aws_elasticsearch_domain_policy": {Tok: awsrestok(elasticsearchMod, "DomainPolicy")},
 			// Elastic Transcoder
-			"aws_elastictranscoder_pipeline": {Tok: awsrestok(elastictranscoderMod, "Pipeline")},
-			"aws_elastictranscoder_preset":   {Tok: awsrestok(elastictranscoderMod, "Preset")},
+			"aws_elastictranscoder_pipeline": {
+				Tok: awsrestok(elastictranscoderMod, "Pipeline"),
+				Docs: &tfbridge.DocInfo{
+					Source: "elastic_transcoder_pipeline.html.markdown",
+				},
+			},
+			"aws_elastictranscoder_preset": {
+				Tok: awsrestok(elastictranscoderMod, "Preset"),
+				Docs: &tfbridge.DocInfo{
+					Source: "elastic_transcoder_preset.html.markdown",
+				},
+			},
 			// Elastic MapReduce
 			"aws_emr_cluster":                {Tok: awsrestok(emrMod, "Cluster")},
 			"aws_emr_instance_group":         {Tok: awsrestok(emrMod, "InstanceGroup")},

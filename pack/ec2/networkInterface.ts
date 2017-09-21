@@ -3,15 +3,42 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic network interface (ENI) resource.
+ */
 export class NetworkInterface extends fabric.Resource {
+    /**
+     * Block to define the attachment of the ENI. Documented below.
+     */
     public readonly attachment: fabric.Computed<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
+    /**
+     * A description for the network interface.
+     */
     public readonly description?: fabric.Computed<string>;
     public readonly privateIp: fabric.Computed<string>;
+    /**
+     * List of private IPs to assign to the ENI.
+     */
     public readonly privateIps: fabric.Computed<string[]>;
+    /**
+     * Number of private IPs to assign to the ENI.
+     */
     public readonly privateIpsCount: fabric.Computed<number>;
+    /**
+     * List of security group IDs to assign to the ENI.
+     */
     public readonly securityGroups: fabric.Computed<string[]>;
+    /**
+     * Whether to enable source destination checking for the ENI. Default true.
+     */
     public readonly sourceDestCheck?: fabric.Computed<boolean>;
+    /**
+     * Subnet ID to create the ENI in.
+     */
     public readonly subnetId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
     /**
@@ -44,14 +71,38 @@ export class NetworkInterface extends fabric.Resource {
  * The set of arguments for constructing a NetworkInterface resource.
  */
 export interface NetworkInterfaceArgs {
+    /**
+     * Block to define the attachment of the ENI. Documented below.
+     */
     readonly attachment?: fabric.MaybeComputed<{ attachmentId?: fabric.MaybeComputed<string>, deviceIndex: fabric.MaybeComputed<number>, instance: fabric.MaybeComputed<string> }>[];
+    /**
+     * A description for the network interface.
+     */
     readonly description?: fabric.MaybeComputed<string>;
     readonly privateIp?: fabric.MaybeComputed<string>;
+    /**
+     * List of private IPs to assign to the ENI.
+     */
     readonly privateIps?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Number of private IPs to assign to the ENI.
+     */
     readonly privateIpsCount?: fabric.MaybeComputed<number>;
+    /**
+     * List of security group IDs to assign to the ENI.
+     */
     readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Whether to enable source destination checking for the ENI. Default true.
+     */
     readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
+    /**
+     * Subnet ID to create the ENI in.
+     */
     readonly subnetId: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
 }
 

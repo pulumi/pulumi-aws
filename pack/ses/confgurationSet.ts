@@ -3,7 +3,13 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SES configuration set resource
+ */
 export class ConfgurationSet extends fabric.Resource {
+    /**
+     * The name of the configuration set
+     */
     public readonly name: fabric.Computed<string>;
 
     /**
@@ -25,6 +31,9 @@ export class ConfgurationSet extends fabric.Resource {
  * The set of arguments for constructing a ConfgurationSet resource.
  */
 export interface ConfgurationSetArgs {
+    /**
+     * The name of the configuration set
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 

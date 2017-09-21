@@ -3,9 +3,22 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource for managing the main routing table of a VPC.
+ */
 export class MainRouteTableAssociation extends fabric.Resource {
+    /**
+     * Used internally, see __Notes__ below
+     */
     public /*out*/ readonly originalRouteTableId: fabric.Computed<string>;
+    /**
+     * The ID of the Route Table to set as the new
+     * main route table for the target VPC
+     */
     public readonly routeTableId: fabric.Computed<string>;
+    /**
+     * The ID of the VPC whose main route table should be set
+     */
     public readonly vpcId: fabric.Computed<string>;
 
     /**
@@ -35,7 +48,14 @@ export class MainRouteTableAssociation extends fabric.Resource {
  * The set of arguments for constructing a MainRouteTableAssociation resource.
  */
 export interface MainRouteTableAssociationArgs {
+    /**
+     * The ID of the Route Table to set as the new
+     * main route table for the target VPC
+     */
     readonly routeTableId: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the VPC whose main route table should be set
+     */
     readonly vpcId: fabric.MaybeComputed<string>;
 }
 

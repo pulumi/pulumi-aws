@@ -3,11 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an API Gateway Gateway Response for a REST API Gateway.
+ */
 export class Response extends fabric.Resource {
+    /**
+     * A map specifying the templates used to transform the response body.
+     */
     public readonly responseParameters?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     */
     public readonly responseTemplates?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * The response type of the associated GatewayResponse.
+     */
     public readonly responseType: fabric.Computed<string>;
+    /**
+     * The string identifier of the associated REST API.
+     */
     public readonly restApiId: fabric.Computed<string>;
+    /**
+     * The HTTP status code of the Gateway Response.
+     */
     public readonly statusCode?: fabric.Computed<string>;
 
     /**
@@ -39,10 +57,25 @@ export class Response extends fabric.Resource {
  * The set of arguments for constructing a Response resource.
  */
 export interface ResponseArgs {
+    /**
+     * A map specifying the templates used to transform the response body.
+     */
     readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    /**
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     */
     readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    /**
+     * The response type of the associated GatewayResponse.
+     */
     readonly responseType: fabric.MaybeComputed<string>;
+    /**
+     * The string identifier of the associated REST API.
+     */
     readonly restApiId: fabric.MaybeComputed<string>;
+    /**
+     * The HTTP status code of the Gateway Response.
+     */
     readonly statusCode?: fabric.MaybeComputed<string>;
 }
 

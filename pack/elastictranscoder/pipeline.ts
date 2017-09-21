@@ -3,17 +3,50 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic Transcoder pipeline resource.
+ */
 export class Pipeline extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     */
     public readonly awsKmsKeyArn?: fabric.Computed<string>;
+    /**
+     * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+     */
     public readonly contentConfig: fabric.Computed<{ bucket: string, storageClass?: string }[]>;
+    /**
+     * The permissions for the `content_config` object. (documented below)
+     */
     public readonly contentConfigPermissions?: fabric.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
+    /**
+     * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+     */
     public readonly inputBucket: fabric.Computed<string>;
+    /**
+     * The name of the pipeline. Maximum 40 characters
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+     */
     public readonly notifications?: fabric.Computed<{ completed?: string, error?: string, progressing?: string, warning?: string }[]>;
+    /**
+     * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+     */
     public readonly outputBucket: fabric.Computed<string>;
+    /**
+     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     */
     public readonly role: fabric.Computed<string>;
+    /**
+     * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+     */
     public readonly thumbnailConfig: fabric.Computed<{ bucket: string, storageClass?: string }[]>;
+    /**
+     * The permissions for the `thumbnail_config` object. (documented below)
+     */
     public readonly thumbnailConfigPermissions?: fabric.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
 
     /**
@@ -51,15 +84,45 @@ export class Pipeline extends fabric.Resource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     */
     readonly awsKmsKeyArn?: fabric.MaybeComputed<string>;
+    /**
+     * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+     */
     readonly contentConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The permissions for the `content_config` object. (documented below)
+     */
     readonly contentConfigPermissions?: fabric.MaybeComputed<{ access?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], grantee?: fabric.MaybeComputed<string>, granteeType?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+     */
     readonly inputBucket: fabric.MaybeComputed<string>;
+    /**
+     * The name of the pipeline. Maximum 40 characters
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+     */
     readonly notifications?: fabric.MaybeComputed<{ completed?: fabric.MaybeComputed<string>, error?: fabric.MaybeComputed<string>, progressing?: fabric.MaybeComputed<string>, warning?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+     */
     readonly outputBucket?: fabric.MaybeComputed<string>;
+    /**
+     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     */
     readonly role: fabric.MaybeComputed<string>;
+    /**
+     * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+     */
     readonly thumbnailConfig?: fabric.MaybeComputed<{ bucket?: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The permissions for the `thumbnail_config` object. (documented below)
+     */
     readonly thumbnailConfigPermissions?: fabric.MaybeComputed<{ access?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], grantee?: fabric.MaybeComputed<string>, granteeType?: fabric.MaybeComputed<string> }>[];
 }
 

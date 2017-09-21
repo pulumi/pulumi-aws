@@ -6,8 +6,62 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 import {Role} from "./role";
 
+/**
+ * Attaches a Managed IAM Policy to an IAM role
+ * 
+ * ```hcl
+ * resource "aws_iam_role" "role" {
+ *     name = "test-role"
+ *     assume_role_policy = <<EOF
+ *     {
+ *       "Version": "2012-10-17",
+ *       "Statement": [
+ *         {
+ *           "Action": "sts:AssumeRole",
+ *           "Principal": {
+ *             "Service": "ec2.amazonaws.com"
+ *           },
+ *           "Effect": "Allow",
+ *           "Sid": ""
+ *         }
+ *       ]
+ *     }
+ * EOF
+ * }
+ * 
+ * resource "aws_iam_policy" "policy" {
+ *     name        = "test-policy"
+ *     description = "A test policy"
+ *     policy = <<EOF
+ * {
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * EOF
+ * }
+ * 
+ * resource "aws_iam_role_policy_attachment" "test-attach" {
+ *     role       = "${aws_iam_role.role.name}"
+ *     policy_arn = "${aws_iam_policy.policy.arn}"
+ * }
+ * ```
+ */
 export class RolePolicyAttachment extends fabric.Resource {
+    /**
+     * The ARN of the policy you want to apply
+     */
     public readonly policyArn: fabric.Computed<ARN>;
+    /**
+     * The role the policy should be applied to
+     */
     public readonly role: fabric.Computed<Role>;
 
     /**
@@ -36,7 +90,13 @@ export class RolePolicyAttachment extends fabric.Resource {
  * The set of arguments for constructing a RolePolicyAttachment resource.
  */
 export interface RolePolicyAttachmentArgs {
+    /**
+     * The ARN of the policy you want to apply
+     */
     readonly policyArn: fabric.MaybeComputed<ARN>;
+    /**
+     * The role the policy should be applied to
+     */
     readonly role: fabric.MaybeComputed<Role>;
 }
 

@@ -3,12 +3,33 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SES event destination
+ */
 export class EventDestination extends fabric.Resource {
+    /**
+     * CloudWatch destination for the events
+     */
     public readonly cloudwatchDestination?: fabric.Computed<{ defaultValue: string, dimensionName: string, valueSource: string }[]>;
+    /**
+     * The name of the configuration set
+     */
     public readonly configurationSetName: fabric.Computed<string>;
+    /**
+     * If true, the event destination will be enabled
+     */
     public readonly enabled?: fabric.Computed<boolean>;
+    /**
+     * Send the events to a kinesis firehose destination
+     */
     public readonly kinesisDestination?: fabric.Computed<{ roleArn: string, streamArn: string }[]>;
+    /**
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, or `"delivery"`.
+     */
     public readonly matchingTypes: fabric.Computed<string[]>;
+    /**
+     * The name of the event destination
+     */
     public readonly name: fabric.Computed<string>;
 
     /**
@@ -41,11 +62,29 @@ export class EventDestination extends fabric.Resource {
  * The set of arguments for constructing a EventDestination resource.
  */
 export interface EventDestinationArgs {
+    /**
+     * CloudWatch destination for the events
+     */
     readonly cloudwatchDestination?: fabric.MaybeComputed<{ defaultValue: fabric.MaybeComputed<string>, dimensionName: fabric.MaybeComputed<string>, valueSource: fabric.MaybeComputed<string> }>[];
+    /**
+     * The name of the configuration set
+     */
     readonly configurationSetName: fabric.MaybeComputed<string>;
+    /**
+     * If true, the event destination will be enabled
+     */
     readonly enabled?: fabric.MaybeComputed<boolean>;
+    /**
+     * Send the events to a kinesis firehose destination
+     */
     readonly kinesisDestination?: fabric.MaybeComputed<{ roleArn: fabric.MaybeComputed<string>, streamArn: fabric.MaybeComputed<string> }>[];
+    /**
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, or `"delivery"`.
+     */
     readonly matchingTypes: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * The name of the event destination
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 
