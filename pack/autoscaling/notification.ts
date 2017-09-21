@@ -56,15 +56,15 @@ export interface NotificationArgs {
     /**
      * A list of AutoScaling Group Names
      */
-    readonly groupNames: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly groupNames: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    readonly notifications: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly notifications: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The Topic ARN for notifications to be sent through
      */
-    readonly topicArn: fabric.MaybeComputed<string>;
+    readonly topicArn: fabric.ComputedValue<string>;
 }
 

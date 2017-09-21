@@ -75,30 +75,30 @@ export interface OptionGroupArgs {
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    readonly engineName: fabric.MaybeComputed<string>;
+    readonly engineName: fabric.ComputedValue<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    readonly majorEngineVersion: fabric.MaybeComputed<string>;
+    readonly majorEngineVersion: fabric.ComputedValue<string>;
     /**
      * The Name of the setting.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * A list of Options to apply.
      */
-    readonly option?: fabric.MaybeComputed<{ dbSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], optionName: fabric.MaybeComputed<string>, optionSettings?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], port?: fabric.MaybeComputed<number>, vpcSecurityGroupMemberships?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly option?: fabric.ComputedValue<{ dbSecurityGroupMemberships?: fabric.ComputedValue<fabric.ComputedValue<string>>[], optionName: fabric.ComputedValue<string>, optionSettings?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[], port?: fabric.ComputedValue<number>, vpcSecurityGroupMemberships?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */
-    readonly optionGroupDescription?: fabric.MaybeComputed<string>;
+    readonly optionGroupDescription?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -71,18 +71,18 @@ export interface RouteTableArgs {
     /**
      * A list of virtual gateways for propagation.
      */
-    readonly propagatingVgws?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly propagatingVgws?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly route?: fabric.MaybeComputed<{ cidrBlock?: fabric.MaybeComputed<string>, egressOnlyGatewayId?: fabric.MaybeComputed<string>, gatewayId?: fabric.MaybeComputed<string>, instanceId?: fabric.MaybeComputed<string>, ipv6CidrBlock?: fabric.MaybeComputed<string>, natGatewayId?: fabric.MaybeComputed<string>, networkInterfaceId?: fabric.MaybeComputed<string>, vpcPeeringConnectionId?: fabric.MaybeComputed<string> }>[];
+    readonly route?: fabric.ComputedValue<{ cidrBlock?: fabric.ComputedValue<string>, egressOnlyGatewayId?: fabric.ComputedValue<string>, gatewayId?: fabric.ComputedValue<string>, instanceId?: fabric.ComputedValue<string>, ipv6CidrBlock?: fabric.ComputedValue<string>, natGatewayId?: fabric.ComputedValue<string>, networkInterfaceId?: fabric.ComputedValue<string>, vpcPeeringConnectionId?: fabric.ComputedValue<string> }>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

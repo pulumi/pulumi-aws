@@ -59,26 +59,26 @@ export interface UsagePlanArgs {
     /**
      * The associated [API stages](#api-stages-arguments) of the usage plan.
      */
-    readonly apiStages?: fabric.MaybeComputed<{ apiId: fabric.MaybeComputed<string>, stage: fabric.MaybeComputed<string> }>[];
+    readonly apiStages?: fabric.ComputedValue<{ apiId: fabric.ComputedValue<string>, stage: fabric.ComputedValue<string> }>[];
     /**
      * The description of a usage plan.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the usage plan.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    readonly productCode?: fabric.MaybeComputed<string>;
+    readonly productCode?: fabric.ComputedValue<string>;
     /**
      * The [quota settings](#quota-settings-arguments) of the usage plan.
      */
-    readonly quotaSettings?: fabric.MaybeComputed<{ limit: fabric.MaybeComputed<number>, offset?: fabric.MaybeComputed<number>, period: fabric.MaybeComputed<string> }>[];
+    readonly quotaSettings?: fabric.ComputedValue<{ limit: fabric.ComputedValue<number>, offset?: fabric.ComputedValue<number>, period: fabric.ComputedValue<string> }>[];
     /**
      * The [throttling limits](#throttling-settings-arguments) of the usage plan.
      */
-    readonly throttleSettings?: fabric.MaybeComputed<{ burstLimit?: fabric.MaybeComputed<number>, rateLimit?: fabric.MaybeComputed<number> }>[];
+    readonly throttleSettings?: fabric.ComputedValue<{ burstLimit?: fabric.ComputedValue<number>, rateLimit?: fabric.ComputedValue<number> }>[];
 }
 

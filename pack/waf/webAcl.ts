@@ -55,18 +55,18 @@ export interface WebAclArgs {
     /**
      * The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    readonly defaultAction: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
+    readonly defaultAction: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[];
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    readonly metricName: fabric.MaybeComputed<string>;
+    readonly metricName: fabric.ComputedValue<string>;
     /**
      * The name or description of the web ACL.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    readonly rules?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[], priority: fabric.MaybeComputed<number>, ruleId: fabric.MaybeComputed<string> }>[];
+    readonly rules?: fabric.ComputedValue<{ action: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[], priority: fabric.ComputedValue<number>, ruleId: fabric.ComputedValue<string> }>[];
 }
 

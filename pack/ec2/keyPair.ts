@@ -60,14 +60,14 @@ export interface KeyPairArgs {
     /**
      * The name for the key pair.
      */
-    readonly keyName?: fabric.MaybeComputed<string>;
+    readonly keyName?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
      */
-    readonly keyNamePrefix?: fabric.MaybeComputed<string>;
+    readonly keyNamePrefix?: fabric.ComputedValue<string>;
     /**
      * The public key material.
      */
-    readonly publicKey: fabric.MaybeComputed<string>;
+    readonly publicKey: fabric.ComputedValue<string>;
 }
 

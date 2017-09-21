@@ -87,27 +87,27 @@ export interface ApplicationVersionArgs {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    readonly application: fabric.MaybeComputed<Application>;
+    readonly application: fabric.ComputedValue<Application>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    readonly bucket: fabric.MaybeComputed<Bucket>;
+    readonly bucket: fabric.ComputedValue<Bucket>;
     /**
      * Short description of the Application Version.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * On delete, force an Application Version to be deleted when it may be in use
      * by multiple Elastic Beanstalk Environments.
      */
-    readonly forceDelete?: fabric.MaybeComputed<boolean>;
+    readonly forceDelete?: fabric.ComputedValue<boolean>;
     /**
      * S3 object that is the Application Version source bundle.
      */
-    readonly key: fabric.MaybeComputed<string>;
+    readonly key: fabric.ComputedValue<string>;
     /**
      * A unique name for the this Application Version.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

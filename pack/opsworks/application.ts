@@ -125,70 +125,70 @@ export interface ApplicationArgs {
     /**
      * SCM configuration of the app as described below.
      */
-    readonly appSource?: fabric.MaybeComputed<{ password?: fabric.MaybeComputed<string>, revision?: fabric.MaybeComputed<string>, sshKey?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string>, url?: fabric.MaybeComputed<string>, username?: fabric.MaybeComputed<string> }>[];
+    readonly appSource?: fabric.ComputedValue<{ password?: fabric.ComputedValue<string>, revision?: fabric.ComputedValue<string>, sshKey?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string>, url?: fabric.ComputedValue<string>, username?: fabric.ComputedValue<string> }>[];
     /**
      * Run bundle install when deploying for application of type `rails`.
      */
-    readonly autoBundleOnDeploy?: fabric.MaybeComputed<string>;
+    readonly autoBundleOnDeploy?: fabric.ComputedValue<string>;
     /**
      * Specify activity and workflow workers for your app using the aws-flow gem.
      */
-    readonly awsFlowRubySettings?: fabric.MaybeComputed<string>;
+    readonly awsFlowRubySettings?: fabric.ComputedValue<string>;
     /**
      * The data source's ARN.
      */
-    readonly dataSourceArn?: fabric.MaybeComputed<string>;
+    readonly dataSourceArn?: fabric.ComputedValue<string>;
     /**
      * The database name.
      */
-    readonly dataSourceDatabaseName?: fabric.MaybeComputed<string>;
+    readonly dataSourceDatabaseName?: fabric.ComputedValue<string>;
     /**
      * The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
      */
-    readonly dataSourceType?: fabric.MaybeComputed<string>;
+    readonly dataSourceType?: fabric.ComputedValue<string>;
     /**
      * A description of the app.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Subfolder for the document root for application of type `rails`.
      */
-    readonly documentRoot?: fabric.MaybeComputed<string>;
+    readonly documentRoot?: fabric.ComputedValue<string>;
     /**
      * A list of virtual host alias.
      */
-    readonly domains?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly domains?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
      */
-    readonly enableSsl?: fabric.MaybeComputed<boolean>;
+    readonly enableSsl?: fabric.ComputedValue<boolean>;
     /**
      * Object to define environment variables.  Object is described below.
      */
-    readonly environment?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, secure?: fabric.MaybeComputed<boolean>, value: fabric.MaybeComputed<string> }>[];
+    readonly environment?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, secure?: fabric.ComputedValue<boolean>, value: fabric.ComputedValue<string> }>[];
     /**
      * A human-readable name for the application.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The name of the Rails environment for application of type `rails`.
      */
-    readonly railsEnv?: fabric.MaybeComputed<string>;
+    readonly railsEnv?: fabric.ComputedValue<string>;
     /**
      * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      */
-    readonly shortName?: fabric.MaybeComputed<string>;
+    readonly shortName?: fabric.ComputedValue<string>;
     /**
      * The SSL configuration of the app. Object is described below.
      */
-    readonly sslConfiguration?: fabric.MaybeComputed<{ certificate: fabric.MaybeComputed<string>, chain?: fabric.MaybeComputed<string>, privateKey: fabric.MaybeComputed<string> }>[];
+    readonly sslConfiguration?: fabric.ComputedValue<{ certificate: fabric.ComputedValue<string>, chain?: fabric.ComputedValue<string>, privateKey: fabric.ComputedValue<string> }>[];
     /**
      * The id of the stack the application will belong to.
      */
-    readonly stackId: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.ComputedValue<string>;
     /**
      * The type of source to use. For example, "archive".
      */
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

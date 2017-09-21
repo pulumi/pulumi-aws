@@ -62,26 +62,26 @@ export interface VpcDhcpOptionsArgs {
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
-    readonly domainName?: fabric.MaybeComputed<string>;
+    readonly domainName?: fabric.ComputedValue<string>;
     /**
      * List of name servers to configure in `/etc/resolv.conf`.
      */
-    readonly domainNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly domainNameServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * List of NETBIOS name servers.
      */
-    readonly netbiosNameServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly netbiosNameServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    readonly netbiosNodeType?: fabric.MaybeComputed<string>;
+    readonly netbiosNodeType?: fabric.ComputedValue<string>;
     /**
      * List of NTP servers to configure.
      */
-    readonly ntpServers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly ntpServers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

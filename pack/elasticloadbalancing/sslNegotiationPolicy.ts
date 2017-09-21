@@ -58,21 +58,21 @@ export interface SslNegotiationPolicyArgs {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    readonly attribute?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly attribute?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    readonly lbPort: fabric.MaybeComputed<number>;
+    readonly lbPort: fabric.ComputedValue<number>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer: fabric.MaybeComputed<string>;
+    readonly loadBalancer: fabric.ComputedValue<string>;
     /**
      * The name of the attribute
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

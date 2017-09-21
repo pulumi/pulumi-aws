@@ -55,19 +55,19 @@ export interface LogGroupArgs {
     /**
      * The name of the log group. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * Specifies the number of days
      * you want to retain log events in the specified log group.
      */
-    readonly retentionInDays?: fabric.MaybeComputed<number>;
+    readonly retentionInDays?: fabric.ComputedValue<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

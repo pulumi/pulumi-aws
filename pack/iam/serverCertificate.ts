@@ -81,14 +81,14 @@ export class ServerCertificate extends fabric.Resource {
  * The set of arguments for constructing a ServerCertificate resource.
  */
 export interface ServerCertificateArgs {
-    readonly arn?: fabric.MaybeComputed<string>;
-    readonly certificateBody: fabric.MaybeComputed<string>;
-    readonly certificateChain?: fabric.MaybeComputed<string>;
+    readonly arn?: fabric.ComputedValue<string>;
+    readonly certificateBody: fabric.ComputedValue<string>;
+    readonly certificateChain?: fabric.ComputedValue<string>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
@@ -99,14 +99,14 @@ export interface ServerCertificateArgs {
      * of the chain.
      * * `private_key` – (Required) The contents of the private key in PEM-encoded format.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers][1] for more details on IAM Paths.
      */
-    readonly path?: fabric.MaybeComputed<string>;
-    readonly privateKey: fabric.MaybeComputed<string>;
+    readonly path?: fabric.ComputedValue<string>;
+    readonly privateKey: fabric.ComputedValue<string>;
 }
 

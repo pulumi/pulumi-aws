@@ -76,28 +76,28 @@ export interface RuleArgs {
     /**
      * Description of the rule
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    readonly inputParameters?: fabric.MaybeComputed<string>;
+    readonly inputParameters?: fabric.ComputedValue<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
      * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      */
-    readonly maximumExecutionFrequency?: fabric.MaybeComputed<string>;
+    readonly maximumExecutionFrequency?: fabric.ComputedValue<string>;
     /**
      * The name of the rule
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: fabric.MaybeComputed<{ complianceResourceId?: fabric.MaybeComputed<string>, complianceResourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], tagKey?: fabric.MaybeComputed<string>, tagValue?: fabric.MaybeComputed<string> }>[];
+    readonly scope?: fabric.ComputedValue<{ complianceResourceId?: fabric.ComputedValue<string>, complianceResourceTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[], tagKey?: fabric.ComputedValue<string>, tagValue?: fabric.ComputedValue<string> }>[];
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source: fabric.MaybeComputed<{ owner: fabric.MaybeComputed<string>, sourceDetail?: fabric.MaybeComputed<{ eventSource?: fabric.MaybeComputed<string>, maximumExecutionFrequency?: fabric.MaybeComputed<string>, messageType?: fabric.MaybeComputed<string> }>[], sourceIdentifier: fabric.MaybeComputed<string> }>[];
+    readonly source: fabric.ComputedValue<{ owner: fabric.ComputedValue<string>, sourceDetail?: fabric.ComputedValue<{ eventSource?: fabric.ComputedValue<string>, maximumExecutionFrequency?: fabric.ComputedValue<string>, messageType?: fabric.ComputedValue<string> }>[], sourceIdentifier: fabric.ComputedValue<string> }>[];
 }
 

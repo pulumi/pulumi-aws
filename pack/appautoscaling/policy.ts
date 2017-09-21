@@ -89,31 +89,31 @@ export class Policy extends fabric.Resource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    readonly adjustmentType: fabric.MaybeComputed<string>;
-    readonly alarms?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly cooldown: fabric.MaybeComputed<number>;
-    readonly metricAggregationType: fabric.MaybeComputed<string>;
-    readonly minAdjustmentMagnitude?: fabric.MaybeComputed<number>;
+    readonly adjustmentType: fabric.ComputedValue<string>;
+    readonly alarms?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly cooldown: fabric.ComputedValue<number>;
+    readonly metricAggregationType: fabric.ComputedValue<string>;
+    readonly minAdjustmentMagnitude?: fabric.ComputedValue<number>;
     /**
      * The name of the policy.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Defaults to "StepScaling" because it is the only option available.
      */
-    readonly policyType?: fabric.MaybeComputed<string>;
+    readonly policyType?: fabric.ComputedValue<string>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as `service/default/sample-webapp`. For Amazon EC2 Spot fleet requests, the resource type is `spot-fleet-request`, and the identifier is the Spot fleet request ID; for example, `spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE`.
      */
-    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
     /**
      * The scalable dimension of the scalable target. The scalable dimension contains the service namespace,   resource  type, and scaling property, such as `ecs:service:DesiredCount` for the desired task count of an Amazon ECS service, or `ec2:spot-fleet-request:TargetCapacity` for the target capacity of an Amazon EC2 Spot fleet request.
      */
-    readonly scalableDimension: fabric.MaybeComputed<string>;
+    readonly scalableDimension: fabric.ComputedValue<string>;
     /**
      * The AWS service namespace of the scalable target. Valid values are `ecs` for Amazon ECS services and `ec2` Amazon EC2 Spot fleet requests.
      */
-    readonly serviceNamespace: fabric.MaybeComputed<string>;
-    readonly stepAdjustment?: fabric.MaybeComputed<{ metricIntervalLowerBound?: fabric.MaybeComputed<string>, metricIntervalUpperBound?: fabric.MaybeComputed<string>, scalingAdjustment: fabric.MaybeComputed<number> }>[];
+    readonly serviceNamespace: fabric.ComputedValue<string>;
+    readonly stepAdjustment?: fabric.ComputedValue<{ metricIntervalLowerBound?: fabric.ComputedValue<string>, metricIntervalUpperBound?: fabric.ComputedValue<string>, scalingAdjustment: fabric.ComputedValue<number> }>[];
 }
 

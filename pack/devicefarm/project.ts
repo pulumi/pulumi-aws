@@ -44,6 +44,6 @@ export interface ProjectArgs {
     /**
      * The name of the project
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

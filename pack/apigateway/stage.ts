@@ -87,39 +87,39 @@ export interface StageArgs {
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
-    readonly cacheClusterEnabled?: fabric.MaybeComputed<boolean>;
+    readonly cacheClusterEnabled?: fabric.ComputedValue<boolean>;
     /**
      * The size of the cache cluster for the stage, if enabled.
      * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    readonly cacheClusterSize?: fabric.MaybeComputed<string>;
+    readonly cacheClusterSize?: fabric.ComputedValue<string>;
     /**
      * The identifier of a client certificate for the stage.
      */
-    readonly clientCertificateId?: fabric.MaybeComputed<string>;
+    readonly clientCertificateId?: fabric.ComputedValue<string>;
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment: fabric.MaybeComputed<Deployment>;
+    readonly deployment: fabric.ComputedValue<Deployment>;
     /**
      * The description of the stage
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The version of the associated API documentation
      */
-    readonly documentationVersion?: fabric.MaybeComputed<string>;
+    readonly documentationVersion?: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The name of the stage
      */
-    readonly stageName: fabric.MaybeComputed<string>;
+    readonly stageName: fabric.ComputedValue<string>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly variables?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

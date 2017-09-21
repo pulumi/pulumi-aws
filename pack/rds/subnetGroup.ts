@@ -62,22 +62,22 @@ export interface SubnetGroupArgs {
     /**
      * The description of the DB subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * A list of VPC subnet IDs.
      */
-    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

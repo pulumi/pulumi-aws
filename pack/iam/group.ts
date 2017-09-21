@@ -49,10 +49,10 @@ export interface GroupArgs {
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Path in which to create the group.
      */
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.ComputedValue<string>;
 }
 

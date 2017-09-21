@@ -63,26 +63,26 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    readonly approvalRule?: fabric.MaybeComputed<{ approveAfterDays: fabric.MaybeComputed<number>, patchFilter: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[] }>[];
+    readonly approvalRule?: fabric.ComputedValue<{ approveAfterDays: fabric.ComputedValue<number>, patchFilter: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[] }>[];
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    readonly approvedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly approvedPatches?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The description of the patch baseline.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilter?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly globalFilter?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The name of the patch baseline.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A list of rejected patches.
      */
-    readonly rejectedPatches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly rejectedPatches?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

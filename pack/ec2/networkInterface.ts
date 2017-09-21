@@ -74,35 +74,35 @@ export interface NetworkInterfaceArgs {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachment?: fabric.MaybeComputed<{ attachmentId?: fabric.MaybeComputed<string>, deviceIndex: fabric.MaybeComputed<number>, instance: fabric.MaybeComputed<string> }>[];
+    readonly attachment?: fabric.ComputedValue<{ attachmentId?: fabric.ComputedValue<string>, deviceIndex: fabric.ComputedValue<number>, instance: fabric.ComputedValue<string> }>[];
     /**
      * A description for the network interface.
      */
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly privateIp?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
+    readonly privateIp?: fabric.ComputedValue<string>;
     /**
      * List of private IPs to assign to the ENI.
      */
-    readonly privateIps?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly privateIps?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Number of private IPs to assign to the ENI.
      */
-    readonly privateIpsCount?: fabric.MaybeComputed<number>;
+    readonly privateIpsCount?: fabric.ComputedValue<number>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
+    readonly sourceDestCheck?: fabric.ComputedValue<boolean>;
     /**
      * Subnet ID to create the ENI in.
      */
-    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly subnetId: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

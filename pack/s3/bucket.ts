@@ -132,69 +132,69 @@ export interface BucketArgs {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      */
-    readonly accelerationStatus?: fabric.MaybeComputed<string>;
+    readonly accelerationStatus?: fabric.ComputedValue<string>;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: fabric.MaybeComputed<string>;
-    readonly arn?: fabric.MaybeComputed<string>;
+    readonly acl?: fabric.ComputedValue<string>;
+    readonly arn?: fabric.ComputedValue<string>;
     /**
      * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      */
-    readonly bucket?: fabric.MaybeComputed<string>;
+    readonly bucket?: fabric.ComputedValue<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
      */
-    readonly bucketPrefix?: fabric.MaybeComputed<string>;
+    readonly bucketPrefix?: fabric.ComputedValue<string>;
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRule?: fabric.MaybeComputed<{ allowedHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], allowedOrigins: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], exposeHeaders?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], maxAgeSeconds?: fabric.MaybeComputed<number> }>[];
+    readonly corsRule?: fabric.ComputedValue<{ allowedHeaders?: fabric.ComputedValue<fabric.ComputedValue<string>>[], allowedMethods: fabric.ComputedValue<fabric.ComputedValue<string>>[], allowedOrigins: fabric.ComputedValue<fabric.ComputedValue<string>>[], exposeHeaders?: fabric.ComputedValue<fabric.ComputedValue<string>>[], maxAgeSeconds?: fabric.ComputedValue<number> }>[];
     /**
      * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
-    readonly hostedZoneId?: fabric.MaybeComputed<string>;
+    readonly forceDestroy?: fabric.ComputedValue<boolean>;
+    readonly hostedZoneId?: fabric.ComputedValue<string>;
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRule?: fabric.MaybeComputed<{ abortIncompleteMultipartUploadDays?: fabric.MaybeComputed<number>, enabled: fabric.MaybeComputed<boolean>, expiration?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, expiredObjectDeleteMarker?: fabric.MaybeComputed<boolean> }>[], id?: fabric.MaybeComputed<string>, noncurrentVersionExpiration?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number> }>[], noncurrentVersionTransition?: fabric.MaybeComputed<{ days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[], prefix?: fabric.MaybeComputed<string>, tags?: fabric.MaybeComputed<{[key: string]: any}>, transition?: fabric.MaybeComputed<{ date?: fabric.MaybeComputed<string>, days?: fabric.MaybeComputed<number>, storageClass: fabric.MaybeComputed<string> }>[] }>[];
+    readonly lifecycleRule?: fabric.ComputedValue<{ abortIncompleteMultipartUploadDays?: fabric.ComputedValue<number>, enabled: fabric.ComputedValue<boolean>, expiration?: fabric.ComputedValue<{ date?: fabric.ComputedValue<string>, days?: fabric.ComputedValue<number>, expiredObjectDeleteMarker?: fabric.ComputedValue<boolean> }>[], id?: fabric.ComputedValue<string>, noncurrentVersionExpiration?: fabric.ComputedValue<{ days?: fabric.ComputedValue<number> }>[], noncurrentVersionTransition?: fabric.ComputedValue<{ days?: fabric.ComputedValue<number>, storageClass: fabric.ComputedValue<string> }>[], prefix?: fabric.ComputedValue<string>, tags?: fabric.ComputedValue<{[key: string]: any}>, transition?: fabric.ComputedValue<{ date?: fabric.ComputedValue<string>, days?: fabric.ComputedValue<number>, storageClass: fabric.ComputedValue<string> }>[] }>[];
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly logging?: fabric.MaybeComputed<{ targetBucket: fabric.MaybeComputed<string>, targetPrefix?: fabric.MaybeComputed<string> }>[];
+    readonly logging?: fabric.ComputedValue<{ targetBucket: fabric.ComputedValue<string>, targetPrefix?: fabric.ComputedValue<string> }>[];
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.ComputedValue<string>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */
-    readonly region?: fabric.MaybeComputed<string>;
+    readonly region?: fabric.ComputedValue<string>;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: fabric.MaybeComputed<{ role: fabric.MaybeComputed<string>, rules: fabric.MaybeComputed<{ destination: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, storageClass?: fabric.MaybeComputed<string> }>[], id?: fabric.MaybeComputed<string>, prefix: fabric.MaybeComputed<string>, status: fabric.MaybeComputed<string> }>[] }>[];
+    readonly replicationConfiguration?: fabric.ComputedValue<{ role: fabric.ComputedValue<string>, rules: fabric.ComputedValue<{ destination: fabric.ComputedValue<{ bucket: fabric.ComputedValue<string>, storageClass?: fabric.ComputedValue<string> }>[], id?: fabric.ComputedValue<string>, prefix: fabric.ComputedValue<string>, status: fabric.ComputedValue<string> }>[] }>[];
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
      * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
      * developer guide for more information.
      */
-    readonly requestPayer?: fabric.MaybeComputed<string>;
+    readonly requestPayer?: fabric.ComputedValue<string>;
     /**
      * Specifies object tags key and value.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    readonly versioning?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, mfaDelete?: fabric.MaybeComputed<boolean> }>[];
+    readonly versioning?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, mfaDelete?: fabric.ComputedValue<boolean> }>[];
     /**
      * A website object (documented below).
      */
-    readonly website?: fabric.MaybeComputed<{ errorDocument?: fabric.MaybeComputed<string>, indexDocument?: fabric.MaybeComputed<string>, redirectAllRequestsTo?: fabric.MaybeComputed<string>, routingRules?: fabric.MaybeComputed<string> }>[];
-    readonly websiteDomain?: fabric.MaybeComputed<string>;
-    readonly websiteEndpoint?: fabric.MaybeComputed<string>;
+    readonly website?: fabric.ComputedValue<{ errorDocument?: fabric.ComputedValue<string>, indexDocument?: fabric.ComputedValue<string>, redirectAllRequestsTo?: fabric.ComputedValue<string>, routingRules?: fabric.ComputedValue<string> }>[];
+    readonly websiteDomain?: fabric.ComputedValue<string>;
+    readonly websiteEndpoint?: fabric.ComputedValue<string>;
 }
 

@@ -47,10 +47,10 @@ export interface TopicPolicyArgs {
     /**
      * The ARN of the SNS topic
      */
-    readonly arn: fabric.MaybeComputed<string>;
+    readonly arn: fabric.ComputedValue<string>;
     /**
      * The fully-formed AWS policy as JSON
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

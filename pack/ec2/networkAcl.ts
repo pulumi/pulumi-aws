@@ -64,27 +64,27 @@ export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly egress?: fabric.ComputedValue<{ action: fabric.ComputedValue<string>, cidrBlock?: fabric.ComputedValue<string>, fromPort: fabric.ComputedValue<number>, icmpCode?: fabric.ComputedValue<number>, icmpType?: fabric.ComputedValue<number>, ipv6CidrBlock?: fabric.ComputedValue<string>, protocol: fabric.ComputedValue<string>, ruleNo: fabric.ComputedValue<number>, toPort: fabric.ComputedValue<number> }>[];
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly ingress?: fabric.ComputedValue<{ action: fabric.ComputedValue<string>, cidrBlock?: fabric.ComputedValue<string>, fromPort: fabric.ComputedValue<number>, icmpCode?: fabric.ComputedValue<number>, icmpType?: fabric.ComputedValue<number>, ipv6CidrBlock?: fabric.ComputedValue<string>, protocol: fabric.ComputedValue<string>, ruleNo: fabric.ComputedValue<number>, toPort: fabric.ComputedValue<number> }>[];
     /**
      * The ID of the associated Subnet. This
      * attribute is deprecated, please use the `subnet_ids` attribute instead
      */
-    readonly subnetId?: fabric.MaybeComputed<string>;
+    readonly subnetId?: fabric.ComputedValue<string>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    readonly subnetIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnetIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The ID of the associated VPC.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

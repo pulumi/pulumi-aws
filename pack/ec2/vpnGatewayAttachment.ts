@@ -50,10 +50,10 @@ export interface VpnGatewayAttachmentArgs {
     /**
      * The ID of the VPC.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    readonly vpnGatewayId: fabric.MaybeComputed<string>;
+    readonly vpnGatewayId: fabric.ComputedValue<string>;
 }
 

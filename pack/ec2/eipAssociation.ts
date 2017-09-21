@@ -72,35 +72,35 @@ export interface EipAssociationArgs {
     /**
      * The allocation ID. This is required for EC2-VPC.
      */
-    readonly allocationId?: fabric.MaybeComputed<string>;
+    readonly allocationId?: fabric.ComputedValue<string>;
     /**
      * Whether to allow an Elastic IP to
      * be re-associated. Defaults to `true` in VPC.
      */
-    readonly allowReassociation?: fabric.MaybeComputed<boolean>;
+    readonly allowReassociation?: fabric.ComputedValue<boolean>;
     /**
      * The ID of the instance. This is required for
      * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
      * network interface ID, but not both. The operation fails if you specify an
      * instance ID unless exactly one network interface is attached.
      */
-    readonly instanceId?: fabric.MaybeComputed<string>;
+    readonly instanceId?: fabric.ComputedValue<string>;
     /**
      * The ID of the network interface. If the
      * instance has more than one network interface, you must specify a network
      * interface ID.
      */
-    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId?: fabric.ComputedValue<string>;
     /**
      * The primary or secondary private IP address
      * to associate with the Elastic IP address. If no private IP address is
      * specified, the Elastic IP address is associated with the primary private IP
      * address.
      */
-    readonly privateIpAddress?: fabric.MaybeComputed<string>;
+    readonly privateIpAddress?: fabric.ComputedValue<string>;
     /**
      * The Elastic IP address. This is required for EC2-Classic.
      */
-    readonly publicIp?: fabric.MaybeComputed<string>;
+    readonly publicIp?: fabric.ComputedValue<string>;
 }
 

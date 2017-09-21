@@ -69,29 +69,29 @@ export class FirehoseDeliveryStream extends fabric.Resource {
  * The set of arguments for constructing a FirehoseDeliveryStream resource.
  */
 export interface FirehoseDeliveryStreamArgs {
-    readonly arn?: fabric.MaybeComputed<string>;
+    readonly arn?: fabric.ComputedValue<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
      */
-    readonly destination: fabric.MaybeComputed<string>;
-    readonly destinationId?: fabric.MaybeComputed<string>;
-    readonly elasticsearchConfiguration?: fabric.MaybeComputed<{ bufferingInterval?: fabric.MaybeComputed<number>, bufferingSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], domainArn: fabric.MaybeComputed<string>, indexName: fabric.MaybeComputed<string>, indexRotationPeriod?: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, s3BackupMode?: fabric.MaybeComputed<string>, typeName?: fabric.MaybeComputed<string> }>[];
+    readonly destination: fabric.ComputedValue<string>;
+    readonly destinationId?: fabric.ComputedValue<string>;
+    readonly elasticsearchConfiguration?: fabric.ComputedValue<{ bufferingInterval?: fabric.ComputedValue<number>, bufferingSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], domainArn: fabric.ComputedValue<string>, indexName: fabric.ComputedValue<string>, indexRotationPeriod?: fabric.ComputedValue<string>, retryDuration?: fabric.ComputedValue<number>, roleArn: fabric.ComputedValue<string>, s3BackupMode?: fabric.ComputedValue<string>, typeName?: fabric.ComputedValue<string> }>[];
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshift_configuration` requires the user to also specify a
      * `s3_configuration` block. More details are given below.
      */
-    readonly redshiftConfiguration?: fabric.MaybeComputed<{ cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], clusterJdbcurl: fabric.MaybeComputed<string>, copyOptions?: fabric.MaybeComputed<string>, dataTableColumns?: fabric.MaybeComputed<string>, dataTableName: fabric.MaybeComputed<string>, password: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, username: fabric.MaybeComputed<string> }>[];
+    readonly redshiftConfiguration?: fabric.ComputedValue<{ cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], clusterJdbcurl: fabric.ComputedValue<string>, copyOptions?: fabric.ComputedValue<string>, dataTableColumns?: fabric.ComputedValue<string>, dataTableName: fabric.ComputedValue<string>, password: fabric.ComputedValue<string>, retryDuration?: fabric.ComputedValue<number>, roleArn: fabric.ComputedValue<string>, username: fabric.ComputedValue<string> }>[];
     /**
      * Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
-    readonly s3Configuration: fabric.MaybeComputed<{ bucketArn: fabric.MaybeComputed<string>, bufferInterval?: fabric.MaybeComputed<number>, bufferSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], compressionFormat?: fabric.MaybeComputed<string>, kmsKeyArn?: fabric.MaybeComputed<string>, prefix?: fabric.MaybeComputed<string>, roleArn: fabric.MaybeComputed<string> }>[];
-    readonly versionId?: fabric.MaybeComputed<string>;
+    readonly s3Configuration: fabric.ComputedValue<{ bucketArn: fabric.ComputedValue<string>, bufferInterval?: fabric.ComputedValue<number>, bufferSize?: fabric.ComputedValue<number>, cloudwatchLoggingOptions?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, logGroupName?: fabric.ComputedValue<string>, logStreamName?: fabric.ComputedValue<string> }>[], compressionFormat?: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, prefix?: fabric.ComputedValue<string>, roleArn: fabric.ComputedValue<string> }>[];
+    readonly versionId?: fabric.ComputedValue<string>;
 }
 

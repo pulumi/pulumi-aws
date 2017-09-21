@@ -47,10 +47,10 @@ export interface LogStreamArgs {
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    readonly logGroupName: fabric.MaybeComputed<string>;
+    readonly logGroupName: fabric.ComputedValue<string>;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

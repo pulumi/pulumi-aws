@@ -51,10 +51,10 @@ export interface VpcEndpointRouteTableAssociationArgs {
     /**
      * The ID of the routing table to be associated with the VPC endpoint.
      */
-    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
     /**
      * The ID of the VPC endpoint with which the routing table will be associated.
      */
-    readonly vpcEndpointId: fabric.MaybeComputed<string>;
+    readonly vpcEndpointId: fabric.ComputedValue<string>;
 }
 

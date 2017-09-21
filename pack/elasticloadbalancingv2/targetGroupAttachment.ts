@@ -51,14 +51,14 @@ export interface TargetGroupAttachmentArgs {
     /**
      * The port on which targets receive traffic.
      */
-    readonly port?: fabric.MaybeComputed<number>;
+    readonly port?: fabric.ComputedValue<number>;
     /**
      * The ARN of the target group with which to register targets
      */
-    readonly targetGroupArn: fabric.MaybeComputed<string>;
+    readonly targetGroupArn: fabric.ComputedValue<string>;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
      */
-    readonly targetId: fabric.MaybeComputed<string>;
+    readonly targetId: fabric.ComputedValue<string>;
 }
 

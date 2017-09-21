@@ -160,15 +160,15 @@ export interface FunctionArgs {
     /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
-    readonly deadLetterConfig?: fabric.MaybeComputed<{ targetArn: fabric.MaybeComputed<string> }>[];
+    readonly deadLetterConfig?: fabric.ComputedValue<{ targetArn: fabric.ComputedValue<string> }>[];
     /**
      * Description of what your Lambda Function does.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The Lambda environment's configuration settings. Fields documented below.
      */
-    readonly environment?: fabric.MaybeComputed<{ variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}> }>[];
+    readonly environment?: fabric.ComputedValue<{ variables?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}> }>[];
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
@@ -176,59 +176,59 @@ export interface FunctionArgs {
     /**
      * A unique name for your Lambda Function.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The function [entrypoint][3] in your code.
      */
-    readonly handler: fabric.MaybeComputed<string>;
+    readonly handler: fabric.ComputedValue<string>;
     /**
      * The ARN for the KMS encryption key.
      */
-    readonly kmsKeyArn?: fabric.MaybeComputed<string>;
+    readonly kmsKeyArn?: fabric.ComputedValue<string>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
-    readonly memorySize?: fabric.MaybeComputed<number>;
+    readonly memorySize?: fabric.ComputedValue<number>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
-    readonly publish?: fabric.MaybeComputed<boolean>;
+    readonly publish?: fabric.ComputedValue<boolean>;
     /**
      * IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
      */
-    readonly role: fabric.MaybeComputed<ARN>;
+    readonly role: fabric.ComputedValue<ARN>;
     /**
      * See [Runtimes][6] for valid values.
      */
-    readonly runtime: fabric.MaybeComputed<string>;
+    readonly runtime: fabric.ComputedValue<string>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3Bucket?: fabric.MaybeComputed<string>;
+    readonly s3Bucket?: fabric.ComputedValue<string>;
     /**
      * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3Key?: fabric.MaybeComputed<string>;
+    readonly s3Key?: fabric.ComputedValue<string>;
     /**
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3ObjectVersion?: fabric.MaybeComputed<string>;
+    readonly s3ObjectVersion?: fabric.ComputedValue<string>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
      */
-    readonly sourceCodeHash?: fabric.MaybeComputed<string>;
+    readonly sourceCodeHash?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
-    readonly timeout?: fabric.MaybeComputed<number>;
-    readonly tracingConfig?: fabric.MaybeComputed<{ mode: fabric.MaybeComputed<string> }>[];
+    readonly timeout?: fabric.ComputedValue<number>;
+    readonly tracingConfig?: fabric.ComputedValue<{ mode: fabric.ComputedValue<string> }>[];
     /**
      * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
      */
-    readonly vpcConfig?: fabric.MaybeComputed<{ securityGroupIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId?: fabric.MaybeComputed<string> }>[];
+    readonly vpcConfig?: fabric.ComputedValue<{ securityGroupIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], vpcId?: fabric.ComputedValue<string> }>[];
 }
 

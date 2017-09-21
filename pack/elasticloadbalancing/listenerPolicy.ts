@@ -51,14 +51,14 @@ export interface ListenerPolicyArgs {
     /**
      * The load balancer to attach the policy to.
      */
-    readonly loadBalancerName: fabric.MaybeComputed<string>;
+    readonly loadBalancerName: fabric.ComputedValue<string>;
     /**
      * The load balancer listener port to apply the policy to.
      */
-    readonly loadBalancerPort: fabric.MaybeComputed<number>;
+    readonly loadBalancerPort: fabric.ComputedValue<number>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly policyNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

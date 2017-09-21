@@ -112,51 +112,51 @@ export interface SpotFleetRequestArgs {
      * the Spot pools specified by the Spot fleet request. The default is
      * lowestPrice.
      */
-    readonly allocationStrategy?: fabric.MaybeComputed<string>;
+    readonly allocationStrategy?: fabric.ComputedValue<string>;
     /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
      */
-    readonly excessCapacityTerminationPolicy?: fabric.MaybeComputed<string>;
+    readonly excessCapacityTerminationPolicy?: fabric.ComputedValue<string>;
     /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
-    readonly iamFleetRole: fabric.MaybeComputed<string>;
+    readonly iamFleetRole: fabric.ComputedValue<string>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types.
      */
-    readonly launchSpecification: fabric.MaybeComputed<{ ami: fabric.MaybeComputed<string>, associatePublicIpAddress?: fabric.MaybeComputed<boolean>, availabilityZone?: fabric.MaybeComputed<string>, ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], ebsOptimized?: fabric.MaybeComputed<boolean>, ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[], iamInstanceProfile?: fabric.MaybeComputed<string>, instanceType: fabric.MaybeComputed<string>, keyName?: fabric.MaybeComputed<string>, monitoring?: fabric.MaybeComputed<boolean>, placementGroup?: fabric.MaybeComputed<string>, placementTenancy?: fabric.MaybeComputed<string>, rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[], spotPrice?: fabric.MaybeComputed<string>, subnetId?: fabric.MaybeComputed<string>, userData?: fabric.MaybeComputed<string>, vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], weightedCapacity?: fabric.MaybeComputed<string> }>[];
+    readonly launchSpecification: fabric.ComputedValue<{ ami: fabric.ComputedValue<string>, associatePublicIpAddress?: fabric.ComputedValue<boolean>, availabilityZone?: fabric.ComputedValue<string>, ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[], ebsOptimized?: fabric.ComputedValue<boolean>, ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[], iamInstanceProfile?: fabric.ComputedValue<string>, instanceType: fabric.ComputedValue<string>, keyName?: fabric.ComputedValue<string>, monitoring?: fabric.ComputedValue<boolean>, placementGroup?: fabric.ComputedValue<string>, placementTenancy?: fabric.ComputedValue<string>, rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[], spotPrice?: fabric.ComputedValue<string>, subnetId?: fabric.ComputedValue<string>, userData?: fabric.ComputedValue<string>, vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[], weightedCapacity?: fabric.ComputedValue<string> }>[];
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
-    readonly replaceUnhealthyInstances?: fabric.MaybeComputed<boolean>;
+    readonly replaceUnhealthyInstances?: fabric.ComputedValue<boolean>;
     /**
      * The bid price per unit hour.
      */
-    readonly spotPrice: fabric.MaybeComputed<string>;
+    readonly spotPrice: fabric.ComputedValue<string>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
      * important to your application workload, such as vCPUs, memory, or I/O.
      */
-    readonly targetCapacity: fabric.MaybeComputed<number>;
+    readonly targetCapacity: fabric.ComputedValue<number>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
-    readonly terminateInstancesWithExpiration?: fabric.MaybeComputed<boolean>;
-    readonly validFrom?: fabric.MaybeComputed<string>;
+    readonly terminateInstancesWithExpiration?: fabric.ComputedValue<boolean>;
+    readonly validFrom?: fabric.ComputedValue<string>;
     /**
      * The end date and time of the request, in UTC ISO8601 format
      * (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance
      * requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
-    readonly validUntil?: fabric.MaybeComputed<string>;
+    readonly validUntil?: fabric.ComputedValue<string>;
 }
 

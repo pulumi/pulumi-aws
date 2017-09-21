@@ -42,6 +42,6 @@ export interface ResourceGroupArgs {
     /**
      * The tags on your EC2 Instance.
      */
-    readonly tags: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags: fabric.ComputedValue<{[key: string]: any}>;
 }
 

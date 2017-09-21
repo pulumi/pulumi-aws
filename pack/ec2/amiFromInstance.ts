@@ -127,24 +127,24 @@ export class AmiFromInstance extends fabric.Resource {
  * The set of arguments for constructing a AmiFromInstance resource.
  */
 export interface AmiFromInstanceArgs {
-    readonly description?: fabric.MaybeComputed<string>;
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
+    readonly description?: fabric.ComputedValue<string>;
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName?: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName?: fabric.ComputedValue<string>, virtualName?: fabric.ComputedValue<string> }>[];
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Boolean that overrides the behavior of stopping
      * the instance before snapshotting. This is risky since it may cause a snapshot of an
      * inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      */
-    readonly snapshotWithoutReboot?: fabric.MaybeComputed<boolean>;
+    readonly snapshotWithoutReboot?: fabric.ComputedValue<boolean>;
     /**
      * The id of the instance to use as the basis of the AMI.
      */
-    readonly sourceInstanceId: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly sourceInstanceId: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -203,17 +203,17 @@ export interface GroupArgs {
      * A list of AZs to launch resources in.
      * Required only if you do not specify any `vpc_zone_identifier`
      */
-    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
-    readonly defaultCooldown?: fabric.MaybeComputed<number>;
+    readonly defaultCooldown?: fabric.ComputedValue<number>;
     /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also [Waiting for
      * Capacity](#waiting-for-capacity) below.)
      */
-    readonly desiredCapacity?: fabric.MaybeComputed<number>;
+    readonly desiredCapacity?: fabric.ComputedValue<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
      * * `wait_for_capacity_timeout` (Default: "10m") A maximum
@@ -222,7 +222,7 @@ export interface GroupArgs {
      * for Capacity](#waiting-for-capacity) below.) Setting this to "0" causes
      * Terraform to skip all Capacity Waiting behavior.
      */
-    readonly enabledMetrics?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly enabledMetrics?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Allows deleting the autoscaling group without waiting
      * for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -230,15 +230,15 @@ export interface GroupArgs {
      * drains all the instances before deleting the group.  This bypasses that
      * behavior and potentially leaves resources dangling.
      */
-    readonly forceDelete?: fabric.MaybeComputed<boolean>;
+    readonly forceDelete?: fabric.ComputedValue<boolean>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
      */
-    readonly healthCheckGracePeriod?: fabric.MaybeComputed<number>;
+    readonly healthCheckGracePeriod?: fabric.ComputedValue<number>;
     /**
      * "EC2" or "ELB". Controls how health checking is done.
      */
-    readonly healthCheckType?: fabric.MaybeComputed<string>;
+    readonly healthCheckType?: fabric.ComputedValue<string>;
     /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -248,82 +248,82 @@ export interface GroupArgs {
      * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
      */
-    readonly initialLifecycleHook?: fabric.MaybeComputed<{ defaultResult?: fabric.MaybeComputed<string>, heartbeatTimeout?: fabric.MaybeComputed<number>, lifecycleTransition: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, notificationMetadata?: fabric.MaybeComputed<string>, notificationTargetArn?: fabric.MaybeComputed<string>, roleArn?: fabric.MaybeComputed<string> }>[];
+    readonly initialLifecycleHook?: fabric.ComputedValue<{ defaultResult?: fabric.ComputedValue<string>, heartbeatTimeout?: fabric.ComputedValue<number>, lifecycleTransition: fabric.ComputedValue<string>, name: fabric.ComputedValue<string>, notificationMetadata?: fabric.ComputedValue<string>, notificationTargetArn?: fabric.ComputedValue<string>, roleArn?: fabric.ComputedValue<string> }>[];
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration: fabric.MaybeComputed<string>;
+    readonly launchConfiguration: fabric.ComputedValue<string>;
     /**
      * A list of elastic load balancer names to add to the autoscaling
      * group names.
      */
-    readonly loadBalancers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly loadBalancers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The maximum size of the auto scale group.
      */
-    readonly maxSize: fabric.MaybeComputed<number>;
+    readonly maxSize: fabric.ComputedValue<number>;
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: fabric.MaybeComputed<string>;
+    readonly metricsGranularity?: fabric.ComputedValue<string>;
     /**
      * Setting this causes Terraform to wait for
      * this number of instances to show up healthy in the ELB only on creation.
      * Updates will not wait on ELB instance number changes.
      * (See also [Waiting for Capacity](#waiting-for-capacity) below.)
      */
-    readonly minElbCapacity?: fabric.MaybeComputed<number>;
+    readonly minElbCapacity?: fabric.ComputedValue<number>;
     /**
      * The minimum size of the auto scale group.
      * (See also [Waiting for Capacity](#waiting-for-capacity) below.)
      */
-    readonly minSize: fabric.MaybeComputed<number>;
+    readonly minSize: fabric.ComputedValue<number>;
     /**
      * The name of the auto scaling group. By default generated by Terraform.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: fabric.MaybeComputed<string>;
+    readonly placementGroup?: fabric.ComputedValue<string>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination
      * during scale in events.
      */
-    readonly protectFromScaleIn?: fabric.MaybeComputed<boolean>;
+    readonly protectFromScaleIn?: fabric.ComputedValue<boolean>;
     /**
      * A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
      */
-    readonly suspendedProcesses?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly suspendedProcesses?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of tag blocks. Tags documented below.
      */
-    readonly tag?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, propagateAtLaunch: fabric.MaybeComputed<boolean>, value: fabric.MaybeComputed<string> }>[];
+    readonly tag?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, propagateAtLaunch: fabric.ComputedValue<boolean>, value: fabric.ComputedValue<string> }>[];
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    readonly tags?: fabric.MaybeComputed<fabric.MaybeComputed<{[key: string]: any}>>[];
+    readonly tags?: fabric.ComputedValue<fabric.ComputedValue<{[key: string]: any}>>[];
     /**
      * A list of `aws_alb_target_group` ARNs, for use with
      * Application Load Balancing
      */
-    readonly targetGroupArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly targetGroupArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
      */
-    readonly terminationPolicies?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly terminationPolicies?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of subnet IDs to launch resources in.
      */
-    readonly vpcZoneIdentifier?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly waitForCapacityTimeout?: fabric.MaybeComputed<string>;
+    readonly vpcZoneIdentifier?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly waitForCapacityTimeout?: fabric.ComputedValue<string>;
     /**
      * Setting this will cause Terraform to wait
      * for exactly this number of healthy instances in all attached load balancers
@@ -331,6 +331,6 @@ export interface GroupArgs {
      * `min_elb_capacity` behavior.)
      * (See also [Waiting for Capacity](#waiting-for-capacity) below.)
      */
-    readonly waitForElbCapacity?: fabric.MaybeComputed<number>;
+    readonly waitForElbCapacity?: fabric.ComputedValue<number>;
 }
 

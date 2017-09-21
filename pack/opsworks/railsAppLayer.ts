@@ -152,91 +152,91 @@ export interface RailsAppLayerArgs {
     /**
      * Keyword for the app server to use. Defaults to "apache_passenger".
      */
-    readonly appServer?: fabric.MaybeComputed<string>;
+    readonly appServer?: fabric.ComputedValue<string>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    readonly autoAssignElasticIps?: fabric.MaybeComputed<boolean>;
+    readonly autoAssignElasticIps?: fabric.ComputedValue<boolean>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    readonly autoAssignPublicIps?: fabric.MaybeComputed<boolean>;
+    readonly autoAssignPublicIps?: fabric.ComputedValue<boolean>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    readonly autoHealing?: fabric.MaybeComputed<boolean>;
+    readonly autoHealing?: fabric.ComputedValue<boolean>;
     /**
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
-    readonly bundlerVersion?: fabric.MaybeComputed<string>;
-    readonly customConfigureRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customDeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly bundlerVersion?: fabric.ComputedValue<string>;
+    readonly customConfigureRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customDeployRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    readonly customInstanceProfileArn?: fabric.MaybeComputed<string>;
+    readonly customInstanceProfileArn?: fabric.ComputedValue<string>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    readonly customJson?: fabric.MaybeComputed<string>;
+    readonly customJson?: fabric.ComputedValue<string>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    readonly customSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customSetupRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customShutdownRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customUndeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customSetupRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customShutdownRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customUndeployRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    readonly drainElbOnShutdown?: fabric.MaybeComputed<boolean>;
+    readonly drainElbOnShutdown?: fabric.ComputedValue<boolean>;
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolume?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, mountPoint: fabric.MaybeComputed<string>, numberOfDisks: fabric.MaybeComputed<number>, raidLevel?: fabric.MaybeComputed<string>, size: fabric.MaybeComputed<number>, type?: fabric.MaybeComputed<string> }>[];
+    readonly ebsVolume?: fabric.ComputedValue<{ iops?: fabric.ComputedValue<number>, mountPoint: fabric.ComputedValue<string>, numberOfDisks: fabric.ComputedValue<number>, raidLevel?: fabric.ComputedValue<string>, size: fabric.ComputedValue<number>, type?: fabric.ComputedValue<string> }>[];
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    readonly elasticLoadBalancer?: fabric.MaybeComputed<string>;
+    readonly elasticLoadBalancer?: fabric.ComputedValue<string>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    readonly installUpdatesOnBoot?: fabric.MaybeComputed<boolean>;
+    readonly installUpdatesOnBoot?: fabric.ComputedValue<boolean>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    readonly instanceShutdownTimeout?: fabric.MaybeComputed<number>;
+    readonly instanceShutdownTimeout?: fabric.ComputedValue<number>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */
-    readonly manageBundler?: fabric.MaybeComputed<boolean>;
+    readonly manageBundler?: fabric.ComputedValue<boolean>;
     /**
      * A human-readable name for the layer.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The version of Passenger to use. Defaults to "4.0.46".
      */
-    readonly passengerVersion?: fabric.MaybeComputed<string>;
+    readonly passengerVersion?: fabric.ComputedValue<string>;
     /**
      * The version of Ruby to use. Defaults to "2.0.0".
      */
-    readonly rubyVersion?: fabric.MaybeComputed<string>;
+    readonly rubyVersion?: fabric.ComputedValue<string>;
     /**
      * The version of RubyGems to use. Defaults to "2.2.2".
      */
-    readonly rubygemsVersion?: fabric.MaybeComputed<string>;
+    readonly rubygemsVersion?: fabric.ComputedValue<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    readonly stackId: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.ComputedValue<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    readonly systemPackages?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly systemPackages?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Whether to use EBS-optimized instances.
      */
-    readonly useEbsOptimizedInstances?: fabric.MaybeComputed<boolean>;
+    readonly useEbsOptimizedInstances?: fabric.ComputedValue<boolean>;
 }
 

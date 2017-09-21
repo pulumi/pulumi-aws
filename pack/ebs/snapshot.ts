@@ -77,14 +77,14 @@ export interface SnapshotArgs {
     /**
      * A description of what the snapshot is.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the snapshot
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
-    readonly volumeId: fabric.MaybeComputed<string>;
+    readonly volumeId: fabric.ComputedValue<string>;
 }
 

@@ -59,19 +59,19 @@ export interface CustomerGatewayArgs {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn: fabric.MaybeComputed<number>;
+    readonly bgpAsn: fabric.ComputedValue<number>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
-    readonly ipAddress: fabric.MaybeComputed<string>;
+    readonly ipAddress: fabric.ComputedValue<string>;
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

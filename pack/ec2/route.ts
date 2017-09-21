@@ -91,38 +91,38 @@ export interface RouteArgs {
     /**
      * The destination CIDR block.
      */
-    readonly destinationCidrBlock?: fabric.MaybeComputed<string>;
+    readonly destinationCidrBlock?: fabric.ComputedValue<string>;
     /**
      * The destination IPv6 CIDR block.
      */
-    readonly destinationIpv6CidrBlock?: fabric.MaybeComputed<string>;
+    readonly destinationIpv6CidrBlock?: fabric.ComputedValue<string>;
     /**
      * An ID of a VPC Egress Only Internet Gateway.
      */
-    readonly egressOnlyGatewayId?: fabric.MaybeComputed<string>;
+    readonly egressOnlyGatewayId?: fabric.ComputedValue<string>;
     /**
      * An ID of a VPC internet gateway or a virtual private gateway.
      */
-    readonly gatewayId?: fabric.MaybeComputed<string>;
+    readonly gatewayId?: fabric.ComputedValue<string>;
     /**
      * An ID of an EC2 instance.
      */
-    readonly instanceId?: fabric.MaybeComputed<string>;
+    readonly instanceId?: fabric.ComputedValue<string>;
     /**
      * An ID of a VPC NAT gateway.
      */
-    readonly natGatewayId?: fabric.MaybeComputed<string>;
+    readonly natGatewayId?: fabric.ComputedValue<string>;
     /**
      * An ID of a network interface.
      */
-    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId?: fabric.ComputedValue<string>;
     /**
      * The ID of the routing table.
      */
-    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
     /**
      * An ID of a VPC peering connection.
      */
-    readonly vpcPeeringConnectionId?: fabric.MaybeComputed<string>;
+    readonly vpcPeeringConnectionId?: fabric.ComputedValue<string>;
 }
 

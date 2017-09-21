@@ -53,15 +53,15 @@ export interface SecurityGroupArgs {
     /**
      * description for the cache security group. Defaults to "Managed by Terraform".
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * List of EC2 security group names to be
      * authorized for ingress to the cache security group
      */
-    readonly securityGroupNames: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupNames: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

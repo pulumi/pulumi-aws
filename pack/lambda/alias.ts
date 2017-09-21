@@ -63,18 +63,18 @@ export interface AliasArgs {
     /**
      * Description of the alias.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The function ARN of the Lambda function for which you want to create an alias.
      */
-    readonly functionName: fabric.MaybeComputed<string>;
+    readonly functionName: fabric.ComputedValue<string>;
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
-    readonly functionVersion: fabric.MaybeComputed<string>;
+    readonly functionVersion: fabric.ComputedValue<string>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

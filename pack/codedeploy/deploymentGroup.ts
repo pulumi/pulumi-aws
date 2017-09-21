@@ -88,42 +88,42 @@ export interface DeploymentGroupArgs {
     /**
      * A list of alarms associated with the deployment group, documented below.
      */
-    readonly alarmConfiguration?: fabric.MaybeComputed<{ alarms?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], enabled?: fabric.MaybeComputed<boolean>, ignorePollAlarmFailure?: fabric.MaybeComputed<boolean> }>[];
+    readonly alarmConfiguration?: fabric.ComputedValue<{ alarms?: fabric.ComputedValue<fabric.ComputedValue<string>>[], enabled?: fabric.ComputedValue<boolean>, ignorePollAlarmFailure?: fabric.ComputedValue<boolean> }>[];
     /**
      * The name of the application.
      */
-    readonly appName: fabric.MaybeComputed<string>;
+    readonly appName: fabric.ComputedValue<string>;
     /**
      * The automatic rollback configuration associated with the deployment group, documented below.
      */
-    readonly autoRollbackConfiguration?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, events?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly autoRollbackConfiguration?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, events?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * Autoscaling groups associated with the deployment group.
      */
-    readonly autoscalingGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly autoscalingGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
-    readonly deploymentConfigName?: fabric.MaybeComputed<string>;
+    readonly deploymentConfigName?: fabric.ComputedValue<string>;
     /**
      * The name of the deployment group.
      */
-    readonly deploymentGroupName: fabric.MaybeComputed<string>;
+    readonly deploymentGroupName: fabric.ComputedValue<string>;
     /**
      * Tag filters associated with the group. See the AWS docs for details.
      */
-    readonly ec2TagFilter?: fabric.MaybeComputed<{ key?: fabric.MaybeComputed<string>, type?: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<string> }>[];
+    readonly ec2TagFilter?: fabric.ComputedValue<{ key?: fabric.ComputedValue<string>, type?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    readonly onPremisesInstanceTagFilter?: fabric.MaybeComputed<{ key?: fabric.MaybeComputed<string>, type?: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<string> }>[];
+    readonly onPremisesInstanceTagFilter?: fabric.ComputedValue<{ key?: fabric.ComputedValue<string>, type?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
     /**
      * The service role ARN that allows deployments.
      */
-    readonly serviceRoleArn: fabric.MaybeComputed<string>;
+    readonly serviceRoleArn: fabric.ComputedValue<string>;
     /**
      * A Trigger Configuration block. Trigger Configurations are documented below.
      */
-    readonly triggerConfiguration?: fabric.MaybeComputed<{ triggerEvents: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], triggerName: fabric.MaybeComputed<string>, triggerTargetArn: fabric.MaybeComputed<string> }>[];
+    readonly triggerConfiguration?: fabric.ComputedValue<{ triggerEvents: fabric.ComputedValue<fabric.ComputedValue<string>>[], triggerName: fabric.ComputedValue<string>, triggerTargetArn: fabric.ComputedValue<string> }>[];
 }
 

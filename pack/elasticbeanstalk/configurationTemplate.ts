@@ -63,11 +63,11 @@ export interface ConfigurationTemplateArgs {
     /**
      * name of the application to associate with this configuration template
      */
-    readonly application: fabric.MaybeComputed<string>;
+    readonly application: fabric.ComputedValue<string>;
     /**
      * Short description of the Template
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The ID of the environment used with this configuration template
      * * `setting` – (Optional) Option settings to configure the new Environment. These
@@ -76,12 +76,12 @@ export interface ConfigurationTemplateArgs {
      * * `solution_stack_name` – (Optional) A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly environmentId?: fabric.MaybeComputed<string>;
+    readonly environmentId?: fabric.ComputedValue<string>;
     /**
      * A unique name for this Template.
      */
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly solutionStackName?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly setting?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, resource?: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly solutionStackName?: fabric.ComputedValue<string>;
 }
 

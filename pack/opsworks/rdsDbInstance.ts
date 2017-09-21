@@ -69,18 +69,18 @@ export interface RdsDbInstanceArgs {
     /**
      * A db password
      */
-    readonly dbPassword: fabric.MaybeComputed<string>;
+    readonly dbPassword: fabric.ComputedValue<string>;
     /**
      * A db username
      */
-    readonly dbUser: fabric.MaybeComputed<string>;
+    readonly dbUser: fabric.ComputedValue<string>;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    readonly rdsDbInstanceArn: fabric.MaybeComputed<string>;
+    readonly rdsDbInstanceArn: fabric.ComputedValue<string>;
     /**
      * The stack to register a db inatance for. Changing this will force a new resource.
      */
-    readonly stackId: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.ComputedValue<string>;
 }
 

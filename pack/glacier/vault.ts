@@ -63,18 +63,18 @@ export interface VaultArgs {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
-    readonly accessPolicy?: fabric.MaybeComputed<string>;
+    readonly accessPolicy?: fabric.ComputedValue<string>;
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '\_' (underscore), '-' (hyphen), and '.' (period).
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notification?: fabric.MaybeComputed<{ events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], snsTopic: fabric.MaybeComputed<string> }>[];
+    readonly notification?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], snsTopic: fabric.ComputedValue<string> }>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

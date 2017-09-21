@@ -80,32 +80,32 @@ export interface MethodResponseArgs {
     /**
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      */
-    readonly httpMethod: fabric.MaybeComputed<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
     /**
      * The API resource ID
      */
-    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
     /**
      * A map of the API models used for the response's content type
      */
-    readonly responseModels?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseModels?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * A map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
-    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<boolean>}>;
+    readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<boolean>}>;
     /**
      * **Deprecated**, use `response_parameters` instead.
      */
-    readonly responseParametersInJson?: fabric.MaybeComputed<string>;
+    readonly responseParametersInJson?: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The HTTP status code
      */
-    readonly statusCode: fabric.MaybeComputed<string>;
+    readonly statusCode: fabric.ComputedValue<string>;
 }
 

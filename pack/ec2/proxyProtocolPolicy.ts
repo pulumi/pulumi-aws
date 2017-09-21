@@ -48,11 +48,11 @@ export interface ProxyProtocolPolicyArgs {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    readonly instancePorts: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly instancePorts: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer: fabric.MaybeComputed<string>;
+    readonly loadBalancer: fabric.ComputedValue<string>;
 }
 

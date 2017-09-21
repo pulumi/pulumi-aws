@@ -59,20 +59,20 @@ export interface RolePolicyArgs {
      * The name of the role policy. If omitted, Terraform will
      * assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role: fabric.MaybeComputed<string>;
+    readonly role: fabric.ComputedValue<string>;
 }
 

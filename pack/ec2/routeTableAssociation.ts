@@ -45,10 +45,10 @@ export interface RouteTableAssociationArgs {
     /**
      * The ID of the routing table to associate with.
      */
-    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
     /**
      * The subnet ID to create an association.
      */
-    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly subnetId: fabric.ComputedValue<string>;
 }
 

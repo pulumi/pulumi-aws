@@ -69,18 +69,18 @@ export interface EipArgs {
      * associate with the Elastic IP address. If no private IP address is specified,
      * the Elastic IP address is associated with the primary private IP address.
      */
-    readonly associateWithPrivateIp?: fabric.MaybeComputed<string>;
+    readonly associateWithPrivateIp?: fabric.ComputedValue<string>;
     /**
      * EC2 instance ID.
      */
-    readonly instance?: fabric.MaybeComputed<string>;
+    readonly instance?: fabric.ComputedValue<string>;
     /**
      * Network interface ID to associate with.
      */
-    readonly networkInterface?: fabric.MaybeComputed<string>;
+    readonly networkInterface?: fabric.ComputedValue<string>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */
-    readonly vpc?: fabric.MaybeComputed<boolean>;
+    readonly vpc?: fabric.ComputedValue<boolean>;
 }
 

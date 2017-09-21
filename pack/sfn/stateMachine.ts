@@ -60,14 +60,14 @@ export interface StateMachineArgs {
     /**
      * The Amazon States Language definition of the state machine.
      */
-    readonly definition: fabric.MaybeComputed<string>;
+    readonly definition: fabric.ComputedValue<string>;
     /**
      * The name of the state machine.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly roleArn: fabric.ComputedValue<string>;
 }
 

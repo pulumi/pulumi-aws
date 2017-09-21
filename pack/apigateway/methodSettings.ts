@@ -63,18 +63,18 @@ export interface MethodSettingsArgs {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
      */
-    readonly methodPath: fabric.MaybeComputed<string>;
+    readonly methodPath: fabric.ComputedValue<string>;
     /**
      * The ID of the REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The settings block, see below.
      */
-    readonly settings: fabric.MaybeComputed<{ cacheDataEncrypted?: fabric.MaybeComputed<boolean>, cacheTtlInSeconds?: fabric.MaybeComputed<number>, cachingEnabled?: fabric.MaybeComputed<boolean>, dataTraceEnabled?: fabric.MaybeComputed<boolean>, loggingLevel?: fabric.MaybeComputed<string>, metricsEnabled?: fabric.MaybeComputed<boolean>, requireAuthorizationForCacheControl?: fabric.MaybeComputed<boolean>, throttlingBurstLimit?: fabric.MaybeComputed<number>, throttlingRateLimit?: fabric.MaybeComputed<number>, unauthorizedCacheControlHeaderStrategy?: fabric.MaybeComputed<string> }>[];
+    readonly settings: fabric.ComputedValue<{ cacheDataEncrypted?: fabric.ComputedValue<boolean>, cacheTtlInSeconds?: fabric.ComputedValue<number>, cachingEnabled?: fabric.ComputedValue<boolean>, dataTraceEnabled?: fabric.ComputedValue<boolean>, loggingLevel?: fabric.ComputedValue<string>, metricsEnabled?: fabric.ComputedValue<boolean>, requireAuthorizationForCacheControl?: fabric.ComputedValue<boolean>, throttlingBurstLimit?: fabric.ComputedValue<number>, throttlingRateLimit?: fabric.ComputedValue<number>, unauthorizedCacheControlHeaderStrategy?: fabric.ComputedValue<string> }>[];
     /**
      * The name of the stage
      */
-    readonly stageName: fabric.MaybeComputed<string>;
+    readonly stageName: fabric.ComputedValue<string>;
 }
 

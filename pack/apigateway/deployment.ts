@@ -83,22 +83,22 @@ export interface DeploymentArgs {
     /**
      * The description of the deployment
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The description of the stage
      */
-    readonly stageDescription?: fabric.MaybeComputed<string>;
+    readonly stageDescription?: fabric.ComputedValue<string>;
     /**
      * The name of the stage
      */
-    readonly stageName: fabric.MaybeComputed<string>;
+    readonly stageName: fabric.ComputedValue<string>;
     /**
      * A map that defines variables for the stage
      */
-    readonly variables?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly variables?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
 }
 

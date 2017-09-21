@@ -50,14 +50,14 @@ export interface ReceiptFilterArgs {
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    readonly cidr: fabric.MaybeComputed<string>;
+    readonly cidr: fabric.ComputedValue<string>;
     /**
      * The name of the filter
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Block or Allow
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

@@ -67,22 +67,22 @@ export interface ActivationArgs {
     /**
      * The description of the resource that you want to register.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The date by which this activation request should expire. The default value is 24 hours.
      */
-    readonly expirationDate?: fabric.MaybeComputed<string>;
+    readonly expirationDate?: fabric.ComputedValue<string>;
     /**
      * The IAM Role to attach to the managed instance.
      */
-    readonly iamRole: fabric.MaybeComputed<string>;
+    readonly iamRole: fabric.ComputedValue<string>;
     /**
      * The default name of the registerd managed instance.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    readonly registrationLimit?: fabric.MaybeComputed<number>;
+    readonly registrationLimit?: fabric.ComputedValue<number>;
 }
 

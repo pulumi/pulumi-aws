@@ -51,14 +51,14 @@ export interface SubnetGroupArgs {
     /**
      * Description for the cache subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * List of VPC Subnet IDs for the cache subnet group
      */
-    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

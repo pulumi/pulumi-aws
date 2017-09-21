@@ -60,22 +60,22 @@ export interface ResponseArgs {
     /**
      * A map specifying the templates used to transform the response body.
      */
-    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
-    readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    readonly responseType: fabric.MaybeComputed<string>;
+    readonly responseType: fabric.ComputedValue<string>;
     /**
      * The string identifier of the associated REST API.
      */
-    readonly restApiId: fabric.MaybeComputed<string>;
+    readonly restApiId: fabric.ComputedValue<string>;
     /**
      * The HTTP status code of the Gateway Response.
      */
-    readonly statusCode?: fabric.MaybeComputed<string>;
+    readonly statusCode?: fabric.ComputedValue<string>;
 }
 

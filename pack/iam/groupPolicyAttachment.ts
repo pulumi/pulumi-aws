@@ -65,10 +65,10 @@ export interface GroupPolicyAttachmentArgs {
     /**
      * The group the policy should be applied to
      */
-    readonly group: fabric.MaybeComputed<Group>;
+    readonly group: fabric.ComputedValue<Group>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
 }
 

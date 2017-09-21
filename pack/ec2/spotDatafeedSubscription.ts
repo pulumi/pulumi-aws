@@ -45,10 +45,10 @@ export interface SpotDatafeedSubscriptionArgs {
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      */
-    readonly bucket: fabric.MaybeComputed<string>;
+    readonly bucket: fabric.ComputedValue<string>;
     /**
      * Path of folder inside bucket to place spot pricing data.
      */
-    readonly prefix?: fabric.MaybeComputed<string>;
+    readonly prefix?: fabric.ComputedValue<string>;
 }
 

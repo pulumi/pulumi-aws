@@ -78,32 +78,32 @@ export interface KeyArgs {
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
-    readonly deletionWindowInDays?: fabric.MaybeComputed<number>;
+    readonly deletionWindowInDays?: fabric.ComputedValue<number>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
      * is enabled. Defaults to false.
      */
-    readonly enableKeyRotation?: fabric.MaybeComputed<boolean>;
+    readonly enableKeyRotation?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether the key is enabled. Defaults to true.
      */
-    readonly isEnabled?: fabric.MaybeComputed<boolean>;
+    readonly isEnabled?: fabric.ComputedValue<boolean>;
     /**
      * Specifies the intended use of the key.
      * Defaults to ENCRYPT/DECRYPT, and only symmetric encryption and decryption are supported.
      */
-    readonly keyUsage?: fabric.MaybeComputed<string>;
+    readonly keyUsage?: fabric.ComputedValue<string>;
     /**
      * A valid policy JSON document.
      */
-    readonly policy?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

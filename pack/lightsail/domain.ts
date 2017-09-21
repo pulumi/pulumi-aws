@@ -48,6 +48,6 @@ export interface DomainArgs {
     /**
      * The name of the Lightsail domain to manage
      */
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.ComputedValue<string>;
 }
 

@@ -65,10 +65,10 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
     /**
      * The user the policy should be applied to
      */
-    readonly user: fabric.MaybeComputed<User>;
+    readonly user: fabric.ComputedValue<User>;
 }
 

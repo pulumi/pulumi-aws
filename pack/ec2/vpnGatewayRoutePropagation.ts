@@ -49,10 +49,10 @@ export interface VpnGatewayRoutePropagationArgs {
     /**
      * The id of the `aws_route_table` to propagate routes into.
      */
-    readonly routeTableId: fabric.MaybeComputed<string>;
+    readonly routeTableId: fabric.ComputedValue<string>;
     /**
      * The id of the `aws_vpn_gateway` to propagate routes from.
      */
-    readonly vpnGatewayId: fabric.MaybeComputed<string>;
+    readonly vpnGatewayId: fabric.ComputedValue<string>;
 }
 

@@ -62,15 +62,15 @@ export interface ReplicationSubnetGroupArgs {
     /**
      * The description for the subnet group.
      */
-    readonly replicationSubnetGroupDescription: fabric.MaybeComputed<string>;
+    readonly replicationSubnetGroupDescription: fabric.ComputedValue<string>;
     /**
      * The name for the replication subnet group. This value is stored as a lowercase string.
      */
-    readonly replicationSubnetGroupId: fabric.MaybeComputed<string>;
+    readonly replicationSubnetGroupId: fabric.ComputedValue<string>;
     /**
      * A list of the EC2 subnet IDs for the subnet group.
      */
-    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

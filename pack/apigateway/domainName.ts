@@ -99,31 +99,31 @@ export interface DomainNameArgs {
     /**
      * The ARN for an AWS-managed certificate. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain` and `certificate_private_key`.
      */
-    readonly certificateArn?: fabric.MaybeComputed<string>;
+    readonly certificateArn?: fabric.ComputedValue<string>;
     /**
      * The certificate issued for the domain name
      * being registered, in PEM format. Conflicts with `certificate_arn`.
      */
-    readonly certificateBody?: fabric.MaybeComputed<string>;
+    readonly certificateBody?: fabric.ComputedValue<string>;
     /**
      * The certificate for the CA that issued the
      * certificate, along with any intermediate CA certificates required to
      * create an unbroken chain to a certificate trusted by the intended API clients. Conflicts with `certificate_arn`.
      */
-    readonly certificateChain?: fabric.MaybeComputed<string>;
+    readonly certificateChain?: fabric.ComputedValue<string>;
     /**
      * The unique name to use when registering this
      * cert as an IAM server certificate. Conflicts with `certificate_arn`. Required if `certificate_arn` is not set.
      */
-    readonly certificateName?: fabric.MaybeComputed<string>;
+    readonly certificateName?: fabric.ComputedValue<string>;
     /**
      * The private key associated with the
      * domain certificate given in `certificate_body`. Conflicts with `certificate_arn`.
      */
-    readonly certificatePrivateKey?: fabric.MaybeComputed<string>;
+    readonly certificatePrivateKey?: fabric.ComputedValue<string>;
     /**
      * The fully-qualified domain name to register
      */
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.ComputedValue<string>;
 }
 

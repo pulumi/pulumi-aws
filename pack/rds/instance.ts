@@ -352,13 +352,13 @@ export interface InstanceArgs {
      * (Required unless a `snapshot_identifier` or
      * `replicate_source_db` is provided) The allocated storage in gigabytes.
      */
-    readonly allocatedStorage?: fabric.MaybeComputed<number>;
+    readonly allocatedStorage?: fabric.ComputedValue<number>;
     /**
      * Indicates that major version
      * upgrades are allowed. Changing this parameter does not result in an outage and
      * the change is asynchronously applied as soon as possible.
      */
-    readonly allowMajorVersionUpgrade?: fabric.MaybeComputed<boolean>;
+    readonly allowMajorVersionUpgrade?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
@@ -366,28 +366,28 @@ export interface InstanceArgs {
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * for more information.
      */
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
     /**
      * Indicates that minor engine upgrades
      * will be applied automatically to the DB instance during the maintenance window.
      * Defaults to true.
      */
-    readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
+    readonly autoMinorVersionUpgrade?: fabric.ComputedValue<boolean>;
     /**
      * The AZ for the RDS instance.
      */
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
     /**
      * The days to retain backups for. Must be
      * `1` or greater to be a source for a [Read Replica][1].
      */
-    readonly backupRetentionPeriod?: fabric.MaybeComputed<number>;
+    readonly backupRetentionPeriod?: fabric.ComputedValue<number>;
     /**
      * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
      * not overlap with `maintenance_window`.
      */
-    readonly backupWindow?: fabric.MaybeComputed<string>;
+    readonly backupWindow?: fabric.ComputedValue<string>;
     /**
      * The character set name to use for DB
      * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
@@ -395,68 +395,68 @@ export interface InstanceArgs {
      * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
      * for more information.
      */
-    readonly characterSetName?: fabric.MaybeComputed<string>;
+    readonly characterSetName?: fabric.ComputedValue<string>;
     /**
      * On delete, copy all Instance
      * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
      * Default is `false`.
      */
-    readonly copyTagsToSnapshot?: fabric.MaybeComputed<boolean>;
+    readonly copyTagsToSnapshot?: fabric.ComputedValue<boolean>;
     /**
      * Name of DB subnet group. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available.
      */
-    readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
+    readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.
      */
-    readonly engine?: fabric.MaybeComputed<string>;
+    readonly engine?: fabric.ComputedValue<string>;
     /**
      * The engine version to use.
      */
-    readonly engineVersion?: fabric.MaybeComputed<string>;
+    readonly engineVersion?: fabric.ComputedValue<string>;
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. If omitted, no final snapshot will be made.
      */
-    readonly finalSnapshotIdentifier?: fabric.MaybeComputed<string>;
+    readonly finalSnapshotIdentifier?: fabric.ComputedValue<string>;
     /**
      * Specifies whether or
      * mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      */
-    readonly iamDatabaseAuthenticationEnabled?: fabric.MaybeComputed<boolean>;
+    readonly iamDatabaseAuthenticationEnabled?: fabric.ComputedValue<boolean>;
     /**
      * The name of the RDS instance,
      * if omitted, Terraform will assign a random, unique identifier.
      */
-    readonly identifier?: fabric.MaybeComputed<string>;
+    readonly identifier?: fabric.ComputedValue<string>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifer`.
      */
-    readonly identifierPrefix?: fabric.MaybeComputed<string>;
+    readonly identifierPrefix?: fabric.ComputedValue<string>;
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass: fabric.MaybeComputed<string>;
+    readonly instanceClass: fabric.ComputedValue<string>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storage_type of "io1".
      */
-    readonly iops?: fabric.MaybeComputed<number>;
+    readonly iops?: fabric.ComputedValue<number>;
     /**
      * The ARN for the KMS encryption key. If creating an
      * encrypted replica, set this to the destination KMS ARN.
      */
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
     /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
      */
-    readonly licenseModel?: fabric.MaybeComputed<string>;
+    readonly licenseModel?: fabric.ComputedValue<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -464,14 +464,14 @@ export interface InstanceArgs {
      * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
      * for more information.
      */
-    readonly maintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly maintenanceWindow?: fabric.ComputedValue<string>;
     /**
      * The interval, in seconds, between points
      * when Enhanced Monitoring metrics are collected for the DB instance. To disable
      * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
      * Values: 0, 1, 5, 10, 15, 30, 60.
      */
-    readonly monitoringInterval?: fabric.MaybeComputed<number>;
+    readonly monitoringInterval?: fabric.ComputedValue<number>;
     /**
      * The ARN for the IAM role that permits RDS
      * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
@@ -479,39 +479,39 @@ export interface InstanceArgs {
      * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    readonly monitoringRoleArn?: fabric.MaybeComputed<string>;
+    readonly monitoringRoleArn?: fabric.ComputedValue<string>;
     /**
      * Specifies if the RDS instance is multi-AZ
      */
-    readonly multiAz?: fabric.MaybeComputed<boolean>;
+    readonly multiAz?: fabric.ComputedValue<boolean>;
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Name of the DB option group to associate.
      */
-    readonly optionGroupName?: fabric.MaybeComputed<string>;
+    readonly optionGroupName?: fabric.ComputedValue<string>;
     /**
      * Name of the DB parameter group to
      * associate.
      */
-    readonly parameterGroupName?: fabric.MaybeComputed<string>;
+    readonly parameterGroupName?: fabric.ComputedValue<string>;
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file.
      */
-    readonly password?: fabric.MaybeComputed<string>;
+    readonly password?: fabric.ComputedValue<string>;
     /**
      * The port on which the DB accepts connections.
      */
-    readonly port?: fabric.MaybeComputed<number>;
+    readonly port?: fabric.ComputedValue<number>;
     /**
      * Bool to control if instance is publicly
      * accessible. Default is `false`.
      */
-    readonly publiclyAccessible?: fabric.MaybeComputed<boolean>;
+    readonly publiclyAccessible?: fabric.ComputedValue<boolean>;
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
@@ -520,13 +520,13 @@ export interface InstanceArgs {
      * Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
-    readonly replicateSourceDb?: fabric.MaybeComputed<string>;
+    readonly replicateSourceDb?: fabric.ComputedValue<string>;
     /**
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      */
-    readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -534,29 +534,29 @@ export interface InstanceArgs {
      * instance is deleted, using the value from `final_snapshot_identifier`. Default
      * is `false`.
      */
-    readonly skipFinalSnapshot?: fabric.MaybeComputed<boolean>;
+    readonly skipFinalSnapshot?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether or not to create this
      * database from a snapshot. This correlates to the snapshot ID you'd find in the
      * RDS console, e.g: rds:production-2015-06-26-06-05.
      */
-    readonly snapshotIdentifier?: fabric.MaybeComputed<string>;
+    readonly snapshotIdentifier?: fabric.ComputedValue<string>;
     /**
      * Specifies whether the DB instance is
      * encrypted. The default is `false` if not specified.
      */
-    readonly storageEncrypted?: fabric.MaybeComputed<boolean>;
+    readonly storageEncrypted?: fabric.ComputedValue<boolean>;
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "standard" if not. Note that this behaviour is different from the AWS
      * web console, where the default is "gp2".
      */
-    readonly storageType?: fabric.MaybeComputed<string>;
+    readonly storageType?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -564,16 +564,16 @@ export interface InstanceArgs {
      * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
      * for more information.
      */
-    readonly timezone?: fabric.MaybeComputed<string>;
+    readonly timezone?: fabric.ComputedValue<string>;
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Username for the master DB user.
      */
-    readonly username?: fabric.MaybeComputed<string>;
+    readonly username?: fabric.ComputedValue<string>;
     /**
      * List of VPC security groups to
      * associate.
      */
-    readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

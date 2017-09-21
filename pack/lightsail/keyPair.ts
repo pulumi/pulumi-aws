@@ -81,13 +81,13 @@ export interface KeyPairArgs {
      * * `pgp_key` – (Optional) An optional PGP key to encrypt the resulting private
      * key material. Only used when creating a new key pair
      */
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly namePrefix?: fabric.MaybeComputed<string>;
-    readonly pgpKey?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
+    readonly pgpKey?: fabric.ComputedValue<string>;
     /**
      * The public key material. This public key will be
      * imported into Lightsail
      */
-    readonly publicKey?: fabric.MaybeComputed<string>;
+    readonly publicKey?: fabric.ComputedValue<string>;
 }
 

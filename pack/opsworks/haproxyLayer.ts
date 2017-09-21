@@ -155,91 +155,91 @@ export interface HaproxyLayerArgs {
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    readonly autoAssignElasticIps?: fabric.MaybeComputed<boolean>;
+    readonly autoAssignElasticIps?: fabric.ComputedValue<boolean>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    readonly autoAssignPublicIps?: fabric.MaybeComputed<boolean>;
+    readonly autoAssignPublicIps?: fabric.ComputedValue<boolean>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    readonly autoHealing?: fabric.MaybeComputed<boolean>;
-    readonly customConfigureRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customDeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly autoHealing?: fabric.ComputedValue<boolean>;
+    readonly customConfigureRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customDeployRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    readonly customInstanceProfileArn?: fabric.MaybeComputed<string>;
+    readonly customInstanceProfileArn?: fabric.ComputedValue<string>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    readonly customJson?: fabric.MaybeComputed<string>;
+    readonly customJson?: fabric.ComputedValue<string>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    readonly customSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customSetupRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customShutdownRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly customUndeployRecipes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly customSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customSetupRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customShutdownRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly customUndeployRecipes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    readonly drainElbOnShutdown?: fabric.MaybeComputed<boolean>;
+    readonly drainElbOnShutdown?: fabric.ComputedValue<boolean>;
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolume?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, mountPoint: fabric.MaybeComputed<string>, numberOfDisks: fabric.MaybeComputed<number>, raidLevel?: fabric.MaybeComputed<string>, size: fabric.MaybeComputed<number>, type?: fabric.MaybeComputed<string> }>[];
+    readonly ebsVolume?: fabric.ComputedValue<{ iops?: fabric.ComputedValue<number>, mountPoint: fabric.ComputedValue<string>, numberOfDisks: fabric.ComputedValue<number>, raidLevel?: fabric.ComputedValue<string>, size: fabric.ComputedValue<number>, type?: fabric.ComputedValue<string> }>[];
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    readonly elasticLoadBalancer?: fabric.MaybeComputed<string>;
+    readonly elasticLoadBalancer?: fabric.ComputedValue<string>;
     /**
      * HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
      */
-    readonly healthcheckMethod?: fabric.MaybeComputed<string>;
+    readonly healthcheckMethod?: fabric.ComputedValue<string>;
     /**
      * URL path to use for instance healthchecks. Defaults to "/".
      */
-    readonly healthcheckUrl?: fabric.MaybeComputed<string>;
+    readonly healthcheckUrl?: fabric.ComputedValue<string>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    readonly installUpdatesOnBoot?: fabric.MaybeComputed<boolean>;
+    readonly installUpdatesOnBoot?: fabric.ComputedValue<boolean>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    readonly instanceShutdownTimeout?: fabric.MaybeComputed<number>;
+    readonly instanceShutdownTimeout?: fabric.ComputedValue<number>;
     /**
      * A human-readable name for the layer.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    readonly stackId: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.ComputedValue<string>;
     /**
      * Whether to enable HAProxy stats.
      */
-    readonly statsEnabled?: fabric.MaybeComputed<boolean>;
+    readonly statsEnabled?: fabric.ComputedValue<boolean>;
     /**
      * The password to use for HAProxy stats.
      */
-    readonly statsPassword: fabric.MaybeComputed<string>;
+    readonly statsPassword: fabric.ComputedValue<string>;
     /**
      * The HAProxy stats URL. Defaults to "/haproxy?stats".
      */
-    readonly statsUrl?: fabric.MaybeComputed<string>;
+    readonly statsUrl?: fabric.ComputedValue<string>;
     /**
      * The username for HAProxy stats. Defaults to "opsworks".
      */
-    readonly statsUser?: fabric.MaybeComputed<string>;
+    readonly statsUser?: fabric.ComputedValue<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    readonly systemPackages?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly systemPackages?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Whether to use EBS-optimized instances.
      */
-    readonly useEbsOptimizedInstances?: fabric.MaybeComputed<boolean>;
+    readonly useEbsOptimizedInstances?: fabric.ComputedValue<boolean>;
 }
 

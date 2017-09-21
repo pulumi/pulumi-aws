@@ -53,6 +53,6 @@ export interface RepositoryArgs {
     /**
      * Name of the repository.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

@@ -125,55 +125,55 @@ export interface BucketObjectArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: fabric.MaybeComputed<string>;
+    readonly acl?: fabric.ComputedValue<string>;
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket: fabric.MaybeComputed<Bucket>;
+    readonly bucket: fabric.ComputedValue<Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    readonly cacheControl?: fabric.MaybeComputed<string>;
+    readonly cacheControl?: fabric.ComputedValue<string>;
     /**
      * The literal content being uploaded to the bucket.
      */
-    readonly content?: fabric.MaybeComputed<string>;
+    readonly content?: fabric.ComputedValue<string>;
     /**
      * Specifies presentational information for the object. Read [wc3 content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    readonly contentDisposition?: fabric.MaybeComputed<string>;
+    readonly contentDisposition?: fabric.ComputedValue<string>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    readonly contentEncoding?: fabric.MaybeComputed<string>;
+    readonly contentEncoding?: fabric.ComputedValue<string>;
     /**
      * The language the content is in e.g. en-US or en-GB.
      */
-    readonly contentLanguage?: fabric.MaybeComputed<string>;
+    readonly contentLanguage?: fabric.ComputedValue<string>;
     /**
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    readonly contentType?: fabric.MaybeComputed<string>;
+    readonly contentType?: fabric.ComputedValue<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
      * This attribute is not compatible with `kms_key_id`.
      */
-    readonly etag?: fabric.MaybeComputed<string>;
+    readonly etag?: fabric.ComputedValue<string>;
     /**
      * The name of the object once it is in the bucket.
      */
-    readonly key?: fabric.MaybeComputed<string>;
+    readonly key?: fabric.ComputedValue<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
      * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
      * use the exported `arn` attribute:
      * `kms_key_id = "${aws_kms_key.foo.arn}"`
      */
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
-    readonly serverSideEncryption?: fabric.MaybeComputed<string>;
+    readonly serverSideEncryption?: fabric.ComputedValue<string>;
     /**
      * The path to the source file being uploaded to the bucket.
      */
@@ -182,14 +182,14 @@ export interface BucketObjectArgs {
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
-    readonly storageClass?: fabric.MaybeComputed<string>;
+    readonly storageClass?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    readonly websiteRedirect?: fabric.MaybeComputed<string>;
+    readonly websiteRedirect?: fabric.ComputedValue<string>;
 }
 

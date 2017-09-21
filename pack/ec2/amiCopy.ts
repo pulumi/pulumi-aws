@@ -138,41 +138,41 @@ export interface AmiCopyArgs {
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName?: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted.
      */
-    readonly encrypted?: fabric.MaybeComputed<boolean>;
+    readonly encrypted?: fabric.ComputedValue<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName?: fabric.ComputedValue<string>, virtualName?: fabric.ComputedValue<string> }>[];
     /**
      * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      */
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      */
-    readonly sourceAmiId: fabric.MaybeComputed<string>;
+    readonly sourceAmiId: fabric.ComputedValue<string>;
     /**
      * The region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    readonly sourceAmiRegion: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly sourceAmiRegion: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

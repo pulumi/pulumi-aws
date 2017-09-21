@@ -50,14 +50,14 @@ export interface ZoneAssociationArgs {
     /**
      * The VPC to associate with the private hosted zone.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    readonly vpcRegion?: fabric.MaybeComputed<string>;
+    readonly vpcRegion?: fabric.ComputedValue<string>;
     /**
      * The private hosted zone to associate.
      */
-    readonly zoneId: fabric.MaybeComputed<string>;
+    readonly zoneId: fabric.ComputedValue<string>;
 }
 

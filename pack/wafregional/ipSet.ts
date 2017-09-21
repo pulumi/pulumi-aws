@@ -39,10 +39,10 @@ export interface IpSetArgs {
     /**
      * The IP address type and IP address range (in CIDR notation) from which web requests originate.
      */
-    readonly ipSetDescriptor?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly ipSetDescriptor?: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
     /**
      * The name or description of the IPSet.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

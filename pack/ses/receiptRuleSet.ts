@@ -37,6 +37,6 @@ export interface ReceiptRuleSetArgs {
     /**
      * The name of the rule set
      */
-    readonly ruleSetName: fabric.MaybeComputed<string>;
+    readonly ruleSetName: fabric.ComputedValue<string>;
 }
 

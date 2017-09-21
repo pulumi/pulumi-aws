@@ -85,27 +85,27 @@ export interface PermissionArgs {
     /**
      * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
      */
-    readonly action: fabric.MaybeComputed<string>;
+    readonly action: fabric.ComputedValue<string>;
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    readonly function: fabric.MaybeComputed<Function>;
+    readonly function: fabric.ComputedValue<Function>;
     /**
      * The principal who is getting this permission.
      * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
      * such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
-    readonly principal: fabric.MaybeComputed<string>;
+    readonly principal: fabric.ComputedValue<string>;
     /**
      * Query parameter to specify function version or alias name.
      * The permission will then apply to the specific qualified ARN.
      * e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
-    readonly qualifier?: fabric.MaybeComputed<string>;
+    readonly qualifier?: fabric.ComputedValue<string>;
     /**
      * The AWS account ID (without a hyphen) of the source owner.
      */
-    readonly sourceAccount?: fabric.MaybeComputed<string>;
+    readonly sourceAccount?: fabric.ComputedValue<string>;
     /**
      * When granting Amazon S3 or CloudWatch Events permission to
      * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
@@ -114,10 +114,10 @@ export interface PermissionArgs {
      * API Gateway ARNs have a unique structure described
      * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
-    readonly sourceArn?: fabric.MaybeComputed<string>;
+    readonly sourceArn?: fabric.ComputedValue<string>;
     /**
      * A unique statement identifier.
      */
-    readonly statementId?: fabric.MaybeComputed<string>;
+    readonly statementId?: fabric.ComputedValue<string>;
 }
 

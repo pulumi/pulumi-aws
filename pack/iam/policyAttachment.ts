@@ -92,22 +92,22 @@ export interface PolicyAttachmentArgs {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: fabric.MaybeComputed<fabric.MaybeComputed<Group>>[];
+    readonly groups?: fabric.ComputedValue<fabric.ComputedValue<Group>>[];
     /**
      * The name of the policy. This cannot be an empty string.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
+    readonly roles?: fabric.ComputedValue<fabric.ComputedValue<Role>>[];
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: fabric.MaybeComputed<fabric.MaybeComputed<User>>[];
+    readonly users?: fabric.ComputedValue<fabric.ComputedValue<User>>[];
 }
 

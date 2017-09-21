@@ -72,20 +72,20 @@ export interface UserLoginProfileArgs {
      * The length of the generated
      * password.
      */
-    readonly passwordLength?: fabric.MaybeComputed<number>;
+    readonly passwordLength?: fabric.ComputedValue<number>;
     /**
      * Whether the
      * user should be forced to reset the generated password on first login.
      */
-    readonly passwordResetRequired?: fabric.MaybeComputed<boolean>;
+    readonly passwordResetRequired?: fabric.ComputedValue<boolean>;
     /**
      * Either a base-64 encoded PGP public key, or a
      * keybase username in the form `keybase:username`.
      */
-    readonly pgpKey: fabric.MaybeComputed<string>;
+    readonly pgpKey: fabric.ComputedValue<string>;
     /**
      * The IAM user's name.
      */
-    readonly user: fabric.MaybeComputed<string>;
+    readonly user: fabric.ComputedValue<string>;
 }
 

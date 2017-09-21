@@ -73,26 +73,26 @@ export interface ListenerArgs {
     /**
      * The ARN of the SSL server certificate. Exactly one certificate is required if the protocol is HTTPS.
      */
-    readonly certificateArn?: fabric.MaybeComputed<string>;
+    readonly certificateArn?: fabric.ComputedValue<string>;
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultActions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly defaultActions: fabric.ComputedValue<{ targetGroupArn: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
     /**
      * The ARN of the load balancer.
      */
-    readonly loadBalancerArn: fabric.MaybeComputed<string>;
+    readonly loadBalancerArn: fabric.ComputedValue<string>;
     /**
      * The port on which the load balancer is listening.
      */
-    readonly port: fabric.MaybeComputed<number>;
+    readonly port: fabric.ComputedValue<number>;
     /**
      * The protocol for connections from clients to the load balancer. Valid values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
      */
-    readonly protocol?: fabric.MaybeComputed<string>;
+    readonly protocol?: fabric.ComputedValue<string>;
     /**
      * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
      */
-    readonly sslPolicy?: fabric.MaybeComputed<string>;
+    readonly sslPolicy?: fabric.ComputedValue<string>;
 }
 

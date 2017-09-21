@@ -60,13 +60,13 @@ export interface NatGatewayArgs {
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
-    readonly allocationId: fabric.MaybeComputed<string>;
-    readonly networkInterfaceId?: fabric.MaybeComputed<string>;
-    readonly privateIp?: fabric.MaybeComputed<string>;
-    readonly publicIp?: fabric.MaybeComputed<string>;
+    readonly allocationId: fabric.ComputedValue<string>;
+    readonly networkInterfaceId?: fabric.ComputedValue<string>;
+    readonly privateIp?: fabric.ComputedValue<string>;
+    readonly publicIp?: fabric.ComputedValue<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
-    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly subnetId: fabric.ComputedValue<string>;
 }
 

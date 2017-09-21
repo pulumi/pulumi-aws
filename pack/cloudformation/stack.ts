@@ -105,58 +105,58 @@ export interface StackArgs {
      * A list of capabilities.
      * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
      */
-    readonly capabilities?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly capabilities?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
      * Conflicts with `on_failure`.
      */
-    readonly disableRollback?: fabric.MaybeComputed<boolean>;
+    readonly disableRollback?: fabric.ComputedValue<boolean>;
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      */
-    readonly iamRoleArn?: fabric.MaybeComputed<string>;
+    readonly iamRoleArn?: fabric.ComputedValue<string>;
     /**
      * Stack name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A list of SNS topic ARNs to publish stack related events.
      */
-    readonly notificationArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly notificationArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Action to be taken if stack creation fails. This must be
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
      */
-    readonly onFailure?: fabric.MaybeComputed<string>;
+    readonly onFailure?: fabric.ComputedValue<string>;
     /**
      * A list of Parameter structures that specify input parameters for the stack.
      */
-    readonly parameters?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly parameters?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policy_url`.
      */
-    readonly policyBody?: fabric.MaybeComputed<string>;
+    readonly policyBody?: fabric.ComputedValue<string>;
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policy_body`.
      */
-    readonly policyUrl?: fabric.MaybeComputed<string>;
+    readonly policyUrl?: fabric.ComputedValue<string>;
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
-    readonly templateBody?: fabric.MaybeComputed<string>;
+    readonly templateBody?: fabric.ComputedValue<string>;
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      */
-    readonly templateUrl?: fabric.MaybeComputed<string>;
+    readonly templateUrl?: fabric.ComputedValue<string>;
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      */
-    readonly timeoutInMinutes?: fabric.MaybeComputed<number>;
+    readonly timeoutInMinutes?: fabric.ComputedValue<number>;
 }
 

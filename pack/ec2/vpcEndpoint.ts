@@ -72,18 +72,18 @@ export interface VpcEndpointArgs {
     /**
      * A policy to attach to the endpoint that controls access to the service.
      */
-    readonly policy?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.ComputedValue<string>;
     /**
      * One or more route table IDs.
      */
-    readonly routeTableIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly routeTableIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The AWS service name, in the form `com.amazonaws.region.service`.
      */
-    readonly serviceName: fabric.MaybeComputed<string>;
+    readonly serviceName: fabric.ComputedValue<string>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

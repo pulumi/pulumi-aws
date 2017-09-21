@@ -63,18 +63,18 @@ export interface AssessmentTemplateArgs {
     /**
      * The duration of the inspector run.
      */
-    readonly duration: fabric.MaybeComputed<number>;
+    readonly duration: fabric.ComputedValue<number>;
     /**
      * The name of the assessment template.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The rules to be used during the run.
      */
-    readonly rulesPackageArns: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly rulesPackageArns: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The assessment target ARN to attach the template to.
      */
-    readonly targetArn: fabric.MaybeComputed<string>;
+    readonly targetArn: fabric.ComputedValue<string>;
 }
 

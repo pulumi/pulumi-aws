@@ -80,27 +80,27 @@ export interface RoleArgs {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy: fabric.MaybeComputed<string>;
+    readonly assumeRolePolicy: fabric.ComputedValue<string>;
     /**
      * The description of the role.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    readonly forceDetachPolicies?: fabric.MaybeComputed<boolean>;
+    readonly forceDetachPolicies?: fabric.ComputedValue<boolean>;
     /**
      * The name of the role. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The path to the role.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.ComputedValue<string>;
 }
 

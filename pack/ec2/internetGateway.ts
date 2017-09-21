@@ -39,10 +39,10 @@ export interface InternetGatewayArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

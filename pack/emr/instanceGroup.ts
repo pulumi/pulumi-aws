@@ -74,26 +74,26 @@ export interface InstanceGroupArgs {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    readonly clusterId: fabric.MaybeComputed<string>;
+    readonly clusterId: fabric.ComputedValue<string>;
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly ebsConfig?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, size: fabric.MaybeComputed<number>, type: fabric.MaybeComputed<string>, volumesPerInstance?: fabric.MaybeComputed<number> }>[];
+    readonly ebsConfig?: fabric.ComputedValue<{ iops?: fabric.ComputedValue<number>, size: fabric.ComputedValue<number>, type: fabric.ComputedValue<string>, volumesPerInstance?: fabric.ComputedValue<number> }>[];
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
-    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
+    readonly ebsOptimized?: fabric.ComputedValue<boolean>;
     /**
      * Target number of instances for the instance group. Defaults to 0.
      */
-    readonly instanceCount?: fabric.MaybeComputed<number>;
+    readonly instanceCount?: fabric.ComputedValue<number>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */
-    readonly instanceType: fabric.MaybeComputed<string>;
+    readonly instanceType: fabric.ComputedValue<string>;
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

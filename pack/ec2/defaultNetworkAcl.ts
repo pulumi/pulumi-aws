@@ -88,23 +88,23 @@ export interface DefaultNetworkAclArgs {
      * The Network ACL ID to manage. This
      * attribute is exported from `aws_vpc`, or manually found via the AWS Console.
      */
-    readonly defaultNetworkAclId: fabric.MaybeComputed<string>;
+    readonly defaultNetworkAclId: fabric.ComputedValue<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly egress?: fabric.ComputedValue<{ action: fabric.ComputedValue<string>, cidrBlock?: fabric.ComputedValue<string>, fromPort: fabric.ComputedValue<number>, icmpCode?: fabric.ComputedValue<number>, icmpType?: fabric.ComputedValue<number>, ipv6CidrBlock?: fabric.ComputedValue<string>, protocol: fabric.ComputedValue<string>, ruleNo: fabric.ComputedValue<number>, toPort: fabric.ComputedValue<number> }>[];
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: fabric.MaybeComputed<{ action: fabric.MaybeComputed<string>, cidrBlock?: fabric.MaybeComputed<string>, fromPort: fabric.MaybeComputed<number>, icmpCode?: fabric.MaybeComputed<number>, icmpType?: fabric.MaybeComputed<number>, ipv6CidrBlock?: fabric.MaybeComputed<string>, protocol: fabric.MaybeComputed<string>, ruleNo: fabric.MaybeComputed<number>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly ingress?: fabric.ComputedValue<{ action: fabric.ComputedValue<string>, cidrBlock?: fabric.ComputedValue<string>, fromPort: fabric.ComputedValue<number>, icmpCode?: fabric.ComputedValue<number>, icmpType?: fabric.ComputedValue<number>, ipv6CidrBlock?: fabric.ComputedValue<string>, protocol: fabric.ComputedValue<string>, ruleNo: fabric.ComputedValue<number>, toPort: fabric.ComputedValue<number> }>[];
     /**
      * A list of Subnet IDs to apply the ACL to. See the
      * notes below on managing Subnets in the Default Network ACL
      */
-    readonly subnetIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnetIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

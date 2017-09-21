@@ -44,10 +44,10 @@ export interface ApplicationArgs {
     /**
      * Short description of the application
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the application, must be unique within your account
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

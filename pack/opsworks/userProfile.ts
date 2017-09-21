@@ -60,18 +60,18 @@ export interface UserProfileArgs {
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
-    readonly allowSelfManagement?: fabric.MaybeComputed<boolean>;
+    readonly allowSelfManagement?: fabric.ComputedValue<boolean>;
     /**
      * The users public key
      */
-    readonly sshPublicKey?: fabric.MaybeComputed<string>;
+    readonly sshPublicKey?: fabric.ComputedValue<string>;
     /**
      * The ssh username, with witch this user wants to log in
      */
-    readonly sshUsername: fabric.MaybeComputed<string>;
+    readonly sshUsername: fabric.ComputedValue<string>;
     /**
      * The user's IAM ARN
      */
-    readonly userArn: fabric.MaybeComputed<string>;
+    readonly userArn: fabric.ComputedValue<string>;
 }
 

@@ -67,20 +67,20 @@ export interface MountTargetArgs {
     /**
      * The ID of the file system for which the mount target is intended.
      */
-    readonly fileSystemId: fabric.MaybeComputed<string>;
+    readonly fileSystemId: fabric.ComputedValue<string>;
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    readonly ipAddress?: fabric.MaybeComputed<string>;
+    readonly ipAddress?: fabric.ComputedValue<string>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The ID of the subnet to add the mount target in.
      */
-    readonly subnetId: fabric.MaybeComputed<string>;
+    readonly subnetId: fabric.ComputedValue<string>;
 }
 

@@ -65,23 +65,23 @@ export interface MaintenanceWindowArgs {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    readonly allowUnassociatedTargets?: fabric.MaybeComputed<boolean>;
+    readonly allowUnassociatedTargets?: fabric.ComputedValue<boolean>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    readonly cutoff: fabric.MaybeComputed<number>;
+    readonly cutoff: fabric.ComputedValue<number>;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    readonly duration: fabric.MaybeComputed<number>;
-    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly duration: fabric.ComputedValue<number>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
     /**
      * The name of the maintenance window.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
-    readonly schedule: fabric.MaybeComputed<string>;
+    readonly schedule: fabric.ComputedValue<string>;
 }
 

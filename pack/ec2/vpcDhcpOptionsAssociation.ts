@@ -46,10 +46,10 @@ export interface VpcDhcpOptionsAssociationArgs {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    readonly dhcpOptionsId: fabric.MaybeComputed<string>;
+    readonly dhcpOptionsId: fabric.ComputedValue<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

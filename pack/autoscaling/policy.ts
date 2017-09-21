@@ -97,42 +97,42 @@ export interface PolicyArgs {
     /**
      * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
-    readonly adjustmentType: fabric.MaybeComputed<string>;
+    readonly adjustmentType: fabric.ComputedValue<string>;
     /**
      * The name of the autoscaling group.
      */
-    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
+    readonly autoscalingGroupName: fabric.ComputedValue<string>;
     /**
      * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
-    readonly cooldown?: fabric.MaybeComputed<number>;
+    readonly cooldown?: fabric.ComputedValue<number>;
     /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
-    readonly estimatedInstanceWarmup?: fabric.MaybeComputed<number>;
+    readonly estimatedInstanceWarmup?: fabric.ComputedValue<number>;
     /**
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
-    readonly metricAggregationType?: fabric.MaybeComputed<string>;
-    readonly minAdjustmentMagnitude?: fabric.MaybeComputed<number>;
+    readonly metricAggregationType?: fabric.ComputedValue<string>;
+    readonly minAdjustmentMagnitude?: fabric.ComputedValue<number>;
     /**
      * Use `min_adjustment_magnitude` instead.
      */
-    readonly minAdjustmentStep?: fabric.MaybeComputed<number>;
+    readonly minAdjustmentStep?: fabric.ComputedValue<number>;
     /**
      * The name of the policy.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The policy type, either "SimpleScaling" or "StepScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
-    readonly policyType?: fabric.MaybeComputed<string>;
+    readonly policyType?: fabric.ComputedValue<string>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
-    readonly scalingAdjustment?: fabric.MaybeComputed<number>;
-    readonly stepAdjustment?: fabric.MaybeComputed<{ metricIntervalLowerBound?: fabric.MaybeComputed<string>, metricIntervalUpperBound?: fabric.MaybeComputed<string>, scalingAdjustment: fabric.MaybeComputed<number> }>[];
+    readonly scalingAdjustment?: fabric.ComputedValue<number>;
+    readonly stepAdjustment?: fabric.ComputedValue<{ metricIntervalLowerBound?: fabric.ComputedValue<string>, metricIntervalUpperBound?: fabric.ComputedValue<string>, scalingAdjustment: fabric.ComputedValue<number> }>[];
 }
 

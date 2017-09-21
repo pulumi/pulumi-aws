@@ -45,10 +45,10 @@ export interface VpnConnectionRouteArgs {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    readonly destinationCidrBlock: fabric.MaybeComputed<string>;
+    readonly destinationCidrBlock: fabric.ComputedValue<string>;
     /**
      * The ID of the VPN connection.
      */
-    readonly vpnConnectionId: fabric.MaybeComputed<string>;
+    readonly vpnConnectionId: fabric.ComputedValue<string>;
 }
 

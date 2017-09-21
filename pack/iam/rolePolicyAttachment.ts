@@ -93,10 +93,10 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: fabric.MaybeComputed<ARN>;
+    readonly policyArn: fabric.ComputedValue<ARN>;
     /**
      * The role the policy should be applied to
      */
-    readonly role: fabric.MaybeComputed<Role>;
+    readonly role: fabric.ComputedValue<Role>;
 }
 

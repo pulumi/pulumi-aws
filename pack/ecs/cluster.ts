@@ -34,6 +34,6 @@ export interface ClusterArgs {
     /**
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

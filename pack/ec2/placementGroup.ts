@@ -43,10 +43,10 @@ export interface PlacementGroupArgs {
     /**
      * The name of the placement group.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The placement strategy. The only supported value is `cluster`
      */
-    readonly strategy: fabric.MaybeComputed<string>;
+    readonly strategy: fabric.ComputedValue<string>;
 }
 

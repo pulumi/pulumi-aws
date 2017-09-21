@@ -46,7 +46,7 @@ export interface AssessmentTargetArgs {
      * The name of the assessment target.
      * * `resource_group_arn` (Required )- The resource group ARN stating tags for instance matching.
      */
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly resourceGroupArn: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly resourceGroupArn: fabric.ComputedValue<string>;
 }
 

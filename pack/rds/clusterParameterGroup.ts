@@ -67,26 +67,26 @@ export interface ClusterParameterGroupArgs {
     /**
      * The description of the DB cluster parameter group. Defaults to "Managed by Terraform".
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The family of the DB cluster parameter group.
      */
-    readonly family: fabric.MaybeComputed<string>;
+    readonly family: fabric.ComputedValue<string>;
     /**
      * The name of the DB parameter.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
      */
-    readonly parameter?: fabric.MaybeComputed<{ applyMethod?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly parameter?: fabric.ComputedValue<{ applyMethod?: fabric.ComputedValue<string>, name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

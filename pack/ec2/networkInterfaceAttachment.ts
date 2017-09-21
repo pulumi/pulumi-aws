@@ -63,14 +63,14 @@ export interface NetworkInterfaceAttachmentArgs {
     /**
      * Network interface index (int).
      */
-    readonly deviceIndex: fabric.MaybeComputed<number>;
+    readonly deviceIndex: fabric.ComputedValue<number>;
     /**
      * Instance ID to attach.
      */
-    readonly instanceId: fabric.MaybeComputed<string>;
+    readonly instanceId: fabric.ComputedValue<string>;
     /**
      * ENI ID to attach.
      */
-    readonly networkInterfaceId: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId: fabric.ComputedValue<string>;
 }
 

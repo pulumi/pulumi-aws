@@ -51,6 +51,6 @@ export interface StaticIpArgs {
     /**
      * The name for the allocated static IP
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

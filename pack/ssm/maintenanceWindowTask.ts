@@ -100,42 +100,42 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
-    readonly loggingInfo?: fabric.MaybeComputed<{ s3BucketName: fabric.MaybeComputed<string>, s3BucketPrefix?: fabric.MaybeComputed<string>, s3Region: fabric.MaybeComputed<string> }>[];
+    readonly loggingInfo?: fabric.ComputedValue<{ s3BucketName: fabric.ComputedValue<string>, s3BucketPrefix?: fabric.ComputedValue<string>, s3Region: fabric.ComputedValue<string> }>[];
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    readonly maxConcurrency: fabric.MaybeComputed<string>;
+    readonly maxConcurrency: fabric.ComputedValue<string>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    readonly maxErrors: fabric.MaybeComputed<string>;
+    readonly maxErrors: fabric.ComputedValue<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    readonly priority?: fabric.MaybeComputed<number>;
+    readonly priority?: fabric.ComputedValue<number>;
     /**
      * The role that should be assumed when executing the task.
      */
-    readonly serviceRoleArn: fabric.MaybeComputed<string>;
+    readonly serviceRoleArn: fabric.ComputedValue<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly targets: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The ARN of the task to execute.
      */
-    readonly taskArn: fabric.MaybeComputed<string>;
+    readonly taskArn: fabric.ComputedValue<string>;
     /**
      * A structure containing information about parameters required by the particular `task_arn`. Documented below.
      */
-    readonly taskParameters?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly taskParameters?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
-    readonly taskType: fabric.MaybeComputed<string>;
+    readonly taskType: fabric.ComputedValue<string>;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    readonly windowId: fabric.MaybeComputed<string>;
+    readonly windowId: fabric.ComputedValue<string>;
 }
 

@@ -116,58 +116,58 @@ export interface EndpointArgs {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    readonly certificateArn?: fabric.MaybeComputed<string>;
+    readonly certificateArn?: fabric.ComputedValue<string>;
     /**
      * The name of the endpoint database.
      */
-    readonly databaseName?: fabric.MaybeComputed<string>;
+    readonly databaseName?: fabric.ComputedValue<string>;
     /**
      * The database endpoint identifier.
      */
-    readonly endpointId: fabric.MaybeComputed<string>;
+    readonly endpointId: fabric.ComputedValue<string>;
     /**
      * The type of endpoint. Can be one of `source | target`.
      */
-    readonly endpointType: fabric.MaybeComputed<string>;
+    readonly endpointType: fabric.ComputedValue<string>;
     /**
      * The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb`.
      */
-    readonly engineName: fabric.MaybeComputed<string>;
+    readonly engineName: fabric.ComputedValue<string>;
     /**
      * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
      */
-    readonly extraConnectionAttributes?: fabric.MaybeComputed<string>;
+    readonly extraConnectionAttributes?: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    readonly kmsKeyArn?: fabric.MaybeComputed<string>;
+    readonly kmsKeyArn?: fabric.ComputedValue<string>;
     /**
      * The password to be used to login to the endpoint database.
      */
-    readonly password?: fabric.MaybeComputed<string>;
+    readonly password?: fabric.ComputedValue<string>;
     /**
      * The port used by the endpoint database.
      */
-    readonly port?: fabric.MaybeComputed<number>;
+    readonly port?: fabric.ComputedValue<number>;
     /**
      * The host name of the server.
      */
-    readonly serverName?: fabric.MaybeComputed<string>;
+    readonly serverName?: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
      */
-    readonly serviceAccessRole?: fabric.MaybeComputed<string>;
+    readonly serviceAccessRole?: fabric.ComputedValue<string>;
     /**
      * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
      */
-    readonly sslMode?: fabric.MaybeComputed<string>;
+    readonly sslMode?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The user name to be used to login to the endpoint database.
      */
-    readonly username?: fabric.MaybeComputed<string>;
+    readonly username?: fabric.ComputedValue<string>;
 }
 

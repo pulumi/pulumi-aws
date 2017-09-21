@@ -47,10 +47,10 @@ export interface StaticIpAttachmentArgs {
     /**
      * The name of the Lightsail instance to attach the IP to
      */
-    readonly instanceName: fabric.MaybeComputed<string>;
+    readonly instanceName: fabric.ComputedValue<string>;
     /**
      * The name of the allocated static IP
      */
-    readonly staticIpName: fabric.MaybeComputed<string>;
+    readonly staticIpName: fabric.ComputedValue<string>;
 }
 

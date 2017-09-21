@@ -116,18 +116,18 @@ export interface DocumentArgs {
     /**
      * The json content of the document.
      */
-    readonly content: fabric.MaybeComputed<string>;
+    readonly content: fabric.ComputedValue<string>;
     /**
      * The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
      */
-    readonly documentType: fabric.MaybeComputed<string>;
+    readonly documentType: fabric.ComputedValue<string>;
     /**
      * The name of the document.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
-    readonly permissions?: fabric.MaybeComputed<{[key: string]: { accountIds: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }}>;
+    readonly permissions?: fabric.ComputedValue<{[key: string]: { accountIds: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }}>;
 }
 

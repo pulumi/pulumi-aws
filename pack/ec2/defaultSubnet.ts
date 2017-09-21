@@ -62,10 +62,10 @@ export class DefaultSubnet extends fabric.Resource {
  * The set of arguments for constructing a DefaultSubnet resource.
  */
 export interface DefaultSubnetArgs {
-    readonly availabilityZone: fabric.MaybeComputed<string>;
+    readonly availabilityZone: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

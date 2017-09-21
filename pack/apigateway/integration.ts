@@ -118,21 +118,21 @@ export interface IntegrationArgs {
     /**
      * A list of cache key parameters for the integration.
      */
-    readonly cacheKeyParameters?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly cacheNamespace?: fabric.MaybeComputed<string>;
+    readonly cacheKeyParameters?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly cacheNamespace?: fabric.ComputedValue<string>;
     /**
      * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      */
-    readonly contentHandling?: fabric.MaybeComputed<string>;
+    readonly contentHandling?: fabric.ComputedValue<string>;
     /**
      * The credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      */
-    readonly credentials?: fabric.MaybeComputed<string>;
+    readonly credentials?: fabric.ComputedValue<string>;
     /**
      * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      * when calling the associated resource.
      */
-    readonly httpMethod: fabric.MaybeComputed<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
     /**
      * The integration HTTP method
      * (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`) specifying how API Gateway will interact with the back end.
@@ -140,41 +140,41 @@ export interface IntegrationArgs {
      * Not all methods are compatible with all `AWS` integrations.
      * e.g. Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      */
-    readonly integrationHttpMethod?: fabric.MaybeComputed<string>;
+    readonly integrationHttpMethod?: fabric.ComputedValue<string>;
     /**
      * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
      */
-    readonly passthroughBehavior?: fabric.MaybeComputed<string>;
+    readonly passthroughBehavior?: fabric.ComputedValue<string>;
     /**
      * A map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
-    readonly requestParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly requestParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * **Deprecated**, use `request_parameters` instead.
      */
-    readonly requestParametersInJson?: fabric.MaybeComputed<string>;
+    readonly requestParametersInJson?: fabric.ComputedValue<string>;
     /**
      * A map of the integration's request templates.
      */
-    readonly requestTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly requestTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * The API resource ID.
      */
-    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API.
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The integration input's type (HTTP, MOCK, AWS, AWS_PROXY, HTTP_PROXY)
      */
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
     /**
      * The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
      * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
      */
-    readonly uri?: fabric.MaybeComputed<string>;
+    readonly uri?: fabric.ComputedValue<string>;
 }
 

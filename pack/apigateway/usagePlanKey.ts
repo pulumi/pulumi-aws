@@ -63,14 +63,14 @@ export interface UsagePlanKeyArgs {
     /**
      * The identifier of the API key resource.
      */
-    readonly keyId: fabric.MaybeComputed<string>;
+    readonly keyId: fabric.ComputedValue<string>;
     /**
      * The type of the API key resource. Currently, the valid key type is API_KEY.
      */
-    readonly keyType: fabric.MaybeComputed<string>;
+    readonly keyType: fabric.ComputedValue<string>;
     /**
      * The Id of the usage plan resource representing to associate the key to.
      */
-    readonly usagePlanId: fabric.MaybeComputed<string>;
+    readonly usagePlanId: fabric.ComputedValue<string>;
 }
 

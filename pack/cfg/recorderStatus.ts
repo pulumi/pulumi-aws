@@ -44,10 +44,10 @@ export interface RecorderStatusArgs {
     /**
      * Whether the configuration recorder should be enabled or disabled.
      */
-    readonly isEnabled: fabric.MaybeComputed<boolean>;
+    readonly isEnabled: fabric.ComputedValue<boolean>;
     /**
      * The name of the recorder
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

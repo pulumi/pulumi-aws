@@ -111,57 +111,57 @@ export interface TrailArgs {
      * Specifies a log group name using an Amazon Resource Name (ARN),
      * that represents the log group to which CloudTrail logs will be delivered.
      */
-    readonly cloudWatchLogsGroupArn?: fabric.MaybeComputed<string>;
+    readonly cloudWatchLogsGroupArn?: fabric.ComputedValue<string>;
     /**
      * Specifies the role for the CloudWatch Logs
      * endpoint to assume to write to a user’s log group.
      */
-    readonly cloudWatchLogsRoleArn?: fabric.MaybeComputed<string>;
+    readonly cloudWatchLogsRoleArn?: fabric.ComputedValue<string>;
     /**
      * Specifies whether log file integrity validation is enabled.
      * Defaults to `false`.
      */
-    readonly enableLogFileValidation?: fabric.MaybeComputed<boolean>;
+    readonly enableLogFileValidation?: fabric.ComputedValue<boolean>;
     /**
      * Enables logging for the trail. Defaults to `true`.
      * Setting this to `false` will pause logging.
      */
-    readonly enableLogging?: fabric.MaybeComputed<boolean>;
+    readonly enableLogging?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether the trail is publishing events
      * from global services such as IAM to the log files. Defaults to `true`.
      */
-    readonly includeGlobalServiceEvents?: fabric.MaybeComputed<boolean>;
+    readonly includeGlobalServiceEvents?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether the trail is created in the current
      * region or in all regions. Defaults to `false`.
      */
-    readonly isMultiRegionTrail?: fabric.MaybeComputed<boolean>;
+    readonly isMultiRegionTrail?: fabric.ComputedValue<boolean>;
     /**
      * Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      */
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
     /**
      * Specifies the name of the trail.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Specifies the name of the S3 bucket designated for publishing log files.
      */
-    readonly s3BucketName: fabric.MaybeComputed<string>;
+    readonly s3BucketName: fabric.ComputedValue<string>;
     /**
      * Specifies the S3 key prefix that precedes
      * the name of the bucket you have designated for log file delivery.
      */
-    readonly s3KeyPrefix?: fabric.MaybeComputed<string>;
+    readonly s3KeyPrefix?: fabric.ComputedValue<string>;
     /**
      * Specifies the name of the Amazon SNS topic
      * defined for notification of log file delivery.
      */
-    readonly snsTopicName?: fabric.MaybeComputed<string>;
+    readonly snsTopicName?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the trail
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

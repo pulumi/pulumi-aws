@@ -78,33 +78,33 @@ export interface ZoneArgs {
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
      */
-    readonly comment?: fabric.MaybeComputed<string>;
+    readonly comment?: fabric.ComputedValue<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone.
      * Conflicts w/ `vpc_id` as delegation sets can only be used for public zones.
      */
-    readonly delegationSetId?: fabric.MaybeComputed<string>;
+    readonly delegationSetId?: fabric.ComputedValue<string>;
     /**
      * Whether to destroy all records (possibly managed outside of Terraform)
      * in the zone when destroying the zone.
      */
-    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
+    readonly forceDestroy?: fabric.ComputedValue<boolean>;
     /**
      * This is the name of the hosted zone.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the zone.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
      * Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.
      */
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    readonly vpcRegion?: fabric.MaybeComputed<string>;
+    readonly vpcRegion?: fabric.ComputedValue<string>;
 }
 

@@ -71,6 +71,6 @@ export interface OriginAccessIdentityArgs {
     /**
      * An optional comment for the origin access identity.
      */
-    readonly comment?: fabric.MaybeComputed<string>;
+    readonly comment?: fabric.ComputedValue<string>;
 }
 

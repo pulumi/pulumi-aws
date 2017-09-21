@@ -165,31 +165,31 @@ export interface ClusterInstanceArgs {
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
-    readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
+    readonly autoMinorVersionUpgrade?: fabric.ComputedValue<boolean>;
     /**
      * The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
-    readonly clusterIdentifier: fabric.MaybeComputed<string>;
+    readonly clusterIdentifier: fabric.ComputedValue<string>;
     /**
      * The name of the DB parameter group to associate with this instance.
      */
-    readonly dbParameterGroupName?: fabric.MaybeComputed<string>;
+    readonly dbParameterGroupName?: fabric.ComputedValue<string>;
     /**
      * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
      */
-    readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
+    readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
     /**
      * The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
      */
-    readonly identifier?: fabric.MaybeComputed<string>;
+    readonly identifier?: fabric.ComputedValue<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
      */
-    readonly identifierPrefix?: fabric.MaybeComputed<string>;
+    readonly identifierPrefix?: fabric.ComputedValue<string>;
     /**
      * The instance class to use. For details on CPU
      * and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
@@ -202,40 +202,40 @@ export interface ClusterInstanceArgs {
      * - db.r3.4xlarge
      * - db.r3.8xlarge
      */
-    readonly instanceClass: fabric.MaybeComputed<string>;
+    readonly instanceClass: fabric.ComputedValue<string>;
     /**
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */
-    readonly monitoringInterval?: fabric.MaybeComputed<number>;
+    readonly monitoringInterval?: fabric.ComputedValue<number>;
     /**
      * The ARN for the IAM role that permits RDS to send
      * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    readonly monitoringRoleArn?: fabric.MaybeComputed<string>;
+    readonly monitoringRoleArn?: fabric.ComputedValue<string>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      * Eg: "04:00-09:00"
      */
-    readonly preferredBackupWindow?: fabric.MaybeComputed<string>;
+    readonly preferredBackupWindow?: fabric.ComputedValue<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly preferredMaintenanceWindow?: fabric.ComputedValue<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer. 
      */
-    readonly promotionTier?: fabric.MaybeComputed<number>;
+    readonly promotionTier?: fabric.ComputedValue<number>;
     /**
      * Bool to control if instance is publicly accessible.
      * Default `false`. See the documentation on [Creating DB Instances][6] for more
      * details on controlling this property.
      */
-    readonly publiclyAccessible?: fabric.MaybeComputed<boolean>;
+    readonly publiclyAccessible?: fabric.ComputedValue<boolean>;
     /**
      * A mapping of tags to assign to the instance.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

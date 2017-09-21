@@ -65,22 +65,22 @@ export interface LogSubscriptionFilterArgs {
     /**
      * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
      */
-    readonly destinationArn: fabric.MaybeComputed<string>;
+    readonly destinationArn: fabric.ComputedValue<string>;
     /**
      * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
      */
-    readonly filterPattern: fabric.MaybeComputed<string>;
+    readonly filterPattern: fabric.ComputedValue<string>;
     /**
      * The name of the log group to associate the subscription filter with
      */
-    readonly logGroup: fabric.MaybeComputed<LogGroup>;
+    readonly logGroup: fabric.ComputedValue<LogGroup>;
     /**
      * A name for the subscription filter
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
      */
-    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
 }
 

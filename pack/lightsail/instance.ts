@@ -102,28 +102,28 @@ export interface InstanceArgs {
      * The Availability Zone in which to create your
      * instance. At this time, must be in `us-east-1`, `us-east-2`, `us-west-2`, `eu-west-1`, `eu-west-2`, `eu-central-1` regions
      */
-    readonly availabilityZone: fabric.MaybeComputed<string>;
+    readonly availabilityZone: fabric.ComputedValue<string>;
     /**
      * The ID for a virtual private server image
      * (see list below)
      */
-    readonly blueprintId: fabric.MaybeComputed<string>;
+    readonly blueprintId: fabric.ComputedValue<string>;
     /**
      * The bundle of specification information (see list below)
      */
-    readonly bundleId: fabric.MaybeComputed<string>;
+    readonly bundleId: fabric.ComputedValue<string>;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws_key_pair` at this time)
      */
-    readonly keyPairName?: fabric.MaybeComputed<string>;
+    readonly keyPairName?: fabric.ComputedValue<string>;
     /**
      * The name of the Lightsail Instance
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * launch script to configure server with additional user data
      */
-    readonly userData?: fabric.MaybeComputed<string>;
+    readonly userData?: fabric.ComputedValue<string>;
 }
 

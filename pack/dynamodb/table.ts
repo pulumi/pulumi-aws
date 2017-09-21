@@ -125,56 +125,56 @@ export interface TableArgs {
     /**
      * Define an attribute, has two properties:
      */
-    readonly attribute: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly attribute: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
     /**
      * Describe a GSO for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndex?: fabric.MaybeComputed<{ hashKey: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string>, nonKeyAttributes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], projectionType: fabric.MaybeComputed<string>, rangeKey?: fabric.MaybeComputed<string>, readCapacity: fabric.MaybeComputed<number>, writeCapacity: fabric.MaybeComputed<number> }>[];
+    readonly globalSecondaryIndex?: fabric.ComputedValue<{ hashKey: fabric.ComputedValue<string>, name: fabric.ComputedValue<string>, nonKeyAttributes?: fabric.ComputedValue<fabric.ComputedValue<string>>[], projectionType: fabric.ComputedValue<string>, rangeKey?: fabric.ComputedValue<string>, readCapacity: fabric.ComputedValue<number>, writeCapacity: fabric.ComputedValue<number> }>[];
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource. Only applies to
      * `global_secondary_index`
      */
-    readonly hashKey: fabric.MaybeComputed<string>;
+    readonly hashKey: fabric.ComputedValue<string>;
     /**
      * Describe an LSI on the table;
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    readonly localSecondaryIndex?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, nonKeyAttributes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], projectionType: fabric.MaybeComputed<string>, rangeKey: fabric.MaybeComputed<string> }>[];
+    readonly localSecondaryIndex?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, nonKeyAttributes?: fabric.ComputedValue<fabric.ComputedValue<string>>[], projectionType: fabric.ComputedValue<string>, rangeKey: fabric.ComputedValue<string> }>[];
     /**
      * The name of the LSI or GSI
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The name of the range key; must be defined
      */
-    readonly rangeKey?: fabric.MaybeComputed<string>;
+    readonly rangeKey?: fabric.ComputedValue<string>;
     /**
      * The number of read units for this table
      */
-    readonly readCapacity: fabric.MaybeComputed<number>;
+    readonly readCapacity: fabric.ComputedValue<number>;
     /**
      * Indicates whether Streams are to be enabled (true) or disabled (false).
      */
-    readonly streamEnabled?: fabric.MaybeComputed<boolean>;
+    readonly streamEnabled?: fabric.ComputedValue<boolean>;
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES.
      */
-    readonly streamViewType?: fabric.MaybeComputed<string>;
+    readonly streamViewType?: fabric.ComputedValue<string>;
     /**
      * A map of tags to populate on the created table.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    readonly ttl?: fabric.MaybeComputed<{ attributeName: fabric.MaybeComputed<string>, enabled: fabric.MaybeComputed<boolean> }>[];
+    readonly ttl?: fabric.ComputedValue<{ attributeName: fabric.ComputedValue<string>, enabled: fabric.ComputedValue<boolean> }>[];
     /**
      * The number of write units for this table
      */
-    readonly writeCapacity: fabric.MaybeComputed<number>;
+    readonly writeCapacity: fabric.ComputedValue<number>;
 }
 

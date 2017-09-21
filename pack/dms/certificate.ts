@@ -55,14 +55,14 @@ export interface CertificateArgs {
     /**
      * The certificate identifier.
      */
-    readonly certificateId: fabric.MaybeComputed<string>;
+    readonly certificateId: fabric.ComputedValue<string>;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    readonly certificatePem?: fabric.MaybeComputed<string>;
+    readonly certificatePem?: fabric.ComputedValue<string>;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    readonly certificateWallet?: fabric.MaybeComputed<string>;
+    readonly certificateWallet?: fabric.ComputedValue<string>;
 }
 

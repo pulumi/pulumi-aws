@@ -48,7 +48,7 @@ export interface TriggerArgs {
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: fabric.MaybeComputed<string>;
-    readonly trigger: fabric.MaybeComputed<{ branches?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customData?: fabric.MaybeComputed<string>, destinationArn: fabric.MaybeComputed<string>, events: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string> }>[];
+    readonly repositoryName: fabric.ComputedValue<string>;
+    readonly trigger: fabric.ComputedValue<{ branches?: fabric.ComputedValue<fabric.ComputedValue<string>>[], customData?: fabric.ComputedValue<string>, destinationArn: fabric.ComputedValue<string>, events: fabric.ComputedValue<fabric.ComputedValue<string>>[], name: fabric.ComputedValue<string> }>[];
 }
 

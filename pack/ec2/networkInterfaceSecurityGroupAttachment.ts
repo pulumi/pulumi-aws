@@ -57,10 +57,10 @@ export interface NetworkInterfaceSecurityGroupAttachmentArgs {
     /**
      * The ID of the network interface to attach to.
      */
-    readonly networkInterfaceId: fabric.MaybeComputed<string>;
+    readonly networkInterfaceId: fabric.ComputedValue<string>;
     /**
      * The ID of the security group.
      */
-    readonly securityGroupId: fabric.MaybeComputed<string>;
+    readonly securityGroupId: fabric.ComputedValue<string>;
 }
 

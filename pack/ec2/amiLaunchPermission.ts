@@ -45,10 +45,10 @@ export interface AmiLaunchPermissionArgs {
     /**
      * An AWS Account ID to add launch permissions.
      */
-    readonly accountId: fabric.MaybeComputed<string>;
+    readonly accountId: fabric.ComputedValue<string>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly imageId: fabric.MaybeComputed<string>;
+    readonly imageId: fabric.ComputedValue<string>;
 }
 

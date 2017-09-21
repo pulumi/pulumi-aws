@@ -102,58 +102,58 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    readonly addHeaderAction?: fabric.MaybeComputed<{ headerName: fabric.MaybeComputed<string>, headerValue: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number> }>[];
+    readonly addHeaderAction?: fabric.ComputedValue<{ headerName: fabric.ComputedValue<string>, headerValue: fabric.ComputedValue<string>, position: fabric.ComputedValue<number> }>[];
     /**
      * The name of the rule to place this rule after
      */
-    readonly after?: fabric.MaybeComputed<string>;
+    readonly after?: fabric.ComputedValue<string>;
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    readonly bounceAction?: fabric.MaybeComputed<{ message: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, sender: fabric.MaybeComputed<string>, smtpReplyCode: fabric.MaybeComputed<string>, statusCode?: fabric.MaybeComputed<string>, topicArn?: fabric.MaybeComputed<string> }>[];
+    readonly bounceAction?: fabric.ComputedValue<{ message: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, sender: fabric.ComputedValue<string>, smtpReplyCode: fabric.ComputedValue<string>, statusCode?: fabric.ComputedValue<string>, topicArn?: fabric.ComputedValue<string> }>[];
     /**
      * If true, the rule will be enabled
      */
-    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    readonly lambdaAction?: fabric.MaybeComputed<{ functionArn: fabric.MaybeComputed<string>, invocationType?: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, topicArn?: fabric.MaybeComputed<string> }>[];
+    readonly lambdaAction?: fabric.ComputedValue<{ functionArn: fabric.ComputedValue<string>, invocationType?: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
     /**
      * The name of the rule
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A list of email addresses
      */
-    readonly recipients?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly recipients?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name of the rule set
      */
-    readonly ruleSetName: fabric.MaybeComputed<string>;
+    readonly ruleSetName: fabric.ComputedValue<string>;
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    readonly s3Action?: fabric.MaybeComputed<{ bucketName: fabric.MaybeComputed<string>, kmsKeyArn?: fabric.MaybeComputed<string>, objectKeyPrefix?: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, topicArn?: fabric.MaybeComputed<string> }>[];
+    readonly s3Action?: fabric.ComputedValue<{ bucketName: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, objectKeyPrefix?: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
-    readonly scanEnabled?: fabric.MaybeComputed<boolean>;
+    readonly scanEnabled?: fabric.ComputedValue<boolean>;
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    readonly snsAction?: fabric.MaybeComputed<{ position: fabric.MaybeComputed<number>, topicArn: fabric.MaybeComputed<string> }>[];
+    readonly snsAction?: fabric.ComputedValue<{ position: fabric.ComputedValue<number>, topicArn: fabric.ComputedValue<string> }>[];
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    readonly stopAction?: fabric.MaybeComputed<{ position: fabric.MaybeComputed<number>, scope: fabric.MaybeComputed<string>, topicArn?: fabric.MaybeComputed<string> }>[];
+    readonly stopAction?: fabric.ComputedValue<{ position: fabric.ComputedValue<number>, scope: fabric.ComputedValue<string>, topicArn?: fabric.ComputedValue<string> }>[];
     /**
      * Require or Optional
      */
-    readonly tlsPolicy?: fabric.MaybeComputed<string>;
+    readonly tlsPolicy?: fabric.ComputedValue<string>;
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    readonly workmailAction?: fabric.MaybeComputed<{ organizationArn: fabric.MaybeComputed<string>, position: fabric.MaybeComputed<number>, topicArn?: fabric.MaybeComputed<string> }>[];
+    readonly workmailAction?: fabric.ComputedValue<{ organizationArn: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
 }
 

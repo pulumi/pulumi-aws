@@ -74,12 +74,12 @@ export interface PolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [IoT Developer Guide]
      * (http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

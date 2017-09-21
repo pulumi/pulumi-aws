@@ -56,10 +56,10 @@ export interface RepositoryPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository: fabric.MaybeComputed<string>;
+    readonly repository: fabric.ComputedValue<string>;
 }
 

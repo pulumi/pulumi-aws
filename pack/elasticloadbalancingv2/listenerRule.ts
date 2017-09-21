@@ -66,18 +66,18 @@ export interface ListenerRuleArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions: fabric.MaybeComputed<{ targetGroupArn: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly actions: fabric.ComputedValue<{ targetGroupArn: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
     /**
      * A Condition block. Condition blocks are documented below.
      */
-    readonly conditions: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, values?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly conditions: fabric.ComputedValue<{ field?: fabric.ComputedValue<string>, values?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The ARN of the listener to which to attach the rule.
      */
-    readonly listenerArn: fabric.MaybeComputed<string>;
+    readonly listenerArn: fabric.ComputedValue<string>;
     /**
      * The priority for the rule. A listener can't have multiple rules with the same priority.
      */
-    readonly priority: fabric.MaybeComputed<number>;
+    readonly priority: fabric.ComputedValue<number>;
 }
 

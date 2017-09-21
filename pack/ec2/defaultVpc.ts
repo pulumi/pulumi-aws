@@ -114,19 +114,19 @@ export interface DefaultVpcArgs {
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */
-    readonly enableClassiclink?: fabric.MaybeComputed<boolean>;
-    readonly enableClassiclinkDnsSupport?: fabric.MaybeComputed<boolean>;
+    readonly enableClassiclink?: fabric.ComputedValue<boolean>;
+    readonly enableClassiclinkDnsSupport?: fabric.ComputedValue<boolean>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    readonly enableDnsHostnames?: fabric.MaybeComputed<boolean>;
+    readonly enableDnsHostnames?: fabric.ComputedValue<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
-    readonly enableDnsSupport?: fabric.MaybeComputed<boolean>;
+    readonly enableDnsSupport?: fabric.ComputedValue<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -52,18 +52,18 @@ export interface ParameterGroupArgs {
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The family of the ElastiCache parameter group.
      */
-    readonly family: fabric.MaybeComputed<string>;
+    readonly family: fabric.ComputedValue<string>;
     /**
      * The name of the ElastiCache parameter.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameter?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly parameter?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
 }
 

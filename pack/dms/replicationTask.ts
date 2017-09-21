@@ -97,38 +97,38 @@ export interface ReplicationTaskArgs {
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
-    readonly cdcStartTime?: fabric.MaybeComputed<string>;
+    readonly cdcStartTime?: fabric.ComputedValue<string>;
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
-    readonly migrationType: fabric.MaybeComputed<string>;
+    readonly migrationType: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    readonly replicationInstanceArn: fabric.MaybeComputed<string>;
+    readonly replicationInstanceArn: fabric.ComputedValue<string>;
     /**
      * The replication task identifier.
      */
-    readonly replicationTaskId: fabric.MaybeComputed<string>;
+    readonly replicationTaskId: fabric.ComputedValue<string>;
     /**
      * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      */
-    readonly replicationTaskSettings?: fabric.MaybeComputed<string>;
+    readonly replicationTaskSettings?: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
-    readonly sourceEndpointArn: fabric.MaybeComputed<string>;
+    readonly sourceEndpointArn: fabric.ComputedValue<string>;
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
-    readonly tableMappings: fabric.MaybeComputed<string>;
+    readonly tableMappings: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
-    readonly targetEndpointArn: fabric.MaybeComputed<string>;
+    readonly targetEndpointArn: fabric.ComputedValue<string>;
 }
 

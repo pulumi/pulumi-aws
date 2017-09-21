@@ -45,10 +45,10 @@ export interface DomainPolicyArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies: fabric.MaybeComputed<string>;
+    readonly accessPolicies: fabric.ComputedValue<string>;
     /**
      * Name of the domain.
      */
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.ComputedValue<string>;
 }
 

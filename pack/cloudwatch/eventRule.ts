@@ -67,29 +67,29 @@ export interface EventRuleArgs {
     /**
      * The description of the rule.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Event pattern
      * described a JSON object.
      * See full documentation of [CloudWatch Events and Event Patterns](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CloudWatchEventsandEventPatterns.html) for details.
      */
-    readonly eventPattern?: fabric.MaybeComputed<string>;
+    readonly eventPattern?: fabric.ComputedValue<string>;
     /**
      * Whether the rule should be enabled (defaults to `true`).
      */
-    readonly isEnabled?: fabric.MaybeComputed<boolean>;
+    readonly isEnabled?: fabric.ComputedValue<boolean>;
     /**
      * The rule's name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
-    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
     /**
      * The scheduling expression.
      * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
      */
-    readonly scheduleExpression?: fabric.MaybeComputed<string>;
+    readonly scheduleExpression?: fabric.ComputedValue<string>;
 }
 

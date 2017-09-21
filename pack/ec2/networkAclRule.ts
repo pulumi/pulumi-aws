@@ -96,46 +96,46 @@ export interface NetworkAclRuleArgs {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    readonly cidrBlock?: fabric.MaybeComputed<string>;
+    readonly cidrBlock?: fabric.ComputedValue<string>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    readonly egress?: fabric.MaybeComputed<boolean>;
+    readonly egress?: fabric.ComputedValue<boolean>;
     /**
      * The from port to match.
      */
-    readonly fromPort?: fabric.MaybeComputed<number>;
+    readonly fromPort?: fabric.ComputedValue<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpCode?: fabric.MaybeComputed<string>;
+    readonly icmpCode?: fabric.ComputedValue<string>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpType?: fabric.MaybeComputed<string>;
+    readonly icmpType?: fabric.ComputedValue<string>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
+    readonly ipv6CidrBlock?: fabric.ComputedValue<string>;
     /**
      * The ID of the network ACL.
      */
-    readonly networkAclId: fabric.MaybeComputed<string>;
+    readonly networkAclId: fabric.ComputedValue<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    readonly protocol: fabric.MaybeComputed<string>;
+    readonly protocol: fabric.ComputedValue<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    readonly ruleAction: fabric.MaybeComputed<string>;
+    readonly ruleAction: fabric.ComputedValue<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    readonly ruleNumber: fabric.MaybeComputed<number>;
+    readonly ruleNumber: fabric.ComputedValue<number>;
     /**
      * The to port to match.
      */
-    readonly toPort?: fabric.MaybeComputed<number>;
+    readonly toPort?: fabric.ComputedValue<number>;
 }
 

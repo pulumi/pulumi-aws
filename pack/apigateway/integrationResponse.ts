@@ -95,42 +95,42 @@ export interface IntegrationResponseArgs {
     /**
      * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      */
-    readonly contentHandling?: fabric.MaybeComputed<string>;
+    readonly contentHandling?: fabric.ComputedValue<string>;
     /**
      * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      */
-    readonly httpMethod: fabric.MaybeComputed<string>;
+    readonly httpMethod: fabric.ComputedValue<string>;
     /**
      * The API resource ID
      */
-    readonly resourceId: fabric.MaybeComputed<string>;
+    readonly resourceId: fabric.ComputedValue<string>;
     /**
      * A map of response parameters that can be read from the backend response.
      * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
      */
-    readonly responseParameters?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * **Deprecated**, use `response_parameters` instead.
      */
-    readonly responseParametersInJson?: fabric.MaybeComputed<string>;
+    readonly responseParametersInJson?: fabric.ComputedValue<string>;
     /**
      * A map specifying the templates used to transform the integration response body
      */
-    readonly responseTemplates?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly responseTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
      * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
      * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
      * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
-    readonly selectionPattern?: fabric.MaybeComputed<string>;
+    readonly selectionPattern?: fabric.ComputedValue<string>;
     /**
      * The HTTP status code
      */
-    readonly statusCode: fabric.MaybeComputed<string>;
+    readonly statusCode: fabric.ComputedValue<string>;
 }
 

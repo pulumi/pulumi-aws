@@ -68,31 +68,31 @@ export interface IdentityPoolArgs {
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      */
-    readonly allowUnauthenticatedIdentities?: fabric.MaybeComputed<boolean>;
+    readonly allowUnauthenticatedIdentities?: fabric.ComputedValue<boolean>;
     /**
      * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
      */
-    readonly cognitoIdentityProviders?: fabric.MaybeComputed<{ clientId?: fabric.MaybeComputed<string>, providerName?: fabric.MaybeComputed<string>, serverSideTokenCheck?: fabric.MaybeComputed<boolean> }>[];
+    readonly cognitoIdentityProviders?: fabric.ComputedValue<{ clientId?: fabric.ComputedValue<string>, providerName?: fabric.ComputedValue<string>, serverSideTokenCheck?: fabric.ComputedValue<boolean> }>[];
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
      */
-    readonly developerProviderName?: fabric.MaybeComputed<string>;
+    readonly developerProviderName?: fabric.ComputedValue<string>;
     /**
      * The Cognito Identity Pool name.
      */
-    readonly identityPoolName: fabric.MaybeComputed<string>;
+    readonly identityPoolName: fabric.ComputedValue<string>;
     /**
      * A list of OpendID Connect provider ARNs.
      */
-    readonly openidConnectProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly openidConnectProviderArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
-    readonly samlProviderArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly samlProviderArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Key-Value pairs mapping provider names to provider app IDs.
      */
-    readonly supportedLoginProviders?: fabric.MaybeComputed<{[key: string]: fabric.MaybeComputed<string>}>;
+    readonly supportedLoginProviders?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
 }
 

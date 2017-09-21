@@ -62,22 +62,22 @@ export interface ModelArgs {
     /**
      * The content type of the model
      */
-    readonly contentType: fabric.MaybeComputed<string>;
+    readonly contentType: fabric.ComputedValue<string>;
     /**
      * The description of the model
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the model
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The schema of the model in a JSON form
      */
-    readonly schema?: fabric.MaybeComputed<string>;
+    readonly schema?: fabric.ComputedValue<string>;
 }
 

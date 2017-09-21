@@ -36,7 +36,7 @@ export interface ApplicationArgs {
     /**
      * The name of the application.
      */
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly uniqueId?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly uniqueId?: fabric.ComputedValue<string>;
 }
 

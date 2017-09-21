@@ -72,34 +72,34 @@ export interface VolumeArgs {
     /**
      * The AZ where the EBS volume will exist.
      */
-    readonly availabilityZone: fabric.MaybeComputed<string>;
+    readonly availabilityZone: fabric.ComputedValue<string>;
     /**
      * If true, the disk will be encrypted.
      */
-    readonly encrypted?: fabric.MaybeComputed<boolean>;
+    readonly encrypted?: fabric.ComputedValue<boolean>;
     /**
      * The amount of IOPS to provision for the disk.
      */
-    readonly iops?: fabric.MaybeComputed<number>;
+    readonly iops?: fabric.ComputedValue<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
     /**
      * The size of the drive in GiBs.
      */
-    readonly size?: fabric.MaybeComputed<number>;
+    readonly size?: fabric.ComputedValue<number>;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    readonly snapshotId?: fabric.MaybeComputed<string>;
+    readonly snapshotId?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
      */
-    readonly type?: fabric.MaybeComputed<string>;
+    readonly type?: fabric.ComputedValue<string>;
 }
 

@@ -51,14 +51,14 @@ export interface LoadBalancerBackendServerPolicyArgs {
     /**
      * The instance port to apply the policy to.
      */
-    readonly instancePort: fabric.MaybeComputed<number>;
+    readonly instancePort: fabric.ComputedValue<number>;
     /**
      * The load balancer to attach the policy to.
      */
-    readonly loadBalancerName: fabric.MaybeComputed<string>;
+    readonly loadBalancerName: fabric.ComputedValue<string>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    readonly policyNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly policyNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

@@ -45,10 +45,10 @@ export interface BucketPolicyArgs {
     /**
      * The name of the bucket to which to apply the policy.
      */
-    readonly bucket: fabric.MaybeComputed<string>;
+    readonly bucket: fabric.ComputedValue<string>;
     /**
      * The text of the policy.
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

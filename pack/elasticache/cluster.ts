@@ -194,75 +194,75 @@ export interface ClusterArgs {
      * `false`. See [Amazon ElastiCache Documentation for more information.][1]
      * (Available since v0.6.0)
      */
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
     /**
      * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
      */
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
     /**
      * List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
      */
-    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
      */
-    readonly azMode?: fabric.MaybeComputed<string>;
+    readonly azMode?: fabric.ComputedValue<string>;
     /**
      * Group identifier. ElastiCache converts
      * this name to lowercase
      */
-    readonly clusterId: fabric.MaybeComputed<string>;
+    readonly clusterId: fabric.ComputedValue<string>;
     /**
      * Name of the cache engine to be used for this cache cluster.
      * Valid values for this parameter are `memcached` or `redis`
      */
-    readonly engine: fabric.MaybeComputed<string>;
+    readonly engine: fabric.ComputedValue<string>;
     /**
      * Version number of the cache engine to be used.
      * See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
      * in the AWS Documentation center for supported versions
      */
-    readonly engineVersion?: fabric.MaybeComputed<string>;
-    readonly maintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly engineVersion?: fabric.ComputedValue<string>;
+    readonly maintenanceWindow?: fabric.ComputedValue<string>;
     /**
      * The compute and memory capacity of the nodes. See
      * [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
      * supported node types
      */
-    readonly nodeType: fabric.MaybeComputed<string>;
-    readonly notificationTopicArn?: fabric.MaybeComputed<string>;
+    readonly nodeType: fabric.ComputedValue<string>;
+    readonly notificationTopicArn?: fabric.ComputedValue<string>;
     /**
      * The initial number of cache nodes that the
      * cache cluster will have. For Redis, this value must be 1. For Memcache, this
      * value must be between 1 and 20. If this number is reduced on subsequent runs,
      * the highest numbered nodes will be removed.
      */
-    readonly numCacheNodes: fabric.MaybeComputed<number>;
+    readonly numCacheNodes: fabric.ComputedValue<number>;
     /**
      * Name of the parameter group to associate
      * with this cache cluster
      */
-    readonly parameterGroupName?: fabric.MaybeComputed<string>;
+    readonly parameterGroupName?: fabric.ComputedValue<string>;
     /**
      * The port number on which each of the cache nodes will
      * accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      */
-    readonly port: fabric.MaybeComputed<number>;
+    readonly port: fabric.ComputedValue<number>;
     /**
      * One or more VPC security groups associated
      * with the cache cluster
      */
-    readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * List of security group
      * names to associate with this cache cluster
      */
-    readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly snapshotArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly snapshotArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
      */
-    readonly snapshotName?: fabric.MaybeComputed<string>;
+    readonly snapshotName?: fabric.ComputedValue<string>;
     /**
      * The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -270,20 +270,20 @@ export interface ClusterArgs {
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
      * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
      */
-    readonly snapshotRetentionLimit?: fabric.MaybeComputed<number>;
+    readonly snapshotRetentionLimit?: fabric.ComputedValue<number>;
     /**
      * The daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
-    readonly snapshotWindow?: fabric.MaybeComputed<string>;
+    readonly snapshotWindow?: fabric.ComputedValue<string>;
     /**
      * Name of the subnet group to be used
      * for the cache cluster.
      */
-    readonly subnetGroupName?: fabric.MaybeComputed<string>;
+    readonly subnetGroupName?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

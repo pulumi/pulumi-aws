@@ -45,10 +45,10 @@ export interface PatchGroupArgs {
     /**
      * The ID of the patch baseline to register the patch group with.
      */
-    readonly baselineId: fabric.MaybeComputed<string>;
+    readonly baselineId: fabric.ComputedValue<string>;
     /**
      * The name of the patch group that should be registered with the patch baseline.
      */
-    readonly patchGroup: fabric.MaybeComputed<string>;
+    readonly patchGroup: fabric.ComputedValue<string>;
 }
 

@@ -34,6 +34,6 @@ export interface ConfgurationSetArgs {
     /**
      * The name of the configuration set
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

@@ -58,14 +58,14 @@ export interface UserArgs {
      * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
      * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
      */
-    readonly forceDestroy?: fabric.MaybeComputed<boolean>;
+    readonly forceDestroy?: fabric.ComputedValue<boolean>;
     /**
      * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Path in which to create the user.
      */
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.ComputedValue<string>;
 }
 

@@ -87,42 +87,42 @@ export interface AuthorizerArgs {
      * The credentials required for the authorizer.
      * To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */
-    readonly authorizerCredentials?: fabric.MaybeComputed<string>;
+    readonly authorizerCredentials?: fabric.ComputedValue<string>;
     /**
      * The TTL of cached authorizer results in seconds.
      * Defaults to `300`.
      */
-    readonly authorizerResultTtlInSeconds?: fabric.MaybeComputed<number>;
+    readonly authorizerResultTtlInSeconds?: fabric.ComputedValue<number>;
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * For `TOKEN` type, this must be a well-formed Lambda function URI in the form of
      * `arn:aws:apigateway:{region}:lambda:path/{service_api}`. e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      */
-    readonly authorizerUri: fabric.MaybeComputed<string>;
+    readonly authorizerUri: fabric.ComputedValue<string>;
     /**
      * The source of the identity in an incoming request.
      * Defaults to `method.request.header.Authorization`.
      */
-    readonly identitySource?: fabric.MaybeComputed<string>;
+    readonly identitySource?: fabric.ComputedValue<string>;
     /**
      * A validation expression for the incoming identity.
      * For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
      * against this expression, and will proceed if the token matches. If the token doesn't match,
      * the client receives a 401 Unauthorized response.
      */
-    readonly identityValidationExpression?: fabric.MaybeComputed<string>;
+    readonly identityValidationExpression?: fabric.ComputedValue<string>;
     /**
      * The name of the authorizer
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
     /**
      * The type of the authorizer. `TOKEN` is currently the only allowed value.
      * Defaults to `TOKEN`.
      */
-    readonly type?: fabric.MaybeComputed<string>;
+    readonly type?: fabric.ComputedValue<string>;
 }
 

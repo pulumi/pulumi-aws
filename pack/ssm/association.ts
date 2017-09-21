@@ -51,18 +51,18 @@ export interface AssociationArgs {
     /**
      * The instance id to apply an SSM document to.
      */
-    readonly instanceId?: fabric.MaybeComputed<string>;
+    readonly instanceId?: fabric.ComputedValue<string>;
     /**
      * The name of the SSM document to apply.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Additional parameters to pass to the SSM document.
      */
-    readonly parameters?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly parameters?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
      */
-    readonly targets?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly targets?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
 }
 

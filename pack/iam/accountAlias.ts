@@ -39,6 +39,6 @@ export interface AccountAliasArgs {
     /**
      * The account alias
      */
-    readonly accountAlias: fabric.MaybeComputed<string>;
+    readonly accountAlias: fabric.ComputedValue<string>;
 }
 

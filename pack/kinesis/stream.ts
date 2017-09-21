@@ -66,7 +66,7 @@ export class Stream extends fabric.Resource {
  * The set of arguments for constructing a Stream resource.
  */
 export interface StreamArgs {
-    readonly arn?: fabric.MaybeComputed<string>;
+    readonly arn?: fabric.ComputedValue<string>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
@@ -74,19 +74,19 @@ export interface StreamArgs {
      * Amazon has guidlines for specifying the Stream size that should be referenced
      * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
      */
-    readonly retentionPeriod?: fabric.MaybeComputed<number>;
-    readonly shardCount: fabric.MaybeComputed<number>;
+    readonly retentionPeriod?: fabric.ComputedValue<number>;
+    readonly shardCount: fabric.ComputedValue<number>;
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
-    readonly shardLevelMetrics?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly shardLevelMetrics?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

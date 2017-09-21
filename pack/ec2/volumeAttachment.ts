@@ -75,18 +75,18 @@ export interface VolumeAttachmentArgs {
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`)
      */
-    readonly deviceName: fabric.MaybeComputed<string>;
+    readonly deviceName: fabric.ComputedValue<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
      * [Detaching an Amazon EBS Volume from an Instance][1] for more information.
      */
-    readonly forceDetach?: fabric.MaybeComputed<boolean>;
+    readonly forceDetach?: fabric.ComputedValue<boolean>;
     /**
      * ID of the Instance to attach to
      */
-    readonly instanceId: fabric.MaybeComputed<string>;
+    readonly instanceId: fabric.ComputedValue<string>;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -94,10 +94,10 @@ export interface VolumeAttachmentArgs {
      * useful when destroying an instance which has volumes created by some other
      * means attached.
      */
-    readonly skipDestroy?: fabric.MaybeComputed<boolean>;
+    readonly skipDestroy?: fabric.ComputedValue<boolean>;
     /**
      * ID of the Volume to be attached
      */
-    readonly volumeId: fabric.MaybeComputed<string>;
+    readonly volumeId: fabric.ComputedValue<string>;
 }
 

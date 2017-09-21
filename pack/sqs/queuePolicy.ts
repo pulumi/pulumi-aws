@@ -46,10 +46,10 @@ export interface QueuePolicyArgs {
     /**
      * The JSON policy for the SQS queue
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    readonly queueUrl: fabric.MaybeComputed<string>;
+    readonly queueUrl: fabric.ComputedValue<string>;
 }
 

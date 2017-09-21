@@ -39,6 +39,6 @@ export interface ActivityArgs {
     /**
      * The name of the activity to create.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

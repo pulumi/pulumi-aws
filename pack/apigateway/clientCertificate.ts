@@ -49,6 +49,6 @@ export interface ClientCertificateArgs {
     /**
      * The description of the client certificate.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
 }
 

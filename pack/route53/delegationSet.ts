@@ -42,6 +42,6 @@ export interface DelegationSetArgs {
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    readonly referenceName?: fabric.MaybeComputed<string>;
+    readonly referenceName?: fabric.ComputedValue<string>;
 }
 

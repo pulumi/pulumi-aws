@@ -58,21 +58,21 @@ export interface GroupPolicyArgs {
     /**
      * The IAM group to attach to the policy.
      */
-    readonly group: fabric.MaybeComputed<string>;
+    readonly group: fabric.ComputedValue<string>;
     /**
      * The name of the policy. If omitted, Terraform will
      * assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

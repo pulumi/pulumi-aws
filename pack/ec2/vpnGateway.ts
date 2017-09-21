@@ -44,14 +44,14 @@ export interface VpnGatewayArgs {
     /**
      * The Availability Zone for the virtual private gateway.
      */
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

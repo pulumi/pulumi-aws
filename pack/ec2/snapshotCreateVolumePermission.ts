@@ -45,10 +45,10 @@ export interface SnapshotCreateVolumePermissionArgs {
     /**
      * An AWS Account ID to add create volume permissions
      */
-    readonly accountId: fabric.MaybeComputed<string>;
+    readonly accountId: fabric.ComputedValue<string>;
     /**
      * A snapshot ID
      */
-    readonly snapshotId: fabric.MaybeComputed<string>;
+    readonly snapshotId: fabric.ComputedValue<string>;
 }
 

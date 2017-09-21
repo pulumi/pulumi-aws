@@ -157,93 +157,93 @@ export interface StackArgs {
     /**
      * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
      */
-    readonly agentVersion?: fabric.MaybeComputed<string>;
+    readonly agentVersion?: fabric.ComputedValue<string>;
     /**
      * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
      */
-    readonly berkshelfVersion?: fabric.MaybeComputed<string>;
+    readonly berkshelfVersion?: fabric.ComputedValue<string>;
     /**
      * Color to paint next to the stack's resources in the OpsWorks console.
      */
-    readonly color?: fabric.MaybeComputed<string>;
+    readonly color?: fabric.ComputedValue<string>;
     /**
      * Name of the configuration manager to use. Defaults to "Chef".
      */
-    readonly configurationManagerName?: fabric.MaybeComputed<string>;
+    readonly configurationManagerName?: fabric.ComputedValue<string>;
     /**
      * Version of the configuration manager to use. Defaults to "11.4".
      */
-    readonly configurationManagerVersion?: fabric.MaybeComputed<string>;
+    readonly configurationManagerVersion?: fabric.ComputedValue<string>;
     /**
      * When `use_custom_cookbooks` is set, provide this sub-object as
      * described below.
      */
-    readonly customCookbooksSource?: fabric.MaybeComputed<{ password?: fabric.MaybeComputed<string>, revision?: fabric.MaybeComputed<string>, sshKey?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string>, url: fabric.MaybeComputed<string>, username?: fabric.MaybeComputed<string> }>[];
+    readonly customCookbooksSource?: fabric.ComputedValue<{ password?: fabric.ComputedValue<string>, revision?: fabric.ComputedValue<string>, sshKey?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string>, url: fabric.ComputedValue<string>, username?: fabric.ComputedValue<string> }>[];
     /**
      * Custom JSON attributes to apply to the entire stack.
      */
-    readonly customJson?: fabric.MaybeComputed<string>;
+    readonly customJson?: fabric.ComputedValue<string>;
     /**
      * Name of the availability zone where instances will be created
      * by default. This is required unless you set `vpc_id`.
      */
-    readonly defaultAvailabilityZone?: fabric.MaybeComputed<string>;
+    readonly defaultAvailabilityZone?: fabric.ComputedValue<string>;
     /**
      * The ARN of an IAM Instance Profile that created instances
      * will have by default.
      */
-    readonly defaultInstanceProfileArn: fabric.MaybeComputed<string>;
+    readonly defaultInstanceProfileArn: fabric.ComputedValue<string>;
     /**
      * Name of OS that will be installed on instances by default.
      */
-    readonly defaultOs?: fabric.MaybeComputed<string>;
+    readonly defaultOs?: fabric.ComputedValue<string>;
     /**
      * Name of the type of root device instances will have by default.
      */
-    readonly defaultRootDeviceType?: fabric.MaybeComputed<string>;
+    readonly defaultRootDeviceType?: fabric.ComputedValue<string>;
     /**
      * Name of the SSH keypair that instances will have by default.
      */
-    readonly defaultSshKeyName?: fabric.MaybeComputed<string>;
+    readonly defaultSshKeyName?: fabric.ComputedValue<string>;
     /**
      * Id of the subnet in which instances will be created by default. Mandatory
      * if `vpc_id` is set, and forbidden if it isn't.
      */
-    readonly defaultSubnetId?: fabric.MaybeComputed<string>;
+    readonly defaultSubnetId?: fabric.ComputedValue<string>;
     /**
      * Keyword representing the naming scheme that will be used for instance hostnames
      * within this stack.
      */
-    readonly hostnameTheme?: fabric.MaybeComputed<string>;
+    readonly hostnameTheme?: fabric.ComputedValue<string>;
     /**
      * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
      */
-    readonly manageBerkshelf?: fabric.MaybeComputed<boolean>;
+    readonly manageBerkshelf?: fabric.ComputedValue<boolean>;
     /**
      * The name of the stack.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The name of the region where the stack will exist.
      */
-    readonly region: fabric.MaybeComputed<string>;
+    readonly region: fabric.ComputedValue<string>;
     /**
      * The ARN of an IAM role that the OpsWorks service will act as.
      */
-    readonly serviceRoleArn: fabric.MaybeComputed<string>;
+    readonly serviceRoleArn: fabric.ComputedValue<string>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
      */
-    readonly useCustomCookbooks?: fabric.MaybeComputed<boolean>;
+    readonly useCustomCookbooks?: fabric.ComputedValue<boolean>;
     /**
      * Boolean value controlling whether the standard OpsWorks
      * security groups apply to created instances.
      */
-    readonly useOpsworksSecurityGroups?: fabric.MaybeComputed<boolean>;
+    readonly useOpsworksSecurityGroups?: fabric.ComputedValue<boolean>;
     /**
      * The id of the VPC that this stack belongs to.
      */
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

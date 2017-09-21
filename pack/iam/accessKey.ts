@@ -77,10 +77,10 @@ export interface AccessKeyArgs {
      * Either a base-64 encoded PGP public key, or a
      * keybase username in the form `keybase:some_person_that_exists`.
      */
-    readonly pgpKey?: fabric.MaybeComputed<string>;
+    readonly pgpKey?: fabric.ComputedValue<string>;
     /**
      * The IAM user to associate with this access key.
      */
-    readonly user: fabric.MaybeComputed<string>;
+    readonly user: fabric.ComputedValue<string>;
 }
 

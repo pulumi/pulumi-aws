@@ -94,38 +94,38 @@ export interface TargetGroupArgs {
     /**
      * The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
-    readonly deregistrationDelay?: fabric.MaybeComputed<number>;
+    readonly deregistrationDelay?: fabric.ComputedValue<number>;
     /**
      * A Health Check block. Health Check blocks are documented below.
      */
-    readonly healthChecks?: fabric.MaybeComputed<{ healthyThreshold?: fabric.MaybeComputed<number>, interval?: fabric.MaybeComputed<number>, matcher?: fabric.MaybeComputed<string>, path?: fabric.MaybeComputed<string>, port?: fabric.MaybeComputed<string>, protocol?: fabric.MaybeComputed<string>, timeout?: fabric.MaybeComputed<number>, unhealthyThreshold?: fabric.MaybeComputed<number> }>[];
+    readonly healthChecks?: fabric.ComputedValue<{ healthyThreshold?: fabric.ComputedValue<number>, interval?: fabric.ComputedValue<number>, matcher?: fabric.ComputedValue<string>, path?: fabric.ComputedValue<string>, port?: fabric.ComputedValue<string>, protocol?: fabric.ComputedValue<string>, timeout?: fabric.ComputedValue<number>, unhealthyThreshold?: fabric.ComputedValue<number> }>[];
     /**
      * The name of the target group. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
      */
-    readonly port: fabric.MaybeComputed<number>;
+    readonly port: fabric.ComputedValue<number>;
     /**
      * The protocol to use to connect with the target. Defaults to `HTTP`.
      */
-    readonly protocol: fabric.MaybeComputed<string>;
+    readonly protocol: fabric.ComputedValue<string>;
     /**
      * A Stickiness block. Stickiness blocks are documented below.
      */
-    readonly stickiness?: fabric.MaybeComputed<{ cookieDuration?: fabric.MaybeComputed<number>, enabled?: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
+    readonly stickiness?: fabric.ComputedValue<{ cookieDuration?: fabric.ComputedValue<number>, enabled?: fabric.ComputedValue<boolean>, type: fabric.ComputedValue<string> }>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The identifier of the VPC in which to create the target group.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

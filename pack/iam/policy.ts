@@ -89,26 +89,26 @@ export interface PolicyArgs {
     /**
      * Description of the IAM policy.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the policy. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * Path in which to create the policy.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.ComputedValue<string>;
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
      * source](/docs/providers/aws/d/iam_policy_document.html)
      * are all helpful here.
      */
-    readonly policy: fabric.MaybeComputed<string>;
+    readonly policy: fabric.ComputedValue<string>;
 }
 

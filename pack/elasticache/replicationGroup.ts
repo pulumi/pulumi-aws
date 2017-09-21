@@ -169,67 +169,67 @@ export interface ReplicationGroupArgs {
     /**
      * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
      */
-    readonly autoMinorVersionUpgrade?: fabric.MaybeComputed<boolean>;
+    readonly autoMinorVersionUpgrade?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. Defaults to `false`.
      */
-    readonly automaticFailoverEnabled?: fabric.MaybeComputed<boolean>;
+    readonly automaticFailoverEnabled?: fabric.ComputedValue<boolean>;
     /**
      * A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
      */
-    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
      */
-    readonly clusterMode?: fabric.MaybeComputed<{ numNodeGroups: fabric.MaybeComputed<number>, replicasPerNodeGroup: fabric.MaybeComputed<number> }>[];
-    readonly engine?: fabric.MaybeComputed<string>;
+    readonly clusterMode?: fabric.ComputedValue<{ numNodeGroups: fabric.ComputedValue<number>, replicasPerNodeGroup: fabric.ComputedValue<number> }>[];
+    readonly engine?: fabric.ComputedValue<string>;
     /**
      * The version number of the cache engine to be used for the cache clusters in this replication group.
      */
-    readonly engineVersion?: fabric.MaybeComputed<string>;
-    readonly maintenanceWindow?: fabric.MaybeComputed<string>;
+    readonly engineVersion?: fabric.ComputedValue<string>;
+    readonly maintenanceWindow?: fabric.ComputedValue<string>;
     /**
      * The compute and memory capacity of the nodes in the node group.
      */
-    readonly nodeType: fabric.MaybeComputed<string>;
-    readonly notificationTopicArn?: fabric.MaybeComputed<string>;
+    readonly nodeType: fabric.ComputedValue<string>;
+    readonly notificationTopicArn?: fabric.ComputedValue<string>;
     /**
      * The number of cache clusters this replication group will have.
      * If Multi-AZ is enabled , the value of this parameter must be at least 2. Changing this number will force a new resource
      */
-    readonly numberCacheClusters?: fabric.MaybeComputed<number>;
+    readonly numberCacheClusters?: fabric.ComputedValue<number>;
     /**
      * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
      */
-    readonly parameterGroupName?: fabric.MaybeComputed<string>;
+    readonly parameterGroupName?: fabric.ComputedValue<string>;
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      */
-    readonly port: fabric.MaybeComputed<number>;
+    readonly port: fabric.ComputedValue<number>;
     /**
      * A user-created description for the replication group.
      */
-    readonly replicationGroupDescription: fabric.MaybeComputed<string>;
+    readonly replicationGroupDescription: fabric.ComputedValue<string>;
     /**
      * The replication group identifier. This parameter is stored as a lowercase string.
      */
-    readonly replicationGroupId: fabric.MaybeComputed<string>;
+    readonly replicationGroupId: fabric.ComputedValue<string>;
     /**
      * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      * * `snapshot_arns` – (Optional) A single-element string list containing an
      * Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
      * Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
      */
-    readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of cache security group names to associate with this replication group.
      */
-    readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly snapshotArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroupNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly snapshotArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
      * * `maintenance_window` – (Optional) Specifies the weekly time range for when maintenance
@@ -239,7 +239,7 @@ export interface ReplicationGroupArgs {
      * SNS topic to send ElastiCache notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
-    readonly snapshotName?: fabric.MaybeComputed<string>;
+    readonly snapshotName?: fabric.ComputedValue<string>;
     /**
      * The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -247,19 +247,19 @@ export interface ReplicationGroupArgs {
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
      * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
      */
-    readonly snapshotRetentionLimit?: fabric.MaybeComputed<number>;
+    readonly snapshotRetentionLimit?: fabric.ComputedValue<number>;
     /**
      * The daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
-    readonly snapshotWindow?: fabric.MaybeComputed<string>;
+    readonly snapshotWindow?: fabric.ComputedValue<string>;
     /**
      * The name of the cache subnet group to be used for the replication group.
      */
-    readonly subnetGroupName?: fabric.MaybeComputed<string>;
+    readonly subnetGroupName?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -69,30 +69,30 @@ export interface EventSubscriptionArgs {
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
      */
-    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
      */
-    readonly eventCategories?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly eventCategories?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name of the DB event subscription.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The SNS topic to send events to.
      */
-    readonly snsTopic: fabric.MaybeComputed<string>;
+    readonly snsTopic: fabric.ComputedValue<string>;
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
      */
-    readonly sourceIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly sourceIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The type of source that will be generating the events.
      */
-    readonly sourceType?: fabric.MaybeComputed<string>;
+    readonly sourceType?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

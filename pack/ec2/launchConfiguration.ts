@@ -133,82 +133,82 @@ export interface LaunchConfigurationArgs {
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    readonly associatePublicIpAddress?: fabric.MaybeComputed<boolean>;
+    readonly associatePublicIpAddress?: fabric.ComputedValue<boolean>;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See [Block Devices](#block-devices) below for details.
      */
-    readonly ebsBlockDevices?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly ebsBlockDevices?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
+    readonly ebsOptimized?: fabric.ComputedValue<boolean>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    readonly enableMonitoring?: fabric.MaybeComputed<boolean>;
+    readonly enableMonitoring?: fabric.ComputedValue<boolean>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
      */
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[];
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[];
     /**
      * The IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: fabric.MaybeComputed<string>;
+    readonly iamInstanceProfile?: fabric.ComputedValue<string>;
     /**
      * The EC2 image ID to launch.
      */
-    readonly imageId: fabric.MaybeComputed<string>;
+    readonly imageId: fabric.ComputedValue<string>;
     /**
      * The size of instance to launch.
      */
-    readonly instanceType: fabric.MaybeComputed<string>;
+    readonly instanceType: fabric.ComputedValue<string>;
     /**
      * The key name that should be used for the instance.
      */
-    readonly keyName?: fabric.MaybeComputed<string>;
+    readonly keyName?: fabric.ComputedValue<string>;
     /**
      * The name of the launch configuration. If you leave
      * this blank, Terraform will auto-generate a unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * The tenancy of the instance. Valid values are
      * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
      * for more details
      */
-    readonly placementTenancy?: fabric.MaybeComputed<string>;
+    readonly placementTenancy?: fabric.ComputedValue<string>;
     /**
      * Customize details about the root block
      * device of the instance. See [Block Devices](#block-devices) below for details.
      */
-    readonly rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
     /**
      * A list of associated security group IDS.
      */
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The price to use for reserving spot instances.
      */
-    readonly spotPrice?: fabric.MaybeComputed<string>;
+    readonly spotPrice?: fabric.ComputedValue<string>;
     /**
      * The user data to provide when launching the instance.
      */
-    readonly userData?: fabric.MaybeComputed<string>;
+    readonly userData?: fabric.ComputedValue<string>;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      */
-    readonly vpcClassicLinkId?: fabric.MaybeComputed<string>;
+    readonly vpcClassicLinkId?: fabric.ComputedValue<string>;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      */
-    readonly vpcClassicLinkSecurityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly vpcClassicLinkSecurityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

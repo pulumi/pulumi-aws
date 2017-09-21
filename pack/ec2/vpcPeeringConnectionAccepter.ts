@@ -82,19 +82,19 @@ export class VpcPeeringConnectionAccepter extends fabric.Resource {
  * The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
  */
 export interface VpcPeeringConnectionAccepterArgs {
-    readonly accepter?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
+    readonly accepter?: fabric.ComputedValue<{ allowClassicLinkToRemoteVpc?: fabric.ComputedValue<boolean>, allowRemoteVpcDnsResolution?: fabric.ComputedValue<boolean>, allowVpcToRemoteClassicLink?: fabric.ComputedValue<boolean> }>[];
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
-    readonly autoAccept?: fabric.MaybeComputed<boolean>;
-    readonly requester?: fabric.MaybeComputed<{ allowClassicLinkToRemoteVpc?: fabric.MaybeComputed<boolean>, allowRemoteVpcDnsResolution?: fabric.MaybeComputed<boolean>, allowVpcToRemoteClassicLink?: fabric.MaybeComputed<boolean> }>[];
+    readonly autoAccept?: fabric.ComputedValue<boolean>;
+    readonly requester?: fabric.ComputedValue<{ allowClassicLinkToRemoteVpc?: fabric.ComputedValue<boolean>, allowRemoteVpcDnsResolution?: fabric.ComputedValue<boolean>, allowVpcToRemoteClassicLink?: fabric.ComputedValue<boolean> }>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC Peering Connection ID to manage.
      */
-    readonly vpcPeeringConnectionId: fabric.MaybeComputed<string>;
+    readonly vpcPeeringConnectionId: fabric.ComputedValue<string>;
 }
 

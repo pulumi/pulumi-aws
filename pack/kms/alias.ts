@@ -55,15 +55,15 @@ export interface AliasArgs {
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */
-    readonly targetKeyId: fabric.MaybeComputed<string>;
+    readonly targetKeyId: fabric.ComputedValue<string>;
 }
 

@@ -60,14 +60,14 @@ export interface ResourceArgs {
     /**
      * The ID of the parent API resource
      */
-    readonly parentId: fabric.MaybeComputed<string>;
+    readonly parentId: fabric.ComputedValue<string>;
     /**
      * The last path segment of this API resource.
      */
-    readonly pathPart: fabric.MaybeComputed<string>;
+    readonly pathPart: fabric.ComputedValue<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: fabric.MaybeComputed<RestApi>;
+    readonly restApi: fabric.ComputedValue<RestApi>;
 }
 

@@ -113,37 +113,37 @@ export interface VpcArgs {
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
-    readonly assignGeneratedIpv6CidrBlock?: fabric.MaybeComputed<boolean>;
+    readonly assignGeneratedIpv6CidrBlock?: fabric.ComputedValue<boolean>;
     /**
      * The CIDR block for the VPC.
      */
-    readonly cidrBlock: fabric.MaybeComputed<string>;
+    readonly cidrBlock: fabric.ComputedValue<string>;
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */
-    readonly enableClassiclink?: fabric.MaybeComputed<boolean>;
+    readonly enableClassiclink?: fabric.ComputedValue<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
      */
-    readonly enableClassiclinkDnsSupport?: fabric.MaybeComputed<boolean>;
+    readonly enableClassiclinkDnsSupport?: fabric.ComputedValue<boolean>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    readonly enableDnsHostnames?: fabric.MaybeComputed<boolean>;
+    readonly enableDnsHostnames?: fabric.ComputedValue<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
-    readonly enableDnsSupport?: fabric.MaybeComputed<boolean>;
+    readonly enableDnsSupport?: fabric.ComputedValue<boolean>;
     /**
      * A tenancy option for instances launched into the VPC
      */
-    readonly instanceTenancy?: fabric.MaybeComputed<string>;
+    readonly instanceTenancy?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

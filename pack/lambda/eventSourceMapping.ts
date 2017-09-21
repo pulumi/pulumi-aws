@@ -96,22 +96,22 @@ export interface EventSourceMappingArgs {
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
      */
-    readonly batchSize?: fabric.MaybeComputed<number>;
+    readonly batchSize?: fabric.ComputedValue<number>;
     /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
-    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
     /**
      * The event source ARN - can either be a Kinesis or DynamoDB stream.
      */
-    readonly eventSourceArn: fabric.MaybeComputed<string>;
+    readonly eventSourceArn: fabric.ComputedValue<string>;
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      */
-    readonly functionName: fabric.MaybeComputed<string>;
+    readonly functionName: fabric.ComputedValue<string>;
     /**
      * The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
      */
-    readonly startingPosition: fabric.MaybeComputed<string>;
+    readonly startingPosition: fabric.ComputedValue<string>;
 }
 

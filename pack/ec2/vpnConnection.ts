@@ -130,28 +130,28 @@ export class VpnConnection extends fabric.Resource {
  * The set of arguments for constructing a VpnConnection resource.
  */
 export interface VpnConnectionArgs {
-    readonly customerGatewayConfiguration?: fabric.MaybeComputed<string>;
+    readonly customerGatewayConfiguration?: fabric.ComputedValue<string>;
     /**
      * The ID of the customer gateway.
      */
-    readonly customerGatewayId: fabric.MaybeComputed<string>;
-    readonly routes?: fabric.MaybeComputed<{ destinationCidrBlock?: fabric.MaybeComputed<string>, source?: fabric.MaybeComputed<string>, state?: fabric.MaybeComputed<string> }>[];
+    readonly customerGatewayId: fabric.ComputedValue<string>;
+    readonly routes?: fabric.ComputedValue<{ destinationCidrBlock?: fabric.ComputedValue<string>, source?: fabric.ComputedValue<string>, state?: fabric.ComputedValue<string> }>[];
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
-    readonly staticRoutesOnly?: fabric.MaybeComputed<boolean>;
+    readonly staticRoutesOnly?: fabric.ComputedValue<boolean>;
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
-    readonly type: fabric.MaybeComputed<string>;
-    readonly vgwTelemetry?: fabric.MaybeComputed<{ acceptedRouteCount?: fabric.MaybeComputed<number>, lastStatusChange?: fabric.MaybeComputed<string>, outsideIpAddress?: fabric.MaybeComputed<string>, status?: fabric.MaybeComputed<string>, statusMessage?: fabric.MaybeComputed<string> }>[];
+    readonly type: fabric.ComputedValue<string>;
+    readonly vgwTelemetry?: fabric.ComputedValue<{ acceptedRouteCount?: fabric.ComputedValue<number>, lastStatusChange?: fabric.ComputedValue<string>, outsideIpAddress?: fabric.ComputedValue<string>, status?: fabric.ComputedValue<string>, statusMessage?: fabric.ComputedValue<string> }>[];
     /**
      * The ID of the virtual private gateway.
      */
-    readonly vpnGatewayId: fabric.MaybeComputed<string>;
+    readonly vpnGatewayId: fabric.ComputedValue<string>;
 }
 

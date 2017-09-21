@@ -39,10 +39,10 @@ export interface SizeConstraintSetArgs {
     /**
      * The name or description of the Size Constraint Set.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: fabric.MaybeComputed<{ comparisonOperator: fabric.MaybeComputed<string>, fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], size: fabric.MaybeComputed<number>, textTransformation: fabric.MaybeComputed<string> }>[];
+    readonly sizeConstraints?: fabric.ComputedValue<{ comparisonOperator: fabric.ComputedValue<string>, fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], size: fabric.ComputedValue<number>, textTransformation: fabric.ComputedValue<string> }>[];
 }
 

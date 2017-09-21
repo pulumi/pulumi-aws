@@ -52,14 +52,14 @@ export interface GroupMembershipArgs {
     /**
      * The IAM Group name to attach the list of `users` to
      */
-    readonly group: fabric.MaybeComputed<string>;
+    readonly group: fabric.ComputedValue<string>;
     /**
      * The name to identify the Group Membership
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A list of IAM User names to associate with the Group
      */
-    readonly users: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly users: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

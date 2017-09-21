@@ -84,34 +84,34 @@ export interface DomainArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: fabric.MaybeComputed<string>;
+    readonly accessPolicies?: fabric.ComputedValue<string>;
     /**
      * Key-value string pairs to specify advanced configuration options.
      */
-    readonly advancedOptions?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly advancedOptions?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * Cluster configuration of the domain, see below.
      */
-    readonly clusterConfig?: fabric.MaybeComputed<{ dedicatedMasterCount?: fabric.MaybeComputed<number>, dedicatedMasterEnabled?: fabric.MaybeComputed<boolean>, dedicatedMasterType?: fabric.MaybeComputed<string>, instanceCount?: fabric.MaybeComputed<number>, instanceType?: fabric.MaybeComputed<string>, zoneAwarenessEnabled?: fabric.MaybeComputed<boolean> }>[];
+    readonly clusterConfig?: fabric.ComputedValue<{ dedicatedMasterCount?: fabric.ComputedValue<number>, dedicatedMasterEnabled?: fabric.ComputedValue<boolean>, dedicatedMasterType?: fabric.ComputedValue<string>, instanceCount?: fabric.ComputedValue<number>, instanceType?: fabric.ComputedValue<string>, zoneAwarenessEnabled?: fabric.ComputedValue<boolean> }>[];
     /**
      * Name of the domain.
      */
-    readonly domainName: fabric.MaybeComputed<string>;
+    readonly domainName: fabric.ComputedValue<string>;
     /**
      * EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
      */
-    readonly ebsOptions?: fabric.MaybeComputed<{ ebsEnabled: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly ebsOptions?: fabric.ComputedValue<{ ebsEnabled: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
     /**
      * The version of ElasticSearch to deploy. Defaults to `1.5`
      */
-    readonly elasticsearchVersion?: fabric.MaybeComputed<string>;
+    readonly elasticsearchVersion?: fabric.ComputedValue<string>;
     /**
      * Snapshot related options, see below.
      */
-    readonly snapshotOptions?: fabric.MaybeComputed<{ automatedSnapshotStartHour: fabric.MaybeComputed<number> }>[];
+    readonly snapshotOptions?: fabric.ComputedValue<{ automatedSnapshotStartHour: fabric.ComputedValue<number> }>[];
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -51,16 +51,16 @@ export interface RecorderArgs {
     /**
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Recording group - see below.
      */
-    readonly recordingGroup?: fabric.MaybeComputed<{ allSupported?: fabric.MaybeComputed<boolean>, includeGlobalResourceTypes?: fabric.MaybeComputed<boolean>, resourceTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly recordingGroup?: fabric.ComputedValue<{ allSupported?: fabric.ComputedValue<boolean>, includeGlobalResourceTypes?: fabric.ComputedValue<boolean>, resourceTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
-    readonly roleArn: fabric.MaybeComputed<string>;
+    readonly roleArn: fabric.ComputedValue<string>;
 }
 

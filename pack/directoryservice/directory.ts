@@ -95,42 +95,42 @@ export interface DirectoryArgs {
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      */
-    readonly alias?: fabric.MaybeComputed<string>;
+    readonly alias?: fabric.ComputedValue<string>;
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    readonly connectSettings?: fabric.MaybeComputed<{ customerDnsIps: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], customerUsername: fabric.MaybeComputed<string>, subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId: fabric.MaybeComputed<string> }>[];
+    readonly connectSettings?: fabric.ComputedValue<{ customerDnsIps: fabric.ComputedValue<fabric.ComputedValue<string>>[], customerUsername: fabric.ComputedValue<string>, subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], vpcId: fabric.ComputedValue<string> }>[];
     /**
      * A textual description for the directory.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
-    readonly enableSso?: fabric.MaybeComputed<boolean>;
+    readonly enableSso?: fabric.ComputedValue<boolean>;
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The password for the directory administrator or connector user.
      */
-    readonly password: fabric.MaybeComputed<string>;
+    readonly password: fabric.ComputedValue<string>;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    readonly shortName?: fabric.MaybeComputed<string>;
+    readonly shortName?: fabric.ComputedValue<string>;
     /**
      * The size of the directory (`Small` or `Large` are accepted values).
      */
-    readonly size?: fabric.MaybeComputed<string>;
+    readonly size?: fabric.ComputedValue<string>;
     /**
      * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
-    readonly type?: fabric.MaybeComputed<string>;
+    readonly type?: fabric.ComputedValue<string>;
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    readonly vpcSettings?: fabric.MaybeComputed<{ subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], vpcId: fabric.MaybeComputed<string> }>[];
+    readonly vpcSettings?: fabric.ComputedValue<{ subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[], vpcId: fabric.ComputedValue<string> }>[];
 }
 

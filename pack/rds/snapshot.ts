@@ -124,10 +124,10 @@ export interface SnapshotArgs {
     /**
      * The DB Instance Identifier from which to take the snapshot.
      */
-    readonly dbInstanceIdentifier: fabric.MaybeComputed<string>;
+    readonly dbInstanceIdentifier: fabric.ComputedValue<string>;
     /**
      * The Identifier for the snapshot.
      */
-    readonly dbSnapshotIdentifier: fabric.MaybeComputed<string>;
+    readonly dbSnapshotIdentifier: fabric.ComputedValue<string>;
 }
 

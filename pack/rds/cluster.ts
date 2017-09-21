@@ -192,94 +192,94 @@ export interface ClusterArgs {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
-    readonly applyImmediately?: fabric.MaybeComputed<boolean>;
+    readonly applyImmediately?: fabric.ComputedValue<boolean>;
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in
      */
-    readonly availabilityZones?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The days to retain backups for. Default
      * 1
      */
-    readonly backupRetentionPeriod?: fabric.MaybeComputed<number>;
+    readonly backupRetentionPeriod?: fabric.ComputedValue<number>;
     /**
      * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    readonly clusterIdentifier?: fabric.MaybeComputed<string>;
+    readonly clusterIdentifier?: fabric.ComputedValue<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
      */
-    readonly clusterIdentifierPrefix?: fabric.MaybeComputed<string>;
-    readonly clusterMembers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly clusterIdentifierPrefix?: fabric.ComputedValue<string>;
+    readonly clusterMembers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name for your database of up to 8 alpha-numeric
      * characters. If you do not provide a name, Amazon RDS will not create a
      * database in the DB cluster you are creating
      */
-    readonly databaseName?: fabric.MaybeComputed<string>;
+    readonly databaseName?: fabric.ComputedValue<string>;
     /**
      * A cluster parameter group to associate with the cluster.
      */
-    readonly dbClusterParameterGroupName?: fabric.MaybeComputed<string>;
+    readonly dbClusterParameterGroupName?: fabric.ComputedValue<string>;
     /**
      * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
-    readonly dbSubnetGroupName?: fabric.MaybeComputed<string>;
+    readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
      */
-    readonly finalSnapshotIdentifier?: fabric.MaybeComputed<string>;
+    readonly finalSnapshotIdentifier?: fabric.ComputedValue<string>;
     /**
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
-    readonly iamDatabaseAuthenticationEnabled?: fabric.MaybeComputed<boolean>;
+    readonly iamDatabaseAuthenticationEnabled?: fabric.ComputedValue<boolean>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: fabric.MaybeComputed<string>;
+    readonly kmsKeyId?: fabric.ComputedValue<string>;
     /**
      * Password for the master DB user. Note that this may
      * show up in logs, and it will be stored in the state file
      */
-    readonly masterPassword?: fabric.MaybeComputed<string>;
+    readonly masterPassword?: fabric.ComputedValue<string>;
     /**
      * Username for the master DB user
      */
-    readonly masterUsername?: fabric.MaybeComputed<string>;
+    readonly masterUsername?: fabric.ComputedValue<string>;
     /**
      * The port on which the DB accepts connections
      */
-    readonly port?: fabric.MaybeComputed<number>;
+    readonly port?: fabric.ComputedValue<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
-    readonly preferredBackupWindow?: fabric.MaybeComputed<string>;
+    readonly preferredBackupWindow?: fabric.ComputedValue<string>;
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
      */
-    readonly preferredMaintenanceWindow?: fabric.MaybeComputed<string>;
-    readonly replicationSourceIdentifier?: fabric.MaybeComputed<string>;
+    readonly preferredMaintenanceWindow?: fabric.ComputedValue<string>;
+    readonly replicationSourceIdentifier?: fabric.ComputedValue<string>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
-    readonly skipFinalSnapshot?: fabric.MaybeComputed<boolean>;
+    readonly skipFinalSnapshot?: fabric.ComputedValue<boolean>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
      */
-    readonly snapshotIdentifier?: fabric.MaybeComputed<string>;
+    readonly snapshotIdentifier?: fabric.ComputedValue<string>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
      */
-    readonly storageEncrypted?: fabric.MaybeComputed<boolean>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly storageEncrypted?: fabric.ComputedValue<boolean>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
      */
-    readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

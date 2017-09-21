@@ -50,10 +50,10 @@ export interface DeploymentConfigArgs {
     /**
      * The name of the deployment config.
      */
-    readonly deploymentConfigName: fabric.MaybeComputed<string>;
+    readonly deploymentConfigName: fabric.ComputedValue<string>;
     /**
      * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<number> }>[];
+    readonly minimumHealthyHosts: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value?: fabric.ComputedValue<number> }>[];
 }
 

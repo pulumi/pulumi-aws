@@ -128,28 +128,28 @@ export interface FlowLogArgs {
     /**
      * Elastic Network Interface ID to attach to
      */
-    readonly eniId?: fabric.MaybeComputed<string>;
+    readonly eniId?: fabric.ComputedValue<string>;
     /**
      * The ARN for the IAM role that's used to post flow
      * logs to a CloudWatch Logs log group
      */
-    readonly iamRoleArn: fabric.MaybeComputed<string>;
+    readonly iamRoleArn: fabric.ComputedValue<string>;
     /**
      * The name of the CloudWatch log group
      */
-    readonly logGroupName: fabric.MaybeComputed<string>;
+    readonly logGroupName: fabric.ComputedValue<string>;
     /**
      * Subnet ID to attach to
      */
-    readonly subnetId?: fabric.MaybeComputed<string>;
+    readonly subnetId?: fabric.ComputedValue<string>;
     /**
      * The type of traffic to capture. Valid values:
      * `ACCEPT`,`REJECT`, `ALL`
      */
-    readonly trafficType: fabric.MaybeComputed<string>;
+    readonly trafficType: fabric.ComputedValue<string>;
     /**
      * VPC ID to attach to
      */
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

@@ -53,6 +53,6 @@ export interface DomainIdentityArgs {
     /**
      * The domain name to assign to SES
      */
-    readonly domain: fabric.MaybeComputed<string>;
+    readonly domain: fabric.ComputedValue<string>;
 }
 

@@ -40,6 +40,6 @@ export interface EgressOnlyInternetGatewayArgs {
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

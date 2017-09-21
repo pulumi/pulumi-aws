@@ -102,50 +102,50 @@ export interface RecordArgs {
      * An alias block. Conflicts with `ttl` & `records`.
      * Alias record documented below.
      */
-    readonly alias?: fabric.MaybeComputed<{ evaluateTargetHealth: fabric.MaybeComputed<boolean>, name: fabric.MaybeComputed<string>, zoneId: fabric.MaybeComputed<string> }>[];
+    readonly alias?: fabric.ComputedValue<{ evaluateTargetHealth: fabric.ComputedValue<boolean>, name: fabric.ComputedValue<string>, zoneId: fabric.ComputedValue<string> }>[];
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    readonly failoverRoutingPolicy?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string> }>[];
+    readonly failoverRoutingPolicy?: fabric.ComputedValue<{ type: fabric.ComputedValue<string> }>[];
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    readonly geolocationRoutingPolicy?: fabric.MaybeComputed<{ continent?: fabric.MaybeComputed<string>, country?: fabric.MaybeComputed<string>, subdivision?: fabric.MaybeComputed<string> }>[];
+    readonly geolocationRoutingPolicy?: fabric.ComputedValue<{ continent?: fabric.ComputedValue<string>, country?: fabric.ComputedValue<string>, subdivision?: fabric.ComputedValue<string> }>[];
     /**
      * The health check the record should be associated with.
      */
-    readonly healthCheckId?: fabric.MaybeComputed<string>;
+    readonly healthCheckId?: fabric.ComputedValue<string>;
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    readonly latencyRoutingPolicy?: fabric.MaybeComputed<{ region: fabric.MaybeComputed<string> }>[];
+    readonly latencyRoutingPolicy?: fabric.ComputedValue<{ region: fabric.ComputedValue<string> }>[];
     /**
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A string list of records.
      */
-    readonly records?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly records?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
      */
-    readonly setIdentifier?: fabric.MaybeComputed<string>;
+    readonly setIdentifier?: fabric.ComputedValue<string>;
     /**
      * The TTL of the record.
      */
-    readonly ttl?: fabric.MaybeComputed<number>;
+    readonly ttl?: fabric.ComputedValue<number>;
     /**
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      */
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    readonly weightedRoutingPolicy?: fabric.MaybeComputed<{ weight: fabric.MaybeComputed<number> }>[];
+    readonly weightedRoutingPolicy?: fabric.ComputedValue<{ weight: fabric.ComputedValue<number> }>[];
     /**
      * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](/docs/providers/aws/r/elb.html#zone_id) for example.
      */
-    readonly zoneId: fabric.MaybeComputed<string>;
+    readonly zoneId: fabric.ComputedValue<string>;
 }
 

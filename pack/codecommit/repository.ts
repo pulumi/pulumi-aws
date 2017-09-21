@@ -71,14 +71,14 @@ export interface RepositoryArgs {
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    readonly defaultBranch?: fabric.MaybeComputed<string>;
+    readonly defaultBranch?: fabric.ComputedValue<string>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: fabric.MaybeComputed<string>;
+    readonly repositoryName: fabric.ComputedValue<string>;
 }
 

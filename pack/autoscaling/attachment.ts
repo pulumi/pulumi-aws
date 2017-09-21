@@ -54,14 +54,14 @@ export interface AttachmentArgs {
     /**
      * The ARN of an ALB Target Group.
      */
-    readonly albTargetGroupArn?: fabric.MaybeComputed<string>;
+    readonly albTargetGroupArn?: fabric.ComputedValue<string>;
     /**
      * Name of ASG to associate with the ELB.
      */
-    readonly autoscalingGroupName: fabric.MaybeComputed<string>;
+    readonly autoscalingGroupName: fabric.ComputedValue<string>;
     /**
      * The name of the ELB.
      */
-    readonly elb?: fabric.MaybeComputed<string>;
+    readonly elb?: fabric.ComputedValue<string>;
 }
 

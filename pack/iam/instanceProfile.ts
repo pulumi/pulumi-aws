@@ -75,24 +75,24 @@ export interface InstanceProfileArgs {
     /**
      * The profile's name. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * Path in which to create the profile.
      */
-    readonly path?: fabric.MaybeComputed<string>;
+    readonly path?: fabric.ComputedValue<string>;
     /**
      * The role name to include in the profile.
      */
-    readonly role?: fabric.MaybeComputed<Role>;
+    readonly role?: fabric.ComputedValue<Role>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    readonly roles?: fabric.MaybeComputed<fabric.MaybeComputed<Role>>[];
+    readonly roles?: fabric.ComputedValue<fabric.ComputedValue<Role>>[];
 }
 

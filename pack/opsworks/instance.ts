@@ -216,115 +216,115 @@ export interface InstanceArgs {
     /**
      * The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
      */
-    readonly agentVersion?: fabric.MaybeComputed<string>;
+    readonly agentVersion?: fabric.ComputedValue<string>;
     /**
      * The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
      */
-    readonly amiId?: fabric.MaybeComputed<string>;
+    readonly amiId?: fabric.ComputedValue<string>;
     /**
      * Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
      */
-    readonly architecture?: fabric.MaybeComputed<string>;
+    readonly architecture?: fabric.ComputedValue<string>;
     /**
      * Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
      */
-    readonly autoScalingType?: fabric.MaybeComputed<string>;
+    readonly autoScalingType?: fabric.ComputedValue<string>;
     /**
      * Name of the availability zone where instances will be created
      * by default.
      */
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
-    readonly createdAt?: fabric.MaybeComputed<string>;
-    readonly deleteEbs?: fabric.MaybeComputed<boolean>;
-    readonly deleteEip?: fabric.MaybeComputed<boolean>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
+    readonly createdAt?: fabric.ComputedValue<string>;
+    readonly deleteEbs?: fabric.ComputedValue<boolean>;
+    readonly deleteEip?: fabric.ComputedValue<boolean>;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See [Block Devices](#block-devices) below for details.
      */
-    readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
-    readonly ec2InstanceId?: fabric.MaybeComputed<string>;
-    readonly ecsClusterArn?: fabric.MaybeComputed<string>;
-    readonly elasticIp?: fabric.MaybeComputed<string>;
+    readonly ebsOptimized?: fabric.ComputedValue<boolean>;
+    readonly ec2InstanceId?: fabric.ComputedValue<string>;
+    readonly ecsClusterArn?: fabric.ComputedValue<string>;
+    readonly elasticIp?: fabric.ComputedValue<string>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
      */
-    readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, virtualName: fabric.MaybeComputed<string> }>[];
+    readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[];
     /**
      * The instance's host name.
      */
-    readonly hostname?: fabric.MaybeComputed<string>;
-    readonly infrastructureClass?: fabric.MaybeComputed<string>;
+    readonly hostname?: fabric.ComputedValue<string>;
+    readonly infrastructureClass?: fabric.ComputedValue<string>;
     /**
      * Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
      */
-    readonly installUpdatesOnBoot?: fabric.MaybeComputed<boolean>;
-    readonly instanceProfileArn?: fabric.MaybeComputed<string>;
+    readonly installUpdatesOnBoot?: fabric.ComputedValue<boolean>;
+    readonly instanceProfileArn?: fabric.ComputedValue<string>;
     /**
      * The type of instance to start
      */
-    readonly instanceType?: fabric.MaybeComputed<string>;
-    readonly lastServiceErrorId?: fabric.MaybeComputed<string>;
+    readonly instanceType?: fabric.ComputedValue<string>;
+    readonly lastServiceErrorId?: fabric.ComputedValue<string>;
     /**
      * The ids of the layers the instance will belong to.
      */
-    readonly layerIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly layerIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * Name of operating system that will be installed.
      */
-    readonly os?: fabric.MaybeComputed<string>;
-    readonly platform?: fabric.MaybeComputed<string>;
-    readonly privateDns?: fabric.MaybeComputed<string>;
-    readonly privateIp?: fabric.MaybeComputed<string>;
-    readonly publicDns?: fabric.MaybeComputed<string>;
-    readonly publicIp?: fabric.MaybeComputed<string>;
-    readonly registeredBy?: fabric.MaybeComputed<string>;
-    readonly reportedAgentVersion?: fabric.MaybeComputed<string>;
-    readonly reportedOsFamily?: fabric.MaybeComputed<string>;
-    readonly reportedOsName?: fabric.MaybeComputed<string>;
-    readonly reportedOsVersion?: fabric.MaybeComputed<string>;
+    readonly os?: fabric.ComputedValue<string>;
+    readonly platform?: fabric.ComputedValue<string>;
+    readonly privateDns?: fabric.ComputedValue<string>;
+    readonly privateIp?: fabric.ComputedValue<string>;
+    readonly publicDns?: fabric.ComputedValue<string>;
+    readonly publicIp?: fabric.ComputedValue<string>;
+    readonly registeredBy?: fabric.ComputedValue<string>;
+    readonly reportedAgentVersion?: fabric.ComputedValue<string>;
+    readonly reportedOsFamily?: fabric.ComputedValue<string>;
+    readonly reportedOsName?: fabric.ComputedValue<string>;
+    readonly reportedOsVersion?: fabric.ComputedValue<string>;
     /**
      * Customize details about the root block
      * device of the instance. See [Block Devices](#block-devices) below for details.
      */
-    readonly rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    readonly rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
     /**
      * Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
      */
-    readonly rootDeviceType?: fabric.MaybeComputed<string>;
-    readonly rootDeviceVolumeId?: fabric.MaybeComputed<string>;
-    readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
-    readonly sshHostDsaKeyFingerprint?: fabric.MaybeComputed<string>;
-    readonly sshHostRsaKeyFingerprint?: fabric.MaybeComputed<string>;
+    readonly rootDeviceType?: fabric.ComputedValue<string>;
+    readonly rootDeviceVolumeId?: fabric.ComputedValue<string>;
+    readonly securityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    readonly sshHostDsaKeyFingerprint?: fabric.ComputedValue<string>;
+    readonly sshHostRsaKeyFingerprint?: fabric.ComputedValue<string>;
     /**
      * Name of the SSH keypair that instances will have by default.
      */
-    readonly sshKeyName?: fabric.MaybeComputed<string>;
+    readonly sshKeyName?: fabric.ComputedValue<string>;
     /**
      * The id of the stack the instance will belong to.
      */
-    readonly stackId: fabric.MaybeComputed<string>;
+    readonly stackId: fabric.ComputedValue<string>;
     /**
      * The desired state of the instance.  Can be either `"running"` or `"stopped"`.
      */
-    readonly state?: fabric.MaybeComputed<string>;
-    readonly status?: fabric.MaybeComputed<string>;
+    readonly state?: fabric.ComputedValue<string>;
+    readonly status?: fabric.ComputedValue<string>;
     /**
      * Subnet ID to attach to
      */
-    readonly subnetId?: fabric.MaybeComputed<string>;
+    readonly subnetId?: fabric.ComputedValue<string>;
     /**
      * Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
      */
-    readonly tenancy?: fabric.MaybeComputed<string>;
+    readonly tenancy?: fabric.ComputedValue<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either `"paravirtual"` or `"hvm"`.
      */
-    readonly virtualizationType?: fabric.MaybeComputed<string>;
+    readonly virtualizationType?: fabric.ComputedValue<string>;
 }
 

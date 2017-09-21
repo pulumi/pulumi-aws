@@ -58,18 +58,18 @@ export interface MaintenanceWindowTargetArgs {
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
-    readonly ownerInformation?: fabric.MaybeComputed<string>;
+    readonly ownerInformation?: fabric.ComputedValue<string>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
      */
-    readonly resourceType: fabric.MaybeComputed<string>;
+    readonly resourceType: fabric.ComputedValue<string>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
      */
-    readonly targets: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly targets: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The Id of the maintenance window to register the target with.
      */
-    readonly windowId: fabric.MaybeComputed<string>;
+    readonly windowId: fabric.ComputedValue<string>;
 }
 

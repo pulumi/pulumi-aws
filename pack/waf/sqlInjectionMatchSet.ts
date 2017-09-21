@@ -39,10 +39,10 @@ export interface SqlInjectionMatchSetArgs {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], textTransformation: fabric.MaybeComputed<string> }>[];
+    readonly sqlInjectionMatchTuples?: fabric.ComputedValue<{ fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], textTransformation: fabric.ComputedValue<string> }>[];
 }
 

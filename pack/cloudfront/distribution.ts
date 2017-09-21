@@ -214,88 +214,88 @@ export interface DistributionArgs {
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
      */
-    readonly aliases?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly aliases?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A [cache behavior](#cache-behavior-arguments)
      * resource for this distribution (multiples allowed).
      */
-    readonly cacheBehavior?: fabric.MaybeComputed<{ allowedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], cachedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], compress?: fabric.MaybeComputed<boolean>, defaultTtl: fabric.MaybeComputed<number>, forwardedValues: fabric.MaybeComputed<{ cookies: fabric.MaybeComputed<{ forward: fabric.MaybeComputed<string>, whitelistedNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[], headers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], queryString: fabric.MaybeComputed<boolean>, queryStringCacheKeys?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[], lambdaFunctionAssociation?: fabric.MaybeComputed<{ eventType: fabric.MaybeComputed<string>, lambdaArn: fabric.MaybeComputed<string> }>[], maxTtl: fabric.MaybeComputed<number>, minTtl: fabric.MaybeComputed<number>, pathPattern: fabric.MaybeComputed<string>, smoothStreaming?: fabric.MaybeComputed<boolean>, targetOriginId: fabric.MaybeComputed<string>, trustedSigners?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], viewerProtocolPolicy: fabric.MaybeComputed<string> }>[];
+    readonly cacheBehavior?: fabric.ComputedValue<{ allowedMethods: fabric.ComputedValue<fabric.ComputedValue<string>>[], cachedMethods: fabric.ComputedValue<fabric.ComputedValue<string>>[], compress?: fabric.ComputedValue<boolean>, defaultTtl: fabric.ComputedValue<number>, forwardedValues: fabric.ComputedValue<{ cookies: fabric.ComputedValue<{ forward: fabric.ComputedValue<string>, whitelistedNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[], headers?: fabric.ComputedValue<fabric.ComputedValue<string>>[], queryString: fabric.ComputedValue<boolean>, queryStringCacheKeys?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[], lambdaFunctionAssociation?: fabric.ComputedValue<{ eventType: fabric.ComputedValue<string>, lambdaArn: fabric.ComputedValue<string> }>[], maxTtl: fabric.ComputedValue<number>, minTtl: fabric.ComputedValue<number>, pathPattern: fabric.ComputedValue<string>, smoothStreaming?: fabric.ComputedValue<boolean>, targetOriginId: fabric.ComputedValue<string>, trustedSigners?: fabric.ComputedValue<fabric.ComputedValue<string>>[], viewerProtocolPolicy: fabric.ComputedValue<string> }>[];
     /**
      * Any comments you want to include about the
      * distribution.
      */
-    readonly comment?: fabric.MaybeComputed<string>;
+    readonly comment?: fabric.ComputedValue<string>;
     /**
      * One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
      */
-    readonly customErrorResponse?: fabric.MaybeComputed<{ errorCachingMinTtl?: fabric.MaybeComputed<number>, errorCode: fabric.MaybeComputed<number>, responseCode?: fabric.MaybeComputed<number>, responsePagePath?: fabric.MaybeComputed<string> }>[];
+    readonly customErrorResponse?: fabric.ComputedValue<{ errorCachingMinTtl?: fabric.ComputedValue<number>, errorCode: fabric.ComputedValue<number>, responseCode?: fabric.ComputedValue<number>, responsePagePath?: fabric.ComputedValue<string> }>[];
     /**
      * The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
      * one).
      */
-    readonly defaultCacheBehavior: fabric.MaybeComputed<{ allowedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], cachedMethods: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], compress?: fabric.MaybeComputed<boolean>, defaultTtl: fabric.MaybeComputed<number>, forwardedValues: fabric.MaybeComputed<{ cookies: fabric.MaybeComputed<{ forward: fabric.MaybeComputed<string>, whitelistedNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[], headers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], queryString: fabric.MaybeComputed<boolean>, queryStringCacheKeys?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[], lambdaFunctionAssociation?: fabric.MaybeComputed<{ eventType: fabric.MaybeComputed<string>, lambdaArn: fabric.MaybeComputed<string> }>[], maxTtl: fabric.MaybeComputed<number>, minTtl: fabric.MaybeComputed<number>, smoothStreaming?: fabric.MaybeComputed<boolean>, targetOriginId: fabric.MaybeComputed<string>, trustedSigners?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], viewerProtocolPolicy: fabric.MaybeComputed<string> }>[];
+    readonly defaultCacheBehavior: fabric.ComputedValue<{ allowedMethods: fabric.ComputedValue<fabric.ComputedValue<string>>[], cachedMethods: fabric.ComputedValue<fabric.ComputedValue<string>>[], compress?: fabric.ComputedValue<boolean>, defaultTtl: fabric.ComputedValue<number>, forwardedValues: fabric.ComputedValue<{ cookies: fabric.ComputedValue<{ forward: fabric.ComputedValue<string>, whitelistedNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[], headers?: fabric.ComputedValue<fabric.ComputedValue<string>>[], queryString: fabric.ComputedValue<boolean>, queryStringCacheKeys?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[], lambdaFunctionAssociation?: fabric.ComputedValue<{ eventType: fabric.ComputedValue<string>, lambdaArn: fabric.ComputedValue<string> }>[], maxTtl: fabric.ComputedValue<number>, minTtl: fabric.ComputedValue<number>, smoothStreaming?: fabric.ComputedValue<boolean>, targetOriginId: fabric.ComputedValue<string>, trustedSigners?: fabric.ComputedValue<fabric.ComputedValue<string>>[], viewerProtocolPolicy: fabric.ComputedValue<string> }>[];
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
      */
-    readonly defaultRootObject?: fabric.MaybeComputed<string>;
+    readonly defaultRootObject?: fabric.ComputedValue<string>;
     /**
      * Whether the distribution is enabled to accept end
      * user requests for content.
      */
-    readonly enabled: fabric.MaybeComputed<boolean>;
+    readonly enabled: fabric.ComputedValue<boolean>;
     /**
      * The maximum HTTP version to support on the
      * distribution. Allowed values are `http1.1` and `http2`. The default is
      * `http2`.
      */
-    readonly httpVersion?: fabric.MaybeComputed<string>;
+    readonly httpVersion?: fabric.ComputedValue<string>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
-    readonly isIpv6Enabled?: fabric.MaybeComputed<boolean>;
+    readonly isIpv6Enabled?: fabric.ComputedValue<boolean>;
     /**
      * The [logging
      * configuration](#logging-config-arguments) that controls how logs are written
      * to your distribution (maximum one).
      */
-    readonly loggingConfig?: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, includeCookies?: fabric.MaybeComputed<boolean>, prefix?: fabric.MaybeComputed<string> }>[];
+    readonly loggingConfig?: fabric.ComputedValue<{ bucket: fabric.ComputedValue<string>, includeCookies?: fabric.ComputedValue<boolean>, prefix?: fabric.ComputedValue<string> }>[];
     /**
      * One or more [origins](#origin-arguments) for this
      * distribution (multiples allowed).
      */
-    readonly origin: fabric.MaybeComputed<{ customHeader?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[], customOriginConfig?: fabric.MaybeComputed<{ httpPort: fabric.MaybeComputed<number>, httpsPort: fabric.MaybeComputed<number>, originKeepaliveTimeout?: fabric.MaybeComputed<number>, originProtocolPolicy: fabric.MaybeComputed<string>, originReadTimeout?: fabric.MaybeComputed<number>, originSslProtocols: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[], domainName: fabric.MaybeComputed<string>, originId: fabric.MaybeComputed<string>, originPath?: fabric.MaybeComputed<string>, s3OriginConfig?: fabric.MaybeComputed<{ originAccessIdentity: fabric.MaybeComputed<string> }>[] }>[];
+    readonly origin: fabric.ComputedValue<{ customHeader?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[], customOriginConfig?: fabric.ComputedValue<{ httpPort: fabric.ComputedValue<number>, httpsPort: fabric.ComputedValue<number>, originKeepaliveTimeout?: fabric.ComputedValue<number>, originProtocolPolicy: fabric.ComputedValue<string>, originReadTimeout?: fabric.ComputedValue<number>, originSslProtocols: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[], domainName: fabric.ComputedValue<string>, originId: fabric.ComputedValue<string>, originPath?: fabric.ComputedValue<string>, s3OriginConfig?: fabric.ComputedValue<{ originAccessIdentity: fabric.ComputedValue<string> }>[] }>[];
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      */
-    readonly priceClass?: fabric.MaybeComputed<string>;
+    readonly priceClass?: fabric.ComputedValue<string>;
     /**
      * The [restriction
      * configuration](#restrictions-arguments) for this distribution (maximum one).
      */
-    readonly restrictions: fabric.MaybeComputed<{ geoRestriction: fabric.MaybeComputed<{ locations?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], restrictionType: fabric.MaybeComputed<string> }>[] }>[];
+    readonly restrictions: fabric.ComputedValue<{ geoRestriction: fabric.ComputedValue<{ locations?: fabric.ComputedValue<fabric.ComputedValue<string>>[], restrictionType: fabric.ComputedValue<string> }>[] }>[];
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource through Terraform. If this is set,
      * the distribution needs to be deleted manually afterwards. Default: `false`.
      */
-    readonly retainOnDelete?: fabric.MaybeComputed<boolean>;
+    readonly retainOnDelete?: fabric.ComputedValue<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The [SSL
      * configuration](#viewer-certificate-arguments) for this distribution (maximum
      * one).
      */
-    readonly viewerCertificate: fabric.MaybeComputed<{ acmCertificateArn?: fabric.MaybeComputed<string>, cloudfrontDefaultCertificate?: fabric.MaybeComputed<boolean>, iamCertificateId?: fabric.MaybeComputed<string>, minimumProtocolVersion?: fabric.MaybeComputed<string>, sslSupportMethod?: fabric.MaybeComputed<string> }>[];
+    readonly viewerCertificate: fabric.ComputedValue<{ acmCertificateArn?: fabric.ComputedValue<string>, cloudfrontDefaultCertificate?: fabric.ComputedValue<boolean>, iamCertificateId?: fabric.ComputedValue<string>, minimumProtocolVersion?: fabric.ComputedValue<string>, sslSupportMethod?: fabric.ComputedValue<string> }>[];
     /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution.
      */
-    readonly webAclId?: fabric.MaybeComputed<string>;
+    readonly webAclId?: fabric.ComputedValue<string>;
 }
 

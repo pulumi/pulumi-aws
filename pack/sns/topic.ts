@@ -56,18 +56,18 @@ export interface TopicArgs {
     /**
      * The SNS delivery policy
      */
-    readonly deliveryPolicy?: fabric.MaybeComputed<string>;
+    readonly deliveryPolicy?: fabric.ComputedValue<string>;
     /**
      * The display name for the SNS topic
      */
-    readonly displayName?: fabric.MaybeComputed<string>;
+    readonly displayName?: fabric.ComputedValue<string>;
     /**
      * The friendly name for the SNS topic
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The fully-formed AWS policy as JSON
      */
-    readonly policy?: fabric.MaybeComputed<string>;
+    readonly policy?: fabric.ComputedValue<string>;
 }
 

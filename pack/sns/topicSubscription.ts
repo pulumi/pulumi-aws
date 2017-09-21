@@ -88,27 +88,27 @@ export interface TopicSubscriptionArgs {
     /**
      * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
      */
-    readonly confirmationTimeoutInMinutes?: fabric.MaybeComputed<number>;
-    readonly deliveryPolicy?: fabric.MaybeComputed<string>;
+    readonly confirmationTimeoutInMinutes?: fabric.ComputedValue<number>;
+    readonly deliveryPolicy?: fabric.ComputedValue<string>;
     /**
      * The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
      */
-    readonly endpoint: fabric.MaybeComputed<string>;
+    readonly endpoint: fabric.ComputedValue<string>;
     /**
      * Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
      */
-    readonly endpointAutoConfirms?: fabric.MaybeComputed<boolean>;
+    readonly endpointAutoConfirms?: fabric.ComputedValue<boolean>;
     /**
      * The protocol to use. The possible values for this are: `sqs`,  `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email`, `sms`, are options but unsupported, see below).
      */
-    readonly protocol: fabric.MaybeComputed<string>;
+    readonly protocol: fabric.ComputedValue<string>;
     /**
      * Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property).
      */
-    readonly rawMessageDelivery?: fabric.MaybeComputed<boolean>;
+    readonly rawMessageDelivery?: fabric.ComputedValue<boolean>;
     /**
      * The ARN of the SNS topic to subscribe to
      */
-    readonly topic: fabric.MaybeComputed<Topic>;
+    readonly topic: fabric.ComputedValue<Topic>;
 }
 

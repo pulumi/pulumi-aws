@@ -62,22 +62,22 @@ export interface PermissionArgs {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    readonly allowSsh?: fabric.MaybeComputed<boolean>;
+    readonly allowSsh?: fabric.ComputedValue<boolean>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    readonly allowSudo?: fabric.MaybeComputed<boolean>;
+    readonly allowSudo?: fabric.ComputedValue<boolean>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      */
-    readonly level?: fabric.MaybeComputed<string>;
+    readonly level?: fabric.ComputedValue<string>;
     /**
      * The stack to set the permissions for
      */
-    readonly stackId?: fabric.MaybeComputed<string>;
+    readonly stackId?: fabric.ComputedValue<string>;
     /**
      * The user's IAM ARN to set permissions for
      */
-    readonly userArn: fabric.MaybeComputed<string>;
+    readonly userArn: fabric.ComputedValue<string>;
 }
 

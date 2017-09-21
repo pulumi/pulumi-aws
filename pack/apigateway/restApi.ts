@@ -59,18 +59,18 @@ export interface RestApiArgs {
     /**
      * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
      */
-    readonly binaryMediaTypes?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly binaryMediaTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
      */
-    readonly body?: fabric.MaybeComputed<string>;
+    readonly body?: fabric.ComputedValue<string>;
     /**
      * The description of the REST API
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the REST API
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

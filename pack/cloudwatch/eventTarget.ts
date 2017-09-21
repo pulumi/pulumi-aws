@@ -76,35 +76,35 @@ export interface EventTargetArgs {
     /**
      * The Amazon Resource Name (ARN) associated of the target.
      */
-    readonly arn: fabric.MaybeComputed<string>;
+    readonly arn: fabric.ComputedValue<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: fabric.MaybeComputed<{ taskCount?: fabric.MaybeComputed<number>, taskDefinitionArn: fabric.MaybeComputed<string> }>[];
+    readonly ecsTarget?: fabric.ComputedValue<{ taskCount?: fabric.ComputedValue<number>, taskDefinitionArn: fabric.ComputedValue<string> }>[];
     /**
      * Valid JSON text passed to the target.
      */
-    readonly input?: fabric.MaybeComputed<string>;
+    readonly input?: fabric.ComputedValue<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
      * that is used for extracting part of the matched event when passing it to the target.
      */
-    readonly inputPath?: fabric.MaybeComputed<string>;
+    readonly inputPath?: fabric.ComputedValue<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
-    readonly roleArn?: fabric.MaybeComputed<string>;
+    readonly roleArn?: fabric.ComputedValue<string>;
     /**
      * The name of the rule you want to add targets to.
      */
-    readonly rule: fabric.MaybeComputed<string>;
+    readonly rule: fabric.ComputedValue<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    readonly runCommandTargets?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, values: fabric.MaybeComputed<fabric.MaybeComputed<string>>[] }>[];
+    readonly runCommandTargets?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
     /**
      * The unique target assignment ID.  If missing, will generate a random, unique id.
      */
-    readonly targetId?: fabric.MaybeComputed<string>;
+    readonly targetId?: fabric.ComputedValue<string>;
 }
 

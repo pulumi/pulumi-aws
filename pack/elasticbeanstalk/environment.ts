@@ -155,30 +155,30 @@ export interface EnvironmentArgs {
      * Name of the application that contains the version
      * to be deployed
      */
-    readonly application: fabric.MaybeComputed<Application>;
+    readonly application: fabric.ComputedValue<Application>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    readonly cnamePrefix?: fabric.MaybeComputed<string>;
+    readonly cnamePrefix?: fabric.ComputedValue<string>;
     /**
      * Short description of the Environment
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      */
-    readonly name?: fabric.MaybeComputed<string>;
-    readonly pollInterval?: fabric.MaybeComputed<string>;
-    readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
-    readonly solutionStackName?: fabric.MaybeComputed<string>;
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly name?: fabric.ComputedValue<string>;
+    readonly pollInterval?: fabric.ComputedValue<string>;
+    readonly setting?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, resource?: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    readonly solutionStackName?: fabric.ComputedValue<string>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      */
-    readonly templateName?: fabric.MaybeComputed<string>;
+    readonly templateName?: fabric.ComputedValue<string>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
@@ -188,7 +188,7 @@ export interface EnvironmentArgs {
      * * `solution_stack_name` – (Optional) A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly tier?: fabric.MaybeComputed<string>;
+    readonly tier?: fabric.ComputedValue<string>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
@@ -196,7 +196,7 @@ export interface EnvironmentArgs {
      * this time the Elastic Beanstalk API does not provide a programatic way of
      * changing these tags after initial application
      */
-    readonly version?: fabric.MaybeComputed<ApplicationVersion>;
+    readonly version?: fabric.ComputedValue<ApplicationVersion>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
@@ -207,6 +207,6 @@ export interface EnvironmentArgs {
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
      * use the default behavior, which is an exponential backoff
      */
-    readonly waitForReadyTimeout?: fabric.MaybeComputed<string>;
+    readonly waitForReadyTimeout?: fabric.ComputedValue<string>;
 }
 

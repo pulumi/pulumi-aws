@@ -45,10 +45,10 @@ export interface LogDestinationPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly accessPolicy: fabric.MaybeComputed<string>;
+    readonly accessPolicy: fabric.ComputedValue<string>;
     /**
      * A name for the subscription filter
      */
-    readonly destinationName: fabric.MaybeComputed<string>;
+    readonly destinationName: fabric.ComputedValue<string>;
 }
 

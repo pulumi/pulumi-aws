@@ -39,10 +39,10 @@ export interface XssMatchSetArgs {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: fabric.MaybeComputed<{ fieldToMatch: fabric.MaybeComputed<{ data?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], textTransformation: fabric.MaybeComputed<string> }>[];
+    readonly xssMatchTuples?: fabric.ComputedValue<{ fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], textTransformation: fabric.ComputedValue<string> }>[];
 }
 

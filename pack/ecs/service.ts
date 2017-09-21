@@ -89,45 +89,45 @@ export interface ServiceArgs {
     /**
      * ARN of an ECS cluster
      */
-    readonly cluster?: fabric.MaybeComputed<string>;
+    readonly cluster?: fabric.ComputedValue<string>;
     /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
      */
-    readonly deploymentMaximumPercent?: fabric.MaybeComputed<number>;
+    readonly deploymentMaximumPercent?: fabric.ComputedValue<number>;
     /**
      * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
-    readonly deploymentMinimumHealthyPercent?: fabric.MaybeComputed<number>;
+    readonly deploymentMinimumHealthyPercent?: fabric.ComputedValue<number>;
     /**
      * The number of instances of the task definition to place and keep running
      */
-    readonly desiredCount?: fabric.MaybeComputed<number>;
+    readonly desiredCount?: fabric.ComputedValue<number>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container agent to make calls to your load balancer on your behalf. This parameter is only required if you are using a load balancer with your service.
      */
-    readonly iamRole?: fabric.MaybeComputed<string>;
+    readonly iamRole?: fabric.ComputedValue<string>;
     /**
      * A load balancer block. Load balancers documented below.
      */
-    readonly loadBalancers?: fabric.MaybeComputed<{ containerName: fabric.MaybeComputed<string>, containerPort: fabric.MaybeComputed<number>, elbName?: fabric.MaybeComputed<string>, targetGroupArn?: fabric.MaybeComputed<string> }>[];
+    readonly loadBalancers?: fabric.ComputedValue<{ containerName: fabric.ComputedValue<string>, containerPort: fabric.ComputedValue<number>, elbName?: fabric.ComputedValue<string>, targetGroupArn?: fabric.ComputedValue<string> }>[];
     /**
      * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
      * `placement_constraints` is `10`. Defined below.
      */
-    readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly placementConstraints?: fabric.ComputedValue<{ expression?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
     /**
      * Service level strategy rules that are taken
      * into consideration during task placement. The maximum number of
      * `placement_strategy` blocks is `5`. Defined below.
      */
-    readonly placementStrategy?: fabric.MaybeComputed<{ field?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly placementStrategy?: fabric.ComputedValue<{ field?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
-    readonly taskDefinition: fabric.MaybeComputed<string>;
+    readonly taskDefinition: fabric.ComputedValue<string>;
 }
 

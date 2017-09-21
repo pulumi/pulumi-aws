@@ -41,10 +41,10 @@ export interface IpSetArgs {
      * Specifies the IP address type (IPV4 or IPV6)
      * and the IP address range (in CIDR format) that web requests originate from.
      */
-    readonly ipSetDescriptors?: fabric.MaybeComputed<{ type: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly ipSetDescriptors?: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
     /**
      * The name or description of the IPSet.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

@@ -76,30 +76,30 @@ export interface SubnetArgs {
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    readonly assignIpv6AddressOnCreation?: fabric.MaybeComputed<boolean>;
-    readonly availabilityZone?: fabric.MaybeComputed<string>;
+    readonly assignIpv6AddressOnCreation?: fabric.ComputedValue<boolean>;
+    readonly availabilityZone?: fabric.ComputedValue<string>;
     /**
      * The CIDR block for the subnet.
      */
-    readonly cidrBlock: fabric.MaybeComputed<string>;
+    readonly cidrBlock: fabric.ComputedValue<string>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    readonly ipv6CidrBlock?: fabric.MaybeComputed<string>;
+    readonly ipv6CidrBlock?: fabric.ComputedValue<string>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    readonly mapPublicIpOnLaunch?: fabric.MaybeComputed<boolean>;
+    readonly mapPublicIpOnLaunch?: fabric.ComputedValue<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId: fabric.MaybeComputed<string>;
+    readonly vpcId: fabric.ComputedValue<string>;
 }
 

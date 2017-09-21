@@ -52,18 +52,18 @@ export interface SubnetGroupArgs {
     /**
      * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * The name of the Redshift Subnet group.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * An array of VPC subnet IDs.
      */
-    readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

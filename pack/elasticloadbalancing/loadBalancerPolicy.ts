@@ -58,18 +58,18 @@ export interface LoadBalancerPolicyArgs {
     /**
      * The load balancer on which the policy is defined.
      */
-    readonly loadBalancerName: fabric.MaybeComputed<string>;
+    readonly loadBalancerName: fabric.ComputedValue<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttribute?: fabric.MaybeComputed<{ name?: fabric.MaybeComputed<string>, value?: fabric.MaybeComputed<string> }>[];
+    readonly policyAttribute?: fabric.ComputedValue<{ name?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
     /**
      * The name of the load balancer policy.
      */
-    readonly policyName: fabric.MaybeComputed<string>;
+    readonly policyName: fabric.ComputedValue<string>;
     /**
      * The policy type.
      */
-    readonly policyTypeName: fabric.MaybeComputed<string>;
+    readonly policyTypeName: fabric.ComputedValue<string>;
 }
 

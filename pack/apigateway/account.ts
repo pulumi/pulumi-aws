@@ -45,6 +45,6 @@ export interface AccountArgs {
      * See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
      * Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
-    readonly cloudwatchRoleArn?: fabric.MaybeComputed<string>;
+    readonly cloudwatchRoleArn?: fabric.ComputedValue<string>;
 }
 

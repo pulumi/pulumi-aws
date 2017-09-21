@@ -34,6 +34,6 @@ export interface DomainArgs {
     /**
      * The name of the SimpleDB domain
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

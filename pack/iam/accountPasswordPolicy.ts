@@ -86,39 +86,39 @@ export interface AccountPasswordPolicyArgs {
     /**
      * Whether to allow users to change their own password
      */
-    readonly allowUsersToChangePassword?: fabric.MaybeComputed<boolean>;
+    readonly allowUsersToChangePassword?: fabric.ComputedValue<boolean>;
     /**
      * Whether users are prevented from setting a new password after their password has expired
      * (i.e. require administrator reset)
      */
-    readonly hardExpiry?: fabric.MaybeComputed<boolean>;
+    readonly hardExpiry?: fabric.ComputedValue<boolean>;
     /**
      * The number of days that an user password is valid.
      */
-    readonly maxPasswordAge?: fabric.MaybeComputed<number>;
+    readonly maxPasswordAge?: fabric.ComputedValue<number>;
     /**
      * Minimum length to require for user passwords.
      */
-    readonly minimumPasswordLength?: fabric.MaybeComputed<number>;
+    readonly minimumPasswordLength?: fabric.ComputedValue<number>;
     /**
      * The number of previous passwords that users are prevented from reusing.
      */
-    readonly passwordReusePrevention?: fabric.MaybeComputed<number>;
+    readonly passwordReusePrevention?: fabric.ComputedValue<number>;
     /**
      * Whether to require lowercase characters for user passwords.
      */
-    readonly requireLowercaseCharacters?: fabric.MaybeComputed<boolean>;
+    readonly requireLowercaseCharacters?: fabric.ComputedValue<boolean>;
     /**
      * Whether to require numbers for user passwords.
      */
-    readonly requireNumbers?: fabric.MaybeComputed<boolean>;
+    readonly requireNumbers?: fabric.ComputedValue<boolean>;
     /**
      * Whether to require symbols for user passwords.
      */
-    readonly requireSymbols?: fabric.MaybeComputed<boolean>;
+    readonly requireSymbols?: fabric.ComputedValue<boolean>;
     /**
      * Whether to require uppercase characters for user passwords.
      */
-    readonly requireUppercaseCharacters?: fabric.MaybeComputed<boolean>;
+    readonly requireUppercaseCharacters?: fabric.ComputedValue<boolean>;
 }
 

@@ -85,26 +85,26 @@ export interface TaskDefinitionArgs {
      * (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
      * official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
-    readonly containerDefinitions: fabric.MaybeComputed<string>;
+    readonly containerDefinitions: fabric.ComputedValue<string>;
     /**
      * A unique name for your task definition.
      */
-    readonly family: fabric.MaybeComputed<string>;
+    readonly family: fabric.ComputedValue<string>;
     /**
      * The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, and `host`.
      */
-    readonly networkMode?: fabric.MaybeComputed<string>;
+    readonly networkMode?: fabric.ComputedValue<string>;
     /**
      * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
-    readonly placementConstraints?: fabric.MaybeComputed<{ expression?: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
+    readonly placementConstraints?: fabric.ComputedValue<{ expression?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
-    readonly taskRoleArn?: fabric.MaybeComputed<string>;
+    readonly taskRoleArn?: fabric.ComputedValue<string>;
     /**
      * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
      */
-    readonly volume?: fabric.MaybeComputed<{ hostPath?: fabric.MaybeComputed<string>, name: fabric.MaybeComputed<string> }>[];
+    readonly volume?: fabric.ComputedValue<{ hostPath?: fabric.ComputedValue<string>, name: fabric.ComputedValue<string> }>[];
 }
 

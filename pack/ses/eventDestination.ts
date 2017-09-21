@@ -65,26 +65,26 @@ export interface EventDestinationArgs {
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestination?: fabric.MaybeComputed<{ defaultValue: fabric.MaybeComputed<string>, dimensionName: fabric.MaybeComputed<string>, valueSource: fabric.MaybeComputed<string> }>[];
+    readonly cloudwatchDestination?: fabric.ComputedValue<{ defaultValue: fabric.ComputedValue<string>, dimensionName: fabric.ComputedValue<string>, valueSource: fabric.ComputedValue<string> }>[];
     /**
      * The name of the configuration set
      */
-    readonly configurationSetName: fabric.MaybeComputed<string>;
+    readonly configurationSetName: fabric.ComputedValue<string>;
     /**
      * If true, the event destination will be enabled
      */
-    readonly enabled?: fabric.MaybeComputed<boolean>;
+    readonly enabled?: fabric.ComputedValue<boolean>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    readonly kinesisDestination?: fabric.MaybeComputed<{ roleArn: fabric.MaybeComputed<string>, streamArn: fabric.MaybeComputed<string> }>[];
+    readonly kinesisDestination?: fabric.ComputedValue<{ roleArn: fabric.ComputedValue<string>, streamArn: fabric.ComputedValue<string> }>[];
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, or `"delivery"`.
      */
-    readonly matchingTypes: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly matchingTypes: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The name of the event destination
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
 }
 

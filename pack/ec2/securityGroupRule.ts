@@ -106,46 +106,46 @@ export interface SecurityGroupRuleArgs {
     /**
      * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
      */
-    readonly cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The start port (or ICMP type number if protocol is "icmp").
      */
-    readonly fromPort: fabric.MaybeComputed<number>;
+    readonly fromPort: fabric.ComputedValue<number>;
     /**
      * List of IPv6 CIDR blocks.
      */
-    readonly ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
      * Only valid with `egress`.
      */
-    readonly prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly prefixListIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    readonly protocol: fabric.MaybeComputed<string>;
+    readonly protocol: fabric.ComputedValue<string>;
     /**
      * The security group to apply this rule to.
      */
-    readonly securityGroupId: fabric.MaybeComputed<string>;
+    readonly securityGroupId: fabric.ComputedValue<string>;
     /**
      * If true, the security group itself will be added as
      * a source to this ingress rule.
      */
-    readonly self?: fabric.MaybeComputed<boolean>;
+    readonly self?: fabric.ComputedValue<boolean>;
     /**
      * The security group id to allow access to/from,
      * depending on the `type`. Cannot be specified with `cidr_blocks`.
      */
-    readonly sourceSecurityGroupId?: fabric.MaybeComputed<string>;
+    readonly sourceSecurityGroupId?: fabric.ComputedValue<string>;
     /**
      * The end port (or ICMP code if protocol is "icmp").
      */
-    readonly toPort: fabric.MaybeComputed<number>;
+    readonly toPort: fabric.ComputedValue<number>;
     /**
      * The type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      */
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
 }
 

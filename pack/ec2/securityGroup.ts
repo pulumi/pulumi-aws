@@ -86,34 +86,34 @@ export interface SecurityGroupArgs {
      * `GroupDescription` attribute, for which there is no Update API. If you'd like
      * to classify your security groups in a way that can be updated, use `tags`.
      */
-    readonly description?: fabric.MaybeComputed<string>;
+    readonly description?: fabric.ComputedValue<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], prefixListIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly egress?: fabric.ComputedValue<{ cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], fromPort: fabric.ComputedValue<number>, ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], prefixListIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[], protocol: fabric.ComputedValue<string>, securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[], self?: fabric.ComputedValue<boolean>, toPort: fabric.ComputedValue<number> }>[];
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: fabric.MaybeComputed<{ cidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], fromPort: fabric.MaybeComputed<number>, ipv6CidrBlocks?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], protocol: fabric.MaybeComputed<string>, securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], self?: fabric.MaybeComputed<boolean>, toPort: fabric.MaybeComputed<number> }>[];
+    readonly ingress?: fabric.ComputedValue<{ cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], fromPort: fabric.ComputedValue<number>, ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[], protocol: fabric.ComputedValue<string>, securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[], self?: fabric.ComputedValue<boolean>, toPort: fabric.ComputedValue<number> }>[];
     /**
      * The name of the security group. If omitted, Terraform will
      * assign a random, unique name
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId?: fabric.MaybeComputed<string>;
+    readonly vpcId?: fabric.ComputedValue<string>;
 }
 

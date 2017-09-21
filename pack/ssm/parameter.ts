@@ -60,22 +60,22 @@ export interface ParameterArgs {
     /**
      * The KMS key id or arn for encrypting a SecureString.
      */
-    readonly keyId?: fabric.MaybeComputed<string>;
+    readonly keyId?: fabric.ComputedValue<string>;
     /**
      * The name of the parameter.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Overwrite an existing parameter. If not specified, will default to `false`.
      */
-    readonly overwrite?: fabric.MaybeComputed<boolean>;
+    readonly overwrite?: fabric.ComputedValue<boolean>;
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    readonly type: fabric.MaybeComputed<string>;
+    readonly type: fabric.ComputedValue<string>;
     /**
      * The value of the parameter.
      */
-    readonly value: fabric.MaybeComputed<string>;
+    readonly value: fabric.ComputedValue<string>;
 }
 

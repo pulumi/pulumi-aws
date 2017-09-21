@@ -47,14 +47,14 @@ export interface RuleArgs {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    readonly metricName: fabric.MaybeComputed<string>;
+    readonly metricName: fabric.ComputedValue<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: fabric.MaybeComputed<{ dataId?: fabric.MaybeComputed<string>, negated: fabric.MaybeComputed<boolean>, type: fabric.MaybeComputed<string> }>[];
+    readonly predicates?: fabric.ComputedValue<{ dataId?: fabric.ComputedValue<string>, negated: fabric.ComputedValue<boolean>, type: fabric.ComputedValue<string> }>[];
 }
 

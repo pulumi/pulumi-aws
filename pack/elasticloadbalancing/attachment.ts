@@ -52,10 +52,10 @@ export interface AttachmentArgs {
     /**
      * The name of the ELB.
      */
-    readonly elb: fabric.MaybeComputed<string>;
+    readonly elb: fabric.ComputedValue<string>;
     /**
      * Instance ID to place in the ELB pool.
      */
-    readonly instance: fabric.MaybeComputed<string>;
+    readonly instance: fabric.ComputedValue<string>;
 }
 

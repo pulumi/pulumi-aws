@@ -111,45 +111,45 @@ export interface LoadBalancerArgs {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    readonly accessLogs?: fabric.MaybeComputed<{ bucket: fabric.MaybeComputed<string>, enabled?: fabric.MaybeComputed<boolean>, prefix?: fabric.MaybeComputed<string> }>[];
+    readonly accessLogs?: fabric.ComputedValue<{ bucket: fabric.ComputedValue<string>, enabled?: fabric.ComputedValue<boolean>, prefix?: fabric.ComputedValue<string> }>[];
     /**
      * If true, deletion of the load balancer will be disabled via
      * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
      */
-    readonly enableDeletionProtection?: fabric.MaybeComputed<boolean>;
+    readonly enableDeletionProtection?: fabric.ComputedValue<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Default: 60.
      */
-    readonly idleTimeout?: fabric.MaybeComputed<number>;
+    readonly idleTimeout?: fabric.ComputedValue<number>;
     /**
      * If true, the ALB will be internal.
      */
-    readonly internal?: fabric.MaybeComputed<boolean>;
+    readonly internal?: fabric.ComputedValue<boolean>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: fabric.MaybeComputed<string>;
+    readonly ipAddressType?: fabric.ComputedValue<string>;
     /**
      * The name of the ALB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
      * Terraform will autogenerate a name beginning with `tf-lb`.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: fabric.MaybeComputed<string>;
+    readonly namePrefix?: fabric.ComputedValue<string>;
     /**
      * A list of security group IDs to assign to the ALB.
      */
-    readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A list of subnet IDs to attach to the ALB.
      */
-    readonly subnets: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    readonly subnets: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

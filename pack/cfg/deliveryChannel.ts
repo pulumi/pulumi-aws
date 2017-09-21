@@ -59,22 +59,22 @@ export interface DeliveryChannelArgs {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    readonly s3BucketName: fabric.MaybeComputed<string>;
+    readonly s3BucketName: fabric.ComputedValue<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    readonly s3KeyPrefix?: fabric.MaybeComputed<string>;
+    readonly s3KeyPrefix?: fabric.ComputedValue<string>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: fabric.MaybeComputed<{ deliveryFrequency?: fabric.MaybeComputed<string> }>[];
+    readonly snapshotDeliveryProperties?: fabric.ComputedValue<{ deliveryFrequency?: fabric.ComputedValue<string> }>[];
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    readonly snsTopicArn?: fabric.MaybeComputed<string>;
+    readonly snsTopicArn?: fabric.ComputedValue<string>;
 }
 

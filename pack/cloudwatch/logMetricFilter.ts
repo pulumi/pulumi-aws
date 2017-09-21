@@ -60,20 +60,20 @@ export interface LogMetricFilterArgs {
     /**
      * The name of the log group to associate the metric filter with.
      */
-    readonly logGroupName: fabric.MaybeComputed<string>;
+    readonly logGroupName: fabric.ComputedValue<string>;
     /**
      * A block defining collection of information
      * needed to define how metric data gets emitted. See below.
      */
-    readonly metricTransformation: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
+    readonly metricTransformation: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
     /**
      * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
      */
-    readonly name?: fabric.MaybeComputed<string>;
+    readonly name?: fabric.ComputedValue<string>;
     /**
      * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
      * for extracting metric data out of ingested log events.
      */
-    readonly pattern: fabric.MaybeComputed<string>;
+    readonly pattern: fabric.ComputedValue<string>;
 }
 
