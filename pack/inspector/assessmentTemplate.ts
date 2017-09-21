@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Inspector assessment template
+ */
 export class AssessmentTemplate extends fabric.Resource {
+    /**
+     * The template assessment ARN.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The duration of the inspector run.
+     */
     public readonly duration: fabric.Computed<number>;
+    /**
+     * The name of the assessment template.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The rules to be used during the run.
+     */
     public readonly rulesPackageArns: fabric.Computed<string[]>;
+    /**
+     * The assessment target ARN to attach the template to.
+     */
     public readonly targetArn: fabric.Computed<string>;
 
+    /**
+     * Create a AssessmentTemplate resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AssessmentTemplate instance
+     * @param args A collection of arguments for creating this AssessmentTemplate intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AssessmentTemplateArgs, dependsOn?: fabric.Resource[]) {
         if (args.duration === undefined) {
             throw new Error("Missing required property 'duration'");
@@ -30,10 +56,25 @@ export class AssessmentTemplate extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AssessmentTemplate resource.
+ */
 export interface AssessmentTemplateArgs {
+    /**
+     * The duration of the inspector run.
+     */
     readonly duration: fabric.ComputedValue<number>;
+    /**
+     * The name of the assessment template.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The rules to be used during the run.
+     */
     readonly rulesPackageArns: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The assessment target ARN to attach the template to.
+     */
     readonly targetArn: fabric.ComputedValue<string>;
 }
 

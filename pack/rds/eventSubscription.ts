@@ -3,16 +3,48 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DB event subscription resource.
+ */
 export class EventSubscription extends fabric.Resource {
     public /*out*/ readonly customerAwsId: fabric.Computed<string>;
+    /**
+     * A boolean flag to enable/disable the subscription. Defaults to true.
+     */
     public readonly enabled?: fabric.Computed<boolean>;
+    /**
+     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
+     */
     public readonly eventCategories?: fabric.Computed<string[]>;
+    /**
+     * The name of the DB event subscription.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The SNS topic to send events to.
+     */
     public readonly snsTopic: fabric.Computed<string>;
+    /**
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     */
     public readonly sourceIds?: fabric.Computed<string[]>;
+    /**
+     * The type of source that will be generating the events.
+     */
     public readonly sourceType?: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a EventSubscription resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EventSubscription instance
+     * @param args A collection of arguments for creating this EventSubscription intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EventSubscriptionArgs, dependsOn?: fabric.Resource[]) {
         if (args.snsTopic === undefined) {
             throw new Error("Missing required property 'snsTopic'");
@@ -30,13 +62,37 @@ export class EventSubscription extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EventSubscription resource.
+ */
 export interface EventSubscriptionArgs {
+    /**
+     * A boolean flag to enable/disable the subscription. Defaults to true.
+     */
     readonly enabled?: fabric.ComputedValue<boolean>;
+    /**
+     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
+     */
     readonly eventCategories?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The name of the DB event subscription.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The SNS topic to send events to.
+     */
     readonly snsTopic: fabric.ComputedValue<string>;
+    /**
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     */
     readonly sourceIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The type of source that will be generating the events.
+     */
     readonly sourceType?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

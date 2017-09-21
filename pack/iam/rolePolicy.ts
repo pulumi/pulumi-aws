@@ -3,12 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IAM role policy.
+ */
 export class RolePolicy extends fabric.Resource {
+    /**
+     * The name of the role policy. If omitted, Terraform will
+     * assign a random, unique name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here.
+     */
     public readonly policy: fabric.Computed<string>;
+    /**
+     * The IAM role to attach to the policy.
+     */
     public readonly role: fabric.Computed<string>;
 
+    /**
+     * Create a RolePolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RolePolicy instance
+     * @param args A collection of arguments for creating this RolePolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RolePolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
@@ -25,10 +51,28 @@ export class RolePolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RolePolicy resource.
+ */
 export interface RolePolicyArgs {
+    /**
+     * The name of the role policy. If omitted, Terraform will
+     * assign a random, unique name.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.ComputedValue<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here.
+     */
     readonly policy: fabric.ComputedValue<string>;
+    /**
+     * The IAM role to attach to the policy.
+     */
     readonly role: fabric.ComputedValue<string>;
 }
 

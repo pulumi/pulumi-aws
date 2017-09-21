@@ -3,19 +3,66 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis and DynamoDB.
+ * 
+ * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+ * For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
+ */
 export class EventSourceMapping extends fabric.Resource {
+    /**
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+     */
     public readonly batchSize?: fabric.Computed<number>;
+    /**
+     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     */
     public readonly enabled?: fabric.Computed<boolean>;
+    /**
+     * The event source ARN - can either be a Kinesis or DynamoDB stream.
+     */
     public readonly eventSourceArn: fabric.Computed<string>;
+    /**
+     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     */
     public /*out*/ readonly functionArn: fabric.Computed<string>;
+    /**
+     * The name or the ARN of the Lambda function that will be subscribing to events.
+     */
     public readonly functionName: fabric.Computed<string>;
+    /**
+     * The date this resource was last modified.
+     */
     public /*out*/ readonly lastModified: fabric.Computed<string>;
+    /**
+     * The result of the last AWS Lambda invocation of your Lambda function.
+     */
     public /*out*/ readonly lastProcessingResult: fabric.Computed<string>;
+    /**
+     * The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+     */
     public readonly startingPosition: fabric.Computed<string>;
+    /**
+     * The state of the event source mapping.
+     */
     public /*out*/ readonly state: fabric.Computed<string>;
+    /**
+     * The reason the event source mapping is in its current state.
+     */
     public /*out*/ readonly stateTransitionReason: fabric.Computed<string>;
+    /**
+     * The UUID of the created event source mapping.
+     */
     public /*out*/ readonly uuid: fabric.Computed<string>;
 
+    /**
+     * Create a EventSourceMapping resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EventSourceMapping instance
+     * @param args A collection of arguments for creating this EventSourceMapping intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EventSourceMappingArgs, dependsOn?: fabric.Resource[]) {
         if (args.eventSourceArn === undefined) {
             throw new Error("Missing required property 'eventSourceArn'");
@@ -42,11 +89,29 @@ export class EventSourceMapping extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EventSourceMapping resource.
+ */
 export interface EventSourceMappingArgs {
+    /**
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+     */
     readonly batchSize?: fabric.ComputedValue<number>;
+    /**
+     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     */
     readonly enabled?: fabric.ComputedValue<boolean>;
+    /**
+     * The event source ARN - can either be a Kinesis or DynamoDB stream.
+     */
     readonly eventSourceArn: fabric.ComputedValue<string>;
+    /**
+     * The name or the ARN of the Lambda function that will be subscribing to events.
+     */
     readonly functionName: fabric.ComputedValue<string>;
+    /**
+     * The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+     */
     readonly startingPosition: fabric.ComputedValue<string>;
 }
 

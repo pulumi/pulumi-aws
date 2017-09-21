@@ -3,31 +3,115 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an OpsWorks stack resource.
+ */
 export class Stack extends fabric.Resource {
+    /**
+     * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+     */
     public readonly agentVersion: fabric.Computed<string>;
+    /**
+     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     */
     public readonly berkshelfVersion?: fabric.Computed<string>;
+    /**
+     * Color to paint next to the stack's resources in the OpsWorks console.
+     */
     public readonly color?: fabric.Computed<string>;
+    /**
+     * Name of the configuration manager to use. Defaults to "Chef".
+     */
     public readonly configurationManagerName?: fabric.Computed<string>;
+    /**
+     * Version of the configuration manager to use. Defaults to "11.4".
+     */
     public readonly configurationManagerVersion?: fabric.Computed<string>;
+    /**
+     * When `use_custom_cookbooks` is set, provide this sub-object as
+     * described below.
+     */
     public readonly customCookbooksSource: fabric.Computed<{ password?: string, revision?: string, sshKey?: string, type: string, url: string, username?: string }[]>;
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     */
     public readonly customJson?: fabric.Computed<string>;
+    /**
+     * Name of the availability zone where instances will be created
+     * by default. This is required unless you set `vpc_id`.
+     */
     public readonly defaultAvailabilityZone: fabric.Computed<string>;
+    /**
+     * The ARN of an IAM Instance Profile that created instances
+     * will have by default.
+     */
     public readonly defaultInstanceProfileArn: fabric.Computed<string>;
+    /**
+     * Name of OS that will be installed on instances by default.
+     */
     public readonly defaultOs?: fabric.Computed<string>;
+    /**
+     * Name of the type of root device instances will have by default.
+     */
     public readonly defaultRootDeviceType?: fabric.Computed<string>;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
     public readonly defaultSshKeyName?: fabric.Computed<string>;
+    /**
+     * Id of the subnet in which instances will be created by default. Mandatory
+     * if `vpc_id` is set, and forbidden if it isn't.
+     */
     public readonly defaultSubnetId: fabric.Computed<string>;
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames
+     * within this stack.
+     */
     public readonly hostnameTheme?: fabric.Computed<string>;
+    /**
+     * The id of the stack.
+     */
     public /*out*/ readonly stackId: fabric.Computed<string>;
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     */
     public readonly manageBerkshelf?: fabric.Computed<boolean>;
+    /**
+     * The name of the stack.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The name of the region where the stack will exist.
+     */
     public readonly region: fabric.Computed<string>;
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     */
     public readonly serviceRoleArn: fabric.Computed<string>;
     public /*out*/ readonly stackEndpoint: fabric.Computed<string>;
+    /**
+     * Boolean value controlling whether the custom cookbook settings are
+     * enabled.
+     */
     public readonly useCustomCookbooks?: fabric.Computed<boolean>;
+    /**
+     * Boolean value controlling whether the standard OpsWorks
+     * security groups apply to created instances.
+     */
     public readonly useOpsworksSecurityGroups?: fabric.Computed<boolean>;
+    /**
+     * The id of the VPC that this stack belongs to.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a Stack resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Stack instance
+     * @param args A collection of arguments for creating this Stack intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: StackArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultInstanceProfileArn === undefined) {
             throw new Error("Missing required property 'defaultInstanceProfileArn'");
@@ -66,27 +150,100 @@ export class Stack extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Stack resource.
+ */
 export interface StackArgs {
+    /**
+     * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+     */
     readonly agentVersion?: fabric.ComputedValue<string>;
+    /**
+     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     */
     readonly berkshelfVersion?: fabric.ComputedValue<string>;
+    /**
+     * Color to paint next to the stack's resources in the OpsWorks console.
+     */
     readonly color?: fabric.ComputedValue<string>;
+    /**
+     * Name of the configuration manager to use. Defaults to "Chef".
+     */
     readonly configurationManagerName?: fabric.ComputedValue<string>;
+    /**
+     * Version of the configuration manager to use. Defaults to "11.4".
+     */
     readonly configurationManagerVersion?: fabric.ComputedValue<string>;
+    /**
+     * When `use_custom_cookbooks` is set, provide this sub-object as
+     * described below.
+     */
     readonly customCookbooksSource?: fabric.ComputedValue<{ password?: fabric.ComputedValue<string>, revision?: fabric.ComputedValue<string>, sshKey?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string>, url: fabric.ComputedValue<string>, username?: fabric.ComputedValue<string> }>[];
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     */
     readonly customJson?: fabric.ComputedValue<string>;
+    /**
+     * Name of the availability zone where instances will be created
+     * by default. This is required unless you set `vpc_id`.
+     */
     readonly defaultAvailabilityZone?: fabric.ComputedValue<string>;
+    /**
+     * The ARN of an IAM Instance Profile that created instances
+     * will have by default.
+     */
     readonly defaultInstanceProfileArn: fabric.ComputedValue<string>;
+    /**
+     * Name of OS that will be installed on instances by default.
+     */
     readonly defaultOs?: fabric.ComputedValue<string>;
+    /**
+     * Name of the type of root device instances will have by default.
+     */
     readonly defaultRootDeviceType?: fabric.ComputedValue<string>;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
     readonly defaultSshKeyName?: fabric.ComputedValue<string>;
+    /**
+     * Id of the subnet in which instances will be created by default. Mandatory
+     * if `vpc_id` is set, and forbidden if it isn't.
+     */
     readonly defaultSubnetId?: fabric.ComputedValue<string>;
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames
+     * within this stack.
+     */
     readonly hostnameTheme?: fabric.ComputedValue<string>;
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     */
     readonly manageBerkshelf?: fabric.ComputedValue<boolean>;
+    /**
+     * The name of the stack.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The name of the region where the stack will exist.
+     */
     readonly region: fabric.ComputedValue<string>;
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     */
     readonly serviceRoleArn: fabric.ComputedValue<string>;
+    /**
+     * Boolean value controlling whether the custom cookbook settings are
+     * enabled.
+     */
     readonly useCustomCookbooks?: fabric.ComputedValue<boolean>;
+    /**
+     * Boolean value controlling whether the standard OpsWorks
+     * security groups apply to created instances.
+     */
     readonly useOpsworksSecurityGroups?: fabric.ComputedValue<boolean>;
+    /**
+     * The id of the VPC that this stack belongs to.
+     */
     readonly vpcId?: fabric.ComputedValue<string>;
 }
 

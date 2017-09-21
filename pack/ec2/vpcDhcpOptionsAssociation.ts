@@ -3,10 +3,28 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a VPC DHCP Options Association resource.
+ * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+ */
 export class VpcDhcpOptionsAssociation extends fabric.Resource {
+    /**
+     * The ID of the DHCP Options Set to associate to the VPC.
+     */
     public readonly dhcpOptionsId: fabric.Computed<string>;
+    /**
+     * The ID of the VPC to which we would like to associate a DHCP Options Set.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a VpcDhcpOptionsAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpcDhcpOptionsAssociation instance
+     * @param args A collection of arguments for creating this VpcDhcpOptionsAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpcDhcpOptionsAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.dhcpOptionsId === undefined) {
             throw new Error("Missing required property 'dhcpOptionsId'");
@@ -21,8 +39,17 @@ export class VpcDhcpOptionsAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
+ */
 export interface VpcDhcpOptionsAssociationArgs {
+    /**
+     * The ID of the DHCP Options Set to associate to the VPC.
+     */
     readonly dhcpOptionsId: fabric.ComputedValue<string>;
+    /**
+     * The ID of the VPC to which we would like to associate a DHCP Options Set.
+     */
     readonly vpcId: fabric.ComputedValue<string>;
 }
 

@@ -3,18 +3,71 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a security group rule resource. Represents a single `ingress` or
+ * `egress` group rule, which can be added to external Security Groups.
+ * 
+ * ~> **NOTE on Security Groups and Security Group Rules:** Terraform currently
+ * provides both a standalone Security Group Rule resource (a single `ingress` or
+ * `egress` rule), and a [Security Group resource](security_group.html) with `ingress` and `egress` rules
+ * defined in-line. At this time you cannot use a Security Group with in-line rules
+ * in conjunction with any Security Group Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ */
 export class SecurityGroupRule extends fabric.Resource {
+    /**
+     * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+     */
     public readonly cidrBlocks?: fabric.Computed<string[]>;
+    /**
+     * The start port (or ICMP type number if protocol is "icmp").
+     */
     public readonly fromPort: fabric.Computed<number>;
+    /**
+     * List of IPv6 CIDR blocks.
+     */
     public readonly ipv6CidrBlocks?: fabric.Computed<string[]>;
+    /**
+     * List of prefix list IDs (for allowing access to VPC endpoints).
+     * Only valid with `egress`.
+     */
     public readonly prefixListIds?: fabric.Computed<string[]>;
+    /**
+     * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     */
     public readonly protocol: fabric.Computed<string>;
+    /**
+     * The security group to apply this rule to.
+     */
     public readonly securityGroupId: fabric.Computed<string>;
+    /**
+     * If true, the security group itself will be added as
+     * a source to this ingress rule.
+     */
     public readonly self?: fabric.Computed<boolean>;
+    /**
+     * The security group id to allow access to/from,
+     * depending on the `type`. Cannot be specified with `cidr_blocks`.
+     */
     public readonly sourceSecurityGroupId: fabric.Computed<string>;
+    /**
+     * The end port (or ICMP code if protocol is "icmp").
+     */
     public readonly toPort: fabric.Computed<number>;
+    /**
+     * The type of rule being created. Valid options are `ingress` (inbound)
+     * or `egress` (outbound).
+     */
     public readonly type: fabric.Computed<string>;
 
+    /**
+     * Create a SecurityGroupRule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SecurityGroupRule instance
+     * @param args A collection of arguments for creating this SecurityGroupRule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SecurityGroupRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.fromPort === undefined) {
             throw new Error("Missing required property 'fromPort'");
@@ -46,17 +99,53 @@ export class SecurityGroupRule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SecurityGroupRule resource.
+ */
 export interface SecurityGroupRuleArgs {
+    /**
+     * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+     */
     readonly cidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The start port (or ICMP type number if protocol is "icmp").
+     */
     readonly fromPort: fabric.ComputedValue<number>;
+    /**
+     * List of IPv6 CIDR blocks.
+     */
     readonly ipv6CidrBlocks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * List of prefix list IDs (for allowing access to VPC endpoints).
+     * Only valid with `egress`.
+     */
     readonly prefixListIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     */
     readonly protocol: fabric.ComputedValue<string>;
+    /**
+     * The security group to apply this rule to.
+     */
     readonly securityGroupId: fabric.ComputedValue<string>;
+    /**
+     * If true, the security group itself will be added as
+     * a source to this ingress rule.
+     */
     readonly self?: fabric.ComputedValue<boolean>;
+    /**
+     * The security group id to allow access to/from,
+     * depending on the `type`. Cannot be specified with `cidr_blocks`.
+     */
     readonly sourceSecurityGroupId?: fabric.ComputedValue<string>;
+    /**
+     * The end port (or ICMP code if protocol is "icmp").
+     */
     readonly toPort: fabric.ComputedValue<number>;
-    // Type of rule, ingress (inbound) or egress (outbound).
+    /**
+     * The type of rule being created. Valid options are `ingress` (inbound)
+     * or `egress` (outbound).
+     */
     readonly type: fabric.ComputedValue<string>;
 }
 

@@ -3,10 +3,24 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeDeploy application to be used as a basis for deployments
+ */
 export class Application extends fabric.Resource {
+    /**
+     * The name of the application.
+     */
     public readonly name: fabric.Computed<string>;
     public readonly uniqueId: fabric.Computed<string>;
 
+    /**
+     * Create a Application resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Application instance
+     * @param args A collection of arguments for creating this Application intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ApplicationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:codedeploy/application:Application", urnName, {
             "name": args.name,
@@ -15,7 +29,13 @@ export class Application extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Application resource.
+ */
 export interface ApplicationArgs {
+    /**
+     * The name of the application.
+     */
     readonly name?: fabric.ComputedValue<string>;
     readonly uniqueId?: fabric.ComputedValue<string>;
 }

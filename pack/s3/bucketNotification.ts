@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a S3 bucket notification resource.
+ */
 export class BucketNotification extends fabric.Resource {
+    /**
+     * The name of the bucket to put notification configuration.
+     */
     public readonly bucket: fabric.Computed<string>;
+    /**
+     * Used to configure notifications to a Lambda Function (documented below).
+     */
     public readonly lambdaFunction?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[]>;
+    /**
+     * The notification configuration to SQS Queue (documented below).
+     */
     public readonly queue?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[]>;
+    /**
+     * The notification configuration to SNS Topic (documented below).
+     */
     public readonly topic?: fabric.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[]>;
 
+    /**
+     * Create a BucketNotification resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this BucketNotification instance
+     * @param args A collection of arguments for creating this BucketNotification intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: BucketNotificationArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
@@ -22,10 +45,25 @@ export class BucketNotification extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a BucketNotification resource.
+ */
 export interface BucketNotificationArgs {
+    /**
+     * The name of the bucket to put notification configuration.
+     */
     readonly bucket: fabric.ComputedValue<string>;
+    /**
+     * Used to configure notifications to a Lambda Function (documented below).
+     */
     readonly lambdaFunction?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], filterPrefix?: fabric.ComputedValue<string>, filterSuffix?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, lambdaFunctionArn?: fabric.ComputedValue<string> }>[];
+    /**
+     * The notification configuration to SQS Queue (documented below).
+     */
     readonly queue?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], filterPrefix?: fabric.ComputedValue<string>, filterSuffix?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, queueArn: fabric.ComputedValue<string> }>[];
+    /**
+     * The notification configuration to SNS Topic (documented below).
+     */
     readonly topic?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], filterPrefix?: fabric.ComputedValue<string>, filterSuffix?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, topicArn: fabric.ComputedValue<string> }>[];
 }
 

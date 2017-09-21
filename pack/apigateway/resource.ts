@@ -5,12 +5,35 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an API Gateway Resource.
+ */
 export class Resource extends fabric.Resource {
+    /**
+     * The ID of the parent API resource
+     */
     public readonly parentId: fabric.Computed<string>;
+    /**
+     * The complete path for this API resource, including all parent paths.
+     */
     public /*out*/ readonly path: fabric.Computed<string>;
+    /**
+     * The last path segment of this API resource.
+     */
     public readonly pathPart: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
 
+    /**
+     * Create a Resource resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Resource instance
+     * @param args A collection of arguments for creating this Resource intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ResourceArgs, dependsOn?: fabric.Resource[]) {
         if (args.parentId === undefined) {
             throw new Error("Missing required property 'parentId'");
@@ -30,9 +53,21 @@ export class Resource extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Resource resource.
+ */
 export interface ResourceArgs {
+    /**
+     * The ID of the parent API resource
+     */
     readonly parentId: fabric.ComputedValue<string>;
+    /**
+     * The last path segment of this API resource.
+     */
     readonly pathPart: fabric.ComputedValue<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.ComputedValue<RestApi>;
 }
 

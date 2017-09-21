@@ -3,14 +3,40 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SSM Maintenance Window resource
+ */
 export class MaintenanceWindow extends fabric.Resource {
+    /**
+     * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+     */
     public readonly allowUnassociatedTargets?: fabric.Computed<boolean>;
+    /**
+     * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+     */
     public readonly cutoff: fabric.Computed<number>;
+    /**
+     * The duration of the Maintenance Window in hours.
+     */
     public readonly duration: fabric.Computed<number>;
     public readonly enabled?: fabric.Computed<boolean>;
+    /**
+     * The name of the maintenance window.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     */
     public readonly schedule: fabric.Computed<string>;
 
+    /**
+     * Create a MaintenanceWindow resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MaintenanceWindow instance
+     * @param args A collection of arguments for creating this MaintenanceWindow intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MaintenanceWindowArgs, dependsOn?: fabric.Resource[]) {
         if (args.cutoff === undefined) {
             throw new Error("Missing required property 'cutoff'");
@@ -32,12 +58,30 @@ export class MaintenanceWindow extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MaintenanceWindow resource.
+ */
 export interface MaintenanceWindowArgs {
+    /**
+     * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+     */
     readonly allowUnassociatedTargets?: fabric.ComputedValue<boolean>;
+    /**
+     * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+     */
     readonly cutoff: fabric.ComputedValue<number>;
+    /**
+     * The duration of the Maintenance Window in hours.
+     */
     readonly duration: fabric.ComputedValue<number>;
     readonly enabled?: fabric.ComputedValue<boolean>;
+    /**
+     * The name of the maintenance window.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     */
     readonly schedule: fabric.ComputedValue<string>;
 }
 

@@ -3,23 +3,82 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
+ * 
+ * ~> **Note:** All arguments including the password will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class Endpoint extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     */
     public readonly certificateArn: fabric.Computed<string>;
+    /**
+     * The name of the endpoint database.
+     */
     public readonly databaseName?: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the endpoint.
+     */
     public /*out*/ readonly endpointArn: fabric.Computed<string>;
+    /**
+     * The database endpoint identifier.
+     */
     public readonly endpointId: fabric.Computed<string>;
+    /**
+     * The type of endpoint. Can be one of `source | target`.
+     */
     public readonly endpointType: fabric.Computed<string>;
+    /**
+     * The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb`.
+     */
     public readonly engineName: fabric.Computed<string>;
+    /**
+     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+     */
     public readonly extraConnectionAttributes: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     */
     public readonly kmsKeyArn: fabric.Computed<string>;
+    /**
+     * The password to be used to login to the endpoint database.
+     */
     public readonly password?: fabric.Computed<string>;
+    /**
+     * The port used by the endpoint database.
+     */
     public readonly port?: fabric.Computed<number>;
+    /**
+     * The host name of the server.
+     */
     public readonly serverName?: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
     public readonly serviceAccessRole?: fabric.Computed<string>;
+    /**
+     * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+     */
     public readonly sslMode: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The user name to be used to login to the endpoint database.
+     */
     public readonly username?: fabric.Computed<string>;
 
+    /**
+     * Create a Endpoint resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Endpoint instance
+     * @param args A collection of arguments for creating this Endpoint intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EndpointArgs, dependsOn?: fabric.Resource[]) {
         if (args.endpointId === undefined) {
             throw new Error("Missing required property 'endpointId'");
@@ -50,20 +109,65 @@ export class Endpoint extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Endpoint resource.
+ */
 export interface EndpointArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     */
     readonly certificateArn?: fabric.ComputedValue<string>;
+    /**
+     * The name of the endpoint database.
+     */
     readonly databaseName?: fabric.ComputedValue<string>;
+    /**
+     * The database endpoint identifier.
+     */
     readonly endpointId: fabric.ComputedValue<string>;
+    /**
+     * The type of endpoint. Can be one of `source | target`.
+     */
     readonly endpointType: fabric.ComputedValue<string>;
+    /**
+     * The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb`.
+     */
     readonly engineName: fabric.ComputedValue<string>;
+    /**
+     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+     */
     readonly extraConnectionAttributes?: fabric.ComputedValue<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     */
     readonly kmsKeyArn?: fabric.ComputedValue<string>;
+    /**
+     * The password to be used to login to the endpoint database.
+     */
     readonly password?: fabric.ComputedValue<string>;
+    /**
+     * The port used by the endpoint database.
+     */
     readonly port?: fabric.ComputedValue<number>;
+    /**
+     * The host name of the server.
+     */
     readonly serverName?: fabric.ComputedValue<string>;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
     readonly serviceAccessRole?: fabric.ComputedValue<string>;
+    /**
+     * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+     */
     readonly sslMode?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * The user name to be used to login to the endpoint database.
+     */
     readonly username?: fabric.ComputedValue<string>;
 }
 

@@ -3,12 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
+ */
 export class SslNegotiationPolicy extends fabric.Resource {
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     */
     public readonly attribute?: fabric.Computed<{ name: string, value: string }[]>;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     public readonly lbPort: fabric.Computed<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     public readonly loadBalancer: fabric.Computed<string>;
+    /**
+     * The name of the attribute
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a SslNegotiationPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SslNegotiationPolicy instance
+     * @param args A collection of arguments for creating this SslNegotiationPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SslNegotiationPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.lbPort === undefined) {
             throw new Error("Missing required property 'lbPort'");
@@ -25,10 +51,28 @@ export class SslNegotiationPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SslNegotiationPolicy resource.
+ */
 export interface SslNegotiationPolicyArgs {
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     */
     readonly attribute?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
     readonly lbPort: fabric.ComputedValue<number>;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
     readonly loadBalancer: fabric.ComputedValue<string>;
+    /**
+     * The name of the attribute
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

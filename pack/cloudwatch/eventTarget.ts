@@ -3,16 +3,52 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CloudWatch Event Target resource.
+ */
 export class EventTarget extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) associated of the target.
+     */
     public readonly arn: fabric.Computed<string>;
+    /**
+     * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+     */
     public readonly ecsTarget?: fabric.Computed<{ taskCount?: number, taskDefinitionArn: string }[]>;
+    /**
+     * Valid JSON text passed to the target.
+     */
     public readonly input?: fabric.Computed<string>;
+    /**
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
+     * that is used for extracting part of the matched event when passing it to the target.
+     */
     public readonly inputPath?: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     */
     public readonly roleArn?: fabric.Computed<string>;
+    /**
+     * The name of the rule you want to add targets to.
+     */
     public readonly rule: fabric.Computed<string>;
+    /**
+     * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+     */
     public readonly runCommandTargets?: fabric.Computed<{ key: string, values: string[] }[]>;
+    /**
+     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     */
     public readonly targetId: fabric.Computed<string>;
 
+    /**
+     * Create a EventTarget resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EventTarget instance
+     * @param args A collection of arguments for creating this EventTarget intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EventTargetArgs, dependsOn?: fabric.Resource[]) {
         if (args.arn === undefined) {
             throw new Error("Missing required property 'arn'");
@@ -33,14 +69,42 @@ export class EventTarget extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EventTarget resource.
+ */
 export interface EventTargetArgs {
+    /**
+     * The Amazon Resource Name (ARN) associated of the target.
+     */
     readonly arn: fabric.ComputedValue<string>;
+    /**
+     * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+     */
     readonly ecsTarget?: fabric.ComputedValue<{ taskCount?: fabric.ComputedValue<number>, taskDefinitionArn: fabric.ComputedValue<string> }>[];
+    /**
+     * Valid JSON text passed to the target.
+     */
     readonly input?: fabric.ComputedValue<string>;
+    /**
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
+     * that is used for extracting part of the matched event when passing it to the target.
+     */
     readonly inputPath?: fabric.ComputedValue<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     */
     readonly roleArn?: fabric.ComputedValue<string>;
+    /**
+     * The name of the rule you want to add targets to.
+     */
     readonly rule: fabric.ComputedValue<string>;
+    /**
+     * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+     */
     readonly runCommandTargets?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    /**
+     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     */
     readonly targetId?: fabric.ComputedValue<string>;
 }
 

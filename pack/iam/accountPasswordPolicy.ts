@@ -3,18 +3,66 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * -> **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
+ * 
+ * Manages Password Policy for the AWS Account.
+ * See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
+ * in the official AWS docs.
+ */
 export class AccountPasswordPolicy extends fabric.Resource {
+    /**
+     * Whether to allow users to change their own password
+     */
     public readonly allowUsersToChangePassword?: fabric.Computed<boolean>;
+    /**
+     * Indicates whether passwords in the account expire.
+     * Returns `true` if `max_password_age` contains a value greater than `0`.
+     * Returns `false` if it is `0` or _not present_.
+     */
     public /*out*/ readonly expirePasswords: fabric.Computed<boolean>;
+    /**
+     * Whether users are prevented from setting a new password after their password has expired
+     * (i.e. require administrator reset)
+     */
     public readonly hardExpiry: fabric.Computed<boolean>;
+    /**
+     * The number of days that an user password is valid.
+     */
     public readonly maxPasswordAge: fabric.Computed<number>;
+    /**
+     * Minimum length to require for user passwords.
+     */
     public readonly minimumPasswordLength?: fabric.Computed<number>;
+    /**
+     * The number of previous passwords that users are prevented from reusing.
+     */
     public readonly passwordReusePrevention: fabric.Computed<number>;
+    /**
+     * Whether to require lowercase characters for user passwords.
+     */
     public readonly requireLowercaseCharacters: fabric.Computed<boolean>;
+    /**
+     * Whether to require numbers for user passwords.
+     */
     public readonly requireNumbers: fabric.Computed<boolean>;
+    /**
+     * Whether to require symbols for user passwords.
+     */
     public readonly requireSymbols: fabric.Computed<boolean>;
+    /**
+     * Whether to require uppercase characters for user passwords.
+     */
     public readonly requireUppercaseCharacters: fabric.Computed<boolean>;
 
+    /**
+     * Create a AccountPasswordPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AccountPasswordPolicy instance
+     * @param args A collection of arguments for creating this AccountPasswordPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: AccountPasswordPolicyArgs, dependsOn?: fabric.Resource[]) {
         super("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", urnName, {
             "allowUsersToChangePassword": args.allowUsersToChangePassword,
@@ -31,15 +79,46 @@ export class AccountPasswordPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AccountPasswordPolicy resource.
+ */
 export interface AccountPasswordPolicyArgs {
+    /**
+     * Whether to allow users to change their own password
+     */
     readonly allowUsersToChangePassword?: fabric.ComputedValue<boolean>;
+    /**
+     * Whether users are prevented from setting a new password after their password has expired
+     * (i.e. require administrator reset)
+     */
     readonly hardExpiry?: fabric.ComputedValue<boolean>;
+    /**
+     * The number of days that an user password is valid.
+     */
     readonly maxPasswordAge?: fabric.ComputedValue<number>;
+    /**
+     * Minimum length to require for user passwords.
+     */
     readonly minimumPasswordLength?: fabric.ComputedValue<number>;
+    /**
+     * The number of previous passwords that users are prevented from reusing.
+     */
     readonly passwordReusePrevention?: fabric.ComputedValue<number>;
+    /**
+     * Whether to require lowercase characters for user passwords.
+     */
     readonly requireLowercaseCharacters?: fabric.ComputedValue<boolean>;
+    /**
+     * Whether to require numbers for user passwords.
+     */
     readonly requireNumbers?: fabric.ComputedValue<boolean>;
+    /**
+     * Whether to require symbols for user passwords.
+     */
     readonly requireSymbols?: fabric.ComputedValue<boolean>;
+    /**
+     * Whether to require uppercase characters for user passwords.
+     */
     readonly requireUppercaseCharacters?: fabric.ComputedValue<boolean>;
 }
 

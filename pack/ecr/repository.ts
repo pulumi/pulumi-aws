@@ -3,12 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an EC2 Container Registry Repository.
+ * 
+ * ~> **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
+ * in all regions - available regions are listed
+ * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
+ */
 export class Repository extends fabric.Resource {
+    /**
+     * Full ARN of the repository.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Name of the repository.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The registry ID where the repository was created.
+     */
     public /*out*/ readonly registryId: fabric.Computed<string>;
+    /**
+     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+     */
     public /*out*/ readonly repositoryUrl: fabric.Computed<string>;
 
+    /**
+     * Create a Repository resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Repository instance
+     * @param args A collection of arguments for creating this Repository intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: RepositoryArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ecr/repository:Repository", urnName, {
             "name": args.name,
@@ -19,7 +46,13 @@ export class Repository extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Repository resource.
+ */
 export interface RepositoryArgs {
+    /**
+     * Name of the repository.
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

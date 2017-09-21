@@ -3,11 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AutoScaling Attachment resource.
+ * 
+ * ~> **NOTE on AutoScaling Groups and ASG Attachments:** Terraform currently provides
+ * both a standalone ASG Attachment resource (describing an ASG attached to
+ * an ELB), and an [AutoScaling Group resource](autoscaling_group.html) with
+ * `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
+ * load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
+ * conflict and will overwrite attachments.
+ */
 export class Attachment extends fabric.Resource {
+    /**
+     * The ARN of an ALB Target Group.
+     */
     public readonly albTargetGroupArn?: fabric.Computed<string>;
+    /**
+     * Name of ASG to associate with the ELB.
+     */
     public readonly autoscalingGroupName: fabric.Computed<string>;
+    /**
+     * The name of the ELB.
+     */
     public readonly elb?: fabric.Computed<string>;
 
+    /**
+     * Create a Attachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Attachment instance
+     * @param args A collection of arguments for creating this Attachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.autoscalingGroupName === undefined) {
             throw new Error("Missing required property 'autoscalingGroupName'");
@@ -20,9 +47,21 @@ export class Attachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Attachment resource.
+ */
 export interface AttachmentArgs {
+    /**
+     * The ARN of an ALB Target Group.
+     */
     readonly albTargetGroupArn?: fabric.ComputedValue<string>;
+    /**
+     * Name of ASG to associate with the ELB.
+     */
     readonly autoscalingGroupName: fabric.ComputedValue<string>;
+    /**
+     * The name of the ELB.
+     */
     readonly elb?: fabric.ComputedValue<string>;
 }
 

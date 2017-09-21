@@ -3,9 +3,23 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to designate the active SES receipt rule set
+ */
 export class ActiveReceiptRuleSet extends fabric.Resource {
+    /**
+     * The name of the rule set
+     */
     public readonly ruleSetName: fabric.Computed<string>;
 
+    /**
+     * Create a ActiveReceiptRuleSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ActiveReceiptRuleSet instance
+     * @param args A collection of arguments for creating this ActiveReceiptRuleSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ActiveReceiptRuleSetArgs, dependsOn?: fabric.Resource[]) {
         if (args.ruleSetName === undefined) {
             throw new Error("Missing required property 'ruleSetName'");
@@ -16,7 +30,13 @@ export class ActiveReceiptRuleSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ActiveReceiptRuleSet resource.
+ */
 export interface ActiveReceiptRuleSetArgs {
+    /**
+     * The name of the rule set
+     */
     readonly ruleSetName: fabric.ComputedValue<string>;
 }
 

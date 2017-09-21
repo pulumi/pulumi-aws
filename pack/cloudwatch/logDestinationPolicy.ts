@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CloudWatch Logs destination policy resource.
+ */
 export class LogDestinationPolicy extends fabric.Resource {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly accessPolicy: fabric.Computed<string>;
+    /**
+     * A name for the subscription filter
+     */
     public readonly destinationName: fabric.Computed<string>;
 
+    /**
+     * Create a LogDestinationPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LogDestinationPolicy instance
+     * @param args A collection of arguments for creating this LogDestinationPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LogDestinationPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.accessPolicy === undefined) {
             throw new Error("Missing required property 'accessPolicy'");
@@ -21,8 +38,17 @@ export class LogDestinationPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LogDestinationPolicy resource.
+ */
 export interface LogDestinationPolicyArgs {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly accessPolicy: fabric.ComputedValue<string>;
+    /**
+     * A name for the subscription filter
+     */
     readonly destinationName: fabric.ComputedValue<string>;
 }
 

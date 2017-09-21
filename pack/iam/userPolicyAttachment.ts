@@ -6,10 +6,44 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 import {User} from "./user";
 
+/**
+ * Attaches a Managed IAM Policy to an IAM user
+ * 
+ * ```hcl
+ * resource "aws_iam_user" "user" {
+ *     name = "test-user"
+ * }
+ * 
+ * resource "aws_iam_policy" "policy" {
+ *     name        = "test-policy"
+ *     description = "A test policy"
+ *     policy      = # omitted
+ * }
+ * 
+ * resource "aws_iam_user_policy_attachment" "test-attach" {
+ *     user       = "${aws_iam_user.user.name}"
+ *     policy_arn = "${aws_iam_policy.policy.arn}"
+ * }
+ * ```
+ */
 export class UserPolicyAttachment extends fabric.Resource {
+    /**
+     * The ARN of the policy you want to apply
+     */
     public readonly policyArn: fabric.Computed<ARN>;
+    /**
+     * The user the policy should be applied to
+     */
     public readonly user: fabric.Computed<User>;
 
+    /**
+     * Create a UserPolicyAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this UserPolicyAttachment instance
+     * @param args A collection of arguments for creating this UserPolicyAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: UserPolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.policyArn === undefined) {
             throw new Error("Missing required property 'policyArn'");
@@ -24,8 +58,17 @@ export class UserPolicyAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a UserPolicyAttachment resource.
+ */
 export interface UserPolicyAttachmentArgs {
+    /**
+     * The ARN of the policy you want to apply
+     */
     readonly policyArn: fabric.ComputedValue<ARN>;
+    /**
+     * The user the policy should be applied to
+     */
     readonly user: fabric.ComputedValue<User>;
 }
 

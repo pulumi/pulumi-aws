@@ -3,15 +3,48 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AWS Cognito Identity Pool.
+ */
 export class IdentityPool extends fabric.Resource {
+    /**
+     * Whether the identity pool supports unauthenticated logins or not.
+     */
     public readonly allowUnauthenticatedIdentities?: fabric.Computed<boolean>;
+    /**
+     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     */
     public readonly cognitoIdentityProviders?: fabric.Computed<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[]>;
+    /**
+     * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
+     * backend and the Cognito service to communicate about the developer provider.
+     */
     public readonly developerProviderName?: fabric.Computed<string>;
+    /**
+     * The Cognito Identity Pool name.
+     */
     public readonly identityPoolName: fabric.Computed<string>;
+    /**
+     * A list of OpendID Connect provider ARNs.
+     */
     public readonly openidConnectProviderArns?: fabric.Computed<string[]>;
+    /**
+     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     */
     public readonly samlProviderArns?: fabric.Computed<string[]>;
+    /**
+     * Key-Value pairs mapping provider names to provider app IDs.
+     */
     public readonly supportedLoginProviders?: fabric.Computed<{[key: string]: string}>;
 
+    /**
+     * Create a IdentityPool resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this IdentityPool instance
+     * @param args A collection of arguments for creating this IdentityPool intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: IdentityPoolArgs, dependsOn?: fabric.Resource[]) {
         if (args.identityPoolName === undefined) {
             throw new Error("Missing required property 'identityPoolName'");
@@ -28,13 +61,38 @@ export class IdentityPool extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a IdentityPool resource.
+ */
 export interface IdentityPoolArgs {
+    /**
+     * Whether the identity pool supports unauthenticated logins or not.
+     */
     readonly allowUnauthenticatedIdentities?: fabric.ComputedValue<boolean>;
+    /**
+     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     */
     readonly cognitoIdentityProviders?: fabric.ComputedValue<{ clientId?: fabric.ComputedValue<string>, providerName?: fabric.ComputedValue<string>, serverSideTokenCheck?: fabric.ComputedValue<boolean> }>[];
+    /**
+     * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
+     * backend and the Cognito service to communicate about the developer provider.
+     */
     readonly developerProviderName?: fabric.ComputedValue<string>;
+    /**
+     * The Cognito Identity Pool name.
+     */
     readonly identityPoolName: fabric.ComputedValue<string>;
+    /**
+     * A list of OpendID Connect provider ARNs.
+     */
     readonly openidConnectProviderArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     */
     readonly samlProviderArns?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * Key-Value pairs mapping provider names to provider app IDs.
+     */
     readonly supportedLoginProviders?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
 }
 

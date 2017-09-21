@@ -3,22 +3,81 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * The AMI resource allows the creation and management of a completely-custom
+ * *Amazon Machine Image* (AMI).
+ * 
+ * If you just want to duplicate an existing AMI, possibly copying it to another
+ * region, it's better to use `aws_ami_copy` instead.
+ * 
+ * If you just want to share an existing AMI with another AWS account,
+ * it's better to use `aws_ami_launch_permission` instead.
+ */
 export class Ami extends fabric.Resource {
+    /**
+     * Machine architecture for created instances. Defaults to "x86_64".
+     */
     public readonly architecture?: fabric.Computed<string>;
+    /**
+     * A longer, human-readable description for the AMI.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize: number, volumeType?: string }[]>;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
     public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
+    /**
+     * The ID of the created AMI.
+     */
     public /*out*/ readonly amiId: fabric.Computed<string>;
+    /**
+     * Path to an S3 object containing an image manifest, e.g. created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     */
     public readonly imageLocation: fabric.Computed<string>;
+    /**
+     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     */
     public readonly kernelId?: fabric.Computed<string>;
     public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
+    /**
+     * A region-unique name for the AMI.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The id of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     */
     public readonly ramdiskId?: fabric.Computed<string>;
     public readonly rootDeviceName?: fabric.Computed<string>;
+    /**
+     * When set to "simple" (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     */
     public readonly sriovNetSupport?: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     */
     public readonly virtualizationType?: fabric.Computed<string>;
 
+    /**
+     * Create a Ami resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Ami instance
+     * @param args A collection of arguments for creating this Ami intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: AmiArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/ami:Ami", urnName, {
             "architecture": args.architecture,
@@ -39,18 +98,59 @@ export class Ami extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Ami resource.
+ */
 export interface AmiArgs {
+    /**
+     * Machine architecture for created instances. Defaults to "x86_64".
+     */
     readonly architecture?: fabric.ComputedValue<string>;
+    /**
+     * A longer, human-readable description for the AMI.
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
     readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
     readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[];
+    /**
+     * Path to an S3 object containing an image manifest, e.g. created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     */
     readonly imageLocation?: fabric.ComputedValue<string>;
+    /**
+     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     */
     readonly kernelId?: fabric.ComputedValue<string>;
+    /**
+     * A region-unique name for the AMI.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The id of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     */
     readonly ramdiskId?: fabric.ComputedValue<string>;
     readonly rootDeviceName?: fabric.ComputedValue<string>;
+    /**
+     * When set to "simple" (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     */
     readonly sriovNetSupport?: fabric.ComputedValue<string>;
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     */
     readonly virtualizationType?: fabric.ComputedValue<string>;
 }
 

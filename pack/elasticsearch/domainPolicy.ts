@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Allows setting policy to an ElasticSearch domain while referencing domain attributes (e.g. ARN)
+ */
 export class DomainPolicy extends fabric.Resource {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     */
     public readonly accessPolicies: fabric.Computed<string>;
+    /**
+     * Name of the domain.
+     */
     public readonly domainName: fabric.Computed<string>;
 
+    /**
+     * Create a DomainPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DomainPolicy instance
+     * @param args A collection of arguments for creating this DomainPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DomainPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.accessPolicies === undefined) {
             throw new Error("Missing required property 'accessPolicies'");
@@ -21,8 +38,17 @@ export class DomainPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DomainPolicy resource.
+ */
 export interface DomainPolicyArgs {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     */
     readonly accessPolicies: fabric.ComputedValue<string>;
+    /**
+     * Name of the domain.
+     */
     readonly domainName: fabric.ComputedValue<string>;
 }
 

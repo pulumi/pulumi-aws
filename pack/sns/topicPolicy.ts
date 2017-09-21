@@ -3,10 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SNS topic policy resource
+ * 
+ * ~> **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future terraform plans to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
+ */
 export class TopicPolicy extends fabric.Resource {
+    /**
+     * The ARN of the SNS topic
+     */
     public readonly arn: fabric.Computed<string>;
+    /**
+     * The fully-formed AWS policy as JSON
+     */
     public readonly policy: fabric.Computed<string>;
 
+    /**
+     * Create a TopicPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this TopicPolicy instance
+     * @param args A collection of arguments for creating this TopicPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: TopicPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.arn === undefined) {
             throw new Error("Missing required property 'arn'");
@@ -21,8 +40,17 @@ export class TopicPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a TopicPolicy resource.
+ */
 export interface TopicPolicyArgs {
+    /**
+     * The ARN of the SNS topic
+     */
     readonly arn: fabric.ComputedValue<string>;
+    /**
+     * The fully-formed AWS policy as JSON
+     */
     readonly policy: fabric.ComputedValue<string>;
 }
 

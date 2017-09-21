@@ -3,9 +3,23 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a SimpleDB domain resource
+ */
 export class Domain extends fabric.Resource {
+    /**
+     * The name of the SimpleDB domain
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a Domain resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Domain instance
+     * @param args A collection of arguments for creating this Domain intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: DomainArgs, dependsOn?: fabric.Resource[]) {
         super("aws:simpledb/domain:Domain", urnName, {
             "name": args.name,
@@ -13,7 +27,13 @@ export class Domain extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Domain resource.
+ */
 export interface DomainArgs {
+    /**
+     * The name of the SimpleDB domain
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

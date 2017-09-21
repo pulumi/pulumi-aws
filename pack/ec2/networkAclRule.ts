@@ -3,19 +3,63 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates an entry (a rule) in a network ACL with the specified rule number.
+ */
 export class NetworkAclRule extends fabric.Resource {
+    /**
+     * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+     */
     public readonly cidrBlock?: fabric.Computed<string>;
+    /**
+     * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+     */
     public readonly egress?: fabric.Computed<boolean>;
+    /**
+     * The from port to match.
+     */
     public readonly fromPort?: fabric.Computed<number>;
+    /**
+     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+     */
     public readonly icmpCode?: fabric.Computed<string>;
+    /**
+     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+     */
     public readonly icmpType?: fabric.Computed<string>;
+    /**
+     * The IPv6 CIDR block to allow or deny.
+     */
     public readonly ipv6CidrBlock?: fabric.Computed<string>;
+    /**
+     * The ID of the network ACL.
+     */
     public readonly networkAclId: fabric.Computed<string>;
+    /**
+     * The protocol. A value of -1 means all protocols.
+     */
     public readonly protocol: fabric.Computed<string>;
+    /**
+     * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+     */
     public readonly ruleAction: fabric.Computed<string>;
+    /**
+     * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+     */
     public readonly ruleNumber: fabric.Computed<number>;
+    /**
+     * The to port to match.
+     */
     public readonly toPort?: fabric.Computed<number>;
 
+    /**
+     * Create a NetworkAclRule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this NetworkAclRule instance
+     * @param args A collection of arguments for creating this NetworkAclRule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: NetworkAclRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.networkAclId === undefined) {
             throw new Error("Missing required property 'networkAclId'");
@@ -45,17 +89,53 @@ export class NetworkAclRule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a NetworkAclRule resource.
+ */
 export interface NetworkAclRuleArgs {
+    /**
+     * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+     */
     readonly cidrBlock?: fabric.ComputedValue<string>;
+    /**
+     * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+     */
     readonly egress?: fabric.ComputedValue<boolean>;
+    /**
+     * The from port to match.
+     */
     readonly fromPort?: fabric.ComputedValue<number>;
+    /**
+     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+     */
     readonly icmpCode?: fabric.ComputedValue<string>;
+    /**
+     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+     */
     readonly icmpType?: fabric.ComputedValue<string>;
+    /**
+     * The IPv6 CIDR block to allow or deny.
+     */
     readonly ipv6CidrBlock?: fabric.ComputedValue<string>;
+    /**
+     * The ID of the network ACL.
+     */
     readonly networkAclId: fabric.ComputedValue<string>;
+    /**
+     * The protocol. A value of -1 means all protocols.
+     */
     readonly protocol: fabric.ComputedValue<string>;
+    /**
+     * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+     */
     readonly ruleAction: fabric.ComputedValue<string>;
+    /**
+     * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+     */
     readonly ruleNumber: fabric.ComputedValue<number>;
+    /**
+     * The to port to match.
+     */
     readonly toPort?: fabric.ComputedValue<number>;
 }
 

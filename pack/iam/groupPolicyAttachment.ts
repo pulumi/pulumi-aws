@@ -6,10 +6,44 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {ARN} from "../index";
 import {Group} from "./group";
 
+/**
+ * Attaches a Managed IAM Policy to an IAM group
+ * 
+ * ```hcl
+ * resource "aws_iam_group" "group" {
+ *   name = "test-group"
+ * }
+ * 
+ * resource "aws_iam_policy" "policy" {
+ *   name        = "test-policy"
+ *   description = "A test policy"
+ *   policy      = # omitted
+ * }
+ * 
+ * resource "aws_iam_group_policy_attachment" "test-attach" {
+ *   group      = "${aws_iam_group.group.name}"
+ *   policy_arn = "${aws_iam_policy.policy.arn}"
+ * }
+ * ```
+ */
 export class GroupPolicyAttachment extends fabric.Resource {
+    /**
+     * The group the policy should be applied to
+     */
     public readonly group: fabric.Computed<Group>;
+    /**
+     * The ARN of the policy you want to apply
+     */
     public readonly policyArn: fabric.Computed<ARN>;
 
+    /**
+     * Create a GroupPolicyAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this GroupPolicyAttachment instance
+     * @param args A collection of arguments for creating this GroupPolicyAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: GroupPolicyAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.group === undefined) {
             throw new Error("Missing required property 'group'");
@@ -24,8 +58,17 @@ export class GroupPolicyAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a GroupPolicyAttachment resource.
+ */
 export interface GroupPolicyAttachmentArgs {
+    /**
+     * The group the policy should be applied to
+     */
     readonly group: fabric.ComputedValue<Group>;
+    /**
+     * The ARN of the policy you want to apply
+     */
     readonly policyArn: fabric.ComputedValue<ARN>;
 }
 

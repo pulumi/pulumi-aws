@@ -5,22 +5,80 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an HTTP Method Integration for an API Gateway Integration.
+ */
 export class Integration extends fabric.Resource {
+    /**
+     * A list of cache key parameters for the integration.
+     */
     public readonly cacheKeyParameters?: fabric.Computed<string[]>;
     public readonly cacheNamespace: fabric.Computed<string>;
+    /**
+     * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+     */
     public readonly contentHandling?: fabric.Computed<string>;
+    /**
+     * The credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+     */
     public readonly credentials?: fabric.Computed<string>;
+    /**
+     * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     * when calling the associated resource.
+     */
     public readonly httpMethod: fabric.Computed<string>;
+    /**
+     * The integration HTTP method
+     * (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`) specifying how API Gateway will interact with the back end.
+     * **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+     * Not all methods are compatible with all `AWS` integrations.
+     * e.g. Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+     */
     public readonly integrationHttpMethod?: fabric.Computed<string>;
+    /**
+     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     */
     public readonly passthroughBehavior: fabric.Computed<string>;
+    /**
+     * A map of request query string parameters and headers that should be passed to the backend responder.
+     * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+     */
     public readonly requestParameters?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * **Deprecated**, use `request_parameters` instead.
+     */
     public readonly requestParametersInJson?: fabric.Computed<string>;
+    /**
+     * A map of the integration's request templates.
+     */
     public readonly requestTemplates?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * The API resource ID.
+     */
     public readonly resourceId: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API.
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The integration input's type (HTTP, MOCK, AWS, AWS_PROXY, HTTP_PROXY)
+     */
     public readonly type: fabric.Computed<string>;
+    /**
+     * The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.
+     * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
+     */
     public readonly uri?: fabric.Computed<string>;
 
+    /**
+     * Create a Integration resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Integration instance
+     * @param args A collection of arguments for creating this Integration intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: IntegrationArgs, dependsOn?: fabric.Resource[]) {
         if (args.httpMethod === undefined) {
             throw new Error("Missing required property 'httpMethod'");
@@ -53,20 +111,70 @@ export class Integration extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Integration resource.
+ */
 export interface IntegrationArgs {
+    /**
+     * A list of cache key parameters for the integration.
+     */
     readonly cacheKeyParameters?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     readonly cacheNamespace?: fabric.ComputedValue<string>;
+    /**
+     * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+     */
     readonly contentHandling?: fabric.ComputedValue<string>;
+    /**
+     * The credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+     */
     readonly credentials?: fabric.ComputedValue<string>;
+    /**
+     * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     * when calling the associated resource.
+     */
     readonly httpMethod: fabric.ComputedValue<string>;
+    /**
+     * The integration HTTP method
+     * (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`) specifying how API Gateway will interact with the back end.
+     * **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+     * Not all methods are compatible with all `AWS` integrations.
+     * e.g. Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+     */
     readonly integrationHttpMethod?: fabric.ComputedValue<string>;
+    /**
+     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     */
     readonly passthroughBehavior?: fabric.ComputedValue<string>;
+    /**
+     * A map of request query string parameters and headers that should be passed to the backend responder.
+     * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+     */
     readonly requestParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    /**
+     * **Deprecated**, use `request_parameters` instead.
+     */
     readonly requestParametersInJson?: fabric.ComputedValue<string>;
+    /**
+     * A map of the integration's request templates.
+     */
     readonly requestTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    /**
+     * The API resource ID.
+     */
     readonly resourceId: fabric.ComputedValue<string>;
+    /**
+     * The ID of the associated REST API.
+     */
     readonly restApi: fabric.ComputedValue<RestApi>;
+    /**
+     * The integration input's type (HTTP, MOCK, AWS, AWS_PROXY, HTTP_PROXY)
+     */
     readonly type: fabric.ComputedValue<string>;
+    /**
+     * The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.
+     * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+     * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
+     */
     readonly uri?: fabric.ComputedValue<string>;
 }
 

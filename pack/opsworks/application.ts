@@ -3,26 +3,91 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an OpsWorks application resource.
+ */
 export class Application extends fabric.Resource {
+    /**
+     * SCM configuration of the app as described below.
+     */
     public readonly appSource: fabric.Computed<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
+    /**
+     * Run bundle install when deploying for application of type `rails`.
+     */
     public readonly autoBundleOnDeploy?: fabric.Computed<string>;
+    /**
+     * Specify activity and workflow workers for your app using the aws-flow gem.
+     */
     public readonly awsFlowRubySettings?: fabric.Computed<string>;
+    /**
+     * The data source's ARN.
+     */
     public readonly dataSourceArn?: fabric.Computed<string>;
+    /**
+     * The database name.
+     */
     public readonly dataSourceDatabaseName?: fabric.Computed<string>;
+    /**
+     * The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
+     */
     public readonly dataSourceType?: fabric.Computed<string>;
+    /**
+     * A description of the app.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Subfolder for the document root for application of type `rails`.
+     */
     public readonly documentRoot?: fabric.Computed<string>;
+    /**
+     * A list of virtual host alias.
+     */
     public readonly domains?: fabric.Computed<string[]>;
+    /**
+     * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
+     */
     public readonly enableSsl?: fabric.Computed<boolean>;
+    /**
+     * Object to define environment variables.  Object is described below.
+     */
     public readonly environment?: fabric.Computed<{ key: string, secure?: boolean, value: string }[]>;
+    /**
+     * The id of the application.
+     */
     public /*out*/ readonly applicationId: fabric.Computed<string>;
+    /**
+     * A human-readable name for the application.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The name of the Rails environment for application of type `rails`.
+     */
     public readonly railsEnv?: fabric.Computed<string>;
+    /**
+     * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
+     */
     public readonly shortName: fabric.Computed<string>;
+    /**
+     * The SSL configuration of the app. Object is described below.
+     */
     public readonly sslConfiguration?: fabric.Computed<{ certificate: string, chain?: string, privateKey: string }[]>;
+    /**
+     * The id of the stack the application will belong to.
+     */
     public readonly stackId: fabric.Computed<string>;
+    /**
+     * The type of source to use. For example, "archive".
+     */
     public readonly type: fabric.Computed<string>;
 
+    /**
+     * Create a Application resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Application instance
+     * @param args A collection of arguments for creating this Application intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ApplicationArgs, dependsOn?: fabric.Resource[]) {
         if (args.stackId === undefined) {
             throw new Error("Missing required property 'stackId'");
@@ -53,23 +118,77 @@ export class Application extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Application resource.
+ */
 export interface ApplicationArgs {
+    /**
+     * SCM configuration of the app as described below.
+     */
     readonly appSource?: fabric.ComputedValue<{ password?: fabric.ComputedValue<string>, revision?: fabric.ComputedValue<string>, sshKey?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string>, url?: fabric.ComputedValue<string>, username?: fabric.ComputedValue<string> }>[];
+    /**
+     * Run bundle install when deploying for application of type `rails`.
+     */
     readonly autoBundleOnDeploy?: fabric.ComputedValue<string>;
+    /**
+     * Specify activity and workflow workers for your app using the aws-flow gem.
+     */
     readonly awsFlowRubySettings?: fabric.ComputedValue<string>;
+    /**
+     * The data source's ARN.
+     */
     readonly dataSourceArn?: fabric.ComputedValue<string>;
+    /**
+     * The database name.
+     */
     readonly dataSourceDatabaseName?: fabric.ComputedValue<string>;
+    /**
+     * The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
+     */
     readonly dataSourceType?: fabric.ComputedValue<string>;
+    /**
+     * A description of the app.
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * Subfolder for the document root for application of type `rails`.
+     */
     readonly documentRoot?: fabric.ComputedValue<string>;
+    /**
+     * A list of virtual host alias.
+     */
     readonly domains?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
+     */
     readonly enableSsl?: fabric.ComputedValue<boolean>;
+    /**
+     * Object to define environment variables.  Object is described below.
+     */
     readonly environment?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, secure?: fabric.ComputedValue<boolean>, value: fabric.ComputedValue<string> }>[];
+    /**
+     * A human-readable name for the application.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The name of the Rails environment for application of type `rails`.
+     */
     readonly railsEnv?: fabric.ComputedValue<string>;
+    /**
+     * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
+     */
     readonly shortName?: fabric.ComputedValue<string>;
+    /**
+     * The SSL configuration of the app. Object is described below.
+     */
     readonly sslConfiguration?: fabric.ComputedValue<{ certificate: fabric.ComputedValue<string>, chain?: fabric.ComputedValue<string>, privateKey: fabric.ComputedValue<string> }>[];
+    /**
+     * The id of the stack the application will belong to.
+     */
     readonly stackId: fabric.ComputedValue<string>;
+    /**
+     * The type of source to use. For example, "archive".
+     */
     readonly type: fabric.ComputedValue<string>;
 }
 

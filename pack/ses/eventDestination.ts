@@ -3,14 +3,43 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SES event destination
+ */
 export class EventDestination extends fabric.Resource {
+    /**
+     * CloudWatch destination for the events
+     */
     public readonly cloudwatchDestination?: fabric.Computed<{ defaultValue: string, dimensionName: string, valueSource: string }[]>;
+    /**
+     * The name of the configuration set
+     */
     public readonly configurationSetName: fabric.Computed<string>;
+    /**
+     * If true, the event destination will be enabled
+     */
     public readonly enabled?: fabric.Computed<boolean>;
+    /**
+     * Send the events to a kinesis firehose destination
+     */
     public readonly kinesisDestination?: fabric.Computed<{ roleArn: string, streamArn: string }[]>;
+    /**
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, or `"delivery"`.
+     */
     public readonly matchingTypes: fabric.Computed<string[]>;
+    /**
+     * The name of the event destination
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a EventDestination resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EventDestination instance
+     * @param args A collection of arguments for creating this EventDestination intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EventDestinationArgs, dependsOn?: fabric.Resource[]) {
         if (args.configurationSetName === undefined) {
             throw new Error("Missing required property 'configurationSetName'");
@@ -29,12 +58,33 @@ export class EventDestination extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EventDestination resource.
+ */
 export interface EventDestinationArgs {
+    /**
+     * CloudWatch destination for the events
+     */
     readonly cloudwatchDestination?: fabric.ComputedValue<{ defaultValue: fabric.ComputedValue<string>, dimensionName: fabric.ComputedValue<string>, valueSource: fabric.ComputedValue<string> }>[];
+    /**
+     * The name of the configuration set
+     */
     readonly configurationSetName: fabric.ComputedValue<string>;
+    /**
+     * If true, the event destination will be enabled
+     */
     readonly enabled?: fabric.ComputedValue<boolean>;
+    /**
+     * Send the events to a kinesis firehose destination
+     */
     readonly kinesisDestination?: fabric.ComputedValue<{ roleArn: fabric.ComputedValue<string>, streamArn: fabric.ComputedValue<string> }>[];
+    /**
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, or `"delivery"`.
+     */
     readonly matchingTypes: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The name of the event destination
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

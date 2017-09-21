@@ -3,17 +3,48 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic IP resource.
+ */
 export class Eip extends fabric.Resource {
     public /*out*/ readonly allocationId: fabric.Computed<string>;
+    /**
+     * A user specified primary or secondary private IP address to
+     * associate with the Elastic IP address. If no private IP address is specified,
+     * the Elastic IP address is associated with the primary private IP address.
+     */
     public readonly associateWithPrivateIp?: fabric.Computed<string>;
     public /*out*/ readonly associationId: fabric.Computed<string>;
     public /*out*/ readonly domain: fabric.Computed<string>;
+    /**
+     * EC2 instance ID.
+     */
     public readonly instance: fabric.Computed<string>;
+    /**
+     * Network interface ID to associate with.
+     */
     public readonly networkInterface: fabric.Computed<string>;
+    /**
+     * Contains the private IP address (if in VPC).
+     */
     public /*out*/ readonly privateIp: fabric.Computed<string>;
+    /**
+     * Contains the public IP address.
+     */
     public /*out*/ readonly publicIp: fabric.Computed<string>;
+    /**
+     * Boolean if the EIP is in a VPC or not.
+     */
     public readonly vpc: fabric.Computed<boolean>;
 
+    /**
+     * Create a Eip resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Eip instance
+     * @param args A collection of arguments for creating this Eip intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: EipArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ec2/eip:Eip", urnName, {
             "associateWithPrivateIp": args.associateWithPrivateIp,
@@ -29,10 +60,27 @@ export class Eip extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Eip resource.
+ */
 export interface EipArgs {
+    /**
+     * A user specified primary or secondary private IP address to
+     * associate with the Elastic IP address. If no private IP address is specified,
+     * the Elastic IP address is associated with the primary private IP address.
+     */
     readonly associateWithPrivateIp?: fabric.ComputedValue<string>;
+    /**
+     * EC2 instance ID.
+     */
     readonly instance?: fabric.ComputedValue<string>;
+    /**
+     * Network interface ID to associate with.
+     */
     readonly networkInterface?: fabric.ComputedValue<string>;
+    /**
+     * Boolean if the EIP is in a VPC or not.
+     */
     readonly vpc?: fabric.ComputedValue<boolean>;
 }
 

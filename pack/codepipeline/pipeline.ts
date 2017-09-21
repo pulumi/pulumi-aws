@@ -3,12 +3,37 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodePipeline.
+ * 
+ * ~> **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+ */
 export class Pipeline extends fabric.Resource {
+    /**
+     * An artifact_store block. Artifact stores are documented below.
+     */
     public readonly artifactStore: fabric.Computed<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
+    /**
+     * The action declaration's name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     */
     public readonly roleArn: fabric.Computed<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     public readonly stage: fabric.Computed<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
+    /**
+     * Create a Pipeline resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Pipeline instance
+     * @param args A collection of arguments for creating this Pipeline intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PipelineArgs, dependsOn?: fabric.Resource[]) {
         if (args.artifactStore === undefined) {
             throw new Error("Missing required property 'artifactStore'");
@@ -28,10 +53,25 @@ export class Pipeline extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Pipeline resource.
+ */
 export interface PipelineArgs {
+    /**
+     * An artifact_store block. Artifact stores are documented below.
+     */
     readonly artifactStore: fabric.ComputedValue<{ encryptionKey?: fabric.ComputedValue<{ id: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], location: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    /**
+     * The action declaration's name.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     */
     readonly roleArn: fabric.ComputedValue<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     readonly stage: fabric.ComputedValue<{ action: fabric.ComputedValue<{ category: fabric.ComputedValue<string>, configuration?: fabric.ComputedValue<{[key: string]: any}>, inputArtifacts?: fabric.ComputedValue<fabric.ComputedValue<string>>[], name: fabric.ComputedValue<string>, outputArtifacts?: fabric.ComputedValue<fabric.ComputedValue<string>>[], owner: fabric.ComputedValue<string>, provider: fabric.ComputedValue<string>, roleArn?: fabric.ComputedValue<string>, runOrder?: fabric.ComputedValue<number>, version: fabric.ComputedValue<string> }>[], name: fabric.ComputedValue<string> }>[];
 }
 

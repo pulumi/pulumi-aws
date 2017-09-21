@@ -3,11 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeDeploy deployment config for an application
+ */
 export class DeploymentConfig extends fabric.Resource {
+    /**
+     * The AWS Assigned deployment config id
+     */
     public /*out*/ readonly deploymentConfigId: fabric.Computed<string>;
+    /**
+     * The name of the deployment config.
+     */
     public readonly deploymentConfigName: fabric.Computed<string>;
+    /**
+     * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+     */
     public readonly minimumHealthyHosts: fabric.Computed<{ type: string, value?: number }[]>;
 
+    /**
+     * Create a DeploymentConfig resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DeploymentConfig instance
+     * @param args A collection of arguments for creating this DeploymentConfig intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DeploymentConfigArgs, dependsOn?: fabric.Resource[]) {
         if (args.deploymentConfigName === undefined) {
             throw new Error("Missing required property 'deploymentConfigName'");
@@ -23,8 +43,17 @@ export class DeploymentConfig extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DeploymentConfig resource.
+ */
 export interface DeploymentConfigArgs {
+    /**
+     * The name of the deployment config.
+     */
     readonly deploymentConfigName: fabric.ComputedValue<string>;
+    /**
+     * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+     */
     readonly minimumHealthyHosts: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value?: fabric.ComputedValue<number> }>[];
 }
 

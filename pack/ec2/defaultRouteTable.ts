@@ -3,13 +3,66 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to manage a Default VPC Routing Table.
+ * 
+ * Each VPC created in AWS comes with a Default Route Table that can be managed, but not
+ * destroyed. **This is an advanced resource**, and has special caveats to be aware
+ * of when using it. Please read this document in its entirety before using this
+ * resource. It is recommended you **do not** use both `aws_default_route_table` to
+ * manage the default route table **and** use the `aws_main_route_table_association`,
+ * due to possible conflict in routes.
+ * 
+ * The `aws_default_route_table` behaves differently from normal resources, in that
+ * Terraform does not _create_ this resource, but instead attempts to "adopt" it
+ * into management. We can do this because each VPC created has a Default Route
+ * Table that cannot be destroyed, and is created with a single route.
+ * 
+ * When Terraform first adopts the Default Route Table, it **immediately removes all
+ * defined routes**. It then proceeds to create any routes specified in the
+ * configuration. This step is required so that only the routes specified in the
+ * configuration present in the Default Route Table.
+ * 
+ * For more information about Route Tables, see the AWS Documentation on
+ * [Route Tables][aws-route-tables].
+ * 
+ * For more information about managing normal Route Tables in Terraform, see our
+ * documentation on [aws_route_table][tf-route-tables].
+ * 
+ * ~> **NOTE on Route Tables and Routes:** Terraform currently
+ * provides both a standalone [Route resource](route.html) and a Route Table resource with routes
+ * defined in-line. At this time you cannot use a Route Table with in-line routes
+ * in conjunction with any Route resources. Doing so will cause
+ * a conflict of rule settings and will overwrite routes.
+ * 
+ */
 export class DefaultRouteTable extends fabric.Resource {
+    /**
+     * The ID of the Default Routing Table.
+     */
     public readonly defaultRouteTableId: fabric.Computed<string>;
+    /**
+     * A list of virtual gateways for propagation.
+     */
     public readonly propagatingVgws?: fabric.Computed<string[]>;
+    /**
+     * A list of route objects. Their keys are documented below.
+     */
     public readonly route: fabric.Computed<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, vpcPeeringConnectionId?: string }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a DefaultRouteTable resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DefaultRouteTable instance
+     * @param args A collection of arguments for creating this DefaultRouteTable intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DefaultRouteTableArgs, dependsOn?: fabric.Resource[]) {
         if (args.defaultRouteTableId === undefined) {
             throw new Error("Missing required property 'defaultRouteTableId'");
@@ -24,10 +77,25 @@ export class DefaultRouteTable extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DefaultRouteTable resource.
+ */
 export interface DefaultRouteTableArgs {
+    /**
+     * The ID of the Default Routing Table.
+     */
     readonly defaultRouteTableId: fabric.ComputedValue<string>;
+    /**
+     * A list of virtual gateways for propagation.
+     */
     readonly propagatingVgws?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * A list of route objects. Their keys are documented below.
+     */
     readonly route?: fabric.ComputedValue<{ cidrBlock?: fabric.ComputedValue<string>, egressOnlyGatewayId?: fabric.ComputedValue<string>, gatewayId?: fabric.ComputedValue<string>, instanceId?: fabric.ComputedValue<string>, ipv6CidrBlock?: fabric.ComputedValue<string>, natGatewayId?: fabric.ComputedValue<string>, networkInterfaceId?: fabric.ComputedValue<string>, vpcPeeringConnectionId?: fabric.ComputedValue<string> }>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

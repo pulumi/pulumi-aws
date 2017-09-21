@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
+ */
 export class LoadBalancerPolicy extends fabric.Resource {
+    /**
+     * The load balancer on which the policy is defined.
+     */
     public readonly loadBalancerName: fabric.Computed<string>;
+    /**
+     * Policy attribute to apply to the policy.
+     */
     public readonly policyAttribute?: fabric.Computed<{ name?: string, value?: string }[]>;
+    /**
+     * The name of the load balancer policy.
+     */
     public readonly policyName: fabric.Computed<string>;
+    /**
+     * The policy type.
+     */
     public readonly policyTypeName: fabric.Computed<string>;
 
+    /**
+     * Create a LoadBalancerPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LoadBalancerPolicy instance
+     * @param args A collection of arguments for creating this LoadBalancerPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LoadBalancerPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.loadBalancerName === undefined) {
             throw new Error("Missing required property 'loadBalancerName'");
@@ -28,10 +51,25 @@ export class LoadBalancerPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LoadBalancerPolicy resource.
+ */
 export interface LoadBalancerPolicyArgs {
+    /**
+     * The load balancer on which the policy is defined.
+     */
     readonly loadBalancerName: fabric.ComputedValue<string>;
+    /**
+     * Policy attribute to apply to the policy.
+     */
     readonly policyAttribute?: fabric.ComputedValue<{ name?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
+    /**
+     * The name of the load balancer policy.
+     */
     readonly policyName: fabric.ComputedValue<string>;
+    /**
+     * The policy type.
+     */
     readonly policyTypeName: fabric.ComputedValue<string>;
 }
 

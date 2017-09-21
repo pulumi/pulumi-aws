@@ -3,26 +3,99 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create a new launch configuration, used for autoscaling groups.
+ */
 export class LaunchConfiguration extends fabric.Resource {
+    /**
+     * Associate a public ip address with an instance in a VPC.
+     */
     public readonly associatePublicIpAddress?: fabric.Computed<boolean>;
+    /**
+     * Additional EBS block devices to attach to the
+     * instance.  See [Block Devices](#block-devices) below for details.
+     */
     public readonly ebsBlockDevices: fabric.Computed<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    /**
+     * If true, the launched EC2 instance will be EBS-optimized.
+     */
     public readonly ebsOptimized: fabric.Computed<boolean>;
+    /**
+     * Enables/disables detailed monitoring. This is enabled by default.
+     */
     public readonly enableMonitoring?: fabric.Computed<boolean>;
+    /**
+     * Customize Ephemeral (also known as
+     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     */
     public readonly ephemeralBlockDevice?: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
+    /**
+     * The IAM instance profile to associate
+     * with launched instances.
+     */
     public readonly iamInstanceProfile?: fabric.Computed<string>;
+    /**
+     * The EC2 image ID to launch.
+     */
     public readonly imageId: fabric.Computed<string>;
+    /**
+     * The size of instance to launch.
+     */
     public readonly instanceType: fabric.Computed<string>;
+    /**
+     * The key name that should be used for the instance.
+     */
     public readonly keyName: fabric.Computed<string>;
+    /**
+     * The name of the launch configuration. If you leave
+     * this blank, Terraform will auto-generate a unique name.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The tenancy of the instance. Valid values are
+     * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
+     * for more details
+     */
     public readonly placementTenancy?: fabric.Computed<string>;
+    /**
+     * Customize details about the root block
+     * device of the instance. See [Block Devices](#block-devices) below for details.
+     */
     public readonly rootBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[]>;
+    /**
+     * A list of associated security group IDS.
+     */
     public readonly securityGroups?: fabric.Computed<string[]>;
+    /**
+     * The price to use for reserving spot instances.
+     */
     public readonly spotPrice?: fabric.Computed<string>;
+    /**
+     * The user data to provide when launching the instance.
+     */
     public readonly userData?: fabric.Computed<string>;
+    /**
+     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+     */
     public readonly vpcClassicLinkId?: fabric.Computed<string>;
+    /**
+     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+     */
     public readonly vpcClassicLinkSecurityGroups?: fabric.Computed<string[]>;
 
+    /**
+     * Create a LaunchConfiguration resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LaunchConfiguration instance
+     * @param args A collection of arguments for creating this LaunchConfiguration intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LaunchConfigurationArgs, dependsOn?: fabric.Resource[]) {
         if (args.imageId === undefined) {
             throw new Error("Missing required property 'imageId'");
@@ -53,24 +126,89 @@ export class LaunchConfiguration extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LaunchConfiguration resource.
+ */
 export interface LaunchConfigurationArgs {
+    /**
+     * Associate a public ip address with an instance in a VPC.
+     */
     readonly associatePublicIpAddress?: fabric.ComputedValue<boolean>;
+    /**
+     * Additional EBS block devices to attach to the
+     * instance.  See [Block Devices](#block-devices) below for details.
+     */
     readonly ebsBlockDevices?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    /**
+     * If true, the launched EC2 instance will be EBS-optimized.
+     */
     readonly ebsOptimized?: fabric.ComputedValue<boolean>;
+    /**
+     * Enables/disables detailed monitoring. This is enabled by default.
+     */
     readonly enableMonitoring?: fabric.ComputedValue<boolean>;
+    /**
+     * Customize Ephemeral (also known as
+     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     */
     readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName: fabric.ComputedValue<string>, virtualName: fabric.ComputedValue<string> }>[];
+    /**
+     * The IAM instance profile to associate
+     * with launched instances.
+     */
     readonly iamInstanceProfile?: fabric.ComputedValue<string>;
+    /**
+     * The EC2 image ID to launch.
+     */
     readonly imageId: fabric.ComputedValue<string>;
+    /**
+     * The size of instance to launch.
+     */
     readonly instanceType: fabric.ComputedValue<string>;
+    /**
+     * The key name that should be used for the instance.
+     */
     readonly keyName?: fabric.ComputedValue<string>;
+    /**
+     * The name of the launch configuration. If you leave
+     * this blank, Terraform will auto-generate a unique name.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
     readonly namePrefix?: fabric.ComputedValue<string>;
+    /**
+     * The tenancy of the instance. Valid values are
+     * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
+     * for more details
+     */
     readonly placementTenancy?: fabric.ComputedValue<string>;
+    /**
+     * Customize details about the root block
+     * device of the instance. See [Block Devices](#block-devices) below for details.
+     */
     readonly rootBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    /**
+     * A list of associated security group IDS.
+     */
     readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The price to use for reserving spot instances.
+     */
     readonly spotPrice?: fabric.ComputedValue<string>;
+    /**
+     * The user data to provide when launching the instance.
+     */
     readonly userData?: fabric.ComputedValue<string>;
+    /**
+     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+     */
     readonly vpcClassicLinkId?: fabric.ComputedValue<string>;
+    /**
+     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+     */
     readonly vpcClassicLinkSecurityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

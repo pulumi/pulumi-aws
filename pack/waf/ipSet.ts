@@ -3,10 +3,28 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF IPSet Resource
+ */
 export class IpSet extends fabric.Resource {
+    /**
+     * Specifies the IP address type (IPV4 or IPV6)
+     * and the IP address range (in CIDR format) that web requests originate from.
+     */
     public readonly ipSetDescriptors?: fabric.Computed<{ type: string, value: string }[]>;
+    /**
+     * The name or description of the IPSet.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a IpSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this IpSet instance
+     * @param args A collection of arguments for creating this IpSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: IpSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/ipSet:IpSet", urnName, {
             "ipSetDescriptors": args.ipSetDescriptors,
@@ -15,8 +33,18 @@ export class IpSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a IpSet resource.
+ */
 export interface IpSetArgs {
+    /**
+     * Specifies the IP address type (IPV4 or IPV6)
+     * and the IP address range (in CIDR format) that web requests originate from.
+     */
     readonly ipSetDescriptors?: fabric.ComputedValue<{ type: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
+    /**
+     * The name or description of the IPSet.
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

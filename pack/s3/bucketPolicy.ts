@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Attaches a policy to an S3 bucket resource.
+ */
 export class BucketPolicy extends fabric.Resource {
+    /**
+     * The name of the bucket to which to apply the policy.
+     */
     public readonly bucket: fabric.Computed<string>;
+    /**
+     * The text of the policy.
+     */
     public readonly policy: fabric.Computed<string>;
 
+    /**
+     * Create a BucketPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this BucketPolicy instance
+     * @param args A collection of arguments for creating this BucketPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: BucketPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.bucket === undefined) {
             throw new Error("Missing required property 'bucket'");
@@ -21,8 +38,17 @@ export class BucketPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a BucketPolicy resource.
+ */
 export interface BucketPolicyArgs {
+    /**
+     * The name of the bucket to which to apply the policy.
+     */
     readonly bucket: fabric.ComputedValue<string>;
+    /**
+     * The text of the policy.
+     */
     readonly policy: fabric.ComputedValue<string>;
 }
 

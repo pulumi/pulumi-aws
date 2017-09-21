@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF XSS Match Set Resource
+ */
 export class XssMatchSet extends fabric.Resource {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The parts of web requests that you want to inspect for cross-site scripting attacks.
+     */
     public readonly xssMatchTuples?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
+    /**
+     * Create a XssMatchSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this XssMatchSet instance
+     * @param args A collection of arguments for creating this XssMatchSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: XssMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:waf/xssMatchSet:XssMatchSet", urnName, {
             "name": args.name,
@@ -15,8 +32,17 @@ export class XssMatchSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a XssMatchSet resource.
+ */
 export interface XssMatchSetArgs {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The parts of web requests that you want to inspect for cross-site scripting attacks.
+     */
     readonly xssMatchTuples?: fabric.ComputedValue<{ fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], textTransformation: fabric.ComputedValue<string> }>[];
 }
 

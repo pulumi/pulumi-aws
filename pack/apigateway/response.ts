@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an API Gateway Gateway Response for a REST API Gateway.
+ */
 export class Response extends fabric.Resource {
+    /**
+     * A map specifying the templates used to transform the response body.
+     */
     public readonly responseParameters?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     */
     public readonly responseTemplates?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * The response type of the associated GatewayResponse.
+     */
     public readonly responseType: fabric.Computed<string>;
+    /**
+     * The string identifier of the associated REST API.
+     */
     public readonly restApiId: fabric.Computed<string>;
+    /**
+     * The HTTP status code of the Gateway Response.
+     */
     public readonly statusCode?: fabric.Computed<string>;
 
+    /**
+     * Create a Response resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Response instance
+     * @param args A collection of arguments for creating this Response intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ResponseArgs, dependsOn?: fabric.Resource[]) {
         if (args.responseType === undefined) {
             throw new Error("Missing required property 'responseType'");
@@ -27,11 +53,29 @@ export class Response extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Response resource.
+ */
 export interface ResponseArgs {
+    /**
+     * A map specifying the templates used to transform the response body.
+     */
     readonly responseParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    /**
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     */
     readonly responseTemplates?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    /**
+     * The response type of the associated GatewayResponse.
+     */
     readonly responseType: fabric.ComputedValue<string>;
+    /**
+     * The string identifier of the associated REST API.
+     */
     readonly restApiId: fabric.ComputedValue<string>;
+    /**
+     * The HTTP status code of the Gateway Response.
+     */
     readonly statusCode?: fabric.ComputedValue<string>;
 }
 

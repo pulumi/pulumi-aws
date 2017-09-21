@@ -3,22 +3,75 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SES receipt rule resource
+ */
 export class ReceiptRule extends fabric.Resource {
+    /**
+     * A list of Add Header Action blocks. Documented below.
+     */
     public readonly addHeaderAction?: fabric.Computed<{ headerName: string, headerValue: string, position: number }[]>;
+    /**
+     * The name of the rule to place this rule after
+     */
     public readonly after?: fabric.Computed<string>;
+    /**
+     * A list of Bounce Action blocks. Documented below.
+     */
     public readonly bounceAction?: fabric.Computed<{ message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[]>;
+    /**
+     * If true, the rule will be enabled
+     */
     public readonly enabled: fabric.Computed<boolean>;
+    /**
+     * A list of Lambda Action blocks. Documented below.
+     */
     public readonly lambdaAction?: fabric.Computed<{ functionArn: string, invocationType: string, position: number, topicArn?: string }[]>;
+    /**
+     * The name of the rule
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A list of email addresses
+     */
     public readonly recipients?: fabric.Computed<string[]>;
+    /**
+     * The name of the rule set
+     */
     public readonly ruleSetName: fabric.Computed<string>;
+    /**
+     * A list of S3 Action blocks. Documented below.
+     */
     public readonly s3Action?: fabric.Computed<{ bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[]>;
+    /**
+     * If true, incoming emails will be scanned for spam and viruses
+     */
     public readonly scanEnabled: fabric.Computed<boolean>;
+    /**
+     * A list of SNS Action blocks. Documented below.
+     */
     public readonly snsAction?: fabric.Computed<{ position: number, topicArn: string }[]>;
+    /**
+     * A list of Stop Action blocks. Documented below.
+     */
     public readonly stopAction?: fabric.Computed<{ position: number, scope: string, topicArn?: string }[]>;
+    /**
+     * Require or Optional
+     */
     public readonly tlsPolicy: fabric.Computed<string>;
+    /**
+     * A list of WorkMail Action blocks. Documented below.
+     */
     public readonly workmailAction?: fabric.Computed<{ organizationArn: string, position: number, topicArn?: string }[]>;
 
+    /**
+     * Create a ReceiptRule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ReceiptRule instance
+     * @param args A collection of arguments for creating this ReceiptRule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ReceiptRuleArgs, dependsOn?: fabric.Resource[]) {
         if (args.ruleSetName === undefined) {
             throw new Error("Missing required property 'ruleSetName'");
@@ -42,20 +95,65 @@ export class ReceiptRule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ReceiptRule resource.
+ */
 export interface ReceiptRuleArgs {
+    /**
+     * A list of Add Header Action blocks. Documented below.
+     */
     readonly addHeaderAction?: fabric.ComputedValue<{ headerName: fabric.ComputedValue<string>, headerValue: fabric.ComputedValue<string>, position: fabric.ComputedValue<number> }>[];
+    /**
+     * The name of the rule to place this rule after
+     */
     readonly after?: fabric.ComputedValue<string>;
+    /**
+     * A list of Bounce Action blocks. Documented below.
+     */
     readonly bounceAction?: fabric.ComputedValue<{ message: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, sender: fabric.ComputedValue<string>, smtpReplyCode: fabric.ComputedValue<string>, statusCode?: fabric.ComputedValue<string>, topicArn?: fabric.ComputedValue<string> }>[];
+    /**
+     * If true, the rule will be enabled
+     */
     readonly enabled?: fabric.ComputedValue<boolean>;
+    /**
+     * A list of Lambda Action blocks. Documented below.
+     */
     readonly lambdaAction?: fabric.ComputedValue<{ functionArn: fabric.ComputedValue<string>, invocationType?: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
+    /**
+     * The name of the rule
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * A list of email addresses
+     */
     readonly recipients?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The name of the rule set
+     */
     readonly ruleSetName: fabric.ComputedValue<string>;
+    /**
+     * A list of S3 Action blocks. Documented below.
+     */
     readonly s3Action?: fabric.ComputedValue<{ bucketName: fabric.ComputedValue<string>, kmsKeyArn?: fabric.ComputedValue<string>, objectKeyPrefix?: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
+    /**
+     * If true, incoming emails will be scanned for spam and viruses
+     */
     readonly scanEnabled?: fabric.ComputedValue<boolean>;
+    /**
+     * A list of SNS Action blocks. Documented below.
+     */
     readonly snsAction?: fabric.ComputedValue<{ position: fabric.ComputedValue<number>, topicArn: fabric.ComputedValue<string> }>[];
+    /**
+     * A list of Stop Action blocks. Documented below.
+     */
     readonly stopAction?: fabric.ComputedValue<{ position: fabric.ComputedValue<number>, scope: fabric.ComputedValue<string>, topicArn?: fabric.ComputedValue<string> }>[];
+    /**
+     * Require or Optional
+     */
     readonly tlsPolicy?: fabric.ComputedValue<string>;
+    /**
+     * A list of WorkMail Action blocks. Documented below.
+     */
     readonly workmailAction?: fabric.ComputedValue<{ organizationArn: fabric.ComputedValue<string>, position: fabric.ComputedValue<number>, topicArn?: fabric.ComputedValue<string> }>[];
 }
 

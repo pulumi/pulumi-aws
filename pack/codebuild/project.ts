@@ -3,17 +3,55 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeBuild Project resource.
+ */
 export class Project extends fabric.Resource {
+    /**
+     * Information about the project's build output artifacts. Artifact blocks are documented below.
+     */
     public readonly artifacts: fabric.Computed<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[]>;
+    /**
+     * How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     */
     public readonly buildTimeout?: fabric.Computed<number>;
+    /**
+     * A short description of the project.
+     */
     public readonly description: fabric.Computed<string>;
+    /**
+     * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+     */
     public readonly encryptionKey: fabric.Computed<string>;
+    /**
+     * Information about the project's build environment. Environment blocks are documented below.
+     */
     public readonly environment: fabric.Computed<{ computeType: string, environmentVariable: { name: string, value: string }[], image: string, privilegedMode?: boolean, type: string }[]>;
+    /**
+     * The environment variable's name or key.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     */
     public readonly serviceRole: fabric.Computed<string>;
+    /**
+     * Information about the project's input source code. Source blocks are documented below.
+     */
     public readonly source: fabric.Computed<{ auth?: { resource?: string, type: string }[], buildspec?: string, location?: string, type: string }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Project resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Project instance
+     * @param args A collection of arguments for creating this Project intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ProjectArgs, dependsOn?: fabric.Resource[]) {
         if (args.artifacts === undefined) {
             throw new Error("Missing required property 'artifacts'");
@@ -38,15 +76,45 @@ export class Project extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Project resource.
+ */
 export interface ProjectArgs {
+    /**
+     * Information about the project's build output artifacts. Artifact blocks are documented below.
+     */
     readonly artifacts: fabric.ComputedValue<{ location?: fabric.ComputedValue<string>, name?: fabric.ComputedValue<string>, namespaceType?: fabric.ComputedValue<string>, packaging?: fabric.ComputedValue<string>, path?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    /**
+     * How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     */
     readonly buildTimeout?: fabric.ComputedValue<number>;
+    /**
+     * A short description of the project.
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+     */
     readonly encryptionKey?: fabric.ComputedValue<string>;
+    /**
+     * Information about the project's build environment. Environment blocks are documented below.
+     */
     readonly environment: fabric.ComputedValue<{ computeType: fabric.ComputedValue<string>, environmentVariable?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[], image: fabric.ComputedValue<string>, privilegedMode?: fabric.ComputedValue<boolean>, type: fabric.ComputedValue<string> }>[];
+    /**
+     * The environment variable's name or key.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     */
     readonly serviceRole?: fabric.ComputedValue<string>;
+    /**
+     * Information about the project's input source code. Source blocks are documented below.
+     */
     readonly source: fabric.ComputedValue<{ auth?: fabric.ComputedValue<{ resource?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], buildspec?: fabric.ComputedValue<string>, location?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

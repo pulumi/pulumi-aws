@@ -3,14 +3,55 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates an Amazon CloudFront origin access identity.
+ * 
+ * For information about CloudFront distributions, see the
+ * [Amazon CloudFront Developer Guide][1]. For more information on generating
+ * origin access identities, see
+ * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+ */
 export class OriginAccessIdentity extends fabric.Resource {
+    /**
+     * Internal value used by CloudFront to allow future
+     * updates to the origin access identity.
+     */
     public /*out*/ readonly callerReference: fabric.Computed<string>;
+    /**
+     * A shortcut to the full path for the
+     * origin access identity to use in CloudFront, see below.
+     */
     public /*out*/ readonly cloudfrontAccessIdentityPath: fabric.Computed<string>;
+    /**
+     * An optional comment for the origin access identity.
+     */
     public readonly comment?: fabric.Computed<string>;
+    /**
+     * The current version of the origin access identity's information.
+     * For example: `E2QWRUHAPOMQZL`.
+     */
     public /*out*/ readonly etag: fabric.Computed<string>;
+    /**
+     * A pre-generated ARN for use in S3 bucket policies (see below).
+     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+     * E2QWRUHAPOMQZL`.
+     */
     public /*out*/ readonly iamArn: fabric.Computed<string>;
+    /**
+     * The Amazon S3 canonical user ID for the origin
+     * access identity, which you use when giving the origin access identity read
+     * permission to an object in Amazon S3.
+     */
     public /*out*/ readonly s3CanonicalUserId: fabric.Computed<string>;
 
+    /**
+     * Create a OriginAccessIdentity resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this OriginAccessIdentity instance
+     * @param args A collection of arguments for creating this OriginAccessIdentity intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: OriginAccessIdentityArgs, dependsOn?: fabric.Resource[]) {
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", urnName, {
             "comment": args.comment,
@@ -23,7 +64,13 @@ export class OriginAccessIdentity extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a OriginAccessIdentity resource.
+ */
 export interface OriginAccessIdentityArgs {
+    /**
+     * An optional comment for the origin access identity.
+     */
     readonly comment?: fabric.ComputedValue<string>;
 }
 

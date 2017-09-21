@@ -3,9 +3,26 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * [IPv6 only] Creates an egress-only Internet gateway for your VPC. 
+ * An egress-only Internet gateway is used to enable outbound communication 
+ * over IPv6 from instances in your VPC to the Internet, and prevents hosts 
+ * outside of your VPC from initiating an IPv6 connection with your instance. 
+ */
 export class EgressOnlyInternetGateway extends fabric.Resource {
+    /**
+     * The VPC ID to create in.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a EgressOnlyInternetGateway resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this EgressOnlyInternetGateway instance
+     * @param args A collection of arguments for creating this EgressOnlyInternetGateway intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: EgressOnlyInternetGatewayArgs, dependsOn?: fabric.Resource[]) {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
@@ -16,7 +33,13 @@ export class EgressOnlyInternetGateway extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a EgressOnlyInternetGateway resource.
+ */
 export interface EgressOnlyInternetGatewayArgs {
+    /**
+     * The VPC ID to create in.
+     */
     readonly vpcId: fabric.ComputedValue<string>;
 }
 

@@ -3,27 +3,89 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Creates a Snapshot of an DB Instance.
+ */
 export class Snapshot extends fabric.Resource {
+    /**
+     * Specifies the allocated storage size in gigabytes (GB).
+     */
     public /*out*/ readonly allocatedStorage: fabric.Computed<number>;
+    /**
+     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     */
     public /*out*/ readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * The DB Instance Identifier from which to take the snapshot.
+     */
     public readonly dbInstanceIdentifier: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the DB snapshot.
+     */
     public /*out*/ readonly dbSnapshotArn: fabric.Computed<string>;
+    /**
+     * The Identifier for the snapshot.
+     */
     public readonly dbSnapshotIdentifier: fabric.Computed<string>;
+    /**
+     * Specifies whether the DB snapshot is encrypted.
+     */
     public /*out*/ readonly encrypted: fabric.Computed<boolean>;
+    /**
+     * Specifies the name of the database engine.
+     */
     public /*out*/ readonly engine: fabric.Computed<string>;
+    /**
+     * Specifies the version of the database engine.
+     */
     public /*out*/ readonly engineVersion: fabric.Computed<string>;
+    /**
+     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     */
     public /*out*/ readonly iops: fabric.Computed<number>;
+    /**
+     * The ARN for the KMS encryption key.
+     */
     public /*out*/ readonly kmsKeyId: fabric.Computed<string>;
+    /**
+     * License model information for the restored DB instance.
+     */
     public /*out*/ readonly licenseModel: fabric.Computed<string>;
+    /**
+     * Provides the option group name for the DB snapshot.
+     */
     public /*out*/ readonly optionGroupName: fabric.Computed<string>;
     public /*out*/ readonly port: fabric.Computed<number>;
     public /*out*/ readonly snapshotType: fabric.Computed<string>;
+    /**
+     * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     */
     public /*out*/ readonly sourceDbSnapshotIdentifier: fabric.Computed<string>;
+    /**
+     * The region that the DB snapshot was created in or copied from.
+     */
     public /*out*/ readonly sourceRegion: fabric.Computed<string>;
+    /**
+     * Specifies the status of this DB snapshot.
+     */
     public /*out*/ readonly status: fabric.Computed<string>;
+    /**
+     * Specifies the storage type associated with DB snapshot.
+     */
     public /*out*/ readonly storageType: fabric.Computed<string>;
+    /**
+     * Specifies the storage type associated with DB snapshot.
+     */
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a Snapshot resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Snapshot instance
+     * @param args A collection of arguments for creating this Snapshot intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SnapshotArgs, dependsOn?: fabric.Resource[]) {
         if (args.dbInstanceIdentifier === undefined) {
             throw new Error("Missing required property 'dbInstanceIdentifier'");
@@ -55,8 +117,17 @@ export class Snapshot extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Snapshot resource.
+ */
 export interface SnapshotArgs {
+    /**
+     * The DB Instance Identifier from which to take the snapshot.
+     */
     readonly dbInstanceIdentifier: fabric.ComputedValue<string>;
+    /**
+     * The Identifier for the snapshot.
+     */
     readonly dbSnapshotIdentifier: fabric.ComputedValue<string>;
 }
 

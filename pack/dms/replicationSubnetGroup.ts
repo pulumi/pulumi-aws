@@ -3,14 +3,37 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
+ */
 export class ReplicationSubnetGroup extends fabric.Resource {
     public /*out*/ readonly replicationSubnetGroupArn: fabric.Computed<string>;
+    /**
+     * The description for the subnet group.
+     */
     public readonly replicationSubnetGroupDescription: fabric.Computed<string>;
+    /**
+     * The name for the replication subnet group. This value is stored as a lowercase string.
+     */
     public readonly replicationSubnetGroupId: fabric.Computed<string>;
+    /**
+     * A list of the EC2 subnet IDs for the subnet group.
+     */
     public readonly subnetIds: fabric.Computed<string[]>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The ID of the VPC the subnet group is in.
+     */
     public /*out*/ readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a ReplicationSubnetGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ReplicationSubnetGroup instance
+     * @param args A collection of arguments for creating this ReplicationSubnetGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ReplicationSubnetGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.replicationSubnetGroupDescription === undefined) {
             throw new Error("Missing required property 'replicationSubnetGroupDescription'");
@@ -32,9 +55,21 @@ export class ReplicationSubnetGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ReplicationSubnetGroup resource.
+ */
 export interface ReplicationSubnetGroupArgs {
+    /**
+     * The description for the subnet group.
+     */
     readonly replicationSubnetGroupDescription: fabric.ComputedValue<string>;
+    /**
+     * The name for the replication subnet group. This value is stored as a lowercase string.
+     */
     readonly replicationSubnetGroupId: fabric.ComputedValue<string>;
+    /**
+     * A list of the EC2 subnet IDs for the subnet group.
+     */
     readonly subnetIds: fabric.ComputedValue<fabric.ComputedValue<string>>[];
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }

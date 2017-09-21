@@ -3,19 +3,55 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic Transcoder preset resource.
+ */
 export class Preset extends fabric.Resource {
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Audio parameters object (documented below).
+     */
     public readonly audio?: fabric.Computed<{ audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string }[]>;
+    /**
+     * Codec options for the audio parameters (documented below)
+     */
     public readonly audioCodecOptions?: fabric.Computed<{ bitDepth?: string, bitOrder?: string, profile?: string, signed?: string }[]>;
+    /**
+     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+     */
     public readonly container: fabric.Computed<string>;
+    /**
+     * A description of the preset (maximum 255 characters)
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the preset. (maximum 40 characters)
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Thumbnail parameters object (documented below)
+     */
     public readonly thumbnails?: fabric.Computed<{ aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[]>;
     public readonly type: fabric.Computed<string>;
+    /**
+     * Video parameters object (documented below)
+     */
     public readonly video?: fabric.Computed<{ aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string }[]>;
     public readonly videoCodecOptions?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Watermark parameters for the video parameters (documented below)
+     * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+     */
     public readonly videoWatermarks?: fabric.Computed<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[]>;
 
+    /**
+     * Create a Preset resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Preset instance
+     * @param args A collection of arguments for creating this Preset intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PresetArgs, dependsOn?: fabric.Resource[]) {
         if (args.container === undefined) {
             throw new Error("Missing required property 'container'");
@@ -36,16 +72,44 @@ export class Preset extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Preset resource.
+ */
 export interface PresetArgs {
+    /**
+     * Audio parameters object (documented below).
+     */
     readonly audio?: fabric.ComputedValue<{ audioPackingMode?: fabric.ComputedValue<string>, bitRate?: fabric.ComputedValue<string>, channels?: fabric.ComputedValue<string>, codec?: fabric.ComputedValue<string>, sampleRate?: fabric.ComputedValue<string> }>[];
+    /**
+     * Codec options for the audio parameters (documented below)
+     */
     readonly audioCodecOptions?: fabric.ComputedValue<{ bitDepth?: fabric.ComputedValue<string>, bitOrder?: fabric.ComputedValue<string>, profile?: fabric.ComputedValue<string>, signed?: fabric.ComputedValue<string> }>[];
+    /**
+     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+     */
     readonly container: fabric.ComputedValue<string>;
+    /**
+     * A description of the preset (maximum 255 characters)
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * The name of the preset. (maximum 40 characters)
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Thumbnail parameters object (documented below)
+     */
     readonly thumbnails?: fabric.ComputedValue<{ aspectRatio?: fabric.ComputedValue<string>, format?: fabric.ComputedValue<string>, interval?: fabric.ComputedValue<string>, maxHeight?: fabric.ComputedValue<string>, maxWidth?: fabric.ComputedValue<string>, paddingPolicy?: fabric.ComputedValue<string>, resolution?: fabric.ComputedValue<string>, sizingPolicy?: fabric.ComputedValue<string> }>[];
     readonly type?: fabric.ComputedValue<string>;
+    /**
+     * Video parameters object (documented below)
+     */
     readonly video?: fabric.ComputedValue<{ aspectRatio?: fabric.ComputedValue<string>, bitRate?: fabric.ComputedValue<string>, codec?: fabric.ComputedValue<string>, displayAspectRatio?: fabric.ComputedValue<string>, fixedGop?: fabric.ComputedValue<string>, frameRate?: fabric.ComputedValue<string>, keyframesMaxDist?: fabric.ComputedValue<string>, maxFrameRate?: fabric.ComputedValue<string>, maxHeight?: fabric.ComputedValue<string>, maxWidth?: fabric.ComputedValue<string>, paddingPolicy?: fabric.ComputedValue<string>, resolution?: fabric.ComputedValue<string>, sizingPolicy?: fabric.ComputedValue<string> }>[];
     readonly videoCodecOptions?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * Watermark parameters for the video parameters (documented below)
+     * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+     */
     readonly videoWatermarks?: fabric.ComputedValue<{ horizontalAlign?: fabric.ComputedValue<string>, horizontalOffset?: fabric.ComputedValue<string>, id?: fabric.ComputedValue<string>, maxHeight?: fabric.ComputedValue<string>, maxWidth?: fabric.ComputedValue<string>, opacity?: fabric.ComputedValue<string>, sizingPolicy?: fabric.ComputedValue<string>, target?: fabric.ComputedValue<string>, verticalAlign?: fabric.ComputedValue<string>, verticalOffset?: fabric.ComputedValue<string> }>[];
 }
 

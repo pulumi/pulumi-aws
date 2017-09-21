@@ -3,35 +3,153 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an RDS Cluster Resource. A Cluster Resource defines attributes that are
+ * applied to the entire cluster of [RDS Cluster Instances][3]. Use the RDS Cluster
+ * resource and RDS Cluster Instances to create and use Amazon Aurora, a MySQL-compatible
+ * database engine.
+ * 
+ * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+ * 
+ * Changes to a RDS Cluster can occur when you manually change a
+ * parameter, such as `port`, and are reflected in the next maintenance
+ * window. Because of this, Terraform may report a difference in its planning
+ * phase because a modification has not yet taken place. You can use the
+ * `apply_immediately` flag to instruct the service to apply the change immediately
+ * (see documentation below).
+ * 
+ * ~> **Note:** using `apply_immediately` can result in a
+ * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
+ * for more information.
+ * 
+ * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class Cluster extends fabric.Resource {
+    /**
+     * Specifies whether any cluster modifications
+     * are applied immediately, or during the next maintenance window. Default is
+     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     */
     public readonly applyImmediately: fabric.Computed<boolean>;
+    /**
+     * A list of EC2 Availability Zones that
+     * instances in the DB cluster can be created in
+     */
     public readonly availabilityZones: fabric.Computed<string[]>;
+    /**
+     * The days to retain backups for. Default
+     * 1
+     */
     public readonly backupRetentionPeriod?: fabric.Computed<number>;
+    /**
+     * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     */
     public readonly clusterIdentifier: fabric.Computed<string>;
+    /**
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     */
     public readonly clusterIdentifierPrefix: fabric.Computed<string>;
     public readonly clusterMembers: fabric.Computed<string[]>;
+    /**
+     * The RDS Cluster Resource ID
+     * * `cluster_members` – List of RDS Instances that are a part of this cluster
+     */
     public /*out*/ readonly clusterResourceId: fabric.Computed<string>;
+    /**
+     * The name for your database of up to 8 alpha-numeric
+     * characters. If you do not provide a name, Amazon RDS will not create a
+     * database in the DB cluster you are creating
+     */
     public readonly databaseName: fabric.Computed<string>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     public readonly dbClusterParameterGroupName: fabric.Computed<string>;
+    /**
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     */
     public readonly dbSubnetGroupName: fabric.Computed<string>;
+    /**
+     * The DNS address of the RDS instance
+     */
     public /*out*/ readonly endpoint: fabric.Computed<string>;
+    /**
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`.
+     */
     public /*out*/ readonly engine: fabric.Computed<string>;
+    /**
+     * The name of your final DB snapshot
+     * when this DB cluster is deleted. If omitted, no final snapshot will be
+     * made.
+     */
     public readonly finalSnapshotIdentifier?: fabric.Computed<string>;
+    /**
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     */
     public readonly iamDatabaseAuthenticationEnabled?: fabric.Computed<boolean>;
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     */
     public readonly kmsKeyId: fabric.Computed<string>;
+    /**
+     * Password for the master DB user. Note that this may
+     * show up in logs, and it will be stored in the state file
+     */
     public readonly masterPassword?: fabric.Computed<string>;
+    /**
+     * Username for the master DB user
+     */
     public readonly masterUsername: fabric.Computed<string>;
+    /**
+     * The port on which the DB accepts connections
+     */
     public readonly port: fabric.Computed<number>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
+     * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     */
     public readonly preferredBackupWindow: fabric.Computed<string>;
+    /**
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     */
     public readonly preferredMaintenanceWindow: fabric.Computed<string>;
+    /**
+     * A read-only endpoint for the Aurora cluster, automatically
+     * load-balanced across replicas
+     */
     public /*out*/ readonly readerEndpoint: fabric.Computed<string>;
+    /**
+     * ARN  of the source DB cluster if this DB cluster is created as a Read Replica.
+     */
     public readonly replicationSourceIdentifier?: fabric.Computed<string>;
+    /**
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     */
     public readonly skipFinalSnapshot?: fabric.Computed<boolean>;
+    /**
+     * Specifies whether or not to create this cluster from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
+     */
     public readonly snapshotIdentifier?: fabric.Computed<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     */
     public readonly storageEncrypted?: fabric.Computed<boolean>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * List of VPC security groups to associate
+     * with the Cluster
+     */
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
 
+    /**
+     * Create a Cluster resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Cluster instance
+     * @param args A collection of arguments for creating this Cluster intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ClusterArgs, dependsOn?: fabric.Resource[]) {
         super("aws:rds/cluster:Cluster", urnName, {
             "applyImmediately": args.applyImmediately,
@@ -65,29 +183,103 @@ export class Cluster extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Cluster resource.
+ */
 export interface ClusterArgs {
+    /**
+     * Specifies whether any cluster modifications
+     * are applied immediately, or during the next maintenance window. Default is
+     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     */
     readonly applyImmediately?: fabric.ComputedValue<boolean>;
+    /**
+     * A list of EC2 Availability Zones that
+     * instances in the DB cluster can be created in
+     */
     readonly availabilityZones?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The days to retain backups for. Default
+     * 1
+     */
     readonly backupRetentionPeriod?: fabric.ComputedValue<number>;
+    /**
+     * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     */
     readonly clusterIdentifier?: fabric.ComputedValue<string>;
+    /**
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     */
     readonly clusterIdentifierPrefix?: fabric.ComputedValue<string>;
     readonly clusterMembers?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The name for your database of up to 8 alpha-numeric
+     * characters. If you do not provide a name, Amazon RDS will not create a
+     * database in the DB cluster you are creating
+     */
     readonly databaseName?: fabric.ComputedValue<string>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     readonly dbClusterParameterGroupName?: fabric.ComputedValue<string>;
+    /**
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     */
     readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
+    /**
+     * The name of your final DB snapshot
+     * when this DB cluster is deleted. If omitted, no final snapshot will be
+     * made.
+     */
     readonly finalSnapshotIdentifier?: fabric.ComputedValue<string>;
+    /**
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     */
     readonly iamDatabaseAuthenticationEnabled?: fabric.ComputedValue<boolean>;
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     */
     readonly kmsKeyId?: fabric.ComputedValue<string>;
+    /**
+     * Password for the master DB user. Note that this may
+     * show up in logs, and it will be stored in the state file
+     */
     readonly masterPassword?: fabric.ComputedValue<string>;
+    /**
+     * Username for the master DB user
+     */
     readonly masterUsername?: fabric.ComputedValue<string>;
+    /**
+     * The port on which the DB accepts connections
+     */
     readonly port?: fabric.ComputedValue<number>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
+     * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     */
     readonly preferredBackupWindow?: fabric.ComputedValue<string>;
+    /**
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     */
     readonly preferredMaintenanceWindow?: fabric.ComputedValue<string>;
     readonly replicationSourceIdentifier?: fabric.ComputedValue<string>;
+    /**
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     */
     readonly skipFinalSnapshot?: fabric.ComputedValue<boolean>;
+    /**
+     * Specifies whether or not to create this cluster from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
+     */
     readonly snapshotIdentifier?: fabric.ComputedValue<string>;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     */
     readonly storageEncrypted?: fabric.ComputedValue<boolean>;
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * List of VPC security groups to associate
+     * with the Cluster
+     */
     readonly vpcSecurityGroupIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

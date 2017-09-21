@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a static route between a VPN connection and a customer gateway.
+ */
 export class VpnConnectionRoute extends fabric.Resource {
+    /**
+     * The CIDR block associated with the local subnet of the customer network.
+     */
     public readonly destinationCidrBlock: fabric.Computed<string>;
+    /**
+     * The ID of the VPN connection.
+     */
     public readonly vpnConnectionId: fabric.Computed<string>;
 
+    /**
+     * Create a VpnConnectionRoute resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpnConnectionRoute instance
+     * @param args A collection of arguments for creating this VpnConnectionRoute intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpnConnectionRouteArgs, dependsOn?: fabric.Resource[]) {
         if (args.destinationCidrBlock === undefined) {
             throw new Error("Missing required property 'destinationCidrBlock'");
@@ -21,8 +38,17 @@ export class VpnConnectionRoute extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpnConnectionRoute resource.
+ */
 export interface VpnConnectionRouteArgs {
+    /**
+     * The CIDR block associated with the local subnet of the customer network.
+     */
     readonly destinationCidrBlock: fabric.ComputedValue<string>;
+    /**
+     * The ID of the VPN connection.
+     */
     readonly vpnConnectionId: fabric.ComputedValue<string>;
 }
 

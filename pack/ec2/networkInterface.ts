@@ -3,17 +3,52 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic network interface (ENI) resource.
+ */
 export class NetworkInterface extends fabric.Resource {
+    /**
+     * Block to define the attachment of the ENI. Documented below.
+     */
     public readonly attachment: fabric.Computed<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
+    /**
+     * A description for the network interface.
+     */
     public readonly description?: fabric.Computed<string>;
     public readonly privateIp: fabric.Computed<string>;
+    /**
+     * List of private IPs to assign to the ENI.
+     */
     public readonly privateIps: fabric.Computed<string[]>;
+    /**
+     * Number of private IPs to assign to the ENI.
+     */
     public readonly privateIpsCount: fabric.Computed<number>;
+    /**
+     * List of security group IDs to assign to the ENI.
+     */
     public readonly securityGroups: fabric.Computed<string[]>;
+    /**
+     * Whether to enable source destination checking for the ENI. Default true.
+     */
     public readonly sourceDestCheck?: fabric.Computed<boolean>;
+    /**
+     * Subnet ID to create the ENI in.
+     */
     public readonly subnetId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a NetworkInterface resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this NetworkInterface instance
+     * @param args A collection of arguments for creating this NetworkInterface intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: NetworkInterfaceArgs, dependsOn?: fabric.Resource[]) {
         if (args.subnetId === undefined) {
             throw new Error("Missing required property 'subnetId'");
@@ -32,15 +67,42 @@ export class NetworkInterface extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a NetworkInterface resource.
+ */
 export interface NetworkInterfaceArgs {
+    /**
+     * Block to define the attachment of the ENI. Documented below.
+     */
     readonly attachment?: fabric.ComputedValue<{ attachmentId?: fabric.ComputedValue<string>, deviceIndex: fabric.ComputedValue<number>, instance: fabric.ComputedValue<string> }>[];
+    /**
+     * A description for the network interface.
+     */
     readonly description?: fabric.ComputedValue<string>;
     readonly privateIp?: fabric.ComputedValue<string>;
+    /**
+     * List of private IPs to assign to the ENI.
+     */
     readonly privateIps?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * Number of private IPs to assign to the ENI.
+     */
     readonly privateIpsCount?: fabric.ComputedValue<number>;
+    /**
+     * List of security group IDs to assign to the ENI.
+     */
     readonly securityGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * Whether to enable source destination checking for the ENI. Default true.
+     */
     readonly sourceDestCheck?: fabric.ComputedValue<boolean>;
+    /**
+     * Subnet ID to create the ENI in.
+     */
     readonly subnetId: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

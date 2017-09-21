@@ -3,29 +3,127 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an RDS Cluster Resource Instance. A Cluster Instance Resource defines
+ * attributes that are specific to a single instance in a [RDS Cluster][3],
+ * specifically running Amazon Aurora.
+ * 
+ * Unlike other RDS resources that support replication, with Amazon Aurora you do
+ * not designate a primary and subsequent replicas. Instead, you simply add RDS
+ * Instances and Aurora manages the replication. You can use the [count][5]
+ * meta-parameter to make multiple instances and join them all to the same RDS
+ * Cluster, or you may specify different Cluster Instance resources with various
+ * `instance_class` sizes.
+ * 
+ * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+ */
 export class ClusterInstance extends fabric.Resource {
+    /**
+     * Specifies whether any database modifications
+     * are applied immediately, or during the next maintenance window. Default is`false`.
+     */
     public readonly applyImmediately: fabric.Computed<boolean>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     */
     public readonly autoMinorVersionUpgrade?: fabric.Computed<boolean>;
+    /**
+     * The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     */
     public readonly clusterIdentifier: fabric.Computed<string>;
+    /**
+     * The name of the DB parameter group to associate with this instance.
+     */
     public readonly dbParameterGroupName: fabric.Computed<string>;
+    /**
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
+     */
     public readonly dbSubnetGroupName: fabric.Computed<string>;
+    /**
+     * The region-unique, immutable identifier for the DB instance.
+     */
     public /*out*/ readonly dbiResourceId: fabric.Computed<string>;
+    /**
+     * The DNS address for this instance. May not be writable
+     */
     public /*out*/ readonly endpoint: fabric.Computed<string>;
+    /**
+     * The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+     */
     public readonly identifier: fabric.Computed<string>;
+    /**
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     */
     public readonly identifierPrefix: fabric.Computed<string>;
+    /**
+     * The instance class to use. For details on CPU
+     * and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
+     * supports the below instance classes.
+     * - db.t2.small
+     * - db.t2.medium
+     * - db.r3.large
+     * - db.r3.xlarge
+     * - db.r3.2xlarge
+     * - db.r3.4xlarge
+     * - db.r3.8xlarge
+     */
     public readonly instanceClass: fabric.Computed<string>;
+    /**
+     * The ARN for the KMS encryption key if one is set to the cluster.
+     */
     public /*out*/ readonly kmsKeyId: fabric.Computed<string>;
+    /**
+     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     */
     public readonly monitoringInterval?: fabric.Computed<number>;
+    /**
+     * The ARN for the IAM role that permits RDS to send
+     * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+     */
     public readonly monitoringRoleArn: fabric.Computed<string>;
+    /**
+     * The database port
+     */
     public /*out*/ readonly port: fabric.Computed<number>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled.
+     * Eg: "04:00-09:00"
+     */
     public readonly preferredBackupWindow: fabric.Computed<string>;
+    /**
+     * The window to perform maintenance in.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     */
     public readonly preferredMaintenanceWindow: fabric.Computed<string>;
+    /**
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer. 
+     */
     public readonly promotionTier?: fabric.Computed<number>;
+    /**
+     * Bool to control if instance is publicly accessible.
+     * Default `false`. See the documentation on [Creating DB Instances][6] for more
+     * details on controlling this property.
+     */
     public readonly publiclyAccessible?: fabric.Computed<boolean>;
+    /**
+     * Specifies whether the DB cluster is encrypted.
+     */
     public /*out*/ readonly storageEncrypted: fabric.Computed<boolean>;
+    /**
+     * A mapping of tags to assign to the instance.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     public /*out*/ readonly writer: fabric.Computed<boolean>;
 
+    /**
+     * Create a ClusterInstance resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ClusterInstance instance
+     * @param args A collection of arguments for creating this ClusterInstance intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ClusterInstanceArgs, dependsOn?: fabric.Resource[]) {
         if (args.clusterIdentifier === undefined) {
             throw new Error("Missing required property 'clusterIdentifier'");
@@ -59,21 +157,85 @@ export class ClusterInstance extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ClusterInstance resource.
+ */
 export interface ClusterInstanceArgs {
+    /**
+     * Specifies whether any database modifications
+     * are applied immediately, or during the next maintenance window. Default is`false`.
+     */
     readonly applyImmediately?: fabric.ComputedValue<boolean>;
+    /**
+     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     */
     readonly autoMinorVersionUpgrade?: fabric.ComputedValue<boolean>;
+    /**
+     * The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     */
     readonly clusterIdentifier: fabric.ComputedValue<string>;
+    /**
+     * The name of the DB parameter group to associate with this instance.
+     */
     readonly dbParameterGroupName?: fabric.ComputedValue<string>;
+    /**
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
+     */
     readonly dbSubnetGroupName?: fabric.ComputedValue<string>;
+    /**
+     * The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+     */
     readonly identifier?: fabric.ComputedValue<string>;
+    /**
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     */
     readonly identifierPrefix?: fabric.ComputedValue<string>;
+    /**
+     * The instance class to use. For details on CPU
+     * and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
+     * supports the below instance classes.
+     * - db.t2.small
+     * - db.t2.medium
+     * - db.r3.large
+     * - db.r3.xlarge
+     * - db.r3.2xlarge
+     * - db.r3.4xlarge
+     * - db.r3.8xlarge
+     */
     readonly instanceClass: fabric.ComputedValue<string>;
+    /**
+     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     */
     readonly monitoringInterval?: fabric.ComputedValue<number>;
+    /**
+     * The ARN for the IAM role that permits RDS to send
+     * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+     */
     readonly monitoringRoleArn?: fabric.ComputedValue<string>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled.
+     * Eg: "04:00-09:00"
+     */
     readonly preferredBackupWindow?: fabric.ComputedValue<string>;
+    /**
+     * The window to perform maintenance in.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     */
     readonly preferredMaintenanceWindow?: fabric.ComputedValue<string>;
+    /**
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer. 
+     */
     readonly promotionTier?: fabric.ComputedValue<number>;
+    /**
+     * Bool to control if instance is publicly accessible.
+     * Default `false`. See the documentation on [Creating DB Instances][6] for more
+     * details on controlling this property.
+     */
     readonly publiclyAccessible?: fabric.ComputedValue<boolean>;
+    /**
+     * A mapping of tags to assign to the instance.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -3,11 +3,32 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource for managing the main routing table of a VPC.
+ */
 export class MainRouteTableAssociation extends fabric.Resource {
+    /**
+     * Used internally, see __Notes__ below
+     */
     public /*out*/ readonly originalRouteTableId: fabric.Computed<string>;
+    /**
+     * The ID of the Route Table to set as the new
+     * main route table for the target VPC
+     */
     public readonly routeTableId: fabric.Computed<string>;
+    /**
+     * The ID of the VPC whose main route table should be set
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a MainRouteTableAssociation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MainRouteTableAssociation instance
+     * @param args A collection of arguments for creating this MainRouteTableAssociation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MainRouteTableAssociationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
@@ -23,8 +44,18 @@ export class MainRouteTableAssociation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MainRouteTableAssociation resource.
+ */
 export interface MainRouteTableAssociationArgs {
+    /**
+     * The ID of the Route Table to set as the new
+     * main route table for the target VPC
+     */
     readonly routeTableId: fabric.ComputedValue<string>;
+    /**
+     * The ID of the VPC whose main route table should be set
+     */
     readonly vpcId: fabric.ComputedValue<string>;
 }
 

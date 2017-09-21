@@ -3,13 +3,39 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SSM Parameter resource.
+ */
 export class Parameter extends fabric.Resource {
+    /**
+     * The KMS key id or arn for encrypting a SecureString.
+     */
     public readonly keyId?: fabric.Computed<string>;
+    /**
+     * The name of the parameter.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Overwrite an existing parameter. If not specified, will default to `false`.
+     */
     public readonly overwrite?: fabric.Computed<boolean>;
+    /**
+     * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     */
     public readonly type: fabric.Computed<string>;
+    /**
+     * The value of the parameter.
+     */
     public readonly value: fabric.Computed<string>;
 
+    /**
+     * Create a Parameter resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Parameter instance
+     * @param args A collection of arguments for creating this Parameter intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ParameterArgs, dependsOn?: fabric.Resource[]) {
         if (args.type === undefined) {
             throw new Error("Missing required property 'type'");
@@ -27,11 +53,29 @@ export class Parameter extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Parameter resource.
+ */
 export interface ParameterArgs {
+    /**
+     * The KMS key id or arn for encrypting a SecureString.
+     */
     readonly keyId?: fabric.ComputedValue<string>;
+    /**
+     * The name of the parameter.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Overwrite an existing parameter. If not specified, will default to `false`.
+     */
     readonly overwrite?: fabric.ComputedValue<boolean>;
+    /**
+     * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     */
     readonly type: fabric.ComputedValue<string>;
+    /**
+     * The value of the parameter.
+     */
     readonly value: fabric.ComputedValue<string>;
 }
 

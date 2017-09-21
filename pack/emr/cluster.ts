@@ -3,27 +3,97 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
+ * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
+ * for more information.
+ */
 export class Cluster extends fabric.Resource {
+    /**
+     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+     */
     public readonly applications?: fabric.Computed<string[]>;
+    /**
+     * An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+     */
     public readonly autoscalingRole?: fabric.Computed<string>;
+    /**
+     * List of bootstrap actions that will be run before Hadoop is started on
+     * the cluster nodes. Defined below
+     */
     public readonly bootstrapAction?: fabric.Computed<{ args?: string[], name: string, path: string }[]>;
     public /*out*/ readonly clusterState: fabric.Computed<string>;
+    /**
+     * List of configurations supplied for the EMR cluster you are creating
+     */
     public readonly configurations?: fabric.Computed<string>;
+    /**
+     * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
+     */
     public readonly coreInstanceCount?: fabric.Computed<number>;
+    /**
+     * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
+     */
     public readonly coreInstanceType: fabric.Computed<string>;
+    /**
+     * Attributes for the EC2 instances running the job
+     * flow. Defined below
+     */
     public readonly ec2Attributes?: fabric.Computed<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string }[]>;
+    /**
+     * Switch on/off run cluster with no steps or when all steps are complete (default is on)
+     */
     public readonly keepJobFlowAliveWhenNoSteps: fabric.Computed<boolean>;
+    /**
+     * S3 bucket to write the log files of the job flow. If a value
+     * is not provided, logs are not created
+     */
     public readonly logUri?: fabric.Computed<string>;
+    /**
+     * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
+     */
     public readonly masterInstanceType: fabric.Computed<string>;
+    /**
+     * The public DNS name of the master EC2 instance.
+     */
     public /*out*/ readonly masterPublicDns: fabric.Computed<string>;
+    /**
+     * The name of the job flow
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The release label for the Amazon EMR release
+     */
     public readonly releaseLabel: fabric.Computed<string>;
+    /**
+     * The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
+     */
     public readonly securityConfiguration?: fabric.Computed<string>;
+    /**
+     * IAM role that will be assumed by the Amazon EMR service to access AWS resources
+     */
     public readonly serviceRole: fabric.Computed<string>;
+    /**
+     * list of tags to apply to the EMR Cluster
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Switch on/off termination protection (default is off)
+     */
     public readonly terminationProtection: fabric.Computed<boolean>;
+    /**
+     * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+     */
     public readonly visibleToAllUsers?: fabric.Computed<boolean>;
 
+    /**
+     * Create a Cluster resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Cluster instance
+     * @param args A collection of arguments for creating this Cluster intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ClusterArgs, dependsOn?: fabric.Resource[]) {
         if (args.masterInstanceType === undefined) {
             throw new Error("Missing required property 'masterInstanceType'");
@@ -58,23 +128,80 @@ export class Cluster extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Cluster resource.
+ */
 export interface ClusterArgs {
+    /**
+     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+     */
     readonly applications?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+     */
     readonly autoscalingRole?: fabric.ComputedValue<string>;
+    /**
+     * List of bootstrap actions that will be run before Hadoop is started on
+     * the cluster nodes. Defined below
+     */
     readonly bootstrapAction?: fabric.ComputedValue<{ args?: fabric.ComputedValue<fabric.ComputedValue<string>>[], name: fabric.ComputedValue<string>, path: fabric.ComputedValue<string> }>[];
+    /**
+     * List of configurations supplied for the EMR cluster you are creating
+     */
     readonly configurations?: fabric.ComputedValue<string>;
+    /**
+     * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
+     */
     readonly coreInstanceCount?: fabric.ComputedValue<number>;
+    /**
+     * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
+     */
     readonly coreInstanceType?: fabric.ComputedValue<string>;
+    /**
+     * Attributes for the EC2 instances running the job
+     * flow. Defined below
+     */
     readonly ec2Attributes?: fabric.ComputedValue<{ additionalMasterSecurityGroups?: fabric.ComputedValue<string>, additionalSlaveSecurityGroups?: fabric.ComputedValue<string>, emrManagedMasterSecurityGroup?: fabric.ComputedValue<string>, emrManagedSlaveSecurityGroup?: fabric.ComputedValue<string>, instanceProfile: fabric.ComputedValue<string>, keyName?: fabric.ComputedValue<string>, serviceAccessSecurityGroup?: fabric.ComputedValue<string>, subnetId?: fabric.ComputedValue<string> }>[];
+    /**
+     * Switch on/off run cluster with no steps or when all steps are complete (default is on)
+     */
     readonly keepJobFlowAliveWhenNoSteps?: fabric.ComputedValue<boolean>;
+    /**
+     * S3 bucket to write the log files of the job flow. If a value
+     * is not provided, logs are not created
+     */
     readonly logUri?: fabric.ComputedValue<string>;
+    /**
+     * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
+     */
     readonly masterInstanceType: fabric.ComputedValue<string>;
+    /**
+     * The name of the job flow
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The release label for the Amazon EMR release
+     */
     readonly releaseLabel: fabric.ComputedValue<string>;
+    /**
+     * The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
+     */
     readonly securityConfiguration?: fabric.ComputedValue<string>;
+    /**
+     * IAM role that will be assumed by the Amazon EMR service to access AWS resources
+     */
     readonly serviceRole: fabric.ComputedValue<string>;
+    /**
+     * list of tags to apply to the EMR Cluster
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * Switch on/off termination protection (default is off)
+     */
     readonly terminationProtection?: fabric.ComputedValue<boolean>;
+    /**
+     * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+     */
     readonly visibleToAllUsers?: fabric.ComputedValue<boolean>;
 }
 

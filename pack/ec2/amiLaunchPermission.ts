@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
+ */
 export class AmiLaunchPermission extends fabric.Resource {
+    /**
+     * An AWS Account ID to add launch permissions.
+     */
     public readonly accountId: fabric.Computed<string>;
+    /**
+     * A region-unique name for the AMI.
+     */
     public readonly imageId: fabric.Computed<string>;
 
+    /**
+     * Create a AmiLaunchPermission resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AmiLaunchPermission instance
+     * @param args A collection of arguments for creating this AmiLaunchPermission intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AmiLaunchPermissionArgs, dependsOn?: fabric.Resource[]) {
         if (args.accountId === undefined) {
             throw new Error("Missing required property 'accountId'");
@@ -21,8 +38,17 @@ export class AmiLaunchPermission extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AmiLaunchPermission resource.
+ */
 export interface AmiLaunchPermissionArgs {
+    /**
+     * An AWS Account ID to add launch permissions.
+     */
     readonly accountId: fabric.ComputedValue<string>;
+    /**
+     * A region-unique name for the AMI.
+     */
     readonly imageId: fabric.ComputedValue<string>;
 }
 

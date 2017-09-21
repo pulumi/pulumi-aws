@@ -3,12 +3,57 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IoT policy.
+ * 
+ * ```hcl
+ * resource "aws_iot_policy" "pubsub" {
+ *   name        = "PubSubToAnyTopic"
+ *   policy = <<EOF
+ * {
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "iot:*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * EOF
+ * }
+ * ```
+ */
 export class Policy extends fabric.Resource {
+    /**
+     * The ARN assigned by AWS to this policy.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The default version of this policy.
+     */
     public /*out*/ readonly defaultVersionId: fabric.Computed<string>;
+    /**
+     * The name of the policy.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here. Use the [IoT Developer Guide]
+     * (http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies
+     */
     public readonly policy: fabric.Computed<string>;
 
+    /**
+     * Create a Policy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Policy instance
+     * @param args A collection of arguments for creating this Policy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
@@ -22,8 +67,19 @@ export class Policy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Policy resource.
+ */
 export interface PolicyArgs {
+    /**
+     * The name of the policy.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here. Use the [IoT Developer Guide]
+     * (http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies
+     */
     readonly policy: fabric.ComputedValue<string>;
 }
 

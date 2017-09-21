@@ -3,21 +3,65 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a resource to create a routing table entry (a route) in a VPC routing table.
+ * 
+ * ~> **NOTE on Route Tables and Routes:** Terraform currently
+ * provides both a standalone Route resource and a [Route Table](route_table.html) resource with routes
+ * defined in-line. At this time you cannot use a Route Table with in-line routes
+ * in conjunction with any Route resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ */
 export class Route extends fabric.Resource {
+    /**
+     * The destination CIDR block.
+     */
     public readonly destinationCidrBlock?: fabric.Computed<string>;
+    /**
+     * The destination IPv6 CIDR block.
+     */
     public readonly destinationIpv6CidrBlock?: fabric.Computed<string>;
     public /*out*/ readonly destinationPrefixListId: fabric.Computed<string>;
+    /**
+     * An ID of a VPC Egress Only Internet Gateway.
+     */
     public readonly egressOnlyGatewayId: fabric.Computed<string>;
+    /**
+     * An ID of a VPC internet gateway or a virtual private gateway.
+     */
     public readonly gatewayId: fabric.Computed<string>;
+    /**
+     * An ID of an EC2 instance.
+     */
     public readonly instanceId: fabric.Computed<string>;
     public /*out*/ readonly instanceOwnerId: fabric.Computed<string>;
+    /**
+     * An ID of a VPC NAT gateway.
+     */
     public readonly natGatewayId: fabric.Computed<string>;
+    /**
+     * An ID of a network interface.
+     */
     public readonly networkInterfaceId: fabric.Computed<string>;
     public /*out*/ readonly origin: fabric.Computed<string>;
+    /**
+     * The ID of the routing table.
+     */
     public readonly routeTableId: fabric.Computed<string>;
     public /*out*/ readonly state: fabric.Computed<string>;
+    /**
+     * An ID of a VPC peering connection.
+     */
     public readonly vpcPeeringConnectionId?: fabric.Computed<string>;
 
+    /**
+     * Create a Route resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Route instance
+     * @param args A collection of arguments for creating this Route intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RouteArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
@@ -40,15 +84,45 @@ export class Route extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Route resource.
+ */
 export interface RouteArgs {
+    /**
+     * The destination CIDR block.
+     */
     readonly destinationCidrBlock?: fabric.ComputedValue<string>;
+    /**
+     * The destination IPv6 CIDR block.
+     */
     readonly destinationIpv6CidrBlock?: fabric.ComputedValue<string>;
+    /**
+     * An ID of a VPC Egress Only Internet Gateway.
+     */
     readonly egressOnlyGatewayId?: fabric.ComputedValue<string>;
+    /**
+     * An ID of a VPC internet gateway or a virtual private gateway.
+     */
     readonly gatewayId?: fabric.ComputedValue<string>;
+    /**
+     * An ID of an EC2 instance.
+     */
     readonly instanceId?: fabric.ComputedValue<string>;
+    /**
+     * An ID of a VPC NAT gateway.
+     */
     readonly natGatewayId?: fabric.ComputedValue<string>;
+    /**
+     * An ID of a network interface.
+     */
     readonly networkInterfaceId?: fabric.ComputedValue<string>;
+    /**
+     * The ID of the routing table.
+     */
     readonly routeTableId: fabric.ComputedValue<string>;
+    /**
+     * An ID of a VPC peering connection.
+     */
     readonly vpcPeeringConnectionId?: fabric.ComputedValue<string>;
 }
 

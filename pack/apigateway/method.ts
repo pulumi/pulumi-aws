@@ -5,18 +5,60 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides a HTTP Method for an API Gateway Resource.
+ */
 export class Method extends fabric.Resource {
+    /**
+     * Specify if the method requires an API key
+     */
     public readonly apiKeyRequired?: fabric.Computed<boolean>;
+    /**
+     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`)
+     */
     public readonly authorization: fabric.Computed<string>;
+    /**
+     * The authorizer id to be used when the authorization is `CUSTOM`
+     */
     public readonly authorizerId?: fabric.Computed<string>;
+    /**
+     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     */
     public readonly httpMethod: fabric.Computed<string>;
+    /**
+     * A map of the API models used for the request's content type
+     * where key is the content type (e.g. `application/json`)
+     * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+     */
     public readonly requestModels?: fabric.Computed<{[key: string]: string}>;
+    /**
+     * A map of request query string parameters and headers that should be passed to the integration.
+     * For example: `request_parameters = { "method.request.header.X-Some-Header" = true }`
+     * would define that the header `X-Some-Header` must be provided on the request.
+     */
     public readonly requestParameters?: fabric.Computed<{[key: string]: boolean}>;
+    /**
+     * **Deprecated**, use `request_parameters` instead.
+     */
     public readonly requestParametersInJson?: fabric.Computed<string>;
     public readonly requestValidatorId?: fabric.Computed<string>;
+    /**
+     * The API resource ID
+     */
     public readonly resourceId: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
 
+    /**
+     * Create a Method resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Method instance
+     * @param args A collection of arguments for creating this Method intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MethodArgs, dependsOn?: fabric.Resource[]) {
         if (args.authorization === undefined) {
             throw new Error("Missing required property 'authorization'");
@@ -45,16 +87,50 @@ export class Method extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Method resource.
+ */
 export interface MethodArgs {
+    /**
+     * Specify if the method requires an API key
+     */
     readonly apiKeyRequired?: fabric.ComputedValue<boolean>;
+    /**
+     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`)
+     */
     readonly authorization: fabric.ComputedValue<string>;
+    /**
+     * The authorizer id to be used when the authorization is `CUSTOM`
+     */
     readonly authorizerId?: fabric.ComputedValue<string>;
+    /**
+     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+     */
     readonly httpMethod: fabric.ComputedValue<string>;
+    /**
+     * A map of the API models used for the request's content type
+     * where key is the content type (e.g. `application/json`)
+     * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+     */
     readonly requestModels?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<string>}>;
+    /**
+     * A map of request query string parameters and headers that should be passed to the integration.
+     * For example: `request_parameters = { "method.request.header.X-Some-Header" = true }`
+     * would define that the header `X-Some-Header` must be provided on the request.
+     */
     readonly requestParameters?: fabric.ComputedValue<{[key: string]: fabric.ComputedValue<boolean>}>;
+    /**
+     * **Deprecated**, use `request_parameters` instead.
+     */
     readonly requestParametersInJson?: fabric.ComputedValue<string>;
     readonly requestValidatorId?: fabric.ComputedValue<string>;
+    /**
+     * The API resource ID
+     */
     readonly resourceId: fabric.ComputedValue<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.ComputedValue<RestApi>;
 }
 

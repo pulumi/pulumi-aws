@@ -3,10 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
+ * 
+ * ~> **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ */
 export class StaticIpAttachment extends fabric.Resource {
+    /**
+     * The name of the Lightsail instance to attach the IP to
+     */
     public readonly instanceName: fabric.Computed<string>;
+    /**
+     * The name of the allocated static IP
+     */
     public readonly staticIpName: fabric.Computed<string>;
 
+    /**
+     * Create a StaticIpAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this StaticIpAttachment instance
+     * @param args A collection of arguments for creating this StaticIpAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: StaticIpAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.instanceName === undefined) {
             throw new Error("Missing required property 'instanceName'");
@@ -21,8 +40,17 @@ export class StaticIpAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a StaticIpAttachment resource.
+ */
 export interface StaticIpAttachmentArgs {
+    /**
+     * The name of the Lightsail instance to attach the IP to
+     */
     readonly instanceName: fabric.ComputedValue<string>;
+    /**
+     * The name of the allocated static IP
+     */
     readonly staticIpName: fabric.ComputedValue<string>;
 }
 

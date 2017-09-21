@@ -3,14 +3,46 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
+ * 
+ * ~> **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+ */
 export class Vault extends fabric.Resource {
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     */
     public readonly accessPolicy?: fabric.Computed<string>;
+    /**
+     * The ARN of the vault.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The URI of the vault that was created.
+     */
     public /*out*/ readonly location: fabric.Computed<string>;
+    /**
+     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '\_' (underscore), '-' (hyphen), and '.' (period).
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The notifications for the Vault. Fields documented below.
+     */
     public readonly notification?: fabric.Computed<{ events: string[], snsTopic: string }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Vault resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Vault instance
+     * @param args A collection of arguments for creating this Vault intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: VaultArgs, dependsOn?: fabric.Resource[]) {
         super("aws:glacier/vault:Vault", urnName, {
             "accessPolicy": args.accessPolicy,
@@ -23,10 +55,26 @@ export class Vault extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Vault resource.
+ */
 export interface VaultArgs {
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     */
     readonly accessPolicy?: fabric.ComputedValue<string>;
+    /**
+     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '\_' (underscore), '-' (hyphen), and '.' (period).
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The notifications for the Vault. Fields documented below.
+     */
     readonly notification?: fabric.ComputedValue<{ events: fabric.ComputedValue<fabric.ComputedValue<string>>[], snsTopic: fabric.ComputedValue<string> }>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

@@ -3,10 +3,28 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Allows you to set a policy of an SQS Queue
+ * while referencing ARN of the queue within the policy.
+ */
 export class QueuePolicy extends fabric.Resource {
+    /**
+     * The JSON policy for the SQS queue
+     */
     public readonly policy: fabric.Computed<string>;
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     */
     public readonly queueUrl: fabric.Computed<string>;
 
+    /**
+     * Create a QueuePolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this QueuePolicy instance
+     * @param args A collection of arguments for creating this QueuePolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: QueuePolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
@@ -21,8 +39,17 @@ export class QueuePolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a QueuePolicy resource.
+ */
 export interface QueuePolicyArgs {
+    /**
+     * The JSON policy for the SQS queue
+     */
     readonly policy: fabric.ComputedValue<string>;
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     */
     readonly queueUrl: fabric.ComputedValue<string>;
 }
 

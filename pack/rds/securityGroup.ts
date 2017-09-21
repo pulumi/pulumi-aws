@@ -3,13 +3,42 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an RDS security group resource. This is only for DB instances in the
+ * EC2-Classic Platform. For instances inside a VPC, use the
+ * [`aws_db_instance.vpc_security_group_ids`](/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
+ * attribute instead.
+ */
 export class SecurityGroup extends fabric.Resource {
+    /**
+     * The arn of the DB security group.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The description of the DB security group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * A list of ingress rules.
+     */
     public readonly ingress: fabric.Computed<{ cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
+    /**
+     * The name of the DB security group.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a SecurityGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this SecurityGroup instance
+     * @param args A collection of arguments for creating this SecurityGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: SecurityGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.ingress === undefined) {
             throw new Error("Missing required property 'ingress'");
@@ -24,10 +53,25 @@ export class SecurityGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a SecurityGroup resource.
+ */
 export interface SecurityGroupArgs {
+    /**
+     * The description of the DB security group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * A list of ingress rules.
+     */
     readonly ingress: fabric.ComputedValue<{ cidr?: fabric.ComputedValue<string>, securityGroupId?: fabric.ComputedValue<string>, securityGroupName?: fabric.ComputedValue<string>, securityGroupOwnerId?: fabric.ComputedValue<string> }>[];
+    /**
+     * The name of the DB security group.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

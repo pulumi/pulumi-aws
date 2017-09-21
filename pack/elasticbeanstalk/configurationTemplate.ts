@@ -3,14 +3,44 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an Elastic Beanstalk Configuration Template, which are associated with
+ * a specific application and are used to deploy different versions of the
+ * application with the same configuration settings.
+ */
 export class ConfigurationTemplate extends fabric.Resource {
+    /**
+     * name of the application to associate with this configuration template
+     */
     public readonly application: fabric.Computed<string>;
+    /**
+     * Short description of the Template
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The ID of the environment used with this configuration template
+     * * `setting` – (Optional) Option settings to configure the new Environment. These
+     * override specific values that are set as defaults. The format is detailed
+     * below in [Option Settings](#option-settings)
+     * * `solution_stack_name` – (Optional) A solution stack to base your Template
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     */
     public readonly environmentId?: fabric.Computed<string>;
+    /**
+     * A unique name for this Template.
+     */
     public readonly name: fabric.Computed<string>;
     public readonly setting: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
     public readonly solutionStackName?: fabric.Computed<string>;
 
+    /**
+     * Create a ConfigurationTemplate resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ConfigurationTemplate instance
+     * @param args A collection of arguments for creating this ConfigurationTemplate intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ConfigurationTemplateArgs, dependsOn?: fabric.Resource[]) {
         if (args.application === undefined) {
             throw new Error("Missing required property 'application'");
@@ -26,10 +56,30 @@ export class ConfigurationTemplate extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ConfigurationTemplate resource.
+ */
 export interface ConfigurationTemplateArgs {
+    /**
+     * name of the application to associate with this configuration template
+     */
     readonly application: fabric.ComputedValue<string>;
+    /**
+     * Short description of the Template
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * The ID of the environment used with this configuration template
+     * * `setting` – (Optional) Option settings to configure the new Environment. These
+     * override specific values that are set as defaults. The format is detailed
+     * below in [Option Settings](#option-settings)
+     * * `solution_stack_name` – (Optional) A solution stack to base your Template
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     */
     readonly environmentId?: fabric.ComputedValue<string>;
+    /**
+     * A unique name for this Template.
+     */
     readonly name?: fabric.ComputedValue<string>;
     readonly setting?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, namespace: fabric.ComputedValue<string>, resource?: fabric.ComputedValue<string>, value: fabric.ComputedValue<string> }>[];
     readonly solutionStackName?: fabric.ComputedValue<string>;

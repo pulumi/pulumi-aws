@@ -3,10 +3,31 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Requests automatic route propagation between a VPN gateway and a route table.
+ * 
+ * ~> **Note:** This resource should not be used with a route table that has
+ * the `propagating_vgws` argument set. If that argument is set, any route
+ * propagation not explicitly listed in its value will be removed.
+ */
 export class VpnGatewayRoutePropagation extends fabric.Resource {
+    /**
+     * The id of the `aws_route_table` to propagate routes into.
+     */
     public readonly routeTableId: fabric.Computed<string>;
+    /**
+     * The id of the `aws_vpn_gateway` to propagate routes from.
+     */
     public readonly vpnGatewayId: fabric.Computed<string>;
 
+    /**
+     * Create a VpnGatewayRoutePropagation resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpnGatewayRoutePropagation instance
+     * @param args A collection of arguments for creating this VpnGatewayRoutePropagation intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpnGatewayRoutePropagationArgs, dependsOn?: fabric.Resource[]) {
         if (args.routeTableId === undefined) {
             throw new Error("Missing required property 'routeTableId'");
@@ -21,8 +42,17 @@ export class VpnGatewayRoutePropagation extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpnGatewayRoutePropagation resource.
+ */
 export interface VpnGatewayRoutePropagationArgs {
+    /**
+     * The id of the `aws_route_table` to propagate routes into.
+     */
     readonly routeTableId: fabric.ComputedValue<string>;
+    /**
+     * The id of the `aws_vpn_gateway` to propagate routes from.
+     */
     readonly vpnGatewayId: fabric.ComputedValue<string>;
 }
 

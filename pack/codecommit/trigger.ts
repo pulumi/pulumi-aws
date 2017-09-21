@@ -3,11 +3,29 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeCommit Trigger Resource.
+ * 
+ * ~> **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
+ * in all regions - available regions are listed
+ * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
+ */
 export class Trigger extends fabric.Resource {
     public /*out*/ readonly configurationId: fabric.Computed<string>;
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     */
     public readonly repositoryName: fabric.Computed<string>;
     public readonly trigger: fabric.Computed<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
+    /**
+     * Create a Trigger resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Trigger instance
+     * @param args A collection of arguments for creating this Trigger intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: TriggerArgs, dependsOn?: fabric.Resource[]) {
         if (args.repositoryName === undefined) {
             throw new Error("Missing required property 'repositoryName'");
@@ -23,7 +41,13 @@ export class Trigger extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Trigger resource.
+ */
 export interface TriggerArgs {
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     */
     readonly repositoryName: fabric.ComputedValue<string>;
     readonly trigger: fabric.ComputedValue<{ branches?: fabric.ComputedValue<fabric.ComputedValue<string>>[], customData?: fabric.ComputedValue<string>, destinationArn: fabric.ComputedValue<string>, events: fabric.ComputedValue<fabric.ComputedValue<string>>[], name: fabric.ComputedValue<string> }>[];
 }

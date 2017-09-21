@@ -6,17 +6,56 @@ import * as fabric from "@pulumi/pulumi-fabric";
 import {Deployment} from "./deployment";
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an API Gateway Stage.
+ */
 export class Stage extends fabric.Resource {
+    /**
+     * Specifies whether a cache cluster is enabled for the stage
+     */
     public readonly cacheClusterEnabled?: fabric.Computed<boolean>;
+    /**
+     * The size of the cache cluster for the stage, if enabled.
+     * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     */
     public readonly cacheClusterSize?: fabric.Computed<string>;
+    /**
+     * The identifier of a client certificate for the stage.
+     */
     public readonly clientCertificateId?: fabric.Computed<string>;
+    /**
+     * The ID of the deployment that the stage points to
+     */
     public readonly deployment: fabric.Computed<Deployment>;
+    /**
+     * The description of the stage
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The version of the associated API documentation
+     */
     public readonly documentationVersion?: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The name of the stage
+     */
     public readonly stageName: fabric.Computed<string>;
+    /**
+     * A map that defines the stage variables
+     */
     public readonly variables?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Stage resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Stage instance
+     * @param args A collection of arguments for creating this Stage intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: StageArgs, dependsOn?: fabric.Resource[]) {
         if (args.deployment === undefined) {
             throw new Error("Missing required property 'deployment'");
@@ -41,15 +80,46 @@ export class Stage extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Stage resource.
+ */
 export interface StageArgs {
+    /**
+     * Specifies whether a cache cluster is enabled for the stage
+     */
     readonly cacheClusterEnabled?: fabric.ComputedValue<boolean>;
+    /**
+     * The size of the cache cluster for the stage, if enabled.
+     * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     */
     readonly cacheClusterSize?: fabric.ComputedValue<string>;
+    /**
+     * The identifier of a client certificate for the stage.
+     */
     readonly clientCertificateId?: fabric.ComputedValue<string>;
+    /**
+     * The ID of the deployment that the stage points to
+     */
     readonly deployment: fabric.ComputedValue<Deployment>;
+    /**
+     * The description of the stage
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * The version of the associated API documentation
+     */
     readonly documentationVersion?: fabric.ComputedValue<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.ComputedValue<RestApi>;
+    /**
+     * The name of the stage
+     */
     readonly stageName: fabric.ComputedValue<string>;
+    /**
+     * A map that defines the stage variables
+     */
     readonly variables?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

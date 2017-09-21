@@ -3,18 +3,59 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SSM Maintenance Window Task resource
+ */
 export class MaintenanceWindowTask extends fabric.Resource {
+    /**
+     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+     */
     public readonly loggingInfo?: fabric.Computed<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string }[]>;
+    /**
+     * The maximum number of targets this task can be run for in parallel.
+     */
     public readonly maxConcurrency: fabric.Computed<string>;
+    /**
+     * The maximum number of errors allowed before this task stops being scheduled.
+     */
     public readonly maxErrors: fabric.Computed<string>;
+    /**
+     * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+     */
     public readonly priority?: fabric.Computed<number>;
+    /**
+     * The role that should be assumed when executing the task.
+     */
     public readonly serviceRoleArn: fabric.Computed<string>;
+    /**
+     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     */
     public readonly targets: fabric.Computed<{ key: string, values: string[] }[]>;
+    /**
+     * The ARN of the task to execute.
+     */
     public readonly taskArn: fabric.Computed<string>;
+    /**
+     * A structure containing information about parameters required by the particular `task_arn`. Documented below.
+     */
     public readonly taskParameters?: fabric.Computed<{ name: string, values: string[] }[]>;
+    /**
+     * The type of task being registered. The only allowed value is `RUN_COMMAND`.
+     */
     public readonly taskType: fabric.Computed<string>;
+    /**
+     * The Id of the maintenance window to register the task with.
+     */
     public readonly windowId: fabric.Computed<string>;
 
+    /**
+     * Create a MaintenanceWindowTask resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MaintenanceWindowTask instance
+     * @param args A collection of arguments for creating this MaintenanceWindowTask intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MaintenanceWindowTaskArgs, dependsOn?: fabric.Resource[]) {
         if (args.maxConcurrency === undefined) {
             throw new Error("Missing required property 'maxConcurrency'");
@@ -52,16 +93,49 @@ export class MaintenanceWindowTask extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MaintenanceWindowTask resource.
+ */
 export interface MaintenanceWindowTaskArgs {
+    /**
+     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+     */
     readonly loggingInfo?: fabric.ComputedValue<{ s3BucketName: fabric.ComputedValue<string>, s3BucketPrefix?: fabric.ComputedValue<string>, s3Region: fabric.ComputedValue<string> }>[];
+    /**
+     * The maximum number of targets this task can be run for in parallel.
+     */
     readonly maxConcurrency: fabric.ComputedValue<string>;
+    /**
+     * The maximum number of errors allowed before this task stops being scheduled.
+     */
     readonly maxErrors: fabric.ComputedValue<string>;
+    /**
+     * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+     */
     readonly priority?: fabric.ComputedValue<number>;
+    /**
+     * The role that should be assumed when executing the task.
+     */
     readonly serviceRoleArn: fabric.ComputedValue<string>;
+    /**
+     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     */
     readonly targets: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    /**
+     * The ARN of the task to execute.
+     */
     readonly taskArn: fabric.ComputedValue<string>;
+    /**
+     * A structure containing information about parameters required by the particular `task_arn`. Documented below.
+     */
     readonly taskParameters?: fabric.ComputedValue<{ name: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    /**
+     * The type of task being registered. The only allowed value is `RUN_COMMAND`.
+     */
     readonly taskType: fabric.ComputedValue<string>;
+    /**
+     * The Id of the maintenance window to register the task with.
+     */
     readonly windowId: fabric.ComputedValue<string>;
 }
 

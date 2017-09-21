@@ -5,13 +5,39 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {ARN} from "../index";
 
+/**
+ * Provides an SNS topic resource
+ */
 export class Topic extends fabric.Resource {
+    /**
+     * The ARN of the SNS topic, as a more obvious property (clone of id)
+     */
     public /*out*/ readonly arn: fabric.Computed<ARN>;
+    /**
+     * The SNS delivery policy
+     */
     public readonly deliveryPolicy?: fabric.Computed<string>;
+    /**
+     * The display name for the SNS topic
+     */
     public readonly displayName?: fabric.Computed<string>;
+    /**
+     * The friendly name for the SNS topic
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The fully-formed AWS policy as JSON
+     */
     public readonly policy: fabric.Computed<string>;
 
+    /**
+     * Create a Topic resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Topic instance
+     * @param args A collection of arguments for creating this Topic intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: TopicArgs, dependsOn?: fabric.Resource[]) {
         super("aws:sns/topic:Topic", urnName, {
             "deliveryPolicy": args.deliveryPolicy,
@@ -23,10 +49,25 @@ export class Topic extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Topic resource.
+ */
 export interface TopicArgs {
+    /**
+     * The SNS delivery policy
+     */
     readonly deliveryPolicy?: fabric.ComputedValue<string>;
+    /**
+     * The display name for the SNS topic
+     */
     readonly displayName?: fabric.ComputedValue<string>;
+    /**
+     * The friendly name for the SNS topic
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The fully-formed AWS policy as JSON
+     */
     readonly policy?: fabric.ComputedValue<string>;
 }
 

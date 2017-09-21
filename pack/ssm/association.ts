@@ -3,13 +3,36 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Associates an SSM Document to an instance.
+ */
 export class Association extends fabric.Resource {
     public /*out*/ readonly associationId: fabric.Computed<string>;
+    /**
+     * The instance id to apply an SSM document to.
+     */
     public readonly instanceId?: fabric.Computed<string>;
+    /**
+     * The name of the SSM document to apply.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Additional parameters to pass to the SSM document.
+     */
     public readonly parameters: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
+     */
     public readonly targets: fabric.Computed<{ key: string, values: string[] }[]>;
 
+    /**
+     * Create a Association resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Association instance
+     * @param args A collection of arguments for creating this Association intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: AssociationArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ssm/association:Association", urnName, {
             "instanceId": args.instanceId,
@@ -21,10 +44,25 @@ export class Association extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Association resource.
+ */
 export interface AssociationArgs {
+    /**
+     * The instance id to apply an SSM document to.
+     */
     readonly instanceId?: fabric.ComputedValue<string>;
+    /**
+     * The name of the SSM document to apply.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Additional parameters to pass to the SSM document.
+     */
     readonly parameters?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
+     */
     readonly targets?: fabric.ComputedValue<{ key: fabric.ComputedValue<string>, values: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
 }
 

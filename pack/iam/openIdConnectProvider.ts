@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IAM OpenID Connect provider.
+ */
 export class OpenIdConnectProvider extends fabric.Resource {
+    /**
+     * The ARN assigned by AWS for this provider.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+     */
     public readonly clientIdList: fabric.Computed<string[]>;
+    /**
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     */
     public readonly thumbprintList: fabric.Computed<string[]>;
+    /**
+     * The URL of the identity provider. Corresponds to the _iss_ claim.
+     */
     public readonly url: fabric.Computed<string>;
 
+    /**
+     * Create a OpenIdConnectProvider resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this OpenIdConnectProvider instance
+     * @param args A collection of arguments for creating this OpenIdConnectProvider intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: OpenIdConnectProviderArgs, dependsOn?: fabric.Resource[]) {
         if (args.clientIdList === undefined) {
             throw new Error("Missing required property 'clientIdList'");
@@ -28,9 +51,21 @@ export class OpenIdConnectProvider extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a OpenIdConnectProvider resource.
+ */
 export interface OpenIdConnectProviderArgs {
+    /**
+     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+     */
     readonly clientIdList: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     */
     readonly thumbprintList: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The URL of the identity provider. Corresponds to the _iss_ claim.
+     */
     readonly url: fabric.ComputedValue<string>;
 }
 

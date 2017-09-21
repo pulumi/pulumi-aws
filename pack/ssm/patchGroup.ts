@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SSM Patch Group resource
+ */
 export class PatchGroup extends fabric.Resource {
+    /**
+     * The ID of the patch baseline to register the patch group with.
+     */
     public readonly baselineId: fabric.Computed<string>;
+    /**
+     * The name of the patch group that should be registered with the patch baseline.
+     */
     public readonly patchGroup: fabric.Computed<string>;
 
+    /**
+     * Create a PatchGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this PatchGroup instance
+     * @param args A collection of arguments for creating this PatchGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PatchGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.baselineId === undefined) {
             throw new Error("Missing required property 'baselineId'");
@@ -21,8 +38,17 @@ export class PatchGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a PatchGroup resource.
+ */
 export interface PatchGroupArgs {
+    /**
+     * The ID of the patch baseline to register the patch group with.
+     */
     readonly baselineId: fabric.ComputedValue<string>;
+    /**
+     * The name of the patch group that should be registered with the patch baseline.
+     */
     readonly patchGroup: fabric.ComputedValue<string>;
 }
 

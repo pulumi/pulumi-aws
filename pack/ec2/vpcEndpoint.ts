@@ -3,14 +3,50 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a VPC Endpoint resource.
+ * 
+ * ~> **NOTE on VPC Endpoints and VPC Endpoint Route Table Associations:** Terraform provides
+ * both a standalone [VPC Endpoint Route Table Association](vpc_endpoint_route_table_association.html)
+ * (an association between a VPC endpoint and a single `route_table_id`) and a VPC Endpoint resource
+ * with a `route_table_ids` attribute. Do not use the same route table ID in both a VPC Endpoint resource
+ * and a VPC Endpoint Route Table Association resource. Doing so will cause a conflict of associations
+ * and will overwrite the association.
+ */
 export class VpcEndpoint extends fabric.Resource {
+    /**
+     * The list of CIDR blocks for the exposed service.
+     */
     public /*out*/ readonly cidrBlocks: fabric.Computed<string[]>;
+    /**
+     * A policy to attach to the endpoint that controls access to the service.
+     */
     public readonly policy: fabric.Computed<string>;
+    /**
+     * The prefix list ID of the exposed service.
+     */
     public /*out*/ readonly prefixListId: fabric.Computed<string>;
+    /**
+     * One or more route table IDs.
+     */
     public readonly routeTableIds: fabric.Computed<string[]>;
+    /**
+     * The AWS service name, in the form `com.amazonaws.region.service`.
+     */
     public readonly serviceName: fabric.Computed<string>;
+    /**
+     * The ID of the VPC in which the endpoint will be used.
+     */
     public readonly vpcId: fabric.Computed<string>;
 
+    /**
+     * Create a VpcEndpoint resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this VpcEndpoint instance
+     * @param args A collection of arguments for creating this VpcEndpoint intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VpcEndpointArgs, dependsOn?: fabric.Resource[]) {
         if (args.serviceName === undefined) {
             throw new Error("Missing required property 'serviceName'");
@@ -29,10 +65,25 @@ export class VpcEndpoint extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a VpcEndpoint resource.
+ */
 export interface VpcEndpointArgs {
+    /**
+     * A policy to attach to the endpoint that controls access to the service.
+     */
     readonly policy?: fabric.ComputedValue<string>;
+    /**
+     * One or more route table IDs.
+     */
     readonly routeTableIds?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The AWS service name, in the form `com.amazonaws.region.service`.
+     */
     readonly serviceName: fabric.ComputedValue<string>;
+    /**
+     * The ID of the VPC in which the endpoint will be used.
+     */
     readonly vpcId: fabric.ComputedValue<string>;
 }
 

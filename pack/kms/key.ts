@@ -3,17 +3,58 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a KMS customer master key.
+ */
 export class Key extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) of the key.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * Duration in days after which the key is deleted
+     * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+     */
     public readonly deletionWindowInDays?: fabric.Computed<number>;
+    /**
+     * The description of the key as viewed in AWS console.
+     */
     public readonly description: fabric.Computed<string>;
+    /**
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
+     * is enabled. Defaults to false.
+     */
     public readonly enableKeyRotation?: fabric.Computed<boolean>;
+    /**
+     * Specifies whether the key is enabled. Defaults to true.
+     */
     public readonly isEnabled?: fabric.Computed<boolean>;
+    /**
+     * The globally unique identifier for the key.
+     */
     public /*out*/ readonly keyId: fabric.Computed<string>;
+    /**
+     * Specifies the intended use of the key.
+     * Defaults to ENCRYPT/DECRYPT, and only symmetric encryption and decryption are supported.
+     */
     public readonly keyUsage: fabric.Computed<string>;
+    /**
+     * A valid policy JSON document.
+     */
     public readonly policy: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Key resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Key instance
+     * @param args A collection of arguments for creating this Key intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: KeyArgs, dependsOn?: fabric.Resource[]) {
         super("aws:kms/key:Key", urnName, {
             "deletionWindowInDays": args.deletionWindowInDays,
@@ -29,13 +70,40 @@ export class Key extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Key resource.
+ */
 export interface KeyArgs {
+    /**
+     * Duration in days after which the key is deleted
+     * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+     */
     readonly deletionWindowInDays?: fabric.ComputedValue<number>;
+    /**
+     * The description of the key as viewed in AWS console.
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
+     * is enabled. Defaults to false.
+     */
     readonly enableKeyRotation?: fabric.ComputedValue<boolean>;
+    /**
+     * Specifies whether the key is enabled. Defaults to true.
+     */
     readonly isEnabled?: fabric.ComputedValue<boolean>;
+    /**
+     * Specifies the intended use of the key.
+     * Defaults to ENCRYPT/DECRYPT, and only symmetric encryption and decryption are supported.
+     */
     readonly keyUsage?: fabric.ComputedValue<string>;
+    /**
+     * A valid policy JSON document.
+     */
     readonly policy?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

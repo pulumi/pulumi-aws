@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Inspector resource group
+ */
 export class ResourceGroup extends fabric.Resource {
+    /**
+     * The resource group ARN.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The tags on your EC2 Instance.
+     */
     public readonly tags: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a ResourceGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ResourceGroup instance
+     * @param args A collection of arguments for creating this ResourceGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ResourceGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.tags === undefined) {
             throw new Error("Missing required property 'tags'");
@@ -18,7 +35,13 @@ export class ResourceGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ResourceGroup resource.
+ */
 export interface ResourceGroupArgs {
+    /**
+     * The tags on your EC2 Instance.
+     */
     readonly tags: fabric.ComputedValue<{[key: string]: any}>;
 }
 

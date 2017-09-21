@@ -236,12 +236,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appautoscaling_target": {Tok: awsrestok(appautoscalingMod, "Target")},
 			"aws_appautoscaling_policy": {Tok: awsrestok(appautoscalingMod, "Policy")},
 			// Auto Scaling
-			"aws_autoscaling_attachment":     {Tok: awsrestok(autoscalingMod, "Attachment")},
-			"aws_autoscaling_group":          {Tok: awsrestok(autoscalingMod, "Group")},
-			"aws_autoscaling_lifecycle_hook": {Tok: awsrestok(autoscalingMod, "LifecycleHook")},
-			"aws_autoscaling_notification":   {Tok: awsrestok(autoscalingMod, "Notification")},
-			"aws_autoscaling_policy":         {Tok: awsrestok(autoscalingMod, "Policy")},
-			"aws_autoscaling_schedule":       {Tok: awsrestok(autoscalingMod, "Schedule")},
+			"aws_autoscaling_attachment": {Tok: awsrestok(autoscalingMod, "Attachment")},
+			"aws_autoscaling_group":      {Tok: awsrestok(autoscalingMod, "Group")},
+			"aws_autoscaling_lifecycle_hook": {
+				Tok: awsrestok(autoscalingMod, "LifecycleHook"),
+				Docs: &tfbridge.DocInfo{
+					Source: "autoscaling_lifecycle_hooks.html.markdown",
+				},
+			},
+			"aws_autoscaling_notification": {Tok: awsrestok(autoscalingMod, "Notification")},
+			"aws_autoscaling_policy":       {Tok: awsrestok(autoscalingMod, "Policy")},
+			"aws_autoscaling_schedule":     {Tok: awsrestok(autoscalingMod, "Schedule")},
 			// CloudFormation
 			"aws_cloudformation_stack": {Tok: awsrestok(cloudformationMod, "Stack")},
 			// CloudFront
@@ -297,8 +302,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codedeploy_deployment_config": {Tok: awsrestok(codedeployMod, "DeploymentConfig")},
 			"aws_codedeploy_deployment_group":  {Tok: awsrestok(codedeployMod, "DeploymentGroup")},
 			// CodeCommit
-			"aws_codecommit_repository": {Tok: awsrestok(codecommitMod, "Repository")},
-			"aws_codecommit_trigger":    {Tok: awsrestok(codecommitMod, "Trigger")},
+			"aws_codecommit_repository": {
+				Tok: awsrestok(codecommitMod, "Repository"),
+				Docs: &tfbridge.DocInfo{
+					Source: "code_commit_repository.html.markdown",
+				},
+			},
+			"aws_codecommit_trigger": {
+				Tok: awsrestok(codecommitMod, "Trigger"),
+				Docs: &tfbridge.DocInfo{
+					Source: "code_commit_trigger.html.markdown",
+				},
+			},
 			// CodePipeline
 			"aws_codepipeline": {Tok: awsrestok(codepipelineMod, "Pipeline")},
 			// Cognito
@@ -362,11 +377,18 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
 				},
+				Docs: &tfbridge.DocInfo{
+					IncludeArgumentsFrom:           "aws_ami",
+					IncludeAttributesFromArguments: "aws_ami",
+				},
 			},
 			"aws_ami_from_instance": {
 				Tok: awsrestok(ec2Mod, "AmiFromInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"id": {Name: "amiId"},
+				},
+				Docs: &tfbridge.DocInfo{
+					IncludeAttributesFromArguments: "aws_ami",
 				},
 			},
 			"aws_ami_launch_permission":        {Tok: awsrestok(ec2Mod, "AmiLaunchPermission")},
@@ -395,35 +417,55 @@ func Provider() tfbridge.ProviderInfo {
 					"ebs_block_device": {Name: "ebsBlockDevices"},
 				},
 			},
-			"aws_main_route_table_association":         {Tok: awsrestok(ec2Mod, "MainRouteTableAssociation")},
-			"aws_nat_gateway":                          {Tok: awsrestok(ec2Mod, "NatGateway")},
-			"aws_network_acl":                          {Tok: awsrestok(ec2Mod, "NetworkAcl")},
-			"aws_default_network_acl":                  {Tok: awsrestok(ec2Mod, "DefaultNetworkAcl")},
-			"aws_network_acl_rule":                     {Tok: awsrestok(ec2Mod, "NetworkAclRule")},
-			"aws_network_interface":                    {Tok: awsrestok(ec2Mod, "NetworkInterface")},
-			"aws_network_interface_attachment":         {Tok: awsrestok(ec2Mod, "NetworkInterfaceAttachment")},
-			"aws_placement_group":                      {Tok: awsrestok(ec2Mod, "PlacementGroup")},
-			"aws_proxy_protocol_policy":                {Tok: awsrestok(ec2Mod, "ProxyProtocolPolicy")},
-			"aws_route":                                {Tok: awsrestok(ec2Mod, "Route")},
-			"aws_route_table":                          {Tok: awsrestok(ec2Mod, "RouteTable")},
-			"aws_default_route_table":                  {Tok: awsrestok(ec2Mod, "DefaultRouteTable")},
-			"aws_route_table_association":              {Tok: awsrestok(ec2Mod, "RouteTableAssociation")},
-			"aws_security_group":                       {Tok: awsrestok(ec2Mod, "SecurityGroup")},
-			"aws_network_interface_sg_attachment":      {Tok: awsrestok(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
-			"aws_default_security_group":               {Tok: awsrestok(ec2Mod, "DefaultSecurityGroup")},
-			"aws_security_group_rule":                  {Tok: awsrestok(ec2Mod, "SecurityGroupRule")},
-			"aws_snapshot_create_volume_permission":    {Tok: awsrestok(ec2Mod, "SnapshotCreateVolumePermission")},
-			"aws_spot_datafeed_subscription":           {Tok: awsrestok(ec2Mod, "SpotDatafeedSubscription")},
-			"aws_spot_instance_request":                {Tok: awsrestok(ec2Mod, "SpotInstanceRequest")},
-			"aws_spot_fleet_request":                   {Tok: awsrestok(ec2Mod, "SpotFleetRequest")},
-			"aws_default_subnet":                       {Tok: awsrestok(ec2Mod, "DefaultSubnet")},
-			"aws_subnet":                               {Tok: awsrestok(ec2Mod, "Subnet")},
-			"aws_volume_attachment":                    {Tok: awsrestok(ec2Mod, "VolumeAttachment")},
-			"aws_vpc_dhcp_options_association":         {Tok: awsrestok(ec2Mod, "VpcDhcpOptionsAssociation")},
-			"aws_default_vpc_dhcp_options":             {Tok: awsrestok(ec2Mod, "DefaultVpcDhcpOptions")},
-			"aws_vpc_dhcp_options":                     {Tok: awsrestok(ec2Mod, "VpcDhcpOptions")},
-			"aws_vpc_peering_connection":               {Tok: awsrestok(ec2Mod, "VpcPeeringConnection")},
-			"aws_vpc_peering_connection_accepter":      {Tok: awsrestok(ec2Mod, "VpcPeeringConnectionAccepter")},
+			"aws_main_route_table_association": {
+				Tok: awsrestok(ec2Mod, "MainRouteTableAssociation"),
+				Docs: &tfbridge.DocInfo{
+					Source: "main_route_table_assoc.html.markdown",
+				},
+			},
+			"aws_nat_gateway":                       {Tok: awsrestok(ec2Mod, "NatGateway")},
+			"aws_network_acl":                       {Tok: awsrestok(ec2Mod, "NetworkAcl")},
+			"aws_default_network_acl":               {Tok: awsrestok(ec2Mod, "DefaultNetworkAcl")},
+			"aws_network_acl_rule":                  {Tok: awsrestok(ec2Mod, "NetworkAclRule")},
+			"aws_network_interface":                 {Tok: awsrestok(ec2Mod, "NetworkInterface")},
+			"aws_network_interface_attachment":      {Tok: awsrestok(ec2Mod, "NetworkInterfaceAttachment")},
+			"aws_placement_group":                   {Tok: awsrestok(ec2Mod, "PlacementGroup")},
+			"aws_proxy_protocol_policy":             {Tok: awsrestok(ec2Mod, "ProxyProtocolPolicy")},
+			"aws_route":                             {Tok: awsrestok(ec2Mod, "Route")},
+			"aws_route_table":                       {Tok: awsrestok(ec2Mod, "RouteTable")},
+			"aws_default_route_table":               {Tok: awsrestok(ec2Mod, "DefaultRouteTable")},
+			"aws_route_table_association":           {Tok: awsrestok(ec2Mod, "RouteTableAssociation")},
+			"aws_security_group":                    {Tok: awsrestok(ec2Mod, "SecurityGroup")},
+			"aws_network_interface_sg_attachment":   {Tok: awsrestok(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
+			"aws_default_security_group":            {Tok: awsrestok(ec2Mod, "DefaultSecurityGroup")},
+			"aws_security_group_rule":               {Tok: awsrestok(ec2Mod, "SecurityGroupRule")},
+			"aws_snapshot_create_volume_permission": {Tok: awsrestok(ec2Mod, "SnapshotCreateVolumePermission")},
+			"aws_spot_datafeed_subscription":        {Tok: awsrestok(ec2Mod, "SpotDatafeedSubscription")},
+			"aws_spot_instance_request": {
+				Tok: awsrestok(ec2Mod, "SpotInstanceRequest"),
+				Docs: &tfbridge.DocInfo{
+					IncludeArgumentsFrom: "aws_instance",
+				},
+			},
+			"aws_spot_fleet_request":           {Tok: awsrestok(ec2Mod, "SpotFleetRequest")},
+			"aws_default_subnet":               {Tok: awsrestok(ec2Mod, "DefaultSubnet")},
+			"aws_subnet":                       {Tok: awsrestok(ec2Mod, "Subnet")},
+			"aws_volume_attachment":            {Tok: awsrestok(ec2Mod, "VolumeAttachment")},
+			"aws_vpc_dhcp_options_association": {Tok: awsrestok(ec2Mod, "VpcDhcpOptionsAssociation")},
+			"aws_default_vpc_dhcp_options":     {Tok: awsrestok(ec2Mod, "DefaultVpcDhcpOptions")},
+			"aws_vpc_dhcp_options":             {Tok: awsrestok(ec2Mod, "VpcDhcpOptions")},
+			"aws_vpc_peering_connection": {
+				Tok: awsrestok(ec2Mod, "VpcPeeringConnection"),
+				Docs: &tfbridge.DocInfo{
+					Source: "vpc_peering.html.markdown",
+				},
+			},
+			"aws_vpc_peering_connection_accepter": {
+				Tok: awsrestok(ec2Mod, "VpcPeeringConnectionAccepter"),
+				Docs: &tfbridge.DocInfo{
+					Source: "vpc_peering_accepter.html.markdown",
+				},
+			},
 			"aws_default_vpc":                          {Tok: awsrestok(ec2Mod, "DefaultVpc")},
 			"aws_vpc":                                  {Tok: awsrestok(ec2Mod, "Vpc")},
 			"aws_vpc_endpoint":                         {Tok: awsrestok(ec2Mod, "VpcEndpoint")},
@@ -483,8 +525,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticsearch_domain":        {Tok: awsrestok(elasticsearchMod, "Domain")},
 			"aws_elasticsearch_domain_policy": {Tok: awsrestok(elasticsearchMod, "DomainPolicy")},
 			// Elastic Transcoder
-			"aws_elastictranscoder_pipeline": {Tok: awsrestok(elastictranscoderMod, "Pipeline")},
-			"aws_elastictranscoder_preset":   {Tok: awsrestok(elastictranscoderMod, "Preset")},
+			"aws_elastictranscoder_pipeline": {
+				Tok: awsrestok(elastictranscoderMod, "Pipeline"),
+				Docs: &tfbridge.DocInfo{
+					Source: "elastic_transcoder_pipeline.html.markdown",
+				},
+			},
+			"aws_elastictranscoder_preset": {
+				Tok: awsrestok(elastictranscoderMod, "Preset"),
+				Docs: &tfbridge.DocInfo{
+					Source: "elastic_transcoder_preset.html.markdown",
+				},
+			},
 			// Elastic MapReduce
 			"aws_emr_cluster":                {Tok: awsrestok(emrMod, "Cluster")},
 			"aws_emr_instance_group":         {Tok: awsrestok(emrMod, "InstanceGroup")},

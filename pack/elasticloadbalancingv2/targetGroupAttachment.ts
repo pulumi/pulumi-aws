@@ -3,11 +3,32 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides the ability to register instances and containers with an ALB
+ * target group
+ */
 export class TargetGroupAttachment extends fabric.Resource {
+    /**
+     * The port on which targets receive traffic.
+     */
     public readonly port?: fabric.Computed<number>;
+    /**
+     * The ARN of the target group with which to register targets
+     */
     public readonly targetGroupArn: fabric.Computed<string>;
+    /**
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
+     */
     public readonly targetId: fabric.Computed<string>;
 
+    /**
+     * Create a TargetGroupAttachment resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this TargetGroupAttachment instance
+     * @param args A collection of arguments for creating this TargetGroupAttachment intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: TargetGroupAttachmentArgs, dependsOn?: fabric.Resource[]) {
         if (args.targetGroupArn === undefined) {
             throw new Error("Missing required property 'targetGroupArn'");
@@ -23,9 +44,21 @@ export class TargetGroupAttachment extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a TargetGroupAttachment resource.
+ */
 export interface TargetGroupAttachmentArgs {
+    /**
+     * The port on which targets receive traffic.
+     */
     readonly port?: fabric.ComputedValue<number>;
+    /**
+     * The ARN of the target group with which to register targets
+     */
     readonly targetGroupArn: fabric.ComputedValue<string>;
+    /**
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
+     */
     readonly targetId: fabric.ComputedValue<string>;
 }
 

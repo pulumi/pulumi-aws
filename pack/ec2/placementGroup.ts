@@ -3,10 +3,28 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an EC2 placement group. Read more about placement groups
+ * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
+ */
 export class PlacementGroup extends fabric.Resource {
+    /**
+     * The name of the placement group.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The placement strategy. The only supported value is `cluster`
+     */
     public readonly strategy: fabric.Computed<string>;
 
+    /**
+     * Create a PlacementGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this PlacementGroup instance
+     * @param args A collection of arguments for creating this PlacementGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: PlacementGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.strategy === undefined) {
             throw new Error("Missing required property 'strategy'");
@@ -18,8 +36,17 @@ export class PlacementGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a PlacementGroup resource.
+ */
 export interface PlacementGroupArgs {
+    /**
+     * The name of the placement group.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The placement strategy. The only supported value is `cluster`
+     */
     readonly strategy: fabric.ComputedValue<string>;
 }
 

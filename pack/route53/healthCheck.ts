@@ -3,27 +3,96 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Route53 health check.
+ */
 export class HealthCheck extends fabric.Resource {
+    /**
+     * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
+     */
     public readonly childHealthThreshold?: fabric.Computed<number>;
+    /**
+     * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
+     */
     public readonly childHealthchecks?: fabric.Computed<string[]>;
+    /**
+     * The name of the CloudWatch alarm.
+     */
     public readonly cloudwatchAlarmName?: fabric.Computed<string>;
+    /**
+     * The CloudWatchRegion that the CloudWatch alarm was created in.
+     */
     public readonly cloudwatchAlarmRegion?: fabric.Computed<string>;
+    /**
+     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     */
     public readonly enableSni: fabric.Computed<boolean>;
+    /**
+     * The number of consecutive health checks that an endpoint must pass or fail.
+     */
     public readonly failureThreshold?: fabric.Computed<number>;
+    /**
+     * The fully qualified domain name of the endpoint to be checked.
+     */
     public readonly fqdn?: fabric.Computed<string>;
+    /**
+     * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
+     */
     public readonly insufficientDataHealthStatus?: fabric.Computed<string>;
+    /**
+     * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
+     */
     public readonly invertHealthcheck?: fabric.Computed<boolean>;
+    /**
+     * The IP address of the endpoint to be checked.
+     */
     public readonly ipAddress?: fabric.Computed<string>;
+    /**
+     * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
+     */
     public readonly measureLatency?: fabric.Computed<boolean>;
+    /**
+     * The port of the endpoint to be checked.
+     */
     public readonly port?: fabric.Computed<number>;
+    /**
+     * This is a reference name used in Caller Reference
+     * (helpful for identifying single health_check set amongst others)
+     */
     public readonly referenceName?: fabric.Computed<string>;
+    /**
+     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     */
     public readonly regions?: fabric.Computed<string[]>;
+    /**
+     * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
+     */
     public readonly requestInterval?: fabric.Computed<number>;
+    /**
+     * The path that you want Amazon Route 53 to request when performing health checks.
+     */
     public readonly resourcePath?: fabric.Computed<string>;
+    /**
+     * String searched in the first 5120 bytes of the response body for check to be considered healthy.
+     */
     public readonly searchString?: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the health check.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+     */
     public readonly type: fabric.Computed<string>;
 
+    /**
+     * Create a HealthCheck resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this HealthCheck instance
+     * @param args A collection of arguments for creating this HealthCheck intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: HealthCheckArgs, dependsOn?: fabric.Resource[]) {
         if (args.type === undefined) {
             throw new Error("Missing required property 'type'");
@@ -52,25 +121,86 @@ export class HealthCheck extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a HealthCheck resource.
+ */
 export interface HealthCheckArgs {
+    /**
+     * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
+     */
     readonly childHealthThreshold?: fabric.ComputedValue<number>;
+    /**
+     * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
+     */
     readonly childHealthchecks?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The name of the CloudWatch alarm.
+     */
     readonly cloudwatchAlarmName?: fabric.ComputedValue<string>;
+    /**
+     * The CloudWatchRegion that the CloudWatch alarm was created in.
+     */
     readonly cloudwatchAlarmRegion?: fabric.ComputedValue<string>;
+    /**
+     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     */
     readonly enableSni?: fabric.ComputedValue<boolean>;
+    /**
+     * The number of consecutive health checks that an endpoint must pass or fail.
+     */
     readonly failureThreshold?: fabric.ComputedValue<number>;
+    /**
+     * The fully qualified domain name of the endpoint to be checked.
+     */
     readonly fqdn?: fabric.ComputedValue<string>;
+    /**
+     * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
+     */
     readonly insufficientDataHealthStatus?: fabric.ComputedValue<string>;
+    /**
+     * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
+     */
     readonly invertHealthcheck?: fabric.ComputedValue<boolean>;
+    /**
+     * The IP address of the endpoint to be checked.
+     */
     readonly ipAddress?: fabric.ComputedValue<string>;
+    /**
+     * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
+     */
     readonly measureLatency?: fabric.ComputedValue<boolean>;
+    /**
+     * The port of the endpoint to be checked.
+     */
     readonly port?: fabric.ComputedValue<number>;
+    /**
+     * This is a reference name used in Caller Reference
+     * (helpful for identifying single health_check set amongst others)
+     */
     readonly referenceName?: fabric.ComputedValue<string>;
+    /**
+     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     */
     readonly regions?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
+     */
     readonly requestInterval?: fabric.ComputedValue<number>;
+    /**
+     * The path that you want Amazon Route 53 to request when performing health checks.
+     */
     readonly resourcePath?: fabric.ComputedValue<string>;
+    /**
+     * String searched in the first 5120 bytes of the response body for check to be considered healthy.
+     */
     readonly searchString?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the health check.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+     */
     readonly type: fabric.ComputedValue<string>;
 }
 

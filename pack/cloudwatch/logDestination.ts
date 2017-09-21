@@ -3,12 +3,35 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CloudWatch Logs destination resource.
+ */
 export class LogDestination extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the log destination.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * A name for the log destination
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     */
     public readonly roleArn: fabric.Computed<string>;
+    /**
+     * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+     */
     public readonly targetArn: fabric.Computed<string>;
 
+    /**
+     * Create a LogDestination resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this LogDestination instance
+     * @param args A collection of arguments for creating this LogDestination intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: LogDestinationArgs, dependsOn?: fabric.Resource[]) {
         if (args.roleArn === undefined) {
             throw new Error("Missing required property 'roleArn'");
@@ -25,9 +48,21 @@ export class LogDestination extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a LogDestination resource.
+ */
 export interface LogDestinationArgs {
+    /**
+     * A name for the log destination
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     */
     readonly roleArn: fabric.ComputedValue<string>;
+    /**
+     * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+     */
     readonly targetArn: fabric.ComputedValue<string>;
 }
 

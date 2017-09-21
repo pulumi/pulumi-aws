@@ -3,18 +3,59 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a CodeDeploy deployment group for an application
+ */
 export class DeploymentGroup extends fabric.Resource {
+    /**
+     * A list of alarms associated with the deployment group, documented below.
+     */
     public readonly alarmConfiguration?: fabric.Computed<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean }[]>;
+    /**
+     * The name of the application.
+     */
     public readonly appName: fabric.Computed<string>;
+    /**
+     * The automatic rollback configuration associated with the deployment group, documented below.
+     */
     public readonly autoRollbackConfiguration?: fabric.Computed<{ enabled?: boolean, events?: string[] }[]>;
+    /**
+     * Autoscaling groups associated with the deployment group.
+     */
     public readonly autoscalingGroups?: fabric.Computed<string[]>;
+    /**
+     * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+     */
     public readonly deploymentConfigName?: fabric.Computed<string>;
+    /**
+     * The name of the deployment group.
+     */
     public readonly deploymentGroupName: fabric.Computed<string>;
+    /**
+     * Tag filters associated with the group. See the AWS docs for details.
+     */
     public readonly ec2TagFilter?: fabric.Computed<{ key?: string, type?: string, value?: string }[]>;
+    /**
+     * On premise tag filters associated with the group. See the AWS docs for details.
+     */
     public readonly onPremisesInstanceTagFilter?: fabric.Computed<{ key?: string, type?: string, value?: string }[]>;
+    /**
+     * The service role ARN that allows deployments.
+     */
     public readonly serviceRoleArn: fabric.Computed<string>;
+    /**
+     * A Trigger Configuration block. Trigger Configurations are documented below.
+     */
     public readonly triggerConfiguration?: fabric.Computed<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[]>;
 
+    /**
+     * Create a DeploymentGroup resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DeploymentGroup instance
+     * @param args A collection of arguments for creating this DeploymentGroup intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DeploymentGroupArgs, dependsOn?: fabric.Resource[]) {
         if (args.appName === undefined) {
             throw new Error("Missing required property 'appName'");
@@ -40,16 +81,49 @@ export class DeploymentGroup extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DeploymentGroup resource.
+ */
 export interface DeploymentGroupArgs {
+    /**
+     * A list of alarms associated with the deployment group, documented below.
+     */
     readonly alarmConfiguration?: fabric.ComputedValue<{ alarms?: fabric.ComputedValue<fabric.ComputedValue<string>>[], enabled?: fabric.ComputedValue<boolean>, ignorePollAlarmFailure?: fabric.ComputedValue<boolean> }>[];
+    /**
+     * The name of the application.
+     */
     readonly appName: fabric.ComputedValue<string>;
+    /**
+     * The automatic rollback configuration associated with the deployment group, documented below.
+     */
     readonly autoRollbackConfiguration?: fabric.ComputedValue<{ enabled?: fabric.ComputedValue<boolean>, events?: fabric.ComputedValue<fabric.ComputedValue<string>>[] }>[];
+    /**
+     * Autoscaling groups associated with the deployment group.
+     */
     readonly autoscalingGroups?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+     */
     readonly deploymentConfigName?: fabric.ComputedValue<string>;
+    /**
+     * The name of the deployment group.
+     */
     readonly deploymentGroupName: fabric.ComputedValue<string>;
+    /**
+     * Tag filters associated with the group. See the AWS docs for details.
+     */
     readonly ec2TagFilter?: fabric.ComputedValue<{ key?: fabric.ComputedValue<string>, type?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
+    /**
+     * On premise tag filters associated with the group. See the AWS docs for details.
+     */
     readonly onPremisesInstanceTagFilter?: fabric.ComputedValue<{ key?: fabric.ComputedValue<string>, type?: fabric.ComputedValue<string>, value?: fabric.ComputedValue<string> }>[];
+    /**
+     * The service role ARN that allows deployments.
+     */
     readonly serviceRoleArn: fabric.ComputedValue<string>;
+    /**
+     * A Trigger Configuration block. Trigger Configurations are documented below.
+     */
     readonly triggerConfiguration?: fabric.ComputedValue<{ triggerEvents: fabric.ComputedValue<fabric.ComputedValue<string>>[], triggerName: fabric.ComputedValue<string>, triggerTargetArn: fabric.ComputedValue<string> }>[];
 }
 

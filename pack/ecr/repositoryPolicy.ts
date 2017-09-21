@@ -3,11 +3,37 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an ECR repository policy.
+ * 
+ * Note that currently only one policy may be applied to a repository.
+ * 
+ * ~> **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
+ * in all regions - available regions are listed
+ * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
+ */
 export class RepositoryPolicy extends fabric.Resource {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy: fabric.Computed<string>;
+    /**
+     * The registry ID where the repository was created.
+     */
     public /*out*/ readonly registryId: fabric.Computed<string>;
+    /**
+     * Name of the repository to apply the policy.
+     */
     public readonly repository: fabric.Computed<string>;
 
+    /**
+     * Create a RepositoryPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RepositoryPolicy instance
+     * @param args A collection of arguments for creating this RepositoryPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: RepositoryPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.policy === undefined) {
             throw new Error("Missing required property 'policy'");
@@ -23,8 +49,17 @@ export class RepositoryPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RepositoryPolicy resource.
+ */
 export interface RepositoryPolicyArgs {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy: fabric.ComputedValue<string>;
+    /**
+     * Name of the repository to apply the policy.
+     */
     readonly repository: fabric.ComputedValue<string>;
 }
 

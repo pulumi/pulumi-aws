@@ -3,17 +3,59 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AutoScaling Schedule resource.
+ */
 export class Schedule extends fabric.Resource {
+    /**
+     * The ARN assigned by AWS to the autoscaling schedule.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     */
     public readonly autoscalingGroupName: fabric.Computed<string>;
+    /**
+     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+     */
     public readonly desiredCapacity: fabric.Computed<number>;
+    /**
+     * The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     */
     public readonly endTime: fabric.Computed<string>;
+    /**
+     * The maximum size for the Auto Scaling group. Default
+     * 0. Set to -1 if you don't want to change the maximum size at the scheduled time.
+     */
     public readonly maxSize: fabric.Computed<number>;
+    /**
+     * The minimum size for the Auto Scaling group. Default
+     * 0. Set to -1 if you don't want to change the minimum size at the scheduled time.
+     */
     public readonly minSize: fabric.Computed<number>;
+    /**
+     * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     */
     public readonly recurrence: fabric.Computed<string>;
+    /**
+     * The name of this scaling action.
+     */
     public readonly scheduledActionName: fabric.Computed<string>;
+    /**
+     * The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     */
     public readonly startTime: fabric.Computed<string>;
 
+    /**
+     * Create a Schedule resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Schedule instance
+     * @param args A collection of arguments for creating this Schedule intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ScheduleArgs, dependsOn?: fabric.Resource[]) {
         if (args.autoscalingGroupName === undefined) {
             throw new Error("Missing required property 'autoscalingGroupName'");
@@ -35,14 +77,45 @@ export class Schedule extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Schedule resource.
+ */
 export interface ScheduleArgs {
+    /**
+     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     */
     readonly autoscalingGroupName: fabric.ComputedValue<string>;
+    /**
+     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+     */
     readonly desiredCapacity?: fabric.ComputedValue<number>;
+    /**
+     * The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     */
     readonly endTime?: fabric.ComputedValue<string>;
+    /**
+     * The maximum size for the Auto Scaling group. Default
+     * 0. Set to -1 if you don't want to change the maximum size at the scheduled time.
+     */
     readonly maxSize?: fabric.ComputedValue<number>;
+    /**
+     * The minimum size for the Auto Scaling group. Default
+     * 0. Set to -1 if you don't want to change the minimum size at the scheduled time.
+     */
     readonly minSize?: fabric.ComputedValue<number>;
+    /**
+     * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     */
     readonly recurrence?: fabric.ComputedValue<string>;
+    /**
+     * The name of this scaling action.
+     */
     readonly scheduledActionName: fabric.ComputedValue<string>;
+    /**
+     * The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     */
     readonly startTime?: fabric.ComputedValue<string>;
 }
 

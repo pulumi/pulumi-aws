@@ -3,13 +3,41 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an IAM user.
+ */
 export class User extends fabric.Resource {
+    /**
+     * The ARN assigned by AWS for this user.
+     */
     public /*out*/ readonly arn: fabric.Computed<string>;
+    /**
+     * When destroying this user, destroy even if it
+     * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+     */
     public readonly forceDestroy?: fabric.Computed<boolean>;
+    /**
+     * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Path in which to create the user.
+     */
     public readonly path?: fabric.Computed<string>;
+    /**
+     * The [unique ID][1] assigned by AWS.
+     */
     public /*out*/ readonly uniqueId: fabric.Computed<string>;
 
+    /**
+     * Create a User resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this User instance
+     * @param args A collection of arguments for creating this User intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: UserArgs, dependsOn?: fabric.Resource[]) {
         super("aws:iam/user:User", urnName, {
             "forceDestroy": args.forceDestroy,
@@ -21,10 +49,23 @@ export class User extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a User resource.
+ */
 export interface UserArgs {
-    // Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+    /**
+     * When destroying this user, destroy even if it
+     * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+     */
     readonly forceDestroy?: fabric.ComputedValue<boolean>;
+    /**
+     * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Path in which to create the user.
+     */
     readonly path?: fabric.ComputedValue<string>;
 }
 

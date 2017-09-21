@@ -5,16 +5,60 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {RestApi} from "./restApi";
 
+/**
+ * Provides an API Gateway Authorizer.
+ */
 export class Authorizer extends fabric.Resource {
+    /**
+     * The credentials required for the authorizer.
+     * To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+     */
     public readonly authorizerCredentials?: fabric.Computed<string>;
+    /**
+     * The TTL of cached authorizer results in seconds.
+     * Defaults to `300`.
+     */
     public readonly authorizerResultTtlInSeconds?: fabric.Computed<number>;
+    /**
+     * The authorizer's Uniform Resource Identifier (URI).
+     * For `TOKEN` type, this must be a well-formed Lambda function URI in the form of
+     * `arn:aws:apigateway:{region}:lambda:path/{service_api}`. e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+     */
     public readonly authorizerUri: fabric.Computed<string>;
+    /**
+     * The source of the identity in an incoming request.
+     * Defaults to `method.request.header.Authorization`.
+     */
     public readonly identitySource?: fabric.Computed<string>;
+    /**
+     * A validation expression for the incoming identity.
+     * For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
+     * against this expression, and will proceed if the token matches. If the token doesn't match,
+     * the client receives a 401 Unauthorized response.
+     */
     public readonly identityValidationExpression?: fabric.Computed<string>;
+    /**
+     * The name of the authorizer
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The ID of the associated REST API
+     */
     public readonly restApi: fabric.Computed<RestApi>;
+    /**
+     * The type of the authorizer. `TOKEN` is currently the only allowed value.
+     * Defaults to `TOKEN`.
+     */
     public readonly type?: fabric.Computed<string>;
 
+    /**
+     * Create a Authorizer resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Authorizer instance
+     * @param args A collection of arguments for creating this Authorizer intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AuthorizerArgs, dependsOn?: fabric.Resource[]) {
         if (args.authorizerUri === undefined) {
             throw new Error("Missing required property 'authorizerUri'");
@@ -35,14 +79,50 @@ export class Authorizer extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Authorizer resource.
+ */
 export interface AuthorizerArgs {
+    /**
+     * The credentials required for the authorizer.
+     * To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+     */
     readonly authorizerCredentials?: fabric.ComputedValue<string>;
+    /**
+     * The TTL of cached authorizer results in seconds.
+     * Defaults to `300`.
+     */
     readonly authorizerResultTtlInSeconds?: fabric.ComputedValue<number>;
+    /**
+     * The authorizer's Uniform Resource Identifier (URI).
+     * For `TOKEN` type, this must be a well-formed Lambda function URI in the form of
+     * `arn:aws:apigateway:{region}:lambda:path/{service_api}`. e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+     */
     readonly authorizerUri: fabric.ComputedValue<string>;
+    /**
+     * The source of the identity in an incoming request.
+     * Defaults to `method.request.header.Authorization`.
+     */
     readonly identitySource?: fabric.ComputedValue<string>;
+    /**
+     * A validation expression for the incoming identity.
+     * For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
+     * against this expression, and will proceed if the token matches. If the token doesn't match,
+     * the client receives a 401 Unauthorized response.
+     */
     readonly identityValidationExpression?: fabric.ComputedValue<string>;
+    /**
+     * The name of the authorizer
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The ID of the associated REST API
+     */
     readonly restApi: fabric.ComputedValue<RestApi>;
+    /**
+     * The type of the authorizer. `TOKEN` is currently the only allowed value.
+     * Defaults to `TOKEN`.
+     */
     readonly type?: fabric.ComputedValue<string>;
 }
 

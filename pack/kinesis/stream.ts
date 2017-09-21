@@ -3,14 +3,50 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
+ * scales elastically for real-time processing of streaming big data.
+ * 
+ * For more details, see the [Amazon Kinesis Documentation][1].
+ */
 export class Stream extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     */
     public readonly arn: fabric.Computed<string>;
+    /**
+     * A name to identify the stream. This is unique to the
+     * AWS account and region the Stream is created in.
+     * * `shard_count` – (Required) The number of shards that the stream will use.
+     * Amazon has guidlines for specifying the Stream size that should be referenced
+     * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+     */
     public readonly retentionPeriod?: fabric.Computed<number>;
+    /**
+     * The count of Shards for this Stream
+     */
     public readonly shardCount: fabric.Computed<number>;
+    /**
+     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     */
     public readonly shardLevelMetrics?: fabric.Computed<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
 
+    /**
+     * Create a Stream resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Stream instance
+     * @param args A collection of arguments for creating this Stream intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: StreamArgs, dependsOn?: fabric.Resource[]) {
         if (args.shardCount === undefined) {
             throw new Error("Missing required property 'shardCount'");
@@ -26,12 +62,31 @@ export class Stream extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Stream resource.
+ */
 export interface StreamArgs {
     readonly arn?: fabric.ComputedValue<string>;
+    /**
+     * A name to identify the stream. This is unique to the
+     * AWS account and region the Stream is created in.
+     * * `shard_count` – (Required) The number of shards that the stream will use.
+     * Amazon has guidlines for specifying the Stream size that should be referenced
+     * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+     */
     readonly retentionPeriod?: fabric.ComputedValue<number>;
     readonly shardCount: fabric.ComputedValue<number>;
+    /**
+     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     */
     readonly shardLevelMetrics?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }
 

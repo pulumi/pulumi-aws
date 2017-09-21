@@ -3,13 +3,41 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an AWS Config Delivery Channel.
+ * 
+ * ~> **Note:** Delivery Channel requires a [Configuration Recorder](/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ */
 export class DeliveryChannel extends fabric.Resource {
+    /**
+     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The name of the S3 bucket used to store the configuration history.
+     */
     public readonly s3BucketName: fabric.Computed<string>;
+    /**
+     * The prefix for the specified S3 bucket.
+     */
     public readonly s3KeyPrefix?: fabric.Computed<string>;
+    /**
+     * Options for how AWS Config delivers configuration snapshots. See below
+     */
     public readonly snapshotDeliveryProperties?: fabric.Computed<{ deliveryFrequency?: string }[]>;
+    /**
+     * The ARN of the SNS topic that AWS Config delivers notifications to.
+     */
     public readonly snsTopicArn?: fabric.Computed<string>;
 
+    /**
+     * Create a DeliveryChannel resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this DeliveryChannel instance
+     * @param args A collection of arguments for creating this DeliveryChannel intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: DeliveryChannelArgs, dependsOn?: fabric.Resource[]) {
         if (args.s3BucketName === undefined) {
             throw new Error("Missing required property 's3BucketName'");
@@ -24,11 +52,29 @@ export class DeliveryChannel extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a DeliveryChannel resource.
+ */
 export interface DeliveryChannelArgs {
+    /**
+     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The name of the S3 bucket used to store the configuration history.
+     */
     readonly s3BucketName: fabric.ComputedValue<string>;
+    /**
+     * The prefix for the specified S3 bucket.
+     */
     readonly s3KeyPrefix?: fabric.ComputedValue<string>;
+    /**
+     * Options for how AWS Config delivers configuration snapshots. See below
+     */
     readonly snapshotDeliveryProperties?: fabric.ComputedValue<{ deliveryFrequency?: fabric.ComputedValue<string> }>[];
+    /**
+     * The ARN of the SNS topic that AWS Config delivers notifications to.
+     */
     readonly snsTopicArn?: fabric.ComputedValue<string>;
 }
 

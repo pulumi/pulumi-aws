@@ -3,10 +3,27 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
+ */
 export class ByteMatchSet extends fabric.Resource {
+    /**
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     public readonly byteMatchTuple?: fabric.Computed<{ fieldToMatch: { data?: string, type: string }[], positionalConstraint: string, targetString?: string, textTransformation: string }[]>;
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a ByteMatchSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ByteMatchSet instance
+     * @param args A collection of arguments for creating this ByteMatchSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ByteMatchSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:wafregional/byteMatchSet:ByteMatchSet", urnName, {
             "byteMatchTuple": args.byteMatchTuple,
@@ -15,8 +32,17 @@ export class ByteMatchSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ByteMatchSet resource.
+ */
 export interface ByteMatchSetArgs {
+    /**
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
     readonly byteMatchTuple?: fabric.ComputedValue<{ fieldToMatch: fabric.ComputedValue<{ data?: fabric.ComputedValue<string>, type: fabric.ComputedValue<string> }>[], positionalConstraint: fabric.ComputedValue<string>, targetString?: fabric.ComputedValue<string>, textTransformation: fabric.ComputedValue<string> }>[];
+    /**
+     * The name or description of the ByteMatchSet.
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

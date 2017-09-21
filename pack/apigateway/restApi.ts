@@ -3,14 +3,43 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an API Gateway REST API.
+ */
 export class RestApi extends fabric.Resource {
+    /**
+     * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+     */
     public readonly binaryMediaTypes?: fabric.Computed<string[]>;
+    /**
+     * An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+     */
     public readonly body?: fabric.Computed<string>;
+    /**
+     * The creation date of the REST API
+     */
     public /*out*/ readonly createdDate: fabric.Computed<string>;
+    /**
+     * The description of the REST API
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * The name of the REST API
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The resource ID of the REST API's root
+     */
     public /*out*/ readonly rootResourceId: fabric.Computed<string>;
 
+    /**
+     * Create a RestApi resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this RestApi instance
+     * @param args A collection of arguments for creating this RestApi intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: RestApiArgs, dependsOn?: fabric.Resource[]) {
         super("aws:apigateway/restApi:RestApi", urnName, {
             "binaryMediaTypes": args.binaryMediaTypes,
@@ -23,10 +52,25 @@ export class RestApi extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a RestApi resource.
+ */
 export interface RestApiArgs {
+    /**
+     * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+     */
     readonly binaryMediaTypes?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
+    /**
+     * An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+     */
     readonly body?: fabric.ComputedValue<string>;
+    /**
+     * The description of the REST API
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * The name of the REST API
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

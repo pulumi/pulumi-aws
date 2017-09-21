@@ -3,11 +3,32 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Attaches a load balancer policy to an ELB Listener.
+ * 
+ */
 export class ListenerPolicy extends fabric.Resource {
+    /**
+     * The load balancer to attach the policy to.
+     */
     public readonly loadBalancerName: fabric.Computed<string>;
+    /**
+     * The load balancer listener port to apply the policy to.
+     */
     public readonly loadBalancerPort: fabric.Computed<number>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     public readonly policyNames?: fabric.Computed<string[]>;
 
+    /**
+     * Create a ListenerPolicy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ListenerPolicy instance
+     * @param args A collection of arguments for creating this ListenerPolicy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: ListenerPolicyArgs, dependsOn?: fabric.Resource[]) {
         if (args.loadBalancerName === undefined) {
             throw new Error("Missing required property 'loadBalancerName'");
@@ -23,9 +44,21 @@ export class ListenerPolicy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ListenerPolicy resource.
+ */
 export interface ListenerPolicyArgs {
+    /**
+     * The load balancer to attach the policy to.
+     */
     readonly loadBalancerName: fabric.ComputedValue<string>;
+    /**
+     * The load balancer listener port to apply the policy to.
+     */
     readonly loadBalancerPort: fabric.ComputedValue<number>;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
     readonly policyNames?: fabric.ComputedValue<fabric.ComputedValue<string>>[];
 }
 

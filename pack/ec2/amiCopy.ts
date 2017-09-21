@@ -3,26 +3,104 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+ * including cross-region copies.
+ * 
+ * If the source AMI has associated EBS snapshots, those will also be duplicated
+ * along with the AMI.
+ * 
+ * This is useful for taking a single AMI provisioned in one region and making
+ * it available in another for a multi-region deployment.
+ * 
+ * Copying an AMI can take several minutes. The creation of this resource will
+ * block until the new AMI is available for use on new instances.
+ */
 export class AmiCopy extends fabric.Resource {
+    /**
+     * Machine architecture for created instances. Defaults to "x86_64".
+     */
     public /*out*/ readonly architecture: fabric.Computed<string>;
+    /**
+     * A longer, human-readable description for the AMI.
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    /**
+     * Boolean controlling whether the created EBS volumes will be encrypted.
+     */
     public readonly encrypted?: fabric.Computed<boolean>;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
     public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, virtualName: string }[]>;
+    /**
+     * The ID of the created AMI.
+     */
     public /*out*/ readonly amiId: fabric.Computed<string>;
+    /**
+     * Path to an S3 object containing an image manifest, e.g. created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     */
     public /*out*/ readonly imageLocation: fabric.Computed<string>;
+    /**
+     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     */
     public /*out*/ readonly kernelId: fabric.Computed<string>;
+    /**
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
+     */
     public readonly kmsKeyId: fabric.Computed<string>;
     public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
+    /**
+     * A region-unique name for the AMI.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The id of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     */
     public /*out*/ readonly ramdiskId: fabric.Computed<string>;
     public /*out*/ readonly rootDeviceName: fabric.Computed<string>;
+    /**
+     * The id of the AMI to copy. This id must be valid in the region
+     * given by `source_ami_region`.
+     */
     public readonly sourceAmiId: fabric.Computed<string>;
+    /**
+     * The region from which the AMI will be copied. This may be the
+     * same as the AWS provider region in order to create a copy within the same region.
+     */
     public readonly sourceAmiRegion: fabric.Computed<string>;
+    /**
+     * When set to "simple" (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     */
     public /*out*/ readonly sriovNetSupport: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     */
     public /*out*/ readonly virtualizationType: fabric.Computed<string>;
 
+    /**
+     * Create a AmiCopy resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this AmiCopy instance
+     * @param args A collection of arguments for creating this AmiCopy intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: AmiCopyArgs, dependsOn?: fabric.Resource[]) {
         if (args.sourceAmiId === undefined) {
             throw new Error("Missing required property 'sourceAmiId'");
@@ -53,14 +131,47 @@ export class AmiCopy extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a AmiCopy resource.
+ */
 export interface AmiCopyArgs {
+    /**
+     * A longer, human-readable description for the AMI.
+     */
     readonly description?: fabric.ComputedValue<string>;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
     readonly ebsBlockDevice?: fabric.ComputedValue<{ deleteOnTermination?: fabric.ComputedValue<boolean>, deviceName?: fabric.ComputedValue<string>, encrypted?: fabric.ComputedValue<boolean>, iops?: fabric.ComputedValue<number>, snapshotId?: fabric.ComputedValue<string>, volumeSize?: fabric.ComputedValue<number>, volumeType?: fabric.ComputedValue<string> }>[];
+    /**
+     * Boolean controlling whether the created EBS volumes will be encrypted.
+     */
     readonly encrypted?: fabric.ComputedValue<boolean>;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
     readonly ephemeralBlockDevice?: fabric.ComputedValue<{ deviceName?: fabric.ComputedValue<string>, virtualName?: fabric.ComputedValue<string> }>[];
+    /**
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
+     */
     readonly kmsKeyId?: fabric.ComputedValue<string>;
+    /**
+     * A region-unique name for the AMI.
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The id of the AMI to copy. This id must be valid in the region
+     * given by `source_ami_region`.
+     */
     readonly sourceAmiId: fabric.ComputedValue<string>;
+    /**
+     * The region from which the AMI will be copied. This may be the
+     * same as the AWS provider region in order to create a copy within the same region.
+     */
     readonly sourceAmiRegion: fabric.ComputedValue<string>;
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
 }

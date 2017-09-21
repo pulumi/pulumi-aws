@@ -3,12 +3,38 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
+ * 
+ * ~> **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ */
 export class Certificate extends fabric.Resource {
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     */
     public /*out*/ readonly certificateArn: fabric.Computed<string>;
+    /**
+     * The certificate identifier.
+     */
     public readonly certificateId: fabric.Computed<string>;
+    /**
+     * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     */
     public readonly certificatePem?: fabric.Computed<string>;
+    /**
+     * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+     */
     public readonly certificateWallet?: fabric.Computed<string>;
 
+    /**
+     * Create a Certificate resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Certificate instance
+     * @param args A collection of arguments for creating this Certificate intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: CertificateArgs, dependsOn?: fabric.Resource[]) {
         if (args.certificateId === undefined) {
             throw new Error("Missing required property 'certificateId'");
@@ -22,9 +48,21 @@ export class Certificate extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Certificate resource.
+ */
 export interface CertificateArgs {
+    /**
+     * The certificate identifier.
+     */
     readonly certificateId: fabric.ComputedValue<string>;
+    /**
+     * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     */
     readonly certificatePem?: fabric.ComputedValue<string>;
+    /**
+     * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+     */
     readonly certificateWallet?: fabric.ComputedValue<string>;
 }
 

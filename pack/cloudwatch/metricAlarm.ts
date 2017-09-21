@@ -5,26 +5,99 @@ import * as fabric from "@pulumi/pulumi-fabric";
 
 import {Topic} from "../sns/topic";
 
+/**
+ * Provides a CloudWatch Metric Alarm resource.
+ */
 export class MetricAlarm extends fabric.Resource {
+    /**
+     * Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
+     */
     public readonly actionsEnabled?: fabric.Computed<boolean>;
+    /**
+     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+     */
     public readonly alarmActions?: fabric.Computed<Topic[]>;
+    /**
+     * The description for the alarm.
+     */
     public readonly alarmDescription?: fabric.Computed<string>;
+    /**
+     * The descriptive name for the alarm. This name must be unique within the user's AWS account
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+     */
     public readonly comparisonOperator: fabric.Computed<string>;
+    /**
+     * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     */
     public readonly dimensions?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * Used only for alarms
+     * based on percentiles. If you specify `ignore`, the alarm state will not
+     * change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be
+     * evaluated and possibly change state no matter how many data points are available.
+     * The following values are supported: `ignore`, and `evaluate`.
+     */
     public readonly evaluateLowSampleCountPercentiles: fabric.Computed<string>;
+    /**
+     * The number of periods over which data is compared to the specified threshold.
+     */
     public readonly evaluationPeriods: fabric.Computed<number>;
+    /**
+     * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+     */
     public readonly extendedStatistic?: fabric.Computed<string>;
+    /**
+     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+     */
     public readonly insufficientDataActions?: fabric.Computed<Topic[]>;
+    /**
+     * The name for the alarm's associated metric.
+     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     */
     public readonly metricName: fabric.Computed<string>;
+    /**
+     * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     */
     public readonly namespace: fabric.Computed<string>;
+    /**
+     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+     */
     public readonly okActions?: fabric.Computed<Topic[]>;
+    /**
+     * The period in seconds over which the specified `statistic` is applied.
+     */
     public readonly period: fabric.Computed<number>;
+    /**
+     * The statistic to apply to the alarm's associated metric.
+     * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+     */
     public readonly statistic?: fabric.Computed<string>;
+    /**
+     * The value against which the specified statistic is compared.
+     */
     public readonly threshold: fabric.Computed<number>;
+    /**
+     * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+     */
     public readonly treatMissingData?: fabric.Computed<string>;
+    /**
+     * The unit for the alarm's associated metric.
+     */
     public readonly unit?: fabric.Computed<string>;
 
+    /**
+     * Create a MetricAlarm resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this MetricAlarm instance
+     * @param args A collection of arguments for creating this MetricAlarm intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: MetricAlarmArgs, dependsOn?: fabric.Resource[]) {
         if (args.comparisonOperator === undefined) {
             throw new Error("Missing required property 'comparisonOperator'");
@@ -67,24 +140,89 @@ export class MetricAlarm extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a MetricAlarm resource.
+ */
 export interface MetricAlarmArgs {
+    /**
+     * Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
+     */
     readonly actionsEnabled?: fabric.ComputedValue<boolean>;
+    /**
+     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+     */
     readonly alarmActions?: fabric.ComputedValue<fabric.ComputedValue<Topic>>[];
+    /**
+     * The description for the alarm.
+     */
     readonly alarmDescription?: fabric.ComputedValue<string>;
+    /**
+     * The descriptive name for the alarm. This name must be unique within the user's AWS account
+     */
     readonly name?: fabric.ComputedValue<string>;
+    /**
+     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+     */
     readonly comparisonOperator: fabric.ComputedValue<string>;
+    /**
+     * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     */
     readonly dimensions?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * Used only for alarms
+     * based on percentiles. If you specify `ignore`, the alarm state will not
+     * change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be
+     * evaluated and possibly change state no matter how many data points are available.
+     * The following values are supported: `ignore`, and `evaluate`.
+     */
     readonly evaluateLowSampleCountPercentiles?: fabric.ComputedValue<string>;
+    /**
+     * The number of periods over which data is compared to the specified threshold.
+     */
     readonly evaluationPeriods: fabric.ComputedValue<number>;
+    /**
+     * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+     */
     readonly extendedStatistic?: fabric.ComputedValue<string>;
+    /**
+     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+     */
     readonly insufficientDataActions?: fabric.ComputedValue<fabric.ComputedValue<Topic>>[];
+    /**
+     * The name for the alarm's associated metric.
+     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     */
     readonly metricName: fabric.ComputedValue<string>;
+    /**
+     * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     */
     readonly namespace: fabric.ComputedValue<string>;
+    /**
+     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+     */
     readonly okActions?: fabric.ComputedValue<fabric.ComputedValue<Topic>>[];
+    /**
+     * The period in seconds over which the specified `statistic` is applied.
+     */
     readonly period: fabric.ComputedValue<number>;
+    /**
+     * The statistic to apply to the alarm's associated metric.
+     * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+     */
     readonly statistic?: fabric.ComputedValue<string>;
+    /**
+     * The value against which the specified statistic is compared.
+     */
     readonly threshold: fabric.ComputedValue<number>;
+    /**
+     * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+     */
     readonly treatMissingData?: fabric.ComputedValue<string>;
+    /**
+     * The unit for the alarm's associated metric.
+     */
     readonly unit?: fabric.ComputedValue<string>;
 }
 

@@ -3,9 +3,23 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Provides an SES configuration set resource
+ */
 export class ConfgurationSet extends fabric.Resource {
+    /**
+     * The name of the configuration set
+     */
     public readonly name: fabric.Computed<string>;
 
+    /**
+     * Create a ConfgurationSet resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this ConfgurationSet instance
+     * @param args A collection of arguments for creating this ConfgurationSet intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args?: ConfgurationSetArgs, dependsOn?: fabric.Resource[]) {
         super("aws:ses/confgurationSet:ConfgurationSet", urnName, {
             "name": args.name,
@@ -13,7 +27,13 @@ export class ConfgurationSet extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a ConfgurationSet resource.
+ */
 export interface ConfgurationSetArgs {
+    /**
+     * The name of the configuration set
+     */
     readonly name?: fabric.ComputedValue<string>;
 }
 

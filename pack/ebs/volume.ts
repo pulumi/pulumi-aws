@@ -3,16 +3,51 @@
 
 import * as fabric from "@pulumi/pulumi-fabric";
 
+/**
+ * Manages a single EBS volume.
+ */
 export class Volume extends fabric.Resource {
+    /**
+     * The AZ where the EBS volume will exist.
+     */
     public readonly availabilityZone: fabric.Computed<string>;
+    /**
+     * If true, the disk will be encrypted.
+     */
     public readonly encrypted: fabric.Computed<boolean>;
+    /**
+     * The amount of IOPS to provision for the disk.
+     */
     public readonly iops: fabric.Computed<number>;
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     */
     public readonly kmsKeyId: fabric.Computed<string>;
+    /**
+     * The size of the drive in GiBs.
+     */
     public readonly size: fabric.Computed<number>;
+    /**
+     * A snapshot to base the EBS volume off of.
+     */
     public readonly snapshotId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+     */
     public readonly type: fabric.Computed<string>;
 
+    /**
+     * Create a Volume resource with the given unique name, arguments and optional additional
+     * resource dependencies.
+     *
+     * @param urnName A _unique_ name for this Volume instance
+     * @param args A collection of arguments for creating this Volume intance
+     * @param dependsOn A optional array of additional resources this intance depends on
+     */
     constructor(urnName: string, args: VolumeArgs, dependsOn?: fabric.Resource[]) {
         if (args.availabilityZone === undefined) {
             throw new Error("Missing required property 'availabilityZone'");
@@ -30,14 +65,41 @@ export class Volume extends fabric.Resource {
     }
 }
 
+/**
+ * The set of arguments for constructing a Volume resource.
+ */
 export interface VolumeArgs {
+    /**
+     * The AZ where the EBS volume will exist.
+     */
     readonly availabilityZone: fabric.ComputedValue<string>;
+    /**
+     * If true, the disk will be encrypted.
+     */
     readonly encrypted?: fabric.ComputedValue<boolean>;
+    /**
+     * The amount of IOPS to provision for the disk.
+     */
     readonly iops?: fabric.ComputedValue<number>;
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     */
     readonly kmsKeyId?: fabric.ComputedValue<string>;
+    /**
+     * The size of the drive in GiBs.
+     */
     readonly size?: fabric.ComputedValue<number>;
+    /**
+     * A snapshot to base the EBS volume off of.
+     */
     readonly snapshotId?: fabric.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.ComputedValue<{[key: string]: any}>;
+    /**
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+     */
     readonly type?: fabric.ComputedValue<string>;
 }
 
