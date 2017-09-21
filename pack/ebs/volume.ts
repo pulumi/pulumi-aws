@@ -25,9 +25,11 @@ export class Volume extends fabric.Resource {
     public readonly kmsKeyId: fabric.Computed<string>;
     /**
      * The size of the drive in GiBs.
-     * * `snapshot_id` (Optional) A snapshot to base the EBS volume off of.
      */
     public readonly size: fabric.Computed<number>;
+    /**
+     * A snapshot to base the EBS volume off of.
+     */
     public readonly snapshotId: fabric.Computed<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -85,9 +87,11 @@ export interface VolumeArgs {
     readonly kmsKeyId?: fabric.MaybeComputed<string>;
     /**
      * The size of the drive in GiBs.
-     * * `snapshot_id` (Optional) A snapshot to base the EBS volume off of.
      */
     readonly size?: fabric.MaybeComputed<number>;
+    /**
+     * A snapshot to base the EBS volume off of.
+     */
     readonly snapshotId?: fabric.MaybeComputed<string>;
     /**
      * A mapping of tags to assign to the resource.

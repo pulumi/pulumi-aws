@@ -14,9 +14,11 @@ export class TargetGroupAttachment extends fabric.Resource {
     public readonly port?: fabric.Computed<number>;
     /**
      * The ARN of the target group with which to register targets
-     * * `target_id` (Required) The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
      */
     public readonly targetGroupArn: fabric.Computed<string>;
+    /**
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
+     */
     public readonly targetId: fabric.Computed<string>;
 
     /**
@@ -52,9 +54,11 @@ export interface TargetGroupAttachmentArgs {
     readonly port?: fabric.MaybeComputed<number>;
     /**
      * The ARN of the target group with which to register targets
-     * * `target_id` (Required) The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
      */
     readonly targetGroupArn: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
+     */
     readonly targetId: fabric.MaybeComputed<string>;
 }
 

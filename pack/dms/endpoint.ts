@@ -54,6 +54,9 @@ export class Endpoint extends fabric.Resource {
      * The host name of the server.
      */
     public readonly serverName?: fabric.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
     public readonly serviceAccessRole?: fabric.Computed<string>;
     /**
      * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -65,7 +68,6 @@ export class Endpoint extends fabric.Resource {
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
     /**
      * The user name to be used to login to the endpoint database.
-     * * `service_access_role` (Optional) The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
      */
     public readonly username?: fabric.Computed<string>;
 
@@ -151,6 +153,9 @@ export interface EndpointArgs {
      * The host name of the server.
      */
     readonly serverName?: fabric.MaybeComputed<string>;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
     readonly serviceAccessRole?: fabric.MaybeComputed<string>;
     /**
      * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -162,7 +167,6 @@ export interface EndpointArgs {
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
     /**
      * The user name to be used to login to the endpoint database.
-     * * `service_access_role` (Optional) The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
      */
     readonly username?: fabric.MaybeComputed<string>;
 }

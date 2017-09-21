@@ -41,12 +41,6 @@ export class Group extends fabric.Resource {
      * even if it's in the process of scaling a resource. Normally, Terraform
      * drains all the instances before deleting the group.  This bypasses that
      * behavior and potentially leaves resources dangling.
-     * * `load_balancers` (Optional) A list of elastic load balancer names to add to the autoscaling
-     * group names.
-     * * `vpc_zone_identifier` (Optional) A list of subnet IDs to launch resources in.
-     * * `target_group_arns` (Optional) A list of `aws_alb_target_group` ARNs, for use with
-     * Application Load Balancing
-     * * `termination_policies` (Optional) A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
      */
     public readonly forceDelete?: fabric.Computed<boolean>;
     /**
@@ -71,6 +65,10 @@ export class Group extends fabric.Resource {
      * The name of the launch configuration to use.
      */
     public readonly launchConfiguration: fabric.Computed<string>;
+    /**
+     * A list of elastic load balancer names to add to the autoscaling
+     * group names.
+     */
     public readonly loadBalancers: fabric.Computed<string[]>;
     /**
      * The maximum size of the auto scale group.
@@ -101,20 +99,41 @@ export class Group extends fabric.Resource {
      * prefix. Conflicts with `name`.
      */
     public readonly namePrefix?: fabric.Computed<string>;
+    /**
+     * The name of the placement group into which you'll launch your instances, if any.
+     */
     public readonly placementGroup?: fabric.Computed<string>;
+    /**
+     * Allows setting instance protection. The
+     * autoscaling group will not select instances with this setting for terminination
+     * during scale in events.
+     */
     public readonly protectFromScaleIn?: fabric.Computed<boolean>;
     /**
      * A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
-     * * `tag` (Optional) A list of tag blocks. Tags documented below.
-     * * `tags` (Optional) A list of tag blocks (maps). Tags documented below.
-     * * `placement_group` (Optional) The name of the placement group into which you'll launch your instances, if any.
      */
     public readonly suspendedProcesses?: fabric.Computed<string[]>;
+    /**
+     * A list of tag blocks. Tags documented below.
+     */
     public readonly tag?: fabric.Computed<{ key: string, propagateAtLaunch: boolean, value: string }[]>;
+    /**
+     * A list of tag blocks (maps). Tags documented below.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}[]>;
+    /**
+     * A list of `aws_alb_target_group` ARNs, for use with
+     * Application Load Balancing
+     */
     public readonly targetGroupArns: fabric.Computed<string[]>;
+    /**
+     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+     */
     public readonly terminationPolicies?: fabric.Computed<string[]>;
+    /**
+     * A list of subnet IDs to launch resources in.
+     */
     public readonly vpcZoneIdentifier: fabric.Computed<string[]>;
     public readonly waitForCapacityTimeout?: fabric.Computed<string>;
     /**
@@ -123,9 +142,6 @@ export class Group extends fabric.Resource {
      * on both create and update operations. (Takes precedence over
      * `min_elb_capacity` behavior.)
      * (See also [Waiting for Capacity](#waiting-for-capacity) below.)
-     * * `protect_from_scale_in` (Optional) Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
-     * during scale in events.
      */
     public readonly waitForElbCapacity?: fabric.Computed<number>;
 
@@ -213,12 +229,6 @@ export interface GroupArgs {
      * even if it's in the process of scaling a resource. Normally, Terraform
      * drains all the instances before deleting the group.  This bypasses that
      * behavior and potentially leaves resources dangling.
-     * * `load_balancers` (Optional) A list of elastic load balancer names to add to the autoscaling
-     * group names.
-     * * `vpc_zone_identifier` (Optional) A list of subnet IDs to launch resources in.
-     * * `target_group_arns` (Optional) A list of `aws_alb_target_group` ARNs, for use with
-     * Application Load Balancing
-     * * `termination_policies` (Optional) A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
      */
     readonly forceDelete?: fabric.MaybeComputed<boolean>;
     /**
@@ -243,6 +253,10 @@ export interface GroupArgs {
      * The name of the launch configuration to use.
      */
     readonly launchConfiguration: fabric.MaybeComputed<string>;
+    /**
+     * A list of elastic load balancer names to add to the autoscaling
+     * group names.
+     */
     readonly loadBalancers?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     /**
      * The maximum size of the auto scale group.
@@ -273,20 +287,41 @@ export interface GroupArgs {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: fabric.MaybeComputed<string>;
+    /**
+     * The name of the placement group into which you'll launch your instances, if any.
+     */
     readonly placementGroup?: fabric.MaybeComputed<string>;
+    /**
+     * Allows setting instance protection. The
+     * autoscaling group will not select instances with this setting for terminination
+     * during scale in events.
+     */
     readonly protectFromScaleIn?: fabric.MaybeComputed<boolean>;
     /**
      * A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
-     * * `tag` (Optional) A list of tag blocks. Tags documented below.
-     * * `tags` (Optional) A list of tag blocks (maps). Tags documented below.
-     * * `placement_group` (Optional) The name of the placement group into which you'll launch your instances, if any.
      */
     readonly suspendedProcesses?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A list of tag blocks. Tags documented below.
+     */
     readonly tag?: fabric.MaybeComputed<{ key: fabric.MaybeComputed<string>, propagateAtLaunch: fabric.MaybeComputed<boolean>, value: fabric.MaybeComputed<string> }>[];
+    /**
+     * A list of tag blocks (maps). Tags documented below.
+     */
     readonly tags?: fabric.MaybeComputed<fabric.MaybeComputed<{[key: string]: any}>>[];
+    /**
+     * A list of `aws_alb_target_group` ARNs, for use with
+     * Application Load Balancing
+     */
     readonly targetGroupArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+     */
     readonly terminationPolicies?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * A list of subnet IDs to launch resources in.
+     */
     readonly vpcZoneIdentifier?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly waitForCapacityTimeout?: fabric.MaybeComputed<string>;
     /**
@@ -295,9 +330,6 @@ export interface GroupArgs {
      * on both create and update operations. (Takes precedence over
      * `min_elb_capacity` behavior.)
      * (See also [Waiting for Capacity](#waiting-for-capacity) below.)
-     * * `protect_from_scale_in` (Optional) Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
-     * during scale in events.
      */
     readonly waitForElbCapacity?: fabric.MaybeComputed<number>;
 }

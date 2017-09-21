@@ -9,6 +9,9 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * ~> **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
  */
 export class Pipeline extends fabric.Resource {
+    /**
+     * An artifact_store block. Artifact stores are documented below.
+     */
     public readonly artifactStore: fabric.Computed<{ encryptionKey?: { id: string, type: string }[], location: string, type: string }[]>;
     /**
      * The action declaration's name.
@@ -18,6 +21,9 @@ export class Pipeline extends fabric.Resource {
      * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      */
     public readonly roleArn: fabric.Computed<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     public readonly stage: fabric.Computed<{ action: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
     /**
@@ -51,6 +57,9 @@ export class Pipeline extends fabric.Resource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * An artifact_store block. Artifact stores are documented below.
+     */
     readonly artifactStore: fabric.MaybeComputed<{ encryptionKey?: fabric.MaybeComputed<{ id: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[], location: fabric.MaybeComputed<string>, type: fabric.MaybeComputed<string> }>[];
     /**
      * The action declaration's name.
@@ -60,6 +69,9 @@ export interface PipelineArgs {
      * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      */
     readonly roleArn: fabric.MaybeComputed<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     readonly stage: fabric.MaybeComputed<{ action: fabric.MaybeComputed<{ category: fabric.MaybeComputed<string>, configuration?: fabric.MaybeComputed<{[key: string]: any}>, inputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], name: fabric.MaybeComputed<string>, outputArtifacts?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[], owner: fabric.MaybeComputed<string>, provider: fabric.MaybeComputed<string>, roleArn?: fabric.MaybeComputed<string>, runOrder?: fabric.MaybeComputed<number>, version: fabric.MaybeComputed<string> }>[], name: fabric.MaybeComputed<string> }>[];
 }
 

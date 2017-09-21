@@ -12,11 +12,29 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * Terraform will resize any Instance Group to zero when destroying the resource.
  */
 export class InstanceGroup extends fabric.Resource {
+    /**
+     * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+     */
     public readonly clusterId: fabric.Computed<string>;
+    /**
+     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     */
     public readonly ebsConfig?: fabric.Computed<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
+    /**
+     * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
+     */
     public readonly ebsOptimized?: fabric.Computed<boolean>;
+    /**
+     * Target number of instances for the instance group. Defaults to 0.
+     */
     public readonly instanceCount?: fabric.Computed<number>;
+    /**
+     * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
+     */
     public readonly instanceType: fabric.Computed<string>;
+    /**
+     * Human friendly name given to the instance group. Changing this forces a new resource to be created.
+     */
     public readonly name: fabric.Computed<string>;
     public /*out*/ readonly runningInstanceCount: fabric.Computed<number>;
     public /*out*/ readonly status: fabric.Computed<string>;
@@ -53,11 +71,29 @@ export class InstanceGroup extends fabric.Resource {
  * The set of arguments for constructing a InstanceGroup resource.
  */
 export interface InstanceGroupArgs {
+    /**
+     * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+     */
     readonly clusterId: fabric.MaybeComputed<string>;
+    /**
+     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     */
     readonly ebsConfig?: fabric.MaybeComputed<{ iops?: fabric.MaybeComputed<number>, size: fabric.MaybeComputed<number>, type: fabric.MaybeComputed<string>, volumesPerInstance?: fabric.MaybeComputed<number> }>[];
+    /**
+     * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
+     */
     readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
+    /**
+     * Target number of instances for the instance group. Defaults to 0.
+     */
     readonly instanceCount?: fabric.MaybeComputed<number>;
+    /**
+     * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
+     */
     readonly instanceType: fabric.MaybeComputed<string>;
+    /**
+     * Human friendly name given to the instance group. Changing this forces a new resource to be created.
+     */
     readonly name?: fabric.MaybeComputed<string>;
 }
 
