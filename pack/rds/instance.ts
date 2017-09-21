@@ -80,11 +80,13 @@ export class Instance extends fabric.Resource {
      * Supported in Amazon
      * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
      * for more information.
-     * * `copy_tags_to_snapshot` – (Optional, boolean) On delete, copy all Instance
+     */
+    public readonly characterSetName: fabric.Computed<string>;
+    /**
+     * On delete, copy all Instance
      * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
      * Default is `false`.
      */
-    public readonly characterSetName: fabric.Computed<string>;
     public readonly copyTagsToSnapshot?: fabric.Computed<boolean>;
     /**
      * Name of DB subnet group. DB instance will
@@ -392,11 +394,13 @@ export interface InstanceArgs {
      * Supported in Amazon
      * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
      * for more information.
-     * * `copy_tags_to_snapshot` – (Optional, boolean) On delete, copy all Instance
+     */
+    readonly characterSetName?: fabric.MaybeComputed<string>;
+    /**
+     * On delete, copy all Instance
      * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
      * Default is `false`.
      */
-    readonly characterSetName?: fabric.MaybeComputed<string>;
     readonly copyTagsToSnapshot?: fabric.MaybeComputed<boolean>;
     /**
      * Name of DB subnet group. DB instance will

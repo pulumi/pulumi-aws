@@ -25,8 +25,17 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * 
  */
 export class SpotInstanceRequest extends fabric.Resource {
+    /**
+     * The AMI to use for the instance.
+     */
     public readonly ami: fabric.Computed<string>;
+    /**
+     * Associate a public ip address with an instance in a VPC.  Boolean value.
+     */
     public readonly associatePublicIpAddress: fabric.Computed<boolean>;
+    /**
+     * The AZ to start the instance in.
+     */
     public readonly availabilityZone: fabric.Computed<string>;
     /**
      * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -34,25 +43,73 @@ export class SpotInstanceRequest extends fabric.Resource {
      * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
      */
     public readonly blockDurationMinutes?: fabric.Computed<number>;
+    /**
+     * If true, enables [EC2 Instance
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     */
     public readonly disableApiTermination?: fabric.Computed<boolean>;
+    /**
+     * Additional EBS block devices to attach to the
+     * instance.  See [Block Devices](#block-devices) below for details.
+     */
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    /**
+     * If true, the launched EC2 instance will be
+     * EBS-optimized.
+     */
     public readonly ebsOptimized?: fabric.Computed<boolean>;
+    /**
+     * Customize Ephemeral (also known as
+     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     */
     public readonly ephemeralBlockDevice: fabric.Computed<{ deviceName: string, noDevice?: boolean, virtualName?: string }[]>;
+    /**
+     * The IAM Instance Profile to
+     * launch the instance with. Specified as the name of the Instance Profile.
+     * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     public readonly iamInstanceProfile?: fabric.Computed<string>;
+    /**
+     * Shutdown behavior for the
+     * instance. Amazon defaults this to `stop` for EBS-backed instances and
+     * `terminate` for instance-store instances. Cannot be set on instance-store
+     * instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+     */
     public readonly instanceInitiatedShutdownBehavior?: fabric.Computed<string>;
     public /*out*/ readonly instanceState: fabric.Computed<string>;
+    /**
+     * The type of instance to start
+     */
     public readonly instanceType: fabric.Computed<string>;
     public readonly ipv6AddressCount: fabric.Computed<number>;
+    /**
+     * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
+     */
     public readonly ipv6Addresses: fabric.Computed<string[]>;
+    /**
+     * The key name to use for the instance.
+     */
     public readonly keyName: fabric.Computed<string>;
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      */
     public readonly launchGroup?: fabric.Computed<string>;
+    /**
+     * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
+     */
     public readonly monitoring?: fabric.Computed<boolean>;
+    /**
+     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+     */
     public readonly networkInterface: fabric.Computed<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
+    /**
+     * The ID of the network interface to attach.
+     */
     public /*out*/ readonly networkInterfaceId: fabric.Computed<string>;
+    /**
+     * The Placement Group to start the instance in.
+     */
     public readonly placementGroup: fabric.Computed<string>;
     public /*out*/ readonly primaryNetworkInterfaceId: fabric.Computed<string>;
     /**
@@ -62,7 +119,8 @@ export class SpotInstanceRequest extends fabric.Resource {
      */
     public /*out*/ readonly privateDns: fabric.Computed<string>;
     /**
-     * The private IP address assigned to the instance
+     * Private IP address to associate with the
+     * instance in a VPC.
      */
     public readonly privateIp: fabric.Computed<string>;
     /**
@@ -74,8 +132,20 @@ export class SpotInstanceRequest extends fabric.Resource {
      * The public IP address assigned to the instance, if applicable.
      */
     public /*out*/ readonly publicIp: fabric.Computed<string>;
+    /**
+     * Customize details about the root block
+     * device of the instance. See [Block Devices](#block-devices) below for details.
+     */
     public readonly rootBlockDevice: fabric.Computed<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[]>;
+    /**
+     * A list of security group names to associate with.
+     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     */
     public readonly securityGroups: fabric.Computed<string[]>;
+    /**
+     * Controls if traffic is routed to the instance when
+     * the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+     */
     public readonly sourceDestCheck?: fabric.Computed<boolean>;
     /**
      * The current [bid
@@ -102,11 +172,29 @@ export class SpotInstanceRequest extends fabric.Resource {
      * can't manage one-time spot requests, just launch them.
      */
     public readonly spotType?: fabric.Computed<string>;
+    /**
+     * The VPC Subnet ID to launch in.
+     */
     public readonly subnetId: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     */
     public readonly tenancy: fabric.Computed<string>;
+    /**
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     */
     public readonly userData?: fabric.Computed<string>;
+    /**
+     * A mapping of tags to assign to the devices created by the instance at launch time.
+     */
     public readonly volumeTags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * A list of security group IDs to associate with.
+     */
     public readonly vpcSecurityGroupIds: fabric.Computed<string[]>;
     /**
      * If set, Terraform will
@@ -182,8 +270,17 @@ export class SpotInstanceRequest extends fabric.Resource {
  * The set of arguments for constructing a SpotInstanceRequest resource.
  */
 export interface SpotInstanceRequestArgs {
+    /**
+     * The AMI to use for the instance.
+     */
     readonly ami: fabric.MaybeComputed<string>;
+    /**
+     * Associate a public ip address with an instance in a VPC.  Boolean value.
+     */
     readonly associatePublicIpAddress?: fabric.MaybeComputed<boolean>;
+    /**
+     * The AZ to start the instance in.
+     */
     readonly availabilityZone?: fabric.MaybeComputed<string>;
     /**
      * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -191,27 +288,88 @@ export interface SpotInstanceRequestArgs {
      * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
      */
     readonly blockDurationMinutes?: fabric.MaybeComputed<number>;
+    /**
+     * If true, enables [EC2 Instance
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     */
     readonly disableApiTermination?: fabric.MaybeComputed<boolean>;
+    /**
+     * Additional EBS block devices to attach to the
+     * instance.  See [Block Devices](#block-devices) below for details.
+     */
     readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    /**
+     * If true, the launched EC2 instance will be
+     * EBS-optimized.
+     */
     readonly ebsOptimized?: fabric.MaybeComputed<boolean>;
+    /**
+     * Customize Ephemeral (also known as
+     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     */
     readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName: fabric.MaybeComputed<string>, noDevice?: fabric.MaybeComputed<boolean>, virtualName?: fabric.MaybeComputed<string> }>[];
+    /**
+     * The IAM Instance Profile to
+     * launch the instance with. Specified as the name of the Instance Profile.
+     * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     readonly iamInstanceProfile?: fabric.MaybeComputed<string>;
+    /**
+     * Shutdown behavior for the
+     * instance. Amazon defaults this to `stop` for EBS-backed instances and
+     * `terminate` for instance-store instances. Cannot be set on instance-store
+     * instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+     */
     readonly instanceInitiatedShutdownBehavior?: fabric.MaybeComputed<string>;
+    /**
+     * The type of instance to start
+     */
     readonly instanceType: fabric.MaybeComputed<string>;
     readonly ipv6AddressCount?: fabric.MaybeComputed<number>;
+    /**
+     * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
+     */
     readonly ipv6Addresses?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * The key name to use for the instance.
+     */
     readonly keyName?: fabric.MaybeComputed<string>;
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      */
     readonly launchGroup?: fabric.MaybeComputed<string>;
+    /**
+     * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
+     */
     readonly monitoring?: fabric.MaybeComputed<boolean>;
+    /**
+     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+     */
     readonly networkInterface?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceIndex: fabric.MaybeComputed<number>, networkInterfaceId: fabric.MaybeComputed<string> }>[];
+    /**
+     * The Placement Group to start the instance in.
+     */
     readonly placementGroup?: fabric.MaybeComputed<string>;
+    /**
+     * Private IP address to associate with the
+     * instance in a VPC.
+     */
     readonly privateIp?: fabric.MaybeComputed<string>;
+    /**
+     * Customize details about the root block
+     * device of the instance. See [Block Devices](#block-devices) below for details.
+     */
     readonly rootBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
+    /**
+     * A list of security group names to associate with.
+     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     */
     readonly securityGroups?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * Controls if traffic is routed to the instance when
+     * the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+     */
     readonly sourceDestCheck?: fabric.MaybeComputed<boolean>;
     /**
      * The price to request on the spot market.
@@ -223,11 +381,29 @@ export interface SpotInstanceRequestArgs {
      * can't manage one-time spot requests, just launch them.
      */
     readonly spotType?: fabric.MaybeComputed<string>;
+    /**
+     * The VPC Subnet ID to launch in.
+     */
     readonly subnetId?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     */
     readonly tenancy?: fabric.MaybeComputed<string>;
+    /**
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     */
     readonly userData?: fabric.MaybeComputed<string>;
+    /**
+     * A mapping of tags to assign to the devices created by the instance at launch time.
+     */
     readonly volumeTags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * A list of security group IDs to associate with.
+     */
     readonly vpcSecurityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     /**
      * If set, Terraform will

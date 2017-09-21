@@ -12,8 +12,18 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * [ElastiCache Subnet Group resource](elasticache_subnet_group.html).
  */
 export class SecurityGroup extends fabric.Resource {
+    /**
+     * description for the cache security group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Name for the cache security group. This value is stored as a lowercase string.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     */
     public readonly securityGroupNames: fabric.Computed<string[]>;
 
     /**
@@ -40,8 +50,18 @@ export class SecurityGroup extends fabric.Resource {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
+    /**
+     * description for the cache security group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * Name for the cache security group. This value is stored as a lowercase string.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     */
     readonly securityGroupNames: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

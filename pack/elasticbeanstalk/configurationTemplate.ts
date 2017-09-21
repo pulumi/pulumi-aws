@@ -9,21 +9,25 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * application with the same configuration settings.
  */
 export class ConfigurationTemplate extends fabric.Resource {
+    /**
+     * name of the application to associate with this configuration template
+     */
     public readonly application: fabric.Computed<string>;
     /**
      * Short description of the Template
-     * * `environment_id` – (Optional) The ID of the environment used with this configuration template
+     */
+    public readonly description?: fabric.Computed<string>;
+    /**
+     * The ID of the environment used with this configuration template
      * * `setting` – (Optional) Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in [Option Settings](#option-settings)
      * * `solution_stack_name` – (Optional) A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    public readonly description?: fabric.Computed<string>;
     public readonly environmentId?: fabric.Computed<string>;
     /**
      * A unique name for this Template.
-     * * `application` – (Required) name of the application to associate with this configuration template
      */
     public readonly name: fabric.Computed<string>;
     public readonly setting: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
@@ -56,21 +60,25 @@ export class ConfigurationTemplate extends fabric.Resource {
  * The set of arguments for constructing a ConfigurationTemplate resource.
  */
 export interface ConfigurationTemplateArgs {
+    /**
+     * name of the application to associate with this configuration template
+     */
     readonly application: fabric.MaybeComputed<string>;
     /**
      * Short description of the Template
-     * * `environment_id` – (Optional) The ID of the environment used with this configuration template
+     */
+    readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * The ID of the environment used with this configuration template
      * * `setting` – (Optional) Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in [Option Settings](#option-settings)
      * * `solution_stack_name` – (Optional) A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly description?: fabric.MaybeComputed<string>;
     readonly environmentId?: fabric.MaybeComputed<string>;
     /**
      * A unique name for this Template.
-     * * `application` – (Required) name of the application to associate with this configuration template
      */
     readonly name?: fabric.MaybeComputed<string>;
     readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];

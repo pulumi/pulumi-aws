@@ -9,6 +9,9 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * [IAM Users][2]
  */
 export class GroupMembership extends fabric.Resource {
+    /**
+     * The IAM Group name to attach the list of `users` to
+     */
     public readonly group: fabric.Computed<string>;
     /**
      * The name to identify the Group Membership
@@ -16,7 +19,6 @@ export class GroupMembership extends fabric.Resource {
     public readonly name: fabric.Computed<string>;
     /**
      * A list of IAM User names to associate with the Group
-     * * `group` – (Required) The IAM Group name to attach the list of `users` to
      */
     public readonly users: fabric.Computed<string[]>;
 
@@ -47,6 +49,9 @@ export class GroupMembership extends fabric.Resource {
  * The set of arguments for constructing a GroupMembership resource.
  */
 export interface GroupMembershipArgs {
+    /**
+     * The IAM Group name to attach the list of `users` to
+     */
     readonly group: fabric.MaybeComputed<string>;
     /**
      * The name to identify the Group Membership
@@ -54,7 +59,6 @@ export interface GroupMembershipArgs {
     readonly name?: fabric.MaybeComputed<string>;
     /**
      * A list of IAM User names to associate with the Group
-     * * `group` – (Required) The IAM Group name to attach the list of `users` to
      */
     readonly users: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }

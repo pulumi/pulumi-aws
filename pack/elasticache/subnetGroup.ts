@@ -11,8 +11,17 @@ import * as fabric from "@pulumi/pulumi-fabric";
  * [ElastiCache Security Group resource](elasticache_security_group.html).
  */
 export class SubnetGroup extends fabric.Resource {
+    /**
+     * Description for the cache subnet group. Defaults to "Managed by Terraform".
+     */
     public readonly description?: fabric.Computed<string>;
+    /**
+     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     */
     public readonly name: fabric.Computed<string>;
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     */
     public readonly subnetIds: fabric.Computed<string[]>;
 
     /**
@@ -39,8 +48,17 @@ export class SubnetGroup extends fabric.Resource {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
+    /**
+     * Description for the cache subnet group. Defaults to "Managed by Terraform".
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     */
     readonly name?: fabric.MaybeComputed<string>;
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     */
     readonly subnetIds: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
 }
 

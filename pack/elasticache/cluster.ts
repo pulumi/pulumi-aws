@@ -46,21 +46,61 @@ export class Cluster extends fabric.Resource {
      * (Memcached only) The DNS name of the cache cluster without the port appended.
      */
     public /*out*/ readonly clusterAddress: fabric.Computed<string>;
+    /**
+     * Group identifier. ElastiCache converts
+     * this name to lowercase
+     */
     public readonly clusterId: fabric.Computed<string>;
     /**
      * (Memcached only) The configuration endpoint to allow host discovery.
      */
     public /*out*/ readonly configurationEndpoint: fabric.Computed<string>;
+    /**
+     * Name of the cache engine to be used for this cache cluster.
+     * Valid values for this parameter are `memcached` or `redis`
+     */
     public readonly engine: fabric.Computed<string>;
+    /**
+     * Version number of the cache engine to be used.
+     * See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+     * in the AWS Documentation center for supported versions
+     */
     public readonly engineVersion: fabric.Computed<string>;
     public readonly maintenanceWindow: fabric.Computed<string>;
+    /**
+     * The compute and memory capacity of the nodes. See
+     * [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
+     * supported node types
+     */
     public readonly nodeType: fabric.Computed<string>;
     public readonly notificationTopicArn?: fabric.Computed<string>;
+    /**
+     * The initial number of cache nodes that the
+     * cache cluster will have. For Redis, this value must be 1. For Memcache, this
+     * value must be between 1 and 20. If this number is reduced on subsequent runs,
+     * the highest numbered nodes will be removed.
+     */
     public readonly numCacheNodes: fabric.Computed<number>;
+    /**
+     * Name of the parameter group to associate
+     * with this cache cluster
+     */
     public readonly parameterGroupName: fabric.Computed<string>;
+    /**
+     * The port number on which each of the cache nodes will
+     * accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+     */
     public readonly port: fabric.Computed<number>;
     public /*out*/ readonly replicationGroupId: fabric.Computed<string>;
+    /**
+     * One or more VPC security groups associated
+     * with the cache cluster
+     */
     public readonly securityGroupIds: fabric.Computed<string[]>;
+    /**
+     * List of security group
+     * names to associate with this cache cluster
+     */
     public readonly securityGroupNames: fabric.Computed<string[]>;
     public readonly snapshotArns?: fabric.Computed<string[]>;
     /**
@@ -80,6 +120,10 @@ export class Cluster extends fabric.Resource {
      * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
     public readonly snapshotWindow: fabric.Computed<string>;
+    /**
+     * Name of the subnet group to be used
+     * for the cache cluster.
+     */
     public readonly subnetGroupName: fabric.Computed<string>;
     /**
      * A mapping of tags to assign to the resource
@@ -163,16 +207,56 @@ export interface ClusterArgs {
      * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
      */
     readonly azMode?: fabric.MaybeComputed<string>;
+    /**
+     * Group identifier. ElastiCache converts
+     * this name to lowercase
+     */
     readonly clusterId: fabric.MaybeComputed<string>;
+    /**
+     * Name of the cache engine to be used for this cache cluster.
+     * Valid values for this parameter are `memcached` or `redis`
+     */
     readonly engine: fabric.MaybeComputed<string>;
+    /**
+     * Version number of the cache engine to be used.
+     * See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+     * in the AWS Documentation center for supported versions
+     */
     readonly engineVersion?: fabric.MaybeComputed<string>;
     readonly maintenanceWindow?: fabric.MaybeComputed<string>;
+    /**
+     * The compute and memory capacity of the nodes. See
+     * [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
+     * supported node types
+     */
     readonly nodeType: fabric.MaybeComputed<string>;
     readonly notificationTopicArn?: fabric.MaybeComputed<string>;
+    /**
+     * The initial number of cache nodes that the
+     * cache cluster will have. For Redis, this value must be 1. For Memcache, this
+     * value must be between 1 and 20. If this number is reduced on subsequent runs,
+     * the highest numbered nodes will be removed.
+     */
     readonly numCacheNodes: fabric.MaybeComputed<number>;
+    /**
+     * Name of the parameter group to associate
+     * with this cache cluster
+     */
     readonly parameterGroupName?: fabric.MaybeComputed<string>;
+    /**
+     * The port number on which each of the cache nodes will
+     * accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+     */
     readonly port: fabric.MaybeComputed<number>;
+    /**
+     * One or more VPC security groups associated
+     * with the cache cluster
+     */
     readonly securityGroupIds?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
+    /**
+     * List of security group
+     * names to associate with this cache cluster
+     */
     readonly securityGroupNames?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     readonly snapshotArns?: fabric.MaybeComputed<fabric.MaybeComputed<string>>[];
     /**
@@ -192,6 +276,10 @@ export interface ClusterArgs {
      * begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
     readonly snapshotWindow?: fabric.MaybeComputed<string>;
+    /**
+     * Name of the subnet group to be used
+     * for the cache cluster.
+     */
     readonly subnetGroupName?: fabric.MaybeComputed<string>;
     /**
      * A mapping of tags to assign to the resource

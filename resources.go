@@ -441,14 +441,19 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_security_group_rule":               {Tok: awsrestok(ec2Mod, "SecurityGroupRule")},
 			"aws_snapshot_create_volume_permission": {Tok: awsrestok(ec2Mod, "SnapshotCreateVolumePermission")},
 			"aws_spot_datafeed_subscription":        {Tok: awsrestok(ec2Mod, "SpotDatafeedSubscription")},
-			"aws_spot_instance_request":             {Tok: awsrestok(ec2Mod, "SpotInstanceRequest")},
-			"aws_spot_fleet_request":                {Tok: awsrestok(ec2Mod, "SpotFleetRequest")},
-			"aws_default_subnet":                    {Tok: awsrestok(ec2Mod, "DefaultSubnet")},
-			"aws_subnet":                            {Tok: awsrestok(ec2Mod, "Subnet")},
-			"aws_volume_attachment":                 {Tok: awsrestok(ec2Mod, "VolumeAttachment")},
-			"aws_vpc_dhcp_options_association":      {Tok: awsrestok(ec2Mod, "VpcDhcpOptionsAssociation")},
-			"aws_default_vpc_dhcp_options":          {Tok: awsrestok(ec2Mod, "DefaultVpcDhcpOptions")},
-			"aws_vpc_dhcp_options":                  {Tok: awsrestok(ec2Mod, "VpcDhcpOptions")},
+			"aws_spot_instance_request": {
+				Tok: awsrestok(ec2Mod, "SpotInstanceRequest"),
+				Docs: &tfbridge.DocInfo{
+					IncludeArgumentsFrom: "aws_instance",
+				},
+			},
+			"aws_spot_fleet_request":           {Tok: awsrestok(ec2Mod, "SpotFleetRequest")},
+			"aws_default_subnet":               {Tok: awsrestok(ec2Mod, "DefaultSubnet")},
+			"aws_subnet":                       {Tok: awsrestok(ec2Mod, "Subnet")},
+			"aws_volume_attachment":            {Tok: awsrestok(ec2Mod, "VolumeAttachment")},
+			"aws_vpc_dhcp_options_association": {Tok: awsrestok(ec2Mod, "VpcDhcpOptionsAssociation")},
+			"aws_default_vpc_dhcp_options":     {Tok: awsrestok(ec2Mod, "DefaultVpcDhcpOptions")},
+			"aws_vpc_dhcp_options":             {Tok: awsrestok(ec2Mod, "VpcDhcpOptions")},
 			"aws_vpc_peering_connection": {
 				Tok: awsrestok(ec2Mod, "VpcPeeringConnection"),
 				Docs: &tfbridge.DocInfo{

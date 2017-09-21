@@ -13,13 +13,15 @@ export class FirehoseDeliveryStream extends fabric.Resource {
      * The Amazon Resource Name (ARN) specifying the Stream
      */
     public readonly arn: fabric.Computed<string>;
+    /**
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+     */
     public readonly destination: fabric.Computed<string>;
     public readonly destinationId: fabric.Computed<string>;
     public readonly elasticsearchConfiguration?: fabric.Computed<{ bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }[], domainArn: string, indexName: string, indexRotationPeriod?: string, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string }[]>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
-     * * `destination` – (Required) This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
      */
     public readonly name: fabric.Computed<string>;
     /**
@@ -68,13 +70,15 @@ export class FirehoseDeliveryStream extends fabric.Resource {
  */
 export interface FirehoseDeliveryStreamArgs {
     readonly arn?: fabric.MaybeComputed<string>;
+    /**
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+     */
     readonly destination: fabric.MaybeComputed<string>;
     readonly destinationId?: fabric.MaybeComputed<string>;
     readonly elasticsearchConfiguration?: fabric.MaybeComputed<{ bufferingInterval?: fabric.MaybeComputed<number>, bufferingSize?: fabric.MaybeComputed<number>, cloudwatchLoggingOptions?: fabric.MaybeComputed<{ enabled?: fabric.MaybeComputed<boolean>, logGroupName?: fabric.MaybeComputed<string>, logStreamName?: fabric.MaybeComputed<string> }>[], domainArn: fabric.MaybeComputed<string>, indexName: fabric.MaybeComputed<string>, indexRotationPeriod?: fabric.MaybeComputed<string>, retryDuration?: fabric.MaybeComputed<number>, roleArn: fabric.MaybeComputed<string>, s3BackupMode?: fabric.MaybeComputed<string>, typeName?: fabric.MaybeComputed<string> }>[];
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
-     * * `destination` – (Required) This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
      */
     readonly name?: fabric.MaybeComputed<string>;
     /**

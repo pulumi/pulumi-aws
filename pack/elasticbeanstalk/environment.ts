@@ -15,7 +15,16 @@ import {ApplicationVersion} from "./applicationVersion";
  * `production`.
  */
 export class Environment extends fabric.Resource {
+    /**
+     * List of all option settings configured in the Environment. These
+     * are a combination of default settings and their overrides from `setting` in
+     * the configuration.
+     */
     public /*out*/ readonly allSettings: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    /**
+     * Name of the application that contains the version
+     * to be deployed
+     */
     public readonly application: fabric.Computed<Application>;
     /**
      * The autoscaling groups used by this environment.
@@ -49,8 +58,6 @@ export class Environment extends fabric.Resource {
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
-     * * `application` – (Required) Name of the application that contains the version
-     * to be deployed
      */
     public readonly name: fabric.Computed<string>;
     public readonly pollInterval?: fabric.Computed<string>;
@@ -58,9 +65,16 @@ export class Environment extends fabric.Resource {
      * SQS queues in use by this environment.
      */
     public /*out*/ readonly queues: fabric.Computed<string[]>;
+    /**
+     * Settings specifically set for this Environment.
+     */
     public readonly setting?: fabric.Computed<{ name: string, namespace: string, resource?: string, value: string }[]>;
     public readonly solutionStackName: fabric.Computed<string>;
     public readonly tags?: fabric.Computed<{[key: string]: any}>;
+    /**
+     * The name of the Elastic Beanstalk Configuration
+     * template to use in deployment
+     */
     public readonly templateName?: fabric.Computed<string>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -70,8 +84,6 @@ export class Environment extends fabric.Resource {
      * below in [Option Settings](#option-settings)
      * * `solution_stack_name` – (Optional) A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
-     * * `template_name` – (Optional) The name of the Elastic Beanstalk Configuration
-     * template to use in deployment
      */
     public readonly tier?: fabric.Computed<string>;
     /**
@@ -139,6 +151,10 @@ export class Environment extends fabric.Resource {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * Name of the application that contains the version
+     * to be deployed
+     */
     readonly application: fabric.MaybeComputed<Application>;
     /**
      * Prefix to use for the fully qualified DNS name of
@@ -152,14 +168,16 @@ export interface EnvironmentArgs {
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
-     * * `application` – (Required) Name of the application that contains the version
-     * to be deployed
      */
     readonly name?: fabric.MaybeComputed<string>;
     readonly pollInterval?: fabric.MaybeComputed<string>;
     readonly setting?: fabric.MaybeComputed<{ name: fabric.MaybeComputed<string>, namespace: fabric.MaybeComputed<string>, resource?: fabric.MaybeComputed<string>, value: fabric.MaybeComputed<string> }>[];
     readonly solutionStackName?: fabric.MaybeComputed<string>;
     readonly tags?: fabric.MaybeComputed<{[key: string]: any}>;
+    /**
+     * The name of the Elastic Beanstalk Configuration
+     * template to use in deployment
+     */
     readonly templateName?: fabric.MaybeComputed<string>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -169,8 +187,6 @@ export interface EnvironmentArgs {
      * below in [Option Settings](#option-settings)
      * * `solution_stack_name` – (Optional) A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
-     * * `template_name` – (Optional) The name of the Elastic Beanstalk Configuration
-     * template to use in deployment
      */
     readonly tier?: fabric.MaybeComputed<string>;
     /**

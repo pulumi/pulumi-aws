@@ -31,7 +31,7 @@ export class AmiCopy extends fabric.Resource {
      */
     public readonly ebsBlockDevice: fabric.Computed<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     /**
-     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     * Boolean controlling whether the created EBS volumes will be encrypted.
      */
     public readonly encrypted?: fabric.Computed<boolean>;
     /**
@@ -54,7 +54,9 @@ export class AmiCopy extends fabric.Resource {
      */
     public /*out*/ readonly kernelId: fabric.Computed<string>;
     /**
-     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
      */
     public readonly kmsKeyId: fabric.Computed<string>;
     public /*out*/ readonly manageEbsSnapshots: fabric.Computed<boolean>;
@@ -133,15 +135,28 @@ export class AmiCopy extends fabric.Resource {
  * The set of arguments for constructing a AmiCopy resource.
  */
 export interface AmiCopyArgs {
+    /**
+     * A longer, human-readable description for the AMI.
+     */
     readonly description?: fabric.MaybeComputed<string>;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
     readonly ebsBlockDevice?: fabric.MaybeComputed<{ deleteOnTermination?: fabric.MaybeComputed<boolean>, deviceName?: fabric.MaybeComputed<string>, encrypted?: fabric.MaybeComputed<boolean>, iops?: fabric.MaybeComputed<number>, snapshotId?: fabric.MaybeComputed<string>, volumeSize?: fabric.MaybeComputed<number>, volumeType?: fabric.MaybeComputed<string> }>[];
     /**
-     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     * Boolean controlling whether the created EBS volumes will be encrypted.
      */
     readonly encrypted?: fabric.MaybeComputed<boolean>;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
     readonly ephemeralBlockDevice?: fabric.MaybeComputed<{ deviceName?: fabric.MaybeComputed<string>, virtualName?: fabric.MaybeComputed<string> }>[];
     /**
-     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
      */
     readonly kmsKeyId?: fabric.MaybeComputed<string>;
     /**

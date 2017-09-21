@@ -49,15 +49,23 @@ export class ReplicationGroup extends fabric.Resource {
     public readonly numberCacheClusters: fabric.Computed<number>;
     /**
      * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-     * * `port` – (Required) The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      */
     public readonly parameterGroupName: fabric.Computed<string>;
+    /**
+     * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+     */
     public readonly port: fabric.Computed<number>;
     /**
      * (Redis only) The address of the replication group configuration endpoint when cluster mode is enabled.
      */
     public /*out*/ readonly primaryEndpointAddress: fabric.Computed<string>;
+    /**
+     * A user-created description for the replication group.
+     */
     public readonly replicationGroupDescription: fabric.Computed<string>;
+    /**
+     * The replication group identifier. This parameter is stored as a lowercase string.
+     */
     public readonly replicationGroupId: fabric.Computed<string>;
     /**
      * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
@@ -196,11 +204,19 @@ export interface ReplicationGroupArgs {
     readonly numberCacheClusters?: fabric.MaybeComputed<number>;
     /**
      * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-     * * `port` – (Required) The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      */
     readonly parameterGroupName?: fabric.MaybeComputed<string>;
+    /**
+     * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+     */
     readonly port: fabric.MaybeComputed<number>;
+    /**
+     * A user-created description for the replication group.
+     */
     readonly replicationGroupDescription: fabric.MaybeComputed<string>;
+    /**
+     * The replication group identifier. This parameter is stored as a lowercase string.
+     */
     readonly replicationGroupId: fabric.MaybeComputed<string>;
     /**
      * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
