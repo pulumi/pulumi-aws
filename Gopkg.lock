@@ -237,15 +237,21 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/pulumi/pulumi-fabric"
+  name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/environment","pkg/resource/plugin","pkg/resource/provider","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","sdk/proto/go"]
-  revision = "f87e4f58800a3813b30f9d3eed6c88f63ab868ae"
+  revision = "75d72e50869b88188a03edeb6be844a41150aa1b"
+
+[[projects]]
+  name = "github.com/pulumi/pulumi-fabric"
+  packages = ["pkg/diag","pkg/diag/colors","pkg/util/cmdutil","pkg/util/contract"]
+  revision = "4b9d933415dd6356052a73e6e7d368fb2a907773"
+  version = "v0.6"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "34a02baaad956b22ac3591d217330e861f8a5d4d"
+  revision = "936402435c6893a570fd2a7ef34411b4e079f1bf"
 
 [[projects]]
   branch = "master"
@@ -300,7 +306,7 @@
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","html","html/atom","http2","http2/hpack","idna","internal/timeseries","lex/httplex","trace"]
-  revision = "b60f3a92103dfd93dfcb900ec77c6d0643510868"
+  revision = "0744d001aa8470aaa53df28d32e5ceeb8af9bd70"
 
 [[projects]]
   branch = "master"
@@ -335,6 +341,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "391a6063fdac6504d5ceb3f52c418b8973d9fdbd0ba13afae5c58bc0c731700d"
+  inputs-digest = "982cbb36086c247d90bde0c6d081a205b845b81569ce42fcffe9d1b18393319b"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pulumi/pulumi-fabric/pkg/testing/integration"
+	"github.com/pulumi/pulumi/pkg/testing/integration"
 )
 
 func TestExamples(t *testing.T) {
@@ -28,7 +28,7 @@ func TestExamples(t *testing.T) {
 			"aws:config:region": region,
 		},
 		Dependencies: []string{
-			"@pulumi/pulumi-fabric",
+			"pulumi",
 			"@pulumi/aws",
 		},
 	}

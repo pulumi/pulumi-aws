@@ -1,7 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@pulumi/aws";
-import { asset } from "@pulumi/pulumi-fabric";
+import { asset } from "pulumi";
 let region = aws.config.requireRegion();
 
 ///////////////////

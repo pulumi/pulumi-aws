@@ -7,9 +7,9 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/pulumi/pulumi-fabric/pkg/resource"
-	"github.com/pulumi/pulumi-fabric/pkg/tokens"
 	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
+	"github.com/pulumi/pulumi/pkg/resource"
+	"github.com/pulumi/pulumi/pkg/tokens"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 )
 

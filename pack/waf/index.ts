@@ -4,7 +4,6 @@
 // Export members:
 export * from "./byteMatchSet";
 export * from "./ipSet";
-export * from "./rateBasedRule";
 export * from "./rule";
 export * from "./sizeConstraintSet";
 export * from "./sqlInjectionMatchSet";

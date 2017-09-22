@@ -38,8 +38,8 @@ gen:
 
 build:
 	@$(ECHO) "[Building ${PACK} package:]"
-	cd ${PACKDIR} && yarn link @pulumi/pulumi-fabric # ensure we resolve to Lumi's stdlibs.
-	cd ${PACKDIR} && yarn run build                  # compile into a JavaScript NPM package.
+	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Lumi's stdlibs.
+	cd ${PACKDIR} && yarn run build   # compile into a JavaScript NPM package.
 .PHONY: build
 
 test:
