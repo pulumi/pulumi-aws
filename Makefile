@@ -8,7 +8,6 @@ PROJECT =github.com/pulumi/pulumi-aws
 
 TFGEN           = pulumi-tfgen-${PACK}
 PROVIDER        = pulumi-provider-${PACK}
-PROVIDER_BIN    = ${GOPATH}/bin/${PROVIDER}
 TESTPARALLELISM = 10
 
 ECHO=echo -e
