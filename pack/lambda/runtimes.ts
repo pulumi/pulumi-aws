@@ -1,6 +1,8 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-// Runtime is a union type containing all available AWS Lambda runtimes.
+/**
+ * Runtime is a union type containing all available AWS Lambda runtimes.
+ */
 export type Runtime =
     "dotnetcore1.0"  |
     "java8"          |

@@ -1,12 +1,14 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as crypto from "crypto";
-import * as fabric from "@pulumi/pulumi-fabric";
+import * as pulumi from "pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
 
-// Context is the shape of the context object passed to a Function callback.
+/**
+ * Context is the shape of the context object passed to a Function callback.
+ */
 export interface Context {
     callbackWaitsForEmptyEventLoop: boolean;
     readonly functionName: string;
@@ -21,7 +23,9 @@ export interface Context {
     getRemainingTimeInMillis(): string;
 }
 
-// Handler is the signature for a serverless function.
+/** 
+ * Handler is the signature for a serverless function.
+ */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 let policy = {
@@ -43,19 +47,22 @@ interface FuncEnv {
     env: { [key: string]: string; };
 }
 
-// FuncsForClosure collects all the function defintions needed to support serialization of a given Closure object.
-// Note that a Closure object can reference other Closure objects and can also have cycles, so we recursively walk the
-// graph and cache serialized nodes along the way to avoid cycles.
+/**
+ * FuncsForClosure collects all the function defintions needed to support serialization of a given Closure object.
+ * Context is the shape of the context object passed to a Function callback.
+ * Note that a Closure object can reference other Closure objects and can also have cycles, so we recursively walk the
+ * graph and cache serialized nodes along the way to avoid cycles.
+ */ 
 class FuncsForClosure {
     public funcs: { [hash: string]: FuncEnv }; // a cache of functions.
     public root: string;                       // the root closure hash.
 
-    constructor(closure: fabric.runtime.Closure) {
+    constructor(closure: pulumi.runtime.Closure) {
         this.funcs = {};
         this.root = this.createFuncForClosure(closure);
     }
 
-    private createFuncForClosure(closure: fabric.runtime.Closure): string {
+    private createFuncForClosure(closure: pulumi.runtime.Closure): string {
         // Produce a hash to identify the function.
         let shasum: crypto.Hash = crypto.createHash("sha1");
         shasum.update(closure.code);
@@ -73,7 +80,7 @@ class FuncsForClosure {
         return hash;
     }
 
-    private envFromEnvObj(env: fabric.runtime.Environment): {[key: string]: string} {
+    private envFromEnvObj(env: pulumi.runtime.Environment): {[key: string]: string} {
         let envObj: {[key: string]: string} = {};
         for (let key of Object.keys(env)) {
             let val = this.envEntryToString(env[key]);
@@ -84,7 +91,7 @@ class FuncsForClosure {
         return envObj;
     }
 
-    private envFromEnvArr(arr: fabric.runtime.EnvironmentEntry[]): (string | undefined)[] {
+    private envFromEnvArr(arr: pulumi.runtime.EnvironmentEntry[]): (string | undefined)[] {
         let envArr: (string | undefined)[] = [];
         for (let i = 0; i < arr.length; i++) {
             envArr[i] = this.envEntryToString(arr[i]);
@@ -92,7 +99,7 @@ class FuncsForClosure {
         return envArr;
     }
 
-    private envEntryToString(envEntry: fabric.runtime.EnvironmentEntry): string | undefined {
+    private envEntryToString(envEntry: pulumi.runtime.EnvironmentEntry): string | undefined {
         if (envEntry.json !== undefined) {
             return JSON.stringify(envEntry.json);
         }
@@ -112,9 +119,13 @@ class FuncsForClosure {
     }
 }
 
-// Converts an environment object into a string which can be embedded into a serialized function body.  Note that this
-// is not JSON serialization, as we may have proeprty values which are variable references to other global functions.
-// In other words, there can be free variables in the resulting object literal.
+/**
+ * Converts an environment object into a string which can be embedded into a serialized function body.  Note that this
+ * is not JSON serialization, as we may have proeprty values which are variable references to other global functions.
+ * In other words, there can be free variables in the resulting object literal.
+ *
+ * @param envObj The environment object to convert to a string.
+ */
 function envObjToString(envObj: { [key: string]: string; }): string {
     let result = "";
     let first = true;
@@ -149,8 +160,8 @@ function envArrToString(envArr: (string | undefined)[]): string {
     return "[ " + result + " ]";
 }
 
-function serializeClosureText(closure: Promise<fabric.runtime.Closure>): fabric.asset.StringAsset {
-    return new fabric.asset.StringAsset(closure.then((c: fabric.runtime.Closure) => {
+function serializeClosureText(closure: Promise<pulumi.runtime.Closure>): pulumi.asset.StringAsset {
+    return new pulumi.asset.StringAsset(closure.then((c: pulumi.runtime.Closure) => {
         // Ensure the closure is targeting a supported runtime.
         if (c.runtime !== "nodejs") {
             throw new Error(`Runtime '${c.runtime}' not yet supported (currently only 'nodejs')`);
@@ -178,10 +189,10 @@ function serializeClosureText(closure: Promise<fabric.runtime.Closure>): fabric.
 
 function createJavaScriptLambda(
     functionName: string, role: Role,
-    closure: Promise<fabric.runtime.Closure>, opts: FunctionOptions): lambda.Function {
+    closure: Promise<pulumi.runtime.Closure>, opts: FunctionOptions): lambda.Function {
     return new lambda.Function(functionName, {
-        code: new fabric.asset.AssetArchive({
-            "node_modules": new fabric.asset.FileAsset("node_modules"),
+        code: new pulumi.asset.AssetArchive({
+            "node_modules": new pulumi.asset.FileAsset("node_modules"),
             "index.js": serializeClosureText(closure),
         }),
         handler: "index.handler",
@@ -197,11 +208,13 @@ export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
-    deadLetterConfig?: { targetArn: fabric.Computed<string>; };
+    deadLetterConfig?: { targetArn: pulumi.Computed<string>; };
 }
 
-// Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
-// by a Lumi lambda expression and with a set of attached policies.
+/**
+ * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
+ * by a Lumi lambda expression and with a set of attached policies.
+ */
 export class Function {
     public readonly lambda: lambda.Function;
     public readonly role: Role;
@@ -214,7 +227,7 @@ export class Function {
         if (!func) {
             throw new Error("Missing required function callback");
         }
-        let closure: Promise<fabric.runtime.Closure> = fabric.runtime.serializeClosure(func);
+        let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosure(func);
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }

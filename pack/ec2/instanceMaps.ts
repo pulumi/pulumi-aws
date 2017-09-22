@@ -7,7 +7,9 @@
 
 import * as config from "../config";
 
-// instanceTypeArch is a map of instance type to its architecture.
+/**
+ * instanceTypeArch is a map of instance type to its architecture.
+ */
 export let instanceTypeArch: {
     [instanceType: string]: string,
 } = {
@@ -66,7 +68,9 @@ export let instanceTypeArch: {
     "cc2.8xlarge": "HVM64",
 };
 
-// regionArchLinuxAMI is a map from region to inner maps from architecture to the recommended Linux AMI.
+/**
+ * regionArchLinuxAMI is a map from region to inner maps from architecture to the recommended Linux AMI.
+ */
 export let regionArchLinuxAMI: {
     [region: string]: { [arch: string]: string; },
 } = {
@@ -147,7 +151,9 @@ export let regionArchLinuxAMI: {
     },
 };
 
-// getLinuxAMI gets the recommended Linux AMI for the given instance in the current AWS region.
+/**
+ * getLinuxAMI gets the recommended Linux AMI for the given instance in the current AWS region.
+ */
 export function getLinuxAMI(instanceType: string): string {
     let region = config.requireRegion();
     let arch = instanceTypeArch[instanceType];

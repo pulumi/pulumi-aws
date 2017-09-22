@@ -10,7 +10,7 @@
         "typescript": "^2.1.4"
     },
     "peerDependencies": {
-        "@pulumi/pulumi-fabric": "*",
+        "pulumi": "*",
         "@pulumi/aws": "*"
     }
 }

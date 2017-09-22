@@ -10,6 +10,6 @@
         "typescript": "^2.5.2"
     },
     "peerDependencies": {
-        "@pulumi/pulumi-fabric": "*"
+        "pulumi": "*"
     }
 }

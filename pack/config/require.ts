@@ -3,7 +3,9 @@
 import {region} from "./vars";
 import {Region} from "../region";
 
-// requireRegion fetches the AWS region, requiring that it exists; if it has not been configured, an error is thrown.
+/**
+ * requireRegion fetches the AWS region, requiring that it exists; if it has not been configured, an error is thrown.
+ */
 export function requireRegion(): Region {
     if (region === undefined) {
         throw new Error("No AWS region has been configured");

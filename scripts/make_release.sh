@@ -13,7 +13,7 @@ mkdir -p $PUBDIR
 cp $GOPATH/bin/pulumi-provider-aws ${PUBDIR}/
 cp -R ${ROOT}/pack/bin/. ${PUBDIR}/
 echo . >> ${PUBDIR}/packs.txt
-echo . @pulumi/pulumi-fabric >> ${PUBDIR}/packdeps.txt
+echo . pulumi >> ${PUBDIR}/packdeps.txt
 
 # Tar up the file and then print it out for use by the caller or script.
 tar -czf ${PUBFILE} -C ${PUBDIR} .

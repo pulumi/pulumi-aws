@@ -10,8 +10,8 @@
         "typescript": "^2.1.4"
     },
     "peerDependencies": {
-        "@pulumi/aws": "*",
-        "@pulumi/pulumi-fabric": "*"
+        "pulumi": "*",
+        "@pulumi/aws": "*"
     },
     "dependencies": {
         "@types/node": "^8.0.26"
