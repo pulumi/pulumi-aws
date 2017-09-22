@@ -6,7 +6,9 @@ import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
 
-// Context is the shape of the context object passed to a Function callback.
+/**
+ * Context is the shape of the context object passed to a Function callback.
+ */
 export interface Context {
     callbackWaitsForEmptyEventLoop: boolean;
     readonly functionName: string;
@@ -21,7 +23,9 @@ export interface Context {
     getRemainingTimeInMillis(): string;
 }
 
-// Handler is the signature for a serverless function.
+/** 
+ * Handler is the signature for a serverless function.
+ */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 let policy = {
@@ -43,9 +47,12 @@ interface FuncEnv {
     env: { [key: string]: string; };
 }
 
-// FuncsForClosure collects all the function defintions needed to support serialization of a given Closure object.
-// Note that a Closure object can reference other Closure objects and can also have cycles, so we recursively walk the
-// graph and cache serialized nodes along the way to avoid cycles.
+/**
+ * FuncsForClosure collects all the function defintions needed to support serialization of a given Closure object.
+ * Context is the shape of the context object passed to a Function callback.
+ * Note that a Closure object can reference other Closure objects and can also have cycles, so we recursively walk the
+ * graph and cache serialized nodes along the way to avoid cycles.
+ */ 
 class FuncsForClosure {
     public funcs: { [hash: string]: FuncEnv }; // a cache of functions.
     public root: string;                       // the root closure hash.
@@ -112,9 +119,13 @@ class FuncsForClosure {
     }
 }
 
-// Converts an environment object into a string which can be embedded into a serialized function body.  Note that this
-// is not JSON serialization, as we may have proeprty values which are variable references to other global functions.
-// In other words, there can be free variables in the resulting object literal.
+/**
+ * Converts an environment object into a string which can be embedded into a serialized function body.  Note that this
+ * is not JSON serialization, as we may have proeprty values which are variable references to other global functions.
+ * In other words, there can be free variables in the resulting object literal.
+ *
+ * @param envObj The environment object to convert to a string.
+ */
 function envObjToString(envObj: { [key: string]: string; }): string {
     let result = "";
     let first = true;
@@ -200,8 +211,10 @@ export interface FunctionOptions {
     deadLetterConfig?: { targetArn: fabric.Computed<string>; };
 }
 
-// Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
-// by a Lumi lambda expression and with a set of attached policies.
+/**
+ * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
+ * by a Lumi lambda expression and with a set of attached policies.
+ */
 export class Function {
     public readonly lambda: lambda.Function;
     public readonly role: Role;

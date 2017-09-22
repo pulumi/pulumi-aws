@@ -15,7 +15,9 @@ export let USEast2Region: Region      = "us-east-2";
 export let USWest1Region: Region      = "us-west-1";
 export let USWest2Region: Region      = "us-west-2";
 
-// A Region represents any valid Amazon region that may be targeted with deployments.
+/**
+ * A Region represents any valid Amazon region that may be targeted with deployments.
+ */
 export type Region =
     "ap-northeast-1" |
     "ap-northeast-2" |
