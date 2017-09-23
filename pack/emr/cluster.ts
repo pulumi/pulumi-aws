@@ -28,11 +28,11 @@ export class Cluster extends pulumi.Resource {
      */
     public readonly configurations?: pulumi.Computed<string>;
     /**
-     * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Default `1`
+     * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
     public readonly coreInstanceCount?: pulumi.Computed<number>;
     /**
-     * The EC2 instance type of the slave nodes
+     * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
      */
     public readonly coreInstanceType: pulumi.Computed<string>;
     /**
@@ -40,6 +40,10 @@ export class Cluster extends pulumi.Resource {
      * flow. Defined below
      */
     public readonly ec2Attributes?: pulumi.Computed<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string }[]>;
+    /**
+     * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
+     */
+    public readonly instanceGroup?: pulumi.Computed<{ bidPrice?: string, ebsConfig?: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -50,9 +54,9 @@ export class Cluster extends pulumi.Resource {
      */
     public readonly logUri?: pulumi.Computed<string>;
     /**
-     * The EC2 instance type of the master node
+     * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    public readonly masterInstanceType: pulumi.Computed<string>;
+    public readonly masterInstanceType?: pulumi.Computed<string>;
     /**
      * The public DNS name of the master EC2 instance.
      */
@@ -78,7 +82,7 @@ export class Cluster extends pulumi.Resource {
      */
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
     /**
-     * Switch on/off termination protection (default is off) 
+     * Switch on/off termination protection (default is off)
      */
     public readonly terminationProtection: pulumi.Computed<boolean>;
     /**
@@ -95,9 +99,6 @@ export class Cluster extends pulumi.Resource {
      * @param dependsOn A optional array of additional resources this intance depends on
      */
     constructor(urnName: string, args: ClusterArgs, dependsOn?: pulumi.Resource[]) {
-        if (args.masterInstanceType === undefined) {
-            throw new Error("Missing required property 'masterInstanceType'");
-        }
         if (args.releaseLabel === undefined) {
             throw new Error("Missing required property 'releaseLabel'");
         }
@@ -112,6 +113,7 @@ export class Cluster extends pulumi.Resource {
             "coreInstanceCount": args.coreInstanceCount,
             "coreInstanceType": args.coreInstanceType,
             "ec2Attributes": args.ec2Attributes,
+            "instanceGroup": args.instanceGroup,
             "keepJobFlowAliveWhenNoSteps": args.keepJobFlowAliveWhenNoSteps,
             "logUri": args.logUri,
             "masterInstanceType": args.masterInstanceType,
@@ -150,11 +152,11 @@ export interface ClusterArgs {
      */
     readonly configurations?: pulumi.ComputedValue<string>;
     /**
-     * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Default `1`
+     * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
     readonly coreInstanceCount?: pulumi.ComputedValue<number>;
     /**
-     * The EC2 instance type of the slave nodes
+     * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
      */
     readonly coreInstanceType?: pulumi.ComputedValue<string>;
     /**
@@ -162,6 +164,10 @@ export interface ClusterArgs {
      * flow. Defined below
      */
     readonly ec2Attributes?: pulumi.ComputedValue<{ additionalMasterSecurityGroups?: pulumi.ComputedValue<string>, additionalSlaveSecurityGroups?: pulumi.ComputedValue<string>, emrManagedMasterSecurityGroup?: pulumi.ComputedValue<string>, emrManagedSlaveSecurityGroup?: pulumi.ComputedValue<string>, instanceProfile: pulumi.ComputedValue<string>, keyName?: pulumi.ComputedValue<string>, serviceAccessSecurityGroup?: pulumi.ComputedValue<string>, subnetId?: pulumi.ComputedValue<string> }>[];
+    /**
+     * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
+     */
+    readonly instanceGroup?: pulumi.ComputedValue<{ bidPrice?: pulumi.ComputedValue<string>, ebsConfig?: pulumi.ComputedValue<{ iops?: pulumi.ComputedValue<number>, size: pulumi.ComputedValue<number>, type: pulumi.ComputedValue<string>, volumesPerInstance?: pulumi.ComputedValue<number> }>[], instanceCount?: pulumi.ComputedValue<number>, instanceRole: pulumi.ComputedValue<string>, instanceType: pulumi.ComputedValue<string>, name?: pulumi.ComputedValue<string> }>[];
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -172,9 +178,9 @@ export interface ClusterArgs {
      */
     readonly logUri?: pulumi.ComputedValue<string>;
     /**
-     * The EC2 instance type of the master node
+     * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    readonly masterInstanceType: pulumi.ComputedValue<string>;
+    readonly masterInstanceType?: pulumi.ComputedValue<string>;
     /**
      * The name of the job flow
      */
@@ -196,7 +202,7 @@ export interface ClusterArgs {
      */
     readonly tags?: pulumi.ComputedValue<{[key: string]: any}>;
     /**
-     * Switch on/off termination protection (default is off) 
+     * Switch on/off termination protection (default is off)
      */
     readonly terminationProtection?: pulumi.ComputedValue<boolean>;
     /**

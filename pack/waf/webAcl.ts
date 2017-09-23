@@ -22,7 +22,7 @@ export class WebAcl extends pulumi.Resource {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    public readonly rules?: pulumi.Computed<{ action: { type: string }[], priority: number, ruleId: string }[]>;
+    public readonly rules?: pulumi.Computed<{ action: { type: string }[], priority: number, ruleId: string, type?: string }[]>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments and optional additional
@@ -67,6 +67,6 @@ export interface WebAclArgs {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    readonly rules?: pulumi.ComputedValue<{ action: pulumi.ComputedValue<{ type: pulumi.ComputedValue<string> }>[], priority: pulumi.ComputedValue<number>, ruleId: pulumi.ComputedValue<string> }>[];
+    readonly rules?: pulumi.ComputedValue<{ action: pulumi.ComputedValue<{ type: pulumi.ComputedValue<string> }>[], priority: pulumi.ComputedValue<number>, ruleId: pulumi.ComputedValue<string>, type?: pulumi.ComputedValue<string> }>[];
 }
 

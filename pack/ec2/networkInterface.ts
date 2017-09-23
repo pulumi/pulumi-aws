@@ -15,6 +15,7 @@ export class NetworkInterface extends pulumi.Resource {
      * A description for the network interface.
      */
     public readonly description?: pulumi.Computed<string>;
+    public /*out*/ readonly privateDnsName: pulumi.Computed<string>;
     public readonly privateIp: pulumi.Computed<string>;
     /**
      * List of private IPs to assign to the ENI.
@@ -63,6 +64,7 @@ export class NetworkInterface extends pulumi.Resource {
             "sourceDestCheck": args.sourceDestCheck,
             "subnetId": args.subnetId,
             "tags": args.tags,
+            "privateDnsName": undefined,
         }, dependsOn);
     }
 }

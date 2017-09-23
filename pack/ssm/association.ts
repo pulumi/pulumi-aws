@@ -9,6 +9,10 @@ import * as pulumi from "pulumi";
 export class Association extends pulumi.Resource {
     public /*out*/ readonly associationId: pulumi.Computed<string>;
     /**
+     * The document version you want to associate with the target(s). Can be a specific version or the default version.
+     */
+    public readonly documentVersion: pulumi.Computed<string>;
+    /**
      * The instance id to apply an SSM document to.
      */
     public readonly instanceId?: pulumi.Computed<string>;
@@ -17,9 +21,17 @@ export class Association extends pulumi.Resource {
      */
     public readonly name: pulumi.Computed<string>;
     /**
+     * An output location block. OutputLocation documented below.
+     */
+    public readonly outputLocation?: pulumi.Computed<{ s3BucketName: string, s3KeyPrefix?: string }[]>;
+    /**
      * Additional parameters to pass to the SSM document.
      */
     public readonly parameters: pulumi.Computed<{[key: string]: any}>;
+    /**
+     * A cron expression when the association will be applied to the target(s).
+     */
+    public readonly scheduleExpression?: pulumi.Computed<string>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
      */
@@ -35,9 +47,12 @@ export class Association extends pulumi.Resource {
      */
     constructor(urnName: string, args?: AssociationArgs, dependsOn?: pulumi.Resource[]) {
         super("aws:ssm/association:Association", urnName, {
+            "documentVersion": args.documentVersion,
             "instanceId": args.instanceId,
             "name": args.name,
+            "outputLocation": args.outputLocation,
             "parameters": args.parameters,
+            "scheduleExpression": args.scheduleExpression,
             "targets": args.targets,
             "associationId": undefined,
         }, dependsOn);
@@ -49,6 +64,10 @@ export class Association extends pulumi.Resource {
  */
 export interface AssociationArgs {
     /**
+     * The document version you want to associate with the target(s). Can be a specific version or the default version.
+     */
+    readonly documentVersion?: pulumi.ComputedValue<string>;
+    /**
      * The instance id to apply an SSM document to.
      */
     readonly instanceId?: pulumi.ComputedValue<string>;
@@ -57,9 +76,17 @@ export interface AssociationArgs {
      */
     readonly name?: pulumi.ComputedValue<string>;
     /**
+     * An output location block. OutputLocation documented below.
+     */
+    readonly outputLocation?: pulumi.ComputedValue<{ s3BucketName: pulumi.ComputedValue<string>, s3KeyPrefix?: pulumi.ComputedValue<string> }>[];
+    /**
      * Additional parameters to pass to the SSM document.
      */
     readonly parameters?: pulumi.ComputedValue<{[key: string]: any}>;
+    /**
+     * A cron expression when the association will be applied to the target(s).
+     */
+    readonly scheduleExpression?: pulumi.ComputedValue<string>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value. Only 1 target is currently supported by AWS.
      */

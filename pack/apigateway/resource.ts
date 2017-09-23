@@ -14,7 +14,7 @@ export class Resource extends pulumi.Resource {
      */
     public readonly parentId: pulumi.Computed<string>;
     /**
-     * The complete path for this API resource, including all parent paths
+     * The complete path for this API resource, including all parent paths.
      */
     public /*out*/ readonly path: pulumi.Computed<string>;
     /**

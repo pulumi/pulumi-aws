@@ -4,9 +4,9 @@
 import * as pulumi from "pulumi";
 
 /**
- * Provides a WAF Rule Resource
+ * Provides a WAF Rate Based Rule Resource
  */
-export class Rule extends pulumi.Resource {
+export class RateBasedRule extends pulumi.Resource {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
@@ -19,31 +19,47 @@ export class Rule extends pulumi.Resource {
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
     public readonly predicates?: pulumi.Computed<{ dataId: string, negated: boolean, type: string }[]>;
+    /**
+     * Valid value is IP.
+     */
+    public readonly rateKey: pulumi.Computed<string>;
+    /**
+     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+     */
+    public readonly rateLimit: pulumi.Computed<number>;
 
     /**
-     * Create a Rule resource with the given unique name, arguments and optional additional
+     * Create a RateBasedRule resource with the given unique name, arguments and optional additional
      * resource dependencies.
      *
-     * @param urnName A _unique_ name for this Rule instance
-     * @param args A collection of arguments for creating this Rule intance
+     * @param urnName A _unique_ name for this RateBasedRule instance
+     * @param args A collection of arguments for creating this RateBasedRule intance
      * @param dependsOn A optional array of additional resources this intance depends on
      */
-    constructor(urnName: string, args: RuleArgs, dependsOn?: pulumi.Resource[]) {
+    constructor(urnName: string, args: RateBasedRuleArgs, dependsOn?: pulumi.Resource[]) {
         if (args.metricName === undefined) {
             throw new Error("Missing required property 'metricName'");
         }
-        super("aws:waf/rule:Rule", urnName, {
+        if (args.rateKey === undefined) {
+            throw new Error("Missing required property 'rateKey'");
+        }
+        if (args.rateLimit === undefined) {
+            throw new Error("Missing required property 'rateLimit'");
+        }
+        super("aws:waf/rateBasedRule:RateBasedRule", urnName, {
             "metricName": args.metricName,
             "name": args.name,
             "predicates": args.predicates,
+            "rateKey": args.rateKey,
+            "rateLimit": args.rateLimit,
         }, dependsOn);
     }
 }
 
 /**
- * The set of arguments for constructing a Rule resource.
+ * The set of arguments for constructing a RateBasedRule resource.
  */
-export interface RuleArgs {
+export interface RateBasedRuleArgs {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
@@ -56,5 +72,13 @@ export interface RuleArgs {
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
     readonly predicates?: pulumi.ComputedValue<{ dataId: pulumi.ComputedValue<string>, negated: pulumi.ComputedValue<boolean>, type: pulumi.ComputedValue<string> }>[];
+    /**
+     * Valid value is IP.
+     */
+    readonly rateKey: pulumi.ComputedValue<string>;
+    /**
+     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+     */
+    readonly rateLimit: pulumi.ComputedValue<number>;
 }
 

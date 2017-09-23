@@ -9,6 +9,9 @@ import {RestApi} from "./restApi";
  * Provides an HTTP Method Integration for an API Gateway Integration.
  */
 export class Integration extends pulumi.Resource {
+    /**
+     * A list of cache key parameters for the integration.
+     */
     public readonly cacheKeyParameters?: pulumi.Computed<string[]>;
     public readonly cacheNamespace: pulumi.Computed<string>;
     /**
@@ -112,6 +115,9 @@ export class Integration extends pulumi.Resource {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
+    /**
+     * A list of cache key parameters for the integration.
+     */
     readonly cacheKeyParameters?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
     readonly cacheNamespace?: pulumi.ComputedValue<string>;
     /**

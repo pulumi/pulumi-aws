@@ -10,7 +10,7 @@ import * as pulumi from "pulumi";
  */
 export class DeliveryChannel extends pulumi.Resource {
     /**
-     * The name of the delivery channel. Defaults to `default`.
+     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
     public readonly name: pulumi.Computed<string>;
     /**
@@ -57,7 +57,7 @@ export class DeliveryChannel extends pulumi.Resource {
  */
 export interface DeliveryChannelArgs {
     /**
-     * The name of the delivery channel. Defaults to `default`.
+     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
     readonly name?: pulumi.ComputedValue<string>;
     /**

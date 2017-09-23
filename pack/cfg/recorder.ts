@@ -10,7 +10,7 @@ import * as pulumi from "pulumi";
  */
 export class Recorder extends pulumi.Resource {
     /**
-     * The name of the recorder. Defaults to `default`
+     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
     public readonly name: pulumi.Computed<string>;
     /**
@@ -18,7 +18,7 @@ export class Recorder extends pulumi.Resource {
      */
     public readonly recordingGroup: pulumi.Computed<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }[]>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role
+     * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
@@ -49,7 +49,7 @@ export class Recorder extends pulumi.Resource {
  */
 export interface RecorderArgs {
     /**
-     * The name of the recorder. Defaults to `default`
+     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
     readonly name?: pulumi.ComputedValue<string>;
     /**
@@ -57,7 +57,7 @@ export interface RecorderArgs {
      */
     readonly recordingGroup?: pulumi.ComputedValue<{ allSupported?: pulumi.ComputedValue<boolean>, includeGlobalResourceTypes?: pulumi.ComputedValue<boolean>, resourceTypes?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[] }>[];
     /**
-     * Amazon Resource Name (ARN) of the IAM role
+     * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */

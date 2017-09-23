@@ -20,7 +20,7 @@ export class AccessKey extends pulumi.Resource {
     public /*out*/ readonly keyFingerprint: pulumi.Computed<string>;
     /**
      * Either a base-64 encoded PGP public key, or a
-     * keybase username in the form `keybase:username`.
+     * keybase username in the form `keybase:some_person_that_exists`.
      */
     public readonly pgpKey?: pulumi.Computed<string>;
     /**
@@ -75,7 +75,7 @@ export class AccessKey extends pulumi.Resource {
 export interface AccessKeyArgs {
     /**
      * Either a base-64 encoded PGP public key, or a
-     * keybase username in the form `keybase:username`.
+     * keybase username in the form `keybase:some_person_that_exists`.
      */
     readonly pgpKey?: pulumi.ComputedValue<string>;
     /**

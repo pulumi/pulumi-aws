@@ -16,7 +16,7 @@ export class Schedule extends pulumi.Resource {
      */
     public readonly autoscalingGroupName: pulumi.Computed<string>;
     /**
-     * The number of EC2 instances that should be running in the group. Default 0.
+     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
      */
     public readonly desiredCapacity: pulumi.Computed<number>;
     /**
@@ -26,12 +26,12 @@ export class Schedule extends pulumi.Resource {
     public readonly endTime: pulumi.Computed<string>;
     /**
      * The maximum size for the Auto Scaling group. Default
-     * 0.
+     * 0. Set to -1 if you don't want to change the maximum size at the scheduled time.
      */
     public readonly maxSize: pulumi.Computed<number>;
     /**
      * The minimum size for the Auto Scaling group. Default
-     * 0.
+     * 0. Set to -1 if you don't want to change the minimum size at the scheduled time.
      */
     public readonly minSize: pulumi.Computed<number>;
     /**
@@ -86,7 +86,7 @@ export interface ScheduleArgs {
      */
     readonly autoscalingGroupName: pulumi.ComputedValue<string>;
     /**
-     * The number of EC2 instances that should be running in the group. Default 0.
+     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
      */
     readonly desiredCapacity?: pulumi.ComputedValue<number>;
     /**
@@ -96,12 +96,12 @@ export interface ScheduleArgs {
     readonly endTime?: pulumi.ComputedValue<string>;
     /**
      * The maximum size for the Auto Scaling group. Default
-     * 0.
+     * 0. Set to -1 if you don't want to change the maximum size at the scheduled time.
      */
     readonly maxSize?: pulumi.ComputedValue<number>;
     /**
      * The minimum size for the Auto Scaling group. Default
-     * 0.
+     * 0. Set to -1 if you don't want to change the minimum size at the scheduled time.
      */
     readonly minSize?: pulumi.ComputedValue<number>;
     /**

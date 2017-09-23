@@ -75,9 +75,13 @@ export class Cluster extends pulumi.Resource {
      */
     public /*out*/ readonly endpoint: pulumi.Computed<string>;
     /**
-     * The database engine
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`.
      */
-    public /*out*/ readonly engine: pulumi.Computed<string>;
+    public readonly engine?: pulumi.Computed<string>;
+    /**
+     * The database engine version.
+     */
+    public readonly engineVersion: pulumi.Computed<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -88,6 +92,10 @@ export class Cluster extends pulumi.Resource {
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled?: pulumi.Computed<boolean>;
+    /**
+     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     */
+    public readonly iamRoles?: pulumi.Computed<string[]>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */
@@ -161,8 +169,11 @@ export class Cluster extends pulumi.Resource {
             "databaseName": args.databaseName,
             "dbClusterParameterGroupName": args.dbClusterParameterGroupName,
             "dbSubnetGroupName": args.dbSubnetGroupName,
+            "engine": args.engine,
+            "engineVersion": args.engineVersion,
             "finalSnapshotIdentifier": args.finalSnapshotIdentifier,
             "iamDatabaseAuthenticationEnabled": args.iamDatabaseAuthenticationEnabled,
+            "iamRoles": args.iamRoles,
             "kmsKeyId": args.kmsKeyId,
             "masterPassword": args.masterPassword,
             "masterUsername": args.masterUsername,
@@ -177,7 +188,6 @@ export class Cluster extends pulumi.Resource {
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
             "clusterResourceId": undefined,
             "endpoint": undefined,
-            "engine": undefined,
             "readerEndpoint": undefined,
         }, dependsOn);
     }
@@ -227,6 +237,14 @@ export interface ClusterArgs {
      */
     readonly dbSubnetGroupName?: pulumi.ComputedValue<string>;
     /**
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`.
+     */
+    readonly engine?: pulumi.ComputedValue<string>;
+    /**
+     * The database engine version.
+     */
+    readonly engineVersion?: pulumi.ComputedValue<string>;
+    /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
@@ -236,6 +254,10 @@ export interface ClusterArgs {
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.ComputedValue<boolean>;
+    /**
+     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     */
+    readonly iamRoles?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */

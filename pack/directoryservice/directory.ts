@@ -51,6 +51,10 @@ export class Directory extends pulumi.Resource {
      */
     public readonly size?: pulumi.Computed<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags?: pulumi.Computed<{[key: string]: any}>;
+    /**
      * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
     public readonly type?: pulumi.Computed<string>;
@@ -80,6 +84,7 @@ export class Directory extends pulumi.Resource {
             "password": args.password,
             "shortName": args.shortName,
             "size": args.size,
+            "tags": args.tags,
             "type": args.type,
             "vpcSettings": args.vpcSettings,
             "accessUrl": undefined,
@@ -124,6 +129,10 @@ export interface DirectoryArgs {
      * The size of the directory (`Small` or `Large` are accepted values).
      */
     readonly size?: pulumi.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.ComputedValue<{[key: string]: any}>;
     /**
      * The directory type (`SimpleAD` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */

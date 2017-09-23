@@ -39,7 +39,7 @@ export class DomainName extends pulumi.Resource {
     public readonly certificateChain?: pulumi.Computed<string>;
     /**
      * The unique name to use when registering this
-     * cert as an IAM server certificate. Conflicts with `certificate_arn`.
+     * cert as an IAM server certificate. Conflicts with `certificate_arn`. Required if `certificate_arn` is not set.
      */
     public readonly certificateName?: pulumi.Computed<string>;
     /**
@@ -113,7 +113,7 @@ export interface DomainNameArgs {
     readonly certificateChain?: pulumi.ComputedValue<string>;
     /**
      * The unique name to use when registering this
-     * cert as an IAM server certificate. Conflicts with `certificate_arn`.
+     * cert as an IAM server certificate. Conflicts with `certificate_arn`. Required if `certificate_arn` is not set.
      */
     readonly certificateName?: pulumi.ComputedValue<string>;
     /**

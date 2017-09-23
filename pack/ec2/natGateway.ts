@@ -27,6 +27,10 @@ export class NatGateway extends pulumi.Resource {
      * The Subnet ID of the subnet in which to place the gateway.
      */
     public readonly subnetId: pulumi.Computed<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments and optional additional
@@ -49,6 +53,7 @@ export class NatGateway extends pulumi.Resource {
             "privateIp": args.privateIp,
             "publicIp": args.publicIp,
             "subnetId": args.subnetId,
+            "tags": args.tags,
         }, dependsOn);
     }
 }
@@ -68,5 +73,9 @@ export interface NatGatewayArgs {
      * The Subnet ID of the subnet in which to place the gateway.
      */
     readonly subnetId: pulumi.ComputedValue<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.ComputedValue<{[key: string]: any}>;
 }
 

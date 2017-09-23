@@ -8,22 +8,16 @@ import * as pulumi from "pulumi";
  */
 export class Policy extends pulumi.Resource {
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * The scaling policy's adjustment type.
      */
-    public readonly adjustmentType: pulumi.Computed<string>;
+    public readonly adjustmentType?: pulumi.Computed<string>;
     public readonly alarms?: pulumi.Computed<string[]>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
     public /*out*/ readonly arn: pulumi.Computed<string>;
-    /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-     */
-    public readonly cooldown: pulumi.Computed<number>;
-    /**
-     * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-     */
-    public readonly metricAggregationType: pulumi.Computed<string>;
+    public readonly cooldown?: pulumi.Computed<number>;
+    public readonly metricAggregationType?: pulumi.Computed<string>;
     public readonly minAdjustmentMagnitude?: pulumi.Computed<number>;
     /**
      * The name of the policy.
@@ -45,10 +39,11 @@ export class Policy extends pulumi.Resource {
      * The AWS service namespace of the scalable target. Valid values are `ecs` for Amazon ECS services and `ec2` Amazon EC2 Spot fleet requests.
      */
     public readonly serviceNamespace: pulumi.Computed<string>;
-    /**
-     * A set of adjustments that manage scaling. These have the following structure:
-     */
     public readonly stepAdjustment?: pulumi.Computed<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[]>;
+    /**
+     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     */
+    public readonly stepScalingPolicyConfiguration?: pulumi.Computed<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustment?: { metricIntervalLowerBound?: number, metricIntervalUpperBound?: number, scalingAdjustment: number }[] }[]>;
 
     /**
      * Create a Policy resource with the given unique name, arguments and optional additional
@@ -59,15 +54,6 @@ export class Policy extends pulumi.Resource {
      * @param dependsOn A optional array of additional resources this intance depends on
      */
     constructor(urnName: string, args: PolicyArgs, dependsOn?: pulumi.Resource[]) {
-        if (args.adjustmentType === undefined) {
-            throw new Error("Missing required property 'adjustmentType'");
-        }
-        if (args.cooldown === undefined) {
-            throw new Error("Missing required property 'cooldown'");
-        }
-        if (args.metricAggregationType === undefined) {
-            throw new Error("Missing required property 'metricAggregationType'");
-        }
         if (args.resourceId === undefined) {
             throw new Error("Missing required property 'resourceId'");
         }
@@ -89,6 +75,7 @@ export class Policy extends pulumi.Resource {
             "scalableDimension": args.scalableDimension,
             "serviceNamespace": args.serviceNamespace,
             "stepAdjustment": args.stepAdjustment,
+            "stepScalingPolicyConfiguration": args.stepScalingPolicyConfiguration,
             "arn": undefined,
         }, dependsOn);
     }
@@ -98,19 +85,10 @@ export class Policy extends pulumi.Resource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-     */
-    readonly adjustmentType: pulumi.ComputedValue<string>;
+    readonly adjustmentType?: pulumi.ComputedValue<string>;
     readonly alarms?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
-    /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-     */
-    readonly cooldown: pulumi.ComputedValue<number>;
-    /**
-     * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-     */
-    readonly metricAggregationType: pulumi.ComputedValue<string>;
+    readonly cooldown?: pulumi.ComputedValue<number>;
+    readonly metricAggregationType?: pulumi.ComputedValue<string>;
     readonly minAdjustmentMagnitude?: pulumi.ComputedValue<number>;
     /**
      * The name of the policy.
@@ -132,9 +110,10 @@ export interface PolicyArgs {
      * The AWS service namespace of the scalable target. Valid values are `ecs` for Amazon ECS services and `ec2` Amazon EC2 Spot fleet requests.
      */
     readonly serviceNamespace: pulumi.ComputedValue<string>;
-    /**
-     * A set of adjustments that manage scaling. These have the following structure:
-     */
     readonly stepAdjustment?: pulumi.ComputedValue<{ metricIntervalLowerBound?: pulumi.ComputedValue<string>, metricIntervalUpperBound?: pulumi.ComputedValue<string>, scalingAdjustment: pulumi.ComputedValue<number> }>[];
+    /**
+     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     */
+    readonly stepScalingPolicyConfiguration?: pulumi.ComputedValue<{ adjustmentType?: pulumi.ComputedValue<string>, cooldown?: pulumi.ComputedValue<number>, metricAggregationType?: pulumi.ComputedValue<string>, minAdjustmentMagnitude?: pulumi.ComputedValue<number>, stepAdjustment?: pulumi.ComputedValue<{ metricIntervalLowerBound?: pulumi.ComputedValue<number>, metricIntervalUpperBound?: pulumi.ComputedValue<number>, scalingAdjustment: pulumi.ComputedValue<number> }>[] }>[];
 }
 

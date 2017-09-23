@@ -28,7 +28,7 @@ export class ReplicationGroup extends pulumi.Resource {
      */
     public readonly clusterMode?: pulumi.Computed<{ numNodeGroups: number, replicasPerNodeGroup: number }[]>;
     /**
-     * (Redis only) The address of the replication group configuration endpoint when cluster mode is enabled.
+     * The address of the endpoint for the primary node in the replication group. If Redis, only present when cluster mode is disabled.
      */
     public /*out*/ readonly configurationEndpointAddress: pulumi.Computed<string>;
     public readonly engine?: pulumi.Computed<string>;
@@ -56,7 +56,7 @@ export class ReplicationGroup extends pulumi.Resource {
      */
     public readonly port: pulumi.Computed<number>;
     /**
-     * The address of the endpoint for the primary node in the replication group. If Redis, only present when cluster mode is disabled.
+     * (Redis only) The address of the replication group configuration endpoint when cluster mode is enabled.
      */
     public /*out*/ readonly primaryEndpointAddress: pulumi.Computed<string>;
     /**

@@ -8,6 +8,10 @@ import * as pulumi from "pulumi";
  */
 export class Activation extends pulumi.Resource {
     /**
+     * The code the system generates when it processes the activation.
+     */
+    public /*out*/ readonly activationCode: pulumi.Computed<string>;
+    /**
      * The description of the resource that you want to register.
      */
     public readonly description?: pulumi.Computed<string>;
@@ -54,6 +58,7 @@ export class Activation extends pulumi.Resource {
             "iamRole": args.iamRole,
             "name": args.name,
             "registrationLimit": args.registrationLimit,
+            "activationCode": undefined,
             "expired": undefined,
             "registrationCount": undefined,
         }, dependsOn);

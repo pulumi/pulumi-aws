@@ -15,6 +15,14 @@ export class FileSystem extends pulumi.Resource {
      */
     public readonly creationToken: pulumi.Computed<string>;
     /**
+     * If true, the disk will be encrypted.
+     */
+    public readonly encrypted: pulumi.Computed<boolean>;
+    /**
+     * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+     */
+    public readonly kmsKeyId: pulumi.Computed<string>;
+    /**
      * The file system performance mode. Can be either
      * `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
@@ -41,6 +49,8 @@ export class FileSystem extends pulumi.Resource {
     constructor(urnName: string, args?: FileSystemArgs, dependsOn?: pulumi.Resource[]) {
         super("aws:efs/fileSystem:FileSystem", urnName, {
             "creationToken": args.creationToken,
+            "encrypted": args.encrypted,
+            "kmsKeyId": args.kmsKeyId,
             "performanceMode": args.performanceMode,
             "referenceName": args.referenceName,
             "tags": args.tags,
@@ -59,6 +69,14 @@ export interface FileSystemArgs {
      * (http://docs.aws.amazon.com/efs/latest/ug/) user guide for more information.
      */
     readonly creationToken?: pulumi.ComputedValue<string>;
+    /**
+     * If true, the disk will be encrypted.
+     */
+    readonly encrypted?: pulumi.ComputedValue<boolean>;
+    /**
+     * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+     */
+    readonly kmsKeyId?: pulumi.ComputedValue<string>;
     /**
      * The file system performance mode. Can be either
      * `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).

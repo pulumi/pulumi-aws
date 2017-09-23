@@ -8,21 +8,22 @@ import * as pulumi from "pulumi";
  * environment in the cloud.  A DB instance can contain multiple user-created
  * databases.
  * 
- * Changes to a DB instance can occur when you manually change a
- * parameter, such as `allocated_storage`, and are reflected in the next maintenance
- * window. Because of this, Terraform may report a difference in its planning
- * phase because a modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change immediately
- * (see documentation below).
+ * Changes to a DB instance can occur when you manually change a parameter, such as
+ * `allocated_storage`, and are reflected in the next maintenance window. Because
+ * of this, Terraform may report a difference in its planning phase because a
+ * modification has not yet taken place. You can use the `apply_immediately` flag
+ * to instruct the service to apply the change immediately (see documentation
+ * below).
  * 
- * When upgrading the major version of an engine, `allow_major_version_upgrade` must be set to `true`
+ * When upgrading the major version of an engine, `allow_major_version_upgrade`
+ * must be set to `true`.
  * 
- * ~> **Note:** using `apply_immediately` can result in a
- * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][2]
- * for more information.
+ * ~> **Note:** using `apply_immediately` can result in a brief downtime as the
+ * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
  * 
- * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * ~> **Note:** All arguments including the username and password will be stored in
+ * the raw state as plain-text. [Read more about sensitive data in
+ * state](/docs/state/sensitive-data.html).
  */
 export class Instance extends pulumi.Resource {
     /**
@@ -30,17 +31,22 @@ export class Instance extends pulumi.Resource {
      */
     public /*out*/ readonly address: pulumi.Computed<string>;
     /**
-     * The allocated storage in gigabytes.
+     * (Required unless a `snapshot_identifier` or
+     * `replicate_source_db` is provided) The allocated storage in gigabytes.
      */
     public readonly allocatedStorage: pulumi.Computed<number>;
     /**
-     * Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.
+     * Indicates that major version
+     * upgrades are allowed. Changing this parameter does not result in an outage and
+     * the change is asynchronously applied as soon as possible.
      */
     public readonly allowMajorVersionUpgrade?: pulumi.Computed<boolean>;
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * `false`. See [Amazon RDS Documentation for more
+     * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * for more information.
      */
     public readonly applyImmediately: pulumi.Computed<boolean>;
     /**
@@ -48,7 +54,9 @@ export class Instance extends pulumi.Resource {
      */
     public /*out*/ readonly arn: pulumi.Computed<string>;
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Defaults to true.
+     * Indicates that minor engine upgrades
+     * will be applied automatically to the DB instance during the maintenance window.
+     * Defaults to true.
      */
     public readonly autoMinorVersionUpgrade?: pulumi.Computed<boolean>;
     /**
@@ -61,30 +69,43 @@ export class Instance extends pulumi.Resource {
      */
     public readonly backupRetentionPeriod: pulumi.Computed<number>;
     /**
-     * The daily time range (in UTC) during which automated backups are created if they are enabled. Example: "09:46-10:16". Must not overlap with `maintenance_window`.
+     * The daily time range (in UTC) during which
+     * automated backups are created if they are enabled. Example: "09:46-10:16". Must
+     * not overlap with `maintenance_window`.
      */
     public readonly backupWindow: pulumi.Computed<string>;
     /**
-     * The character set name to use for DB encoding in Oracle instances. This can't be changed.
-     * [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * Specifies the identifier of the CA certificate for the
+     * DB instance.
+     */
+    public /*out*/ readonly caCertIdentifier: pulumi.Computed<string>;
+    /**
+     * The character set name to use for DB
+     * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon
+     * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * for more information.
      */
     public readonly characterSetName: pulumi.Computed<string>;
     /**
-     * On delete, copy all Instance `tags` to
-     * the final snapshot (if `final_snapshot_identifier` is specified). Default
-     * `false`
+     * On delete, copy all Instance
+     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
+     * Default is `false`.
      */
     public readonly copyTagsToSnapshot?: pulumi.Computed<boolean>;
     /**
-     * Name of DB subnet group. DB instance will be created in the VPC associated with the DB subnet group. If unspecified, will be created in the `default` VPC, or in EC2 Classic, if available.
+     * Name of DB subnet group. DB instance will
+     * be created in the VPC associated with the DB subnet group. If unspecified, will
+     * be created in the `default` VPC, or in EC2 Classic, if available.
      */
     public readonly dbSubnetGroupName: pulumi.Computed<string>;
     /**
-     * The connection endpoint
+     * The connection endpoint.
      */
     public /*out*/ readonly endpoint: pulumi.Computed<string>;
     /**
-     * The database engine to use.
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) The database engine to use.
      */
     public readonly engine: pulumi.Computed<string>;
     /**
@@ -93,24 +114,28 @@ export class Instance extends pulumi.Resource {
     public readonly engineVersion: pulumi.Computed<string>;
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. If omitted, no final snapshot will be
-     * made.
+     * when this DB instance is deleted. If omitted, no final snapshot will be made.
      */
     public readonly finalSnapshotIdentifier?: pulumi.Computed<string>;
     /**
-     * The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record)
+     * The canonical hosted zone ID of the DB instance (to be used
+     * in a Route 53 Alias record).
      */
     public /*out*/ readonly hostedZoneId: pulumi.Computed<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or
+     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled?: pulumi.Computed<boolean>;
     /**
-     * The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+     * The name of the RDS instance,
+     * if omitted, Terraform will assign a random, unique identifier.
      */
     public readonly identifier: pulumi.Computed<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique
+     * identifier beginning with the specified prefix. Conflicts with `identifer`.
      */
     public readonly identifierPrefix: pulumi.Computed<string>;
     /**
@@ -123,26 +148,35 @@ export class Instance extends pulumi.Resource {
      */
     public readonly iops?: pulumi.Computed<number>;
     /**
-     * The ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
+     * The ARN for the KMS encryption key. If creating an
+     * encrypted replica, set this to the destination KMS ARN.
      */
     public readonly kmsKeyId: pulumi.Computed<string>;
     /**
-     * License model information for this DB instance.
+     * (Optional, but required for some DB engines, i.e. Oracle
+     * SE1) License model information for this DB instance.
      */
     public readonly licenseModel: pulumi.Computed<string>;
     /**
      * The window to perform maintenance in.
-     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-     * See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
+     * Maintenance Window
+     * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
+     * for more information.
      */
     public readonly maintenanceWindow: pulumi.Computed<string>;
     /**
-     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     * The interval, in seconds, between points
+     * when Enhanced Monitoring metrics are collected for the DB instance. To disable
+     * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
+     * Values: 0, 1, 5, 10, 15, 30, 60.
      */
     public readonly monitoringInterval?: pulumi.Computed<number>;
     /**
-     * The ARN for the IAM role that permits RDS to send
-     * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+     * The ARN for the IAM role that permits RDS
+     * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
+     * information on the [AWS
+     * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
     public readonly monitoringRoleArn: pulumi.Computed<string>;
@@ -151,8 +185,7 @@ export class Instance extends pulumi.Resource {
      */
     public readonly multiAz: pulumi.Computed<boolean>;
     /**
-     * The DB name to create. If omitted, no database is created
-     * initially.
+     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
      */
     public readonly name: pulumi.Computed<string>;
     /**
@@ -160,12 +193,14 @@ export class Instance extends pulumi.Resource {
      */
     public readonly optionGroupName: pulumi.Computed<string>;
     /**
-     * Name of the DB parameter group to associate.
+     * Name of the DB parameter group to
+     * associate.
      */
     public readonly parameterGroupName: pulumi.Computed<string>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file.
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file.
      */
     public readonly password?: pulumi.Computed<string>;
     /**
@@ -173,17 +208,18 @@ export class Instance extends pulumi.Resource {
      */
     public readonly port: pulumi.Computed<number>;
     /**
-     * Bool to control if instance is publicly accessible. Defaults to `false`.
+     * Bool to control if instance is publicly
+     * accessible. Default is `false`.
      */
     public readonly publiclyAccessible?: pulumi.Computed<boolean>;
     public /*out*/ readonly replicas: pulumi.Computed<string[]>;
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate. See
-     * [DB Instance Replication][1] and
-     * [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for
-     * more information on using Replication.
+     * `identifier` of another Amazon RDS Database to replicate. See [DB Instance
+     * Replication][1] and [Working with PostgreSQL and MySQL Read
+     * Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+     * for more information on using Replication.
      */
     public readonly replicateSourceDb?: pulumi.Computed<string>;
     /**
@@ -191,30 +227,39 @@ export class Instance extends pulumi.Resource {
      */
     public /*out*/ readonly resourceId: pulumi.Computed<string>;
     /**
-     * List of DB Security Groups to associate.
-     * Only used for [DB Instances on the _EC2-Classic_ Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+     * List of DB Security Groups to
+     * associate. Only used for [DB Instances on the _EC2-Classic_
+     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      */
     public readonly securityGroupNames?: pulumi.Computed<string[]>;
     /**
-     * Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is
+     * created before the DB instance is deleted. If true is specified, no DBSnapshot
+     * is created. If false is specified, a DB snapshot is created before the DB
+     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * is `false`.
      */
     public readonly skipFinalSnapshot?: pulumi.Computed<boolean>;
     /**
-     * Specifies whether or not to create this database from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
+     * Specifies whether or not to create this
+     * database from a snapshot. This correlates to the snapshot ID you'd find in the
+     * RDS console, e.g: rds:production-2015-06-26-06-05.
      */
     public readonly snapshotIdentifier?: pulumi.Computed<string>;
     /**
-     * The RDS instance status
+     * The RDS instance status.
      */
     public /*out*/ readonly status: pulumi.Computed<string>;
     /**
-     * Specifies whether the DB instance is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB instance is
+     * encrypted. The default is `false` if not specified.
      */
     public readonly storageEncrypted?: pulumi.Computed<boolean>;
     /**
      * One of "standard" (magnetic), "gp2" (general
-     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if
-     * `iops` is specified, "standard" if not. Note that this behaviour is different from the AWS web console, where the default is "gp2".
+     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
+     * specified, "standard" if not. Note that this behaviour is different from the AWS
+     * web console, where the default is "gp2".
      */
     public readonly storageType: pulumi.Computed<string>;
     /**
@@ -222,16 +267,21 @@ export class Instance extends pulumi.Resource {
      */
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
     /**
-     * Time zone of the DB instance. `timezone` is currently only supported by Microsoft SQL Server.
-     * The `timezone` can only be set on creation. See [MSSQL User Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) for more information
+     * Time zone of the DB instance. `timezone` is currently
+     * only supported by Microsoft SQL Server. The `timezone` can only be set on
+     * creation. See [MSSQL User
+     * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
+     * for more information.
      */
     public readonly timezone: pulumi.Computed<string>;
     /**
-     * Username for the master DB user.
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) Username for the master DB user.
      */
     public readonly username: pulumi.Computed<string>;
     /**
-     * List of VPC security groups to associate.
+     * List of VPC security groups to
+     * associate.
      */
     public readonly vpcSecurityGroupIds: pulumi.Computed<string[]>;
 
@@ -290,6 +340,7 @@ export class Instance extends pulumi.Resource {
             "vpcSecurityGroupIds": args.vpcSecurityGroupIds,
             "address": undefined,
             "arn": undefined,
+            "caCertIdentifier": undefined,
             "endpoint": undefined,
             "hostedZoneId": undefined,
             "replicas": undefined,
@@ -304,21 +355,28 @@ export class Instance extends pulumi.Resource {
  */
 export interface InstanceArgs {
     /**
-     * The allocated storage in gigabytes.
+     * (Required unless a `snapshot_identifier` or
+     * `replicate_source_db` is provided) The allocated storage in gigabytes.
      */
     readonly allocatedStorage?: pulumi.ComputedValue<number>;
     /**
-     * Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.
+     * Indicates that major version
+     * upgrades are allowed. Changing this parameter does not result in an outage and
+     * the change is asynchronously applied as soon as possible.
      */
     readonly allowMajorVersionUpgrade?: pulumi.ComputedValue<boolean>;
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * `false`. See [Amazon RDS Documentation for more
+     * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * for more information.
      */
     readonly applyImmediately?: pulumi.ComputedValue<boolean>;
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Defaults to true.
+     * Indicates that minor engine upgrades
+     * will be applied automatically to the DB instance during the maintenance window.
+     * Defaults to true.
      */
     readonly autoMinorVersionUpgrade?: pulumi.ComputedValue<boolean>;
     /**
@@ -331,26 +389,34 @@ export interface InstanceArgs {
      */
     readonly backupRetentionPeriod?: pulumi.ComputedValue<number>;
     /**
-     * The daily time range (in UTC) during which automated backups are created if they are enabled. Example: "09:46-10:16". Must not overlap with `maintenance_window`.
+     * The daily time range (in UTC) during which
+     * automated backups are created if they are enabled. Example: "09:46-10:16". Must
+     * not overlap with `maintenance_window`.
      */
     readonly backupWindow?: pulumi.ComputedValue<string>;
     /**
-     * The character set name to use for DB encoding in Oracle instances. This can't be changed.
-     * [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * The character set name to use for DB
+     * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon
+     * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * for more information.
      */
     readonly characterSetName?: pulumi.ComputedValue<string>;
     /**
-     * On delete, copy all Instance `tags` to
-     * the final snapshot (if `final_snapshot_identifier` is specified). Default
-     * `false`
+     * On delete, copy all Instance
+     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
+     * Default is `false`.
      */
     readonly copyTagsToSnapshot?: pulumi.ComputedValue<boolean>;
     /**
-     * Name of DB subnet group. DB instance will be created in the VPC associated with the DB subnet group. If unspecified, will be created in the `default` VPC, or in EC2 Classic, if available.
+     * Name of DB subnet group. DB instance will
+     * be created in the VPC associated with the DB subnet group. If unspecified, will
+     * be created in the `default` VPC, or in EC2 Classic, if available.
      */
     readonly dbSubnetGroupName?: pulumi.ComputedValue<string>;
     /**
-     * The database engine to use.
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) The database engine to use.
      */
     readonly engine?: pulumi.ComputedValue<string>;
     /**
@@ -359,20 +425,23 @@ export interface InstanceArgs {
     readonly engineVersion?: pulumi.ComputedValue<string>;
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. If omitted, no final snapshot will be
-     * made.
+     * when this DB instance is deleted. If omitted, no final snapshot will be made.
      */
     readonly finalSnapshotIdentifier?: pulumi.ComputedValue<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or
+     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.ComputedValue<boolean>;
     /**
-     * The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+     * The name of the RDS instance,
+     * if omitted, Terraform will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.ComputedValue<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique
+     * identifier beginning with the specified prefix. Conflicts with `identifer`.
      */
     readonly identifierPrefix?: pulumi.ComputedValue<string>;
     /**
@@ -385,26 +454,35 @@ export interface InstanceArgs {
      */
     readonly iops?: pulumi.ComputedValue<number>;
     /**
-     * The ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
+     * The ARN for the KMS encryption key. If creating an
+     * encrypted replica, set this to the destination KMS ARN.
      */
     readonly kmsKeyId?: pulumi.ComputedValue<string>;
     /**
-     * License model information for this DB instance.
+     * (Optional, but required for some DB engines, i.e. Oracle
+     * SE1) License model information for this DB instance.
      */
     readonly licenseModel?: pulumi.ComputedValue<string>;
     /**
      * The window to perform maintenance in.
-     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-     * See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
+     * Maintenance Window
+     * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
+     * for more information.
      */
     readonly maintenanceWindow?: pulumi.ComputedValue<string>;
     /**
-     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     * The interval, in seconds, between points
+     * when Enhanced Monitoring metrics are collected for the DB instance. To disable
+     * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
+     * Values: 0, 1, 5, 10, 15, 30, 60.
      */
     readonly monitoringInterval?: pulumi.ComputedValue<number>;
     /**
-     * The ARN for the IAM role that permits RDS to send
-     * enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+     * The ARN for the IAM role that permits RDS
+     * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
+     * information on the [AWS
+     * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
     readonly monitoringRoleArn?: pulumi.ComputedValue<string>;
@@ -413,8 +491,7 @@ export interface InstanceArgs {
      */
     readonly multiAz?: pulumi.ComputedValue<boolean>;
     /**
-     * The DB name to create. If omitted, no database is created
-     * initially.
+     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
      */
     readonly name?: pulumi.ComputedValue<string>;
     /**
@@ -422,12 +499,14 @@ export interface InstanceArgs {
      */
     readonly optionGroupName?: pulumi.ComputedValue<string>;
     /**
-     * Name of the DB parameter group to associate.
+     * Name of the DB parameter group to
+     * associate.
      */
     readonly parameterGroupName?: pulumi.ComputedValue<string>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file.
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file.
      */
     readonly password?: pulumi.ComputedValue<string>;
     /**
@@ -435,39 +514,49 @@ export interface InstanceArgs {
      */
     readonly port?: pulumi.ComputedValue<number>;
     /**
-     * Bool to control if instance is publicly accessible. Defaults to `false`.
+     * Bool to control if instance is publicly
+     * accessible. Default is `false`.
      */
     readonly publiclyAccessible?: pulumi.ComputedValue<boolean>;
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate. See
-     * [DB Instance Replication][1] and
-     * [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for
-     * more information on using Replication.
+     * `identifier` of another Amazon RDS Database to replicate. See [DB Instance
+     * Replication][1] and [Working with PostgreSQL and MySQL Read
+     * Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+     * for more information on using Replication.
      */
     readonly replicateSourceDb?: pulumi.ComputedValue<string>;
     /**
-     * List of DB Security Groups to associate.
-     * Only used for [DB Instances on the _EC2-Classic_ Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+     * List of DB Security Groups to
+     * associate. Only used for [DB Instances on the _EC2-Classic_
+     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      */
     readonly securityGroupNames?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
     /**
-     * Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is
+     * created before the DB instance is deleted. If true is specified, no DBSnapshot
+     * is created. If false is specified, a DB snapshot is created before the DB
+     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.ComputedValue<boolean>;
     /**
-     * Specifies whether or not to create this database from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
+     * Specifies whether or not to create this
+     * database from a snapshot. This correlates to the snapshot ID you'd find in the
+     * RDS console, e.g: rds:production-2015-06-26-06-05.
      */
     readonly snapshotIdentifier?: pulumi.ComputedValue<string>;
     /**
-     * Specifies whether the DB instance is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB instance is
+     * encrypted. The default is `false` if not specified.
      */
     readonly storageEncrypted?: pulumi.ComputedValue<boolean>;
     /**
      * One of "standard" (magnetic), "gp2" (general
-     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if
-     * `iops` is specified, "standard" if not. Note that this behaviour is different from the AWS web console, where the default is "gp2".
+     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
+     * specified, "standard" if not. Note that this behaviour is different from the AWS
+     * web console, where the default is "gp2".
      */
     readonly storageType?: pulumi.ComputedValue<string>;
     /**
@@ -475,16 +564,21 @@ export interface InstanceArgs {
      */
     readonly tags?: pulumi.ComputedValue<{[key: string]: any}>;
     /**
-     * Time zone of the DB instance. `timezone` is currently only supported by Microsoft SQL Server.
-     * The `timezone` can only be set on creation. See [MSSQL User Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) for more information
+     * Time zone of the DB instance. `timezone` is currently
+     * only supported by Microsoft SQL Server. The `timezone` can only be set on
+     * creation. See [MSSQL User
+     * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
+     * for more information.
      */
     readonly timezone?: pulumi.ComputedValue<string>;
     /**
-     * Username for the master DB user.
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) Username for the master DB user.
      */
     readonly username?: pulumi.ComputedValue<string>;
     /**
-     * List of VPC security groups to associate.
+     * List of VPC security groups to
+     * associate.
      */
     readonly vpcSecurityGroupIds?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
 }

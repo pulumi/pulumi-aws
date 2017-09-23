@@ -22,7 +22,7 @@ export class Policy extends pulumi.Resource {
      */
     public /*out*/ readonly arn: pulumi.Computed<string>;
     /**
-     * The name or ARN of the group.
+     * The name of the autoscaling group.
      */
     public readonly autoscalingGroupName: pulumi.Computed<string>;
     /**
@@ -99,7 +99,7 @@ export interface PolicyArgs {
      */
     readonly adjustmentType: pulumi.ComputedValue<string>;
     /**
-     * The name or ARN of the group.
+     * The name of the autoscaling group.
      */
     readonly autoscalingGroupName: pulumi.ComputedValue<string>;
     /**

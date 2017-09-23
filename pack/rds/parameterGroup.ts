@@ -28,7 +28,7 @@ export class ParameterGroup extends pulumi.Resource {
      */
     public readonly namePrefix: pulumi.Computed<string>;
     /**
-     * A list of DB parameters to apply.
+     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     public readonly parameter?: pulumi.Computed<{ applyMethod?: string, name: string, value: string }[]>;
     /**
@@ -81,7 +81,7 @@ export interface ParameterGroupArgs {
      */
     readonly namePrefix?: pulumi.ComputedValue<string>;
     /**
-     * A list of DB parameters to apply.
+     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     readonly parameter?: pulumi.ComputedValue<{ applyMethod?: pulumi.ComputedValue<string>, name: pulumi.ComputedValue<string>, value: pulumi.ComputedValue<string> }>[];
     /**

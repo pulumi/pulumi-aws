@@ -54,6 +54,9 @@ export class Endpoint extends pulumi.Resource {
      * The host name of the server.
      */
     public readonly serverName?: pulumi.Computed<string>;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
     public readonly serviceAccessRole?: pulumi.Computed<string>;
     /**
      * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -150,6 +153,9 @@ export interface EndpointArgs {
      * The host name of the server.
      */
     readonly serverName?: pulumi.ComputedValue<string>;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
     readonly serviceAccessRole?: pulumi.ComputedValue<string>;
     /**
      * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`

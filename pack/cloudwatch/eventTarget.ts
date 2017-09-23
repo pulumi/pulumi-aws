@@ -25,7 +25,11 @@ export class EventTarget extends pulumi.Resource {
      */
     public readonly inputPath?: pulumi.Computed<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered.
+     * Parameters used when you are providing a custom input to a target based on certain event data.
+     */
+    public readonly inputTransformer?: pulumi.Computed<{ inputPaths?: {[key: string]: any}, inputTemplate: string }[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
     public readonly roleArn?: pulumi.Computed<string>;
     /**
@@ -61,6 +65,7 @@ export class EventTarget extends pulumi.Resource {
             "ecsTarget": args.ecsTarget,
             "input": args.input,
             "inputPath": args.inputPath,
+            "inputTransformer": args.inputTransformer,
             "roleArn": args.roleArn,
             "rule": args.rule,
             "runCommandTargets": args.runCommandTargets,
@@ -91,7 +96,11 @@ export interface EventTargetArgs {
      */
     readonly inputPath?: pulumi.ComputedValue<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered.
+     * Parameters used when you are providing a custom input to a target based on certain event data.
+     */
+    readonly inputTransformer?: pulumi.ComputedValue<{ inputPaths?: pulumi.ComputedValue<{[key: string]: any}>, inputTemplate: pulumi.ComputedValue<string> }>[];
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
     readonly roleArn?: pulumi.ComputedValue<string>;
     /**
