@@ -30,18 +30,18 @@ buildtools:
 	go install ${PROJECT}/cmd/${TFGEN}
 	go install ${PROJECT}/cmd/${PROVIDER}
 
-gen:
+gen: buildtools
 	$(TFGEN) --out pack/
 	cd pack/ && yarn install
 .PHONY: gen
 
-build:
+build: gen
 	@$(ECHO) "[Building ${PACK} package:]"
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Lumi's stdlibs.
 	cd ${PACKDIR} && yarn run build   # compile into a JavaScript NPM package.
 .PHONY: build
 
-test:
+test: build
 	go test -cover -parallel ${TESTPARALLELISM} ${GOPKGS}
 	go tool vet -printf=false ./cmd
 	go tool vet -printf=false resources.go
@@ -49,13 +49,13 @@ test:
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
 .PHONY: test
 
-install:
+install: build
 	@$(ECHO) "[Installing ${PACK} package:]"
 	cp ${PACKDIR}/package.json ${PACKDIR}/bin/
 	cd ${PACKDIR}/bin && yarn link --force               # ensure this pack is made available.
 .PHONY: install
 
-publish:
+publish: build
 	@$(ECHO) "\033[0;32mPublishing current release:\033[0m"
 	./scripts/publish.sh
 .PHONY: publish
