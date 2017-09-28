@@ -113,6 +113,9 @@ class FuncsForClosure {
         else if (envEntry.arr !== undefined) {
             return envArrToString(this.envFromEnvArr(envEntry.arr));
         }
+        else if(envEntry.module !== undefined) {
+            return `require("${envEntry.module}")`;
+        }
         else {
             return undefined;
         }
@@ -177,8 +180,8 @@ function serializeClosureText(closure: Promise<pulumi.runtime.Closure>): pulumi.
                 "  var _this;\n" +
                 "  with(" + envObjToString(funcs[name].env) + ") {\n" +
                 "    return (function() {\n\n" +
-                "return " + funcs[name].code + "\n" +
-                "    }).apply(_this).apply(undefined, arguments);\n" +
+                "return " + funcs[name].code + "\n\n" +
+                "    }).apply(_this).apply(this, arguments);\n" +
                 "  }\n" +
                 "}\n" +
                 "\n";
@@ -192,10 +195,13 @@ function createJavaScriptLambda(
     closure: Promise<pulumi.runtime.Closure>, opts: FunctionOptions): lambda.Function {
     return new lambda.Function(functionName, {
         code: new pulumi.asset.AssetArchive({
-            "node_modules": new pulumi.asset.FileAsset("node_modules"),
-            "index.js": serializeClosureText(closure),
+            // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets
+            // uploaded. Currently we upload the entire folder as there may be dependencies 
+            // on any files here. 
+            ".": new pulumi.asset.FileAsset("."),
+            "__index.js": serializeClosureText(closure),
         }),
-        handler: "index.handler",
+        handler: "__index.handler",
         runtime: lambda.NodeJS6d10Runtime,
         role: role.arn,
         timeout: opts.timeout === undefined ? 180 : opts.timeout,
