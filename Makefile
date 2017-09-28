@@ -8,7 +8,6 @@ PROJECT =github.com/pulumi/pulumi-aws
 
 TFGEN           = pulumi-tfgen-${PACK}
 PROVIDER        = pulumi-provider-${PACK}
-PROVIDER_BIN    = ${GOPATH}/bin/${PROVIDER}
 TESTPARALLELISM = 10
 
 ECHO=echo -e
@@ -28,21 +27,23 @@ banner:
 .PHONY: banner
 
 buildtools:
+	dep ensure
 	go install ${PROJECT}/cmd/${TFGEN}
 	go install ${PROJECT}/cmd/${PROVIDER}
+.PHONY: buildtools
 
-gen:
-	$(TFGEN) --out pack/
-	cd pack/ && yarn install
+gen: buildtools
+	$(TFGEN) --out ${PACKDIR}
+	cd ${PACKDIR} && yarn install
 .PHONY: gen
 
-build:
+build: gen
 	@$(ECHO) "[Building ${PACK} package:]"
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Lumi's stdlibs.
 	cd ${PACKDIR} && yarn run build   # compile into a JavaScript NPM package.
 .PHONY: build
 
-test:
+test: build
 	go test -cover -parallel ${TESTPARALLELISM} ${GOPKGS}
 	go tool vet -printf=false ./cmd
 	go tool vet -printf=false resources.go
@@ -50,13 +51,13 @@ test:
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
 .PHONY: test
 
-install:
+install: build
 	@$(ECHO) "[Installing ${PACK} package:]"
 	cp ${PACKDIR}/package.json ${PACKDIR}/bin/
 	cd ${PACKDIR}/bin && yarn link --force               # ensure this pack is made available.
 .PHONY: install
 
-publish:
+publish: build
 	@$(ECHO) "\033[0;32mPublishing current release:\033[0m"
 	./scripts/publish.sh
 .PHONY: publish
