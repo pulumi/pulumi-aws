@@ -31,8 +31,8 @@ buildtools:
 	go install ${PROJECT}/cmd/${PROVIDER}
 
 gen: buildtools
-	$(TFGEN) --out pack/
-	cd pack/ && yarn install
+	$(TFGEN) --out ${PACKDIR}
+	cd ${PACKDIR} && yarn install
 .PHONY: gen
 
 build: gen
