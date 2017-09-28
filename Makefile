@@ -27,8 +27,10 @@ banner:
 .PHONY: banner
 
 buildtools:
+	dep ensure
 	go install ${PROJECT}/cmd/${TFGEN}
 	go install ${PROJECT}/cmd/${PROVIDER}
+.PHONY: buildtools
 
 gen: buildtools
 	$(TFGEN) --out ${PACKDIR}
