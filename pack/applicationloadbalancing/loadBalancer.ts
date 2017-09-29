@@ -3,79 +3,23 @@
 
 import * as pulumi from "pulumi";
 
-/**
- * Provides a Load Balancer resource.
- * 
- * ~> **Note:** `aws_alb` is know as `aws_lb`. The functionality is identical.
- */
 export class LoadBalancer extends pulumi.Resource {
-    /**
-     * An Access Logs block. Access Logs documented below.
-     */
     public readonly accessLogs: pulumi.Computed<{ bucket: string, enabled: boolean, prefix: string }[]>;
-    /**
-     * The ARN of the load balancer (matches `id`).
-     */
     public /*out*/ readonly arn: pulumi.Computed<string>;
-    /**
-     * The ARN suffix for use with CloudWatch Metrics.
-     */
     public /*out*/ readonly arnSuffix: pulumi.Computed<string>;
-    /**
-     * The DNS name of the load balancer.
-     */
     public /*out*/ readonly dnsName: pulumi.Computed<string>;
-    /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
-     */
     public readonly enableDeletionProtection?: pulumi.Computed<boolean>;
-    /**
-     * The time in seconds that the connection is allowed to be idle. Default: 60.
-     */
     public readonly idleTimeout?: pulumi.Computed<number>;
-    /**
-     * If true, the LB will be internal.
-     */
     public readonly internal: pulumi.Computed<boolean>;
-    /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-     */
     public readonly ipAddressType: pulumi.Computed<string>;
-    /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-     */
     public readonly loadBalancerType?: pulumi.Computed<string>;
-    /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * Terraform will autogenerate a name beginning with `tf-lb`.
-     */
     public readonly name: pulumi.Computed<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     public readonly namePrefix?: pulumi.Computed<string>;
-    /**
-     * A list of security group IDs to assign to the LB.
-     */
     public readonly securityGroups: pulumi.Computed<string[]>;
-    /**
-     * A subnet mapping block as documented below.
-     */
     public readonly subnetMapping?: pulumi.Computed<{ allocationId?: string, subnetId: string }[]>;
-    /**
-     * A list of subnet IDs to attach to the LB.
-     */
     public readonly subnets: pulumi.Computed<string[]>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
     public /*out*/ readonly vpcId: pulumi.Computed<string>;
-    /**
-     * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-     */
     public /*out*/ readonly zoneId: pulumi.Computed<string>;
 
     /**
@@ -87,7 +31,7 @@ export class LoadBalancer extends pulumi.Resource {
      * @param dependsOn A optional array of additional resources this intance depends on
      */
     constructor(urnName: string, args?: LoadBalancerArgs, dependsOn?: pulumi.Resource[]) {
-        super("aws:elasticloadbalancingv2/loadBalancer:LoadBalancer", urnName, {
+        super("aws:applicationloadbalancing/loadBalancer:LoadBalancer", urnName, {
             "accessLogs": args.accessLogs,
             "enableDeletionProtection": args.enableDeletionProtection,
             "idleTimeout": args.idleTimeout,
@@ -113,56 +57,17 @@ export class LoadBalancer extends pulumi.Resource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
-    /**
-     * An Access Logs block. Access Logs documented below.
-     */
     readonly accessLogs?: pulumi.ComputedValue<{ bucket: pulumi.ComputedValue<string>, enabled?: pulumi.ComputedValue<boolean>, prefix?: pulumi.ComputedValue<string> }>[];
-    /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
-     */
     readonly enableDeletionProtection?: pulumi.ComputedValue<boolean>;
-    /**
-     * The time in seconds that the connection is allowed to be idle. Default: 60.
-     */
     readonly idleTimeout?: pulumi.ComputedValue<number>;
-    /**
-     * If true, the LB will be internal.
-     */
     readonly internal?: pulumi.ComputedValue<boolean>;
-    /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-     */
     readonly ipAddressType?: pulumi.ComputedValue<string>;
-    /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-     */
     readonly loadBalancerType?: pulumi.ComputedValue<string>;
-    /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * Terraform will autogenerate a name beginning with `tf-lb`.
-     */
     readonly name?: pulumi.ComputedValue<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     readonly namePrefix?: pulumi.ComputedValue<string>;
-    /**
-     * A list of security group IDs to assign to the LB.
-     */
     readonly securityGroups?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
-    /**
-     * A subnet mapping block as documented below.
-     */
     readonly subnetMapping?: pulumi.ComputedValue<{ allocationId?: pulumi.ComputedValue<string>, subnetId: pulumi.ComputedValue<string> }>[];
-    /**
-     * A list of subnet IDs to attach to the LB.
-     */
     readonly subnets?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[];
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     readonly tags?: pulumi.ComputedValue<{[key: string]: any}>;
 }
 

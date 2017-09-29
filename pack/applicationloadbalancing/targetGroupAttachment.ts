@@ -3,24 +3,9 @@
 
 import * as pulumi from "pulumi";
 
-/**
- * Provides the ability to register instances and containers with a LB
- * target group
- * 
- * ~> **Note:** `aws_alb_target_group_attachment` is know as `aws_lb_target_group_attachment`. The functionality is identical.
- */
 export class TargetGroupAttachment extends pulumi.Resource {
-    /**
-     * The port on which targets receive traffic.
-     */
     public readonly port?: pulumi.Computed<number>;
-    /**
-     * The ARN of the target group with which to register targets
-     */
     public readonly targetGroupArn: pulumi.Computed<string>;
-    /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
-     */
     public readonly targetId: pulumi.Computed<string>;
 
     /**
@@ -38,7 +23,7 @@ export class TargetGroupAttachment extends pulumi.Resource {
         if (args.targetId === undefined) {
             throw new Error("Missing required property 'targetId'");
         }
-        super("aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment", urnName, {
+        super("aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment", urnName, {
             "port": args.port,
             "targetGroupArn": args.targetGroupArn,
             "targetId": args.targetId,
@@ -50,17 +35,8 @@ export class TargetGroupAttachment extends pulumi.Resource {
  * The set of arguments for constructing a TargetGroupAttachment resource.
  */
 export interface TargetGroupAttachmentArgs {
-    /**
-     * The port on which targets receive traffic.
-     */
     readonly port?: pulumi.ComputedValue<number>;
-    /**
-     * The ARN of the target group with which to register targets
-     */
     readonly targetGroupArn: pulumi.ComputedValue<string>;
-    /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container.
-     */
     readonly targetId: pulumi.ComputedValue<string>;
 }
 
