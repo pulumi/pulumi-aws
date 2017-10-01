@@ -16,8 +16,8 @@
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
   packages = ["aws","aws/arn","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/ec2query","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restjson","private/protocol/restxml","private/protocol/xml/xmlutil","private/signer/v2","service/acm","service/apigateway","service/applicationautoscaling","service/autoscaling","service/batch","service/cloudformation","service/cloudfront","service/cloudtrail","service/cloudwatch","service/cloudwatchevents","service/cloudwatchlogs","service/codebuild","service/codecommit","service/codedeploy","service/codepipeline","service/cognitoidentity","service/configservice","service/databasemigrationservice","service/devicefarm","service/directoryservice","service/dynamodb","service/ec2","service/ecr","service/ecs","service/efs","service/elasticache","service/elasticbeanstalk","service/elasticsearchservice","service/elastictranscoder","service/elb","service/elbv2","service/emr","service/firehose","service/glacier","service/iam","service/inspector","service/iot","service/kinesis","service/kms","service/lambda","service/lightsail","service/opsworks","service/rds","service/redshift","service/route53","service/s3","service/ses","service/sfn","service/simpledb","service/sns","service/sqs","service/ssm","service/sts","service/waf","service/wafregional"]
-  revision = "c652f9369083515c3ddf1fbaf6df68da2c101545"
-  version = "v1.12.1"
+  revision = "6198197eabb9bb93346ae204d79ac2225e44cf05"
+  version = "v1.12.2"
 
 [[projects]]
   branch = "master"
@@ -60,6 +60,12 @@
   name = "github.com/golang/protobuf"
   packages = ["proto","protoc-gen-go/descriptor","ptypes","ptypes/any","ptypes/duration","ptypes/empty","ptypes/struct","ptypes/timestamp"]
   revision = "130e6b02ab059e7b717a096f397c5b60111cae74"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  revision = "553a641470496b2327abcac10b36396bd98e45c9"
 
 [[projects]]
   branch = "master"
@@ -124,8 +130,8 @@
 [[projects]]
   name = "github.com/hashicorp/vault"
   packages = ["helper/compressutil","helper/jsonutil","helper/pgpkeys"]
-  revision = "25e45c004d95c6539d952e86c96287d585c09c46"
-  version = "v0.6.1-rc2"
+  revision = "6b29fb2b7f70ed538ee2b3c057335d706b6d4e36"
+  version = "v0.8.3"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -143,6 +149,12 @@
   name = "github.com/jmespath/go-jmespath"
   packages = ["."]
   revision = "0b12d6b5"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/keybase/go-crypto"
+  packages = ["brainpool","cast5","curve25519","ed25519","ed25519/internal/edwards25519","openpgp","openpgp/armor","openpgp/ecdh","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","rsa"]
+  revision = "433e2f3d43ef1bd31387582a899389b2fbe2005e"
 
 [[projects]]
   name = "github.com/mattn/go-isatty"
@@ -226,19 +238,13 @@
   branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/environment","pkg/resource/plugin","pkg/resource/provider","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","sdk/proto/go"]
-  revision = "dcd8d2a64350bdf685ea17fca07eaf08c926ca32"
-
-[[projects]]
-  name = "github.com/pulumi/pulumi-fabric"
-  packages = ["pkg/diag","pkg/diag/colors","pkg/util/cmdutil","pkg/util/contract"]
-  revision = "4b9d933415dd6356052a73e6e7d368fb2a907773"
-  version = "v0.6"
+  revision = "ad5ee5bc042d5e157dcea6274167e4d12d5ad048"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "936402435c6893a570fd2a7ef34411b4e079f1bf"
+  revision = "f5e81d268ff8c0b20c1f1cbc5b7bcb641b84233c"
 
 [[projects]]
   branch = "master"
@@ -256,7 +262,7 @@
   branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "b78744579491c1ceeaaa3b40205e56b0591b93a3"
+  revision = "e5f66de850af3302fbe378c8acded2b0fa55472c"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -274,7 +280,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "42f52adbb4f2fdf71359fda7a7ccf4103abdd25e"
+  revision = "df89ad8601a21dca638344f43ab1525ac84af67c"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -287,7 +293,7 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["bcrypt","blowfish","cast5","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","ssh/terminal"]
-  revision = "76eec36fa14229c4b25bb894c2d0e591527af429"
+  revision = "9419663f5a44be8b34ca85f08abc5fe1be11f8a3"
 
 [[projects]]
   branch = "master"

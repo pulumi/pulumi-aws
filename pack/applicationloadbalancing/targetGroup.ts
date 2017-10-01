@@ -3,55 +3,17 @@
 
 import * as pulumi from "pulumi";
 
-/**
- * Provides a Target Group resource for use with Load Balancer resources.
- * 
- * ~> **Note:** `aws_alb_target_group` is know as `aws_lb_target_group`. The functionality is identical.
- */
 export class TargetGroup extends pulumi.Resource {
-    /**
-     * The ARN of the Target Group (matches `id`)
-     */
     public /*out*/ readonly arn: pulumi.Computed<string>;
-    /**
-     * The ARN suffix for use with CloudWatch Metrics.
-     */
     public /*out*/ readonly arnSuffix: pulumi.Computed<string>;
-    /**
-     * The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-     */
     public readonly deregistrationDelay?: pulumi.Computed<number>;
-    /**
-     * A Health Check block. Health Check blocks are documented below.
-     */
     public readonly healthChecks: pulumi.Computed<{ healthyThreshold?: number, interval?: number, matcher?: string, path?: string, port?: string, protocol?: string, timeout?: number, unhealthyThreshold?: number }[]>;
-    /**
-     * The name of the target group. If omitted, Terraform will assign a random, unique name.
-     */
     public readonly name: pulumi.Computed<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     public readonly namePrefix?: pulumi.Computed<string>;
-    /**
-     * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
-     */
     public readonly port: pulumi.Computed<number>;
-    /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`.
-     */
     public readonly protocol: pulumi.Computed<string>;
-    /**
-     * A Stickiness block. Stickiness blocks are documented below.
-     */
     public readonly stickiness: pulumi.Computed<{ cookieDuration?: number, enabled?: boolean, type: string }[]>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
-    /**
-     * The identifier of the VPC in which to create the target group.
-     */
     public readonly vpcId: pulumi.Computed<string>;
 
     /**
@@ -72,7 +34,7 @@ export class TargetGroup extends pulumi.Resource {
         if (args.vpcId === undefined) {
             throw new Error("Missing required property 'vpcId'");
         }
-        super("aws:elasticloadbalancingv2/targetGroup:TargetGroup", urnName, {
+        super("aws:applicationloadbalancing/targetGroup:TargetGroup", urnName, {
             "deregistrationDelay": args.deregistrationDelay,
             "healthChecks": args.healthChecks,
             "name": args.name,
@@ -92,41 +54,14 @@ export class TargetGroup extends pulumi.Resource {
  * The set of arguments for constructing a TargetGroup resource.
  */
 export interface TargetGroupArgs {
-    /**
-     * The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-     */
     readonly deregistrationDelay?: pulumi.ComputedValue<number>;
-    /**
-     * A Health Check block. Health Check blocks are documented below.
-     */
     readonly healthChecks?: pulumi.ComputedValue<{ healthyThreshold?: pulumi.ComputedValue<number>, interval?: pulumi.ComputedValue<number>, matcher?: pulumi.ComputedValue<string>, path?: pulumi.ComputedValue<string>, port?: pulumi.ComputedValue<string>, protocol?: pulumi.ComputedValue<string>, timeout?: pulumi.ComputedValue<number>, unhealthyThreshold?: pulumi.ComputedValue<number> }>[];
-    /**
-     * The name of the target group. If omitted, Terraform will assign a random, unique name.
-     */
     readonly name?: pulumi.ComputedValue<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     readonly namePrefix?: pulumi.ComputedValue<string>;
-    /**
-     * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
-     */
     readonly port: pulumi.ComputedValue<number>;
-    /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`.
-     */
     readonly protocol: pulumi.ComputedValue<string>;
-    /**
-     * A Stickiness block. Stickiness blocks are documented below.
-     */
     readonly stickiness?: pulumi.ComputedValue<{ cookieDuration?: pulumi.ComputedValue<number>, enabled?: pulumi.ComputedValue<boolean>, type: pulumi.ComputedValue<string> }>[];
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     readonly tags?: pulumi.ComputedValue<{[key: string]: any}>;
-    /**
-     * The identifier of the VPC in which to create the target group.
-     */
     readonly vpcId: pulumi.ComputedValue<string>;
 }
 

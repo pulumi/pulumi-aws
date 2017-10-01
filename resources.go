@@ -18,58 +18,59 @@ const (
 	// packages:
 	awsPkg = "aws"
 	// modules:
-	awsMod               = "index"                  // the root index.
-	apigatewayMod        = "apigateway"             // API Gateway
-	appautoscalingMod    = "appautoscaling"         // Application Auto Scaling
-	autoscalingMod       = "autoscaling"            // Auto Scaling
-	batchMod             = "batch"                  // Batch
-	cloudformationMod    = "cloudformation"         // Cloud Formation
-	cloudfrontMod        = "cloudfront"             // Cloud Front
-	cloudtrailMod        = "cloudtrail"             // Cloud Trail
-	cloudwatchMod        = "cloudwatch"             // Cloud Watch
-	codebuildMod         = "codebuild"              // Code Build
-	codecommitMod        = "codecommit"             // Code Commit
-	codedeployMod        = "codedeploy"             // Code Deploy
-	codepipelineMod      = "codepipeline"           // Code Pipeline
-	cognitoMod           = "cognito"                // Cognito
-	cfgMod               = "cfg"                    // Resource Config
-	devicefarmMod        = "devicefarm"             // Device Farm
-	directoryserviceMod  = "directoryservice"       // Directory Services
-	dynamodbMod          = "dynamodb"               // DynamoDB
-	dmsMod               = "dms"                    // Data Migraiton Services
-	ebsMod               = "ebs"                    // Elastic Block Store
-	ec2Mod               = "ec2"                    // EC2
-	ecrMod               = "ecr"                    // Elastic Container Registry
-	ecsMod               = "ecs"                    // Elastic Container Service
-	efsMod               = "efs"                    // Elastic Filesystem
-	elasticacheMod       = "elasticache"            // ElastiCache
-	elasticbeanstalkMod  = "elasticbeanstalk"       // Elastic Beanstalk
-	elasticsearchMod     = "elasticsearch"          // ElasticSearch
-	elastictranscoderMod = "elastictranscoder"      // Elastic Transcoder
-	elbMod               = "elasticloadbalancing"   // Elastic Load Balancing
-	elbv2Mod             = "elasticloadbalancingv2" // Elastic Load Balancing (V2: Application)
-	emrMod               = "emr"                    // Elastic MapReduce
-	glacierMod           = "glacier"                // Glacier
-	iamMod               = "iam"                    // Identity and Access Management (IAM)
-	inspectorMod         = "inspector"              // Inspector
-	iotMod               = "iot"                    // Internet of Things (IoT)
-	kinesisMod           = "kinesis"                // Kinesis
-	kmsMod               = "kms"                    // Key Management Service (KMS)
-	lambdaMod            = "lambda"                 // Lambda
-	lightsailMod         = "lightsail"              // LightSail
-	opsworksMod          = "opsworks"               // OpsWorks
-	rdsMod               = "rds"                    // Relational Database Service (RDS)
-	redshiftMod          = "redshift"               // RedShift
-	route53Mod           = "route53"                // Route 53 (DNS)
-	sesMod               = "ses"                    // Simple Email Service (SES)
-	s3Mod                = "s3"                     // Simple Storage (S3)
-	ssmMod               = "ssm"                    // System Manager
-	sfnMod               = "sfn"                    // Step Functions (SFN)
-	simpledbMod          = "simpledb"               // Simple DB
-	snsMod               = "sns"                    // Simple Notification Service (SNS)
-	sqsMod               = "sqs"                    // Simple Queueing Service (SQS)
-	wafMod               = "waf"                    // Web Application Firewall (WAF)
-	wafregionalMod       = "wafregional"            // Web Application Firewall (WAF) Regional
+	awsMod               = "index"                    // the root index.
+	apigatewayMod        = "apigateway"               // API Gateway
+	appautoscalingMod    = "appautoscaling"           // Application Auto Scaling
+	autoscalingMod       = "autoscaling"              // Auto Scaling
+	batchMod             = "batch"                    // Batch
+	cloudformationMod    = "cloudformation"           // Cloud Formation
+	cloudfrontMod        = "cloudfront"               // Cloud Front
+	cloudtrailMod        = "cloudtrail"               // Cloud Trail
+	cloudwatchMod        = "cloudwatch"               // Cloud Watch
+	codebuildMod         = "codebuild"                // Code Build
+	codecommitMod        = "codecommit"               // Code Commit
+	codedeployMod        = "codedeploy"               // Code Deploy
+	codepipelineMod      = "codepipeline"             // Code Pipeline
+	cognitoMod           = "cognito"                  // Cognito
+	cfgMod               = "cfg"                      // Resource Config
+	devicefarmMod        = "devicefarm"               // Device Farm
+	directoryserviceMod  = "directoryservice"         // Directory Services
+	dynamodbMod          = "dynamodb"                 // DynamoDB
+	dmsMod               = "dms"                      // Data Migraiton Services
+	ebsMod               = "ebs"                      // Elastic Block Store
+	ec2Mod               = "ec2"                      // EC2
+	ecrMod               = "ecr"                      // Elastic Container Registry
+	ecsMod               = "ecs"                      // Elastic Container Service
+	efsMod               = "efs"                      // Elastic Filesystem
+	elasticacheMod       = "elasticache"              // ElastiCache
+	elasticbeanstalkMod  = "elasticbeanstalk"         // Elastic Beanstalk
+	elasticsearchMod     = "elasticsearch"            // ElasticSearch
+	elastictranscoderMod = "elastictranscoder"        // Elastic Transcoder
+	elbMod               = "elasticloadbalancing"     // Elastic Load Balancing
+	albMod               = "applicationloadbalancing" // Elastic Load Balancing (V2: Application)
+	elbv2Mod             = "elasticloadbalancingv2"   // Elastic Load Balancing (V2: Application and Network)
+	emrMod               = "emr"                      // Elastic MapReduce
+	glacierMod           = "glacier"                  // Glacier
+	iamMod               = "iam"                      // Identity and Access Management (IAM)
+	inspectorMod         = "inspector"                // Inspector
+	iotMod               = "iot"                      // Internet of Things (IoT)
+	kinesisMod           = "kinesis"                  // Kinesis
+	kmsMod               = "kms"                      // Key Management Service (KMS)
+	lambdaMod            = "lambda"                   // Lambda
+	lightsailMod         = "lightsail"                // LightSail
+	opsworksMod          = "opsworks"                 // OpsWorks
+	rdsMod               = "rds"                      // Relational Database Service (RDS)
+	redshiftMod          = "redshift"                 // RedShift
+	route53Mod           = "route53"                  // Route 53 (DNS)
+	sesMod               = "ses"                      // Simple Email Service (SES)
+	s3Mod                = "s3"                       // Simple Storage (S3)
+	ssmMod               = "ssm"                      // System Manager
+	sfnMod               = "sfn"                      // Step Functions (SFN)
+	simpledbMod          = "simpledb"                 // Simple DB
+	snsMod               = "sns"                      // Simple Notification Service (SNS)
+	sqsMod               = "sqs"                      // Simple Queueing Service (SQS)
+	wafMod               = "waf"                      // Web Application Firewall (WAF)
+	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
 )
 
 // awstok manufactures a type token for the AWS package and the given module and type.
@@ -491,6 +492,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_efs_file_system":  {Tok: awsrestok(efsMod, "FileSystem")},
 			"aws_efs_mount_target": {Tok: awsrestok(efsMod, "MountTarget")},
 			// Elastic Load Balancing
+			"aws_app_cookie_stickiness_policy":        {Tok: awsrestok(elbMod, "CookieStickinessPolicy")},
 			"aws_elb":                                 {Tok: awsrestok(elbMod, "LoadBalancer")},
 			"aws_elb_attachment":                      {Tok: awsrestok(elbMod, "Attachment")},
 			"aws_lb_cookie_stickiness_policy":         {Tok: awsrestok(elbMod, "CookieStickinessPolicy")},
@@ -499,28 +501,49 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_load_balancer_listener_policy":       {Tok: awsrestok(elbMod, "ListenerPolicy")},
 			"aws_lb_ssl_negotiation_policy":           {Tok: awsrestok(elbMod, "SslNegotiationPolicy")},
 			// Elastic Load Balancing (V2: Application)
-			"aws_app_cookie_stickiness_policy": {Tok: awsrestok(elbMod, "CookieStickinessPolicy")},
-			"aws_alb":                          {Tok: awsrestok(elbv2Mod, "LoadBalancer")},
+			"aws_alb": {Tok: awsrestok(albMod, "LoadBalancer")},
 			"aws_alb_listener": {
-				Tok: awsrestok(elbv2Mod, "Listener"),
+				Tok: awsrestok(albMod, "Listener"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"default_action": {Name: "defaultActions"},
 				},
 			},
 			"aws_alb_listener_rule": {
-				Tok: awsrestok(elbv2Mod, "ListenerRule"),
+				Tok: awsrestok(albMod, "ListenerRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"action":    {Name: "actions"},
 					"condition": {Name: "conditions"},
 				},
 			},
 			"aws_alb_target_group": {
+				Tok: awsrestok(albMod, "TargetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"health_check": {Name: "healthChecks"},
+				},
+			},
+			"aws_alb_target_group_attachment": {Tok: awsrestok(albMod, "TargetGroupAttachment")},
+			// Load Balancing (Application and Network)
+			"aws_lb": {Tok: awsrestok(elbv2Mod, "LoadBalancer")},
+			"aws_lb_listener": {
+				Tok: awsrestok(elbv2Mod, "Listener"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"default_action": {Name: "defaultActions"},
+				},
+			},
+			"aws_lb_listener_rule": {
+				Tok: awsrestok(elbv2Mod, "ListenerRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"action":    {Name: "actions"},
+					"condition": {Name: "conditions"},
+				},
+			},
+			"aws_lb_target_group": {
 				Tok: awsrestok(elbv2Mod, "TargetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"health_check": {Name: "healthChecks"},
 				},
 			},
-			"aws_alb_target_group_attachment": {Tok: awsrestok(elbv2Mod, "TargetGroupAttachment")},
+			"aws_lb_target_group_attachment": {Tok: awsrestok(elbv2Mod, "TargetGroupAttachment")},
 			// Elastic Search
 			"aws_elasticsearch_domain":        {Tok: awsrestok(elasticsearchMod, "Domain")},
 			"aws_elasticsearch_domain_policy": {Tok: awsrestok(elasticsearchMod, "DomainPolicy")},

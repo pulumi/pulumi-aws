@@ -3,31 +3,11 @@
 
 import * as pulumi from "pulumi";
 
-/**
- * Provides a Load Balancer Listener Rule resource.
- * 
- * ~> **Note:** `aws_alb_listener_rule` is know as `aws_lb_listener_rule`. The functionality is identical.
- */
 export class ListenerRule extends pulumi.Resource {
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     public readonly actions: pulumi.Computed<{ targetGroupArn: string, type: string }[]>;
-    /**
-     * The ARN of the rule (matches `id`)
-     */
     public /*out*/ readonly arn: pulumi.Computed<string>;
-    /**
-     * A Condition block. Condition blocks are documented below.
-     */
     public readonly conditions: pulumi.Computed<{ field?: string, values?: string[] }[]>;
-    /**
-     * The ARN of the listener to which to attach the rule.
-     */
     public readonly listenerArn: pulumi.Computed<string>;
-    /**
-     * The priority for the rule. A listener can't have multiple rules with the same priority.
-     */
     public readonly priority: pulumi.Computed<number>;
 
     /**
@@ -51,7 +31,7 @@ export class ListenerRule extends pulumi.Resource {
         if (args.priority === undefined) {
             throw new Error("Missing required property 'priority'");
         }
-        super("aws:elasticloadbalancingv2/listenerRule:ListenerRule", urnName, {
+        super("aws:applicationloadbalancing/listenerRule:ListenerRule", urnName, {
             "actions": args.actions,
             "conditions": args.conditions,
             "listenerArn": args.listenerArn,
@@ -65,21 +45,9 @@ export class ListenerRule extends pulumi.Resource {
  * The set of arguments for constructing a ListenerRule resource.
  */
 export interface ListenerRuleArgs {
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     readonly actions: pulumi.ComputedValue<{ targetGroupArn: pulumi.ComputedValue<string>, type: pulumi.ComputedValue<string> }>[];
-    /**
-     * A Condition block. Condition blocks are documented below.
-     */
     readonly conditions: pulumi.ComputedValue<{ field?: pulumi.ComputedValue<string>, values?: pulumi.ComputedValue<pulumi.ComputedValue<string>>[] }>[];
-    /**
-     * The ARN of the listener to which to attach the rule.
-     */
     readonly listenerArn: pulumi.ComputedValue<string>;
-    /**
-     * The priority for the rule. A listener can't have multiple rules with the same priority.
-     */
     readonly priority: pulumi.ComputedValue<number>;
 }
 

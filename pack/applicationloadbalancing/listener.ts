@@ -3,39 +3,13 @@
 
 import * as pulumi from "pulumi";
 
-/**
- * Provides a Load Balancer Listener resource.
- * 
- * ~> **Note:** `aws_alb_listener` is know as `aws_lb_listener`. The functionality is identical.
- */
 export class Listener extends pulumi.Resource {
-    /**
-     * The ARN of the listener (matches `id`)
-     */
     public /*out*/ readonly arn: pulumi.Computed<string>;
-    /**
-     * The ARN of the SSL server certificate. Exactly one certificate is required if the protocol is HTTPS.
-     */
     public readonly certificateArn?: pulumi.Computed<string>;
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     public readonly defaultActions: pulumi.Computed<{ targetGroupArn: string, type: string }[]>;
-    /**
-     * The ARN of the load balancer.
-     */
     public readonly loadBalancerArn: pulumi.Computed<string>;
-    /**
-     * The port on which the load balancer is listening.
-     */
     public readonly port: pulumi.Computed<number>;
-    /**
-     * The protocol for connections from clients to the load balancer. Valid values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
-     */
     public readonly protocol?: pulumi.Computed<string>;
-    /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
-     */
     public readonly sslPolicy: pulumi.Computed<string>;
 
     /**
@@ -56,7 +30,7 @@ export class Listener extends pulumi.Resource {
         if (args.port === undefined) {
             throw new Error("Missing required property 'port'");
         }
-        super("aws:elasticloadbalancingv2/listener:Listener", urnName, {
+        super("aws:applicationloadbalancing/listener:Listener", urnName, {
             "certificateArn": args.certificateArn,
             "defaultActions": args.defaultActions,
             "loadBalancerArn": args.loadBalancerArn,
@@ -72,29 +46,11 @@ export class Listener extends pulumi.Resource {
  * The set of arguments for constructing a Listener resource.
  */
 export interface ListenerArgs {
-    /**
-     * The ARN of the SSL server certificate. Exactly one certificate is required if the protocol is HTTPS.
-     */
     readonly certificateArn?: pulumi.ComputedValue<string>;
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     readonly defaultActions: pulumi.ComputedValue<{ targetGroupArn: pulumi.ComputedValue<string>, type: pulumi.ComputedValue<string> }>[];
-    /**
-     * The ARN of the load balancer.
-     */
     readonly loadBalancerArn: pulumi.ComputedValue<string>;
-    /**
-     * The port on which the load balancer is listening.
-     */
     readonly port: pulumi.ComputedValue<number>;
-    /**
-     * The protocol for connections from clients to the load balancer. Valid values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
-     */
     readonly protocol?: pulumi.ComputedValue<string>;
-    /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
-     */
     readonly sslPolicy?: pulumi.ComputedValue<string>;
 }
 
