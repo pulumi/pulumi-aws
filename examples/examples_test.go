@@ -49,6 +49,7 @@ func TestExamples(t *testing.T) {
 					path.Join(cwd, "webserver", "variants", "ssh_description"),
 				},
 			}),
+			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
 			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
