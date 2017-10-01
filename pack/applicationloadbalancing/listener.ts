@@ -13,12 +13,12 @@ export class Listener extends pulumi.Resource {
     public readonly sslPolicy: pulumi.Computed<string>;
 
     /**
-     * Create a Listener resource with the given unique name, arguments and optional additional
+     * Create a Listener resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Listener instance
-     * @param args A collection of arguments for creating this Listener intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Listener instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ListenerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.defaultActions === undefined) {

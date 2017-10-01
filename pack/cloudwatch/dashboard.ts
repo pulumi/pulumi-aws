@@ -21,12 +21,12 @@ export class Dashboard extends pulumi.Resource {
     public readonly dashboardName: pulumi.Computed<string>;
 
     /**
-     * Create a Dashboard resource with the given unique name, arguments and optional additional
+     * Create a Dashboard resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Dashboard instance
-     * @param args A collection of arguments for creating this Dashboard intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Dashboard instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DashboardArgs, dependsOn?: pulumi.Resource[]) {
         if (args.dashboardBody === undefined) {

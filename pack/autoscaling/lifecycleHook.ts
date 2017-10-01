@@ -53,12 +53,12 @@ export class LifecycleHook extends pulumi.Resource {
     public readonly roleArn?: pulumi.Computed<string>;
 
     /**
-     * Create a LifecycleHook resource with the given unique name, arguments and optional additional
+     * Create a LifecycleHook resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LifecycleHook instance
-     * @param args A collection of arguments for creating this LifecycleHook intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LifecycleHook instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: LifecycleHookArgs, dependsOn?: pulumi.Resource[]) {
         if (args.autoscalingGroupName === undefined) {

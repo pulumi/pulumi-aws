@@ -17,14 +17,15 @@ export class SizeConstraintSet extends pulumi.Resource {
     public readonly sizeConstraints?: pulumi.Computed<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }[], size: number, textTransformation: string }[]>;
 
     /**
-     * Create a SizeConstraintSet resource with the given unique name, arguments and optional additional
+     * Create a SizeConstraintSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this SizeConstraintSet instance
-     * @param args A collection of arguments for creating this SizeConstraintSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this SizeConstraintSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: SizeConstraintSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:waf/sizeConstraintSet:SizeConstraintSet", urnName, {
             "name": args.name,
             "sizeConstraints": args.sizeConstraints,

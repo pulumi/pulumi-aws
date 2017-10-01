@@ -19,12 +19,12 @@ export class TopicPolicy extends pulumi.Resource {
     public readonly policy: pulumi.Computed<string>;
 
     /**
-     * Create a TopicPolicy resource with the given unique name, arguments and optional additional
+     * Create a TopicPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this TopicPolicy instance
-     * @param args A collection of arguments for creating this TopicPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this TopicPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TopicPolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.arn === undefined) {

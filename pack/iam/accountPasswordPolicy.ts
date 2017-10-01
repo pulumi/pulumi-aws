@@ -56,14 +56,15 @@ export class AccountPasswordPolicy extends pulumi.Resource {
     public readonly requireUppercaseCharacters: pulumi.Computed<boolean>;
 
     /**
-     * Create a AccountPasswordPolicy resource with the given unique name, arguments and optional additional
+     * Create a AccountPasswordPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this AccountPasswordPolicy instance
-     * @param args A collection of arguments for creating this AccountPasswordPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this AccountPasswordPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: AccountPasswordPolicyArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", urnName, {
             "allowUsersToChangePassword": args.allowUsersToChangePassword,
             "hardExpiry": args.hardExpiry,

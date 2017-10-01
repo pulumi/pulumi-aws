@@ -102,12 +102,12 @@ export class RailsAppLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a RailsAppLayer resource with the given unique name, arguments and optional additional
+     * Create a RailsAppLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this RailsAppLayer instance
-     * @param args A collection of arguments for creating this RailsAppLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this RailsAppLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RailsAppLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.stackId === undefined) {

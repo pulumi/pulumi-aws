@@ -18,12 +18,12 @@ export class PlacementGroup extends pulumi.Resource {
     public readonly strategy: pulumi.Computed<string>;
 
     /**
-     * Create a PlacementGroup resource with the given unique name, arguments and optional additional
+     * Create a PlacementGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this PlacementGroup instance
-     * @param args A collection of arguments for creating this PlacementGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this PlacementGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: PlacementGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.strategy === undefined) {

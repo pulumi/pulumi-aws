@@ -58,12 +58,12 @@ export class DefaultNetworkAcl extends pulumi.Resource {
     public /*out*/ readonly vpcId: pulumi.Computed<string>;
 
     /**
-     * Create a DefaultNetworkAcl resource with the given unique name, arguments and optional additional
+     * Create a DefaultNetworkAcl resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DefaultNetworkAcl instance
-     * @param args A collection of arguments for creating this DefaultNetworkAcl intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DefaultNetworkAcl instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DefaultNetworkAclArgs, dependsOn?: pulumi.Resource[]) {
         if (args.defaultNetworkAclId === undefined) {

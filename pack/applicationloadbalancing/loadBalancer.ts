@@ -23,14 +23,15 @@ export class LoadBalancer extends pulumi.Resource {
     public /*out*/ readonly zoneId: pulumi.Computed<string>;
 
     /**
-     * Create a LoadBalancer resource with the given unique name, arguments and optional additional
+     * Create a LoadBalancer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LoadBalancer instance
-     * @param args A collection of arguments for creating this LoadBalancer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LoadBalancer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: LoadBalancerArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:applicationloadbalancing/loadBalancer:LoadBalancer", urnName, {
             "accessLogs": args.accessLogs,
             "enableDeletionProtection": args.enableDeletionProtection,

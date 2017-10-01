@@ -98,12 +98,12 @@ export class JavaAppLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a JavaAppLayer resource with the given unique name, arguments and optional additional
+     * Create a JavaAppLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this JavaAppLayer instance
-     * @param args A collection of arguments for creating this JavaAppLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this JavaAppLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: JavaAppLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.stackId === undefined) {

@@ -31,14 +31,15 @@ export class Topic extends pulumi.Resource {
     public readonly policy: pulumi.Computed<string>;
 
     /**
-     * Create a Topic resource with the given unique name, arguments and optional additional
+     * Create a Topic resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Topic instance
-     * @param args A collection of arguments for creating this Topic intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Topic instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: TopicArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:sns/topic:Topic", urnName, {
             "deliveryPolicy": args.deliveryPolicy,
             "displayName": args.displayName,

@@ -38,12 +38,12 @@ export class IdentityPool extends pulumi.Resource {
     public readonly supportedLoginProviders?: pulumi.Computed<{[key: string]: string}>;
 
     /**
-     * Create a IdentityPool resource with the given unique name, arguments and optional additional
+     * Create a IdentityPool resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this IdentityPool instance
-     * @param args A collection of arguments for creating this IdentityPool intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this IdentityPool instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: IdentityPoolArgs, dependsOn?: pulumi.Resource[]) {
         if (args.identityPoolName === undefined) {

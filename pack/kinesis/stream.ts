@@ -40,12 +40,12 @@ export class Stream extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a Stream resource with the given unique name, arguments and optional additional
+     * Create a Stream resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Stream instance
-     * @param args A collection of arguments for creating this Stream intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Stream instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: StreamArgs, dependsOn?: pulumi.Resource[]) {
         if (args.shardCount === undefined) {

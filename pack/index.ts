@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as acm from "./acm/index";
 import * as apigateway from "./apigateway/index";
 import * as appautoscaling from "./appautoscaling/index";
 import * as applicationloadbalancing from "./applicationloadbalancing/index";
@@ -56,9 +57,22 @@ import * as sqs from "./sqs/index";
 import * as ssm from "./ssm/index";
 import * as waf from "./waf/index";
 import * as wafregional from "./wafregional/index";
-export {apigateway, appautoscaling, applicationloadbalancing, autoscaling, batch, cfg, cloudformation, cloudfront, cloudtrail, cloudwatch, codebuild, codecommit, codedeploy, codepipeline, cognito, config, devicefarm, directoryservice, dms, dynamodb, ebs, ec2, ecr, ecs, efs, elasticache, elasticbeanstalk, elasticloadbalancing, elasticloadbalancingv2, elasticsearch, elastictranscoder, emr, glacier, iam, inspector, iot, kinesis, kms, lambda, lightsail, opsworks, rds, redshift, route53, s3, serverless, ses, sfn, simpledb, sns, sqs, ssm, waf, wafregional};
+export {acm, apigateway, appautoscaling, applicationloadbalancing, autoscaling, batch, cfg, cloudformation, cloudfront, cloudtrail, cloudwatch, codebuild, codecommit, codedeploy, codepipeline, cognito, config, devicefarm, directoryservice, dms, dynamodb, ebs, ec2, ecr, ecs, efs, elasticache, elasticbeanstalk, elasticloadbalancing, elasticloadbalancingv2, elasticsearch, elastictranscoder, emr, glacier, iam, inspector, iot, kinesis, kms, lambda, lightsail, opsworks, rds, redshift, route53, s3, serverless, ses, sfn, simpledb, sns, sqs, ssm, waf, wafregional};
 
 // Export members:
+export * from "./index/getAmi";
+export * from "./index/getAmiIds";
+export * from "./index/getAutoscalingGroups";
+export * from "./index/getAvailabilityZone";
+export * from "./index/getAvailabilityZones";
+export * from "./index/getBillingServiceAccount";
+export * from "./index/getCallerIdentity";
+export * from "./index/getCanonicalUserId";
+export * from "./index/getElasticIp";
+export * from "./index/getIpRanges";
+export * from "./index/getPartition";
+export * from "./index/getPrefixList";
+export * from "./index/getRegion";
 export * from "./arn";
 export * from "./region";
 

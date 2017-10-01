@@ -53,6 +53,17 @@ export * from "./vpnConnectionRoute";
 export * from "./vpnGateway";
 export * from "./vpnGatewayAttachment";
 export * from "./vpnGatewayRoutePropagation";
+export * from "./getInstance";
+export * from "./getInternetGateway";
+export * from "./getRouteTable";
+export * from "./getSecurityGroup";
+export * from "./getSubnet";
+export * from "./getSubnetIds";
+export * from "./getVpc";
+export * from "./getVpcEndpoint";
+export * from "./getVpcEndpointService";
+export * from "./getVpcPeeringConnection";
+export * from "./getVpnGateway";
 export * from "./instanceMaps";
 export * from "./instanceType";
 

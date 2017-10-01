@@ -4,4 +4,7 @@
 // Export members:
 export * from "./snapshot";
 export * from "./volume";
+export * from "./getSnapshot";
+export * from "./getSnapshotIds";
+export * from "./getVolume";
 

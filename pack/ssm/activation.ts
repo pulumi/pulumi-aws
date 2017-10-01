@@ -41,12 +41,12 @@ export class Activation extends pulumi.Resource {
     public readonly registrationLimit?: pulumi.Computed<number>;
 
     /**
-     * Create a Activation resource with the given unique name, arguments and optional additional
+     * Create a Activation resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Activation instance
-     * @param args A collection of arguments for creating this Activation intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Activation instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ActivationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.iamRole === undefined) {

@@ -13,12 +13,12 @@ export class ReceiptRuleSet extends pulumi.Resource {
     public readonly ruleSetName: pulumi.Computed<string>;
 
     /**
-     * Create a ReceiptRuleSet resource with the given unique name, arguments and optional additional
+     * Create a ReceiptRuleSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ReceiptRuleSet instance
-     * @param args A collection of arguments for creating this ReceiptRuleSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ReceiptRuleSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ReceiptRuleSetArgs, dependsOn?: pulumi.Resource[]) {
         if (args.ruleSetName === undefined) {

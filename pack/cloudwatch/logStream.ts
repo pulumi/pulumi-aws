@@ -21,12 +21,12 @@ export class LogStream extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a LogStream resource with the given unique name, arguments and optional additional
+     * Create a LogStream resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LogStream instance
-     * @param args A collection of arguments for creating this LogStream intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LogStream instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: LogStreamArgs, dependsOn?: pulumi.Resource[]) {
         if (args.logGroupName === undefined) {

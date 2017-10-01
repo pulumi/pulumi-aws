@@ -28,12 +28,12 @@ export class GroupPolicy extends pulumi.Resource {
     public readonly policy: pulumi.Computed<string>;
 
     /**
-     * Create a GroupPolicy resource with the given unique name, arguments and optional additional
+     * Create a GroupPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this GroupPolicy instance
-     * @param args A collection of arguments for creating this GroupPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this GroupPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: GroupPolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.group === undefined) {

@@ -82,12 +82,12 @@ export class CustomLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a CustomLayer resource with the given unique name, arguments and optional additional
+     * Create a CustomLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this CustomLayer instance
-     * @param args A collection of arguments for creating this CustomLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this CustomLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: CustomLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.shortName === undefined) {

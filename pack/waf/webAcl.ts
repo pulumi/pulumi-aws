@@ -25,12 +25,12 @@ export class WebAcl extends pulumi.Resource {
     public readonly rules?: pulumi.Computed<{ action: { type: string }[], priority: number, ruleId: string, type?: string }[]>;
 
     /**
-     * Create a WebAcl resource with the given unique name, arguments and optional additional
+     * Create a WebAcl resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this WebAcl instance
-     * @param args A collection of arguments for creating this WebAcl intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this WebAcl instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: WebAclArgs, dependsOn?: pulumi.Resource[]) {
         if (args.defaultAction === undefined) {

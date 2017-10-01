@@ -56,12 +56,12 @@ export class EventSourceMapping extends pulumi.Resource {
     public /*out*/ readonly uuid: pulumi.Computed<string>;
 
     /**
-     * Create a EventSourceMapping resource with the given unique name, arguments and optional additional
+     * Create a EventSourceMapping resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this EventSourceMapping instance
-     * @param args A collection of arguments for creating this EventSourceMapping intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this EventSourceMapping instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: EventSourceMappingArgs, dependsOn?: pulumi.Resource[]) {
         if (args.eventSourceArn === undefined) {

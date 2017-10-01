@@ -55,12 +55,12 @@ export class Route extends pulumi.Resource {
     public readonly vpcPeeringConnectionId?: pulumi.Computed<string>;
 
     /**
-     * Create a Route resource with the given unique name, arguments and optional additional
+     * Create a Route resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Route instance
-     * @param args A collection of arguments for creating this Route intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Route instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RouteArgs, dependsOn?: pulumi.Resource[]) {
         if (args.routeTableId === undefined) {

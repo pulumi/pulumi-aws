@@ -41,12 +41,12 @@ export class Target extends pulumi.Resource {
     public readonly serviceNamespace: pulumi.Computed<string>;
 
     /**
-     * Create a Target resource with the given unique name, arguments and optional additional
+     * Create a Target resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Target instance
-     * @param args A collection of arguments for creating this Target intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Target instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TargetArgs, dependsOn?: pulumi.Resource[]) {
         if (args.maxCapacity === undefined) {

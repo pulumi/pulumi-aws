@@ -27,12 +27,12 @@ export class DomainIdentity extends pulumi.Resource {
     public /*out*/ readonly verificationToken: pulumi.Computed<string>;
 
     /**
-     * Create a DomainIdentity resource with the given unique name, arguments and optional additional
+     * Create a DomainIdentity resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DomainIdentity instance
-     * @param args A collection of arguments for creating this DomainIdentity intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DomainIdentity instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DomainIdentityArgs, dependsOn?: pulumi.Resource[]) {
         if (args.domain === undefined) {

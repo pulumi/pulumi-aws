@@ -37,12 +37,12 @@ export class UserPolicyAttachment extends pulumi.Resource {
     public readonly user: pulumi.Computed<User>;
 
     /**
-     * Create a UserPolicyAttachment resource with the given unique name, arguments and optional additional
+     * Create a UserPolicyAttachment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this UserPolicyAttachment instance
-     * @param args A collection of arguments for creating this UserPolicyAttachment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this UserPolicyAttachment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: UserPolicyAttachmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.policyArn === undefined) {

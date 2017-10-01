@@ -29,12 +29,12 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.Resource {
     public readonly securityGroupId: pulumi.Computed<string>;
 
     /**
-     * Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, arguments and optional additional
+     * Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this NetworkInterfaceSecurityGroupAttachment instance
-     * @param args A collection of arguments for creating this NetworkInterfaceSecurityGroupAttachment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this NetworkInterfaceSecurityGroupAttachment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: NetworkInterfaceSecurityGroupAttachmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.networkInterfaceId === undefined) {

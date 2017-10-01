@@ -18,14 +18,15 @@ export class IpSet extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a IpSet resource with the given unique name, arguments and optional additional
+     * Create a IpSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this IpSet instance
-     * @param args A collection of arguments for creating this IpSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this IpSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: IpSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:waf/ipSet:IpSet", urnName, {
             "ipSetDescriptors": args.ipSetDescriptors,
             "name": args.name,

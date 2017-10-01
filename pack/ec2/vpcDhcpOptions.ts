@@ -36,14 +36,15 @@ export class VpcDhcpOptions extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a VpcDhcpOptions resource with the given unique name, arguments and optional additional
+     * Create a VpcDhcpOptions resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this VpcDhcpOptions instance
-     * @param args A collection of arguments for creating this VpcDhcpOptions intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this VpcDhcpOptions instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: VpcDhcpOptionsArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", urnName, {
             "domainName": args.domainName,
             "domainNameServers": args.domainNameServers,

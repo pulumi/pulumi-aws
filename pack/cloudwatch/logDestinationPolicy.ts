@@ -17,12 +17,12 @@ export class LogDestinationPolicy extends pulumi.Resource {
     public readonly destinationName: pulumi.Computed<string>;
 
     /**
-     * Create a LogDestinationPolicy resource with the given unique name, arguments and optional additional
+     * Create a LogDestinationPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LogDestinationPolicy instance
-     * @param args A collection of arguments for creating this LogDestinationPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LogDestinationPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: LogDestinationPolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.accessPolicy === undefined) {

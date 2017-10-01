@@ -102,12 +102,12 @@ export class HaproxyLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a HaproxyLayer resource with the given unique name, arguments and optional additional
+     * Create a HaproxyLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this HaproxyLayer instance
-     * @param args A collection of arguments for creating this HaproxyLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this HaproxyLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: HaproxyLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.stackId === undefined) {

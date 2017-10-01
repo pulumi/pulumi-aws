@@ -18,12 +18,12 @@ export class VpcDhcpOptionsAssociation extends pulumi.Resource {
     public readonly vpcId: pulumi.Computed<string>;
 
     /**
-     * Create a VpcDhcpOptionsAssociation resource with the given unique name, arguments and optional additional
+     * Create a VpcDhcpOptionsAssociation resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this VpcDhcpOptionsAssociation instance
-     * @param args A collection of arguments for creating this VpcDhcpOptionsAssociation intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this VpcDhcpOptionsAssociation instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: VpcDhcpOptionsAssociationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.dhcpOptionsId === undefined) {

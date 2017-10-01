@@ -48,12 +48,12 @@ export class Role extends pulumi.Resource {
     public /*out*/ readonly uniqueId: pulumi.Computed<string>;
 
     /**
-     * Create a Role resource with the given unique name, arguments and optional additional
+     * Create a Role resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Role instance
-     * @param args A collection of arguments for creating this Role intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Role instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RoleArgs, dependsOn?: pulumi.Resource[]) {
         if (args.assumeRolePolicy === undefined) {

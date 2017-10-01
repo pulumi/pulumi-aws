@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./stack";
+export * from "./getStack";
 

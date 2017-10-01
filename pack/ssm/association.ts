@@ -38,14 +38,15 @@ export class Association extends pulumi.Resource {
     public readonly targets: pulumi.Computed<{ key: string, values: string[] }[]>;
 
     /**
-     * Create a Association resource with the given unique name, arguments and optional additional
+     * Create a Association resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Association instance
-     * @param args A collection of arguments for creating this Association intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Association instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: AssociationArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ssm/association:Association", urnName, {
             "documentVersion": args.documentVersion,
             "instanceId": args.instanceId,

@@ -72,12 +72,12 @@ export class Endpoint extends pulumi.Resource {
     public readonly username?: pulumi.Computed<string>;
 
     /**
-     * Create a Endpoint resource with the given unique name, arguments and optional additional
+     * Create a Endpoint resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Endpoint instance
-     * @param args A collection of arguments for creating this Endpoint intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Endpoint instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: EndpointArgs, dependsOn?: pulumi.Resource[]) {
         if (args.endpointId === undefined) {

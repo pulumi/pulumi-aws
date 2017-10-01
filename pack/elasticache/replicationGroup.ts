@@ -112,12 +112,12 @@ export class ReplicationGroup extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a ReplicationGroup resource with the given unique name, arguments and optional additional
+     * Create a ReplicationGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ReplicationGroup instance
-     * @param args A collection of arguments for creating this ReplicationGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ReplicationGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ReplicationGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.nodeType === undefined) {

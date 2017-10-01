@@ -40,12 +40,12 @@ export class InstanceGroup extends pulumi.Resource {
     public /*out*/ readonly status: pulumi.Computed<string>;
 
     /**
-     * Create a InstanceGroup resource with the given unique name, arguments and optional additional
+     * Create a InstanceGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this InstanceGroup instance
-     * @param args A collection of arguments for creating this InstanceGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this InstanceGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: InstanceGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.clusterId === undefined) {

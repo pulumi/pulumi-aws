@@ -25,12 +25,12 @@ export class ParameterGroup extends pulumi.Resource {
     public readonly parameter?: pulumi.Computed<{ name: string, value: string }[]>;
 
     /**
-     * Create a ParameterGroup resource with the given unique name, arguments and optional additional
+     * Create a ParameterGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ParameterGroup instance
-     * @param args A collection of arguments for creating this ParameterGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ParameterGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ParameterGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.family === undefined) {

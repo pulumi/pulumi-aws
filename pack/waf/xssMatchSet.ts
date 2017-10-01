@@ -17,14 +17,15 @@ export class XssMatchSet extends pulumi.Resource {
     public readonly xssMatchTuples?: pulumi.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
     /**
-     * Create a XssMatchSet resource with the given unique name, arguments and optional additional
+     * Create a XssMatchSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this XssMatchSet instance
-     * @param args A collection of arguments for creating this XssMatchSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this XssMatchSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: XssMatchSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:waf/xssMatchSet:XssMatchSet", urnName, {
             "name": args.name,
             "xssMatchTuples": args.xssMatchTuples,

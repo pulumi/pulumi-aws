@@ -17,14 +17,15 @@ export class SqlInjectionMatchSet extends pulumi.Resource {
     public readonly sqlInjectionMatchTuples?: pulumi.Computed<{ fieldToMatch: { data?: string, type: string }[], textTransformation: string }[]>;
 
     /**
-     * Create a SqlInjectionMatchSet resource with the given unique name, arguments and optional additional
+     * Create a SqlInjectionMatchSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this SqlInjectionMatchSet instance
-     * @param args A collection of arguments for creating this SqlInjectionMatchSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this SqlInjectionMatchSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: SqlInjectionMatchSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", urnName, {
             "name": args.name,
             "sqlInjectionMatchTuples": args.sqlInjectionMatchTuples,

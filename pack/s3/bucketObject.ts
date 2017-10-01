@@ -85,12 +85,12 @@ export class BucketObject extends pulumi.Resource {
     public readonly websiteRedirect?: pulumi.Computed<string>;
 
     /**
-     * Create a BucketObject resource with the given unique name, arguments and optional additional
+     * Create a BucketObject resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this BucketObject instance
-     * @param args A collection of arguments for creating this BucketObject intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this BucketObject instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: BucketObjectArgs, dependsOn?: pulumi.Resource[]) {
         if (args.bucket === undefined) {

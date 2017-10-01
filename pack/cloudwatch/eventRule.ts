@@ -40,14 +40,15 @@ export class EventRule extends pulumi.Resource {
     public readonly scheduleExpression?: pulumi.Computed<string>;
 
     /**
-     * Create a EventRule resource with the given unique name, arguments and optional additional
+     * Create a EventRule resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this EventRule instance
-     * @param args A collection of arguments for creating this EventRule intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this EventRule instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: EventRuleArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:cloudwatch/eventRule:EventRule", urnName, {
             "description": args.description,
             "eventPattern": args.eventPattern,

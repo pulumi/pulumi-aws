@@ -29,12 +29,12 @@ export class Parameter extends pulumi.Resource {
     public readonly value: pulumi.Computed<string>;
 
     /**
-     * Create a Parameter resource with the given unique name, arguments and optional additional
+     * Create a Parameter resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Parameter instance
-     * @param args A collection of arguments for creating this Parameter intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Parameter instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ParameterArgs, dependsOn?: pulumi.Resource[]) {
         if (args.type === undefined) {

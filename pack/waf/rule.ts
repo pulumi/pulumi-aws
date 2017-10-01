@@ -21,12 +21,12 @@ export class Rule extends pulumi.Resource {
     public readonly predicates?: pulumi.Computed<{ dataId: string, negated: boolean, type: string }[]>;
 
     /**
-     * Create a Rule resource with the given unique name, arguments and optional additional
+     * Create a Rule resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Rule instance
-     * @param args A collection of arguments for creating this Rule intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Rule instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RuleArgs, dependsOn?: pulumi.Resource[]) {
         if (args.metricName === undefined) {

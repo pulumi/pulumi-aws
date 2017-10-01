@@ -62,14 +62,15 @@ export class Queue extends pulumi.Resource {
     public readonly visibilityTimeoutSeconds?: pulumi.Computed<number>;
 
     /**
-     * Create a Queue resource with the given unique name, arguments and optional additional
+     * Create a Queue resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Queue instance
-     * @param args A collection of arguments for creating this Queue intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Queue instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: QueueArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:sqs/queue:Queue", urnName, {
             "contentBasedDeduplication": args.contentBasedDeduplication,
             "delaySeconds": args.delaySeconds,

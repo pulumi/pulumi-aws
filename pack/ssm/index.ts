@@ -11,4 +11,5 @@ export * from "./maintenanceWindowTask";
 export * from "./parameter";
 export * from "./patchBaseline";
 export * from "./patchGroup";
+export * from "./getParameter";
 

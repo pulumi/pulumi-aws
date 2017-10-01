@@ -45,14 +45,15 @@ export class PatchBaseline extends pulumi.Resource {
     public readonly rejectedPatches?: pulumi.Computed<string[]>;
 
     /**
-     * Create a PatchBaseline resource with the given unique name, arguments and optional additional
+     * Create a PatchBaseline resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this PatchBaseline instance
-     * @param args A collection of arguments for creating this PatchBaseline intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this PatchBaseline instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: PatchBaselineArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ssm/patchBaseline:PatchBaseline", urnName, {
             "approvalRule": args.approvalRule,
             "approvedPatches": args.approvedPatches,

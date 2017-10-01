@@ -49,12 +49,12 @@ export class ReplicationTask extends pulumi.Resource {
     public readonly targetEndpointArn: pulumi.Computed<string>;
 
     /**
-     * Create a ReplicationTask resource with the given unique name, arguments and optional additional
+     * Create a ReplicationTask resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ReplicationTask instance
-     * @param args A collection of arguments for creating this ReplicationTask intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ReplicationTask instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ReplicationTaskArgs, dependsOn?: pulumi.Resource[]) {
         if (args.migrationType === undefined) {

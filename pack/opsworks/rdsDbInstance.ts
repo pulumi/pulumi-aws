@@ -32,12 +32,12 @@ export class RdsDbInstance extends pulumi.Resource {
     public readonly stackId: pulumi.Computed<string>;
 
     /**
-     * Create a RdsDbInstance resource with the given unique name, arguments and optional additional
+     * Create a RdsDbInstance resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this RdsDbInstance instance
-     * @param args A collection of arguments for creating this RdsDbInstance intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this RdsDbInstance instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RdsDbInstanceArgs, dependsOn?: pulumi.Resource[]) {
         if (args.dbPassword === undefined) {

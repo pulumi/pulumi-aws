@@ -4,4 +4,6 @@
 // Export members:
 export * from "./fileSystem";
 export * from "./mountTarget";
+export * from "./getFileSystem";
+export * from "./getMountTarget";
 

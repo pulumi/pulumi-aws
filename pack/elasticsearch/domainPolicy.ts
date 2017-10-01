@@ -17,12 +17,12 @@ export class DomainPolicy extends pulumi.Resource {
     public readonly domainName: pulumi.Computed<string>;
 
     /**
-     * Create a DomainPolicy resource with the given unique name, arguments and optional additional
+     * Create a DomainPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DomainPolicy instance
-     * @param args A collection of arguments for creating this DomainPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DomainPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DomainPolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.accessPolicies === undefined) {

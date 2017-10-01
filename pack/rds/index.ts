@@ -12,4 +12,6 @@ export * from "./parameterGroup";
 export * from "./securityGroup";
 export * from "./snapshot";
 export * from "./subnetGroup";
+export * from "./getInstance";
+export * from "./getSnapshot";
 

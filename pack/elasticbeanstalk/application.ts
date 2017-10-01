@@ -22,14 +22,15 @@ export class Application extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a Application resource with the given unique name, arguments and optional additional
+     * Create a Application resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Application instance
-     * @param args A collection of arguments for creating this Application intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Application instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: ApplicationArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:elasticbeanstalk/application:Application", urnName, {
             "description": args.description,
             "name": args.name,

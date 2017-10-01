@@ -41,12 +41,12 @@ export class MethodResponse extends pulumi.Resource {
     public readonly statusCode: pulumi.Computed<string>;
 
     /**
-     * Create a MethodResponse resource with the given unique name, arguments and optional additional
+     * Create a MethodResponse resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this MethodResponse instance
-     * @param args A collection of arguments for creating this MethodResponse intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this MethodResponse instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: MethodResponseArgs, dependsOn?: pulumi.Resource[]) {
         if (args.httpMethod === undefined) {

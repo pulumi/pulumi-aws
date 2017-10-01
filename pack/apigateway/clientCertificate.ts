@@ -25,14 +25,15 @@ export class ClientCertificate extends pulumi.Resource {
     public /*out*/ readonly pemEncodedCertificate: pulumi.Computed<string>;
 
     /**
-     * Create a ClientCertificate resource with the given unique name, arguments and optional additional
+     * Create a ClientCertificate resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ClientCertificate instance
-     * @param args A collection of arguments for creating this ClientCertificate intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ClientCertificate instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: ClientCertificateArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:apigateway/clientCertificate:ClientCertificate", urnName, {
             "description": args.description,
             "createdDate": undefined,

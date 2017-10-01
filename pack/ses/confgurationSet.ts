@@ -13,14 +13,15 @@ export class ConfgurationSet extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a ConfgurationSet resource with the given unique name, arguments and optional additional
+     * Create a ConfgurationSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ConfgurationSet instance
-     * @param args A collection of arguments for creating this ConfgurationSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ConfgurationSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: ConfgurationSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ses/confgurationSet:ConfgurationSet", urnName, {
             "name": args.name,
         }, dependsOn);

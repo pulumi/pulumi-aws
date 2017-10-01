@@ -78,12 +78,12 @@ export class Table extends pulumi.Resource {
     public readonly writeCapacity: pulumi.Computed<number>;
 
     /**
-     * Create a Table resource with the given unique name, arguments and optional additional
+     * Create a Table resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Table instance
-     * @param args A collection of arguments for creating this Table intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Table instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TableArgs, dependsOn?: pulumi.Resource[]) {
         if (args.attribute === undefined) {

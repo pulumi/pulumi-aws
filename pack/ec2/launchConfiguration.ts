@@ -89,12 +89,12 @@ export class LaunchConfiguration extends pulumi.Resource {
     public readonly vpcClassicLinkSecurityGroups?: pulumi.Computed<string[]>;
 
     /**
-     * Create a LaunchConfiguration resource with the given unique name, arguments and optional additional
+     * Create a LaunchConfiguration resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LaunchConfiguration instance
-     * @param args A collection of arguments for creating this LaunchConfiguration intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LaunchConfiguration instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: LaunchConfigurationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.imageId === undefined) {

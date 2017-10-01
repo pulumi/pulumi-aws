@@ -27,14 +27,15 @@ export class StaticIp extends pulumi.Resource {
     public /*out*/ readonly supportCode: pulumi.Computed<string>;
 
     /**
-     * Create a StaticIp resource with the given unique name, arguments and optional additional
+     * Create a StaticIp resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this StaticIp instance
-     * @param args A collection of arguments for creating this StaticIp intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this StaticIp instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: StaticIpArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:lightsail/staticIp:StaticIp", urnName, {
             "name": args.name,
             "arn": undefined,

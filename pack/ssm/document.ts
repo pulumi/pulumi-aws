@@ -74,12 +74,12 @@ export class Document extends pulumi.Resource {
     public /*out*/ readonly status: pulumi.Computed<string>;
 
     /**
-     * Create a Document resource with the given unique name, arguments and optional additional
+     * Create a Document resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Document instance
-     * @param args A collection of arguments for creating this Document intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Document instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DocumentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.content === undefined) {

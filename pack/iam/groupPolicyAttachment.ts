@@ -37,12 +37,12 @@ export class GroupPolicyAttachment extends pulumi.Resource {
     public readonly policyArn: pulumi.Computed<ARN>;
 
     /**
-     * Create a GroupPolicyAttachment resource with the given unique name, arguments and optional additional
+     * Create a GroupPolicyAttachment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this GroupPolicyAttachment instance
-     * @param args A collection of arguments for creating this GroupPolicyAttachment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this GroupPolicyAttachment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: GroupPolicyAttachmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.group === undefined) {

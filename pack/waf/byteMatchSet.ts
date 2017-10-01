@@ -19,14 +19,15 @@ export class ByteMatchSet extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a ByteMatchSet resource with the given unique name, arguments and optional additional
+     * Create a ByteMatchSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ByteMatchSet instance
-     * @param args A collection of arguments for creating this ByteMatchSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ByteMatchSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: ByteMatchSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:waf/byteMatchSet:ByteMatchSet", urnName, {
             "byteMatchTuples": args.byteMatchTuples,
             "name": args.name,

@@ -4,4 +4,5 @@
 // Export members:
 export * from "./repository";
 export * from "./repositoryPolicy";
+export * from "./getRepository";
 

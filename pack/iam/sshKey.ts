@@ -33,12 +33,12 @@ export class SshKey extends pulumi.Resource {
     public readonly username: pulumi.Computed<string>;
 
     /**
-     * Create a SshKey resource with the given unique name, arguments and optional additional
+     * Create a SshKey resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this SshKey instance
-     * @param args A collection of arguments for creating this SshKey intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this SshKey instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: SshKeyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.encoding === undefined) {

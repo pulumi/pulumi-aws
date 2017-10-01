@@ -29,12 +29,12 @@ export class NetworkInterfaceAttachment extends pulumi.Resource {
     public /*out*/ readonly status: pulumi.Computed<string>;
 
     /**
-     * Create a NetworkInterfaceAttachment resource with the given unique name, arguments and optional additional
+     * Create a NetworkInterfaceAttachment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this NetworkInterfaceAttachment instance
-     * @param args A collection of arguments for creating this NetworkInterfaceAttachment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this NetworkInterfaceAttachment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: NetworkInterfaceAttachmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.deviceIndex === undefined) {

@@ -43,12 +43,12 @@ export class NetworkInterface extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a NetworkInterface resource with the given unique name, arguments and optional additional
+     * Create a NetworkInterface resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this NetworkInterface instance
-     * @param args A collection of arguments for creating this NetworkInterface intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this NetworkInterface instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: NetworkInterfaceArgs, dependsOn?: pulumi.Resource[]) {
         if (args.subnetId === undefined) {

@@ -34,12 +34,12 @@ export class ConfigurationTemplate extends pulumi.Resource {
     public readonly solutionStackName?: pulumi.Computed<string>;
 
     /**
-     * Create a ConfigurationTemplate resource with the given unique name, arguments and optional additional
+     * Create a ConfigurationTemplate resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ConfigurationTemplate instance
-     * @param args A collection of arguments for creating this ConfigurationTemplate intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ConfigurationTemplate instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ConfigurationTemplateArgs, dependsOn?: pulumi.Resource[]) {
         if (args.application === undefined) {

@@ -84,12 +84,12 @@ export class VpnConnection extends pulumi.Resource {
     public readonly vpnGatewayId: pulumi.Computed<string>;
 
     /**
-     * Create a VpnConnection resource with the given unique name, arguments and optional additional
+     * Create a VpnConnection resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this VpnConnection instance
-     * @param args A collection of arguments for creating this VpnConnection intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this VpnConnection instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: VpnConnectionArgs, dependsOn?: pulumi.Resource[]) {
         if (args.customerGatewayId === undefined) {

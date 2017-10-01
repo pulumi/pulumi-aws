@@ -17,12 +17,12 @@ export class ResourceGroup extends pulumi.Resource {
     public readonly tags: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a ResourceGroup resource with the given unique name, arguments and optional additional
+     * Create a ResourceGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ResourceGroup instance
-     * @param args A collection of arguments for creating this ResourceGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ResourceGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ResourceGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.tags === undefined) {

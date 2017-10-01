@@ -29,12 +29,12 @@ export class UserProfile extends pulumi.Resource {
     public readonly userArn: pulumi.Computed<string>;
 
     /**
-     * Create a UserProfile resource with the given unique name, arguments and optional additional
+     * Create a UserProfile resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this UserProfile instance
-     * @param args A collection of arguments for creating this UserProfile intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this UserProfile instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: UserProfileArgs, dependsOn?: pulumi.Resource[]) {
         if (args.sshUsername === undefined) {

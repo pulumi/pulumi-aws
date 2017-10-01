@@ -31,12 +31,12 @@ export class DeliveryChannel extends pulumi.Resource {
     public readonly snsTopicArn?: pulumi.Computed<string>;
 
     /**
-     * Create a DeliveryChannel resource with the given unique name, arguments and optional additional
+     * Create a DeliveryChannel resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DeliveryChannel instance
-     * @param args A collection of arguments for creating this DeliveryChannel intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DeliveryChannel instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DeliveryChannelArgs, dependsOn?: pulumi.Resource[]) {
         if (args.s3BucketName === undefined) {

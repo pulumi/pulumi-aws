@@ -61,12 +61,12 @@ export class SecurityGroupRule extends pulumi.Resource {
     public readonly type: pulumi.Computed<string>;
 
     /**
-     * Create a SecurityGroupRule resource with the given unique name, arguments and optional additional
+     * Create a SecurityGroupRule resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this SecurityGroupRule instance
-     * @param args A collection of arguments for creating this SecurityGroupRule intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this SecurityGroupRule instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: SecurityGroupRuleArgs, dependsOn?: pulumi.Resource[]) {
         if (args.fromPort === undefined) {
