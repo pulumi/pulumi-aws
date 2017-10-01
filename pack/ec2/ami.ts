@@ -71,14 +71,15 @@ export class Ami extends pulumi.Resource {
     public readonly virtualizationType?: pulumi.Computed<string>;
 
     /**
-     * Create a Ami resource with the given unique name, arguments and optional additional
+     * Create a Ami resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Ami instance
-     * @param args A collection of arguments for creating this Ami intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Ami instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: AmiArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ec2/ami:Ami", urnName, {
             "architecture": args.architecture,
             "description": args.description,

@@ -23,12 +23,12 @@ export class GroupMembership extends pulumi.Resource {
     public readonly users: pulumi.Computed<string[]>;
 
     /**
-     * Create a GroupMembership resource with the given unique name, arguments and optional additional
+     * Create a GroupMembership resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this GroupMembership instance
-     * @param args A collection of arguments for creating this GroupMembership intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this GroupMembership instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: GroupMembershipArgs, dependsOn?: pulumi.Resource[]) {
         if (args.group === undefined) {

@@ -48,12 +48,12 @@ export class ComputeEnvironment extends pulumi.Resource {
     public readonly type: pulumi.Computed<string>;
 
     /**
-     * Create a ComputeEnvironment resource with the given unique name, arguments and optional additional
+     * Create a ComputeEnvironment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ComputeEnvironment instance
-     * @param args A collection of arguments for creating this ComputeEnvironment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ComputeEnvironment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ComputeEnvironmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.computeEnvironmentName === undefined) {

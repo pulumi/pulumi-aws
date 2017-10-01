@@ -4,4 +4,7 @@
 // Export members:
 export * from "./alias";
 export * from "./key";
+export * from "./getAlias";
+export * from "./getCipherText";
+export * from "./getSecret";
 

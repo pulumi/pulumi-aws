@@ -144,12 +144,12 @@ export class Instance extends pulumi.Resource {
     public readonly virtualizationType: pulumi.Computed<string>;
 
     /**
-     * Create a Instance resource with the given unique name, arguments and optional additional
+     * Create a Instance resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Instance instance
-     * @param args A collection of arguments for creating this Instance intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Instance instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: InstanceArgs, dependsOn?: pulumi.Resource[]) {
         if (args.layerIds === undefined) {

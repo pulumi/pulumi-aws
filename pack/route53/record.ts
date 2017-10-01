@@ -66,12 +66,12 @@ export class Record extends pulumi.Resource {
     public readonly zoneId: pulumi.Computed<string>;
 
     /**
-     * Create a Record resource with the given unique name, arguments and optional additional
+     * Create a Record resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Record instance
-     * @param args A collection of arguments for creating this Record intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Record instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RecordArgs, dependsOn?: pulumi.Resource[]) {
         if (args.type === undefined) {

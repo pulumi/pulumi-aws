@@ -45,12 +45,12 @@ export class Preset extends pulumi.Resource {
     public readonly videoWatermarks?: pulumi.Computed<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[]>;
 
     /**
-     * Create a Preset resource with the given unique name, arguments and optional additional
+     * Create a Preset resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Preset instance
-     * @param args A collection of arguments for creating this Preset intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Preset instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: PresetArgs, dependsOn?: pulumi.Resource[]) {
         if (args.container === undefined) {

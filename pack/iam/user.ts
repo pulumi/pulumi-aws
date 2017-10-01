@@ -31,14 +31,15 @@ export class User extends pulumi.Resource {
     public /*out*/ readonly uniqueId: pulumi.Computed<string>;
 
     /**
-     * Create a User resource with the given unique name, arguments and optional additional
+     * Create a User resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this User instance
-     * @param args A collection of arguments for creating this User intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this User instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: UserArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:iam/user:User", urnName, {
             "forceDestroy": args.forceDestroy,
             "name": args.name,

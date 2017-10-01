@@ -89,12 +89,12 @@ export class MysqlLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a MysqlLayer resource with the given unique name, arguments and optional additional
+     * Create a MysqlLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this MysqlLayer instance
-     * @param args A collection of arguments for creating this MysqlLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this MysqlLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: MysqlLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.stackId === undefined) {

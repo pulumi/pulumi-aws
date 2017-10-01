@@ -25,12 +25,12 @@ export class Recorder extends pulumi.Resource {
     public readonly roleArn: pulumi.Computed<string>;
 
     /**
-     * Create a Recorder resource with the given unique name, arguments and optional additional
+     * Create a Recorder resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Recorder instance
-     * @param args A collection of arguments for creating this Recorder intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Recorder instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RecorderArgs, dependsOn?: pulumi.Resource[]) {
         if (args.roleArn === undefined) {

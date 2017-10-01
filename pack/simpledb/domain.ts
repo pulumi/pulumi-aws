@@ -13,14 +13,15 @@ export class Domain extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a Domain resource with the given unique name, arguments and optional additional
+     * Create a Domain resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Domain instance
-     * @param args A collection of arguments for creating this Domain intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Domain instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: DomainArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:simpledb/domain:Domain", urnName, {
             "name": args.name,
         }, dependsOn);

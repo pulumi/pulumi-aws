@@ -19,12 +19,12 @@ export class ProxyProtocolPolicy extends pulumi.Resource {
     public readonly loadBalancer: pulumi.Computed<string>;
 
     /**
-     * Create a ProxyProtocolPolicy resource with the given unique name, arguments and optional additional
+     * Create a ProxyProtocolPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ProxyProtocolPolicy instance
-     * @param args A collection of arguments for creating this ProxyProtocolPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ProxyProtocolPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ProxyProtocolPolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.instancePorts === undefined) {

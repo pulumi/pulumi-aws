@@ -73,12 +73,12 @@ export class Trail extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a Trail resource with the given unique name, arguments and optional additional
+     * Create a Trail resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Trail instance
-     * @param args A collection of arguments for creating this Trail intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Trail instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TrailArgs, dependsOn?: pulumi.Resource[]) {
         if (args.s3BucketName === undefined) {

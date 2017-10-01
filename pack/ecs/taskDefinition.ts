@@ -46,12 +46,12 @@ export class TaskDefinition extends pulumi.Resource {
     public readonly volume?: pulumi.Computed<{ hostPath?: string, name: string }[]>;
 
     /**
-     * Create a TaskDefinition resource with the given unique name, arguments and optional additional
+     * Create a TaskDefinition resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this TaskDefinition instance
-     * @param args A collection of arguments for creating this TaskDefinition intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this TaskDefinition instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TaskDefinitionArgs, dependsOn?: pulumi.Resource[]) {
         if (args.containerDefinitions === undefined) {

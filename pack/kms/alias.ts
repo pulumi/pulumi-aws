@@ -28,12 +28,12 @@ export class Alias extends pulumi.Resource {
     public readonly targetKeyId: pulumi.Computed<string>;
 
     /**
-     * Create a Alias resource with the given unique name, arguments and optional additional
+     * Create a Alias resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Alias instance
-     * @param args A collection of arguments for creating this Alias intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Alias instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: AliasArgs, dependsOn?: pulumi.Resource[]) {
         if (args.targetKeyId === undefined) {

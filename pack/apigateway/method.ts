@@ -52,12 +52,12 @@ export class Method extends pulumi.Resource {
     public readonly restApi: pulumi.Computed<RestApi>;
 
     /**
-     * Create a Method resource with the given unique name, arguments and optional additional
+     * Create a Method resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Method instance
-     * @param args A collection of arguments for creating this Method intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Method instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: MethodArgs, dependsOn?: pulumi.Resource[]) {
         if (args.authorization === undefined) {

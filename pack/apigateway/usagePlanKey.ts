@@ -29,12 +29,12 @@ export class UsagePlanKey extends pulumi.Resource {
     public /*out*/ readonly value: pulumi.Computed<string>;
 
     /**
-     * Create a UsagePlanKey resource with the given unique name, arguments and optional additional
+     * Create a UsagePlanKey resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this UsagePlanKey instance
-     * @param args A collection of arguments for creating this UsagePlanKey intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this UsagePlanKey instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: UsagePlanKeyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.keyId === undefined) {

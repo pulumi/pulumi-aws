@@ -46,14 +46,15 @@ export class EipAssociation extends pulumi.Resource {
     public readonly publicIp: pulumi.Computed<string>;
 
     /**
-     * Create a EipAssociation resource with the given unique name, arguments and optional additional
+     * Create a EipAssociation resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this EipAssociation instance
-     * @param args A collection of arguments for creating this EipAssociation intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this EipAssociation instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: EipAssociationArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ec2/eipAssociation:EipAssociation", urnName, {
             "allocationId": args.allocationId,
             "allowReassociation": args.allowReassociation,

@@ -49,12 +49,12 @@ export class Deployment extends pulumi.Resource {
     public readonly variables?: pulumi.Computed<{[key: string]: string}>;
 
     /**
-     * Create a Deployment resource with the given unique name, arguments and optional additional
+     * Create a Deployment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Deployment instance
-     * @param args A collection of arguments for creating this Deployment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Deployment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DeploymentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.restApi === undefined) {

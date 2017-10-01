@@ -34,12 +34,12 @@ export class DefaultSubnet extends pulumi.Resource {
     public /*out*/ readonly vpcId: pulumi.Computed<string>;
 
     /**
-     * Create a DefaultSubnet resource with the given unique name, arguments and optional additional
+     * Create a DefaultSubnet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DefaultSubnet instance
-     * @param args A collection of arguments for creating this DefaultSubnet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DefaultSubnet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DefaultSubnetArgs, dependsOn?: pulumi.Resource[]) {
         if (args.availabilityZone === undefined) {

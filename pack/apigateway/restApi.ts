@@ -33,14 +33,15 @@ export class RestApi extends pulumi.Resource {
     public /*out*/ readonly rootResourceId: pulumi.Computed<string>;
 
     /**
-     * Create a RestApi resource with the given unique name, arguments and optional additional
+     * Create a RestApi resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this RestApi instance
-     * @param args A collection of arguments for creating this RestApi intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this RestApi instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: RestApiArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:apigateway/restApi:RestApi", urnName, {
             "binaryMediaTypes": args.binaryMediaTypes,
             "body": args.body,

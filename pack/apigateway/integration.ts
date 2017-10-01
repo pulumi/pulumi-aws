@@ -72,12 +72,12 @@ export class Integration extends pulumi.Resource {
     public readonly uri?: pulumi.Computed<string>;
 
     /**
-     * Create a Integration resource with the given unique name, arguments and optional additional
+     * Create a Integration resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Integration instance
-     * @param args A collection of arguments for creating this Integration intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Integration instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: IntegrationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.httpMethod === undefined) {

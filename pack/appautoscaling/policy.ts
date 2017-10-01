@@ -46,12 +46,12 @@ export class Policy extends pulumi.Resource {
     public readonly stepScalingPolicyConfiguration?: pulumi.Computed<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustment?: { metricIntervalLowerBound?: number, metricIntervalUpperBound?: number, scalingAdjustment: number }[] }[]>;
 
     /**
-     * Create a Policy resource with the given unique name, arguments and optional additional
+     * Create a Policy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Policy instance
-     * @param args A collection of arguments for creating this Policy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Policy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: PolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.resourceId === undefined) {

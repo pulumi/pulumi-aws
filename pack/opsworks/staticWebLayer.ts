@@ -75,12 +75,12 @@ export class StaticWebLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a StaticWebLayer resource with the given unique name, arguments and optional additional
+     * Create a StaticWebLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this StaticWebLayer instance
-     * @param args A collection of arguments for creating this StaticWebLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this StaticWebLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: StaticWebLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.stackId === undefined) {

@@ -45,12 +45,12 @@ export class Snapshot extends pulumi.Resource {
     public /*out*/ readonly volumeSize: pulumi.Computed<number>;
 
     /**
-     * Create a Snapshot resource with the given unique name, arguments and optional additional
+     * Create a Snapshot resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Snapshot instance
-     * @param args A collection of arguments for creating this Snapshot intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Snapshot instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: SnapshotArgs, dependsOn?: pulumi.Resource[]) {
         if (args.volumeId === undefined) {

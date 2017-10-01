@@ -7,4 +7,5 @@ export * from "./healthCheck";
 export * from "./record";
 export * from "./zone";
 export * from "./zoneAssociation";
+export * from "./getZone";
 

@@ -21,14 +21,15 @@ export class Account extends pulumi.Resource {
     public /*out*/ readonly throttleSettings: pulumi.Computed<{ burstLimit: number, rateLimit: number }[]>;
 
     /**
-     * Create a Account resource with the given unique name, arguments and optional additional
+     * Create a Account resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Account instance
-     * @param args A collection of arguments for creating this Account intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Account instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: AccountArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:apigateway/account:Account", urnName, {
             "cloudwatchRoleArn": args.cloudwatchRoleArn,
             "throttleSettings": undefined,

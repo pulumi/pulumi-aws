@@ -22,12 +22,12 @@ export class LoadBalancerBackendServerPolicy extends pulumi.Resource {
     public readonly policyNames?: pulumi.Computed<string[]>;
 
     /**
-     * Create a LoadBalancerBackendServerPolicy resource with the given unique name, arguments and optional additional
+     * Create a LoadBalancerBackendServerPolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LoadBalancerBackendServerPolicy instance
-     * @param args A collection of arguments for creating this LoadBalancerBackendServerPolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LoadBalancerBackendServerPolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: LoadBalancerBackendServerPolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.instancePort === undefined) {

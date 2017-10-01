@@ -33,14 +33,15 @@ export class UsagePlan extends pulumi.Resource {
     public readonly throttleSettings?: pulumi.Computed<{ burstLimit?: number, rateLimit?: number }[]>;
 
     /**
-     * Create a UsagePlan resource with the given unique name, arguments and optional additional
+     * Create a UsagePlan resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this UsagePlan instance
-     * @param args A collection of arguments for creating this UsagePlan intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this UsagePlan instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: UsagePlanArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:apigateway/usagePlan:UsagePlan", urnName, {
             "apiStages": args.apiStages,
             "description": args.description,

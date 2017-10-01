@@ -48,14 +48,15 @@ export class Key extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a Key resource with the given unique name, arguments and optional additional
+     * Create a Key resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Key instance
-     * @param args A collection of arguments for creating this Key intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Key instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: KeyArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:kms/key:Key", urnName, {
             "deletionWindowInDays": args.deletionWindowInDays,
             "description": args.description,

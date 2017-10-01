@@ -49,12 +49,12 @@ export class DeploymentGroup extends pulumi.Resource {
     public readonly triggerConfiguration?: pulumi.Computed<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[]>;
 
     /**
-     * Create a DeploymentGroup resource with the given unique name, arguments and optional additional
+     * Create a DeploymentGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DeploymentGroup instance
-     * @param args A collection of arguments for creating this DeploymentGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DeploymentGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DeploymentGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.appName === undefined) {

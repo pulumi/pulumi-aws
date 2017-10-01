@@ -24,12 +24,12 @@ export class TargetGroupAttachment extends pulumi.Resource {
     public readonly targetId: pulumi.Computed<string>;
 
     /**
-     * Create a TargetGroupAttachment resource with the given unique name, arguments and optional additional
+     * Create a TargetGroupAttachment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this TargetGroupAttachment instance
-     * @param args A collection of arguments for creating this TargetGroupAttachment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this TargetGroupAttachment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TargetGroupAttachmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.targetGroupArn === undefined) {

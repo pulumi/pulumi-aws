@@ -72,12 +72,12 @@ export class SpotFleetRequest extends pulumi.Resource {
     public readonly waitForFulfillment?: pulumi.Computed<boolean>;
 
     /**
-     * Create a SpotFleetRequest resource with the given unique name, arguments and optional additional
+     * Create a SpotFleetRequest resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this SpotFleetRequest instance
-     * @param args A collection of arguments for creating this SpotFleetRequest intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this SpotFleetRequest instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: SpotFleetRequestArgs, dependsOn?: pulumi.Resource[]) {
         if (args.iamFleetRole === undefined) {

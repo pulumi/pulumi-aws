@@ -37,12 +37,12 @@ export class ClusterParameterGroup extends pulumi.Resource {
     public readonly tags?: pulumi.Computed<{[key: string]: any}>;
 
     /**
-     * Create a ClusterParameterGroup resource with the given unique name, arguments and optional additional
+     * Create a ClusterParameterGroup resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ClusterParameterGroup instance
-     * @param args A collection of arguments for creating this ClusterParameterGroup intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ClusterParameterGroup instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ClusterParameterGroupArgs, dependsOn?: pulumi.Resource[]) {
         if (args.family === undefined) {

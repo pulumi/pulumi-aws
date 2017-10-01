@@ -26,12 +26,12 @@ export class CustomerGateway extends pulumi.Resource {
     public readonly type: pulumi.Computed<string>;
 
     /**
-     * Create a CustomerGateway resource with the given unique name, arguments and optional additional
+     * Create a CustomerGateway resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this CustomerGateway instance
-     * @param args A collection of arguments for creating this CustomerGateway intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this CustomerGateway instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: CustomerGatewayArgs, dependsOn?: pulumi.Resource[]) {
         if (args.bgpAsn === undefined) {

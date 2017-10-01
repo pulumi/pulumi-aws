@@ -31,12 +31,12 @@ export class LogSubscriptionFilter extends pulumi.Resource {
     public readonly roleArn: pulumi.Computed<string>;
 
     /**
-     * Create a LogSubscriptionFilter resource with the given unique name, arguments and optional additional
+     * Create a LogSubscriptionFilter resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this LogSubscriptionFilter instance
-     * @param args A collection of arguments for creating this LogSubscriptionFilter intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this LogSubscriptionFilter instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: LogSubscriptionFilterArgs, dependsOn?: pulumi.Resource[]) {
         if (args.destinationArn === undefined) {

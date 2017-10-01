@@ -152,12 +152,12 @@ export class Distribution extends pulumi.Resource {
     public readonly webAclId?: pulumi.Computed<string>;
 
     /**
-     * Create a Distribution resource with the given unique name, arguments and optional additional
+     * Create a Distribution resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Distribution instance
-     * @param args A collection of arguments for creating this Distribution intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Distribution instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: DistributionArgs, dependsOn?: pulumi.Resource[]) {
         if (args.defaultCacheBehavior === undefined) {

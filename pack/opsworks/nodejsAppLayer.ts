@@ -82,12 +82,12 @@ export class NodejsAppLayer extends pulumi.Resource {
     public readonly useEbsOptimizedInstances?: pulumi.Computed<boolean>;
 
     /**
-     * Create a NodejsAppLayer resource with the given unique name, arguments and optional additional
+     * Create a NodejsAppLayer resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this NodejsAppLayer instance
-     * @param args A collection of arguments for creating this NodejsAppLayer intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this NodejsAppLayer instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: NodejsAppLayerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.stackId === undefined) {

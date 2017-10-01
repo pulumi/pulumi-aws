@@ -27,12 +27,12 @@ export class MethodSettings extends pulumi.Resource {
     public readonly stageName: pulumi.Computed<string>;
 
     /**
-     * Create a MethodSettings resource with the given unique name, arguments and optional additional
+     * Create a MethodSettings resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this MethodSettings instance
-     * @param args A collection of arguments for creating this MethodSettings intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this MethodSettings instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: MethodSettingsArgs, dependsOn?: pulumi.Resource[]) {
         if (args.methodPath === undefined) {

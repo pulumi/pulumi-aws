@@ -30,12 +30,12 @@ export class MaintenanceWindow extends pulumi.Resource {
     public readonly schedule: pulumi.Computed<string>;
 
     /**
-     * Create a MaintenanceWindow resource with the given unique name, arguments and optional additional
+     * Create a MaintenanceWindow resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this MaintenanceWindow instance
-     * @param args A collection of arguments for creating this MaintenanceWindow intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this MaintenanceWindow instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: MaintenanceWindowArgs, dependsOn?: pulumi.Resource[]) {
         if (args.cutoff === undefined) {

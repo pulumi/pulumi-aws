@@ -86,12 +86,12 @@ export class HealthCheck extends pulumi.Resource {
     public readonly type: pulumi.Computed<string>;
 
     /**
-     * Create a HealthCheck resource with the given unique name, arguments and optional additional
+     * Create a HealthCheck resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this HealthCheck instance
-     * @param args A collection of arguments for creating this HealthCheck intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this HealthCheck instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: HealthCheckArgs, dependsOn?: pulumi.Resource[]) {
         if (args.type === undefined) {

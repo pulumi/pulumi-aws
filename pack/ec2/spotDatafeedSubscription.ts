@@ -20,12 +20,12 @@ export class SpotDatafeedSubscription extends pulumi.Resource {
     public readonly prefix?: pulumi.Computed<string>;
 
     /**
-     * Create a SpotDatafeedSubscription resource with the given unique name, arguments and optional additional
+     * Create a SpotDatafeedSubscription resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this SpotDatafeedSubscription instance
-     * @param args A collection of arguments for creating this SpotDatafeedSubscription intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this SpotDatafeedSubscription instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: SpotDatafeedSubscriptionArgs, dependsOn?: pulumi.Resource[]) {
         if (args.bucket === undefined) {

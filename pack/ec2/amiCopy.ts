@@ -94,12 +94,12 @@ export class AmiCopy extends pulumi.Resource {
     public /*out*/ readonly virtualizationType: pulumi.Computed<string>;
 
     /**
-     * Create a AmiCopy resource with the given unique name, arguments and optional additional
+     * Create a AmiCopy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this AmiCopy instance
-     * @param args A collection of arguments for creating this AmiCopy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this AmiCopy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: AmiCopyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.sourceAmiId === undefined) {

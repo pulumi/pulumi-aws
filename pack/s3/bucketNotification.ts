@@ -25,12 +25,12 @@ export class BucketNotification extends pulumi.Resource {
     public readonly topic?: pulumi.Computed<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[]>;
 
     /**
-     * Create a BucketNotification resource with the given unique name, arguments and optional additional
+     * Create a BucketNotification resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this BucketNotification instance
-     * @param args A collection of arguments for creating this BucketNotification intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this BucketNotification instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: BucketNotificationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.bucket === undefined) {

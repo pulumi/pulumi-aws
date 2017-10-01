@@ -13,12 +13,12 @@ export class ActiveReceiptRuleSet extends pulumi.Resource {
     public readonly ruleSetName: pulumi.Computed<string>;
 
     /**
-     * Create a ActiveReceiptRuleSet resource with the given unique name, arguments and optional additional
+     * Create a ActiveReceiptRuleSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ActiveReceiptRuleSet instance
-     * @param args A collection of arguments for creating this ActiveReceiptRuleSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ActiveReceiptRuleSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ActiveReceiptRuleSetArgs, dependsOn?: pulumi.Resource[]) {
         if (args.ruleSetName === undefined) {

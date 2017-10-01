@@ -12,12 +12,12 @@ export class RequestValidator extends pulumi.Resource {
     public readonly validateRequestParameters?: pulumi.Computed<boolean>;
 
     /**
-     * Create a RequestValidator resource with the given unique name, arguments and optional additional
+     * Create a RequestValidator resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this RequestValidator instance
-     * @param args A collection of arguments for creating this RequestValidator intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this RequestValidator instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: RequestValidatorArgs, dependsOn?: pulumi.Resource[]) {
         if (args.restApi === undefined) {

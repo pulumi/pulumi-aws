@@ -49,12 +49,12 @@ export class Schedule extends pulumi.Resource {
     public readonly startTime: pulumi.Computed<string>;
 
     /**
-     * Create a Schedule resource with the given unique name, arguments and optional additional
+     * Create a Schedule resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Schedule instance
-     * @param args A collection of arguments for creating this Schedule intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Schedule instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ScheduleArgs, dependsOn?: pulumi.Resource[]) {
         if (args.autoscalingGroupName === undefined) {

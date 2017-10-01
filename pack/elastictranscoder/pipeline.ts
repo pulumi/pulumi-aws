@@ -50,12 +50,12 @@ export class Pipeline extends pulumi.Resource {
     public readonly thumbnailConfigPermissions?: pulumi.Computed<{ access?: string[], grantee?: string, granteeType?: string }[]>;
 
     /**
-     * Create a Pipeline resource with the given unique name, arguments and optional additional
+     * Create a Pipeline resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Pipeline instance
-     * @param args A collection of arguments for creating this Pipeline intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Pipeline instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: PipelineArgs, dependsOn?: pulumi.Resource[]) {
         if (args.inputBucket === undefined) {

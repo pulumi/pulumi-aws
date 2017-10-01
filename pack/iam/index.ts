@@ -23,5 +23,11 @@ export * from "./user";
 export * from "./userLoginProfile";
 export * from "./userPolicy";
 export * from "./userPolicyAttachment";
+export * from "./getAccountAlias";
+export * from "./getGroup";
+export * from "./getInstanceProfile";
+export * from "./getPolicyDocument";
+export * from "./getRole";
+export * from "./getServerCertificate";
 export * from "./managedPolicies";
 

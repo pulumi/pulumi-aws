@@ -13,14 +13,15 @@ export class Cluster extends pulumi.Resource {
     public readonly name: pulumi.Computed<string>;
 
     /**
-     * Create a Cluster resource with the given unique name, arguments and optional additional
+     * Create a Cluster resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Cluster instance
-     * @param args A collection of arguments for creating this Cluster intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Cluster instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: ClusterArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:ecs/cluster:Cluster", urnName, {
             "name": args.name,
         }, dependsOn);

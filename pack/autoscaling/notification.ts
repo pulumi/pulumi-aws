@@ -24,12 +24,12 @@ export class Notification extends pulumi.Resource {
     public readonly topicArn: pulumi.Computed<string>;
 
     /**
-     * Create a Notification resource with the given unique name, arguments and optional additional
+     * Create a Notification resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Notification instance
-     * @param args A collection of arguments for creating this Notification intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Notification instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: NotificationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.groupNames === undefined) {

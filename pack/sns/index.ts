@@ -5,4 +5,5 @@
 export * from "./topic";
 export * from "./topicPolicy";
 export * from "./topicSubscription";
+export * from "./getTopic";
 

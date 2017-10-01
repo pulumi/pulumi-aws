@@ -35,12 +35,12 @@ export class NetworkAcl extends pulumi.Resource {
     public readonly vpcId: pulumi.Computed<string>;
 
     /**
-     * Create a NetworkAcl resource with the given unique name, arguments and optional additional
+     * Create a NetworkAcl resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this NetworkAcl instance
-     * @param args A collection of arguments for creating this NetworkAcl intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this NetworkAcl instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: NetworkAclArgs, dependsOn?: pulumi.Resource[]) {
         if (args.vpcId === undefined) {

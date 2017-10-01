@@ -110,12 +110,12 @@ export class Stack extends pulumi.Resource {
     public readonly vpcId: pulumi.Computed<string>;
 
     /**
-     * Create a Stack resource with the given unique name, arguments and optional additional
+     * Create a Stack resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Stack instance
-     * @param args A collection of arguments for creating this Stack intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Stack instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: StackArgs, dependsOn?: pulumi.Resource[]) {
         if (args.defaultInstanceProfileArn === undefined) {

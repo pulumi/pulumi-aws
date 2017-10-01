@@ -19,12 +19,12 @@ export class AssessmentTarget extends pulumi.Resource {
     public readonly resourceGroupArn: pulumi.Computed<string>;
 
     /**
-     * Create a AssessmentTarget resource with the given unique name, arguments and optional additional
+     * Create a AssessmentTarget resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this AssessmentTarget instance
-     * @param args A collection of arguments for creating this AssessmentTarget intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this AssessmentTarget instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: AssessmentTargetArgs, dependsOn?: pulumi.Resource[]) {
         if (args.resourceGroupArn === undefined) {

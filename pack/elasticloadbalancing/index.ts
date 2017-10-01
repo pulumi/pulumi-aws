@@ -9,4 +9,6 @@ export * from "./loadBalancer";
 export * from "./loadBalancerBackendServerPolicy";
 export * from "./loadBalancerPolicy";
 export * from "./sslNegotiationPolicy";
+export * from "./getHostedZoneId";
+export * from "./getServiceAccount";
 

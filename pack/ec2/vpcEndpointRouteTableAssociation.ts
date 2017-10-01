@@ -23,12 +23,12 @@ export class VpcEndpointRouteTableAssociation extends pulumi.Resource {
     public readonly vpcEndpointId: pulumi.Computed<string>;
 
     /**
-     * Create a VpcEndpointRouteTableAssociation resource with the given unique name, arguments and optional additional
+     * Create a VpcEndpointRouteTableAssociation resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this VpcEndpointRouteTableAssociation instance
-     * @param args A collection of arguments for creating this VpcEndpointRouteTableAssociation intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this VpcEndpointRouteTableAssociation instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: VpcEndpointRouteTableAssociationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.routeTableId === undefined) {

@@ -18,12 +18,12 @@ export class QueuePolicy extends pulumi.Resource {
     public readonly queueUrl: pulumi.Computed<string>;
 
     /**
-     * Create a QueuePolicy resource with the given unique name, arguments and optional additional
+     * Create a QueuePolicy resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this QueuePolicy instance
-     * @param args A collection of arguments for creating this QueuePolicy intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this QueuePolicy instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: QueuePolicyArgs, dependsOn?: pulumi.Resource[]) {
         if (args.policy === undefined) {

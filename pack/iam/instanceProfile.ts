@@ -47,14 +47,15 @@ export class InstanceProfile extends pulumi.Resource {
     public /*out*/ readonly uniqueId: pulumi.Computed<string>;
 
     /**
-     * Create a InstanceProfile resource with the given unique name, arguments and optional additional
+     * Create a InstanceProfile resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this InstanceProfile instance
-     * @param args A collection of arguments for creating this InstanceProfile intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this InstanceProfile instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: InstanceProfileArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:iam/instanceProfile:InstanceProfile", urnName, {
             "name": args.name,
             "namePrefix": args.namePrefix,

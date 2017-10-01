@@ -21,12 +21,12 @@ export class ZoneAssociation extends pulumi.Resource {
     public readonly zoneId: pulumi.Computed<string>;
 
     /**
-     * Create a ZoneAssociation resource with the given unique name, arguments and optional additional
+     * Create a ZoneAssociation resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ZoneAssociation instance
-     * @param args A collection of arguments for creating this ZoneAssociation intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ZoneAssociation instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ZoneAssociationArgs, dependsOn?: pulumi.Resource[]) {
         if (args.vpcId === undefined) {

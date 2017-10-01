@@ -56,12 +56,12 @@ export class Service extends pulumi.Resource {
     public readonly taskDefinition: pulumi.Computed<string>;
 
     /**
-     * Create a Service resource with the given unique name, arguments and optional additional
+     * Create a Service resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Service instance
-     * @param args A collection of arguments for creating this Service intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Service instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ServiceArgs, dependsOn?: pulumi.Resource[]) {
         if (args.taskDefinition === undefined) {

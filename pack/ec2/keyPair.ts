@@ -33,12 +33,12 @@ export class KeyPair extends pulumi.Resource {
     public readonly publicKey: pulumi.Computed<string>;
 
     /**
-     * Create a KeyPair resource with the given unique name, arguments and optional additional
+     * Create a KeyPair resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this KeyPair instance
-     * @param args A collection of arguments for creating this KeyPair intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this KeyPair instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: KeyPairArgs, dependsOn?: pulumi.Resource[]) {
         if (args.publicKey === undefined) {

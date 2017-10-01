@@ -40,12 +40,12 @@ export class VolumeAttachment extends pulumi.Resource {
     public readonly volumeId: pulumi.Computed<string>;
 
     /**
-     * Create a VolumeAttachment resource with the given unique name, arguments and optional additional
+     * Create a VolumeAttachment resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this VolumeAttachment instance
-     * @param args A collection of arguments for creating this VolumeAttachment intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this VolumeAttachment instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: VolumeAttachmentArgs, dependsOn?: pulumi.Resource[]) {
         if (args.deviceName === undefined) {

@@ -129,12 +129,12 @@ export class ClusterInstance extends pulumi.Resource {
     public /*out*/ readonly writer: pulumi.Computed<boolean>;
 
     /**
-     * Create a ClusterInstance resource with the given unique name, arguments and optional additional
+     * Create a ClusterInstance resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ClusterInstance instance
-     * @param args A collection of arguments for creating this ClusterInstance intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ClusterInstance instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ClusterInstanceArgs, dependsOn?: pulumi.Resource[]) {
         if (args.clusterIdentifier === undefined) {

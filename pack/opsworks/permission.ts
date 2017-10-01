@@ -33,12 +33,12 @@ export class Permission extends pulumi.Resource {
     public readonly userArn: pulumi.Computed<string>;
 
     /**
-     * Create a Permission resource with the given unique name, arguments and optional additional
+     * Create a Permission resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Permission instance
-     * @param args A collection of arguments for creating this Permission intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Permission instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: PermissionArgs, dependsOn?: pulumi.Resource[]) {
         if (args.userArn === undefined) {

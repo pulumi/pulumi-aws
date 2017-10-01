@@ -45,14 +45,15 @@ export class OriginAccessIdentity extends pulumi.Resource {
     public /*out*/ readonly s3CanonicalUserId: pulumi.Computed<string>;
 
     /**
-     * Create a OriginAccessIdentity resource with the given unique name, arguments and optional additional
+     * Create a OriginAccessIdentity resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this OriginAccessIdentity instance
-     * @param args A collection of arguments for creating this OriginAccessIdentity intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this OriginAccessIdentity instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: OriginAccessIdentityArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", urnName, {
             "comment": args.comment,
             "callerReference": undefined,

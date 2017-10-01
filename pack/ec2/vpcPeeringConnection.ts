@@ -50,12 +50,12 @@ export class VpcPeeringConnection extends pulumi.Resource {
     public readonly vpcId: pulumi.Computed<string>;
 
     /**
-     * Create a VpcPeeringConnection resource with the given unique name, arguments and optional additional
+     * Create a VpcPeeringConnection resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this VpcPeeringConnection instance
-     * @param args A collection of arguments for creating this VpcPeeringConnection intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this VpcPeeringConnection instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: VpcPeeringConnectionArgs, dependsOn?: pulumi.Resource[]) {
         if (args.peerVpcId === undefined) {

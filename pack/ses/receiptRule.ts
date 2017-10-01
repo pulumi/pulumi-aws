@@ -65,12 +65,12 @@ export class ReceiptRule extends pulumi.Resource {
     public readonly workmailAction?: pulumi.Computed<{ organizationArn: string, position: number, topicArn?: string }[]>;
 
     /**
-     * Create a ReceiptRule resource with the given unique name, arguments and optional additional
+     * Create a ReceiptRule resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this ReceiptRule instance
-     * @param args A collection of arguments for creating this ReceiptRule intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this ReceiptRule instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: ReceiptRuleArgs, dependsOn?: pulumi.Resource[]) {
         if (args.ruleSetName === undefined) {

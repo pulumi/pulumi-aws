@@ -19,12 +19,12 @@ export class Trigger extends pulumi.Resource {
     public readonly trigger: pulumi.Computed<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
     /**
-     * Create a Trigger resource with the given unique name, arguments and optional additional
+     * Create a Trigger resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Trigger instance
-     * @param args A collection of arguments for creating this Trigger intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Trigger instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: TriggerArgs, dependsOn?: pulumi.Resource[]) {
         if (args.repositoryName === undefined) {

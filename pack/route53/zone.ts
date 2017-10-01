@@ -49,14 +49,15 @@ export class Zone extends pulumi.Resource {
     public /*out*/ readonly zoneId: pulumi.Computed<string>;
 
     /**
-     * Create a Zone resource with the given unique name, arguments and optional additional
+     * Create a Zone resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Zone instance
-     * @param args A collection of arguments for creating this Zone intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Zone instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: ZoneArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:route53/zone:Zone", urnName, {
             "comment": args.comment,
             "delegationSetId": args.delegationSetId,

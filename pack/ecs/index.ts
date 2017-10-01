@@ -5,4 +5,7 @@
 export * from "./cluster";
 export * from "./service";
 export * from "./taskDefinition";
+export * from "./getCluster";
+export * from "./getContainerDefinition";
+export * from "./getTaskDefinition";
 

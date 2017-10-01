@@ -19,14 +19,15 @@ export class DelegationSet extends pulumi.Resource {
     public readonly referenceName?: pulumi.Computed<string>;
 
     /**
-     * Create a DelegationSet resource with the given unique name, arguments and optional additional
+     * Create a DelegationSet resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this DelegationSet instance
-     * @param args A collection of arguments for creating this DelegationSet intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this DelegationSet instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args?: DelegationSetArgs, dependsOn?: pulumi.Resource[]) {
+        args = args || {};
         super("aws:route53/delegationSet:DelegationSet", urnName, {
             "referenceName": args.referenceName,
             "nameServers": undefined,

@@ -28,12 +28,12 @@ export class Certificate extends pulumi.Resource {
     public readonly certificateWallet?: pulumi.Computed<string>;
 
     /**
-     * Create a Certificate resource with the given unique name, arguments and optional additional
+     * Create a Certificate resource with the given unique name, arguments, and optional additional
      * resource dependencies.
      *
      * @param urnName A _unique_ name for this Certificate instance
-     * @param args A collection of arguments for creating this Certificate intance
-     * @param dependsOn A optional array of additional resources this intance depends on
+     * @param args A collection of arguments for creating this Certificate instance
+     * @param dependsOn A optional array of additional resources this instance depends on
      */
     constructor(urnName: string, args: CertificateArgs, dependsOn?: pulumi.Resource[]) {
         if (args.certificateId === undefined) {
