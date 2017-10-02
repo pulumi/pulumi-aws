@@ -16,8 +16,8 @@
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
   packages = ["aws","aws/arn","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/ec2query","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restjson","private/protocol/restxml","private/protocol/xml/xmlutil","private/signer/v2","service/acm","service/apigateway","service/applicationautoscaling","service/autoscaling","service/batch","service/cloudformation","service/cloudfront","service/cloudtrail","service/cloudwatch","service/cloudwatchevents","service/cloudwatchlogs","service/codebuild","service/codecommit","service/codedeploy","service/codepipeline","service/cognitoidentity","service/configservice","service/databasemigrationservice","service/devicefarm","service/directoryservice","service/dynamodb","service/ec2","service/ecr","service/ecs","service/efs","service/elasticache","service/elasticbeanstalk","service/elasticsearchservice","service/elastictranscoder","service/elb","service/elbv2","service/emr","service/firehose","service/glacier","service/iam","service/inspector","service/iot","service/kinesis","service/kms","service/lambda","service/lightsail","service/opsworks","service/rds","service/redshift","service/route53","service/s3","service/ses","service/sfn","service/simpledb","service/sns","service/sqs","service/ssm","service/sts","service/waf","service/wafregional"]
-  revision = "6198197eabb9bb93346ae204d79ac2225e44cf05"
-  version = "v1.12.2"
+  revision = "8b344ddb7a49daf794928d1db484ad9a81499858"
+  version = "v1.12.3"
 
 [[projects]]
   branch = "master"
@@ -60,12 +60,6 @@
   name = "github.com/golang/protobuf"
   packages = ["proto","protoc-gen-go/descriptor","ptypes","ptypes/any","ptypes/duration","ptypes/empty","ptypes/struct","ptypes/timestamp"]
   revision = "130e6b02ab059e7b717a096f397c5b60111cae74"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/golang/snappy"
-  packages = ["."]
-  revision = "553a641470496b2327abcac10b36396bd98e45c9"
 
 [[projects]]
   branch = "master"
@@ -124,14 +118,14 @@
 [[projects]]
   name = "github.com/hashicorp/terraform"
   packages = ["config","config/module","dag","flatmap","helper/config","helper/encryption","helper/hashcode","helper/hilmapstructure","helper/logging","helper/mutexkv","helper/resource","helper/schema","helper/structure","helper/validation","moduledeps","plugin/discovery","terraform"]
-  revision = "8712b03839d1f63c0bfe11cf5f08e94014aeb85c"
-  version = "v0.10.6"
+  revision = "8ba8fc79c106dee098c625f4c40cd53d73660a92"
+  version = "v0.10.7"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
   packages = ["helper/compressutil","helper/jsonutil","helper/pgpkeys"]
-  revision = "6b29fb2b7f70ed538ee2b3c057335d706b6d4e36"
-  version = "v0.8.3"
+  revision = "25e45c004d95c6539d952e86c96287d585c09c46"
+  version = "v0.6.1-rc2"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -149,12 +143,6 @@
   name = "github.com/jmespath/go-jmespath"
   packages = ["."]
   revision = "0b12d6b5"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/keybase/go-crypto"
-  packages = ["brainpool","cast5","curve25519","ed25519","ed25519/internal/edwards25519","openpgp","openpgp/armor","openpgp/ecdh","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","rsa"]
-  revision = "433e2f3d43ef1bd31387582a899389b2fbe2005e"
 
 [[projects]]
   name = "github.com/mattn/go-isatty"
@@ -205,16 +193,10 @@
   revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
 
 [[projects]]
-  name = "github.com/pelletier/go-buffruneio"
-  packages = ["."]
-  revision = "c37440a7cf42ac63b919c752ca73a85067e05992"
-  version = "v0.2.0"
-
-[[projects]]
   name = "github.com/pelletier/go-toml"
   packages = ["."]
-  revision = "5ccdfb18c776b740aecaf085c4d9a2779199c279"
-  version = "v1.0.0"
+  revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
+  version = "v1.0.1"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -238,13 +220,13 @@
   branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/environment","pkg/resource/plugin","pkg/resource/provider","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","sdk/proto/go"]
-  revision = "343d3c8ccf2e909a9c5f79e842b04ec7ce9920ba"
+  revision = "ff2a3fa24214db82a58477136899371af3486260"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "eb92edfe82f24965686c847ef1c695a360586eca"
+  revision = "919a208b8b292d7e9fd936237f80e0269d666089"
 
 [[projects]]
   branch = "master"
@@ -262,7 +244,7 @@
   branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "e5f66de850af3302fbe378c8acded2b0fa55472c"
+  revision = "0dacccfbaabc71b872087c1719c5380d3e185173"
 
 [[projects]]
   name = "github.com/spf13/pflag"
