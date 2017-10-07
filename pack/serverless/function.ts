@@ -1,6 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-import * as crypto from "crypto";
 import * as pulumi from "pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
@@ -42,154 +41,6 @@ let policy = {
     ],
 };
 
-interface FuncEnv {
-    code: string;
-    env: { [key: string]: string; };
-}
-
-/**
- * FuncsForClosure collects all the function defintions needed to support serialization of a given Closure object.
- * Context is the shape of the context object passed to a Function callback.
- * Note that a Closure object can reference other Closure objects and can also have cycles, so we recursively walk the
- * graph and cache serialized nodes along the way to avoid cycles.
- */ 
-class FuncsForClosure {
-    public funcs: { [hash: string]: FuncEnv }; // a cache of functions.
-    public root: string;                       // the root closure hash.
-
-    constructor(closure: pulumi.runtime.Closure) {
-        this.funcs = {};
-        this.root = this.createFuncForClosure(closure);
-    }
-
-    private createFuncForClosure(closure: pulumi.runtime.Closure): string {
-        // Produce a hash to identify the function.
-        let shasum: crypto.Hash = crypto.createHash("sha1");
-        shasum.update(closure.code);
-        let hash: string = "__" + shasum.digest("hex");
-
-        // Now only store if this function hasn't already been hashed.
-        if (this.funcs[hash] === undefined) {
-            this.funcs[hash] = {
-                code: closure.code,
-                env: {}, // initialize as empty - update after recursive call
-            };
-            this.funcs[hash].env = this.envFromEnvObj(closure.environment);
-        }
-
-        return hash;
-    }
-
-    private envFromEnvObj(env: pulumi.runtime.Environment): {[key: string]: string} {
-        let envObj: {[key: string]: string} = {};
-        for (let key of Object.keys(env)) {
-            let val = this.envEntryToString(env[key]);
-            if (val !== undefined) {
-                envObj[key] = val;
-            }
-        }
-        return envObj;
-    }
-
-    private envFromEnvArr(arr: pulumi.runtime.EnvironmentEntry[]): (string | undefined)[] {
-        let envArr: (string | undefined)[] = [];
-        for (let i = 0; i < arr.length; i++) {
-            envArr[i] = this.envEntryToString(arr[i]);
-        }
-        return envArr;
-    }
-
-    private envEntryToString(envEntry: pulumi.runtime.EnvironmentEntry): string | undefined {
-        if (envEntry.json !== undefined) {
-            return JSON.stringify(envEntry.json);
-        }
-        else if (envEntry.closure !== undefined) {
-            let innerHash = this.createFuncForClosure(envEntry.closure);
-            return innerHash;
-        }
-        else if (envEntry.obj !== undefined) {
-            return envObjToString(this.envFromEnvObj(envEntry.obj));
-        }
-        else if (envEntry.arr !== undefined) {
-            return envArrToString(this.envFromEnvArr(envEntry.arr));
-        }
-        else if(envEntry.module !== undefined) {
-            return `require("${envEntry.module}")`;
-        }
-        else {
-            return undefined;
-        }
-    }
-}
-
-/**
- * Converts an environment object into a string which can be embedded into a serialized function body.  Note that this
- * is not JSON serialization, as we may have proeprty values which are variable references to other global functions.
- * In other words, there can be free variables in the resulting object literal.
- *
- * @param envObj The environment object to convert to a string.
- */
-function envObjToString(envObj: { [key: string]: string; }): string {
-    let result = "";
-    let first = true;
-    for (let key of Object.keys(envObj)) {
-        let val = envObj[key];
-
-        // Rewrite references to `this` to the special name `_this`.  This will get rewritten to use `.apply` later.
-        if (key === "this") {
-            key = "_this";
-        }
-
-        if (!first) {
-            result += ", ";
-        }
-
-        result += key + ": " + val;
-        first = false;
-    }
-    return "{ " + result + " }";
-}
-
-function envArrToString(envArr: (string | undefined)[]): string {
-    let result = "";
-    let first = true;
-    for (let i = 0; i < envArr.length; i++) {
-        if (!first) {
-            result += ", ";
-        }
-        result += envArr[i];
-        first = false;
-    }
-    return "[ " + result + " ]";
-}
-
-function serializeClosureText(closure: Promise<pulumi.runtime.Closure>): pulumi.asset.StringAsset {
-    return new pulumi.asset.StringAsset(closure.then((c: pulumi.runtime.Closure) => {
-        // Ensure the closure is targeting a supported runtime.
-        if (c.runtime !== "nodejs") {
-            throw new Error(`Runtime '${c.runtime}' not yet supported (currently only 'nodejs')`);
-        }
-
-        // Now produce a textual representation of the closure and its serialized captured environment.
-        let funcsForClosure = new FuncsForClosure(c);
-        let funcs = funcsForClosure.funcs;
-        let text = "exports.handler = " + funcsForClosure.root + ";\n\n";
-        for (let name of Object.keys(funcs)) {
-            text +=
-                "function " + name + "() {\n" +
-                "  var _this;\n" +
-                "  with(" + envObjToString(funcs[name].env) + ") {\n" +
-                "    return (function() {\n\n" +
-                "return " + funcs[name].code + "\n\n" +
-                "    }).apply(_this).apply(this, arguments);\n" +
-                "  }\n" +
-                "}\n" +
-                "\n";
-        }
-        return text;
-    }));
-}
-
 function createJavaScriptLambda(
     functionName: string, role: Role,
     closure: Promise<pulumi.runtime.Closure>, opts: FunctionOptions): lambda.Function {
@@ -199,7 +50,7 @@ function createJavaScriptLambda(
             // uploaded. Currently we upload the entire folder as there may be dependencies 
             // on any files here. 
             ".": new pulumi.asset.FileAsset("."),
-            "__index.js": serializeClosureText(closure),
+            "__index.js": new pulumi.asset.StringAsset(closure.then(pulumi.runtime.serializeJavaScriptText)),
         }),
         handler: "__index.handler",
         runtime: lambda.NodeJS6d10Runtime,
