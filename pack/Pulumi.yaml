@@ -1,4 +1,0 @@
-name: aws
-description: A Pulumi Fabric resource provider for aws.
-language: nodejs
-
