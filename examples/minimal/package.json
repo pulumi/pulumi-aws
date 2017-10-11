@@ -7,11 +7,10 @@
         "build": "tsc"
     },
     "devDependencies": {
-        "typescript": "^2.1.4"
+        "typescript": "^2.5.3"
     },
     "peerDependencies": {
-        "pulumi": "*",
-        "@pulumi/aws": "*"
+        "@pulumi/aws": "*",
+        "pulumi": "*"
     }
 }
-
