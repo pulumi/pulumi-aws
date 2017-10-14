@@ -14,7 +14,7 @@ before_install:
 install:
     # Clone the Pulumi repo and use its script to fetch the latest installation packages.
     - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/install2.sh pulumi master /opt/pulumi
+    - ${GOPATH}/src/github.com/pulumi/home/scripts/install.sh pulumi master /opt/pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - dep ensure
 before_script:
