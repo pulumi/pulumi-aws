@@ -72,7 +72,8 @@ export interface FunctionOptions {
  * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
  * by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function {
+export class Function extends pulumi.ComponentResource {
+    public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
@@ -84,25 +85,42 @@ export class Function {
         if (!func) {
             throw new Error("Missing required function callback");
         }
-        let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosure(func);
-        if (!closure) {
-            throw new Error("Failed to serialize function closure");
-        }
 
-        // Attach a role and then, if there are policies, attach those too.
-        this.role = new Role(name + "-iamrole", {
-            assumeRolePolicy: JSON.stringify(policy),
-        });
-        this.policies = [];
-        for (let i = 0; i < options.policies.length; i++) {
-            this.policies.push(new RolePolicyAttachment(name + "-iampolicy-" + i, {
-                role: this.role,
-                policyArn: options.policies[i],
-            }));
-        }
+        let role: Role;
+        let policies: RolePolicyAttachment[];
+        let lambda: lambda.Function;
+        super(
+            "aws:serverless:Function",
+            name,
+            {
+                options: options,
+            },
+            () => {
+                // Attach a role and then, if there are policies, attach those too.
+                role = new Role(name + "-iamrole", {
+                    assumeRolePolicy: JSON.stringify(policy),
+                });
 
-        // Now compile the function text into an asset we can use to create the lambda.
-        this.lambda = createJavaScriptLambda(name, this.role, closure, options);
+                policies = [];
+                for (let i = 0; i < options.policies.length; i++) {
+                    let attachment = new RolePolicyAttachment(name + "-iampolicy-" + i, {
+                        role: role,
+                        policyArn: options.policies[i],
+                    });
+                    policies.push(attachment);
+                }
+
+                // Now compile the function text into an asset we can use to create the lambda.
+                let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosure(func);
+                if (!closure) {
+                    throw new Error("Failed to serialize function closure");
+                }
+                lambda = createJavaScriptLambda(name, role, closure, options);
+            },
+        );
+        this.role = role;
+        this.policies = policies;
+        this.lambda = lambda;
     }
 }
 
