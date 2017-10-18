@@ -955,7 +955,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_snapshot_ids": {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
 			"aws_ebs_volume":       {Tok: awsDataSource(ebsMod, "getVolume")},
 			// Elastic Container Registry
-			"aws_ecr_repository": {Tok: awsDataSource(ecrMod, "getRepository")},
+			"aws_ecr_credentials": {Tok: awsDataSource(ecrMod, "getCredentials")},
+			"aws_ecr_repository":  {Tok: awsDataSource(ecrMod, "getRepository")},
 			// Elastic Container Service
 			"aws_ecs_cluster":              {Tok: awsDataSource(ecsMod, "getCluster")},
 			"aws_ecs_container_definition": {Tok: awsDataSource(ecsMod, "getContainerDefinition")},
