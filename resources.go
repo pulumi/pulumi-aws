@@ -1025,6 +1025,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				"iam": {
 					Files: []string{
+						"documents.ts",       // policy document schemas.
 						"managedPolicies.ts", // handy constants that predefine all known managed policies.
 					},
 				},
