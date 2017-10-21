@@ -58,6 +58,7 @@ function createJavaScriptLambda(
         timeout: opts.timeout === undefined ? 180 : opts.timeout,
         memorySize: opts.memorySize,
         deadLetterConfig: opts.deadLetterConfig === undefined ? undefined : [ opts.deadLetterConfig ],
+        vpcConfig: opts.vpcConfig === undefined ? undefined : [ opts.vpcConfig ],
     });
 }
 
@@ -66,6 +67,10 @@ export interface FunctionOptions {
     timeout?: number;
     memorySize?: number;
     deadLetterConfig?: { targetArn: pulumi.Computed<string>; };
+    vpcConfig?: { 
+        securityGroupIds: pulumi.ComputedValue<string>[], 
+        subnetIds: pulumi.ComputedValue<string>[], 
+    };
 }
 
 /**
