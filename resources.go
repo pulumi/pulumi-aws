@@ -683,9 +683,9 @@ func Provider() tfbridge.ProviderInfo {
 					"function_name": tfbridge.AutoName("name", 64),
 					"role":          {Type: awsType(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
-					// with Lumi's asset model, we will hijack the filename property.  A Lumi archive is passed in its
-					// stead and we will turn around and emit the archive as a temp file that Terraform can read.  We
-					// also automatically populate the asset hash property as this is used in diffs/updates/etc.
+					// with Pulumi's asset model, we will hijack the filename property.  A Pulumi archive is passed in
+					// its stead and we will turn around and emit the archive as a temp file that Terraform can read.
+					// We also automatically populate the asset hash property as this is used in diffs/updates/etc.
 					"filename": {
 						Name: "code",
 						Asset: &tfbridge.AssetTranslation{

@@ -46,10 +46,9 @@ function createJavaScriptLambda(
     closure: Promise<pulumi.runtime.Closure>, opts: FunctionOptions): lambda.Function {
     return new lambda.Function(functionName, {
         code: new pulumi.asset.AssetArchive({
-            // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets
-            // uploaded. Currently we upload the entire folder as there may be dependencies 
-            // on any files here. 
-            ".": new pulumi.asset.FileAsset("."),
+            // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
+            // upload the entire folder as there may be dependencies on any files here.
+            ".": new pulumi.asset.FileArchive("."),
             "__index.js": new pulumi.asset.StringAsset(closure.then(pulumi.runtime.serializeJavaScriptText)),
         }),
         handler: "__index.handler",
