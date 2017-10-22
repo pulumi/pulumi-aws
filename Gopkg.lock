@@ -232,13 +232,13 @@
   branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "69f7f5137576f481515e4e4e32ea53a8f0d57ccf"
+  revision = "4a493292b1c6991df94b30df9f5c831a7fbed70e"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "aee08ed98bcfcdff4fd59b8e91ce425a4ba663f0"
+  revision = "bd29d2573faaafdfe932c9acf7d35174063bae7a"
 
 [[projects]]
   branch = "master"
