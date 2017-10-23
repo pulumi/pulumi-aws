@@ -22,7 +22,7 @@ all: banner buildtools gen build install examples
 
 banner:
 	@$(ECHO) "\033[1;37m========================================\033[0m"
-	@$(ECHO) "\033[1;37m${PACKNAME} Lumi Package\033[0m"
+	@$(ECHO) "\033[1;37m${PACKNAME} Pulumi Package\033[0m"
 	@$(ECHO) "\033[1;37m========================================\033[0m"
 	@go version
 .PHONY: banner
@@ -38,7 +38,7 @@ gen:
 
 build:
 	@$(ECHO) "[Building ${PACK} package:]"
-	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Lumi's stdlibs.
+	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
 	cd ${PACKDIR} && yarn run build   # compile into a JavaScript NPM package.
 .PHONY: build
 

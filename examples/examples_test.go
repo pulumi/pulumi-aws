@@ -23,7 +23,7 @@ func TestExamples(t *testing.T) {
 	}
 
 	// base options shared amongst all tests.
-	base := integration.LumiProgramTestOptions{
+	base := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:config:region": region,
 		},
@@ -33,12 +33,12 @@ func TestExamples(t *testing.T) {
 		},
 	}
 
-	examples := []integration.LumiProgramTestOptions{
-		base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+	examples := []integration.ProgramTestOptions{
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 	}
 	if !testing.Short() {
-		examples = append(examples, []integration.LumiProgramTestOptions{
-			base.With(integration.LumiProgramTestOptions{
+		examples = append(examples, []integration.ProgramTestOptions{
+			base.With(integration.ProgramTestOptions{
 				Dir: path.Join(cwd, "webserver"),
 				EditDirs: []string{
 					// First just patch the ingress rules by adding port 20: should be a quick update.
@@ -49,18 +49,18 @@ func TestExamples(t *testing.T) {
 					path.Join(cwd, "webserver", "variants", "ssh_description"),
 				},
 			}),
-			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
-			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
-			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
-			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
-			base.With(integration.LumiProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 		}...)
 	}
 
 	for _, ex := range examples {
 		example := ex
 		t.Run(example.Dir, func(t *testing.T) {
-			integration.LumiProgramTest(t, example)
+			integration.ProgramTest(t, example)
 		})
 	}
 }
