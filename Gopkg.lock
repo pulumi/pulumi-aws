@@ -232,7 +232,7 @@
   branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/pack","pkg/resource","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "c6ee323ce1e05578f1f5018facbcbc729b414c32"
+  revision = "0248b6c3098657036fa78ff49a9eae5e46d58017"
 
 [[projects]]
   branch = "master"
