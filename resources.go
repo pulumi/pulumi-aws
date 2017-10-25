@@ -1039,6 +1039,11 @@ func Provider() tfbridge.ProviderInfo {
 						"function.ts", // a union type and constants for available Lambda runtimes.
 					},
 				},
+				"sqs": {
+					Files: []string{
+						"redrive.ts", // schema definitions for SQS redrive policies.
+					},
+				},
 			},
 			Dependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
