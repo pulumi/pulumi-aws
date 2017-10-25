@@ -35,7 +35,7 @@ export interface ConditionArguments {
     [value: string]: string;
 }
 
-export type Principal = AWSPrincipal | ServicePrincipal | FederatedPrincipal;
+export type Principal = "*" | AWSPrincipal | ServicePrincipal | FederatedPrincipal;
 
 export interface AWSPrincipal {
     AWS: string | string[];
