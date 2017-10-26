@@ -40,13 +40,13 @@ func TestExamples(t *testing.T) {
 		examples = append(examples, []integration.ProgramTestOptions{
 			base.With(integration.ProgramTestOptions{
 				Dir: path.Join(cwd, "webserver"),
-				EditDirs: []string{
+				EditDirs: []integration.EditDir{
 					// First just patch the ingress rules by adding port 20: should be a quick update.
-					path.Join(cwd, "webserver", "variants", "ssh"),
+					createEditDir(path.Join(cwd, "webserver", "variants", "ssh")),
 					// Now do the reverse; this basically ensures that an update that deletes a property works.
-					path.Join(cwd, "webserver"),
+					createEditDir(path.Join(cwd, "webserver")),
 					// Next patch the security group description, necessitating a full replacement of resources.
-					path.Join(cwd, "webserver", "variants", "ssh_description"),
+					createEditDir(path.Join(cwd, "webserver", "variants", "ssh_description")),
 				},
 			}),
 			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
@@ -63,4 +63,8 @@ func TestExamples(t *testing.T) {
 			integration.ProgramTest(t, example)
 		})
 	}
+}
+
+func createEditDir(dir string) integration.EditDir {
+	return integration.EditDir{Dir: dir, ExtraRuntimeValidation: nil}
 }
