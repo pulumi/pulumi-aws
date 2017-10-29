@@ -98,6 +98,9 @@ func awsResource(mod string, res string) tokens.Type {
 	return awsType(mod+"/"+fn, res)
 }
 
+// managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
+var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
 	p := aws.Provider().(*schema.Provider)
@@ -115,6 +118,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_api_key": {
 				Tok: awsResource(apigatewayMod, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
 					"stage_key": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
@@ -378,11 +384,32 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_snapshot": {Tok: awsResource(ebsMod, "Snapshot")},
 			"aws_ebs_volume":   {Tok: awsResource(ebsMod, "Volume")},
 			// ElastiCache
-			"aws_elasticache_cluster":           {Tok: awsResource(elasticacheMod, "Cluster")},
-			"aws_elasticache_parameter_group":   {Tok: awsResource(elasticacheMod, "ParameterGroup")},
+			"aws_elasticache_cluster": {Tok: awsResource(elasticacheMod, "Cluster")},
+			"aws_elasticache_parameter_group": {
+				Tok: awsResource(elasticacheMod, "ParameterGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			"aws_elasticache_replication_group": {Tok: awsResource(elasticacheMod, "ReplicationGroup")},
-			"aws_elasticache_security_group":    {Tok: awsResource(elasticacheMod, "SecurityGroup")},
-			"aws_elasticache_subnet_group":      {Tok: awsResource(elasticacheMod, "SubnetGroup")},
+			"aws_elasticache_security_group": {
+				Tok: awsResource(elasticacheMod, "SecurityGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_elasticache_subnet_group": {
+				Tok: awsResource(elasticacheMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			// Elastic Compute (EC2)
 			"aws_ami": {
 				Tok: awsResource(ec2Mod, "Ami"),
@@ -437,19 +464,24 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "main_route_table_assoc.html.markdown",
 				},
 			},
-			"aws_nat_gateway":                       {Tok: awsResource(ec2Mod, "NatGateway")},
-			"aws_network_acl":                       {Tok: awsResource(ec2Mod, "NetworkAcl")},
-			"aws_default_network_acl":               {Tok: awsResource(ec2Mod, "DefaultNetworkAcl")},
-			"aws_network_acl_rule":                  {Tok: awsResource(ec2Mod, "NetworkAclRule")},
-			"aws_network_interface":                 {Tok: awsResource(ec2Mod, "NetworkInterface")},
-			"aws_network_interface_attachment":      {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
-			"aws_placement_group":                   {Tok: awsResource(ec2Mod, "PlacementGroup")},
-			"aws_proxy_protocol_policy":             {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
-			"aws_route":                             {Tok: awsResource(ec2Mod, "Route")},
-			"aws_route_table":                       {Tok: awsResource(ec2Mod, "RouteTable")},
-			"aws_default_route_table":               {Tok: awsResource(ec2Mod, "DefaultRouteTable")},
-			"aws_route_table_association":           {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
-			"aws_security_group":                    {Tok: awsResource(ec2Mod, "SecurityGroup")},
+			"aws_nat_gateway":                  {Tok: awsResource(ec2Mod, "NatGateway")},
+			"aws_network_acl":                  {Tok: awsResource(ec2Mod, "NetworkAcl")},
+			"aws_default_network_acl":          {Tok: awsResource(ec2Mod, "DefaultNetworkAcl")},
+			"aws_network_acl_rule":             {Tok: awsResource(ec2Mod, "NetworkAclRule")},
+			"aws_network_interface":            {Tok: awsResource(ec2Mod, "NetworkInterface")},
+			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
+			"aws_placement_group":              {Tok: awsResource(ec2Mod, "PlacementGroup")},
+			"aws_proxy_protocol_policy":        {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
+			"aws_route":                        {Tok: awsResource(ec2Mod, "Route")},
+			"aws_route_table":                  {Tok: awsResource(ec2Mod, "RouteTable")},
+			"aws_default_route_table":          {Tok: awsResource(ec2Mod, "DefaultRouteTable")},
+			"aws_route_table_association":      {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
+			"aws_security_group": {
+				Tok: awsResource(ec2Mod, "SecurityGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {Default: managedByPulumi},
+				},
+			},
 			"aws_network_interface_sg_attachment":   {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
 			"aws_default_security_group":            {Tok: awsResource(ec2Mod, "DefaultSecurityGroup")},
 			"aws_security_group_rule":               {Tok: awsResource(ec2Mod, "SecurityGroupRule")},
@@ -813,27 +845,83 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Relational Database Service (RDS)
-			"aws_rds_cluster":                 {Tok: awsResource(rdsMod, "Cluster")},
-			"aws_rds_cluster_instance":        {Tok: awsResource(rdsMod, "ClusterInstance")},
-			"aws_rds_cluster_parameter_group": {Tok: awsResource(rdsMod, "ClusterParameterGroup")},
-			"aws_db_event_subscription":       {Tok: awsResource(rdsMod, "EventSubscription")},
-			"aws_db_instance":                 {Tok: awsResource(rdsMod, "Instance")},
-			"aws_db_option_group":             {Tok: awsResource(rdsMod, "OptionGroup")},
-			"aws_db_parameter_group":          {Tok: awsResource(rdsMod, "ParameterGroup")},
-			"aws_db_security_group":           {Tok: awsResource(rdsMod, "SecurityGroup")},
-			"aws_db_snapshot":                 {Tok: awsResource(rdsMod, "Snapshot")},
-			"aws_db_subnet_group":             {Tok: awsResource(rdsMod, "SubnetGroup")},
+			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
+			"aws_rds_cluster_instance": {Tok: awsResource(rdsMod, "ClusterInstance")},
+			"aws_rds_cluster_parameter_group": {
+				Tok: awsResource(rdsMod, "ClusterParameterGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_db_event_subscription": {Tok: awsResource(rdsMod, "EventSubscription")},
+			"aws_db_instance":           {Tok: awsResource(rdsMod, "Instance")},
+			"aws_db_option_group": {
+				Tok: awsResource(rdsMod, "OptionGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"option_group_description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_db_parameter_group": {
+				Tok: awsResource(rdsMod, "ParameterGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_db_security_group": {
+				Tok: awsResource(rdsMod, "SecurityGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_db_snapshot":     {Tok: awsResource(rdsMod, "Snapshot")},
+			"aws_db_subnet_group": {Tok: awsResource(rdsMod, "SubnetGroup")},
 			// RedShift
-			"aws_redshift_cluster":         {Tok: awsResource(redshiftMod, "Cluster")},
-			"aws_redshift_security_group":  {Tok: awsResource(redshiftMod, "SecurityGroup")},
-			"aws_redshift_parameter_group": {Tok: awsResource(redshiftMod, "ParameterGroup")},
-			"aws_redshift_subnet_group":    {Tok: awsResource(redshiftMod, "SubnetGroup")},
+			"aws_redshift_cluster": {Tok: awsResource(redshiftMod, "Cluster")},
+			"aws_redshift_security_group": {
+				Tok: awsResource(redshiftMod, "SecurityGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_redshift_parameter_group": {
+				Tok: awsResource(redshiftMod, "ParameterGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_redshift_subnet_group": {
+				Tok: awsResource(redshiftMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			// Route53
 			"aws_route53_delegation_set":   {Tok: awsResource(route53Mod, "DelegationSet")},
 			"aws_route53_record":           {Tok: awsResource(route53Mod, "Record")},
 			"aws_route53_zone_association": {Tok: awsResource(route53Mod, "ZoneAssociation")},
-			"aws_route53_zone":             {Tok: awsResource(route53Mod, "Zone")},
-			"aws_route53_health_check":     {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_zone": {
+				Tok: awsResource(route53Mod, "Zone"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"comment": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
 			// Simple Email Service (SES)
 			"aws_ses_active_receipt_rule_set": {Tok: awsResource(sesMod, "ActiveReceiptRuleSet")},
 			"aws_ses_domain_identity":         {Tok: awsResource(sesMod, "DomainIdentity")},
