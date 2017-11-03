@@ -277,10 +277,10 @@
   version = "v1.1.0"
 
 [[projects]]
+  branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
-  version = "v0.0.1"
+  revision = "b3426bbac13d7110c4d8fce456ea0012f79f3b8b"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -298,7 +298,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "06695b3e051dae4ac8c52e05c1fe15d55cacbb69"
+  revision = "4e4c7fb4c74a464d3abc96b1483270515ace3369"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
