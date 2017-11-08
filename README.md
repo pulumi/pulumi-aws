@@ -2,5 +2,5 @@
 
 # aws
 
-An Amazon Web Services (AWS) Lumi resource package.
+An Amazon Web Services (AWS) Pulumi resource package.
 
