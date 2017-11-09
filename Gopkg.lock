@@ -8,6 +8,12 @@
   version = "v1.2.1"
 
 [[projects]]
+  name = "github.com/apache/thrift"
+  packages = ["lib/go/thrift"]
+  revision = "b2a4d4ae21c789b689dd162deb819665567f481c"
+  version = "0.10.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/apparentlymart/go-cidr"
   packages = ["cidr"]
@@ -50,6 +56,12 @@
   version = "v3.5.1"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/codahale/hdrhistogram"
+  packages = ["."]
+  revision = "3a0bb77429bd3a61596f5e8a3172445844342120"
+
+[[projects]]
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
@@ -78,6 +90,12 @@
   name = "github.com/golang/snappy"
   packages = ["."]
   revision = "553a641470496b2327abcac10b36396bd98e45c9"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/grpc-ecosystem/grpc-opentracing"
+  packages = ["go/otgrpc"]
+  revision = "01f8541d537215b2867e2745a1eb85c58c7c6b81"
 
 [[projects]]
   branch = "master"
@@ -235,6 +253,12 @@
   revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
 
 [[projects]]
+  name = "github.com/opentracing/opentracing-go"
+  packages = [".","ext","log"]
+  revision = "1949ddbfd147afd4d964a9f00b24eb291e0e7c38"
+  version = "v1.0.2"
+
+[[projects]]
   name = "github.com/pelletier/go-toml"
   packages = ["."]
   revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
@@ -262,13 +286,13 @@
   branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "0b6b211e69d63a44a2b1168547e2e4a1aecd9cfe"
+  revision = "af5298f4aaf2885740635e56d576d48a89f9d557"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "1ce2018ac66692872be825f2db572d0a2d455b2f"
+  revision = "dc77b0276a58c6eb319f89d76ebb55550724db7f"
 
 [[projects]]
   branch = "master"
@@ -306,6 +330,18 @@
   packages = ["aws"]
   revision = "4e4c7fb4c74a464d3abc96b1483270515ace3369"
   source = "github.com/pulumi/terraform-provider-aws"
+
+[[projects]]
+  name = "github.com/uber/jaeger-client-go"
+  packages = [".","internal/spanlog","log","thrift-gen/agent","thrift-gen/jaeger","thrift-gen/sampling","thrift-gen/zipkincore","transport/zipkin","utils"]
+  revision = "3e3870040def0ebdaf65a003863fa64f5cb26139"
+  version = "v2.9.0"
+
+[[projects]]
+  name = "github.com/uber/jaeger-lib"
+  packages = ["metrics"]
+  revision = "3b2a9ad2a045881ab7a0f81d465be54c8292ee4f"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/ulikunitz/xz"
