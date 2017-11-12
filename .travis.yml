@@ -2,26 +2,29 @@ language: go
 go: 1.9
 sudo: true # give us 7.5GB and >2 bursted cores.
 before_install:
+    - export PULUMI_ROOT=/opt/pulumi
+    # Travis only fetches 50 commits by default, and we want them all so we can do git describe --tags
+    - git fetch --unshallow
     # Dep for Go dependency management.
     - go get -v github.com/golang/dep/cmd/dep
     # Gometalinter for good Go linting/hygiene.
     - go get -v github.com/alecthomas/gometalinter
     - gometalinter --install
-    # Node.js 6.10.2 for Pulumi Fabric's Node.js runtime.
+    # Node.js 6.10.2 for all JavaScript code (to match AWS Lambda).
     - nvm install v6.10.2
+    # Install Yarn as per https://yarnpkg.com/lang/en/docs/install-ci/#travis-tab.
+    - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.2.1
+    - export PATH=$HOME/.yarn/bin:$PATH
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
 install:
     # Clone the Pulumi repo and use install-locked.sh to install Pulumi components based on our Gopkg.lock.
     - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-locked.sh /opt/pulumi pulumi
+    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-locked.sh ${PULUMI_ROOT} pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
-    - dep ensure
-before_script:
-    - export PATH=/opt/pulumi/bin:$PATH
+    - make ensure
 script:
-    - make all
-    - if [ $TRAVIS_EVENT_TYPE = "push" ] && [ $TRAVIS_BRANCH = "master" ]; then PUBFORCE=true make publish; fi
+    - make travis_${TRAVIS_EVENT_TYPE}
 notifications:
     webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis
 
