@@ -1,72 +1,54 @@
-SHELL=/bin/bash
-.SHELLFLAGS=-ec
+PROJECT_NAME := Amazon Web Services (AWS) Package
+include build/common.mk
 
-PACK    =aws
-PACKDIR =pack
-PACKNAME=Amazon Web Services (AWS)
-PROJECT =github.com/pulumi/pulumi-aws
+PACK             := aws
+PACKDIR          := pack
+PROJECT          := github.com/pulumi/pulumi-aws
+NODE_MODULE_NAME := @pulumi/aws
 
-TFGEN           = pulumi-tfgen-${PACK}
-PROVIDER        = pulumi-provider-${PACK}
-PROVIDER_BIN    = ${GOPATH}/bin/${PROVIDER}
-TESTPARALLELISM = 10
+TFGEN           := pulumi-tfgen-${PACK}
+PROVIDER        := pulumi-provider-${PACK}
 
-ECHO=echo -e
 GOMETALINTERBIN=gometalinter
 GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 
-default: banner buildtools gen build test install
-notest: banner buildtools gen build install
-all: banner buildtools gen build install examples
-.PHONY: default notest all
+TESTPARALLELISM := 10
 
-banner:
-	@$(ECHO) "\033[1;37m========================================\033[0m"
-	@$(ECHO) "\033[1;37m${PACKNAME} Pulumi Package\033[0m"
-	@$(ECHO) "\033[1;37m========================================\033[0m"
-	@go version
-.PHONY: banner
-
-buildtools:
+build::
 	go install ${PROJECT}/cmd/${TFGEN}
 	go install ${PROJECT}/cmd/${PROVIDER}
-
-gen:
 	$(TFGEN) --out pack/
 	cd pack/ && yarn install
-.PHONY: gen
-
-build:
-	@$(ECHO) "[Building ${PACK} package:]"
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
-	cd ${PACKDIR} && yarn run build   # compile into a JavaScript NPM package.
-.PHONY: build
+	cd ${PACKDIR} && yarn run tsc
 
-test:
-	go test -cover -parallel ${TESTPARALLELISM} ${GOPKGS}
-	go tool vet -printf=false ./cmd
-	go tool vet -printf=false resources.go
-	which ${GOMETALINTERBIN} >/dev/null
+lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
-.PHONY: test
 
-install:
-	@$(ECHO) "[Installing ${PACK} package:]"
-	cp ${PACKDIR}/package.json ${PACKDIR}/bin/
-	cd ${PACKDIR}/bin && yarn link --force               # ensure this pack is made available.
-.PHONY: install
+install::
+	GOBIN=$(PULUMI_BIN) go install ${PROJECT}/cmd/${PROVIDER}
+	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp -r pack/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp pack/package.json "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
+	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
+	yarn install --production && \
+	(yarn unlink > /dev/null 2>&1 || true) && \
+	yarn link
 
-publish:
-	@$(ECHO) "\033[0;32mPublishing current release:\033[0m"
-	./scripts/publish.sh
+test_all::
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+
 .PHONY: publish
+publish:
+	$(call STEP_MESSAGE)
+	./scripts/publish.sh
 
-clean:
-	rm -rf ${INSTALLDIR}
-.PHONY: clean
-
-examples:
-	@echo "\033[0;32mTEST EXAMPLES:\033[0m"
-	go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
-.PHONY: examples
+# The travis_* targets are entrypoints for CI.
+.PHONY: travis_cron travis_push travis_pull_request travis_api
+travis_cron: all
+travis_push: all publish
+travis_pull_request: all
+travis_api: all
 
