@@ -278,8 +278,13 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
-			"aws_cloudwatch_dashboard":              {Tok: awsResource(cloudwatchMod, "Dashboard")},
-			"aws_cloudwatch_event_rule":             {Tok: awsResource(cloudwatchMod, "EventRule")},
+			"aws_cloudwatch_dashboard": {Tok: awsResource(cloudwatchMod, "Dashboard")},
+			"aws_cloudwatch_event_rule": {
+				Tok: awsResource(cloudwatchMod, "EventRule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoName("name", 64),
+				},
+			},
 			"aws_cloudwatch_event_target":           {Tok: awsResource(cloudwatchMod, "EventTarget")},
 			"aws_cloudwatch_log_destination":        {Tok: awsResource(cloudwatchMod, "LogDestination")},
 			"aws_cloudwatch_log_destination_policy": {Tok: awsResource(cloudwatchMod, "LogDestinationPolicy")},
@@ -972,7 +977,12 @@ func Provider() tfbridge.ProviderInfo {
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
-			"aws_sqs_queue":        {Tok: awsResource(sqsMod, "Queue")},
+			"aws_sqs_queue": {
+				Tok: awsResource(sqsMod, "Queue"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoName("name", 80),
+				},
+			},
 			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
 			// Simple Notification Service (SNS)
 			"aws_sns_topic": {
