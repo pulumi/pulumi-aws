@@ -39,7 +39,7 @@ let instanceWebTierPolicyAttach = new iam.RolePolicyAttachment("myapp-instanceRo
     policyArn: iam.AWSElasticBeanstalkWebTier,
 });
 let instanceProfile = new iam.InstanceProfile("myapp-instanceProfile", {
-    roles: [ instanceRole ],
+    role: instanceRole,
 });
 let serviceRolePolicyDocument = {
     "Version": "2012-10-17",
