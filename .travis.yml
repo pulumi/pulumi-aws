@@ -23,5 +23,6 @@ script:
     - make all
     - if [ $TRAVIS_EVENT_TYPE = "push" ] && [ $TRAVIS_BRANCH = "master" ]; then PUBFORCE=true make publish; fi
 notifications:
-  webhooks: https://mv7ysv9978.execute-api.us-west-2.amazonaws.com/stage/travis
+    webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis
+
 
