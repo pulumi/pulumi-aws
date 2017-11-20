@@ -30,7 +30,7 @@
 
 [[override]]
   name = "github.com/hashicorp/terraform"
-  version = "0.10"
+  version = "0.10.8"
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"
