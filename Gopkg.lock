@@ -34,8 +34,8 @@
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
   packages = ["aws","aws/arn","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/ec2query","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restjson","private/protocol/restxml","private/protocol/xml/xmlutil","private/signer/v2","service/acm","service/apigateway","service/applicationautoscaling","service/autoscaling","service/batch","service/cloudformation","service/cloudfront","service/cloudtrail","service/cloudwatch","service/cloudwatchevents","service/cloudwatchlogs","service/codebuild","service/codecommit","service/codedeploy","service/codepipeline","service/cognitoidentity","service/configservice","service/databasemigrationservice","service/devicefarm","service/directoryservice","service/dynamodb","service/ec2","service/ecr","service/ecs","service/efs","service/elasticache","service/elasticbeanstalk","service/elasticsearchservice","service/elastictranscoder","service/elb","service/elbv2","service/emr","service/firehose","service/glacier","service/iam","service/inspector","service/iot","service/kinesis","service/kms","service/lambda","service/lightsail","service/opsworks","service/rds","service/redshift","service/route53","service/s3","service/ses","service/sfn","service/simpledb","service/sns","service/sqs","service/ssm","service/sts","service/waf","service/wafregional"]
-  revision = "e6c5e190452424b404ecdb81d6e3991d46b18e9d"
-  version = "v1.12.26"
+  revision = "a32b1dcd091264b5dee7b386149b6cc3823395c9"
+  version = "v1.12.31"
 
 [[projects]]
   branch = "master"
@@ -70,8 +70,8 @@
 [[projects]]
   name = "github.com/go-ini/ini"
   packages = ["."]
-  revision = "f280b3ba517bf5fc98922624f21fb0e7a92adaec"
-  version = "v1.30.3"
+  revision = "32e4c1e6bc4e7d0d8451aa6b75200d19e37a536a"
+  version = "v1.32.0"
 
 [[projects]]
   branch = "master"
@@ -83,7 +83,7 @@
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto","protoc-gen-go/descriptor","ptypes","ptypes/any","ptypes/duration","ptypes/empty","ptypes/struct","ptypes/timestamp"]
-  revision = "1643683e1b54a9e88ad26d98f81400c8c9d9f4f9"
+  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
 
 [[projects]]
   branch = "master"
@@ -159,15 +159,15 @@
 
 [[projects]]
   name = "github.com/hashicorp/terraform"
-  packages = ["config","config/configschema","config/hcl2shim","config/module","dag","flatmap","helper/config","helper/encryption","helper/hashcode","helper/hilmapstructure","helper/logging","helper/mutexkv","helper/resource","helper/schema","helper/structure","helper/validation","moduledeps","plugin/discovery","terraform","tfdiags","version"]
-  revision = "e0fd3ddd704b230897723a7ca251f36b71c2b67a"
-  version = "v0.10.8"
+  packages = ["config","config/configschema","config/hcl2shim","config/module","dag","flatmap","helper/config","helper/encryption","helper/hashcode","helper/hilmapstructure","helper/logging","helper/mutexkv","helper/resource","helper/schema","helper/structure","helper/validation","moduledeps","plugin/discovery","registry/regsrc","registry/response","svchost","svchost/auth","svchost/disco","terraform","tfdiags","version"]
+  revision = "ec9d4f1d0f90e8ec5148f94b6d634eb542a4f0ce"
+  version = "v0.11.0"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
   packages = ["helper/compressutil","helper/jsonutil","helper/pgpkeys"]
-  revision = "6b29fb2b7f70ed538ee2b3c057335d706b6d4e36"
-  version = "v0.8.3"
+  revision = "bdac1854478538052ba5b7ec9a9ec688d35a3335"
+  version = "v0.9.0"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -285,14 +285,14 @@
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi"
-  packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "28579eba9400231f09ca126d989b5309cf153790"
+  packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
+  revision = "e9d13dd40f4de7f1e0e93fe3f9c2160e4a972ac7"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "2ecf899f2466b3d96219058b40904dffbbccf54e"
+  revision = "607653962e2259a7962d3ee19e18f9edbeef3718"
 
 [[projects]]
   branch = "master"
@@ -308,9 +308,15 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/sergi/go-diff"
+  packages = ["diffmatchpatch"]
+  revision = "1744e2970ca51c86172c8190fadad617561ed6e7"
+
+[[projects]]
+  branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "2da4a54c5ceefcee7ca5dd0eea1e18a3b6366489"
+  revision = "19e54c4a2b8a78c9d54b2bed61b1a6c5e1bfcf6f"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -333,15 +339,15 @@
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
-  packages = [".","internal/spanlog","log","thrift-gen/agent","thrift-gen/jaeger","thrift-gen/sampling","thrift-gen/zipkincore","transport/zipkin","utils"]
-  revision = "3e3870040def0ebdaf65a003863fa64f5cb26139"
-  version = "v2.9.0"
+  packages = [".","internal/baggage","internal/spanlog","log","thrift-gen/agent","thrift-gen/jaeger","thrift-gen/sampling","thrift-gen/zipkincore","transport/zipkin","utils"]
+  revision = "0ce42f3f87dae4f5ba84bdc60c99a908db419cb8"
+  version = "v2.10.0"
 
 [[projects]]
   name = "github.com/uber/jaeger-lib"
   packages = ["metrics"]
-  revision = "3b2a9ad2a045881ab7a0f81d465be54c8292ee4f"
-  version = "v1.1.0"
+  revision = "c48167d9cae5887393dd5e61efd06a4a48b7fbb3"
+  version = "v1.2.1"
 
 [[projects]]
   name = "github.com/ulikunitz/xz"
@@ -359,19 +365,19 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["bcrypt","blowfish","cast5","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","ssh/terminal"]
-  revision = "6a293f2d4b14b8e6d3f0539e383f6d0d30fce3fd"
+  revision = "9f005a07e0d31d45e6656d241bb5c0f2efd4bc94"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","html","html/atom","http2","http2/hpack","idna","internal/timeseries","lex/httplex","trace"]
-  revision = "a337091b0525af65de94df2eb7e98bd9962dcbe2"
+  revision = "9dfe39835686865bff950a07b394c12a98ddc811"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix","windows"]
-  revision = "1e2299c37cc91a509f1b12369872d27be0ce98a6"
+  revision = "328643532ee3c60c099171d4ce2cad0ca0354ca9"
 
 [[projects]]
   branch = "master"
@@ -383,23 +389,23 @@
   branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "11c7f9e547da6db876260ce49ea7536985904c9b"
+  revision = "891aceb7c239e72692819142dfca057bdcbfcb96"
 
 [[projects]]
   name = "google.golang.org/grpc"
   packages = [".","balancer","codes","connectivity","credentials","grpclb/grpc_lb_v1/messages","grpclog","internal","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","stats","status","tap","transport"]
-  revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
-  version = "v1.7.2"
+  revision = "401e0e00e4bb830a10496d64cd95e068c5bf50de"
+  version = "v1.7.3"
 
 [[projects]]
   branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "eb3733d160e74a9c7e442f435eb3bea458e1d19f"
+  revision = "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c926a8cc2bceb4b821ecf07f52a91618ac55da71871a4682fb3fc87e37bb65e9"
+  inputs-digest = "23bc2e7963ecc731b240428fe79c8a76273cd4cd30f65041253ed0e6189a34d6"
   solver-name = "gps-cdcl"
   solver-version = 1
