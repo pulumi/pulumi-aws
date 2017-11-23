@@ -3,11 +3,15 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
+	"github.com/hashicorp/terraform/helper/logging"
 
 	"github.com/pulumi/pulumi-aws"
+	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
 )
 
 func main() {
+	// Enable Terraform logging.
+	logging.SetOutput()
+
 	tfbridge.Main("aws", aws.Provider())
 }
