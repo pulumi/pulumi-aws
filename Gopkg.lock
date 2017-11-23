@@ -161,7 +161,7 @@
   branch = "pulumi-master"
   name = "github.com/hashicorp/terraform"
   packages = ["config","config/configschema","config/hcl2shim","config/module","dag","flatmap","helper/config","helper/encryption","helper/hashcode","helper/hilmapstructure","helper/logging","helper/mutexkv","helper/resource","helper/schema","helper/structure","helper/validation","moduledeps","plugin/discovery","registry/regsrc","registry/response","svchost","svchost/auth","svchost/disco","terraform","tfdiags","version"]
-  revision = "c5332fb0f381369f2ff5fccc9b4fcb267917273e"
+  revision = "908310ae7bd2260b84479a641d677eb33d1623ab"
   source = "github.com/pulumi/terraform"
 
 [[projects]]
