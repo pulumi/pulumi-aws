@@ -418,15 +418,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Compute (EC2)
 			"aws_ami": {
 				Tok: awsResource(ec2Mod, "Ami"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "amiId"},
-				},
 			},
 			"aws_ami_copy": {
 				Tok: awsResource(ec2Mod, "AmiCopy"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "amiId"},
-				},
 				Docs: &tfbridge.DocInfo{
 					IncludeArgumentsFrom:           "aws_ami",
 					IncludeAttributesFromArguments: "aws_ami",
@@ -434,9 +428,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ami_from_instance": {
 				Tok: awsResource(ec2Mod, "AmiFromInstance"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "amiId"},
-				},
 				Docs: &tfbridge.DocInfo{
 					IncludeAttributesFromArguments: "aws_ami",
 				},
@@ -677,7 +668,6 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 64),
-					"role": {Type: awsType(awsMod, "ARN")},
 				},
 			},
 			"aws_iam_saml_provider":      {Tok: awsResource(iamMod, "SamlProvider")},
@@ -755,99 +745,51 @@ func Provider() tfbridge.ProviderInfo {
 			// OpsWorks
 			"aws_opsworks_application": {
 				Tok: awsResource(opsworksMod, "Application"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "applicationId"},
-				},
 			},
 			"aws_opsworks_stack": {
 				Tok: awsResource(opsworksMod, "Stack"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "stackId"},
-				},
 			},
 			"aws_opsworks_java_app_layer": {
 				Tok: awsResource(opsworksMod, "JavaAppLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_haproxy_layer": {
 				Tok: awsResource(opsworksMod, "HaproxyLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_static_web_layer": {
 				Tok: awsResource(opsworksMod, "StaticWebLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_php_app_layer": {
 				Tok: awsResource(opsworksMod, "PhpAppLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_rails_app_layer": {
 				Tok: awsResource(opsworksMod, "RailsAppLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_nodejs_app_layer": {
 				Tok: awsResource(opsworksMod, "NodejsAppLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_memcached_layer": {
 				Tok: awsResource(opsworksMod, "MemcachedLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_mysql_layer": {
 				Tok: awsResource(opsworksMod, "MysqlLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_ganglia_layer": {
 				Tok: awsResource(opsworksMod, "GangliaLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_custom_layer": {
 				Tok: awsResource(opsworksMod, "CustomLayer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "layerId"},
-				},
 			},
 			"aws_opsworks_instance": {
 				Tok: awsResource(opsworksMod, "Instance"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "instanceId"},
-				},
 			},
 			"aws_opsworks_user_profile": {
 				Tok: awsResource(opsworksMod, "UserProfile"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "profileId"},
-				},
 			},
 			"aws_opsworks_permission": {
 				Tok: awsResource(opsworksMod, "Permission"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "permissionId"},
-				},
 			},
 			"aws_opsworks_rds_db_instance": {
 				Tok: awsResource(opsworksMod, "RdsDbInstance"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "instanceId"},
-				},
 			},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
