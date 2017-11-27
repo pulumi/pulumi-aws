@@ -332,10 +332,9 @@
   version = "v1.1.4"
 
 [[projects]]
-  branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "2265349c2ee4f261213c171d86627de70abe5b8d"
+  revision = "fd063bce271d4861f1a951d39b4aad3369efd71e"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -407,6 +406,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "73b3102120088606d8fb6f4230337b332db22459756b83d9d598e956fc72c987"
+  inputs-digest = "1c57c38f4961f9ff9a343a576d772e7611e9409853fa90f188da41a4ff4e5b50"
   solver-name = "gps-cdcl"
   solver-version = 1
