@@ -36,5 +36,4 @@
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"
   source = "github.com/pulumi/terraform-provider-aws"
-  branch = "pulumi-master"
-
+  revision = "fd063bce271d4861f1a951d39b4aad3369efd71e"
