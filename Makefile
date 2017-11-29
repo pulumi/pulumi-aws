@@ -31,9 +31,10 @@ install::
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r pack/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp pack/package.json "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp pack/yarn.lock "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
 	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
-	yarn install --production && \
+	yarn install --offline --production && \
 	(yarn unlink > /dev/null 2>&1 || true) && \
 	yarn link
 
