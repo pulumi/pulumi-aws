@@ -131,11 +131,10 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
     passthroughBehavior: "WHEN_NO_MATCH",
     uri: lambda.arn.then((arn: aws.ARN | undefined) =>
         arn && "arn:aws:apigateway:" + region + ":lambda:path/2015-03-31/functions/" + arn + "/invocations"),
-}, [ method ]);
+}, undefined, [ method ]);
 
 let deployment = new aws.apigateway.Deployment("myrestapi-deployment-prod", {
     restApi: restApi,
     description: "my deployment",
     stageName: "prod",
-}, [ integration ]);
-
+}, undefined, [ integration ]);
