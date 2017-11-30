@@ -258,10 +258,10 @@
   version = "v1.1"
 
 [[projects]]
-  branch = "master"
+  branch = "613_child_confusion"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "dc8c302d33af5a8c532873702f2cb4db2af34d35"
+  revision = "0894e0a8ba6307019e729ecf9529f919d8c5b176"
 
 [[projects]]
   branch = "master"
@@ -376,6 +376,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "73b3102120088606d8fb6f4230337b332db22459756b83d9d598e956fc72c987"
+  inputs-digest = "a58c1a8221423e1c0e227f18f636beb2e21a9c3d29eedb1b42da3ff197a98a85"
   solver-name = "gps-cdcl"
   solver-version = 1
