@@ -6,8 +6,9 @@ import (
 	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
 
 	"github.com/pulumi/pulumi-aws"
+	"github.com/pulumi/pulumi-aws/pkg/version"
 )
 
 func main() {
-	tfbridge.Main("aws", aws.Provider())
+	tfbridge.Main("aws", version.Version, aws.Provider())
 }
