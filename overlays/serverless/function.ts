@@ -1,5 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
+import * as crypto from "crypto";
 import * as pulumi from "pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
@@ -60,15 +61,18 @@ export class Function extends pulumi.ComponentResource {
         super("aws:serverless:Function", name, { options: options }, parent, dependsOn);
 
         // Attach a role and then, if there are policies, attach those too.
-        this.role = new Role(name + "-iamrole", {
+        this.role = new Role(name, {
             assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
         }, this);
 
         this.policies = [];
-        for (let i = 0; i < options.policies.length; i++) {
-            let attachment = new RolePolicyAttachment(name + "-iampolicy-" + i, {
+        for (let policy of options.policies) {
+            // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
+            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
+            // structural identity by using a name that includes the role name and policyArn.
+            let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
                 role: this.role,
-                policyArn: options.policies[i],
+                policyArn: policy,
             }, this);
             this.policies.push(attachment);
         }
@@ -109,3 +113,10 @@ const lambdaRolePolicy = {
         },
     ],
 };
+
+// sha1hash returns a partial SHA1 hash of the input string.
+function sha1hash(s: string): string {
+    const shasum: crypto.Hash = crypto.createHash("sha1");
+    shasum.update(s);
+    return shasum.digest("hex").substring(0, 8);
+}
