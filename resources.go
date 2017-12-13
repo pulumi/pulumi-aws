@@ -302,6 +302,7 @@ func Provider() tfbridge.ProviderInfo {
 						Type: awsResource(cloudwatchMod, "LogGroup"),
 					},
 				},
+				DeleteBeforeReplace: true, // only 1 active filter is legal at once
 			},
 			"aws_cloudwatch_metric_alarm": {
 				Tok: awsResource(cloudwatchMod, "MetricAlarm"),
@@ -530,8 +531,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ecs_task_definition": {Tok: awsResource(ecsMod, "TaskDefinition")},
 			// Elastic File System
-			"aws_efs_file_system":  {Tok: awsResource(efsMod, "FileSystem")},
-			"aws_efs_mount_target": {Tok: awsResource(efsMod, "MountTarget")},
+			"aws_efs_file_system": {Tok: awsResource(efsMod, "FileSystem")},
+			"aws_efs_mount_target": {
+				Tok:                 awsResource(efsMod, "MountTarget"),
+				DeleteBeforeReplace: true, // only 1 mount target per AZ.
+			},
 			// Elastic Load Balancing
 			"aws_app_cookie_stickiness_policy":        {Tok: awsResource(elbMod, "CookieStickinessPolicy")},
 			"aws_elb":                                 {Tok: awsResource(elbMod, "LoadBalancer")},
@@ -623,6 +627,9 @@ func Provider() tfbridge.ProviderInfo {
 						Type: awsType(awsMod, "ARN"),
 					},
 				},
+				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
+				// deletes the same attachment we just created, since it is structurally equivalent!
+				DeleteBeforeReplace: true,
 			},
 			"aws_iam_instance_profile": {
 				Tok: awsResource(iamMod, "InstanceProfile"),
@@ -652,6 +659,9 @@ func Provider() tfbridge.ProviderInfo {
 						Type: awsType(awsMod, "ARN"),
 					},
 				},
+				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
+				// deletes the same attachment we just created, since it is structurally equivalent!
+				DeleteBeforeReplace: true,
 			},
 			"aws_iam_role_policy_attachment": {
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
@@ -662,6 +672,9 @@ func Provider() tfbridge.ProviderInfo {
 						Type: awsType(awsMod, "ARN"),
 					},
 				},
+				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
+				// deletes the same attachment we just created, since it is structurally equivalent!
+				DeleteBeforeReplace: true,
 			},
 			"aws_iam_role_policy": {Tok: awsResource(iamMod, "RolePolicy")},
 			"aws_iam_role": {
@@ -681,6 +694,9 @@ func Provider() tfbridge.ProviderInfo {
 						Type: awsType(awsMod, "ARN"),
 					},
 				},
+				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
+				// deletes the same attachment we just created, since it is structurally equivalent!
+				DeleteBeforeReplace: true,
 			},
 			"aws_iam_user_policy":        {Tok: awsResource(iamMod, "UserPolicy")},
 			"aws_iam_user_ssh_key":       {Tok: awsResource(iamMod, "SshKey")},
