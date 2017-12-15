@@ -1,0 +1,3 @@
+name: reg_output_update
+description: A regression test for updating with outputs (see pulumi/pulumi-service#436).
+runtime: nodejs

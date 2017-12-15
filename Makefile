@@ -24,7 +24,7 @@ build::
 	cd ${PACKDIR} && yarn run tsc
 
 lint::
-	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
+	$(GOMETALINTER) ./cmd/... ./examples/... ./tests/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
 
 install::
 	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
@@ -40,7 +40,7 @@ install::
 	yarn link
 
 test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples ./tests
 
 .PHONY: publish
 publish:
