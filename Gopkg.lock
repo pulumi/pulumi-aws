@@ -267,7 +267,7 @@
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "642fb0ad182df5b479d8d6a7b45336be238d3746"
+  revision = "53ee06dad0189ad7725b8ef4b943b8567ab7f1c3"
 
 [[projects]]
   branch = "master"
