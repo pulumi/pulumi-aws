@@ -49,8 +49,7 @@ export class Function extends pulumi.ComponentResource {
     public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
 
-    constructor(name: string, options: FunctionOptions, func: Handler,
-                parent?: pulumi.Resource, dependsOn?: pulumi.Resource[]) {
+    constructor(name: string, options: FunctionOptions, func: Handler, opts?: pulumi.ResourceOptions) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
@@ -58,12 +57,12 @@ export class Function extends pulumi.ComponentResource {
             throw new Error("Missing required function callback");
         }
 
-        super("aws:serverless:Function", name, { options: options }, parent, dependsOn);
+        super("aws:serverless:Function", name, { options: options }, opts);
 
         // Attach a role and then, if there are policies, attach those too.
         this.role = new Role(name, {
             assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        }, this);
+        }, { parent: this });
 
         this.policies = [];
         for (let policy of options.policies) {
@@ -73,7 +72,7 @@ export class Function extends pulumi.ComponentResource {
             let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
                 role: this.role,
                 policyArn: policy,
-            }, this);
+            }, { parent: this });
             this.policies.push(attachment);
         }
 
@@ -96,7 +95,7 @@ export class Function extends pulumi.ComponentResource {
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig === undefined ? undefined : [ options.deadLetterConfig ],
             vpcConfig: options.vpcConfig === undefined ? undefined : [ options.vpcConfig ],
-        }, this);
+        }, { parent: this });
     }
 }
 
