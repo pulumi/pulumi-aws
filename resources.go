@@ -119,11 +119,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-
-			// warning: Resource aws_media_store_container not found in provider map; skipping
-			// warning: Resource aws_service_discovery_private_dns_namespace not found in provider map; skipping
-			// warning: Resource aws_service_discovery_public_dns_namespace not found in provider map; skipping
-
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
