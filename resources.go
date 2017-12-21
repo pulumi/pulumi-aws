@@ -22,6 +22,7 @@ const (
 	acmMod               = "acm"                      // AWS Certificate Manager
 	apigatewayMod        = "apigateway"               // API Gateway
 	appautoscalingMod    = "appautoscaling"           // Application Auto Scaling
+	athenaMod            = "athena"                   // Athena
 	autoscalingMod       = "autoscaling"              // Auto Scaling
 	batchMod             = "batch"                    // Batch
 	cloudformationMod    = "cloudformation"           // Cloud Formation
@@ -37,6 +38,7 @@ const (
 	devicefarmMod        = "devicefarm"               // Device Farm
 	directoryserviceMod  = "directoryservice"         // Directory Services
 	dynamodbMod          = "dynamodb"                 // DynamoDB
+	dxMod                = "directconnect"            // Direct Connect
 	dmsMod               = "dms"                      // Data Migraiton Services
 	ebsMod               = "ebs"                      // Elastic Block Store
 	ec2Mod               = "ec2"                      // EC2
@@ -59,6 +61,8 @@ const (
 	kmsMod               = "kms"                      // Key Management Service (KMS)
 	lambdaMod            = "lambda"                   // Lambda
 	lightsailMod         = "lightsail"                // LightSail
+	mediastoreMod        = "mediastore"               // Elemental MediaStore
+	mqMod                = "mq"                       // MQ
 	opsworksMod          = "opsworks"                 // OpsWorks
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
@@ -66,6 +70,8 @@ const (
 	sesMod               = "ses"                      // Simple Email Service (SES)
 	s3Mod                = "s3"                       // Simple Storage (S3)
 	ssmMod               = "ssm"                      // System Manager
+	servicecatalogMod    = "servicecatalog"           // Service Catalog
+	servicediscoveryMod  = "servicediscovery"         // Service Discovery
 	sfnMod               = "sfn"                      // Step Functions (SFN)
 	simpledbMod          = "simpledb"                 // Simple DB
 	snsMod               = "sns"                      // Simple Notification Service (SNS)
@@ -253,9 +259,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_usage_plan":     {Tok: awsResource(apigatewayMod, "UsagePlan")},
 			"aws_api_gateway_usage_plan_key": {Tok: awsResource(apigatewayMod, "UsagePlanKey")},
+			"aws_api_gateway_vpc_link":       {Tok: awsResource(apigatewayMod, "VpcLink")},
 			// Application Auto Scaling
-			"aws_appautoscaling_target": {Tok: awsResource(appautoscalingMod, "Target")},
-			"aws_appautoscaling_policy": {Tok: awsResource(appautoscalingMod, "Policy")},
+			"aws_appautoscaling_policy":           {Tok: awsResource(appautoscalingMod, "Policy")},
+			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
+			"aws_appautoscaling_target":           {Tok: awsResource(appautoscalingMod, "Target")},
+			// Athena
+			"aws_athena_database":    {Tok: awsResource(athenaMod, "Database")},
+			"aws_athena_named_query": {Tok: awsResource(athenaMod, "NamedQuery")},
 			// Auto Scaling
 			"aws_autoscaling_attachment": {Tok: awsResource(autoscalingMod, "Attachment")},
 			"aws_autoscaling_group":      {Tok: awsResource(autoscalingMod, "Group")},
@@ -270,6 +281,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_schedule":     {Tok: awsResource(autoscalingMod, "Schedule")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
+			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
+			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			// CloudFormation
 			"aws_cloudformation_stack": {Tok: awsResource(cloudformationMod, "Stack")},
 			// CloudFront
@@ -292,8 +305,9 @@ func Provider() tfbridge.ProviderInfo {
 				IDFields: []string{"name"},
 				Tok:      awsResource(cloudwatchMod, "LogGroup"),
 			},
-			"aws_cloudwatch_log_metric_filter": {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
-			"aws_cloudwatch_log_stream":        {Tok: awsResource(cloudwatchMod, "LogStream")},
+			"aws_cloudwatch_log_metric_filter":   {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
+			"aws_cloudwatch_log_resource_policy": {Tok: awsResource(cloudwatchMod, "LogResourcePolicy")},
+			"aws_cloudwatch_log_stream":          {Tok: awsResource(cloudwatchMod, "LogStream")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -347,7 +361,9 @@ func Provider() tfbridge.ProviderInfo {
 			// CodePipeline
 			"aws_codepipeline": {Tok: awsResource(codepipelineMod, "Pipeline")},
 			// Cognito
-			"aws_cognito_identity_pool": {Tok: awsResource(cognitoMod, "IdentityPool")},
+			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},
+			"aws_cognito_identity_pool_roles_attachment": {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
+			"aws_cognito_user_pool":                      {Tok: awsResource(cognitoMod, "UserPool")},
 			// Config
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
 			"aws_config_configuration_recorder":        {Tok: awsResource(cfgMod, "Recorder")},
@@ -363,6 +379,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_devicefarm_project": {Tok: awsResource(devicefarmMod, "Project")},
 			// DirectoryService
 			"aws_directory_service_directory": {Tok: awsResource(directoryserviceMod, "Directory")},
+			// Direct Connect
+			"aws_dx_connection":             {Tok: awsResource(dxMod, "Connection")},
+			"aws_dx_connection_association": {Tok: awsResource(dxMod, "ConnectionAssociation")},
+			"aws_dx_lag":                    {Tok: awsResource(dxMod, "LinkAggregationGroup")},
 			// DynamoDB
 			"aws_dynamodb_table": {Tok: awsResource(dynamodbMod, "Table")},
 			// Elastic Beanstalk
@@ -526,6 +546,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Container Registry
 			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},
+			"aws_ecr_lifecycle_policy":  {Tok: awsResource(ecrMod, "LifecyclePolicy")},
 			// Elastic Container Service
 			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
 			"aws_ecs_service": {
@@ -551,11 +572,19 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_load_balancer_listener_policy":       {Tok: awsResource(elbMod, "ListenerPolicy")},
 			"aws_lb_ssl_negotiation_policy":           {Tok: awsResource(elbMod, "SslNegotiationPolicy")},
 			// Elastic Load Balancing (V2: Application)
-			"aws_alb": {Tok: awsResource(albMod, "LoadBalancer")},
+			"aws_alb": {
+				Tok: awsResource(albMod, "LoadBalancer"),
+				Docs: &tfbridge.DocInfo{
+					Source: "lb.html.markdown",
+				},
+			},
 			"aws_alb_listener": {
 				Tok: awsResource(albMod, "Listener"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"default_action": {Name: "defaultActions"},
+				},
+				Docs: &tfbridge.DocInfo{
+					Source: "lb_listener.html.markdown",
 				},
 			},
 			"aws_alb_listener_rule": {
@@ -564,14 +593,25 @@ func Provider() tfbridge.ProviderInfo {
 					"action":    {Name: "actions"},
 					"condition": {Name: "conditions"},
 				},
+				Docs: &tfbridge.DocInfo{
+					Source: "lb_listener_rule.html.markdown",
+				},
 			},
 			"aws_alb_target_group": {
 				Tok: awsResource(albMod, "TargetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"health_check": {Name: "healthChecks"},
 				},
+				Docs: &tfbridge.DocInfo{
+					Source: "lb_target_group.html.markdown",
+				},
 			},
-			"aws_alb_target_group_attachment": {Tok: awsResource(albMod, "TargetGroupAttachment")},
+			"aws_alb_target_group_attachment": {
+				Tok: awsResource(albMod, "TargetGroupAttachment"),
+				Docs: &tfbridge.DocInfo{
+					Source: "lb_target_group_attachment.html.markdown",
+				},
+			},
 			// Load Balancing (Application and Network)
 			"aws_lb": {Tok: awsResource(elbv2Mod, "LoadBalancer")},
 			"aws_lb_listener": {
@@ -763,6 +803,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_key_pair":             {Tok: awsResource(lightsailMod, "KeyPair")},
 			"aws_lightsail_static_ip":            {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_static_ip_attachment": {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			// Elemental MediaStore
+			"aws_media_store_container": {Tok: awsResource(mediastoreMod, "Container")},
+			// MQ
+			"aws_mq_broker":        {Tok: awsResource(mqMod, "Broker")},
+			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
 			// OpsWorks
 			"aws_opsworks_application": {
 				Tok: awsResource(opsworksMod, "Application"),
@@ -890,14 +935,21 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
+			// Service Catalog
+			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
+			// Service Discovery
+			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
+			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
 			// Simple Email Service (SES)
 			"aws_ses_active_receipt_rule_set": {Tok: awsResource(sesMod, "ActiveReceiptRuleSet")},
+			"aws_ses_domain_dkim":             {Tok: awsResource(sesMod, "DomainDkim")},
 			"aws_ses_domain_identity":         {Tok: awsResource(sesMod, "DomainIdentity")},
 			"aws_ses_receipt_filter":          {Tok: awsResource(sesMod, "ReceiptFilter")},
 			"aws_ses_receipt_rule":            {Tok: awsResource(sesMod, "ReceiptRule")},
 			"aws_ses_receipt_rule_set":        {Tok: awsResource(sesMod, "ReceiptRuleSet")},
 			"aws_ses_configuration_set":       {Tok: awsResource(sesMod, "ConfgurationSet")},
 			"aws_ses_event_destination":       {Tok: awsResource(sesMod, "EventDestination")},
+			"aws_ses_template":                {Tok: awsResource(sesMod, "Template")},
 			// S3
 			"aws_s3_bucket": {
 				Tok: awsResource(s3Mod, "Bucket"),
@@ -942,6 +994,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssm_patch_baseline":            {Tok: awsResource(ssmMod, "PatchBaseline")},
 			"aws_ssm_patch_group":               {Tok: awsResource(ssmMod, "PatchGroup")},
 			"aws_ssm_parameter":                 {Tok: awsResource(ssmMod, "Parameter")},
+			"aws_ssm_resource_data_sync":        {Tok: awsResource(ssmMod, "ResourceDataSync")},
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
@@ -1004,9 +1057,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acm_certificate": {Tok: awsDataSource(acmMod, "getCertificate")},
 			// CloudFormation
 			"aws_cloudformation_stack": {Tok: awsDataSource(cloudformationMod, "getStack")},
+			// CloudTrail
+			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
+			// DynamoDB
+			"aws_dynamodb_table": {Tok: awsDataSource(dynamodbMod, "getTable")},
 			// EC2
 			"aws_instance":               {Tok: awsDataSource(ec2Mod, "getInstance")},
+			"aws_instances":              {Tok: awsDataSource(ec2Mod, "getInstances")},
 			"aws_internet_gateway":       {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
+			"aws_nat_gateway":            {Tok: awsDataSource(ec2Mod, "getNatGateway")},
+			"aws_network_interface":      {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
 			"aws_route_table":            {Tok: awsDataSource(ec2Mod, "getRouteTable")},
 			"aws_security_group":         {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
 			"aws_subnet":                 {Tok: awsDataSource(ec2Mod, "getSubnet")},
@@ -1033,18 +1093,35 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_solution_stack": {Tok: awsDataSource(elasticbeanstalkMod, "getSolutionStack")},
 			// ElastiCache
-			"aws_elasticache_cluster": {Tok: awsDataSource(elasticacheMod, "getCluster")},
+			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
+			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
 			// Elastic Load Balancing
 			"aws_elb_hosted_zone_id":  {Tok: awsDataSource(elbMod, "getHostedZoneId")},
 			"aws_elb_service_account": {Tok: awsDataSource(elbMod, "getServiceAccount")},
+			"aws_elb":                 {Tok: awsDataSource(elbMod, "getLoadBalancer")},
 			// Elastic Load Balancing (v2: Application)
-			"aws_alb":              {Tok: awsDataSource(albMod, "getLoadBalancerInfo")},
-			"aws_alb_listener":     {Tok: awsDataSource(albMod, "getListenerInfo")},
-			"aws_alb_target_group": {Tok: awsDataSource(albMod, "getTargetGroupInfo")},
+			"aws_alb": {
+				Tok: awsDataSource(albMod, "getLoadBalancer"),
+				Docs: &tfbridge.DocInfo{
+					Source: "lb.html.markdown",
+				},
+			},
+			"aws_alb_listener": {
+				Tok: awsDataSource(albMod, "getListener"),
+				Docs: &tfbridge.DocInfo{
+					Source: "lb_listener.html.markdown",
+				},
+			},
+			"aws_alb_target_group": {
+				Tok: awsDataSource(albMod, "getTargetGroup"),
+				Docs: &tfbridge.DocInfo{
+					Source: "lb_target_group.html.markdown",
+				},
+			},
 			// Load Balancing (Application and Network)
-			"aws_lb":              {Tok: awsDataSource(elbv2Mod, "getLoadBalancerInfo")},
-			"aws_lb_listener":     {Tok: awsDataSource(elbv2Mod, "getListenerInfo")},
-			"aws_lb_target_group": {Tok: awsDataSource(elbv2Mod, "getTargetGroupInfo")},
+			"aws_lb":              {Tok: awsDataSource(elbv2Mod, "getLoadBalancer")},
+			"aws_lb_listener":     {Tok: awsDataSource(elbv2Mod, "getListener")},
+			"aws_lb_target_group": {Tok: awsDataSource(elbv2Mod, "getTargetGroup")},
 			// IAM
 			"aws_iam_account_alias":      {Tok: awsDataSource(iamMod, "getAccountAlias")},
 			"aws_iam_group":              {Tok: awsDataSource(iamMod, "getGroup")},
@@ -1052,6 +1129,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_policy_document":    {Tok: awsDataSource(iamMod, "getPolicyDocument")},
 			"aws_iam_role":               {Tok: awsDataSource(iamMod, "getRole")},
 			"aws_iam_server_certificate": {Tok: awsDataSource(iamMod, "getServerCertificate")},
+			"aws_iam_user":               {Tok: awsDataSource(iamMod, "getUser")},
 			// Kinesis
 			"aws_kinesis_stream": {Tok: awsDataSource(kinesisMod, "getStream")},
 			// Key Management Service
@@ -1059,6 +1137,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},
 			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
 			// RDS
+			"aws_rds_cluster": {Tok: awsDataSource(rdsMod, "getCluster")},
 			"aws_db_instance": {Tok: awsDataSource(rdsMod, "getInstance")},
 			"aws_db_snapshot": {Tok: awsDataSource(rdsMod, "getSnapshot")},
 			// RedShift
@@ -1066,6 +1145,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Route53
 			"aws_route53_zone": {Tok: awsDataSource(route53Mod, "getZone")},
 			// S3
+			"aws_s3_bucket":        {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object": {Tok: awsDataSource(s3Mod, "getBucketObject")},
 			// SNS
 			"aws_sns_topic": {Tok: awsDataSource(snsMod, "getTopic")},
