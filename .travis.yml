@@ -23,6 +23,9 @@ install:
     - ${GOPATH}/src/github.com/pulumi/home/scripts/install-locked.sh ${PULUMI_ROOT} pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure
+before_script:
+    # Ensure the working tree is clean (make ensure may have updated lock files)
+    - ${GOPATH}/src/github.com/pulumi/home/scripts/check-worktree-is-clean.sh
 script:
     - make travis_${TRAVIS_EVENT_TYPE}
 notifications:
