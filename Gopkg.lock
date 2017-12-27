@@ -265,14 +265,14 @@
 [[projects]]
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/version","pkg/workspace","sdk/proto/go"]
-  revision = "af087103b9722909a3f71bd82e3dd247df197791"
-  version = "v0.9.6"
+  revision = "acc9147ea166857c37f9c0a4a73312fe9c537c56"
+  version = "v0.9.7"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "78bb4606a7a4dee801bce43b8b1ae0b0fb83be58"
-  version = "v0.9.6"
+  revision = "b4f608c7d41b6ad1f350178474e2e48d19b92eb7"
+  version = "v0.9.7"
 
 [[projects]]
   branch = "master"
@@ -369,9 +369,9 @@
 
 [[projects]]
   name = "google.golang.org/grpc"
-  packages = [".","balancer","balancer/roundrobin","codes","connectivity","credentials","encoding","grpclb/grpc_lb_v1/messages","grpclog","internal","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","resolver/dns","resolver/passthrough","stats","status","tap","transport"]
-  revision = "5a9f7b402fe85096d2e1d0383435ee1876e863d0"
-  version = "v1.8.0"
+  packages = [".","balancer","codes","connectivity","credentials","grpclb/grpc_lb_v1/messages","grpclog","internal","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","stats","status","tap","transport"]
+  revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
+  version = "v1.7.2"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
