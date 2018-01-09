@@ -313,7 +313,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "d1cc7be0433c0b002cc80d90266302756990ca9f"
+  revision = "2b700354adb92553a321687a7aac717f34ecf95d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
