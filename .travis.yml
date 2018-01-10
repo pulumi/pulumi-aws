@@ -17,6 +17,7 @@ before_install:
     - export PATH=$HOME/.yarn/bin:$PATH
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
+    - export PULUMI_FAILED_TESTS_DIR=$(mktemp -d); echo "${PULUMI_FAILED_TESTS_DIR}"
 install:
     # Clone the Pulumi repo and use install-locked.sh to install Pulumi components based on our Gopkg.lock.
     - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
@@ -28,6 +29,9 @@ before_script:
     - ${GOPATH}/src/github.com/pulumi/home/scripts/check-worktree-is-clean.sh
 script:
     - make travis_${TRAVIS_EVENT_TYPE}
+after_failure:
+    # Copy any data from failed tests to S3.
+    - aws --region us-west-2 s3 cp --recursive "${PULUMI_FAILED_TESTS_DIR}" "s3://eng.pulumi.com/travis-logs/${TRAVIS_REPO_SLUG}/${TRAVIS_JOB_NUMBER}/failures"
 notifications:
     webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis
 
