@@ -1,10 +1,10 @@
 [[override]]
   name = "github.com/pulumi/pulumi"
-  revision = "bb533c65479610c6d224e212caccb50074c8d77f"
+  revision = "208b7296bee8f876b48950e9df12869adc32a76a"
 
 [[override]]
   name = "github.com/pulumi/pulumi-terraform"
-  revision = "68af1a298060d5ed2d4670814578b6431505a2b6"
+  revision = "346b5844c168a88de621e2146ac590f219fce27b"
 
 [[override]]
   name = "github.com/hashicorp/terraform"
