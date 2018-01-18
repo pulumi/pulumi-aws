@@ -635,7 +635,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_lb_target_group_attachment": {Tok: awsResource(elbv2Mod, "TargetGroupAttachment")},
 			// Elastic Search
-			"aws_elasticsearch_domain":        {Tok: awsResource(elasticsearchMod, "Domain")},
+			"aws_elasticsearch_domain": {
+				Tok: awsResource(elasticsearchMod, "Domain"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"domain_name": tfbridge.AutoNameTransform("domainName", 28, func(name string) string {
+						return strings.ToLower(name)
+					}),
+				},
+			},
 			"aws_elasticsearch_domain_policy": {Tok: awsResource(elasticsearchMod, "DomainPolicy")},
 			// Elastic Transcoder
 			"aws_elastictranscoder_pipeline": {
