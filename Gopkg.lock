@@ -99,6 +99,8 @@
     "service/emr",
     "service/firehose",
     "service/glacier",
+    "service/glue",
+    "service/guardduty",
     "service/iam",
     "service/inspector",
     "service/iot",
@@ -125,8 +127,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "03f37be7b3c2cec3a839ff74dea774c63819d45d"
-  version = "v1.12.50"
+  revision = "9ed0c8de252f04ac45a65358377103d5a1aa2d92"
+  version = "v1.12.66"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -521,7 +523,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "2b700354adb92553a321687a7aac717f34ecf95d"
+  revision = "cc9bf08cc8bbb82fa1fc197418e18bc6dcd8b886"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
