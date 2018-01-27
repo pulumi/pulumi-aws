@@ -563,10 +563,10 @@ func Provider() tfbridge.ProviderInfo {
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
 			// Elastic Load Balancing
-			"aws_app_cookie_stickiness_policy":        {Tok: awsResource(elbMod, "CookieStickinessPolicy")},
+			"aws_app_cookie_stickiness_policy":        {Tok: awsResource(elbMod, "AppCookieStickinessPolicy")},
 			"aws_elb":                                 {Tok: awsResource(elbMod, "LoadBalancer")},
 			"aws_elb_attachment":                      {Tok: awsResource(elbMod, "Attachment")},
-			"aws_lb_cookie_stickiness_policy":         {Tok: awsResource(elbMod, "CookieStickinessPolicy")},
+			"aws_lb_cookie_stickiness_policy":         {Tok: awsResource(elbMod, "LoadBalancerCookieStickinessPolicy")},
 			"aws_load_balancer_policy":                {Tok: awsResource(elbMod, "LoadBalancerPolicy")},
 			"aws_load_balancer_backend_server_policy": {Tok: awsResource(elbMod, "LoadBalancerBackendServerPolicy")},
 			"aws_load_balancer_listener_policy":       {Tok: awsResource(elbMod, "ListenerPolicy")},
