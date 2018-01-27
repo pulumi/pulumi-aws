@@ -32,101 +32,7 @@
 
 [[projects]]
   name = "github.com/aws/aws-sdk-go"
-  packages = [
-    "aws",
-    "aws/arn",
-    "aws/awserr",
-    "aws/awsutil",
-    "aws/client",
-    "aws/client/metadata",
-    "aws/corehandlers",
-    "aws/credentials",
-    "aws/credentials/ec2rolecreds",
-    "aws/credentials/endpointcreds",
-    "aws/credentials/stscreds",
-    "aws/defaults",
-    "aws/ec2metadata",
-    "aws/endpoints",
-    "aws/request",
-    "aws/session",
-    "aws/signer/v4",
-    "internal/shareddefaults",
-    "private/protocol",
-    "private/protocol/ec2query",
-    "private/protocol/json/jsonutil",
-    "private/protocol/jsonrpc",
-    "private/protocol/query",
-    "private/protocol/query/queryutil",
-    "private/protocol/rest",
-    "private/protocol/restjson",
-    "private/protocol/restxml",
-    "private/protocol/xml/xmlutil",
-    "private/signer/v2",
-    "service/acm",
-    "service/apigateway",
-    "service/applicationautoscaling",
-    "service/athena",
-    "service/autoscaling",
-    "service/batch",
-    "service/cloudformation",
-    "service/cloudfront",
-    "service/cloudtrail",
-    "service/cloudwatch",
-    "service/cloudwatchevents",
-    "service/cloudwatchlogs",
-    "service/codebuild",
-    "service/codecommit",
-    "service/codedeploy",
-    "service/codepipeline",
-    "service/cognitoidentity",
-    "service/cognitoidentityprovider",
-    "service/configservice",
-    "service/databasemigrationservice",
-    "service/devicefarm",
-    "service/directconnect",
-    "service/directoryservice",
-    "service/dynamodb",
-    "service/ec2",
-    "service/ecr",
-    "service/ecs",
-    "service/efs",
-    "service/elasticache",
-    "service/elasticbeanstalk",
-    "service/elasticsearchservice",
-    "service/elastictranscoder",
-    "service/elb",
-    "service/elbv2",
-    "service/emr",
-    "service/firehose",
-    "service/glacier",
-    "service/glue",
-    "service/guardduty",
-    "service/iam",
-    "service/inspector",
-    "service/iot",
-    "service/kinesis",
-    "service/kms",
-    "service/lambda",
-    "service/lightsail",
-    "service/mediastore",
-    "service/mq",
-    "service/opsworks",
-    "service/rds",
-    "service/redshift",
-    "service/route53",
-    "service/s3",
-    "service/servicecatalog",
-    "service/servicediscovery",
-    "service/ses",
-    "service/sfn",
-    "service/simpledb",
-    "service/sns",
-    "service/sqs",
-    "service/ssm",
-    "service/sts",
-    "service/waf",
-    "service/wafregional"
-  ]
+  packages = ["aws","aws/arn","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/ec2query","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restjson","private/protocol/restxml","private/protocol/xml/xmlutil","private/signer/v2","service/acm","service/apigateway","service/applicationautoscaling","service/athena","service/autoscaling","service/batch","service/cloudformation","service/cloudfront","service/cloudtrail","service/cloudwatch","service/cloudwatchevents","service/cloudwatchlogs","service/codebuild","service/codecommit","service/codedeploy","service/codepipeline","service/cognitoidentity","service/cognitoidentityprovider","service/configservice","service/databasemigrationservice","service/devicefarm","service/directconnect","service/directoryservice","service/dynamodb","service/ec2","service/ecr","service/ecs","service/efs","service/elasticache","service/elasticbeanstalk","service/elasticsearchservice","service/elastictranscoder","service/elb","service/elbv2","service/emr","service/firehose","service/glacier","service/glue","service/guardduty","service/iam","service/inspector","service/iot","service/kinesis","service/kms","service/lambda","service/lightsail","service/mediastore","service/mq","service/opsworks","service/rds","service/redshift","service/route53","service/s3","service/servicecatalog","service/servicediscovery","service/ses","service/sfn","service/simpledb","service/sns","service/sqs","service/ssm","service/sts","service/waf","service/wafregional"]
   revision = "9ed0c8de252f04ac45a65358377103d5a1aa2d92"
   version = "v1.12.66"
 
@@ -178,16 +84,7 @@
 [[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
-  packages = [
-    "proto",
-    "protoc-gen-go/descriptor",
-    "ptypes",
-    "ptypes/any",
-    "ptypes/duration",
-    "ptypes/empty",
-    "ptypes/struct",
-    "ptypes/timestamp"
-  ]
+  packages = ["proto","protoc-gen-go/descriptor","ptypes","ptypes/any","ptypes/duration","ptypes/empty","ptypes/struct","ptypes/timestamp"]
   revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
 
 [[projects]]
@@ -209,10 +106,7 @@
 [[projects]]
   branch = "master"
   name = "github.com/hashicorp/go-getter"
-  packages = [
-    ".",
-    "helper/url"
-  ]
+  packages = [".","helper/url"]
   revision = "2f449c791e6af9e532bc1aca36d1d3865b8537f9"
 
 [[projects]]
@@ -232,39 +126,17 @@
 
 [[projects]]
   name = "github.com/hashicorp/hcl"
-  packages = [
-    ".",
-    "hcl/ast",
-    "hcl/parser",
-    "hcl/scanner",
-    "hcl/strconv",
-    "hcl/token",
-    "json/parser",
-    "json/scanner",
-    "json/token"
-  ]
+  packages = [".","hcl/ast","hcl/parser","hcl/scanner","hcl/strconv","hcl/token","json/parser","json/scanner","json/token"]
   revision = "a4b07c25de5ff55ad3b8936cea69a79a3d95a855"
 
 [[projects]]
   name = "github.com/hashicorp/hcl2"
-  packages = [
-    "gohcl",
-    "hcl",
-    "hcl/hclsyntax",
-    "hcl/json",
-    "hcldec",
-    "hclparse"
-  ]
+  packages = ["gohcl","hcl","hcl/hclsyntax","hcl/json","hcldec","hclparse"]
   revision = "44bad6dbf5490f5da17ec991e664df3d017b706f"
 
 [[projects]]
   name = "github.com/hashicorp/hil"
-  packages = [
-    ".",
-    "ast",
-    "parser",
-    "scanner"
-  ]
+  packages = [".","ast","parser","scanner"]
   revision = "fa9f258a92500514cc8e9c67020487709df92432"
 
 [[projects]]
@@ -275,44 +147,13 @@
 [[projects]]
   branch = "pulumi-master"
   name = "github.com/hashicorp/terraform"
-  packages = [
-    "config",
-    "config/configschema",
-    "config/hcl2shim",
-    "config/module",
-    "dag",
-    "flatmap",
-    "helper/config",
-    "helper/encryption",
-    "helper/hashcode",
-    "helper/hilmapstructure",
-    "helper/logging",
-    "helper/mutexkv",
-    "helper/resource",
-    "helper/schema",
-    "helper/structure",
-    "helper/validation",
-    "moduledeps",
-    "plugin/discovery",
-    "registry/regsrc",
-    "registry/response",
-    "svchost",
-    "svchost/auth",
-    "svchost/disco",
-    "terraform",
-    "tfdiags",
-    "version"
-  ]
+  packages = ["config","config/configschema","config/hcl2shim","config/module","dag","flatmap","helper/config","helper/encryption","helper/hashcode","helper/hilmapstructure","helper/logging","helper/mutexkv","helper/resource","helper/schema","helper/structure","helper/validation","moduledeps","plugin/discovery","registry/regsrc","registry/response","svchost","svchost/auth","svchost/disco","terraform","tfdiags","version"]
   revision = "aad0b3801b6e590b41305b6ab938669e834e5ca7"
   source = "github.com/pulumi/terraform"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
-  packages = [
-    "helper/compressutil",
-    "helper/jsonutil",
-    "helper/pgpkeys"
-  ]
+  packages = ["helper/compressutil","helper/jsonutil","helper/pgpkeys"]
   revision = "9a60bf2a50e4dd1ba4b929a3ccf8072435cbdd0a"
 
 [[projects]]
@@ -334,21 +175,7 @@
 [[projects]]
   branch = "master"
   name = "github.com/keybase/go-crypto"
-  packages = [
-    "brainpool",
-    "cast5",
-    "curve25519",
-    "ed25519",
-    "ed25519/internal/edwards25519",
-    "openpgp",
-    "openpgp/armor",
-    "openpgp/ecdh",
-    "openpgp/elgamal",
-    "openpgp/errors",
-    "openpgp/packet",
-    "openpgp/s2k",
-    "rsa"
-  ]
+  packages = ["brainpool","cast5","curve25519","ed25519","ed25519/internal/edwards25519","openpgp","openpgp/armor","openpgp/ecdh","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","rsa"]
   revision = "f63716704117f5bd34d8f0f068f7e8369d20d4ab"
 
 [[projects]]
@@ -407,11 +234,7 @@
 
 [[projects]]
   name = "github.com/opentracing/opentracing-go"
-  packages = [
-    ".",
-    "ext",
-    "log"
-  ]
+  packages = [".","ext","log"]
   revision = "1949ddbfd147afd4d964a9f00b24eb291e0e7c38"
   version = "v1.0.2"
 
@@ -435,52 +258,19 @@
 
 [[projects]]
   name = "github.com/posener/complete"
-  packages = [
-    ".",
-    "cmd",
-    "cmd/install",
-    "match"
-  ]
+  packages = [".","cmd","cmd/install","match"]
   revision = "dc2bc5a81accba8782bebea28628224643a8286a"
   version = "v1.1"
 
 [[projects]]
   name = "github.com/pulumi/pulumi"
-  packages = [
-    "pkg/compiler/errors",
-    "pkg/diag",
-    "pkg/diag/colors",
-    "pkg/encoding",
-    "pkg/engine",
-    "pkg/pack",
-    "pkg/resource",
-    "pkg/resource/config",
-    "pkg/resource/deploy",
-    "pkg/resource/plugin",
-    "pkg/resource/provider",
-    "pkg/resource/stack",
-    "pkg/testing",
-    "pkg/testing/integration",
-    "pkg/tokens",
-    "pkg/tools",
-    "pkg/util/cmdutil",
-    "pkg/util/contract",
-    "pkg/util/fsutil",
-    "pkg/util/mapper",
-    "pkg/util/rpcutil",
-    "pkg/version",
-    "pkg/workspace",
-    "sdk/proto/go"
-  ]
+  packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/version","pkg/workspace","sdk/proto/go"]
   revision = "ce05cce77f06439e139bbc035fd3649f7bd23d4f"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
-  packages = [
-    "pkg/tfbridge",
-    "pkg/tfgen"
-  ]
-  revision = "78926d7d618a5029fca20ff6ed2663fdd9ec432c"
+  packages = ["pkg/tfbridge","pkg/tfgen"]
+  revision = "760ec7c4ec61d4264c9bd2702fcf7137fc80bb8e"
 
 [[projects]]
   branch = "master"
@@ -526,18 +316,7 @@
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
-  packages = [
-    ".",
-    "internal/baggage",
-    "internal/spanlog",
-    "log",
-    "thrift-gen/agent",
-    "thrift-gen/jaeger",
-    "thrift-gen/sampling",
-    "thrift-gen/zipkincore",
-    "transport/zipkin",
-    "utils"
-  ]
+  packages = [".","internal/baggage","internal/spanlog","log","thrift-gen/agent","thrift-gen/jaeger","thrift-gen/sampling","thrift-gen/zipkincore","transport/zipkin","utils"]
   revision = "0ce42f3f87dae4f5ba84bdc60c99a908db419cb8"
   version = "v2.10.0"
 
@@ -549,88 +328,35 @@
 
 [[projects]]
   name = "github.com/ulikunitz/xz"
-  packages = [
-    ".",
-    "internal/hash",
-    "internal/xlog",
-    "lzma"
-  ]
+  packages = [".","internal/hash","internal/xlog","lzma"]
   revision = "0c6b41e72360850ca4f98dc341fd999726ea007f"
   version = "v0.5.4"
 
 [[projects]]
   name = "github.com/zclconf/go-cty"
-  packages = [
-    "cty",
-    "cty/convert",
-    "cty/function",
-    "cty/function/stdlib",
-    "cty/gocty",
-    "cty/json",
-    "cty/set"
-  ]
+  packages = ["cty","cty/convert","cty/function","cty/function/stdlib","cty/gocty","cty/json","cty/set"]
   revision = "8bf222d6d03b7b336d013978f3acbfd877da428f"
 
 [[projects]]
   name = "golang.org/x/crypto"
-  packages = [
-    "bcrypt",
-    "blowfish",
-    "cast5",
-    "openpgp",
-    "openpgp/armor",
-    "openpgp/elgamal",
-    "openpgp/errors",
-    "openpgp/packet",
-    "openpgp/s2k",
-    "pbkdf2",
-    "ssh/terminal"
-  ]
+  packages = ["bcrypt","blowfish","cast5","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","pbkdf2","ssh/terminal"]
   revision = "eb71ad9bd329b5ac0fd0148dd99bd62e8be8e035"
 
 [[projects]]
   name = "golang.org/x/net"
-  packages = [
-    "context",
-    "html",
-    "html/atom",
-    "http2",
-    "http2/hpack",
-    "idna",
-    "internal/timeseries",
-    "lex/httplex",
-    "trace"
-  ]
+  packages = ["context","html","html/atom","http2","http2/hpack","idna","internal/timeseries","lex/httplex","trace"]
   revision = "a04bdaca5b32abe1c069418fb7088ae607de5bd0"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = [
-    "unix",
-    "windows"
-  ]
+  packages = ["unix","windows"]
   revision = "82aafbf43bf885069dc71b7e7c2f9d7a614d47da"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/text"
-  packages = [
-    "collate",
-    "collate/build",
-    "internal/colltab",
-    "internal/gen",
-    "internal/tag",
-    "internal/triegen",
-    "internal/ucd",
-    "language",
-    "secure/bidirule",
-    "transform",
-    "unicode/bidi",
-    "unicode/cldr",
-    "unicode/norm",
-    "unicode/rangetable"
-  ]
+  packages = ["collate","collate/build","internal/colltab","internal/gen","internal/tag","internal/triegen","internal/ucd","language","secure/bidirule","transform","unicode/bidi","unicode/cldr","unicode/norm","unicode/rangetable"]
   revision = "88f656faf3f37f690df1a32515b479415e1a6769"
 
 [[projects]]
@@ -641,27 +367,7 @@
 
 [[projects]]
   name = "google.golang.org/grpc"
-  packages = [
-    ".",
-    "balancer",
-    "codes",
-    "connectivity",
-    "credentials",
-    "grpclb/grpc_lb_v1/messages",
-    "grpclog",
-    "internal",
-    "keepalive",
-    "metadata",
-    "naming",
-    "peer",
-    "reflection",
-    "reflection/grpc_reflection_v1alpha",
-    "resolver",
-    "stats",
-    "status",
-    "tap",
-    "transport"
-  ]
+  packages = [".","balancer","codes","connectivity","credentials","grpclb/grpc_lb_v1/messages","grpclog","internal","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","stats","status","tap","transport"]
   revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
   version = "v1.7.2"
 
@@ -673,6 +379,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "24f48830949d34dae3cee50872497dcebe8ed002d7cb58a96db81b34df5aef82"
+  inputs-digest = "9e642720a75108f424018b68decec33c62cd211d127d951e4c2583091bac8d71"
   solver-name = "gps-cdcl"
   solver-version = 1
