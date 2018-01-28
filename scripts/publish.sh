@@ -28,6 +28,6 @@ done
 
 echo "Publishing NPM package to NPMjs.com:"
 pushd ${ROOT}/pack/bin && \
-    npm info && \
+    npm info 2>/dev/null || true && \
     npm publish && \
     popd
