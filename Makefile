@@ -23,8 +23,7 @@ build::
 	cd pack/ && yarn install
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
 	cd ${PACKDIR} && yarn run tsc
-	cp ${PACKDIR}/package.json ${PACKBIN}/
-	cp ${PACKDIR}/yarn.lock ${PACKBIN}/
+	cp README.md LICENSE ${PACKDIR}/package.json ${PACKDIR}/yarn.lock ${PACKBIN}/
 
 lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"

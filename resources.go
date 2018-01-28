@@ -111,8 +111,12 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 func Provider() tfbridge.ProviderInfo {
 	p := aws.Provider().(*schema.Provider)
 	prov := tfbridge.ProviderInfo{
-		P:    p,
-		Name: "aws",
+		P:           p,
+		Name:        "aws",
+		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
+		Keywords:    []string{"pulumi", "aws"},
+		Homepage:    "https://pulumi.io/aws",
+		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsType("region", "Region"),
@@ -1198,7 +1202,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			Dependencies: map[string]string{
+			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 		},
