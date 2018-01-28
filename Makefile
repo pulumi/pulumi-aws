@@ -3,6 +3,7 @@ include build/common.mk
 
 PACK             := aws
 PACKDIR          := pack
+PACKBIN          := ${PACKDIR}/bin
 PROJECT          := github.com/pulumi/pulumi-aws
 NODE_MODULE_NAME := @pulumi/aws
 
@@ -22,6 +23,8 @@ build::
 	cd pack/ && yarn install
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
 	cd ${PACKDIR} && yarn run tsc
+	cp ${PACKDIR}/package.json ${PACKBIN}/
+	cp ${PACKDIR}/yarn.lock ${PACKBIN}/
 
 lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
@@ -30,9 +33,7 @@ install::
 	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	cp -r pack/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	cp pack/package.json "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	cp pack/yarn.lock "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	cp -r ${PACKBIN}/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
 	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
 	yarn install --offline --production && \

@@ -49,4 +49,3 @@ copy_package "${ROOT}/pack/bin/." "@pulumi/aws"
 # Tar up the file and then print it out for use by the caller or script.
 tar -czf ${PUBFILE} -C ${PUBDIR} .
 echo ${PUBFILE} ${PUBTARGETS[@]}
-

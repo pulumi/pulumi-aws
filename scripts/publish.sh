@@ -2,6 +2,7 @@
 # publish.sh builds and publishes a release.
 set -o nounset -o errexit -o pipefail
 
+ROOT=$(dirname $0)/..
 PUBLISH=$GOPATH/src/github.com/pulumi/home/scripts/publish.sh
 PUBLISH_GOOS=("linux" "windows" "darwin")
 PUBLISH_GOARCH=("amd64")
@@ -12,6 +13,7 @@ if [ ! -f $PUBLISH ]; then
     exit 1
 fi
 
+echo "Publishing SDK build to s3://eng.pulumi.com/:"
 for OS in "${PUBLISH_GOOS[@]}"
 do
     for ARCH in "${PUBLISH_GOARCH[@]}"
@@ -24,3 +26,8 @@ do
     done
 done
 
+echo "Publishing NPM package to NPMjs.com:"
+pushd ${ROOT}/pack/bin && \
+    npm info && \
+    npm publish && \
+    popd
