@@ -23,7 +23,7 @@ export interface Context {
     getRemainingTimeInMillis(): string;
 }
 
-/** 
+/**
  * Handler is the signature for a serverless function.
  */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
@@ -33,9 +33,9 @@ export interface FunctionOptions {
     timeout?: number;
     memorySize?: number;
     deadLetterConfig?: { targetArn: pulumi.Computed<string>; };
-    vpcConfig?: { 
-        securityGroupIds: pulumi.ComputedValue<string>[], 
-        subnetIds: pulumi.ComputedValue<string>[], 
+    vpcConfig?: {
+        securityGroupIds: pulumi.ComputedValue<string[]>,
+        subnetIds: pulumi.ComputedValue<string[]>,
     };
 }
 
