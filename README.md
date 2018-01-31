@@ -3,4 +3,3 @@
 # aws
 
 An Amazon Web Services (AWS) Pulumi resource package.
-

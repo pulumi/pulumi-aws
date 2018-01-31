@@ -2,10 +2,14 @@
 # yarn lockfile v1
 
 
+"@pulumi/aws@latest":
+  version "0.9.11-10-gcb20031"
+  resolved "https://npmjs-dot-testing.moolumi.io/@pulumi%2faws/-/aws-0.9.11-10-gcb20031.tgz#0a3058256ab72a41dfde4353552b72f0c85d6c73"
+
 "@types/node@^8.0.26":
-  version "8.0.26"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.26.tgz#4d58be925306fd22b1141085535a0268b8beb189"
+  version "8.5.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.9.tgz#7155cfb4ae405bca4dd8df1a214c339e939109bf"
 
 typescript@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.3.tgz#df3dcdc38f3beb800d4bc322646b04a3f6ca7f0d"
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
