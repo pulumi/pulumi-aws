@@ -1,4 +1,4 @@
-# Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+# Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
 
 # common.mk provides most of the scalfholding for our build system. It
 # provides default targets for each project we want to build.
@@ -33,11 +33,6 @@
 #
 # In addition, we have a few higher level targets that just depend on
 # these targets:
-#
-#  - only_build: this target runs build and install targets
-#
-#  - only_test: this target runs the list and test_all targets
-#               (test_all itself runs test_fast)
 #
 #  - default: this is the target that is run by default when no
 #             arguments are passed to make, it runs the build, lint,
@@ -104,7 +99,10 @@ endif
 PULUMI_BIN          := $(PULUMI_ROOT)/bin
 PULUMI_NODE_MODULES := $(PULUMI_ROOT)/node_modules
 
-.PHONY: default all ensure only_build only_test build lint install test_fast test_all core
+.PHONY: default all ensure build lint install test_fast test_all core
+
+# ensure that `default` is the target that is run when no arguments are passed to make
+default::
 
 # If there are sub projects, our default, all, and ensure targets will
 # recurse into them.
@@ -132,8 +130,8 @@ all::
 	@echo -e "\033[1;37m$(shell echo '$(PROJECT_NAME)' | sed -e 's/./=/g')\033[1;37m"
 endif
 
-default:: build install lint test_fast
-all:: build install lint test_all
+default:: build lint install test_fast
+all:: build lint install test_all
 
 ensure::
 	$(call STEP_MESSAGE)
@@ -171,9 +169,6 @@ install::
 	yarn link
 endif
 
-only_build:: build install
-only_test:: lint test_all
-
 # Generate targets for each sub project. This project's default and
 # all targets will depend on the sub project's targets, and the
 # individual targets for sub projects are added as a convience when
@@ -193,10 +188,8 @@ $(SUB_PROJECTS:%=%_test_fast):
 	@$(MAKE) -C ./$(@:%_test_fast=%) test_fast
 $(SUB_PROJECTS:%=%_install):
 	@$(MAKE) -C ./$(@:%_install=%) install
-$(SUB_PROJECTS:%=%_only_build):
-	@$(MAKE) -C ./$(@:%_only_build=%) only_build
-$(SUB_PROJECTS:%=%_only_test):
-	@$(MAKE) -C ./$(@:%_only_test=%) only_test
+$(SUB_PROJECTS:%=%_test_all):
+	@$(MAKE) -C ./$(@:%_test_all=%) test_all
 endif
 
 # As a convinece, we provide a format target that folks can build to
