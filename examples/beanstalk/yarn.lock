@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@pulumi/aws@latest":
+  version "0.9.11-10-gcb20031"
+  resolved "https://npmjs-dot-testing.moolumi.io/@pulumi%2faws/-/aws-0.9.11-10-gcb20031.tgz#0a3058256ab72a41dfde4353552b72f0c85d6c73"
+
 "@types/node@^8.0.27":
   version "8.0.27"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.27.tgz#13fbe7e92afeecebb843d7cea6c15b521e0000e1"
