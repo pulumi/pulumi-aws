@@ -3,13 +3,13 @@
 
 
 "@pulumi/aws@latest":
-  version "0.9.11-10-gcb20031"
-  resolved "https://npmjs-dot-testing.moolumi.io/@pulumi%2faws/-/aws-0.9.11-10-gcb20031.tgz#0a3058256ab72a41dfde4353552b72f0c85d6c73"
+  version "0.9.11-11-g977c466"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-0.9.11-11-g977c466.tgz#dca94aac3e3de913cc17b2e8422dcbb94f222118"
 
 "@types/node@^8.0.27":
-  version "8.0.27"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.27.tgz#13fbe7e92afeecebb843d7cea6c15b521e0000e1"
+  version "8.5.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.9.tgz#7155cfb4ae405bca4dd8df1a214c339e939109bf"
 
 typescript@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.3.tgz#df3dcdc38f3beb800d4bc322646b04a3f6ca7f0d"
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
