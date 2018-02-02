@@ -34,6 +34,11 @@
 # In addition, we have a few higher level targets that just depend on
 # these targets:
 #
+#  - only_build: this target runs build and install targets
+#
+#  - only_test: this target runs the list and test_all targets
+#               (test_all itself runs test_fast)
+#
 #  - default: this is the target that is run by default when no
 #             arguments are passed to make, it runs the build, lint,
 #             install and test_fast targets
@@ -99,7 +104,7 @@ endif
 PULUMI_BIN          := $(PULUMI_ROOT)/bin
 PULUMI_NODE_MODULES := $(PULUMI_ROOT)/node_modules
 
-.PHONY: default all ensure build lint install test_fast test_all core
+.PHONY: default all ensure only_build only_test build lint install test_fast test_all core
 
 # ensure that `default` is the target that is run when no arguments are passed to make
 default::
@@ -130,8 +135,8 @@ all::
 	@echo -e "\033[1;37m$(shell echo '$(PROJECT_NAME)' | sed -e 's/./=/g')\033[1;37m"
 endif
 
-default:: build lint install test_fast
-all:: build lint install test_all
+default:: build install lint test_fast
+all:: build install lint test_all
 
 ensure::
 	$(call STEP_MESSAGE)
@@ -160,7 +165,6 @@ install::
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	cp package.json "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp yarn.lock "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
 	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
@@ -168,6 +172,9 @@ install::
 	(yarn unlink > /dev/null 2>&1 || true) && \
 	yarn link
 endif
+
+only_build:: build install
+only_test:: lint test_all
 
 # Generate targets for each sub project. This project's default and
 # all targets will depend on the sub project's targets, and the
@@ -188,8 +195,10 @@ $(SUB_PROJECTS:%=%_test_fast):
 	@$(MAKE) -C ./$(@:%_test_fast=%) test_fast
 $(SUB_PROJECTS:%=%_install):
 	@$(MAKE) -C ./$(@:%_install=%) install
-$(SUB_PROJECTS:%=%_test_all):
-	@$(MAKE) -C ./$(@:%_test_all=%) test_all
+$(SUB_PROJECTS:%=%_only_build):
+	@$(MAKE) -C ./$(@:%_only_build=%) only_build
+$(SUB_PROJECTS:%=%_only_test):
+	@$(MAKE) -C ./$(@:%_only_test=%) only_test
 endif
 
 # As a convinece, we provide a format target that folks can build to
