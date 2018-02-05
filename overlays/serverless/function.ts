@@ -32,10 +32,10 @@ export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
-    deadLetterConfig?: { targetArn: pulumi.Computed<string>; };
+    deadLetterConfig?: { targetArn: pulumi.Input<string>; };
     vpcConfig?: {
-        securityGroupIds: pulumi.ComputedValue<string[]>,
-        subnetIds: pulumi.ComputedValue<string[]>,
+        securityGroupIds: pulumi.Input<string[]>,
+        subnetIds: pulumi.Input<string[]>,
     };
 }
 
