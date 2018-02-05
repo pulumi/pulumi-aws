@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@pulumi/aws@latest":
-  version "0.9.11-11-g977c466"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-0.9.11-11-g977c466.tgz#dca94aac3e3de913cc17b2e8422dcbb94f222118"
-
 "@types/node@^8.0.26":
   version "8.5.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.9.tgz#7155cfb4ae405bca4dd8df1a214c339e939109bf"
