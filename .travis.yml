@@ -4,6 +4,7 @@ sudo: true # give us 7.5GB and >2 bursted cores.
 branches:
   only:
   - master
+  - /release\/.*/
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
     # Travis only fetches 50 commits by default, and we want them all so we can do git describe --tags
