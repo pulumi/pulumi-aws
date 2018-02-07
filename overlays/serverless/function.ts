@@ -29,9 +29,9 @@ export interface Context {
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 export interface FunctionOptions {
-    policies: ARN[];
-    timeout?: number;
-    memorySize?: number;
+    policies: pulumi.Input<ARN>[];
+    timeout?: pulumi.Input<number>;
+    memorySize?: pulumi.Input<number>;
     deadLetterConfig?: { targetArn: pulumi.Input<string>; };
     vpcConfig?: {
         securityGroupIds: pulumi.Input<string[]>,
@@ -65,11 +65,12 @@ export class Function extends pulumi.ComponentResource {
         }, { parent: this });
 
         this.policies = [];
-        for (let policy of options.policies) {
+        for (let i = 0, n = options.policies.length; i < n; i++) {
+            const policy = options.policies[i];
             // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
             // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
             // structural identity by using a name that includes the role name and policyArn.
-            let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+            let attachment = new RolePolicyAttachment(`${name}-${i}`, {
                 role: this.role,
                 policyArn: policy,
             }, { parent: this });
