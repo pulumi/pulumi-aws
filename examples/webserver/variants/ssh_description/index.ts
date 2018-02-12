@@ -17,4 +17,3 @@ let server = new aws.ec2.Instance("web-server-www", {
     securityGroups: [ group.name ],
     ami: aws.ec2.getLinuxAMI(size),
 });
-

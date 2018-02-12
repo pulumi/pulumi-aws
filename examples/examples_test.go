@@ -28,7 +28,7 @@ func TestExamples(t *testing.T) {
 			"aws:config:region": region,
 		},
 		Dependencies: []string{
-			"pulumi",
+			"@pulumi/pulumi",
 			"@pulumi/aws",
 		},
 	}

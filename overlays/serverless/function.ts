@@ -1,7 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as crypto from "crypto";
-import * as pulumi from "pulumi";
+import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
