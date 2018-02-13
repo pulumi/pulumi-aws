@@ -10,7 +10,6 @@
         "typescript": "^2.5.3"
     },
     "peerDependencies": {
-        "@pulumi/aws": "latest",
-        "pulumi": "latest"
+        "@pulumi/aws": "latest"
     }
 }

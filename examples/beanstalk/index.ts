@@ -3,7 +3,7 @@
 import { Application, ApplicationVersion, Environment } from "@pulumi/aws/elasticbeanstalk";
 import * as iam from "@pulumi/aws/iam";
 import { Bucket, BucketObject } from "@pulumi/aws/s3";
-import { FileAsset } from "pulumi/asset";
+import { FileAsset } from "@pulumi/pulumi/asset";
 
 let sourceBucket = new Bucket("sourceBucket", {});
 let source = new BucketObject("testSource/app.zip", {

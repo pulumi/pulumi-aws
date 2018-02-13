@@ -48,4 +48,3 @@ let lambda = new aws.serverless.Function(
     });
   },
 );
-
