@@ -21,7 +21,7 @@ build::
 	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	$(TFGEN) nodejs --overlays overlays/ --out pack/
 	cd pack/ && yarn install
-	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
+	cd ${PACKDIR} && yarn link @pulumi/pulumi # ensure we resolve to Pulumi's stdlibs.
 	cd ${PACKDIR} && yarn run tsc
 	cp README.md LICENSE ${PACKDIR}/package.json ${PACKDIR}/yarn.lock ${PACKBIN}/
 

@@ -467,6 +467,7 @@
     "pkg/util/contract",
     "pkg/util/fsutil",
     "pkg/util/mapper",
+    "pkg/util/retry",
     "pkg/util/rpcutil",
     "pkg/version",
     "pkg/workspace",
