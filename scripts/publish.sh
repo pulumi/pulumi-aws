@@ -31,8 +31,10 @@ echo "Publishing NPM package to NPMjs.com:"
 # First create the package.json to publish.  This must be different than the one we use for development
 # and testing the SDK, since we use symlinking for those workflows.  Namely, we must promote the SDK
 # dependencies from peerDependencies that are resolved via those links, to real installable dependencies.
+node $(dirname $0)/promote.js @pulumi/pulumi < \
+    ${ROOT}/pack/bin/package.json > \
+    ${ROOT}/pack/bin/package.json.publish
 pushd ${ROOT}/pack/bin
-node $(dirname $0)/promote.js @pulumi/pulumi < package.json > package.json.publish
 mv package.json package.json.dev
 mv package.json.publish package.json
 
