@@ -8,7 +8,7 @@ PROJECT          := github.com/pulumi/pulumi-aws
 NODE_MODULE_NAME := @pulumi/aws
 
 TFGEN           := pulumi-tfgen-${PACK}
-PROVIDER        := pulumi-provider-${PACK}
+PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell git describe --tags --dirty 2>/dev/null)
 
 GOMETALINTERBIN=gometalinter

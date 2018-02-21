@@ -26,6 +26,18 @@ do
     done
 done
 
+echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
+for OS in "${PUBLISH_GOOS[@]}"
+do
+    for ARCH in "${PUBLISH_GOARCH[@]}"
+    do
+        export GOOS=${OS}
+        export GOARCH=${ARCH}
+
+        ${ROOT}/scripts/publish-plugin.sh
+    done
+done
+
 echo "Publishing NPM package to NPMjs.com:"
 
 # First create the package.json to publish.  This must be different than the one we use for development
