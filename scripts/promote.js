@@ -35,6 +35,16 @@ stdin.on("close", function() {
         }
     }
 
+    // Add an install script to grab the plugin from Pulumi.com.
+    if (!packageJSON.scripts) {
+        packageJSON.scripts = {};
+    }
+    var name = packageJSON.name;
+    if (name.lastIndexOf("/") !== -1) {
+        name = name.substring(name.lastIndexOf("/")+1);
+    }
+    packageJSON.scripts["install"] = `pulumi plugin install resource ${name} ${packageJSON.version}`;
+
     // Now print out the result to stdout.
     console.log(JSON.stringify(packageJSON, null, 4));
 });
