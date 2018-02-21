@@ -41,7 +41,7 @@ copy_package() {
 }
 
 # Build binaries
-run_go_build "${ROOT}/cmd/pulumi-provider-aws"
+run_go_build "${ROOT}/cmd/pulumi-resource-aws"
 
 # Copy Packages
 copy_package "${ROOT}/pack/bin/." "@pulumi/aws"
