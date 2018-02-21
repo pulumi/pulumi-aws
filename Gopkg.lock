@@ -164,6 +164,12 @@
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
 
 [[projects]]
+  name = "github.com/djherbis/times"
+  packages = ["."]
+  revision = "95292e44976d1217cf3611dc7c8d9466877d3ed5"
+  version = "v1.0.1"
+
+[[projects]]
   name = "github.com/go-ini/ini"
   packages = ["."]
   revision = "32e4c1e6bc4e7d0d8451aa6b75200d19e37a536a"
@@ -447,12 +453,15 @@
 [[projects]]
   name = "github.com/pulumi/pulumi"
   packages = [
+    "pkg/backend",
+    "pkg/backend/local",
+    "pkg/backend/state",
     "pkg/compiler/errors",
     "pkg/diag",
     "pkg/diag/colors",
     "pkg/encoding",
     "pkg/engine",
-    "pkg/pack",
+    "pkg/operations",
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
@@ -473,8 +482,8 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "8a2188b190c833e2fb4e53f74c24e85be0428cae"
-  version = "v0.10.0-rc4"
+  revision = "10a610adba8d6f87a23ac116bd07992bf0f44230"
+  version = "v0.10.0-rc5"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -482,8 +491,8 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "fd86e3f0aaf8edf6b2f5b3e5d1d55da1e0412d6e"
-  version = "v0.10.0-rc4"
+  revision = "e130a19ac4c67c7fc2cbafe13cc52774695bcc4d"
+  version = "v0.10.0-rc5"
 
 [[projects]]
   branch = "master"
