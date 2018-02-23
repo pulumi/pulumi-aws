@@ -93,8 +93,8 @@ export class Function extends pulumi.ComponentResource {
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
             memorySize: options.memorySize,
-            deadLetterConfig: options.deadLetterConfig === undefined ? undefined : [ options.deadLetterConfig ],
-            vpcConfig: options.vpcConfig === undefined ? undefined : [ options.vpcConfig ],
+            deadLetterConfig: options.deadLetterConfig,
+            vpcConfig: options.vpcConfig,
         }, { parent: this });
     }
 }

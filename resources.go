@@ -273,7 +273,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_athena_named_query": {Tok: awsResource(athenaMod, "NamedQuery")},
 			// Auto Scaling
 			"aws_autoscaling_attachment": {Tok: awsResource(autoscalingMod, "Attachment")},
-			"aws_autoscaling_group":      {Tok: awsResource(autoscalingMod, "Group")},
+			"aws_autoscaling_group": {
+				Tok: awsResource(autoscalingMod, "Group"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {
+						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
+						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
+						// give it a different name.
+						Name: "tagsCollection",
+					},
+				},
+			},
 			"aws_autoscaling_lifecycle_hook": {
 				Tok: awsResource(autoscalingMod, "LifecycleHook"),
 				Docs: &tfbridge.DocInfo{

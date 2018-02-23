@@ -4,7 +4,7 @@ import * as aws from "@pulumi/aws";
 
 let group = new aws.ec2.SecurityGroup("web-secgrp", {
     description: "Enable HTTP access",
-    ingress: [
+    ingresses: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
     ],
 });

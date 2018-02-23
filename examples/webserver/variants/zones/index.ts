@@ -6,7 +6,7 @@ export let size: aws.ec2.InstanceType = "t2.micro";
 
 let group = new aws.ec2.SecurityGroup("web-secgrp", {
     description: "Enable HTTP access",
-    ingress: [
+    ingresses: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
     ],
 });
