@@ -104,6 +104,11 @@ func awsResource(mod string, res string) tokens.Type {
 	return awsType(mod+"/"+fn, res)
 }
 
+// boolRef returns a reference to the bool argument.
+func boolRef(b bool) *bool {
+	return &b
+}
+
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
@@ -597,7 +602,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecs_service": {
 				Tok: awsResource(ecsMod, "Service"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"load_balancer": {Name: "loadBalancers"},
+					"load_balancer": {
+						// Even though only one is currently supported, the AWS API is designed to support multiple, so
+						// force this to project as an array (and assign a plural name).
+						Name:        "loadBalancers",
+						MaxItemsOne: boolRef(false),
+					},
 				},
 			},
 			"aws_ecs_task_definition": {Tok: awsResource(ecsMod, "TaskDefinition")},
