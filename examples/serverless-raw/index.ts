@@ -74,7 +74,7 @@ let logSubscription = new aws.cloudwatch.LogSubscriptionFilter("logsubscription"
 // DynamoDB Table
 ///////////////////
 let music = new aws.dynamodb.Table("music", {
-    attribute: [
+    attributes: [
         { name: "Album", type: "S" },
         { name: "Artist", type: "S" },
     ],

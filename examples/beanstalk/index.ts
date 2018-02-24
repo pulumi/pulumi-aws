@@ -74,7 +74,7 @@ let myenv = new Environment("myenv", {
     application: myapp,
     version: myappversion,
     solutionStackName: "64bit Amazon Linux 2017.09 v4.4.3 running Node.js",
-    setting: [
+    settings: [
         {
             namespace: "aws:autoscaling:asg",
             name: "MinSize",

@@ -3,7 +3,7 @@
 import * as aws from "@pulumi/aws";
 
 let music = new aws.dynamodb.Table("music", {
-  attribute: [
+  attributes: [
     { name: "Album", type: "S" },
     { name: "Artist", type: "S" },
     { name: "NumberOfSongs", type: "N" },
@@ -13,7 +13,7 @@ let music = new aws.dynamodb.Table("music", {
   rangeKey: "Artist",
   readCapacity: 1,
   writeCapacity: 1,
-  globalSecondaryIndex: [
+  globalSecondaryIndexes: [
     {
       name: "myGSI",
       hashKey: "Sales",
