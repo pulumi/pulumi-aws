@@ -398,7 +398,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_connection_association": {Tok: awsResource(dxMod, "ConnectionAssociation")},
 			"aws_dx_lag":                    {Tok: awsResource(dxMod, "LinkAggregationGroup")},
 			// DynamoDB
-			"aws_dynamodb_table": {Tok: awsResource(dynamodbMod, "Table")},
+			"aws_dynamodb_table": {
+				Tok: awsResource(dynamodbMod, "Table"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Override default pluralization ("indices") to match AWS APIs
+					"global_secondary_index": {Name: "globalSecondaryIndexes"},
+					"local_secondary_index":  {Name: "localSecondaryIndexes"},
+				},
+			},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
@@ -442,9 +449,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_security_group": {
 				Tok: awsResource(elasticacheMod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
-						Default: managedByPulumi,
-					},
+					"description": {Default: managedByPulumi},
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
 				},
 			},
 			"aws_elasticache_subnet_group": {
@@ -500,9 +507,23 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "main_route_table_assoc.html.markdown",
 				},
 			},
-			"aws_nat_gateway":                  {Tok: awsResource(ec2Mod, "NatGateway")},
-			"aws_network_acl":                  {Tok: awsResource(ec2Mod, "NetworkAcl")},
-			"aws_default_network_acl":          {Tok: awsResource(ec2Mod, "DefaultNetworkAcl")},
+			"aws_nat_gateway": {Tok: awsResource(ec2Mod, "NatGateway")},
+			"aws_network_acl": {
+				Tok: awsResource(ec2Mod, "NetworkAcl"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
+					"egress":  {Name: "egress"},
+				},
+			},
+			"aws_default_network_acl": {
+				Tok: awsResource(ec2Mod, "DefaultNetworkAcl"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
+					"egress":  {Name: "egress"},
+				},
+			},
 			"aws_network_acl_rule":             {Tok: awsResource(ec2Mod, "NetworkAclRule")},
 			"aws_network_interface":            {Tok: awsResource(ec2Mod, "NetworkInterface")},
 			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
@@ -516,10 +537,20 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {Default: managedByPulumi},
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
+					"egress":  {Name: "egress"},
 				},
 			},
-			"aws_network_interface_sg_attachment":   {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
-			"aws_default_security_group":            {Tok: awsResource(ec2Mod, "DefaultSecurityGroup")},
+			"aws_network_interface_sg_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
+			"aws_default_security_group": {
+				Tok: awsResource(ec2Mod, "DefaultSecurityGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
+					"egress":  {Name: "egress"},
+				},
+			},
 			"aws_security_group_rule":               {Tok: awsResource(ec2Mod, "SecurityGroupRule")},
 			"aws_snapshot_create_volume_permission": {Tok: awsResource(ec2Mod, "SnapshotCreateVolumePermission")},
 			"aws_spot_datafeed_subscription":        {Tok: awsResource(ec2Mod, "SpotDatafeedSubscription")},
@@ -910,9 +941,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_security_group": {
 				Tok: awsResource(rdsMod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
-						Default: managedByPulumi,
-					},
+					"description": {Default: managedByPulumi},
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
 				},
 			},
 			"aws_db_snapshot":     {Tok: awsResource(rdsMod, "Snapshot")},
@@ -922,9 +953,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_security_group": {
 				Tok: awsResource(redshiftMod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
-						Default: managedByPulumi,
-					},
+					"description": {Default: managedByPulumi},
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
 				},
 			},
 			"aws_redshift_parameter_group": {
@@ -1081,7 +1112,14 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// DynamoDB
-			"aws_dynamodb_table": {Tok: awsDataSource(dynamodbMod, "getTable")},
+			"aws_dynamodb_table": {
+				Tok: awsDataSource(dynamodbMod, "getTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Override default pluralization ("indices") to match AWS APIs
+					"global_secondary_index": {Name: "globalSecondaryIndexes"},
+					"local_secondary_index":  {Name: "localSecondaryIndexes"},
+				},
+			},
 			// EC2
 			"aws_instance":               {Tok: awsDataSource(ec2Mod, "getInstance")},
 			"aws_instances":              {Tok: awsDataSource(ec2Mod, "getInstances")},

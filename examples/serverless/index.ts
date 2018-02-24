@@ -13,7 +13,7 @@ let music = new aws.dynamodb.Table("music", {
   rangeKey: "Artist",
   readCapacity: 1,
   writeCapacity: 1,
-  globalSecondaryIndices: [
+  globalSecondaryIndexes: [
     {
       name: "myGSI",
       hashKey: "Sales",
