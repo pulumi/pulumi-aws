@@ -13,7 +13,7 @@ group = ec2.SecurityGroup('web-secgrp',
     ])
 server = ec2.Instance('web-server-www',
     instance_type=size,
-    security_groups=[group],
+    security_groups=[group.name],
     ami=get_linux_ami(size))
 
 pulumi.export('public_ip', server.public_ip)
