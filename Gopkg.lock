@@ -459,11 +459,15 @@
 [[projects]]
   name = "github.com/pulumi/pulumi"
   packages = [
+    "pkg/backend",
+    "pkg/backend/local",
+    "pkg/backend/state",
     "pkg/compiler/errors",
     "pkg/diag",
     "pkg/diag/colors",
     "pkg/encoding",
     "pkg/engine",
+    "pkg/operations",
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
@@ -484,7 +488,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "7aedf80fa2ea10ada802cfb77acb42b148e7429b"
+  revision = "9757d069ed570f11351663ae73a30454623197bd"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -685,6 +689,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f2c9d5fb0d9c29f03a36503804ed2da680bdf138014b8858bd1bc3715fc8831e"
+  inputs-digest = "4e8ab70eb05db75ca1ca10ae897c7c5539d5a7acc0ba9ab1301ffea0e5a91b69"
   solver-name = "gps-cdcl"
   solver-version = 1
