@@ -77,7 +77,7 @@ export class Function extends pulumi.ComponentResource {
         }
 
         // Now compile the function text into an asset we can use to create the lambda.
-        let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosure(func);
+        let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosureAsync(func);
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }
@@ -86,7 +86,7 @@ export class Function extends pulumi.ComponentResource {
                 // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
                 //     upload the entire folder as there may be dependencies on any files here.
                 ".": new pulumi.asset.FileArchive("."),
-                "__index.js": new pulumi.asset.StringAsset(closure.then(pulumi.runtime.serializeJavaScriptText)),
+                "__index.js": new pulumi.asset.StringAsset(closure.then(pulumi.runtime.serializeJavaScriptTextAsync)),
             }),
             handler: "__index.handler",
             runtime: lambda.NodeJS6d10Runtime,
