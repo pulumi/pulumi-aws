@@ -76,17 +76,24 @@ export class Function extends pulumi.ComponentResource {
             this.policies.push(attachment);
         }
 
-        // Now compile the function text into an asset we can use to create the lambda.
-        let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosureAsync(func);
+        // Now compile the function text into an asset we can use to create the lambda. Note: to
+        // prevent a circularity/deadlock, we list this Function object as something that the
+        // serialized closure cannot reference.
+        const doNotSerialize = new Set();
+        doNotSerialize.add(this);
+
+        let closure = pulumi.runtime.serializeFunctionAsync(func, doNotSerialize);
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }
+
+        console.log("Making function: " + name);
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive({
                 // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
                 //     upload the entire folder as there may be dependencies on any files here.
                 ".": new pulumi.asset.FileArchive("."),
-                "__index.js": new pulumi.asset.StringAsset(closure.then(pulumi.runtime.serializeJavaScriptTextAsync)),
+                "__index.js": new pulumi.asset.StringAsset(closure),
             }),
             handler: "__index.handler",
             runtime: lambda.NodeJS6d10Runtime,
