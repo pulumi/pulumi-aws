@@ -49,7 +49,11 @@ export class Function extends pulumi.ComponentResource {
     public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
 
-    constructor(name: string, options: FunctionOptions, func: Handler, opts?: pulumi.ResourceOptions) {
+    constructor(name: string,
+                options: FunctionOptions,
+                func: Handler,
+                opts?: pulumi.ResourceOptions,
+                serialize?: (obj: any) => boolean) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
@@ -79,10 +83,12 @@ export class Function extends pulumi.ComponentResource {
         // Now compile the function text into an asset we can use to create the lambda. Note: to
         // prevent a circularity/deadlock, we list this Function object as something that the
         // serialized closure cannot reference.
-        const doNotSerialize = new Set();
-        doNotSerialize.add(this);
+        serialize = serialize || (_ => true);
+        const finalSerialize = (o: any) => {
+            return serialize(o) && o !== this;
+        }
 
-        let closure = pulumi.runtime.serializeFunctionAsync(func, doNotSerialize);
+        let closure = pulumi.runtime.serializeFunctionAsync(func, finalSerialize);
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }
