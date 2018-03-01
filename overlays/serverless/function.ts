@@ -49,7 +49,11 @@ export class Function extends pulumi.ComponentResource {
     public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
 
-    constructor(name: string, options: FunctionOptions, func: Handler, opts?: pulumi.ResourceOptions) {
+    constructor(name: string,
+                options: FunctionOptions,
+                func: Handler,
+                opts?: pulumi.ResourceOptions,
+                serialize?: (obj: any) => boolean) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
@@ -76,17 +80,26 @@ export class Function extends pulumi.ComponentResource {
             this.policies.push(attachment);
         }
 
-        // Now compile the function text into an asset we can use to create the lambda.
-        let closure: Promise<pulumi.runtime.Closure> = pulumi.runtime.serializeClosure(func);
+        // Now compile the function text into an asset we can use to create the lambda. Note: to
+        // prevent a circularity/deadlock, we list this Function object as something that the
+        // serialized closure cannot reference.
+        serialize = serialize || (_ => true);
+        const finalSerialize = (o: any) => {
+            return serialize(o) && o !== this;
+        }
+
+        let closure = pulumi.runtime.serializeFunctionAsync(func, finalSerialize);
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }
+
+        // console.log("Making function: " + name);
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive({
                 // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
                 //     upload the entire folder as there may be dependencies on any files here.
                 ".": new pulumi.asset.FileArchive("."),
-                "__index.js": new pulumi.asset.StringAsset(closure.then(pulumi.runtime.serializeJavaScriptText)),
+                "__index.js": new pulumi.asset.StringAsset(closure),
             }),
             handler: "__index.handler",
             runtime: lambda.NodeJS6d10Runtime,
