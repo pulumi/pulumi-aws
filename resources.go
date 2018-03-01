@@ -343,17 +343,20 @@ func Provider() tfbridge.ProviderInfo {
 					"alarm_name": tfbridge.AutoName("name", 255),
 					"alarm_actions": {
 						Elem: &tfbridge.SchemaInfo{
-							Type: awsResource(snsMod, "Topic"),
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
 						},
 					},
 					"insufficient_data_actions": {
 						Elem: &tfbridge.SchemaInfo{
-							Type: awsResource(snsMod, "Topic"),
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
 						},
 					},
 					"ok_actions": {
 						Elem: &tfbridge.SchemaInfo{
-							Type: awsResource(snsMod, "Topic"),
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
 						},
 					},
 				},
