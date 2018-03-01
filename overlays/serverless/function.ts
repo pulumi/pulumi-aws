@@ -93,7 +93,7 @@ export class Function extends pulumi.ComponentResource {
             throw new Error("Failed to serialize function closure");
         }
 
-        console.log("Making function: " + name);
+        // console.log("Making function: " + name);
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive({
                 // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
