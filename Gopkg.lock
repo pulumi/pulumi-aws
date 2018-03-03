@@ -50,6 +50,7 @@
     "aws/request",
     "aws/session",
     "aws/signer/v4",
+    "internal/sdkrand",
     "internal/shareddefaults",
     "private/protocol",
     "private/protocol/ec2query",
@@ -65,9 +66,11 @@
     "service/acm",
     "service/apigateway",
     "service/applicationautoscaling",
+    "service/appsync",
     "service/athena",
     "service/autoscaling",
     "service/batch",
+    "service/cloud9",
     "service/cloudformation",
     "service/cloudfront",
     "service/cloudtrail",
@@ -82,6 +85,7 @@
     "service/cognitoidentityprovider",
     "service/configservice",
     "service/databasemigrationservice",
+    "service/dax",
     "service/devicefarm",
     "service/directconnect",
     "service/directoryservice",
@@ -98,6 +102,7 @@
     "service/elbv2",
     "service/emr",
     "service/firehose",
+    "service/gamelift",
     "service/glacier",
     "service/glue",
     "service/guardduty",
@@ -127,8 +132,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "9ed0c8de252f04ac45a65358377103d5a1aa2d92"
-  version = "v1.12.66"
+  revision = "aace5875a5c3b85a3902c6d72b9caed301d64cce"
+  version = "v1.13.8"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -537,7 +542,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "88178bc93ee227858addf3ed409b64f9a9b8b14e"
+  revision = "ee2d1c7110bf33bc52178fc8549a149c1045995f"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
