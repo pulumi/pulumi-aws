@@ -1,6 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@pulumi/aws";
+import { getLinuxAMI } from "./linuxAmi";
 
 let group = new aws.ec2.SecurityGroup("web-secgrp", {
     description: "Enable HTTP access",
@@ -16,7 +17,7 @@ export class Server {
         this.instance = new aws.ec2.Instance("web-server-" + name, {
             instanceType: size,
             securityGroups: [ group.name ],
-            ami: aws.ec2.getLinuxAMI(size),
+            ami: getLinuxAMI(size),
         });
     }
 }

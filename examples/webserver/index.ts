@@ -2,6 +2,7 @@
 
 import * as aws from "@pulumi/aws";
 import { Output } from "@pulumi/pulumi";
+import { getLinuxAMI } from "./linuxAmi";
 
 let size: aws.ec2.InstanceType = "t2.micro";
 
@@ -15,7 +16,7 @@ let group = new aws.ec2.SecurityGroup("web-secgrp-2", {
 let server = new aws.ec2.Instance("web-server-www", {
     instanceType: size,
     securityGroups: [ group.name ],
-    ami: aws.ec2.getLinuxAMI(size),
+    ami: getLinuxAMI(size),
 });
 
 export let publicIp = server.publicIp;

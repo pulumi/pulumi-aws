@@ -1253,8 +1253,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				"ec2": {
 					Files: []string{
-						"instanceMaps.ts", // getLinuxAMI helper for looking up AMIs
 						"instanceType.ts", // InstanceType union type and constants
+					},
+				},
+				"ecs": {
+					Files: []string{
+						"container.ts", // Container definition JSON schema
 					},
 				},
 				"iam": {

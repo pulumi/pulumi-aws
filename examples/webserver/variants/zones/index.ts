@@ -1,6 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@pulumi/aws";
+import { getLinuxAMI } from "./linuxAmi";
 
 export let size: aws.ec2.InstanceType = "t2.micro";
 
@@ -19,7 +20,7 @@ let group = new aws.ec2.SecurityGroup("web-secgrp", {
             availabilityZone: zones[i],
             instanceType: size,
             securityGroups: [ group.name ],
-            ami: aws.ec2.getLinuxAMI(size),
+            ami: getLinuxAMI(size),
         });
     }
 })();

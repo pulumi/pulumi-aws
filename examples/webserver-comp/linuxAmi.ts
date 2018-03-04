@@ -5,12 +5,12 @@
 // Ultimately, this lets us choose a recommended Amazon Linux AMI; see:
 //     https://aws.amazon.com/amazon-linux-ami/instance-type-matrix/
 
-import * as config from "../config";
+import * as aws from "@pulumi/aws";
 
 /**
  * instanceTypeArch is a map of instance type to its architecture.
  */
-export let instanceTypeArch: {
+const instanceTypeArch: {
     [instanceType: string]: string,
 } = {
     "t1.micro"   : "PV64" ,
@@ -155,7 +155,7 @@ export let regionArchLinuxAMI: {
  * getLinuxAMI gets the recommended Linux AMI for the given instance in the current AWS region.
  */
 export function getLinuxAMI(instanceType: string): string {
-    let region = config.requireRegion();
+    let region = aws.config.requireRegion();
     let arch = instanceTypeArch[instanceType];
     return regionArchLinuxAMI[region][arch];
 }
