@@ -45,7 +45,7 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
-	cd ${PACKDIR}/python && pip install --user -e .
+	cd ${PACKDIR}/python && pip install --upgrade --user -e .
 
 test_all::
 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
