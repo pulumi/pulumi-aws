@@ -73,7 +73,7 @@ let serviceServiceTierServicePolicyAttach = new iam.RolePolicyAttachment("myapp-
 let myenv = new Environment("myenv", {
     application: myapp,
     version: myappversion,
-    solutionStackName: "64bit Amazon Linux 2017.09 v4.4.3 running Node.js",
+    solutionStackName: "64bit Amazon Linux 2017.09 v4.4.5 running Node.js",
     settings: [
         {
             namespace: "aws:autoscaling:asg",
