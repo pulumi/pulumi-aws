@@ -5,6 +5,7 @@ go: 1.9
 sudo: true # give us 7.5GB and >2 bursted cores.
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
+    - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
     # Travis only fetches 50 commits by default, and we want them all so we can do git describe --tags
     - git fetch --unshallow
     # Dep for Go dependency management.
@@ -24,10 +25,9 @@ before_install:
     - mkdir -p ~/.config/pip && echo -e "[global]\nextra-index-url = https://${PULUMI_API_TOKEN}@pypi.pulumi.com/simple" >> ~/.config/pip/pip.conf
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
-    - export PULUMI_FAILED_TESTS_DIR=$(mktemp -d); echo "${PULUMI_FAILED_TESTS_DIR}"
+    - . ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh
 install:
-    # Clone the Pulumi repo and use install-locked.sh to install Pulumi components based on our Gopkg.lock.
-    - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
+    # Install Pulumi components based on Gopkg.lock.
     - ${GOPATH}/src/github.com/pulumi/home/scripts/install-locked.sh ${PULUMI_ROOT} pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure
@@ -37,7 +37,6 @@ before_script:
 script:
     - make travis_${TRAVIS_EVENT_TYPE}
 after_failure:
-    # Copy any data from failed tests to S3.
-    - aws --region us-west-2 s3 cp --recursive "${PULUMI_FAILED_TESTS_DIR}" "s3://eng.pulumi.com/travis-logs/${TRAVIS_REPO_SLUG}/${TRAVIS_JOB_NUMBER}/failures"
+    - ${GOPATH}/src/github.com/pulumi/home/scripts/upload-failed-tests
 notifications:
     webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis
