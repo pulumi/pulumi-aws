@@ -492,7 +492,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "7b6ba9c4458f24e239cf19a59a04aa17ca1e8668"
+  revision = "890673131553214bdfd38373437cfaa1427b4958"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -500,7 +500,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "6c3ee3e2a025764c50871b17d6bc622665902361"
+  revision = "a55696036de63ad74fed271ee7fcfa1a4adc00cb"
 
 [[projects]]
   branch = "master"
@@ -541,7 +541,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "fa7edb83ce991930be908d8705581d7a3d42fd2f"
+  revision = "dd4e91e838fc1d4462842f9bbabcaf22a03c93ae"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -693,6 +693,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "21755217e0b4668d4a1bf5381d46551958f31ed8f788844caad3c768ed0224f5"
+  inputs-digest = "9970dd56a3f248ca5e17bf1e334ea7c1dcb00e17c4312cc5f1d84d228f7f5abe"
   solver-name = "gps-cdcl"
   solver-version = 1

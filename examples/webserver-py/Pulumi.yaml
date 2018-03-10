@@ -4,4 +4,4 @@ description: Basic example of an AWS web server accessible over HTTP (in Python!
 stacks:
   test-stack:
     config:
-      aws:config:region: us-west-2
+      aws:region: us-west-2

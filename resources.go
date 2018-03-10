@@ -1287,7 +1287,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			PeerDependencies: map[string]string{
-				"@pulumi/pulumi": "^0.11.0-dev-23-g444ebdd1",
+				"@pulumi/pulumi": "^0.11.0-dev-163-g89067313",
 			},
 		},
 	}

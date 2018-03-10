@@ -25,7 +25,7 @@ func TestExamples(t *testing.T) {
 	// base options shared amongst all tests.
 	base := integration.ProgramTestOptions{
 		Config: map[string]string{
-			"aws:config:region": region,
+			"aws:region": region,
 		},
 		Dependencies: []string{
 			"@pulumi/pulumi",
