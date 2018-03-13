@@ -1,6 +1,6 @@
 [[override]]
   name = "github.com/pulumi/pulumi"
-  revision = "7e14a09b3b63bfab1aaeac47fdad944ac466b241"
+  revision = "304af9cdf192f484ffd7cc29d980524172009093"
 
 [[override]]
   name = "github.com/pulumi/pulumi-terraform"
