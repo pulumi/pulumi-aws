@@ -492,7 +492,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "304af9cdf192f484ffd7cc29d980524172009093"
+  revision = "8c0d1698b03f0efb43dd5aa0411663a887be2831"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -664,9 +664,13 @@
   packages = [
     ".",
     "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
     "codes",
     "connectivity",
     "credentials",
+    "encoding",
+    "encoding/proto",
     "grpclb/grpc_lb_v1/messages",
     "grpclog",
     "internal",
@@ -677,13 +681,15 @@
     "reflection",
     "reflection/grpc_reflection_v1alpha",
     "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
     "stats",
     "status",
     "tap",
     "transport"
   ]
-  revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
-  version = "v1.7.2"
+  revision = "8e4536a86ab602859c20df5ebfd0bd4228d08655"
+  version = "v1.10.0"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -693,6 +699,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "24b57cfda09b4c2f65dddb254b99f8c1b3f2476ee13bde655c3597d0690e84f7"
+  inputs-digest = "58caaabb21a29be8a76d169b33cdd2c6e4585d61a4ec7e2f0e1b08bb178c3e4c"
   solver-name = "gps-cdcl"
   solver-version = 1
