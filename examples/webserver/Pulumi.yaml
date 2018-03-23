@@ -1,4 +1,3 @@
 name: webserver
-description: Basic example of an AWS web server accessible over HTTP.
 runtime: nodejs
-
+description: Basic example of an AWS web server accessible over HTTP.
