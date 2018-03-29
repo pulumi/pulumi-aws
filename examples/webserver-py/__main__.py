@@ -16,5 +16,5 @@ server = ec2.Instance('web-server-www',
     security_groups=[group.name],
     ami=get_linux_ami(size))
 
-pulumi.export('public_ip', server.public_ip)
-pulumi.export('public_dns', server.public_dns)
+pulumi.output('public_ip', server.public_ip)
+pulumi.output('public_dns', server.public_dns)

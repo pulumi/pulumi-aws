@@ -27,18 +27,21 @@ func TestExamples(t *testing.T) {
 		Config: map[string]string{
 			"aws:region": region,
 		},
+	}
+	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/pulumi",
 			"@pulumi/aws",
 		},
-	}
+	})
 
 	examples := []integration.ProgramTestOptions{
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 	}
 	if !testing.Short() {
 		examples = append(examples, []integration.ProgramTestOptions{
-			base.With(integration.ProgramTestOptions{
+			// JavaScript tests:
+			baseJS.With(integration.ProgramTestOptions{
 				Dir: path.Join(cwd, "webserver"),
 				EditDirs: []integration.EditDir{
 					// First just patch the ingress rules by adding port 20: should be a quick update.
@@ -49,11 +52,13 @@ func TestExamples(t *testing.T) {
 					createEditDir(path.Join(cwd, "webserver", "variants", "ssh_description")),
 				},
 			}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
+			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
+			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
+			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
+			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
+			// Python tests:
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
 		}...)
 	}
 
