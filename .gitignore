@@ -1,3 +1,4 @@
 /pack/
 /vendor/
 .pulumi
+Pulumi.*.yaml
