@@ -50,6 +50,7 @@
     "aws/request",
     "aws/session",
     "aws/signer/v4",
+    "internal/sdkio",
     "internal/sdkrand",
     "internal/shareddefaults",
     "private/protocol",
@@ -112,10 +113,12 @@
     "service/kinesis",
     "service/kms",
     "service/lambda",
+    "service/lexmodelbuildingservice",
     "service/lightsail",
     "service/mediastore",
     "service/mq",
     "service/opsworks",
+    "service/organizations",
     "service/rds",
     "service/redshift",
     "service/route53",
@@ -132,8 +135,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "aace5875a5c3b85a3902c6d72b9caed301d64cce"
-  version = "v1.13.8"
+  revision = "4b5324816e154564ef4e490842c2e40560971f75"
+  version = "v1.13.24"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -290,7 +293,6 @@
   revision = "0dc08b1671f34c4250ce212759ebd880f743d883"
 
 [[projects]]
-  branch = "pulumi-master"
   name = "github.com/hashicorp/terraform"
   packages = [
     "config",
@@ -300,6 +302,7 @@
     "dag",
     "flatmap",
     "helper/config",
+    "helper/customdiff",
     "helper/encryption",
     "helper/hashcode",
     "helper/hilmapstructure",
@@ -309,8 +312,10 @@
     "helper/schema",
     "helper/structure",
     "helper/validation",
+    "httpclient",
     "moduledeps",
     "plugin/discovery",
+    "registry",
     "registry/regsrc",
     "registry/response",
     "svchost",
@@ -320,8 +325,8 @@
     "tfdiags",
     "version"
   ]
-  revision = "aad0b3801b6e590b41305b6ab938669e834e5ca7"
-  source = "github.com/pulumi/terraform"
+  revision = "342c529aa58d824f2f2ed1f6ec6118059876aad0"
+  version = "v0.11.5"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -341,7 +346,7 @@
 [[projects]]
   name = "github.com/jen20/awspolicyequivalence"
   packages = ["."]
-  revision = "3d48364a137a7847c1191b83740052dc7695878e"
+  revision = "9fbcaca9f9f868b9560463d0790aae33b2322945"
 
 [[projects]]
   name = "github.com/jmespath/go-jmespath"
@@ -488,12 +493,13 @@
     "pkg/util/mapper",
     "pkg/util/retry",
     "pkg/util/rpcutil",
+    "pkg/util/rpcutil/rpcerror",
     "pkg/version",
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "26b1fcb67adc8a1fcf65684e959fc58eb8be1b5d"
-  version = "v0.11.0"
+  revision = "0dbf6f8263054f00eb012f35dc7cb0b0eb53ee3b"
+  version = "v0.11.1-rc1"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -501,19 +507,14 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "fa60b5df2507ee80a17a71258d8ae564a922112d"
-  version = "v0.11.0"
+  revision = "54d97e0586fe338970bcd7fe33dddac9480d6476"
+  version = "v0.11.1-rc1"
 
 [[projects]]
   branch = "master"
   name = "github.com/reconquest/loreley"
   packages = ["."]
   revision = "2ab6b7470a54bfa9b5b0289f9b4e8fc4839838f7"
-
-[[projects]]
-  name = "github.com/satori/go.uuid"
-  packages = ["."]
-  revision = "b061729afc07e77a8aa4fad0a2fd840958f1942a"
 
 [[projects]]
   branch = "master"
@@ -543,7 +544,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "379cca16f8887d37192eac644acb068fe233a5d5"
+  revision = "eb1e089d4e4684d119d83e1015f7ab08f3ca39bb"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -695,6 +696,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8f802fd4d3cf85ab72d904c5605518d37600f71d311c1ad44b40c942cbcd441e"
+  inputs-digest = "2fb19210f2b47ab95d1a4b68a8e188f7ff0a70c605ca8b1bebeaf0a79393857c"
   solver-name = "gps-cdcl"
   solver-version = 1
