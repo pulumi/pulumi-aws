@@ -11,6 +11,6 @@
     },
     "peerDependencies": {
         "@pulumi/aws": "latest",
-        "@pulumi/pulumi": "^0.11.1-rc1"
+        "@pulumi/pulumi": "^0.11.1"
     }
 }
