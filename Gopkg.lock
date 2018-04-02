@@ -493,11 +493,12 @@
     "pkg/util/mapper",
     "pkg/util/retry",
     "pkg/util/rpcutil",
+    "pkg/util/rpcutil/rpcerror",
     "pkg/version",
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "8c0d1698b03f0efb43dd5aa0411663a887be2831"
+  revision = "da51a87461f69f374eed47d7f078ceb86ec71184"
 
 [[projects]]
   branch = "master"
@@ -665,13 +666,9 @@
   packages = [
     ".",
     "balancer",
-    "balancer/base",
-    "balancer/roundrobin",
     "codes",
     "connectivity",
     "credentials",
-    "encoding",
-    "encoding/proto",
     "grpclb/grpc_lb_v1/messages",
     "grpclog",
     "internal",
@@ -682,15 +679,13 @@
     "reflection",
     "reflection/grpc_reflection_v1alpha",
     "resolver",
-    "resolver/dns",
-    "resolver/passthrough",
     "stats",
     "status",
     "tap",
     "transport"
   ]
-  revision = "8e4536a86ab602859c20df5ebfd0bd4228d08655"
-  version = "v1.10.0"
+  revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
+  version = "v1.7.2"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -700,6 +695,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a1ae306659e43ac4ea39b2d61275a214fbff9ba8b08b7a93b43af2821ba96795"
+  inputs-digest = "248dc7b54951c129fd05571e17a0b94a9aba54a60dfce513824cf52ded305bb4"
   solver-name = "gps-cdcl"
   solver-version = 1
