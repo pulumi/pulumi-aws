@@ -1,4 +1,4 @@
-name: aws/minimal
+name: minimal
 description: An empty Lumi script.
 runtime: nodejs
 
