@@ -2,6 +2,21 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "github.com/Azure/go-ansiterm"
+  packages = [
+    ".",
+    "winterm"
+  ]
+  revision = "d6e3b3328b783f23731bc4d058875b0371ff8109"
+
+[[projects]]
+  name = "github.com/Sirupsen/logrus"
+  packages = ["."]
+  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
+  version = "v1.0.5"
+
+[[projects]]
   name = "github.com/agext/levenshtein"
   packages = ["."]
   revision = "5f10fee965225ac1eecdc234c09daf5cd9e7f7b6"
@@ -176,6 +191,25 @@
   packages = ["."]
   revision = "95292e44976d1217cf3611dc7c8d9466877d3ed5"
   version = "v1.0.1"
+
+[[projects]]
+  name = "github.com/docker/docker"
+  packages = [
+    "pkg/jsonlog",
+    "pkg/jsonmessage",
+    "pkg/progress",
+    "pkg/streamformatter",
+    "pkg/term",
+    "pkg/term/windows"
+  ]
+  revision = "092cba3727bb9b4a2f0e922cd6c0f93ea270e363"
+  version = "v1.13.1"
+
+[[projects]]
+  name = "github.com/docker/go-units"
+  packages = ["."]
+  revision = "47565b4f722fb6ceae66b95f853feed578a4a51c"
+  version = "v0.3.3"
 
 [[projects]]
   branch = "master"
@@ -498,7 +532,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "62042cd3edd1d60787b765dcc2e863df6d0eb667"
+  revision = "880fc2d9f909ddffccb3b403201616edb1258f5a"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -506,7 +540,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "15c4be53659e613f7a85b967f3c5614da79ec4d1"
+  revision = "06100dcb730d85c58d8c94da85a35e7baa7f3372"
 
 [[projects]]
   branch = "master"
@@ -656,6 +690,12 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/time"
+  packages = ["rate"]
+  revision = "26559e0f760e39c24d730d3224364aef164ee23f"
+
+[[projects]]
+  branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
   revision = "891aceb7c239e72692819142dfca057bdcbfcb96"
@@ -694,6 +734,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f043f4d6953444063b67885dabc9bfc7ed39c803da093bef98001c8897a6a540"
+  inputs-digest = "5bf87d09e964a7f52daa2fe0dae2cfcfc4dc2f8ed1c698e319d993eb13d1529b"
   solver-name = "gps-cdcl"
   solver-version = 1
