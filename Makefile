@@ -30,7 +30,7 @@ build::
 		$(PYTHON) setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/setup.py && rm ./bin/setup.py.bak && \
-		cd ./bin && $(PYTHON) setup.py build bdist_wheel --universal
+		cd ./bin && $(PYTHON) setup.py build sdist
 
 lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
