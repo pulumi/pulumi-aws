@@ -56,7 +56,10 @@ func TestExamples(t *testing.T) {
 			}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+
+			// TODO[pulumi/pulumi-aws#198]: disabled due to what seem to be transient failures from AWS.
+			// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 			// Python tests:
