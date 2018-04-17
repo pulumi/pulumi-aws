@@ -150,8 +150,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "bb206ce0d6a50da7807694a823aed5c601c57ce0"
-  version = "v1.13.23"
+  revision = "9b0098a71f6d4d473a26ec8ad3c2feaac6eb1da6"
+  version = "v1.13.32"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -577,7 +577,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "eb1e089d4e4684d119d83e1015f7ab08f3ca39bb"
+  revision = "bccccac6a6b780b7dc1fda31d5e6d323370d4f86"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
