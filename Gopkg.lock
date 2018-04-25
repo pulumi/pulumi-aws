@@ -530,8 +530,8 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "e822dc19227814da052d358cadd04f025ab3c7cb"
-  version = "v0.12.0-rc2"
+  revision = "d9230719301375bd56dfef365c0f9d6dbf69a646"
+  version = "v0.12.0"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -539,8 +539,8 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "953fe7176ae89b3ed8d579b1af09dbcd5f533923"
-  version = "v0.12.0-rc1"
+  revision = "9ea4c6e9927e5197a5adce6cd7677cb3eb9db2cb"
+  version = "v0.12.0"
 
 [[projects]]
   branch = "master"
