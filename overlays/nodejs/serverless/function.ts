@@ -3,8 +3,8 @@
 import * as crypto from "crypto";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
-import * as lambda from "../lambda";
 import { ARN } from "../arn";
+import * as lambda from "../lambda";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -26,7 +26,7 @@ export interface Context {
 /**
  * Handler is the signature for a serverless function.
  */
-export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
+export type Handler<TArg, TResult> = (event: TArg, context: Context, callback: (error: any, result: TResult) => void) => any;
 
 export interface FunctionOptions {
     policies: ARN[];
@@ -44,13 +44,13 @@ export interface FunctionOptions {
  * Function is a higher-level API for creating and managing AWS Lambda Function resources
  * implemented by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function extends lambda.Function {
+export class Function<TArg, TResult> extends lambda.Function<TArg, TResult> {
     public readonly options: FunctionOptions;
     public readonly policies: RolePolicyAttachment[];
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: Handler,
+                func: Handler<TArg, TResult>,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
@@ -59,6 +59,8 @@ export class Function extends lambda.Function {
         if (!func) {
             throw new Error("Missing required function callback");
         }
+
+        var v: lambda.Function<number, string>;
 
         // Attach a role and then, if there are policies, attach those too.
         const role = new Role(name, {
