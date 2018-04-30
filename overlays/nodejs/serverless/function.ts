@@ -40,13 +40,11 @@ export interface FunctionOptions {
 }
 
 /**
- * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
- * by a Lumi lambda expression and with a set of attached policies.
+ * Function is a higher-level API for creating and managing AWS Lambda Function resources
+ * implemented by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function extends pulumi.ComponentResource {
+export class Function extends lambda.Function {
     public readonly options: FunctionOptions;
-    public readonly lambda: lambda.Function;
-    public readonly role: Role;
     public readonly policies: RolePolicyAttachment[];
 
     constructor(name: string,
@@ -61,24 +59,10 @@ export class Function extends pulumi.ComponentResource {
             throw new Error("Missing required function callback");
         }
 
-        super("aws:serverless:Function", name, { options: options }, opts);
-
         // Attach a role and then, if there are policies, attach those too.
-        this.role = new Role(name, {
+        const role = new Role(name, {
             assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        }, { parent: this });
-
-        this.policies = [];
-        for (let policy of options.policies) {
-            // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
-            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
-            // structural identity by using a name that includes the role name and policyArn.
-            let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
-                role: this.role,
-                policyArn: policy,
-            }, { parent: this });
-            this.policies.push(attachment);
-        }
+        });
 
         // Now compile the function text into an asset we can use to create the lambda. Note: to
         // prevent a circularity/deadlock, we list this Function object as something that the
@@ -93,8 +77,7 @@ export class Function extends pulumi.ComponentResource {
             throw new Error("Failed to serialize function closure");
         }
 
-        // console.log("Making function: " + name);
-        this.lambda = new lambda.Function(name, {
+        super(name, {
             code: new pulumi.asset.AssetArchive({
                 // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
                 //     upload the entire folder as there may be dependencies on any files here.
@@ -103,12 +86,25 @@ export class Function extends pulumi.ComponentResource {
             }),
             handler: "__index.handler",
             runtime: lambda.NodeJS6d10Runtime,
-            role: this.role.arn,
+            role: role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
-        }, { parent: this });
+        }, opts);
+
+        this.policies = [];
+        for (let policy of options.policies) {
+            // RolePolicyAttachment objects don't have a physical identity, and create/deletes are
+            // processed structurally based on the `role` and `policyArn`.  So we need to make sure
+            // our Pulumi name matches the structural identity by using a name that includes the
+            // role name and policyArn.
+            let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                role: role,
+                policyArn: policy,
+            }, { parent: this });
+            this.policies.push(attachment);
+        }
     }
 }
 
