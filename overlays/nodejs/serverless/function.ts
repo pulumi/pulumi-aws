@@ -32,6 +32,7 @@ export interface FunctionOptions {
     policies: ARN[];
     timeout?: number;
     memorySize?: number;
+    runtime?: lambda.Runtime;
     deadLetterConfig?: { targetArn: pulumi.Input<string>; };
     vpcConfig?: {
         securityGroupIds: pulumi.Input<string[]>,
@@ -85,7 +86,7 @@ export class Function extends lambda.Function {
                 "__index.js": new pulumi.asset.StringAsset(closure),
             }),
             handler: "__index.handler",
-            runtime: lambda.NodeJS6d10Runtime,
+            runtime: options.runtime || lambda.NodeJS8d10Runtime,
             role: role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
             memorySize: options.memorySize,

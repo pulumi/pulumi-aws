@@ -68,6 +68,7 @@ const (
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
 	mqMod                = "mq"                       // MQ
 	opsworksMod          = "opsworks"                 // OpsWorks
+	organizationsMod     = "organizations"            // Organizations
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
 	route53Mod           = "route53"                  // Route 53 (DNS)
@@ -137,6 +138,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acm_certificate_validation": {Tok: awsResource(acmMod, "CertificateValidation")},
 			// AppSync
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
+			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
@@ -844,6 +846,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:      awsResource(iotMod, "Policy"),
 				IDFields: []string{"name"},
 			},
+			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),
@@ -866,6 +869,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
 			// Key Management Service (KMS)
 			"aws_kms_alias": {Tok: awsResource(kmsMod, "Alias")},
+			"aws_kms_grant": {Tok: awsResource(kmsMod, "Grant")},
 			"aws_kms_key":   {Tok: awsResource(kmsMod, "Key")},
 			// Lambda
 			"aws_lambda_function": {
@@ -929,6 +933,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_opsworks_user_profile":     {Tok: awsResource(opsworksMod, "UserProfile")},
 			"aws_opsworks_permission":       {Tok: awsResource(opsworksMod, "Permission")},
 			"aws_opsworks_rds_db_instance":  {Tok: awsResource(opsworksMod, "RdsDbInstance")},
+			// Organizations
+			"aws_organizations_account":      {Tok: awsResource(organizationsMod, "Account")},
+			"aws_organizations_organization": {Tok: awsResource(organizationsMod, "Organization")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
 			"aws_rds_cluster_instance": {Tok: awsResource(rdsMod, "ClusterInstance")},
@@ -1015,16 +1022,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
 			"aws_service_discovery_service":               {Tok: awsResource(servicediscoveryMod, "Service")},
 			// Simple Email Service (SES)
-			"aws_ses_active_receipt_rule_set": {Tok: awsResource(sesMod, "ActiveReceiptRuleSet")},
-			"aws_ses_domain_dkim":             {Tok: awsResource(sesMod, "DomainDkim")},
-			"aws_ses_domain_identity":         {Tok: awsResource(sesMod, "DomainIdentity")},
-			"aws_ses_domain_mail_from":        {Tok: awsResource(sesMod, "MailFrom")},
-			"aws_ses_receipt_filter":          {Tok: awsResource(sesMod, "ReceiptFilter")},
-			"aws_ses_receipt_rule":            {Tok: awsResource(sesMod, "ReceiptRule")},
-			"aws_ses_receipt_rule_set":        {Tok: awsResource(sesMod, "ReceiptRuleSet")},
-			"aws_ses_configuration_set":       {Tok: awsResource(sesMod, "ConfgurationSet")},
-			"aws_ses_event_destination":       {Tok: awsResource(sesMod, "EventDestination")},
-			"aws_ses_template":                {Tok: awsResource(sesMod, "Template")},
+			"aws_ses_active_receipt_rule_set":     {Tok: awsResource(sesMod, "ActiveReceiptRuleSet")},
+			"aws_ses_domain_dkim":                 {Tok: awsResource(sesMod, "DomainDkim")},
+			"aws_ses_domain_identity":             {Tok: awsResource(sesMod, "DomainIdentity")},
+			"aws_ses_domain_mail_from":            {Tok: awsResource(sesMod, "MailFrom")},
+			"aws_ses_identity_notification_topic": {Tok: awsResource(sesMod, "IdentityNotificationTopic")},
+			"aws_ses_receipt_filter":              {Tok: awsResource(sesMod, "ReceiptFilter")},
+			"aws_ses_receipt_rule":                {Tok: awsResource(sesMod, "ReceiptRule")},
+			"aws_ses_receipt_rule_set":            {Tok: awsResource(sesMod, "ReceiptRuleSet")},
+			"aws_ses_configuration_set":           {Tok: awsResource(sesMod, "ConfgurationSet")},
+			"aws_ses_event_destination":           {Tok: awsResource(sesMod, "EventDestination")},
+			"aws_ses_template":                    {Tok: awsResource(sesMod, "Template")},
 			// S3
 			"aws_s3_bucket": {
 				Tok: awsResource(s3Mod, "Bucket"),
@@ -1104,16 +1112,31 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
+			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},
 			"aws_waf_ipset":                   {Tok: awsResource(wafMod, "IpSet")},
 			"aws_waf_rate_based_rule":         {Tok: awsResource(wafMod, "RateBasedRule")},
+			"aws_waf_regex_match_set":         {Tok: awsResource(wafMod, "RegexMatchSet")},
+			"aws_waf_regex_pattern_set":       {Tok: awsResource(wafMod, "RegexPatternSet")},
 			"aws_waf_rule":                    {Tok: awsResource(wafMod, "Rule")},
+			"aws_waf_rule_group":              {Tok: awsResource(wafMod, "RuleGroup")},
 			"aws_waf_size_constraint_set":     {Tok: awsResource(wafMod, "SizeConstraintSet")},
 			"aws_waf_web_acl":                 {Tok: awsResource(wafMod, "WebAcl")},
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
 			// Web Application Firewall (WAF) Regional
-			"aws_wafregional_byte_match_set": {Tok: awsResource(wafregionalMod, "ByteMatchSet")},
-			"aws_wafregional_ipset":          {Tok: awsResource(wafregionalMod, "IpSet")},
+			"aws_wafregional_byte_match_set":          {Tok: awsResource(wafregionalMod, "ByteMatchSet")},
+			"aws_wafregional_geo_match_set":           {Tok: awsResource(wafregionalMod, "GeoMatchSet")},
+			"aws_wafregional_ipset":                   {Tok: awsResource(wafregionalMod, "IpSet")},
+			"aws_wafregional_rate_based_rule":         {Tok: awsResource(wafregionalMod, "RateBasedRule")},
+			"aws_wafregional_regex_match_set":         {Tok: awsResource(wafregionalMod, "RegexMatchSet")},
+			"aws_wafregional_regex_pattern_set":       {Tok: awsResource(wafregionalMod, "RegexPatternSet")},
+			"aws_wafregional_rule":                    {Tok: awsResource(wafregionalMod, "Rule")},
+			"aws_wafregional_rule_group":              {Tok: awsResource(wafregionalMod, "RuleGroup")},
+			"aws_wafregional_size_constraint_set":     {Tok: awsResource(wafregionalMod, "SizeConstraintSet")},
+			"aws_wafregional_sql_injection_match_set": {Tok: awsResource(wafregionalMod, "SqlInjectionMatchSet")},
+			"aws_wafregional_web_acl":                 {Tok: awsResource(wafregionalMod, "WebAcl")},
+			"aws_wafregional_web_acl_association":     {Tok: awsResource(wafregionalMod, "WebAclAssociation")},
+			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -1223,6 +1246,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Key Management Service
 			"aws_kms_alias":      {Tok: awsDataSource(kmsMod, "getAlias")},
 			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},
+			"aws_kms_key":        {Tok: awsDataSource(kmsMod, "getKey")},
 			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
 			// RDS
 			"aws_rds_cluster": {Tok: awsDataSource(rdsMod, "getCluster")},

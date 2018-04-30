@@ -44,7 +44,9 @@ func TestExamples(t *testing.T) {
 			baseJS.With(integration.ProgramTestOptions{
 				Dir: path.Join(cwd, "webserver"),
 				EditDirs: []integration.EditDir{
-					// First just patch the ingress rules by adding port 20: should be a quick update.
+					// First, look up the server just created using get.  No new resources.
+					createEditDir(path.Join(cwd, "webserver", "variants", "get")),
+					// Next, patch the ingress rules by adding port 20: should be a quick update.
 					createEditDir(path.Join(cwd, "webserver", "variants", "ssh")),
 					// Now do the reverse; this basically ensures that an update that deletes a property works.
 					createEditDir(path.Join(cwd, "webserver")),
@@ -54,7 +56,10 @@ func TestExamples(t *testing.T) {
 			}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+
+			// TODO[pulumi/pulumi-aws#198]: disabled due to what seem to be transient failures from AWS.
+			// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
+
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 			// Python tests:
