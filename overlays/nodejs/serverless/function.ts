@@ -81,6 +81,8 @@ export class Function extends pulumi.ComponentResource {
         }
 
         const args: lambda.FunctionArgs = {
+            // Note: we are hard-coding in the runtime here.  Should we let callers supply their own
+            // choice?
             runtime: lambda.NodeJS6d10Runtime,
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,

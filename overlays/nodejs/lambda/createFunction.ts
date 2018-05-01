@@ -22,7 +22,7 @@ export interface Context {
 }
 
 /**
- * Handler is the signature for a serverless function.
+ * Handler is the signature for a callback that be converted into an aws lambda entrypoint.
  */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
