@@ -1293,8 +1293,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				"lambda": {
 					Files: []string{
-						"runtimes.ts",      // a union type and constants for available Lambda runtimes.
-						"typedFunction.ts", // Makes the exported 'Function' type generic.
+						"runtimes.ts",       // a union type and constants for available Lambda runtimes.
+						"createFunction.ts", // helper method to simply create a lambda function from an arrow function
+						"typedFunction.ts",  // makes the exported 'Function' type generic.
 					},
 				},
 				"serverless": {
