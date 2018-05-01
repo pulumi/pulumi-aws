@@ -30,7 +30,7 @@ export class Function<TArg, TResult> extends pulumi.ComponentResource {
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: Handler<TArg, TResult>,
+                func: lambda.Handler<TArg, TResult>,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
