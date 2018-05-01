@@ -82,14 +82,14 @@ export class Function extends pulumi.ComponentResource {
         }
 
         const args: lambda.FunctionArgs = {
-            runtime: options.runtime || lambda.NodeJS6d10Runtime,
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
-            // createFunction will actually supply the handler.
+            // createFunction will actually supply the handler.  This is just to satisfy typescript.
             handler: undefined!,
+            runtime: options.runtime || lambda.NodeJS6d10Runtime,
         };
 
         this.lambda = lambda.createFunction(name, func, args, serialize, { parent: this });
