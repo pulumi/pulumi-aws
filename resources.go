@@ -1268,6 +1268,7 @@ func Provider() tfbridge.ProviderInfo {
 			Files: []string{
 				"arn.ts",    // ARN typedef
 				"region.ts", // Region union type and constants
+				"utils.ts",  // General helper code
 			},
 			Modules: map[string]*tfbridge.OverlayInfo{
 				"config": {
