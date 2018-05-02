@@ -22,7 +22,7 @@ export interface FunctionOptions {
  * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
  * by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function<TArg, TResult> extends pulumi.ComponentResource {
+export class Function<E, R> extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
@@ -30,7 +30,7 @@ export class Function<TArg, TResult> extends pulumi.ComponentResource {
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: lambda.Handler<TArg, TResult>,
+                func: lambda.Handler<E, R>,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
