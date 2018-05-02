@@ -87,7 +87,7 @@ export class Function extends pulumi.ComponentResource {
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
-            runtime: options.runtime || lambda.NodeJS6d10Runtime,
+            runtime: options.runtime || lambda.NodeJS8d10Runtime,
         };
 
         this.lambda = lambda.createFunction(name, func, args, serialize, { parent: this });
