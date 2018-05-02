@@ -27,8 +27,10 @@ export interface Context {
  */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
-// User sholud not supply 'code' or 'handler' to createFunction.  We will create those
-// out of the handler they pass in.
+/**
+ * CallbackFunctionArgs specify the properties that can be passed in to configure the AWS Lambda
+ * created for the provide 'handler' in 'createFunction'.
+ */
 export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs, "code" | "handler">
 
 /**
