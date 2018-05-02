@@ -34,7 +34,9 @@ export type Handler = (event: any, context: Context, callback: (error: any, resu
 export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs, "code" | "handler">
 
 /**
- * Helper to create an aws lambda function out of an actual javascript callback.
+ * createFunction enables creation of an AWS Lambda out of an actual javascript callback handler.
+ * The callback will be appropriately serialized into a form that the AWS Lambda infrastructure
+ * can call into.
  */
 export function createFunction(
     name: string, handler: Handler, args: CallbackFunctionArgs,
