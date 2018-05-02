@@ -25,18 +25,22 @@ export interface Context {
 /**
  * Handler is the signature for a callback that be converted into an aws lambda entrypoint.
  */
-export type Handler<TArg, TResult> = (event: TArg, context: Context, callback: (error: any, result: TResult) => void) => any;
+export type Handler<E,R> = (event: E, context: Context, callback: (error: any, result: R) => void) => any;
 
-// User sholud not supply 'code' or 'handler' to createFunction.  We will create those
-// out of the handler they pass in.
+/**
+ * CallbackFunctionArgs specify the properties that can be passed in to configure the AWS Lambda
+ * created for the provide 'handler' in 'createFunction'.
+ */
 export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs, "code" | "handler">
 
 /**
- * Helper to create an aws lambda function out of an actual javascript callback.
+ * createFunction enables creation of an AWS Lambda out of an actual javascript callback handler.
+ * The callback will be appropriately serialized into a form that the AWS Lambda infrastructure
+ * can call into.
  */
-export function createFunction<TArg, TResult>(
-    name: string, handler: Handler<TArg, TResult>, args: CallbackFunctionArgs,
-    serialize?: (obj: any) => boolean, opts?: pulumi.ResourceOptions): lambda.Function<TArg, TResult> {
+export function createFunction<E,R>(
+    name: string, handler: Handler<E,R>, args: CallbackFunctionArgs,
+    serialize?: (obj: any) => boolean, opts?: pulumi.ResourceOptions): lambda.Function<E,R> {
 
     if (!name) {
         throw new Error("Missing required 'name'");
