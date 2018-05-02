@@ -1268,6 +1268,7 @@ func Provider() tfbridge.ProviderInfo {
 			Files: []string{
 				"arn.ts",    // ARN typedef
 				"region.ts", // Region union type and constants
+				"utils.ts",  // General helper code
 			},
 			Modules: map[string]*tfbridge.OverlayInfo{
 				"config": {
@@ -1293,7 +1294,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				"lambda": {
 					Files: []string{
-						"runtimes.ts", // a union type and constants for available Lambda runtimes.
+						"runtimes.ts",       // a union type and constants for available Lambda runtimes.
+						"createFunction.ts", // helper method to simply create a lambda function from an arrow function
 					},
 				},
 				"serverless": {
