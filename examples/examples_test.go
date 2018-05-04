@@ -27,6 +27,7 @@ func TestExamples(t *testing.T) {
 		Config: map[string]string{
 			"aws:region": region,
 		},
+		Tracing: "https://tracing.pulumi-engineering.com/collector/api/v1/spans",
 	}
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
