@@ -3,8 +3,30 @@
 import * as crypto from "crypto";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
-import { ARN } from "../arn";
 import * as lambda from "../lambda";
+import { ARN } from "../arn";
+
+/**
+ * Context is the shape of the context object passed to a Function callback.
+ */
+export interface Context {
+    callbackWaitsForEmptyEventLoop: boolean;
+    readonly functionName: string;
+    readonly functionVersion: string;
+    readonly invokedFunctionArn: string;
+    readonly memoryLimitInMB: string;
+    readonly awsRequestId: string;
+    readonly logGroupName: string;
+    readonly logStreamName: string;
+    readonly identity: any;
+    readonly clientContext: any;
+    getRemainingTimeInMillis(): string;
+}
+
+/**
+ * Handler is the signature for a serverless function.
+ */
+export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 export interface FunctionOptions {
     policies: ARN[];
@@ -22,7 +44,7 @@ export interface FunctionOptions {
  * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
  * by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function<E, R> extends pulumi.ComponentResource {
+export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
@@ -30,7 +52,7 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: lambda.Handler<E, R>,
+                func: Handler,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
