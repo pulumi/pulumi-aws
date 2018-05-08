@@ -3,8 +3,30 @@
 import * as crypto from "crypto";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
-import { ARN } from "../arn";
 import * as lambda from "../lambda";
+import { ARN } from "../arn";
+
+/**
+ * Context is the shape of the context object passed to a Function callback.
+ */
+export interface Context {
+    callbackWaitsForEmptyEventLoop: boolean;
+    readonly functionName: string;
+    readonly functionVersion: string;
+    readonly invokedFunctionArn: string;
+    readonly memoryLimitInMB: string;
+    readonly awsRequestId: string;
+    readonly logGroupName: string;
+    readonly logStreamName: string;
+    readonly identity: any;
+    readonly clientContext: any;
+    getRemainingTimeInMillis(): string;
+}
+
+/**
+ * Handler is the signature for a serverless function.
+ */
+export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 export interface FunctionOptions {
     policies: ARN[];
@@ -22,7 +44,7 @@ export interface FunctionOptions {
  * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
  * by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function<E, R> extends pulumi.ComponentResource {
+export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
@@ -30,7 +52,7 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: lambda.Handler<E, R>,
+                func: Handler,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
@@ -59,16 +81,35 @@ export class Function<E, R> extends pulumi.ComponentResource {
             this.policies.push(attachment);
         }
 
-        const args: lambda.CallbackFunctionArgs = {
+        // Now compile the function text into an asset we can use to create the lambda. Note: to
+        // prevent a circularity/deadlock, we list this Function object as something that the
+        // serialized closure cannot reference.
+        serialize = serialize || (_ => true);
+        const finalSerialize = (o: any) => {
+            return serialize(o) && o !== this;
+        }
+
+        let closure = pulumi.runtime.serializeFunctionAsync(func, finalSerialize);
+        if (!closure) {
+            throw new Error("Failed to serialize function closure");
+        }
+
+        // console.log("Making function: " + name);
+        this.lambda = new lambda.Function(name, {
+            code: new pulumi.asset.AssetArchive({
+                // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
+                //     upload the entire folder as there may be dependencies on any files here.
+                ".": new pulumi.asset.FileArchive("."),
+                "__index.js": new pulumi.asset.StringAsset(closure),
+            }),
+            handler: "__index.handler",
+            runtime: options.runtime || lambda.NodeJS8d10Runtime,
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
-            runtime: options.runtime || lambda.NodeJS8d10Runtime,
-        };
-
-        this.lambda = lambda.createFunction(name, func, args, serialize, { parent: this });
+        }, { parent: this });
     }
 }
 
