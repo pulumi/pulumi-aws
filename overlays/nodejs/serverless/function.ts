@@ -1,6 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as crypto from "crypto";
+import * as fs from "fs";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
@@ -28,16 +29,45 @@ export interface Context {
  */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
+/**
+ * FunctionOptions provides configuration options for the serverless Function.
+ */
 export interface FunctionOptions {
-    policies: ARN[];
+    /**
+     * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
+     */
+    policies?: ARN[];
+    /**
+     * A pre-created role to use for the Function.  Must provide either [policies] or [role].
+     */
+    role?: Role;
+    /**
+     * A timout, in seconds, to apply to the Function.
+     */
     timeout?: number;
+    /**
+     * The memory size limit to use for execution of the Function.
+     */
     memorySize?: number;
+    /**
+     * The Lambda runtime to use.
+     */
     runtime?: lambda.Runtime;
+    /**
+     * A dead letter target ARN to send function invocation failures to.
+     */
     deadLetterConfig?: { targetArn: pulumi.Input<string>; };
+    /**
+     * Configuration for a VPC to run the Function within.
+     */
     vpcConfig?: {
         securityGroupIds: pulumi.Input<string[]>,
         subnetIds: pulumi.Input<string[]>,
     };
+    /**
+     * The paths relative to the program folder to include in the Lambda upload.  Default is `["node_modules"]`.
+     */
+    includePaths?: string[];
 }
 
 /**
@@ -48,7 +78,6 @@ export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
-    public readonly policies: RolePolicyAttachment[];
 
     constructor(name: string,
                 options: FunctionOptions,
@@ -64,21 +93,23 @@ export class Function extends pulumi.ComponentResource {
 
         super("aws:serverless:Function", name, { options: options }, opts);
 
-        // Attach a role and then, if there are policies, attach those too.
-        this.role = new Role(name, {
-            assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        }, { parent: this });
-
-        this.policies = [];
-        for (let policy of options.policies) {
-            // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
-            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
-            // structural identity by using a name that includes the role name and policyArn.
-            let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
-                role: this.role,
-                policyArn: policy,
+        if (options.role) {
+            this.role = options.role;
+        } else {
+            // Attach a role and then, if there are policies, attach those too.
+            this.role = new Role(name, {
+                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
             }, { parent: this });
-            this.policies.push(attachment);
+
+            for (let policy of options.policies) {
+                // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
+                // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
+                // structural identity by using a name that includes the role name and policyArn.
+                let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                    role: this.role,
+                    policyArn: policy,
+                }, { parent: this });
+            }
         }
 
         // Now compile the function text into an asset we can use to create the lambda. Note: to
@@ -93,15 +124,28 @@ export class Function extends pulumi.ComponentResource {
         if (!closure) {
             throw new Error("Failed to serialize function closure");
         }
+        
+        // Construct the set of paths to include in the archive for upload.
+        let codePaths = {
+            // Always include the serialized function.
+            "__index.js": new pulumi.asset.StringAsset(closure),
+        };
+        // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
+        const includePaths = options.includePaths || ["./node_modules/"];
+        for (const path of includePaths) {
+            // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
+            // we stat the path to figure out which it is and use the appropriate Asset constructor.
+            const stats = fs.lstatSync(path);
+            if (stats.isDirectory()) {
+                codePaths[path] = new pulumi.asset.FileArchive(path);
+            } else {
+                codePaths[path] = new pulumi.asset.FileAsset(path);
+            }
+        }
 
-        // console.log("Making function: " + name);
+        // Create the Lambda Function.
         this.lambda = new lambda.Function(name, {
-            code: new pulumi.asset.AssetArchive({
-                // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
-                //     upload the entire folder as there may be dependencies on any files here.
-                ".": new pulumi.asset.FileArchive("."),
-                "__index.js": new pulumi.asset.StringAsset(closure),
-            }),
+            code: new pulumi.asset.AssetArchive(codePaths),
             handler: "__index.handler",
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
             role: this.role.arn,
