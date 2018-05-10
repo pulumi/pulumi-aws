@@ -1040,6 +1040,9 @@ func Provider() tfbridge.ProviderInfo {
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
+					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
+					// provider.
+					"website": {Name: "website", MaxItemsOne: boolRef(true)},
 				},
 			},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
