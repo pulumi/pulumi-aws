@@ -3,10 +3,13 @@
 package aws
 
 import (
+	"errors"
 	"strings"
 	"unicode"
 
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/terraform"
+	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
@@ -114,6 +117,51 @@ func boolRef(b bool) *bool {
 	return &b
 }
 
+// stringValue gets a string value from a property map if present, else ""
+func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
+	val, ok := vars[prop]
+	if ok && val.IsString() {
+		return val.StringValue()
+	}
+	return ""
+}
+
+// preConfigureCallback validates that AWS credentials can be succesfully discovered. This emulates the credentials
+// configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
+// before passing control to the TF provider to ensure we can report actionable errors.
+func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
+	config := &aws.Config{
+		AccessKey: stringValue(vars, "accessKey"),
+		SecretKey: stringValue(vars, "secretKey"),
+		Profile:   stringValue(vars, "profile"),
+		Token:     stringValue(vars, "token"),
+		Region:    stringValue(vars, "region"),
+	}
+
+	credsPath, err := homedir.Expand(stringValue(vars, "sharedCredentialsFile"))
+	if err != nil {
+		return err
+	}
+	config.CredsFilename = credsPath
+
+	// TODO[pulumi/pulumi-terraform#48] We should also be setting `config.AssumeRole*` here, but we are currently
+	// blocked on not being able to read out list-valued provider config.
+
+	creds, err := aws.GetCredentials(config)
+	if err != nil {
+		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
+			"- see https://docs.pulumi.com/install/aws.html for details on configuration")
+	}
+
+	_, err = creds.Get()
+	if err != nil {
+		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
+			"- see https://docs.pulumi.com/install/aws.html for details on configuration")
+	}
+
+	return nil
+}
+
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
@@ -132,6 +180,7 @@ func Provider() tfbridge.ProviderInfo {
 				Type: awsType("region", "Region"),
 			},
 		},
+		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
 			"aws_acm_certificate":            {Tok: awsResource(acmMod, "Certificate")},

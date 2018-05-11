@@ -56,7 +56,14 @@ func TestExamples(t *testing.T) {
 				},
 			}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-comp")}),
+			baseJS.With(integration.ProgramTestOptions{
+				Dir: path.Join(cwd, "webserver-comp"),
+				// Verify that credentials can be passed via explicit configuration
+				Secrets: map[string]string{
+					"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
+					"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
+				},
+			}),
 
 			// TODO[pulumi/pulumi-aws#198]: disabled due to what seem to be transient failures from AWS.
 			// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
