@@ -32,7 +32,10 @@ export type Handler<E,R> = (event: E, context: Context, callback: (error: any, r
  * CallbackFunctionArgs specify the properties that can be passed in to configure the AWS Lambda
  * created for the provide 'handler' in 'createFunction'.
  */
-export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs & { includePaths?: string[] }, "code" | "handler">
+export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs & {
+    includePaths?: string[],
+    serialize?: (obj: any) => boolean,
+}, "code" | "handler">
 
 /**
  * createFunction enables creation of an AWS Lambda out of an actual javascript callback handler.
@@ -40,8 +43,8 @@ export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs & { includePat
  * can call into.
  */
 export function createFunction<E,R>(
-    name: string, handler: Handler<E,R>, args: CallbackFunctionArgs,
-    serialize?: (obj: any) => boolean, opts?: pulumi.ResourceOptions): lambda.Function {
+    name: string, handler: Handler<E,R>,
+    args: CallbackFunctionArgs, opts?: pulumi.ResourceOptions): lambda.Function {
 
     if (!name) {
         throw new Error("Missing required 'name'");
@@ -62,7 +65,7 @@ export function createFunction<E,R>(
     // Now compile the function text into an asset we can use to create the lambda. Note: to
     // prevent a circularity/deadlock, we list this Function object as something that the
     // serialized closure cannot reference.
-    serialize = serialize || (_ => true);
+    const serialize = args.serialize || (_ => true);
     const finalSerialize = (o: any) => {
         return serialize(o) && o !== this;
     }
@@ -71,7 +74,6 @@ export function createFunction<E,R>(
     if (!closure) {
         throw new Error("Failed to serialize function closure");
     }
-
 
     // Construct the set of paths to include in the archive for upload.
     let codePaths = {

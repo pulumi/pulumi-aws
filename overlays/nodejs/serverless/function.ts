@@ -99,9 +99,10 @@ export class Function<E, R> extends pulumi.ComponentResource {
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
             // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
             includePaths: options.includePaths || ["./node_modules/"],
+            serialize: serialize,
         };
 
-        this.lambda = lambda.createFunction(name, func, args, serialize, { parent: this });
+        this.lambda = lambda.createFunction(name, func, args, { parent: this });
     }
 }
 
