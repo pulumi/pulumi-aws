@@ -92,13 +92,13 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
         const args: lambda.CallbackFunctionArgs = {
             role: this.role.arn,
-            timeout: options.timeout === undefined ? 180 : options.timeout,
+            timeout: options.timeout,
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
-            runtime: options.runtime || lambda.NodeJS8d10Runtime,
+            runtime: options.runtime,
             // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
-            includePaths: options.includePaths || ["./node_modules/"],
+            includePaths: options.includePaths,
             serialize: serialize,
         };
 

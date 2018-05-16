@@ -5,6 +5,7 @@ import * as fs from "fs";
 import * as lambda from "./function";
 import * as runtimes from "./runtimes";
 import * as utils from "../utils";
+import * as iam from "../iam";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -32,7 +33,10 @@ export type Handler<E,R> = (event: E, context: Context, callback: (error: any, r
  * CallbackFunctionArgs specify the properties that can be passed in to configure the AWS Lambda
  * created for the provide 'handler' in 'createFunction'.
  */
-export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs & {
+export type CallbackFunctionArgs = utils.Omit<
+    // Keep all the properties from FunctionArgs (though make 'Role' optional).
+    utils.Optional<lambda.FunctionArgs, "role"> & {
+    // Also allow caller to supply the include paths to upload with the lambda
     includePaths?: string[],
     serialize?: (obj: any) => boolean,
 }, "code" | "handler">
@@ -51,9 +55,6 @@ export function createFunction<E,R>(
     }
     if (!handler) {
         throw new Error("Missing required 'handler' callback");
-    }
-    if (!args.role) {
-        throw new Error("Missing 'role' in 'args'");
     }
     if ((<any>args).code) {
         throw new Error("'code' property should not be provided in 'args'");
@@ -81,16 +82,15 @@ export function createFunction<E,R>(
         "__index.js": new pulumi.asset.StringAsset(closure),
     };
 
-    if (args.includePaths) {
-        for (const path of args.includePaths) {
-            // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
-            // we stat the path to figure out which it is and use the appropriate Asset constructor.
-            const stats = fs.lstatSync(path);
-            if (stats.isDirectory()) {
-                codePaths[path] = new pulumi.asset.FileArchive(path);
-            } else {
-                codePaths[path] = new pulumi.asset.FileAsset(path);
-            }
+    const includePaths = args.includePaths || ["./node_modules/"];
+    for (const path of includePaths) {
+        // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
+        // we stat the path to figure out which it is and use the appropriate Asset constructor.
+        const stats = fs.lstatSync(path);
+        if (stats.isDirectory()) {
+            codePaths[path] = new pulumi.asset.FileArchive(path);
+        } else {
+            codePaths[path] = new pulumi.asset.FileAsset(path);
         }
     }
 
@@ -98,7 +98,70 @@ export function createFunction<E,R>(
         ...args,
         code: new pulumi.asset.AssetArchive(codePaths),
         handler: "__index.handler",
+        timeout: args.timeout === undefined ? 180 : args.timeout,
+        runtime: args.runtime || runtimes.NodeJS8d10Runtime,
+        role: args.role || getDefaultLambdaRole(),
     };
 
     return new lambda.Function(name, argsCopy, opts);
+}
+
+// Expose a common infrastructure resource that all our global resources can consider themselves to
+// be parented by.  This helps ensure unique URN naming for these guys as tey cannot conflict with
+// any other user resource.
+class InfrastructureResource extends pulumi.ComponentResource {
+    constructor() {
+        super("aws-infra:global:infrastructure", "global-infrastructure");
+    }
+}
+
+let globalInfrastructureResource: InfrastructureResource | undefined;
+export function getGlobalInfrastructureResource(): pulumi.Resource {
+    if (!globalInfrastructureResource) {
+        globalInfrastructureResource = new InfrastructureResource();
+    }
+
+    return globalInfrastructureResource;
+}
+
+const defaultComputePolicies = [
+    iam.AWSLambdaFullAccess,                 // Provides wide access to "serverless" services (Dynamo, S3, etc.)
+    iam.AmazonEC2ContainerServiceFullAccess, // Required for lambda compute to be able to run Tasks
+];
+
+let defaultLambdaRole: iam.Role | undefined;
+function getDefaultLambdaRole(): iam.Role {
+    if (!defaultLambdaRole) {
+        const lambdaRolePolicy: iam.PolicyDocument = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Action": "sts:AssumeRole",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com",
+                    },
+                    "Effect": "Allow",
+                    "Sid": "",
+                },
+            ],
+        };
+
+        defaultLambdaRole = new iam.Role("default-lambda-role", {
+            assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
+        }, { parent: getGlobalInfrastructureResource() });
+
+        const policies = [...defaultComputePolicies];
+
+        for (const policy of policies) {
+            // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
+            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
+            // structural identity by using a name that includes the role name and policyArn.
+            const attachment = new iam.RolePolicyAttachment(utils.sha1hash(policy), {
+                role: defaultLambdaRole,
+                policyArn: policy,
+            }, { parent: this });
+        }
+    }
+
+    return defaultLambdaRole;
 }
