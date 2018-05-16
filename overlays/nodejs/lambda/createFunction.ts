@@ -40,7 +40,7 @@ export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs, "code" | "han
  */
 export function createFunction<E,R>(
     name: string, handler: Handler<E,R>, args: CallbackFunctionArgs,
-    serialize?: (obj: any) => boolean, opts?: pulumi.ResourceOptions): lambda.Function<E,R> {
+    serialize?: (obj: any) => boolean, opts?: pulumi.ResourceOptions): lambda.Function {
 
     if (!name) {
         throw new Error("Missing required 'name'");
