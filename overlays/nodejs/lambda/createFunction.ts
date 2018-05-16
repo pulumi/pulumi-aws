@@ -6,6 +6,7 @@ import * as lambda from "./function";
 import * as runtimes from "./runtimes";
 import * as utils from "../utils";
 import * as iam from "../iam";
+import * as shared from "../shared";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -100,68 +101,8 @@ export function createFunction<E,R>(
         handler: "__index.handler",
         timeout: args.timeout === undefined ? 180 : args.timeout,
         runtime: args.runtime || runtimes.NodeJS8d10Runtime,
-        role: args.role || getDefaultLambdaRole(),
+        role: args.role ? args.role : shared.getDefaultLambdaRole().arn,
     };
 
     return new lambda.Function(name, argsCopy, opts);
-}
-
-// Expose a common infrastructure resource that all our global resources can consider themselves to
-// be parented by.  This helps ensure unique URN naming for these guys as tey cannot conflict with
-// any other user resource.
-class InfrastructureResource extends pulumi.ComponentResource {
-    constructor() {
-        super("aws-infra:global:infrastructure", "global-infrastructure");
-    }
-}
-
-let globalInfrastructureResource: InfrastructureResource | undefined;
-export function getGlobalInfrastructureResource(): pulumi.Resource {
-    if (!globalInfrastructureResource) {
-        globalInfrastructureResource = new InfrastructureResource();
-    }
-
-    return globalInfrastructureResource;
-}
-
-const defaultComputePolicies = [
-    iam.AWSLambdaFullAccess,                 // Provides wide access to "serverless" services (Dynamo, S3, etc.)
-    iam.AmazonEC2ContainerServiceFullAccess, // Required for lambda compute to be able to run Tasks
-];
-
-let defaultLambdaRole: iam.Role | undefined;
-function getDefaultLambdaRole(): iam.Role {
-    if (!defaultLambdaRole) {
-        const lambdaRolePolicy: iam.PolicyDocument = {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "lambda.amazonaws.com",
-                    },
-                    "Effect": "Allow",
-                    "Sid": "",
-                },
-            ],
-        };
-
-        defaultLambdaRole = new iam.Role("default-lambda-role", {
-            assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        }, { parent: getGlobalInfrastructureResource() });
-
-        const policies = [...defaultComputePolicies];
-
-        for (const policy of policies) {
-            // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
-            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
-            // structural identity by using a name that includes the role name and policyArn.
-            const attachment = new iam.RolePolicyAttachment(utils.sha1hash(policy), {
-                role: defaultLambdaRole,
-                policyArn: policy,
-            }, { parent: this });
-        }
-    }
-
-    return defaultLambdaRole;
 }

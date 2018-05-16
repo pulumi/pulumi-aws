@@ -6,19 +6,24 @@ import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import { ARN } from "../arn";
 import * as lambda from "../lambda";
+import * as shared from "../shared";
+import * as utils from "../utils";
 
 /**
  * FunctionOptions provides configuration options for the serverless Function.
  */
 export interface FunctionOptions {
     /**
-     * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
-     */
-    policies?: ARN[];
-    /**
-     * A pre-created role to use for the Function.  Must provide either [policies] or [role].
+     * A pre-created role to use for the Function.  If provided, 'policies' will be ignored.  If not
+     * provided 'policies' will be examined to determine how to create the rol.e
      */
     role?: Role;
+    /**
+     * A list of IAM policy ARNs to attach to the Function.  Only used if 'role' is not provided.
+     * If role is not provided, and policies are not provided.  A 'default' role will be created.
+     * for this function.
+     */
+    policies?: ARN[];
     /**
      * A timout, in seconds, to apply to the Function.
      */
@@ -73,21 +78,23 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
         if (options.role) {
             this.role = options.role;
-        } else {
+        } else if (options.policies) {
             // Attach a role and then, if there are policies, attach those too.
             this.role = new Role(name, {
-                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
+                assumeRolePolicy: JSON.stringify(shared.defaultLambdaRolePolicy),
             }, { parent: this });
 
             for (let policy of options.policies) {
                 // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
                 // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
                 // structural identity by using a name that includes the role name and policyArn.
-                let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                let attachment = new RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
                     role: this.role,
                     policyArn: policy,
                 }, { parent: this });
             }
+        } else {
+            this.role = shared.getDefaultLambdaRole();
         }
 
         const args: lambda.CallbackFunctionArgs = {
@@ -104,25 +111,4 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
         this.lambda = lambda.createFunction(name, func, args, { parent: this });
     }
-}
-
-const lambdaRolePolicy = {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-                "Service": "lambda.amazonaws.com",
-            },
-            "Effect": "Allow",
-            "Sid": "",
-        },
-    ],
-};
-
-// sha1hash returns a partial SHA1 hash of the input string.
-function sha1hash(s: string): string {
-    const shasum: crypto.Hash = crypto.createHash("sha1");
-    shasum.update(s);
-    return shasum.digest("hex").substring(0, 8);
 }
