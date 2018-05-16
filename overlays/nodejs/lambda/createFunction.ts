@@ -79,16 +79,16 @@ export function createFunction<E,R>(
         "__index.js": new pulumi.asset.StringAsset(closure),
     };
 
-    // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
-    const includePaths = args.includePaths || ["./node_modules/"];
-    for (const path of includePaths) {
-        // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
-        // we stat the path to figure out which it is and use the appropriate Asset constructor.
-        const stats = fs.lstatSync(path);
-        if (stats.isDirectory()) {
-            codePaths[path] = new pulumi.asset.FileArchive(path);
-        } else {
-            codePaths[path] = new pulumi.asset.FileAsset(path);
+    if (args.includePaths) {
+        for (const path of args.includePaths) {
+            // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
+            // we stat the path to figure out which it is and use the appropriate Asset constructor.
+            const stats = fs.lstatSync(path);
+            if (stats.isDirectory()) {
+                codePaths[path] = new pulumi.asset.FileArchive(path);
+            } else {
+                codePaths[path] = new pulumi.asset.FileAsset(path);
+            }
         }
     }
 
