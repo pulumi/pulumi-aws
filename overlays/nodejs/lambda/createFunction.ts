@@ -92,7 +92,7 @@ export function createFunction<E,R>(
         }
     }
 
-    const argsCopy: lambda.FunctionArgs = {
+    const argsCopy = <lambda.FunctionArgs>{
         ...args,
         code: new pulumi.asset.AssetArchive(codePaths),
         handler: "__index.handler",
