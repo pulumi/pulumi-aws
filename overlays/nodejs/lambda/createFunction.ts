@@ -35,11 +35,12 @@ export type Handler<E,R> = (event: E, context: Context, callback: (error: any, r
  * created for the provide 'handler' in 'createFunction'.
  */
 export type CallbackFunctionArgs = utils.Omit<
-    // Keep all the properties from FunctionArgs (though make 'Role' optional).
-    utils.Optional<lambda.FunctionArgs, "role"> & {
+    // Keep all the properties from FunctionArgs (though make 'role' and 'runtime' optional).
+    utils.Optional<lambda.FunctionArgs, "role" | "runtime"> & {
     // Also allow caller to supply the include paths to upload with the lambda
     includePaths?: string[],
     serialize?: (obj: any) => boolean,
+    // And do not allow 'code' or 'handler' to be passed in.
 }, "code" | "handler">
 
 /**
