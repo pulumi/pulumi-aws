@@ -1,21 +1,51 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as crypto from "crypto";
+import * as fs from "fs";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import { ARN } from "../arn";
 import * as lambda from "../lambda";
 
+/**
+ * FunctionOptions provides configuration options for the serverless Function.
+ */
 export interface FunctionOptions {
-    policies: ARN[];
+    /**
+     * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
+     */
+    policies?: ARN[];
+    /**
+     * A pre-created role to use for the Function.  Must provide either [policies] or [role].
+     */
+    role?: Role;
+    /**
+     * A timout, in seconds, to apply to the Function.
+     */
     timeout?: number;
+    /**
+     * The memory size limit to use for execution of the Function.
+     */
     memorySize?: number;
+    /**
+     * The Lambda runtime to use.
+     */
     runtime?: lambda.Runtime;
+    /**
+     * A dead letter target ARN to send function invocation failures to.
+     */
     deadLetterConfig?: { targetArn: pulumi.Input<string>; };
+    /**
+     * Configuration for a VPC to run the Function within.
+     */
     vpcConfig?: {
         securityGroupIds: pulumi.Input<string[]>,
         subnetIds: pulumi.Input<string[]>,
     };
+    /**
+     * The paths relative to the program folder to include in the Lambda upload.  Default is `["node_modules"]`.
+     */
+    includePaths?: string[];
 }
 
 /**
@@ -26,7 +56,6 @@ export class Function<E, R> extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
-    public readonly policies: RolePolicyAttachment[];
 
     constructor(name: string,
                 options: FunctionOptions,
@@ -42,21 +71,23 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
         super("aws:serverless:Function", name, { options: options }, opts);
 
-        // Attach a role and then, if there are policies, attach those too.
-        this.role = new Role(name, {
-            assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        }, { parent: this });
-
-        this.policies = [];
-        for (let policy of options.policies) {
-            // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
-            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
-            // structural identity by using a name that includes the role name and policyArn.
-            let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
-                role: this.role,
-                policyArn: policy,
+        if (options.role) {
+            this.role = options.role;
+        } else {
+            // Attach a role and then, if there are policies, attach those too.
+            this.role = new Role(name, {
+                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
             }, { parent: this });
-            this.policies.push(attachment);
+
+            for (let policy of options.policies) {
+                // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
+                // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
+                // structural identity by using a name that includes the role name and policyArn.
+                let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                    role: this.role,
+                    policyArn: policy,
+                }, { parent: this });
+            }
         }
 
         const args: lambda.CallbackFunctionArgs = {
@@ -66,6 +97,7 @@ export class Function<E, R> extends pulumi.ComponentResource {
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
+            includePaths: options.includePaths,
         };
 
         this.lambda = lambda.createFunction(name, func, args, serialize, { parent: this });

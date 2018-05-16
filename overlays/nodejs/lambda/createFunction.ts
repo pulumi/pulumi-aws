@@ -1,6 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as pulumi from "@pulumi/pulumi";
+import * as fs from "fs";
 import * as lambda from "./function";
 import * as runtimes from "./runtimes";
 import * as utils from "../utils";
@@ -31,7 +32,7 @@ export type Handler<E,R> = (event: E, context: Context, callback: (error: any, r
  * CallbackFunctionArgs specify the properties that can be passed in to configure the AWS Lambda
  * created for the provide 'handler' in 'createFunction'.
  */
-export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs, "code" | "handler">
+export type CallbackFunctionArgs = utils.Omit<lambda.FunctionArgs & { includePaths?: string[] }, "code" | "handler">
 
 /**
  * createFunction enables creation of an AWS Lambda out of an actual javascript callback handler.
@@ -71,14 +72,29 @@ export function createFunction<E,R>(
         throw new Error("Failed to serialize function closure");
     }
 
+
+    // Construct the set of paths to include in the archive for upload.
+    let codePaths = {
+        // Always include the serialized function.
+        "__index.js": new pulumi.asset.StringAsset(closure),
+    };
+
+    // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
+    const includePaths = args.includePaths || ["./node_modules/"];
+    for (const path of includePaths) {
+        // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
+        // we stat the path to figure out which it is and use the appropriate Asset constructor.
+        const stats = fs.lstatSync(path);
+        if (stats.isDirectory()) {
+            codePaths[path] = new pulumi.asset.FileArchive(path);
+        } else {
+            codePaths[path] = new pulumi.asset.FileAsset(path);
+        }
+    }
+
     const argsCopy: lambda.FunctionArgs = {
         ...args,
-        code: new pulumi.asset.AssetArchive({
-            // TODO[pulumi/pulumi-aws#35] We may want to allow users to control what gets uploaded. Currently, we
-            //     upload the entire folder as there may be dependencies on any files here.
-            ".": new pulumi.asset.FileArchive("."),
-            "__index.js": new pulumi.asset.StringAsset(closure),
-        }),
+        code: new pulumi.asset.AssetArchive(codePaths),
         handler: "__index.handler",
     };
 
