@@ -9,6 +9,9 @@ import * as lambda from "../lambda";
 import * as shared from "../shared";
 import * as utils from "../utils";
 
+// Kept around for back compat as this is where we originally exported this type from.
+export type Context = lambda.Context;
+
 /**
  * FunctionOptions provides configuration options for the serverless Function.
  */
@@ -57,14 +60,14 @@ export interface FunctionOptions {
  * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
  * by a Lumi lambda expression and with a set of attached policies.
  */
-export class Function<E, R> extends pulumi.ComponentResource {
+export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
 
     constructor(name: string,
                 options: FunctionOptions,
-                callback: lambda.Callback<E, R>,
+                callback: lambda.Callback<any, any>,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
