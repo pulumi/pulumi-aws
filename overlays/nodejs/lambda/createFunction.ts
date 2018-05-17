@@ -55,7 +55,7 @@ export type CallbackArgs = utils.Omit<
  */
 export function createFunction<E,R>(
     name: string, callback: Callback<E,R>,
-    args: CallbackArgs, opts?: pulumi.ResourceOptions): lambda.Function {
+    args?: CallbackArgs, opts?: pulumi.ResourceOptions): lambda.Function {
 
     if (!name) {
         throw new Error("Missing required 'name'");
@@ -63,6 +63,8 @@ export function createFunction<E,R>(
     if (!callback) {
         throw new Error("Missing required 'callback'");
     }
+
+    args = args || {};
     if ((<any>args).code) {
         throw new Error("'code' property should not be provided in 'args'");
     }
