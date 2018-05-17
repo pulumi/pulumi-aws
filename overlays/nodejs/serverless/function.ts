@@ -4,43 +4,29 @@ import * as crypto from "crypto";
 import * as fs from "fs";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
-import * as lambda from "../lambda";
 import { ARN } from "../arn";
+import * as lambda from "../lambda";
+import * as shared from "../shared";
+import * as utils from "../utils";
 
-/**
- * Context is the shape of the context object passed to a Function callback.
- */
-export interface Context {
-    callbackWaitsForEmptyEventLoop: boolean;
-    readonly functionName: string;
-    readonly functionVersion: string;
-    readonly invokedFunctionArn: string;
-    readonly memoryLimitInMB: string;
-    readonly awsRequestId: string;
-    readonly logGroupName: string;
-    readonly logStreamName: string;
-    readonly identity: any;
-    readonly clientContext: any;
-    getRemainingTimeInMillis(): string;
-}
-
-/**
- * Handler is the signature for a serverless function.
- */
-export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
+// Kept around for back compat as this is where we originally exported this type from.
+export type Context = lambda.Context;
 
 /**
  * FunctionOptions provides configuration options for the serverless Function.
  */
 export interface FunctionOptions {
     /**
-     * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
-     */
-    policies?: ARN[];
-    /**
-     * A pre-created role to use for the Function.  Must provide either [policies] or [role].
+     * A pre-created role to use for the Function.  If provided, 'policies' will be ignored.  If not
+     * provided 'policies' will be examined to determine how to create the rol.e
      */
     role?: Role;
+    /**
+     * A list of IAM policy ARNs to attach to the Function.  Only used if 'role' is not provided.
+     * If role is not provided, and policies are not provided.  A 'default' role will be created.
+     * for this function.
+     */
+    policies?: ARN[];
     /**
      * A timout, in seconds, to apply to the Function.
      */
@@ -81,99 +67,52 @@ export class Function extends pulumi.ComponentResource {
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: Handler,
+                callback: lambda.Callback<any, any>,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
-        if (!func) {
+        if (!callback) {
             throw new Error("Missing required function callback");
         }
 
         super("aws:serverless:Function", name, { options: options }, opts);
 
         if (options.role) {
+            // If the caller provided a role, use it directly.
             this.role = options.role;
-        } else {
-            // Attach a role and then, if there are policies, attach those too.
+        } else if (options.policies) {
+            // Otherwise, if they provided policies, create a default role with those policies attached.
             this.role = new Role(name, {
-                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
+                assumeRolePolicy: JSON.stringify(shared.defaultLambdaRolePolicy),
             }, { parent: this });
 
             for (let policy of options.policies) {
                 // RolePolicyAttachment objects don't have a phyiscal identity, and create/deletes are processed
                 // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
                 // structural identity by using a name that includes the role name and policyArn.
-                let attachment = new RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                let attachment = new RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
                     role: this.role,
                     policyArn: policy,
                 }, { parent: this });
             }
+        } else {
+            // Otherwise, just use get default lambda role and use that.
+            this.role = shared.getDefaultLambdaRole();
         }
 
-        // Now compile the function text into an asset we can use to create the lambda. Note: to
-        // prevent a circularity/deadlock, we list this Function object as something that the
-        // serialized closure cannot reference.
-        serialize = serialize || (_ => true);
-        const finalSerialize = (o: any) => {
-            return serialize(o) && o !== this;
-        }
-
-        let closure = pulumi.runtime.serializeFunctionAsync(func, finalSerialize);
-        if (!closure) {
-            throw new Error("Failed to serialize function closure");
-        }
-        
-        // Construct the set of paths to include in the archive for upload.
-        let codePaths = {
-            // Always include the serialized function.
-            "__index.js": new pulumi.asset.StringAsset(closure),
-        };
-        // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
-        const includePaths = options.includePaths || ["./node_modules/"];
-        for (const path of includePaths) {
-            // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
-            // we stat the path to figure out which it is and use the appropriate Asset constructor.
-            const stats = fs.lstatSync(path);
-            if (stats.isDirectory()) {
-                codePaths[path] = new pulumi.asset.FileArchive(path);
-            } else {
-                codePaths[path] = new pulumi.asset.FileAsset(path);
-            }
-        }
-
-        // Create the Lambda Function.
-        this.lambda = new lambda.Function(name, {
-            code: new pulumi.asset.AssetArchive(codePaths),
-            handler: "__index.handler",
-            runtime: options.runtime || lambda.NodeJS8d10Runtime,
+        const args: lambda.CallbackArgs = {
             role: this.role.arn,
-            timeout: options.timeout === undefined ? 180 : options.timeout,
+            timeout: options.timeout,
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
-        }, { parent: this });
+            runtime: options.runtime,
+            includePaths: options.includePaths,
+            serialize: serialize,
+        };
+
+        this.lambda = lambda.createFunction(name, callback, args, { parent: this });
     }
-}
-
-const lambdaRolePolicy = {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-                "Service": "lambda.amazonaws.com",
-            },
-            "Effect": "Allow",
-            "Sid": "",
-        },
-    ],
-};
-
-// sha1hash returns a partial SHA1 hash of the input string.
-function sha1hash(s: string): string {
-    const shasum: crypto.Hash = crypto.createHash("sha1");
-    shasum.update(s);
-    return shasum.digest("hex").substring(0, 8);
 }
