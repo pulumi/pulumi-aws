@@ -33,7 +33,7 @@ export type SyncCallback<E,R> = (event: E, context: Context, callback: (error: a
 
 /**
  * Shape of callbacks used for asynchronous AWS lambda functions.  These are supported on AWS lambda
- * if a node runtime of 8.10 or higher is chosen.
+ * if a node runtime of 8.10 (the default runtime) or higher is used.
  */
 export type AsyncCallback<E,R> = (event: E, context?: Context) => Promise<void>;
 
