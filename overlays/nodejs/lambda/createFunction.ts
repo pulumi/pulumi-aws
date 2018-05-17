@@ -33,7 +33,7 @@ export type SyncCallback<E,R> = (event: E, context: Context, callback: (error: a
 
 /**
  * Shape of callbacks used for asynchronous AWS lambda functions.  These are supported on AWS lambda
- * if a node runtime of 8.x or higher is chosen.
+ * if a node runtime of 8.10 or higher is chosen.
  */
 export type AsyncCallback<E,R> = (event: E, context?: Context) => Promise<void>;
 
@@ -49,8 +49,18 @@ export type Callback<E,R> = SyncCallback<E,R> | AsyncCallback<E,R>;
 export type Handler<E,R> = lambda.Function | Callback<E,R>;
 
 /**
- * CallbackArgs specify the properties that can be passed in to configure the AWS Lambda
- * created for the provided 'callback' in 'createFunction'.
+ * CallbackArgs specify the properties that can be passed in to configure the AWS Lambda created for
+ * the provided 'callback' in 'createFunction'.  Note: this type is nearly the same as
+ * lambda.FunctionArgs, however:
+ *
+ * 1. 'code' and 'handler' are not allowed.  They will be created exactly from the 'callback'
+ *    function passed in.
+ * 2. 'role' is optional.  If 'role' is not a provided a default one will be created for this use.
+ * 3. 'runtime' is optiona.  If 'runtime' is not provided. Node 8.10 will be chosen.  Because of
+ *    this, 'AsyncCallbacks' are legal to pass by default without needing any special arguments.
+ * 4. An optional 'includePaths' property can be provided to customize which folders are uploaded
+ *    with the lambda. By default, the ./node_modules folder is included.  However, this may be
+ *    very large and may include more than what is desired.
  */
 export type CallbackArgs =
     // Remove 'code' and 'handler' (we'll generate those ourselves), and make 'role' and 'runtime'
