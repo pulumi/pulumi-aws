@@ -64,13 +64,13 @@ export class Function<E, R> extends pulumi.ComponentResource {
 
     constructor(name: string,
                 options: FunctionOptions,
-                func: lambda.Handler<E, R>,
+                callback: lambda.Callback<E, R>,
                 opts?: pulumi.ResourceOptions,
                 serialize?: (obj: any) => boolean) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
-        if (!func) {
+        if (!callback) {
             throw new Error("Missing required function callback");
         }
 
@@ -97,7 +97,7 @@ export class Function<E, R> extends pulumi.ComponentResource {
             this.role = shared.getDefaultLambdaRole();
         }
 
-        const args: lambda.CallbackFunctionArgs = {
+        const args: lambda.CallbackArgs = {
             role: this.role.arn,
             timeout: options.timeout,
             memorySize: options.memorySize,
@@ -109,6 +109,6 @@ export class Function<E, R> extends pulumi.ComponentResource {
             serialize: serialize,
         };
 
-        this.lambda = lambda.createFunction(name, func, args, { parent: this });
+        this.lambda = lambda.createFunction(name, callback, args, { parent: this });
     }
 }

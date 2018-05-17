@@ -25,16 +25,21 @@ export interface Context {
     getRemainingTimeInMillis(): string;
 }
 
-/**
- * Handler is the signature for a callback that be converted into an aws lambda entrypoint.
- */
-export type Handler<E,R> = (event: E, context: Context, callback: (error: any, result: R) => void) => any;
+export type SyncCallback<E,R> = (event: E, context: Context, callback: (error: any, result: R) => void) => void;
+export type AsyncCallback<E,R> = (event: E, context?: Context) => Promise<void>;
+export type Callback<E,R> = SyncCallback<E,R> | AsyncCallback<E,R>;
 
 /**
- * CallbackFunctionArgs specify the properties that can be passed in to configure the AWS Lambda
- * created for the provide 'handler' in 'createFunction'.
+ * Handler represents the appropriate type for functions that can take either an AWS lambda function
+ * instance, or a JS function object that will then be used to create the AWS lambda function.
  */
-export type CallbackFunctionArgs = utils.Omit<
+export type Handler<E,R> = lambda.Function | Callback<E,R>;
+
+/**
+ * CallbackArgs specify the properties that can be passed in to configure the AWS Lambda
+ * created for the provided 'Handler' in 'createFunction'.
+ */
+export type CallbackArgs = utils.Omit<
     // Keep all the properties from FunctionArgs (though make 'role' and 'runtime' optional).
     utils.Optional<lambda.FunctionArgs, "role" | "runtime"> & {
     // Also allow caller to supply the include paths to upload with the lambda
@@ -49,14 +54,14 @@ export type CallbackFunctionArgs = utils.Omit<
  * can call into.
  */
 export function createFunction<E,R>(
-    name: string, handler: Handler<E,R>,
-    args: CallbackFunctionArgs, opts?: pulumi.ResourceOptions): lambda.Function {
+    name: string, callback: Callback<E,R>,
+    args: CallbackArgs, opts?: pulumi.ResourceOptions): lambda.Function {
 
     if (!name) {
         throw new Error("Missing required 'name'");
     }
-    if (!handler) {
-        throw new Error("Missing required 'handler' callback");
+    if (!callback) {
+        throw new Error("Missing required 'callback'");
     }
     if ((<any>args).code) {
         throw new Error("'code' property should not be provided in 'args'");
@@ -73,7 +78,7 @@ export function createFunction<E,R>(
         return serialize(o) && o !== this;
     }
 
-    let closure = pulumi.runtime.serializeFunctionAsync(handler, finalSerialize);
+    let closure = pulumi.runtime.serializeFunctionAsync(callback, finalSerialize);
     if (!closure) {
         throw new Error("Failed to serialize function closure");
     }
