@@ -80,9 +80,10 @@ export class Function extends pulumi.ComponentResource {
         super("aws:serverless:Function", name, { options: options }, opts);
 
         if (options.role) {
+            // If the caller provided a role, use it directly.
             this.role = options.role;
         } else if (options.policies) {
-            // Attach a role and then, if there are policies, attach those too.
+            // Otherwise, if they provided policies, create a default role with those policies attached.
             this.role = new Role(name, {
                 assumeRolePolicy: JSON.stringify(shared.defaultLambdaRolePolicy),
             }, { parent: this });
@@ -97,6 +98,7 @@ export class Function extends pulumi.ComponentResource {
                 }, { parent: this });
             }
         } else {
+            // Otherwise, just use get default lambda role and use that.
             this.role = shared.getDefaultLambdaRole();
         }
 
@@ -107,7 +109,6 @@ export class Function extends pulumi.ComponentResource {
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
             runtime: options.runtime,
-            // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
             includePaths: options.includePaths,
             serialize: serialize,
         };

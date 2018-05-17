@@ -25,8 +25,21 @@ export interface Context {
     getRemainingTimeInMillis(): string;
 }
 
+/**
+ * Shape of callbacks used for synchronous AWS lambda functions.  If a Node 6.x runtime is chosen
+ * for the AWS lambda, these are the only callback shapes allowed.
+ */
 export type SyncCallback<E,R> = (event: E, context: Context, callback: (error: any, result: R) => void) => void;
+
+/**
+ * Shape of callbacks used for asynchronous AWS lambda functions.  These are supported on AWS lambda
+ * if a node runtime of 8.x or higher is chosen.
+ */
 export type AsyncCallback<E,R> = (event: E, context?: Context) => Promise<void>;
+
+/**
+ * A synchronous or asynchronous callback.
+ */
 export type Callback<E,R> = SyncCallback<E,R> | AsyncCallback<E,R>;
 
 /**
@@ -37,7 +50,7 @@ export type Handler<E,R> = lambda.Function | Callback<E,R>;
 
 /**
  * CallbackArgs specify the properties that can be passed in to configure the AWS Lambda
- * created for the provided 'Handler' in 'createFunction'.
+ * created for the provided 'callback' in 'createFunction'.
  */
 export type CallbackArgs =
     // Remove 'code' and 'handler' (we'll generate those ourselves), and make 'role' and 'runtime'
@@ -50,9 +63,9 @@ export type CallbackArgs =
     }
 
 /**
- * createFunction enables creation of an AWS Lambda out of an actual javascript callback handler.
- * The callback will be appropriately serialized into a form that the AWS Lambda infrastructure
- * can call into.
+ * createFunction enables creation of an AWS Lambda out of an actual javascript callback. The
+ * callback will be appropriately serialized into a form that the AWS Lambda infrastructure can call
+ * into.
  */
 export function createFunction<E,R>(
     name: string, callback: Callback<E,R>,
