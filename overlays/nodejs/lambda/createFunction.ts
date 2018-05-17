@@ -39,14 +39,15 @@ export type Handler<E,R> = lambda.Function | Callback<E,R>;
  * CallbackArgs specify the properties that can be passed in to configure the AWS Lambda
  * created for the provided 'Handler' in 'createFunction'.
  */
-export type CallbackArgs = utils.Omit<
-    // Keep all the properties from FunctionArgs (though make 'role' and 'runtime' optional).
-    utils.Optional<lambda.FunctionArgs, "role" | "runtime"> & {
-    // Also allow caller to supply the include paths to upload with the lambda
-    includePaths?: string[],
-    serialize?: (obj: any) => boolean,
-    // And do not allow 'code' or 'handler' to be passed in.
-}, "code" | "handler">
+export type CallbackArgs =
+    // Remove 'code' and 'handler' (we'll generate those ourselves), and make 'role' and 'runtime'
+    // optional).
+    utils.Optional<utils.Omit<lambda.FunctionArgs, "code" | "handler">, "role" | "runtime"> &
+    {
+        // Also allow caller to supply the include paths to upload with the lambda
+        includePaths?: string[],
+        serialize?: (obj: any) => boolean,
+    }
 
 /**
  * createFunction enables creation of an AWS Lambda out of an actual javascript callback handler.
