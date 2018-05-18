@@ -1,10 +1,10 @@
 [[override]]
   name = "github.com/pulumi/pulumi"
-  revision = "7b27f00602c7eeaa380321c055b34313c9d243f8"
+  branch = "release/0.12"
 
 [[override]]
   name = "github.com/pulumi/pulumi-terraform"
-  revision = "0dceecf17fcaaecd55265a337cce807cf4e535ff"
+  branch = "release/0.12"
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"
