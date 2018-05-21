@@ -1,0 +1,3 @@
+name: cloudwatch_log_subscription_filter
+description: 
+runtime: nodejs
