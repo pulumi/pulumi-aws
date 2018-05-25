@@ -31,6 +31,12 @@ build::
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/setup.py && rm ./bin/setup.py.bak && \
 		cd ./bin && $(PYTHON) setup.py build sdist
+	$(MAKE) docs
+
+docs::
+	cd ${PACKDIR}/nodejs &&\
+		node_modules/.bin/typedoc --json \
+		bin/docs.json --mode modules --includeDeclarations --excludeExternals --excludeNotExported
 
 lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
