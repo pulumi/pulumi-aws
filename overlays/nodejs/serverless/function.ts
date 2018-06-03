@@ -18,6 +18,7 @@ import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
+import * as readPackageTree from 'read-package-tree';
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -77,9 +78,14 @@ export interface FunctionOptions {
         subnetIds: pulumi.Input<string[]>,
     };
     /**
-     * The paths relative to the program folder to include in the Lambda upload.  Default is `["node_modules"]`.
+     * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
      */
     includePaths?: string[];
+    /**
+     * The packages relative to the program folder to include in the Lambda upload.  The version of the package
+     * installed in the program folder and it's dependencies will all be included. Default is `[]`.
+     */
+    includePackages?: string[];
 }
 
 /**
@@ -107,7 +113,7 @@ export class Function extends pulumi.ComponentResource {
 
         if (options.role) {
             this.role = options.role;
-        } else {
+        } else if (options.policies) {
             // Attach a role and then, if there are policies, attach those too.
             this.role = new Role(name, {
                 assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
@@ -122,6 +128,8 @@ export class Function extends pulumi.ComponentResource {
                     policyArn: policy,
                 }, { parent: this });
             }
+        } else {
+            throw new Error("One of 'role' or 'policies' must be specified.");
         }
 
         // Now compile the function text into an asset we can use to create the lambda. Note: to
@@ -132,33 +140,20 @@ export class Function extends pulumi.ComponentResource {
             return serialize(o) && o !== this;
         }
 
-        let closure = pulumi.runtime.serializeFunctionAsync(func, finalSerialize);
-        if (!closure) {
-            throw new Error("Failed to serialize function closure");
-        }
-        
-        // Construct the set of paths to include in the archive for upload.
-        let codePaths = {
-            // Always include the serialized function.
-            "__index.js": new pulumi.asset.StringAsset(closure),
-        };
-        // Also add each provided path to the archive - or the `node_modules` folder if no includePaths specified.
-        const includePaths = options.includePaths || ["./node_modules/"];
-        for (const path of includePaths) {
-            // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
-            // we stat the path to figure out which it is and use the appropriate Asset constructor.
-            const stats = fs.lstatSync(path);
-            if (stats.isDirectory()) {
-                codePaths[path] = new pulumi.asset.FileArchive(path);
-            } else {
-                codePaths[path] = new pulumi.asset.FileAsset(path);
-            }
-        }
+        const handlerName = "handler";
+        const serializedFileName = "__index";
 
+        let closure = pulumi.runtime.serializeFunction(func, {
+            serialize: finalSerialize,
+            exportName: handlerName,
+        });
+
+        let codePaths = computeCodePaths(closure, serializedFileName, options.includePaths, options.includePackages);
+        
         // Create the Lambda Function.
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive(codePaths),
-            handler: "__index.handler",
+            handler: serializedFileName + "." + handlerName,
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
@@ -167,6 +162,56 @@ export class Function extends pulumi.ComponentResource {
             vpcConfig: options.vpcConfig,
         }, { parent: this });
     }
+}
+
+// computeCodePaths calculates an AssetMap of files to include in the Lambda package.
+async function computeCodePaths(
+        closure: Promise<pulumi.runtime.SerializedFunction>, 
+        serializedFileName: string,
+        extraIncludePaths?: string[], 
+        extraPackages?: string[]): Promise<pulumi.asset.AssetMap> {
+
+    const serializedFunction = await closure;
+
+    // Construct the set of paths to include in the archive for upload.
+    let codePaths: pulumi.asset.AssetMap = {
+        // Always include the serialized function.
+        [serializedFileName]: new pulumi.asset.StringAsset(serializedFunction.text),
+    };
+
+    // Compute the set of required packages
+    const packages = removeBuiltins(serializedFunction.requiredPackages);
+    
+    // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided extraPackages so
+    // that users can force aws-sdk to be incldued (if they need a specific version).
+    packages.delete("aws-sdk")
+    
+    // Add user-defined extraPackages
+    for (const p of (extraPackages || [])) {
+        packages.add(p);
+    }
+
+    // Find folders for all packages requested by the user
+    const pathSet = await allFoldersForPackages(".", [...packages]);
+    
+    // Add all paths explciitly requested by the user
+    for (const path of (extraIncludePaths || [])) {
+        pathSet.add(path);
+    }
+
+    // For each of the required paths, add the corresponding FileArchive or FileAsset to the AssetMap.
+    for (const path of pathSet.values()) {
+        // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
+        // we stat the path to figure out which it is and use the appropriate Asset constructor.
+        const stats = fs.lstatSync(path);
+        if (stats.isDirectory()) {
+            codePaths[path] = new pulumi.asset.FileArchive(path);
+        } else {
+            codePaths[path] = new pulumi.asset.FileAsset(path);
+        }
+    }
+    
+    return codePaths;
 }
 
 const lambdaRolePolicy = {
@@ -188,4 +233,76 @@ function sha1hash(s: string): string {
     const shasum: crypto.Hash = crypto.createHash("sha1");
     shasum.update(s);
     return shasum.digest("hex").substring(0, 8);
+}
+
+// Package is a node in the package tree returned by readPackageTree.
+interface Package {
+    name: string;
+    path: string;
+    package: {
+        dependencies: { [key: string]: string;};
+    };
+    parent?: Package
+    children: Package[];
+}
+
+// allFolders computes the set of package folders that are transitively required by the given list of package
+// dependencies rooted in a package at the provided path.
+function allFoldersForPackages(path: string, packages: string[]): Promise<Set<string>> {
+    return new Promise((resolve, reject) => {
+        readPackageTree(path, undefined, (err: any, root: Package) => {
+            if (err) {
+                return reject(err);
+            }
+            const s = new Set<string>();
+            for (var pkg of packages) {
+                addToSet(s, root, pkg);
+            }
+            resolve(s);
+        });
+    });
+}
+
+// addToSet adds all required dependencies for the requested pkg name from the given root package into the set.  It will
+// recurse into all dependencies of the package.
+function addToSet(s: Set<string>, root: Package, pkg: string) {
+    var child = findDependency(root, pkg);
+    if (!child) {
+        console.warn(`Could not include required dependency '${pkg}' in '${root.path}'.`)
+        return;
+    }
+    s.add(child.path);
+    if (child.package.dependencies) {
+        for (let dep of Object.keys(child.package.dependencies) ) {
+            addToSet(s, child, dep);
+        }
+    }
+}
+
+// findDependency searches the package tree starting at a root node (possibly a child) for a match for the given name.
+// It is assumed that the tree was correctly construted such that dependencies are resolved to compatible versions in
+// the closest available match starting at the provided root and walking up to the head of the tree.
+function findDependency(root: Package, name: string) {
+    for(;root;root = root.parent) {
+        for (var child of root.children) {
+            if(child.name == name) {
+                return child;
+            }
+        }
+    }
+}
+
+// removeBuiltins removes any builtin packages from the set of package names, as these will be available at runtime
+// ambiently. Currently this is computed based on the known built-in packages in the deployment context, which may be
+// slightly different than that target environment, but due to Node versioning requirements, this should be
+// conservative.
+function removeBuiltins(packages: string[]): Set<string> {
+    const ret = new Set<string>();
+    const builtIns = new Set(require("module").builtinModules);
+    for(const p of packages) {
+        if (!builtIns.has(p)) {
+            ret.add(p);
+        }
+    }
+    return ret;
 }

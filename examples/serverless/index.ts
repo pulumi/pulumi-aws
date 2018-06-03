@@ -48,3 +48,20 @@ let lambda = new aws.serverless.Function(
     });
   },
 );
+
+// Validate that 'require'd packafges are captured correctly.
+function g() {
+  return require('typescript');
+}
+const testFunc = new aws.serverless.Function("f", {
+  policies: [aws.iam.AWSLambdaFullAccess],
+  includePaths: ['./Pulumi.yaml'],
+  includePackages: ['source-map'],
+}, (ev, ctx, cb) => {
+  var aws = require('aws-sdk');
+  var os = require('os');
+  console.log(ev);
+  g();
+});
+
+exports.functionARN = testFunc.lambda.arn;
