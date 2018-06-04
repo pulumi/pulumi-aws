@@ -57,7 +57,7 @@ function getContentType() {
 const testFunc = new aws.serverless.Function("f", {
   policies: [aws.iam.AWSLambdaFullAccess],
   includePaths: ['./Pulumi.yaml'],
-  includePackages: ['source-map'],
+  includePackages: ['body-parser'],
 }, (ev, ctx, cb) => {
   var aws = require('aws-sdk');
   var os = require('os');

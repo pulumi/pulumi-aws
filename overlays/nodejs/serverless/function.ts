@@ -20,6 +20,7 @@ import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
 import * as readPackageTree from 'read-package-tree';
+import * as builtinModules from 'builtin-modules';
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -268,6 +269,7 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
                         const relativePath = filepath.relative(path, resolvedPath);
                         s.add(relativePath);
                     } catch (err) {
+                        console.log(err);
                         console.warn(`Could not find module for relative path '${pkg}' in '${root.path}'.`)    
                     }
                 } else if (pkg[0] == '/') {
@@ -325,7 +327,7 @@ function findDependency(root: Package, name: string) {
 function removeBuiltins(packages: Set<string>): Set<string> {
     console.log(`removeBuiltins: ${[...packages]}`)
     const ret = new Set<string>();
-    const builtIns = new Set(require("module").builtinModules);
+    const builtIns = new Set(builtinModules);
     for(const p of packages) {
         if (!builtIns.has(p)) {
             ret.add(p);
