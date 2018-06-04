@@ -19,7 +19,7 @@ const mountTarget = new aws.efs.MountTarget("mt", {
 
 const size: aws.ec2.InstanceType = "t2.micro";
 const instance = new aws.ec2.Instance("dummy-instance", {
-    userData: mountTarget.dnsName.apply(dnsName => {
+    userData: mountTarget.dnsName.apply((dnsName: string) => {
         return `#!/bin/bash
 echo ${dnsName}`
     }),
