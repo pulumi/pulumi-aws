@@ -49,6 +49,7 @@ install::
 
 test_all::
 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./tests/...
 
 .PHONY: publish_tgz
 publish_tgz:
