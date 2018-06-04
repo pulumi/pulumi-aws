@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import * as crypto from "crypto";
+import * as filepath from "path";
 import * as fs from "fs";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
@@ -256,16 +257,36 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
             }
             const s = new Set<string>();
             for (var pkg of packages) {
-                addToSet(s, root, pkg);
+                if (pkg[0] == '.') {
+                    // Relative path, we can include the file itself, but we cannot deterministically find the
+                    // transitive dependencies, so the user may need to explicitly include those.  We use
+                    // `require.resolve` to get the resolved path to the file/folder in case a reference like `./foo` is
+                    // used to refer to `./foo.js`.
+                    try {
+                        const resolvedPath = require.resolve(pkg, { paths: [path] });
+                        const relativePath = filepath.relative(path, resolvedPath);
+                        s.add(relativePath);
+                    } catch (err) {
+                        console.warn(`Could not find module for relative path '${pkg}' in '${root.path}'.`)    
+                    }
+                } else if (pkg[0] == '/') {
+                    // Absolute path, this won't work, so warn and move on.
+                    console.warn(`Could not include module for absolute path '${pkg}' in '${root.path}'.`)
+                } else {
+                    // Neither relative nor aboslute path, so expected to be a name that resovles to `node_modules` (or
+                    // to a builtin, but those were removed).  We can add the package and all its transitive
+                    // dependencies.
+                    addPackageAndDependenciesToSet(s, root, pkg);
+                }
             }
             resolve(s);
         });
     });
 }
 
-// addToSet adds all required dependencies for the requested pkg name from the given root package into the set.  It will
-// recurse into all dependencies of the package.
-function addToSet(s: Set<string>, root: Package, pkg: string) {
+// addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
+// into the set.  It will recurse into all dependencies of the package.
+function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: string) {
     var child = findDependency(root, pkg);
     if (!child) {
         console.warn(`Could not include required dependency '${pkg}' in '${root.path}'.`)
@@ -274,7 +295,7 @@ function addToSet(s: Set<string>, root: Package, pkg: string) {
     s.add(child.path);
     if (child.package.dependencies) {
         for (let dep of Object.keys(child.package.dependencies) ) {
-            addToSet(s, child, dep);
+            addPackageAndDependenciesToSet(s, child, dep);
         }
     }
 }
@@ -296,7 +317,7 @@ function findDependency(root: Package, name: string) {
 // ambiently. Currently this is computed based on the known built-in packages in the deployment context, which may be
 // slightly different than that target environment, but due to Node versioning requirements, this should be
 // conservative.
-function removeBuiltins(packages: string[]): Set<string> {
+function removeBuiltins(packages: Set<string>): Set<string> {
     const ret = new Set<string>();
     const builtIns = new Set(require("module").builtinModules);
     for(const p of packages) {
