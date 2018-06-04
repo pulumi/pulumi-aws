@@ -250,6 +250,7 @@ interface Package {
 // allFolders computes the set of package folders that are transitively required by the given list of package
 // dependencies rooted in a package at the provided path.
 function allFoldersForPackages(path: string, packages: string[]): Promise<Set<string>> {
+    console.log(`allFoldersForPackages: ${path} ${packages}`)
     return new Promise((resolve, reject) => {
         readPackageTree(path, undefined, (err: any, root: Package) => {
             if (err) {
@@ -279,6 +280,7 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
                     addPackageAndDependenciesToSet(s, root, pkg);
                 }
             }
+            console.log(`allFoldersForPackages return: ${[...s]}`)
             resolve(s);
         });
     });
@@ -287,6 +289,7 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
 // addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
 // into the set.  It will recurse into all dependencies of the package.
 function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: string) {
+    console.log(`addPackageAndDependenciesToSet: ${[...s]} ${root} ${pkg}`)
     var child = findDependency(root, pkg);
     if (!child) {
         console.warn(`Could not include required dependency '${pkg}' in '${root.path}'.`)
@@ -304,9 +307,11 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
 // It is assumed that the tree was correctly construted such that dependencies are resolved to compatible versions in
 // the closest available match starting at the provided root and walking up to the head of the tree.
 function findDependency(root: Package, name: string) {
+    console.log(`findDependency: ${root} ${name}`)
     for(;root;root = root.parent) {
         for (var child of root.children) {
             if(child.name == name) {
+                console.log(`findDependency return: ${child}`)
                 return child;
             }
         }
@@ -318,6 +323,7 @@ function findDependency(root: Package, name: string) {
 // slightly different than that target environment, but due to Node versioning requirements, this should be
 // conservative.
 function removeBuiltins(packages: Set<string>): Set<string> {
+    console.log(`removeBuiltins: ${[...packages]}`)
     const ret = new Set<string>();
     const builtIns = new Set(require("module").builtinModules);
     for(const p of packages) {
@@ -325,5 +331,6 @@ function removeBuiltins(packages: Set<string>): Set<string> {
             ret.add(p);
         }
     }
+    console.log(`removeBuiltins return: ${[...ret]}`)
     return ret;
 }
