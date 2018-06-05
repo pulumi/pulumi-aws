@@ -7,7 +7,9 @@
         "build": "tsc"
     },
     "devDependencies": {
-        "typescript": "^2.5.3"
+        "@types/node": "^10.3.0",
+        "typescript": "^2.5.3",
+        "express": "^4.16.3"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest",
