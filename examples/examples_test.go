@@ -34,7 +34,6 @@ func TestExamples(t *testing.T) {
 	}
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"@pulumi/pulumi",
 			"@pulumi/aws",
 		},
 	})
