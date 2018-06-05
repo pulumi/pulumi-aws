@@ -15,12 +15,16 @@
 import * as crypto from "crypto";
 import * as filepath from "path";
 import * as fs from "fs";
+
 import * as pulumi from "@pulumi/pulumi";
+
+import * as readPackageTree from 'read-package-tree';
+import * as builtinModules from 'builtin-modules';
+import { sync as resolveSync } from 'resolve';
+
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
-import * as readPackageTree from 'read-package-tree';
-import * as builtinModules from 'builtin-modules';
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -251,7 +255,6 @@ interface Package {
 // allFolders computes the set of package folders that are transitively required by the given list of package
 // dependencies rooted in a package at the provided path.
 function allFoldersForPackages(path: string, packages: string[]): Promise<Set<string>> {
-    console.log(`allFoldersForPackages: ${path} ${packages}`)
     return new Promise((resolve, reject) => {
         readPackageTree(path, undefined, (err: any, root: Package) => {
             if (err) {
@@ -265,16 +268,15 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
                     // `require.resolve` to get the resolved path to the file/folder in case a reference like `./foo` is
                     // used to refer to `./foo.js`.
                     try {
-                        const resolvedPath = require.resolve(pkg, { paths: [path] });
+                        const resolvedPath = resolveSync(pkg, { basedir: path });
                         const relativePath = filepath.relative(path, resolvedPath);
                         s.add(relativePath);
                     } catch (err) {
-                        console.log(err);
-                        console.warn(`Could not find module for relative path '${pkg}' in '${root.path}'.`)    
+                        console.warn(`Could not find module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)    
                     }
                 } else if (pkg[0] == '/') {
                     // Absolute path, this won't work, so warn and move on.
-                    console.warn(`Could not include module for absolute path '${pkg}' in '${root.path}'.`)
+                    console.warn(`Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`)
                 } else {
                     // Neither relative nor aboslute path, so expected to be a name that resovles to `node_modules` (or
                     // to a builtin, but those were removed).  We can add the package and all its transitive
@@ -282,7 +284,6 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
                     addPackageAndDependenciesToSet(s, root, pkg);
                 }
             }
-            console.log(`allFoldersForPackages return: ${[...s]}`)
             resolve(s);
         });
     });
@@ -291,10 +292,9 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
 // addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
 // into the set.  It will recurse into all dependencies of the package.
 function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: string) {
-    console.log(`addPackageAndDependenciesToSet: ${[...s]} ${root} ${pkg}`)
     var child = findDependency(root, pkg);
     if (!child) {
-        console.warn(`Could not include required dependency '${pkg}' in '${root.path}'.`)
+        console.warn(`Could not include required dependency '${pkg}' in '${filepath.resolve(root.path)}'.`)
         return;
     }
     s.add(child.path);
@@ -309,11 +309,9 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
 // It is assumed that the tree was correctly construted such that dependencies are resolved to compatible versions in
 // the closest available match starting at the provided root and walking up to the head of the tree.
 function findDependency(root: Package, name: string) {
-    console.log(`findDependency: ${root} ${name}`)
     for(;root;root = root.parent) {
         for (var child of root.children) {
             if(child.name == name) {
-                console.log(`findDependency return: ${child}`)
                 return child;
             }
         }
@@ -325,7 +323,6 @@ function findDependency(root: Package, name: string) {
 // slightly different than that target environment, but due to Node versioning requirements, this should be
 // conservative.
 function removeBuiltins(packages: Set<string>): Set<string> {
-    console.log(`removeBuiltins: ${[...packages]}`)
     const ret = new Set<string>();
     const builtIns = new Set(builtinModules);
     for(const p of packages) {
@@ -333,6 +330,5 @@ function removeBuiltins(packages: Set<string>): Set<string> {
             ret.add(p);
         }
     }
-    console.log(`removeBuiltins return: ${[...ret]}`)
     return ret;
 }
