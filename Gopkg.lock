@@ -65,6 +65,7 @@
     "aws/credentials/ec2rolecreds",
     "aws/credentials/endpointcreds",
     "aws/credentials/stscreds",
+    "aws/csm",
     "aws/defaults",
     "aws/ec2metadata",
     "aws/endpoints",
@@ -76,6 +77,8 @@
     "internal/shareddefaults",
     "private/protocol",
     "private/protocol/ec2query",
+    "private/protocol/eventstream",
+    "private/protocol/eventstream/eventstreamapi",
     "private/protocol/json/jsonutil",
     "private/protocol/jsonrpc",
     "private/protocol/query",
@@ -86,12 +89,14 @@
     "private/protocol/xml/xmlutil",
     "private/signer/v2",
     "service/acm",
+    "service/acmpca",
     "service/apigateway",
     "service/applicationautoscaling",
     "service/appsync",
     "service/athena",
     "service/autoscaling",
     "service/batch",
+    "service/budgets",
     "service/cloud9",
     "service/cloudformation",
     "service/cloudfront",
@@ -116,6 +121,7 @@
     "service/ecr",
     "service/ecs",
     "service/efs",
+    "service/eks",
     "service/elasticache",
     "service/elasticbeanstalk",
     "service/elasticsearchservice",
@@ -124,6 +130,7 @@
     "service/elbv2",
     "service/emr",
     "service/firehose",
+    "service/fms",
     "service/gamelift",
     "service/glacier",
     "service/glue",
@@ -144,6 +151,7 @@
     "service/redshift",
     "service/route53",
     "service/s3",
+    "service/secretsmanager",
     "service/servicecatalog",
     "service/servicediscovery",
     "service/ses",
@@ -156,8 +164,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "9b0098a71f6d4d473a26ec8ad3c2feaac6eb1da6"
-  version = "v1.13.32"
+  revision = "60a85d13d02126d8d15ea3f21fd57ac3a2774f37"
+  version = "v1.14.0"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -368,8 +376,8 @@
     "tfdiags",
     "version"
   ]
-  revision = "342c529aa58d824f2f2ed1f6ec6118059876aad0"
-  version = "v0.11.5"
+  revision = "41e50bd32a8825a84535e353c3674af8ce799161"
+  version = "v0.11.7"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -440,9 +448,10 @@
   revision = "65fcae5817c8600da98ada9d7edf26dd1a84837b"
 
 [[projects]]
+  branch = "master"
   name = "github.com/mitchellh/copystructure"
   packages = ["."]
-  revision = "5af94aef99f597e6a9e1f6ac6be6ce0f3c96b49d"
+  revision = "d23ffcb85de31694d6ccaa23ccb4a03e55c1303f"
 
 [[projects]]
   name = "github.com/mitchellh/go-homedir"
@@ -478,9 +487,10 @@
   revision = "53818660ed4955e899c0bcafa97299a388bd7c8e"
 
 [[projects]]
+  branch = "master"
   name = "github.com/mitchellh/reflectwalk"
   packages = ["."]
-  revision = "92573fe8d000a145bfebc03a16bc22b34945867f"
+  revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
 
 [[projects]]
   name = "github.com/opentracing/opentracing-go"
@@ -573,7 +583,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "ea783305995aa83b79d503187d446bbd0c55505e"
+  revision = "634b892f62c1d63393d1c092fac350776e9e4a91"
 
 [[projects]]
   branch = "master"
@@ -620,7 +630,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "bccccac6a6b780b7dc1fda31d5e6d323370d4f86"
+  revision = "bed7254c7fd2e43ed8f9bb65d7523e3b7f74402d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -849,6 +859,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a4e113ac6821309de8b01dc7f09f77de0bbb778197044fd69e00c1b50c2cda6a"
+  inputs-digest = "4ff6ab2b63eb371572d6e50c7fa52a4e4dcf408823f14143a69306ff042bd43b"
   solver-name = "gps-cdcl"
   solver-version = 1
