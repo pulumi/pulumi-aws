@@ -45,18 +45,12 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
-"@pulumi/aws@latest":
-  version "0.13.0"
-  resolved "https://npmjs.pulumi-staging.io/@pulumi%2faws/-/aws-0.13.0.tgz#b55467f01c6c2ce81290d5a4bdf811c6513c8346"
-  dependencies:
-    "@pulumi/pulumi" "^0.12.2"
-
-"@pulumi/pulumi@^0.12.2", "@pulumi/pulumi@latest":
-  version "0.12.2"
-  resolved "https://npmjs.pulumi-staging.io/@pulumi%2fpulumi/-/pulumi-0.12.2.tgz#ac9fc7a5715ba1d5a45a5109880c451807c5e6be"
+"@pulumi/pulumi@^0.12.3":
+  version "0.12.3"
+  resolved "https://npmjs.pulumi.com/@pulumi%2fpulumi/-/pulumi-0.12.3.tgz#d05058346a655a7ad541546b1e65c809d13da395"
   dependencies:
     google-protobuf "^3.5.0"
-    grpc "^1.6.0"
+    grpc "^1.12.2"
     minimist "^1.2.0"
     protobufjs "^6.8.6"
     require-from-string "^2.0.1"
@@ -214,14 +208,14 @@ google-protobuf@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.5.0.tgz#b8cc63c74d83457bd8a9a904503c8efb26bca339"
 
-grpc@^1.6.0:
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.11.3.tgz#46093bb17702b9fc1b099789695e6f47d6487129"
+grpc@^1.12.2:
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.12.2.tgz#b9f853540825c6c716c30d06794d7d52d081d968"
   dependencies:
-    lodash "^4.15.0"
+    lodash "^4.17.5"
     nan "^2.0.0"
     node-pre-gyp "^0.10.0"
-    protobufjs "^5.0.0"
+    protobufjs "^5.0.3"
 
 has-unicode@^2.0.0:
   version "2.0.1"
@@ -274,7 +268,7 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-lodash@^4.15.0:
+lodash@^4.17.5:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -424,7 +418,7 @@ process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
 
-protobufjs@^5.0.0:
+protobufjs@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-5.0.3.tgz#e4dfe9fb67c90b2630d15868249bcc4961467a17"
   dependencies:

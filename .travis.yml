@@ -3,11 +3,11 @@ if: branch = master OR branch =~ ^release/ OR tag IS present
 language: go
 go: 1.9
 sudo: true # give us 7.5GB and >2 bursted cores.
+git:
+  depth: false
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
     - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
-    # Travis only fetches 50 commits by default, and we want them all so we can do git describe --tags
-    - git fetch --unshallow
     # Dep for Go dependency management.
     - go get -v github.com/golang/dep/cmd/dep
     # Gometalinter for good Go linting/hygiene.
@@ -26,9 +26,10 @@ before_install:
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
     - . ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh
+    # Install Pulumi
+    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-pulumi.sh v0.12.3
+    - export PATH=/usr/local/pulumi/bin:$PATH
 install:
-    # Install Pulumi components based on Gopkg.lock.
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-locked.sh ${PULUMI_ROOT} pulumi
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure
 before_script:
