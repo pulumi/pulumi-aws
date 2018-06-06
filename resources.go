@@ -842,7 +842,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_account_password_policy": {Tok: awsResource(iamMod, "AccountPasswordPolicy")},
 			"aws_iam_group_policy":            {Tok: awsResource(iamMod, "GroupPolicy")},
 			"aws_iam_group":                   {Tok: awsResource(iamMod, "Group")},
-			"aws_iam_group_membership":        {Tok: awsResource(iamMod, "GroupMembers")},
+			"aws_iam_group_membership":        {Tok: awsResource(iamMod, "GroupMembership")},
 			"aws_iam_group_policy_attachment": {
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -911,7 +911,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_saml_provider":         {Tok: awsResource(iamMod, "SamlProvider")},
 			"aws_iam_server_certificate":    {Tok: awsResource(iamMod, "ServerCertificate")},
 			"aws_iam_service_linked_role":   {Tok: awsResource(iamMod, "ServiceLinkedRole")},
-			"aws_iam_user_group_membership": {Tok: awsResource(iamMod, "GroupMembership")},
+			"aws_iam_user_group_membership": {Tok: awsResource(iamMod, "UserGroupMembership")},
 			"aws_iam_user_policy_attachment": {
 				Tok: awsResource(iamMod, "UserPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
