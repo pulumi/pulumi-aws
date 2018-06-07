@@ -311,7 +311,15 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
 function findDependency(root: Package, name: string) {
     for(;root;root = root.parent) {
         for (var child of root.children) {
-            if(child.name == name) {
+            let childName = child.name;
+            // Note: `read-package-tree` returns incorrect `.name` properties for packages in an orgnaization - like
+            // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead.
+            // Match any name that ends with something that looks like `@foo/bar`.
+            const match = /\@[^\/]*\/[^\/]*$/.exec(child.path);
+            if (match) {
+                childName = match[0];
+            }
+            if(childName == name) {
                 return child;
             }
         }
