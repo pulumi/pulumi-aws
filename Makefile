@@ -23,7 +23,6 @@ build::
 	done
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		yarn link @pulumi/pulumi && \
 		yarn run tsc
 	cp README.md LICENSE ${PACKDIR}/nodejs/package.json ${PACKDIR}/nodejs/yarn.lock ${PACKDIR}/nodejs/bin/
 	cd ${PACKDIR}/python/ && \
@@ -49,6 +48,7 @@ install::
 
 test_all::
 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./tests/...
 
 .PHONY: publish_tgz
 publish_tgz:

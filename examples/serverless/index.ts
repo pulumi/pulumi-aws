@@ -48,3 +48,24 @@ let lambda = new aws.serverless.Function(
     });
   },
 );
+
+// Validate that 'require'd packafges are captured correctly.
+function getContentType() {
+  let mime = require('mime-types');
+  return mime.contentType(".js");
+}
+const testFunc = new aws.serverless.Function("f", {
+  policies: [aws.iam.AWSLambdaFullAccess],
+  includePaths: ['./Pulumi.yaml'],
+  includePackages: ['body-parser'],
+}, (ev, ctx, cb) => {
+  var aws = require('aws-sdk');
+  var os = require('os');
+  // TODO[pulumi/pulumi#463] Its reasonable to expect that `./other` would work here, but it currently does not.  For
+  // now, validate that the approach that does currently work will serialize the dependencies correctly.
+  var answer = require('./bin/other').answer;
+  console.log(answer);
+  getContentType();
+});
+
+exports.functionARN = testFunc.lambda.arn;

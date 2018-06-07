@@ -1,6 +1,5 @@
 {
-    "name": "webserver",
-    "version": "0.1",
+    "name": "mount_target",
     "main": "bin/index.js",
     "typings": "bin/index.d.ts",
     "scripts": {
@@ -8,9 +7,10 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "^0.12.3"
-    },    
+    },
     "devDependencies": {
-        "typescript": "^2.5.3"
+        "typescript": "^2.7.2",
+        "@types/node": "latest"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"

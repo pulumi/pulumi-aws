@@ -7,6 +7,9 @@ import (
 	"path"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
@@ -31,7 +34,6 @@ func TestExamples(t *testing.T) {
 	}
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"@pulumi/pulumi",
 			"@pulumi/aws",
 		},
 	})
@@ -69,7 +71,26 @@ func TestExamples(t *testing.T) {
 			// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
 
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
+			baseJS.With(integration.ProgramTestOptions{
+				Dir: path.Join(cwd, "serverless"),
+				ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+					cfg := &aws.Config{
+						Region: aws.String("us-west-2"),
+					}
+					sess, err := session.NewSession(cfg)
+					if !assert.NoError(t, err) {
+						return
+					}
+					lambdaSvc := lambda.New(sess)
+					out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
+						FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
+					})
+					if !assert.NoError(t, err) {
+						return
+					}
+					assert.Nil(t, out.FunctionError)
+				},
+			}),
 			// Python tests:
 			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
 		}...)
