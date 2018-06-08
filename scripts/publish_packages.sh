@@ -5,7 +5,14 @@ ROOT=$(dirname $0)/..
 if [[ "${TRAVIS_OS_NAME:-}" == "linux" ]]; then
     # Publish the NPM package.
     echo "Publishing NPM package to NPMjs.com:"
+
+    # First, add an install script to our package.json
+    node $(dirname $0)/promote.js < \
+        ${ROOT}/pack/nodejs/bin/package.json > \
+        ${ROOT}/pack/nodejs/bin/package.json.publish
     pushd ${ROOT}/pack/nodejs/bin
+    mv package.json package.json.dev
+    mv package.json.publish package.json
 
     NPM_TAG="dev"
 
@@ -19,6 +26,10 @@ if [[ "${TRAVIS_OS_NAME:-}" == "linux" ]]; then
     # Now, perform the publish.
     npm publish -tag ${NPM_TAG}
     npm info 2>/dev/null
+
+    # And finally restore the original package.json.
+    mv package.json package.json.publish
+    mv package.json.dev package.json
     popd
 
     # Next, publish the PyPI package.
