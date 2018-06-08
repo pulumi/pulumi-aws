@@ -8,9 +8,9 @@ if [[ "${TRAVIS_OS_NAME:-}" == "linux" ]]; then
 
     # First, add an install script to our package.json
     node $(dirname $0)/promote.js < \
-        ${ROOT}/pack/nodejs/bin/package.json > \
-        ${ROOT}/pack/nodejs/bin/package.json.publish
-    pushd ${ROOT}/pack/nodejs/bin
+        ${ROOT}/sdk/nodejs/bin/package.json > \
+        ${ROOT}/sdk/nodejs/bin/package.json.publish
+    pushd ${ROOT}/sdk/nodejs/bin
     mv package.json package.json.dev
     mv package.json.publish package.json
 

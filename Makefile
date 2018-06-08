@@ -2,7 +2,7 @@ PROJECT_NAME := Amazon Web Services (AWS) Package
 include build/common.mk
 
 PACK             := aws
-PACKDIR          := pack
+PACKDIR          := sdk
 PROJECT          := github.com/pulumi/pulumi-aws
 NODE_MODULE_NAME := @pulumi/aws
 
