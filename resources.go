@@ -1451,6 +1451,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+				"typedoc":     "^0.11.1",
 			},
 		},
 		Python: &tfbridge.PythonInfo{
