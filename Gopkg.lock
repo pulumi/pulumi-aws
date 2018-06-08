@@ -578,13 +578,13 @@
   version = "v0.12.3"
 
 [[projects]]
-  branch = "release/0.12"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "754f21b06a06b7af2cf3f9919d579e7f77162960"
+  revision = "8b54091f44160232a12b224090650ce14d80bb78"
+  version = "v0.12.3-rc1"
 
 [[projects]]
   branch = "master"
