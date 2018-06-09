@@ -584,7 +584,7 @@
     "pkg/tfgen"
   ]
   revision = "8b54091f44160232a12b224090650ce14d80bb78"
-  version = "v0.12.3-rc1"
+  version = "0.12.3"
 
 [[projects]]
   branch = "master"
