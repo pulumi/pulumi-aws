@@ -1398,50 +1398,6 @@ func Provider() tfbridge.ProviderInfo {
 			// SSM
 			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
 		},
-		Overlay: &tfbridge.OverlayInfo{
-			Files: []string{
-				"arn.ts",    // ARN typedef
-				"region.ts", // Region union type and constants
-			},
-			Modules: map[string]*tfbridge.OverlayInfo{
-				"config": {
-					Files: []string{
-						"require.ts", // requireRegion helpers for validating proper config
-					},
-				},
-				"ec2": {
-					Files: []string{
-						"instanceType.ts", // InstanceType union type and constants
-					},
-				},
-				"ecs": {
-					Files: []string{
-						"container.ts", // Container definition JSON schema
-					},
-				},
-				"iam": {
-					Files: []string{
-						"documents.ts",       // policy document schemas.
-						"managedPolicies.ts", // handy constants that predefine all known managed policies.
-					},
-				},
-				"lambda": {
-					Files: []string{
-						"runtimes.ts", // a union type and constants for available Lambda runtimes.
-					},
-				},
-				"serverless": {
-					Files: []string{
-						"function.ts", // a union type and constants for available Lambda runtimes.
-					},
-				},
-				"sqs": {
-					Files: []string{
-						"redrive.ts", // schema definitions for SQS redrive policies.
-					},
-				},
-			},
-		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":    "^0.12.3",
@@ -1451,6 +1407,50 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+			},
+			Overlay: &tfbridge.OverlayInfo{
+				Files: []string{
+					"arn.ts",    // ARN typedef
+					"region.ts", // Region union type and constants
+				},
+				Modules: map[string]*tfbridge.OverlayInfo{
+					"config": {
+						Files: []string{
+							"require.ts", // requireRegion helpers for validating proper config
+						},
+					},
+					"ec2": {
+						Files: []string{
+							"instanceType.ts", // InstanceType union type and constants
+						},
+					},
+					"ecs": {
+						Files: []string{
+							"container.ts", // Container definition JSON schema
+						},
+					},
+					"iam": {
+						Files: []string{
+							"documents.ts",       // policy document schemas.
+							"managedPolicies.ts", // handy constants that predefine all known managed policies.
+						},
+					},
+					"lambda": {
+						Files: []string{
+							"runtimes.ts", // a union type and constants for available Lambda runtimes.
+						},
+					},
+					"serverless": {
+						Files: []string{
+							"function.ts", // a union type and constants for available Lambda runtimes.
+						},
+					},
+					"sqs": {
+						Files: []string{
+							"redrive.ts", // schema definitions for SQS redrive policies.
+						},
+					},
+				},
 			},
 		},
 		Python: &tfbridge.PythonInfo{

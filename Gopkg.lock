@@ -448,7 +448,6 @@
   revision = "65fcae5817c8600da98ada9d7edf26dd1a84837b"
 
 [[projects]]
-  branch = "master"
   name = "github.com/mitchellh/copystructure"
   packages = ["."]
   revision = "d23ffcb85de31694d6ccaa23ccb4a03e55c1303f"
@@ -573,9 +572,12 @@
     "pkg/util/rpcutil/rpcerror",
     "pkg/version",
     "pkg/workspace",
+    "sdk/go/pulumi",
+    "sdk/go/pulumi/asset",
+    "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "076d8887c923914c63bfe6c2779ad1e98720eb93"
+  revision = "e772aac3c17747e529dae4bcb36f1b82539414df"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -583,7 +585,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "634b892f62c1d63393d1c092fac350776e9e4a91"
+  revision = "3f4fad0c0546fe5148961938f684d987fef3f792"
 
 [[projects]]
   branch = "master"
@@ -596,6 +598,12 @@
   name = "github.com/sergi/go-diff"
   packages = ["diffmatchpatch"]
   revision = "1744e2970ca51c86172c8190fadad617561ed6e7"
+
+[[projects]]
+  name = "github.com/spf13/cast"
+  packages = ["."]
+  revision = "8965335b8c7107321228e3e3702cab9832751bac"
+  version = "v1.2.0"
 
 [[projects]]
   branch = "master"
@@ -859,6 +867,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "4ff6ab2b63eb371572d6e50c7fa52a4e4dcf408823f14143a69306ff042bd43b"
+  inputs-digest = "c3f38dec303d96585eb525a09e90f5c5cf112628e2188283f6bcd5c5fdcbae22"
   solver-name = "gps-cdcl"
   solver-version = 1
