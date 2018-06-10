@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get a list of cognito user pools.
-func LookupserPools(ctx *pulumi.Context, args *GetUserPoolsArgs) (*GetUserPoolsResult, error) {
+func LookupUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs) (*GetUserPoolsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,14 +17,12 @@ func LookupserPools(ctx *pulumi.Context, args *GetUserPoolsArgs) (*GetUserPoolsR
 	if err != nil {
 		return nil, err
 	}
-	ret := GetUserPoolsResult{}
-	if v, ok := outputs["arns"]; ok {
-		ret.Arns = v
+	return &GetUserPoolsResult{
+		Arns: outputs["arns"],
 	}
-	if v, ok := outputs["ids"]; ok {
-		ret.Ids = v
+		Ids: outputs["ids"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getUserPools.

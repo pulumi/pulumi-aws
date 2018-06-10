@@ -12,7 +12,7 @@ import (
 // This resource can prove useful when a module accepts a Subnet id as
 // an input variable and needs to, for example, add a route in
 // the Route Table.
-func LookupouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
+func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -25,26 +25,20 @@ func LookupouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTab
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRouteTableResult{}
-	if v, ok := outputs["associations"]; ok {
-		ret.Associations = v
+	return &GetRouteTableResult{
+		Associations: outputs["associations"],
 	}
-	if v, ok := outputs["routeTableId"]; ok {
-		ret.RouteTableId = v
+		RouteTableId: outputs["routeTableId"],
 	}
-	if v, ok := outputs["routes"]; ok {
-		ret.Routes = v
+		Routes: outputs["routes"],
 	}
-	if v, ok := outputs["subnetId"]; ok {
-		ret.SubnetId = v
+		SubnetId: outputs["subnetId"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRouteTable.

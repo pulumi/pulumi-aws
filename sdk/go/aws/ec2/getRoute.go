@@ -12,7 +12,7 @@ import (
 // This resource can prove useful when finding the resource
 // associated with a CIDR. For example, finding the peering
 // connection associated with a CIDR value.
-func Lookupoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, error) {
+func LookupRoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["destinationCidrBlock"] = args.DestinationCidrBlock
@@ -29,32 +29,24 @@ func Lookupoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRouteResult{}
-	if v, ok := outputs["destinationCidrBlock"]; ok {
-		ret.DestinationCidrBlock = v
+	return &GetRouteResult{
+		DestinationCidrBlock: outputs["destinationCidrBlock"],
 	}
-	if v, ok := outputs["destinationIpv6CidrBlock"]; ok {
-		ret.DestinationIpv6CidrBlock = v
+		DestinationIpv6CidrBlock: outputs["destinationIpv6CidrBlock"],
 	}
-	if v, ok := outputs["egressOnlyGatewayId"]; ok {
-		ret.EgressOnlyGatewayId = v
+		EgressOnlyGatewayId: outputs["egressOnlyGatewayId"],
 	}
-	if v, ok := outputs["gatewayId"]; ok {
-		ret.GatewayId = v
+		GatewayId: outputs["gatewayId"],
 	}
-	if v, ok := outputs["instanceId"]; ok {
-		ret.InstanceId = v
+		InstanceId: outputs["instanceId"],
 	}
-	if v, ok := outputs["natGatewayId"]; ok {
-		ret.NatGatewayId = v
+		NatGatewayId: outputs["natGatewayId"],
 	}
-	if v, ok := outputs["networkInterfaceId"]; ok {
-		ret.NetworkInterfaceId = v
+		NetworkInterfaceId: outputs["networkInterfaceId"],
 	}
-	if v, ok := outputs["vpcPeeringConnectionId"]; ok {
-		ret.VpcPeeringConnectionId = v
+		VpcPeeringConnectionId: outputs["vpcPeeringConnectionId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRoute.

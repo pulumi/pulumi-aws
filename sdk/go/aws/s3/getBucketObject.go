@@ -11,7 +11,7 @@ import (
 // _optionally_ (see below) content of an object stored inside S3 bucket.
 // 
 // ~> **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
-func LookupucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBucketObjectResult, error) {
+func LookupBucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBucketObjectResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["bucket"] = args.Bucket
@@ -24,62 +24,44 @@ func LookupucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBuck
 	if err != nil {
 		return nil, err
 	}
-	ret := GetBucketObjectResult{}
-	if v, ok := outputs["body"]; ok {
-		ret.Body = v
+	return &GetBucketObjectResult{
+		Body: outputs["body"],
 	}
-	if v, ok := outputs["cacheControl"]; ok {
-		ret.CacheControl = v
+		CacheControl: outputs["cacheControl"],
 	}
-	if v, ok := outputs["contentDisposition"]; ok {
-		ret.ContentDisposition = v
+		ContentDisposition: outputs["contentDisposition"],
 	}
-	if v, ok := outputs["contentEncoding"]; ok {
-		ret.ContentEncoding = v
+		ContentEncoding: outputs["contentEncoding"],
 	}
-	if v, ok := outputs["contentLanguage"]; ok {
-		ret.ContentLanguage = v
+		ContentLanguage: outputs["contentLanguage"],
 	}
-	if v, ok := outputs["contentLength"]; ok {
-		ret.ContentLength = v
+		ContentLength: outputs["contentLength"],
 	}
-	if v, ok := outputs["contentType"]; ok {
-		ret.ContentType = v
+		ContentType: outputs["contentType"],
 	}
-	if v, ok := outputs["etag"]; ok {
-		ret.Etag = v
+		Etag: outputs["etag"],
 	}
-	if v, ok := outputs["expiration"]; ok {
-		ret.Expiration = v
+		Expiration: outputs["expiration"],
 	}
-	if v, ok := outputs["expires"]; ok {
-		ret.Expires = v
+		Expires: outputs["expires"],
 	}
-	if v, ok := outputs["lastModified"]; ok {
-		ret.LastModified = v
+		LastModified: outputs["lastModified"],
 	}
-	if v, ok := outputs["metadata"]; ok {
-		ret.Metadata = v
+		Metadata: outputs["metadata"],
 	}
-	if v, ok := outputs["serverSideEncryption"]; ok {
-		ret.ServerSideEncryption = v
+		ServerSideEncryption: outputs["serverSideEncryption"],
 	}
-	if v, ok := outputs["sseKmsKeyId"]; ok {
-		ret.SseKmsKeyId = v
+		SseKmsKeyId: outputs["sseKmsKeyId"],
 	}
-	if v, ok := outputs["storageClass"]; ok {
-		ret.StorageClass = v
+		StorageClass: outputs["storageClass"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["versionId"]; ok {
-		ret.VersionId = v
+		VersionId: outputs["versionId"],
 	}
-	if v, ok := outputs["websiteRedirectLocation"]; ok {
-		ret.WebsiteRedirectLocation = v
+		WebsiteRedirectLocation: outputs["websiteRedirectLocation"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getBucketObject.

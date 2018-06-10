@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get the ID of an Amazon EC2 Instance for use in other
 // resources.
-func Lookupnstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResult, error) {
+func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -22,95 +22,66 @@ func Lookupnstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetInstanceResult{}
-	if v, ok := outputs["ami"]; ok {
-		ret.Ami = v
+	return &GetInstanceResult{
+		Ami: outputs["ami"],
 	}
-	if v, ok := outputs["associatePublicIpAddress"]; ok {
-		ret.AssociatePublicIpAddress = v
+		AssociatePublicIpAddress: outputs["associatePublicIpAddress"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["creditSpecifications"]; ok {
-		ret.CreditSpecifications = v
+		CreditSpecifications: outputs["creditSpecifications"],
 	}
-	if v, ok := outputs["disableApiTermination"]; ok {
-		ret.DisableApiTermination = v
+		DisableApiTermination: outputs["disableApiTermination"],
 	}
-	if v, ok := outputs["ebsBlockDevices"]; ok {
-		ret.EbsBlockDevices = v
+		EbsBlockDevices: outputs["ebsBlockDevices"],
 	}
-	if v, ok := outputs["ebsOptimized"]; ok {
-		ret.EbsOptimized = v
+		EbsOptimized: outputs["ebsOptimized"],
 	}
-	if v, ok := outputs["ephemeralBlockDevices"]; ok {
-		ret.EphemeralBlockDevices = v
+		EphemeralBlockDevices: outputs["ephemeralBlockDevices"],
 	}
-	if v, ok := outputs["iamInstanceProfile"]; ok {
-		ret.IamInstanceProfile = v
+		IamInstanceProfile: outputs["iamInstanceProfile"],
 	}
-	if v, ok := outputs["instanceState"]; ok {
-		ret.InstanceState = v
+		InstanceState: outputs["instanceState"],
 	}
-	if v, ok := outputs["instanceTags"]; ok {
-		ret.InstanceTags = v
+		InstanceTags: outputs["instanceTags"],
 	}
-	if v, ok := outputs["instanceType"]; ok {
-		ret.InstanceType = v
+		InstanceType: outputs["instanceType"],
 	}
-	if v, ok := outputs["keyName"]; ok {
-		ret.KeyName = v
+		KeyName: outputs["keyName"],
 	}
-	if v, ok := outputs["monitoring"]; ok {
-		ret.Monitoring = v
+		Monitoring: outputs["monitoring"],
 	}
-	if v, ok := outputs["networkInterfaceId"]; ok {
-		ret.NetworkInterfaceId = v
+		NetworkInterfaceId: outputs["networkInterfaceId"],
 	}
-	if v, ok := outputs["passwordData"]; ok {
-		ret.PasswordData = v
+		PasswordData: outputs["passwordData"],
 	}
-	if v, ok := outputs["placementGroup"]; ok {
-		ret.PlacementGroup = v
+		PlacementGroup: outputs["placementGroup"],
 	}
-	if v, ok := outputs["privateDns"]; ok {
-		ret.PrivateDns = v
+		PrivateDns: outputs["privateDns"],
 	}
-	if v, ok := outputs["privateIp"]; ok {
-		ret.PrivateIp = v
+		PrivateIp: outputs["privateIp"],
 	}
-	if v, ok := outputs["publicDns"]; ok {
-		ret.PublicDns = v
+		PublicDns: outputs["publicDns"],
 	}
-	if v, ok := outputs["publicIp"]; ok {
-		ret.PublicIp = v
+		PublicIp: outputs["publicIp"],
 	}
-	if v, ok := outputs["rootBlockDevices"]; ok {
-		ret.RootBlockDevices = v
+		RootBlockDevices: outputs["rootBlockDevices"],
 	}
-	if v, ok := outputs["securityGroups"]; ok {
-		ret.SecurityGroups = v
+		SecurityGroups: outputs["securityGroups"],
 	}
-	if v, ok := outputs["sourceDestCheck"]; ok {
-		ret.SourceDestCheck = v
+		SourceDestCheck: outputs["sourceDestCheck"],
 	}
-	if v, ok := outputs["subnetId"]; ok {
-		ret.SubnetId = v
+		SubnetId: outputs["subnetId"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["tenancy"]; ok {
-		ret.Tenancy = v
+		Tenancy: outputs["tenancy"],
 	}
-	if v, ok := outputs["userData"]; ok {
-		ret.UserData = v
+		UserData: outputs["userData"],
 	}
-	if v, ok := outputs["vpcSecurityGroupIds"]; ok {
-		ret.VpcSecurityGroupIds = v
+		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getInstance.

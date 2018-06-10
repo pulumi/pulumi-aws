@@ -12,7 +12,7 @@ import (
 // requires some manual steps, which means that Terraform cannot automate the
 // creation of ACM certificates. But using this data source, you can reference
 // them by domain without having to hard code the ARNs as input.
-func Lookupertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCertificateResult, error) {
+func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCertificateResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["domain"] = args.Domain
@@ -24,11 +24,10 @@ func Lookupertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCertif
 	if err != nil {
 		return nil, err
 	}
-	ret := GetCertificateResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetCertificateResult{
+		Arn: outputs["arn"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCertificate.

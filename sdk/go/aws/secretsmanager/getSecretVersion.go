@@ -8,7 +8,7 @@ import (
 )
 
 // Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](/docs/providers/aws/d/secretsmanager_secret.html).
-func LookupecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetSecretVersionResult, error) {
+func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetSecretVersionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["secretId"] = args.SecretId
@@ -19,17 +19,14 @@ func LookupecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetSe
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSecretVersionResult{}
-	if v, ok := outputs["secretString"]; ok {
-		ret.SecretString = v
+	return &GetSecretVersionResult{
+		SecretString: outputs["secretString"],
 	}
-	if v, ok := outputs["versionId"]; ok {
-		ret.VersionId = v
+		VersionId: outputs["versionId"],
 	}
-	if v, ok := outputs["versionStages"]; ok {
-		ret.VersionStages = v
+		VersionStages: outputs["versionStages"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSecretVersion.

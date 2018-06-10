@@ -11,7 +11,7 @@ import (
 // resources.
 // 
 // For more details, see the [Amazon Kinesis Documentation][1].
-func Lookuptream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, error) {
+func LookupStream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -20,32 +20,24 @@ func Lookuptream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetStreamResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetStreamResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["closedShards"]; ok {
-		ret.ClosedShards = v
+		ClosedShards: outputs["closedShards"],
 	}
-	if v, ok := outputs["creationTimestamp"]; ok {
-		ret.CreationTimestamp = v
+		CreationTimestamp: outputs["creationTimestamp"],
 	}
-	if v, ok := outputs["openShards"]; ok {
-		ret.OpenShards = v
+		OpenShards: outputs["openShards"],
 	}
-	if v, ok := outputs["retentionPeriod"]; ok {
-		ret.RetentionPeriod = v
+		RetentionPeriod: outputs["retentionPeriod"],
 	}
-	if v, ok := outputs["shardLevelMetrics"]; ok {
-		ret.ShardLevelMetrics = v
+		ShardLevelMetrics: outputs["shardLevelMetrics"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getStream.

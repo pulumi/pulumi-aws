@@ -8,7 +8,7 @@ import (
 )
 
 // Provides information about an Elastic File System (EFS).
-func LookupileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSystemResult, error) {
+func LookupFileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSystemResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["creationToken"] = args.CreationToken
@@ -19,29 +19,22 @@ func LookupileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSyst
 	if err != nil {
 		return nil, err
 	}
-	ret := GetFileSystemResult{}
-	if v, ok := outputs["creationToken"]; ok {
-		ret.CreationToken = v
+	return &GetFileSystemResult{
+		CreationToken: outputs["creationToken"],
 	}
-	if v, ok := outputs["dnsName"]; ok {
-		ret.DnsName = v
+		DnsName: outputs["dnsName"],
 	}
-	if v, ok := outputs["encrypted"]; ok {
-		ret.Encrypted = v
+		Encrypted: outputs["encrypted"],
 	}
-	if v, ok := outputs["fileSystemId"]; ok {
-		ret.FileSystemId = v
+		FileSystemId: outputs["fileSystemId"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["performanceMode"]; ok {
-		ret.PerformanceMode = v
+		PerformanceMode: outputs["performanceMode"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getFileSystem.

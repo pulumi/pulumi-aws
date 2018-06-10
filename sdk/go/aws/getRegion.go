@@ -13,7 +13,7 @@ import (
 // discover the name of the region configured within the provider. The latter
 // can be useful in a child module which is inheriting an AWS provider
 // configuration from its parent module.
-func Lookupegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, error) {
+func LookupRegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["current"] = args.Current
@@ -24,17 +24,14 @@ func Lookupegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRegionResult{}
-	if v, ok := outputs["current"]; ok {
-		ret.Current = v
+	return &GetRegionResult{
+		Current: outputs["current"],
 	}
-	if v, ok := outputs["endpoint"]; ok {
-		ret.Endpoint = v
+		Endpoint: outputs["endpoint"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRegion.

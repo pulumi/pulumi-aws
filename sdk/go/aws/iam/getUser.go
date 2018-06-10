@@ -10,7 +10,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM user. By using this data source, you can reference IAM user
 // properties without having to hard code ARNs or unique IDs as input.
-func Lookupser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) {
+func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["userName"] = args.UserName
@@ -19,17 +19,14 @@ func Lookupser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetUserResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetUserResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["path"]; ok {
-		ret.Path = v
+		Path: outputs["path"],
 	}
-	if v, ok := outputs["userId"]; ok {
-		ret.UserId = v
+		UserId: outputs["userId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getUser.

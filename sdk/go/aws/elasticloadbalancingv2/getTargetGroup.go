@@ -14,7 +14,7 @@ import (
 // This data source can prove useful when a module accepts an LB Target Group as an
 // input variable and needs to know its attributes. It can also be used to get the ARN of
 // an LB Target Group for use in other resources, given LB Target Group name.
-func LookupargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTargetGroupResult, error) {
+func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTargetGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -25,41 +25,30 @@ func LookupargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTarget
 	if err != nil {
 		return nil, err
 	}
-	ret := GetTargetGroupResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetTargetGroupResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["arnSuffix"]; ok {
-		ret.ArnSuffix = v
+		ArnSuffix: outputs["arnSuffix"],
 	}
-	if v, ok := outputs["deregistrationDelay"]; ok {
-		ret.DeregistrationDelay = v
+		DeregistrationDelay: outputs["deregistrationDelay"],
 	}
-	if v, ok := outputs["healthCheck"]; ok {
-		ret.HealthCheck = v
+		HealthCheck: outputs["healthCheck"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["protocol"]; ok {
-		ret.Protocol = v
+		Protocol: outputs["protocol"],
 	}
-	if v, ok := outputs["slowStart"]; ok {
-		ret.SlowStart = v
+		SlowStart: outputs["slowStart"],
 	}
-	if v, ok := outputs["stickiness"]; ok {
-		ret.Stickiness = v
+		Stickiness: outputs["stickiness"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getTargetGroup.

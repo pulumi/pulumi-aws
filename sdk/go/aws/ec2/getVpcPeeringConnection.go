@@ -9,7 +9,7 @@ import (
 
 // The VPC Peering Connection data source provides details about
 // a specific VPC peering connection.
-func LookuppcPeeringConnection(ctx *pulumi.Context, args *GetVpcPeeringConnectionArgs) (*GetVpcPeeringConnectionResult, error) {
+func LookupVpcPeeringConnection(ctx *pulumi.Context, args *GetVpcPeeringConnectionArgs) (*GetVpcPeeringConnectionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["cidrBlock"] = args.CidrBlock
@@ -29,47 +29,34 @@ func LookuppcPeeringConnection(ctx *pulumi.Context, args *GetVpcPeeringConnectio
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVpcPeeringConnectionResult{}
-	if v, ok := outputs["accepter"]; ok {
-		ret.Accepter = v
+	return &GetVpcPeeringConnectionResult{
+		Accepter: outputs["accepter"],
 	}
-	if v, ok := outputs["cidrBlock"]; ok {
-		ret.CidrBlock = v
+		CidrBlock: outputs["cidrBlock"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["ownerId"]; ok {
-		ret.OwnerId = v
+		OwnerId: outputs["ownerId"],
 	}
-	if v, ok := outputs["peerCidrBlock"]; ok {
-		ret.PeerCidrBlock = v
+		PeerCidrBlock: outputs["peerCidrBlock"],
 	}
-	if v, ok := outputs["peerOwnerId"]; ok {
-		ret.PeerOwnerId = v
+		PeerOwnerId: outputs["peerOwnerId"],
 	}
-	if v, ok := outputs["peerRegion"]; ok {
-		ret.PeerRegion = v
+		PeerRegion: outputs["peerRegion"],
 	}
-	if v, ok := outputs["peerVpcId"]; ok {
-		ret.PeerVpcId = v
+		PeerVpcId: outputs["peerVpcId"],
 	}
-	if v, ok := outputs["region"]; ok {
-		ret.Region = v
+		Region: outputs["region"],
 	}
-	if v, ok := outputs["requester"]; ok {
-		ret.Requester = v
+		Requester: outputs["requester"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVpcPeeringConnection.

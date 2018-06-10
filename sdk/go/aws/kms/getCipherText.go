@@ -12,7 +12,7 @@ import (
 // 
 // ~> **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](/docs/state/sensitive-data.html).
-func LookupipherText(ctx *pulumi.Context, args *GetCipherTextArgs) (*GetCipherTextResult, error) {
+func LookupCipherText(ctx *pulumi.Context, args *GetCipherTextArgs) (*GetCipherTextResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["context"] = args.Context
@@ -23,11 +23,10 @@ func LookupipherText(ctx *pulumi.Context, args *GetCipherTextArgs) (*GetCipherTe
 	if err != nil {
 		return nil, err
 	}
-	ret := GetCipherTextResult{}
-	if v, ok := outputs["ciphertextBlob"]; ok {
-		ret.CiphertextBlob = v
+	return &GetCipherTextResult{
+		CiphertextBlob: outputs["ciphertextBlob"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCipherText.

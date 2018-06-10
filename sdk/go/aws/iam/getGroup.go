@@ -10,7 +10,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM group. By using this data source, you can reference IAM group
 // properties without having to hard code ARNs as input.
-func Lookuproup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, error) {
+func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["groupName"] = args.GroupName
@@ -19,17 +19,14 @@ func Lookuproup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetGroupResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetGroupResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["groupId"]; ok {
-		ret.GroupId = v
+		GroupId: outputs["groupId"],
 	}
-	if v, ok := outputs["path"]; ok {
-		ret.Path = v
+		Path: outputs["path"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getGroup.

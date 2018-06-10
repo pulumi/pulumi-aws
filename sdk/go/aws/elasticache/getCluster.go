@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get information about an Elasticache Cluster
-func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["clusterId"] = args.ClusterId
@@ -18,68 +18,48 @@ func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetClusterResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetClusterResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["cacheNodes"]; ok {
-		ret.CacheNodes = v
+		CacheNodes: outputs["cacheNodes"],
 	}
-	if v, ok := outputs["clusterAddress"]; ok {
-		ret.ClusterAddress = v
+		ClusterAddress: outputs["clusterAddress"],
 	}
-	if v, ok := outputs["configurationEndpoint"]; ok {
-		ret.ConfigurationEndpoint = v
+		ConfigurationEndpoint: outputs["configurationEndpoint"],
 	}
-	if v, ok := outputs["engine"]; ok {
-		ret.Engine = v
+		Engine: outputs["engine"],
 	}
-	if v, ok := outputs["engineVersion"]; ok {
-		ret.EngineVersion = v
+		EngineVersion: outputs["engineVersion"],
 	}
-	if v, ok := outputs["maintenanceWindow"]; ok {
-		ret.MaintenanceWindow = v
+		MaintenanceWindow: outputs["maintenanceWindow"],
 	}
-	if v, ok := outputs["nodeType"]; ok {
-		ret.NodeType = v
+		NodeType: outputs["nodeType"],
 	}
-	if v, ok := outputs["notificationTopicArn"]; ok {
-		ret.NotificationTopicArn = v
+		NotificationTopicArn: outputs["notificationTopicArn"],
 	}
-	if v, ok := outputs["numCacheNodes"]; ok {
-		ret.NumCacheNodes = v
+		NumCacheNodes: outputs["numCacheNodes"],
 	}
-	if v, ok := outputs["parameterGroupName"]; ok {
-		ret.ParameterGroupName = v
+		ParameterGroupName: outputs["parameterGroupName"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["replicationGroupId"]; ok {
-		ret.ReplicationGroupId = v
+		ReplicationGroupId: outputs["replicationGroupId"],
 	}
-	if v, ok := outputs["securityGroupIds"]; ok {
-		ret.SecurityGroupIds = v
+		SecurityGroupIds: outputs["securityGroupIds"],
 	}
-	if v, ok := outputs["securityGroupNames"]; ok {
-		ret.SecurityGroupNames = v
+		SecurityGroupNames: outputs["securityGroupNames"],
 	}
-	if v, ok := outputs["snapshotRetentionLimit"]; ok {
-		ret.SnapshotRetentionLimit = v
+		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
 	}
-	if v, ok := outputs["snapshotWindow"]; ok {
-		ret.SnapshotWindow = v
+		SnapshotWindow: outputs["snapshotWindow"],
 	}
-	if v, ok := outputs["subnetGroupName"]; ok {
-		ret.SubnetGroupName = v
+		SubnetGroupName: outputs["subnetGroupName"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCluster.

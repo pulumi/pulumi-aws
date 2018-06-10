@@ -12,7 +12,7 @@ import (
 // This resource can prove useful when a module accepts a vpc id as
 // an input variable and needs to, for example, determine the CIDR block of that
 // VPC.
-func Lookuppc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
+func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["cidrBlock"] = args.CidrBlock
@@ -27,41 +27,30 @@ func Lookuppc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVpcResult{}
-	if v, ok := outputs["cidrBlock"]; ok {
-		ret.CidrBlock = v
+	return &GetVpcResult{
+		CidrBlock: outputs["cidrBlock"],
 	}
-	if v, ok := outputs["default"]; ok {
-		ret.Default = v
+		Default: outputs["default"],
 	}
-	if v, ok := outputs["dhcpOptionsId"]; ok {
-		ret.DhcpOptionsId = v
+		DhcpOptionsId: outputs["dhcpOptionsId"],
 	}
-	if v, ok := outputs["enableDnsHostnames"]; ok {
-		ret.EnableDnsHostnames = v
+		EnableDnsHostnames: outputs["enableDnsHostnames"],
 	}
-	if v, ok := outputs["enableDnsSupport"]; ok {
-		ret.EnableDnsSupport = v
+		EnableDnsSupport: outputs["enableDnsSupport"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["instanceTenancy"]; ok {
-		ret.InstanceTenancy = v
+		InstanceTenancy: outputs["instanceTenancy"],
 	}
-	if v, ok := outputs["ipv6AssociationId"]; ok {
-		ret.Ipv6AssociationId = v
+		Ipv6AssociationId: outputs["ipv6AssociationId"],
 	}
-	if v, ok := outputs["ipv6CidrBlock"]; ok {
-		ret.Ipv6CidrBlock = v
+		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVpc.

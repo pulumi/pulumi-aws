@@ -14,7 +14,7 @@ import (
 // This data source can prove useful when a module accepts an LB as an input
 // variable and needs to, for example, determine the security groups associated
 // with it, etc.
-func LookupoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoadBalancerResult, error) {
+func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoadBalancerResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -24,59 +24,42 @@ func LookupoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoad
 	if err != nil {
 		return nil, err
 	}
-	ret := GetLoadBalancerResult{}
-	if v, ok := outputs["accessLogs"]; ok {
-		ret.AccessLogs = v
+	return &GetLoadBalancerResult{
+		AccessLogs: outputs["accessLogs"],
 	}
-	if v, ok := outputs["availabilityZones"]; ok {
-		ret.AvailabilityZones = v
+		AvailabilityZones: outputs["availabilityZones"],
 	}
-	if v, ok := outputs["connectionDraining"]; ok {
-		ret.ConnectionDraining = v
+		ConnectionDraining: outputs["connectionDraining"],
 	}
-	if v, ok := outputs["connectionDrainingTimeout"]; ok {
-		ret.ConnectionDrainingTimeout = v
+		ConnectionDrainingTimeout: outputs["connectionDrainingTimeout"],
 	}
-	if v, ok := outputs["crossZoneLoadBalancing"]; ok {
-		ret.CrossZoneLoadBalancing = v
+		CrossZoneLoadBalancing: outputs["crossZoneLoadBalancing"],
 	}
-	if v, ok := outputs["dnsName"]; ok {
-		ret.DnsName = v
+		DnsName: outputs["dnsName"],
 	}
-	if v, ok := outputs["healthCheck"]; ok {
-		ret.HealthCheck = v
+		HealthCheck: outputs["healthCheck"],
 	}
-	if v, ok := outputs["idleTimeout"]; ok {
-		ret.IdleTimeout = v
+		IdleTimeout: outputs["idleTimeout"],
 	}
-	if v, ok := outputs["instances"]; ok {
-		ret.Instances = v
+		Instances: outputs["instances"],
 	}
-	if v, ok := outputs["internal"]; ok {
-		ret.Internal = v
+		Internal: outputs["internal"],
 	}
-	if v, ok := outputs["listeners"]; ok {
-		ret.Listeners = v
+		Listeners: outputs["listeners"],
 	}
-	if v, ok := outputs["securityGroups"]; ok {
-		ret.SecurityGroups = v
+		SecurityGroups: outputs["securityGroups"],
 	}
-	if v, ok := outputs["sourceSecurityGroup"]; ok {
-		ret.SourceSecurityGroup = v
+		SourceSecurityGroup: outputs["sourceSecurityGroup"],
 	}
-	if v, ok := outputs["sourceSecurityGroupId"]; ok {
-		ret.SourceSecurityGroupId = v
+		SourceSecurityGroupId: outputs["sourceSecurityGroupId"],
 	}
-	if v, ok := outputs["subnets"]; ok {
-		ret.Subnets = v
+		Subnets: outputs["subnets"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["zoneId"]; ok {
-		ret.ZoneId = v
+		ZoneId: outputs["zoneId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getLoadBalancer.

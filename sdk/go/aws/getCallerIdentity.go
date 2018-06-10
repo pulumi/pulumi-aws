@@ -9,22 +9,19 @@ import (
 
 // Use this data source to get the access to the effective Account ID, User ID, and ARN in
 // which Terraform is authorized.
-func LookupallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error) {
+func LookupCallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetCallerIdentityResult{}
-	if v, ok := outputs["accountId"]; ok {
-		ret.AccountId = v
+	return &GetCallerIdentityResult{
+		AccountId: outputs["accountId"],
 	}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["userId"]; ok {
-		ret.UserId = v
+		UserId: outputs["userId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getCallerIdentity.

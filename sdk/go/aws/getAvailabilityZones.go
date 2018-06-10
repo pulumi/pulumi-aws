@@ -13,7 +13,7 @@ import (
 // 
 // This is different from the `aws_availability_zone` (singular) data source,
 // which provides some details about a specific availability zone.
-func LookupvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs) (*GetAvailabilityZonesResult, error) {
+func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs) (*GetAvailabilityZonesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["state"] = args.State
@@ -22,11 +22,10 @@ func LookupvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAvailabilityZonesResult{}
-	if v, ok := outputs["names"]; ok {
-		ret.Names = v
+	return &GetAvailabilityZonesResult{
+		Names: outputs["names"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAvailabilityZones.

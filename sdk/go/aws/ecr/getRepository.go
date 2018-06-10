@@ -8,7 +8,7 @@ import (
 )
 
 // The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-func Lookupepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetRepositoryResult, error) {
+func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetRepositoryResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,17 +17,14 @@ func Lookupepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposito
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRepositoryResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetRepositoryResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["registryId"]; ok {
-		ret.RegistryId = v
+		RegistryId: outputs["registryId"],
 	}
-	if v, ok := outputs["repositoryUrl"]; ok {
-		ret.RepositoryUrl = v
+		RepositoryUrl: outputs["repositoryUrl"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRepository.

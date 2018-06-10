@@ -8,7 +8,7 @@ import (
 )
 
 // Provides information about a Lambda Function.
-func Lookupunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionResult, error) {
+func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["functionName"] = args.FunctionName
@@ -18,65 +18,46 @@ func Lookupunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetFunctionResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetFunctionResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["deadLetterConfig"]; ok {
-		ret.DeadLetterConfig = v
+		DeadLetterConfig: outputs["deadLetterConfig"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["environment"]; ok {
-		ret.Environment = v
+		Environment: outputs["environment"],
 	}
-	if v, ok := outputs["handler"]; ok {
-		ret.Handler = v
+		Handler: outputs["handler"],
 	}
-	if v, ok := outputs["invokeArn"]; ok {
-		ret.InvokeArn = v
+		InvokeArn: outputs["invokeArn"],
 	}
-	if v, ok := outputs["kmsKeyArn"]; ok {
-		ret.KmsKeyArn = v
+		KmsKeyArn: outputs["kmsKeyArn"],
 	}
-	if v, ok := outputs["lastModified"]; ok {
-		ret.LastModified = v
+		LastModified: outputs["lastModified"],
 	}
-	if v, ok := outputs["memorySize"]; ok {
-		ret.MemorySize = v
+		MemorySize: outputs["memorySize"],
 	}
-	if v, ok := outputs["qualifiedArn"]; ok {
-		ret.QualifiedArn = v
+		QualifiedArn: outputs["qualifiedArn"],
 	}
-	if v, ok := outputs["reservedConcurrentExecutions"]; ok {
-		ret.ReservedConcurrentExecutions = v
+		ReservedConcurrentExecutions: outputs["reservedConcurrentExecutions"],
 	}
-	if v, ok := outputs["role"]; ok {
-		ret.Role = v
+		Role: outputs["role"],
 	}
-	if v, ok := outputs["runtime"]; ok {
-		ret.Runtime = v
+		Runtime: outputs["runtime"],
 	}
-	if v, ok := outputs["sourceCodeHash"]; ok {
-		ret.SourceCodeHash = v
+		SourceCodeHash: outputs["sourceCodeHash"],
 	}
-	if v, ok := outputs["sourceCodeSize"]; ok {
-		ret.SourceCodeSize = v
+		SourceCodeSize: outputs["sourceCodeSize"],
 	}
-	if v, ok := outputs["timeout"]; ok {
-		ret.Timeout = v
+		Timeout: outputs["timeout"],
 	}
-	if v, ok := outputs["tracingConfig"]; ok {
-		ret.TracingConfig = v
+		TracingConfig: outputs["tracingConfig"],
 	}
-	if v, ok := outputs["version"]; ok {
-		ret.Version = v
+		Version: outputs["version"],
 	}
-	if v, ok := outputs["vpcConfig"]; ok {
-		ret.VpcConfig = v
+		VpcConfig: outputs["vpcConfig"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getFunction.

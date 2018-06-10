@@ -8,7 +8,7 @@ import (
 )
 
 // Provides information about a MQ Broker.
-func Lookuproker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, error) {
+func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["brokerId"] = args.BrokerId
@@ -18,53 +18,38 @@ func Lookuproker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetBrokerResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetBrokerResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["autoMinorVersionUpgrade"]; ok {
-		ret.AutoMinorVersionUpgrade = v
+		AutoMinorVersionUpgrade: outputs["autoMinorVersionUpgrade"],
 	}
-	if v, ok := outputs["brokerId"]; ok {
-		ret.BrokerId = v
+		BrokerId: outputs["brokerId"],
 	}
-	if v, ok := outputs["brokerName"]; ok {
-		ret.BrokerName = v
+		BrokerName: outputs["brokerName"],
 	}
-	if v, ok := outputs["configuration"]; ok {
-		ret.Configuration = v
+		Configuration: outputs["configuration"],
 	}
-	if v, ok := outputs["deploymentMode"]; ok {
-		ret.DeploymentMode = v
+		DeploymentMode: outputs["deploymentMode"],
 	}
-	if v, ok := outputs["engineType"]; ok {
-		ret.EngineType = v
+		EngineType: outputs["engineType"],
 	}
-	if v, ok := outputs["engineVersion"]; ok {
-		ret.EngineVersion = v
+		EngineVersion: outputs["engineVersion"],
 	}
-	if v, ok := outputs["hostInstanceType"]; ok {
-		ret.HostInstanceType = v
+		HostInstanceType: outputs["hostInstanceType"],
 	}
-	if v, ok := outputs["instances"]; ok {
-		ret.Instances = v
+		Instances: outputs["instances"],
 	}
-	if v, ok := outputs["maintenanceWindowStartTime"]; ok {
-		ret.MaintenanceWindowStartTime = v
+		MaintenanceWindowStartTime: outputs["maintenanceWindowStartTime"],
 	}
-	if v, ok := outputs["publiclyAccessible"]; ok {
-		ret.PubliclyAccessible = v
+		PubliclyAccessible: outputs["publiclyAccessible"],
 	}
-	if v, ok := outputs["securityGroups"]; ok {
-		ret.SecurityGroups = v
+		SecurityGroups: outputs["securityGroups"],
 	}
-	if v, ok := outputs["subnetIds"]; ok {
-		ret.SubnetIds = v
+		SubnetIds: outputs["subnetIds"],
 	}
-	if v, ok := outputs["users"]; ok {
-		ret.Users = v
+		Users: outputs["users"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getBroker.

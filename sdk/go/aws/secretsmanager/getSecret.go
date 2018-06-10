@@ -8,7 +8,7 @@ import (
 )
 
 // Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](/docs/providers/aws/d/secretsmanager_secret_version.html).
-func Lookupecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
+func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -18,32 +18,24 @@ func Lookupecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSecretResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetSecretResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["rotationEnabled"]; ok {
-		ret.RotationEnabled = v
+		RotationEnabled: outputs["rotationEnabled"],
 	}
-	if v, ok := outputs["rotationLambdaArn"]; ok {
-		ret.RotationLambdaArn = v
+		RotationLambdaArn: outputs["rotationLambdaArn"],
 	}
-	if v, ok := outputs["rotationRules"]; ok {
-		ret.RotationRules = v
+		RotationRules: outputs["rotationRules"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSecret.

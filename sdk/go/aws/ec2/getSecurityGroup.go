@@ -12,7 +12,7 @@ import (
 // This resource can prove useful when a module accepts a Security Group id as
 // an input variable and needs to, for example, determine the id of the
 // VPC that the security group belongs to.
-func LookupecurityGroup(ctx *pulumi.Context, args *GetSecurityGroupArgs) (*GetSecurityGroupResult, error) {
+func LookupSecurityGroup(ctx *pulumi.Context, args *GetSecurityGroupArgs) (*GetSecurityGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -25,26 +25,20 @@ func LookupecurityGroup(ctx *pulumi.Context, args *GetSecurityGroupArgs) (*GetSe
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSecurityGroupResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetSecurityGroupResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSecurityGroup.

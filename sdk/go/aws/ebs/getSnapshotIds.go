@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get a list of EBS Snapshot IDs matching the specified
 // criteria.
-func LookupnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs) (*GetSnapshotIdsResult, error) {
+func LookupSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs) (*GetSnapshotIdsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -20,11 +20,10 @@ func LookupnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs) (*GetSnapsh
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSnapshotIdsResult{}
-	if v, ok := outputs["ids"]; ok {
-		ret.Ids = v
+	return &GetSnapshotIdsResult{
+		Ids: outputs["ids"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSnapshotIds.

@@ -10,7 +10,7 @@ import (
 // Use this data source to get information about a DB Snapshot for use when provisioning DB instances
 // 
 // ~> **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
-func Lookupnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
+func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["dbInstanceIdentifier"] = args.DbInstanceIdentifier
@@ -24,59 +24,42 @@ func Lookupnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSnapshotResult{}
-	if v, ok := outputs["allocatedStorage"]; ok {
-		ret.AllocatedStorage = v
+	return &GetSnapshotResult{
+		AllocatedStorage: outputs["allocatedStorage"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["dbSnapshotArn"]; ok {
-		ret.DbSnapshotArn = v
+		DbSnapshotArn: outputs["dbSnapshotArn"],
 	}
-	if v, ok := outputs["encrypted"]; ok {
-		ret.Encrypted = v
+		Encrypted: outputs["encrypted"],
 	}
-	if v, ok := outputs["engine"]; ok {
-		ret.Engine = v
+		Engine: outputs["engine"],
 	}
-	if v, ok := outputs["engineVersion"]; ok {
-		ret.EngineVersion = v
+		EngineVersion: outputs["engineVersion"],
 	}
-	if v, ok := outputs["iops"]; ok {
-		ret.Iops = v
+		Iops: outputs["iops"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["licenseModel"]; ok {
-		ret.LicenseModel = v
+		LicenseModel: outputs["licenseModel"],
 	}
-	if v, ok := outputs["optionGroupName"]; ok {
-		ret.OptionGroupName = v
+		OptionGroupName: outputs["optionGroupName"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["snapshotCreateTime"]; ok {
-		ret.SnapshotCreateTime = v
+		SnapshotCreateTime: outputs["snapshotCreateTime"],
 	}
-	if v, ok := outputs["sourceDbSnapshotIdentifier"]; ok {
-		ret.SourceDbSnapshotIdentifier = v
+		SourceDbSnapshotIdentifier: outputs["sourceDbSnapshotIdentifier"],
 	}
-	if v, ok := outputs["sourceRegion"]; ok {
-		ret.SourceRegion = v
+		SourceRegion: outputs["sourceRegion"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["storageType"]; ok {
-		ret.StorageType = v
+		StorageType: outputs["storageType"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSnapshot.

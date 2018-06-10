@@ -8,7 +8,7 @@ import (
 )
 
 // Provides information about a DynamoDB table.
-func Lookupable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, error) {
+func LookupTable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,53 +19,38 @@ func Lookupable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetTableResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetTableResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["attributes"]; ok {
-		ret.Attributes = v
+		Attributes: outputs["attributes"],
 	}
-	if v, ok := outputs["globalSecondaryIndexes"]; ok {
-		ret.GlobalSecondaryIndexes = v
+		GlobalSecondaryIndexes: outputs["globalSecondaryIndexes"],
 	}
-	if v, ok := outputs["hashKey"]; ok {
-		ret.HashKey = v
+		HashKey: outputs["hashKey"],
 	}
-	if v, ok := outputs["localSecondaryIndexes"]; ok {
-		ret.LocalSecondaryIndexes = v
+		LocalSecondaryIndexes: outputs["localSecondaryIndexes"],
 	}
-	if v, ok := outputs["rangeKey"]; ok {
-		ret.RangeKey = v
+		RangeKey: outputs["rangeKey"],
 	}
-	if v, ok := outputs["readCapacity"]; ok {
-		ret.ReadCapacity = v
+		ReadCapacity: outputs["readCapacity"],
 	}
-	if v, ok := outputs["serverSideEncryption"]; ok {
-		ret.ServerSideEncryption = v
+		ServerSideEncryption: outputs["serverSideEncryption"],
 	}
-	if v, ok := outputs["streamArn"]; ok {
-		ret.StreamArn = v
+		StreamArn: outputs["streamArn"],
 	}
-	if v, ok := outputs["streamEnabled"]; ok {
-		ret.StreamEnabled = v
+		StreamEnabled: outputs["streamEnabled"],
 	}
-	if v, ok := outputs["streamLabel"]; ok {
-		ret.StreamLabel = v
+		StreamLabel: outputs["streamLabel"],
 	}
-	if v, ok := outputs["streamViewType"]; ok {
-		ret.StreamViewType = v
+		StreamViewType: outputs["streamViewType"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["ttl"]; ok {
-		ret.Ttl = v
+		Ttl: outputs["ttl"],
 	}
-	if v, ok := outputs["writeCapacity"]; ok {
-		ret.WriteCapacity = v
+		WriteCapacity: outputs["writeCapacity"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getTable.

@@ -8,7 +8,7 @@ import (
 )
 
 // Provides information about a RDS cluster.
-func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
@@ -18,77 +18,54 @@ func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetClusterResult{}
-	if v, ok := outputs["availabilityZones"]; ok {
-		ret.AvailabilityZones = v
+	return &GetClusterResult{
+		AvailabilityZones: outputs["availabilityZones"],
 	}
-	if v, ok := outputs["backupRetentionPeriod"]; ok {
-		ret.BackupRetentionPeriod = v
+		BackupRetentionPeriod: outputs["backupRetentionPeriod"],
 	}
-	if v, ok := outputs["clusterMembers"]; ok {
-		ret.ClusterMembers = v
+		ClusterMembers: outputs["clusterMembers"],
 	}
-	if v, ok := outputs["clusterResourceId"]; ok {
-		ret.ClusterResourceId = v
+		ClusterResourceId: outputs["clusterResourceId"],
 	}
-	if v, ok := outputs["databaseName"]; ok {
-		ret.DatabaseName = v
+		DatabaseName: outputs["databaseName"],
 	}
-	if v, ok := outputs["dbClusterParameterGroupName"]; ok {
-		ret.DbClusterParameterGroupName = v
+		DbClusterParameterGroupName: outputs["dbClusterParameterGroupName"],
 	}
-	if v, ok := outputs["dbSubnetGroupName"]; ok {
-		ret.DbSubnetGroupName = v
+		DbSubnetGroupName: outputs["dbSubnetGroupName"],
 	}
-	if v, ok := outputs["endpoint"]; ok {
-		ret.Endpoint = v
+		Endpoint: outputs["endpoint"],
 	}
-	if v, ok := outputs["engine"]; ok {
-		ret.Engine = v
+		Engine: outputs["engine"],
 	}
-	if v, ok := outputs["engineVersion"]; ok {
-		ret.EngineVersion = v
+		EngineVersion: outputs["engineVersion"],
 	}
-	if v, ok := outputs["finalSnapshotIdentifier"]; ok {
-		ret.FinalSnapshotIdentifier = v
+		FinalSnapshotIdentifier: outputs["finalSnapshotIdentifier"],
 	}
-	if v, ok := outputs["iamDatabaseAuthenticationEnabled"]; ok {
-		ret.IamDatabaseAuthenticationEnabled = v
+		IamDatabaseAuthenticationEnabled: outputs["iamDatabaseAuthenticationEnabled"],
 	}
-	if v, ok := outputs["iamRoles"]; ok {
-		ret.IamRoles = v
+		IamRoles: outputs["iamRoles"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["masterUsername"]; ok {
-		ret.MasterUsername = v
+		MasterUsername: outputs["masterUsername"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["preferredBackupWindow"]; ok {
-		ret.PreferredBackupWindow = v
+		PreferredBackupWindow: outputs["preferredBackupWindow"],
 	}
-	if v, ok := outputs["preferredMaintenanceWindow"]; ok {
-		ret.PreferredMaintenanceWindow = v
+		PreferredMaintenanceWindow: outputs["preferredMaintenanceWindow"],
 	}
-	if v, ok := outputs["readerEndpoint"]; ok {
-		ret.ReaderEndpoint = v
+		ReaderEndpoint: outputs["readerEndpoint"],
 	}
-	if v, ok := outputs["replicationSourceIdentifier"]; ok {
-		ret.ReplicationSourceIdentifier = v
+		ReplicationSourceIdentifier: outputs["replicationSourceIdentifier"],
 	}
-	if v, ok := outputs["storageEncrypted"]; ok {
-		ret.StorageEncrypted = v
+		StorageEncrypted: outputs["storageEncrypted"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcSecurityGroupIds"]; ok {
-		ret.VpcSecurityGroupIds = v
+		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCluster.

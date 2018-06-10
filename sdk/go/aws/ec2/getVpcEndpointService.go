@@ -9,7 +9,7 @@ import (
 
 // The VPC Endpoint Service data source details about a specific service that
 // can be specified when creating a VPC endpoint within the region configured in the provider.
-func LookuppcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceArgs) (*GetVpcEndpointServiceResult, error) {
+func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceArgs) (*GetVpcEndpointServiceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["service"] = args.Service
@@ -19,32 +19,24 @@ func LookuppcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceArg
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVpcEndpointServiceResult{}
-	if v, ok := outputs["acceptanceRequired"]; ok {
-		ret.AcceptanceRequired = v
+	return &GetVpcEndpointServiceResult{
+		AcceptanceRequired: outputs["acceptanceRequired"],
 	}
-	if v, ok := outputs["availabilityZones"]; ok {
-		ret.AvailabilityZones = v
+		AvailabilityZones: outputs["availabilityZones"],
 	}
-	if v, ok := outputs["baseEndpointDnsNames"]; ok {
-		ret.BaseEndpointDnsNames = v
+		BaseEndpointDnsNames: outputs["baseEndpointDnsNames"],
 	}
-	if v, ok := outputs["owner"]; ok {
-		ret.Owner = v
+		Owner: outputs["owner"],
 	}
-	if v, ok := outputs["privateDnsName"]; ok {
-		ret.PrivateDnsName = v
+		PrivateDnsName: outputs["privateDnsName"],
 	}
-	if v, ok := outputs["serviceName"]; ok {
-		ret.ServiceName = v
+		ServiceName: outputs["serviceName"],
 	}
-	if v, ok := outputs["serviceType"]; ok {
-		ret.ServiceType = v
+		ServiceType: outputs["serviceType"],
 	}
-	if v, ok := outputs["vpcEndpointPolicySupported"]; ok {
-		ret.VpcEndpointPolicySupported = v
+		VpcEndpointPolicySupported: outputs["vpcEndpointPolicySupported"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVpcEndpointService.

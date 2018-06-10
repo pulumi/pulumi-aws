@@ -9,7 +9,7 @@ import (
 
 // The ECS container definition data source allows access to details of
 // a specific container within an AWS ECS service.
-func LookupontainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs) (*GetContainerDefinitionResult, error) {
+func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs) (*GetContainerDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["containerName"] = args.ContainerName
@@ -19,32 +19,24 @@ func LookupontainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionA
 	if err != nil {
 		return nil, err
 	}
-	ret := GetContainerDefinitionResult{}
-	if v, ok := outputs["cpu"]; ok {
-		ret.Cpu = v
+	return &GetContainerDefinitionResult{
+		Cpu: outputs["cpu"],
 	}
-	if v, ok := outputs["disableNetworking"]; ok {
-		ret.DisableNetworking = v
+		DisableNetworking: outputs["disableNetworking"],
 	}
-	if v, ok := outputs["dockerLabels"]; ok {
-		ret.DockerLabels = v
+		DockerLabels: outputs["dockerLabels"],
 	}
-	if v, ok := outputs["environment"]; ok {
-		ret.Environment = v
+		Environment: outputs["environment"],
 	}
-	if v, ok := outputs["image"]; ok {
-		ret.Image = v
+		Image: outputs["image"],
 	}
-	if v, ok := outputs["imageDigest"]; ok {
-		ret.ImageDigest = v
+		ImageDigest: outputs["imageDigest"],
 	}
-	if v, ok := outputs["memory"]; ok {
-		ret.Memory = v
+		Memory: outputs["memory"],
 	}
-	if v, ok := outputs["memoryReservation"]; ok {
-		ret.MemoryReservation = v
+		MemoryReservation: outputs["memoryReservation"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getContainerDefinition.

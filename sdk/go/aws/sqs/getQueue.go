@@ -10,7 +10,7 @@ import (
 // Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
 // By using this data source, you can reference SQS queues without having to hardcode
 // the ARNs as input.
-func Lookupueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, error) {
+func LookupQueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,14 +19,12 @@ func Lookupueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetQueueResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetQueueResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["url"]; ok {
-		ret.Url = v
+		Url: outputs["url"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getQueue.

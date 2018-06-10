@@ -14,7 +14,7 @@ import (
 // This data source can prove useful when a module accepts an LB Listener as an
 // input variable and needs to know the LB it is attached to, or other
 // information specific to the listener in question.
-func Lookupistener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerResult, error) {
+func LookupListener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -25,29 +25,22 @@ func Lookupistener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetListenerResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetListenerResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["certificateArn"]; ok {
-		ret.CertificateArn = v
+		CertificateArn: outputs["certificateArn"],
 	}
-	if v, ok := outputs["defaultActions"]; ok {
-		ret.DefaultActions = v
+		DefaultActions: outputs["defaultActions"],
 	}
-	if v, ok := outputs["loadBalancerArn"]; ok {
-		ret.LoadBalancerArn = v
+		LoadBalancerArn: outputs["loadBalancerArn"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["protocol"]; ok {
-		ret.Protocol = v
+		Protocol: outputs["protocol"],
 	}
-	if v, ok := outputs["sslPolicy"]; ok {
-		ret.SslPolicy = v
+		SslPolicy: outputs["sslPolicy"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getListener.

@@ -8,7 +8,7 @@ import (
 )
 
 // Provides details about a specific redshift cluster.
-func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
@@ -18,92 +18,64 @@ func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetClusterResult{}
-	if v, ok := outputs["allowVersionUpgrade"]; ok {
-		ret.AllowVersionUpgrade = v
+	return &GetClusterResult{
+		AllowVersionUpgrade: outputs["allowVersionUpgrade"],
 	}
-	if v, ok := outputs["automatedSnapshotRetentionPeriod"]; ok {
-		ret.AutomatedSnapshotRetentionPeriod = v
+		AutomatedSnapshotRetentionPeriod: outputs["automatedSnapshotRetentionPeriod"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["bucketName"]; ok {
-		ret.BucketName = v
+		BucketName: outputs["bucketName"],
 	}
-	if v, ok := outputs["clusterParameterGroupName"]; ok {
-		ret.ClusterParameterGroupName = v
+		ClusterParameterGroupName: outputs["clusterParameterGroupName"],
 	}
-	if v, ok := outputs["clusterPublicKey"]; ok {
-		ret.ClusterPublicKey = v
+		ClusterPublicKey: outputs["clusterPublicKey"],
 	}
-	if v, ok := outputs["clusterRevisionNumber"]; ok {
-		ret.ClusterRevisionNumber = v
+		ClusterRevisionNumber: outputs["clusterRevisionNumber"],
 	}
-	if v, ok := outputs["clusterSecurityGroups"]; ok {
-		ret.ClusterSecurityGroups = v
+		ClusterSecurityGroups: outputs["clusterSecurityGroups"],
 	}
-	if v, ok := outputs["clusterSubnetGroupName"]; ok {
-		ret.ClusterSubnetGroupName = v
+		ClusterSubnetGroupName: outputs["clusterSubnetGroupName"],
 	}
-	if v, ok := outputs["clusterType"]; ok {
-		ret.ClusterType = v
+		ClusterType: outputs["clusterType"],
 	}
-	if v, ok := outputs["clusterVersion"]; ok {
-		ret.ClusterVersion = v
+		ClusterVersion: outputs["clusterVersion"],
 	}
-	if v, ok := outputs["databaseName"]; ok {
-		ret.DatabaseName = v
+		DatabaseName: outputs["databaseName"],
 	}
-	if v, ok := outputs["elasticIp"]; ok {
-		ret.ElasticIp = v
+		ElasticIp: outputs["elasticIp"],
 	}
-	if v, ok := outputs["enableLogging"]; ok {
-		ret.EnableLogging = v
+		EnableLogging: outputs["enableLogging"],
 	}
-	if v, ok := outputs["encrypted"]; ok {
-		ret.Encrypted = v
+		Encrypted: outputs["encrypted"],
 	}
-	if v, ok := outputs["endpoint"]; ok {
-		ret.Endpoint = v
+		Endpoint: outputs["endpoint"],
 	}
-	if v, ok := outputs["enhancedVpcRouting"]; ok {
-		ret.EnhancedVpcRouting = v
+		EnhancedVpcRouting: outputs["enhancedVpcRouting"],
 	}
-	if v, ok := outputs["iamRoles"]; ok {
-		ret.IamRoles = v
+		IamRoles: outputs["iamRoles"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["masterUsername"]; ok {
-		ret.MasterUsername = v
+		MasterUsername: outputs["masterUsername"],
 	}
-	if v, ok := outputs["nodeType"]; ok {
-		ret.NodeType = v
+		NodeType: outputs["nodeType"],
 	}
-	if v, ok := outputs["numberOfNodes"]; ok {
-		ret.NumberOfNodes = v
+		NumberOfNodes: outputs["numberOfNodes"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["preferredMaintenanceWindow"]; ok {
-		ret.PreferredMaintenanceWindow = v
+		PreferredMaintenanceWindow: outputs["preferredMaintenanceWindow"],
 	}
-	if v, ok := outputs["publiclyAccessible"]; ok {
-		ret.PubliclyAccessible = v
+		PubliclyAccessible: outputs["publiclyAccessible"],
 	}
-	if v, ok := outputs["s3KeyPrefix"]; ok {
-		ret.S3KeyPrefix = v
+		S3KeyPrefix: outputs["s3KeyPrefix"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	if v, ok := outputs["vpcSecurityGroupIds"]; ok {
-		ret.VpcSecurityGroupIds = v
+		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCluster.

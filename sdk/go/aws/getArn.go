@@ -8,7 +8,7 @@ import (
 )
 
 // Parses an Amazon Resource Name (ARN) into its constituent parts.
-func Lookuprn(ctx *pulumi.Context, args *GetArnArgs) (*GetArnResult, error) {
+func LookupArn(ctx *pulumi.Context, args *GetArnArgs) (*GetArnResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -17,23 +17,18 @@ func Lookuprn(ctx *pulumi.Context, args *GetArnArgs) (*GetArnResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetArnResult{}
-	if v, ok := outputs["account"]; ok {
-		ret.Account = v
+	return &GetArnResult{
+		Account: outputs["account"],
 	}
-	if v, ok := outputs["partition"]; ok {
-		ret.Partition = v
+		Partition: outputs["partition"],
 	}
-	if v, ok := outputs["region"]; ok {
-		ret.Region = v
+		Region: outputs["region"],
 	}
-	if v, ok := outputs["resource"]; ok {
-		ret.Resource = v
+		Resource: outputs["resource"],
 	}
-	if v, ok := outputs["service"]; ok {
-		ret.Service = v
+		Service: outputs["service"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getArn.

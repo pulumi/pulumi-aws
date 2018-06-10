@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.
-func LookupolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetSolutionStackResult, error) {
+func LookupSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetSolutionStackResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["mostRecent"] = args.MostRecent
@@ -18,11 +18,10 @@ func LookupolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetSo
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSolutionStackResult{}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+	return &GetSolutionStackResult{
+		Name: outputs["name"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSolutionStack.

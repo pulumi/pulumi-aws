@@ -14,7 +14,7 @@ import (
 // This data source can prove useful when a module accepts an LB as an input
 // variable and needs to, for example, determine the security groups associated
 // with it, etc.
-func LookupoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoadBalancerResult, error) {
+func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoadBalancerResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -25,53 +25,38 @@ func LookupoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoad
 	if err != nil {
 		return nil, err
 	}
-	ret := GetLoadBalancerResult{}
-	if v, ok := outputs["accessLogs"]; ok {
-		ret.AccessLogs = v
+	return &GetLoadBalancerResult{
+		AccessLogs: outputs["accessLogs"],
 	}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["arnSuffix"]; ok {
-		ret.ArnSuffix = v
+		ArnSuffix: outputs["arnSuffix"],
 	}
-	if v, ok := outputs["dnsName"]; ok {
-		ret.DnsName = v
+		DnsName: outputs["dnsName"],
 	}
-	if v, ok := outputs["enableDeletionProtection"]; ok {
-		ret.EnableDeletionProtection = v
+		EnableDeletionProtection: outputs["enableDeletionProtection"],
 	}
-	if v, ok := outputs["idleTimeout"]; ok {
-		ret.IdleTimeout = v
+		IdleTimeout: outputs["idleTimeout"],
 	}
-	if v, ok := outputs["internal"]; ok {
-		ret.Internal = v
+		Internal: outputs["internal"],
 	}
-	if v, ok := outputs["loadBalancerType"]; ok {
-		ret.LoadBalancerType = v
+		LoadBalancerType: outputs["loadBalancerType"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["securityGroups"]; ok {
-		ret.SecurityGroups = v
+		SecurityGroups: outputs["securityGroups"],
 	}
-	if v, ok := outputs["subnetMappings"]; ok {
-		ret.SubnetMappings = v
+		SubnetMappings: outputs["subnetMappings"],
 	}
-	if v, ok := outputs["subnets"]; ok {
-		ret.Subnets = v
+		Subnets: outputs["subnets"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	if v, ok := outputs["zoneId"]; ok {
-		ret.ZoneId = v
+		ZoneId: outputs["zoneId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getLoadBalancer.

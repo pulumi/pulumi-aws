@@ -8,16 +8,15 @@ import (
 )
 
 // Use this data source to lookup current AWS partition in which Terraform is working
-func Lookupartition(ctx *pulumi.Context) (*GetPartitionResult, error) {
+func LookupPartition(ctx *pulumi.Context) (*GetPartitionResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getPartition:getPartition", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPartitionResult{}
-	if v, ok := outputs["partition"]; ok {
-		ret.Partition = v
+	return &GetPartitionResult{
+		Partition: outputs["partition"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getPartition.

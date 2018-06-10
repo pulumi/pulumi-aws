@@ -8,16 +8,15 @@ import (
 )
 
 // Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of whitelisting in S3 bucket policy.
-func LookupillingServiceAccount(ctx *pulumi.Context) (*GetBillingServiceAccountResult, error) {
+func LookupBillingServiceAccount(ctx *pulumi.Context) (*GetBillingServiceAccountResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetBillingServiceAccountResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetBillingServiceAccountResult{
+		Arn: outputs["arn"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getBillingServiceAccount.

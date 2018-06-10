@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
-func Lookupcript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, error) {
+func LookupScript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["dagEdges"] = args.DagEdges
@@ -19,14 +19,12 @@ func Lookupcript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetScriptResult{}
-	if v, ok := outputs["pythonScript"]; ok {
-		ret.PythonScript = v
+	return &GetScriptResult{
+		PythonScript: outputs["pythonScript"],
 	}
-	if v, ok := outputs["scalaCode"]; ok {
-		ret.ScalaCode = v
+		ScalaCode: outputs["scalaCode"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getScript.

@@ -10,7 +10,7 @@ import (
 // The ECS task definition data source allows access to details of
 // a specific AWS ECS task definition.
 // 
-func LookupaskDefinition(ctx *pulumi.Context, args *GetTaskDefinitionArgs) (*GetTaskDefinitionResult, error) {
+func LookupTaskDefinition(ctx *pulumi.Context, args *GetTaskDefinitionArgs) (*GetTaskDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["taskDefinition"] = args.TaskDefinition
@@ -19,23 +19,18 @@ func LookupaskDefinition(ctx *pulumi.Context, args *GetTaskDefinitionArgs) (*Get
 	if err != nil {
 		return nil, err
 	}
-	ret := GetTaskDefinitionResult{}
-	if v, ok := outputs["family"]; ok {
-		ret.Family = v
+	return &GetTaskDefinitionResult{
+		Family: outputs["family"],
 	}
-	if v, ok := outputs["networkMode"]; ok {
-		ret.NetworkMode = v
+		NetworkMode: outputs["networkMode"],
 	}
-	if v, ok := outputs["revision"]; ok {
-		ret.Revision = v
+		Revision: outputs["revision"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["taskRoleArn"]; ok {
-		ret.TaskRoleArn = v
+		TaskRoleArn: outputs["taskRoleArn"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getTaskDefinition.

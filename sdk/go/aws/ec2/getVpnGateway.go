@@ -9,7 +9,7 @@ import (
 
 // The VPN Gateway data source provides details about
 // a specific VPN gateway.
-func LookuppnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs) (*GetVpnGatewayResult, error) {
+func LookupVpnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs) (*GetVpnGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["amazonSideAsn"] = args.AmazonSideAsn
@@ -24,26 +24,20 @@ func LookuppnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs) (*GetVpnGatew
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVpnGatewayResult{}
-	if v, ok := outputs["amazonSideAsn"]; ok {
-		ret.AmazonSideAsn = v
+	return &GetVpnGatewayResult{
+		AmazonSideAsn: outputs["amazonSideAsn"],
 	}
-	if v, ok := outputs["attachedVpcId"]; ok {
-		ret.AttachedVpcId = v
+		AttachedVpcId: outputs["attachedVpcId"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVpnGateway.

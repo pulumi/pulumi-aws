@@ -9,7 +9,7 @@ import (
 
 // The ECS Service data source allows access to details of a specific
 // Service within a AWS ECS Cluster.
-func Lookupervice(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
+func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["clusterArn"] = args.ClusterArn
@@ -19,20 +19,16 @@ func Lookupervice(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetServiceResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetServiceResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["desiredCount"]; ok {
-		ret.DesiredCount = v
+		DesiredCount: outputs["desiredCount"],
 	}
-	if v, ok := outputs["launchType"]; ok {
-		ret.LaunchType = v
+		LaunchType: outputs["launchType"],
 	}
-	if v, ok := outputs["taskDefinition"]; ok {
-		ret.TaskDefinition = v
+		TaskDefinition: outputs["taskDefinition"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getService.

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-func Lookupredentials(ctx *pulumi.Context, args *GetCredentialsArgs) (*GetCredentialsResult, error) {
+func LookupCredentials(ctx *pulumi.Context, args *GetCredentialsArgs) (*GetCredentialsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["registryId"] = args.RegistryId
@@ -16,17 +16,14 @@ func Lookupredentials(ctx *pulumi.Context, args *GetCredentialsArgs) (*GetCreden
 	if err != nil {
 		return nil, err
 	}
-	ret := GetCredentialsResult{}
-	if v, ok := outputs["authorizationToken"]; ok {
-		ret.AuthorizationToken = v
+	return &GetCredentialsResult{
+		AuthorizationToken: outputs["authorizationToken"],
 	}
-	if v, ok := outputs["expiresAt"]; ok {
-		ret.ExpiresAt = v
+		ExpiresAt: outputs["expiresAt"],
 	}
-	if v, ok := outputs["proxyEndpoint"]; ok {
-		ret.ProxyEndpoint = v
+		ProxyEndpoint: outputs["proxyEndpoint"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCredentials.

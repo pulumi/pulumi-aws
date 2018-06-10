@@ -11,7 +11,7 @@ import (
 // the specified KMS Key with flexible key id input. 
 // This can be useful to reference key alias 
 // without having to hard code the ARN as input.
-func Lookupey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
+func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["grantTokens"] = args.GrantTokens
@@ -21,44 +21,32 @@ func Lookupey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetKeyResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetKeyResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["awsAccountId"]; ok {
-		ret.AwsAccountId = v
+		AwsAccountId: outputs["awsAccountId"],
 	}
-	if v, ok := outputs["creationDate"]; ok {
-		ret.CreationDate = v
+		CreationDate: outputs["creationDate"],
 	}
-	if v, ok := outputs["deletionDate"]; ok {
-		ret.DeletionDate = v
+		DeletionDate: outputs["deletionDate"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["enabled"]; ok {
-		ret.Enabled = v
+		Enabled: outputs["enabled"],
 	}
-	if v, ok := outputs["expirationModel"]; ok {
-		ret.ExpirationModel = v
+		ExpirationModel: outputs["expirationModel"],
 	}
-	if v, ok := outputs["keyManager"]; ok {
-		ret.KeyManager = v
+		KeyManager: outputs["keyManager"],
 	}
-	if v, ok := outputs["keyState"]; ok {
-		ret.KeyState = v
+		KeyState: outputs["keyState"],
 	}
-	if v, ok := outputs["keyUsage"]; ok {
-		ret.KeyUsage = v
+		KeyUsage: outputs["keyUsage"],
 	}
-	if v, ok := outputs["origin"]; ok {
-		ret.Origin = v
+		Origin: outputs["origin"],
 	}
-	if v, ok := outputs["validTo"]; ok {
-		ret.ValidTo = v
+		ValidTo: outputs["validTo"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getKey.

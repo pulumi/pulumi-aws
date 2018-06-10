@@ -8,7 +8,7 @@ import (
 )
 
 // Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-func LookupertificateAuthority(ctx *pulumi.Context, args *GetCertificateAuthorityArgs) (*GetCertificateAuthorityResult, error) {
+func LookupCertificateAuthority(ctx *pulumi.Context, args *GetCertificateAuthorityArgs) (*GetCertificateAuthorityResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -19,38 +19,28 @@ func LookupertificateAuthority(ctx *pulumi.Context, args *GetCertificateAuthorit
 	if err != nil {
 		return nil, err
 	}
-	ret := GetCertificateAuthorityResult{}
-	if v, ok := outputs["certificate"]; ok {
-		ret.Certificate = v
+	return &GetCertificateAuthorityResult{
+		Certificate: outputs["certificate"],
 	}
-	if v, ok := outputs["certificateChain"]; ok {
-		ret.CertificateChain = v
+		CertificateChain: outputs["certificateChain"],
 	}
-	if v, ok := outputs["certificateSigningRequest"]; ok {
-		ret.CertificateSigningRequest = v
+		CertificateSigningRequest: outputs["certificateSigningRequest"],
 	}
-	if v, ok := outputs["notAfter"]; ok {
-		ret.NotAfter = v
+		NotAfter: outputs["notAfter"],
 	}
-	if v, ok := outputs["notBefore"]; ok {
-		ret.NotBefore = v
+		NotBefore: outputs["notBefore"],
 	}
-	if v, ok := outputs["revocationConfigurations"]; ok {
-		ret.RevocationConfigurations = v
+		RevocationConfigurations: outputs["revocationConfigurations"],
 	}
-	if v, ok := outputs["serial"]; ok {
-		ret.Serial = v
+		Serial: outputs["serial"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["type"]; ok {
-		ret.Type = v
+		Type: outputs["type"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCertificateAuthority.

@@ -9,16 +9,15 @@ import (
 
 // The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
 // for the effective account in which Terraform is working.
-func LookupanonicalUserId(ctx *pulumi.Context) (*GetCanonicalUserIdResult, error) {
+func LookupCanonicalUserId(ctx *pulumi.Context) (*GetCanonicalUserIdResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getCanonicalUserId:getCanonicalUserId", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetCanonicalUserIdResult{}
-	if v, ok := outputs["displayName"]; ok {
-		ret.DisplayName = v
+	return &GetCanonicalUserIdResult{
+		DisplayName: outputs["displayName"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getCanonicalUserId.

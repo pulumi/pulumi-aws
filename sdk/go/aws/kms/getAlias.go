@@ -10,7 +10,7 @@ import (
 // Use this data source to get the ARN of a KMS key alias.
 // By using this data source, you can reference key alias
 // without having to hard code the ARN as input.
-func Lookuplias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, error) {
+func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,17 +19,14 @@ func Lookuplias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAliasResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetAliasResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["targetKeyArn"]; ok {
-		ret.TargetKeyArn = v
+		TargetKeyArn: outputs["targetKeyArn"],
 	}
-	if v, ok := outputs["targetKeyId"]; ok {
-		ret.TargetKeyId = v
+		TargetKeyId: outputs["targetKeyId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAlias.

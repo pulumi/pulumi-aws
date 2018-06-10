@@ -10,7 +10,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM role. By using this data source, you can reference IAM role
 // properties without having to hard code ARNs as input.
-func Lookupole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) {
+func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -20,35 +20,26 @@ func Lookupole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRoleResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetRoleResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["assumeRolePolicy"]; ok {
-		ret.AssumeRolePolicy = v
+		AssumeRolePolicy: outputs["assumeRolePolicy"],
 	}
-	if v, ok := outputs["assumeRolePolicyDocument"]; ok {
-		ret.AssumeRolePolicyDocument = v
+		AssumeRolePolicyDocument: outputs["assumeRolePolicyDocument"],
 	}
-	if v, ok := outputs["createDate"]; ok {
-		ret.CreateDate = v
+		CreateDate: outputs["createDate"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["maxSessionDuration"]; ok {
-		ret.MaxSessionDuration = v
+		MaxSessionDuration: outputs["maxSessionDuration"],
 	}
-	if v, ok := outputs["path"]; ok {
-		ret.Path = v
+		Path: outputs["path"],
 	}
-	if v, ok := outputs["roleId"]; ok {
-		ret.RoleId = v
+		RoleId: outputs["roleId"],
 	}
-	if v, ok := outputs["uniqueId"]; ok {
-		ret.UniqueId = v
+		UniqueId: outputs["uniqueId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRole.

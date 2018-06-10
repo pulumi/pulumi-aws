@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
-func Lookupnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
+func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -22,41 +22,30 @@ func Lookupnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSnapshotResult{}
-	if v, ok := outputs["dataEncryptionKeyId"]; ok {
-		ret.DataEncryptionKeyId = v
+	return &GetSnapshotResult{
+		DataEncryptionKeyId: outputs["dataEncryptionKeyId"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["encrypted"]; ok {
-		ret.Encrypted = v
+		Encrypted: outputs["encrypted"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["ownerAlias"]; ok {
-		ret.OwnerAlias = v
+		OwnerAlias: outputs["ownerAlias"],
 	}
-	if v, ok := outputs["ownerId"]; ok {
-		ret.OwnerId = v
+		OwnerId: outputs["ownerId"],
 	}
-	if v, ok := outputs["snapshotId"]; ok {
-		ret.SnapshotId = v
+		SnapshotId: outputs["snapshotId"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["volumeId"]; ok {
-		ret.VolumeId = v
+		VolumeId: outputs["volumeId"],
 	}
-	if v, ok := outputs["volumeSize"]; ok {
-		ret.VolumeSize = v
+		VolumeSize: outputs["volumeSize"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSnapshot.

@@ -8,7 +8,7 @@ import (
 )
 
 // Retrieve information about an EKS Cluster.
-func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,26 +17,20 @@ func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetClusterResult{}
-	if v, ok := outputs["certificateAuthority"]; ok {
-		ret.CertificateAuthority = v
+	return &GetClusterResult{
+		CertificateAuthority: outputs["certificateAuthority"],
 	}
-	if v, ok := outputs["createdAt"]; ok {
-		ret.CreatedAt = v
+		CreatedAt: outputs["createdAt"],
 	}
-	if v, ok := outputs["endpoint"]; ok {
-		ret.Endpoint = v
+		Endpoint: outputs["endpoint"],
 	}
-	if v, ok := outputs["roleArn"]; ok {
-		ret.RoleArn = v
+		RoleArn: outputs["roleArn"],
 	}
-	if v, ok := outputs["version"]; ok {
-		ret.Version = v
+		Version: outputs["version"],
 	}
-	if v, ok := outputs["vpcConfig"]; ok {
-		ret.VpcConfig = v
+		VpcConfig: outputs["vpcConfig"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCluster.

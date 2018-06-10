@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get information about an EBS volume for use in other
 // resources.
-func Lookupolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, error) {
+func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -20,38 +20,28 @@ func Lookupolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVolumeResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetVolumeResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["encrypted"]; ok {
-		ret.Encrypted = v
+		Encrypted: outputs["encrypted"],
 	}
-	if v, ok := outputs["iops"]; ok {
-		ret.Iops = v
+		Iops: outputs["iops"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["size"]; ok {
-		ret.Size = v
+		Size: outputs["size"],
 	}
-	if v, ok := outputs["snapshotId"]; ok {
-		ret.SnapshotId = v
+		SnapshotId: outputs["snapshotId"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["volumeId"]; ok {
-		ret.VolumeId = v
+		VolumeId: outputs["volumeId"],
 	}
-	if v, ok := outputs["volumeType"]; ok {
-		ret.VolumeType = v
+		VolumeType: outputs["volumeType"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVolume.

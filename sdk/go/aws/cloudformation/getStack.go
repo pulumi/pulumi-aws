@@ -9,7 +9,7 @@ import (
 
 // The CloudFormation Stack data source allows access to stack
 // outputs and other useful data including the template body.
-func Lookuptack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, error) {
+func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,38 +18,28 @@ func Lookuptack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetStackResult{}
-	if v, ok := outputs["capabilities"]; ok {
-		ret.Capabilities = v
+	return &GetStackResult{
+		Capabilities: outputs["capabilities"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["disableRollback"]; ok {
-		ret.DisableRollback = v
+		DisableRollback: outputs["disableRollback"],
 	}
-	if v, ok := outputs["iamRoleArn"]; ok {
-		ret.IamRoleArn = v
+		IamRoleArn: outputs["iamRoleArn"],
 	}
-	if v, ok := outputs["notificationArns"]; ok {
-		ret.NotificationArns = v
+		NotificationArns: outputs["notificationArns"],
 	}
-	if v, ok := outputs["outputs"]; ok {
-		ret.Outputs = v
+		Outputs: outputs["outputs"],
 	}
-	if v, ok := outputs["parameters"]; ok {
-		ret.Parameters = v
+		Parameters: outputs["parameters"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["templateBody"]; ok {
-		ret.TemplateBody = v
+		TemplateBody: outputs["templateBody"],
 	}
-	if v, ok := outputs["timeoutInMinutes"]; ok {
-		ret.TimeoutInMinutes = v
+		TimeoutInMinutes: outputs["timeoutInMinutes"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getStack.

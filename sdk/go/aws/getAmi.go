@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
-func Lookupmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
+func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["executableUsers"] = args.ExecutableUsers
@@ -23,80 +23,56 @@ func Lookupmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAmiResult{}
-	if v, ok := outputs["architecture"]; ok {
-		ret.Architecture = v
+	return &GetAmiResult{
+		Architecture: outputs["architecture"],
 	}
-	if v, ok := outputs["blockDeviceMappings"]; ok {
-		ret.BlockDeviceMappings = v
+		BlockDeviceMappings: outputs["blockDeviceMappings"],
 	}
-	if v, ok := outputs["creationDate"]; ok {
-		ret.CreationDate = v
+		CreationDate: outputs["creationDate"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["hypervisor"]; ok {
-		ret.Hypervisor = v
+		Hypervisor: outputs["hypervisor"],
 	}
-	if v, ok := outputs["imageId"]; ok {
-		ret.ImageId = v
+		ImageId: outputs["imageId"],
 	}
-	if v, ok := outputs["imageLocation"]; ok {
-		ret.ImageLocation = v
+		ImageLocation: outputs["imageLocation"],
 	}
-	if v, ok := outputs["imageOwnerAlias"]; ok {
-		ret.ImageOwnerAlias = v
+		ImageOwnerAlias: outputs["imageOwnerAlias"],
 	}
-	if v, ok := outputs["imageType"]; ok {
-		ret.ImageType = v
+		ImageType: outputs["imageType"],
 	}
-	if v, ok := outputs["kernelId"]; ok {
-		ret.KernelId = v
+		KernelId: outputs["kernelId"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["ownerId"]; ok {
-		ret.OwnerId = v
+		OwnerId: outputs["ownerId"],
 	}
-	if v, ok := outputs["platform"]; ok {
-		ret.Platform = v
+		Platform: outputs["platform"],
 	}
-	if v, ok := outputs["productCodes"]; ok {
-		ret.ProductCodes = v
+		ProductCodes: outputs["productCodes"],
 	}
-	if v, ok := outputs["public"]; ok {
-		ret.Public = v
+		Public: outputs["public"],
 	}
-	if v, ok := outputs["ramdiskId"]; ok {
-		ret.RamdiskId = v
+		RamdiskId: outputs["ramdiskId"],
 	}
-	if v, ok := outputs["rootDeviceName"]; ok {
-		ret.RootDeviceName = v
+		RootDeviceName: outputs["rootDeviceName"],
 	}
-	if v, ok := outputs["rootDeviceType"]; ok {
-		ret.RootDeviceType = v
+		RootDeviceType: outputs["rootDeviceType"],
 	}
-	if v, ok := outputs["rootSnapshotId"]; ok {
-		ret.RootSnapshotId = v
+		RootSnapshotId: outputs["rootSnapshotId"],
 	}
-	if v, ok := outputs["sriovNetSupport"]; ok {
-		ret.SriovNetSupport = v
+		SriovNetSupport: outputs["sriovNetSupport"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["stateReason"]; ok {
-		ret.StateReason = v
+		StateReason: outputs["stateReason"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["virtualizationType"]; ok {
-		ret.VirtualizationType = v
+		VirtualizationType: outputs["virtualizationType"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAmi.

@@ -15,7 +15,7 @@ import (
 // logging output, plan output or state output.
 // 
 // Please take care to secure your secret data outside of resource definitions.
-func Lookupecret(ctx *pulumi.Context, args *GetSecretArgs) error {
+func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) error {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["__hasDynamicAttributes"] = args.__hasDynamicAttributes

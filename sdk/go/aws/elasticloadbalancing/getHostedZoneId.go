@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
 // in a given region for the purpose of using in an AWS Route53 Alias.
-func LookupostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs) error {
+func LookupHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs) error {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["region"] = args.Region

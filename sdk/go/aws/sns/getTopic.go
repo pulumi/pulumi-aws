@@ -10,7 +10,7 @@ import (
 // Use this data source to get the ARN of a topic in AWS Simple Notification
 // Service (SNS). By using this data source, you can reference SNS topics
 // without having to hard code the ARNs as input.
-func Lookupopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, error) {
+func LookupTopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,11 +19,10 @@ func Lookupopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetTopicResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetTopicResult{
+		Arn: outputs["arn"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getTopic.

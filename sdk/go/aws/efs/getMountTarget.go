@@ -8,7 +8,7 @@ import (
 )
 
 // Provides information about an Elastic File System Mount Target (EFS).
-func LookupountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMountTargetResult, error) {
+func LookupMountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMountTargetResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["mountTargetId"] = args.MountTargetId
@@ -17,26 +17,20 @@ func LookupountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMountT
 	if err != nil {
 		return nil, err
 	}
-	ret := GetMountTargetResult{}
-	if v, ok := outputs["dnsName"]; ok {
-		ret.DnsName = v
+	return &GetMountTargetResult{
+		DnsName: outputs["dnsName"],
 	}
-	if v, ok := outputs["fileSystemId"]; ok {
-		ret.FileSystemId = v
+		FileSystemId: outputs["fileSystemId"],
 	}
-	if v, ok := outputs["ipAddress"]; ok {
-		ret.IpAddress = v
+		IpAddress: outputs["ipAddress"],
 	}
-	if v, ok := outputs["networkInterfaceId"]; ok {
-		ret.NetworkInterfaceId = v
+		NetworkInterfaceId: outputs["networkInterfaceId"],
 	}
-	if v, ok := outputs["securityGroups"]; ok {
-		ret.SecurityGroups = v
+		SecurityGroups: outputs["securityGroups"],
 	}
-	if v, ok := outputs["subnetId"]; ok {
-		ret.SubnetId = v
+		SubnetId: outputs["subnetId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getMountTarget.

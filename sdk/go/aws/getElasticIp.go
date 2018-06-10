@@ -11,7 +11,7 @@ import (
 // 
 // This resource can prove useful when a module accepts an allocation ID or
 // public IP as an input variable and needs to determine the other.
-func LookuplasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIpResult, error) {
+func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIpResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["id"] = args.Id
@@ -21,14 +21,12 @@ func LookuplasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIpR
 	if err != nil {
 		return nil, err
 	}
-	ret := GetElasticIpResult{}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+	return &GetElasticIpResult{
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["publicIp"]; ok {
-		ret.PublicIp = v
+		PublicIp: outputs["publicIp"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getElasticIp.

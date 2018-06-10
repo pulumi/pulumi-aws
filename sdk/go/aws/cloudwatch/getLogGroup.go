@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get information about an AWS Cloudwatch Log Group
-func LookupogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupResult, error) {
+func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,14 +17,12 @@ func LookupogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetLogGroupResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetLogGroupResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["creationTime"]; ok {
-		ret.CreationTime = v
+		CreationTime: outputs["creationTime"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getLogGroup.

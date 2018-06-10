@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get information about a Network Interface.
-func LookupetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (*GetNetworkInterfaceResult, error) {
+func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (*GetNetworkInterfaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -19,59 +19,42 @@ func LookupetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (
 	if err != nil {
 		return nil, err
 	}
-	ret := GetNetworkInterfaceResult{}
-	if v, ok := outputs["associations"]; ok {
-		ret.Associations = v
+	return &GetNetworkInterfaceResult{
+		Associations: outputs["associations"],
 	}
-	if v, ok := outputs["attachments"]; ok {
-		ret.Attachments = v
+		Attachments: outputs["attachments"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["interfaceType"]; ok {
-		ret.InterfaceType = v
+		InterfaceType: outputs["interfaceType"],
 	}
-	if v, ok := outputs["ipv6Addresses"]; ok {
-		ret.Ipv6Addresses = v
+		Ipv6Addresses: outputs["ipv6Addresses"],
 	}
-	if v, ok := outputs["macAddress"]; ok {
-		ret.MacAddress = v
+		MacAddress: outputs["macAddress"],
 	}
-	if v, ok := outputs["ownerId"]; ok {
-		ret.OwnerId = v
+		OwnerId: outputs["ownerId"],
 	}
-	if v, ok := outputs["privateDnsName"]; ok {
-		ret.PrivateDnsName = v
+		PrivateDnsName: outputs["privateDnsName"],
 	}
-	if v, ok := outputs["privateIp"]; ok {
-		ret.PrivateIp = v
+		PrivateIp: outputs["privateIp"],
 	}
-	if v, ok := outputs["privateIps"]; ok {
-		ret.PrivateIps = v
+		PrivateIps: outputs["privateIps"],
 	}
-	if v, ok := outputs["requesterId"]; ok {
-		ret.RequesterId = v
+		RequesterId: outputs["requesterId"],
 	}
-	if v, ok := outputs["securityGroups"]; ok {
-		ret.SecurityGroups = v
+		SecurityGroups: outputs["securityGroups"],
 	}
-	if v, ok := outputs["subnetId"]; ok {
-		ret.SubnetId = v
+		SubnetId: outputs["subnetId"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getNetworkInterface.

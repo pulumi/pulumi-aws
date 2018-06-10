@@ -9,7 +9,7 @@ import (
 
 // The Batch Job Queue data source allows access to details of a specific
 // job queue within AWS Batch.
-func LookupobQueue(ctx *pulumi.Context, args *GetJobQueueArgs) (*GetJobQueueResult, error) {
+func LookupJobQueue(ctx *pulumi.Context, args *GetJobQueueArgs) (*GetJobQueueResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,26 +18,20 @@ func LookupobQueue(ctx *pulumi.Context, args *GetJobQueueArgs) (*GetJobQueueResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetJobQueueResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetJobQueueResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["computeEnvironmentOrders"]; ok {
-		ret.ComputeEnvironmentOrders = v
+		ComputeEnvironmentOrders: outputs["computeEnvironmentOrders"],
 	}
-	if v, ok := outputs["priority"]; ok {
-		ret.Priority = v
+		Priority: outputs["priority"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["statusReason"]; ok {
-		ret.StatusReason = v
+		StatusReason: outputs["statusReason"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getJobQueue.

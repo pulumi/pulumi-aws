@@ -11,7 +11,7 @@ import (
 // 
 // This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
 // Distribution.
-func Lookupucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, error) {
+func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["bucket"] = args.Bucket
@@ -20,26 +20,20 @@ func Lookupucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetBucketResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetBucketResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["bucketDomainName"]; ok {
-		ret.BucketDomainName = v
+		BucketDomainName: outputs["bucketDomainName"],
 	}
-	if v, ok := outputs["hostedZoneId"]; ok {
-		ret.HostedZoneId = v
+		HostedZoneId: outputs["hostedZoneId"],
 	}
-	if v, ok := outputs["region"]; ok {
-		ret.Region = v
+		Region: outputs["region"],
 	}
-	if v, ok := outputs["websiteDomain"]; ok {
-		ret.WebsiteDomain = v
+		WebsiteDomain: outputs["websiteDomain"],
 	}
-	if v, ok := outputs["websiteEndpoint"]; ok {
-		ret.WebsiteEndpoint = v
+		WebsiteEndpoint: outputs["websiteEndpoint"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getBucket.

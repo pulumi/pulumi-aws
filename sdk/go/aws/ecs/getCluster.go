@@ -9,7 +9,7 @@ import (
 
 // The ECS Cluster data source allows access to details of a specific
 // cluster within an AWS ECS service.
-func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["clusterName"] = args.ClusterName
@@ -18,23 +18,18 @@ func Lookupluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetClusterResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetClusterResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["pendingTasksCount"]; ok {
-		ret.PendingTasksCount = v
+		PendingTasksCount: outputs["pendingTasksCount"],
 	}
-	if v, ok := outputs["registeredContainerInstancesCount"]; ok {
-		ret.RegisteredContainerInstancesCount = v
+		RegisteredContainerInstancesCount: outputs["registeredContainerInstancesCount"],
 	}
-	if v, ok := outputs["runningTasksCount"]; ok {
-		ret.RunningTasksCount = v
+		RunningTasksCount: outputs["runningTasksCount"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getCluster.

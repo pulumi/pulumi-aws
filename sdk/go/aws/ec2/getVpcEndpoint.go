@@ -9,7 +9,7 @@ import (
 
 // The VPC Endpoint data source provides details about
 // a specific VPC endpoint.
-func LookuppcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEndpointResult, error) {
+func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEndpointResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["id"] = args.Id
@@ -21,50 +21,36 @@ func LookuppcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEnd
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVpcEndpointResult{}
-	if v, ok := outputs["cidrBlocks"]; ok {
-		ret.CidrBlocks = v
+	return &GetVpcEndpointResult{
+		CidrBlocks: outputs["cidrBlocks"],
 	}
-	if v, ok := outputs["dnsEntries"]; ok {
-		ret.DnsEntries = v
+		DnsEntries: outputs["dnsEntries"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["networkInterfaceIds"]; ok {
-		ret.NetworkInterfaceIds = v
+		NetworkInterfaceIds: outputs["networkInterfaceIds"],
 	}
-	if v, ok := outputs["policy"]; ok {
-		ret.Policy = v
+		Policy: outputs["policy"],
 	}
-	if v, ok := outputs["prefixListId"]; ok {
-		ret.PrefixListId = v
+		PrefixListId: outputs["prefixListId"],
 	}
-	if v, ok := outputs["privateDnsEnabled"]; ok {
-		ret.PrivateDnsEnabled = v
+		PrivateDnsEnabled: outputs["privateDnsEnabled"],
 	}
-	if v, ok := outputs["routeTableIds"]; ok {
-		ret.RouteTableIds = v
+		RouteTableIds: outputs["routeTableIds"],
 	}
-	if v, ok := outputs["securityGroupIds"]; ok {
-		ret.SecurityGroupIds = v
+		SecurityGroupIds: outputs["securityGroupIds"],
 	}
-	if v, ok := outputs["serviceName"]; ok {
-		ret.ServiceName = v
+		ServiceName: outputs["serviceName"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["subnetIds"]; ok {
-		ret.SubnetIds = v
+		SubnetIds: outputs["subnetIds"],
 	}
-	if v, ok := outputs["vpcEndpointType"]; ok {
-		ret.VpcEndpointType = v
+		VpcEndpointType: outputs["vpcEndpointType"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVpcEndpoint.

@@ -8,7 +8,7 @@ import (
 )
 
 // `aws_internet_gateway` provides details about a specific Internet Gateway.
-func LookupnternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*GetInternetGatewayResult, error) {
+func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*GetInternetGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -19,17 +19,14 @@ func LookupnternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*G
 	if err != nil {
 		return nil, err
 	}
-	ret := GetInternetGatewayResult{}
-	if v, ok := outputs["attachments"]; ok {
-		ret.Attachments = v
+	return &GetInternetGatewayResult{
+		Attachments: outputs["attachments"],
 	}
-	if v, ok := outputs["internetGatewayId"]; ok {
-		ret.InternetGatewayId = v
+		InternetGatewayId: outputs["internetGatewayId"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getInternetGateway.

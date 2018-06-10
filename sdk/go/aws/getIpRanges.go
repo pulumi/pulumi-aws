@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get the [IP ranges][1] of various AWS products and services.
-func LookuppRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesResult, error) {
+func LookupIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["regions"] = args.Regions
@@ -18,17 +18,14 @@ func LookuppRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetIpRangesResult{}
-	if v, ok := outputs["cidrBlocks"]; ok {
-		ret.CidrBlocks = v
+	return &GetIpRangesResult{
+		CidrBlocks: outputs["cidrBlocks"],
 	}
-	if v, ok := outputs["createDate"]; ok {
-		ret.CreateDate = v
+		CreateDate: outputs["createDate"],
 	}
-	if v, ok := outputs["syncToken"]; ok {
-		ret.SyncToken = v
+		SyncToken: outputs["syncToken"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getIpRanges.

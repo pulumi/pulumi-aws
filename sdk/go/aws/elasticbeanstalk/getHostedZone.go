@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
-func LookupostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs) error {
+func LookupHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs) error {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["region"] = args.Region

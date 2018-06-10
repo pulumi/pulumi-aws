@@ -10,7 +10,7 @@ import (
 // `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
 // 
 // This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-func Lookupone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
+func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["callerReference"] = args.CallerReference
@@ -26,32 +26,24 @@ func Lookupone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetZoneResult{}
-	if v, ok := outputs["callerReference"]; ok {
-		ret.CallerReference = v
+	return &GetZoneResult{
+		CallerReference: outputs["callerReference"],
 	}
-	if v, ok := outputs["comment"]; ok {
-		ret.Comment = v
+		Comment: outputs["comment"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["nameServers"]; ok {
-		ret.NameServers = v
+		NameServers: outputs["nameServers"],
 	}
-	if v, ok := outputs["resourceRecordSetCount"]; ok {
-		ret.ResourceRecordSetCount = v
+		ResourceRecordSetCount: outputs["resourceRecordSetCount"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	if v, ok := outputs["zoneId"]; ok {
-		ret.ZoneId = v
+		ZoneId: outputs["zoneId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getZone.

@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
 // in a given region for the purpose of allowing CloudTrail to store trail data in S3.
-func LookuperviceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs) (*GetServiceAccountResult, error) {
+func LookupServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs) (*GetServiceAccountResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["region"] = args.Region
@@ -18,11 +18,10 @@ func LookuperviceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs) (*Get
 	if err != nil {
 		return nil, err
 	}
-	ret := GetServiceAccountResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetServiceAccountResult{
+		Arn: outputs["arn"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getServiceAccount.

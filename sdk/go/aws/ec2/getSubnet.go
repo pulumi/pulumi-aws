@@ -12,7 +12,7 @@ import (
 // This resource can prove useful when a module accepts a subnet id as
 // an input variable and needs to, for example, determine the id of the
 // VPC that the subnet belongs to.
-func Lookupubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, error) {
+func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["availabilityZone"] = args.AvailabilityZone
@@ -29,41 +29,30 @@ func Lookupubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSubnetResult{}
-	if v, ok := outputs["assignIpv6AddressOnCreation"]; ok {
-		ret.AssignIpv6AddressOnCreation = v
+	return &GetSubnetResult{
+		AssignIpv6AddressOnCreation: outputs["assignIpv6AddressOnCreation"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["cidrBlock"]; ok {
-		ret.CidrBlock = v
+		CidrBlock: outputs["cidrBlock"],
 	}
-	if v, ok := outputs["defaultForAz"]; ok {
-		ret.DefaultForAz = v
+		DefaultForAz: outputs["defaultForAz"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["ipv6CidrBlock"]; ok {
-		ret.Ipv6CidrBlock = v
+		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
 	}
-	if v, ok := outputs["ipv6CidrBlockAssociationId"]; ok {
-		ret.Ipv6CidrBlockAssociationId = v
+		Ipv6CidrBlockAssociationId: outputs["ipv6CidrBlockAssociationId"],
 	}
-	if v, ok := outputs["mapPublicIpOnLaunch"]; ok {
-		ret.MapPublicIpOnLaunch = v
+		MapPublicIpOnLaunch: outputs["mapPublicIpOnLaunch"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSubnet.

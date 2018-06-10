@@ -8,16 +8,15 @@ import (
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
-func Lookupndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
+func LookupEndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
 	outputs, err := ctx.Invoke("aws:iot/getEndpoint:getEndpoint", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetEndpointResult{}
-	if v, ok := outputs["endpointAddress"]; ok {
-		ret.EndpointAddress = v
+	return &GetEndpointResult{
+		EndpointAddress: outputs["endpointAddress"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getEndpoint.

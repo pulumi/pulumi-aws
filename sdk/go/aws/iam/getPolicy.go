@@ -9,7 +9,7 @@ import (
 
 // This data source can be used to fetch information about a specific
 // IAM policy.
-func Lookupolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, error) {
+func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["arn"] = args.Arn
@@ -18,20 +18,16 @@ func Lookupolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPolicyResult{}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+	return &GetPolicyResult{
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["path"]; ok {
-		ret.Path = v
+		Path: outputs["path"],
 	}
-	if v, ok := outputs["policy"]; ok {
-		ret.Policy = v
+		Policy: outputs["policy"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getPolicy.

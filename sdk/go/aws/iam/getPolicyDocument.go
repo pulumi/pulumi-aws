@@ -71,7 +71,7 @@ import (
 // Using this data source to generate policy documents is *optional*. It is also
 // valid to use literal JSON strings within your configuration, or to use the
 // `file` interpolation function to read a raw JSON policy document from a file.
-func LookupolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*GetPolicyDocumentResult, error) {
+func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*GetPolicyDocumentResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["overrideJson"] = args.OverrideJson
@@ -83,11 +83,10 @@ func LookupolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*Get
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPolicyDocumentResult{}
-	if v, ok := outputs["json"]; ok {
-		ret.Json = v
+	return &GetPolicyDocumentResult{
+		Json: outputs["json"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getPolicyDocument.

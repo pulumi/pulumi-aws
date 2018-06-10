@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to lookup information about IAM Server Certificates.
-func LookuperverCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs) (*GetServerCertificateResult, error) {
+func LookupServerCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs) (*GetServerCertificateResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["latest"] = args.Latest
@@ -20,29 +20,22 @@ func LookuperverCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetServerCertificateResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetServerCertificateResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["certificateBody"]; ok {
-		ret.CertificateBody = v
+		CertificateBody: outputs["certificateBody"],
 	}
-	if v, ok := outputs["certificateChain"]; ok {
-		ret.CertificateChain = v
+		CertificateChain: outputs["certificateChain"],
 	}
-	if v, ok := outputs["expirationDate"]; ok {
-		ret.ExpirationDate = v
+		ExpirationDate: outputs["expirationDate"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["path"]; ok {
-		ret.Path = v
+		Path: outputs["path"],
 	}
-	if v, ok := outputs["uploadDate"]; ok {
-		ret.UploadDate = v
+		UploadDate: outputs["uploadDate"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getServerCertificate.

@@ -10,7 +10,7 @@ import (
 // Use this data source to invoke custom lambda functions as data source.
 // The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
 // invocation type.
-func Lookupnvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocationResult, error) {
+func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["functionName"] = args.FunctionName
@@ -21,14 +21,12 @@ func Lookupnvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocati
 	if err != nil {
 		return nil, err
 	}
-	ret := GetInvocationResult{}
-	if v, ok := outputs["result"]; ok {
-		ret.Result = v
+	return &GetInvocationResult{
+		Result: outputs["result"],
 	}
-	if v, ok := outputs["resultMap"]; ok {
-		ret.ResultMap = v
+		ResultMap: outputs["resultMap"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getInvocation.

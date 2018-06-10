@@ -9,7 +9,7 @@ import (
 
 // The Autoscaling Groups data source allows access to the list of AWS
 // ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-func LookuputoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs) (*GetAutoscalingGroupsResult, error) {
+func LookupAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs) (*GetAutoscalingGroupsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -18,11 +18,10 @@ func LookuputoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAutoscalingGroupsResult{}
-	if v, ok := outputs["names"]; ok {
-		ret.Names = v
+	return &GetAutoscalingGroupsResult{
+		Names: outputs["names"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAutoscalingGroups.

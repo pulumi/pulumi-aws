@@ -19,7 +19,7 @@ import (
 // ~> **Note:** It's strongly discouraged to use this data source for querying ephemeral
 // instances (e.g. managed via autoscaling group), as the output may change at any time
 // and you'd need to re-run `apply` every time an instance comes up or dies.
-func Lookupnstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstancesResult, error) {
+func LookupInstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstancesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -29,20 +29,16 @@ func Lookupnstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstancesR
 	if err != nil {
 		return nil, err
 	}
-	ret := GetInstancesResult{}
-	if v, ok := outputs["ids"]; ok {
-		ret.Ids = v
+	return &GetInstancesResult{
+		Ids: outputs["ids"],
 	}
-	if v, ok := outputs["instanceTags"]; ok {
-		ret.InstanceTags = v
+		InstanceTags: outputs["instanceTags"],
 	}
-	if v, ok := outputs["privateIps"]; ok {
-		ret.PrivateIps = v
+		PrivateIps: outputs["privateIps"],
 	}
-	if v, ok := outputs["publicIps"]; ok {
-		ret.PublicIps = v
+		PublicIps: outputs["publicIps"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getInstances.

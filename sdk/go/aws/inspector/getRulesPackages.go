@@ -10,16 +10,15 @@ import (
 // The AWS Inspector Rules Packages data source allows access to the list of AWS
 // Inspector Rules Packages which can be used by AWS Inspector within the region
 // configured in the provider.
-func LookupulesPackages(ctx *pulumi.Context) (*GetRulesPackagesResult, error) {
+func LookupRulesPackages(ctx *pulumi.Context) (*GetRulesPackagesResult, error) {
 	outputs, err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRulesPackagesResult{}
-	if v, ok := outputs["arns"]; ok {
-		ret.Arns = v
+	return &GetRulesPackagesResult{
+		Arns: outputs["arns"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getRulesPackages.

@@ -9,16 +9,15 @@ import (
 
 // The IAM Account Alias data source allows access to the account alias
 // for the effective account in which Terraform is working.
-func LookupccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
+func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 	outputs, err := ctx.Invoke("aws:iam/getAccountAlias:getAccountAlias", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAccountAliasResult{}
-	if v, ok := outputs["accountAlias"]; ok {
-		ret.AccountAlias = v
+	return &GetAccountAliasResult{
+		AccountAlias: outputs["accountAlias"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getAccountAlias.

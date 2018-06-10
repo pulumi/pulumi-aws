@@ -9,7 +9,7 @@ import (
 
 // The Batch Compute Environment data source allows access to details of a specific
 // compute environment within AWS Batch.
-func LookupomputeEnvironment(ctx *pulumi.Context, args *GetComputeEnvironmentArgs) (*GetComputeEnvironmentResult, error) {
+func LookupComputeEnvironment(ctx *pulumi.Context, args *GetComputeEnvironmentArgs) (*GetComputeEnvironmentResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["computeEnvironmentName"] = args.ComputeEnvironmentName
@@ -18,29 +18,22 @@ func LookupomputeEnvironment(ctx *pulumi.Context, args *GetComputeEnvironmentArg
 	if err != nil {
 		return nil, err
 	}
-	ret := GetComputeEnvironmentResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetComputeEnvironmentResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["ecsClusterArn"]; ok {
-		ret.EcsClusterArn = v
+		EcsClusterArn: outputs["ecsClusterArn"],
 	}
-	if v, ok := outputs["serviceRole"]; ok {
-		ret.ServiceRole = v
+		ServiceRole: outputs["serviceRole"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["status"]; ok {
-		ret.Status = v
+		Status: outputs["status"],
 	}
-	if v, ok := outputs["statusReason"]; ok {
-		ret.StatusReason = v
+		StatusReason: outputs["statusReason"],
 	}
-	if v, ok := outputs["type"]; ok {
-		ret.Type = v
+		Type: outputs["type"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getComputeEnvironment.

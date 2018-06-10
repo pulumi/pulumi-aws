@@ -8,7 +8,7 @@ import (
 )
 
 // Provides details about a specific Nat Gateway.
-func LookupatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGatewayResult, error) {
+func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
@@ -22,35 +22,26 @@ func LookupatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGatew
 	if err != nil {
 		return nil, err
 	}
-	ret := GetNatGatewayResult{}
-	if v, ok := outputs["allocationId"]; ok {
-		ret.AllocationId = v
+	return &GetNatGatewayResult{
+		AllocationId: outputs["allocationId"],
 	}
-	if v, ok := outputs["id"]; ok {
-		ret.Id = v
+		Id: outputs["id"],
 	}
-	if v, ok := outputs["networkInterfaceId"]; ok {
-		ret.NetworkInterfaceId = v
+		NetworkInterfaceId: outputs["networkInterfaceId"],
 	}
-	if v, ok := outputs["privateIp"]; ok {
-		ret.PrivateIp = v
+		PrivateIp: outputs["privateIp"],
 	}
-	if v, ok := outputs["publicIp"]; ok {
-		ret.PublicIp = v
+		PublicIp: outputs["publicIp"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["subnetId"]; ok {
-		ret.SubnetId = v
+		SubnetId: outputs["subnetId"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["vpcId"]; ok {
-		ret.VpcId = v
+		VpcId: outputs["vpcId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getNatGateway.

@@ -10,7 +10,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM instance profile. By using this data source, you can reference IAM
 // instance profile properties without having to hard code ARNs as input.
-func LookupnstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*GetInstanceProfileResult, error) {
+func LookupInstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*GetInstanceProfileResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,26 +19,20 @@ func LookupnstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*G
 	if err != nil {
 		return nil, err
 	}
-	ret := GetInstanceProfileResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetInstanceProfileResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["createDate"]; ok {
-		ret.CreateDate = v
+		CreateDate: outputs["createDate"],
 	}
-	if v, ok := outputs["path"]; ok {
-		ret.Path = v
+		Path: outputs["path"],
 	}
-	if v, ok := outputs["roleArn"]; ok {
-		ret.RoleArn = v
+		RoleArn: outputs["roleArn"],
 	}
-	if v, ok := outputs["roleId"]; ok {
-		ret.RoleId = v
+		RoleId: outputs["roleId"],
 	}
-	if v, ok := outputs["roleName"]; ok {
-		ret.RoleName = v
+		RoleName: outputs["roleName"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getInstanceProfile.

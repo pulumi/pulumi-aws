@@ -11,7 +11,7 @@ import (
 // API Gateway. To fetch the REST API you must provide a name to match against. 
 // As there is no unique name constraint on REST APIs this data source will 
 // error if there is more than one match.
-func LookupestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult, error) {
+func LookupRestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -20,11 +20,10 @@ func LookupestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRestApiResult{}
-	if v, ok := outputs["rootResourceId"]; ok {
-		ret.RootResourceId = v
+	return &GetRestApiResult{
+		RootResourceId: outputs["rootResourceId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRestApi.

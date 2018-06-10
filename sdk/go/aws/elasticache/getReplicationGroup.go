@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get information about an Elasticache Replication Group.
-func LookupeplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) (*GetReplicationGroupResult, error) {
+func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) (*GetReplicationGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["replicationGroupId"] = args.ReplicationGroupId
@@ -17,38 +17,28 @@ func LookupeplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) (
 	if err != nil {
 		return nil, err
 	}
-	ret := GetReplicationGroupResult{}
-	if v, ok := outputs["authTokenEnabled"]; ok {
-		ret.AuthTokenEnabled = v
+	return &GetReplicationGroupResult{
+		AuthTokenEnabled: outputs["authTokenEnabled"],
 	}
-	if v, ok := outputs["automaticFailoverEnabled"]; ok {
-		ret.AutomaticFailoverEnabled = v
+		AutomaticFailoverEnabled: outputs["automaticFailoverEnabled"],
 	}
-	if v, ok := outputs["configurationEndpointAddress"]; ok {
-		ret.ConfigurationEndpointAddress = v
+		ConfigurationEndpointAddress: outputs["configurationEndpointAddress"],
 	}
-	if v, ok := outputs["nodeType"]; ok {
-		ret.NodeType = v
+		NodeType: outputs["nodeType"],
 	}
-	if v, ok := outputs["numberCacheClusters"]; ok {
-		ret.NumberCacheClusters = v
+		NumberCacheClusters: outputs["numberCacheClusters"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["primaryEndpointAddress"]; ok {
-		ret.PrimaryEndpointAddress = v
+		PrimaryEndpointAddress: outputs["primaryEndpointAddress"],
 	}
-	if v, ok := outputs["replicationGroupDescription"]; ok {
-		ret.ReplicationGroupDescription = v
+		ReplicationGroupDescription: outputs["replicationGroupDescription"],
 	}
-	if v, ok := outputs["snapshotRetentionLimit"]; ok {
-		ret.SnapshotRetentionLimit = v
+		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
 	}
-	if v, ok := outputs["snapshotWindow"]; ok {
-		ret.SnapshotWindow = v
+		SnapshotWindow: outputs["snapshotWindow"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getReplicationGroup.

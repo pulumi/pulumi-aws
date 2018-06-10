@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get information about an RDS instance
-func Lookupnstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResult, error) {
+func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["dbInstanceIdentifier"] = args.DbInstanceIdentifier
@@ -17,113 +17,78 @@ func Lookupnstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetInstanceResult{}
-	if v, ok := outputs["address"]; ok {
-		ret.Address = v
+	return &GetInstanceResult{
+		Address: outputs["address"],
 	}
-	if v, ok := outputs["allocatedStorage"]; ok {
-		ret.AllocatedStorage = v
+		AllocatedStorage: outputs["allocatedStorage"],
 	}
-	if v, ok := outputs["autoMinorVersionUpgrade"]; ok {
-		ret.AutoMinorVersionUpgrade = v
+		AutoMinorVersionUpgrade: outputs["autoMinorVersionUpgrade"],
 	}
-	if v, ok := outputs["availabilityZone"]; ok {
-		ret.AvailabilityZone = v
+		AvailabilityZone: outputs["availabilityZone"],
 	}
-	if v, ok := outputs["backupRetentionPeriod"]; ok {
-		ret.BackupRetentionPeriod = v
+		BackupRetentionPeriod: outputs["backupRetentionPeriod"],
 	}
-	if v, ok := outputs["caCertIdentifier"]; ok {
-		ret.CaCertIdentifier = v
+		CaCertIdentifier: outputs["caCertIdentifier"],
 	}
-	if v, ok := outputs["dbClusterIdentifier"]; ok {
-		ret.DbClusterIdentifier = v
+		DbClusterIdentifier: outputs["dbClusterIdentifier"],
 	}
-	if v, ok := outputs["dbInstanceArn"]; ok {
-		ret.DbInstanceArn = v
+		DbInstanceArn: outputs["dbInstanceArn"],
 	}
-	if v, ok := outputs["dbInstanceClass"]; ok {
-		ret.DbInstanceClass = v
+		DbInstanceClass: outputs["dbInstanceClass"],
 	}
-	if v, ok := outputs["dbInstancePort"]; ok {
-		ret.DbInstancePort = v
+		DbInstancePort: outputs["dbInstancePort"],
 	}
-	if v, ok := outputs["dbName"]; ok {
-		ret.DbName = v
+		DbName: outputs["dbName"],
 	}
-	if v, ok := outputs["dbParameterGroups"]; ok {
-		ret.DbParameterGroups = v
+		DbParameterGroups: outputs["dbParameterGroups"],
 	}
-	if v, ok := outputs["dbSecurityGroups"]; ok {
-		ret.DbSecurityGroups = v
+		DbSecurityGroups: outputs["dbSecurityGroups"],
 	}
-	if v, ok := outputs["dbSubnetGroup"]; ok {
-		ret.DbSubnetGroup = v
+		DbSubnetGroup: outputs["dbSubnetGroup"],
 	}
-	if v, ok := outputs["endpoint"]; ok {
-		ret.Endpoint = v
+		Endpoint: outputs["endpoint"],
 	}
-	if v, ok := outputs["engine"]; ok {
-		ret.Engine = v
+		Engine: outputs["engine"],
 	}
-	if v, ok := outputs["engineVersion"]; ok {
-		ret.EngineVersion = v
+		EngineVersion: outputs["engineVersion"],
 	}
-	if v, ok := outputs["hostedZoneId"]; ok {
-		ret.HostedZoneId = v
+		HostedZoneId: outputs["hostedZoneId"],
 	}
-	if v, ok := outputs["iops"]; ok {
-		ret.Iops = v
+		Iops: outputs["iops"],
 	}
-	if v, ok := outputs["kmsKeyId"]; ok {
-		ret.KmsKeyId = v
+		KmsKeyId: outputs["kmsKeyId"],
 	}
-	if v, ok := outputs["licenseModel"]; ok {
-		ret.LicenseModel = v
+		LicenseModel: outputs["licenseModel"],
 	}
-	if v, ok := outputs["masterUsername"]; ok {
-		ret.MasterUsername = v
+		MasterUsername: outputs["masterUsername"],
 	}
-	if v, ok := outputs["monitoringInterval"]; ok {
-		ret.MonitoringInterval = v
+		MonitoringInterval: outputs["monitoringInterval"],
 	}
-	if v, ok := outputs["monitoringRoleArn"]; ok {
-		ret.MonitoringRoleArn = v
+		MonitoringRoleArn: outputs["monitoringRoleArn"],
 	}
-	if v, ok := outputs["multiAz"]; ok {
-		ret.MultiAz = v
+		MultiAz: outputs["multiAz"],
 	}
-	if v, ok := outputs["optionGroupMemberships"]; ok {
-		ret.OptionGroupMemberships = v
+		OptionGroupMemberships: outputs["optionGroupMemberships"],
 	}
-	if v, ok := outputs["port"]; ok {
-		ret.Port = v
+		Port: outputs["port"],
 	}
-	if v, ok := outputs["preferredBackupWindow"]; ok {
-		ret.PreferredBackupWindow = v
+		PreferredBackupWindow: outputs["preferredBackupWindow"],
 	}
-	if v, ok := outputs["preferredMaintenanceWindow"]; ok {
-		ret.PreferredMaintenanceWindow = v
+		PreferredMaintenanceWindow: outputs["preferredMaintenanceWindow"],
 	}
-	if v, ok := outputs["publiclyAccessible"]; ok {
-		ret.PubliclyAccessible = v
+		PubliclyAccessible: outputs["publiclyAccessible"],
 	}
-	if v, ok := outputs["replicateSourceDb"]; ok {
-		ret.ReplicateSourceDb = v
+		ReplicateSourceDb: outputs["replicateSourceDb"],
 	}
-	if v, ok := outputs["storageEncrypted"]; ok {
-		ret.StorageEncrypted = v
+		StorageEncrypted: outputs["storageEncrypted"],
 	}
-	if v, ok := outputs["storageType"]; ok {
-		ret.StorageType = v
+		StorageType: outputs["storageType"],
 	}
-	if v, ok := outputs["timezone"]; ok {
-		ret.Timezone = v
+		Timezone: outputs["timezone"],
 	}
-	if v, ok := outputs["vpcSecurityGroups"]; ok {
-		ret.VpcSecurityGroups = v
+		VpcSecurityGroups: outputs["vpcSecurityGroups"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getInstance.

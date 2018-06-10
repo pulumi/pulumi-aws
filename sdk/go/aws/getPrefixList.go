@@ -14,7 +14,7 @@ import (
 // and to obtain the CIDR blocks (IP address ranges) for the associated
 // AWS service. The latter may be useful e.g. for adding network ACL
 // rules.
-func LookuprefixList(ctx *pulumi.Context, args *GetPrefixListArgs) (*GetPrefixListResult, error) {
+func LookupPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs) (*GetPrefixListResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -24,14 +24,12 @@ func LookuprefixList(ctx *pulumi.Context, args *GetPrefixListArgs) (*GetPrefixLi
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPrefixListResult{}
-	if v, ok := outputs["cidrBlocks"]; ok {
-		ret.CidrBlocks = v
+	return &GetPrefixListResult{
+		CidrBlocks: outputs["cidrBlocks"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getPrefixList.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
-func LookupmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, error) {
+func LookupAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["executableUsers"] = args.ExecutableUsers
@@ -20,11 +20,10 @@ func LookupmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAmiIdsResult{}
-	if v, ok := outputs["ids"]; ok {
-		ret.Ids = v
+	return &GetAmiIdsResult{
+		Ids: outputs["ids"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAmiIds.

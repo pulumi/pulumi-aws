@@ -10,7 +10,7 @@ import (
 // `aws_subnet_ids` provides a list of ids for a vpc_id
 // 
 // This resource can be useful for getting back a list of subnet ids for a vpc.
-func LookupubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsResult, error) {
+func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["tags"] = args.Tags
@@ -20,14 +20,12 @@ func LookupubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsR
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSubnetIdsResult{}
-	if v, ok := outputs["ids"]; ok {
-		ret.Ids = v
+	return &GetSubnetIdsResult{
+		Ids: outputs["ids"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSubnetIds.

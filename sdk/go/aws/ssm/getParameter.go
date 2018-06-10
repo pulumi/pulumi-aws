@@ -8,7 +8,7 @@ import (
 )
 
 // Provides an SSM Parameter data source.
-func Lookuparameter(ctx *pulumi.Context, args *GetParameterArgs) (*GetParameterResult, error) {
+func LookupParameter(ctx *pulumi.Context, args *GetParameterArgs) (*GetParameterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,17 +18,14 @@ func Lookuparameter(ctx *pulumi.Context, args *GetParameterArgs) (*GetParameterR
 	if err != nil {
 		return nil, err
 	}
-	ret := GetParameterResult{}
-	if v, ok := outputs["arn"]; ok {
-		ret.Arn = v
+	return &GetParameterResult{
+		Arn: outputs["arn"],
 	}
-	if v, ok := outputs["type"]; ok {
-		ret.Type = v
+		Type: outputs["type"],
 	}
-	if v, ok := outputs["value"]; ok {
-		ret.Value = v
+		Value: outputs["value"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getParameter.
