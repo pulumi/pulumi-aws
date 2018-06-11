@@ -10,61 +10,43 @@ class GetNatGatewayResult(object):
     A collection of values returned by getNatGateway.
     """
     def __init__(__self__, allocation_id=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, state=None, subnet_id=None, tags=None, vpc_id=None):
-        if not allocation_id:
-            raise TypeError('Missing required argument allocation_id')
-        elif not isinstance(allocation_id, basestring):
+        if allocation_id and not isinstance(allocation_id, basestring):
             raise TypeError('Expected argument allocation_id to be a basestring')
         __self__.allocation_id = allocation_id
         """
         The Id of the EIP allocated to the selected Nat Gateway.
         """
-        if not id:
-            raise TypeError('Missing required argument id')
-        elif not isinstance(id, basestring):
+        if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
         __self__.id = id
-        if not network_interface_id:
-            raise TypeError('Missing required argument network_interface_id')
-        elif not isinstance(network_interface_id, basestring):
+        if network_interface_id and not isinstance(network_interface_id, basestring):
             raise TypeError('Expected argument network_interface_id to be a basestring')
         __self__.network_interface_id = network_interface_id
         """
         The Id of the ENI allocated to the selected Nat Gateway.
         """
-        if not private_ip:
-            raise TypeError('Missing required argument private_ip')
-        elif not isinstance(private_ip, basestring):
+        if private_ip and not isinstance(private_ip, basestring):
             raise TypeError('Expected argument private_ip to be a basestring')
         __self__.private_ip = private_ip
         """
         The private Ip address of the selected Nat Gateway.
         """
-        if not public_ip:
-            raise TypeError('Missing required argument public_ip')
-        elif not isinstance(public_ip, basestring):
+        if public_ip and not isinstance(public_ip, basestring):
             raise TypeError('Expected argument public_ip to be a basestring')
         __self__.public_ip = public_ip
         """
         The public Ip (EIP) address of the selected Nat Gateway.
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
-        if not subnet_id:
-            raise TypeError('Missing required argument subnet_id')
-        elif not isinstance(subnet_id, basestring):
+        if subnet_id and not isinstance(subnet_id, basestring):
             raise TypeError('Expected argument subnet_id to be a basestring')
         __self__.subnet_id = subnet_id
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not vpc_id:
-            raise TypeError('Missing required argument vpc_id')
-        elif not isinstance(vpc_id, basestring):
+        if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
 
@@ -83,12 +65,12 @@ def get_nat_gateway(filters=None, id=None, state=None, subnet_id=None, tags=None
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__)
 
     return GetNatGatewayResult(
-        allocation_id=__ret__['allocationId'],
-        id=__ret__['id'],
-        network_interface_id=__ret__['networkInterfaceId'],
-        private_ip=__ret__['privateIp'],
-        public_ip=__ret__['publicIp'],
-        state=__ret__['state'],
-        subnet_id=__ret__['subnetId'],
-        tags=__ret__['tags'],
-        vpc_id=__ret__['vpcId'])
+        allocation_id=__ret__.get('allocationId'),
+        id=__ret__.get('id'),
+        network_interface_id=__ret__.get('networkInterfaceId'),
+        private_ip=__ret__.get('privateIp'),
+        public_ip=__ret__.get('publicIp'),
+        state=__ret__.get('state'),
+        subnet_id=__ret__.get('subnetId'),
+        tags=__ret__.get('tags'),
+        vpc_id=__ret__.get('vpcId'))

@@ -10,9 +10,7 @@ class GetAutoscalingGroupsResult(object):
     A collection of values returned by getAutoscalingGroups.
     """
     def __init__(__self__, names=None):
-        if not names:
-            raise TypeError('Missing required argument names')
-        elif not isinstance(names, list):
+        if names and not isinstance(names, list):
             raise TypeError('Expected argument names to be a list')
         __self__.names = names
         """
@@ -30,4 +28,4 @@ def get_autoscaling_groups(filters=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__)
 
     return GetAutoscalingGroupsResult(
-        names=__ret__['names'])
+        names=__ret__.get('names'))

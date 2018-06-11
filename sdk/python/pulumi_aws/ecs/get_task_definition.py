@@ -10,41 +10,31 @@ class GetTaskDefinitionResult(object):
     A collection of values returned by getTaskDefinition.
     """
     def __init__(__self__, family=None, network_mode=None, revision=None, status=None, task_role_arn=None):
-        if not family:
-            raise TypeError('Missing required argument family')
-        elif not isinstance(family, basestring):
+        if family and not isinstance(family, basestring):
             raise TypeError('Expected argument family to be a basestring')
         __self__.family = family
         """
         The family of this task definition
         """
-        if not network_mode:
-            raise TypeError('Missing required argument network_mode')
-        elif not isinstance(network_mode, basestring):
+        if network_mode and not isinstance(network_mode, basestring):
             raise TypeError('Expected argument network_mode to be a basestring')
         __self__.network_mode = network_mode
         """
         The Docker networking mode to use for the containers in this task.
         """
-        if not revision:
-            raise TypeError('Missing required argument revision')
-        elif not isinstance(revision, int):
+        if revision and not isinstance(revision, int):
             raise TypeError('Expected argument revision to be a int')
         __self__.revision = revision
         """
         The revision of this task definition
         """
-        if not status:
-            raise TypeError('Missing required argument status')
-        elif not isinstance(status, basestring):
+        if status and not isinstance(status, basestring):
             raise TypeError('Expected argument status to be a basestring')
         __self__.status = status
         """
         The status of this task definition
         """
-        if not task_role_arn:
-            raise TypeError('Missing required argument task_role_arn')
-        elif not isinstance(task_role_arn, basestring):
+        if task_role_arn and not isinstance(task_role_arn, basestring):
             raise TypeError('Expected argument task_role_arn to be a basestring')
         __self__.task_role_arn = task_role_arn
         """
@@ -63,8 +53,8 @@ def get_task_definition(task_definition=None):
     __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__)
 
     return GetTaskDefinitionResult(
-        family=__ret__['family'],
-        network_mode=__ret__['networkMode'],
-        revision=__ret__['revision'],
-        status=__ret__['status'],
-        task_role_arn=__ret__['taskRoleArn'])
+        family=__ret__.get('family'),
+        network_mode=__ret__.get('networkMode'),
+        revision=__ret__.get('revision'),
+        status=__ret__.get('status'),
+        task_role_arn=__ret__.get('taskRoleArn'))

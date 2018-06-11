@@ -10,25 +10,19 @@ class GetAliasResult(object):
     A collection of values returned by getAlias.
     """
     def __init__(__self__, arn=None, target_key_arn=None, target_key_id=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name(ARN) of the key alias.
         """
-        if not target_key_arn:
-            raise TypeError('Missing required argument target_key_arn')
-        elif not isinstance(target_key_arn, basestring):
+        if target_key_arn and not isinstance(target_key_arn, basestring):
             raise TypeError('Expected argument target_key_arn to be a basestring')
         __self__.target_key_arn = target_key_arn
         """
         ARN pointed to by the alias.
         """
-        if not target_key_id:
-            raise TypeError('Missing required argument target_key_id')
-        elif not isinstance(target_key_id, basestring):
+        if target_key_id and not isinstance(target_key_id, basestring):
             raise TypeError('Expected argument target_key_id to be a basestring')
         __self__.target_key_id = target_key_id
         """
@@ -47,6 +41,6 @@ def get_alias(name=None):
     __ret__ = pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__)
 
     return GetAliasResult(
-        arn=__ret__['arn'],
-        target_key_arn=__ret__['targetKeyArn'],
-        target_key_id=__ret__['targetKeyId'])
+        arn=__ret__.get('arn'),
+        target_key_arn=__ret__.get('targetKeyArn'),
+        target_key_id=__ret__.get('targetKeyId'))

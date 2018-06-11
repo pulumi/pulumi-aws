@@ -10,30 +10,22 @@ class GetInstancesResult(object):
     A collection of values returned by getInstances.
     """
     def __init__(__self__, ids=None, instance_tags=None, private_ips=None, public_ips=None):
-        if not ids:
-            raise TypeError('Missing required argument ids')
-        elif not isinstance(ids, list):
+        if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
         """
         IDs of instances found through the filter
         """
-        if not instance_tags:
-            raise TypeError('Missing required argument instance_tags')
-        elif not isinstance(instance_tags, dict):
+        if instance_tags and not isinstance(instance_tags, dict):
             raise TypeError('Expected argument instance_tags to be a dict')
         __self__.instance_tags = instance_tags
-        if not private_ips:
-            raise TypeError('Missing required argument private_ips')
-        elif not isinstance(private_ips, list):
+        if private_ips and not isinstance(private_ips, list):
             raise TypeError('Expected argument private_ips to be a list')
         __self__.private_ips = private_ips
         """
         Private IP addresses of instances found through the filter
         """
-        if not public_ips:
-            raise TypeError('Missing required argument public_ips')
-        elif not isinstance(public_ips, list):
+        if public_ips and not isinstance(public_ips, list):
             raise TypeError('Expected argument public_ips to be a list')
         __self__.public_ips = public_ips
         """
@@ -62,7 +54,7 @@ def get_instances(filters=None, instance_tags=None):
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__)
 
     return GetInstancesResult(
-        ids=__ret__['ids'],
-        instance_tags=__ret__['instanceTags'],
-        private_ips=__ret__['privateIps'],
-        public_ips=__ret__['publicIps'])
+        ids=__ret__.get('ids'),
+        instance_tags=__ret__.get('instanceTags'),
+        private_ips=__ret__.get('privateIps'),
+        public_ips=__ret__.get('publicIps'))

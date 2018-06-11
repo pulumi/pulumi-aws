@@ -10,50 +10,38 @@ class GetInstanceProfileResult(object):
     A collection of values returned by getInstanceProfile.
     """
     def __init__(__self__, arn=None, create_date=None, path=None, role_arn=None, role_id=None, role_name=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) specifying the instance profile.
         """
-        if not create_date:
-            raise TypeError('Missing required argument create_date')
-        elif not isinstance(create_date, basestring):
+        if create_date and not isinstance(create_date, basestring):
             raise TypeError('Expected argument create_date to be a basestring')
         __self__.create_date = create_date
         """
         The string representation of the date the instance profile
         was created.
         """
-        if not path:
-            raise TypeError('Missing required argument path')
-        elif not isinstance(path, basestring):
+        if path and not isinstance(path, basestring):
             raise TypeError('Expected argument path to be a basestring')
         __self__.path = path
         """
         The path to the instance profile.
         """
-        if not role_arn:
-            raise TypeError('Missing required argument role_arn')
-        elif not isinstance(role_arn, basestring):
+        if role_arn and not isinstance(role_arn, basestring):
             raise TypeError('Expected argument role_arn to be a basestring')
         __self__.role_arn = role_arn
         """
         The role arn associated with this instance profile.
         """
-        if not role_id:
-            raise TypeError('Missing required argument role_id')
-        elif not isinstance(role_id, basestring):
+        if role_id and not isinstance(role_id, basestring):
             raise TypeError('Expected argument role_id to be a basestring')
         __self__.role_id = role_id
         """
         The role id associated with this instance profile.
         """
-        if not role_name:
-            raise TypeError('Missing required argument role_name')
-        elif not isinstance(role_name, basestring):
+        if role_name and not isinstance(role_name, basestring):
             raise TypeError('Expected argument role_name to be a basestring')
         __self__.role_name = role_name
         """
@@ -72,9 +60,9 @@ def get_instance_profile(name=None):
     __ret__ = pulumi.runtime.invoke('aws:iam/getInstanceProfile:getInstanceProfile', __args__)
 
     return GetInstanceProfileResult(
-        arn=__ret__['arn'],
-        create_date=__ret__['createDate'],
-        path=__ret__['path'],
-        role_arn=__ret__['roleArn'],
-        role_id=__ret__['roleId'],
-        role_name=__ret__['roleName'])
+        arn=__ret__.get('arn'),
+        create_date=__ret__.get('createDate'),
+        path=__ret__.get('path'),
+        role_arn=__ret__.get('roleArn'),
+        role_id=__ret__.get('roleId'),
+        role_name=__ret__.get('roleName'))

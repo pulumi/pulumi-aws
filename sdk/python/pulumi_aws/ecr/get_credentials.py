@@ -10,19 +10,13 @@ class GetCredentialsResult(object):
     A collection of values returned by getCredentials.
     """
     def __init__(__self__, authorization_token=None, expires_at=None, proxy_endpoint=None):
-        if not authorization_token:
-            raise TypeError('Missing required argument authorization_token')
-        elif not isinstance(authorization_token, basestring):
+        if authorization_token and not isinstance(authorization_token, basestring):
             raise TypeError('Expected argument authorization_token to be a basestring')
         __self__.authorization_token = authorization_token
-        if not expires_at:
-            raise TypeError('Missing required argument expires_at')
-        elif not isinstance(expires_at, basestring):
+        if expires_at and not isinstance(expires_at, basestring):
             raise TypeError('Expected argument expires_at to be a basestring')
         __self__.expires_at = expires_at
-        if not proxy_endpoint:
-            raise TypeError('Missing required argument proxy_endpoint')
-        elif not isinstance(proxy_endpoint, basestring):
+        if proxy_endpoint and not isinstance(proxy_endpoint, basestring):
             raise TypeError('Expected argument proxy_endpoint to be a basestring')
         __self__.proxy_endpoint = proxy_endpoint
 
@@ -33,6 +27,6 @@ def get_credentials(registry_id=None):
     __ret__ = pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__)
 
     return GetCredentialsResult(
-        authorization_token=__ret__['authorizationToken'],
-        expires_at=__ret__['expiresAt'],
-        proxy_endpoint=__ret__['proxyEndpoint'])
+        authorization_token=__ret__.get('authorizationToken'),
+        expires_at=__ret__.get('expiresAt'),
+        proxy_endpoint=__ret__.get('proxyEndpoint'))

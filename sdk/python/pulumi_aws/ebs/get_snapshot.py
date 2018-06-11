@@ -10,89 +10,67 @@ class GetSnapshotResult(object):
     A collection of values returned by getSnapshot.
     """
     def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, snapshot_id=None, state=None, tags=None, volume_id=None, volume_size=None):
-        if not data_encryption_key_id:
-            raise TypeError('Missing required argument data_encryption_key_id')
-        elif not isinstance(data_encryption_key_id, basestring):
+        if data_encryption_key_id and not isinstance(data_encryption_key_id, basestring):
             raise TypeError('Expected argument data_encryption_key_id to be a basestring')
         __self__.data_encryption_key_id = data_encryption_key_id
         """
         The data encryption key identifier for the snapshot.
         """
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         A description for the snapshot
         """
-        if not encrypted:
-            raise TypeError('Missing required argument encrypted')
-        elif not isinstance(encrypted, bool):
+        if encrypted and not isinstance(encrypted, bool):
             raise TypeError('Expected argument encrypted to be a bool')
         __self__.encrypted = encrypted
         """
         Whether the snapshot is encrypted.
         """
-        if not kms_key_id:
-            raise TypeError('Missing required argument kms_key_id')
-        elif not isinstance(kms_key_id, basestring):
+        if kms_key_id and not isinstance(kms_key_id, basestring):
             raise TypeError('Expected argument kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
         """
         The ARN for the KMS encryption key.
         """
-        if not owner_alias:
-            raise TypeError('Missing required argument owner_alias')
-        elif not isinstance(owner_alias, basestring):
+        if owner_alias and not isinstance(owner_alias, basestring):
             raise TypeError('Expected argument owner_alias to be a basestring')
         __self__.owner_alias = owner_alias
         """
         Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         """
-        if not owner_id:
-            raise TypeError('Missing required argument owner_id')
-        elif not isinstance(owner_id, basestring):
+        if owner_id and not isinstance(owner_id, basestring):
             raise TypeError('Expected argument owner_id to be a basestring')
         __self__.owner_id = owner_id
         """
         The AWS account ID of the EBS snapshot owner.
         """
-        if not snapshot_id:
-            raise TypeError('Missing required argument snapshot_id')
-        elif not isinstance(snapshot_id, basestring):
+        if snapshot_id and not isinstance(snapshot_id, basestring):
             raise TypeError('Expected argument snapshot_id to be a basestring')
         __self__.snapshot_id = snapshot_id
         """
         The snapshot ID (e.g. snap-59fcb34e).
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
         The snapshot state.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
         A mapping of tags for the resource.
         """
-        if not volume_id:
-            raise TypeError('Missing required argument volume_id')
-        elif not isinstance(volume_id, basestring):
+        if volume_id and not isinstance(volume_id, basestring):
             raise TypeError('Expected argument volume_id to be a basestring')
         __self__.volume_id = volume_id
         """
         The volume ID (e.g. vol-59fcb34e).
         """
-        if not volume_size:
-            raise TypeError('Missing required argument volume_size')
-        elif not isinstance(volume_size, int):
+        if volume_size and not isinstance(volume_size, int):
             raise TypeError('Expected argument volume_size to be a int')
         __self__.volume_size = volume_size
         """
@@ -114,14 +92,14 @@ def get_snapshot(filters=None, most_recent=None, owners=None, restorable_by_user
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshot:getSnapshot', __args__)
 
     return GetSnapshotResult(
-        data_encryption_key_id=__ret__['dataEncryptionKeyId'],
-        description=__ret__['description'],
-        encrypted=__ret__['encrypted'],
-        kms_key_id=__ret__['kmsKeyId'],
-        owner_alias=__ret__['ownerAlias'],
-        owner_id=__ret__['ownerId'],
-        snapshot_id=__ret__['snapshotId'],
-        state=__ret__['state'],
-        tags=__ret__['tags'],
-        volume_id=__ret__['volumeId'],
-        volume_size=__ret__['volumeSize'])
+        data_encryption_key_id=__ret__.get('dataEncryptionKeyId'),
+        description=__ret__.get('description'),
+        encrypted=__ret__.get('encrypted'),
+        kms_key_id=__ret__.get('kmsKeyId'),
+        owner_alias=__ret__.get('ownerAlias'),
+        owner_id=__ret__.get('ownerId'),
+        snapshot_id=__ret__.get('snapshotId'),
+        state=__ret__.get('state'),
+        tags=__ret__.get('tags'),
+        volume_id=__ret__.get('volumeId'),
+        volume_size=__ret__.get('volumeSize'))

@@ -10,41 +10,31 @@ class GetClusterResult(object):
     A collection of values returned by getCluster.
     """
     def __init__(__self__, arn=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, status=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The ARN of the ECS Cluster
         """
-        if not pending_tasks_count:
-            raise TypeError('Missing required argument pending_tasks_count')
-        elif not isinstance(pending_tasks_count, int):
+        if pending_tasks_count and not isinstance(pending_tasks_count, int):
             raise TypeError('Expected argument pending_tasks_count to be a int')
         __self__.pending_tasks_count = pending_tasks_count
         """
         The number of pending tasks for the ECS Cluster
         """
-        if not registered_container_instances_count:
-            raise TypeError('Missing required argument registered_container_instances_count')
-        elif not isinstance(registered_container_instances_count, int):
+        if registered_container_instances_count and not isinstance(registered_container_instances_count, int):
             raise TypeError('Expected argument registered_container_instances_count to be a int')
         __self__.registered_container_instances_count = registered_container_instances_count
         """
         The number of registered container instances for the ECS Cluster
         """
-        if not running_tasks_count:
-            raise TypeError('Missing required argument running_tasks_count')
-        elif not isinstance(running_tasks_count, int):
+        if running_tasks_count and not isinstance(running_tasks_count, int):
             raise TypeError('Expected argument running_tasks_count to be a int')
         __self__.running_tasks_count = running_tasks_count
         """
         The number of running tasks for the ECS Cluster
         """
-        if not status:
-            raise TypeError('Missing required argument status')
-        elif not isinstance(status, basestring):
+        if status and not isinstance(status, basestring):
             raise TypeError('Expected argument status to be a basestring')
         __self__.status = status
         """
@@ -62,8 +52,8 @@ def get_cluster(cluster_name=None):
     __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__)
 
     return GetClusterResult(
-        arn=__ret__['arn'],
-        pending_tasks_count=__ret__['pendingTasksCount'],
-        registered_container_instances_count=__ret__['registeredContainerInstancesCount'],
-        running_tasks_count=__ret__['runningTasksCount'],
-        status=__ret__['status'])
+        arn=__ret__.get('arn'),
+        pending_tasks_count=__ret__.get('pendingTasksCount'),
+        registered_container_instances_count=__ret__.get('registeredContainerInstancesCount'),
+        running_tasks_count=__ret__.get('runningTasksCount'),
+        status=__ret__.get('status'))

@@ -10,81 +10,61 @@ class GetStackResult(object):
     A collection of values returned by getStack.
     """
     def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, notification_arns=None, outputs=None, parameters=None, tags=None, template_body=None, timeout_in_minutes=None):
-        if not capabilities:
-            raise TypeError('Missing required argument capabilities')
-        elif not isinstance(capabilities, list):
+        if capabilities and not isinstance(capabilities, list):
             raise TypeError('Expected argument capabilities to be a list')
         __self__.capabilities = capabilities
         """
         A list of capabilities
         """
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         Description of the stack
         """
-        if not disable_rollback:
-            raise TypeError('Missing required argument disable_rollback')
-        elif not isinstance(disable_rollback, bool):
+        if disable_rollback and not isinstance(disable_rollback, bool):
             raise TypeError('Expected argument disable_rollback to be a bool')
         __self__.disable_rollback = disable_rollback
         """
         Whether the rollback of the stack is disabled when stack creation fails
         """
-        if not iam_role_arn:
-            raise TypeError('Missing required argument iam_role_arn')
-        elif not isinstance(iam_role_arn, basestring):
+        if iam_role_arn and not isinstance(iam_role_arn, basestring):
             raise TypeError('Expected argument iam_role_arn to be a basestring')
         __self__.iam_role_arn = iam_role_arn
         """
         The ARN of the IAM role used to create the stack.
         """
-        if not notification_arns:
-            raise TypeError('Missing required argument notification_arns')
-        elif not isinstance(notification_arns, list):
+        if notification_arns and not isinstance(notification_arns, list):
             raise TypeError('Expected argument notification_arns to be a list')
         __self__.notification_arns = notification_arns
         """
         A list of SNS topic ARNs to publish stack related events
         """
-        if not outputs:
-            raise TypeError('Missing required argument outputs')
-        elif not isinstance(outputs, dict):
+        if outputs and not isinstance(outputs, dict):
             raise TypeError('Expected argument outputs to be a dict')
         __self__.outputs = outputs
         """
         A map of outputs from the stack.
         """
-        if not parameters:
-            raise TypeError('Missing required argument parameters')
-        elif not isinstance(parameters, dict):
+        if parameters and not isinstance(parameters, dict):
             raise TypeError('Expected argument parameters to be a dict')
         __self__.parameters = parameters
         """
         A map of parameters that specify input parameters for the stack.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
         A map of tags associated with this stack.
         """
-        if not template_body:
-            raise TypeError('Missing required argument template_body')
-        elif not isinstance(template_body, basestring):
+        if template_body and not isinstance(template_body, basestring):
             raise TypeError('Expected argument template_body to be a basestring')
         __self__.template_body = template_body
         """
         Structure containing the template body.
         """
-        if not timeout_in_minutes:
-            raise TypeError('Missing required argument timeout_in_minutes')
-        elif not isinstance(timeout_in_minutes, int):
+        if timeout_in_minutes and not isinstance(timeout_in_minutes, int):
             raise TypeError('Expected argument timeout_in_minutes to be a int')
         __self__.timeout_in_minutes = timeout_in_minutes
         """
@@ -102,13 +82,13 @@ def get_stack(name=None):
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__)
 
     return GetStackResult(
-        capabilities=__ret__['capabilities'],
-        description=__ret__['description'],
-        disable_rollback=__ret__['disableRollback'],
-        iam_role_arn=__ret__['iamRoleArn'],
-        notification_arns=__ret__['notificationArns'],
-        outputs=__ret__['outputs'],
-        parameters=__ret__['parameters'],
-        tags=__ret__['tags'],
-        template_body=__ret__['templateBody'],
-        timeout_in_minutes=__ret__['timeoutInMinutes'])
+        capabilities=__ret__.get('capabilities'),
+        description=__ret__.get('description'),
+        disable_rollback=__ret__.get('disableRollback'),
+        iam_role_arn=__ret__.get('iamRoleArn'),
+        notification_arns=__ret__.get('notificationArns'),
+        outputs=__ret__.get('outputs'),
+        parameters=__ret__.get('parameters'),
+        tags=__ret__.get('tags'),
+        template_body=__ret__.get('templateBody'),
+        timeout_in_minutes=__ret__.get('timeoutInMinutes'))

@@ -10,17 +10,13 @@ class GetAmiResult(object):
     A collection of values returned by getAmi.
     """
     def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, hypervisor=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, name=None, owner_id=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None):
-        if not architecture:
-            raise TypeError('Missing required argument architecture')
-        elif not isinstance(architecture, basestring):
+        if architecture and not isinstance(architecture, basestring):
             raise TypeError('Expected argument architecture to be a basestring')
         __self__.architecture = architecture
         """
         The OS architecture of the AMI (ie: `i386` or `x86_64`).
         """
-        if not block_device_mappings:
-            raise TypeError('Missing required argument block_device_mappings')
-        elif not isinstance(block_device_mappings, list):
+        if block_device_mappings and not isinstance(block_device_mappings, list):
             raise TypeError('Expected argument block_device_mappings to be a list')
         __self__.block_device_mappings = block_device_mappings
         """
@@ -40,100 +36,76 @@ class GetAmiResult(object):
         * `block_device_mappings.#.virtual_name` - The virtual device name (for
         instance stores).
         """
-        if not creation_date:
-            raise TypeError('Missing required argument creation_date')
-        elif not isinstance(creation_date, basestring):
+        if creation_date and not isinstance(creation_date, basestring):
             raise TypeError('Expected argument creation_date to be a basestring')
         __self__.creation_date = creation_date
         """
         The date and time the image was created.
         """
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         The description of the AMI that was provided during image
         creation.
         """
-        if not hypervisor:
-            raise TypeError('Missing required argument hypervisor')
-        elif not isinstance(hypervisor, basestring):
+        if hypervisor and not isinstance(hypervisor, basestring):
             raise TypeError('Expected argument hypervisor to be a basestring')
         __self__.hypervisor = hypervisor
         """
         The hypervisor type of the image.
         """
-        if not image_id:
-            raise TypeError('Missing required argument image_id')
-        elif not isinstance(image_id, basestring):
+        if image_id and not isinstance(image_id, basestring):
             raise TypeError('Expected argument image_id to be a basestring')
         __self__.image_id = image_id
         """
         The ID of the AMI. Should be the same as the resource `id`.
         """
-        if not image_location:
-            raise TypeError('Missing required argument image_location')
-        elif not isinstance(image_location, basestring):
+        if image_location and not isinstance(image_location, basestring):
             raise TypeError('Expected argument image_location to be a basestring')
         __self__.image_location = image_location
         """
         The location of the AMI.
         """
-        if not image_owner_alias:
-            raise TypeError('Missing required argument image_owner_alias')
-        elif not isinstance(image_owner_alias, basestring):
+        if image_owner_alias and not isinstance(image_owner_alias, basestring):
             raise TypeError('Expected argument image_owner_alias to be a basestring')
         __self__.image_owner_alias = image_owner_alias
         """
         The AWS account alias (for example, `amazon`, `self`) or
         the AWS account ID of the AMI owner.
         """
-        if not image_type:
-            raise TypeError('Missing required argument image_type')
-        elif not isinstance(image_type, basestring):
+        if image_type and not isinstance(image_type, basestring):
             raise TypeError('Expected argument image_type to be a basestring')
         __self__.image_type = image_type
         """
         The type of image.
         """
-        if not kernel_id:
-            raise TypeError('Missing required argument kernel_id')
-        elif not isinstance(kernel_id, basestring):
+        if kernel_id and not isinstance(kernel_id, basestring):
             raise TypeError('Expected argument kernel_id to be a basestring')
         __self__.kernel_id = kernel_id
         """
         The kernel associated with the image, if any. Only applicable
         for machine images.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
         """
         The name of the AMI that was provided during image creation.
         """
-        if not owner_id:
-            raise TypeError('Missing required argument owner_id')
-        elif not isinstance(owner_id, basestring):
+        if owner_id and not isinstance(owner_id, basestring):
             raise TypeError('Expected argument owner_id to be a basestring')
         __self__.owner_id = owner_id
         """
         The AWS account ID of the image owner.
         """
-        if not platform:
-            raise TypeError('Missing required argument platform')
-        elif not isinstance(platform, basestring):
+        if platform and not isinstance(platform, basestring):
             raise TypeError('Expected argument platform to be a basestring')
         __self__.platform = platform
         """
         The value is Windows for `Windows` AMIs; otherwise blank.
         """
-        if not product_codes:
-            raise TypeError('Missing required argument product_codes')
-        elif not isinstance(product_codes, list):
+        if product_codes and not isinstance(product_codes, list):
             raise TypeError('Expected argument product_codes to be a list')
         __self__.product_codes = product_codes
         """
@@ -141,68 +113,52 @@ class GetAmiResult(object):
         * `product_codes.#.product_code_id` - The product code.
         * `product_codes.#.product_code_type` - The type of product code.
         """
-        if not public:
-            raise TypeError('Missing required argument public')
-        elif not isinstance(public, bool):
+        if public and not isinstance(public, bool):
             raise TypeError('Expected argument public to be a bool')
         __self__.public = public
         """
         `true` if the image has public launch permissions.
         """
-        if not ramdisk_id:
-            raise TypeError('Missing required argument ramdisk_id')
-        elif not isinstance(ramdisk_id, basestring):
+        if ramdisk_id and not isinstance(ramdisk_id, basestring):
             raise TypeError('Expected argument ramdisk_id to be a basestring')
         __self__.ramdisk_id = ramdisk_id
         """
         The RAM disk associated with the image, if any. Only applicable
         for machine images.
         """
-        if not root_device_name:
-            raise TypeError('Missing required argument root_device_name')
-        elif not isinstance(root_device_name, basestring):
+        if root_device_name and not isinstance(root_device_name, basestring):
             raise TypeError('Expected argument root_device_name to be a basestring')
         __self__.root_device_name = root_device_name
         """
         The device name of the root device.
         """
-        if not root_device_type:
-            raise TypeError('Missing required argument root_device_type')
-        elif not isinstance(root_device_type, basestring):
+        if root_device_type and not isinstance(root_device_type, basestring):
             raise TypeError('Expected argument root_device_type to be a basestring')
         __self__.root_device_type = root_device_type
         """
         The type of root device (ie: `ebs` or `instance-store`).
         """
-        if not root_snapshot_id:
-            raise TypeError('Missing required argument root_snapshot_id')
-        elif not isinstance(root_snapshot_id, basestring):
+        if root_snapshot_id and not isinstance(root_snapshot_id, basestring):
             raise TypeError('Expected argument root_snapshot_id to be a basestring')
         __self__.root_snapshot_id = root_snapshot_id
         """
         The snapshot id associated with the root device, if any
         (only applies to `ebs` root devices).
         """
-        if not sriov_net_support:
-            raise TypeError('Missing required argument sriov_net_support')
-        elif not isinstance(sriov_net_support, basestring):
+        if sriov_net_support and not isinstance(sriov_net_support, basestring):
             raise TypeError('Expected argument sriov_net_support to be a basestring')
         __self__.sriov_net_support = sriov_net_support
         """
         Specifies whether enhanced networking is enabled.
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
         The current state of the AMI. If the state is `available`, the image
         is successfully registered and can be used to launch an instance.
         """
-        if not state_reason:
-            raise TypeError('Missing required argument state_reason')
-        elif not isinstance(state_reason, dict):
+        if state_reason and not isinstance(state_reason, dict):
             raise TypeError('Expected argument state_reason to be a dict')
         __self__.state_reason = state_reason
         """
@@ -210,9 +166,7 @@ class GetAmiResult(object):
         * `state_reason.code` - The reason code for the state change.
         * `state_reason.message` - The message for the state change.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -220,9 +174,7 @@ class GetAmiResult(object):
         * `tags.#.key` - The key name of the tag.
         * `tags.#.value` - The value of the tag.
         """
-        if not virtualization_type:
-            raise TypeError('Missing required argument virtualization_type')
-        elif not isinstance(virtualization_type, basestring):
+        if virtualization_type and not isinstance(virtualization_type, basestring):
             raise TypeError('Expected argument virtualization_type to be a basestring')
         __self__.virtualization_type = virtualization_type
         """
@@ -246,27 +198,27 @@ def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=No
     __ret__ = pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__)
 
     return GetAmiResult(
-        architecture=__ret__['architecture'],
-        block_device_mappings=__ret__['blockDeviceMappings'],
-        creation_date=__ret__['creationDate'],
-        description=__ret__['description'],
-        hypervisor=__ret__['hypervisor'],
-        image_id=__ret__['imageId'],
-        image_location=__ret__['imageLocation'],
-        image_owner_alias=__ret__['imageOwnerAlias'],
-        image_type=__ret__['imageType'],
-        kernel_id=__ret__['kernelId'],
-        name=__ret__['name'],
-        owner_id=__ret__['ownerId'],
-        platform=__ret__['platform'],
-        product_codes=__ret__['productCodes'],
-        public=__ret__['public'],
-        ramdisk_id=__ret__['ramdiskId'],
-        root_device_name=__ret__['rootDeviceName'],
-        root_device_type=__ret__['rootDeviceType'],
-        root_snapshot_id=__ret__['rootSnapshotId'],
-        sriov_net_support=__ret__['sriovNetSupport'],
-        state=__ret__['state'],
-        state_reason=__ret__['stateReason'],
-        tags=__ret__['tags'],
-        virtualization_type=__ret__['virtualizationType'])
+        architecture=__ret__.get('architecture'),
+        block_device_mappings=__ret__.get('blockDeviceMappings'),
+        creation_date=__ret__.get('creationDate'),
+        description=__ret__.get('description'),
+        hypervisor=__ret__.get('hypervisor'),
+        image_id=__ret__.get('imageId'),
+        image_location=__ret__.get('imageLocation'),
+        image_owner_alias=__ret__.get('imageOwnerAlias'),
+        image_type=__ret__.get('imageType'),
+        kernel_id=__ret__.get('kernelId'),
+        name=__ret__.get('name'),
+        owner_id=__ret__.get('ownerId'),
+        platform=__ret__.get('platform'),
+        product_codes=__ret__.get('productCodes'),
+        public=__ret__.get('public'),
+        ramdisk_id=__ret__.get('ramdiskId'),
+        root_device_name=__ret__.get('rootDeviceName'),
+        root_device_type=__ret__.get('rootDeviceType'),
+        root_snapshot_id=__ret__.get('rootSnapshotId'),
+        sriov_net_support=__ret__.get('sriovNetSupport'),
+        state=__ret__.get('state'),
+        state_reason=__ret__.get('stateReason'),
+        tags=__ret__.get('tags'),
+        virtualization_type=__ret__.get('virtualizationType'))

@@ -10,9 +10,7 @@ class GetCipherTextResult(object):
     A collection of values returned by getCipherText.
     """
     def __init__(__self__, ciphertext_blob=None):
-        if not ciphertext_blob:
-            raise TypeError('Missing required argument ciphertext_blob')
-        elif not isinstance(ciphertext_blob, basestring):
+        if ciphertext_blob and not isinstance(ciphertext_blob, basestring):
             raise TypeError('Expected argument ciphertext_blob to be a basestring')
         __self__.ciphertext_blob = ciphertext_blob
         """
@@ -35,4 +33,4 @@ def get_cipher_text(context=None, key_id=None, plaintext=None):
     __ret__ = pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__)
 
     return GetCipherTextResult(
-        ciphertext_blob=__ret__['ciphertextBlob'])
+        ciphertext_blob=__ret__.get('ciphertextBlob'))

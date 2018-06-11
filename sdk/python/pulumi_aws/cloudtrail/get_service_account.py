@@ -10,9 +10,7 @@ class GetServiceAccountResult(object):
     A collection of values returned by getServiceAccount.
     """
     def __init__(__self__, arn=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
@@ -30,4 +28,4 @@ def get_service_account(region=None):
     __ret__ = pulumi.runtime.invoke('aws:cloudtrail/getServiceAccount:getServiceAccount', __args__)
 
     return GetServiceAccountResult(
-        arn=__ret__['arn'])
+        arn=__ret__.get('arn'))

@@ -10,9 +10,7 @@ class GetSnapshotIdsResult(object):
     A collection of values returned by getSnapshotIds.
     """
     def __init__(__self__, ids=None):
-        if not ids:
-            raise TypeError('Missing required argument ids')
-        elif not isinstance(ids, list):
+        if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
 
@@ -29,4 +27,4 @@ def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None):
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__)
 
     return GetSnapshotIdsResult(
-        ids=__ret__['ids'])
+        ids=__ret__.get('ids'))

@@ -10,9 +10,7 @@ class GetCanonicalUserIdResult(object):
     A collection of values returned by getCanonicalUserId.
     """
     def __init__(__self__, display_name=None):
-        if not display_name:
-            raise TypeError('Missing required argument display_name')
-        elif not isinstance(display_name, basestring):
+        if display_name and not isinstance(display_name, basestring):
             raise TypeError('Expected argument display_name to be a basestring')
         __self__.display_name = display_name
         """
@@ -29,4 +27,4 @@ def get_canonical_user_id():
     __ret__ = pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__)
 
     return GetCanonicalUserIdResult(
-        display_name=__ret__['displayName'])
+        display_name=__ret__.get('displayName'))

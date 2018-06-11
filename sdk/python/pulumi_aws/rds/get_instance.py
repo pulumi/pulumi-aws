@@ -10,281 +10,211 @@ class GetInstanceResult(object):
     A collection of values returned by getInstance.
     """
     def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None):
-        if not address:
-            raise TypeError('Missing required argument address')
-        elif not isinstance(address, basestring):
+        if address and not isinstance(address, basestring):
             raise TypeError('Expected argument address to be a basestring')
         __self__.address = address
         """
         The address of the RDS instance.
         """
-        if not allocated_storage:
-            raise TypeError('Missing required argument allocated_storage')
-        elif not isinstance(allocated_storage, int):
+        if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError('Expected argument allocated_storage to be a int')
         __self__.allocated_storage = allocated_storage
         """
         Specifies the allocated storage size specified in gigabytes.
         """
-        if not auto_minor_version_upgrade:
-            raise TypeError('Missing required argument auto_minor_version_upgrade')
-        elif not isinstance(auto_minor_version_upgrade, bool):
+        if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError('Expected argument auto_minor_version_upgrade to be a bool')
         __self__.auto_minor_version_upgrade = auto_minor_version_upgrade
         """
         Indicates that minor version patches are applied automatically.
         """
-        if not availability_zone:
-            raise TypeError('Missing required argument availability_zone')
-        elif not isinstance(availability_zone, basestring):
+        if availability_zone and not isinstance(availability_zone, basestring):
             raise TypeError('Expected argument availability_zone to be a basestring')
         __self__.availability_zone = availability_zone
         """
         Specifies the name of the Availability Zone the DB instance is located in.
         """
-        if not backup_retention_period:
-            raise TypeError('Missing required argument backup_retention_period')
-        elif not isinstance(backup_retention_period, int):
+        if backup_retention_period and not isinstance(backup_retention_period, int):
             raise TypeError('Expected argument backup_retention_period to be a int')
         __self__.backup_retention_period = backup_retention_period
         """
         Specifies the number of days for which automatic DB snapshots are retained.
         """
-        if not ca_cert_identifier:
-            raise TypeError('Missing required argument ca_cert_identifier')
-        elif not isinstance(ca_cert_identifier, basestring):
+        if ca_cert_identifier and not isinstance(ca_cert_identifier, basestring):
             raise TypeError('Expected argument ca_cert_identifier to be a basestring')
         __self__.ca_cert_identifier = ca_cert_identifier
         """
         Specifies the identifier of the CA certificate for the DB instance.
         """
-        if not db_cluster_identifier:
-            raise TypeError('Missing required argument db_cluster_identifier')
-        elif not isinstance(db_cluster_identifier, basestring):
+        if db_cluster_identifier and not isinstance(db_cluster_identifier, basestring):
             raise TypeError('Expected argument db_cluster_identifier to be a basestring')
         __self__.db_cluster_identifier = db_cluster_identifier
         """
         If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
         """
-        if not db_instance_arn:
-            raise TypeError('Missing required argument db_instance_arn')
-        elif not isinstance(db_instance_arn, basestring):
+        if db_instance_arn and not isinstance(db_instance_arn, basestring):
             raise TypeError('Expected argument db_instance_arn to be a basestring')
         __self__.db_instance_arn = db_instance_arn
         """
         The Amazon Resource Name (ARN) for the DB instance.
         """
-        if not db_instance_class:
-            raise TypeError('Missing required argument db_instance_class')
-        elif not isinstance(db_instance_class, basestring):
+        if db_instance_class and not isinstance(db_instance_class, basestring):
             raise TypeError('Expected argument db_instance_class to be a basestring')
         __self__.db_instance_class = db_instance_class
         """
         Contains the name of the compute and memory capacity class of the DB instance.
         """
-        if not db_instance_port:
-            raise TypeError('Missing required argument db_instance_port')
-        elif not isinstance(db_instance_port, int):
+        if db_instance_port and not isinstance(db_instance_port, int):
             raise TypeError('Expected argument db_instance_port to be a int')
         __self__.db_instance_port = db_instance_port
         """
         Specifies the port that the DB instance listens on.
         """
-        if not db_name:
-            raise TypeError('Missing required argument db_name')
-        elif not isinstance(db_name, basestring):
+        if db_name and not isinstance(db_name, basestring):
             raise TypeError('Expected argument db_name to be a basestring')
         __self__.db_name = db_name
         """
         Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
         """
-        if not db_parameter_groups:
-            raise TypeError('Missing required argument db_parameter_groups')
-        elif not isinstance(db_parameter_groups, list):
+        if db_parameter_groups and not isinstance(db_parameter_groups, list):
             raise TypeError('Expected argument db_parameter_groups to be a list')
         __self__.db_parameter_groups = db_parameter_groups
         """
         Provides the list of DB parameter groups applied to this DB instance.
         """
-        if not db_security_groups:
-            raise TypeError('Missing required argument db_security_groups')
-        elif not isinstance(db_security_groups, list):
+        if db_security_groups and not isinstance(db_security_groups, list):
             raise TypeError('Expected argument db_security_groups to be a list')
         __self__.db_security_groups = db_security_groups
         """
         Provides List of DB security groups associated to this DB instance.
         """
-        if not db_subnet_group:
-            raise TypeError('Missing required argument db_subnet_group')
-        elif not isinstance(db_subnet_group, basestring):
+        if db_subnet_group and not isinstance(db_subnet_group, basestring):
             raise TypeError('Expected argument db_subnet_group to be a basestring')
         __self__.db_subnet_group = db_subnet_group
         """
         Specifies the name of the subnet group associated with the DB instance.
         """
-        if not endpoint:
-            raise TypeError('Missing required argument endpoint')
-        elif not isinstance(endpoint, basestring):
+        if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
         __self__.endpoint = endpoint
         """
         The connection endpoint.
         """
-        if not engine:
-            raise TypeError('Missing required argument engine')
-        elif not isinstance(engine, basestring):
+        if engine and not isinstance(engine, basestring):
             raise TypeError('Expected argument engine to be a basestring')
         __self__.engine = engine
         """
         Provides the name of the database engine to be used for this DB instance.
         """
-        if not engine_version:
-            raise TypeError('Missing required argument engine_version')
-        elif not isinstance(engine_version, basestring):
+        if engine_version and not isinstance(engine_version, basestring):
             raise TypeError('Expected argument engine_version to be a basestring')
         __self__.engine_version = engine_version
         """
         Indicates the database engine version.
         """
-        if not hosted_zone_id:
-            raise TypeError('Missing required argument hosted_zone_id')
-        elif not isinstance(hosted_zone_id, basestring):
+        if hosted_zone_id and not isinstance(hosted_zone_id, basestring):
             raise TypeError('Expected argument hosted_zone_id to be a basestring')
         __self__.hosted_zone_id = hosted_zone_id
         """
         The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
         """
-        if not iops:
-            raise TypeError('Missing required argument iops')
-        elif not isinstance(iops, int):
+        if iops and not isinstance(iops, int):
             raise TypeError('Expected argument iops to be a int')
         __self__.iops = iops
         """
         Specifies the Provisioned IOPS (I/O operations per second) value.
         """
-        if not kms_key_id:
-            raise TypeError('Missing required argument kms_key_id')
-        elif not isinstance(kms_key_id, basestring):
+        if kms_key_id and not isinstance(kms_key_id, basestring):
             raise TypeError('Expected argument kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
         """
         If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
         """
-        if not license_model:
-            raise TypeError('Missing required argument license_model')
-        elif not isinstance(license_model, basestring):
+        if license_model and not isinstance(license_model, basestring):
             raise TypeError('Expected argument license_model to be a basestring')
         __self__.license_model = license_model
         """
         License model information for this DB instance.
         """
-        if not master_username:
-            raise TypeError('Missing required argument master_username')
-        elif not isinstance(master_username, basestring):
+        if master_username and not isinstance(master_username, basestring):
             raise TypeError('Expected argument master_username to be a basestring')
         __self__.master_username = master_username
         """
         Contains the master username for the DB instance.
         """
-        if not monitoring_interval:
-            raise TypeError('Missing required argument monitoring_interval')
-        elif not isinstance(monitoring_interval, int):
+        if monitoring_interval and not isinstance(monitoring_interval, int):
             raise TypeError('Expected argument monitoring_interval to be a int')
         __self__.monitoring_interval = monitoring_interval
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         """
-        if not monitoring_role_arn:
-            raise TypeError('Missing required argument monitoring_role_arn')
-        elif not isinstance(monitoring_role_arn, basestring):
+        if monitoring_role_arn and not isinstance(monitoring_role_arn, basestring):
             raise TypeError('Expected argument monitoring_role_arn to be a basestring')
         __self__.monitoring_role_arn = monitoring_role_arn
         """
         The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
         """
-        if not multi_az:
-            raise TypeError('Missing required argument multi_az')
-        elif not isinstance(multi_az, bool):
+        if multi_az and not isinstance(multi_az, bool):
             raise TypeError('Expected argument multi_az to be a bool')
         __self__.multi_az = multi_az
         """
         Specifies if the DB instance is a Multi-AZ deployment.
         """
-        if not option_group_memberships:
-            raise TypeError('Missing required argument option_group_memberships')
-        elif not isinstance(option_group_memberships, list):
+        if option_group_memberships and not isinstance(option_group_memberships, list):
             raise TypeError('Expected argument option_group_memberships to be a list')
         __self__.option_group_memberships = option_group_memberships
         """
         Provides the list of option group memberships for this DB instance.
         """
-        if not port:
-            raise TypeError('Missing required argument port')
-        elif not isinstance(port, int):
+        if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
         """
         The database port.
         """
-        if not preferred_backup_window:
-            raise TypeError('Missing required argument preferred_backup_window')
-        elif not isinstance(preferred_backup_window, basestring):
+        if preferred_backup_window and not isinstance(preferred_backup_window, basestring):
             raise TypeError('Expected argument preferred_backup_window to be a basestring')
         __self__.preferred_backup_window = preferred_backup_window
         """
         Specifies the daily time range during which automated backups are created.
         """
-        if not preferred_maintenance_window:
-            raise TypeError('Missing required argument preferred_maintenance_window')
-        elif not isinstance(preferred_maintenance_window, basestring):
+        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
             raise TypeError('Expected argument preferred_maintenance_window to be a basestring')
         __self__.preferred_maintenance_window = preferred_maintenance_window
         """
         Specifies the weekly time range during which system maintenance can occur in UTC.
         """
-        if not publicly_accessible:
-            raise TypeError('Missing required argument publicly_accessible')
-        elif not isinstance(publicly_accessible, bool):
+        if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError('Expected argument publicly_accessible to be a bool')
         __self__.publicly_accessible = publicly_accessible
         """
         Specifies the accessibility options for the DB instance.
         """
-        if not replicate_source_db:
-            raise TypeError('Missing required argument replicate_source_db')
-        elif not isinstance(replicate_source_db, basestring):
+        if replicate_source_db and not isinstance(replicate_source_db, basestring):
             raise TypeError('Expected argument replicate_source_db to be a basestring')
         __self__.replicate_source_db = replicate_source_db
         """
         The identifier of the source DB that this is a replica of.
         """
-        if not storage_encrypted:
-            raise TypeError('Missing required argument storage_encrypted')
-        elif not isinstance(storage_encrypted, bool):
+        if storage_encrypted and not isinstance(storage_encrypted, bool):
             raise TypeError('Expected argument storage_encrypted to be a bool')
         __self__.storage_encrypted = storage_encrypted
         """
         Specifies whether the DB instance is encrypted.
         """
-        if not storage_type:
-            raise TypeError('Missing required argument storage_type')
-        elif not isinstance(storage_type, basestring):
+        if storage_type and not isinstance(storage_type, basestring):
             raise TypeError('Expected argument storage_type to be a basestring')
         __self__.storage_type = storage_type
         """
         Specifies the storage type associated with DB instance.
         """
-        if not timezone:
-            raise TypeError('Missing required argument timezone')
-        elif not isinstance(timezone, basestring):
+        if timezone and not isinstance(timezone, basestring):
             raise TypeError('Expected argument timezone to be a basestring')
         __self__.timezone = timezone
         """
         The time zone of the DB instance.
         """
-        if not vpc_security_groups:
-            raise TypeError('Missing required argument vpc_security_groups')
-        elif not isinstance(vpc_security_groups, list):
+        if vpc_security_groups and not isinstance(vpc_security_groups, list):
             raise TypeError('Expected argument vpc_security_groups to be a list')
         __self__.vpc_security_groups = vpc_security_groups
         """
@@ -301,38 +231,38 @@ def get_instance(db_instance_identifier=None):
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__)
 
     return GetInstanceResult(
-        address=__ret__['address'],
-        allocated_storage=__ret__['allocatedStorage'],
-        auto_minor_version_upgrade=__ret__['autoMinorVersionUpgrade'],
-        availability_zone=__ret__['availabilityZone'],
-        backup_retention_period=__ret__['backupRetentionPeriod'],
-        ca_cert_identifier=__ret__['caCertIdentifier'],
-        db_cluster_identifier=__ret__['dbClusterIdentifier'],
-        db_instance_arn=__ret__['dbInstanceArn'],
-        db_instance_class=__ret__['dbInstanceClass'],
-        db_instance_port=__ret__['dbInstancePort'],
-        db_name=__ret__['dbName'],
-        db_parameter_groups=__ret__['dbParameterGroups'],
-        db_security_groups=__ret__['dbSecurityGroups'],
-        db_subnet_group=__ret__['dbSubnetGroup'],
-        endpoint=__ret__['endpoint'],
-        engine=__ret__['engine'],
-        engine_version=__ret__['engineVersion'],
-        hosted_zone_id=__ret__['hostedZoneId'],
-        iops=__ret__['iops'],
-        kms_key_id=__ret__['kmsKeyId'],
-        license_model=__ret__['licenseModel'],
-        master_username=__ret__['masterUsername'],
-        monitoring_interval=__ret__['monitoringInterval'],
-        monitoring_role_arn=__ret__['monitoringRoleArn'],
-        multi_az=__ret__['multiAz'],
-        option_group_memberships=__ret__['optionGroupMemberships'],
-        port=__ret__['port'],
-        preferred_backup_window=__ret__['preferredBackupWindow'],
-        preferred_maintenance_window=__ret__['preferredMaintenanceWindow'],
-        publicly_accessible=__ret__['publiclyAccessible'],
-        replicate_source_db=__ret__['replicateSourceDb'],
-        storage_encrypted=__ret__['storageEncrypted'],
-        storage_type=__ret__['storageType'],
-        timezone=__ret__['timezone'],
-        vpc_security_groups=__ret__['vpcSecurityGroups'])
+        address=__ret__.get('address'),
+        allocated_storage=__ret__.get('allocatedStorage'),
+        auto_minor_version_upgrade=__ret__.get('autoMinorVersionUpgrade'),
+        availability_zone=__ret__.get('availabilityZone'),
+        backup_retention_period=__ret__.get('backupRetentionPeriod'),
+        ca_cert_identifier=__ret__.get('caCertIdentifier'),
+        db_cluster_identifier=__ret__.get('dbClusterIdentifier'),
+        db_instance_arn=__ret__.get('dbInstanceArn'),
+        db_instance_class=__ret__.get('dbInstanceClass'),
+        db_instance_port=__ret__.get('dbInstancePort'),
+        db_name=__ret__.get('dbName'),
+        db_parameter_groups=__ret__.get('dbParameterGroups'),
+        db_security_groups=__ret__.get('dbSecurityGroups'),
+        db_subnet_group=__ret__.get('dbSubnetGroup'),
+        endpoint=__ret__.get('endpoint'),
+        engine=__ret__.get('engine'),
+        engine_version=__ret__.get('engineVersion'),
+        hosted_zone_id=__ret__.get('hostedZoneId'),
+        iops=__ret__.get('iops'),
+        kms_key_id=__ret__.get('kmsKeyId'),
+        license_model=__ret__.get('licenseModel'),
+        master_username=__ret__.get('masterUsername'),
+        monitoring_interval=__ret__.get('monitoringInterval'),
+        monitoring_role_arn=__ret__.get('monitoringRoleArn'),
+        multi_az=__ret__.get('multiAz'),
+        option_group_memberships=__ret__.get('optionGroupMemberships'),
+        port=__ret__.get('port'),
+        preferred_backup_window=__ret__.get('preferredBackupWindow'),
+        preferred_maintenance_window=__ret__.get('preferredMaintenanceWindow'),
+        publicly_accessible=__ret__.get('publiclyAccessible'),
+        replicate_source_db=__ret__.get('replicateSourceDb'),
+        storage_encrypted=__ret__.get('storageEncrypted'),
+        storage_type=__ret__.get('storageType'),
+        timezone=__ret__.get('timezone'),
+        vpc_security_groups=__ret__.get('vpcSecurityGroups'))

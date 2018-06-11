@@ -10,25 +10,19 @@ class GetSecretVersionResult(object):
     A collection of values returned by getSecretVersion.
     """
     def __init__(__self__, secret_string=None, version_id=None, version_stages=None):
-        if not secret_string:
-            raise TypeError('Missing required argument secret_string')
-        elif not isinstance(secret_string, basestring):
+        if secret_string and not isinstance(secret_string, basestring):
             raise TypeError('Expected argument secret_string to be a basestring')
         __self__.secret_string = secret_string
         """
         The decrypted part of the protected secret information that was originally provided as a string.
         """
-        if not version_id:
-            raise TypeError('Missing required argument version_id')
-        elif not isinstance(version_id, basestring):
+        if version_id and not isinstance(version_id, basestring):
             raise TypeError('Expected argument version_id to be a basestring')
         __self__.version_id = version_id
         """
         The unique identifier of this version of the secret.
         """
-        if not version_stages:
-            raise TypeError('Missing required argument version_stages')
-        elif not isinstance(version_stages, list):
+        if version_stages and not isinstance(version_stages, list):
             raise TypeError('Expected argument version_stages to be a list')
         __self__.version_stages = version_stages
 
@@ -44,6 +38,6 @@ def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__)
 
     return GetSecretVersionResult(
-        secret_string=__ret__['secretString'],
-        version_id=__ret__['versionId'],
-        version_stages=__ret__['versionStages'])
+        secret_string=__ret__.get('secretString'),
+        version_id=__ret__.get('versionId'),
+        version_stages=__ret__.get('versionStages'))

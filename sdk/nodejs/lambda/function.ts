@@ -229,7 +229,7 @@ export interface FunctionState {
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    readonly code?: pulumi.asset.Archive;
+    readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
      * A unique name for your Lambda Function.
      */
@@ -333,7 +333,7 @@ export interface FunctionArgs {
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    readonly code?: pulumi.asset.Archive;
+    readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
      * A unique name for your Lambda Function.
      */

@@ -10,25 +10,19 @@ class GetCallerIdentityResult(object):
     A collection of values returned by getCallerIdentity.
     """
     def __init__(__self__, account_id=None, arn=None, user_id=None):
-        if not account_id:
-            raise TypeError('Missing required argument account_id')
-        elif not isinstance(account_id, basestring):
+        if account_id and not isinstance(account_id, basestring):
             raise TypeError('Expected argument account_id to be a basestring')
         __self__.account_id = account_id
         """
         The AWS Account ID number of the account that owns or contains the calling entity.
         """
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The AWS ARN associated with the calling entity.
         """
-        if not user_id:
-            raise TypeError('Missing required argument user_id')
-        elif not isinstance(user_id, basestring):
+        if user_id and not isinstance(user_id, basestring):
             raise TypeError('Expected argument user_id to be a basestring')
         __self__.user_id = user_id
         """
@@ -45,6 +39,6 @@ def get_caller_identity():
     __ret__ = pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__)
 
     return GetCallerIdentityResult(
-        account_id=__ret__['accountId'],
-        arn=__ret__['arn'],
-        user_id=__ret__['userId'])
+        account_id=__ret__.get('accountId'),
+        arn=__ret__.get('arn'),
+        user_id=__ret__.get('userId'))

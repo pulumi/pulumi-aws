@@ -10,17 +10,13 @@ class GetScriptResult(object):
     A collection of values returned by getScript.
     """
     def __init__(__self__, python_script=None, scala_code=None):
-        if not python_script:
-            raise TypeError('Missing required argument python_script')
-        elif not isinstance(python_script, basestring):
+        if python_script and not isinstance(python_script, basestring):
             raise TypeError('Expected argument python_script to be a basestring')
         __self__.python_script = python_script
         """
         The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
         """
-        if not scala_code:
-            raise TypeError('Missing required argument scala_code')
-        elif not isinstance(scala_code, basestring):
+        if scala_code and not isinstance(scala_code, basestring):
             raise TypeError('Expected argument scala_code to be a basestring')
         __self__.scala_code = scala_code
         """
@@ -39,5 +35,5 @@ def get_script(dag_edges=None, dag_nodes=None, language=None):
     __ret__ = pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__)
 
     return GetScriptResult(
-        python_script=__ret__['pythonScript'],
-        scala_code=__ret__['scalaCode'])
+        python_script=__ret__.get('pythonScript'),
+        scala_code=__ret__.get('scalaCode'))

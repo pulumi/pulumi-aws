@@ -10,17 +10,13 @@ class GetInvocationResult(object):
     A collection of values returned by getInvocation.
     """
     def __init__(__self__, result=None, result_map=None):
-        if not result:
-            raise TypeError('Missing required argument result')
-        elif not isinstance(result, basestring):
+        if result and not isinstance(result, basestring):
             raise TypeError('Expected argument result to be a basestring')
         __self__.result = result
         """
         A result of the lambda function invocation.
         """
-        if not result_map:
-            raise TypeError('Missing required argument result_map')
-        elif not isinstance(result_map, dict):
+        if result_map and not isinstance(result_map, dict):
             raise TypeError('Expected argument result_map to be a dict')
         __self__.result_map = result_map
         """
@@ -41,5 +37,5 @@ def get_invocation(function_name=None, input=None, qualifier=None):
     __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__)
 
     return GetInvocationResult(
-        result=__ret__['result'],
-        result_map=__ret__['resultMap'])
+        result=__ret__.get('result'),
+        result_map=__ret__.get('resultMap'))

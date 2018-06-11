@@ -10,59 +10,37 @@ class GetSubnetResult(object):
     A collection of values returned by getSubnet.
     """
     def __init__(__self__, assign_ipv6_address_on_creation=None, availability_zone=None, cidr_block=None, default_for_az=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, state=None, tags=None, vpc_id=None):
-        if not assign_ipv6_address_on_creation:
-            raise TypeError('Missing required argument assign_ipv6_address_on_creation')
-        elif not isinstance(assign_ipv6_address_on_creation, bool):
+        if assign_ipv6_address_on_creation and not isinstance(assign_ipv6_address_on_creation, bool):
             raise TypeError('Expected argument assign_ipv6_address_on_creation to be a bool')
         __self__.assign_ipv6_address_on_creation = assign_ipv6_address_on_creation
-        if not availability_zone:
-            raise TypeError('Missing required argument availability_zone')
-        elif not isinstance(availability_zone, basestring):
+        if availability_zone and not isinstance(availability_zone, basestring):
             raise TypeError('Expected argument availability_zone to be a basestring')
         __self__.availability_zone = availability_zone
-        if not cidr_block:
-            raise TypeError('Missing required argument cidr_block')
-        elif not isinstance(cidr_block, basestring):
+        if cidr_block and not isinstance(cidr_block, basestring):
             raise TypeError('Expected argument cidr_block to be a basestring')
         __self__.cidr_block = cidr_block
-        if not default_for_az:
-            raise TypeError('Missing required argument default_for_az')
-        elif not isinstance(default_for_az, bool):
+        if default_for_az and not isinstance(default_for_az, bool):
             raise TypeError('Expected argument default_for_az to be a bool')
         __self__.default_for_az = default_for_az
-        if not id:
-            raise TypeError('Missing required argument id')
-        elif not isinstance(id, basestring):
+        if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
         __self__.id = id
-        if not ipv6_cidr_block:
-            raise TypeError('Missing required argument ipv6_cidr_block')
-        elif not isinstance(ipv6_cidr_block, basestring):
+        if ipv6_cidr_block and not isinstance(ipv6_cidr_block, basestring):
             raise TypeError('Expected argument ipv6_cidr_block to be a basestring')
         __self__.ipv6_cidr_block = ipv6_cidr_block
-        if not ipv6_cidr_block_association_id:
-            raise TypeError('Missing required argument ipv6_cidr_block_association_id')
-        elif not isinstance(ipv6_cidr_block_association_id, basestring):
+        if ipv6_cidr_block_association_id and not isinstance(ipv6_cidr_block_association_id, basestring):
             raise TypeError('Expected argument ipv6_cidr_block_association_id to be a basestring')
         __self__.ipv6_cidr_block_association_id = ipv6_cidr_block_association_id
-        if not map_public_ip_on_launch:
-            raise TypeError('Missing required argument map_public_ip_on_launch')
-        elif not isinstance(map_public_ip_on_launch, bool):
+        if map_public_ip_on_launch and not isinstance(map_public_ip_on_launch, bool):
             raise TypeError('Expected argument map_public_ip_on_launch to be a bool')
         __self__.map_public_ip_on_launch = map_public_ip_on_launch
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not vpc_id:
-            raise TypeError('Missing required argument vpc_id')
-        elif not isinstance(vpc_id, basestring):
+        if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
 
@@ -88,14 +66,14 @@ def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, fil
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnet:getSubnet', __args__)
 
     return GetSubnetResult(
-        assign_ipv6_address_on_creation=__ret__['assignIpv6AddressOnCreation'],
-        availability_zone=__ret__['availabilityZone'],
-        cidr_block=__ret__['cidrBlock'],
-        default_for_az=__ret__['defaultForAz'],
-        id=__ret__['id'],
-        ipv6_cidr_block=__ret__['ipv6CidrBlock'],
-        ipv6_cidr_block_association_id=__ret__['ipv6CidrBlockAssociationId'],
-        map_public_ip_on_launch=__ret__['mapPublicIpOnLaunch'],
-        state=__ret__['state'],
-        tags=__ret__['tags'],
-        vpc_id=__ret__['vpcId'])
+        assign_ipv6_address_on_creation=__ret__.get('assignIpv6AddressOnCreation'),
+        availability_zone=__ret__.get('availabilityZone'),
+        cidr_block=__ret__.get('cidrBlock'),
+        default_for_az=__ret__.get('defaultForAz'),
+        id=__ret__.get('id'),
+        ipv6_cidr_block=__ret__.get('ipv6CidrBlock'),
+        ipv6_cidr_block_association_id=__ret__.get('ipv6CidrBlockAssociationId'),
+        map_public_ip_on_launch=__ret__.get('mapPublicIpOnLaunch'),
+        state=__ret__.get('state'),
+        tags=__ret__.get('tags'),
+        vpc_id=__ret__.get('vpcId'))
