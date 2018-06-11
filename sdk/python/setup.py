@@ -8,10 +8,10 @@ from subprocess import check_call
 class InstallPluginCommand(install):
     def run(self):
         install.run(self)
-        check_call(['pulumi', 'plugin', 'install', 'resource', 'aws', 'v0.14.0-dev-1528729003-gc537668-dirty'])
+        check_call(['pulumi', 'plugin', 'install', 'resource', 'aws', 'v0.14.0-dev-1528749571-g41810f6-dirty'])
 
 setup(name='pulumi_aws',
-      version='0.14.0.dev1528729003+gc537668.dirty',
+      version='0.14.0.dev1528749571+g41810f6.dirty',
       description='A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.',
       cmdclass={
           'install': InstallPluginCommand,
