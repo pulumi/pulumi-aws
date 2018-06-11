@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/aws",
-    "version": "v0.14.0-dev-1528665069-gb49752a-dirty",
+    "version": "v0.14.0-dev-1528729003-gc537668-dirty",
     "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
     "keywords": [
         "pulumi",

@@ -56,6 +56,7 @@ function getContentType() {
 }
 const testFunc = new aws.serverless.Function("f", {
   policies: [aws.iam.AWSLambdaFullAccess],
+  publish: true,
   includePaths: ['./Pulumi.yaml'],
   includePackages: ['body-parser'],
 }, async (ev, ctx, cb) => {
@@ -70,3 +71,4 @@ const testFunc = new aws.serverless.Function("f", {
 });
 
 exports.functionARN = testFunc.lambda.arn;
+exports.qualifiedFunctionARN = testFunc.lambda.qualifiedArn;

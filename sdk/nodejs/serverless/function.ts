@@ -73,6 +73,10 @@ export interface FunctionOptions {
      */
     runtime?: lambda.Runtime;
     /**
+     * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     */
+    publish?: pulumi.Input<boolean>;
+    /**
      * A dead letter target ARN to send function invocation failures to.
      */
     deadLetterConfig?: { targetArn: pulumi.Input<string>; };
@@ -166,6 +170,7 @@ export class Function extends pulumi.ComponentResource {
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
+            publish: options.publish,
         }, { parent: this });
     }
 }
