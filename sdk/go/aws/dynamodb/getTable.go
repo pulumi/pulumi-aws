@@ -21,35 +21,20 @@ func LookupTable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, erro
 	}
 	return &GetTableResult{
 		Arn: outputs["arn"],
-	}
 		Attributes: outputs["attributes"],
-	}
 		GlobalSecondaryIndexes: outputs["globalSecondaryIndexes"],
-	}
 		HashKey: outputs["hashKey"],
-	}
 		LocalSecondaryIndexes: outputs["localSecondaryIndexes"],
-	}
 		RangeKey: outputs["rangeKey"],
-	}
 		ReadCapacity: outputs["readCapacity"],
-	}
 		ServerSideEncryption: outputs["serverSideEncryption"],
-	}
 		StreamArn: outputs["streamArn"],
-	}
 		StreamEnabled: outputs["streamEnabled"],
-	}
 		StreamLabel: outputs["streamLabel"],
-	}
 		StreamViewType: outputs["streamViewType"],
-	}
 		Tags: outputs["tags"],
-	}
 		Ttl: outputs["ttl"],
-	}
 		WriteCapacity: outputs["writeCapacity"],
-	}
 	}, nil
 }
 

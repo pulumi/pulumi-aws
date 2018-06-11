@@ -27,17 +27,11 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *GetSecurityGroupArgs) (*GetS
 	}
 	return &GetSecurityGroupResult{
 		Arn: outputs["arn"],
-	}
 		Description: outputs["description"],
-	}
 		Id: outputs["id"],
-	}
 		Name: outputs["name"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

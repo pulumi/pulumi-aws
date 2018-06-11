@@ -23,9 +23,7 @@ func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocat
 	}
 	return &GetInvocationResult{
 		Result: outputs["result"],
-	}
 		ResultMap: outputs["resultMap"],
-	}
 	}, nil
 }
 

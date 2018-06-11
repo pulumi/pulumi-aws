@@ -22,23 +22,14 @@ func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) 
 	}
 	return &GetRoleResult{
 		Arn: outputs["arn"],
-	}
 		AssumeRolePolicy: outputs["assumeRolePolicy"],
-	}
 		AssumeRolePolicyDocument: outputs["assumeRolePolicyDocument"],
-	}
 		CreateDate: outputs["createDate"],
-	}
 		Description: outputs["description"],
-	}
 		MaxSessionDuration: outputs["maxSessionDuration"],
-	}
 		Path: outputs["path"],
-	}
 		RoleId: outputs["roleId"],
-	}
 		UniqueId: outputs["uniqueId"],
-	}
 	}, nil
 }
 

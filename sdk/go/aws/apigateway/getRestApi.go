@@ -22,7 +22,6 @@ func LookupRestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult
 	}
 	return &GetRestApiResult{
 		RootResourceId: outputs["rootResourceId"],
-	}
 	}, nil
 }
 

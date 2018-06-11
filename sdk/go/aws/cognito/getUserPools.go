@@ -19,9 +19,7 @@ func LookupUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs) (*GetUserPools
 	}
 	return &GetUserPoolsResult{
 		Arns: outputs["arns"],
-	}
 		Ids: outputs["ids"],
-	}
 	}, nil
 }
 

@@ -17,7 +17,6 @@ func LookupRulesPackages(ctx *pulumi.Context) (*GetRulesPackagesResult, error) {
 	}
 	return &GetRulesPackagesResult{
 		Arns: outputs["arns"],
-	}
 	}, nil
 }
 

@@ -20,25 +20,15 @@ func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, erro
 	}
 	return &GetStackResult{
 		Capabilities: outputs["capabilities"],
-	}
 		Description: outputs["description"],
-	}
 		DisableRollback: outputs["disableRollback"],
-	}
 		IamRoleArn: outputs["iamRoleArn"],
-	}
 		NotificationArns: outputs["notificationArns"],
-	}
 		Outputs: outputs["outputs"],
-	}
 		Parameters: outputs["parameters"],
-	}
 		Tags: outputs["tags"],
-	}
 		TemplateBody: outputs["templateBody"],
-	}
 		TimeoutInMinutes: outputs["timeoutInMinutes"],
-	}
 	}, nil
 }
 

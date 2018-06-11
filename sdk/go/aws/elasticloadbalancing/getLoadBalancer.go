@@ -26,39 +26,22 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoa
 	}
 	return &GetLoadBalancerResult{
 		AccessLogs: outputs["accessLogs"],
-	}
 		AvailabilityZones: outputs["availabilityZones"],
-	}
 		ConnectionDraining: outputs["connectionDraining"],
-	}
 		ConnectionDrainingTimeout: outputs["connectionDrainingTimeout"],
-	}
 		CrossZoneLoadBalancing: outputs["crossZoneLoadBalancing"],
-	}
 		DnsName: outputs["dnsName"],
-	}
 		HealthCheck: outputs["healthCheck"],
-	}
 		IdleTimeout: outputs["idleTimeout"],
-	}
 		Instances: outputs["instances"],
-	}
 		Internal: outputs["internal"],
-	}
 		Listeners: outputs["listeners"],
-	}
 		SecurityGroups: outputs["securityGroups"],
-	}
 		SourceSecurityGroup: outputs["sourceSecurityGroup"],
-	}
 		SourceSecurityGroupId: outputs["sourceSecurityGroupId"],
-	}
 		Subnets: outputs["subnets"],
-	}
 		Tags: outputs["tags"],
-	}
 		ZoneId: outputs["zoneId"],
-	}
 	}, nil
 }
 

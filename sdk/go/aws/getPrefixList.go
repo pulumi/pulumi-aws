@@ -26,9 +26,7 @@ func LookupPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs) (*GetPrefixL
 	}
 	return &GetPrefixListResult{
 		CidrBlocks: outputs["cidrBlocks"],
-	}
 		Name: outputs["name"],
-	}
 	}, nil
 }
 

@@ -20,35 +20,20 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 	}
 	return &GetBrokerResult{
 		Arn: outputs["arn"],
-	}
 		AutoMinorVersionUpgrade: outputs["autoMinorVersionUpgrade"],
-	}
 		BrokerId: outputs["brokerId"],
-	}
 		BrokerName: outputs["brokerName"],
-	}
 		Configuration: outputs["configuration"],
-	}
 		DeploymentMode: outputs["deploymentMode"],
-	}
 		EngineType: outputs["engineType"],
-	}
 		EngineVersion: outputs["engineVersion"],
-	}
 		HostInstanceType: outputs["hostInstanceType"],
-	}
 		Instances: outputs["instances"],
-	}
 		MaintenanceWindowStartTime: outputs["maintenanceWindowStartTime"],
-	}
 		PubliclyAccessible: outputs["publiclyAccessible"],
-	}
 		SecurityGroups: outputs["securityGroups"],
-	}
 		SubnetIds: outputs["subnetIds"],
-	}
 		Users: outputs["users"],
-	}
 	}, nil
 }
 

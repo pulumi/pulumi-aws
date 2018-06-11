@@ -577,7 +577,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "e772aac3c17747e529dae4bcb36f1b82539414df"
+  revision = "fbb054e742d699be1739c56407deb57533cd1805"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -585,7 +585,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "0cdc28c3cfb52f3f3d9bd380ace4342db0782a96"
+  revision = "65548cda7f574bb53126bdfb106d1424903efe72"
 
 [[projects]]
   branch = "master"
@@ -867,6 +867,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b5b60cb2c70bae98f25e933b54617ec778302a91eb959408ba6f6e3dabe3615d"
+  inputs-digest = "5941c8310e6a3884f0c8c62333f3fce6021dc6d432767d1af10ee4c8fb57c2a7"
   solver-name = "gps-cdcl"
   solver-version = 1

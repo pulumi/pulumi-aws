@@ -21,9 +21,7 @@ func LookupScript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, e
 	}
 	return &GetScriptResult{
 		PythonScript: outputs["pythonScript"],
-	}
 		ScalaCode: outputs["scalaCode"],
-	}
 	}, nil
 }
 

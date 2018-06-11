@@ -23,9 +23,7 @@ func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIp
 	}
 	return &GetElasticIpResult{
 		Id: outputs["id"],
-	}
 		PublicIp: outputs["publicIp"],
-	}
 	}, nil
 }
 

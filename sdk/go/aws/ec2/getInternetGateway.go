@@ -21,11 +21,8 @@ func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*
 	}
 	return &GetInternetGatewayResult{
 		Attachments: outputs["attachments"],
-	}
 		InternetGatewayId: outputs["internetGatewayId"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

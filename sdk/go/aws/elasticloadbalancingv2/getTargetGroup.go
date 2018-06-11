@@ -27,27 +27,16 @@ func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTarge
 	}
 	return &GetTargetGroupResult{
 		Arn: outputs["arn"],
-	}
 		ArnSuffix: outputs["arnSuffix"],
-	}
 		DeregistrationDelay: outputs["deregistrationDelay"],
-	}
 		HealthCheck: outputs["healthCheck"],
-	}
 		Name: outputs["name"],
-	}
 		Port: outputs["port"],
-	}
 		Protocol: outputs["protocol"],
-	}
 		SlowStart: outputs["slowStart"],
-	}
 		Stickiness: outputs["stickiness"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

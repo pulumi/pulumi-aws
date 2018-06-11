@@ -20,11 +20,8 @@ func LookupIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesRes
 	}
 	return &GetIpRangesResult{
 		CidrBlocks: outputs["cidrBlocks"],
-	}
 		CreateDate: outputs["createDate"],
-	}
 		SyncToken: outputs["syncToken"],
-	}
 	}, nil
 }
 

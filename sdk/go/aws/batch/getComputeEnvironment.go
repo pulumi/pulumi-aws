@@ -20,19 +20,12 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *GetComputeEnvironmentAr
 	}
 	return &GetComputeEnvironmentResult{
 		Arn: outputs["arn"],
-	}
 		EcsClusterArn: outputs["ecsClusterArn"],
-	}
 		ServiceRole: outputs["serviceRole"],
-	}
 		State: outputs["state"],
-	}
 		Status: outputs["status"],
-	}
 		StatusReason: outputs["statusReason"],
-	}
 		Type: outputs["type"],
-	}
 	}, nil
 }
 

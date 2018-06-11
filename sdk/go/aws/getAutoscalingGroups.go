@@ -20,7 +20,6 @@ func LookupAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs
 	}
 	return &GetAutoscalingGroupsResult{
 		Names: outputs["names"],
-	}
 	}, nil
 }
 

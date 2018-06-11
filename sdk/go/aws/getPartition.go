@@ -15,7 +15,6 @@ func LookupPartition(ctx *pulumi.Context) (*GetPartitionResult, error) {
 	}
 	return &GetPartitionResult{
 		Partition: outputs["partition"],
-	}
 	}, nil
 }
 

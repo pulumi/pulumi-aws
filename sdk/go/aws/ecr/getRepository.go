@@ -19,11 +19,8 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 	}
 	return &GetRepositoryResult{
 		Arn: outputs["arn"],
-	}
 		RegistryId: outputs["registryId"],
-	}
 		RepositoryUrl: outputs["repositoryUrl"],
-	}
 	}, nil
 }
 

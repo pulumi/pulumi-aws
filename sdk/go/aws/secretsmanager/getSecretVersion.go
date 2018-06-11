@@ -21,11 +21,8 @@ func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetS
 	}
 	return &GetSecretVersionResult{
 		SecretString: outputs["secretString"],
-	}
 		VersionId: outputs["versionId"],
-	}
 		VersionStages: outputs["versionStages"],
-	}
 	}, nil
 }
 

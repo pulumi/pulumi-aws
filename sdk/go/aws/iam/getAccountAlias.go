@@ -16,7 +16,6 @@ func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 	}
 	return &GetAccountAliasResult{
 		AccountAlias: outputs["accountAlias"],
-	}
 	}, nil
 }
 

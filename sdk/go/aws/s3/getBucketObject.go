@@ -26,41 +26,23 @@ func LookupBucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBuc
 	}
 	return &GetBucketObjectResult{
 		Body: outputs["body"],
-	}
 		CacheControl: outputs["cacheControl"],
-	}
 		ContentDisposition: outputs["contentDisposition"],
-	}
 		ContentEncoding: outputs["contentEncoding"],
-	}
 		ContentLanguage: outputs["contentLanguage"],
-	}
 		ContentLength: outputs["contentLength"],
-	}
 		ContentType: outputs["contentType"],
-	}
 		Etag: outputs["etag"],
-	}
 		Expiration: outputs["expiration"],
-	}
 		Expires: outputs["expires"],
-	}
 		LastModified: outputs["lastModified"],
-	}
 		Metadata: outputs["metadata"],
-	}
 		ServerSideEncryption: outputs["serverSideEncryption"],
-	}
 		SseKmsKeyId: outputs["sseKmsKeyId"],
-	}
 		StorageClass: outputs["storageClass"],
-	}
 		Tags: outputs["tags"],
-	}
 		VersionId: outputs["versionId"],
-	}
 		WebsiteRedirectLocation: outputs["websiteRedirectLocation"],
-	}
 	}, nil
 }
 

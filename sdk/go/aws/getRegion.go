@@ -26,11 +26,8 @@ func LookupRegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, e
 	}
 	return &GetRegionResult{
 		Current: outputs["current"],
-	}
 		Endpoint: outputs["endpoint"],
-	}
 		Name: outputs["name"],
-	}
 	}, nil
 }
 

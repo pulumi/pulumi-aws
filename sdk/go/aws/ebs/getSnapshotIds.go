@@ -22,7 +22,6 @@ func LookupSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs) (*GetSnaps
 	}
 	return &GetSnapshotIdsResult{
 		Ids: outputs["ids"],
-	}
 	}, nil
 }
 

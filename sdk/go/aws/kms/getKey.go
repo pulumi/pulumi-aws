@@ -23,29 +23,17 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 	}
 	return &GetKeyResult{
 		Arn: outputs["arn"],
-	}
 		AwsAccountId: outputs["awsAccountId"],
-	}
 		CreationDate: outputs["creationDate"],
-	}
 		DeletionDate: outputs["deletionDate"],
-	}
 		Description: outputs["description"],
-	}
 		Enabled: outputs["enabled"],
-	}
 		ExpirationModel: outputs["expirationModel"],
-	}
 		KeyManager: outputs["keyManager"],
-	}
 		KeyState: outputs["keyState"],
-	}
 		KeyUsage: outputs["keyUsage"],
-	}
 		Origin: outputs["origin"],
-	}
 		ValidTo: outputs["validTo"],
-	}
 	}, nil
 }
 

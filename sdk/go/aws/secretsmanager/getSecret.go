@@ -20,21 +20,13 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 	}
 	return &GetSecretResult{
 		Arn: outputs["arn"],
-	}
 		Description: outputs["description"],
-	}
 		KmsKeyId: outputs["kmsKeyId"],
-	}
 		Name: outputs["name"],
-	}
 		RotationEnabled: outputs["rotationEnabled"],
-	}
 		RotationLambdaArn: outputs["rotationLambdaArn"],
-	}
 		RotationRules: outputs["rotationRules"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

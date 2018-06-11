@@ -24,27 +24,16 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 	}
 	return &GetSnapshotResult{
 		DataEncryptionKeyId: outputs["dataEncryptionKeyId"],
-	}
 		Description: outputs["description"],
-	}
 		Encrypted: outputs["encrypted"],
-	}
 		KmsKeyId: outputs["kmsKeyId"],
-	}
 		OwnerAlias: outputs["ownerAlias"],
-	}
 		OwnerId: outputs["ownerId"],
-	}
 		SnapshotId: outputs["snapshotId"],
-	}
 		State: outputs["state"],
-	}
 		Tags: outputs["tags"],
-	}
 		VolumeId: outputs["volumeId"],
-	}
 		VolumeSize: outputs["volumeSize"],
-	}
 	}, nil
 }
 

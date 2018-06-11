@@ -19,17 +19,11 @@ func LookupMountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMount
 	}
 	return &GetMountTargetResult{
 		DnsName: outputs["dnsName"],
-	}
 		FileSystemId: outputs["fileSystemId"],
-	}
 		IpAddress: outputs["ipAddress"],
-	}
 		NetworkInterfaceId: outputs["networkInterfaceId"],
-	}
 		SecurityGroups: outputs["securityGroups"],
-	}
 		SubnetId: outputs["subnetId"],
-	}
 	}, nil
 }
 

@@ -31,27 +31,16 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 	}
 	return &GetSubnetResult{
 		AssignIpv6AddressOnCreation: outputs["assignIpv6AddressOnCreation"],
-	}
 		AvailabilityZone: outputs["availabilityZone"],
-	}
 		CidrBlock: outputs["cidrBlock"],
-	}
 		DefaultForAz: outputs["defaultForAz"],
-	}
 		Id: outputs["id"],
-	}
 		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
-	}
 		Ipv6CidrBlockAssociationId: outputs["ipv6CidrBlockAssociationId"],
-	}
 		MapPublicIpOnLaunch: outputs["mapPublicIpOnLaunch"],
-	}
 		State: outputs["state"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

@@ -30,13 +30,9 @@ func LookupAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs) 
 	}
 	return &GetAvailabilityZoneResult{
 		Name: outputs["name"],
-	}
 		NameSuffix: outputs["nameSuffix"],
-	}
 		Region: outputs["region"],
-	}
 		State: outputs["state"],
-	}
 	}, nil
 }
 

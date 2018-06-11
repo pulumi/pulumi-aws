@@ -26,39 +26,22 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 	}
 	return &GetSnapshotResult{
 		AllocatedStorage: outputs["allocatedStorage"],
-	}
 		AvailabilityZone: outputs["availabilityZone"],
-	}
 		DbSnapshotArn: outputs["dbSnapshotArn"],
-	}
 		Encrypted: outputs["encrypted"],
-	}
 		Engine: outputs["engine"],
-	}
 		EngineVersion: outputs["engineVersion"],
-	}
 		Iops: outputs["iops"],
-	}
 		KmsKeyId: outputs["kmsKeyId"],
-	}
 		LicenseModel: outputs["licenseModel"],
-	}
 		OptionGroupName: outputs["optionGroupName"],
-	}
 		Port: outputs["port"],
-	}
 		SnapshotCreateTime: outputs["snapshotCreateTime"],
-	}
 		SourceDbSnapshotIdentifier: outputs["sourceDbSnapshotIdentifier"],
-	}
 		SourceRegion: outputs["sourceRegion"],
-	}
 		Status: outputs["status"],
-	}
 		StorageType: outputs["storageType"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

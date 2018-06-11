@@ -19,25 +19,15 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) 
 	}
 	return &GetReplicationGroupResult{
 		AuthTokenEnabled: outputs["authTokenEnabled"],
-	}
 		AutomaticFailoverEnabled: outputs["automaticFailoverEnabled"],
-	}
 		ConfigurationEndpointAddress: outputs["configurationEndpointAddress"],
-	}
 		NodeType: outputs["nodeType"],
-	}
 		NumberCacheClusters: outputs["numberCacheClusters"],
-	}
 		Port: outputs["port"],
-	}
 		PrimaryEndpointAddress: outputs["primaryEndpointAddress"],
-	}
 		ReplicationGroupDescription: outputs["replicationGroupDescription"],
-	}
 		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
-	}
 		SnapshotWindow: outputs["snapshotWindow"],
-	}
 	}, nil
 }
 

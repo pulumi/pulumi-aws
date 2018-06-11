@@ -24,23 +24,14 @@ func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGate
 	}
 	return &GetNatGatewayResult{
 		AllocationId: outputs["allocationId"],
-	}
 		Id: outputs["id"],
-	}
 		NetworkInterfaceId: outputs["networkInterfaceId"],
-	}
 		PrivateIp: outputs["privateIp"],
-	}
 		PublicIp: outputs["publicIp"],
-	}
 		State: outputs["state"],
-	}
 		SubnetId: outputs["subnetId"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

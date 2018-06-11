@@ -29,27 +29,16 @@ func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
 	}
 	return &GetVpcResult{
 		CidrBlock: outputs["cidrBlock"],
-	}
 		Default: outputs["default"],
-	}
 		DhcpOptionsId: outputs["dhcpOptionsId"],
-	}
 		EnableDnsHostnames: outputs["enableDnsHostnames"],
-	}
 		EnableDnsSupport: outputs["enableDnsSupport"],
-	}
 		Id: outputs["id"],
-	}
 		InstanceTenancy: outputs["instanceTenancy"],
-	}
 		Ipv6AssociationId: outputs["ipv6AssociationId"],
-	}
 		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
-	}
 		State: outputs["state"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

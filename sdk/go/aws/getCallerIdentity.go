@@ -16,11 +16,8 @@ func LookupCallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error)
 	}
 	return &GetCallerIdentityResult{
 		AccountId: outputs["accountId"],
-	}
 		Arn: outputs["arn"],
-	}
 		UserId: outputs["userId"],
-	}
 	}, nil
 }
 

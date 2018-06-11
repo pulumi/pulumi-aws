@@ -31,13 +31,9 @@ func LookupInstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstances
 	}
 	return &GetInstancesResult{
 		Ids: outputs["ids"],
-	}
 		InstanceTags: outputs["instanceTags"],
-	}
 		PrivateIps: outputs["privateIps"],
-	}
 		PublicIps: outputs["publicIps"],
-	}
 	}, nil
 }
 

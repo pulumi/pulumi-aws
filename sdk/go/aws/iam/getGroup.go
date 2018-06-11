@@ -21,11 +21,8 @@ func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, erro
 	}
 	return &GetGroupResult{
 		Arn: outputs["arn"],
-	}
 		GroupId: outputs["groupId"],
-	}
 		Path: outputs["path"],
-	}
 	}, nil
 }
 

@@ -28,21 +28,13 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 	}
 	return &GetZoneResult{
 		CallerReference: outputs["callerReference"],
-	}
 		Comment: outputs["comment"],
-	}
 		Name: outputs["name"],
-	}
 		NameServers: outputs["nameServers"],
-	}
 		ResourceRecordSetCount: outputs["resourceRecordSetCount"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 		ZoneId: outputs["zoneId"],
-	}
 	}, nil
 }
 

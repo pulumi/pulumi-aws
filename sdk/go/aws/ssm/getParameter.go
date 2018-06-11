@@ -20,11 +20,8 @@ func LookupParameter(ctx *pulumi.Context, args *GetParameterArgs) (*GetParameter
 	}
 	return &GetParameterResult{
 		Arn: outputs["arn"],
-	}
 		Type: outputs["type"],
-	}
 		Value: outputs["value"],
-	}
 	}, nil
 }
 

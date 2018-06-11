@@ -19,9 +19,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupRes
 	}
 	return &GetLogGroupResult{
 		Arn: outputs["arn"],
-	}
 		CreationTime: outputs["creationTime"],
-	}
 	}, nil
 }
 

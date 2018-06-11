@@ -21,7 +21,6 @@ func LookupTopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, erro
 	}
 	return &GetTopicResult{
 		Arn: outputs["arn"],
-	}
 	}, nil
 }
 

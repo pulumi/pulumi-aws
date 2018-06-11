@@ -85,7 +85,6 @@ func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*Ge
 	}
 	return &GetPolicyDocumentResult{
 		Json: outputs["json"],
-	}
 	}, nil
 }
 

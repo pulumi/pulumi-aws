@@ -22,17 +22,11 @@ func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, e
 	}
 	return &GetBucketResult{
 		Arn: outputs["arn"],
-	}
 		BucketDomainName: outputs["bucketDomainName"],
-	}
 		HostedZoneId: outputs["hostedZoneId"],
-	}
 		Region: outputs["region"],
-	}
 		WebsiteDomain: outputs["websiteDomain"],
-	}
 		WebsiteEndpoint: outputs["websiteEndpoint"],
-	}
 	}, nil
 }
 

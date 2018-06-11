@@ -27,35 +27,20 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoa
 	}
 	return &GetLoadBalancerResult{
 		AccessLogs: outputs["accessLogs"],
-	}
 		Arn: outputs["arn"],
-	}
 		ArnSuffix: outputs["arnSuffix"],
-	}
 		DnsName: outputs["dnsName"],
-	}
 		EnableDeletionProtection: outputs["enableDeletionProtection"],
-	}
 		IdleTimeout: outputs["idleTimeout"],
-	}
 		Internal: outputs["internal"],
-	}
 		LoadBalancerType: outputs["loadBalancerType"],
-	}
 		Name: outputs["name"],
-	}
 		SecurityGroups: outputs["securityGroups"],
-	}
 		SubnetMappings: outputs["subnetMappings"],
-	}
 		Subnets: outputs["subnets"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 		ZoneId: outputs["zoneId"],
-	}
 	}, nil
 }
 

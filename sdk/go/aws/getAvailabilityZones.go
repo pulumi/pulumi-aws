@@ -24,7 +24,6 @@ func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs
 	}
 	return &GetAvailabilityZonesResult{
 		Names: outputs["names"],
-	}
 	}, nil
 }
 

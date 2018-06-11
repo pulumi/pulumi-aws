@@ -21,13 +21,9 @@ func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult
 	}
 	return &GetServiceResult{
 		Arn: outputs["arn"],
-	}
 		DesiredCount: outputs["desiredCount"],
-	}
 		LaunchType: outputs["launchType"],
-	}
 		TaskDefinition: outputs["taskDefinition"],
-	}
 	}, nil
 }
 

@@ -21,11 +21,8 @@ func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) 
 	}
 	return &GetUserResult{
 		Arn: outputs["arn"],
-	}
 		Path: outputs["path"],
-	}
 		UserId: outputs["userId"],
-	}
 	}, nil
 }
 

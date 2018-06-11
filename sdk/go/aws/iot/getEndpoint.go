@@ -15,7 +15,6 @@ func LookupEndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
 	}
 	return &GetEndpointResult{
 		EndpointAddress: outputs["endpointAddress"],
-	}
 	}, nil
 }
 

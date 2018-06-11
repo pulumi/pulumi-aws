@@ -21,11 +21,8 @@ func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, erro
 	}
 	return &GetAliasResult{
 		Arn: outputs["arn"],
-	}
 		TargetKeyArn: outputs["targetKeyArn"],
-	}
 		TargetKeyId: outputs["targetKeyId"],
-	}
 	}, nil
 }
 

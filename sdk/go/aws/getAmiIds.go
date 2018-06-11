@@ -22,7 +22,6 @@ func LookupAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, e
 	}
 	return &GetAmiIdsResult{
 		Ids: outputs["ids"],
-	}
 	}, nil
 }
 

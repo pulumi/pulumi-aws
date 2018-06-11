@@ -22,21 +22,13 @@ func LookupStream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, e
 	}
 	return &GetStreamResult{
 		Arn: outputs["arn"],
-	}
 		ClosedShards: outputs["closedShards"],
-	}
 		CreationTimestamp: outputs["creationTimestamp"],
-	}
 		OpenShards: outputs["openShards"],
-	}
 		RetentionPeriod: outputs["retentionPeriod"],
-	}
 		ShardLevelMetrics: outputs["shardLevelMetrics"],
-	}
 		Status: outputs["status"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

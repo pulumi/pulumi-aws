@@ -20,45 +20,25 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	}
 	return &GetClusterResult{
 		Arn: outputs["arn"],
-	}
 		AvailabilityZone: outputs["availabilityZone"],
-	}
 		CacheNodes: outputs["cacheNodes"],
-	}
 		ClusterAddress: outputs["clusterAddress"],
-	}
 		ConfigurationEndpoint: outputs["configurationEndpoint"],
-	}
 		Engine: outputs["engine"],
-	}
 		EngineVersion: outputs["engineVersion"],
-	}
 		MaintenanceWindow: outputs["maintenanceWindow"],
-	}
 		NodeType: outputs["nodeType"],
-	}
 		NotificationTopicArn: outputs["notificationTopicArn"],
-	}
 		NumCacheNodes: outputs["numCacheNodes"],
-	}
 		ParameterGroupName: outputs["parameterGroupName"],
-	}
 		Port: outputs["port"],
-	}
 		ReplicationGroupId: outputs["replicationGroupId"],
-	}
 		SecurityGroupIds: outputs["securityGroupIds"],
-	}
 		SecurityGroupNames: outputs["securityGroupNames"],
-	}
 		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
-	}
 		SnapshotWindow: outputs["snapshotWindow"],
-	}
 		SubnetGroupName: outputs["subnetGroupName"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

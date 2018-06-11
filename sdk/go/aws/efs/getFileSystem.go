@@ -21,19 +21,12 @@ func LookupFileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSys
 	}
 	return &GetFileSystemResult{
 		CreationToken: outputs["creationToken"],
-	}
 		DnsName: outputs["dnsName"],
-	}
 		Encrypted: outputs["encrypted"],
-	}
 		FileSystemId: outputs["fileSystemId"],
-	}
 		KmsKeyId: outputs["kmsKeyId"],
-	}
 		PerformanceMode: outputs["performanceMode"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

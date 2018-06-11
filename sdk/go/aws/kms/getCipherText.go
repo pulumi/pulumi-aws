@@ -25,7 +25,6 @@ func LookupCipherText(ctx *pulumi.Context, args *GetCipherTextArgs) (*GetCipherT
 	}
 	return &GetCipherTextResult{
 		CiphertextBlob: outputs["ciphertextBlob"],
-	}
 	}, nil
 }
 

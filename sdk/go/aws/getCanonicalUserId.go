@@ -16,7 +16,6 @@ func LookupCanonicalUserId(ctx *pulumi.Context) (*GetCanonicalUserIdResult, erro
 	}
 	return &GetCanonicalUserIdResult{
 		DisplayName: outputs["displayName"],
-	}
 	}, nil
 }
 

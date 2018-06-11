@@ -20,7 +20,6 @@ func LookupSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetS
 	}
 	return &GetSolutionStackResult{
 		Name: outputs["name"],
-	}
 	}, nil
 }
 

@@ -20,13 +20,9 @@ func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, e
 	}
 	return &GetPolicyResult{
 		Description: outputs["description"],
-	}
 		Name: outputs["name"],
-	}
 		Path: outputs["path"],
-	}
 		Policy: outputs["policy"],
-	}
 	}, nil
 }
 

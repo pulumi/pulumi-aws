@@ -21,9 +21,7 @@ func LookupQueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, erro
 	}
 	return &GetQueueResult{
 		Arn: outputs["arn"],
-	}
 		Url: outputs["url"],
-	}
 	}, nil
 }
 

@@ -20,17 +20,11 @@ func LookupJobQueue(ctx *pulumi.Context, args *GetJobQueueArgs) (*GetJobQueueRes
 	}
 	return &GetJobQueueResult{
 		Arn: outputs["arn"],
-	}
 		ComputeEnvironmentOrders: outputs["computeEnvironmentOrders"],
-	}
 		Priority: outputs["priority"],
-	}
 		State: outputs["state"],
-	}
 		Status: outputs["status"],
-	}
 		StatusReason: outputs["statusReason"],
-	}
 	}, nil
 }
 

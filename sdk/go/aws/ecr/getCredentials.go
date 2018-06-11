@@ -18,11 +18,8 @@ func LookupCredentials(ctx *pulumi.Context, args *GetCredentialsArgs) (*GetCrede
 	}
 	return &GetCredentialsResult{
 		AuthorizationToken: outputs["authorizationToken"],
-	}
 		ExpiresAt: outputs["expiresAt"],
-	}
 		ProxyEndpoint: outputs["proxyEndpoint"],
-	}
 	}, nil
 }
 

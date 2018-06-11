@@ -21,21 +21,13 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceAr
 	}
 	return &GetVpcEndpointServiceResult{
 		AcceptanceRequired: outputs["acceptanceRequired"],
-	}
 		AvailabilityZones: outputs["availabilityZones"],
-	}
 		BaseEndpointDnsNames: outputs["baseEndpointDnsNames"],
-	}
 		Owner: outputs["owner"],
-	}
 		PrivateDnsName: outputs["privateDnsName"],
-	}
 		ServiceName: outputs["serviceName"],
-	}
 		ServiceType: outputs["serviceType"],
-	}
 		VpcEndpointPolicySupported: outputs["vpcEndpointPolicySupported"],
-	}
 	}, nil
 }
 

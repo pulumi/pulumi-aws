@@ -23,33 +23,19 @@ func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEn
 	}
 	return &GetVpcEndpointResult{
 		CidrBlocks: outputs["cidrBlocks"],
-	}
 		DnsEntries: outputs["dnsEntries"],
-	}
 		Id: outputs["id"],
-	}
 		NetworkInterfaceIds: outputs["networkInterfaceIds"],
-	}
 		Policy: outputs["policy"],
-	}
 		PrefixListId: outputs["prefixListId"],
-	}
 		PrivateDnsEnabled: outputs["privateDnsEnabled"],
-	}
 		RouteTableIds: outputs["routeTableIds"],
-	}
 		SecurityGroupIds: outputs["securityGroupIds"],
-	}
 		ServiceName: outputs["serviceName"],
-	}
 		State: outputs["state"],
-	}
 		SubnetIds: outputs["subnetIds"],
-	}
 		VpcEndpointType: outputs["vpcEndpointType"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

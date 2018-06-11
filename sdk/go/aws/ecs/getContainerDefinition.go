@@ -21,21 +21,13 @@ func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinition
 	}
 	return &GetContainerDefinitionResult{
 		Cpu: outputs["cpu"],
-	}
 		DisableNetworking: outputs["disableNetworking"],
-	}
 		DockerLabels: outputs["dockerLabels"],
-	}
 		Environment: outputs["environment"],
-	}
 		Image: outputs["image"],
-	}
 		ImageDigest: outputs["imageDigest"],
-	}
 		Memory: outputs["memory"],
-	}
 		MemoryReservation: outputs["memoryReservation"],
-	}
 	}, nil
 }
 

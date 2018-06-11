@@ -22,19 +22,12 @@ func LookupServerCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs
 	}
 	return &GetServerCertificateResult{
 		Arn: outputs["arn"],
-	}
 		CertificateBody: outputs["certificateBody"],
-	}
 		CertificateChain: outputs["certificateChain"],
-	}
 		ExpirationDate: outputs["expirationDate"],
-	}
 		Name: outputs["name"],
-	}
 		Path: outputs["path"],
-	}
 		UploadDate: outputs["uploadDate"],
-	}
 	}, nil
 }
 

@@ -21,39 +21,22 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) 
 	}
 	return &GetNetworkInterfaceResult{
 		Associations: outputs["associations"],
-	}
 		Attachments: outputs["attachments"],
-	}
 		AvailabilityZone: outputs["availabilityZone"],
-	}
 		Description: outputs["description"],
-	}
 		Id: outputs["id"],
-	}
 		InterfaceType: outputs["interfaceType"],
-	}
 		Ipv6Addresses: outputs["ipv6Addresses"],
-	}
 		MacAddress: outputs["macAddress"],
-	}
 		OwnerId: outputs["ownerId"],
-	}
 		PrivateDnsName: outputs["privateDnsName"],
-	}
 		PrivateIp: outputs["privateIp"],
-	}
 		PrivateIps: outputs["privateIps"],
-	}
 		RequesterId: outputs["requesterId"],
-	}
 		SecurityGroups: outputs["securityGroups"],
-	}
 		SubnetId: outputs["subnetId"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

@@ -26,7 +26,6 @@ func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCerti
 	}
 	return &GetCertificateResult{
 		Arn: outputs["arn"],
-	}
 	}, nil
 }
 

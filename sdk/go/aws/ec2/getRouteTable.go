@@ -27,17 +27,11 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	}
 	return &GetRouteTableResult{
 		Associations: outputs["associations"],
-	}
 		RouteTableId: outputs["routeTableId"],
-	}
 		Routes: outputs["routes"],
-	}
 		SubnetId: outputs["subnetId"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

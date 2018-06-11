@@ -15,7 +15,6 @@ func LookupBillingServiceAccount(ctx *pulumi.Context) (*GetBillingServiceAccount
 	}
 	return &GetBillingServiceAccountResult{
 		Arn: outputs["arn"],
-	}
 	}, nil
 }
 

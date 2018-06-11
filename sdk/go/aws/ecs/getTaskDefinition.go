@@ -21,15 +21,10 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *GetTaskDefinitionArgs) (*Ge
 	}
 	return &GetTaskDefinitionResult{
 		Family: outputs["family"],
-	}
 		NetworkMode: outputs["networkMode"],
-	}
 		Revision: outputs["revision"],
-	}
 		Status: outputs["status"],
-	}
 		TaskRoleArn: outputs["taskRoleArn"],
-	}
 	}, nil
 }
 

@@ -21,25 +21,15 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *GetCertificateAuthori
 	}
 	return &GetCertificateAuthorityResult{
 		Certificate: outputs["certificate"],
-	}
 		CertificateChain: outputs["certificateChain"],
-	}
 		CertificateSigningRequest: outputs["certificateSigningRequest"],
-	}
 		NotAfter: outputs["notAfter"],
-	}
 		NotBefore: outputs["notBefore"],
-	}
 		RevocationConfigurations: outputs["revocationConfigurations"],
-	}
 		Serial: outputs["serial"],
-	}
 		Status: outputs["status"],
-	}
 		Tags: outputs["tags"],
-	}
 		Type: outputs["type"],
-	}
 	}, nil
 }
 

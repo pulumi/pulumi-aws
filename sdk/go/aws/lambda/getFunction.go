@@ -20,43 +20,24 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 	}
 	return &GetFunctionResult{
 		Arn: outputs["arn"],
-	}
 		DeadLetterConfig: outputs["deadLetterConfig"],
-	}
 		Description: outputs["description"],
-	}
 		Environment: outputs["environment"],
-	}
 		Handler: outputs["handler"],
-	}
 		InvokeArn: outputs["invokeArn"],
-	}
 		KmsKeyArn: outputs["kmsKeyArn"],
-	}
 		LastModified: outputs["lastModified"],
-	}
 		MemorySize: outputs["memorySize"],
-	}
 		QualifiedArn: outputs["qualifiedArn"],
-	}
 		ReservedConcurrentExecutions: outputs["reservedConcurrentExecutions"],
-	}
 		Role: outputs["role"],
-	}
 		Runtime: outputs["runtime"],
-	}
 		SourceCodeHash: outputs["sourceCodeHash"],
-	}
 		SourceCodeSize: outputs["sourceCodeSize"],
-	}
 		Timeout: outputs["timeout"],
-	}
 		TracingConfig: outputs["tracingConfig"],
-	}
 		Version: outputs["version"],
-	}
 		VpcConfig: outputs["vpcConfig"],
-	}
 	}, nil
 }
 

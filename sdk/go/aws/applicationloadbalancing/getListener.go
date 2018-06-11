@@ -27,19 +27,12 @@ func LookupListener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerRes
 	}
 	return &GetListenerResult{
 		Arn: outputs["arn"],
-	}
 		CertificateArn: outputs["certificateArn"],
-	}
 		DefaultActions: outputs["defaultActions"],
-	}
 		LoadBalancerArn: outputs["loadBalancerArn"],
-	}
 		Port: outputs["port"],
-	}
 		Protocol: outputs["protocol"],
-	}
 		SslPolicy: outputs["sslPolicy"],
-	}
 	}, nil
 }
 

@@ -21,17 +21,11 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*
 	}
 	return &GetInstanceProfileResult{
 		Arn: outputs["arn"],
-	}
 		CreateDate: outputs["createDate"],
-	}
 		Path: outputs["path"],
-	}
 		RoleArn: outputs["roleArn"],
-	}
 		RoleId: outputs["roleId"],
-	}
 		RoleName: outputs["roleName"],
-	}
 	}, nil
 }
 

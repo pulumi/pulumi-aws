@@ -20,7 +20,6 @@ func LookupServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs) (*Ge
 	}
 	return &GetServiceAccountResult{
 		Arn: outputs["arn"],
-	}
 	}, nil
 }
 

@@ -20,15 +20,10 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	}
 	return &GetClusterResult{
 		Arn: outputs["arn"],
-	}
 		PendingTasksCount: outputs["pendingTasksCount"],
-	}
 		RegisteredContainerInstancesCount: outputs["registeredContainerInstancesCount"],
-	}
 		RunningTasksCount: outputs["runningTasksCount"],
-	}
 		Status: outputs["status"],
-	}
 	}, nil
 }
 

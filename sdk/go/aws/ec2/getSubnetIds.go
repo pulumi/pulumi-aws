@@ -22,9 +22,7 @@ func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIds
 	}
 	return &GetSubnetIdsResult{
 		Ids: outputs["ids"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

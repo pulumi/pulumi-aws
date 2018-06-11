@@ -31,31 +31,18 @@ func LookupVpcPeeringConnection(ctx *pulumi.Context, args *GetVpcPeeringConnecti
 	}
 	return &GetVpcPeeringConnectionResult{
 		Accepter: outputs["accepter"],
-	}
 		CidrBlock: outputs["cidrBlock"],
-	}
 		Id: outputs["id"],
-	}
 		OwnerId: outputs["ownerId"],
-	}
 		PeerCidrBlock: outputs["peerCidrBlock"],
-	}
 		PeerOwnerId: outputs["peerOwnerId"],
-	}
 		PeerRegion: outputs["peerRegion"],
-	}
 		PeerVpcId: outputs["peerVpcId"],
-	}
 		Region: outputs["region"],
-	}
 		Requester: outputs["requester"],
-	}
 		Status: outputs["status"],
-	}
 		Tags: outputs["tags"],
-	}
 		VpcId: outputs["vpcId"],
-	}
 	}, nil
 }
 

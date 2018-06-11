@@ -31,21 +31,13 @@ func LookupRoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, erro
 	}
 	return &GetRouteResult{
 		DestinationCidrBlock: outputs["destinationCidrBlock"],
-	}
 		DestinationIpv6CidrBlock: outputs["destinationIpv6CidrBlock"],
-	}
 		EgressOnlyGatewayId: outputs["egressOnlyGatewayId"],
-	}
 		GatewayId: outputs["gatewayId"],
-	}
 		InstanceId: outputs["instanceId"],
-	}
 		NatGatewayId: outputs["natGatewayId"],
-	}
 		NetworkInterfaceId: outputs["networkInterfaceId"],
-	}
 		VpcPeeringConnectionId: outputs["vpcPeeringConnectionId"],
-	}
 	}, nil
 }
 

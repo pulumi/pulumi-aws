@@ -22,25 +22,15 @@ func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, e
 	}
 	return &GetVolumeResult{
 		Arn: outputs["arn"],
-	}
 		AvailabilityZone: outputs["availabilityZone"],
-	}
 		Encrypted: outputs["encrypted"],
-	}
 		Iops: outputs["iops"],
-	}
 		KmsKeyId: outputs["kmsKeyId"],
-	}
 		Size: outputs["size"],
-	}
 		SnapshotId: outputs["snapshotId"],
-	}
 		Tags: outputs["tags"],
-	}
 		VolumeId: outputs["volumeId"],
-	}
 		VolumeType: outputs["volumeType"],
-	}
 	}, nil
 }
 

@@ -19,15 +19,10 @@ func LookupArn(ctx *pulumi.Context, args *GetArnArgs) (*GetArnResult, error) {
 	}
 	return &GetArnResult{
 		Account: outputs["account"],
-	}
 		Partition: outputs["partition"],
-	}
 		Region: outputs["region"],
-	}
 		Resource: outputs["resource"],
-	}
 		Service: outputs["service"],
-	}
 	}, nil
 }
 

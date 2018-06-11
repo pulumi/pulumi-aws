@@ -19,17 +19,11 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	}
 	return &GetClusterResult{
 		CertificateAuthority: outputs["certificateAuthority"],
-	}
 		CreatedAt: outputs["createdAt"],
-	}
 		Endpoint: outputs["endpoint"],
-	}
 		RoleArn: outputs["roleArn"],
-	}
 		Version: outputs["version"],
-	}
 		VpcConfig: outputs["vpcConfig"],
-	}
 	}, nil
 }
 
