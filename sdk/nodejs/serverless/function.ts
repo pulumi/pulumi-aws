@@ -22,7 +22,7 @@ import * as readPackageTree from 'read-package-tree';
 import * as builtinModules from 'builtin-modules';
 import { sync as resolveSync } from 'resolve';
 
-import { Role, RolePolicyAttachment } from "../iam";
+import { PolicyDocument, Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
 import { ARN } from "../arn";
 
@@ -73,6 +73,10 @@ export interface FunctionOptions {
      */
     runtime?: lambda.Runtime;
     /**
+     * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     */
+    publish?: pulumi.Input<boolean>;
+    /**
      * A dead letter target ARN to send function invocation failures to.
      */
     deadLetterConfig?: { targetArn: pulumi.Input<string>; };
@@ -92,6 +96,11 @@ export interface FunctionOptions {
      * installed in the program folder and it's dependencies will all be included. Default is `[]`.
      */
     includePackages?: string[];
+    /**
+     * Allow the function to be used with Lambda@Edgge.  Adds `edgelambda.amazonaws.com` as an additional service
+     * principal which can invoke the Lambda function.
+     */
+    edge?: boolean;
 }
 
 /**
@@ -122,7 +131,7 @@ export class Function extends pulumi.ComponentResource {
         } else if (options.policies) {
             // Attach a role and then, if there are policies, attach those too.
             this.role = new Role(name, {
-                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
+                assumeRolePolicy: JSON.stringify(getLambdaRolePolicy(options.edge)),
             }, { parent: this });
 
             for (let policy of options.policies) {
@@ -166,6 +175,7 @@ export class Function extends pulumi.ComponentResource {
             memorySize: options.memorySize,
             deadLetterConfig: options.deadLetterConfig,
             vpcConfig: options.vpcConfig,
+            publish: options.publish,
         }, { parent: this });
     }
 }
@@ -220,18 +230,24 @@ async function computeCodePaths(
     return codePaths;
 }
 
-const lambdaRolePolicy = {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-                "Service": "lambda.amazonaws.com",
+function getLambdaRolePolicy(edge?: boolean): PolicyDocument {
+    let service: string | string[] = "lambda.amazonaws.com";
+    if (edge) {
+        service = [ "lambda.amazonaws.com", "edgelambda.amazonaws.com" ];
+    }
+    return {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Action": "sts:AssumeRole",
+                "Principal": {
+                    "Service": service,
+                },
+                "Effect": "Allow",
+                "Sid": "",
             },
-            "Effect": "Allow",
-            "Sid": "",
-        },
-    ],
+        ],
+    };
 };
 
 // sha1hash returns a partial SHA1 hash of the input string.
