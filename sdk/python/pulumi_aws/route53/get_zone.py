@@ -10,56 +10,40 @@ class GetZoneResult(object):
     A collection of values returned by getZone.
     """
     def __init__(__self__, caller_reference=None, comment=None, name=None, name_servers=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
-        if not caller_reference:
-            raise TypeError('Missing required argument caller_reference')
-        elif not isinstance(caller_reference, basestring):
+        if caller_reference and not isinstance(caller_reference, basestring):
             raise TypeError('Expected argument caller_reference to be a basestring')
         __self__.caller_reference = caller_reference
         """
         Caller Reference of the Hosted Zone.
         """
-        if not comment:
-            raise TypeError('Missing required argument comment')
-        elif not isinstance(comment, basestring):
+        if comment and not isinstance(comment, basestring):
             raise TypeError('Expected argument comment to be a basestring')
         __self__.comment = comment
         """
         The comment field of the Hosted Zone.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
-        if not name_servers:
-            raise TypeError('Missing required argument name_servers')
-        elif not isinstance(name_servers, list):
+        if name_servers and not isinstance(name_servers, list):
             raise TypeError('Expected argument name_servers to be a list')
         __self__.name_servers = name_servers
         """
         The list of DNS name servers for the Hosted Zone.
         """
-        if not resource_record_set_count:
-            raise TypeError('Missing required argument resource_record_set_count')
-        elif not isinstance(resource_record_set_count, int):
+        if resource_record_set_count and not isinstance(resource_record_set_count, int):
             raise TypeError('Expected argument resource_record_set_count to be a int')
         __self__.resource_record_set_count = resource_record_set_count
         """
         the number of Record Set in the Hosted Zone
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not vpc_id:
-            raise TypeError('Missing required argument vpc_id')
-        elif not isinstance(vpc_id, basestring):
+        if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
-        if not zone_id:
-            raise TypeError('Missing required argument zone_id')
-        elif not isinstance(zone_id, basestring):
+        if zone_id and not isinstance(zone_id, basestring):
             raise TypeError('Expected argument zone_id to be a basestring')
         __self__.zone_id = zone_id
 
@@ -82,11 +66,11 @@ def get_zone(caller_reference=None, comment=None, name=None, private_zone=None, 
     __ret__ = pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__)
 
     return GetZoneResult(
-        caller_reference=__ret__['callerReference'],
-        comment=__ret__['comment'],
-        name=__ret__['name'],
-        name_servers=__ret__['nameServers'],
-        resource_record_set_count=__ret__['resourceRecordSetCount'],
-        tags=__ret__['tags'],
-        vpc_id=__ret__['vpcId'],
-        zone_id=__ret__['zoneId'])
+        caller_reference=__ret__.get('callerReference'),
+        comment=__ret__.get('comment'),
+        name=__ret__.get('name'),
+        name_servers=__ret__.get('nameServers'),
+        resource_record_set_count=__ret__.get('resourceRecordSetCount'),
+        tags=__ret__.get('tags'),
+        vpc_id=__ret__.get('vpcId'),
+        zone_id=__ret__.get('zoneId'))

@@ -10,9 +10,7 @@ class GetRestApiResult(object):
     A collection of values returned by getRestApi.
     """
     def __init__(__self__, root_resource_id=None):
-        if not root_resource_id:
-            raise TypeError('Missing required argument root_resource_id')
-        elif not isinstance(root_resource_id, basestring):
+        if root_resource_id and not isinstance(root_resource_id, basestring):
             raise TypeError('Expected argument root_resource_id to be a basestring')
         __self__.root_resource_id = root_resource_id
         """
@@ -32,4 +30,4 @@ def get_rest_api(name=None):
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__)
 
     return GetRestApiResult(
-        root_resource_id=__ret__['rootResourceId'])
+        root_resource_id=__ret__.get('rootResourceId'))

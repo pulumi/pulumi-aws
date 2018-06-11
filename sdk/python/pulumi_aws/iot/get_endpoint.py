@@ -10,9 +10,7 @@ class GetEndpointResult(object):
     A collection of values returned by getEndpoint.
     """
     def __init__(__self__, endpoint_address=None):
-        if not endpoint_address:
-            raise TypeError('Missing required argument endpoint_address')
-        elif not isinstance(endpoint_address, basestring):
+        if endpoint_address and not isinstance(endpoint_address, basestring):
             raise TypeError('Expected argument endpoint_address to be a basestring')
         __self__.endpoint_address = endpoint_address
         """
@@ -28,4 +26,4 @@ def get_endpoint():
     __ret__ = pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__)
 
     return GetEndpointResult(
-        endpoint_address=__ret__['endpointAddress'])
+        endpoint_address=__ret__.get('endpointAddress'))

@@ -10,19 +10,13 @@ class GetParameterResult(object):
     A collection of values returned by getParameter.
     """
     def __init__(__self__, arn=None, type=None, value=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
-        if not type:
-            raise TypeError('Missing required argument type')
-        elif not isinstance(type, basestring):
+        if type and not isinstance(type, basestring):
             raise TypeError('Expected argument type to be a basestring')
         __self__.type = type
-        if not value:
-            raise TypeError('Missing required argument value')
-        elif not isinstance(value, basestring):
+        if value and not isinstance(value, basestring):
             raise TypeError('Expected argument value to be a basestring')
         __self__.value = value
 
@@ -37,6 +31,6 @@ def get_parameter(name=None, with_decryption=None):
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__)
 
     return GetParameterResult(
-        arn=__ret__['arn'],
-        type=__ret__['type'],
-        value=__ret__['value'])
+        arn=__ret__.get('arn'),
+        type=__ret__.get('type'),
+        value=__ret__.get('value'))

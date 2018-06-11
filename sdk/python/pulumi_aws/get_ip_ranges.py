@@ -10,25 +10,19 @@ class GetIpRangesResult(object):
     A collection of values returned by getIpRanges.
     """
     def __init__(__self__, cidr_blocks=None, create_date=None, sync_token=None):
-        if not cidr_blocks:
-            raise TypeError('Missing required argument cidr_blocks')
-        elif not isinstance(cidr_blocks, list):
+        if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError('Expected argument cidr_blocks to be a list')
         __self__.cidr_blocks = cidr_blocks
         """
         The lexically ordered list of CIDR blocks.
         """
-        if not create_date:
-            raise TypeError('Missing required argument create_date')
-        elif not isinstance(create_date, basestring):
+        if create_date and not isinstance(create_date, basestring):
             raise TypeError('Expected argument create_date to be a basestring')
         __self__.create_date = create_date
         """
         The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
         """
-        if not sync_token:
-            raise TypeError('Missing required argument sync_token')
-        elif not isinstance(sync_token, int):
+        if sync_token and not isinstance(sync_token, int):
             raise TypeError('Expected argument sync_token to be a int')
         __self__.sync_token = sync_token
         """
@@ -47,6 +41,6 @@ def get_ip_ranges(regions=None, services=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__)
 
     return GetIpRangesResult(
-        cidr_blocks=__ret__['cidrBlocks'],
-        create_date=__ret__['createDate'],
-        sync_token=__ret__['syncToken'])
+        cidr_blocks=__ret__.get('cidrBlocks'),
+        create_date=__ret__.get('createDate'),
+        sync_token=__ret__.get('syncToken'))

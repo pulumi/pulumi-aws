@@ -10,26 +10,20 @@ class GetAvailabilityZoneResult(object):
     A collection of values returned by getAvailabilityZone.
     """
     def __init__(__self__, name=None, name_suffix=None, region=None, state=None):
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
         """
         The name of the selected availability zone.
         """
-        if not name_suffix:
-            raise TypeError('Missing required argument name_suffix')
-        elif not isinstance(name_suffix, basestring):
+        if name_suffix and not isinstance(name_suffix, basestring):
             raise TypeError('Expected argument name_suffix to be a basestring')
         __self__.name_suffix = name_suffix
         """
         The part of the AZ name that appears after the region name,
         uniquely identifying the AZ within its region.
         """
-        if not region:
-            raise TypeError('Missing required argument region')
-        elif not isinstance(region, basestring):
+        if region and not isinstance(region, basestring):
             raise TypeError('Expected argument region to be a basestring')
         __self__.region = region
         """
@@ -37,9 +31,7 @@ class GetAvailabilityZoneResult(object):
         This is always the region selected on the provider, since this data source
         searches only within that region.
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
@@ -67,7 +59,7 @@ def get_availability_zone(name=None, state=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__)
 
     return GetAvailabilityZoneResult(
-        name=__ret__['name'],
-        name_suffix=__ret__['nameSuffix'],
-        region=__ret__['region'],
-        state=__ret__['state'])
+        name=__ret__.get('name'),
+        name_suffix=__ret__.get('nameSuffix'),
+        region=__ret__.get('region'),
+        state=__ret__.get('state'))

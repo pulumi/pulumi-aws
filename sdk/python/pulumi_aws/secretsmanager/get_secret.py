@@ -10,62 +10,46 @@ class GetSecretResult(object):
     A collection of values returned by getSecret.
     """
     def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the secret.
         """
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         A description of the secret.
         """
-        if not kms_key_id:
-            raise TypeError('Missing required argument kms_key_id')
-        elif not isinstance(kms_key_id, basestring):
+        if kms_key_id and not isinstance(kms_key_id, basestring):
             raise TypeError('Expected argument kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
         """
         The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
-        if not rotation_enabled:
-            raise TypeError('Missing required argument rotation_enabled')
-        elif not isinstance(rotation_enabled, bool):
+        if rotation_enabled and not isinstance(rotation_enabled, bool):
             raise TypeError('Expected argument rotation_enabled to be a bool')
         __self__.rotation_enabled = rotation_enabled
         """
         Whether rotation is enabled or not.
         """
-        if not rotation_lambda_arn:
-            raise TypeError('Missing required argument rotation_lambda_arn')
-        elif not isinstance(rotation_lambda_arn, basestring):
+        if rotation_lambda_arn and not isinstance(rotation_lambda_arn, basestring):
             raise TypeError('Expected argument rotation_lambda_arn to be a basestring')
         __self__.rotation_lambda_arn = rotation_lambda_arn
         """
         Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
         """
-        if not rotation_rules:
-            raise TypeError('Missing required argument rotation_rules')
-        elif not isinstance(rotation_rules, list):
+        if rotation_rules and not isinstance(rotation_rules, list):
             raise TypeError('Expected argument rotation_rules to be a list')
         __self__.rotation_rules = rotation_rules
         """
         Rotation rules if rotation is enabled.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -83,11 +67,11 @@ def get_secret(arn=None, name=None):
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__)
 
     return GetSecretResult(
-        arn=__ret__['arn'],
-        description=__ret__['description'],
-        kms_key_id=__ret__['kmsKeyId'],
-        name=__ret__['name'],
-        rotation_enabled=__ret__['rotationEnabled'],
-        rotation_lambda_arn=__ret__['rotationLambdaArn'],
-        rotation_rules=__ret__['rotationRules'],
-        tags=__ret__['tags'])
+        arn=__ret__.get('arn'),
+        description=__ret__.get('description'),
+        kms_key_id=__ret__.get('kmsKeyId'),
+        name=__ret__.get('name'),
+        rotation_enabled=__ret__.get('rotationEnabled'),
+        rotation_lambda_arn=__ret__.get('rotationLambdaArn'),
+        rotation_rules=__ret__.get('rotationRules'),
+        tags=__ret__.get('tags'))

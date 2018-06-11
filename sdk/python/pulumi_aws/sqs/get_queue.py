@@ -10,17 +10,13 @@ class GetQueueResult(object):
     A collection of values returned by getQueue.
     """
     def __init__(__self__, arn=None, url=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the queue.
         """
-        if not url:
-            raise TypeError('Missing required argument url')
-        elif not isinstance(url, basestring):
+        if url and not isinstance(url, basestring):
             raise TypeError('Expected argument url to be a basestring')
         __self__.url = url
         """
@@ -39,5 +35,5 @@ def get_queue(name=None):
     __ret__ = pulumi.runtime.invoke('aws:sqs/getQueue:getQueue', __args__)
 
     return GetQueueResult(
-        arn=__ret__['arn'],
-        url=__ret__['url'])
+        arn=__ret__.get('arn'),
+        url=__ret__.get('url'))

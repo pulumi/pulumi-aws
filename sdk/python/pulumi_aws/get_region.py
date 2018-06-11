@@ -10,26 +10,20 @@ class GetRegionResult(object):
     A collection of values returned by getRegion.
     """
     def __init__(__self__, current=None, endpoint=None, name=None):
-        if not current:
-            raise TypeError('Missing required argument current')
-        elif not isinstance(current, bool):
+        if current and not isinstance(current, bool):
             raise TypeError('Expected argument current to be a bool')
         __self__.current = current
         """
         `true` if the selected region is the one configured on the
         provider, or `false` otherwise.
         """
-        if not endpoint:
-            raise TypeError('Missing required argument endpoint')
-        elif not isinstance(endpoint, basestring):
+        if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
         __self__.endpoint = endpoint
         """
         The EC2 endpoint for the selected region.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
         """
@@ -53,6 +47,6 @@ def get_region(current=None, endpoint=None, name=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__)
 
     return GetRegionResult(
-        current=__ret__['current'],
-        endpoint=__ret__['endpoint'],
-        name=__ret__['name'])
+        current=__ret__.get('current'),
+        endpoint=__ret__.get('endpoint'),
+        name=__ret__.get('name'))

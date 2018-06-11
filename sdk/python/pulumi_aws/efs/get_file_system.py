@@ -10,51 +10,37 @@ class GetFileSystemResult(object):
     A collection of values returned by getFileSystem.
     """
     def __init__(__self__, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None):
-        if not creation_token:
-            raise TypeError('Missing required argument creation_token')
-        elif not isinstance(creation_token, basestring):
+        if creation_token and not isinstance(creation_token, basestring):
             raise TypeError('Expected argument creation_token to be a basestring')
         __self__.creation_token = creation_token
-        if not dns_name:
-            raise TypeError('Missing required argument dns_name')
-        elif not isinstance(dns_name, basestring):
+        if dns_name and not isinstance(dns_name, basestring):
             raise TypeError('Expected argument dns_name to be a basestring')
         __self__.dns_name = dns_name
         """
         The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
-        if not encrypted:
-            raise TypeError('Missing required argument encrypted')
-        elif not isinstance(encrypted, bool):
+        if encrypted and not isinstance(encrypted, bool):
             raise TypeError('Expected argument encrypted to be a bool')
         __self__.encrypted = encrypted
         """
         Whether EFS is encrypted.
         """
-        if not file_system_id:
-            raise TypeError('Missing required argument file_system_id')
-        elif not isinstance(file_system_id, basestring):
+        if file_system_id and not isinstance(file_system_id, basestring):
             raise TypeError('Expected argument file_system_id to be a basestring')
         __self__.file_system_id = file_system_id
-        if not kms_key_id:
-            raise TypeError('Missing required argument kms_key_id')
-        elif not isinstance(kms_key_id, basestring):
+        if kms_key_id and not isinstance(kms_key_id, basestring):
             raise TypeError('Expected argument kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
         """
         The ARN for the KMS encryption key.
         """
-        if not performance_mode:
-            raise TypeError('Missing required argument performance_mode')
-        elif not isinstance(performance_mode, basestring):
+        if performance_mode and not isinstance(performance_mode, basestring):
             raise TypeError('Expected argument performance_mode to be a basestring')
         __self__.performance_mode = performance_mode
         """
         The PerformanceMode of the file system.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -73,10 +59,10 @@ def get_file_system(creation_token=None, file_system_id=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__)
 
     return GetFileSystemResult(
-        creation_token=__ret__['creationToken'],
-        dns_name=__ret__['dnsName'],
-        encrypted=__ret__['encrypted'],
-        file_system_id=__ret__['fileSystemId'],
-        kms_key_id=__ret__['kmsKeyId'],
-        performance_mode=__ret__['performanceMode'],
-        tags=__ret__['tags'])
+        creation_token=__ret__.get('creationToken'),
+        dns_name=__ret__.get('dnsName'),
+        encrypted=__ret__.get('encrypted'),
+        file_system_id=__ret__.get('fileSystemId'),
+        kms_key_id=__ret__.get('kmsKeyId'),
+        performance_mode=__ret__.get('performanceMode'),
+        tags=__ret__.get('tags'))

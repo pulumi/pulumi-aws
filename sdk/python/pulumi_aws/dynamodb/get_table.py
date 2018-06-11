@@ -10,79 +10,49 @@ class GetTableResult(object):
     A collection of values returned by getTable.
     """
     def __init__(__self__, arn=None, attributes=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
-        if not attributes:
-            raise TypeError('Missing required argument attributes')
-        elif not isinstance(attributes, list):
+        if attributes and not isinstance(attributes, list):
             raise TypeError('Expected argument attributes to be a list')
         __self__.attributes = attributes
-        if not global_secondary_indexes:
-            raise TypeError('Missing required argument global_secondary_indexes')
-        elif not isinstance(global_secondary_indexes, list):
+        if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError('Expected argument global_secondary_indexes to be a list')
         __self__.global_secondary_indexes = global_secondary_indexes
-        if not hash_key:
-            raise TypeError('Missing required argument hash_key')
-        elif not isinstance(hash_key, basestring):
+        if hash_key and not isinstance(hash_key, basestring):
             raise TypeError('Expected argument hash_key to be a basestring')
         __self__.hash_key = hash_key
-        if not local_secondary_indexes:
-            raise TypeError('Missing required argument local_secondary_indexes')
-        elif not isinstance(local_secondary_indexes, list):
+        if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
             raise TypeError('Expected argument local_secondary_indexes to be a list')
         __self__.local_secondary_indexes = local_secondary_indexes
-        if not range_key:
-            raise TypeError('Missing required argument range_key')
-        elif not isinstance(range_key, basestring):
+        if range_key and not isinstance(range_key, basestring):
             raise TypeError('Expected argument range_key to be a basestring')
         __self__.range_key = range_key
-        if not read_capacity:
-            raise TypeError('Missing required argument read_capacity')
-        elif not isinstance(read_capacity, int):
+        if read_capacity and not isinstance(read_capacity, int):
             raise TypeError('Expected argument read_capacity to be a int')
         __self__.read_capacity = read_capacity
-        if not server_side_encryption:
-            raise TypeError('Missing required argument server_side_encryption')
-        elif not isinstance(server_side_encryption, dict):
+        if server_side_encryption and not isinstance(server_side_encryption, dict):
             raise TypeError('Expected argument server_side_encryption to be a dict')
         __self__.server_side_encryption = server_side_encryption
-        if not stream_arn:
-            raise TypeError('Missing required argument stream_arn')
-        elif not isinstance(stream_arn, basestring):
+        if stream_arn and not isinstance(stream_arn, basestring):
             raise TypeError('Expected argument stream_arn to be a basestring')
         __self__.stream_arn = stream_arn
-        if not stream_enabled:
-            raise TypeError('Missing required argument stream_enabled')
-        elif not isinstance(stream_enabled, bool):
+        if stream_enabled and not isinstance(stream_enabled, bool):
             raise TypeError('Expected argument stream_enabled to be a bool')
         __self__.stream_enabled = stream_enabled
-        if not stream_label:
-            raise TypeError('Missing required argument stream_label')
-        elif not isinstance(stream_label, basestring):
+        if stream_label and not isinstance(stream_label, basestring):
             raise TypeError('Expected argument stream_label to be a basestring')
         __self__.stream_label = stream_label
-        if not stream_view_type:
-            raise TypeError('Missing required argument stream_view_type')
-        elif not isinstance(stream_view_type, basestring):
+        if stream_view_type and not isinstance(stream_view_type, basestring):
             raise TypeError('Expected argument stream_view_type to be a basestring')
         __self__.stream_view_type = stream_view_type
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not ttl:
-            raise TypeError('Missing required argument ttl')
-        elif not isinstance(ttl, dict):
+        if ttl and not isinstance(ttl, dict):
             raise TypeError('Expected argument ttl to be a dict')
         __self__.ttl = ttl
-        if not write_capacity:
-            raise TypeError('Missing required argument write_capacity')
-        elif not isinstance(write_capacity, int):
+        if write_capacity and not isinstance(write_capacity, int):
             raise TypeError('Expected argument write_capacity to be a int')
         __self__.write_capacity = write_capacity
 
@@ -98,18 +68,18 @@ def get_table(name=None, server_side_encryption=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__)
 
     return GetTableResult(
-        arn=__ret__['arn'],
-        attributes=__ret__['attributes'],
-        global_secondary_indexes=__ret__['globalSecondaryIndexes'],
-        hash_key=__ret__['hashKey'],
-        local_secondary_indexes=__ret__['localSecondaryIndexes'],
-        range_key=__ret__['rangeKey'],
-        read_capacity=__ret__['readCapacity'],
-        server_side_encryption=__ret__['serverSideEncryption'],
-        stream_arn=__ret__['streamArn'],
-        stream_enabled=__ret__['streamEnabled'],
-        stream_label=__ret__['streamLabel'],
-        stream_view_type=__ret__['streamViewType'],
-        tags=__ret__['tags'],
-        ttl=__ret__['ttl'],
-        write_capacity=__ret__['writeCapacity'])
+        arn=__ret__.get('arn'),
+        attributes=__ret__.get('attributes'),
+        global_secondary_indexes=__ret__.get('globalSecondaryIndexes'),
+        hash_key=__ret__.get('hashKey'),
+        local_secondary_indexes=__ret__.get('localSecondaryIndexes'),
+        range_key=__ret__.get('rangeKey'),
+        read_capacity=__ret__.get('readCapacity'),
+        server_side_encryption=__ret__.get('serverSideEncryption'),
+        stream_arn=__ret__.get('streamArn'),
+        stream_enabled=__ret__.get('streamEnabled'),
+        stream_label=__ret__.get('streamLabel'),
+        stream_view_type=__ret__.get('streamViewType'),
+        tags=__ret__.get('tags'),
+        ttl=__ret__.get('ttl'),
+        write_capacity=__ret__.get('writeCapacity'))

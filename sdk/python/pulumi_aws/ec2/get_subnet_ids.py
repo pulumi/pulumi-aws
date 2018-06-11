@@ -10,17 +10,13 @@ class GetSubnetIdsResult(object):
     A collection of values returned by getSubnetIds.
     """
     def __init__(__self__, ids=None, tags=None):
-        if not ids:
-            raise TypeError('Missing required argument ids')
-        elif not isinstance(ids, list):
+        if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
         """
         A list of all the subnet ids found. This data source will fail if none are found.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
 
@@ -37,5 +33,5 @@ def get_subnet_ids(tags=None, vpc_id=None):
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__)
 
     return GetSubnetIdsResult(
-        ids=__ret__['ids'],
-        tags=__ret__['tags'])
+        ids=__ret__.get('ids'),
+        tags=__ret__.get('tags'))

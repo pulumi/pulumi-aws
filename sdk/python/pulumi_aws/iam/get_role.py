@@ -10,58 +10,40 @@ class GetRoleResult(object):
     A collection of values returned by getRole.
     """
     def __init__(__self__, arn=None, assume_role_policy=None, assume_role_policy_document=None, create_date=None, description=None, max_session_duration=None, path=None, role_id=None, unique_id=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) specifying the role.
         """
-        if not assume_role_policy:
-            raise TypeError('Missing required argument assume_role_policy')
-        elif not isinstance(assume_role_policy, basestring):
+        if assume_role_policy and not isinstance(assume_role_policy, basestring):
             raise TypeError('Expected argument assume_role_policy to be a basestring')
         __self__.assume_role_policy = assume_role_policy
         """
         The policy document associated with the role.
         """
-        if not assume_role_policy_document:
-            raise TypeError('Missing required argument assume_role_policy_document')
-        elif not isinstance(assume_role_policy_document, basestring):
+        if assume_role_policy_document and not isinstance(assume_role_policy_document, basestring):
             raise TypeError('Expected argument assume_role_policy_document to be a basestring')
         __self__.assume_role_policy_document = assume_role_policy_document
-        if not create_date:
-            raise TypeError('Missing required argument create_date')
-        elif not isinstance(create_date, basestring):
+        if create_date and not isinstance(create_date, basestring):
             raise TypeError('Expected argument create_date to be a basestring')
         __self__.create_date = create_date
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
-        if not max_session_duration:
-            raise TypeError('Missing required argument max_session_duration')
-        elif not isinstance(max_session_duration, int):
+        if max_session_duration and not isinstance(max_session_duration, int):
             raise TypeError('Expected argument max_session_duration to be a int')
         __self__.max_session_duration = max_session_duration
-        if not path:
-            raise TypeError('Missing required argument path')
-        elif not isinstance(path, basestring):
+        if path and not isinstance(path, basestring):
             raise TypeError('Expected argument path to be a basestring')
         __self__.path = path
         """
         The path to the role.
         """
-        if not role_id:
-            raise TypeError('Missing required argument role_id')
-        elif not isinstance(role_id, basestring):
+        if role_id and not isinstance(role_id, basestring):
             raise TypeError('Expected argument role_id to be a basestring')
         __self__.role_id = role_id
-        if not unique_id:
-            raise TypeError('Missing required argument unique_id')
-        elif not isinstance(unique_id, basestring):
+        if unique_id and not isinstance(unique_id, basestring):
             raise TypeError('Expected argument unique_id to be a basestring')
         __self__.unique_id = unique_id
         """
@@ -81,12 +63,12 @@ def get_role(name=None, role_name=None):
     __ret__ = pulumi.runtime.invoke('aws:iam/getRole:getRole', __args__)
 
     return GetRoleResult(
-        arn=__ret__['arn'],
-        assume_role_policy=__ret__['assumeRolePolicy'],
-        assume_role_policy_document=__ret__['assumeRolePolicyDocument'],
-        create_date=__ret__['createDate'],
-        description=__ret__['description'],
-        max_session_duration=__ret__['maxSessionDuration'],
-        path=__ret__['path'],
-        role_id=__ret__['roleId'],
-        unique_id=__ret__['uniqueId'])
+        arn=__ret__.get('arn'),
+        assume_role_policy=__ret__.get('assumeRolePolicy'),
+        assume_role_policy_document=__ret__.get('assumeRolePolicyDocument'),
+        create_date=__ret__.get('createDate'),
+        description=__ret__.get('description'),
+        max_session_duration=__ret__.get('maxSessionDuration'),
+        path=__ret__.get('path'),
+        role_id=__ret__.get('roleId'),
+        unique_id=__ret__.get('uniqueId'))

@@ -10,119 +10,73 @@ class GetClusterResult(object):
     A collection of values returned by getCluster.
     """
     def __init__(__self__, availability_zones=None, backup_retention_period=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
-        if not availability_zones:
-            raise TypeError('Missing required argument availability_zones')
-        elif not isinstance(availability_zones, list):
+        if availability_zones and not isinstance(availability_zones, list):
             raise TypeError('Expected argument availability_zones to be a list')
         __self__.availability_zones = availability_zones
-        if not backup_retention_period:
-            raise TypeError('Missing required argument backup_retention_period')
-        elif not isinstance(backup_retention_period, int):
+        if backup_retention_period and not isinstance(backup_retention_period, int):
             raise TypeError('Expected argument backup_retention_period to be a int')
         __self__.backup_retention_period = backup_retention_period
-        if not cluster_members:
-            raise TypeError('Missing required argument cluster_members')
-        elif not isinstance(cluster_members, list):
+        if cluster_members and not isinstance(cluster_members, list):
             raise TypeError('Expected argument cluster_members to be a list')
         __self__.cluster_members = cluster_members
-        if not cluster_resource_id:
-            raise TypeError('Missing required argument cluster_resource_id')
-        elif not isinstance(cluster_resource_id, basestring):
+        if cluster_resource_id and not isinstance(cluster_resource_id, basestring):
             raise TypeError('Expected argument cluster_resource_id to be a basestring')
         __self__.cluster_resource_id = cluster_resource_id
-        if not database_name:
-            raise TypeError('Missing required argument database_name')
-        elif not isinstance(database_name, basestring):
+        if database_name and not isinstance(database_name, basestring):
             raise TypeError('Expected argument database_name to be a basestring')
         __self__.database_name = database_name
-        if not db_cluster_parameter_group_name:
-            raise TypeError('Missing required argument db_cluster_parameter_group_name')
-        elif not isinstance(db_cluster_parameter_group_name, basestring):
+        if db_cluster_parameter_group_name and not isinstance(db_cluster_parameter_group_name, basestring):
             raise TypeError('Expected argument db_cluster_parameter_group_name to be a basestring')
         __self__.db_cluster_parameter_group_name = db_cluster_parameter_group_name
-        if not db_subnet_group_name:
-            raise TypeError('Missing required argument db_subnet_group_name')
-        elif not isinstance(db_subnet_group_name, basestring):
+        if db_subnet_group_name and not isinstance(db_subnet_group_name, basestring):
             raise TypeError('Expected argument db_subnet_group_name to be a basestring')
         __self__.db_subnet_group_name = db_subnet_group_name
-        if not endpoint:
-            raise TypeError('Missing required argument endpoint')
-        elif not isinstance(endpoint, basestring):
+        if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
         __self__.endpoint = endpoint
-        if not engine:
-            raise TypeError('Missing required argument engine')
-        elif not isinstance(engine, basestring):
+        if engine and not isinstance(engine, basestring):
             raise TypeError('Expected argument engine to be a basestring')
         __self__.engine = engine
-        if not engine_version:
-            raise TypeError('Missing required argument engine_version')
-        elif not isinstance(engine_version, basestring):
+        if engine_version and not isinstance(engine_version, basestring):
             raise TypeError('Expected argument engine_version to be a basestring')
         __self__.engine_version = engine_version
-        if not final_snapshot_identifier:
-            raise TypeError('Missing required argument final_snapshot_identifier')
-        elif not isinstance(final_snapshot_identifier, basestring):
+        if final_snapshot_identifier and not isinstance(final_snapshot_identifier, basestring):
             raise TypeError('Expected argument final_snapshot_identifier to be a basestring')
         __self__.final_snapshot_identifier = final_snapshot_identifier
-        if not iam_database_authentication_enabled:
-            raise TypeError('Missing required argument iam_database_authentication_enabled')
-        elif not isinstance(iam_database_authentication_enabled, bool):
+        if iam_database_authentication_enabled and not isinstance(iam_database_authentication_enabled, bool):
             raise TypeError('Expected argument iam_database_authentication_enabled to be a bool')
         __self__.iam_database_authentication_enabled = iam_database_authentication_enabled
-        if not iam_roles:
-            raise TypeError('Missing required argument iam_roles')
-        elif not isinstance(iam_roles, list):
+        if iam_roles and not isinstance(iam_roles, list):
             raise TypeError('Expected argument iam_roles to be a list')
         __self__.iam_roles = iam_roles
-        if not kms_key_id:
-            raise TypeError('Missing required argument kms_key_id')
-        elif not isinstance(kms_key_id, basestring):
+        if kms_key_id and not isinstance(kms_key_id, basestring):
             raise TypeError('Expected argument kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
-        if not master_username:
-            raise TypeError('Missing required argument master_username')
-        elif not isinstance(master_username, basestring):
+        if master_username and not isinstance(master_username, basestring):
             raise TypeError('Expected argument master_username to be a basestring')
         __self__.master_username = master_username
-        if not port:
-            raise TypeError('Missing required argument port')
-        elif not isinstance(port, int):
+        if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
-        if not preferred_backup_window:
-            raise TypeError('Missing required argument preferred_backup_window')
-        elif not isinstance(preferred_backup_window, basestring):
+        if preferred_backup_window and not isinstance(preferred_backup_window, basestring):
             raise TypeError('Expected argument preferred_backup_window to be a basestring')
         __self__.preferred_backup_window = preferred_backup_window
-        if not preferred_maintenance_window:
-            raise TypeError('Missing required argument preferred_maintenance_window')
-        elif not isinstance(preferred_maintenance_window, basestring):
+        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
             raise TypeError('Expected argument preferred_maintenance_window to be a basestring')
         __self__.preferred_maintenance_window = preferred_maintenance_window
-        if not reader_endpoint:
-            raise TypeError('Missing required argument reader_endpoint')
-        elif not isinstance(reader_endpoint, basestring):
+        if reader_endpoint and not isinstance(reader_endpoint, basestring):
             raise TypeError('Expected argument reader_endpoint to be a basestring')
         __self__.reader_endpoint = reader_endpoint
-        if not replication_source_identifier:
-            raise TypeError('Missing required argument replication_source_identifier')
-        elif not isinstance(replication_source_identifier, basestring):
+        if replication_source_identifier and not isinstance(replication_source_identifier, basestring):
             raise TypeError('Expected argument replication_source_identifier to be a basestring')
         __self__.replication_source_identifier = replication_source_identifier
-        if not storage_encrypted:
-            raise TypeError('Missing required argument storage_encrypted')
-        elif not isinstance(storage_encrypted, bool):
+        if storage_encrypted and not isinstance(storage_encrypted, bool):
             raise TypeError('Expected argument storage_encrypted to be a bool')
         __self__.storage_encrypted = storage_encrypted
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not vpc_security_group_ids:
-            raise TypeError('Missing required argument vpc_security_group_ids')
-        elif not isinstance(vpc_security_group_ids, list):
+        if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError('Expected argument vpc_security_group_ids to be a list')
         __self__.vpc_security_group_ids = vpc_security_group_ids
 
@@ -137,26 +91,26 @@ def get_cluster(cluster_identifier=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__)
 
     return GetClusterResult(
-        availability_zones=__ret__['availabilityZones'],
-        backup_retention_period=__ret__['backupRetentionPeriod'],
-        cluster_members=__ret__['clusterMembers'],
-        cluster_resource_id=__ret__['clusterResourceId'],
-        database_name=__ret__['databaseName'],
-        db_cluster_parameter_group_name=__ret__['dbClusterParameterGroupName'],
-        db_subnet_group_name=__ret__['dbSubnetGroupName'],
-        endpoint=__ret__['endpoint'],
-        engine=__ret__['engine'],
-        engine_version=__ret__['engineVersion'],
-        final_snapshot_identifier=__ret__['finalSnapshotIdentifier'],
-        iam_database_authentication_enabled=__ret__['iamDatabaseAuthenticationEnabled'],
-        iam_roles=__ret__['iamRoles'],
-        kms_key_id=__ret__['kmsKeyId'],
-        master_username=__ret__['masterUsername'],
-        port=__ret__['port'],
-        preferred_backup_window=__ret__['preferredBackupWindow'],
-        preferred_maintenance_window=__ret__['preferredMaintenanceWindow'],
-        reader_endpoint=__ret__['readerEndpoint'],
-        replication_source_identifier=__ret__['replicationSourceIdentifier'],
-        storage_encrypted=__ret__['storageEncrypted'],
-        tags=__ret__['tags'],
-        vpc_security_group_ids=__ret__['vpcSecurityGroupIds'])
+        availability_zones=__ret__.get('availabilityZones'),
+        backup_retention_period=__ret__.get('backupRetentionPeriod'),
+        cluster_members=__ret__.get('clusterMembers'),
+        cluster_resource_id=__ret__.get('clusterResourceId'),
+        database_name=__ret__.get('databaseName'),
+        db_cluster_parameter_group_name=__ret__.get('dbClusterParameterGroupName'),
+        db_subnet_group_name=__ret__.get('dbSubnetGroupName'),
+        endpoint=__ret__.get('endpoint'),
+        engine=__ret__.get('engine'),
+        engine_version=__ret__.get('engineVersion'),
+        final_snapshot_identifier=__ret__.get('finalSnapshotIdentifier'),
+        iam_database_authentication_enabled=__ret__.get('iamDatabaseAuthenticationEnabled'),
+        iam_roles=__ret__.get('iamRoles'),
+        kms_key_id=__ret__.get('kmsKeyId'),
+        master_username=__ret__.get('masterUsername'),
+        port=__ret__.get('port'),
+        preferred_backup_window=__ret__.get('preferredBackupWindow'),
+        preferred_maintenance_window=__ret__.get('preferredMaintenanceWindow'),
+        reader_endpoint=__ret__.get('readerEndpoint'),
+        replication_source_identifier=__ret__.get('replicationSourceIdentifier'),
+        storage_encrypted=__ret__.get('storageEncrypted'),
+        tags=__ret__.get('tags'),
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))

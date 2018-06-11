@@ -221,7 +221,7 @@ export interface BucketObjectState {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.asset.Asset;
+    readonly source?: pulumi.Input<pulumi.asset.Asset>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
@@ -305,7 +305,7 @@ export interface BucketObjectArgs {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.asset.Asset;
+    readonly source?: pulumi.Input<pulumi.asset.Asset>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", or "`STANDARD_IA`". Defaults to "`STANDARD`".

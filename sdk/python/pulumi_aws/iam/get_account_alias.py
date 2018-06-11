@@ -10,9 +10,7 @@ class GetAccountAliasResult(object):
     A collection of values returned by getAccountAlias.
     """
     def __init__(__self__, account_alias=None):
-        if not account_alias:
-            raise TypeError('Missing required argument account_alias')
-        elif not isinstance(account_alias, basestring):
+        if account_alias and not isinstance(account_alias, basestring):
             raise TypeError('Expected argument account_alias to be a basestring')
         __self__.account_alias = account_alias
         """
@@ -29,4 +27,4 @@ def get_account_alias():
     __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__)
 
     return GetAccountAliasResult(
-        account_alias=__ret__['accountAlias'])
+        account_alias=__ret__.get('accountAlias'))

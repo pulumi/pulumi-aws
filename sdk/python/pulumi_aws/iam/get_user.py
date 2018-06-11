@@ -10,25 +10,19 @@ class GetUserResult(object):
     A collection of values returned by getUser.
     """
     def __init__(__self__, arn=None, path=None, user_id=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) assigned by AWS for this user.
         """
-        if not path:
-            raise TypeError('Missing required argument path')
-        elif not isinstance(path, basestring):
+        if path and not isinstance(path, basestring):
             raise TypeError('Expected argument path to be a basestring')
         __self__.path = path
         """
         Path in which this user was created.
         """
-        if not user_id:
-            raise TypeError('Missing required argument user_id')
-        elif not isinstance(user_id, basestring):
+        if user_id and not isinstance(user_id, basestring):
             raise TypeError('Expected argument user_id to be a basestring')
         __self__.user_id = user_id
         """
@@ -47,6 +41,6 @@ def get_user(user_name=None):
     __ret__ = pulumi.runtime.invoke('aws:iam/getUser:getUser', __args__)
 
     return GetUserResult(
-        arn=__ret__['arn'],
-        path=__ret__['path'],
-        user_id=__ret__['userId'])
+        arn=__ret__.get('arn'),
+        path=__ret__.get('path'),
+        user_id=__ret__.get('userId'))

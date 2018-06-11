@@ -10,9 +10,7 @@ class GetSolutionStackResult(object):
     A collection of values returned by getSolutionStack.
     """
     def __init__(__self__, name=None):
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
         """
@@ -30,4 +28,4 @@ def get_solution_stack(most_recent=None, name_regex=None):
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__)
 
     return GetSolutionStackResult(
-        name=__ret__['name'])
+        name=__ret__.get('name'))

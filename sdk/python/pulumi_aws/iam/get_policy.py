@@ -10,33 +10,25 @@ class GetPolicyResult(object):
     A collection of values returned by getPolicy.
     """
     def __init__(__self__, description=None, name=None, path=None, policy=None):
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         The description of the policy.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
         """
         The name of the IAM policy.
         """
-        if not path:
-            raise TypeError('Missing required argument path')
-        elif not isinstance(path, basestring):
+        if path and not isinstance(path, basestring):
             raise TypeError('Expected argument path to be a basestring')
         __self__.path = path
         """
         The path to the policy.
         """
-        if not policy:
-            raise TypeError('Missing required argument policy')
-        elif not isinstance(policy, basestring):
+        if policy and not isinstance(policy, basestring):
             raise TypeError('Expected argument policy to be a basestring')
         __self__.policy = policy
         """
@@ -54,7 +46,7 @@ def get_policy(arn=None):
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__)
 
     return GetPolicyResult(
-        description=__ret__['description'],
-        name=__ret__['name'],
-        path=__ret__['path'],
-        policy=__ret__['policy'])
+        description=__ret__.get('description'),
+        name=__ret__.get('name'),
+        path=__ret__.get('path'),
+        policy=__ret__.get('policy'))

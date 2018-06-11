@@ -10,40 +10,28 @@ class GetSecurityGroupResult(object):
     A collection of values returned by getSecurityGroup.
     """
     def __init__(__self__, arn=None, description=None, id=None, name=None, tags=None, vpc_id=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The computed ARN of the security group.
         """
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         The description of the security group.
         """
-        if not id:
-            raise TypeError('Missing required argument id')
-        elif not isinstance(id, basestring):
+        if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
         __self__.id = id
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not vpc_id:
-            raise TypeError('Missing required argument vpc_id')
-        elif not isinstance(vpc_id, basestring):
+        if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
 
@@ -65,9 +53,9 @@ def get_security_group(filters=None, id=None, name=None, tags=None, vpc_id=None)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroup:getSecurityGroup', __args__)
 
     return GetSecurityGroupResult(
-        arn=__ret__['arn'],
-        description=__ret__['description'],
-        id=__ret__['id'],
-        name=__ret__['name'],
-        tags=__ret__['tags'],
-        vpc_id=__ret__['vpcId'])
+        arn=__ret__.get('arn'),
+        description=__ret__.get('description'),
+        id=__ret__.get('id'),
+        name=__ret__.get('name'),
+        tags=__ret__.get('tags'),
+        vpc_id=__ret__.get('vpcId'))

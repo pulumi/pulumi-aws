@@ -10,18 +10,14 @@ class GetPrefixListResult(object):
     A collection of values returned by getPrefixList.
     """
     def __init__(__self__, cidr_blocks=None, name=None):
-        if not cidr_blocks:
-            raise TypeError('Missing required argument cidr_blocks')
-        elif not isinstance(cidr_blocks, list):
+        if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError('Expected argument cidr_blocks to be a list')
         __self__.cidr_blocks = cidr_blocks
         """
         The list of CIDR blocks for the AWS service associated
         with the prefix list.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
         """
@@ -45,5 +41,5 @@ def get_prefix_list(name=None, prefix_list_id=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__)
 
     return GetPrefixListResult(
-        cidr_blocks=__ret__['cidrBlocks'],
-        name=__ret__['name'])
+        cidr_blocks=__ret__.get('cidrBlocks'),
+        name=__ret__.get('name'))

@@ -10,25 +10,19 @@ class GetGroupResult(object):
     A collection of values returned by getGroup.
     """
     def __init__(__self__, arn=None, group_id=None, path=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) specifying the group.
         """
-        if not group_id:
-            raise TypeError('Missing required argument group_id')
-        elif not isinstance(group_id, basestring):
+        if group_id and not isinstance(group_id, basestring):
             raise TypeError('Expected argument group_id to be a basestring')
         __self__.group_id = group_id
         """
         The stable and unique string identifying the group.
         """
-        if not path:
-            raise TypeError('Missing required argument path')
-        elif not isinstance(path, basestring):
+        if path and not isinstance(path, basestring):
             raise TypeError('Expected argument path to be a basestring')
         __self__.path = path
         """
@@ -47,6 +41,6 @@ def get_group(group_name=None):
     __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__)
 
     return GetGroupResult(
-        arn=__ret__['arn'],
-        group_id=__ret__['groupId'],
-        path=__ret__['path'])
+        arn=__ret__.get('arn'),
+        group_id=__ret__.get('groupId'),
+        path=__ret__.get('path'))

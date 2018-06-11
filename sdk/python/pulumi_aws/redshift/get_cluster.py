@@ -10,222 +10,166 @@ class GetClusterResult(object):
     A collection of values returned by getCluster.
     """
     def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, vpc_id=None, vpc_security_group_ids=None):
-        if not allow_version_upgrade:
-            raise TypeError('Missing required argument allow_version_upgrade')
-        elif not isinstance(allow_version_upgrade, bool):
+        if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError('Expected argument allow_version_upgrade to be a bool')
         __self__.allow_version_upgrade = allow_version_upgrade
         """
         Whether major version upgrades can be applied during maintenance period
         """
-        if not automated_snapshot_retention_period:
-            raise TypeError('Missing required argument automated_snapshot_retention_period')
-        elif not isinstance(automated_snapshot_retention_period, int):
+        if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, int):
             raise TypeError('Expected argument automated_snapshot_retention_period to be a int')
         __self__.automated_snapshot_retention_period = automated_snapshot_retention_period
         """
         The backup retention period
         """
-        if not availability_zone:
-            raise TypeError('Missing required argument availability_zone')
-        elif not isinstance(availability_zone, basestring):
+        if availability_zone and not isinstance(availability_zone, basestring):
             raise TypeError('Expected argument availability_zone to be a basestring')
         __self__.availability_zone = availability_zone
         """
         The availability zone of the cluster
         """
-        if not bucket_name:
-            raise TypeError('Missing required argument bucket_name')
-        elif not isinstance(bucket_name, basestring):
+        if bucket_name and not isinstance(bucket_name, basestring):
             raise TypeError('Expected argument bucket_name to be a basestring')
         __self__.bucket_name = bucket_name
         """
         The name of the S3 bucket where the log files are to be stored
         """
-        if not cluster_parameter_group_name:
-            raise TypeError('Missing required argument cluster_parameter_group_name')
-        elif not isinstance(cluster_parameter_group_name, basestring):
+        if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, basestring):
             raise TypeError('Expected argument cluster_parameter_group_name to be a basestring')
         __self__.cluster_parameter_group_name = cluster_parameter_group_name
         """
         The name of the parameter group to be associated with this cluster
         """
-        if not cluster_public_key:
-            raise TypeError('Missing required argument cluster_public_key')
-        elif not isinstance(cluster_public_key, basestring):
+        if cluster_public_key and not isinstance(cluster_public_key, basestring):
             raise TypeError('Expected argument cluster_public_key to be a basestring')
         __self__.cluster_public_key = cluster_public_key
         """
         The public key for the cluster
         """
-        if not cluster_revision_number:
-            raise TypeError('Missing required argument cluster_revision_number')
-        elif not isinstance(cluster_revision_number, basestring):
+        if cluster_revision_number and not isinstance(cluster_revision_number, basestring):
             raise TypeError('Expected argument cluster_revision_number to be a basestring')
         __self__.cluster_revision_number = cluster_revision_number
         """
         The cluster revision number
         """
-        if not cluster_security_groups:
-            raise TypeError('Missing required argument cluster_security_groups')
-        elif not isinstance(cluster_security_groups, list):
+        if cluster_security_groups and not isinstance(cluster_security_groups, list):
             raise TypeError('Expected argument cluster_security_groups to be a list')
         __self__.cluster_security_groups = cluster_security_groups
         """
         The security groups associated with the cluster
         """
-        if not cluster_subnet_group_name:
-            raise TypeError('Missing required argument cluster_subnet_group_name')
-        elif not isinstance(cluster_subnet_group_name, basestring):
+        if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, basestring):
             raise TypeError('Expected argument cluster_subnet_group_name to be a basestring')
         __self__.cluster_subnet_group_name = cluster_subnet_group_name
         """
         The name of a cluster subnet group to be associated with this cluster
         """
-        if not cluster_type:
-            raise TypeError('Missing required argument cluster_type')
-        elif not isinstance(cluster_type, basestring):
+        if cluster_type and not isinstance(cluster_type, basestring):
             raise TypeError('Expected argument cluster_type to be a basestring')
         __self__.cluster_type = cluster_type
         """
         The cluster type
         """
-        if not cluster_version:
-            raise TypeError('Missing required argument cluster_version')
-        elif not isinstance(cluster_version, basestring):
+        if cluster_version and not isinstance(cluster_version, basestring):
             raise TypeError('Expected argument cluster_version to be a basestring')
         __self__.cluster_version = cluster_version
-        if not database_name:
-            raise TypeError('Missing required argument database_name')
-        elif not isinstance(database_name, basestring):
+        if database_name and not isinstance(database_name, basestring):
             raise TypeError('Expected argument database_name to be a basestring')
         __self__.database_name = database_name
         """
         The name of the default database in the cluster
         """
-        if not elastic_ip:
-            raise TypeError('Missing required argument elastic_ip')
-        elif not isinstance(elastic_ip, basestring):
+        if elastic_ip and not isinstance(elastic_ip, basestring):
             raise TypeError('Expected argument elastic_ip to be a basestring')
         __self__.elastic_ip = elastic_ip
         """
         The Elastic IP of the cluster
         """
-        if not enable_logging:
-            raise TypeError('Missing required argument enable_logging')
-        elif not isinstance(enable_logging, bool):
+        if enable_logging and not isinstance(enable_logging, bool):
             raise TypeError('Expected argument enable_logging to be a bool')
         __self__.enable_logging = enable_logging
         """
         Whether cluster logging is enabled
         """
-        if not encrypted:
-            raise TypeError('Missing required argument encrypted')
-        elif not isinstance(encrypted, bool):
+        if encrypted and not isinstance(encrypted, bool):
             raise TypeError('Expected argument encrypted to be a bool')
         __self__.encrypted = encrypted
         """
         Whether the cluster data is encrypted
         """
-        if not endpoint:
-            raise TypeError('Missing required argument endpoint')
-        elif not isinstance(endpoint, basestring):
+        if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
         __self__.endpoint = endpoint
         """
         The cluster endpoint
         """
-        if not enhanced_vpc_routing:
-            raise TypeError('Missing required argument enhanced_vpc_routing')
-        elif not isinstance(enhanced_vpc_routing, bool):
+        if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
             raise TypeError('Expected argument enhanced_vpc_routing to be a bool')
         __self__.enhanced_vpc_routing = enhanced_vpc_routing
         """
         Whether enhanced VPC routing is enabled
         """
-        if not iam_roles:
-            raise TypeError('Missing required argument iam_roles')
-        elif not isinstance(iam_roles, list):
+        if iam_roles and not isinstance(iam_roles, list):
             raise TypeError('Expected argument iam_roles to be a list')
         __self__.iam_roles = iam_roles
         """
         The IAM roles associated to the cluster
         """
-        if not kms_key_id:
-            raise TypeError('Missing required argument kms_key_id')
-        elif not isinstance(kms_key_id, basestring):
+        if kms_key_id and not isinstance(kms_key_id, basestring):
             raise TypeError('Expected argument kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
         """
         The KMS encryption key associated to the cluster
         """
-        if not master_username:
-            raise TypeError('Missing required argument master_username')
-        elif not isinstance(master_username, basestring):
+        if master_username and not isinstance(master_username, basestring):
             raise TypeError('Expected argument master_username to be a basestring')
         __self__.master_username = master_username
         """
         Username for the master DB user
         """
-        if not node_type:
-            raise TypeError('Missing required argument node_type')
-        elif not isinstance(node_type, basestring):
+        if node_type and not isinstance(node_type, basestring):
             raise TypeError('Expected argument node_type to be a basestring')
         __self__.node_type = node_type
         """
         The cluster node type
         """
-        if not number_of_nodes:
-            raise TypeError('Missing required argument number_of_nodes')
-        elif not isinstance(number_of_nodes, int):
+        if number_of_nodes and not isinstance(number_of_nodes, int):
             raise TypeError('Expected argument number_of_nodes to be a int')
         __self__.number_of_nodes = number_of_nodes
         """
         The number of nodes in the cluster
         """
-        if not port:
-            raise TypeError('Missing required argument port')
-        elif not isinstance(port, int):
+        if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
         """
         The port the cluster responds on
         """
-        if not preferred_maintenance_window:
-            raise TypeError('Missing required argument preferred_maintenance_window')
-        elif not isinstance(preferred_maintenance_window, basestring):
+        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
             raise TypeError('Expected argument preferred_maintenance_window to be a basestring')
         __self__.preferred_maintenance_window = preferred_maintenance_window
         """
         The maintenance window
         """
-        if not publicly_accessible:
-            raise TypeError('Missing required argument publicly_accessible')
-        elif not isinstance(publicly_accessible, bool):
+        if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError('Expected argument publicly_accessible to be a bool')
         __self__.publicly_accessible = publicly_accessible
         """
         Whether the cluster is publicly accessible
         """
-        if not s3_key_prefix:
-            raise TypeError('Missing required argument s3_key_prefix')
-        elif not isinstance(s3_key_prefix, basestring):
+        if s3_key_prefix and not isinstance(s3_key_prefix, basestring):
             raise TypeError('Expected argument s3_key_prefix to be a basestring')
         __self__.s3_key_prefix = s3_key_prefix
         """
         The folder inside the S3 bucket where the log files are stored
         """
-        if not vpc_id:
-            raise TypeError('Missing required argument vpc_id')
-        elif not isinstance(vpc_id, basestring):
+        if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
         """
         The VPC Id associated with the cluster
         """
-        if not vpc_security_group_ids:
-            raise TypeError('Missing required argument vpc_security_group_ids')
-        elif not isinstance(vpc_security_group_ids, list):
+        if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError('Expected argument vpc_security_group_ids to be a list')
         __self__.vpc_security_group_ids = vpc_security_group_ids
         """
@@ -243,31 +187,31 @@ def get_cluster(cluster_identifier=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:redshift/getCluster:getCluster', __args__)
 
     return GetClusterResult(
-        allow_version_upgrade=__ret__['allowVersionUpgrade'],
-        automated_snapshot_retention_period=__ret__['automatedSnapshotRetentionPeriod'],
-        availability_zone=__ret__['availabilityZone'],
-        bucket_name=__ret__['bucketName'],
-        cluster_parameter_group_name=__ret__['clusterParameterGroupName'],
-        cluster_public_key=__ret__['clusterPublicKey'],
-        cluster_revision_number=__ret__['clusterRevisionNumber'],
-        cluster_security_groups=__ret__['clusterSecurityGroups'],
-        cluster_subnet_group_name=__ret__['clusterSubnetGroupName'],
-        cluster_type=__ret__['clusterType'],
-        cluster_version=__ret__['clusterVersion'],
-        database_name=__ret__['databaseName'],
-        elastic_ip=__ret__['elasticIp'],
-        enable_logging=__ret__['enableLogging'],
-        encrypted=__ret__['encrypted'],
-        endpoint=__ret__['endpoint'],
-        enhanced_vpc_routing=__ret__['enhancedVpcRouting'],
-        iam_roles=__ret__['iamRoles'],
-        kms_key_id=__ret__['kmsKeyId'],
-        master_username=__ret__['masterUsername'],
-        node_type=__ret__['nodeType'],
-        number_of_nodes=__ret__['numberOfNodes'],
-        port=__ret__['port'],
-        preferred_maintenance_window=__ret__['preferredMaintenanceWindow'],
-        publicly_accessible=__ret__['publiclyAccessible'],
-        s3_key_prefix=__ret__['s3KeyPrefix'],
-        vpc_id=__ret__['vpcId'],
-        vpc_security_group_ids=__ret__['vpcSecurityGroupIds'])
+        allow_version_upgrade=__ret__.get('allowVersionUpgrade'),
+        automated_snapshot_retention_period=__ret__.get('automatedSnapshotRetentionPeriod'),
+        availability_zone=__ret__.get('availabilityZone'),
+        bucket_name=__ret__.get('bucketName'),
+        cluster_parameter_group_name=__ret__.get('clusterParameterGroupName'),
+        cluster_public_key=__ret__.get('clusterPublicKey'),
+        cluster_revision_number=__ret__.get('clusterRevisionNumber'),
+        cluster_security_groups=__ret__.get('clusterSecurityGroups'),
+        cluster_subnet_group_name=__ret__.get('clusterSubnetGroupName'),
+        cluster_type=__ret__.get('clusterType'),
+        cluster_version=__ret__.get('clusterVersion'),
+        database_name=__ret__.get('databaseName'),
+        elastic_ip=__ret__.get('elasticIp'),
+        enable_logging=__ret__.get('enableLogging'),
+        encrypted=__ret__.get('encrypted'),
+        endpoint=__ret__.get('endpoint'),
+        enhanced_vpc_routing=__ret__.get('enhancedVpcRouting'),
+        iam_roles=__ret__.get('iamRoles'),
+        kms_key_id=__ret__.get('kmsKeyId'),
+        master_username=__ret__.get('masterUsername'),
+        node_type=__ret__.get('nodeType'),
+        number_of_nodes=__ret__.get('numberOfNodes'),
+        port=__ret__.get('port'),
+        preferred_maintenance_window=__ret__.get('preferredMaintenanceWindow'),
+        publicly_accessible=__ret__.get('publiclyAccessible'),
+        s3_key_prefix=__ret__.get('s3KeyPrefix'),
+        vpc_id=__ret__.get('vpcId'),
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))

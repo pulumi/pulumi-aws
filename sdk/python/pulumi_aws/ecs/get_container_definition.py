@@ -10,65 +10,49 @@ class GetContainerDefinitionResult(object):
     A collection of values returned by getContainerDefinition.
     """
     def __init__(__self__, cpu=None, disable_networking=None, docker_labels=None, environment=None, image=None, image_digest=None, memory=None, memory_reservation=None):
-        if not cpu:
-            raise TypeError('Missing required argument cpu')
-        elif not isinstance(cpu, int):
+        if cpu and not isinstance(cpu, int):
             raise TypeError('Expected argument cpu to be a int')
         __self__.cpu = cpu
         """
         The CPU limit for this container definition
         """
-        if not disable_networking:
-            raise TypeError('Missing required argument disable_networking')
-        elif not isinstance(disable_networking, bool):
+        if disable_networking and not isinstance(disable_networking, bool):
             raise TypeError('Expected argument disable_networking to be a bool')
         __self__.disable_networking = disable_networking
         """
         Indicator if networking is disabled
         """
-        if not docker_labels:
-            raise TypeError('Missing required argument docker_labels')
-        elif not isinstance(docker_labels, dict):
+        if docker_labels and not isinstance(docker_labels, dict):
             raise TypeError('Expected argument docker_labels to be a dict')
         __self__.docker_labels = docker_labels
         """
         Set docker labels
         """
-        if not environment:
-            raise TypeError('Missing required argument environment')
-        elif not isinstance(environment, dict):
+        if environment and not isinstance(environment, dict):
             raise TypeError('Expected argument environment to be a dict')
         __self__.environment = environment
         """
         The environment in use
         """
-        if not image:
-            raise TypeError('Missing required argument image')
-        elif not isinstance(image, basestring):
+        if image and not isinstance(image, basestring):
             raise TypeError('Expected argument image to be a basestring')
         __self__.image = image
         """
         The docker image in use, including the digest
         """
-        if not image_digest:
-            raise TypeError('Missing required argument image_digest')
-        elif not isinstance(image_digest, basestring):
+        if image_digest and not isinstance(image_digest, basestring):
             raise TypeError('Expected argument image_digest to be a basestring')
         __self__.image_digest = image_digest
         """
         The digest of the docker image in use
         """
-        if not memory:
-            raise TypeError('Missing required argument memory')
-        elif not isinstance(memory, int):
+        if memory and not isinstance(memory, int):
             raise TypeError('Expected argument memory to be a int')
         __self__.memory = memory
         """
         The memory limit for this container definition
         """
-        if not memory_reservation:
-            raise TypeError('Missing required argument memory_reservation')
-        elif not isinstance(memory_reservation, int):
+        if memory_reservation and not isinstance(memory_reservation, int):
             raise TypeError('Expected argument memory_reservation to be a int')
         __self__.memory_reservation = memory_reservation
         """
@@ -87,11 +71,11 @@ def get_container_definition(container_name=None, task_definition=None):
     __ret__ = pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__)
 
     return GetContainerDefinitionResult(
-        cpu=__ret__['cpu'],
-        disable_networking=__ret__['disableNetworking'],
-        docker_labels=__ret__['dockerLabels'],
-        environment=__ret__['environment'],
-        image=__ret__['image'],
-        image_digest=__ret__['imageDigest'],
-        memory=__ret__['memory'],
-        memory_reservation=__ret__['memoryReservation'])
+        cpu=__ret__.get('cpu'),
+        disable_networking=__ret__.get('disableNetworking'),
+        docker_labels=__ret__.get('dockerLabels'),
+        environment=__ret__.get('environment'),
+        image=__ret__.get('image'),
+        image_digest=__ret__.get('imageDigest'),
+        memory=__ret__.get('memory'),
+        memory_reservation=__ret__.get('memoryReservation'))

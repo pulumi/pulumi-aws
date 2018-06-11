@@ -10,17 +10,13 @@ class GetLogGroupResult(object):
     A collection of values returned by getLogGroup.
     """
     def __init__(__self__, arn=None, creation_time=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The ARN of the Cloudwatch log group
         """
-        if not creation_time:
-            raise TypeError('Missing required argument creation_time')
-        elif not isinstance(creation_time, int):
+        if creation_time and not isinstance(creation_time, int):
             raise TypeError('Expected argument creation_time to be a int')
         __self__.creation_time = creation_time
         """
@@ -37,5 +33,5 @@ def get_log_group(name=None):
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__)
 
     return GetLogGroupResult(
-        arn=__ret__['arn'],
-        creation_time=__ret__['creationTime'])
+        arn=__ret__.get('arn'),
+        creation_time=__ret__.get('creationTime'))

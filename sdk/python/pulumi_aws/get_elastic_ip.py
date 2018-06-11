@@ -10,14 +10,10 @@ class GetElasticIpResult(object):
     A collection of values returned by getElasticIp.
     """
     def __init__(__self__, id=None, public_ip=None):
-        if not id:
-            raise TypeError('Missing required argument id')
-        elif not isinstance(id, basestring):
+        if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
         __self__.id = id
-        if not public_ip:
-            raise TypeError('Missing required argument public_ip')
-        elif not isinstance(public_ip, basestring):
+        if public_ip and not isinstance(public_ip, basestring):
             raise TypeError('Expected argument public_ip to be a basestring')
         __self__.public_ip = public_ip
 
@@ -35,5 +31,5 @@ def get_elastic_ip(id=None, public_ip=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__)
 
     return GetElasticIpResult(
-        id=__ret__['id'],
-        public_ip=__ret__['publicIp'])
+        id=__ret__.get('id'),
+        public_ip=__ret__.get('publicIp'))

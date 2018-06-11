@@ -10,59 +10,37 @@ class GetTargetGroupResult(object):
     A collection of values returned by getTargetGroup.
     """
     def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
-        if not arn_suffix:
-            raise TypeError('Missing required argument arn_suffix')
-        elif not isinstance(arn_suffix, basestring):
+        if arn_suffix and not isinstance(arn_suffix, basestring):
             raise TypeError('Expected argument arn_suffix to be a basestring')
         __self__.arn_suffix = arn_suffix
-        if not deregistration_delay:
-            raise TypeError('Missing required argument deregistration_delay')
-        elif not isinstance(deregistration_delay, int):
+        if deregistration_delay and not isinstance(deregistration_delay, int):
             raise TypeError('Expected argument deregistration_delay to be a int')
         __self__.deregistration_delay = deregistration_delay
-        if not health_check:
-            raise TypeError('Missing required argument health_check')
-        elif not isinstance(health_check, dict):
+        if health_check and not isinstance(health_check, dict):
             raise TypeError('Expected argument health_check to be a dict')
         __self__.health_check = health_check
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
-        if not port:
-            raise TypeError('Missing required argument port')
-        elif not isinstance(port, int):
+        if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
-        if not protocol:
-            raise TypeError('Missing required argument protocol')
-        elif not isinstance(protocol, basestring):
+        if protocol and not isinstance(protocol, basestring):
             raise TypeError('Expected argument protocol to be a basestring')
         __self__.protocol = protocol
-        if not slow_start:
-            raise TypeError('Missing required argument slow_start')
-        elif not isinstance(slow_start, int):
+        if slow_start and not isinstance(slow_start, int):
             raise TypeError('Expected argument slow_start to be a int')
         __self__.slow_start = slow_start
-        if not stickiness:
-            raise TypeError('Missing required argument stickiness')
-        elif not isinstance(stickiness, dict):
+        if stickiness and not isinstance(stickiness, dict):
             raise TypeError('Expected argument stickiness to be a dict')
         __self__.stickiness = stickiness
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if not vpc_id:
-            raise TypeError('Missing required argument vpc_id')
-        elif not isinstance(vpc_id, basestring):
+        if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
 
@@ -84,14 +62,14 @@ def get_target_group(arn=None, name=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup', __args__)
 
     return GetTargetGroupResult(
-        arn=__ret__['arn'],
-        arn_suffix=__ret__['arnSuffix'],
-        deregistration_delay=__ret__['deregistrationDelay'],
-        health_check=__ret__['healthCheck'],
-        name=__ret__['name'],
-        port=__ret__['port'],
-        protocol=__ret__['protocol'],
-        slow_start=__ret__['slowStart'],
-        stickiness=__ret__['stickiness'],
-        tags=__ret__['tags'],
-        vpc_id=__ret__['vpcId'])
+        arn=__ret__.get('arn'),
+        arn_suffix=__ret__.get('arnSuffix'),
+        deregistration_delay=__ret__.get('deregistrationDelay'),
+        health_check=__ret__.get('healthCheck'),
+        name=__ret__.get('name'),
+        port=__ret__.get('port'),
+        protocol=__ret__.get('protocol'),
+        slow_start=__ret__.get('slowStart'),
+        stickiness=__ret__.get('stickiness'),
+        tags=__ret__.get('tags'),
+        vpc_id=__ret__.get('vpcId'))

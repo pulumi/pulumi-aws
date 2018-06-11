@@ -8,6 +8,7 @@ git:
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
     - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
+    - git clone git@github.com:pulumi/pulumi ${GOPATH}/src/github.com/pulumi/pulumi
     # Dep for Go dependency management.
     - go get -v github.com/golang/dep/cmd/dep
     # Gometalinter for good Go linting/hygiene.
@@ -27,7 +28,7 @@ before_install:
     - pip install --upgrade --user awscli
     - . ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh
     # Install Pulumi
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-pulumi.sh v0.12.3
+    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-pulumi.sh v0.12.4-dev-1528753447-gb69ad036
     - export PATH=/usr/local/pulumi/bin:$PATH
 install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.

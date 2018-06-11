@@ -10,14 +10,10 @@ class GetUserPoolsResult(object):
     A collection of values returned by getUserPools.
     """
     def __init__(__self__, arns=None, ids=None):
-        if not arns:
-            raise TypeError('Missing required argument arns')
-        elif not isinstance(arns, list):
+        if arns and not isinstance(arns, list):
             raise TypeError('Expected argument arns to be a list')
         __self__.arns = arns
-        if not ids:
-            raise TypeError('Missing required argument ids')
-        elif not isinstance(ids, list):
+        if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
         """
@@ -34,5 +30,5 @@ def get_user_pools(name=None):
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__)
 
     return GetUserPoolsResult(
-        arns=__ret__['arns'],
-        ids=__ret__['ids'])
+        arns=__ret__.get('arns'),
+        ids=__ret__.get('ids'))

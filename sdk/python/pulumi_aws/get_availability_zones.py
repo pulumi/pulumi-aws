@@ -10,9 +10,7 @@ class GetAvailabilityZonesResult(object):
     A collection of values returned by getAvailabilityZones.
     """
     def __init__(__self__, names=None):
-        if not names:
-            raise TypeError('Missing required argument names')
-        elif not isinstance(names, list):
+        if names and not isinstance(names, list):
             raise TypeError('Expected argument names to be a list')
         __self__.names = names
         """
@@ -34,4 +32,4 @@ def get_availability_zones(state=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__)
 
     return GetAvailabilityZonesResult(
-        names=__ret__['names'])
+        names=__ret__.get('names'))

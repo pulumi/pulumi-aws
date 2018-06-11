@@ -10,17 +10,13 @@ class GetJobQueueResult(object):
     A collection of values returned by getJobQueue.
     """
     def __init__(__self__, arn=None, compute_environment_orders=None, priority=None, state=None, status=None, status_reason=None):
-        if not arn:
-            raise TypeError('Missing required argument arn')
-        elif not isinstance(arn, basestring):
+        if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The ARN of the job queue.
         """
-        if not compute_environment_orders:
-            raise TypeError('Missing required argument compute_environment_orders')
-        elif not isinstance(compute_environment_orders, list):
+        if compute_environment_orders and not isinstance(compute_environment_orders, list):
             raise TypeError('Expected argument compute_environment_orders to be a list')
         __self__.compute_environment_orders = compute_environment_orders
         """
@@ -29,34 +25,26 @@ class GetJobQueueResult(object):
         * `compute_environment_order.#.order` - The order of the compute environment.
         * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
         """
-        if not priority:
-            raise TypeError('Missing required argument priority')
-        elif not isinstance(priority, int):
+        if priority and not isinstance(priority, int):
             raise TypeError('Expected argument priority to be a int')
         __self__.priority = priority
         """
         The priority of the job queue. Job queues with a higher priority are evaluated first when
         associated with the same compute environment.
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
         Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         """
-        if not status:
-            raise TypeError('Missing required argument status')
-        elif not isinstance(status, basestring):
+        if status and not isinstance(status, basestring):
             raise TypeError('Expected argument status to be a basestring')
         __self__.status = status
         """
         The current status of the job queue (for example, `CREATING` or `VALID`).
         """
-        if not status_reason:
-            raise TypeError('Missing required argument status_reason')
-        elif not isinstance(status_reason, basestring):
+        if status_reason and not isinstance(status_reason, basestring):
             raise TypeError('Expected argument status_reason to be a basestring')
         __self__.status_reason = status_reason
         """
@@ -75,9 +63,9 @@ def get_job_queue(name=None):
     __ret__ = pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__)
 
     return GetJobQueueResult(
-        arn=__ret__['arn'],
-        compute_environment_orders=__ret__['computeEnvironmentOrders'],
-        priority=__ret__['priority'],
-        state=__ret__['state'],
-        status=__ret__['status'],
-        status_reason=__ret__['statusReason'])
+        arn=__ret__.get('arn'),
+        compute_environment_orders=__ret__.get('computeEnvironmentOrders'),
+        priority=__ret__.get('priority'),
+        state=__ret__.get('state'),
+        status=__ret__.get('status'),
+        status_reason=__ret__.get('statusReason'))

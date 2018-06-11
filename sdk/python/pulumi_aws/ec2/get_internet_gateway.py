@@ -10,19 +10,13 @@ class GetInternetGatewayResult(object):
     A collection of values returned by getInternetGateway.
     """
     def __init__(__self__, attachments=None, internet_gateway_id=None, tags=None):
-        if not attachments:
-            raise TypeError('Missing required argument attachments')
-        elif not isinstance(attachments, list):
+        if attachments and not isinstance(attachments, list):
             raise TypeError('Expected argument attachments to be a list')
         __self__.attachments = attachments
-        if not internet_gateway_id:
-            raise TypeError('Missing required argument internet_gateway_id')
-        elif not isinstance(internet_gateway_id, basestring):
+        if internet_gateway_id and not isinstance(internet_gateway_id, basestring):
             raise TypeError('Expected argument internet_gateway_id to be a basestring')
         __self__.internet_gateway_id = internet_gateway_id
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
 
@@ -38,6 +32,6 @@ def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__)
 
     return GetInternetGatewayResult(
-        attachments=__ret__['attachments'],
-        internet_gateway_id=__ret__['internetGatewayId'],
-        tags=__ret__['tags'])
+        attachments=__ret__.get('attachments'),
+        internet_gateway_id=__ret__.get('internetGatewayId'),
+        tags=__ret__.get('tags'))

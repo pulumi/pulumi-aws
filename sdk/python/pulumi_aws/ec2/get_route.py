@@ -10,44 +10,28 @@ class GetRouteResult(object):
     A collection of values returned by getRoute.
     """
     def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, vpc_peering_connection_id=None):
-        if not destination_cidr_block:
-            raise TypeError('Missing required argument destination_cidr_block')
-        elif not isinstance(destination_cidr_block, basestring):
+        if destination_cidr_block and not isinstance(destination_cidr_block, basestring):
             raise TypeError('Expected argument destination_cidr_block to be a basestring')
         __self__.destination_cidr_block = destination_cidr_block
-        if not destination_ipv6_cidr_block:
-            raise TypeError('Missing required argument destination_ipv6_cidr_block')
-        elif not isinstance(destination_ipv6_cidr_block, basestring):
+        if destination_ipv6_cidr_block and not isinstance(destination_ipv6_cidr_block, basestring):
             raise TypeError('Expected argument destination_ipv6_cidr_block to be a basestring')
         __self__.destination_ipv6_cidr_block = destination_ipv6_cidr_block
-        if not egress_only_gateway_id:
-            raise TypeError('Missing required argument egress_only_gateway_id')
-        elif not isinstance(egress_only_gateway_id, basestring):
+        if egress_only_gateway_id and not isinstance(egress_only_gateway_id, basestring):
             raise TypeError('Expected argument egress_only_gateway_id to be a basestring')
         __self__.egress_only_gateway_id = egress_only_gateway_id
-        if not gateway_id:
-            raise TypeError('Missing required argument gateway_id')
-        elif not isinstance(gateway_id, basestring):
+        if gateway_id and not isinstance(gateway_id, basestring):
             raise TypeError('Expected argument gateway_id to be a basestring')
         __self__.gateway_id = gateway_id
-        if not instance_id:
-            raise TypeError('Missing required argument instance_id')
-        elif not isinstance(instance_id, basestring):
+        if instance_id and not isinstance(instance_id, basestring):
             raise TypeError('Expected argument instance_id to be a basestring')
         __self__.instance_id = instance_id
-        if not nat_gateway_id:
-            raise TypeError('Missing required argument nat_gateway_id')
-        elif not isinstance(nat_gateway_id, basestring):
+        if nat_gateway_id and not isinstance(nat_gateway_id, basestring):
             raise TypeError('Expected argument nat_gateway_id to be a basestring')
         __self__.nat_gateway_id = nat_gateway_id
-        if not network_interface_id:
-            raise TypeError('Missing required argument network_interface_id')
-        elif not isinstance(network_interface_id, basestring):
+        if network_interface_id and not isinstance(network_interface_id, basestring):
             raise TypeError('Expected argument network_interface_id to be a basestring')
         __self__.network_interface_id = network_interface_id
-        if not vpc_peering_connection_id:
-            raise TypeError('Missing required argument vpc_peering_connection_id')
-        elif not isinstance(vpc_peering_connection_id, basestring):
+        if vpc_peering_connection_id and not isinstance(vpc_peering_connection_id, basestring):
             raise TypeError('Expected argument vpc_peering_connection_id to be a basestring')
         __self__.vpc_peering_connection_id = vpc_peering_connection_id
 
@@ -73,11 +57,11 @@ def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=None, egr
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__)
 
     return GetRouteResult(
-        destination_cidr_block=__ret__['destinationCidrBlock'],
-        destination_ipv6_cidr_block=__ret__['destinationIpv6CidrBlock'],
-        egress_only_gateway_id=__ret__['egressOnlyGatewayId'],
-        gateway_id=__ret__['gatewayId'],
-        instance_id=__ret__['instanceId'],
-        nat_gateway_id=__ret__['natGatewayId'],
-        network_interface_id=__ret__['networkInterfaceId'],
-        vpc_peering_connection_id=__ret__['vpcPeeringConnectionId'])
+        destination_cidr_block=__ret__.get('destinationCidrBlock'),
+        destination_ipv6_cidr_block=__ret__.get('destinationIpv6CidrBlock'),
+        egress_only_gateway_id=__ret__.get('egressOnlyGatewayId'),
+        gateway_id=__ret__.get('gatewayId'),
+        instance_id=__ret__.get('instanceId'),
+        nat_gateway_id=__ret__.get('natGatewayId'),
+        network_interface_id=__ret__.get('networkInterfaceId'),
+        vpc_peering_connection_id=__ret__.get('vpcPeeringConnectionId'))

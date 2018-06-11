@@ -93,6 +93,8 @@ func TestExamples(t *testing.T) {
 			}),
 			// Python tests:
 			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
+			// Go tests:
+			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
 		}...)
 	}
 
