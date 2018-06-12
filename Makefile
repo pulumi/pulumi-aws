@@ -53,8 +53,7 @@ install::
 	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
 test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./tests/...
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples ./tests/...
 
 .PHONY: publish_tgz
 publish_tgz:
