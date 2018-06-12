@@ -7,7 +7,8 @@ git:
   depth: false
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
-    - git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home; fi
+    - git clone git@github.com:pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
     - git clone git@github.com:pulumi/pulumi ${GOPATH}/src/github.com/pulumi/pulumi
     # Dep for Go dependency management.
     - go get -v github.com/golang/dep/cmd/dep
@@ -26,19 +27,19 @@ before_install:
     - mkdir -p ~/.config/pip && echo -e "[global]\nextra-index-url = https://${PULUMI_API_TOKEN}@pypi.pulumi.com/simple" >> ~/.config/pip/pip.conf
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
-    - . ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then source ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh; fi
     # Install Pulumi
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/install-pulumi.sh v0.12.4-dev-1528753447-gb69ad036
+    - ${GOPATH}/src/github.com/pulumi/scripts/ci/install-pulumi.sh v0.12.4-dev-1528753447-gb69ad036
     - export PATH=/usr/local/pulumi/bin:$PATH
 install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure
 before_script:
     # Ensure the working tree is clean (make ensure may have updated lock files)
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/check-worktree-is-clean.sh
+    - ${GOPATH}/src/github.com/pulumi/scripts/ci/check-worktree-is-clean.sh
 script:
     - make travis_${TRAVIS_EVENT_TYPE}
 after_failure:
-    - ${GOPATH}/src/github.com/pulumi/home/scripts/upload-failed-tests
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then ${GOPATH}/src/github.com/pulumi/home/scripts/upload-failed-tests; fi
 notifications:
     webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis
