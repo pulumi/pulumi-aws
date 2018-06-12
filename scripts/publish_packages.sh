@@ -35,7 +35,6 @@ if [[ "${TRAVIS_OS_NAME:-}" == "linux" ]]; then
     # Next, publish the PyPI package.
     echo "Publishing Pip package to pulumi.com:"
     twine upload \
-        --repository-url https://test.pypi.org/legacy/ \
-        -u pulumi -p ${PYPI_TEST_PASSWORD} \
+        -u pulumi -p ${PYPI_PASSWORD} \
         ${ROOT}/sdk/python/bin/dist/*.tar.gz
 fi
