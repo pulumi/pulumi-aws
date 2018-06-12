@@ -29,8 +29,8 @@ before_install:
     - pip install --upgrade --user awscli
     - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then source ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh; fi
     # Install Pulumi
-    - ${GOPATH}/src/github.com/pulumi/scripts/ci/install-pulumi.sh v0.12.4-dev-1528753447-gb69ad036
-    - export PATH=/usr/local/pulumi/bin:$PATH
+    - curl -L https://get.pulumi.com/ | bash -s -- --version 0.14.0-rc1
+    - export PATH=$HOME/.pulumi/bin:$PATH
 install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure
