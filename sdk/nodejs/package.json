@@ -12,7 +12,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.12.3",
+        "@pulumi/pulumi": "^0.14.0-rc1",
         "builtin-modules": "3.0.0",
         "read-package-tree": "^5.2.1",
         "resolve": "^1.7.1"

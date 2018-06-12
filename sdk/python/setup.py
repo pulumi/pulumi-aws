@@ -23,6 +23,6 @@ setup(name='pulumi_aws',
       },
       packages=find_packages(),
       install_requires=[
-          'pulumi>=0.12.2,<0.13.0'
+          'pulumi>=0.14.0rc1,<0.15.0'
       ],
       zip_safe=False)
