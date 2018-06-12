@@ -166,13 +166,13 @@ func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig
 	creds, err := aws.GetCredentials(config)
 	if err != nil {
 		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
-			"- see https://docs.pulumi.com/install/aws.html for details on configuration")
+			"- see https://pulumi.io/install/aws.html for details on configuration")
 	}
 
 	_, err = creds.Get()
 	if err != nil {
 		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
-			"- see https://docs.pulumi.com/install/aws.html for details on configuration")
+			"- see https://pulumi.io/install/aws.html for details on configuration")
 	}
 
 	return nil
