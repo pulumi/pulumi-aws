@@ -17,10 +17,11 @@ setup(name='pulumi_aws',
           'install': InstallPluginCommand,
       },
       keywords='pulumi aws',
-      url='https://pulumi.io/aws',
+      url='https://pulumi.io',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-aws'
       },
+      license='Apache 2.0',
       packages=find_packages(),
       install_requires=[
           'pulumi>=0.14.0rc1,<0.15.0'
