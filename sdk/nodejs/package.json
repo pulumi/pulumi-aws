@@ -6,8 +6,9 @@
         "pulumi",
         "aws"
     ],
-    "homepage": "https://pulumi.io/aws",
+    "homepage": "https://pulumi.io",
     "repository": "https://github.com/pulumi/pulumi-aws",
+    "license": "Apache 2.0",
     "scripts": {
         "build": "tsc"
     },
