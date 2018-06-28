@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {NotificationType} from "./notificationType";
+
 /**
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
  * the `notifications` map to a [Notification Configuration][2] inside Amazon Web
@@ -29,7 +31,7 @@ export class Notification extends pulumi.CustomResource {
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    public readonly notifications: pulumi.Output<string[]>;
+    public readonly notifications: pulumi.Output<NotificationType[]>;
     /**
      * The Topic ARN for notifications to be sent through
      */
@@ -81,7 +83,7 @@ export interface NotificationState {
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
      * The Topic ARN for notifications to be sent through
      */
@@ -100,7 +102,7 @@ export interface NotificationArgs {
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    readonly notifications: pulumi.Input<pulumi.Input<string>[]>;
+    readonly notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
      * The Topic ARN for notifications to be sent through
      */

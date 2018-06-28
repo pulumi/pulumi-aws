@@ -383,9 +383,16 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "autoscaling_lifecycle_hooks.html.markdown",
 				},
 			},
-			"aws_autoscaling_notification": {Tok: awsResource(autoscalingMod, "Notification")},
-			"aws_autoscaling_policy":       {Tok: awsResource(autoscalingMod, "Policy")},
-			"aws_autoscaling_schedule":     {Tok: awsResource(autoscalingMod, "Schedule")},
+			"aws_autoscaling_notification": {
+				Tok: awsResource(autoscalingMod, "Notification"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"notifications": {
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod+"/notificationType", "NotificationType")},
+					},
+				},
+			},
+			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
+			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -1446,6 +1453,11 @@ func Provider() tfbridge.ProviderInfo {
 					"region.ts", // Region union type and constants
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
+					"autoscaling": {
+						Files: []string{
+							"notificationType.ts", // NotificationType union type and constants
+						},
+					},
 					"config": {
 						Files: []string{
 							"require.ts", // requireRegion helpers for validating proper config
