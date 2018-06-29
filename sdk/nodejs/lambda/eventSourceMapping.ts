@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis and DynamoDB.
+ * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
  * For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
@@ -51,9 +51,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastProcessingResult: pulumi.Output<string>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+     * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
      */
-    public readonly startingPosition: pulumi.Output<string>;
+    public readonly startingPosition: pulumi.Output<string | undefined>;
     /**
      * The state of the event source mapping.
      */
@@ -97,9 +97,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
             }
             if (!args || args.functionName === undefined) {
                 throw new Error("Missing required property 'functionName'");
-            }
-            if (!args || args.startingPosition === undefined) {
-                throw new Error("Missing required property 'startingPosition'");
             }
             inputs["batchSize"] = args ? args.batchSize : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -150,7 +147,7 @@ export interface EventSourceMappingState {
      */
     readonly lastProcessingResult?: pulumi.Input<string>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+     * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
      */
     readonly startingPosition?: pulumi.Input<string>;
     /**
@@ -188,7 +185,7 @@ export interface EventSourceMappingArgs {
      */
     readonly functionName: pulumi.Input<string>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+     * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
      */
-    readonly startingPosition: pulumi.Input<string>;
+    readonly startingPosition?: pulumi.Input<string>;
 }

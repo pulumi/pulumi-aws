@@ -42,7 +42,7 @@ export class Grant extends pulumi.CustomResource {
      */
     public readonly granteePrincipal: pulumi.Output<string>;
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to.
+     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      */
     public readonly keyId: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export interface GrantState {
      */
     readonly granteePrincipal?: pulumi.Input<string>;
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to.
+     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      */
     readonly keyId?: pulumi.Input<string>;
     /**
@@ -165,7 +165,7 @@ export interface GrantArgs {
      */
     readonly granteePrincipal: pulumi.Input<string>;
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to.
+     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      */
     readonly keyId: pulumi.Input<string>;
     /**

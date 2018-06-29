@@ -20,6 +20,10 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the cluster.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
     public /*out*/ readonly certificateAuthority: pulumi.Output<{ data: string }>;
@@ -57,6 +61,7 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
@@ -76,6 +81,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["certificateAuthority"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
@@ -88,6 +94,10 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * The Amazon Resource Name (ARN) of the cluster.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */

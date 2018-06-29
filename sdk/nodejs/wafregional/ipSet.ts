@@ -20,6 +20,10 @@ export class IpSet extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the WAF IPSet.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
      */
     public readonly ipSetDescriptors: pulumi.Output<{ type: string, value: string }[] | undefined>;
@@ -40,12 +44,14 @@ export class IpSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IpSetState = argsOrState as IpSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["ipSetDescriptors"] = state ? state.ipSetDescriptors : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as IpSetArgs | undefined;
             inputs["ipSetDescriptors"] = args ? args.ipSetDescriptors : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super("aws:wafregional/ipSet:IpSet", name, inputs, opts);
     }
@@ -55,6 +61,10 @@ export class IpSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IpSet resources.
  */
 export interface IpSetState {
+    /**
+     * The ARN of the WAF IPSet.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
      */

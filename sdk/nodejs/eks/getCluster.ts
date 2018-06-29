@@ -27,6 +27,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The Amazon Resource Name (ARN) of the cluster.
+     */
+    readonly arn: string;
+    /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
     readonly certificateAuthority: { data: string };

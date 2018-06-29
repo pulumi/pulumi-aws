@@ -34,12 +34,22 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly excessCapacityTerminationPolicy: pulumi.Output<string | undefined>;
     /**
+     * The type of fleet request. Indicates whether the Spot Fleet only requests the target
+     * capacity or also attempts to maintain it. Default is `maintain`.
+     */
+    public readonly fleetType: pulumi.Output<string | undefined>;
+    /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
     public readonly iamFleetRole: pulumi.Output<string>;
+    /**
+     * Indicates whether a Spot
+     * instance stops or terminates when it is interrupted. Default is
+     * `terminate`.
+     */
     public readonly instanceInterruptionBehaviour: pulumi.Output<string | undefined>;
     /**
      * Used to define the launch configuration of the
@@ -109,6 +119,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
             inputs["clientToken"] = state ? state.clientToken : undefined;
             inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
+            inputs["fleetType"] = state ? state.fleetType : undefined;
             inputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
             inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
             inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
@@ -135,6 +146,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             }
             inputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
             inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
+            inputs["fleetType"] = args ? args.fleetType : undefined;
             inputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
             inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
             inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
@@ -172,12 +184,22 @@ export interface SpotFleetRequestState {
      */
     readonly excessCapacityTerminationPolicy?: pulumi.Input<string>;
     /**
+     * The type of fleet request. Indicates whether the Spot Fleet only requests the target
+     * capacity or also attempts to maintain it. Default is `maintain`.
+     */
+    readonly fleetType?: pulumi.Input<string>;
+    /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
     readonly iamFleetRole?: pulumi.Input<string>;
+    /**
+     * Indicates whether a Spot
+     * instance stops or terminates when it is interrupted. Default is
+     * `terminate`.
+     */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
      * Used to define the launch configuration of the
@@ -250,12 +272,22 @@ export interface SpotFleetRequestArgs {
      */
     readonly excessCapacityTerminationPolicy?: pulumi.Input<string>;
     /**
+     * The type of fleet request. Indicates whether the Spot Fleet only requests the target
+     * capacity or also attempts to maintain it. Default is `maintain`.
+     */
+    readonly fleetType?: pulumi.Input<string>;
+    /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
     readonly iamFleetRole: pulumi.Input<string>;
+    /**
+     * Indicates whether a Spot
+     * instance stops or terminates when it is interrupted. Default is
+     * `terminate`.
+     */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
      * Used to define the launch configuration of the

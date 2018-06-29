@@ -10,6 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  */
 export function getSubnetIds(args: GetSubnetIdsArgs): Promise<GetSubnetIdsResult> {
     return pulumi.runtime.invoke("aws:ec2/getSubnetIds:getSubnetIds", {
+        "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
     });
@@ -19,6 +20,7 @@ export function getSubnetIds(args: GetSubnetIdsArgs): Promise<GetSubnetIdsResult
  * A collection of arguments for invoking getSubnetIds.
  */
 export interface GetSubnetIdsArgs {
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired subnets.

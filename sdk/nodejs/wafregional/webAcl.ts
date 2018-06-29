@@ -34,7 +34,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    public readonly rules: pulumi.Output<{ action: { type: string }, priority: number, ruleId: string }[] | undefined>;
+    public readonly rules: pulumi.Output<{ action: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -88,7 +88,7 @@ export interface WebAclState {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    readonly rules?: pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string> }[]>;
+    readonly rules?: pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -110,5 +110,5 @@ export interface WebAclArgs {
     /**
      * The rules to associate with the web ACL and the settings for each rule.
      */
-    readonly rules?: pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string> }[]>;
+    readonly rules?: pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
 }

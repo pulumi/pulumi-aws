@@ -7,13 +7,17 @@ import * as pulumi from "@pulumi/pulumi";
  * Provides an EC2 Spot Instance Request resource. This allows instances to be
  * requested on the spot market.
  * 
- * Terraform always creates Spot Instance Requests with a `persistent` type, which
- * means that for the duration of their lifetime, AWS will launch an instance
- * with the configured details if and when the spot market will accept the
- * requested price.
+ * By default Terraform creates Spot Instance Requests with a `persistent` type,
+ * which means that for the duration of their lifetime, AWS will launch an
+ * instance with the configured details if and when the spot market will accept
+ * the requested price.
  * 
  * On destruction, Terraform will make an attempt to terminate the associated Spot
  * Instance if there is one present.
+ * 
+ * Spot Instances requests with a `one-time` type will close the spot request
+ * when the instance is terminated either by the request being below the current spot
+ * price availability or by a user.
  * 
  * ~> **NOTE:** Because their behavior depends on the live status of the spot
  * market, Spot Instance Requests have a unique lifecycle that makes them behave
@@ -70,8 +74,11 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
-     * If true, the launched EC2 instance will be
-     * EBS-optimized.
+     * If true, the launched EC2 instance will be EBS-optimized.
+     * Note that if this is not set on an instance type that is optimized by default then
+     * this will show as disabled but if the instance type is optimized by default then
+     * there is no need to set this and there is no effect to disabling it.
+     * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
@@ -111,7 +118,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly ipv6Addresses: pulumi.Output<string[]>;
     /**
-     * The key name to use for the instance.
+     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
      */
     public readonly keyName: pulumi.Output<string>;
     /**
@@ -164,7 +171,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeId: string, volumeSize: number, volumeType: string }>;
     /**
      * A list of security group names to associate with.
-     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      */
     public readonly securityGroups: pulumi.Output<string[]>;
     /**
@@ -192,9 +198,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly spotPrice: pulumi.Output<string | undefined>;
     public /*out*/ readonly spotRequestState: pulumi.Output<string>;
     /**
-     * If set to "one-time", after
-     * the instance is terminated, the spot request will be closed. Also, Terraform
-     * can't manage one-time spot requests, just launch them.
+     * If set to `one-time`, after
+     * the instance is terminated, the spot request will be closed.
      */
     public readonly spotType: pulumi.Output<string | undefined>;
     /**
@@ -396,8 +401,11 @@ export interface SpotInstanceRequestState {
      */
     readonly ebsBlockDevices?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }[]>;
     /**
-     * If true, the launched EC2 instance will be
-     * EBS-optimized.
+     * If true, the launched EC2 instance will be EBS-optimized.
+     * Note that if this is not set on an instance type that is optimized by default then
+     * this will show as disabled but if the instance type is optimized by default then
+     * there is no need to set this and there is no effect to disabling it.
+     * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
@@ -437,7 +445,7 @@ export interface SpotInstanceRequestState {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name to use for the instance.
+     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -490,7 +498,6 @@ export interface SpotInstanceRequestState {
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names to associate with.
-     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -518,9 +525,8 @@ export interface SpotInstanceRequestState {
     readonly spotPrice?: pulumi.Input<string>;
     readonly spotRequestState?: pulumi.Input<string>;
     /**
-     * If set to "one-time", after
-     * the instance is terminated, the spot request will be closed. Also, Terraform
-     * can't manage one-time spot requests, just launch them.
+     * If set to `one-time`, after
+     * the instance is terminated, the spot request will be closed.
      */
     readonly spotType?: pulumi.Input<string>;
     /**
@@ -604,8 +610,11 @@ export interface SpotInstanceRequestArgs {
      */
     readonly ebsBlockDevices?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }[]>;
     /**
-     * If true, the launched EC2 instance will be
-     * EBS-optimized.
+     * If true, the launched EC2 instance will be EBS-optimized.
+     * Note that if this is not set on an instance type that is optimized by default then
+     * this will show as disabled but if the instance type is optimized by default then
+     * there is no need to set this and there is no effect to disabling it.
+     * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
@@ -644,7 +653,7 @@ export interface SpotInstanceRequestArgs {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name to use for the instance.
+     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -676,7 +685,6 @@ export interface SpotInstanceRequestArgs {
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names to associate with.
-     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -689,9 +697,8 @@ export interface SpotInstanceRequestArgs {
      */
     readonly spotPrice?: pulumi.Input<string>;
     /**
-     * If set to "one-time", after
-     * the instance is terminated, the spot request will be closed. Also, Terraform
-     * can't manage one-time spot requests, just launch them.
+     * If set to `one-time`, after
+     * the instance is terminated, the spot request will be closed.
      */
     readonly spotType?: pulumi.Input<string>;
     /**

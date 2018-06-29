@@ -39,11 +39,11 @@ export interface GetClusterResult {
      */
     readonly cacheNodes: { address: string, availabilityZone: string, id: string, port: number }[];
     /**
-     * The DNS name of the cache cluster without the port appended.
+     * (Memcached only) The DNS name of the cache cluster without the port appended.
      */
     readonly clusterAddress: string;
     /**
-     * The configuration endpoint to allow host discovery.
+     * (Memcached only) The configuration endpoint to allow host discovery.
      */
     readonly configurationEndpoint: string;
     /**

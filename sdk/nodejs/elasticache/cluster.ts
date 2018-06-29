@@ -36,11 +36,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly applyImmediately: pulumi.Output<boolean>;
     /**
-     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
      */
     public readonly availabilityZone: pulumi.Output<string>;
     /**
-     * List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+     * Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
      */
     public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
@@ -110,6 +110,10 @@ export class Cluster extends pulumi.CustomResource {
      * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
      */
     public readonly port: pulumi.Output<number | undefined>;
+    /**
+     * A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+     */
+    public readonly preferredAvailabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
@@ -185,6 +189,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["numCacheNodes"] = state ? state.numCacheNodes : undefined;
             inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             inputs["port"] = state ? state.port : undefined;
+            inputs["preferredAvailabilityZones"] = state ? state.preferredAvailabilityZones : undefined;
             inputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
@@ -212,6 +217,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["numCacheNodes"] = args ? args.numCacheNodes : undefined;
             inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             inputs["port"] = args ? args.port : undefined;
+            inputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
             inputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
@@ -241,11 +247,11 @@ export interface ClusterState {
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+     * Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -316,6 +322,10 @@ export interface ClusterState {
      */
     readonly port?: pulumi.Input<number>;
     /**
+     * A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+     */
+    readonly preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
     readonly replicationGroupId?: pulumi.Input<string>;
@@ -375,11 +385,11 @@ export interface ClusterArgs {
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+     * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+     * Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -436,6 +446,10 @@ export interface ClusterArgs {
      * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
      */
     readonly port?: pulumi.Input<number>;
+    /**
+     * A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+     */
+    readonly preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */

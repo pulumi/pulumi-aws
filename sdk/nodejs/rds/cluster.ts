@@ -11,6 +11,10 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
  * 
+ * For information on the difference between the available Aurora MySQL engines
+ * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+ * in the Amazon RDS User Guide.
+ * 
  * Changes to a RDS Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, Terraform may report a difference in its planning
@@ -86,11 +90,16 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
+     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+     */
+    public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
+    /**
      * The DNS address of the RDS instance
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
      */
     public readonly engine: pulumi.Output<string | undefined>;
     /**
@@ -200,6 +209,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
@@ -234,6 +244,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
@@ -314,11 +325,16 @@ export interface ClusterState {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+     */
+    readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The DNS address of the RDS instance
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
      */
     readonly engine?: pulumi.Input<string>;
     /**
@@ -454,7 +470,12 @@ export interface ClusterArgs {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+     */
+    readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
      */
     readonly engine?: pulumi.Input<string>;
     /**

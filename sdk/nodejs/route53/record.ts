@@ -33,7 +33,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly failoverRoutingPolicies: pulumi.Output<{ type: string }[] | undefined>;
     /**
-     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`
+     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
     public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface RecordState {
      */
     readonly failoverRoutingPolicies?: pulumi.Input<{ type: pulumi.Input<string> }[]>;
     /**
-     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`
+     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
     readonly fqdn?: pulumi.Input<string>;
     /**

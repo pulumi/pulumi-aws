@@ -69,7 +69,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * The market (purchasing) option for the instance. See [Market Options](#market-options)
      * below for details.
      */
-    public readonly instanceMarketOptions: pulumi.Output<{ marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil?: string } } | undefined>;
+    public readonly instanceMarketOptions: pulumi.Output<{ marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil: string } } | undefined>;
     /**
      * The type of the instance.
      */
@@ -121,6 +121,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly tagSpecifications: pulumi.Output<{ resourceType?: string, tags?: {[key: string]: any} }[] | undefined>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The Base64-encoded user data to provide when launching the instance.
      */
     public readonly userData: pulumi.Output<string | undefined>;
@@ -164,6 +168,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["ramDiskId"] = state ? state.ramDiskId : undefined;
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             inputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["userData"] = state ? state.userData : undefined;
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
@@ -189,6 +194,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["ramDiskId"] = args ? args.ramDiskId : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["defaultVersion"] = undefined /*out*/;
@@ -304,6 +310,10 @@ export interface LaunchTemplateState {
      */
     readonly tagSpecifications?: pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }[]>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The Base64-encoded user data to provide when launching the instance.
      */
     readonly userData?: pulumi.Input<string>;
@@ -410,6 +420,10 @@ export interface LaunchTemplateArgs {
      * The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
      */
     readonly tagSpecifications?: pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */

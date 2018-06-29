@@ -59,7 +59,7 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly contentType: pulumi.Output<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-     * This attribute is not compatible with `kms_key_id`.
+     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
     public readonly etag: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export interface BucketObjectState {
     readonly contentType?: pulumi.Input<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-     * This attribute is not compatible with `kms_key_id`.
+     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
     readonly etag?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface BucketObjectArgs {
     readonly contentType?: pulumi.Input<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-     * This attribute is not compatible with `kms_key_id`.
+     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
     readonly etag?: pulumi.Input<string>;
     /**

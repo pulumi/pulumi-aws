@@ -52,7 +52,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn: pulumi.Output<string | undefined>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
      */
     public readonly type: pulumi.Output<string>;
 
@@ -136,7 +136,7 @@ export interface DataSourceState {
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -174,7 +174,7 @@ export interface DataSourceArgs {
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
      */
     readonly type: pulumi.Input<string>;
 }
