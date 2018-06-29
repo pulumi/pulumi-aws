@@ -35,6 +35,9 @@ export class Subnet extends pulumi.CustomResource {
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
     public readonly ipv6CidrBlock: pulumi.Output<string>;
+    /**
+     * The association ID for the IPv6 CIDR block.
+     */
     public /*out*/ readonly ipv6CidrBlockAssociationId: pulumi.Output<string>;
     /**
      * Specify true to indicate
@@ -112,6 +115,9 @@ export interface SubnetState {
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
     readonly ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The association ID for the IPv6 CIDR block.
+     */
     readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
     /**
      * Specify true to indicate

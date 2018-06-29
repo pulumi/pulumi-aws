@@ -28,15 +28,15 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cluster: pulumi.Output<string>;
     /**
-     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     public readonly deploymentMaximumPercent: pulumi.Output<number | undefined>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     public readonly deploymentMinimumHealthyPercent: pulumi.Output<number | undefined>;
     /**
-     * The number of instances of the task definition to place and keep running
+     * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     public readonly desiredCount: pulumi.Output<number | undefined>;
     /**
@@ -77,6 +77,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly placementStrategies: pulumi.Output<{ field?: string, type: string }[] | undefined>;
     /**
+     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+     */
+    public readonly schedulingStrategy: pulumi.Output<string | undefined>;
+    /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
      */
     public readonly serviceRegistries: pulumi.Output<{ containerName?: string, containerPort?: number, port?: number, registryArn: string } | undefined>;
@@ -114,6 +118,7 @@ export class Service extends pulumi.CustomResource {
             inputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             inputs["placementStrategies"] = state ? state.placementStrategies : undefined;
+            inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
             inputs["taskDefinition"] = state ? state.taskDefinition : undefined;
             inputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
@@ -135,6 +140,7 @@ export class Service extends pulumi.CustomResource {
             inputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
+            inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
@@ -152,15 +158,15 @@ export interface ServiceState {
      */
     readonly cluster?: pulumi.Input<string>;
     /**
-     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
-     * The number of instances of the task definition to place and keep running
+     * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
     /**
@@ -200,6 +206,10 @@ export interface ServiceState {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     readonly placementStrategies?: pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
+    /**
+     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+     */
+    readonly schedulingStrategy?: pulumi.Input<string>;
     /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
      */
@@ -223,15 +233,15 @@ export interface ServiceArgs {
      */
     readonly cluster?: pulumi.Input<string>;
     /**
-     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+     * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
-     * The number of instances of the task definition to place and keep running
+     * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
     /**
@@ -271,6 +281,10 @@ export interface ServiceArgs {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     readonly placementStrategies?: pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
+    /**
+     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+     */
+    readonly schedulingStrategy?: pulumi.Input<string>;
     /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
      */

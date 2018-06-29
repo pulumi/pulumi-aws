@@ -20,6 +20,10 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
+     * The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+     */
+    public readonly computePlatform: pulumi.Output<string | undefined>;
+    /**
      * The name of the application.
      */
     public readonly name: pulumi.Output<string>;
@@ -37,10 +41,12 @@ export class Application extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ApplicationState = argsOrState as ApplicationState | undefined;
+            inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
+            inputs["computePlatform"] = args ? args.computePlatform : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["uniqueId"] = args ? args.uniqueId : undefined;
         }
@@ -53,6 +59,10 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
+     * The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+     */
+    readonly computePlatform?: pulumi.Input<string>;
+    /**
      * The name of the application.
      */
     readonly name?: pulumi.Input<string>;
@@ -63,6 +73,10 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+     */
+    readonly computePlatform?: pulumi.Input<string>;
     /**
      * The name of the application.
      */

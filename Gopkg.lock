@@ -145,8 +145,10 @@
     "service/lightsail",
     "service/mediastore",
     "service/mq",
+    "service/neptune",
     "service/opsworks",
     "service/organizations",
+    "service/pricing",
     "service/rds",
     "service/redshift",
     "service/route53",
@@ -164,8 +166,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "60a85d13d02126d8d15ea3f21fd57ac3a2774f37"
-  version = "v1.14.0"
+  revision = "852052a10992d92f68b9a60862a3312292524903"
+  version = "v1.14.17"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -641,7 +643,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "bed7254c7fd2e43ed8f9bb65d7523e3b7f74402d"
+  revision = "0ee06bee0a0404d727ac17b666302a1a28356e6d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]

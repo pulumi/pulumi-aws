@@ -64,7 +64,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: aurora, aurora-mysql, aurora-postgresql.
+     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
      */
     public readonly engine: pulumi.Output<string | undefined>;
     /**
@@ -272,7 +275,10 @@ export interface ClusterInstanceState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: aurora, aurora-mysql, aurora-postgresql.
+     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
      */
     readonly engine?: pulumi.Input<string>;
     /**
@@ -396,7 +402,10 @@ export interface ClusterInstanceArgs {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: aurora, aurora-mysql, aurora-postgresql.
+     * The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
      */
     readonly engine?: pulumi.Input<string>;
     /**

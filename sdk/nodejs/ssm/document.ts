@@ -88,6 +88,10 @@ export class Document extends pulumi.CustomResource {
      * "Creating", "Active" or "Deleting". The current status of the document.
      */
     public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Document resource with the given unique name, arguments, and options.
@@ -118,6 +122,7 @@ export class Document extends pulumi.CustomResource {
             inputs["platformTypes"] = state ? state.platformTypes : undefined;
             inputs["schemaVersion"] = state ? state.schemaVersion : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
             if (!args || args.content === undefined) {
@@ -131,6 +136,7 @@ export class Document extends pulumi.CustomResource {
             inputs["documentType"] = args ? args.documentType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
@@ -217,6 +223,10 @@ export interface DocumentState {
      * "Creating", "Active" or "Deleting". The current status of the document.
      */
     readonly status?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -243,4 +253,8 @@ export interface DocumentArgs {
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
     readonly permissions?: pulumi.Input<{[key: string]: { accountIds: pulumi.Input<string>, type: pulumi.Input<string> }}>;
+    /**
+     * A mapping of tags to assign to the object.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

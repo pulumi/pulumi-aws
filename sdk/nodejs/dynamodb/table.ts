@@ -26,7 +26,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Define an attribute (can be lists), has two properties:
+     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
     public readonly attributes: pulumi.Output<{ name: string, type: string }[]>;
     /**
@@ -172,7 +172,7 @@ export interface TableState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Define an attribute (can be lists), has two properties:
+     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
     readonly attributes?: pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
@@ -250,7 +250,7 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * Define an attribute (can be lists), has two properties:
+     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
     readonly attributes: pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**

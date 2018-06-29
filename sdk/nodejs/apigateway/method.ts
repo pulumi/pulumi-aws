@@ -31,14 +31,6 @@ export class Method extends pulumi.CustomResource {
     public readonly authorization: pulumi.Output<string>;
     /**
      * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-     * For example:
-     * ```hcl
-     * request_parameters = {
-     * "method.request.header.X-Some-Header" = true,
-     * "method.request.querystring.some-query-param"  = true,
-     * }
-     * ```
-     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
     public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
     /**
@@ -57,6 +49,14 @@ export class Method extends pulumi.CustomResource {
     public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
+     * For example:
+     * ```hcl
+     * request_parameters = {
+     * "method.request.header.X-Some-Header" = true,
+     * "method.request.querystring.some-query-param"  = true,
+     * }
+     * ```
+     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
     public readonly requestParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
@@ -143,14 +143,6 @@ export interface MethodState {
     readonly authorization?: pulumi.Input<string>;
     /**
      * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-     * For example:
-     * ```hcl
-     * request_parameters = {
-     * "method.request.header.X-Some-Header" = true,
-     * "method.request.querystring.some-query-param"  = true,
-     * }
-     * ```
-     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
     readonly authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -169,6 +161,14 @@ export interface MethodState {
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
+     * For example:
+     * ```hcl
+     * request_parameters = {
+     * "method.request.header.X-Some-Header" = true,
+     * "method.request.querystring.some-query-param"  = true,
+     * }
+     * ```
+     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
@@ -203,14 +203,6 @@ export interface MethodArgs {
     readonly authorization: pulumi.Input<string>;
     /**
      * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-     * For example:
-     * ```hcl
-     * request_parameters = {
-     * "method.request.header.X-Some-Header" = true,
-     * "method.request.querystring.some-query-param"  = true,
-     * }
-     * ```
-     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
     readonly authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -229,6 +221,14 @@ export interface MethodArgs {
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
+     * For example:
+     * ```hcl
+     * request_parameters = {
+     * "method.request.header.X-Some-Header" = true,
+     * "method.request.querystring.some-query-param"  = true,
+     * }
+     * ```
+     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**

@@ -27,6 +27,9 @@ export class Webhook extends pulumi.CustomResource {
      * The CodeBuild endpoint where webhook events are sent.
      */
     public /*out*/ readonly payloadUrl: pulumi.Output<string>;
+    /**
+     * The name of the build project.
+     */
     public readonly projectName: pulumi.Output<string>;
     /**
      * The secret token of the associated repository. Not returned for all source types.
@@ -81,6 +84,9 @@ export interface WebhookState {
      * The CodeBuild endpoint where webhook events are sent.
      */
     readonly payloadUrl?: pulumi.Input<string>;
+    /**
+     * The name of the build project.
+     */
     readonly projectName?: pulumi.Input<string>;
     /**
      * The secret token of the associated repository. Not returned for all source types.
@@ -100,5 +106,8 @@ export interface WebhookArgs {
      * A regular expression used to determine which branches get built. Default is all branches are built.
      */
     readonly branchFilter?: pulumi.Input<string>;
+    /**
+     * The name of the build project.
+     */
     readonly projectName: pulumi.Input<string>;
 }

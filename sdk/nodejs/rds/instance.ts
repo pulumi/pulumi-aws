@@ -44,7 +44,7 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly address: pulumi.Output<string>;
     /**
      * (Required unless a `snapshot_identifier` or
-     * `replicate_source_db` is provided) The allocated storage in gigabytes.
+     * `replicate_source_db` is provided) The allocated storage in gibibytes.
      */
     public readonly allocatedStorage: pulumi.Output<number>;
     /**
@@ -127,12 +127,18 @@ export class Instance extends pulumi.CustomResource {
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
      */
     public readonly engine: pulumi.Output<string>;
     /**
      * The engine version to use. If `auto_minor_version_upgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
      */
     public readonly engineVersion: pulumi.Output<string>;
     /**
@@ -447,7 +453,7 @@ export interface InstanceState {
     readonly address?: pulumi.Input<string>;
     /**
      * (Required unless a `snapshot_identifier` or
-     * `replicate_source_db` is provided) The allocated storage in gigabytes.
+     * `replicate_source_db` is provided) The allocated storage in gibibytes.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
     /**
@@ -530,12 +536,18 @@ export interface InstanceState {
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
      */
     readonly engine?: pulumi.Input<string>;
     /**
      * The engine version to use. If `auto_minor_version_upgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -725,7 +737,7 @@ export interface InstanceState {
 export interface InstanceArgs {
     /**
      * (Required unless a `snapshot_identifier` or
-     * `replicate_source_db` is provided) The allocated storage in gigabytes.
+     * `replicate_source_db` is provided) The allocated storage in gibibytes.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
     /**
@@ -795,12 +807,18 @@ export interface InstanceArgs {
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
      */
     readonly engine?: pulumi.Input<string>;
     /**
      * The engine version to use. If `auto_minor_version_upgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**

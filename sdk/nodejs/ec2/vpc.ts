@@ -64,7 +64,7 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * A tenancy option for instances launched into the VPC
      */
-    public readonly instanceTenancy: pulumi.Output<string>;
+    public readonly instanceTenancy: pulumi.Output<string | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
