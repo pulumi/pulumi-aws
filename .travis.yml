@@ -20,9 +20,8 @@ before_install:
     - export PATH=$HOME/.yarn/bin:$PATH
     # Install Twine so that we can publish Pip packages.
     - pip install --upgrade --user twine==1.9.1
-    # Ensure that we can access Pulumi's private NPM and PyPI orgs.
-    - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
-    - mkdir -p ~/.config/pip && echo -e "[global]\nextra-index-url = https://${PULUMI_API_TOKEN}@pypi.pulumi.com/simple" >> ~/.config/pip/pip.conf
+    # Set our token so we can publish npm packages if needed.
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc; fi
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
     - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then source ${GOPATH}/src/github.com/pulumi/scripts/ci/keep-failed-tests.sh; fi
