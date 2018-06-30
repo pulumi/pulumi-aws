@@ -84,6 +84,10 @@ export interface FunctionOptions {
         subnetIds: pulumi.Input<string[]>,
     };
     /**
+     * The Lambda environment's configuration settings.
+     */
+    environment?: pulumi.Input<{ variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>;
+    /**
      * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
      */
     includePaths?: string[];
@@ -169,6 +173,7 @@ export class Function extends pulumi.ComponentResource {
             code: new pulumi.asset.AssetArchive(codePaths),
             handler: serializedFileName + "." + handlerName,
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
+            environment: options.environment,
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
             memorySize: options.memorySize,
