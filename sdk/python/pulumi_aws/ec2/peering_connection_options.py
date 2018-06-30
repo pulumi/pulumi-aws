@@ -122,7 +122,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             raise TypeError('Expected property vpc_peering_connection_id to be a basestring')
         __self__.vpc_peering_connection_id = vpc_peering_connection_id
         """
-        The ID of the requester VPC.
+        The ID of the requester VPC peering connection.
         """
         __props__['vpcPeeringConnectionId'] = vpc_peering_connection_id
 

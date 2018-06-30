@@ -13,7 +13,7 @@ class Service(pulumi.CustomResource):
     
     See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
     """
-    def __init__(__self__, __name__, __opts__=None, cluster=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, placement_strategies=None, service_registries=None, task_definition=None, wait_for_steady_state=None):
+    def __init__(__self__, __name__, __opts__=None, cluster=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, placement_strategies=None, scheduling_strategy=None, service_registries=None, task_definition=None, wait_for_steady_state=None):
         """Create a Service resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -36,7 +36,7 @@ class Service(pulumi.CustomResource):
             raise TypeError('Expected property deployment_maximum_percent to be a int')
         __self__.deployment_maximum_percent = deployment_maximum_percent
         """
-        The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+        The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         """
         __props__['deploymentMaximumPercent'] = deployment_maximum_percent
 
@@ -44,7 +44,7 @@ class Service(pulumi.CustomResource):
             raise TypeError('Expected property deployment_minimum_healthy_percent to be a int')
         __self__.deployment_minimum_healthy_percent = deployment_minimum_healthy_percent
         """
-        The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+        The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         """
         __props__['deploymentMinimumHealthyPercent'] = deployment_minimum_healthy_percent
 
@@ -52,7 +52,7 @@ class Service(pulumi.CustomResource):
             raise TypeError('Expected property desired_count to be a int')
         __self__.desired_count = desired_count
         """
-        The number of instances of the task definition to place and keep running
+        The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         """
         __props__['desiredCount'] = desired_count
 
@@ -129,6 +129,14 @@ class Service(pulumi.CustomResource):
         """
         __props__['placementStrategies'] = placement_strategies
 
+        if scheduling_strategy and not isinstance(scheduling_strategy, basestring):
+            raise TypeError('Expected property scheduling_strategy to be a basestring')
+        __self__.scheduling_strategy = scheduling_strategy
+        """
+        The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        """
+        __props__['schedulingStrategy'] = scheduling_strategy
+
         if service_registries and not isinstance(service_registries, dict):
             raise TypeError('Expected property service_registries to be a dict')
         __self__.service_registries = service_registries
@@ -188,6 +196,8 @@ class Service(pulumi.CustomResource):
             self.placement_constraints = outs['placementConstraints']
         if 'placementStrategies' in outs:
             self.placement_strategies = outs['placementStrategies']
+        if 'schedulingStrategy' in outs:
+            self.scheduling_strategy = outs['schedulingStrategy']
         if 'serviceRegistries' in outs:
             self.service_registries = outs['serviceRegistries']
         if 'taskDefinition' in outs:

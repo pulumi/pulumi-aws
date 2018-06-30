@@ -153,7 +153,7 @@ func (r *PeeringConnectionOptions) Requester() *pulumi.Output {
 	return r.s.State["requester"]
 }
 
-// The ID of the requester VPC.
+// The ID of the requester VPC peering connection.
 func (r *PeeringConnectionOptions) VpcPeeringConnectionId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
 }
@@ -168,7 +168,7 @@ type PeeringConnectionOptionsState struct {
 	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester interface{}
-	// The ID of the requester VPC.
+	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId interface{}
 }
 
@@ -182,6 +182,6 @@ type PeeringConnectionOptionsArgs struct {
 	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester interface{}
-	// The ID of the requester VPC.
+	// The ID of the requester VPC peering connection.
 	VpcPeeringConnectionId interface{}
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis and DynamoDB.
+// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS
 // 
 // For information about Lambda and how to use it, see [What is AWS Lambda?][1]
 // For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
@@ -24,9 +24,6 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 	}
 	if args == nil || args.FunctionName == nil {
 		return nil, errors.New("missing required argument 'FunctionName'")
-	}
-	if args == nil || args.StartingPosition == nil {
-		return nil, errors.New("missing required argument 'StartingPosition'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
@@ -125,7 +122,7 @@ func (r *EventSourceMapping) LastProcessingResult() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["lastProcessingResult"])
 }
 
-// The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+// The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
 func (r *EventSourceMapping) StartingPosition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["startingPosition"])
 }
@@ -161,7 +158,7 @@ type EventSourceMappingState struct {
 	LastModified interface{}
 	// The result of the last AWS Lambda invocation of your Lambda function.
 	LastProcessingResult interface{}
-	// The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+	// The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
 	StartingPosition interface{}
 	// The state of the event source mapping.
 	State interface{}
@@ -181,6 +178,6 @@ type EventSourceMappingArgs struct {
 	EventSourceArn interface{}
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName interface{}
-	// The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+	// The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
 	StartingPosition interface{}
 }

@@ -28,7 +28,7 @@ class Table(pulumi.CustomResource):
             raise TypeError('Expected property attributes to be a list')
         __self__.attributes = attributes
         """
-        Define an attribute (can be lists), has two properties:
+        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         """
         __props__['attributes'] = attributes
 

@@ -139,7 +139,7 @@ class Record(pulumi.CustomResource):
 
         __self__.fqdn = pulumi.runtime.UNKNOWN
         """
-        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`
+        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
         """
 
         super(Record, __self__).__init__(

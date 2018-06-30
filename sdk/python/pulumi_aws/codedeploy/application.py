@@ -9,7 +9,7 @@ class Application(pulumi.CustomResource):
     """
     Provides a CodeDeploy application to be used as a basis for deployments
     """
-    def __init__(__self__, __name__, __opts__=None, name=None, unique_id=None):
+    def __init__(__self__, __name__, __opts__=None, compute_platform=None, name=None, unique_id=None):
         """Create a Application resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -19,6 +19,14 @@ class Application(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if compute_platform and not isinstance(compute_platform, basestring):
+            raise TypeError('Expected property compute_platform to be a basestring')
+        __self__.compute_platform = compute_platform
+        """
+        The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+        """
+        __props__['computePlatform'] = compute_platform
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
@@ -40,6 +48,8 @@ class Application(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'computePlatform' in outs:
+            self.compute_platform = outs['computePlatform']
         if 'name' in outs:
             self.name = outs['name']
         if 'uniqueId' in outs:

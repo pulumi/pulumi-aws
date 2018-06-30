@@ -20,7 +20,7 @@ class GetSubnetIdsResult(object):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
 
-def get_subnet_ids(tags=None, vpc_id=None):
+def get_subnet_ids(filters=None, tags=None, vpc_id=None):
     """
     `aws_subnet_ids` provides a list of ids for a vpc_id
     
@@ -28,6 +28,7 @@ def get_subnet_ids(tags=None, vpc_id=None):
     """
     __args__ = dict()
 
+    __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__)

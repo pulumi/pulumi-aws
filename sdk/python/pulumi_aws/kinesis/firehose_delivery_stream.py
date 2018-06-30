@@ -36,7 +36,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             raise TypeError('Expected property destination to be a basestring')
         __self__.destination = destination
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
         """
         __props__['destination'] = destination
 
@@ -102,6 +102,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         if version_id and not isinstance(version_id, basestring):
             raise TypeError('Expected property version_id to be a basestring')
         __self__.version_id = version_id
+        """
+        Specifies the table version for the output data schema. Defaults to `LATEST`.
+        """
         __props__['versionId'] = version_id
 
         super(FirehoseDeliveryStream, __self__).__init__(

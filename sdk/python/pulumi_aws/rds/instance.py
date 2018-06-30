@@ -44,7 +44,7 @@ class Instance(pulumi.CustomResource):
         __self__.allocated_storage = allocated_storage
         """
         (Required unless a `snapshot_identifier` or
-        `replicate_source_db` is provided) The allocated storage in gigabytes.
+        `replicate_source_db` is provided) The allocated storage in gibibytes.
         """
         __props__['allocatedStorage'] = allocated_storage
 
@@ -158,6 +158,10 @@ class Instance(pulumi.CustomResource):
         """
         (Required unless a `snapshot_identifier` or `replicate_source_db`
         is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+        Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+        For information on the difference between the available Aurora MySQL engines
+        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+        in the Amazon RDS User Guide.
         """
         __props__['engine'] = engine
 
@@ -168,6 +172,8 @@ class Instance(pulumi.CustomResource):
         The engine version to use. If `auto_minor_version_upgrade`
         is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
         this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+        For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+        Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
         """
         __props__['engineVersion'] = engine_version
 

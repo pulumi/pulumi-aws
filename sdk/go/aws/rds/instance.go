@@ -221,7 +221,7 @@ func (r *Instance) Address() *pulumi.StringOutput {
 }
 
 // (Required unless a `snapshot_identifier` or
-// `replicate_source_db` is provided) The allocated storage in gigabytes.
+// `replicate_source_db` is provided) The allocated storage in gibibytes.
 func (r *Instance) AllocatedStorage() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["allocatedStorage"])
 }
@@ -318,6 +318,10 @@ func (r *Instance) Endpoint() *pulumi.StringOutput {
 
 // (Required unless a `snapshot_identifier` or `replicate_source_db`
 // is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+// Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+// For information on the difference between the available Aurora MySQL engines
+// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+// in the Amazon RDS User Guide.
 func (r *Instance) Engine() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engine"])
 }
@@ -325,6 +329,8 @@ func (r *Instance) Engine() *pulumi.StringOutput {
 // The engine version to use. If `auto_minor_version_upgrade`
 // is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
 // this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+// Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
 func (r *Instance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
@@ -548,7 +554,7 @@ type InstanceState struct {
 	// The address of the RDS instance.
 	Address interface{}
 	// (Required unless a `snapshot_identifier` or
-	// `replicate_source_db` is provided) The allocated storage in gigabytes.
+	// `replicate_source_db` is provided) The allocated storage in gibibytes.
 	AllocatedStorage interface{}
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -603,10 +609,16 @@ type InstanceState struct {
 	Endpoint interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	// Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+	// For information on the difference between the available Aurora MySQL engines
+	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+	// in the Amazon RDS User Guide.
 	Engine interface{}
 	// The engine version to use. If `auto_minor_version_upgrade`
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
 	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	// Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. If omitted, no final snapshot will be made.
@@ -728,7 +740,7 @@ type InstanceState struct {
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
 	// (Required unless a `snapshot_identifier` or
-	// `replicate_source_db` is provided) The allocated storage in gigabytes.
+	// `replicate_source_db` is provided) The allocated storage in gibibytes.
 	AllocatedStorage interface{}
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -776,10 +788,16 @@ type InstanceArgs struct {
 	EnabledCloudwatchLogsExports interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	// Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+	// For information on the difference between the available Aurora MySQL engines
+	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+	// in the Amazon RDS User Guide.
 	Engine interface{}
 	// The engine version to use. If `auto_minor_version_upgrade`
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
 	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	// Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. If omitted, no final snapshot will be made.

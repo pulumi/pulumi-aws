@@ -123,7 +123,7 @@ func (r *Topic) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The SNS delivery policy
+// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
 func (r *Topic) DeliveryPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deliveryPolicy"])
 }
@@ -203,7 +203,7 @@ type TopicState struct {
 	ApplicationSuccessFeedbackSampleRate interface{}
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
 	Arn interface{}
-	// The SNS delivery policy
+	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
 	DeliveryPolicy interface{}
 	// The display name for the SNS topic
 	DisplayName interface{}
@@ -241,7 +241,7 @@ type TopicArgs struct {
 	ApplicationSuccessFeedbackRoleArn interface{}
 	// Percentage of success to sample
 	ApplicationSuccessFeedbackSampleRate interface{}
-	// The SNS delivery policy
+	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
 	DeliveryPolicy interface{}
 	// The display name for the SNS topic
 	DisplayName interface{}

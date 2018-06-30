@@ -43,7 +43,7 @@ class AccessKey(pulumi.CustomResource):
         """
         The encrypted secret, base64 encoded.
         ~> **NOTE:** The encrypted secret may be decrypted using the command line,
-        for example: `terraform output secret | base64 --decode | keybase pgp decrypt`.
+        for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
         """
         __self__.key_fingerprint = pulumi.runtime.UNKNOWN
         """

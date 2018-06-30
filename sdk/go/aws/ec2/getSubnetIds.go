@@ -13,6 +13,7 @@ import (
 func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["filters"] = args.Filters
 		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
 	}
@@ -28,6 +29,7 @@ func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIds
 
 // A collection of arguments for invoking getSubnetIds.
 type GetSubnetIdsArgs struct {
+	Filters interface{}
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
 	Tags interface{}

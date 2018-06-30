@@ -17,9 +17,11 @@ func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOpt) (*Application, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["computePlatform"] = nil
 		inputs["name"] = nil
 		inputs["uniqueId"] = nil
 	} else {
+		inputs["computePlatform"] = args.ComputePlatform
 		inputs["name"] = args.Name
 		inputs["uniqueId"] = args.UniqueId
 	}
@@ -36,6 +38,7 @@ func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ApplicationState, opts ...pulumi.ResourceOpt) (*Application, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["computePlatform"] = state.ComputePlatform
 		inputs["name"] = state.Name
 		inputs["uniqueId"] = state.UniqueId
 	}
@@ -56,6 +59,11 @@ func (r *Application) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+func (r *Application) ComputePlatform() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["computePlatform"])
+}
+
 // The name of the application.
 func (r *Application) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -67,6 +75,8 @@ func (r *Application) UniqueId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
+	// The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+	ComputePlatform interface{}
 	// The name of the application.
 	Name interface{}
 	UniqueId interface{}
@@ -74,6 +84,8 @@ type ApplicationState struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+	ComputePlatform interface{}
 	// The name of the application.
 	Name interface{}
 	UniqueId interface{}

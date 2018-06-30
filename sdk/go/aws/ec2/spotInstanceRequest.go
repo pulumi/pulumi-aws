@@ -11,13 +11,17 @@ import (
 // Provides an EC2 Spot Instance Request resource. This allows instances to be
 // requested on the spot market.
 // 
-// Terraform always creates Spot Instance Requests with a `persistent` type, which
-// means that for the duration of their lifetime, AWS will launch an instance
-// with the configured details if and when the spot market will accept the
-// requested price.
+// By default Terraform creates Spot Instance Requests with a `persistent` type,
+// which means that for the duration of their lifetime, AWS will launch an
+// instance with the configured details if and when the spot market will accept
+// the requested price.
 // 
 // On destruction, Terraform will make an attempt to terminate the associated Spot
 // Instance if there is one present.
+// 
+// Spot Instances requests with a `one-time` type will close the spot request
+// when the instance is terminated either by the request being below the current spot
+// price availability or by a user.
 // 
 // ~> **NOTE:** Because their behavior depends on the live status of the spot
 // market, Spot Instance Requests have a unique lifecycle that makes them behave
@@ -245,8 +249,11 @@ func (r *SpotInstanceRequest) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
 
-// If true, the launched EC2 instance will be
-// EBS-optimized.
+// If true, the launched EC2 instance will be EBS-optimized.
+// Note that if this is not set on an instance type that is optimized by default then
+// this will show as disabled but if the instance type is optimized by default then
+// there is no need to set this and there is no effect to disabling it.
+// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 func (r *SpotInstanceRequest) EbsOptimized() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
@@ -300,7 +307,7 @@ func (r *SpotInstanceRequest) Ipv6Addresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipv6Addresses"])
 }
 
-// The key name to use for the instance.
+// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
 func (r *SpotInstanceRequest) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
@@ -370,7 +377,6 @@ func (r *SpotInstanceRequest) RootBlockDevice() *pulumi.Output {
 }
 
 // A list of security group names to associate with.
-// If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
 func (r *SpotInstanceRequest) SecurityGroups() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
@@ -406,9 +412,8 @@ func (r *SpotInstanceRequest) SpotRequestState() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["spotRequestState"])
 }
 
-// If set to "one-time", after
-// the instance is terminated, the spot request will be closed. Also, Terraform
-// can't manage one-time spot requests, just launch them.
+// If set to `one-time`, after
+// the instance is terminated, the spot request will be closed.
 func (r *SpotInstanceRequest) SpotType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["spotType"])
 }
@@ -485,8 +490,11 @@ type SpotInstanceRequestState struct {
 	// Additional EBS block devices to attach to the
 	// instance.  See [Block Devices](#block-devices) below for details.
 	EbsBlockDevices interface{}
-	// If true, the launched EC2 instance will be
-	// EBS-optimized.
+	// If true, the launched EC2 instance will be EBS-optimized.
+	// Note that if this is not set on an instance type that is optimized by default then
+	// this will show as disabled but if the instance type is optimized by default then
+	// there is no need to set this and there is no effect to disabling it.
+	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
@@ -510,7 +518,7 @@ type SpotInstanceRequestState struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name to use for the instance.
+	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
 	KeyName interface{}
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
@@ -541,7 +549,6 @@ type SpotInstanceRequestState struct {
 	// device of the instance. See [Block Devices](#block-devices) below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
-	// If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
 	SecurityGroups interface{}
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -559,9 +566,8 @@ type SpotInstanceRequestState struct {
 	// The maximum price to request on the spot market.
 	SpotPrice interface{}
 	SpotRequestState interface{}
-	// If set to "one-time", after
-	// the instance is terminated, the spot request will be closed. Also, Terraform
-	// can't manage one-time spot requests, just launch them.
+	// If set to `one-time`, after
+	// the instance is terminated, the spot request will be closed.
 	SpotType interface{}
 	// The VPC Subnet ID to launch in.
 	SubnetId interface{}
@@ -607,8 +613,11 @@ type SpotInstanceRequestArgs struct {
 	// Additional EBS block devices to attach to the
 	// instance.  See [Block Devices](#block-devices) below for details.
 	EbsBlockDevices interface{}
-	// If true, the launched EC2 instance will be
-	// EBS-optimized.
+	// If true, the launched EC2 instance will be EBS-optimized.
+	// Note that if this is not set on an instance type that is optimized by default then
+	// this will show as disabled but if the instance type is optimized by default then
+	// there is no need to set this and there is no effect to disabling it.
+	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
@@ -631,7 +640,7 @@ type SpotInstanceRequestArgs struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name to use for the instance.
+	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
 	KeyName interface{}
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
@@ -649,16 +658,14 @@ type SpotInstanceRequestArgs struct {
 	// device of the instance. See [Block Devices](#block-devices) below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
-	// If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
 	SecurityGroups interface{}
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck interface{}
 	// The maximum price to request on the spot market.
 	SpotPrice interface{}
-	// If set to "one-time", after
-	// the instance is terminated, the spot request will be closed. Also, Terraform
-	// can't manage one-time spot requests, just launch them.
+	// If set to `one-time`, after
+	// the instance is terminated, the spot request will be closed.
 	SpotType interface{}
 	// The VPC Subnet ID to launch in.
 	SubnetId interface{}

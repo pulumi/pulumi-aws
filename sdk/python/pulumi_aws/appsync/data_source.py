@@ -84,7 +84,7 @@ class DataSource(pulumi.CustomResource):
             raise TypeError('Expected property type to be a basestring')
         __self__.type = type
         """
-        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
         """
         __props__['type'] = type
 

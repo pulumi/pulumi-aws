@@ -38,6 +38,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["ramDiskId"] = nil
 		inputs["securityGroupNames"] = nil
 		inputs["tagSpecifications"] = nil
+		inputs["tags"] = nil
 		inputs["userData"] = nil
 		inputs["vpcSecurityGroupIds"] = nil
 	} else {
@@ -62,6 +63,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["ramDiskId"] = args.RamDiskId
 		inputs["securityGroupNames"] = args.SecurityGroupNames
 		inputs["tagSpecifications"] = args.TagSpecifications
+		inputs["tags"] = args.Tags
 		inputs["userData"] = args.UserData
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 	}
@@ -103,6 +105,7 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 		inputs["ramDiskId"] = state.RamDiskId
 		inputs["securityGroupNames"] = state.SecurityGroupNames
 		inputs["tagSpecifications"] = state.TagSpecifications
+		inputs["tags"] = state.Tags
 		inputs["userData"] = state.UserData
 		inputs["vpcSecurityGroupIds"] = state.VpcSecurityGroupIds
 	}
@@ -247,6 +250,11 @@ func (r *LaunchTemplate) TagSpecifications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tagSpecifications"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *LaunchTemplate) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The Base64-encoded user data to provide when launching the instance.
 func (r *LaunchTemplate) UserData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userData"])
@@ -314,6 +322,8 @@ type LaunchTemplateState struct {
 	SecurityGroupNames interface{}
 	// The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
 	TagSpecifications interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData interface{}
 	// A list of security group IDs to associate with.
@@ -373,6 +383,8 @@ type LaunchTemplateArgs struct {
 	SecurityGroupNames interface{}
 	// The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
 	TagSpecifications interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData interface{}
 	// A list of security group IDs to associate with.

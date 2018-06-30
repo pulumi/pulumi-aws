@@ -102,6 +102,7 @@ func (r *Subnet) Ipv6CidrBlock() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
 }
 
+// The association ID for the IPv6 CIDR block.
 func (r *Subnet) Ipv6CidrBlockAssociationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipv6CidrBlockAssociationId"])
 }
@@ -135,6 +136,7 @@ type SubnetState struct {
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock interface{}
+	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId interface{}
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned

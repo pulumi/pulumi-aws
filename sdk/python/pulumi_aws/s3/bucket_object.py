@@ -99,7 +99,7 @@ class BucketObject(pulumi.CustomResource):
         __self__.etag = etag
         """
         Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-        This attribute is not compatible with `kms_key_id`.
+        This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
         """
         __props__['etag'] = etag
 

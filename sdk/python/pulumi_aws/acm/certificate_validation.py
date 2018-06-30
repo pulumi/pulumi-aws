@@ -10,7 +10,7 @@ class CertificateValidation(pulumi.CustomResource):
     This resource represents a successful validation of an ACM certificate in concert
     with other resources.
     
-    Most commonly, this resource is used to together with [`aws_route53_record`](route53_record.html) and
+    Most commonly, this resource is used together with [`aws_route53_record`](route53_record.html) and
     [`aws_acm_certificate`](acm_certificate.html) to request a DNS validated certificate,
     deploy the required validation records and wait for validation to complete.
     

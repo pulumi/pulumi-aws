@@ -123,7 +123,7 @@ func (r *DataSource) ServiceRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
 
-// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
 func (r *DataSource) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -146,7 +146,7 @@ type DataSourceState struct {
 	Name interface{}
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn interface{}
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
 	Type interface{}
 }
 
@@ -166,6 +166,6 @@ type DataSourceArgs struct {
 	Name interface{}
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn interface{}
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
 	Type interface{}
 }

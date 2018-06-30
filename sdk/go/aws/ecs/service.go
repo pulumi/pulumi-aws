@@ -38,6 +38,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = nil
 		inputs["placementConstraints"] = nil
 		inputs["placementStrategies"] = nil
+		inputs["schedulingStrategy"] = nil
 		inputs["serviceRegistries"] = nil
 		inputs["taskDefinition"] = nil
 		inputs["waitForSteadyState"] = nil
@@ -55,6 +56,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = args.OrderedPlacementStrategies
 		inputs["placementConstraints"] = args.PlacementConstraints
 		inputs["placementStrategies"] = args.PlacementStrategies
+		inputs["schedulingStrategy"] = args.SchedulingStrategy
 		inputs["serviceRegistries"] = args.ServiceRegistries
 		inputs["taskDefinition"] = args.TaskDefinition
 		inputs["waitForSteadyState"] = args.WaitForSteadyState
@@ -85,6 +87,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = state.OrderedPlacementStrategies
 		inputs["placementConstraints"] = state.PlacementConstraints
 		inputs["placementStrategies"] = state.PlacementStrategies
+		inputs["schedulingStrategy"] = state.SchedulingStrategy
 		inputs["serviceRegistries"] = state.ServiceRegistries
 		inputs["taskDefinition"] = state.TaskDefinition
 		inputs["waitForSteadyState"] = state.WaitForSteadyState
@@ -111,17 +114,17 @@ func (r *Service) Cluster() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cluster"])
 }
 
-// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 func (r *Service) DeploymentMaximumPercent() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["deploymentMaximumPercent"])
 }
 
-// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 func (r *Service) DeploymentMinimumHealthyPercent() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["deploymentMinimumHealthyPercent"])
 }
 
-// The number of instances of the task definition to place and keep running
+// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 func (r *Service) DesiredCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["desiredCount"])
 }
@@ -172,6 +175,11 @@ func (r *Service) PlacementStrategies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementStrategies"])
 }
 
+// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+func (r *Service) SchedulingStrategy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["schedulingStrategy"])
+}
+
 // The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 func (r *Service) ServiceRegistries() *pulumi.Output {
 	return r.s.State["serviceRegistries"]
@@ -191,11 +199,11 @@ func (r *Service) WaitForSteadyState() *pulumi.BoolOutput {
 type ServiceState struct {
 	// ARN of an ECS cluster
 	Cluster interface{}
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent interface{}
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMinimumHealthyPercent interface{}
-	// The number of instances of the task definition to place and keep running
+	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
@@ -216,6 +224,8 @@ type ServiceState struct {
 	PlacementConstraints interface{}
 	// **Deprecated**, use `ordered_placement_strategy` instead.
 	PlacementStrategies interface{}
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	SchedulingStrategy interface{}
 	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 	ServiceRegistries interface{}
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
@@ -228,11 +238,11 @@ type ServiceState struct {
 type ServiceArgs struct {
 	// ARN of an ECS cluster
 	Cluster interface{}
-	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment.
+	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent interface{}
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMinimumHealthyPercent interface{}
-	// The number of instances of the task definition to place and keep running
+	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
@@ -253,6 +263,8 @@ type ServiceArgs struct {
 	PlacementConstraints interface{}
 	// **Deprecated**, use `ordered_placement_strategy` instead.
 	PlacementStrategies interface{}
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	SchedulingStrategy interface{}
 	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 	ServiceRegistries interface{}
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.

@@ -23,6 +23,7 @@ func NewIpSet(ctx *pulumi.Context,
 		inputs["ipSetDescriptors"] = args.IpSetDescriptors
 		inputs["name"] = args.Name
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/ipSet:IpSet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -36,6 +37,7 @@ func GetIpSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *IpSetState, opts ...pulumi.ResourceOpt) (*IpSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["ipSetDescriptors"] = state.IpSetDescriptors
 		inputs["name"] = state.Name
 	}
@@ -56,6 +58,11 @@ func (r *IpSet) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// The ARN of the WAF IPSet.
+func (r *IpSet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 func (r *IpSet) IpSetDescriptors() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipSetDescriptors"])
@@ -68,6 +75,8 @@ func (r *IpSet) Name() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering IpSet resources.
 type IpSetState struct {
+	// The ARN of the WAF IPSet.
+	Arn interface{}
 	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
 	IpSetDescriptors interface{}
 	// The name or description of the IPSet.
