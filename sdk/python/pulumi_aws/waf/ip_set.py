@@ -36,6 +36,11 @@ class IpSet(pulumi.CustomResource):
         """
         __props__['name'] = name
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the WAF IPSet.
+        """
+
         super(IpSet, __self__).__init__(
             'aws:waf/ipSet:IpSet',
             __name__,
@@ -43,6 +48,8 @@ class IpSet(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'ipSetDescriptors' in outs:
             self.ip_set_descriptors = outs['ipSetDescriptors']
         if 'name' in outs:

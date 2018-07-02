@@ -117,7 +117,7 @@ func (r *Record) FailoverRoutingPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["failoverRoutingPolicies"])
 }
 
-// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`
+// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
 func (r *Record) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
@@ -186,7 +186,7 @@ type RecordState struct {
 	AllowOverwrite interface{}
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies interface{}
-	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`
+	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
 	Fqdn interface{}
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
 	GeolocationRoutingPolicies interface{}

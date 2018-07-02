@@ -9,7 +9,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
     """
-    def __init__(__self__, __name__, __opts__=None, block_device_mappings=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, block_device_mappings=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         """Create a LaunchTemplate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -197,6 +197,14 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         __props__['tagSpecifications'] = tag_specifications
 
+        if tags and not isinstance(tags, dict):
+            raise TypeError('Expected property tags to be a dict')
+        __self__.tags = tags
+        """
+        A mapping of tags to assign to the resource.
+        """
+        __props__['tags'] = tags
+
         if user_data and not isinstance(user_data, basestring):
             raise TypeError('Expected property user_data to be a basestring')
         __self__.user_data = user_data
@@ -275,6 +283,8 @@ class LaunchTemplate(pulumi.CustomResource):
             self.security_group_names = outs['securityGroupNames']
         if 'tagSpecifications' in outs:
             self.tag_specifications = outs['tagSpecifications']
+        if 'tags' in outs:
+            self.tags = outs['tags']
         if 'userData' in outs:
             self.user_data = outs['userData']
         if 'vpcSecurityGroupIds' in outs:

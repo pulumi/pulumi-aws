@@ -83,6 +83,9 @@ class Subnet(pulumi.CustomResource):
         __props__['vpcId'] = vpc_id
 
         __self__.ipv6_cidr_block_association_id = pulumi.runtime.UNKNOWN
+        """
+        The association ID for the IPv6 CIDR block.
+        """
 
         super(Subnet, __self__).__init__(
             'aws:ec2/subnet:Subnet',

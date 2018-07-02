@@ -48,7 +48,7 @@ class Topic(pulumi.CustomResource):
             raise TypeError('Expected property delivery_policy to be a basestring')
         __self__.delivery_policy = delivery_policy
         """
-        The SNS delivery policy
+        The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
         """
         __props__['deliveryPolicy'] = delivery_policy
 

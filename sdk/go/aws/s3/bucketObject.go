@@ -153,7 +153,7 @@ func (r *BucketObject) ContentType() *pulumi.StringOutput {
 }
 
 // Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-// This attribute is not compatible with `kms_key_id`.
+// This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
 func (r *BucketObject) Etag() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["etag"])
 }
@@ -224,7 +224,7 @@ type BucketObjectState struct {
 	// A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType interface{}
 	// Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-	// This attribute is not compatible with `kms_key_id`.
+	// This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
 	Etag interface{}
 	// The name of the object once it is in the bucket.
 	Key interface{}
@@ -270,7 +270,7 @@ type BucketObjectArgs struct {
 	// A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType interface{}
 	// Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-	// This attribute is not compatible with `kms_key_id`.
+	// This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
 	Etag interface{}
 	// The name of the object once it is in the bucket.
 	Key interface{}

@@ -56,6 +56,10 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['vpcConfig'] = vpc_config
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The Amazon Resource Name (ARN) of the cluster.
+        """
         __self__.certificate_authority = pulumi.runtime.UNKNOWN
         """
         Nested attribute containing `certificate-authority-data` for your cluster.
@@ -73,6 +77,8 @@ class Cluster(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'certificateAuthority' in outs:
             self.certificate_authority = outs['certificateAuthority']
         if 'createdAt' in outs:

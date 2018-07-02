@@ -26,6 +26,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		DatabaseName: outputs["databaseName"],
 		DbClusterParameterGroupName: outputs["dbClusterParameterGroupName"],
 		DbSubnetGroupName: outputs["dbSubnetGroupName"],
+		EnabledCloudwatchLogsExports: outputs["enabledCloudwatchLogsExports"],
 		Endpoint: outputs["endpoint"],
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
@@ -61,6 +62,7 @@ type GetClusterResult struct {
 	DatabaseName interface{}
 	DbClusterParameterGroupName interface{}
 	DbSubnetGroupName interface{}
+	EnabledCloudwatchLogsExports interface{}
 	Endpoint interface{}
 	Engine interface{}
 	EngineVersion interface{}

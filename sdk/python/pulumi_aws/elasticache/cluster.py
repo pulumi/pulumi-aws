@@ -18,7 +18,7 @@ class Cluster(pulumi.CustomResource):
     change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
     See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
     """
-    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zone=None, availability_zones=None, az_mode=None, cluster_id=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zone=None, availability_zones=None, az_mode=None, cluster_id=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_availability_zones=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -44,7 +44,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property availability_zone to be a basestring')
         __self__.availability_zone = availability_zone
         """
-        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+        The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
         """
         __props__['availabilityZone'] = availability_zone
 
@@ -52,7 +52,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property availability_zones to be a list')
         __self__.availability_zones = availability_zones
         """
-        List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+        Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
         """
         __props__['availabilityZones'] = availability_zones
 
@@ -151,6 +151,14 @@ class Cluster(pulumi.CustomResource):
         The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
         __props__['port'] = port
+
+        if preferred_availability_zones and not isinstance(preferred_availability_zones, list):
+            raise TypeError('Expected property preferred_availability_zones to be a list')
+        __self__.preferred_availability_zones = preferred_availability_zones
+        """
+        A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        """
+        __props__['preferredAvailabilityZones'] = preferred_availability_zones
 
         if replication_group_id and not isinstance(replication_group_id, basestring):
             raise TypeError('Expected property replication_group_id to be a basestring')
@@ -287,6 +295,8 @@ class Cluster(pulumi.CustomResource):
             self.parameter_group_name = outs['parameterGroupName']
         if 'port' in outs:
             self.port = outs['port']
+        if 'preferredAvailabilityZones' in outs:
+            self.preferred_availability_zones = outs['preferredAvailabilityZones']
         if 'replicationGroupId' in outs:
             self.replication_group_id = outs['replicationGroupId']
         if 'securityGroupIds' in outs:

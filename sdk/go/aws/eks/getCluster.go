@@ -18,6 +18,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		return nil, err
 	}
 	return &GetClusterResult{
+		Arn: outputs["arn"],
 		CertificateAuthority: outputs["certificateAuthority"],
 		CreatedAt: outputs["createdAt"],
 		Endpoint: outputs["endpoint"],
@@ -35,6 +36,8 @@ type GetClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type GetClusterResult struct {
+	// The Amazon Resource Name (ARN) of the cluster.
+	Arn interface{}
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority interface{}
 	// The Unix epoch time stamp in seconds for when the cluster was created.

@@ -43,14 +43,6 @@ class Method(pulumi.CustomResource):
         __self__.authorization_scopes = authorization_scopes
         """
         The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        For example:
-        ```hcl
-        request_parameters = {
-        "method.request.header.X-Some-Header" = true,
-        "method.request.querystring.some-query-param"  = true,
-        }
-        ```
-        would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
         """
         __props__['authorizationScopes'] = authorization_scopes
 
@@ -87,6 +79,14 @@ class Method(pulumi.CustomResource):
         __self__.request_parameters = request_parameters
         """
         A map of request query string parameters and headers that should be passed to the integration.
+        For example:
+        ```hcl
+        request_parameters = {
+        "method.request.header.X-Some-Header" = true,
+        "method.request.querystring.some-query-param"  = true,
+        }
+        ```
+        would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
         """
         __props__['requestParameters'] = request_parameters
 

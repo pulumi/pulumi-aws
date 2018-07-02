@@ -30,13 +30,13 @@ class GetClusterResult(object):
             raise TypeError('Expected argument cluster_address to be a basestring')
         __self__.cluster_address = cluster_address
         """
-        The DNS name of the cache cluster without the port appended.
+        (Memcached only) The DNS name of the cache cluster without the port appended.
         """
         if configuration_endpoint and not isinstance(configuration_endpoint, basestring):
             raise TypeError('Expected argument configuration_endpoint to be a basestring')
         __self__.configuration_endpoint = configuration_endpoint
         """
-        The configuration endpoint to allow host discovery.
+        (Memcached only) The configuration endpoint to allow host discovery.
         """
         if engine and not isinstance(engine, basestring):
             raise TypeError('Expected argument engine to be a basestring')

@@ -14,6 +14,10 @@ class Cluster(pulumi.CustomResource):
     
     For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
     
+    For information on the difference between the available Aurora MySQL engines
+    see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+    in the Amazon RDS User Guide.
+    
     Changes to a RDS Cluster can occur when you manually change a
     parameter, such as `port`, and are reflected in the next maintenance
     window. Because of this, Terraform may report a difference in its planning
@@ -28,7 +32,7 @@ class Cluster(pulumi.CustomResource):
     ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -122,11 +126,20 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['dbSubnetGroupName'] = db_subnet_group_name
 
+        if enabled_cloudwatch_logs_exports and not isinstance(enabled_cloudwatch_logs_exports, list):
+            raise TypeError('Expected property enabled_cloudwatch_logs_exports to be a list')
+        __self__.enabled_cloudwatch_logs_exports = enabled_cloudwatch_logs_exports
+        """
+        List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+        """
+        __props__['enabledCloudwatchLogsExports'] = enabled_cloudwatch_logs_exports
+
         if engine and not isinstance(engine, basestring):
             raise TypeError('Expected property engine to be a basestring')
         __self__.engine = engine
         """
-        The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+        The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
         """
         __props__['engine'] = engine
 
@@ -323,6 +336,8 @@ class Cluster(pulumi.CustomResource):
             self.db_cluster_parameter_group_name = outs['dbClusterParameterGroupName']
         if 'dbSubnetGroupName' in outs:
             self.db_subnet_group_name = outs['dbSubnetGroupName']
+        if 'enabledCloudwatchLogsExports' in outs:
+            self.enabled_cloudwatch_logs_exports = outs['enabledCloudwatchLogsExports']
         if 'endpoint' in outs:
             self.endpoint = outs['endpoint']
         if 'engine' in outs:

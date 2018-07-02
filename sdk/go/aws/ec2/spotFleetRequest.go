@@ -30,6 +30,7 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	if args == nil {
 		inputs["allocationStrategy"] = nil
 		inputs["excessCapacityTerminationPolicy"] = nil
+		inputs["fleetType"] = nil
 		inputs["iamFleetRole"] = nil
 		inputs["instanceInterruptionBehaviour"] = nil
 		inputs["launchSpecifications"] = nil
@@ -45,6 +46,7 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	} else {
 		inputs["allocationStrategy"] = args.AllocationStrategy
 		inputs["excessCapacityTerminationPolicy"] = args.ExcessCapacityTerminationPolicy
+		inputs["fleetType"] = args.FleetType
 		inputs["iamFleetRole"] = args.IamFleetRole
 		inputs["instanceInterruptionBehaviour"] = args.InstanceInterruptionBehaviour
 		inputs["launchSpecifications"] = args.LaunchSpecifications
@@ -76,6 +78,7 @@ func GetSpotFleetRequest(ctx *pulumi.Context,
 		inputs["allocationStrategy"] = state.AllocationStrategy
 		inputs["clientToken"] = state.ClientToken
 		inputs["excessCapacityTerminationPolicy"] = state.ExcessCapacityTerminationPolicy
+		inputs["fleetType"] = state.FleetType
 		inputs["iamFleetRole"] = state.IamFleetRole
 		inputs["instanceInterruptionBehaviour"] = state.InstanceInterruptionBehaviour
 		inputs["launchSpecifications"] = state.LaunchSpecifications
@@ -125,6 +128,12 @@ func (r *SpotFleetRequest) ExcessCapacityTerminationPolicy() *pulumi.StringOutpu
 	return (*pulumi.StringOutput)(r.s.State["excessCapacityTerminationPolicy"])
 }
 
+// The type of fleet request. Indicates whether the Spot Fleet only requests the target
+// capacity or also attempts to maintain it. Default is `maintain`.
+func (r *SpotFleetRequest) FleetType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["fleetType"])
+}
+
 // Grants the Spot fleet permission to terminate
 // Spot instances on your behalf when you cancel its Spot fleet request using
 // CancelSpotFleetRequests or when the Spot fleet request expires, if you set
@@ -133,6 +142,9 @@ func (r *SpotFleetRequest) IamFleetRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iamFleetRole"])
 }
 
+// Indicates whether a Spot
+// instance stops or terminates when it is interrupted. Default is
+// `terminate`.
 func (r *SpotFleetRequest) InstanceInterruptionBehaviour() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceInterruptionBehaviour"])
 }
@@ -211,11 +223,17 @@ type SpotFleetRequestState struct {
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
 	ExcessCapacityTerminationPolicy interface{}
+	// The type of fleet request. Indicates whether the Spot Fleet only requests the target
+	// capacity or also attempts to maintain it. Default is `maintain`.
+	FleetType interface{}
 	// Grants the Spot fleet permission to terminate
 	// Spot instances on your behalf when you cancel its Spot fleet request using
 	// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
 	// terminateInstancesWithExpiration.
 	IamFleetRole interface{}
+	// Indicates whether a Spot
+	// instance stops or terminates when it is interrupted. Default is
+	// `terminate`.
 	InstanceInterruptionBehaviour interface{}
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
@@ -259,11 +277,17 @@ type SpotFleetRequestArgs struct {
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
 	ExcessCapacityTerminationPolicy interface{}
+	// The type of fleet request. Indicates whether the Spot Fleet only requests the target
+	// capacity or also attempts to maintain it. Default is `maintain`.
+	FleetType interface{}
 	// Grants the Spot fleet permission to terminate
 	// Spot instances on your behalf when you cancel its Spot fleet request using
 	// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
 	// terminateInstancesWithExpiration.
 	IamFleetRole interface{}
+	// Indicates whether a Spot
+	// instance stops or terminates when it is interrupted. Default is
+	// `terminate`.
 	InstanceInterruptionBehaviour interface{}
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids

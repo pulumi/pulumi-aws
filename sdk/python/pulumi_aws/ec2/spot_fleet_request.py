@@ -10,7 +10,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     instances to be requested on the Spot market.
     """
-    def __init__(__self__, __name__, __opts__=None, allocation_strategy=None, excess_capacity_termination_policy=None, iam_fleet_role=None, instance_interruption_behaviour=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None):
+    def __init__(__self__, __name__, __opts__=None, allocation_strategy=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None):
         """Create a SpotFleetRequest resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -41,6 +41,15 @@ class SpotFleetRequest(pulumi.CustomResource):
         """
         __props__['excessCapacityTerminationPolicy'] = excess_capacity_termination_policy
 
+        if fleet_type and not isinstance(fleet_type, basestring):
+            raise TypeError('Expected property fleet_type to be a basestring')
+        __self__.fleet_type = fleet_type
+        """
+        The type of fleet request. Indicates whether the Spot Fleet only requests the target
+        capacity or also attempts to maintain it. Default is `maintain`.
+        """
+        __props__['fleetType'] = fleet_type
+
         if not iam_fleet_role:
             raise TypeError('Missing required property iam_fleet_role')
         elif not isinstance(iam_fleet_role, basestring):
@@ -57,6 +66,11 @@ class SpotFleetRequest(pulumi.CustomResource):
         if instance_interruption_behaviour and not isinstance(instance_interruption_behaviour, basestring):
             raise TypeError('Expected property instance_interruption_behaviour to be a basestring')
         __self__.instance_interruption_behaviour = instance_interruption_behaviour
+        """
+        Indicates whether a Spot
+        instance stops or terminates when it is interrupted. Default is
+        `terminate`.
+        """
         __props__['instanceInterruptionBehaviour'] = instance_interruption_behaviour
 
         if not launch_specifications:
@@ -170,6 +184,8 @@ class SpotFleetRequest(pulumi.CustomResource):
             self.client_token = outs['clientToken']
         if 'excessCapacityTerminationPolicy' in outs:
             self.excess_capacity_termination_policy = outs['excessCapacityTerminationPolicy']
+        if 'fleetType' in outs:
+            self.fleet_type = outs['fleetType']
         if 'iamFleetRole' in outs:
             self.iam_fleet_role = outs['iamFleetRole']
         if 'instanceInterruptionBehaviour' in outs:

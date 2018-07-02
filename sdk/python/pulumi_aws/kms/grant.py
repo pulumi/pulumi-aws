@@ -54,7 +54,7 @@ class Grant(pulumi.CustomResource):
             raise TypeError('Expected property key_id to be a basestring')
         __self__.key_id = key_id
         """
-        The unique identifier for the customer master key (CMK) that the grant applies to.
+        The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         """
         __props__['keyId'] = key_id
 

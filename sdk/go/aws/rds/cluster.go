@@ -14,6 +14,10 @@ import (
 // 
 // For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
 // 
+// For information on the difference between the available Aurora MySQL engines
+// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+// in the Amazon RDS User Guide.
+// 
 // Changes to a RDS Cluster can occur when you manually change a
 // parameter, such as `port`, and are reflected in the next maintenance
 // window. Because of this, Terraform may report a difference in its planning
@@ -46,6 +50,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = nil
 		inputs["dbClusterParameterGroupName"] = nil
 		inputs["dbSubnetGroupName"] = nil
+		inputs["enabledCloudwatchLogsExports"] = nil
 		inputs["engine"] = nil
 		inputs["engineVersion"] = nil
 		inputs["finalSnapshotIdentifier"] = nil
@@ -76,6 +81,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = args.DatabaseName
 		inputs["dbClusterParameterGroupName"] = args.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
+		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
 		inputs["engine"] = args.Engine
 		inputs["engineVersion"] = args.EngineVersion
 		inputs["finalSnapshotIdentifier"] = args.FinalSnapshotIdentifier
@@ -124,6 +130,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = state.DatabaseName
 		inputs["dbClusterParameterGroupName"] = state.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
+		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
 		inputs["endpoint"] = state.Endpoint
 		inputs["engine"] = state.Engine
 		inputs["engineVersion"] = state.EngineVersion
@@ -222,12 +229,18 @@ func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
 
+// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+func (r *Cluster) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
+}
+
 // The DNS address of the RDS instance
 func (r *Cluster) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
-// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 func (r *Cluster) Engine() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engine"])
 }
@@ -364,9 +377,12 @@ type ClusterState struct {
 	DbClusterParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+	EnabledCloudwatchLogsExports interface{}
 	// The DNS address of the RDS instance
 	Endpoint interface{}
-	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
@@ -440,7 +456,10 @@ type ClusterArgs struct {
 	DbClusterParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
-	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: aurora,aurora-mysql,aurora-postgresql
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+	EnabledCloudwatchLogsExports interface{}
+	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}

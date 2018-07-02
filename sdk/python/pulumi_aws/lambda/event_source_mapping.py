@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class EventSourceMapping(pulumi.CustomResource):
     """
-    Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis and DynamoDB.
+    Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS
     
     For information about Lambda and how to use it, see [What is AWS Lambda?][1]
     For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
@@ -59,13 +59,11 @@ class EventSourceMapping(pulumi.CustomResource):
         """
         __props__['functionName'] = function_name
 
-        if not starting_position:
-            raise TypeError('Missing required property starting_position')
-        elif not isinstance(starting_position, basestring):
+        if starting_position and not isinstance(starting_position, basestring):
             raise TypeError('Expected property starting_position to be a basestring')
         __self__.starting_position = starting_position
         """
-        The position in the stream where AWS Lambda should start reading. Can be one of either `TRIM_HORIZON` or `LATEST`.
+        The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
         """
         __props__['startingPosition'] = starting_position
 

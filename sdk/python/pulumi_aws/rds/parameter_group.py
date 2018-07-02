@@ -7,7 +7,12 @@ import pulumi.runtime
 
 class ParameterGroup(pulumi.CustomResource):
     """
-    Provides an RDS DB parameter group resource.
+    Provides an RDS DB parameter group resource .Documentation of the available parameters for various RDS engines can be found at:
+    * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
+    * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
+    * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
+    * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
+    * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
     """
     def __init__(__self__, __name__, __opts__=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None):
         """Create a ParameterGroup resource with the given unique name, props, and options."""

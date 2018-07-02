@@ -9,7 +9,13 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, certificate_authority=None, created_at=None, endpoint=None, role_arn=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, endpoint=None, role_arn=None, version=None, vpc_config=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        The Amazon Resource Name (ARN) of the cluster.
+        """
         if certificate_authority and not isinstance(certificate_authority, dict):
             raise TypeError('Expected argument certificate_authority to be a dict')
         __self__.certificate_authority = certificate_authority
@@ -57,6 +63,7 @@ def get_cluster(name=None):
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__)
 
     return GetClusterResult(
+        arn=__ret__.get('arn'),
         certificate_authority=__ret__.get('certificateAuthority'),
         created_at=__ret__.get('createdAt'),
         endpoint=__ret__.get('endpoint'),
