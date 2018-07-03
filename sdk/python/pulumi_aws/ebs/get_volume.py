@@ -9,7 +9,7 @@ class GetVolumeResult(object):
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None):
+    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -70,6 +70,12 @@ class GetVolumeResult(object):
         """
         The type of EBS volume.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_volume(filters=None, most_recent=None, tags=None):
     """
@@ -93,4 +99,5 @@ def get_volume(filters=None, most_recent=None, tags=None):
         snapshot_id=__ret__.get('snapshotId'),
         tags=__ret__.get('tags'),
         volume_id=__ret__.get('volumeId'),
-        volume_type=__ret__.get('volumeType'))
+        volume_type=__ret__.get('volumeType'),
+        id=__ret__.get('id'))

@@ -39,4 +39,8 @@ export interface GetAvailabilityZonesResult {
      * A list of the Availability Zone names available to the account.
      */
     readonly names: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

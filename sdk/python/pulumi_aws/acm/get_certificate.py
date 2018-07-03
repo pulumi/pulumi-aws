@@ -9,12 +9,18 @@ class GetCertificateResult(object):
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None):
+    def __init__(__self__, arn=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_certificate(domain=None, most_recent=None, statuses=None, types=None):
@@ -34,4 +40,5 @@ def get_certificate(domain=None, most_recent=None, statuses=None, types=None):
     __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__)
 
     return GetCertificateResult(
-        arn=__ret__.get('arn'))
+        arn=__ret__.get('arn'),
+        id=__ret__.get('id'))

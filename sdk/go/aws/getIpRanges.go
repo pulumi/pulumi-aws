@@ -22,6 +22,7 @@ func LookupIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesRes
 		CidrBlocks: outputs["cidrBlocks"],
 		CreateDate: outputs["createDate"],
 		SyncToken: outputs["syncToken"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -45,4 +46,6 @@ type GetIpRangesResult struct {
 	// The publication time of the IP ranges, in Unix epoch time format
 	// (e.g. `1470267965`).
 	SyncToken interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

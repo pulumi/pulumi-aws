@@ -34,6 +34,7 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 		KeyUsage: outputs["keyUsage"],
 		Origin: outputs["origin"],
 		ValidTo: outputs["validTo"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -63,4 +64,6 @@ type GetKeyResult struct {
 	KeyUsage interface{}
 	Origin interface{}
 	ValidTo interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

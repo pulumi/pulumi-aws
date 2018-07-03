@@ -35,6 +35,7 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
 		ZoneId: outputs["zoneId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -70,4 +71,6 @@ type GetZoneResult struct {
 	Tags interface{}
 	VpcId interface{}
 	ZoneId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

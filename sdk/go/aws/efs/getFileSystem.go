@@ -27,6 +27,7 @@ func LookupFileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSys
 		KmsKeyId: outputs["kmsKeyId"],
 		PerformanceMode: outputs["performanceMode"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -53,4 +54,6 @@ type GetFileSystemResult struct {
 	PerformanceMode interface{}
 	// The list of tags assigned to the file system.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

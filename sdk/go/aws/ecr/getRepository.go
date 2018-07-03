@@ -21,6 +21,7 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 		Arn: outputs["arn"],
 		RegistryId: outputs["registryId"],
 		RepositoryUrl: outputs["repositoryUrl"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -38,4 +39,6 @@ type GetRepositoryResult struct {
 	RegistryId interface{}
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

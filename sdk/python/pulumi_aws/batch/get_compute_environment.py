@@ -9,7 +9,7 @@ class GetComputeEnvironmentResult(object):
     """
     A collection of values returned by getComputeEnvironment.
     """
-    def __init__(__self__, arn=None, ecs_cluster_arn=None, service_role=None, state=None, status=None, status_reason=None, type=None):
+    def __init__(__self__, arn=None, ecs_cluster_arn=None, service_role=None, state=None, status=None, status_reason=None, type=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -52,6 +52,12 @@ class GetComputeEnvironmentResult(object):
         """
         The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_compute_environment(compute_environment_name=None):
     """
@@ -70,4 +76,5 @@ def get_compute_environment(compute_environment_name=None):
         state=__ret__.get('state'),
         status=__ret__.get('status'),
         status_reason=__ret__.get('statusReason'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        id=__ret__.get('id'))

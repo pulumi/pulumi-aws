@@ -52,4 +52,8 @@ export interface GetRegionResult {
      * The name of the selected region.
      */
     readonly name: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

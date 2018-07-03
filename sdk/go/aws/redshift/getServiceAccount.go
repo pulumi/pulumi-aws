@@ -20,6 +20,7 @@ func LookupServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs) (*Ge
 	}
 	return &GetServiceAccountResult{
 		Arn: outputs["arn"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -34,4 +35,6 @@ type GetServiceAccountArgs struct {
 type GetServiceAccountResult struct {
 	// The ARN of the AWS Redshift service account in the selected region.
 	Arn interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

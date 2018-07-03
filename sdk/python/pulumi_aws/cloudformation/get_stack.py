@@ -9,7 +9,7 @@ class GetStackResult(object):
     """
     A collection of values returned by getStack.
     """
-    def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, notification_arns=None, outputs=None, parameters=None, tags=None, template_body=None, timeout_in_minutes=None):
+    def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, notification_arns=None, outputs=None, parameters=None, tags=None, template_body=None, timeout_in_minutes=None, id=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError('Expected argument capabilities to be a list')
         __self__.capabilities = capabilities
@@ -70,6 +70,12 @@ class GetStackResult(object):
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_stack(name=None):
     """
@@ -91,4 +97,5 @@ def get_stack(name=None):
         parameters=__ret__.get('parameters'),
         tags=__ret__.get('tags'),
         template_body=__ret__.get('templateBody'),
-        timeout_in_minutes=__ret__.get('timeoutInMinutes'))
+        timeout_in_minutes=__ret__.get('timeoutInMinutes'),
+        id=__ret__.get('id'))

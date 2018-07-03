@@ -28,6 +28,7 @@ func LookupRegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, e
 		Current: outputs["current"],
 		Endpoint: outputs["endpoint"],
 		Name: outputs["name"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -49,4 +50,6 @@ type GetRegionResult struct {
 	Endpoint interface{}
 	// The name of the selected region.
 	Name interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

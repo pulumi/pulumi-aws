@@ -9,7 +9,7 @@ class GetQueueResult(object):
     """
     A collection of values returned by getQueue.
     """
-    def __init__(__self__, arn=None, url=None):
+    def __init__(__self__, arn=None, url=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -21,6 +21,12 @@ class GetQueueResult(object):
         __self__.url = url
         """
         The URL of the queue.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_queue(name=None):
@@ -36,4 +42,5 @@ def get_queue(name=None):
 
     return GetQueueResult(
         arn=__ret__.get('arn'),
-        url=__ret__.get('url'))
+        url=__ret__.get('url'),
+        id=__ret__.get('id'))

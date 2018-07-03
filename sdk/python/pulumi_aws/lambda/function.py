@@ -46,8 +46,8 @@ class Function(pulumi.CustomResource):
         """
         __props__['environment'] = environment
 
-        if code and not isinstance(code, basestring):
-            raise TypeError('Expected property code to be a basestring')
+        if code and not isinstance(code, pulumi.Archive):
+            raise TypeError('Expected property code to be a pulumi.Archive')
         __self__.code = code
         """
         The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.

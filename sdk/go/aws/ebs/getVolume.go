@@ -31,6 +31,7 @@ func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, e
 		Tags: outputs["tags"],
 		VolumeId: outputs["volumeId"],
 		VolumeType: outputs["volumeType"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -68,4 +69,6 @@ type GetVolumeResult struct {
 	VolumeId interface{}
 	// The type of EBS volume.
 	VolumeType interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

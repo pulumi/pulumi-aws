@@ -43,6 +43,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		StorageEncrypted: outputs["storageEncrypted"],
 		Tags: outputs["tags"],
 		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -79,4 +80,6 @@ type GetClusterResult struct {
 	StorageEncrypted interface{}
 	Tags interface{}
 	VpcSecurityGroupIds interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

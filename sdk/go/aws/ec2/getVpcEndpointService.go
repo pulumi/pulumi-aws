@@ -28,6 +28,7 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceAr
 		ServiceName: outputs["serviceName"],
 		ServiceType: outputs["serviceType"],
 		VpcEndpointPolicySupported: outputs["vpcEndpointPolicySupported"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -56,4 +57,6 @@ type GetVpcEndpointServiceResult struct {
 	ServiceType interface{}
 	// Whether or not the service supports endpoint policies - `true` or `false`.
 	VpcEndpointPolicySupported interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

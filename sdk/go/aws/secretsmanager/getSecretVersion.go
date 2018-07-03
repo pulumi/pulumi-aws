@@ -23,6 +23,7 @@ func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetS
 		SecretString: outputs["secretString"],
 		VersionId: outputs["versionId"],
 		VersionStages: outputs["versionStages"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -43,4 +44,6 @@ type GetSecretVersionResult struct {
 	// The unique identifier of this version of the secret.
 	VersionId interface{}
 	VersionStages interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

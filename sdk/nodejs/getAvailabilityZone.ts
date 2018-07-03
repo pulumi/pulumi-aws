@@ -62,4 +62,8 @@ export interface GetAvailabilityZoneResult {
      * The current state of the AZ.
      */
     readonly state: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

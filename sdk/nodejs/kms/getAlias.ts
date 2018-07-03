@@ -40,4 +40,8 @@ export interface GetAliasResult {
      * Key identifier pointed to by the alias.
      */
     readonly targetKeyId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

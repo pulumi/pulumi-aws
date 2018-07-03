@@ -48,6 +48,7 @@ func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
 		StateReason: outputs["stateReason"],
 		Tags: outputs["tags"],
 		VirtualizationType: outputs["virtualizationType"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -152,4 +153,6 @@ type GetAmiResult struct {
 	// The type of virtualization of the AMI (ie: `hvm` or
 	// `paravirtual`).
 	VirtualizationType interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

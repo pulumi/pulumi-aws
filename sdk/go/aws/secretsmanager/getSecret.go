@@ -27,6 +27,7 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 		RotationLambdaArn: outputs["rotationLambdaArn"],
 		RotationRules: outputs["rotationRules"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -55,4 +56,6 @@ type GetSecretResult struct {
 	RotationRules interface{}
 	// Tags of the secret.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

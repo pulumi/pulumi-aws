@@ -41,6 +41,7 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoa
 		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
 		ZoneId: outputs["zoneId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -70,4 +71,6 @@ type GetLoadBalancerResult struct {
 	Tags interface{}
 	VpcId interface{}
 	ZoneId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

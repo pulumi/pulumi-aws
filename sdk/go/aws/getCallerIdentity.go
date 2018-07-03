@@ -18,6 +18,7 @@ func LookupCallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error)
 		AccountId: outputs["accountId"],
 		Arn: outputs["arn"],
 		UserId: outputs["userId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -29,4 +30,6 @@ type GetCallerIdentityResult struct {
 	Arn interface{}
 	// The unique identifier of the calling entity.
 	UserId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

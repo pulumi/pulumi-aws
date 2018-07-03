@@ -43,6 +43,7 @@ func LookupBucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBuc
 		Tags: outputs["tags"],
 		VersionId: outputs["versionId"],
 		WebsiteRedirectLocation: outputs["websiteRedirectLocation"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -96,4 +97,6 @@ type GetBucketObjectResult struct {
 	VersionId interface{}
 	// If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 	WebsiteRedirectLocation interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

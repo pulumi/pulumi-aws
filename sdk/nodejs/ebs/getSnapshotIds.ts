@@ -41,4 +41,8 @@ export interface GetSnapshotIdsArgs {
  */
 export interface GetSnapshotIdsResult {
     readonly ids: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

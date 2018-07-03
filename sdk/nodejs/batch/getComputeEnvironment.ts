@@ -55,4 +55,8 @@ export interface GetComputeEnvironmentResult {
      * The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

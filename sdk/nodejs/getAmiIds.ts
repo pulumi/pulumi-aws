@@ -51,4 +51,8 @@ export interface GetAmiIdsArgs {
  */
 export interface GetAmiIdsResult {
     readonly ids: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

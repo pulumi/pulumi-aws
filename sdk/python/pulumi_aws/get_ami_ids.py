@@ -9,10 +9,16 @@ class GetAmiIdsResult(object):
     """
     A collection of values returned by getAmiIds.
     """
-    def __init__(__self__, ids=None):
+    def __init__(__self__, ids=None, id=None):
         if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_ami_ids(executable_users=None, filters=None, name_regex=None, owners=None):
     """
@@ -27,4 +33,5 @@ def get_ami_ids(executable_users=None, filters=None, name_regex=None, owners=Non
     __ret__ = pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__)
 
     return GetAmiIdsResult(
-        ids=__ret__.get('ids'))
+        ids=__ret__.get('ids'),
+        id=__ret__.get('id'))

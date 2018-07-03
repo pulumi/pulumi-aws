@@ -50,4 +50,8 @@ export interface GetKeyResult {
     readonly keyUsage: string;
     readonly origin: string;
     readonly validTo: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

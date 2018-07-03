@@ -24,6 +24,7 @@ func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIds
 	return &GetSubnetIdsResult{
 		Ids: outputs["ids"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -42,4 +43,6 @@ type GetSubnetIdsResult struct {
 	// A list of all the subnet ids found. This data source will fail if none are found.
 	Ids interface{}
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

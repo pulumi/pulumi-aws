@@ -9,7 +9,7 @@ class GetLoadBalancerResult(object):
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, dns_name=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
+    def __init__(__self__, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, dns_name=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None, id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError('Expected argument access_logs to be a dict')
         __self__.access_logs = access_logs
@@ -61,6 +61,12 @@ class GetLoadBalancerResult(object):
         if zone_id and not isinstance(zone_id, basestring):
             raise TypeError('Expected argument zone_id to be a basestring')
         __self__.zone_id = zone_id
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_load_balancer(name=None, tags=None):
     """
@@ -95,4 +101,5 @@ def get_load_balancer(name=None, tags=None):
         source_security_group_id=__ret__.get('sourceSecurityGroupId'),
         subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
-        zone_id=__ret__.get('zoneId'))
+        zone_id=__ret__.get('zoneId'),
+        id=__ret__.get('id'))

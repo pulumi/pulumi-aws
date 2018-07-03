@@ -37,6 +37,7 @@ func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTarge
 		Stickiness: outputs["stickiness"],
 		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -62,4 +63,6 @@ type GetTargetGroupResult struct {
 	Stickiness interface{}
 	Tags interface{}
 	VpcId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

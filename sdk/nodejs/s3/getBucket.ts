@@ -53,4 +53,8 @@ export interface GetBucketResult {
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
     readonly websiteEndpoint: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

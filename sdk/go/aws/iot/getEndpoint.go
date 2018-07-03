@@ -15,6 +15,7 @@ func LookupEndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
 	}
 	return &GetEndpointResult{
 		EndpointAddress: outputs["endpointAddress"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -22,4 +23,6 @@ func LookupEndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
 type GetEndpointResult struct {
 	// The endpoint. The format of the endpoint is as follows: `IDENTIFIER.iot.REGION.amazonaws.com`.
 	EndpointAddress interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

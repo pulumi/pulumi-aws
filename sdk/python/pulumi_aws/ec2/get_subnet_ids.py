@@ -9,7 +9,7 @@ class GetSubnetIdsResult(object):
     """
     A collection of values returned by getSubnetIds.
     """
-    def __init__(__self__, ids=None, tags=None):
+    def __init__(__self__, ids=None, tags=None, id=None):
         if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
@@ -19,6 +19,12 @@ class GetSubnetIdsResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_subnet_ids(filters=None, tags=None, vpc_id=None):
     """
@@ -35,4 +41,5 @@ def get_subnet_ids(filters=None, tags=None, vpc_id=None):
 
     return GetSubnetIdsResult(
         ids=__ret__.get('ids'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

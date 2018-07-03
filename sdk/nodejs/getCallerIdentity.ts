@@ -28,4 +28,8 @@ export interface GetCallerIdentityResult {
      * The unique identifier of the calling entity.
      */
     readonly userId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

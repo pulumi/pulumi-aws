@@ -9,7 +9,7 @@ class GetGroupResult(object):
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, group_id=None, path=None):
+    def __init__(__self__, arn=None, group_id=None, path=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetGroupResult(object):
         """
         The path to the group.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_group(group_name=None):
     """
@@ -43,4 +49,5 @@ def get_group(group_name=None):
     return GetGroupResult(
         arn=__ret__.get('arn'),
         group_id=__ret__.get('groupId'),
-        path=__ret__.get('path'))
+        path=__ret__.get('path'),
+        id=__ret__.get('id'))

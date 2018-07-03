@@ -182,4 +182,8 @@ export interface GetAmiResult {
      * `paravirtual`).
      */
     readonly virtualizationType: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

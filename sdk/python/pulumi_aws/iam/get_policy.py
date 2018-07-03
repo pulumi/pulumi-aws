@@ -9,7 +9,7 @@ class GetPolicyResult(object):
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, description=None, name=None, path=None, policy=None):
+    def __init__(__self__, description=None, name=None, path=None, policy=None, id=None):
         if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
@@ -34,6 +34,12 @@ class GetPolicyResult(object):
         """
         The policy document of the policy.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_policy(arn=None):
     """
@@ -49,4 +55,5 @@ def get_policy(arn=None):
         description=__ret__.get('description'),
         name=__ret__.get('name'),
         path=__ret__.get('path'),
-        policy=__ret__.get('policy'))
+        policy=__ret__.get('policy'),
+        id=__ret__.get('id'))

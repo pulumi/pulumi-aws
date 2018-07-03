@@ -29,6 +29,7 @@ func LookupStream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, e
 		ShardLevelMetrics: outputs["shardLevelMetrics"],
 		Status: outputs["status"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -56,4 +57,6 @@ type GetStreamResult struct {
 	Status interface{}
 	// A mapping of tags to assigned to the stream.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

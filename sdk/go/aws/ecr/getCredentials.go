@@ -20,6 +20,7 @@ func LookupCredentials(ctx *pulumi.Context, args *GetCredentialsArgs) (*GetCrede
 		AuthorizationToken: outputs["authorizationToken"],
 		ExpiresAt: outputs["expiresAt"],
 		ProxyEndpoint: outputs["proxyEndpoint"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -33,4 +34,6 @@ type GetCredentialsResult struct {
 	AuthorizationToken interface{}
 	ExpiresAt interface{}
 	ProxyEndpoint interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

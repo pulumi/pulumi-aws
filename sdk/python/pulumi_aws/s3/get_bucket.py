@@ -9,7 +9,7 @@ class GetBucketResult(object):
     """
     A collection of values returned by getBucket.
     """
-    def __init__(__self__, arn=None, bucket_domain_name=None, hosted_zone_id=None, region=None, website_domain=None, website_endpoint=None):
+    def __init__(__self__, arn=None, bucket_domain_name=None, hosted_zone_id=None, region=None, website_domain=None, website_endpoint=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -46,6 +46,12 @@ class GetBucketResult(object):
         """
         The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_bucket(bucket=None):
     """
@@ -65,4 +71,5 @@ def get_bucket(bucket=None):
         hosted_zone_id=__ret__.get('hostedZoneId'),
         region=__ret__.get('region'),
         website_domain=__ret__.get('websiteDomain'),
-        website_endpoint=__ret__.get('websiteEndpoint'))
+        website_endpoint=__ret__.get('websiteEndpoint'),
+        id=__ret__.get('id'))

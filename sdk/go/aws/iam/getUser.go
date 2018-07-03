@@ -23,6 +23,7 @@ func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) 
 		Arn: outputs["arn"],
 		Path: outputs["path"],
 		UserId: outputs["userId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -40,4 +41,6 @@ type GetUserResult struct {
 	Path interface{}
 	// The unique ID assigned by AWS for this user.
 	UserId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -47,4 +47,8 @@ export interface GetIpRangesResult {
      * (e.g. `1470267965`).
      */
     readonly syncToken: number;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

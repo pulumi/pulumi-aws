@@ -39,6 +39,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		SnapshotWindow: outputs["snapshotWindow"],
 		SubnetGroupName: outputs["subnetGroupName"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -96,4 +97,6 @@ type GetClusterResult struct {
 	SubnetGroupName interface{}
 	// The tags assigned to the resource
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

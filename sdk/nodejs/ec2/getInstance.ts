@@ -161,4 +161,8 @@ export interface GetInstanceResult {
      * The associated security groups in a non-default VPC.
      */
     readonly vpcSecurityGroupIds: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

@@ -56,4 +56,8 @@ export interface GetJobQueueResult {
      * of the job queue.
      */
     readonly statusReason: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

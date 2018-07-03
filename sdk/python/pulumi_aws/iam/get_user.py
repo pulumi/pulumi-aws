@@ -9,7 +9,7 @@ class GetUserResult(object):
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, arn=None, path=None, user_id=None):
+    def __init__(__self__, arn=None, path=None, user_id=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetUserResult(object):
         """
         The unique ID assigned by AWS for this user.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_user(user_name=None):
     """
@@ -43,4 +49,5 @@ def get_user(user_name=None):
     return GetUserResult(
         arn=__ret__.get('arn'),
         path=__ret__.get('path'),
-        user_id=__ret__.get('userId'))
+        user_id=__ret__.get('userId'),
+        id=__ret__.get('id'))

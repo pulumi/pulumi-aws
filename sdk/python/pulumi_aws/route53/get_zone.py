@@ -9,7 +9,7 @@ class GetZoneResult(object):
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, caller_reference=None, comment=None, name=None, name_servers=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, caller_reference=None, comment=None, name=None, name_servers=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None, id=None):
         if caller_reference and not isinstance(caller_reference, basestring):
             raise TypeError('Expected argument caller_reference to be a basestring')
         __self__.caller_reference = caller_reference
@@ -46,6 +46,12 @@ class GetZoneResult(object):
         if zone_id and not isinstance(zone_id, basestring):
             raise TypeError('Expected argument zone_id to be a basestring')
         __self__.zone_id = zone_id
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_zone(caller_reference=None, comment=None, name=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
     """
@@ -73,4 +79,5 @@ def get_zone(caller_reference=None, comment=None, name=None, private_zone=None, 
         resource_record_set_count=__ret__.get('resourceRecordSetCount'),
         tags=__ret__.get('tags'),
         vpc_id=__ret__.get('vpcId'),
-        zone_id=__ret__.get('zoneId'))
+        zone_id=__ret__.get('zoneId'),
+        id=__ret__.get('id'))

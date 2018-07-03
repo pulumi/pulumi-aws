@@ -22,6 +22,7 @@ func LookupScript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, e
 	return &GetScriptResult{
 		PythonScript: outputs["pythonScript"],
 		ScalaCode: outputs["scalaCode"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -41,4 +42,6 @@ type GetScriptResult struct {
 	PythonScript interface{}
 	// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
 	ScalaCode interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

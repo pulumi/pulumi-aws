@@ -130,8 +130,8 @@ class BucketObject(pulumi.CustomResource):
         """
         __props__['serverSideEncryption'] = server_side_encryption
 
-        if source and not isinstance(source, basestring):
-            raise TypeError('Expected property source to be a basestring')
+        if source and not isinstance(source, pulumi.Asset):
+            raise TypeError('Expected property source to be a pulumi.Asset')
         __self__.source = source
         """
         The path to a file that will be read and uploaded as raw bytes for the object content.

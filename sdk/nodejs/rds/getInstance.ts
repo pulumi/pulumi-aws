@@ -166,4 +166,8 @@ export interface GetInstanceResult {
      * Provides a list of VPC security group elements that the DB instance belongs to.
      */
     readonly vpcSecurityGroups: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }
