@@ -13,7 +13,7 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * Please take care to secure your secret data outside of resource definitions.
  */
-export function getSecret(args: GetSecretArgs): Promise<void> {
+export function getSecret(args: GetSecretArgs): Promise<GetSecretResult> {
     return pulumi.runtime.invoke("aws:kms/getSecret:getSecret", {
         "__hasDynamicAttributes": args.__hasDynamicAttributes,
         "secrets": args.secrets,
@@ -30,4 +30,14 @@ export interface GetSecretArgs {
      * service.  See the Secret Definitions below.
      */
     readonly secrets: pulumi.Input<{ context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, grantTokens?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, payload: pulumi.Input<string> }[]>;
+}
+
+/**
+ * A collection of values returned by getSecret.
+ */
+export interface GetSecretResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

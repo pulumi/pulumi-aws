@@ -76,6 +76,7 @@ func (r *Webhook) PayloadUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["payloadUrl"])
 }
 
+// The name of the build project.
 func (r *Webhook) ProjectName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["projectName"])
 }
@@ -96,6 +97,7 @@ type WebhookState struct {
 	BranchFilter interface{}
 	// The CodeBuild endpoint where webhook events are sent.
 	PayloadUrl interface{}
+	// The name of the build project.
 	ProjectName interface{}
 	// The secret token of the associated repository. Not returned for all source types.
 	Secret interface{}
@@ -107,5 +109,6 @@ type WebhookState struct {
 type WebhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built.
 	BranchFilter interface{}
+	// The name of the build project.
 	ProjectName interface{}
 }

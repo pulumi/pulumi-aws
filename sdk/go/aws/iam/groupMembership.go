@@ -8,6 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// ~> **WARNING:** Multiple aws_iam_group_membership resources with the same group name will produce inconsistent behavior!
+// 
 // Provides a top level resource to manage IAM Group membership for IAM Users. For
 // more information on managing IAM Groups or IAM Users, see [IAM Groups][1] or
 // [IAM Users][2]

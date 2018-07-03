@@ -18,12 +18,14 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		return nil, err
 	}
 	return &GetClusterResult{
+		Arn: outputs["arn"],
 		CertificateAuthority: outputs["certificateAuthority"],
 		CreatedAt: outputs["createdAt"],
 		Endpoint: outputs["endpoint"],
 		RoleArn: outputs["roleArn"],
 		Version: outputs["version"],
 		VpcConfig: outputs["vpcConfig"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -35,6 +37,8 @@ type GetClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type GetClusterResult struct {
+	// The Amazon Resource Name (ARN) of the cluster.
+	Arn interface{}
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority interface{}
 	// The Unix epoch time stamp in seconds for when the cluster was created.
@@ -47,4 +51,6 @@ type GetClusterResult struct {
 	Version interface{}
 	// Nested attribute containing VPC configuration for the cluster.
 	VpcConfig interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

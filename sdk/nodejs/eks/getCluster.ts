@@ -27,6 +27,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The Amazon Resource Name (ARN) of the cluster.
+     */
+    readonly arn: string;
+    /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
     readonly certificateAuthority: { data: string };
@@ -50,4 +54,8 @@ export interface GetClusterResult {
      * Nested attribute containing VPC configuration for the cluster.
      */
     readonly vpcConfig: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

@@ -9,7 +9,7 @@ class GetInternetGatewayResult(object):
     """
     A collection of values returned by getInternetGateway.
     """
-    def __init__(__self__, attachments=None, internet_gateway_id=None, tags=None):
+    def __init__(__self__, attachments=None, internet_gateway_id=None, tags=None, id=None):
         if attachments and not isinstance(attachments, list):
             raise TypeError('Expected argument attachments to be a list')
         __self__.attachments = attachments
@@ -19,6 +19,12 @@ class GetInternetGatewayResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
     """
@@ -34,4 +40,5 @@ def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
     return GetInternetGatewayResult(
         attachments=__ret__.get('attachments'),
         internet_gateway_id=__ret__.get('internetGatewayId'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

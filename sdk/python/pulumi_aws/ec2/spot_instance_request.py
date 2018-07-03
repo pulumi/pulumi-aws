@@ -10,13 +10,17 @@ class SpotInstanceRequest(pulumi.CustomResource):
     Provides an EC2 Spot Instance Request resource. This allows instances to be
     requested on the spot market.
     
-    Terraform always creates Spot Instance Requests with a `persistent` type, which
-    means that for the duration of their lifetime, AWS will launch an instance
-    with the configured details if and when the spot market will accept the
-    requested price.
+    By default Terraform creates Spot Instance Requests with a `persistent` type,
+    which means that for the duration of their lifetime, AWS will launch an
+    instance with the configured details if and when the spot market will accept
+    the requested price.
     
     On destruction, Terraform will make an attempt to terminate the associated Spot
     Instance if there is one present.
+    
+    Spot Instances requests with a `one-time` type will close the spot request
+    when the instance is terminated either by the request being below the current spot
+    price availability or by a user.
     
     ~> **NOTE:** Because their behavior depends on the live status of the spot
     market, Spot Instance Requests have a unique lifecycle that makes them behave
@@ -104,8 +108,11 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property ebs_optimized to be a bool')
         __self__.ebs_optimized = ebs_optimized
         """
-        If true, the launched EC2 instance will be
-        EBS-optimized.
+        If true, the launched EC2 instance will be EBS-optimized.
+        Note that if this is not set on an instance type that is optimized by default then
+        this will show as disabled but if the instance type is optimized by default then
+        there is no need to set this and there is no effect to disabling it.
+        See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         """
         __props__['ebsOptimized'] = ebs_optimized
 
@@ -182,7 +189,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property key_name to be a basestring')
         __self__.key_name = key_name
         """
-        The key name to use for the instance.
+        The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
         """
         __props__['keyName'] = key_name
 
@@ -242,7 +249,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __self__.security_groups = security_groups
         """
         A list of security group names to associate with.
-        If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         __props__['securityGroups'] = security_groups
 
@@ -267,9 +273,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property spot_type to be a basestring')
         __self__.spot_type = spot_type
         """
-        If set to "one-time", after
-        the instance is terminated, the spot request will be closed. Also, Terraform
-        can't manage one-time spot requests, just launch them.
+        If set to `one-time`, after
+        the instance is terminated, the spot request will be closed.
         """
         __props__['spotType'] = spot_type
 

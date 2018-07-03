@@ -13,7 +13,7 @@ class Document(pulumi.CustomResource):
     or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
     schema version you must recreate the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, content=None, document_format=None, document_type=None, name=None, permissions=None):
+    def __init__(__self__, __name__, __opts__=None, content=None, document_format=None, document_type=None, name=None, permissions=None, tags=None):
         """Create a Document resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -67,6 +67,14 @@ class Document(pulumi.CustomResource):
         Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
         """
         __props__['permissions'] = permissions
+
+        if tags and not isinstance(tags, dict):
+            raise TypeError('Expected property tags to be a dict')
+        __self__.tags = tags
+        """
+        A mapping of tags to assign to the object.
+        """
+        __props__['tags'] = tags
 
         __self__.arn = pulumi.runtime.UNKNOWN
         __self__.created_date = pulumi.runtime.UNKNOWN
@@ -155,3 +163,5 @@ class Document(pulumi.CustomResource):
             self.schema_version = outs['schemaVersion']
         if 'status' in outs:
             self.status = outs['status']
+        if 'tags' in outs:
+            self.tags = outs['tags']

@@ -9,7 +9,7 @@ class GetVpcEndpointServiceResult(object):
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, owner=None, private_dns_name=None, service_name=None, service_type=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, owner=None, private_dns_name=None, service_name=None, service_type=None, vpc_endpoint_policy_supported=None, id=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError('Expected argument acceptance_required to be a bool')
         __self__.acceptance_required = acceptance_required
@@ -55,6 +55,12 @@ class GetVpcEndpointServiceResult(object):
         """
         Whether or not the service supports endpoint policies - `true` or `false`.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_vpc_endpoint_service(service=None, service_name=None):
     """
@@ -75,4 +81,5 @@ def get_vpc_endpoint_service(service=None, service_name=None):
         private_dns_name=__ret__.get('privateDnsName'),
         service_name=__ret__.get('serviceName'),
         service_type=__ret__.get('serviceType'),
-        vpc_endpoint_policy_supported=__ret__.get('vpcEndpointPolicySupported'))
+        vpc_endpoint_policy_supported=__ret__.get('vpcEndpointPolicySupported'),
+        id=__ret__.get('id'))

@@ -26,6 +26,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		DatabaseName: outputs["databaseName"],
 		DbClusterParameterGroupName: outputs["dbClusterParameterGroupName"],
 		DbSubnetGroupName: outputs["dbSubnetGroupName"],
+		EnabledCloudwatchLogsExports: outputs["enabledCloudwatchLogsExports"],
 		Endpoint: outputs["endpoint"],
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
@@ -42,6 +43,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		StorageEncrypted: outputs["storageEncrypted"],
 		Tags: outputs["tags"],
 		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -61,6 +63,7 @@ type GetClusterResult struct {
 	DatabaseName interface{}
 	DbClusterParameterGroupName interface{}
 	DbSubnetGroupName interface{}
+	EnabledCloudwatchLogsExports interface{}
 	Endpoint interface{}
 	Engine interface{}
 	EngineVersion interface{}
@@ -77,4 +80,6 @@ type GetClusterResult struct {
 	StorageEncrypted interface{}
 	Tags interface{}
 	VpcSecurityGroupIds interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -9,12 +9,18 @@ class GetTopicResult(object):
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, arn=None):
+    def __init__(__self__, arn=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_topic(name=None):
@@ -29,4 +35,5 @@ def get_topic(name=None):
     __ret__ = pulumi.runtime.invoke('aws:sns/getTopic:getTopic', __args__)
 
     return GetTopicResult(
-        arn=__ret__.get('arn'))
+        arn=__ret__.get('arn'),
+        id=__ret__.get('id'))

@@ -47,4 +47,8 @@ export interface GetBrokerResult {
     readonly securityGroups: string[];
     readonly subnetIds: string[];
     readonly users: { consoleAccess: boolean, groups: string[], username: string }[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

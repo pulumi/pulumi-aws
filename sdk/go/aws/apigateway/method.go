@@ -107,14 +107,6 @@ func (r *Method) Authorization() *pulumi.StringOutput {
 }
 
 // The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-// For example:
-// ```hcl
-// request_parameters = {
-// "method.request.header.X-Some-Header" = true,
-// "method.request.querystring.some-query-param"  = true,
-// }
-// ```
-// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
 func (r *Method) AuthorizationScopes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["authorizationScopes"])
 }
@@ -137,6 +129,14 @@ func (r *Method) RequestModels() *pulumi.MapOutput {
 }
 
 // A map of request query string parameters and headers that should be passed to the integration.
+// For example:
+// ```hcl
+// request_parameters = {
+// "method.request.header.X-Some-Header" = true,
+// "method.request.querystring.some-query-param"  = true,
+// }
+// ```
+// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
 func (r *Method) RequestParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["requestParameters"])
 }
@@ -168,14 +168,6 @@ type MethodState struct {
 	// The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
 	Authorization interface{}
 	// The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-	// For example:
-	// ```hcl
-	// request_parameters = {
-	// "method.request.header.X-Some-Header" = true,
-	// "method.request.querystring.some-query-param"  = true,
-	// }
-	// ```
-	// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
 	AuthorizationScopes interface{}
 	// The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId interface{}
@@ -186,6 +178,14 @@ type MethodState struct {
 	// and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
 	RequestModels interface{}
 	// A map of request query string parameters and headers that should be passed to the integration.
+	// For example:
+	// ```hcl
+	// request_parameters = {
+	// "method.request.header.X-Some-Header" = true,
+	// "method.request.querystring.some-query-param"  = true,
+	// }
+	// ```
+	// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
 	RequestParameters interface{}
 	// **Deprecated**, use `request_parameters` instead.
 	RequestParametersInJson interface{}
@@ -204,14 +204,6 @@ type MethodArgs struct {
 	// The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
 	Authorization interface{}
 	// The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-	// For example:
-	// ```hcl
-	// request_parameters = {
-	// "method.request.header.X-Some-Header" = true,
-	// "method.request.querystring.some-query-param"  = true,
-	// }
-	// ```
-	// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
 	AuthorizationScopes interface{}
 	// The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId interface{}
@@ -222,6 +214,14 @@ type MethodArgs struct {
 	// and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
 	RequestModels interface{}
 	// A map of request query string parameters and headers that should be passed to the integration.
+	// For example:
+	// ```hcl
+	// request_parameters = {
+	// "method.request.header.X-Some-Header" = true,
+	// "method.request.querystring.some-query-param"  = true,
+	// }
+	// ```
+	// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
 	RequestParameters interface{}
 	// **Deprecated**, use `request_parameters` instead.
 	RequestParametersInJson interface{}

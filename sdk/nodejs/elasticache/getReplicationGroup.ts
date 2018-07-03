@@ -66,4 +66,8 @@ export interface GetReplicationGroupResult {
      * The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      */
     readonly snapshotWindow: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

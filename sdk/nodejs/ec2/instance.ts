@@ -49,8 +49,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
-     * If true, the launched EC2 instance will be
-     * EBS-optimized.
+     * If true, the launched EC2 instance will be EBS-optimized.
+     * Note that if this is not set on an instance type that is optimized by default then
+     * this will show as disabled but if the instance type is optimized by default then
+     * there is no need to set this and there is no effect to disabling it.
+     * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
@@ -86,7 +89,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ipv6Addresses: pulumi.Output<string[]>;
     /**
-     * The key name to use for the instance.
+     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
      */
     public readonly keyName: pulumi.Output<string>;
     /**
@@ -144,7 +147,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeId: string, volumeSize: number, volumeType: string }>;
     /**
      * A list of security group names to associate with.
-     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      */
     public readonly securityGroups: pulumi.Output<string[]>;
     /**
@@ -309,8 +311,11 @@ export interface InstanceState {
      */
     readonly ebsBlockDevices?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }[]>;
     /**
-     * If true, the launched EC2 instance will be
-     * EBS-optimized.
+     * If true, the launched EC2 instance will be EBS-optimized.
+     * Note that if this is not set on an instance type that is optimized by default then
+     * this will show as disabled but if the instance type is optimized by default then
+     * there is no need to set this and there is no effect to disabling it.
+     * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
@@ -346,7 +351,7 @@ export interface InstanceState {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name to use for the instance.
+     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -404,7 +409,6 @@ export interface InstanceState {
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names to associate with.
-     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -473,8 +477,11 @@ export interface InstanceArgs {
      */
     readonly ebsBlockDevices?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }[]>;
     /**
-     * If true, the launched EC2 instance will be
-     * EBS-optimized.
+     * If true, the launched EC2 instance will be EBS-optimized.
+     * Note that if this is not set on an instance type that is optimized by default then
+     * this will show as disabled but if the instance type is optimized by default then
+     * there is no need to set this and there is no effect to disabling it.
+     * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
@@ -509,7 +516,7 @@ export interface InstanceArgs {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name to use for the instance.
+     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -536,7 +543,6 @@ export interface InstanceArgs {
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names to associate with.
-     * If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

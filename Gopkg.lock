@@ -145,8 +145,10 @@
     "service/lightsail",
     "service/mediastore",
     "service/mq",
+    "service/neptune",
     "service/opsworks",
     "service/organizations",
+    "service/pricing",
     "service/rds",
     "service/redshift",
     "service/route53",
@@ -164,8 +166,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "60a85d13d02126d8d15ea3f21fd57ac3a2774f37"
-  version = "v1.14.0"
+  revision = "852052a10992d92f68b9a60862a3312292524903"
+  version = "v1.14.17"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -578,17 +580,17 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "6c62a6e198d5bd1acf0e8ffec652283262f2b09d"
-  version = "v0.14.0"
+  revision = "e8b5bb6f116ac0b0a56e1c96e9c099255cafd1b0"
+  version = "v0.14.3-dev"
 
 [[projects]]
+  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "a5a74ee5bb79a16db921431d95ae279b10b342dd"
-  version = "v0.14.0"
+  revision = "5b0793f8992535300ec3d28fa881dd2c16aabb1c"
 
 [[projects]]
   branch = "master"
@@ -641,7 +643,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "bed7254c7fd2e43ed8f9bb65d7523e3b7f74402d"
+  revision = "0ee06bee0a0404d727ac17b666302a1a28356e6d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -870,6 +872,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b5af19705f86f517f4d0643493ac1b1400434cc03a41b55f227bf9fd03becd68"
+  inputs-digest = "cb01734c42e32edf61f71a0d9a2a9e26a4fd2ea4b17409fbc833a8d7da6edf31"
   solver-name = "gps-cdcl"
   solver-version = 1

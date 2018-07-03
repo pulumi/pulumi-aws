@@ -24,6 +24,7 @@ func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocat
 	return &GetInvocationResult{
 		Result: outputs["result"],
 		ResultMap: outputs["resultMap"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -44,4 +45,6 @@ type GetInvocationResult struct {
 	Result interface{}
 	// This field is set only if result is a map of primitive types.
 	ResultMap interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

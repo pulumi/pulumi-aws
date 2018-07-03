@@ -8,6 +8,6 @@ from build import *
 from fleet import *
 from vault import *
 from detector import *
-from i_p_set import *
+from ip_set import *
 from member import *
 from threat_intel_set import *

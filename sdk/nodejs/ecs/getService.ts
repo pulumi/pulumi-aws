@@ -45,7 +45,15 @@ export interface GetServiceResult {
      */
     readonly launchType: string;
     /**
+     * The scheduling strategy for the ECS Service
+     */
+    readonly schedulingStrategy: string;
+    /**
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

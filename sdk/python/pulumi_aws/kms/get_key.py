@@ -9,7 +9,7 @@ class GetKeyResult(object):
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, deletion_date=None, description=None, enabled=None, expiration_model=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None):
+    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, deletion_date=None, description=None, enabled=None, expiration_model=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -46,6 +46,12 @@ class GetKeyResult(object):
         if valid_to and not isinstance(valid_to, basestring):
             raise TypeError('Expected argument valid_to to be a basestring')
         __self__.valid_to = valid_to
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_key(grant_tokens=None, key_id=None):
     """
@@ -72,4 +78,5 @@ def get_key(grant_tokens=None, key_id=None):
         key_state=__ret__.get('keyState'),
         key_usage=__ret__.get('keyUsage'),
         origin=__ret__.get('origin'),
-        valid_to=__ret__.get('validTo'))
+        valid_to=__ret__.get('validTo'),
+        id=__ret__.get('id'))

@@ -191,8 +191,11 @@ func (r *Instance) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
 
-// If true, the launched EC2 instance will be
-// EBS-optimized.
+// If true, the launched EC2 instance will be EBS-optimized.
+// Note that if this is not set on an instance type that is optimized by default then
+// this will show as disabled but if the instance type is optimized by default then
+// there is no need to set this and there is no effect to disabling it.
+// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 func (r *Instance) EbsOptimized() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
@@ -241,7 +244,7 @@ func (r *Instance) Ipv6Addresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipv6Addresses"])
 }
 
-// The key name to use for the instance.
+// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
 func (r *Instance) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
@@ -311,7 +314,6 @@ func (r *Instance) RootBlockDevice() *pulumi.Output {
 }
 
 // A list of security group names to associate with.
-// If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
 func (r *Instance) SecurityGroups() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
@@ -373,8 +375,11 @@ type InstanceState struct {
 	// Additional EBS block devices to attach to the
 	// instance.  See [Block Devices](#block-devices) below for details.
 	EbsBlockDevices interface{}
-	// If true, the launched EC2 instance will be
-	// EBS-optimized.
+	// If true, the launched EC2 instance will be EBS-optimized.
+	// Note that if this is not set on an instance type that is optimized by default then
+	// this will show as disabled but if the instance type is optimized by default then
+	// there is no need to set this and there is no effect to disabling it.
+	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
@@ -396,7 +401,7 @@ type InstanceState struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name to use for the instance.
+	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
 	KeyName interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
@@ -430,7 +435,6 @@ type InstanceState struct {
 	// device of the instance. See [Block Devices](#block-devices) below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
-	// If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
 	SecurityGroups interface{}
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -467,8 +471,11 @@ type InstanceArgs struct {
 	// Additional EBS block devices to attach to the
 	// instance.  See [Block Devices](#block-devices) below for details.
 	EbsBlockDevices interface{}
-	// If true, the launched EC2 instance will be
-	// EBS-optimized.
+	// If true, the launched EC2 instance will be EBS-optimized.
+	// Note that if this is not set on an instance type that is optimized by default then
+	// this will show as disabled but if the instance type is optimized by default then
+	// there is no need to set this and there is no effect to disabling it.
+	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
@@ -489,7 +496,7 @@ type InstanceArgs struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name to use for the instance.
+	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
 	KeyName interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
@@ -504,7 +511,6 @@ type InstanceArgs struct {
 	// device of the instance. See [Block Devices](#block-devices) below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
-	// If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
 	SecurityGroups interface{}
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.

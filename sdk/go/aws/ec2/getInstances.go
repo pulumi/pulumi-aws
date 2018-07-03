@@ -34,6 +34,7 @@ func LookupInstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstances
 		InstanceTags: outputs["instanceTags"],
 		PrivateIps: outputs["privateIps"],
 		PublicIps: outputs["publicIps"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -57,4 +58,6 @@ type GetInstancesResult struct {
 	PrivateIps interface{}
 	// Public IP addresses of instances found through the filter
 	PublicIps interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

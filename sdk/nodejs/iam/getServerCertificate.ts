@@ -49,4 +49,8 @@ export interface GetServerCertificateResult {
     readonly name: string;
     readonly path: string;
     readonly uploadDate: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

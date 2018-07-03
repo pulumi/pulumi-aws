@@ -9,7 +9,7 @@ class GetInvocationResult(object):
     """
     A collection of values returned by getInvocation.
     """
-    def __init__(__self__, result=None, result_map=None):
+    def __init__(__self__, result=None, result_map=None, id=None):
         if result and not isinstance(result, basestring):
             raise TypeError('Expected argument result to be a basestring')
         __self__.result = result
@@ -21,6 +21,12 @@ class GetInvocationResult(object):
         __self__.result_map = result_map
         """
         This field is set only if result is a map of primitive types.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_invocation(function_name=None, input=None, qualifier=None):
@@ -38,4 +44,5 @@ def get_invocation(function_name=None, input=None, qualifier=None):
 
     return GetInvocationResult(
         result=__ret__.get('result'),
-        result_map=__ret__.get('resultMap'))
+        result_map=__ret__.get('resultMap'),
+        id=__ret__.get('id'))

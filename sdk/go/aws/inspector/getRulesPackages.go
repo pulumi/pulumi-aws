@@ -17,6 +17,7 @@ func LookupRulesPackages(ctx *pulumi.Context) (*GetRulesPackagesResult, error) {
 	}
 	return &GetRulesPackagesResult{
 		Arns: outputs["arns"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -24,4 +25,6 @@ func LookupRulesPackages(ctx *pulumi.Context) (*GetRulesPackagesResult, error) {
 type GetRulesPackagesResult struct {
 	// A list of the AWS Inspector Rules Packages arns available in the AWS region.
 	Arns interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -77,8 +77,11 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property ebs_optimized to be a bool')
         __self__.ebs_optimized = ebs_optimized
         """
-        If true, the launched EC2 instance will be
-        EBS-optimized.
+        If true, the launched EC2 instance will be EBS-optimized.
+        Note that if this is not set on an instance type that is optimized by default then
+        this will show as disabled but if the instance type is optimized by default then
+        there is no need to set this and there is no effect to disabling it.
+        See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         """
         __props__['ebsOptimized'] = ebs_optimized
 
@@ -147,7 +150,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property key_name to be a basestring')
         __self__.key_name = key_name
         """
-        The key name to use for the instance.
+        The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
         """
         __props__['keyName'] = key_name
 
@@ -198,7 +201,6 @@ class Instance(pulumi.CustomResource):
         __self__.security_groups = security_groups
         """
         A list of security group names to associate with.
-        If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         __props__['securityGroups'] = security_groups
 

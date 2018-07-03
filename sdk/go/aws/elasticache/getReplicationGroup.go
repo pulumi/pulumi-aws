@@ -28,6 +28,7 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) 
 		ReplicationGroupDescription: outputs["replicationGroupDescription"],
 		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
 		SnapshotWindow: outputs["snapshotWindow"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -59,4 +60,6 @@ type GetReplicationGroupResult struct {
 	SnapshotRetentionLimit interface{}
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
 	SnapshotWindow interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

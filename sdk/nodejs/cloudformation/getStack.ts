@@ -67,4 +67,8 @@ export interface GetStackResult {
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`
      */
     readonly timeoutInMinutes: number;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

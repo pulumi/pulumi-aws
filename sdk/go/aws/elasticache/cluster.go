@@ -43,6 +43,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["numCacheNodes"] = nil
 		inputs["parameterGroupName"] = nil
 		inputs["port"] = nil
+		inputs["preferredAvailabilityZones"] = nil
 		inputs["replicationGroupId"] = nil
 		inputs["securityGroupIds"] = nil
 		inputs["securityGroupNames"] = nil
@@ -66,6 +67,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["numCacheNodes"] = args.NumCacheNodes
 		inputs["parameterGroupName"] = args.ParameterGroupName
 		inputs["port"] = args.Port
+		inputs["preferredAvailabilityZones"] = args.PreferredAvailabilityZones
 		inputs["replicationGroupId"] = args.ReplicationGroupId
 		inputs["securityGroupIds"] = args.SecurityGroupIds
 		inputs["securityGroupNames"] = args.SecurityGroupNames
@@ -108,6 +110,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["numCacheNodes"] = state.NumCacheNodes
 		inputs["parameterGroupName"] = state.ParameterGroupName
 		inputs["port"] = state.Port
+		inputs["preferredAvailabilityZones"] = state.PreferredAvailabilityZones
 		inputs["replicationGroupId"] = state.ReplicationGroupId
 		inputs["securityGroupIds"] = state.SecurityGroupIds
 		inputs["securityGroupNames"] = state.SecurityGroupNames
@@ -143,12 +146,12 @@ func (r *Cluster) ApplyImmediately() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
-// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
 func (r *Cluster) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-// List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+// Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
 func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
@@ -233,6 +236,11 @@ func (r *Cluster) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
+// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+func (r *Cluster) PreferredAvailabilityZones() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["preferredAvailabilityZones"])
+}
+
 // The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 func (r *Cluster) ReplicationGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["replicationGroupId"])
@@ -295,9 +303,9 @@ type ClusterState struct {
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
 	ApplyImmediately interface{}
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone interface{}
-	// List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+	// Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
 	AvailabilityZones interface{}
 	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
 	AzMode interface{}
@@ -340,6 +348,8 @@ type ClusterState struct {
 	ParameterGroupName interface{}
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
 	Port interface{}
+	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+	PreferredAvailabilityZones interface{}
 	// The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId interface{}
 	// One or more VPC security groups associated
@@ -377,9 +387,9 @@ type ClusterArgs struct {
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
 	ApplyImmediately interface{}
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `availability_zones`
+	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone interface{}
-	// List of Availability Zones in which the cache nodes will be created. If you want to create cache nodes in single-az, use `availability_zone`
+	// Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
 	AvailabilityZones interface{}
 	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
 	AzMode interface{}
@@ -415,6 +425,8 @@ type ClusterArgs struct {
 	ParameterGroupName interface{}
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
 	Port interface{}
+	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+	PreferredAvailabilityZones interface{}
 	// The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId interface{}
 	// One or more VPC security groups associated

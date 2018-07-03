@@ -64,4 +64,8 @@ export interface GetContainerDefinitionResult {
      * The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      */
     readonly memoryReservation: number;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

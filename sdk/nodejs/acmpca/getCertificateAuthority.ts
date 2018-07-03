@@ -75,4 +75,8 @@ export interface GetCertificateAuthorityResult {
      * The type of the certificate authority.
      */
     readonly type: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

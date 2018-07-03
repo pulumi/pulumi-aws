@@ -9,7 +9,7 @@ class GetSecretVersionResult(object):
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, secret_string=None, version_id=None, version_stages=None):
+    def __init__(__self__, secret_string=None, version_id=None, version_stages=None, id=None):
         if secret_string and not isinstance(secret_string, basestring):
             raise TypeError('Expected argument secret_string to be a basestring')
         __self__.secret_string = secret_string
@@ -25,6 +25,12 @@ class GetSecretVersionResult(object):
         if version_stages and not isinstance(version_stages, list):
             raise TypeError('Expected argument version_stages to be a list')
         __self__.version_stages = version_stages
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     """
@@ -40,4 +46,5 @@ def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     return GetSecretVersionResult(
         secret_string=__ret__.get('secretString'),
         version_id=__ret__.get('versionId'),
-        version_stages=__ret__.get('versionStages'))
+        version_stages=__ret__.get('versionStages'),
+        id=__ret__.get('id'))

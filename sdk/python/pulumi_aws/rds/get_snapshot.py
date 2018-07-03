@@ -9,7 +9,7 @@ class GetSnapshotResult(object):
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, allocated_storage=None, availability_zone=None, db_snapshot_arn=None, encrypted=None, engine=None, engine_version=None, iops=None, kms_key_id=None, license_model=None, option_group_name=None, port=None, snapshot_create_time=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, vpc_id=None):
+    def __init__(__self__, allocated_storage=None, availability_zone=None, db_snapshot_arn=None, encrypted=None, engine=None, engine_version=None, iops=None, kms_key_id=None, license_model=None, option_group_name=None, port=None, snapshot_create_time=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, vpc_id=None, id=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError('Expected argument allocated_storage to be a int')
         __self__.allocated_storage = allocated_storage
@@ -109,6 +109,12 @@ class GetSnapshotResult(object):
         """
         Specifies the ID of the VPC associated with the DB snapshot.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_snapshot(db_instance_identifier=None, db_snapshot_identifier=None, include_public=None, include_shared=None, most_recent=None, snapshot_type=None):
     """
@@ -143,4 +149,5 @@ def get_snapshot(db_instance_identifier=None, db_snapshot_identifier=None, inclu
         source_region=__ret__.get('sourceRegion'),
         status=__ret__.get('status'),
         storage_type=__ret__.get('storageType'),
-        vpc_id=__ret__.get('vpcId'))
+        vpc_id=__ret__.get('vpcId'),
+        id=__ret__.get('id'))

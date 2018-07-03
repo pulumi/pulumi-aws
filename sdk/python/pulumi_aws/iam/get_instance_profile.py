@@ -9,7 +9,7 @@ class GetInstanceProfileResult(object):
     """
     A collection of values returned by getInstanceProfile.
     """
-    def __init__(__self__, arn=None, create_date=None, path=None, role_arn=None, role_id=None, role_name=None):
+    def __init__(__self__, arn=None, create_date=None, path=None, role_arn=None, role_id=None, role_name=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -47,6 +47,12 @@ class GetInstanceProfileResult(object):
         """
         The role name associated with this instance profile.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_instance_profile(name=None):
     """
@@ -65,4 +71,5 @@ def get_instance_profile(name=None):
         path=__ret__.get('path'),
         role_arn=__ret__.get('roleArn'),
         role_id=__ret__.get('roleId'),
-        role_name=__ret__.get('roleName'))
+        role_name=__ret__.get('roleName'),
+        id=__ret__.get('id'))

@@ -21,6 +21,9 @@ class Certificate(pulumi.CustomResource):
     
     Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
     of Terraform.
+    
+    It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
+    which is currently in use (eg, by [`aws_lb_listener`](lb_listener.html)).
     """
     def __init__(__self__, __name__, __opts__=None, domain_name=None, subject_alternative_names=None, tags=None, validation_method=None):
         """Create a Certificate resource with the given unique name, props, and options."""

@@ -9,7 +9,7 @@ class GetLogGroupResult(object):
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None):
+    def __init__(__self__, arn=None, creation_time=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -21,6 +21,12 @@ class GetLogGroupResult(object):
         __self__.creation_time = creation_time
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_log_group(name=None):
@@ -34,4 +40,5 @@ def get_log_group(name=None):
 
     return GetLogGroupResult(
         arn=__ret__.get('arn'),
-        creation_time=__ret__.get('creationTime'))
+        creation_time=__ret__.get('creationTime'),
+        id=__ret__.get('id'))

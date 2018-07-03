@@ -33,6 +33,7 @@ func LookupAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs) 
 		NameSuffix: outputs["nameSuffix"],
 		Region: outputs["region"],
 		State: outputs["state"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -58,4 +59,6 @@ type GetAvailabilityZoneResult struct {
 	Region interface{}
 	// The current state of the AZ.
 	State interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -20,4 +20,8 @@ export interface GetAccountAliasResult {
      * The alias associated with the AWS account.
      */
     readonly accountAlias: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

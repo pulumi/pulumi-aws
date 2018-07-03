@@ -9,7 +9,13 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, certificate_authority=None, created_at=None, endpoint=None, role_arn=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, endpoint=None, role_arn=None, version=None, vpc_config=None, id=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        The Amazon Resource Name (ARN) of the cluster.
+        """
         if certificate_authority and not isinstance(certificate_authority, dict):
             raise TypeError('Expected argument certificate_authority to be a dict')
         __self__.certificate_authority = certificate_authority
@@ -46,6 +52,12 @@ class GetClusterResult(object):
         """
         Nested attribute containing VPC configuration for the cluster.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_cluster(name=None):
     """
@@ -57,9 +69,11 @@ def get_cluster(name=None):
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__)
 
     return GetClusterResult(
+        arn=__ret__.get('arn'),
         certificate_authority=__ret__.get('certificateAuthority'),
         created_at=__ret__.get('createdAt'),
         endpoint=__ret__.get('endpoint'),
         role_arn=__ret__.get('roleArn'),
         version=__ret__.get('version'),
-        vpc_config=__ret__.get('vpcConfig'))
+        vpc_config=__ret__.get('vpcConfig'),
+        id=__ret__.get('id'))

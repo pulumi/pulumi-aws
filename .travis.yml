@@ -7,9 +7,7 @@ git:
   depth: false
 before_install:
     - export PULUMI_ROOT=/opt/pulumi
-    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then git clone git@github.com:pulumi/home ${GOPATH}/src/github.com/pulumi/home; fi
-    - git clone git@github.com:pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
-    - git clone git@github.com:pulumi/pulumi ${GOPATH}/src/github.com/pulumi/pulumi
+    - git clone https://github.com/pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
     # Dep for Go dependency management.
     - go get -v github.com/golang/dep/cmd/dep
     # Gometalinter for good Go linting/hygiene.
@@ -22,12 +20,11 @@ before_install:
     - export PATH=$HOME/.yarn/bin:$PATH
     # Install Twine so that we can publish Pip packages.
     - pip install --upgrade --user twine==1.9.1
-    # Ensure that we can access Pulumi's private NPM and PyPI orgs.
-    - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
-    - mkdir -p ~/.config/pip && echo -e "[global]\nextra-index-url = https://${PULUMI_API_TOKEN}@pypi.pulumi.com/simple" >> ~/.config/pip/pip.conf
+    # Set our token so we can publish npm packages if needed.
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc; fi
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
-    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then source ${GOPATH}/src/github.com/pulumi/home/scripts/keep-failed-tests.sh; fi
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then source ${GOPATH}/src/github.com/pulumi/scripts/ci/keep-failed-tests.sh; fi
     # Install Pulumi
     - curl -L https://get.pulumi.com/ | bash -s -- --version 0.14.0-rc1
     - export PATH=$HOME/.pulumi/bin:$PATH
@@ -40,6 +37,6 @@ before_script:
 script:
     - make travis_${TRAVIS_EVENT_TYPE}
 after_failure:
-    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then ${GOPATH}/src/github.com/pulumi/home/scripts/upload-failed-tests; fi
+    - if [ "${TRAVIS_SECURE_ENV_VARS:-}" = "true" ]; then ${GOPATH}/src/github.com/pulumi/scripts/ci/upload-failed-tests; fi
 notifications:
     webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis

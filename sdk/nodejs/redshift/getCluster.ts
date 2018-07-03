@@ -137,4 +137,8 @@ export interface GetClusterResult {
      * The VPC security group Ids associated with the cluster
      */
     readonly vpcSecurityGroupIds: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

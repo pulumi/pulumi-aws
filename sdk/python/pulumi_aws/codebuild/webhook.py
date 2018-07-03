@@ -33,6 +33,9 @@ class Webhook(pulumi.CustomResource):
         elif not isinstance(project_name, basestring):
             raise TypeError('Expected property project_name to be a basestring')
         __self__.project_name = project_name
+        """
+        The name of the build project.
+        """
         __props__['projectName'] = project_name
 
         __self__.payload_url = pulumi.runtime.UNKNOWN

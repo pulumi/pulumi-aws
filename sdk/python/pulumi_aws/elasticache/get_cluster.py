@@ -9,7 +9,7 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, configuration_endpoint=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, configuration_endpoint=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -30,13 +30,13 @@ class GetClusterResult(object):
             raise TypeError('Expected argument cluster_address to be a basestring')
         __self__.cluster_address = cluster_address
         """
-        The DNS name of the cache cluster without the port appended.
+        (Memcached only) The DNS name of the cache cluster without the port appended.
         """
         if configuration_endpoint and not isinstance(configuration_endpoint, basestring):
             raise TypeError('Expected argument configuration_endpoint to be a basestring')
         __self__.configuration_endpoint = configuration_endpoint
         """
-        The configuration endpoint to allow host discovery.
+        (Memcached only) The configuration endpoint to allow host discovery.
         """
         if engine and not isinstance(engine, basestring):
             raise TypeError('Expected argument engine to be a basestring')
@@ -133,6 +133,12 @@ class GetClusterResult(object):
         """
         The tags assigned to the resource
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_cluster(cluster_id=None, tags=None):
     """
@@ -164,4 +170,5 @@ def get_cluster(cluster_id=None, tags=None):
         snapshot_retention_limit=__ret__.get('snapshotRetentionLimit'),
         snapshot_window=__ret__.get('snapshotWindow'),
         subnet_group_name=__ret__.get('subnetGroupName'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

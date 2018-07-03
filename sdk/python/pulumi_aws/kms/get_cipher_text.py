@@ -9,12 +9,18 @@ class GetCipherTextResult(object):
     """
     A collection of values returned by getCipherText.
     """
-    def __init__(__self__, ciphertext_blob=None):
+    def __init__(__self__, ciphertext_blob=None, id=None):
         if ciphertext_blob and not isinstance(ciphertext_blob, basestring):
             raise TypeError('Expected argument ciphertext_blob to be a basestring')
         __self__.ciphertext_blob = ciphertext_blob
         """
         Base64 encoded ciphertext
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_cipher_text(context=None, key_id=None, plaintext=None):
@@ -33,4 +39,5 @@ def get_cipher_text(context=None, key_id=None, plaintext=None):
     __ret__ = pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__)
 
     return GetCipherTextResult(
-        ciphertext_blob=__ret__.get('ciphertextBlob'))
+        ciphertext_blob=__ret__.get('ciphertextBlob'),
+        id=__ret__.get('id'))

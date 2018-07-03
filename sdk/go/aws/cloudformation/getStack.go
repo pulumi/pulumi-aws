@@ -29,6 +29,7 @@ func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, erro
 		Tags: outputs["tags"],
 		TemplateBody: outputs["templateBody"],
 		TimeoutInMinutes: outputs["timeoutInMinutes"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -60,4 +61,6 @@ type GetStackResult struct {
 	TemplateBody interface{}
 	// The amount of time that can pass before the stack status becomes `CREATE_FAILED`
 	TimeoutInMinutes interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

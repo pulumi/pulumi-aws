@@ -107,4 +107,8 @@ export interface GetFunctionResult {
      * VPC configuration associated with your Lambda function.
      */
     readonly vpcConfig: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

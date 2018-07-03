@@ -9,7 +9,7 @@ class GetCertificateAuthorityResult(object):
     """
     A collection of values returned by getCertificateAuthority.
     """
-    def __init__(__self__, certificate=None, certificate_chain=None, certificate_signing_request=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None):
+    def __init__(__self__, certificate=None, certificate_chain=None, certificate_signing_request=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, id=None):
         if certificate and not isinstance(certificate, basestring):
             raise TypeError('Expected argument certificate to be a basestring')
         __self__.certificate = certificate
@@ -75,6 +75,12 @@ class GetCertificateAuthorityResult(object):
         """
         The type of the certificate authority.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_certificate_authority(arn=None, revocation_configurations=None, tags=None):
     """
@@ -97,4 +103,5 @@ def get_certificate_authority(arn=None, revocation_configurations=None, tags=Non
         serial=__ret__.get('serial'),
         status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        id=__ret__.get('id'))

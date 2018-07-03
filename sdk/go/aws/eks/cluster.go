@@ -34,6 +34,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["version"] = args.Version
 		inputs["vpcConfig"] = args.VpcConfig
 	}
+	inputs["arn"] = nil
 	inputs["certificateAuthority"] = nil
 	inputs["createdAt"] = nil
 	inputs["endpoint"] = nil
@@ -50,6 +51,7 @@ func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["certificateAuthority"] = state.CertificateAuthority
 		inputs["createdAt"] = state.CreatedAt
 		inputs["endpoint"] = state.Endpoint
@@ -73,6 +75,11 @@ func (r *Cluster) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Cluster) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// The Amazon Resource Name (ARN) of the cluster.
+func (r *Cluster) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Nested attribute containing `certificate-authority-data` for your cluster.
@@ -111,6 +118,8 @@ func (r *Cluster) VpcConfig() *pulumi.Output {
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
+	// The Amazon Resource Name (ARN) of the cluster.
+	Arn interface{}
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority interface{}
 	CreatedAt interface{}

@@ -1456,7 +1456,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.14.0,<0.15.0",
+				"pulumi": ">=0.14.2,<0.15.0",
 			},
 		},
 	}

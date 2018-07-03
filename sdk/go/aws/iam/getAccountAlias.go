@@ -16,6 +16,7 @@ func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 	}
 	return &GetAccountAliasResult{
 		AccountAlias: outputs["accountAlias"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -23,4 +24,6 @@ func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 type GetAccountAliasResult struct {
 	// The alias associated with the AWS account.
 	AccountAlias interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -26,6 +26,7 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*
 		RoleArn: outputs["roleArn"],
 		RoleId: outputs["roleId"],
 		RoleName: outputs["roleName"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -50,4 +51,6 @@ type GetInstanceProfileResult struct {
 	RoleId interface{}
 	// The role name associated with this instance profile.
 	RoleName interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

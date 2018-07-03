@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
  * in a given region for the purpose of using in an AWS Route53 Alias.
  */
-export function getHostedZoneId(args?: GetHostedZoneIdArgs): Promise<void> {
+export function getHostedZoneId(args?: GetHostedZoneIdArgs): Promise<GetHostedZoneIdResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", {
         "region": args.region,
@@ -23,4 +23,14 @@ export interface GetHostedZoneIdArgs {
      * Defaults to the region from the AWS provider configuration.
      */
     readonly region?: pulumi.Input<string>;
+}
+
+/**
+ * A collection of values returned by getHostedZoneId.
+ */
+export interface GetHostedZoneIdResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

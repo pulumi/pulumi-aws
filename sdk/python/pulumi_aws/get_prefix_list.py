@@ -9,7 +9,7 @@ class GetPrefixListResult(object):
     """
     A collection of values returned by getPrefixList.
     """
-    def __init__(__self__, cidr_blocks=None, name=None):
+    def __init__(__self__, cidr_blocks=None, name=None, id=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError('Expected argument cidr_blocks to be a list')
         __self__.cidr_blocks = cidr_blocks
@@ -22,6 +22,12 @@ class GetPrefixListResult(object):
         __self__.name = name
         """
         The name of the selected prefix list.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_prefix_list(name=None, prefix_list_id=None):
@@ -42,4 +48,5 @@ def get_prefix_list(name=None, prefix_list_id=None):
 
     return GetPrefixListResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
-        name=__ret__.get('name'))
+        name=__ret__.get('name'),
+        id=__ret__.get('id'))

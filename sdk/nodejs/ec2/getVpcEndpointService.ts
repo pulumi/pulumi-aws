@@ -62,4 +62,8 @@ export interface GetVpcEndpointServiceResult {
      * Whether or not the service supports endpoint policies - `true` or `false`.
      */
     readonly vpcEndpointPolicySupported: boolean;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

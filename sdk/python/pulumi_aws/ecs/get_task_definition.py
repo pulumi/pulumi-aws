@@ -9,7 +9,7 @@ class GetTaskDefinitionResult(object):
     """
     A collection of values returned by getTaskDefinition.
     """
-    def __init__(__self__, family=None, network_mode=None, revision=None, status=None, task_role_arn=None):
+    def __init__(__self__, family=None, network_mode=None, revision=None, status=None, task_role_arn=None, id=None):
         if family and not isinstance(family, basestring):
             raise TypeError('Expected argument family to be a basestring')
         __self__.family = family
@@ -40,6 +40,12 @@ class GetTaskDefinitionResult(object):
         """
         The ARN of the IAM role that containers in this task can assume
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_task_definition(task_definition=None):
     """
@@ -57,4 +63,5 @@ def get_task_definition(task_definition=None):
         network_mode=__ret__.get('networkMode'),
         revision=__ret__.get('revision'),
         status=__ret__.get('status'),
-        task_role_arn=__ret__.get('taskRoleArn'))
+        task_role_arn=__ret__.get('taskRoleArn'),
+        id=__ret__.get('id'))

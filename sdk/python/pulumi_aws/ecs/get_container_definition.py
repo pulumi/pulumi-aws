@@ -9,7 +9,7 @@ class GetContainerDefinitionResult(object):
     """
     A collection of values returned by getContainerDefinition.
     """
-    def __init__(__self__, cpu=None, disable_networking=None, docker_labels=None, environment=None, image=None, image_digest=None, memory=None, memory_reservation=None):
+    def __init__(__self__, cpu=None, disable_networking=None, docker_labels=None, environment=None, image=None, image_digest=None, memory=None, memory_reservation=None, id=None):
         if cpu and not isinstance(cpu, int):
             raise TypeError('Expected argument cpu to be a int')
         __self__.cpu = cpu
@@ -58,6 +58,12 @@ class GetContainerDefinitionResult(object):
         """
         The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_container_definition(container_name=None, task_definition=None):
     """
@@ -78,4 +84,5 @@ def get_container_definition(container_name=None, task_definition=None):
         image=__ret__.get('image'),
         image_digest=__ret__.get('imageDigest'),
         memory=__ret__.get('memory'),
-        memory_reservation=__ret__.get('memoryReservation'))
+        memory_reservation=__ret__.get('memoryReservation'),
+        id=__ret__.get('id'))

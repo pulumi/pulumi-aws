@@ -9,7 +9,7 @@ class GetSecretResult(object):
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
+    def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -55,6 +55,12 @@ class GetSecretResult(object):
         """
         Tags of the secret.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_secret(arn=None, name=None):
     """
@@ -74,4 +80,5 @@ def get_secret(arn=None, name=None):
         rotation_enabled=__ret__.get('rotationEnabled'),
         rotation_lambda_arn=__ret__.get('rotationLambdaArn'),
         rotation_rules=__ret__.get('rotationRules'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

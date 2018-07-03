@@ -35,6 +35,7 @@ export interface GetClusterResult {
     readonly databaseName: string;
     readonly dbClusterParameterGroupName: string;
     readonly dbSubnetGroupName: string;
+    readonly enabledCloudwatchLogsExports: string[];
     readonly endpoint: string;
     readonly engine: string;
     readonly engineVersion: string;
@@ -51,4 +52,8 @@ export interface GetClusterResult {
     readonly storageEncrypted: boolean;
     readonly tags: {[key: string]: any};
     readonly vpcSecurityGroupIds: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

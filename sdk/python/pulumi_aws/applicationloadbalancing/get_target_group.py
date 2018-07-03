@@ -9,7 +9,7 @@ class GetTargetGroupResult(object):
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -43,6 +43,12 @@ class GetTargetGroupResult(object):
         if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_target_group(arn=None, name=None, tags=None):
     """
@@ -72,4 +78,5 @@ def get_target_group(arn=None, name=None, tags=None):
         slow_start=__ret__.get('slowStart'),
         stickiness=__ret__.get('stickiness'),
         tags=__ret__.get('tags'),
-        vpc_id=__ret__.get('vpcId'))
+        vpc_id=__ret__.get('vpcId'),
+        id=__ret__.get('id'))

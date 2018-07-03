@@ -22,6 +22,9 @@ import (
 // 
 // Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
 // of Terraform.
+// 
+// It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
+// which is currently in use (eg, by [`aws_lb_listener`](lb_listener.html)).
 type Certificate struct {
 	s *pulumi.ResourceState
 }

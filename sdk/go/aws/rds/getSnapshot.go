@@ -42,6 +42,7 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 		Status: outputs["status"],
 		StorageType: outputs["storageType"],
 		VpcId: outputs["vpcId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -102,4 +103,6 @@ type GetSnapshotResult struct {
 	StorageType interface{}
 	// Specifies the ID of the VPC associated with the DB snapshot.
 	VpcId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

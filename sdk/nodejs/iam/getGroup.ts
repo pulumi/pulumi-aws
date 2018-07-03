@@ -40,4 +40,8 @@ export interface GetGroupResult {
      * The path to the group.
      */
     readonly path: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

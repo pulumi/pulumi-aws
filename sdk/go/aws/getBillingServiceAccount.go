@@ -15,6 +15,7 @@ func LookupBillingServiceAccount(ctx *pulumi.Context) (*GetBillingServiceAccount
 	}
 	return &GetBillingServiceAccountResult{
 		Arn: outputs["arn"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -22,4 +23,6 @@ func LookupBillingServiceAccount(ctx *pulumi.Context) (*GetBillingServiceAccount
 type GetBillingServiceAccountResult struct {
 	// The ARN of the AWS billing service account.
 	Arn interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

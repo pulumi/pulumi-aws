@@ -24,6 +24,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		RegisteredContainerInstancesCount: outputs["registeredContainerInstancesCount"],
 		RunningTasksCount: outputs["runningTasksCount"],
 		Status: outputs["status"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -45,4 +46,6 @@ type GetClusterResult struct {
 	RunningTasksCount interface{}
 	// The status of the ECS Cluster
 	Status interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

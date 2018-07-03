@@ -9,7 +9,7 @@ class GetInstancesResult(object):
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, ids=None, instance_tags=None, private_ips=None, public_ips=None):
+    def __init__(__self__, ids=None, instance_tags=None, private_ips=None, public_ips=None, id=None):
         if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
@@ -30,6 +30,12 @@ class GetInstancesResult(object):
         __self__.public_ips = public_ips
         """
         Public IP addresses of instances found through the filter
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_instances(filters=None, instance_tags=None):
@@ -57,4 +63,5 @@ def get_instances(filters=None, instance_tags=None):
         ids=__ret__.get('ids'),
         instance_tags=__ret__.get('instanceTags'),
         private_ips=__ret__.get('privateIps'),
-        public_ips=__ret__.get('publicIps'))
+        public_ips=__ret__.get('publicIps'),
+        id=__ret__.get('id'))

@@ -9,12 +9,18 @@ class GetPolicyDocumentResult(object):
     """
     A collection of values returned by getPolicyDocument.
     """
-    def __init__(__self__, json=None):
+    def __init__(__self__, json=None, id=None):
         if json and not isinstance(json, basestring):
             raise TypeError('Expected argument json to be a basestring')
         __self__.json = json
         """
         The above arguments serialized as a standard JSON policy document.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_policy_document(override_json=None, policy_id=None, source_json=None, statements=None):
@@ -93,4 +99,5 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__)
 
     return GetPolicyDocumentResult(
-        json=__ret__.get('json'))
+        json=__ret__.get('json'),
+        id=__ret__.get('id'))

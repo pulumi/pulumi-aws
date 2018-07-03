@@ -108,7 +108,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      */
     public readonly requester: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
-     * The ID of the requester VPC.
+     * The ID of the requester VPC peering connection.
      */
     public readonly vpcPeeringConnectionId: pulumi.Output<string>;
 
@@ -157,7 +157,7 @@ export interface PeeringConnectionOptionsState {
      */
     readonly requester?: pulumi.Input<{ allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>, allowRemoteVpcDnsResolution?: pulumi.Input<boolean>, allowVpcToRemoteClassicLink?: pulumi.Input<boolean> }>;
     /**
-     * The ID of the requester VPC.
+     * The ID of the requester VPC peering connection.
      */
     readonly vpcPeeringConnectionId?: pulumi.Input<string>;
 }
@@ -179,7 +179,7 @@ export interface PeeringConnectionOptionsArgs {
      */
     readonly requester?: pulumi.Input<{ allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>, allowRemoteVpcDnsResolution?: pulumi.Input<boolean>, allowVpcToRemoteClassicLink?: pulumi.Input<boolean> }>;
     /**
-     * The ID of the requester VPC.
+     * The ID of the requester VPC peering connection.
      */
     readonly vpcPeeringConnectionId: pulumi.Input<string>;
 }

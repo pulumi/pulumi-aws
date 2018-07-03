@@ -38,7 +38,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<ARN>;
     /**
-     * The SNS delivery policy
+     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
      */
     public readonly deliveryPolicy: pulumi.Output<string | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface TopicState {
      */
     readonly arn?: pulumi.Input<ARN>;
     /**
-     * The SNS delivery policy
+     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
      */
     readonly deliveryPolicy?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface TopicArgs {
      */
     readonly applicationSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
-     * The SNS delivery policy
+     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
      */
     readonly deliveryPolicy?: pulumi.Input<string>;
     /**

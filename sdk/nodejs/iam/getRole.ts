@@ -52,4 +52,8 @@ export interface GetRoleResult {
      * The stable and unique string identifying the role.
      */
     readonly uniqueId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

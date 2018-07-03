@@ -9,7 +9,7 @@ class GetRouteTableResult(object):
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, associations=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, associations=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None, id=None):
         if associations and not isinstance(associations, list):
             raise TypeError('Expected argument associations to be a list')
         __self__.associations = associations
@@ -34,6 +34,12 @@ class GetRouteTableResult(object):
         if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_route_table(filters=None, route_table_id=None, subnet_id=None, tags=None, vpc_id=None):
     """
@@ -58,4 +64,5 @@ def get_route_table(filters=None, route_table_id=None, subnet_id=None, tags=None
         routes=__ret__.get('routes'),
         subnet_id=__ret__.get('subnetId'),
         tags=__ret__.get('tags'),
-        vpc_id=__ret__.get('vpcId'))
+        vpc_id=__ret__.get('vpcId'),
+        id=__ret__.get('id'))

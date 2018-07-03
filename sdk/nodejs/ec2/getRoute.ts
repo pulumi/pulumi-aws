@@ -78,4 +78,8 @@ export interface GetRouteResult {
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
     readonly vpcPeeringConnectionId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

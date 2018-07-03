@@ -5,6 +5,18 @@
 import pulumi
 import pulumi.runtime
 
+class GetSecretResult(object):
+    """
+    A collection of values returned by getSecret.
+    """
+    def __init__(__self__, id=None):
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
+
 def get_secret(__has_dynamic_attributes=None, secrets=None):
     """
     The KMS secret data source allows you to use data encrypted with the AWS KMS
@@ -22,3 +34,5 @@ def get_secret(__has_dynamic_attributes=None, secrets=None):
     __args__['secrets'] = secrets
     __ret__ = pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__)
 
+    return GetSecretResult(
+        id=__ret__.get('id'))

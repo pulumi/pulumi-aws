@@ -32,4 +32,8 @@ export interface GetAutoscalingGroupsResult {
      * A list of the Autoscaling Groups in the current region.
      */
     readonly names: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }
