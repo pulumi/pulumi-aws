@@ -9,7 +9,7 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, availability_zones=None, backup_retention_period=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, availability_zones=None, backup_retention_period=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError('Expected argument availability_zones to be a list')
         __self__.availability_zones = availability_zones
@@ -82,6 +82,12 @@ class GetClusterResult(object):
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError('Expected argument vpc_security_group_ids to be a list')
         __self__.vpc_security_group_ids = vpc_security_group_ids
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_cluster(cluster_identifier=None, tags=None):
     """
@@ -117,4 +123,5 @@ def get_cluster(cluster_identifier=None, tags=None):
         replication_source_identifier=__ret__.get('replicationSourceIdentifier'),
         storage_encrypted=__ret__.get('storageEncrypted'),
         tags=__ret__.get('tags'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
+        id=__ret__.get('id'))

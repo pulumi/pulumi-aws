@@ -9,7 +9,7 @@ class GetFunctionResult(object):
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, memory_size=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, memory_size=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, timeout=None, tracing_config=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -124,6 +124,12 @@ class GetFunctionResult(object):
         """
         VPC configuration associated with your Lambda function.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_function(function_name=None, qualifier=None):
     """
@@ -154,4 +160,5 @@ def get_function(function_name=None, qualifier=None):
         timeout=__ret__.get('timeout'),
         tracing_config=__ret__.get('tracingConfig'),
         version=__ret__.get('version'),
-        vpc_config=__ret__.get('vpcConfig'))
+        vpc_config=__ret__.get('vpcConfig'),
+        id=__ret__.get('id'))

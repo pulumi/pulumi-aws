@@ -53,6 +53,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		StorageType: outputs["storageType"],
 		Timezone: outputs["timezone"],
 		VpcSecurityGroups: outputs["vpcSecurityGroups"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -134,4 +135,6 @@ type GetInstanceResult struct {
 	Timezone interface{}
 	// Provides a list of VPC security group elements that the DB instance belongs to.
 	VpcSecurityGroups interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -9,7 +9,7 @@ class GetIpRangesResult(object):
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, cidr_blocks=None, create_date=None, sync_token=None):
+    def __init__(__self__, cidr_blocks=None, create_date=None, sync_token=None, id=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError('Expected argument cidr_blocks to be a list')
         __self__.cidr_blocks = cidr_blocks
@@ -29,6 +29,12 @@ class GetIpRangesResult(object):
         The publication time of the IP ranges, in Unix epoch time format
         (e.g. `1470267965`).
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_ip_ranges(regions=None, services=None):
     """
@@ -43,4 +49,5 @@ def get_ip_ranges(regions=None, services=None):
     return GetIpRangesResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
         create_date=__ret__.get('createDate'),
-        sync_token=__ret__.get('syncToken'))
+        sync_token=__ret__.get('syncToken'),
+        id=__ret__.get('id'))

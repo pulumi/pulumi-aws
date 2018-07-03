@@ -23,6 +23,7 @@ func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, erro
 		Arn: outputs["arn"],
 		GroupId: outputs["groupId"],
 		Path: outputs["path"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -40,4 +41,6 @@ type GetGroupResult struct {
 	GroupId interface{}
 	// The path to the group.
 	Path interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

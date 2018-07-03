@@ -34,4 +34,8 @@ export interface GetParameterResult {
     readonly arn: string;
     readonly type: string;
     readonly value: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

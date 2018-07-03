@@ -9,7 +9,7 @@ class GetSnapshotResult(object):
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, snapshot_id=None, state=None, tags=None, volume_id=None, volume_size=None):
+    def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, snapshot_id=None, state=None, tags=None, volume_id=None, volume_size=None, id=None):
         if data_encryption_key_id and not isinstance(data_encryption_key_id, basestring):
             raise TypeError('Expected argument data_encryption_key_id to be a basestring')
         __self__.data_encryption_key_id = data_encryption_key_id
@@ -76,6 +76,12 @@ class GetSnapshotResult(object):
         """
         The size of the drive in GiBs.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_snapshot(filters=None, most_recent=None, owners=None, restorable_by_user_ids=None, snapshot_ids=None, tags=None):
     """
@@ -102,4 +108,5 @@ def get_snapshot(filters=None, most_recent=None, owners=None, restorable_by_user
         state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         volume_id=__ret__.get('volumeId'),
-        volume_size=__ret__.get('volumeSize'))
+        volume_size=__ret__.get('volumeSize'),
+        id=__ret__.get('id'))

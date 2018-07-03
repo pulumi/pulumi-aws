@@ -9,12 +9,18 @@ class GetRulesPackagesResult(object):
     """
     A collection of values returned by getRulesPackages.
     """
-    def __init__(__self__, arns=None):
+    def __init__(__self__, arns=None, id=None):
         if arns and not isinstance(arns, list):
             raise TypeError('Expected argument arns to be a list')
         __self__.arns = arns
         """
         A list of the AWS Inspector Rules Packages arns available in the AWS region.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_rules_packages():
@@ -28,4 +34,5 @@ def get_rules_packages():
     __ret__ = pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__)
 
     return GetRulesPackagesResult(
-        arns=__ret__.get('arns'))
+        arns=__ret__.get('arns'),
+        id=__ret__.get('id'))

@@ -64,4 +64,8 @@ export interface GetRouteTableResult {
     readonly subnetId: string;
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

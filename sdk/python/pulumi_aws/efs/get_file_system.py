@@ -9,7 +9,7 @@ class GetFileSystemResult(object):
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None):
+    def __init__(__self__, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None, id=None):
         if creation_token and not isinstance(creation_token, basestring):
             raise TypeError('Expected argument creation_token to be a basestring')
         __self__.creation_token = creation_token
@@ -46,6 +46,12 @@ class GetFileSystemResult(object):
         """
         The list of tags assigned to the file system.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_file_system(creation_token=None, file_system_id=None, tags=None):
     """
@@ -65,4 +71,5 @@ def get_file_system(creation_token=None, file_system_id=None, tags=None):
         file_system_id=__ret__.get('fileSystemId'),
         kms_key_id=__ret__.get('kmsKeyId'),
         performance_mode=__ret__.get('performanceMode'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

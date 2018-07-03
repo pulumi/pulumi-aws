@@ -9,12 +9,18 @@ class GetAvailabilityZonesResult(object):
     """
     A collection of values returned by getAvailabilityZones.
     """
-    def __init__(__self__, names=None):
+    def __init__(__self__, names=None, id=None):
         if names and not isinstance(names, list):
             raise TypeError('Expected argument names to be a list')
         __self__.names = names
         """
         A list of the Availability Zone names available to the account.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_availability_zones(state=None):
@@ -32,4 +38,5 @@ def get_availability_zones(state=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__)
 
     return GetAvailabilityZonesResult(
-        names=__ret__.get('names'))
+        names=__ret__.get('names'),
+        id=__ret__.get('id'))

@@ -22,6 +22,7 @@ func LookupQueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, erro
 	return &GetQueueResult{
 		Arn: outputs["arn"],
 		Url: outputs["url"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -37,4 +38,6 @@ type GetQueueResult struct {
 	Arn interface{}
 	// The URL of the queue.
 	Url interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

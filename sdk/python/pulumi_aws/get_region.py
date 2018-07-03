@@ -9,7 +9,7 @@ class GetRegionResult(object):
     """
     A collection of values returned by getRegion.
     """
-    def __init__(__self__, current=None, endpoint=None, name=None):
+    def __init__(__self__, current=None, endpoint=None, name=None, id=None):
         if current and not isinstance(current, bool):
             raise TypeError('Expected argument current to be a bool')
         __self__.current = current
@@ -28,6 +28,12 @@ class GetRegionResult(object):
         __self__.name = name
         """
         The name of the selected region.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_region(current=None, endpoint=None, name=None):
@@ -49,4 +55,5 @@ def get_region(current=None, endpoint=None, name=None):
     return GetRegionResult(
         current=__ret__.get('current'),
         endpoint=__ret__.get('endpoint'),
-        name=__ret__.get('name'))
+        name=__ret__.get('name'),
+        id=__ret__.get('id'))

@@ -50,4 +50,8 @@ export interface GetListenerResult {
     readonly port: number;
     readonly protocol: string;
     readonly sslPolicy: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

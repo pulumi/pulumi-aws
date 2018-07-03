@@ -22,6 +22,7 @@ func LookupAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, e
 	}
 	return &GetAmiIdsResult{
 		Ids: outputs["ids"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -48,4 +49,6 @@ type GetAmiIdsArgs struct {
 // A collection of values returned by getAmiIds.
 type GetAmiIdsResult struct {
 	Ids interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

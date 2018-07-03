@@ -25,6 +25,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		RoleArn: outputs["roleArn"],
 		Version: outputs["version"],
 		VpcConfig: outputs["vpcConfig"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -50,4 +51,6 @@ type GetClusterResult struct {
 	Version interface{}
 	// Nested attribute containing VPC configuration for the cluster.
 	VpcConfig interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

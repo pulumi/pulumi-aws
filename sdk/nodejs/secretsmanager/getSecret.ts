@@ -61,4 +61,8 @@ export interface GetSecretResult {
      * Tags of the secret.
      */
     readonly tags: {[key: string]: any};
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

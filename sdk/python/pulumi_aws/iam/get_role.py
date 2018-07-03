@@ -9,7 +9,7 @@ class GetRoleResult(object):
     """
     A collection of values returned by getRole.
     """
-    def __init__(__self__, arn=None, assume_role_policy=None, assume_role_policy_document=None, create_date=None, description=None, max_session_duration=None, path=None, role_id=None, unique_id=None):
+    def __init__(__self__, arn=None, assume_role_policy=None, assume_role_policy_document=None, create_date=None, description=None, max_session_duration=None, path=None, role_id=None, unique_id=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -49,6 +49,12 @@ class GetRoleResult(object):
         """
         The stable and unique string identifying the role.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_role(name=None, role_name=None):
     """
@@ -71,4 +77,5 @@ def get_role(name=None, role_name=None):
         max_session_duration=__ret__.get('maxSessionDuration'),
         path=__ret__.get('path'),
         role_id=__ret__.get('roleId'),
-        unique_id=__ret__.get('uniqueId'))
+        unique_id=__ret__.get('uniqueId'),
+        id=__ret__.get('id'))

@@ -27,6 +27,7 @@ func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, e
 		Region: outputs["region"],
 		WebsiteDomain: outputs["websiteDomain"],
 		WebsiteEndpoint: outputs["websiteEndpoint"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -50,4 +51,6 @@ type GetBucketResult struct {
 	WebsiteDomain interface{}
 	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
 	WebsiteEndpoint interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -9,7 +9,7 @@ class GetAliasResult(object):
     """
     A collection of values returned by getAlias.
     """
-    def __init__(__self__, arn=None, target_key_arn=None, target_key_id=None):
+    def __init__(__self__, arn=None, target_key_arn=None, target_key_id=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetAliasResult(object):
         """
         Key identifier pointed to by the alias.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_alias(name=None):
     """
@@ -43,4 +49,5 @@ def get_alias(name=None):
     return GetAliasResult(
         arn=__ret__.get('arn'),
         target_key_arn=__ret__.get('targetKeyArn'),
-        target_key_id=__ret__.get('targetKeyId'))
+        target_key_id=__ret__.get('targetKeyId'),
+        id=__ret__.get('id'))

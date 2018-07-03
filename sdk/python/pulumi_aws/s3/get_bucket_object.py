@@ -9,7 +9,7 @@ class GetBucketObjectResult(object):
     """
     A collection of values returned by getBucketObject.
     """
-    def __init__(__self__, body=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, last_modified=None, metadata=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, body=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, last_modified=None, metadata=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None, id=None):
         if body and not isinstance(body, basestring):
             raise TypeError('Expected argument body to be a basestring')
         __self__.body = body
@@ -118,6 +118,12 @@ class GetBucketObjectResult(object):
         """
         If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_bucket_object(bucket=None, key=None, range=None, tags=None, version_id=None):
     """
@@ -153,4 +159,5 @@ def get_bucket_object(bucket=None, key=None, range=None, tags=None, version_id=N
         storage_class=__ret__.get('storageClass'),
         tags=__ret__.get('tags'),
         version_id=__ret__.get('versionId'),
-        website_redirect_location=__ret__.get('websiteRedirectLocation'))
+        website_redirect_location=__ret__.get('websiteRedirectLocation'),
+        id=__ret__.get('id'))

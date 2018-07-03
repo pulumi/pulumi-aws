@@ -33,6 +33,7 @@ func LookupListener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerRes
 		Port: outputs["port"],
 		Protocol: outputs["protocol"],
 		SslPolicy: outputs["sslPolicy"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -55,4 +56,6 @@ type GetListenerResult struct {
 	Port interface{}
 	Protocol interface{}
 	SslPolicy interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

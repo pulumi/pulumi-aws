@@ -16,6 +16,7 @@ func LookupCanonicalUserId(ctx *pulumi.Context) (*GetCanonicalUserIdResult, erro
 	}
 	return &GetCanonicalUserIdResult{
 		DisplayName: outputs["displayName"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -23,4 +24,6 @@ func LookupCanonicalUserId(ctx *pulumi.Context) (*GetCanonicalUserIdResult, erro
 type GetCanonicalUserIdResult struct {
 	// The human-friendly name linked to the canonical user ID.
 	DisplayName interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

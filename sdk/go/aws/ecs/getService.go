@@ -25,6 +25,7 @@ func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult
 		LaunchType: outputs["launchType"],
 		SchedulingStrategy: outputs["schedulingStrategy"],
 		TaskDefinition: outputs["taskDefinition"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -48,4 +49,6 @@ type GetServiceResult struct {
 	SchedulingStrategy interface{}
 	// The family for the latest ACTIVE revision
 	TaskDefinition interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

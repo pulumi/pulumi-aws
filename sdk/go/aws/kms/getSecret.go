@@ -15,14 +15,19 @@ import (
 // logging output, plan output or state output.
 // 
 // Please take care to secure your secret data outside of resource definitions.
-func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) error {
+func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["__hasDynamicAttributes"] = args.__hasDynamicAttributes
 		inputs["secrets"] = args.Secrets
 	}
-	_, err := ctx.Invoke("aws:kms/getSecret:getSecret", inputs)
-	return err
+	outputs, err := ctx.Invoke("aws:kms/getSecret:getSecret", inputs)
+	if err != nil {
+		return nil, err
+	}
+	return &GetSecretResult{
+		Id: outputs["id"],
+	}, nil
 }
 
 // A collection of arguments for invoking getSecret.
@@ -31,4 +36,10 @@ type GetSecretArgs struct {
 	// One or more encrypted payload definitions from the KMS
 	// service.  See the Secret Definitions below.
 	Secrets interface{}
+}
+
+// A collection of values returned by getSecret.
+type GetSecretResult struct {
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

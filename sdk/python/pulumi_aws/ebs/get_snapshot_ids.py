@@ -9,10 +9,16 @@ class GetSnapshotIdsResult(object):
     """
     A collection of values returned by getSnapshotIds.
     """
-    def __init__(__self__, ids=None):
+    def __init__(__self__, ids=None, id=None):
         if ids and not isinstance(ids, list):
             raise TypeError('Expected argument ids to be a list')
         __self__.ids = ids
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None):
     """
@@ -27,4 +33,5 @@ def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None):
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__)
 
     return GetSnapshotIdsResult(
-        ids=__ret__.get('ids'))
+        ids=__ret__.get('ids'),
+        id=__ret__.get('id'))

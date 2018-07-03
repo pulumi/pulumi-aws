@@ -26,6 +26,7 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *GetComputeEnvironmentAr
 		Status: outputs["status"],
 		StatusReason: outputs["statusReason"],
 		Type: outputs["type"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -51,4 +52,6 @@ type GetComputeEnvironmentResult struct {
 	StatusReason interface{}
 	// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

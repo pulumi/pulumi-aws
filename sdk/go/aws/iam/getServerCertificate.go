@@ -28,6 +28,7 @@ func LookupServerCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs
 		Name: outputs["name"],
 		Path: outputs["path"],
 		UploadDate: outputs["uploadDate"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -52,4 +53,6 @@ type GetServerCertificateResult struct {
 	Name interface{}
 	Path interface{}
 	UploadDate interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

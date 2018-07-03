@@ -9,7 +9,7 @@ class GetServiceResult(object):
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, desired_count=None, launch_type=None, scheduling_strategy=None, task_definition=None):
+    def __init__(__self__, arn=None, desired_count=None, launch_type=None, scheduling_strategy=None, task_definition=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -40,6 +40,12 @@ class GetServiceResult(object):
         """
         The family for the latest ACTIVE revision
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_service(cluster_arn=None, service_name=None):
     """
@@ -57,4 +63,5 @@ def get_service(cluster_arn=None, service_name=None):
         desired_count=__ret__.get('desiredCount'),
         launch_type=__ret__.get('launchType'),
         scheduling_strategy=__ret__.get('schedulingStrategy'),
-        task_definition=__ret__.get('taskDefinition'))
+        task_definition=__ret__.get('taskDefinition'),
+        id=__ret__.get('id'))

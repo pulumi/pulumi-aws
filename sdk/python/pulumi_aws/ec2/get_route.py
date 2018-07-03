@@ -9,7 +9,7 @@ class GetRouteResult(object):
     """
     A collection of values returned by getRoute.
     """
-    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, vpc_peering_connection_id=None, id=None):
         if destination_cidr_block and not isinstance(destination_cidr_block, basestring):
             raise TypeError('Expected argument destination_cidr_block to be a basestring')
         __self__.destination_cidr_block = destination_cidr_block
@@ -34,6 +34,12 @@ class GetRouteResult(object):
         if vpc_peering_connection_id and not isinstance(vpc_peering_connection_id, basestring):
             raise TypeError('Expected argument vpc_peering_connection_id to be a basestring')
         __self__.vpc_peering_connection_id = vpc_peering_connection_id
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, vpc_peering_connection_id=None):
     """
@@ -64,4 +70,5 @@ def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=None, egr
         instance_id=__ret__.get('instanceId'),
         nat_gateway_id=__ret__.get('natGatewayId'),
         network_interface_id=__ret__.get('networkInterfaceId'),
-        vpc_peering_connection_id=__ret__.get('vpcPeeringConnectionId'))
+        vpc_peering_connection_id=__ret__.get('vpcPeeringConnectionId'),
+        id=__ret__.get('id'))

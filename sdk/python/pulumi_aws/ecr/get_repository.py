@@ -9,7 +9,7 @@ class GetRepositoryResult(object):
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, registry_id=None, repository_url=None):
+    def __init__(__self__, arn=None, registry_id=None, repository_url=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetRepositoryResult(object):
         """
         The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_repository(name=None):
     """
@@ -41,4 +47,5 @@ def get_repository(name=None):
     return GetRepositoryResult(
         arn=__ret__.get('arn'),
         registry_id=__ret__.get('registryId'),
-        repository_url=__ret__.get('repositoryUrl'))
+        repository_url=__ret__.get('repositoryUrl'),
+        id=__ret__.get('id'))

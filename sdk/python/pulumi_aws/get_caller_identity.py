@@ -9,7 +9,7 @@ class GetCallerIdentityResult(object):
     """
     A collection of values returned by getCallerIdentity.
     """
-    def __init__(__self__, account_id=None, arn=None, user_id=None):
+    def __init__(__self__, account_id=None, arn=None, user_id=None, id=None):
         if account_id and not isinstance(account_id, basestring):
             raise TypeError('Expected argument account_id to be a basestring')
         __self__.account_id = account_id
@@ -28,6 +28,12 @@ class GetCallerIdentityResult(object):
         """
         The unique identifier of the calling entity.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_caller_identity():
     """
@@ -41,4 +47,5 @@ def get_caller_identity():
     return GetCallerIdentityResult(
         account_id=__ret__.get('accountId'),
         arn=__ret__.get('arn'),
-        user_id=__ret__.get('userId'))
+        user_id=__ret__.get('userId'),
+        id=__ret__.get('id'))

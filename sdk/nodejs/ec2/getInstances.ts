@@ -59,4 +59,8 @@ export interface GetInstancesResult {
      * Public IP addresses of instances found through the filter
      */
     readonly publicIps: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

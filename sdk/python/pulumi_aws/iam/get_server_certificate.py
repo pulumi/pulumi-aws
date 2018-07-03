@@ -9,7 +9,7 @@ class GetServerCertificateResult(object):
     """
     A collection of values returned by getServerCertificate.
     """
-    def __init__(__self__, arn=None, certificate_body=None, certificate_chain=None, expiration_date=None, name=None, path=None, upload_date=None):
+    def __init__(__self__, arn=None, certificate_body=None, certificate_chain=None, expiration_date=None, name=None, path=None, upload_date=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -31,6 +31,12 @@ class GetServerCertificateResult(object):
         if upload_date and not isinstance(upload_date, basestring):
             raise TypeError('Expected argument upload_date to be a basestring')
         __self__.upload_date = upload_date
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_server_certificate(latest=None, name=None, name_prefix=None, path_prefix=None):
     """
@@ -51,4 +57,5 @@ def get_server_certificate(latest=None, name=None, name_prefix=None, path_prefix
         expiration_date=__ret__.get('expirationDate'),
         name=__ret__.get('name'),
         path=__ret__.get('path'),
-        upload_date=__ret__.get('uploadDate'))
+        upload_date=__ret__.get('uploadDate'),
+        id=__ret__.get('id'))

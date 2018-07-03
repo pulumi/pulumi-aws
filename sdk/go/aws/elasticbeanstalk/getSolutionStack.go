@@ -20,6 +20,7 @@ func LookupSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetS
 	}
 	return &GetSolutionStackResult{
 		Name: outputs["name"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -38,4 +39,6 @@ type GetSolutionStackArgs struct {
 type GetSolutionStackResult struct {
 	// The name of the solution stack.
 	Name interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -9,7 +9,7 @@ class GetStreamResult(object):
     """
     A collection of values returned by getStream.
     """
-    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, tags=None):
+    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, tags=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -58,6 +58,12 @@ class GetStreamResult(object):
         """
         A mapping of tags to assigned to the stream.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_stream(name=None):
     """
@@ -79,4 +85,5 @@ def get_stream(name=None):
         retention_period=__ret__.get('retentionPeriod'),
         shard_level_metrics=__ret__.get('shardLevelMetrics'),
         status=__ret__.get('status'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

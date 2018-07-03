@@ -9,7 +9,7 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, vpc_id=None, vpc_security_group_ids=None, id=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError('Expected argument allow_version_upgrade to be a bool')
         __self__.allow_version_upgrade = allow_version_upgrade
@@ -175,6 +175,12 @@ class GetClusterResult(object):
         """
         The VPC security group Ids associated with the cluster
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_cluster(cluster_identifier=None, tags=None):
     """
@@ -214,4 +220,5 @@ def get_cluster(cluster_identifier=None, tags=None):
         publicly_accessible=__ret__.get('publiclyAccessible'),
         s3_key_prefix=__ret__.get('s3KeyPrefix'),
         vpc_id=__ret__.get('vpcId'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
+        id=__ret__.get('id'))

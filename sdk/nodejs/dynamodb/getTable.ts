@@ -45,4 +45,8 @@ export interface GetTableResult {
     readonly tags: {[key: string]: any};
     readonly ttl: { attributeName: string, enabled: boolean };
     readonly writeCapacity: number;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

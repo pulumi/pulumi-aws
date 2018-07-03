@@ -85,6 +85,7 @@ func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*Ge
 	}
 	return &GetPolicyDocumentResult{
 		Json: outputs["json"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -111,4 +112,6 @@ type GetPolicyDocumentArgs struct {
 type GetPolicyDocumentResult struct {
 	// The above arguments serialized as a standard JSON policy document.
 	Json interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

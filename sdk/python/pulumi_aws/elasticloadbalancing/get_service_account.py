@@ -9,12 +9,18 @@ class GetServiceAccountResult(object):
     """
     A collection of values returned by getServiceAccount.
     """
-    def __init__(__self__, arn=None):
+    def __init__(__self__, arn=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The ARN of the AWS ELB service account in the selected region.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_service_account(region=None):
@@ -28,4 +34,5 @@ def get_service_account(region=None):
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getServiceAccount:getServiceAccount', __args__)
 
     return GetServiceAccountResult(
-        arn=__ret__.get('arn'))
+        arn=__ret__.get('arn'),
+        id=__ret__.get('id'))

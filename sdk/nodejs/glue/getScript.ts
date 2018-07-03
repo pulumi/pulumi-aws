@@ -44,4 +44,8 @@ export interface GetScriptResult {
      * The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
     readonly scalaCode: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

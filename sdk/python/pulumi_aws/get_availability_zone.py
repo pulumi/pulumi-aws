@@ -9,7 +9,7 @@ class GetAvailabilityZoneResult(object):
     """
     A collection of values returned by getAvailabilityZone.
     """
-    def __init__(__self__, name=None, name_suffix=None, region=None, state=None):
+    def __init__(__self__, name=None, name_suffix=None, region=None, state=None, id=None):
         if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
@@ -37,6 +37,12 @@ class GetAvailabilityZoneResult(object):
         """
         The current state of the AZ.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_availability_zone(name=None, state=None):
     """
@@ -62,4 +68,5 @@ def get_availability_zone(name=None, state=None):
         name=__ret__.get('name'),
         name_suffix=__ret__.get('nameSuffix'),
         region=__ret__.get('region'),
-        state=__ret__.get('state'))
+        state=__ret__.get('state'),
+        id=__ret__.get('id'))

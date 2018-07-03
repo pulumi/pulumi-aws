@@ -20,4 +20,8 @@ export interface GetCanonicalUserIdResult {
      * The human-friendly name linked to the canonical user ID.
      */
     readonly displayName: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

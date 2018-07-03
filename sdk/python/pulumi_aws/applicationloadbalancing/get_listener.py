@@ -9,7 +9,7 @@ class GetListenerResult(object):
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
+    def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -31,6 +31,12 @@ class GetListenerResult(object):
         if ssl_policy and not isinstance(ssl_policy, basestring):
             raise TypeError('Expected argument ssl_policy to be a basestring')
         __self__.ssl_policy = ssl_policy
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_listener(arn=None, load_balancer_arn=None, port=None):
     """
@@ -56,4 +62,5 @@ def get_listener(arn=None, load_balancer_arn=None, port=None):
         load_balancer_arn=__ret__.get('loadBalancerArn'),
         port=__ret__.get('port'),
         protocol=__ret__.get('protocol'),
-        ssl_policy=__ret__.get('sslPolicy'))
+        ssl_policy=__ret__.get('sslPolicy'),
+        id=__ret__.get('id'))

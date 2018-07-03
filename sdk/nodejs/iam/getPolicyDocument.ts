@@ -115,4 +115,8 @@ export interface GetPolicyDocumentResult {
      * The above arguments serialized as a standard JSON policy document.
      */
     readonly json: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

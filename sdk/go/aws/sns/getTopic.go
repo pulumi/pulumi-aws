@@ -21,6 +21,7 @@ func LookupTopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, erro
 	}
 	return &GetTopicResult{
 		Arn: outputs["arn"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -34,4 +35,6 @@ type GetTopicArgs struct {
 type GetTopicResult struct {
 	// Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 	Arn interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

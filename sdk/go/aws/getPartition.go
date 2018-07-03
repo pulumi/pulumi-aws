@@ -15,10 +15,13 @@ func LookupPartition(ctx *pulumi.Context) (*GetPartitionResult, error) {
 	}
 	return &GetPartitionResult{
 		Partition: outputs["partition"],
+		Id: outputs["id"],
 	}, nil
 }
 
 // A collection of values returned by getPartition.
 type GetPartitionResult struct {
 	Partition interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }
