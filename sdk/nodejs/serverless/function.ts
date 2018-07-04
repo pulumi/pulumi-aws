@@ -155,7 +155,7 @@ export class Function extends pulumi.ComponentResource {
         });
 
         let codePaths = computeCodePaths(closure, serializedFileName, options.includePaths, options.includePackages);
-        
+
         // Create the Lambda Function.
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive(codePaths),
@@ -187,11 +187,11 @@ async function computeCodePaths(
 
     // Compute the set of required packages
     const packages = removeBuiltins(serializedFunction.requiredPackages);
-    
+
     // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided extraPackages so
     // that users can force aws-sdk to be incldued (if they need a specific version).
     packages.delete("aws-sdk")
-    
+
     // Add user-defined extraPackages
     for (const p of (extraPackages || [])) {
         packages.add(p);
@@ -199,7 +199,7 @@ async function computeCodePaths(
 
     // Find folders for all packages requested by the user
     const pathSet = await allFoldersForPackages(".", [...packages]);
-    
+
     // Add all paths explciitly requested by the user
     for (const path of (extraIncludePaths || [])) {
         pathSet.add(path);
@@ -216,7 +216,7 @@ async function computeCodePaths(
             codePaths[path] = new pulumi.asset.FileAsset(path);
         }
     }
-    
+
     return codePaths;
 }
 
@@ -246,9 +246,9 @@ interface Package {
     name: string;
     path: string;
     package: {
-        dependencies: { [key: string]: string;};
+        dependencies: { [key: string]: string; };
     };
-    parent?: Package
+    parent?: Package;
     children: Package[];
 }
 
@@ -272,11 +272,13 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
                         const relativePath = filepath.relative(path, resolvedPath);
                         s.add(relativePath);
                     } catch (err) {
-                        console.warn(`Could not find module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)    
+                        console.warn(
+                            `Could not find module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`);
                     }
                 } else if (pkg[0] == '/') {
                     // Absolute path, this won't work, so warn and move on.
-                    console.warn(`Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`)
+                    console.warn(
+                        `Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`);
                 } else {
                     // Neither relative nor aboslute path, so expected to be a name that resovles to `node_modules` (or
                     // to a builtin, but those were removed).  We can add the package and all its transitive
@@ -297,7 +299,9 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
         console.warn(`Could not include required dependency '${pkg}' in '${filepath.resolve(root.path)}'.`)
         return;
     }
+
     s.add(child.path);
+
     if (child.package.dependencies) {
         for (let dep of Object.keys(child.package.dependencies) ) {
             addPackageAndDependenciesToSet(s, child, dep);
@@ -309,18 +313,20 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
 // It is assumed that the tree was correctly construted such that dependencies are resolved to compatible versions in
 // the closest available match starting at the provided root and walking up to the head of the tree.
 function findDependency(root: Package, name: string) {
-    for(;root;root = root.parent) {
+    for(; root; root = root.parent) {
         for (var child of root.children) {
-            let childName = child.name;
-            // Note: `read-package-tree` returns incorrect `.name` properties for packages in an orgnaization - like
-            // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead.
-            // Match any name that ends with something that looks like `@foo/bar`.
-            const match = /\/\@[^\/]*\/[^\/]*$/.exec(child.path);
-            if (match) {
-                childName = match[0];
-            }
-            if(childName === name) {
-                return child;
+            if (name.indexOf("@") === -1) {
+                if (name === child.name) {
+                    return child;
+                }
+            } else {
+                // `read-package-tree` returns incorrect `.name` properties for packages in an orgnaization, like
+                // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead.
+                // We split the path name using the filesystem delimiter and look at the last two components.
+                const parts = child.path.split(filepath.sep);
+                if (parts.length >= 2 && (parts[parts.length-2]+"/"+parts[parts.length-1]) === name) {
+                    return child;
+                }
             }
         }
     }
