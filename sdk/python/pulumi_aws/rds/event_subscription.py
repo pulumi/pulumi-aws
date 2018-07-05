@@ -32,7 +32,7 @@ class EventSubscription(pulumi.CustomResource):
             raise TypeError('Expected property event_categories to be a list')
         __self__.event_categories = event_categories
         """
-        A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
+        A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html or run `aws rds describe-event-categories`.
         """
         __props__['eventCategories'] = event_categories
 
@@ -74,7 +74,7 @@ class EventSubscription(pulumi.CustomResource):
             raise TypeError('Expected property source_type to be a basestring')
         __self__.source_type = source_type
         """
-        The type of source that will be generating the events.
+        The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
         """
         __props__['sourceType'] = source_type
 

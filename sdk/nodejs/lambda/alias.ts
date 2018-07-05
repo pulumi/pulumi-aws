@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
- * For information about function aliases, see [CreateAlias][2] in the API docs.
+ * For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Alias extends pulumi.CustomResource {
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * The Lambda alias' route configuration settings. Fields documented below
+     */
+    public readonly routingConfig: pulumi.Output<{ additionalVersionWeights?: {[key: string]: number} } | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -60,6 +64,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["functionName"] = state ? state.functionName : undefined;
             inputs["functionVersion"] = state ? state.functionVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["routingConfig"] = state ? state.routingConfig : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
             if (!args || args.functionName === undefined) {
@@ -72,6 +77,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["functionName"] = args ? args.functionName : undefined;
             inputs["functionVersion"] = args ? args.functionVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["routingConfig"] = args ? args.routingConfig : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         super("aws:lambda/alias:Alias", name, inputs, opts);
@@ -102,6 +108,10 @@ export interface AliasState {
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The Lambda alias' route configuration settings. Fields documented below
+     */
+    readonly routingConfig?: pulumi.Input<{ additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}> }>;
 }
 
 /**
@@ -124,4 +134,8 @@ export interface AliasArgs {
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The Lambda alias' route configuration settings. Fields documented below
+     */
+    readonly routingConfig?: pulumi.Input<{ additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}> }>;
 }

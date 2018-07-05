@@ -10,9 +10,9 @@ class Alias(pulumi.CustomResource):
     Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
     
     For information about Lambda and how to use it, see [What is AWS Lambda?][1]
-    For information about function aliases, see [CreateAlias][2] in the API docs.
+    For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, function_name=None, function_version=None, name=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, function_name=None, function_version=None, name=None, routing_config=None):
         """Create a Alias resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -59,6 +59,14 @@ class Alias(pulumi.CustomResource):
         """
         __props__['name'] = name
 
+        if routing_config and not isinstance(routing_config, dict):
+            raise TypeError('Expected property routing_config to be a dict')
+        __self__.routing_config = routing_config
+        """
+        The Lambda alias' route configuration settings. Fields documented below
+        """
+        __props__['routingConfig'] = routing_config
+
         __self__.arn = pulumi.runtime.UNKNOWN
         """
         The Amazon Resource Name (ARN) identifying your Lambda function alias.
@@ -81,3 +89,5 @@ class Alias(pulumi.CustomResource):
             self.function_version = outs['functionVersion']
         if 'name' in outs:
             self.name = outs['name']
+        if 'routingConfig' in outs:
+            self.routing_config = outs['routingConfig']

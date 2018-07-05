@@ -39,6 +39,10 @@ export interface GetReplicationGroupResult {
      */
     readonly configurationEndpointAddress: string;
     /**
+     * The identifiers of all the nodes that are part of this replication group.
+     */
+    readonly memberClusters: string[];
+    /**
      * The cluster node type.
      */
     readonly nodeType: string;

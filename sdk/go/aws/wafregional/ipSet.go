@@ -63,7 +63,7 @@ func (r *IpSet) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
 func (r *IpSet) IpSetDescriptors() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipSetDescriptors"])
 }
@@ -77,7 +77,7 @@ func (r *IpSet) Name() *pulumi.StringOutput {
 type IpSetState struct {
 	// The ARN of the WAF IPSet.
 	Arn interface{}
-	// One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
 	IpSetDescriptors interface{}
 	// The name or description of the IPSet.
 	Name interface{}
@@ -85,7 +85,7 @@ type IpSetState struct {
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	// One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
 	IpSetDescriptors interface{}
 	// The name or description of the IPSet.
 	Name interface{}

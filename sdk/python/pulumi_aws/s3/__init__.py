@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from bucket import *
+from inventory import *
 from bucket_metric import *
 from bucket_notification import *
 from bucket_object import *

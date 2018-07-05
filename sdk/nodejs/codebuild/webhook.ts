@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Provides a CodeBuild Webhook resource.
+ * Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -32,7 +32,7 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly projectName: pulumi.Output<string>;
     /**
-     * The secret token of the associated repository. Not returned for all source types.
+     * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
     public /*out*/ readonly secret: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export interface WebhookState {
      */
     readonly projectName?: pulumi.Input<string>;
     /**
-     * The secret token of the associated repository. Not returned for all source types.
+     * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
     readonly secret?: pulumi.Input<string>;
     /**

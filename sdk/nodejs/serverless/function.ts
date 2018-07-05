@@ -104,10 +104,10 @@ export class Function extends pulumi.ComponentResource {
     public readonly role: Role;
 
     constructor(name: string,
-                options: FunctionOptions,
-                func: Handler,
-                opts?: pulumi.ResourceOptions,
-                serialize?: (obj: any) => boolean) {
+        options: FunctionOptions,
+        func: Handler,
+        opts?: pulumi.ResourceOptions,
+        serialize?: (obj: any) => boolean) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
@@ -155,7 +155,7 @@ export class Function extends pulumi.ComponentResource {
         });
 
         let codePaths = computeCodePaths(closure, serializedFileName, options.includePaths, options.includePackages);
-        
+
         // Create the Lambda Function.
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive(codePaths),
@@ -172,10 +172,10 @@ export class Function extends pulumi.ComponentResource {
 
 // computeCodePaths calculates an AssetMap of files to include in the Lambda package.
 async function computeCodePaths(
-        closure: Promise<pulumi.runtime.SerializedFunction>, 
-        serializedFileName: string,
-        extraIncludePaths?: string[], 
-        extraPackages?: string[]): Promise<pulumi.asset.AssetMap> {
+    closure: Promise<pulumi.runtime.SerializedFunction>,
+    serializedFileName: string,
+    extraIncludePaths?: string[],
+    extraPackages?: string[]): Promise<pulumi.asset.AssetMap> {
 
     const serializedFunction = await closure;
 
@@ -187,11 +187,11 @@ async function computeCodePaths(
 
     // Compute the set of required packages
     const packages = removeBuiltins(serializedFunction.requiredPackages);
-    
+
     // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided extraPackages so
     // that users can force aws-sdk to be incldued (if they need a specific version).
     packages.delete("aws-sdk")
-    
+
     // Add user-defined extraPackages
     for (const p of (extraPackages || [])) {
         packages.add(p);
@@ -199,7 +199,7 @@ async function computeCodePaths(
 
     // Find folders for all packages requested by the user
     const pathSet = await allFoldersForPackages(".", [...packages]);
-    
+
     // Add all paths explciitly requested by the user
     for (const path of (extraIncludePaths || [])) {
         pathSet.add(path);
@@ -216,7 +216,7 @@ async function computeCodePaths(
             codePaths[path] = new pulumi.asset.FileAsset(path);
         }
     }
-    
+
     return codePaths;
 }
 
@@ -246,9 +246,9 @@ interface Package {
     name: string;
     path: string;
     package: {
-        dependencies: { [key: string]: string;};
+        dependencies: { [key: string]: string; };
     };
-    parent?: Package
+    parent?: Package;
     children: Package[];
 }
 
@@ -272,11 +272,13 @@ function allFoldersForPackages(path: string, packages: string[]): Promise<Set<st
                         const relativePath = filepath.relative(path, resolvedPath);
                         s.add(relativePath);
                     } catch (err) {
-                        console.warn(`Could not find module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)    
+                        console.warn(
+                            `Could not find module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`);
                     }
                 } else if (pkg[0] == '/') {
                     // Absolute path, this won't work, so warn and move on.
-                    console.warn(`Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`)
+                    console.warn(
+                        `Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`);
                 } else {
                     // Neither relative nor aboslute path, so expected to be a name that resovles to `node_modules` (or
                     // to a builtin, but those were removed).  We can add the package and all its transitive
@@ -299,7 +301,7 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
     }
     s.add(child.path);
     if (child.package.dependencies) {
-        for (let dep of Object.keys(child.package.dependencies) ) {
+        for (let dep of Object.keys(child.package.dependencies)) {
             addPackageAndDependenciesToSet(s, child, dep);
         }
     }
@@ -309,17 +311,19 @@ function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: stri
 // It is assumed that the tree was correctly construted such that dependencies are resolved to compatible versions in
 // the closest available match starting at the provided root and walking up to the head of the tree.
 function findDependency(root: Package, name: string) {
-    for(;root;root = root.parent) {
+    for (; root; root = root.parent) {
         for (var child of root.children) {
             let childName = child.name;
             // Note: `read-package-tree` returns incorrect `.name` properties for packages in an orgnaization - like
-            // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead.
-            // Match any name that ends with something that looks like `@foo/bar`.
-            const match = /\/\@[^\/]*\/[^\/]*$/.exec(child.path);
-            if (match) {
-                childName = match[0];
+            // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead. Match
+            // any name that ends with something that looks like `@foo/bar`, such as `node_modules/@foo/bar` or
+            // `node_modules/baz/node_modules/@foo/bar.
+            const childFolderName = filepath.basename(child.path);
+            const parentFolderName = filepath.basename(filepath.dirname(child.path));
+            if (parentFolderName[0] == "@") {
+                childName = filepath.join(parentFolderName, childFolderName);
             }
-            if(childName === name) {
+            if (childName === name) {
                 return child;
             }
         }
@@ -333,7 +337,7 @@ function findDependency(root: Package, name: string) {
 function removeBuiltins(packages: Set<string>): Set<string> {
     const ret = new Set<string>();
     const builtIns = new Set(builtinModules);
-    for(const p of packages) {
+    for (const p of packages) {
         if (!builtIns.has(p)) {
             ret.add(p);
         }

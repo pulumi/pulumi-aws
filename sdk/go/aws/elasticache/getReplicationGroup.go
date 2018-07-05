@@ -21,6 +21,7 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) 
 		AuthTokenEnabled: outputs["authTokenEnabled"],
 		AutomaticFailoverEnabled: outputs["automaticFailoverEnabled"],
 		ConfigurationEndpointAddress: outputs["configurationEndpointAddress"],
+		MemberClusters: outputs["memberClusters"],
 		NodeType: outputs["nodeType"],
 		NumberCacheClusters: outputs["numberCacheClusters"],
 		Port: outputs["port"],
@@ -46,6 +47,8 @@ type GetReplicationGroupResult struct {
 	AutomaticFailoverEnabled interface{}
 	// The configuration endpoint address to allow host discovery.
 	ConfigurationEndpointAddress interface{}
+	// The identifiers of all the nodes that are part of this replication group.
+	MemberClusters interface{}
 	// The cluster node type.
 	NodeType interface{}
 	// The number of cache clusters that the replication group has.

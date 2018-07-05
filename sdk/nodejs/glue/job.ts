@@ -51,6 +51,9 @@ export class Job extends pulumi.CustomResource {
      * The name of the job command. Defaults to `glueetl`
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * The ARN of the IAM role associated with this job.
+     */
     public readonly roleArn: pulumi.Output<string>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -138,6 +141,9 @@ export interface JobState {
      * The name of the job command. Defaults to `glueetl`
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role associated with this job.
+     */
     readonly roleArn?: pulumi.Input<string>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -181,6 +187,9 @@ export interface JobArgs {
      * The name of the job command. Defaults to `glueetl`
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role associated with this job.
+     */
     readonly roleArn: pulumi.Input<string>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).

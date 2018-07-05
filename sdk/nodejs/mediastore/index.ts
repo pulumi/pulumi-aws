@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./container";
+export * from "./containerPolicy";

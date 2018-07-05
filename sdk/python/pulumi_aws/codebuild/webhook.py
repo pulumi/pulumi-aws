@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class Webhook(pulumi.CustomResource):
     """
-    Provides a CodeBuild Webhook resource.
+    Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
     """
     def __init__(__self__, __name__, __opts__=None, branch_filter=None, project_name=None):
         """Create a Webhook resource with the given unique name, props, and options."""
@@ -44,7 +44,7 @@ class Webhook(pulumi.CustomResource):
         """
         __self__.secret = pulumi.runtime.UNKNOWN
         """
-        The secret token of the associated repository. Not returned for all source types.
+        The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         """
         __self__.url = pulumi.runtime.UNKNOWN
         """

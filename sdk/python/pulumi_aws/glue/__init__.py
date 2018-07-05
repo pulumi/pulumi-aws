@@ -7,6 +7,7 @@ from catalog_database import *
 from catalog_table import *
 from classifier import *
 from connection import *
+from crawler import *
 from job import *
 from trigger import *
 from get_script import *
