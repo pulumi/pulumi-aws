@@ -1,5 +1,5 @@
 {
-    "name": "beanstalk",
+    "name": "serverlessfunctions",
     "version": "0.1.0",
     "main": "bin/index.js",
     "typings": "bin/index.d.ts",
@@ -7,10 +7,14 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.14.0-rc1"
+        "@pulumi/pulumi": "^0.14.0-rc1",
+        "@slack/client": "^4.3.1",
+        "aws-sdk": "^2.252.1"
     },
     "devDependencies": {
-        "@types/node": "^8.0.27",
+        "@types/express": "^4.16.0",
+        "@types/node": "^10.3.0",
+        "express": "^4.16.3",
         "typescript": "^2.5.3"
     },
     "peerDependencies": {

@@ -1,12 +1,16 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
-package examples
+package tests
 
 import (
+	"fmt"
 	"os"
 	"path"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/pulumi/pulumi/pkg/testing/integration"
 	"github.com/stretchr/testify/assert"
 )
@@ -36,7 +40,7 @@ func TestMountTarget(t *testing.T) {
 
 	examples := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "mount_target", "step1"),
+			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
 			EditDirs: []integration.EditDir{
 				{
 					Dir:      "step2",
@@ -46,6 +50,29 @@ func TestMountTarget(t *testing.T) {
 					Dir:      "step3",
 					Additive: true,
 				},
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "serverless_functions"),
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				cfg := &aws.Config{
+					Region: aws.String("us-west-2"),
+				}
+				sess, err := session.NewSession(cfg)
+				if !assert.NoError(t, err) {
+					return
+				}
+				lambdaSvc := lambda.New(sess)
+				out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
+					FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
+				})
+				if !assert.NoError(t, err) {
+					return
+				}
+
+				if !assert.Nil(t, out.FunctionError) {
+					fmt.Printf("Function error: %s\n", *out.FunctionError)
+				}
 			},
 		}),
 	}

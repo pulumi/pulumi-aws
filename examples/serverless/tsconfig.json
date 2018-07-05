@@ -13,7 +13,6 @@
         "strictNullChecks": true
     },
     "files": [
-        "index.ts",
-        "other/index.ts"
+        "index.ts"
     ]
 }
