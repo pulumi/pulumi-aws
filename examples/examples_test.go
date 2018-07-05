@@ -3,14 +3,10 @@
 package examples
 
 import (
-	"fmt"
 	"os"
 	"path"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
@@ -67,34 +63,8 @@ func TestExamples(t *testing.T) {
 					"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
 				},
 			}),
-
-			// TODO[pulumi/pulumi-aws#198]: disabled due to what seem to be transient failures from AWS.
-			// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "beanstalk")}),
-
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
-			baseJS.With(integration.ProgramTestOptions{
-				Dir: path.Join(cwd, "serverless"),
-				ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-					cfg := &aws.Config{
-						Region: aws.String("us-west-2"),
-					}
-					sess, err := session.NewSession(cfg)
-					if !assert.NoError(t, err) {
-						return
-					}
-					lambdaSvc := lambda.New(sess)
-					out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
-						FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
-					})
-					if !assert.NoError(t, err) {
-						return
-					}
-
-					if !assert.Nil(t, out.FunctionError) {
-						fmt.Printf("Function error: %s\n", *out.FunctionError)
-					}
-				},
-			}),
+			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 			// Python tests:
 			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
 			// Go tests:
