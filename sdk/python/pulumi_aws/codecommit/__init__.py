@@ -5,3 +5,4 @@
 # Export this package's modules as members:
 from repository import *
 from trigger import *
+from get_repository import *

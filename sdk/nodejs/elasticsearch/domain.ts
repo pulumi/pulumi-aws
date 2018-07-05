@@ -22,6 +22,9 @@ export class Domain extends pulumi.CustomResource {
     public readonly accessPolicies: pulumi.Output<string>;
     /**
      * Key-value string pairs to specify advanced configuration options.
+     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
+     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+     * domain on every apply.
      */
     public readonly advancedOptions: pulumi.Output<{[key: string]: any}>;
     /**
@@ -138,6 +141,9 @@ export interface DomainState {
     readonly accessPolicies?: pulumi.Input<string>;
     /**
      * Key-value string pairs to specify advanced configuration options.
+     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
+     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+     * domain on every apply.
      */
     readonly advancedOptions?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -206,6 +212,9 @@ export interface DomainArgs {
     readonly accessPolicies?: pulumi.Input<string>;
     /**
      * Key-value string pairs to specify advanced configuration options.
+     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
+     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+     * domain on every apply.
      */
     readonly advancedOptions?: pulumi.Input<{[key: string]: any}>;
     /**

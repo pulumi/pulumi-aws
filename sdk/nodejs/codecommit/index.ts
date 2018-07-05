@@ -2,5 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getRepository";
 export * from "./repository";
 export * from "./trigger";

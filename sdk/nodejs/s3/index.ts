@@ -9,3 +9,4 @@ export * from "./bucketObject";
 export * from "./bucketPolicy";
 export * from "./getBucket";
 export * from "./getBucketObject";
+export * from "./inventory";

@@ -23,6 +23,7 @@ func LookupInstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstances
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
+		inputs["instanceStateNames"] = args.InstanceStateNames
 		inputs["instanceTags"] = args.InstanceTags
 	}
 	outputs, err := ctx.Invoke("aws:ec2/getInstances:getInstances", inputs)
@@ -44,6 +45,8 @@ type GetInstancesArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-instances in the AWS CLI reference][1].
 	Filters interface{}
+	// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+	InstanceStateNames interface{}
 	// A mapping of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags interface{}

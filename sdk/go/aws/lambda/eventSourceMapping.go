@@ -87,7 +87,7 @@ func (r *EventSourceMapping) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
 func (r *EventSourceMapping) BatchSize() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["batchSize"])
 }
@@ -144,7 +144,7 @@ func (r *EventSourceMapping) Uuid() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering EventSourceMapping resources.
 type EventSourceMappingState struct {
-	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
 	BatchSize interface{}
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled interface{}
@@ -170,7 +170,7 @@ type EventSourceMappingState struct {
 
 // The set of arguments for constructing a EventSourceMapping resource.
 type EventSourceMappingArgs struct {
-	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
 	BatchSize interface{}
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled interface{}
