@@ -62,6 +62,7 @@ const testFunc = new aws.serverless.Function("f", {
   var aws = await import('aws-sdk');
   var express = await import('express');
   var os = require('os');
+  var slack = require('@slack/client');
   // TODO[pulumi/pulumi#463] Its reasonable to expect that `./other` would work here, but it currently does not.  For
   // now, validate that the approach that does currently work will serialize the dependencies correctly.
   var answer = require('./bin/other').answer;

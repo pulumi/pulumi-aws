@@ -3,6 +3,7 @@
 package examples
 
 import (
+	"fmt"
 	"os"
 	"path"
 	"testing"
@@ -88,7 +89,10 @@ func TestExamples(t *testing.T) {
 					if !assert.NoError(t, err) {
 						return
 					}
-					assert.Nil(t, out.FunctionError)
+
+					if !assert.Nil(t, out.FunctionError) {
+						fmt.Printf("Function error: %s\n", *out.FunctionError)
+					}
 				},
 			}),
 			// Python tests:
