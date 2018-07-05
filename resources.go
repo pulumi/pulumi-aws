@@ -85,8 +85,10 @@ const (
 	lightsailMod         = "lightsail"                // LightSail
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
 	mqMod                = "mq"                       // MQ
+	neptuneMod           = "neptune"                  // Neptune
 	opsworksMod          = "opsworks"                 // OpsWorks
 	organizationsMod     = "organizations"            // Organizations
+	pricingMod           = "pricing"                  // Pricing
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
 	route53Mod           = "route53"                  // Route 53 (DNS)
@@ -506,9 +508,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
 			// Direct Connect
-			"aws_dx_connection":             {Tok: awsResource(dxMod, "Connection")},
-			"aws_dx_connection_association": {Tok: awsResource(dxMod, "ConnectionAssociation")},
-			"aws_dx_lag":                    {Tok: awsResource(dxMod, "LinkAggregationGroup")},
+			"aws_dx_connection":                                {Tok: awsResource(dxMod, "Connection")},
+			"aws_dx_connection_association":                    {Tok: awsResource(dxMod, "ConnectionAssociation")},
+			"aws_dx_gateway":                                   {Tok: awsResource(dxMod, "Gateway")},
+			"aws_dx_gateway_association":                       {Tok: awsResource(dxMod, "GatewayAssociation")},
+			"aws_dx_hosted_private_virtual_interface":          {Tok: awsResource(dxMod, "HostedPrivateVirtualInterface")},
+			"aws_dx_hosted_private_virtual_interface_accepter": {Tok: awsResource(dxMod, "HostedPrivateVirtualInterfaceAccepter")},
+			"aws_dx_hosted_public_virtual_interface":           {Tok: awsResource(dxMod, "HostedPublicVirtualInterface")},
+			"aws_dx_hosted_public_virtual_interface_accepter":  {Tok: awsResource(dxMod, "HostedPublicVirtualInterfaceAccepter")},
+			"aws_dx_private_virtual_interface":                 {Tok: awsResource(dxMod, "PrivateVirtualInterface")},
+			"aws_dx_public_virtual_interface":                  {Tok: awsResource(dxMod, "PublicVirtualInterface")},
+			"aws_dx_lag":                                       {Tok: awsResource(dxMod, "LinkAggregationGroup")},
 			// DynamoDB
 			"aws_dynamodb_global_table": {Tok: awsResource(dynamodbMod, "GlobalTable")},
 			"aws_dynamodb_table": {
@@ -703,6 +713,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_endpoint_service":                   {Tok: awsResource(ec2Mod, "VpcEndpointService")},
 			"aws_vpc_endpoint_service_allowed_principal": {Tok: awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple")},
 			"aws_vpc_endpoint_subnet_association":        {Tok: awsResource(ec2Mod, "VpcEndpointSubnetAssociation")},
+			"aws_vpc_ipv4_cidr_block_association":        {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
 			"aws_vpn_connection":                         {Tok: awsResource(ec2Mod, "VpnConnection")},
 			"aws_vpn_connection_route":                   {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
 			"aws_vpn_gateway":                            {Tok: awsResource(ec2Mod, "VpnGateway")},
@@ -826,6 +837,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_catalog_table":    {Tok: awsResource(glueMod, "CatalogTable")},
 			"aws_glue_classifier":       {Tok: awsResource(glueMod, "Classifier")},
 			"aws_glue_connection":       {Tok: awsResource(glueMod, "Connection")},
+			"aws_glue_crawler":          {Tok: awsResource(glueMod, "Crawler")},
 			"aws_glue_job":              {Tok: awsResource(glueMod, "Job")},
 			"aws_glue_trigger":          {Tok: awsResource(glueMod, "Trigger")},
 			// Glacier
@@ -1006,10 +1018,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_static_ip":            {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_static_ip_attachment": {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
 			// Elemental MediaStore
-			"aws_media_store_container": {Tok: awsResource(mediastoreMod, "Container")},
+			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
+			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
 			// MQ
 			"aws_mq_broker":        {Tok: awsResource(mqMod, "Broker")},
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
+			// Neptune
+			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
+			"aws_neptune_parameter_group":         {Tok: awsResource(neptuneMod, "ParameterGroup")},
+			"aws_neptune_subnet_group":            {Tok: awsResource(neptuneMod, "SubnetGroup")},
 			// OpsWorks
 			"aws_opsworks_application":      {Tok: awsResource(opsworksMod, "Application")},
 			"aws_opsworks_stack":            {Tok: awsResource(opsworksMod, "Stack")},
@@ -1145,6 +1162,7 @@ func Provider() tfbridge.ProviderInfo {
 					"website": {Name: "website", MaxItemsOne: boolRef(true)},
 				},
 			},
+			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
 			"aws_s3_bucket_notification": {Tok: awsResource(s3Mod, "BucketNotification")},
 			"aws_s3_bucket_object": {
@@ -1268,11 +1286,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},
 			// CloudFormation
-			"aws_cloudformation_stack": {Tok: awsDataSource(cloudformationMod, "getStack")},
+			"aws_cloudformation_stack":  {Tok: awsDataSource(cloudformationMod, "getStack")},
+			"aws_cloudformation_export": {Tok: awsDataSource(cloudformationMod, "getExport")},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
 			"aws_cloudwatch_log_group": {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			// CodeCommit
+			"aws_codecommit_repository": {Tok: awsDataSource(codecommitMod, "getRepository")},
 			// Cognito
 			"aws_cognito_user_pools": {Tok: awsDataSource(cognitoMod, "getUserPools")},
 			// DynamoDB
@@ -1284,21 +1305,29 @@ func Provider() tfbridge.ProviderInfo {
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
 				},
 			},
+			// DX
+			"aws_dx_gateway": {Tok: awsDataSource(dxMod, "getGateway")},
 			// EC2
 			"aws_instance":               {Tok: awsDataSource(ec2Mod, "getInstance")},
 			"aws_instances":              {Tok: awsDataSource(ec2Mod, "getInstances")},
 			"aws_internet_gateway":       {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
+			"aws_launch_configuration":   {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
 			"aws_nat_gateway":            {Tok: awsDataSource(ec2Mod, "getNatGateway")},
+			"aws_network_acls":           {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
 			"aws_network_interface":      {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
 			"aws_route":                  {Tok: awsDataSource(ec2Mod, "getRoute")},
 			"aws_route_table":            {Tok: awsDataSource(ec2Mod, "getRouteTable")},
+			"aws_route_tables":           {Tok: awsDataSource(ec2Mod, "getRouteTables")},
 			"aws_security_group":         {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
+			"aws_security_groups":        {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
 			"aws_subnet":                 {Tok: awsDataSource(ec2Mod, "getSubnet")},
 			"aws_subnet_ids":             {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
 			"aws_vpc":                    {Tok: awsDataSource(ec2Mod, "getVpc")},
+			"aws_vpc_dhcp_options":       {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},
 			"aws_vpc_endpoint":           {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
 			"aws_vpc_endpoint_service":   {Tok: awsDataSource(ec2Mod, "getVpcEndpointService")},
 			"aws_vpc_peering_connection": {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
+			"aws_vpcs":                   {Tok: awsDataSource(ec2Mod, "getVpcs")},
 			"aws_vpn_gateway":            {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
 			// Elastic Block Storage
 			"aws_ebs_snapshot":     {Tok: awsDataSource(ebsMod, "getSnapshot")},
@@ -1377,6 +1406,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},
 			"aws_kms_key":        {Tok: awsDataSource(kmsMod, "getKey")},
 			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
+			// Pricing
+			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
 			"aws_rds_cluster": {Tok: awsDataSource(rdsMod, "getCluster")},
 			"aws_db_instance": {Tok: awsDataSource(rdsMod, "getInstance")},

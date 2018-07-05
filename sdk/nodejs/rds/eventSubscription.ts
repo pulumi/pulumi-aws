@@ -26,7 +26,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
+     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html or run `aws rds describe-event-categories`.
      */
     public readonly eventCategories: pulumi.Output<string[] | undefined>;
     /**
@@ -46,7 +46,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly sourceIds: pulumi.Output<string[] | undefined>;
     /**
-     * The type of source that will be generating the events.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
      */
     public readonly sourceType: pulumi.Output<string | undefined>;
     /**
@@ -107,7 +107,7 @@ export interface EventSubscriptionState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
+     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html or run `aws rds describe-event-categories`.
      */
     readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -127,7 +127,7 @@ export interface EventSubscriptionState {
      */
     readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
      */
     readonly sourceType?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface EventSubscriptionArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide//USER_Events.html
+     * A list of event categories for a SourceType that you want to subscribe to. See http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html or run `aws rds describe-event-categories`.
      */
     readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -165,7 +165,7 @@ export interface EventSubscriptionArgs {
      */
     readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
      */
     readonly sourceType?: pulumi.Input<string>;
     /**

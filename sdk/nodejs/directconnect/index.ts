@@ -4,4 +4,13 @@
 // Export members:
 export * from "./connection";
 export * from "./connectionAssociation";
+export * from "./gateway";
+export * from "./gatewayAssociation";
+export * from "./getGateway";
+export * from "./hostedPrivateVirtualInterface";
+export * from "./hostedPrivateVirtualInterfaceAccepter";
+export * from "./hostedPublicVirtualInterface";
+export * from "./hostedPublicVirtualInterfaceAccepter";
 export * from "./linkAggregationGroup";
+export * from "./privateVirtualInterface";
+export * from "./publicVirtualInterface";

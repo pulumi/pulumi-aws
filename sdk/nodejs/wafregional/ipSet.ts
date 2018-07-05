@@ -24,7 +24,7 @@ export class IpSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+     * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
     public readonly ipSetDescriptors: pulumi.Output<{ type: string, value: string }[] | undefined>;
     /**
@@ -66,7 +66,7 @@ export interface IpSetState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+     * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
     readonly ipSetDescriptors?: pulumi.Input<{ type: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
     /**
@@ -80,7 +80,7 @@ export interface IpSetState {
  */
 export interface IpSetArgs {
     /**
-     * One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+     * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
     readonly ipSetDescriptors?: pulumi.Input<{ type: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
     /**

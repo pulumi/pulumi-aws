@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from container import *
+from container_policy import *

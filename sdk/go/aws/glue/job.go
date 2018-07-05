@@ -127,6 +127,7 @@ func (r *Job) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The ARN of the IAM role associated with this job.
 func (r *Job) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
@@ -154,6 +155,7 @@ type JobState struct {
 	MaxRetries interface{}
 	// The name of the job command. Defaults to `glueetl`
 	Name interface{}
+	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}
@@ -177,6 +179,7 @@ type JobArgs struct {
 	MaxRetries interface{}
 	// The name of the job command. Defaults to `glueetl`
 	Name interface{}
+	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}

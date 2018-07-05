@@ -23,7 +23,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
      */
     public readonly batchSize: pulumi.Output<number | undefined>;
     /**
@@ -119,7 +119,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
  */
 export interface EventSourceMappingState {
     /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
      */
     readonly batchSize?: pulumi.Input<number>;
     /**
@@ -169,7 +169,7 @@ export interface EventSourceMappingState {
  */
 export interface EventSourceMappingArgs {
     /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
      */
     readonly batchSize?: pulumi.Input<number>;
     /**

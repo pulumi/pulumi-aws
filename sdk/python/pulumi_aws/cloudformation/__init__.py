@@ -4,4 +4,5 @@
 
 # Export this package's modules as members:
 from stack import *
+from get_export import *
 from get_stack import *

@@ -11,7 +11,7 @@ import (
 // Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
 // 
 // For information about Lambda and how to use it, see [What is AWS Lambda?][1]
-// For information about function aliases, see [CreateAlias][2] in the API docs.
+// For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
 type Alias struct {
 	s *pulumi.ResourceState
 }
@@ -31,11 +31,13 @@ func NewAlias(ctx *pulumi.Context,
 		inputs["functionName"] = nil
 		inputs["functionVersion"] = nil
 		inputs["name"] = nil
+		inputs["routingConfig"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["functionName"] = args.FunctionName
 		inputs["functionVersion"] = args.FunctionVersion
 		inputs["name"] = args.Name
+		inputs["routingConfig"] = args.RoutingConfig
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:lambda/alias:Alias", name, true, inputs, opts...)
@@ -56,6 +58,7 @@ func GetAlias(ctx *pulumi.Context,
 		inputs["functionName"] = state.FunctionName
 		inputs["functionVersion"] = state.FunctionVersion
 		inputs["name"] = state.Name
+		inputs["routingConfig"] = state.RoutingConfig
 	}
 	s, err := ctx.ReadResource("aws:lambda/alias:Alias", name, id, inputs, opts...)
 	if err != nil {
@@ -99,6 +102,11 @@ func (r *Alias) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The Lambda alias' route configuration settings. Fields documented below
+func (r *Alias) RoutingConfig() *pulumi.Output {
+	return r.s.State["routingConfig"]
+}
+
 // Input properties used for looking up and filtering Alias resources.
 type AliasState struct {
 	// The Amazon Resource Name (ARN) identifying your Lambda function alias.
@@ -111,6 +119,8 @@ type AliasState struct {
 	FunctionVersion interface{}
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name interface{}
+	// The Lambda alias' route configuration settings. Fields documented below
+	RoutingConfig interface{}
 }
 
 // The set of arguments for constructing a Alias resource.
@@ -123,4 +133,6 @@ type AliasArgs struct {
 	FunctionVersion interface{}
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name interface{}
+	// The Lambda alias' route configuration settings. Fields documented below
+	RoutingConfig interface{}
 }

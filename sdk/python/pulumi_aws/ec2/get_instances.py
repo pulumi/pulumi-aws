@@ -38,7 +38,7 @@ class GetInstancesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_instances(filters=None, instance_tags=None):
+def get_instances(filters=None, instance_state_names=None, instance_tags=None):
     """
     Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
     e.g. to allow easier migration from another management solution
@@ -56,6 +56,7 @@ def get_instances(filters=None, instance_tags=None):
     __args__ = dict()
 
     __args__['filters'] = filters
+    __args__['instanceStateNames'] = instance_state_names
     __args__['instanceTags'] = instance_tags
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__)
 

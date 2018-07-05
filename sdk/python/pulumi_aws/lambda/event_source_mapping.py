@@ -27,7 +27,7 @@ class EventSourceMapping(pulumi.CustomResource):
             raise TypeError('Expected property batch_size to be a int')
         __self__.batch_size = batch_size
         """
-        The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100`.
+        The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         """
         __props__['batchSize'] = batch_size
 

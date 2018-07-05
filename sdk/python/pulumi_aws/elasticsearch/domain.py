@@ -30,6 +30,9 @@ class Domain(pulumi.CustomResource):
         __self__.advanced_options = advanced_options
         """
         Key-value string pairs to specify advanced configuration options.
+        Note that the values for these configuration options must be strings (wrapped in quotes) or they
+        may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+        domain on every apply.
         """
         __props__['advancedOptions'] = advanced_options
 

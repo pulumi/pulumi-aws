@@ -68,6 +68,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow: pulumi.Output<string>;
     /**
+     * The identifiers of all the nodes that are part of this replication group.
+     */
+    public /*out*/ readonly memberClusters: pulumi.Output<string[]>;
+    /**
      * The compute and memory capacity of the nodes in the node group.
      */
     public readonly nodeType: pulumi.Output<string>;
@@ -168,6 +172,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            inputs["memberClusters"] = state ? state.memberClusters : undefined;
             inputs["nodeType"] = state ? state.nodeType : undefined;
             inputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
             inputs["numberCacheClusters"] = state ? state.numberCacheClusters : undefined;
@@ -220,6 +225,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             inputs["configurationEndpointAddress"] = undefined /*out*/;
+            inputs["memberClusters"] = undefined /*out*/;
             inputs["primaryEndpointAddress"] = undefined /*out*/;
         }
         super("aws:elasticache/replicationGroup:ReplicationGroup", name, inputs, opts);
@@ -276,6 +282,10 @@ export interface ReplicationGroupState {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */
     readonly maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The identifiers of all the nodes that are part of this replication group.
+     */
+    readonly memberClusters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The compute and memory capacity of the nodes in the node group.
      */
