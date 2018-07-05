@@ -315,11 +315,13 @@ function findDependency(root: Package, name: string) {
         for (var child of root.children) {
             let childName = child.name;
             // Note: `read-package-tree` returns incorrect `.name` properties for packages in an orgnaization - like
-            // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead.
-            // Match any name that ends with something that looks like `@foo/bar`.
-            const match = /\@[^\/]*\/[^\/]*$/.exec(child.path);
-            if (match) {
-                childName = match[0];
+            // `@types/express` or `@protobufjs/path`.  Compute the correct name from the `path` property instead. Match
+            // any name that ends with something that looks like `@foo/bar`, such as `node_modules/@foo/bar` or
+            // `node_modules/baz/node_modules/@foo/bar.
+            const childFolderName = filepath.basename(child.path);
+            const parentFolderName = filepath.basename(filepath.dirname(child.path));
+            if (parentFolderName[0] == "@") {
+                childName = filepath.join(parentFolderName, childFolderName);
             }
             if (childName === name) {
                 return child;
