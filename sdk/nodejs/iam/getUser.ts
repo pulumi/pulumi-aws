@@ -40,4 +40,8 @@ export interface GetUserResult {
      * The unique ID assigned by AWS for this user.
      */
     readonly userId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

@@ -34,6 +34,7 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 		Tags: outputs["tags"],
 		VolumeId: outputs["volumeId"],
 		VolumeSize: outputs["volumeSize"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -78,4 +79,6 @@ type GetSnapshotResult struct {
 	VolumeId interface{}
 	// The size of the drive in GiBs.
 	VolumeSize interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

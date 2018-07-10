@@ -47,6 +47,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		S3KeyPrefix: outputs["s3KeyPrefix"],
 		VpcId: outputs["vpcId"],
 		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -114,4 +115,6 @@ type GetClusterResult struct {
 	VpcId interface{}
 	// The VPC security group Ids associated with the cluster
 	VpcSecurityGroupIds interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

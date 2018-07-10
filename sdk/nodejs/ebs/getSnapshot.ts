@@ -95,4 +95,8 @@ export interface GetSnapshotResult {
      * The size of the drive in GiBs.
      */
     readonly volumeSize: number;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

@@ -24,6 +24,7 @@ func LookupMountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMount
 		NetworkInterfaceId: outputs["networkInterfaceId"],
 		SecurityGroups: outputs["securityGroups"],
 		SubnetId: outputs["subnetId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -47,4 +48,6 @@ type GetMountTargetResult struct {
 	SecurityGroups interface{}
 	// ID of the mount target's subnet.
 	SubnetId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

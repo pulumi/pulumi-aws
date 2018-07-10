@@ -19,4 +19,8 @@ export interface GetEndpointResult {
      * The endpoint. The format of the endpoint is as follows: `IDENTIFIER.iot.REGION.amazonaws.com`.
      */
     readonly endpointAddress: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

@@ -47,4 +47,8 @@ export interface GetClusterResult {
      * The status of the ECS Cluster
      */
     readonly status: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

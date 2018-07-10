@@ -96,6 +96,9 @@ func (r *Domain) AccessPolicies() *pulumi.StringOutput {
 }
 
 // Key-value string pairs to specify advanced configuration options.
+// Note that the values for these configuration options must be strings (wrapped in quotes) or they
+// may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+// domain on every apply.
 func (r *Domain) AdvancedOptions() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["advancedOptions"])
 }
@@ -172,6 +175,9 @@ type DomainState struct {
 	// IAM policy document specifying the access policies for the domain
 	AccessPolicies interface{}
 	// Key-value string pairs to specify advanced configuration options.
+	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
+	// may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+	// domain on every apply.
 	AdvancedOptions interface{}
 	// Amazon Resource Name (ARN) of the domain.
 	Arn interface{}
@@ -208,6 +214,9 @@ type DomainArgs struct {
 	// IAM policy document specifying the access policies for the domain
 	AccessPolicies interface{}
 	// Key-value string pairs to specify advanced configuration options.
+	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
+	// may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+	// domain on every apply.
 	AdvancedOptions interface{}
 	// Cluster configuration of the domain, see below.
 	ClusterConfig interface{}

@@ -19,4 +19,8 @@ export interface GetBillingServiceAccountResult {
      * The ARN of the AWS billing service account.
      */
     readonly arn: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

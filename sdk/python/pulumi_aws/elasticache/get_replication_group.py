@@ -9,7 +9,7 @@ class GetReplicationGroupResult(object):
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, replication_group_description=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, replication_group_description=None, snapshot_retention_limit=None, snapshot_window=None, id=None):
         if auth_token_enabled and not isinstance(auth_token_enabled, bool):
             raise TypeError('Expected argument auth_token_enabled to be a bool')
         __self__.auth_token_enabled = auth_token_enabled
@@ -27,6 +27,12 @@ class GetReplicationGroupResult(object):
         __self__.configuration_endpoint_address = configuration_endpoint_address
         """
         The configuration endpoint address to allow host discovery.
+        """
+        if member_clusters and not isinstance(member_clusters, list):
+            raise TypeError('Expected argument member_clusters to be a list')
+        __self__.member_clusters = member_clusters
+        """
+        The identifiers of all the nodes that are part of this replication group.
         """
         if node_type and not isinstance(node_type, basestring):
             raise TypeError('Expected argument node_type to be a basestring')
@@ -70,6 +76,12 @@ class GetReplicationGroupResult(object):
         """
         The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_replication_group(replication_group_id=None):
     """
@@ -84,10 +96,12 @@ def get_replication_group(replication_group_id=None):
         auth_token_enabled=__ret__.get('authTokenEnabled'),
         automatic_failover_enabled=__ret__.get('automaticFailoverEnabled'),
         configuration_endpoint_address=__ret__.get('configurationEndpointAddress'),
+        member_clusters=__ret__.get('memberClusters'),
         node_type=__ret__.get('nodeType'),
         number_cache_clusters=__ret__.get('numberCacheClusters'),
         port=__ret__.get('port'),
         primary_endpoint_address=__ret__.get('primaryEndpointAddress'),
         replication_group_description=__ret__.get('replicationGroupDescription'),
         snapshot_retention_limit=__ret__.get('snapshotRetentionLimit'),
-        snapshot_window=__ret__.get('snapshotWindow'))
+        snapshot_window=__ret__.get('snapshotWindow'),
+        id=__ret__.get('id'))

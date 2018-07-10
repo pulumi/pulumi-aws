@@ -49,24 +49,3 @@ let lambda = new aws.serverless.Function(
     });
   },
 );
-
-// Validate that 'require'd packages are captured correctly.
-function getContentType() {
-  let mime = require('mime-types');
-  return mime.contentType(".js");
-}
-const testFunc = new aws.serverless.Function("f", {
-  policies: [aws.iam.AWSLambdaFullAccess],
-  includePaths: ['./Pulumi.yaml'],
-}, async (ev, ctx, cb) => {
-  var aws = await import('aws-sdk');
-  var express = await import('express');
-  var os = require('os');
-  // TODO[pulumi/pulumi#463] Its reasonable to expect that `./other` would work here, but it currently does not.  For
-  // now, validate that the approach that does currently work will serialize the dependencies correctly.
-  var answer = other.answer;
-  console.log(answer);
-  getContentType();
-});
-
-exports.functionARN = testFunc.lambda.arn;

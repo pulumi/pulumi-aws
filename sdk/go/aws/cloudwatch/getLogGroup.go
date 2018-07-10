@@ -20,6 +20,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupRes
 	return &GetLogGroupResult{
 		Arn: outputs["arn"],
 		CreationTime: outputs["creationTime"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -35,4 +36,6 @@ type GetLogGroupResult struct {
 	Arn interface{}
 	// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	CreationTime interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

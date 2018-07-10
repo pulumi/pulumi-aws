@@ -23,6 +23,7 @@ func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, erro
 		Arn: outputs["arn"],
 		TargetKeyArn: outputs["targetKeyArn"],
 		TargetKeyId: outputs["targetKeyId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -40,4 +41,6 @@ type GetAliasResult struct {
 	TargetKeyArn interface{}
 	// Key identifier pointed to by the alias.
 	TargetKeyId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

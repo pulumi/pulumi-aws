@@ -118,7 +118,7 @@ func (r *Table) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// Define an attribute (can be lists), has two properties:
+// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
 func (r *Table) Attributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["attributes"])
 }
@@ -210,7 +210,7 @@ func (r *Table) WriteCapacity() *pulumi.IntOutput {
 type TableState struct {
 	// The arn of the table
 	Arn interface{}
-	// Define an attribute (can be lists), has two properties:
+	// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
 	Attributes interface{}
 	// Describe a GSO for the table;
 	// subject to the normal limits on the number of GSIs, projected
@@ -254,7 +254,7 @@ type TableState struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// Define an attribute (can be lists), has two properties:
+	// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
 	Attributes interface{}
 	// Describe a GSO for the table;
 	// subject to the normal limits on the number of GSIs, projected

@@ -21,6 +21,7 @@ export function getInstances(args?: GetInstancesArgs): Promise<GetInstancesResul
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
         "filters": args.filters,
+        "instanceStateNames": args.instanceStateNames,
         "instanceTags": args.instanceTags,
     });
 }
@@ -35,6 +36,10 @@ export interface GetInstancesArgs {
      * [describe-instances in the AWS CLI reference][1].
      */
     readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    /**
+     * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     */
+    readonly instanceStateNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags, each pair of which must
      * exactly match a pair on desired instances.
@@ -59,4 +64,8 @@ export interface GetInstancesResult {
      * Public IP addresses of instances found through the filter
      */
     readonly publicIps: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

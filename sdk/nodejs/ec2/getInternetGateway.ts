@@ -41,4 +41,8 @@ export interface GetInternetGatewayResult {
     readonly attachments: { state: string, vpcId: string }[];
     readonly internetGatewayId: string;
     readonly tags: {[key: string]: any};
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

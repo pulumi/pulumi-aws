@@ -9,12 +9,18 @@ class GetRestApiResult(object):
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, root_resource_id=None):
+    def __init__(__self__, root_resource_id=None, id=None):
         if root_resource_id and not isinstance(root_resource_id, basestring):
             raise TypeError('Expected argument root_resource_id to be a basestring')
         __self__.root_resource_id = root_resource_id
         """
         Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_rest_api(name=None):
@@ -30,4 +36,5 @@ def get_rest_api(name=None):
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__)
 
     return GetRestApiResult(
-        root_resource_id=__ret__.get('rootResourceId'))
+        root_resource_id=__ret__.get('rootResourceId'),
+        id=__ret__.get('id'))

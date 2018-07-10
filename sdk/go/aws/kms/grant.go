@@ -115,7 +115,7 @@ func (r *Grant) GranteePrincipal() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["granteePrincipal"])
 }
 
-// The unique identifier for the customer master key (CMK) that the grant applies to.
+// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 func (r *Grant) KeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyId"])
 }
@@ -152,7 +152,7 @@ type GrantState struct {
 	GrantToken interface{}
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, terraform's state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal interface{}
-	// The unique identifier for the customer master key (CMK) that the grant applies to.
+	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId interface{}
 	// A friendly name for identifying the grant.
 	Name interface{}
@@ -172,7 +172,7 @@ type GrantArgs struct {
 	GrantCreationTokens interface{}
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, terraform's state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal interface{}
-	// The unique identifier for the customer master key (CMK) that the grant applies to.
+	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId interface{}
 	// A friendly name for identifying the grant.
 	Name interface{}

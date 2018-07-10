@@ -9,7 +9,7 @@ class GetInstanceResult(object):
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, vpc_security_group_ids=None, id=None):
         if ami and not isinstance(ami, basestring):
             raise TypeError('Expected argument ami to be a basestring')
         __self__.ami = ami
@@ -181,6 +181,12 @@ class GetInstanceResult(object):
         """
         The associated security groups in a non-default VPC.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_instance(filters=None, get_password_data=None, instance_id=None, instance_tags=None, tags=None):
     """
@@ -225,4 +231,5 @@ def get_instance(filters=None, get_password_data=None, instance_id=None, instanc
         tags=__ret__.get('tags'),
         tenancy=__ret__.get('tenancy'),
         user_data=__ret__.get('userData'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
+        id=__ret__.get('id'))

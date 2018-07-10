@@ -9,7 +9,7 @@ class GetScriptResult(object):
     """
     A collection of values returned by getScript.
     """
-    def __init__(__self__, python_script=None, scala_code=None):
+    def __init__(__self__, python_script=None, scala_code=None, id=None):
         if python_script and not isinstance(python_script, basestring):
             raise TypeError('Expected argument python_script to be a basestring')
         __self__.python_script = python_script
@@ -21,6 +21,12 @@ class GetScriptResult(object):
         __self__.scala_code = scala_code
         """
         The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_script(dag_edges=None, dag_nodes=None, language=None):
@@ -36,4 +42,5 @@ def get_script(dag_edges=None, dag_nodes=None, language=None):
 
     return GetScriptResult(
         python_script=__ret__.get('pythonScript'),
-        scala_code=__ret__.get('scalaCode'))
+        scala_code=__ret__.get('scalaCode'),
+        id=__ret__.get('id'))

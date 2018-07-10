@@ -9,7 +9,7 @@ class GetMountTargetResult(object):
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, dns_name=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None):
+    def __init__(__self__, dns_name=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None, id=None):
         if dns_name and not isinstance(dns_name, basestring):
             raise TypeError('Expected argument dns_name to be a basestring')
         __self__.dns_name = dns_name
@@ -46,6 +46,12 @@ class GetMountTargetResult(object):
         """
         ID of the mount target's subnet.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_mount_target(mount_target_id=None):
     """
@@ -62,4 +68,5 @@ def get_mount_target(mount_target_id=None):
         ip_address=__ret__.get('ipAddress'),
         network_interface_id=__ret__.get('networkInterfaceId'),
         security_groups=__ret__.get('securityGroups'),
-        subnet_id=__ret__.get('subnetId'))
+        subnet_id=__ret__.get('subnetId'),
+        id=__ret__.get('id'))

@@ -24,7 +24,7 @@ class IpSet(pulumi.CustomResource):
             raise TypeError('Expected property ip_set_descriptors to be a list')
         __self__.ip_set_descriptors = ip_set_descriptors
         """
-        One or more pairs specifying the IP address type (IPV4 or IPV5) and the IP address range (in CIDR notation) from which web requests originate.
+        One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
         """
         __props__['ipSetDescriptors'] = ip_set_descriptors
 
@@ -36,6 +36,11 @@ class IpSet(pulumi.CustomResource):
         """
         __props__['name'] = name
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the WAF IPSet.
+        """
+
         super(IpSet, __self__).__init__(
             'aws:wafregional/ipSet:IpSet',
             __name__,
@@ -43,6 +48,8 @@ class IpSet(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'ipSetDescriptors' in outs:
             self.ip_set_descriptors = outs['ipSetDescriptors']
         if 'name' in outs:

@@ -6,6 +6,7 @@ export * from "./catalogDatabase";
 export * from "./catalogTable";
 export * from "./classifier";
 export * from "./connection";
+export * from "./crawler";
 export * from "./getScript";
 export * from "./job";
 export * from "./trigger";

@@ -21,4 +21,8 @@ export interface GetRulesPackagesResult {
      * A list of the AWS Inspector Rules Packages arns available in the AWS region.
      */
     readonly arns: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

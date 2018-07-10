@@ -47,4 +47,8 @@ export interface GetInvocationResult {
      * This field is set only if result is a map of primitive types.
      */
     readonly resultMap: {[key: string]: string};
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

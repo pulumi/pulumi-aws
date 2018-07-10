@@ -52,6 +52,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		Tenancy: outputs["tenancy"],
 		UserData: outputs["userData"],
 		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -134,4 +135,6 @@ type GetInstanceResult struct {
 	UserData interface{}
 	// The associated security groups in a non-default VPC.
 	VpcSecurityGroupIds interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -27,6 +27,7 @@ func LookupPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs) (*GetPrefixL
 	return &GetPrefixListResult{
 		CidrBlocks: outputs["cidrBlocks"],
 		Name: outputs["name"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -45,4 +46,6 @@ type GetPrefixListResult struct {
 	CidrBlocks interface{}
 	// The name of the selected prefix list.
 	Name interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

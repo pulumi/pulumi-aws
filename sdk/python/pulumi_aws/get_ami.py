@@ -9,7 +9,7 @@ class GetAmiResult(object):
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, hypervisor=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, name=None, owner_id=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, hypervisor=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, name=None, owner_id=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None, id=None):
         if architecture and not isinstance(architecture, basestring):
             raise TypeError('Expected argument architecture to be a basestring')
         __self__.architecture = architecture
@@ -181,6 +181,12 @@ class GetAmiResult(object):
         The type of virtualization of the AMI (ie: `hvm` or
         `paravirtual`).
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=None, owners=None, tags=None):
     """
@@ -221,4 +227,5 @@ def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=No
         state=__ret__.get('state'),
         state_reason=__ret__.get('stateReason'),
         tags=__ret__.get('tags'),
-        virtualization_type=__ret__.get('virtualizationType'))
+        virtualization_type=__ret__.get('virtualizationType'),
+        id=__ret__.get('id'))

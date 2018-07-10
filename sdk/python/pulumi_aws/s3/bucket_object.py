@@ -99,7 +99,7 @@ class BucketObject(pulumi.CustomResource):
         __self__.etag = etag
         """
         Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-        This attribute is not compatible with `kms_key_id`.
+        This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
         """
         __props__['etag'] = etag
 
@@ -130,8 +130,8 @@ class BucketObject(pulumi.CustomResource):
         """
         __props__['serverSideEncryption'] = server_side_encryption
 
-        if source and not isinstance(source, basestring):
-            raise TypeError('Expected property source to be a basestring')
+        if source and not isinstance(source, pulumi.Asset):
+            raise TypeError('Expected property source to be a pulumi.Asset')
         __self__.source = source
         """
         The path to a file that will be read and uploaded as raw bytes for the object content.

@@ -35,6 +35,7 @@ func LookupTable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, erro
 		Tags: outputs["tags"],
 		Ttl: outputs["ttl"],
 		WriteCapacity: outputs["writeCapacity"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -63,4 +64,6 @@ type GetTableResult struct {
 	Tags interface{}
 	Ttl interface{}
 	WriteCapacity interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

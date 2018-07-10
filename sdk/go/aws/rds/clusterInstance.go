@@ -181,7 +181,10 @@ func (r *ClusterInstance) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
-// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: aurora, aurora-mysql, aurora-postgresql.
+// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+// For information on the difference between the available Aurora MySQL engines
+// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+// in the Amazon RDS User Guide.
 func (r *ClusterInstance) Engine() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engine"])
 }
@@ -311,7 +314,10 @@ type ClusterInstanceState struct {
 	DbiResourceId interface{}
 	// The DNS address for this instance. May not be writable
 	Endpoint interface{}
-	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: aurora, aurora-mysql, aurora-postgresql.
+	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+	// For information on the difference between the available Aurora MySQL engines
+	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+	// in the Amazon RDS User Guide.
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
@@ -385,7 +391,10 @@ type ClusterInstanceArgs struct {
 	DbParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
 	DbSubnetGroupName interface{}
-	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: aurora, aurora-mysql, aurora-postgresql.
+	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+	// For information on the difference between the available Aurora MySQL engines
+	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+	// in the Amazon RDS User Guide.
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}

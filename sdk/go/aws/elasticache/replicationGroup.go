@@ -81,6 +81,7 @@ func NewReplicationGroup(ctx *pulumi.Context,
 		inputs["transitEncryptionEnabled"] = args.TransitEncryptionEnabled
 	}
 	inputs["configurationEndpointAddress"] = nil
+	inputs["memberClusters"] = nil
 	inputs["primaryEndpointAddress"] = nil
 	s, err := ctx.RegisterResource("aws:elasticache/replicationGroup:ReplicationGroup", name, true, inputs, opts...)
 	if err != nil {
@@ -106,6 +107,7 @@ func GetReplicationGroup(ctx *pulumi.Context,
 		inputs["engine"] = state.Engine
 		inputs["engineVersion"] = state.EngineVersion
 		inputs["maintenanceWindow"] = state.MaintenanceWindow
+		inputs["memberClusters"] = state.MemberClusters
 		inputs["nodeType"] = state.NodeType
 		inputs["notificationTopicArn"] = state.NotificationTopicArn
 		inputs["numberCacheClusters"] = state.NumberCacheClusters
@@ -196,6 +198,11 @@ func (r *ReplicationGroup) EngineVersion() *pulumi.StringOutput {
 // The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 func (r *ReplicationGroup) MaintenanceWindow() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["maintenanceWindow"])
+}
+
+// The identifiers of all the nodes that are part of this replication group.
+func (r *ReplicationGroup) MemberClusters() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["memberClusters"])
 }
 
 // The compute and memory capacity of the nodes in the node group.
@@ -318,6 +325,8 @@ type ReplicationGroupState struct {
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow interface{}
+	// The identifiers of all the nodes that are part of this replication group.
+	MemberClusters interface{}
 	// The compute and memory capacity of the nodes in the node group.
 	NodeType interface{}
 	// An Amazon Resource Name (ARN) of an

@@ -23,6 +23,7 @@ func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, e
 		Name: outputs["name"],
 		Path: outputs["path"],
 		Policy: outputs["policy"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -42,4 +43,6 @@ type GetPolicyResult struct {
 	Path interface{}
 	// The policy document of the policy.
 	Policy interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

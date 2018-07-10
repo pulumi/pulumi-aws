@@ -52,4 +52,8 @@ export interface GetServiceResult {
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

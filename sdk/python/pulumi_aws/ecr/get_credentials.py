@@ -9,7 +9,7 @@ class GetCredentialsResult(object):
     """
     A collection of values returned by getCredentials.
     """
-    def __init__(__self__, authorization_token=None, expires_at=None, proxy_endpoint=None):
+    def __init__(__self__, authorization_token=None, expires_at=None, proxy_endpoint=None, id=None):
         if authorization_token and not isinstance(authorization_token, basestring):
             raise TypeError('Expected argument authorization_token to be a basestring')
         __self__.authorization_token = authorization_token
@@ -19,6 +19,12 @@ class GetCredentialsResult(object):
         if proxy_endpoint and not isinstance(proxy_endpoint, basestring):
             raise TypeError('Expected argument proxy_endpoint to be a basestring')
         __self__.proxy_endpoint = proxy_endpoint
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_credentials(registry_id=None):
     __args__ = dict()
@@ -29,4 +35,5 @@ def get_credentials(registry_id=None):
     return GetCredentialsResult(
         authorization_token=__ret__.get('authorizationToken'),
         expires_at=__ret__.get('expiresAt'),
-        proxy_endpoint=__ret__.get('proxyEndpoint'))
+        proxy_endpoint=__ret__.get('proxyEndpoint'),
+        id=__ret__.get('id'))

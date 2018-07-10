@@ -34,6 +34,7 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 		SecurityGroups: outputs["securityGroups"],
 		SubnetIds: outputs["subnetIds"],
 		Users: outputs["users"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -62,4 +63,6 @@ type GetBrokerResult struct {
 	SecurityGroups interface{}
 	SubnetIds interface{}
 	Users interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

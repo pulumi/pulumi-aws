@@ -45,4 +45,8 @@ export interface GetSecretVersionResult {
      */
     readonly versionId: string;
     readonly versionStages: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

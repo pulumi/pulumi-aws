@@ -33,12 +33,14 @@ func NewDocument(ctx *pulumi.Context,
 		inputs["documentType"] = nil
 		inputs["name"] = nil
 		inputs["permissions"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["content"] = args.Content
 		inputs["documentFormat"] = args.DocumentFormat
 		inputs["documentType"] = args.DocumentType
 		inputs["name"] = args.Name
 		inputs["permissions"] = args.Permissions
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["createdDate"] = nil
@@ -82,6 +84,7 @@ func GetDocument(ctx *pulumi.Context,
 		inputs["platformTypes"] = state.PlatformTypes
 		inputs["schemaVersion"] = state.SchemaVersion
 		inputs["status"] = state.Status
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ssm/document:Document", name, id, inputs, opts...)
 	if err != nil {
@@ -184,6 +187,11 @@ func (r *Document) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// A mapping of tags to assign to the object.
+func (r *Document) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Document resources.
 type DocumentState struct {
 	Arn interface{}
@@ -219,6 +227,8 @@ type DocumentState struct {
 	SchemaVersion interface{}
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status interface{}
+	// A mapping of tags to assign to the object.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Document resource.
@@ -233,4 +243,6 @@ type DocumentArgs struct {
 	Name interface{}
 	// Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
 	Permissions interface{}
+	// A mapping of tags to assign to the object.
+	Tags interface{}
 }

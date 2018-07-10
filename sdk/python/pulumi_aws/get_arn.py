@@ -9,7 +9,7 @@ class GetArnResult(object):
     """
     A collection of values returned by getArn.
     """
-    def __init__(__self__, account=None, partition=None, region=None, resource=None, service=None):
+    def __init__(__self__, account=None, partition=None, region=None, resource=None, service=None, id=None):
         if account and not isinstance(account, basestring):
             raise TypeError('Expected argument account to be a basestring')
         __self__.account = account
@@ -42,6 +42,12 @@ class GetArnResult(object):
         """
         The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_arn(arn=None):
     """
@@ -57,4 +63,5 @@ def get_arn(arn=None):
         partition=__ret__.get('partition'),
         region=__ret__.get('region'),
         resource=__ret__.get('resource'),
-        service=__ret__.get('service'))
+        service=__ret__.get('service'),
+        id=__ret__.get('id'))

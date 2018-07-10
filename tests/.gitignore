@@ -1,0 +1,3 @@
+.pulumi/
+node_modules/
+bin/

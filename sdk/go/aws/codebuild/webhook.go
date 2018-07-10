@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a CodeBuild Webhook resource.
+// Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 type Webhook struct {
 	s *pulumi.ResourceState
 }
@@ -76,11 +76,12 @@ func (r *Webhook) PayloadUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["payloadUrl"])
 }
 
+// The name of the build project.
 func (r *Webhook) ProjectName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["projectName"])
 }
 
-// The secret token of the associated repository. Not returned for all source types.
+// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
 func (r *Webhook) Secret() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secret"])
 }
@@ -96,8 +97,9 @@ type WebhookState struct {
 	BranchFilter interface{}
 	// The CodeBuild endpoint where webhook events are sent.
 	PayloadUrl interface{}
+	// The name of the build project.
 	ProjectName interface{}
-	// The secret token of the associated repository. Not returned for all source types.
+	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
 	Secret interface{}
 	// The URL to the webhook.
 	Url interface{}
@@ -107,5 +109,6 @@ type WebhookState struct {
 type WebhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built.
 	BranchFilter interface{}
+	// The name of the build project.
 	ProjectName interface{}
 }

@@ -125,4 +125,8 @@ export interface GetSnapshotResult {
      * Specifies the ID of the VPC associated with the DB snapshot.
      */
     readonly vpcId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

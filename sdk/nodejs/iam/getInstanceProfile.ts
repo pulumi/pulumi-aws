@@ -53,4 +53,8 @@ export interface GetInstanceProfileResult {
      * The role name associated with this instance profile.
      */
     readonly roleName: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

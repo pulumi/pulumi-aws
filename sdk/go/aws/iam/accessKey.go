@@ -72,7 +72,7 @@ func (r *AccessKey) ID() *pulumi.IDOutput {
 
 // The encrypted secret, base64 encoded.
 // ~> **NOTE:** The encrypted secret may be decrypted using the command line,
-// for example: `terraform output secret | base64 --decode | keybase pgp decrypt`.
+// for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
 func (r *AccessKey) EncryptedSecret() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptedSecret"])
 }
@@ -118,7 +118,7 @@ func (r *AccessKey) User() *pulumi.StringOutput {
 type AccessKeyState struct {
 	// The encrypted secret, base64 encoded.
 	// ~> **NOTE:** The encrypted secret may be decrypted using the command line,
-	// for example: `terraform output secret | base64 --decode | keybase pgp decrypt`.
+	// for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
 	EncryptedSecret interface{}
 	// The fingerprint of the PGP key used to encrypt
 	// the secret

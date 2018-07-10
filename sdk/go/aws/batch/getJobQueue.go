@@ -25,6 +25,7 @@ func LookupJobQueue(ctx *pulumi.Context, args *GetJobQueueArgs) (*GetJobQueueRes
 		State: outputs["state"],
 		Status: outputs["status"],
 		StatusReason: outputs["statusReason"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -53,4 +54,6 @@ type GetJobQueueResult struct {
 	// A short, human-readable string to provide additional details about the current status
 	// of the job queue.
 	StatusReason interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

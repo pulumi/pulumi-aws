@@ -9,7 +9,7 @@ class GetParameterResult(object):
     """
     A collection of values returned by getParameter.
     """
-    def __init__(__self__, arn=None, type=None, value=None):
+    def __init__(__self__, arn=None, type=None, value=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -19,6 +19,12 @@ class GetParameterResult(object):
         if value and not isinstance(value, basestring):
             raise TypeError('Expected argument value to be a basestring')
         __self__.value = value
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_parameter(name=None, with_decryption=None):
     """
@@ -33,4 +39,5 @@ def get_parameter(name=None, with_decryption=None):
     return GetParameterResult(
         arn=__ret__.get('arn'),
         type=__ret__.get('type'),
-        value=__ret__.get('value'))
+        value=__ret__.get('value'),
+        id=__ret__.get('id'))

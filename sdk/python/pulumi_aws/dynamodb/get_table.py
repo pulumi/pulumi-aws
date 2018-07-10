@@ -9,7 +9,7 @@ class GetTableResult(object):
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -55,6 +55,12 @@ class GetTableResult(object):
         if write_capacity and not isinstance(write_capacity, int):
             raise TypeError('Expected argument write_capacity to be a int')
         __self__.write_capacity = write_capacity
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_table(name=None, server_side_encryption=None, tags=None):
     """
@@ -82,4 +88,5 @@ def get_table(name=None, server_side_encryption=None, tags=None):
         stream_view_type=__ret__.get('streamViewType'),
         tags=__ret__.get('tags'),
         ttl=__ret__.get('ttl'),
-        write_capacity=__ret__.get('writeCapacity'))
+        write_capacity=__ret__.get('writeCapacity'),
+        id=__ret__.get('id'))

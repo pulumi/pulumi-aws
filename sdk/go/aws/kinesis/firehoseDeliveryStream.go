@@ -94,7 +94,7 @@ func (r *FirehoseDeliveryStream) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
 func (r *FirehoseDeliveryStream) Destination() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destination"])
 }
@@ -140,6 +140,7 @@ func (r *FirehoseDeliveryStream) SplunkConfiguration() *pulumi.Output {
 	return r.s.State["splunkConfiguration"]
 }
 
+// Specifies the table version for the output data schema. Defaults to `LATEST`.
 func (r *FirehoseDeliveryStream) VersionId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["versionId"])
 }
@@ -148,7 +149,7 @@ func (r *FirehoseDeliveryStream) VersionId() *pulumi.StringOutput {
 type FirehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn interface{}
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
 	Destination interface{}
 	DestinationId interface{}
 	ElasticsearchConfiguration interface{}
@@ -167,6 +168,7 @@ type FirehoseDeliveryStreamState struct {
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}
+	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId interface{}
 }
 
@@ -174,7 +176,7 @@ type FirehoseDeliveryStreamState struct {
 type FirehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn interface{}
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, and `elasticsearch`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
 	Destination interface{}
 	DestinationId interface{}
 	ElasticsearchConfiguration interface{}
@@ -193,5 +195,6 @@ type FirehoseDeliveryStreamArgs struct {
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}
+	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId interface{}
 }

@@ -7,7 +7,11 @@ import pulumi.runtime
 
 class OptionGroup(pulumi.CustomResource):
     """
-    Provides an RDS DB option group resource.
+    Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
+    * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
+    * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
+    * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
+    * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
     """
     def __init__(__self__, __name__, __opts__=None, engine_name=None, major_engine_version=None, name=None, name_prefix=None, options=None, option_group_description=None, tags=None):
         """Create a OptionGroup resource with the given unique name, props, and options."""

@@ -30,6 +30,7 @@ func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) 
 		Path: outputs["path"],
 		RoleId: outputs["roleId"],
 		UniqueId: outputs["uniqueId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -55,4 +56,6 @@ type GetRoleResult struct {
 	RoleId interface{}
 	// The stable and unique string identifying the role.
 	UniqueId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

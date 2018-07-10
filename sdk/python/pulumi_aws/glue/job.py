@@ -91,6 +91,9 @@ class Job(pulumi.CustomResource):
         elif not isinstance(role_arn, basestring):
             raise TypeError('Expected property role_arn to be a basestring')
         __self__.role_arn = role_arn
+        """
+        The ARN of the IAM role associated with this job.
+        """
         __props__['roleArn'] = role_arn
 
         if timeout and not isinstance(timeout, int):

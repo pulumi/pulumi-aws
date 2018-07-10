@@ -22,6 +22,7 @@ func LookupParameter(ctx *pulumi.Context, args *GetParameterArgs) (*GetParameter
 		Arn: outputs["arn"],
 		Type: outputs["type"],
 		Value: outputs["value"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -38,4 +39,6 @@ type GetParameterResult struct {
 	Arn interface{}
 	Type interface{}
 	Value interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

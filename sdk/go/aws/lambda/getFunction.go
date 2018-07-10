@@ -38,6 +38,7 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 		TracingConfig: outputs["tracingConfig"],
 		Version: outputs["version"],
 		VpcConfig: outputs["vpcConfig"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -89,4 +90,6 @@ type GetFunctionResult struct {
 	Version interface{}
 	// VPC configuration associated with your Lambda function.
 	VpcConfig interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

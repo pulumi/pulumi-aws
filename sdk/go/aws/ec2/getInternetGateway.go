@@ -23,6 +23,7 @@ func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*
 		Attachments: outputs["attachments"],
 		InternetGatewayId: outputs["internetGatewayId"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -42,4 +43,6 @@ type GetInternetGatewayResult struct {
 	Attachments interface{}
 	InternetGatewayId interface{}
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

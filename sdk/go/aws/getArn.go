@@ -23,6 +23,7 @@ func LookupArn(ctx *pulumi.Context, args *GetArnArgs) (*GetArnResult, error) {
 		Region: outputs["region"],
 		Resource: outputs["resource"],
 		Service: outputs["service"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -46,4 +47,6 @@ type GetArnResult struct {
 	Resource interface{}
 	// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
 	Service interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

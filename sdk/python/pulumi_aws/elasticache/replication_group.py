@@ -249,6 +249,10 @@ class ReplicationGroup(pulumi.CustomResource):
         """
         The address of the replication group configuration endpoint when cluster mode is enabled.
         """
+        __self__.member_clusters = pulumi.runtime.UNKNOWN
+        """
+        The identifiers of all the nodes that are part of this replication group.
+        """
         __self__.primary_endpoint_address = pulumi.runtime.UNKNOWN
         """
         (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
@@ -283,6 +287,8 @@ class ReplicationGroup(pulumi.CustomResource):
             self.engine_version = outs['engineVersion']
         if 'maintenanceWindow' in outs:
             self.maintenance_window = outs['maintenanceWindow']
+        if 'memberClusters' in outs:
+            self.member_clusters = outs['memberClusters']
         if 'nodeType' in outs:
             self.node_type = outs['nodeType']
         if 'notificationTopicArn' in outs:

@@ -30,6 +30,7 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *GetCertificateAuthori
 		Status: outputs["status"],
 		Tags: outputs["tags"],
 		Type: outputs["type"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -68,4 +69,6 @@ type GetCertificateAuthorityResult struct {
 	Tags interface{}
 	// The type of the certificate authority.
 	Type interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

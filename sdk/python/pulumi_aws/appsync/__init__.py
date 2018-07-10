@@ -4,4 +4,4 @@
 
 # Export this package's modules as members:
 from data_source import *
-from graph_q_l_api import *
+from graph_ql_api import *
