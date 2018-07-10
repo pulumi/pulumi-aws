@@ -1,7 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@pulumi/aws";
-import * as other from "./other/index"
 
 let music = new aws.dynamodb.Table("music", {
   attributes: [
