@@ -221,10 +221,6 @@ async function computeCodePaths(
         pathSet.add(path);
     }
 
-    for (const path of pathSet) {
-        console.log("Path: " + path);
-    }
-
     // For each of the required paths, add the corresponding FileArchive or FileAsset to the AssetMap.
     for (const path of pathSet.values()) {
         // The Asset model does not support a consistent way to embed a file-or-directory into an `AssetArchive`, so
@@ -288,18 +284,8 @@ function allFoldersForPackages(includedPackages: Set<string>, excludedPackages: 
 
             const s = new Set<string>();
             for (const pkg of allPackages) {
-                if (pkg[0] == '.') {
-                    // Relative path, this won't work, so warn and move on.
-                    console.warn(`Could not include module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)
-                } if (pkg[0] == '/') {
-                    // Absolute path, this won't work, so warn and move on.
-                    console.warn(
-                        `Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`);
-                } else {
-                    addPackageAndDependenciesToSet(s, root, pkg);
-                }
+                addPackageAndDependenciesToSet(s, root, pkg);
             }
-
 
             resolve(s);
         });
