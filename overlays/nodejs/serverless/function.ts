@@ -284,18 +284,8 @@ function allFoldersForPackages(includedPackages: Set<string>, excludedPackages: 
 
             const s = new Set<string>();
             for (const pkg of allPackages) {
-                if (pkg[0] == '.') {
-                    // Relative path, this won't work, so warn and move on.
-                    console.warn(`Could not include module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)
-                } if (pkg[0] == '/') {
-                    // Absolute path, this won't work, so warn and move on.
-                    console.warn(
-                        `Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`);
-                } else {
-                    addPackageAndDependenciesToSet(s, root, pkg);
-                }
+                addPackageAndDependenciesToSet(s, root, pkg);
             }
-
 
             resolve(s);
         });
