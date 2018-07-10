@@ -88,10 +88,17 @@ export interface FunctionOptions {
      */
     includePaths?: string[];
     /**
-     * The packages relative to the program folder to include in the Lambda upload.  The version of the package
-     * installed in the program folder and it's dependencies will all be included. Default is `[]`.
+     * The packages relative to the program folder to include in the Lambda upload.  The version of
+     * the package installed in the program folder and it's dependencies will all be included.
+     * Default is `[]`.
      */
     includePackages?: string[];
+    /**
+     * The packages relative to the program folder to not in the Lambda upload. This can be used to
+     * override the default serialization logic that includes all packages referenced by
+     * project.json (except @pulumi packages).
+     */
+    excludePackages?: string[];
 }
 
 /**
@@ -154,8 +161,9 @@ export class Function extends pulumi.ComponentResource {
             exportName: handlerName,
         });
 
-        let codePaths = computeCodePaths(closure, serializedFileName, options.includePaths, options.includePackages);
-        
+        let codePaths = computeCodePaths(
+            closure, serializedFileName, options.includePaths, options.excludePackages);
+
         // Create the Lambda Function.
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive(codePaths),
@@ -172,10 +180,11 @@ export class Function extends pulumi.ComponentResource {
 
 // computeCodePaths calculates an AssetMap of files to include in the Lambda package.
 async function computeCodePaths(
-        closure: Promise<pulumi.runtime.SerializedFunction>, 
+        closure: Promise<pulumi.runtime.SerializedFunction>,
         serializedFileName: string,
-        extraIncludePaths?: string[], 
-        extraPackages?: string[]): Promise<pulumi.asset.AssetMap> {
+        extraIncludePaths?: string[],
+        extraIncludePackages?: string[],
+        extraExcludePackages?: string[]): Promise<pulumi.asset.AssetMap> {
 
     const serializedFunction = await closure;
 
@@ -185,23 +194,30 @@ async function computeCodePaths(
         [serializedFileName]: new pulumi.asset.StringAsset(serializedFunction.text),
     };
 
-    // Compute the set of required packages
-    const packages = removeBuiltins(serializedFunction.requiredPackages);
-    
-    // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided extraPackages so
-    // that users can force aws-sdk to be incldued (if they need a specific version).
-    packages.delete("aws-sdk")
-    
-    // Add user-defined extraPackages
-    for (const p of (extraPackages || [])) {
-        packages.add(p);
+    extraIncludePaths = extraIncludePaths || [];
+    extraIncludePackages = extraIncludePackages || [];
+    extraExcludePackages = extraExcludePackages || [];
+
+    const includedPackages = new Set<string>();
+    const excludedPackages = new Set<string>();
+
+    // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided
+    // extraIncludePackages so that users can force aws-sdk to be included (if they need a specific
+    // version).
+    excludedPackages.add("aws-sdk");
+    for (const p of extraExcludePackages) {
+        excludedPackages.add(p);
+    }
+
+    for (const p of extraIncludePackages) {
+        includedPackages.add(p);
     }
 
     // Find folders for all packages requested by the user
-    const pathSet = await allFoldersForPackages(".", [...packages]);
-    
-    // Add all paths explciitly requested by the user
-    for (const path of (extraIncludePaths || [])) {
+    const pathSet = await allFoldersForPackages(includedPackages, excludedPackages);
+
+    // Add all paths explicitly requested by the user
+    for (const path of extraIncludePaths) {
         pathSet.add(path);
     }
 
@@ -216,7 +232,7 @@ async function computeCodePaths(
             codePaths[path] = new pulumi.asset.FileAsset(path);
         }
     }
-    
+
     return codePaths;
 }
 
@@ -254,53 +270,60 @@ interface Package {
 
 // allFolders computes the set of package folders that are transitively required by the given list of package
 // dependencies rooted in a package at the provided path.
-function allFoldersForPackages(path: string, packages: string[]): Promise<Set<string>> {
+function allFoldersForPackages(includedPackages: Set<string>, excludedPackages: Set<string>): Promise<Set<string>> {
     return new Promise((resolve, reject) => {
-        readPackageTree(path, undefined, (err: any, root: Package) => {
+        readPackageTree(".", undefined, (err: any, root: Package) => {
             if (err) {
                 return reject(err);
             }
+
+            const allPackages = new Set<string>(includedPackages);
+            for (const depName of Object.keys(root.package.dependencies)) {
+                allPackages.add(depName);
+            }
+
             const s = new Set<string>();
-            for (var pkg of packages) {
+            for (const pkg of allPackages) {
                 if (pkg[0] == '.') {
-                    // Relative path, we can include the file itself, but we cannot deterministically find the
-                    // transitive dependencies, so the user may need to explicitly include those.  We use
-                    // `require.resolve` to get the resolved path to the file/folder in case a reference like `./foo` is
-                    // used to refer to `./foo.js`.
-                    try {
-                        const resolvedPath = resolveSync(pkg, { basedir: path });
-                        const relativePath = filepath.relative(path, resolvedPath);
-                        s.add(relativePath);
-                    } catch (err) {
-                        console.warn(`Could not find module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)    
-                    }
-                } else if (pkg[0] == '/') {
+                    // Relative path, this won't work, so warn and move on.
+                    console.warn(`Could not include module for relative path '${pkg}' in '${filepath.resolve(root.path)}'.`)
+                } if (pkg[0] == '/') {
                     // Absolute path, this won't work, so warn and move on.
                     console.warn(`Could not include module for absolute path '${pkg}' in '${filepath.resolve(root.path)}'.`)
                 } else {
-                    // Neither relative nor aboslute path, so expected to be a name that resovles to `node_modules` (or
-                    // to a builtin, but those were removed).  We can add the package and all its transitive
-                    // dependencies.
                     addPackageAndDependenciesToSet(s, root, pkg);
                 }
             }
+
+
             resolve(s);
         });
     });
-}
 
-// addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
-// into the set.  It will recurse into all dependencies of the package.
-function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: string) {
-    var child = findDependency(root, pkg);
-    if (!child) {
-        console.warn(`Could not include required dependency '${pkg}' in '${filepath.resolve(root.path)}'.`)
-        return;
-    }
-    s.add(child.path);
-    if (child.package.dependencies) {
-        for (let dep of Object.keys(child.package.dependencies) ) {
-            addPackageAndDependenciesToSet(s, child, dep);
+    // addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
+    // into the set.  It will recurse into all dependencies of the package.
+    function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: string) {
+        // Don't process this packages if it was in the set the user wants to exclude.
+
+        // Also, exclude it if it's an @pulumi package.  These packages are intended for deployment
+        // time only and will only bloat up the serialized lambda package.
+        if (excludedPackages.has(pkg) ||
+            pkg.startsWith("@pulumi")) {
+
+            return;
+        }
+
+        var child = findDependency(root, pkg);
+        if (!child) {
+            console.warn(`Could not include required dependency '${pkg}' in '${filepath.resolve(root.path)}'.`)
+            return;
+        }
+
+        s.add(child.path);
+        if (child.package.dependencies) {
+            for (let dep of Object.keys(child.package.dependencies) ) {
+                addPackageAndDependenciesToSet(s, child, dep);
+            }
         }
     }
 }
@@ -324,19 +347,4 @@ function findDependency(root: Package, name: string) {
             }
         }
     }
-}
-
-// removeBuiltins removes any builtin packages from the set of package names, as these will be available at runtime
-// ambiently. Currently this is computed based on the known built-in packages in the deployment context, which may be
-// slightly different than that target environment, but due to Node versioning requirements, this should be
-// conservative.
-function removeBuiltins(packages: Set<string>): Set<string> {
-    const ret = new Set<string>();
-    const builtIns = new Set(builtinModules);
-    for(const p of packages) {
-        if (!builtIns.has(p)) {
-            ret.add(p);
-        }
-    }
-    return ret;
 }
