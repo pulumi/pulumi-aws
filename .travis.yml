@@ -9,7 +9,7 @@ before_install:
     - export PULUMI_ROOT=/opt/pulumi
     - git clone https://github.com/pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
     # Dep for Go dependency management.
-    - go get -v github.com/golang/dep/cmd/dep
+    - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
     # Gometalinter for good Go linting/hygiene.
     - go get -v github.com/alecthomas/gometalinter
     - gometalinter --install
