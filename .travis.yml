@@ -28,6 +28,7 @@ before_install:
     # Install Pulumi
     - curl -L https://get.pulumi.com/ | bash -s -- --version 0.14.0-rc1
     - export PATH=$HOME/.pulumi/bin:$PATH
+    - sudo apt-get install pandoc
 install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure
