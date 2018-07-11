@@ -94,9 +94,9 @@ export interface FunctionOptions {
      */
     includePackages?: string[];
     /**
-     * The packages relative to the program folder to not in the Lambda upload. This can be used to
-     * override the default serialization logic that includes all packages referenced by
-     * project.json (except @pulumi packages).
+     * The packages relative to the program folder to not include the Lambda upload. This can be
+     * used to override the default serialization logic that includes all packages referenced by
+     * project.json (except @pulumi packages).  Default is `[]`.
      */
     excludePackages?: string[];
 }
@@ -268,8 +268,8 @@ interface Package {
     children: Package[];
 }
 
-// allFolders computes the set of package folders that are transitively required by the given list of package
-// dependencies rooted in a package at the provided path.
+// allFolders computes the set of package folders that are transitively required by the root
+// 'dependencies' node in the client's project.json file.
 function allFoldersForPackages(includedPackages: Set<string>, excludedPackages: Set<string>): Promise<Set<string>> {
     return new Promise((resolve, reject) => {
         readPackageTree(".", undefined, (err: any, root: Package) => {
@@ -277,44 +277,50 @@ function allFoldersForPackages(includedPackages: Set<string>, excludedPackages: 
                 return reject(err);
             }
 
-            const allPackages = new Set<string>(includedPackages);
+            // This is the core starting point of the algorithm.  We use readPackageTree to get the
+            // package.json information for this project, and then we start by walking the
+            // .dependencies node in that package.  Importantly, we do not look at things like
+            // .devDependencies or or .peerDependencies.  These are not what are considered part of
+            // the final runtime configuration of the app and should not be uploaded.
+            const referencedPackages = new Set<string>(includedPackages);
             for (const depName of Object.keys(root.package.dependencies)) {
-                allPackages.add(depName);
+                referencedPackages.add(depName);
             }
 
-            const s = new Set<string>();
-            for (const pkg of allPackages) {
-                addPackageAndDependenciesToSet(s, root, pkg);
+            const packagePaths = new Set<string>();
+            for (const pkg of referencedPackages) {
+                addPackageAndDependenciesToSet(root, pkg, packagePaths, excludedPackages);
             }
 
-            resolve(s);
+            resolve(packagePaths);
         });
     });
+}
 
-    // addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
-    // into the set.  It will recurse into all dependencies of the package.
-    function addPackageAndDependenciesToSet(s: Set<string>, root: Package, pkg: string) {
-        // Don't process this packages if it was in the set the user wants to exclude.
+// addPackageAndDependenciesToSet adds all required dependencies for the requested pkg name from the given root package
+// into the set.  It will recurse into all dependencies of the package.
+function addPackageAndDependenciesToSet(
+    root: Package, pkg: string, packagePaths: Set<string>, excludedPackages: Set<string>) {
+    // Don't process this packages if it was in the set the user wants to exclude.
 
-        // Also, exclude it if it's an @pulumi package.  These packages are intended for deployment
-        // time only and will only bloat up the serialized lambda package.
-        if (excludedPackages.has(pkg) ||
-            pkg.startsWith("@pulumi")) {
+    // Also, exclude it if it's an @pulumi package.  These packages are intended for deployment
+    // time only and will only bloat up the serialized lambda package.
+    if (excludedPackages.has(pkg) ||
+        pkg.startsWith("@pulumi")) {
 
-            return;
-        }
+        return;
+    }
 
-        var child = findDependency(root, pkg);
-        if (!child) {
-            console.warn(`Could not include required dependency '${pkg}' in '${filepath.resolve(root.path)}'.`)
-            return;
-        }
+    const child = findDependency(root, pkg);
+    if (!child) {
+        console.warn(`Could not include required dependency '${pkg}' in '${filepath.resolve(root.path)}'.`)
+        return;
+    }
 
-        s.add(child.path);
-        if (child.package.dependencies) {
-            for (let dep of Object.keys(child.package.dependencies) ) {
-                addPackageAndDependenciesToSet(s, child, dep);
-            }
+    packagePaths.add(child.path);
+    if (child.package.dependencies) {
+        for (let dep of Object.keys(child.package.dependencies) ) {
+            addPackageAndDependenciesToSet(child, dep, packagePaths, excludedPackages);
         }
     }
 }
