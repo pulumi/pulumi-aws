@@ -26,7 +26,7 @@ setup(name='pulumi_aws',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-aws'
       },
-      license='Apache 2.0',
+      license='Apache-2.0',
       packages=find_packages(),
       install_requires=[
           'pulumi>=0.14.2,<0.15.0'
