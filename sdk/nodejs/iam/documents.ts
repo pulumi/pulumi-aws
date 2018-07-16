@@ -61,3 +61,24 @@ export interface FederatedPrincipal {
     Federated: string | string[];
 }
 
+/**
+ * assumeRolePolicyForPrincipal returns a well-formed policy document which can be
+ * used to control which principals may assume an IAM Role, by granting the `sts:AssumeRole`
+ * action to those principals.
+ *
+ * @param {Principal} principal The principals for whom assuming the role is allowed
+ * @returns {PolicyDocument} A policy document allowing principals to invoke `sts:AssumeRole`
+ */
+export function assumeRolePolicyForPrincipal(principal: Principal): PolicyDocument {
+    return {
+        Version: "2012-10-17",
+        Statement: [
+            {
+                Sid: "AllowAssumeRole",
+                Effect: "Allow",
+                Principal: principal,
+                Action: "sts:AssumeRole"
+            }
+        ]
+    };
+}
