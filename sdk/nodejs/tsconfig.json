@@ -66,6 +66,7 @@
         "autoscaling/index.ts",
         "autoscaling/lifecycleHook.ts",
         "autoscaling/notification.ts",
+        "autoscaling/notificationType.ts",
         "autoscaling/policy.ts",
         "autoscaling/schedule.ts",
         "batch/computeEnvironment.ts",

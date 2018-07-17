@@ -539,6 +539,7 @@
   version = "v1.1"
 
 [[projects]]
+  branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -580,8 +581,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "e8b5bb6f116ac0b0a56e1c96e9c099255cafd1b0"
-  version = "v0.14.3-dev"
+  revision = "b9a0907161faf401da9b1cb7dab972449efebc12"
 
 [[projects]]
   branch = "master"
@@ -590,7 +590,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "5b0793f8992535300ec3d28fa881dd2c16aabb1c"
+  revision = "f7064bdeddd27ee2a96d3556e8e7c9cc7689a1f5"
 
 [[projects]]
   branch = "master"

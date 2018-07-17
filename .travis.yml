@@ -9,7 +9,7 @@ before_install:
     - export PULUMI_ROOT=/opt/pulumi
     - git clone https://github.com/pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
     # Dep for Go dependency management.
-    - go get -v github.com/golang/dep/cmd/dep
+    - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
     # Gometalinter for good Go linting/hygiene.
     - go get -v github.com/alecthomas/gometalinter
     - gometalinter --install
@@ -28,6 +28,7 @@ before_install:
     # Install Pulumi
     - curl -L https://get.pulumi.com/ | bash -s -- --version 0.14.0-rc1
     - export PATH=$HOME/.pulumi/bin:$PATH
+    - sudo apt-get install pandoc
 install:
     # Now restore all dependencies, after cloning, to rebuild vendor appropriately.
     - make ensure

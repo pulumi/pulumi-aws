@@ -10,9 +10,14 @@ class InstallPluginCommand(install):
         install.run(self)
         check_call(['pulumi', 'plugin', 'install', 'resource', 'aws', '${PLUGIN_VERSION}'])
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
 setup(name='pulumi_aws',
       version='${VERSION}',
       description='A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.',
+      long_description=readme(),
       cmdclass={
           'install': InstallPluginCommand,
       },
@@ -21,7 +26,7 @@ setup(name='pulumi_aws',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-aws'
       },
-      license='Apache 2.0',
+      license='Apache-2.0',
       packages=find_packages(),
       install_requires=[
           'pulumi>=0.14.2,<0.15.0'

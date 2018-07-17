@@ -191,7 +191,7 @@ func Provider() tfbridge.ProviderInfo {
 		Name:        "aws",
 		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
 		Keywords:    []string{"pulumi", "aws"},
-		License:     "Apache 2.0",
+		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Config: map[string]*tfbridge.SchemaInfo{
@@ -383,9 +383,16 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "autoscaling_lifecycle_hooks.html.markdown",
 				},
 			},
-			"aws_autoscaling_notification": {Tok: awsResource(autoscalingMod, "Notification")},
-			"aws_autoscaling_policy":       {Tok: awsResource(autoscalingMod, "Policy")},
-			"aws_autoscaling_schedule":     {Tok: awsResource(autoscalingMod, "Schedule")},
+			"aws_autoscaling_notification": {
+				Tok: awsResource(autoscalingMod, "Notification"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"notifications": {
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod+"/notificationType", "NotificationType")},
+					},
+				},
+			},
+			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
+			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -1446,6 +1453,11 @@ func Provider() tfbridge.ProviderInfo {
 					"region.ts", // Region union type and constants
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
+					"autoscaling": {
+						Files: []string{
+							"notificationType.ts", // NotificationType union type and constants
+						},
+					},
 					"config": {
 						Files: []string{
 							"require.ts", // requireRegion helpers for validating proper config
@@ -1497,7 +1509,8 @@ func Provider() tfbridge.ProviderInfo {
 	const awsName = "name"
 	for resname, res := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
-			if _, has := schema.Schema[awsName]; has {
+			// Only apply auto-name to input properties (Optional || Required) named `name`
+			if tfs, has := schema.Schema[awsName]; has && (tfs.Optional || tfs.Required) {
 				if _, hasfield := res.Fields[awsName]; !hasfield {
 					if res.Fields == nil {
 						res.Fields = make(map[string]*tfbridge.SchemaInfo)
