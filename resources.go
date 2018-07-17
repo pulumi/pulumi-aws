@@ -1459,6 +1459,7 @@ func Provider() tfbridge.ProviderInfo {
 				Files: []string{
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
+					"tags.ts",   // Tags typedef
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
