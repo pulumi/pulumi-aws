@@ -6,7 +6,7 @@ import pulumi
 import pulumi.runtime
 
 class TopicRule(pulumi.CustomResource):
-    def __init__(__self__, __name__, __opts__=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
+    def __init__(__self__, __name__, __opts__=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
         """Create a TopicRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -65,10 +65,10 @@ class TopicRule(pulumi.CustomResource):
         __self__.kinesis = kinesis
         __props__['kinesis'] = kinesis
 
-        if lambda and not isinstance(lambda, dict):
-            raise TypeError('Expected property lambda to be a dict')
-        __self__.lambda = lambda
-        __props__['lambda'] = lambda
+        if lambda_ and not isinstance(lambda_, dict):
+            raise TypeError('Expected property lambda_ to be a dict')
+        __self__.lambda_ = lambda_
+        __props__['lambda'] = lambda_
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
@@ -149,7 +149,7 @@ class TopicRule(pulumi.CustomResource):
         if 'kinesis' in outs:
             self.kinesis = outs['kinesis']
         if 'lambda' in outs:
-            self.lambda = outs['lambda']
+            self.lambda_ = outs['lambda']
         if 'name' in outs:
             self.name = outs['name']
         if 'republish' in outs:
