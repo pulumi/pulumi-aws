@@ -921,7 +921,15 @@ func Provider() tfbridge.ProviderInfo {
 				// deletes the same attachment we just created, since it is structurally equivalent!
 				DeleteBeforeReplace: true,
 			},
-			"aws_iam_role_policy": {Tok: awsResource(iamMod, "RolePolicy")},
+			"aws_iam_role_policy": {
+				Tok: awsResource(iamMod, "RolePolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
+				},
+			},
 			"aws_iam_role": {
 				Tok: awsResource(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
