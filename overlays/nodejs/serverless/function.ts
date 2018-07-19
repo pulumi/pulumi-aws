@@ -158,7 +158,7 @@ export class Function extends pulumi.ComponentResource {
         }
 
         const handlerName = "handler";
-        const serializedFileName = "__index";
+        const serializedFileNameNoExtension = "__index";
 
         let closure = pulumi.runtime.serializeFunction(func, {
             serialize: finalSerialize,
@@ -166,12 +166,12 @@ export class Function extends pulumi.ComponentResource {
         });
 
         let codePaths = computeCodePaths(
-            closure, serializedFileName, options.includePaths, options.excludePackages);
+            closure, serializedFileNameNoExtension, options.includePaths, options.excludePackages);
 
         // Create the Lambda Function.
         this.lambda = new lambda.Function(name, {
             code: new pulumi.asset.AssetArchive(codePaths),
-            handler: serializedFileName + "." + handlerName,
+            handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
             environment: options.environment,
             role: this.role.arn,
@@ -186,7 +186,7 @@ export class Function extends pulumi.ComponentResource {
 // computeCodePaths calculates an AssetMap of files to include in the Lambda package.
 async function computeCodePaths(
         closure: Promise<pulumi.runtime.SerializedFunction>,
-        serializedFileName: string,
+        serializedFileNameNoExtension: string,
         extraIncludePaths?: string[],
         extraIncludePackages?: string[],
         extraExcludePackages?: string[]): Promise<pulumi.asset.AssetMap> {
@@ -196,7 +196,7 @@ async function computeCodePaths(
     // Construct the set of paths to include in the archive for upload.
     let codePaths: pulumi.asset.AssetMap = {
         // Always include the serialized function.
-        [serializedFileName]: new pulumi.asset.StringAsset(serializedFunction.text),
+        [serializedFileNameNoExtension + ".js"]: new pulumi.asset.StringAsset(serializedFunction.text),
     };
 
     extraIncludePaths = extraIncludePaths || [];
