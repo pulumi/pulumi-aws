@@ -267,7 +267,7 @@ interface Package {
     name: string;
     path: string;
     package: {
-        dependencies: { [key: string]: string; };
+        dependencies?: { [key: string]: string; };
     };
     parent?: Package;
     children: Package[];
@@ -288,8 +288,10 @@ function allFoldersForPackages(includedPackages: Set<string>, excludedPackages: 
             // .devDependencies or or .peerDependencies.  These are not what are considered part of
             // the final runtime configuration of the app and should not be uploaded.
             const referencedPackages = new Set<string>(includedPackages);
-            for (const depName of Object.keys(root.package.dependencies)) {
-                referencedPackages.add(depName);
+            if (root.package && root.package.dependencies) {
+                for (const depName of Object.keys(root.package.dependencies)) {
+                    referencedPackages.add(depName);
+                }
             }
 
             const packagePaths = new Set<string>();
