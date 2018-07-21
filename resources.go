@@ -927,7 +927,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic MapReduce
-			"aws_emr_cluster":                {Tok: awsResource(emrMod, "Cluster")},
+			"aws_emr_cluster": {
+				Tok: awsResource(emrMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			// GameLift
