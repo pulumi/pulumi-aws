@@ -1300,6 +1300,7 @@ func Provider() tfbridge.ProviderInfo {
 					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
 					// provider.
 					"website": {Name: "website", MaxItemsOne: boolRef(true)},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
