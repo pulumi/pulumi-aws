@@ -661,8 +661,13 @@ func Provider() tfbridge.ProviderInfo {
 					"egress":  {Name: "egress"},
 				},
 			},
-			"aws_network_acl_rule":             {Tok: awsResource(ec2Mod, "NetworkAclRule")},
-			"aws_network_interface":            {Tok: awsResource(ec2Mod, "NetworkInterface")},
+			"aws_network_acl_rule": {Tok: awsResource(ec2Mod, "NetworkAclRule")},
+			"aws_network_interface": {
+				Tok: awsResource(ec2Mod, "NetworkInterface"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
 			"aws_placement_group":              {Tok: awsResource(ec2Mod, "PlacementGroup")},
 			"aws_proxy_protocol_policy":        {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
