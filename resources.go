@@ -670,7 +670,12 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "main_route_table_assoc.html.markdown",
 				},
 			},
-			"aws_nat_gateway": {Tok: awsResource(ec2Mod, "NatGateway")},
+			"aws_nat_gateway": {
+				Tok: awsResource(ec2Mod, "NatGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_network_acl": {
 				Tok: awsResource(ec2Mod, "NetworkAcl"),
 				Fields: map[string]*tfbridge.SchemaInfo{
