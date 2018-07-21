@@ -1408,6 +1408,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(sqsMod, "Queue"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 80),
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
