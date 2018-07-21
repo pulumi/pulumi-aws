@@ -357,6 +357,7 @@ func Provider() tfbridge.ProviderInfo {
 						Name: "restApi",
 						Type: awsType(apigatewayMod+"/restApi", "RestApi"),
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_api_gateway_usage_plan":     {Tok: awsResource(apigatewayMod, "UsagePlan")},
