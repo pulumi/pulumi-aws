@@ -714,6 +714,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "vpc_peering.html.markdown",
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
 			"aws_vpc_peering_connection_accepter": {
 				Tok: awsResource(ec2Mod, "VpcPeeringConnectionAccepter"),
