@@ -1257,7 +1257,12 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_health_check": {
+				Tok: awsResource(route53Mod, "HealthCheck"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
