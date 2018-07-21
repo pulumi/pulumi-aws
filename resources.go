@@ -646,8 +646,13 @@ func Provider() tfbridge.ProviderInfo {
 					IncludeAttributesFromArguments: "aws_ami",
 				},
 			},
-			"aws_ami_launch_permission":        {Tok: awsResource(ec2Mod, "AmiLaunchPermission")},
-			"aws_customer_gateway":             {Tok: awsResource(ec2Mod, "CustomerGateway")},
+			"aws_ami_launch_permission": {Tok: awsResource(ec2Mod, "AmiLaunchPermission")},
+			"aws_customer_gateway": {
+				Tok: awsResource(ec2Mod, "CustomerGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_egress_only_internet_gateway": {Tok: awsResource(ec2Mod, "EgressOnlyInternetGateway")},
 			"aws_eip":                          {Tok: awsResource(ec2Mod, "Eip")},
 			"aws_eip_association":              {Tok: awsResource(ec2Mod, "EipAssociation")},
