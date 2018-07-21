@@ -679,9 +679,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_egress_only_internet_gateway": {Tok: awsResource(ec2Mod, "EgressOnlyInternetGateway")},
-			"aws_eip":                          {Tok: awsResource(ec2Mod, "Eip")},
-			"aws_eip_association":              {Tok: awsResource(ec2Mod, "EipAssociation")},
-			"aws_flow_log":                     {Tok: awsResource(ec2Mod, "FlowLog")},
+			"aws_eip": {
+				Tok: awsResource(ec2Mod, "Eip"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_eip_association": {Tok: awsResource(ec2Mod, "EipAssociation")},
+			"aws_flow_log":        {Tok: awsResource(ec2Mod, "FlowLog")},
 			"aws_instance": {
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
