@@ -758,9 +758,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_subnet":                       {Tok: awsResource(ec2Mod, "Subnet")},
 			"aws_volume_attachment":            {Tok: awsResource(ec2Mod, "VolumeAttachment")},
 			"aws_vpc_dhcp_options_association": {Tok: awsResource(ec2Mod, "VpcDhcpOptionsAssociation")},
-			"aws_vpc_dhcp_options":             {Tok: awsResource(ec2Mod, "VpcDhcpOptions")},
 			"aws_default_vpc_dhcp_options": {
 				Tok: awsResource(ec2Mod, "DefaultVpcDhcpOptions"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpc_dhcp_options": {
+				Tok: awsResource(ec2Mod, "VpcDhcpOptions"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
