@@ -1309,6 +1309,7 @@ func Provider() tfbridge.ProviderInfo {
 					"comment": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_route53_health_check": {
