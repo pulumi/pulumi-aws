@@ -1082,8 +1082,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
 			// Neptune
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
-			"aws_neptune_parameter_group":         {Tok: awsResource(neptuneMod, "ParameterGroup")},
-			"aws_neptune_subnet_group":            {Tok: awsResource(neptuneMod, "SubnetGroup")},
+			"aws_neptune_parameter_group": {
+				Tok: awsResource(neptuneMod, "ParameterGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_neptune_subnet_group": {Tok: awsResource(neptuneMod, "SubnetGroup")},
 			// OpsWorks
 			"aws_opsworks_application":      {Tok: awsResource(opsworksMod, "Application")},
 			"aws_opsworks_stack":            {Tok: awsResource(opsworksMod, "Stack")},
