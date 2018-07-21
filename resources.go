@@ -413,7 +413,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
-			"aws_cloudformation_stack": {Tok: awsResource(cloudformationMod, "Stack")},
+			"aws_cloudformation_stack": {
+				Tok: awsResource(cloudformationMod, "Stack"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// CloudFront
 			"aws_cloudfront_distribution": {
 				Tok: awsResource(cloudfrontMod, "Distribution"),
