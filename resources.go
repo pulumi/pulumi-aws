@@ -561,13 +561,18 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Direct Connect
-			"aws_dx_connection":                                {Tok: awsResource(dxMod, "Connection")},
-			"aws_dx_connection_association":                    {Tok: awsResource(dxMod, "ConnectionAssociation")},
-			"aws_dx_gateway":                                   {Tok: awsResource(dxMod, "Gateway")},
-			"aws_dx_gateway_association":                       {Tok: awsResource(dxMod, "GatewayAssociation")},
-			"aws_dx_hosted_private_virtual_interface":          {Tok: awsResource(dxMod, "HostedPrivateVirtualInterface")},
-			"aws_dx_hosted_private_virtual_interface_accepter": {Tok: awsResource(dxMod, "HostedPrivateVirtualInterfaceAccepter")},
-			"aws_dx_hosted_public_virtual_interface":           {Tok: awsResource(dxMod, "HostedPublicVirtualInterface")},
+			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
+			"aws_dx_connection_association":           {Tok: awsResource(dxMod, "ConnectionAssociation")},
+			"aws_dx_gateway":                          {Tok: awsResource(dxMod, "Gateway")},
+			"aws_dx_gateway_association":              {Tok: awsResource(dxMod, "GatewayAssociation")},
+			"aws_dx_hosted_private_virtual_interface": {Tok: awsResource(dxMod, "HostedPrivateVirtualInterface")},
+			"aws_dx_hosted_private_virtual_interface_accepter": {
+				Tok: awsResource(dxMod, "HostedPrivateVirtualInterfaceAccepter"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dx_hosted_public_virtual_interface": {Tok: awsResource(dxMod, "HostedPublicVirtualInterface")},
 			"aws_dx_hosted_public_virtual_interface_accepter": {
 				Tok: awsResource(dxMod, "HostedPublicVirtualInterfaceAccepter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
