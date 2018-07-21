@@ -784,7 +784,12 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "vpc_peering_options.html.markdown",
 				},
 			},
-			"aws_default_vpc": {Tok: awsResource(ec2Mod, "DefaultVpc")},
+			"aws_default_vpc": {
+				Tok: awsResource(ec2Mod, "DefaultVpc"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_vpc": {
 				Tok: awsResource(ec2Mod, "Vpc"),
 				Fields: map[string]*tfbridge.SchemaInfo{
