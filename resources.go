@@ -1269,6 +1269,7 @@ func Provider() tfbridge.ProviderInfo {
 					"option_group_description": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_db_parameter_group": {
