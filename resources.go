@@ -1192,7 +1192,12 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_neptune_subnet_group": {Tok: awsResource(neptuneMod, "SubnetGroup")},
+			"aws_neptune_subnet_group": {
+				Tok: awsResource(neptuneMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// OpsWorks
 			"aws_opsworks_application":      {Tok: awsResource(opsworksMod, "Application")},
 			"aws_opsworks_stack":            {Tok: awsResource(opsworksMod, "Stack")},

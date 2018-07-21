@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an Neptune subnet group resource.
  */
@@ -42,7 +44,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -105,7 +107,7 @@ export interface SubnetGroupState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
 
 /**
@@ -131,5 +133,5 @@ export interface SubnetGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
