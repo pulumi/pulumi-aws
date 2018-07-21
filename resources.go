@@ -741,6 +741,7 @@ func Provider() tfbridge.ProviderInfo {
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
 					"egress":  {Name: "egress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_network_interface_sg_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
