@@ -1199,8 +1199,13 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// OpsWorks
-			"aws_opsworks_application":      {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack":            {Tok: awsResource(opsworksMod, "Stack")},
+			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
+			"aws_opsworks_stack": {
+				Tok: awsResource(opsworksMod, "Stack"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_opsworks_java_app_layer":   {Tok: awsResource(opsworksMod, "JavaAppLayer")},
 			"aws_opsworks_haproxy_layer":    {Tok: awsResource(opsworksMod, "HaproxyLayer")},
 			"aws_opsworks_static_web_layer": {Tok: awsResource(opsworksMod, "StaticWebLayer")},
