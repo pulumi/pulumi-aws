@@ -663,6 +663,7 @@ func Provider() tfbridge.ProviderInfo {
 					"instance_type": {
 						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_internet_gateway": {
