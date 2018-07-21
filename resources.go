@@ -1352,8 +1352,13 @@ func Provider() tfbridge.ProviderInfo {
 					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_db_snapshot":     {Tok: awsResource(rdsMod, "Snapshot")},
-			"aws_db_subnet_group": {Tok: awsResource(rdsMod, "SubnetGroup")},
+			"aws_db_snapshot": {Tok: awsResource(rdsMod, "Snapshot")},
+			"aws_db_subnet_group": {
+				Tok: awsResource(rdsMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// RedShift
 			"aws_redshift_cluster": {
 				Tok: awsResource(redshiftMod, "Cluster"),
