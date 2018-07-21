@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a Cognito User Pool resource.
  */
@@ -98,7 +100,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the User Pool.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */
@@ -254,7 +256,7 @@ export interface UserPoolState {
     /**
      * A mapping of tags to assign to the User Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */
@@ -332,7 +334,7 @@ export interface UserPoolArgs {
     /**
      * A mapping of tags to assign to the User Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */

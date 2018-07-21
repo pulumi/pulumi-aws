@@ -505,9 +505,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_identity_provider":              {Tok: awsResource(cognitoMod, "IdentityProvider")},
 			"aws_cognito_resource_server":                {Tok: awsResource(cognitoMod, "ResourceServer")},
 			"aws_cognito_user_group":                     {Tok: awsResource(cognitoMod, "UserGroup")},
-			"aws_cognito_user_pool":                      {Tok: awsResource(cognitoMod, "UserPool")},
-			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
-			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
+			"aws_cognito_user_pool": {
+				Tok: awsResource(cognitoMod, "UserPool"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_cognito_user_pool_client": {Tok: awsResource(cognitoMod, "UserPoolClient")},
+			"aws_cognito_user_pool_domain": {Tok: awsResource(cognitoMod, "UserPoolDomain")},
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
