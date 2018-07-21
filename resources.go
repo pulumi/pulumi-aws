@@ -590,8 +590,13 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic Block Store
-			"aws_ebs_snapshot": {Tok: awsResource(ebsMod, "Snapshot")},
-			"aws_ebs_volume":   {Tok: awsResource(ebsMod, "Volume")},
+			"aws_ebs_snapshot": {
+				Tok: awsResource(ebsMod, "Snapshot"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ebs_volume": {Tok: awsResource(ebsMod, "Volume")},
 			// ElastiCache
 			"aws_elasticache_cluster": {Tok: awsResource(elasticacheMod, "Cluster")},
 			"aws_elasticache_parameter_group": {
