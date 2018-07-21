@@ -1257,7 +1257,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_db_event_subscription": {Tok: awsResource(rdsMod, "EventSubscription")},
-			"aws_db_instance":           {Tok: awsResource(rdsMod, "Instance")},
+			"aws_db_instance": {
+				Tok: awsResource(rdsMod, "Instance"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_db_option_group": {
 				Tok: awsResource(rdsMod, "OptionGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
