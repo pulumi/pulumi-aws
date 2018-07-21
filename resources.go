@@ -704,14 +704,19 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_placement_group":              {Tok: awsResource(ec2Mod, "PlacementGroup")},
 			"aws_proxy_protocol_policy":        {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
 			"aws_route":                        {Tok: awsResource(ec2Mod, "Route")},
-			"aws_default_route_table":          {Tok: awsResource(ec2Mod, "DefaultRouteTable")},
-			"aws_route_table_association":      {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
 			"aws_route_table": {
 				Tok: awsResource(ec2Mod, "RouteTable"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_default_route_table": {
+				Tok: awsResource(ec2Mod, "DefaultRouteTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
 			"aws_security_group": {
 				Tok: awsResource(ec2Mod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
