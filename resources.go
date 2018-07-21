@@ -428,7 +428,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
 			// CloudTrail
-			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
+			"aws_cloudtrail": {
+				Tok: awsResource(cloudtrailMod, "Trail"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// CloudWatch
 			"aws_cloudwatch_dashboard":        {Tok: awsResource(cloudwatchMod, "Dashboard")},
 			"aws_cloudwatch_event_permission": {Tok: awsResource(cloudwatchMod, "EventPermission")},

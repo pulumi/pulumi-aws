@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a CloudTrail resource.
  */
@@ -86,7 +88,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the trail
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
 
     /**
      * Create a Trail resource with the given unique name, arguments, and options.
@@ -211,7 +213,7 @@ export interface TrailState {
     /**
      * A mapping of tags to assign to the trail
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
 
 /**
@@ -277,5 +279,5 @@ export interface TrailArgs {
     /**
      * A mapping of tags to assign to the trail
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
