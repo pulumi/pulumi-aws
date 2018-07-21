@@ -1213,6 +1213,7 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {Default: managedByPulumi},
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_db_snapshot":     {Tok: awsResource(rdsMod, "Snapshot")},
