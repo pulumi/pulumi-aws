@@ -674,7 +674,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_key_pair":             {Tok: awsResource(ec2Mod, "KeyPair")},
 			"aws_launch_configuration": {Tok: awsResource(ec2Mod, "LaunchConfiguration")},
-			"aws_launch_template":      {Tok: awsResource(ec2Mod, "LaunchTemplate")},
+			"aws_launch_template": {
+				Tok: awsResource(ec2Mod, "LaunchTemplate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_main_route_table_association": {
 				Tok: awsResource(ec2Mod, "MainRouteTableAssociation"),
 				Docs: &tfbridge.DocInfo{
