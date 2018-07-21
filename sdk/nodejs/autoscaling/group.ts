@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an AutoScaling Group resource.
  * 
@@ -143,7 +145,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    public readonly tagsCollection: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly tagsCollection: pulumi.Output<Tags | undefined>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
@@ -375,7 +377,7 @@ export interface GroupState {
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly tagsCollection?: pulumi.Input<Tags>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
@@ -521,7 +523,7 @@ export interface GroupArgs {
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly tagsCollection?: pulumi.Input<Tags>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
