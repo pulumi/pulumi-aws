@@ -614,7 +614,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_dx_public_virtual_interface": {Tok: awsResource(dxMod, "PublicVirtualInterface")},
-			"aws_dx_lag":                      {Tok: awsResource(dxMod, "LinkAggregationGroup")},
+			"aws_dx_lag": {
+				Tok: awsResource(dxMod, "LinkAggregationGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// DynamoDB
 			"aws_dynamodb_global_table": {Tok: awsResource(dynamodbMod, "GlobalTable")},
 			"aws_dynamodb_table": {
