@@ -623,6 +623,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name":        tfbridge.AutoName("name", 40),
 					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
+					"tags":        {Type: awsType(awsMod, "Tags")},
 					"version_label": {
 						Name: "version",
 						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
