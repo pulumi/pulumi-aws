@@ -483,7 +483,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodeBuild
-			"aws_codebuild_project": {Tok: awsResource(codebuildMod, "Project")},
+			"aws_codebuild_project": {
+				Tok: awsResource(codebuildMod, "Project"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_codebuild_webhook": {Tok: awsResource(codebuildMod, "Webhook")},
 			// CodeDeploy
 			"aws_codedeploy_app":               {Tok: awsResource(codedeployMod, "Application")},
