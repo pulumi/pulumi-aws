@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
@@ -27,7 +29,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -72,7 +74,7 @@ export interface HostedPublicVirtualInterfaceAccepterState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
@@ -86,7 +88,7 @@ export interface HostedPublicVirtualInterfaceAccepterArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
