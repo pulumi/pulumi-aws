@@ -649,7 +649,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// ElastiCache
-			"aws_elasticache_cluster": {Tok: awsResource(elasticacheMod, "Cluster")},
+			"aws_elasticache_cluster": {
+				Tok: awsResource(elasticacheMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_elasticache_parameter_group": {
 				Tok: awsResource(elasticacheMod, "ParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
  * For working with Redis (Cluster Mode Enabled) replication groups, see the
@@ -159,7 +161,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -370,7 +372,7 @@ export interface ClusterState {
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
 
 /**
@@ -495,5 +497,5 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
