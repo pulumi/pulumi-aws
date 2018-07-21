@@ -989,10 +989,15 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_lb_listener":                {Tok: awsResource(elbv2Mod, "Listener")},
-			"aws_lb_listener_certificate":    {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
-			"aws_lb_listener_rule":           {Tok: awsResource(elbv2Mod, "ListenerRule")},
-			"aws_lb_target_group":            {Tok: awsResource(elbv2Mod, "TargetGroup")},
+			"aws_lb_listener":             {Tok: awsResource(elbv2Mod, "Listener")},
+			"aws_lb_listener_certificate": {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
+			"aws_lb_listener_rule":        {Tok: awsResource(elbv2Mod, "ListenerRule")},
+			"aws_lb_target_group": {
+				Tok: awsResource(elbv2Mod, "TargetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_lb_target_group_attachment": {Tok: awsResource(elbv2Mod, "TargetGroupAttachment")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
