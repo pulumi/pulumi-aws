@@ -1147,7 +1147,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Key Management Service (KMS)
 			"aws_kms_alias": {Tok: awsResource(kmsMod, "Alias")},
 			"aws_kms_grant": {Tok: awsResource(kmsMod, "Grant")},
-			"aws_kms_key":   {Tok: awsResource(kmsMod, "Key")},
+			"aws_kms_key": {
+				Tok: awsResource(kmsMod, "Key"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Lambda
 			"aws_lambda_function": {
 				Tok:      awsResource(lambdaMod, "Function"),
