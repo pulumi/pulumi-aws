@@ -1173,7 +1173,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_policy":            {Tok: awsResource(organizationsMod, "Policy")},
 			"aws_organizations_policy_attachment": {Tok: awsResource(organizationsMod, "PolicyAttachment")},
 			// Relational Database Service (RDS)
-			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
+			"aws_rds_cluster": {
+				Tok: awsResource(rdsMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_rds_cluster_instance": {Tok: awsResource(rdsMod, "ClusterInstance")},
 			"aws_rds_cluster_parameter_group": {
 				Tok: awsResource(rdsMod, "ClusterParameterGroup"),
