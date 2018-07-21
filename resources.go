@@ -584,7 +584,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Direct Connect
-			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
+			"aws_dx_connection": {
+				Tok: awsResource(dxMod, "Connection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_dx_connection_association":           {Tok: awsResource(dxMod, "ConnectionAssociation")},
 			"aws_dx_gateway":                          {Tok: awsResource(dxMod, "Gateway")},
 			"aws_dx_gateway_association":              {Tok: awsResource(dxMod, "GatewayAssociation")},
