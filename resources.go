@@ -712,8 +712,13 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "vpc_peering_options.html.markdown",
 				},
 			},
-			"aws_default_vpc":                            {Tok: awsResource(ec2Mod, "DefaultVpc")},
-			"aws_vpc":                                    {Tok: awsResource(ec2Mod, "Vpc")},
+			"aws_default_vpc": {Tok: awsResource(ec2Mod, "DefaultVpc")},
+			"aws_vpc": {
+				Tok: awsResource(ec2Mod, "Vpc"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_vpc_endpoint":                           {Tok: awsResource(ec2Mod, "VpcEndpoint")},
 			"aws_vpc_endpoint_connection_notification":   {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
 			"aws_vpc_endpoint_route_table_association":   {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
