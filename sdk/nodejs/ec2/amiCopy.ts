@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
  * including cross-region copies.
@@ -97,7 +99,7 @@ export class AmiCopy extends pulumi.CustomResource {
      * for created instances. No other value is supported at this time.
      */
     public /*out*/ readonly sriovNetSupport: pulumi.Output<string>;
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -238,7 +240,7 @@ export interface AmiCopyState {
      * for created instances. No other value is supported at this time.
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -289,5 +291,5 @@ export interface AmiCopyArgs {
      * same as the AWS provider region in order to create a copy within the same region.
      */
     readonly sourceAmiRegion: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }

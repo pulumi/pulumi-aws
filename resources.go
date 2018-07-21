@@ -695,6 +695,9 @@ func Provider() tfbridge.ProviderInfo {
 					IncludeArgumentsFrom:           "aws_ami",
 					IncludeAttributesFromArguments: "aws_ami",
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
 			"aws_ami_from_instance": {
 				Tok: awsResource(ec2Mod, "AmiFromInstance"),
