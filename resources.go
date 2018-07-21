@@ -983,7 +983,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Load Balancing (Application and Network)
-			"aws_lb":                         {Tok: awsResource(elbv2Mod, "LoadBalancer")},
+			"aws_lb": {
+				Tok: awsResource(elbv2Mod, "LoadBalancer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_lb_listener":                {Tok: awsResource(elbv2Mod, "Listener")},
 			"aws_lb_listener_certificate":    {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
 			"aws_lb_listener_rule":           {Tok: awsResource(elbv2Mod, "ListenerRule")},
