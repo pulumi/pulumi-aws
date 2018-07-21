@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a Redshift Cluster Resource.
  * 
@@ -174,7 +176,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
@@ -437,7 +439,7 @@ export interface ClusterState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
@@ -596,7 +598,7 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
