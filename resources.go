@@ -1527,9 +1527,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_s3_bucket_policy": {Tok: awsResource(s3Mod, "BucketPolicy")},
 			// Systems Manager (SSM)
-			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
-			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
-			"aws_ssm_document":                  {Tok: awsResource(ssmMod, "Document")},
+			"aws_ssm_activation":  {Tok: awsResource(ssmMod, "Activation")},
+			"aws_ssm_association": {Tok: awsResource(ssmMod, "Association")},
+			"aws_ssm_document": {
+				Tok: awsResource(ssmMod, "Document"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_ssm_maintenance_window":        {Tok: awsResource(ssmMod, "MaintenanceWindow")},
 			"aws_ssm_maintenance_window_target": {Tok: awsResource(ssmMod, "MaintenanceWindowTarget")},
 			"aws_ssm_maintenance_window_task":   {Tok: awsResource(ssmMod, "MaintenanceWindowTask")},
