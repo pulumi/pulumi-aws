@@ -875,6 +875,7 @@ func Provider() tfbridge.ProviderInfo {
 					"cluster_config":   {Name: "clusterConfig", MaxItemsOne: boolRef(true)},
 					"ebs_options":      {Name: "ebsOptions", MaxItemsOne: boolRef(true)},
 					"snapshot_options": {Name: "snapshotOptions", MaxItemsOne: boolRef(true)},
+					"tags":             {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_elasticsearch_domain_policy": {Tok: awsResource(elasticsearchMod, "DomainPolicy")},
