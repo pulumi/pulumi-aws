@@ -1522,6 +1522,7 @@ func Provider() tfbridge.ProviderInfo {
 							Kind: tfbridge.FileAsset,
 						},
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_s3_bucket_policy": {Tok: awsResource(s3Mod, "BucketPolicy")},
