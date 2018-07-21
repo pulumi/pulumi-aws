@@ -969,7 +969,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			// GameLift
-			"aws_glacier_vault": {Tok: awsResource(glacierMod, "Vault")},
+			"aws_glacier_vault": {
+				Tok: awsResource(glacierMod, "Vault"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Glue
 			"aws_glue_catalog_database": {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":    {Tok: awsResource(glueMod, "CatalogTable")},
