@@ -534,7 +534,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_devicefarm_project": {Tok: awsResource(devicefarmMod, "Project")},
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
-			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
+			"aws_directory_service_directory": {
+				Tok: awsResource(directoryserviceMod, "Directory"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Direct Connect
 			"aws_dx_connection":                                {Tok: awsResource(dxMod, "Connection")},
 			"aws_dx_connection_association":                    {Tok: awsResource(dxMod, "ConnectionAssociation")},
