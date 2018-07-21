@@ -210,7 +210,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_acm_certificate_validation": {Tok: awsResource(acmMod, "CertificateValidation")},
 			// AWS Private Certificate Authority
-			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
+			"aws_acmpca_certificate_authority": {
+				Tok: awsResource(acmpcaMod, "CertificateAuthority"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// AppSync
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
