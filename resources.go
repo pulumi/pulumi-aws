@@ -640,7 +640,12 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_internet_gateway":     {Tok: awsResource(ec2Mod, "InternetGateway")},
+			"aws_internet_gateway": {
+				Tok: awsResource(ec2Mod, "InternetGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_key_pair":             {Tok: awsResource(ec2Mod, "KeyPair")},
 			"aws_launch_configuration": {Tok: awsResource(ec2Mod, "LaunchConfiguration")},
 			"aws_launch_template":      {Tok: awsResource(ec2Mod, "LaunchTemplate")},
