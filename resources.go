@@ -980,7 +980,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Inspector
 			"aws_inspector_assessment_target":   {Tok: awsResource(inspectorMod, "AssessmentTarget")},
 			"aws_inspector_assessment_template": {Tok: awsResource(inspectorMod, "AssessmentTemplate")},
-			"aws_inspector_resource_group":      {Tok: awsResource(inspectorMod, "ResourceGroup")},
+			"aws_inspector_resource_group": {
+				Tok: awsResource(inspectorMod, "ResourceGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// IoT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
 			"aws_iot_policy": {
