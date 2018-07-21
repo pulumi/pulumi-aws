@@ -836,8 +836,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_endpoint_service_allowed_principal": {Tok: awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple")},
 			"aws_vpc_endpoint_subnet_association":        {Tok: awsResource(ec2Mod, "VpcEndpointSubnetAssociation")},
 			"aws_vpc_ipv4_cidr_block_association":        {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
-			"aws_vpn_connection":                         {Tok: awsResource(ec2Mod, "VpnConnection")},
-			"aws_vpn_connection_route":                   {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
+			"aws_vpn_connection": {
+				Tok: awsResource(ec2Mod, "VpnConnection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpn_connection_route": {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
 			"aws_vpn_gateway": {
 				Tok: awsResource(ec2Mod, "VpnGateway"),
 				Fields: map[string]*tfbridge.SchemaInfo{
