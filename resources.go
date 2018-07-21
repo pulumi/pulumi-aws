@@ -511,9 +511,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
 			// Data Migration Service
-			"aws_dms_certificate":              {Tok: awsResource(dmsMod, "Certificate")},
-			"aws_dms_endpoint":                 {Tok: awsResource(dmsMod, "Endpoint")},
-			"aws_dms_replication_instance":     {Tok: awsResource(dmsMod, "ReplicationInstance")},
+			"aws_dms_certificate": {Tok: awsResource(dmsMod, "Certificate")},
+			"aws_dms_endpoint":    {Tok: awsResource(dmsMod, "Endpoint")},
+			"aws_dms_replication_instance": {
+				Tok: awsResource(dmsMod, "ReplicationInstance"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_dms_replication_subnet_group": {Tok: awsResource(dmsMod, "ReplicationSubnetGroup")},
 			"aws_dms_replication_task":         {Tok: awsResource(dmsMod, "ReplicationTask")},
 			// DAX
