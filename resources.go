@@ -860,7 +860,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ecs_task_definition": {Tok: awsResource(ecsMod, "TaskDefinition")},
 			// Elastic File System
-			"aws_efs_file_system": {Tok: awsResource(efsMod, "FileSystem")},
+			"aws_efs_file_system": {
+				Tok: awsResource(efsMod, "FileSystem"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_efs_mount_target": {
 				Tok:                 awsResource(efsMod, "MountTarget"),
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an Elastic File System (EFS) resource.
  */
@@ -52,7 +54,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the file system.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
 
     /**
      * Create a FileSystem resource with the given unique name, arguments, and options.
@@ -124,7 +126,7 @@ export interface FileSystemState {
     /**
      * A mapping of tags to assign to the file system.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
 
 /**
@@ -160,5 +162,5 @@ export interface FileSystemArgs {
     /**
      * A mapping of tags to assign to the file system.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
