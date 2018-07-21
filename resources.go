@@ -1223,6 +1223,7 @@ func Provider() tfbridge.ProviderInfo {
 							HashField: "source_code_hash",
 						},
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_lambda_event_source_mapping": {Tok: awsResource(lambdaMod, "EventSourceMapping")},
