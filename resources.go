@@ -712,6 +712,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					IncludeArgumentsFrom: "aws_instance",
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
 			"aws_spot_fleet_request":           {Tok: awsResource(ec2Mod, "SpotFleetRequest")},
 			"aws_default_subnet":               {Tok: awsResource(ec2Mod, "DefaultSubnet")},
