@@ -626,7 +626,12 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_ebs_volume": {Tok: awsResource(ebsMod, "Volume")},
+			"aws_ebs_volume": {
+				Tok: awsResource(ebsMod, "Volume"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// ElastiCache
 			"aws_elasticache_cluster": {Tok: awsResource(elasticacheMod, "Cluster")},
 			"aws_elasticache_parameter_group": {
