@@ -1128,7 +1128,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
-			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
+			"aws_kinesis_stream": {
+				Tok: awsResource(kinesisMod, "Stream"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Key Management Service (KMS)
 			"aws_kms_alias": {Tok: awsResource(kmsMod, "Alias")},
 			"aws_kms_grant": {Tok: awsResource(kmsMod, "Grant")},

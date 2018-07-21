@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
  * scales elastically for real-time processing of streaming big data.
@@ -56,7 +58,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -134,7 +136,7 @@ export interface StreamState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
 
 /**
@@ -175,5 +177,5 @@ export interface StreamArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }
