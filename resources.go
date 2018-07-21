@@ -557,7 +557,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// DAX
-			"aws_dax_cluster":         {Tok: awsResource(daxMod, "Cluster")},
+			"aws_dax_cluster": {
+				Tok: awsResource(daxMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_dax_parameter_group": {Tok: awsResource(daxMod, "ParameterGroup")},
 			"aws_dax_subnet_group":    {Tok: awsResource(daxMod, "SubnetGroup")},
 			// DeviceFarm
