@@ -532,7 +532,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
 			// Data Migration Service
 			"aws_dms_certificate": {Tok: awsResource(dmsMod, "Certificate")},
-			"aws_dms_endpoint":    {Tok: awsResource(dmsMod, "Endpoint")},
+			"aws_dms_endpoint": {
+				Tok: awsResource(dmsMod, "Endpoint"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_dms_replication_instance": {
 				Tok: awsResource(dmsMod, "ReplicationInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
