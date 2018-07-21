@@ -776,9 +776,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_ipv4_cidr_block_association":        {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
 			"aws_vpn_connection":                         {Tok: awsResource(ec2Mod, "VpnConnection")},
 			"aws_vpn_connection_route":                   {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
-			"aws_vpn_gateway":                            {Tok: awsResource(ec2Mod, "VpnGateway")},
-			"aws_vpn_gateway_attachment":                 {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
-			"aws_vpn_gateway_route_propagation":          {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			"aws_vpn_gateway": {
+				Tok: awsResource(ec2Mod, "VpnGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpn_gateway_attachment":        {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
+			"aws_vpn_gateway_route_propagation": {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
 			// Elastic Container Registry
 			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},
