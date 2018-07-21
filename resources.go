@@ -202,7 +202,12 @@ func Provider() tfbridge.ProviderInfo {
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
-			"aws_acm_certificate":            {Tok: awsResource(acmMod, "Certificate")},
+			"aws_acm_certificate": {
+				Tok: awsResource(acmMod, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_acm_certificate_validation": {Tok: awsResource(acmMod, "CertificateValidation")},
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
