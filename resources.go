@@ -1195,7 +1195,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
 			// Service Catalog
-			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
+			"aws_servicecatalog_portfolio": {
+				Tok: awsResource(servicecatalogMod, "Portfolio"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Service Discovery
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
