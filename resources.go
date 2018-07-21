@@ -449,6 +449,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_group": {
 				IDFields: []string{"name"},
 				Tok:      awsResource(cloudwatchMod, "LogGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
 			"aws_cloudwatch_log_metric_filter":   {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
 			"aws_cloudwatch_log_resource_policy": {Tok: awsResource(cloudwatchMod, "LogResourcePolicy")},
