@@ -415,7 +415,12 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudFormation
 			"aws_cloudformation_stack": {Tok: awsResource(cloudformationMod, "Stack")},
 			// CloudFront
-			"aws_cloudfront_distribution":           {Tok: awsResource(cloudfrontMod, "Distribution")},
+			"aws_cloudfront_distribution": {
+				Tok: awsResource(cloudfrontMod, "Distribution"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},

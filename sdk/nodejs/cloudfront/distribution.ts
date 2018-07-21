@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Creates an Amazon CloudFront web distribution.
  * 
@@ -154,7 +156,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The [SSL
      * configuration](#viewer-certificate-arguments) for this distribution (maximum
@@ -385,7 +387,7 @@ export interface DistributionState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The [SSL
      * configuration](#viewer-certificate-arguments) for this distribution (maximum
@@ -483,7 +485,7 @@ export interface DistributionArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The [SSL
      * configuration](#viewer-certificate-arguments) for this distribution (maximum
