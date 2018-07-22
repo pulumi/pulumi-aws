@@ -25,9 +25,10 @@ build::
 	for LANGUAGE in "nodejs" "python" "go" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
+
+	# pick up the local build versions of dependencies these if possible.
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		# pick up the local versions of these if possible.
 		(yarn link @pulumi/pulumi || true) && \
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE package.json ./bin/ && \
@@ -53,6 +54,7 @@ install::
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r ${PACKDIR}/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
+	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
 	cp -r ${PACKDIR}/nodejs/node_modules "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
