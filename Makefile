@@ -27,8 +27,10 @@ build::
 	done
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
+		# pick up the local versions of these if possible.
+		(yarn link @pulumi/pulumi || true) && \
 		yarn run tsc && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+		cp ../../README.md ../../LICENSE package.json ./bin/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 	cd ${PACKDIR}/python/ && \
 		if [ $$(command -v pandoc) ]; then \
@@ -51,9 +53,8 @@ install::
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r ${PACKDIR}/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
-	rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)/node_modules"
+	cp -r ${PACKDIR}/nodejs/node_modules "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cd "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" && \
-		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
 	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
