@@ -45,7 +45,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
-"@pulumi/pulumi@^0.14.4-dev-1532134746-g61324d55":
+"@pulumi/pulumi@^0.14.4-dev-1532459229-g1ec4939b":
   version "0.14.4-dev-1532459229-g1ec4939b"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.14.4-dev-1532459229-g1ec4939b.tgz#59d8253f066c1e90bd8f704c3e15ff598f727d28"
   dependencies:
