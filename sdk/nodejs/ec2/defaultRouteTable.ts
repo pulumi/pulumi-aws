@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a resource to manage a Default VPC Routing Table.
  * 
@@ -64,7 +66,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -118,7 +120,7 @@ export interface DefaultRouteTableState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     readonly vpcId?: pulumi.Input<string>;
 }
 
@@ -141,5 +143,5 @@ export interface DefaultRouteTableArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
 }

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an ElastiCache Replication Group resource.
  * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
@@ -143,7 +145,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -358,7 +360,7 @@ export interface ReplicationGroupState {
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -479,7 +481,7 @@ export interface ReplicationGroupArgs {
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Whether to enable encryption in transit.
      */

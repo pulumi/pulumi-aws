@@ -560,6 +560,7 @@
         "ssm/patchBaseline.ts",
         "ssm/patchGroup.ts",
         "ssm/resourceDataSync.ts",
+        "tags.ts",
         "waf/byteMatchSet.ts",
         "waf/geoMatchSet.ts",
         "waf/index.ts",

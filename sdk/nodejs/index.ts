@@ -18,6 +18,7 @@ export * from "./getPartition";
 export * from "./getPrefixList";
 export * from "./getRegion";
 export * from "./region";
+export * from "./tags";
 
 // Export sub-modules:
 import * as acm from "./acm/index";

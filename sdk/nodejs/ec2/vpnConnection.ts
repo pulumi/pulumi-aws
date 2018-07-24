@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * 
  * Provides a VPN connection connected to a VPC. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and the VPC.
@@ -42,7 +44,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The public IP address of the first VPN tunnel.
      */
@@ -202,7 +204,7 @@ export interface VpnConnectionState {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The public IP address of the first VPN tunnel.
      */
@@ -291,7 +293,7 @@ export interface VpnConnectionArgs {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel.
      */

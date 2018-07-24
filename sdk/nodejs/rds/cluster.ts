@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an RDS Cluster Resource. A Cluster Resource defines attributes that are
  * applied to the entire cluster of [RDS Cluster Instances][3]. Use the RDS Cluster
@@ -179,7 +181,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -414,7 +416,7 @@ export interface ClusterState {
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -546,7 +548,7 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * List of VPC security groups to associate
      * with the Cluster

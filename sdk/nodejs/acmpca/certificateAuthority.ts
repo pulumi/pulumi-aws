@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
  * 
@@ -68,7 +70,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
      */
@@ -173,7 +175,7 @@ export interface CertificateAuthorityState {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
      */
@@ -199,7 +201,7 @@ export interface CertificateAuthorityArgs {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
      */

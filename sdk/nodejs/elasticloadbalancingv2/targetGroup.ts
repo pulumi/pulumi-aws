@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a Target Group resource for use with Load Balancer resources.
  * 
@@ -68,7 +70,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
@@ -190,7 +192,7 @@ export interface TargetGroupState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
@@ -249,7 +251,7 @@ export interface TargetGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
