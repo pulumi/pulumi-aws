@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides a Route53 Hosted Zone resource.
  */
@@ -45,7 +47,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the zone.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
      * Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.
@@ -127,7 +129,7 @@ export interface ZoneState {
     /**
      * A mapping of tags to assign to the zone.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
      * Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.
@@ -168,7 +170,7 @@ export interface ZoneArgs {
     /**
      * A mapping of tags to assign to the zone.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
      * Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.

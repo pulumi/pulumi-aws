@@ -229,8 +229,8 @@ class Group(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
-        if tags_collection and not isinstance(tags_collection, list):
-            raise TypeError('Expected property tags_collection to be a list')
+        if tags_collection and not isinstance(tags_collection, dict):
+            raise TypeError('Expected property tags_collection to be a dict')
         __self__.tags_collection = tags_collection
         """
         A list of tag blocks (maps). Tags documented below.

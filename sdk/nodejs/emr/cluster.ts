@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {Tags} from "../index";
+
 /**
  * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
  * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
@@ -116,7 +118,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * list of tags to apply to the EMR Cluster
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * Switch on/off termination protection (default is off)
      */
@@ -302,7 +304,7 @@ export interface ClusterState {
     /**
      * list of tags to apply to the EMR Cluster
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Switch on/off termination protection (default is off)
      */
@@ -407,7 +409,7 @@ export interface ClusterArgs {
     /**
      * list of tags to apply to the EMR Cluster
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<Tags>;
     /**
      * Switch on/off termination protection (default is off)
      */

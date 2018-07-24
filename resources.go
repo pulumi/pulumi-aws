@@ -202,10 +202,20 @@ func Provider() tfbridge.ProviderInfo {
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
-			"aws_acm_certificate":            {Tok: awsResource(acmMod, "Certificate")},
+			"aws_acm_certificate": {
+				Tok: awsResource(acmMod, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_acm_certificate_validation": {Tok: awsResource(acmMod, "CertificateValidation")},
 			// AWS Private Certificate Authority
-			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
+			"aws_acmpca_certificate_authority": {
+				Tok: awsResource(acmpcaMod, "CertificateAuthority"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// AppSync
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
@@ -347,6 +357,7 @@ func Provider() tfbridge.ProviderInfo {
 						Name: "restApi",
 						Type: awsType(apigatewayMod+"/restApi", "RestApi"),
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_api_gateway_usage_plan":     {Tok: awsResource(apigatewayMod, "UsagePlan")},
@@ -373,7 +384,9 @@ func Provider() tfbridge.ProviderInfo {
 						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
 						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
 						// give it a different name.
-						Name: "tagsCollection",
+						Name:        "tagsCollection",
+						Type:        awsType(awsMod, "Tags"),
+						MaxItemsOne: boolRef(true),
 					},
 				},
 			},
@@ -402,12 +415,27 @@ func Provider() tfbridge.ProviderInfo {
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
-			"aws_cloudformation_stack": {Tok: awsResource(cloudformationMod, "Stack")},
+			"aws_cloudformation_stack": {
+				Tok: awsResource(cloudformationMod, "Stack"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// CloudFront
-			"aws_cloudfront_distribution":           {Tok: awsResource(cloudfrontMod, "Distribution")},
+			"aws_cloudfront_distribution": {
+				Tok: awsResource(cloudfrontMod, "Distribution"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
 			// CloudTrail
-			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
+			"aws_cloudtrail": {
+				Tok: awsResource(cloudtrailMod, "Trail"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// CloudWatch
 			"aws_cloudwatch_dashboard":        {Tok: awsResource(cloudwatchMod, "Dashboard")},
 			"aws_cloudwatch_event_permission": {Tok: awsResource(cloudwatchMod, "EventPermission")},
@@ -423,6 +451,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_group": {
 				IDFields: []string{"name"},
 				Tok:      awsResource(cloudwatchMod, "LogGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
 			"aws_cloudwatch_log_metric_filter":   {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
 			"aws_cloudwatch_log_resource_policy": {Tok: awsResource(cloudwatchMod, "LogResourcePolicy")},
@@ -462,7 +493,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodeBuild
-			"aws_codebuild_project": {Tok: awsResource(codebuildMod, "Project")},
+			"aws_codebuild_project": {
+				Tok: awsResource(codebuildMod, "Project"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_codebuild_webhook": {Tok: awsResource(codebuildMod, "Webhook")},
 			// CodeDeploy
 			"aws_codedeploy_app":               {Tok: awsResource(codedeployMod, "Application")},
@@ -489,9 +525,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_identity_provider":              {Tok: awsResource(cognitoMod, "IdentityProvider")},
 			"aws_cognito_resource_server":                {Tok: awsResource(cognitoMod, "ResourceServer")},
 			"aws_cognito_user_group":                     {Tok: awsResource(cognitoMod, "UserGroup")},
-			"aws_cognito_user_pool":                      {Tok: awsResource(cognitoMod, "UserPool")},
-			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
-			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
+			"aws_cognito_user_pool": {
+				Tok: awsResource(cognitoMod, "UserPool"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_cognito_user_pool_client": {Tok: awsResource(cognitoMod, "UserPoolClient")},
+			"aws_cognito_user_pool_domain": {Tok: awsResource(cognitoMod, "UserPoolDomain")},
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
@@ -500,32 +541,87 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
 			// Data Migration Service
-			"aws_dms_certificate":              {Tok: awsResource(dmsMod, "Certificate")},
-			"aws_dms_endpoint":                 {Tok: awsResource(dmsMod, "Endpoint")},
-			"aws_dms_replication_instance":     {Tok: awsResource(dmsMod, "ReplicationInstance")},
-			"aws_dms_replication_subnet_group": {Tok: awsResource(dmsMod, "ReplicationSubnetGroup")},
-			"aws_dms_replication_task":         {Tok: awsResource(dmsMod, "ReplicationTask")},
+			"aws_dms_certificate": {Tok: awsResource(dmsMod, "Certificate")},
+			"aws_dms_endpoint": {
+				Tok: awsResource(dmsMod, "Endpoint"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dms_replication_instance": {
+				Tok: awsResource(dmsMod, "ReplicationInstance"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dms_replication_subnet_group": {
+				Tok: awsResource(dmsMod, "ReplicationSubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dms_replication_task": {
+				Tok: awsResource(dmsMod, "ReplicationTask"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// DAX
-			"aws_dax_cluster":         {Tok: awsResource(daxMod, "Cluster")},
+			"aws_dax_cluster": {
+				Tok: awsResource(daxMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_dax_parameter_group": {Tok: awsResource(daxMod, "ParameterGroup")},
 			"aws_dax_subnet_group":    {Tok: awsResource(daxMod, "SubnetGroup")},
 			// DeviceFarm
 			"aws_devicefarm_project": {Tok: awsResource(devicefarmMod, "Project")},
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
-			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
+			"aws_directory_service_directory": {
+				Tok: awsResource(directoryserviceMod, "Directory"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Direct Connect
-			"aws_dx_connection":                                {Tok: awsResource(dxMod, "Connection")},
-			"aws_dx_connection_association":                    {Tok: awsResource(dxMod, "ConnectionAssociation")},
-			"aws_dx_gateway":                                   {Tok: awsResource(dxMod, "Gateway")},
-			"aws_dx_gateway_association":                       {Tok: awsResource(dxMod, "GatewayAssociation")},
-			"aws_dx_hosted_private_virtual_interface":          {Tok: awsResource(dxMod, "HostedPrivateVirtualInterface")},
-			"aws_dx_hosted_private_virtual_interface_accepter": {Tok: awsResource(dxMod, "HostedPrivateVirtualInterfaceAccepter")},
-			"aws_dx_hosted_public_virtual_interface":           {Tok: awsResource(dxMod, "HostedPublicVirtualInterface")},
-			"aws_dx_hosted_public_virtual_interface_accepter":  {Tok: awsResource(dxMod, "HostedPublicVirtualInterfaceAccepter")},
-			"aws_dx_private_virtual_interface":                 {Tok: awsResource(dxMod, "PrivateVirtualInterface")},
-			"aws_dx_public_virtual_interface":                  {Tok: awsResource(dxMod, "PublicVirtualInterface")},
-			"aws_dx_lag":                                       {Tok: awsResource(dxMod, "LinkAggregationGroup")},
+			"aws_dx_connection": {
+				Tok: awsResource(dxMod, "Connection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dx_connection_association":           {Tok: awsResource(dxMod, "ConnectionAssociation")},
+			"aws_dx_gateway":                          {Tok: awsResource(dxMod, "Gateway")},
+			"aws_dx_gateway_association":              {Tok: awsResource(dxMod, "GatewayAssociation")},
+			"aws_dx_hosted_private_virtual_interface": {Tok: awsResource(dxMod, "HostedPrivateVirtualInterface")},
+			"aws_dx_hosted_private_virtual_interface_accepter": {
+				Tok: awsResource(dxMod, "HostedPrivateVirtualInterfaceAccepter"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dx_hosted_public_virtual_interface": {Tok: awsResource(dxMod, "HostedPublicVirtualInterface")},
+			"aws_dx_hosted_public_virtual_interface_accepter": {
+				Tok: awsResource(dxMod, "HostedPublicVirtualInterfaceAccepter"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dx_private_virtual_interface": {
+				Tok: awsResource(dxMod, "PrivateVirtualInterface"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_dx_public_virtual_interface": {Tok: awsResource(dxMod, "PublicVirtualInterface")},
+			"aws_dx_lag": {
+				Tok: awsResource(dxMod, "LinkAggregationGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// DynamoDB
 			"aws_dynamodb_global_table": {Tok: awsResource(dynamodbMod, "GlobalTable")},
 			"aws_dynamodb_table": {
@@ -557,6 +653,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name":        tfbridge.AutoName("name", 40),
 					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
+					"tags":        {Type: awsType(awsMod, "Tags")},
 					"version_label": {
 						Name: "version",
 						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
@@ -564,10 +661,25 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic Block Store
-			"aws_ebs_snapshot": {Tok: awsResource(ebsMod, "Snapshot")},
-			"aws_ebs_volume":   {Tok: awsResource(ebsMod, "Volume")},
+			"aws_ebs_snapshot": {
+				Tok: awsResource(ebsMod, "Snapshot"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ebs_volume": {
+				Tok: awsResource(ebsMod, "Volume"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// ElastiCache
-			"aws_elasticache_cluster": {Tok: awsResource(elasticacheMod, "Cluster")},
+			"aws_elasticache_cluster": {
+				Tok: awsResource(elasticacheMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_elasticache_parameter_group": {
 				Tok: awsResource(elasticacheMod, "ParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -576,7 +688,12 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_elasticache_replication_group": {Tok: awsResource(elasticacheMod, "ReplicationGroup")},
+			"aws_elasticache_replication_group": {
+				Tok: awsResource(elasticacheMod, "ReplicationGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_elasticache_security_group": {
 				Tok: awsResource(elasticacheMod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -603,6 +720,9 @@ func Provider() tfbridge.ProviderInfo {
 					IncludeArgumentsFrom:           "aws_ami",
 					IncludeAttributesFromArguments: "aws_ami",
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
 			"aws_ami_from_instance": {
 				Tok: awsResource(ec2Mod, "AmiFromInstance"),
@@ -610,37 +730,64 @@ func Provider() tfbridge.ProviderInfo {
 					IncludeAttributesFromArguments: "aws_ami",
 				},
 			},
-			"aws_ami_launch_permission":        {Tok: awsResource(ec2Mod, "AmiLaunchPermission")},
-			"aws_customer_gateway":             {Tok: awsResource(ec2Mod, "CustomerGateway")},
+			"aws_ami_launch_permission": {Tok: awsResource(ec2Mod, "AmiLaunchPermission")},
+			"aws_customer_gateway": {
+				Tok: awsResource(ec2Mod, "CustomerGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_egress_only_internet_gateway": {Tok: awsResource(ec2Mod, "EgressOnlyInternetGateway")},
-			"aws_eip":                          {Tok: awsResource(ec2Mod, "Eip")},
-			"aws_eip_association":              {Tok: awsResource(ec2Mod, "EipAssociation")},
-			"aws_flow_log":                     {Tok: awsResource(ec2Mod, "FlowLog")},
+			"aws_eip": {
+				Tok: awsResource(ec2Mod, "Eip"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_eip_association": {Tok: awsResource(ec2Mod, "EipAssociation")},
+			"aws_flow_log":        {Tok: awsResource(ec2Mod, "FlowLog")},
 			"aws_instance": {
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"instance_type": {
 						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_internet_gateway":     {Tok: awsResource(ec2Mod, "InternetGateway")},
+			"aws_internet_gateway": {
+				Tok: awsResource(ec2Mod, "InternetGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_key_pair":             {Tok: awsResource(ec2Mod, "KeyPair")},
 			"aws_launch_configuration": {Tok: awsResource(ec2Mod, "LaunchConfiguration")},
-			"aws_launch_template":      {Tok: awsResource(ec2Mod, "LaunchTemplate")},
+			"aws_launch_template": {
+				Tok: awsResource(ec2Mod, "LaunchTemplate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_main_route_table_association": {
 				Tok: awsResource(ec2Mod, "MainRouteTableAssociation"),
 				Docs: &tfbridge.DocInfo{
 					Source: "main_route_table_assoc.html.markdown",
 				},
 			},
-			"aws_nat_gateway": {Tok: awsResource(ec2Mod, "NatGateway")},
+			"aws_nat_gateway": {
+				Tok: awsResource(ec2Mod, "NatGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_network_acl": {
 				Tok: awsResource(ec2Mod, "NetworkAcl"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
 					"egress":  {Name: "egress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_default_network_acl": {
@@ -649,17 +796,33 @@ func Provider() tfbridge.ProviderInfo {
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
 					"egress":  {Name: "egress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_network_acl_rule":             {Tok: awsResource(ec2Mod, "NetworkAclRule")},
-			"aws_network_interface":            {Tok: awsResource(ec2Mod, "NetworkInterface")},
+			"aws_network_acl_rule": {Tok: awsResource(ec2Mod, "NetworkAclRule")},
+			"aws_network_interface": {
+				Tok: awsResource(ec2Mod, "NetworkInterface"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
 			"aws_placement_group":              {Tok: awsResource(ec2Mod, "PlacementGroup")},
 			"aws_proxy_protocol_policy":        {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
 			"aws_route":                        {Tok: awsResource(ec2Mod, "Route")},
-			"aws_route_table":                  {Tok: awsResource(ec2Mod, "RouteTable")},
-			"aws_default_route_table":          {Tok: awsResource(ec2Mod, "DefaultRouteTable")},
-			"aws_route_table_association":      {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
+			"aws_route_table": {
+				Tok: awsResource(ec2Mod, "RouteTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_default_route_table": {
+				Tok: awsResource(ec2Mod, "DefaultRouteTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
 			"aws_security_group": {
 				Tok: awsResource(ec2Mod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -667,6 +830,7 @@ func Provider() tfbridge.ProviderInfo {
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
 					"egress":  {Name: "egress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_network_interface_sg_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
@@ -676,6 +840,7 @@ func Provider() tfbridge.ProviderInfo {
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
 					"egress":  {Name: "egress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_security_group_rule":               {Tok: awsResource(ec2Mod, "SecurityGroupRule")},
@@ -686,24 +851,53 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					IncludeArgumentsFrom: "aws_instance",
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
 			},
-			"aws_spot_fleet_request":           {Tok: awsResource(ec2Mod, "SpotFleetRequest")},
-			"aws_default_subnet":               {Tok: awsResource(ec2Mod, "DefaultSubnet")},
-			"aws_subnet":                       {Tok: awsResource(ec2Mod, "Subnet")},
+			"aws_spot_fleet_request": {Tok: awsResource(ec2Mod, "SpotFleetRequest")},
+			"aws_default_subnet": {
+				Tok: awsResource(ec2Mod, "DefaultSubnet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_subnet": {
+				Tok: awsResource(ec2Mod, "Subnet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_volume_attachment":            {Tok: awsResource(ec2Mod, "VolumeAttachment")},
 			"aws_vpc_dhcp_options_association": {Tok: awsResource(ec2Mod, "VpcDhcpOptionsAssociation")},
-			"aws_default_vpc_dhcp_options":     {Tok: awsResource(ec2Mod, "DefaultVpcDhcpOptions")},
-			"aws_vpc_dhcp_options":             {Tok: awsResource(ec2Mod, "VpcDhcpOptions")},
+			"aws_default_vpc_dhcp_options": {
+				Tok: awsResource(ec2Mod, "DefaultVpcDhcpOptions"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpc_dhcp_options": {
+				Tok: awsResource(ec2Mod, "VpcDhcpOptions"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_vpc_peering_connection": {
 				Tok: awsResource(ec2Mod, "VpcPeeringConnection"),
 				Docs: &tfbridge.DocInfo{
 					Source: "vpc_peering.html.markdown",
+				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_vpc_peering_connection_accepter": {
 				Tok: awsResource(ec2Mod, "VpcPeeringConnectionAccepter"),
 				Docs: &tfbridge.DocInfo{
 					Source: "vpc_peering_accepter.html.markdown",
+				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_vpc_peering_connection_options": {
@@ -712,8 +906,18 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "vpc_peering_options.html.markdown",
 				},
 			},
-			"aws_default_vpc":                            {Tok: awsResource(ec2Mod, "DefaultVpc")},
-			"aws_vpc":                                    {Tok: awsResource(ec2Mod, "Vpc")},
+			"aws_default_vpc": {
+				Tok: awsResource(ec2Mod, "DefaultVpc"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpc": {
+				Tok: awsResource(ec2Mod, "Vpc"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_vpc_endpoint":                           {Tok: awsResource(ec2Mod, "VpcEndpoint")},
 			"aws_vpc_endpoint_connection_notification":   {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
 			"aws_vpc_endpoint_route_table_association":   {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
@@ -721,11 +925,21 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_endpoint_service_allowed_principal": {Tok: awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple")},
 			"aws_vpc_endpoint_subnet_association":        {Tok: awsResource(ec2Mod, "VpcEndpointSubnetAssociation")},
 			"aws_vpc_ipv4_cidr_block_association":        {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
-			"aws_vpn_connection":                         {Tok: awsResource(ec2Mod, "VpnConnection")},
-			"aws_vpn_connection_route":                   {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
-			"aws_vpn_gateway":                            {Tok: awsResource(ec2Mod, "VpnGateway")},
-			"aws_vpn_gateway_attachment":                 {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
-			"aws_vpn_gateway_route_propagation":          {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			"aws_vpn_connection": {
+				Tok: awsResource(ec2Mod, "VpnConnection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpn_connection_route": {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
+			"aws_vpn_gateway": {
+				Tok: awsResource(ec2Mod, "VpnGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_vpn_gateway_attachment":        {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
+			"aws_vpn_gateway_route_propagation": {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
 			// Elastic Container Registry
 			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},
@@ -745,14 +959,24 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ecs_task_definition": {Tok: awsResource(ecsMod, "TaskDefinition")},
 			// Elastic File System
-			"aws_efs_file_system": {Tok: awsResource(efsMod, "FileSystem")},
+			"aws_efs_file_system": {
+				Tok: awsResource(efsMod, "FileSystem"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_efs_mount_target": {
 				Tok:                 awsResource(efsMod, "MountTarget"),
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
 			// Elastic Load Balancing
-			"aws_app_cookie_stickiness_policy":        {Tok: awsResource(elbMod, "AppCookieStickinessPolicy")},
-			"aws_elb":                                 {Tok: awsResource(elbMod, "LoadBalancer")},
+			"aws_app_cookie_stickiness_policy": {Tok: awsResource(elbMod, "AppCookieStickinessPolicy")},
+			"aws_elb": {
+				Tok: awsResource(elbMod, "LoadBalancer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_elb_attachment":                      {Tok: awsResource(elbMod, "Attachment")},
 			"aws_lb_cookie_stickiness_policy":         {Tok: awsResource(elbMod, "LoadBalancerCookieStickinessPolicy")},
 			"aws_load_balancer_policy":                {Tok: awsResource(elbMod, "LoadBalancerPolicy")},
@@ -797,11 +1021,21 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Load Balancing (Application and Network)
-			"aws_lb":                         {Tok: awsResource(elbv2Mod, "LoadBalancer")},
-			"aws_lb_listener":                {Tok: awsResource(elbv2Mod, "Listener")},
-			"aws_lb_listener_certificate":    {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
-			"aws_lb_listener_rule":           {Tok: awsResource(elbv2Mod, "ListenerRule")},
-			"aws_lb_target_group":            {Tok: awsResource(elbv2Mod, "TargetGroup")},
+			"aws_lb": {
+				Tok: awsResource(elbv2Mod, "LoadBalancer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_lb_listener":             {Tok: awsResource(elbv2Mod, "Listener")},
+			"aws_lb_listener_certificate": {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
+			"aws_lb_listener_rule":        {Tok: awsResource(elbv2Mod, "ListenerRule")},
+			"aws_lb_target_group": {
+				Tok: awsResource(elbv2Mod, "TargetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_lb_target_group_attachment": {Tok: awsResource(elbv2Mod, "TargetGroupAttachment")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
@@ -817,6 +1051,7 @@ func Provider() tfbridge.ProviderInfo {
 					"cluster_config":   {Name: "clusterConfig", MaxItemsOne: boolRef(true)},
 					"ebs_options":      {Name: "ebsOptions", MaxItemsOne: boolRef(true)},
 					"snapshot_options": {Name: "snapshotOptions", MaxItemsOne: boolRef(true)},
+					"tags":             {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_elasticsearch_domain_policy": {Tok: awsResource(elasticsearchMod, "DomainPolicy")},
@@ -834,11 +1069,21 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic MapReduce
-			"aws_emr_cluster":                {Tok: awsResource(emrMod, "Cluster")},
+			"aws_emr_cluster": {
+				Tok: awsResource(emrMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			// GameLift
-			"aws_glacier_vault": {Tok: awsResource(glacierMod, "Vault")},
+			"aws_glacier_vault": {
+				Tok: awsResource(glacierMod, "Vault"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Glue
 			"aws_glue_catalog_database": {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":    {Tok: awsResource(glueMod, "CatalogTable")},
@@ -960,7 +1205,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Inspector
 			"aws_inspector_assessment_target":   {Tok: awsResource(inspectorMod, "AssessmentTarget")},
 			"aws_inspector_assessment_template": {Tok: awsResource(inspectorMod, "AssessmentTemplate")},
-			"aws_inspector_resource_group":      {Tok: awsResource(inspectorMod, "ResourceGroup")},
+			"aws_inspector_resource_group": {
+				Tok: awsResource(inspectorMod, "ResourceGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// IoT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
 			"aws_iot_policy": {
@@ -987,11 +1237,21 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
-			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
+			"aws_kinesis_stream": {
+				Tok: awsResource(kinesisMod, "Stream"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Key Management Service (KMS)
 			"aws_kms_alias": {Tok: awsResource(kmsMod, "Alias")},
 			"aws_kms_grant": {Tok: awsResource(kmsMod, "Grant")},
-			"aws_kms_key":   {Tok: awsResource(kmsMod, "Key")},
+			"aws_kms_key": {
+				Tok: awsResource(kmsMod, "Key"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Lambda
 			"aws_lambda_function": {
 				Tok:      awsResource(lambdaMod, "Function"),
@@ -1011,6 +1271,7 @@ func Provider() tfbridge.ProviderInfo {
 							HashField: "source_code_hash",
 						},
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_lambda_event_source_mapping": {Tok: awsResource(lambdaMod, "EventSourceMapping")},
@@ -1040,11 +1301,26 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
 			// Neptune
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
-			"aws_neptune_parameter_group":         {Tok: awsResource(neptuneMod, "ParameterGroup")},
-			"aws_neptune_subnet_group":            {Tok: awsResource(neptuneMod, "SubnetGroup")},
+			"aws_neptune_parameter_group": {
+				Tok: awsResource(neptuneMod, "ParameterGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_neptune_subnet_group": {
+				Tok: awsResource(neptuneMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// OpsWorks
-			"aws_opsworks_application":      {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack":            {Tok: awsResource(opsworksMod, "Stack")},
+			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
+			"aws_opsworks_stack": {
+				Tok: awsResource(opsworksMod, "Stack"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_opsworks_java_app_layer":   {Tok: awsResource(opsworksMod, "JavaAppLayer")},
 			"aws_opsworks_haproxy_layer":    {Tok: awsResource(opsworksMod, "HaproxyLayer")},
 			"aws_opsworks_static_web_layer": {Tok: awsResource(opsworksMod, "StaticWebLayer")},
@@ -1065,24 +1341,46 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_policy":            {Tok: awsResource(organizationsMod, "Policy")},
 			"aws_organizations_policy_attachment": {Tok: awsResource(organizationsMod, "PolicyAttachment")},
 			// Relational Database Service (RDS)
-			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
-			"aws_rds_cluster_instance": {Tok: awsResource(rdsMod, "ClusterInstance")},
+			"aws_rds_cluster": {
+				Tok: awsResource(rdsMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_rds_cluster_instance": {
+				Tok: awsResource(rdsMod, "ClusterInstance"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_rds_cluster_parameter_group": {
 				Tok: awsResource(rdsMod, "ClusterParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_db_event_subscription": {Tok: awsResource(rdsMod, "EventSubscription")},
-			"aws_db_instance":           {Tok: awsResource(rdsMod, "Instance")},
+			"aws_db_event_subscription": {
+				Tok: awsResource(rdsMod, "EventSubscription"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_db_instance": {
+				Tok: awsResource(rdsMod, "Instance"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_db_option_group": {
 				Tok: awsResource(rdsMod, "OptionGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"option_group_description": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_db_parameter_group": {
@@ -1091,6 +1389,7 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_db_security_group": {
@@ -1099,12 +1398,23 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {Default: managedByPulumi},
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {Name: "ingress"},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_db_snapshot":     {Tok: awsResource(rdsMod, "Snapshot")},
-			"aws_db_subnet_group": {Tok: awsResource(rdsMod, "SubnetGroup")},
+			"aws_db_snapshot": {Tok: awsResource(rdsMod, "Snapshot")},
+			"aws_db_subnet_group": {
+				Tok: awsResource(rdsMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// RedShift
-			"aws_redshift_cluster": {Tok: awsResource(redshiftMod, "Cluster")},
+			"aws_redshift_cluster": {
+				Tok: awsResource(redshiftMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_redshift_security_group": {
 				Tok: awsResource(redshiftMod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1127,6 +1437,7 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			// Route53
@@ -1140,14 +1451,25 @@ func Provider() tfbridge.ProviderInfo {
 					"comment": {
 						Default: managedByPulumi,
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_health_check": {
+				Tok: awsResource(route53Mod, "HealthCheck"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
 			// Service Catalog
-			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
+			"aws_servicecatalog_portfolio": {
+				Tok: awsResource(servicecatalogMod, "Portfolio"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Service Discovery
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
@@ -1175,6 +1497,7 @@ func Provider() tfbridge.ProviderInfo {
 					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
 					// provider.
 					"website": {Name: "website", MaxItemsOne: boolRef(true)},
+					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
@@ -1201,20 +1524,31 @@ func Provider() tfbridge.ProviderInfo {
 							Kind: tfbridge.FileAsset,
 						},
 					},
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_s3_bucket_policy": {Tok: awsResource(s3Mod, "BucketPolicy")},
 			// Systems Manager (SSM)
-			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
-			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
-			"aws_ssm_document":                  {Tok: awsResource(ssmMod, "Document")},
+			"aws_ssm_activation":  {Tok: awsResource(ssmMod, "Activation")},
+			"aws_ssm_association": {Tok: awsResource(ssmMod, "Association")},
+			"aws_ssm_document": {
+				Tok: awsResource(ssmMod, "Document"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_ssm_maintenance_window":        {Tok: awsResource(ssmMod, "MaintenanceWindow")},
 			"aws_ssm_maintenance_window_target": {Tok: awsResource(ssmMod, "MaintenanceWindowTarget")},
 			"aws_ssm_maintenance_window_task":   {Tok: awsResource(ssmMod, "MaintenanceWindowTask")},
 			"aws_ssm_patch_baseline":            {Tok: awsResource(ssmMod, "PatchBaseline")},
 			"aws_ssm_patch_group":               {Tok: awsResource(ssmMod, "PatchGroup")},
-			"aws_ssm_parameter":                 {Tok: awsResource(ssmMod, "Parameter")},
-			"aws_ssm_resource_data_sync":        {Tok: awsResource(ssmMod, "ResourceDataSync")},
+			"aws_ssm_parameter": {
+				Tok: awsResource(ssmMod, "Parameter"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ssm_resource_data_sync": {Tok: awsResource(ssmMod, "ResourceDataSync")},
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
@@ -1222,6 +1556,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(sqsMod, "Queue"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 80),
+					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
@@ -1459,6 +1794,7 @@ func Provider() tfbridge.ProviderInfo {
 				Files: []string{
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
+					"tags.ts",   // Tags typedef
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
