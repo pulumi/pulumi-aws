@@ -4,7 +4,6 @@
     "Enable": [
         "deadcode",
         "errcheck",
-        "gas",
         "goconst",
         "gofmt",
         "golint",
