@@ -20,7 +20,7 @@ export interface GetPolicyArgs {
     /**
      * ARN of the IAM policy.
      */
-    readonly arn: pulumi.Input<string>;
+    readonly arn: string;
 }
 
 /**

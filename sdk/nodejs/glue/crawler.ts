@@ -134,7 +134,7 @@ export interface CrawlerState {
     /**
      * List of nested JBDC target arguments. See below.
      */
-    readonly jdbcTargets?: pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }[]>;
+    readonly jdbcTargets?: pulumi.Input<pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
     /**
      * Name of the crawler.
      */
@@ -146,7 +146,7 @@ export interface CrawlerState {
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    readonly s3Targets?: pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }[]>;
+    readonly s3Targets?: pulumi.Input<pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -184,7 +184,7 @@ export interface CrawlerArgs {
     /**
      * List of nested JBDC target arguments. See below.
      */
-    readonly jdbcTargets?: pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }[]>;
+    readonly jdbcTargets?: pulumi.Input<pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
     /**
      * Name of the crawler.
      */
@@ -196,7 +196,7 @@ export interface CrawlerArgs {
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    readonly s3Targets?: pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }[]>;
+    readonly s3Targets?: pulumi.Input<pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */

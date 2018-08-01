@@ -70,7 +70,7 @@ export interface TriggerState {
      * The name for the repository. This needs to be less than 100 characters.
      */
     readonly repositoryName?: pulumi.Input<string>;
-    readonly triggers?: pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }[]>;
+    readonly triggers?: pulumi.Input<pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -81,5 +81,5 @@ export interface TriggerArgs {
      * The name for the repository. This needs to be less than 100 characters.
      */
     readonly repositoryName: pulumi.Input<string>;
-    readonly triggers: pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }[]>;
+    readonly triggers: pulumi.Input<pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
 }

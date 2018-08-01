@@ -162,7 +162,7 @@ export interface TaskDefinitionState {
     /**
      * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
-    readonly placementConstraints?: pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -178,7 +178,7 @@ export interface TaskDefinitionState {
     /**
      * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
      */
-    readonly volumes?: pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -217,7 +217,7 @@ export interface TaskDefinitionArgs {
     /**
      * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
-    readonly placementConstraints?: pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -229,5 +229,5 @@ export interface TaskDefinitionArgs {
     /**
      * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
      */
-    readonly volumes?: pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }

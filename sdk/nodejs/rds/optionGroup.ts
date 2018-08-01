@@ -126,7 +126,7 @@ export interface OptionGroupState {
     /**
      * A list of Options to apply.
      */
-    readonly options?: pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */
@@ -160,7 +160,7 @@ export interface OptionGroupArgs {
     /**
      * A list of Options to apply.
      */
-    readonly options?: pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */

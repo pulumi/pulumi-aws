@@ -22,7 +22,7 @@ export interface GetServiceAccountArgs {
      * Name of the region whose AWS ELB account ID is desired.
      * Defaults to the region from the AWS provider configuration.
      */
-    readonly region?: pulumi.Input<string>;
+    readonly region?: string;
 }
 
 /**

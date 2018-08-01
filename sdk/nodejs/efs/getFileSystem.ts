@@ -22,12 +22,12 @@ export interface GetFileSystemArgs {
     /**
      * Restricts the list to the file system with this creation token.
      */
-    readonly creationToken?: pulumi.Input<string>;
+    readonly creationToken?: string;
     /**
      * The ID that identifies the file system (e.g. fs-ccfc0d65).
      */
-    readonly fileSystemId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly fileSystemId?: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

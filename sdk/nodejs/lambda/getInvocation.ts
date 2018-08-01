@@ -23,16 +23,16 @@ export interface GetInvocationArgs {
     /**
      * The name of the lambda function.
      */
-    readonly functionName: pulumi.Input<string>;
+    readonly functionName: string;
     /**
      * A string in JSON format that is passed as payload to the lambda function.
      */
-    readonly input: pulumi.Input<string>;
+    readonly input: string;
     /**
      * The qualifier (a.k.a version) of the lambda function. Defaults
      * to `$LATEST`.
      */
-    readonly qualifier?: pulumi.Input<string>;
+    readonly qualifier?: string;
 }
 
 /**

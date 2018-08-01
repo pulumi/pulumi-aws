@@ -87,7 +87,7 @@ export interface ResourceServerState {
     /**
      * A list of [Authorization Scope](#authorization_scope).
      */
-    readonly scopes?: pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }[]>;
+    readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      */
@@ -110,6 +110,6 @@ export interface ResourceServerArgs {
     /**
      * A list of [Authorization Scope](#authorization_scope).
      */
-    readonly scopes?: pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }[]>;
+    readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
     readonly userPoolId: pulumi.Input<string>;
 }

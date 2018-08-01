@@ -221,7 +221,7 @@ export interface BrokerState {
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
      */
-    readonly instances?: pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly instances?: pulumi.Input<pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * Maintenance window start time. See below.
      */
@@ -241,7 +241,7 @@ export interface BrokerState {
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    readonly users?: pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }[]>;
+    readonly users?: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -300,5 +300,5 @@ export interface BrokerArgs {
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    readonly users: pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }[]>;
+    readonly users: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
 }

@@ -19,7 +19,7 @@ export interface GetReplicationGroupArgs {
     /**
      * The identifier for the replication group.
      */
-    readonly replicationGroupId: pulumi.Input<string>;
+    readonly replicationGroupId: string;
 }
 
 /**

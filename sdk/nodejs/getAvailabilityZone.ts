@@ -31,12 +31,12 @@ export interface GetAvailabilityZoneArgs {
     /**
      * The full name of the availability zone to select.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A specific availability zone state to require. May
      * be any of `"available"`, `"information"` or `"impaired"`.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: string;
 }
 
 /**

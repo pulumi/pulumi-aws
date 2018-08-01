@@ -87,7 +87,7 @@ export interface ListenerRuleState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions?: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
@@ -95,7 +95,7 @@ export interface ListenerRuleState {
     /**
      * A Condition block. Condition blocks are documented below.
      */
-    readonly conditions?: pulumi.Input<{ field?: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>> }[]>;
+    readonly conditions?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, values?: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
@@ -113,11 +113,11 @@ export interface ListenerRuleArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
+    readonly actions: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * A Condition block. Condition blocks are documented below.
      */
-    readonly conditions: pulumi.Input<{ field?: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>> }[]>;
+    readonly conditions: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, values?: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */

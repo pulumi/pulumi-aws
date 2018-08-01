@@ -62,7 +62,7 @@ export interface XssMatchSetState {
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }[]>;
+    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -76,5 +76,5 @@ export interface XssMatchSetArgs {
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }[]>;
+    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
 }

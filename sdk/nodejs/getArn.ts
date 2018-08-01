@@ -19,7 +19,7 @@ export interface GetArnArgs {
     /**
      * The ARN to parse.
      */
-    readonly arn: pulumi.Input<string>;
+    readonly arn: string;
 }
 
 /**

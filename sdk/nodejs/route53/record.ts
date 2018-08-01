@@ -144,7 +144,7 @@ export interface RecordState {
      * An alias block. Conflicts with `ttl` & `records`.
      * Alias record documented below.
      */
-    readonly aliases?: pulumi.Input<{ evaluateTargetHealth: pulumi.Input<boolean>, name: pulumi.Input<string>, zoneId: pulumi.Input<string> }[]>;
+    readonly aliases?: pulumi.Input<pulumi.Input<{ evaluateTargetHealth: pulumi.Input<boolean>, name: pulumi.Input<string>, zoneId: pulumi.Input<string> }>[]>;
     /**
      * Allow creation of this record in Terraform to overwrite an existing record, if any. This does not prevent other resources within Terraform or manual Route53 changes from overwriting this record. `true` by default.
      */
@@ -152,7 +152,7 @@ export interface RecordState {
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    readonly failoverRoutingPolicies?: pulumi.Input<{ type: pulumi.Input<string> }[]>;
+    readonly failoverRoutingPolicies?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
@@ -160,7 +160,7 @@ export interface RecordState {
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    readonly geolocationRoutingPolicies?: pulumi.Input<{ continent?: pulumi.Input<string>, country?: pulumi.Input<string>, subdivision?: pulumi.Input<string> }[]>;
+    readonly geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<{ continent?: pulumi.Input<string>, country?: pulumi.Input<string>, subdivision?: pulumi.Input<string> }>[]>;
     /**
      * The health check the record should be associated with.
      */
@@ -168,7 +168,7 @@ export interface RecordState {
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    readonly latencyRoutingPolicies?: pulumi.Input<{ region: pulumi.Input<string> }[]>;
+    readonly latencyRoutingPolicies?: pulumi.Input<pulumi.Input<{ region: pulumi.Input<string> }>[]>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
@@ -196,7 +196,7 @@ export interface RecordState {
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    readonly weightedRoutingPolicies?: pulumi.Input<{ weight: pulumi.Input<number> }[]>;
+    readonly weightedRoutingPolicies?: pulumi.Input<pulumi.Input<{ weight: pulumi.Input<number> }>[]>;
     /**
      * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](/docs/providers/aws/r/elb.html#zone_id) for example.
      */
@@ -211,7 +211,7 @@ export interface RecordArgs {
      * An alias block. Conflicts with `ttl` & `records`.
      * Alias record documented below.
      */
-    readonly aliases?: pulumi.Input<{ evaluateTargetHealth: pulumi.Input<boolean>, name: pulumi.Input<string>, zoneId: pulumi.Input<string> }[]>;
+    readonly aliases?: pulumi.Input<pulumi.Input<{ evaluateTargetHealth: pulumi.Input<boolean>, name: pulumi.Input<string>, zoneId: pulumi.Input<string> }>[]>;
     /**
      * Allow creation of this record in Terraform to overwrite an existing record, if any. This does not prevent other resources within Terraform or manual Route53 changes from overwriting this record. `true` by default.
      */
@@ -219,11 +219,11 @@ export interface RecordArgs {
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    readonly failoverRoutingPolicies?: pulumi.Input<{ type: pulumi.Input<string> }[]>;
+    readonly failoverRoutingPolicies?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    readonly geolocationRoutingPolicies?: pulumi.Input<{ continent?: pulumi.Input<string>, country?: pulumi.Input<string>, subdivision?: pulumi.Input<string> }[]>;
+    readonly geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<{ continent?: pulumi.Input<string>, country?: pulumi.Input<string>, subdivision?: pulumi.Input<string> }>[]>;
     /**
      * The health check the record should be associated with.
      */
@@ -231,7 +231,7 @@ export interface RecordArgs {
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    readonly latencyRoutingPolicies?: pulumi.Input<{ region: pulumi.Input<string> }[]>;
+    readonly latencyRoutingPolicies?: pulumi.Input<pulumi.Input<{ region: pulumi.Input<string> }>[]>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
@@ -259,7 +259,7 @@ export interface RecordArgs {
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    readonly weightedRoutingPolicies?: pulumi.Input<{ weight: pulumi.Input<number> }[]>;
+    readonly weightedRoutingPolicies?: pulumi.Input<pulumi.Input<{ weight: pulumi.Input<number> }>[]>;
     /**
      * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](/docs/providers/aws/r/elb.html#zone_id) for example.
      */

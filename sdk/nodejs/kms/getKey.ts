@@ -23,7 +23,7 @@ export interface GetKeyArgs {
     /**
      * List of grant tokens
      */
-    readonly grantTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly grantTokens?: string[];
     /**
      * Key identifier which can be one of the following format:
      * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
@@ -31,7 +31,7 @@ export interface GetKeyArgs {
      * * Alias name. E.g.: `alias/my-key`
      * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
-    readonly keyId: pulumi.Input<string>;
+    readonly keyId: string;
 }
 
 /**

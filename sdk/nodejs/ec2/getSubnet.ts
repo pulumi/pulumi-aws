@@ -33,41 +33,41 @@ export interface GetSubnetArgs {
      * The availability zone where the
      * subnet must reside.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The cidr block of the desired subnet.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    readonly cidrBlock?: string;
     /**
      * Boolean constraint for whether the desired
      * subnet must be the default subnet for its associated availability zone.
      */
-    readonly defaultForAz?: pulumi.Input<boolean>;
+    readonly defaultForAz?: boolean;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The id of the specific subnet to retrieve.
      */
-    readonly id?: pulumi.Input<string>;
+    readonly id?: string;
     /**
      * The Ipv6 cidr block of the desired subnet
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    readonly ipv6CidrBlock?: string;
     /**
      * The state that the desired subnet must have.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: string;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired subnet.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The id of the VPC that the desired subnet belongs to.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
