@@ -21,7 +21,7 @@ export interface GetInstanceProfileArgs {
     /**
      * The friendly IAM instance profile name to match.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

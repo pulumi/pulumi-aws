@@ -79,7 +79,7 @@ export interface SslNegotiationPolicyState {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    readonly attributes?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
@@ -104,7 +104,7 @@ export interface SslNegotiationPolicyArgs {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    readonly attributes?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load

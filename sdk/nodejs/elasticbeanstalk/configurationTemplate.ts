@@ -108,7 +108,7 @@ export interface ConfigurationTemplateState {
      * override specific values that are set as defaults. The format is detailed
      * below in [Option Settings](#option-settings)
      */
-    readonly settings?: pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
@@ -141,7 +141,7 @@ export interface ConfigurationTemplateArgs {
      * override specific values that are set as defaults. The format is detailed
      * below in [Option Settings](#option-settings)
      */
-    readonly settings?: pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]

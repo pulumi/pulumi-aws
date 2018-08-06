@@ -264,7 +264,7 @@ export interface ClusterState {
      * List of node objects including `id`, `address`, `port` and `availability_zone`.
      * Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
-    readonly cacheNodes?: pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }[]>;
+    readonly cacheNodes?: pulumi.Input<pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }>[]>;
     /**
      * (Memcached only) The DNS name of the cache cluster without the port appended.
      */

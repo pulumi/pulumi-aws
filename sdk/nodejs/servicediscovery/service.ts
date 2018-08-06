@@ -93,7 +93,7 @@ export interface ServiceState {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig?: pulumi.Input<{ dnsRecords: pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
+    readonly dnsConfig?: pulumi.Input<{ dnsRecords: pulumi.Input<pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
@@ -119,7 +119,7 @@ export interface ServiceArgs {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig: pulumi.Input<{ dnsRecords: pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
+    readonly dnsConfig: pulumi.Input<{ dnsRecords: pulumi.Input<pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */

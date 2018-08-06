@@ -133,7 +133,7 @@ export interface ReceiptRuleState {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    readonly addHeaderActions?: pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string>, position: pulumi.Input<number> }[]>;
+    readonly addHeaderActions?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string>, position: pulumi.Input<number> }>[]>;
     /**
      * The name of the rule to place this rule after
      */
@@ -141,7 +141,7 @@ export interface ReceiptRuleState {
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    readonly bounceActions?: pulumi.Input<{ message: pulumi.Input<string>, position: pulumi.Input<number>, sender: pulumi.Input<string>, smtpReplyCode: pulumi.Input<string>, statusCode?: pulumi.Input<string>, topicArn?: pulumi.Input<string> }[]>;
+    readonly bounceActions?: pulumi.Input<pulumi.Input<{ message: pulumi.Input<string>, position: pulumi.Input<number>, sender: pulumi.Input<string>, smtpReplyCode: pulumi.Input<string>, statusCode?: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * If true, the rule will be enabled
      */
@@ -149,7 +149,7 @@ export interface ReceiptRuleState {
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    readonly lambdaActions?: pulumi.Input<{ functionArn: pulumi.Input<string>, invocationType?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }[]>;
+    readonly lambdaActions?: pulumi.Input<pulumi.Input<{ functionArn: pulumi.Input<string>, invocationType?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * The name of the rule
      */
@@ -165,7 +165,7 @@ export interface ReceiptRuleState {
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    readonly s3Actions?: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, objectKeyPrefix?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }[]>;
+    readonly s3Actions?: pulumi.Input<pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, objectKeyPrefix?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
@@ -173,11 +173,11 @@ export interface ReceiptRuleState {
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    readonly snsActions?: pulumi.Input<{ position: pulumi.Input<number>, topicArn: pulumi.Input<string> }[]>;
+    readonly snsActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, topicArn: pulumi.Input<string> }>[]>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    readonly stopActions?: pulumi.Input<{ position: pulumi.Input<number>, scope: pulumi.Input<string>, topicArn?: pulumi.Input<string> }[]>;
+    readonly stopActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, scope: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * Require or Optional
      */
@@ -185,7 +185,7 @@ export interface ReceiptRuleState {
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    readonly workmailActions?: pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }[]>;
+    readonly workmailActions?: pulumi.Input<pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    readonly addHeaderActions?: pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string>, position: pulumi.Input<number> }[]>;
+    readonly addHeaderActions?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string>, position: pulumi.Input<number> }>[]>;
     /**
      * The name of the rule to place this rule after
      */
@@ -203,7 +203,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    readonly bounceActions?: pulumi.Input<{ message: pulumi.Input<string>, position: pulumi.Input<number>, sender: pulumi.Input<string>, smtpReplyCode: pulumi.Input<string>, statusCode?: pulumi.Input<string>, topicArn?: pulumi.Input<string> }[]>;
+    readonly bounceActions?: pulumi.Input<pulumi.Input<{ message: pulumi.Input<string>, position: pulumi.Input<number>, sender: pulumi.Input<string>, smtpReplyCode: pulumi.Input<string>, statusCode?: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * If true, the rule will be enabled
      */
@@ -211,7 +211,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    readonly lambdaActions?: pulumi.Input<{ functionArn: pulumi.Input<string>, invocationType?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }[]>;
+    readonly lambdaActions?: pulumi.Input<pulumi.Input<{ functionArn: pulumi.Input<string>, invocationType?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * The name of the rule
      */
@@ -227,7 +227,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    readonly s3Actions?: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, objectKeyPrefix?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }[]>;
+    readonly s3Actions?: pulumi.Input<pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, objectKeyPrefix?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
@@ -235,11 +235,11 @@ export interface ReceiptRuleArgs {
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    readonly snsActions?: pulumi.Input<{ position: pulumi.Input<number>, topicArn: pulumi.Input<string> }[]>;
+    readonly snsActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, topicArn: pulumi.Input<string> }>[]>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    readonly stopActions?: pulumi.Input<{ position: pulumi.Input<number>, scope: pulumi.Input<string>, topicArn?: pulumi.Input<string> }[]>;
+    readonly stopActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, scope: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
     /**
      * Require or Optional
      */
@@ -247,5 +247,5 @@ export interface ReceiptRuleArgs {
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    readonly workmailActions?: pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }[]>;
+    readonly workmailActions?: pulumi.Input<pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
 }

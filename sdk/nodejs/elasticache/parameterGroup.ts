@@ -85,7 +85,7 @@ export interface ParameterGroupState {
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface ParameterGroupArgs {
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }

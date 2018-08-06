@@ -22,12 +22,12 @@ export interface GetVpcDhcpOptionsArgs {
     /**
      * The EC2 DHCP Options ID.
      */
-    readonly dhcpOptionsId?: pulumi.Input<string>;
+    readonly dhcpOptionsId?: string;
     /**
      * List of custom filters as described below.
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly filters?: { name: string, values: string[] }[];
+    readonly tags?: {[key: string]: any};
 }
 
 /**

@@ -39,7 +39,7 @@ export class RolePolicy extends pulumi.CustomResource {
     /**
      * The IAM role to attach to the policy.
      */
-    public readonly role: pulumi.Output<string | Role>;
+    public readonly role: pulumi.Output<string>;
 
     /**
      * Create a RolePolicy resource with the given unique name, arguments, and options.

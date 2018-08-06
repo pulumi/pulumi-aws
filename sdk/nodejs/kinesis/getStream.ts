@@ -22,7 +22,7 @@ export interface GetStreamArgs {
     /**
      * The name of the Kinesis Stream.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

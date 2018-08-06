@@ -93,7 +93,7 @@ export interface RateBasedRuleState {
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }[]>;
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
     /**
      * Valid value is IP.
      */
@@ -119,7 +119,7 @@ export interface RateBasedRuleArgs {
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }[]>;
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
     /**
      * Valid value is IP.
      */

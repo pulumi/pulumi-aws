@@ -111,7 +111,7 @@ export interface ClusterParameterGroupState {
     /**
      * A list of neptune parameters to apply.
      */
-    readonly parameters?: pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -141,7 +141,7 @@ export interface ClusterParameterGroupArgs {
     /**
      * A list of neptune parameters to apply.
      */
-    readonly parameters?: pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

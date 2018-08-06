@@ -22,12 +22,12 @@ export interface GetIpRangesArgs {
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
      * (e.g. `eu-central-1`)
      */
-    readonly regions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly regions?: string[];
     /**
      * Filter IP ranges by services. Valid items are `amazon`
      * (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
      */
-    readonly services: pulumi.Input<pulumi.Input<string>[]>;
+    readonly services: string[];
 }
 
 /**

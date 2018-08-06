@@ -22,7 +22,7 @@ export interface GetExportArgs {
     /**
      * The name of the cross stack reference
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

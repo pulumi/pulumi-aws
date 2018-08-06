@@ -27,24 +27,24 @@ export interface GetNatGatewayArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The id of the specific Nat Gateway to retrieve.
      */
-    readonly id?: pulumi.Input<string>;
+    readonly id?: string;
     /**
      * The state of the NAT gateway (pending | failed | available | deleting | deleted ).
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: string;
     /**
      * The id of subnet that the Nat Gateway resides in.
      */
-    readonly subnetId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly subnetId?: string;
+    readonly tags?: {[key: string]: any};
     /**
      * The id of the VPC that the Nat Gateway resides in.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**

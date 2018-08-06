@@ -145,7 +145,7 @@ export interface CatalogTableState {
     /**
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      */
-    readonly partitionKeys?: pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
+    readonly partitionKeys?: pulumi.Input<pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * Retention time for this table.
      */
@@ -153,7 +153,7 @@ export interface CatalogTableState {
     /**
      * A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    readonly storageDescriptor?: pulumi.Input<{ bucketColumns?: pulumi.Input<pulumi.Input<string>[]>, columns?: pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }[]>, compressed?: pulumi.Input<boolean>, inputFormat?: pulumi.Input<string>, location?: pulumi.Input<string>, numberOfBuckets?: pulumi.Input<number>, outputFormat?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serDeInfo?: pulumi.Input<{ name?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serializationLibrary?: pulumi.Input<string> }>, skewedInfo?: pulumi.Input<{ skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>, skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]> }>, sortColumns?: pulumi.Input<{ column: pulumi.Input<string>, sortOrder: pulumi.Input<number> }[]>, storedAsSubDirectories?: pulumi.Input<boolean> }>;
+    readonly storageDescriptor?: pulumi.Input<{ bucketColumns?: pulumi.Input<pulumi.Input<string>[]>, columns?: pulumi.Input<pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>, compressed?: pulumi.Input<boolean>, inputFormat?: pulumi.Input<string>, location?: pulumi.Input<string>, numberOfBuckets?: pulumi.Input<number>, outputFormat?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serDeInfo?: pulumi.Input<{ name?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serializationLibrary?: pulumi.Input<string> }>, skewedInfo?: pulumi.Input<{ skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>, skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]> }>, sortColumns?: pulumi.Input<pulumi.Input<{ column: pulumi.Input<string>, sortOrder: pulumi.Input<number> }>[]>, storedAsSubDirectories?: pulumi.Input<boolean> }>;
     /**
      * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
      */
@@ -199,7 +199,7 @@ export interface CatalogTableArgs {
     /**
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      */
-    readonly partitionKeys?: pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
+    readonly partitionKeys?: pulumi.Input<pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * Retention time for this table.
      */
@@ -207,7 +207,7 @@ export interface CatalogTableArgs {
     /**
      * A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    readonly storageDescriptor?: pulumi.Input<{ bucketColumns?: pulumi.Input<pulumi.Input<string>[]>, columns?: pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }[]>, compressed?: pulumi.Input<boolean>, inputFormat?: pulumi.Input<string>, location?: pulumi.Input<string>, numberOfBuckets?: pulumi.Input<number>, outputFormat?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serDeInfo?: pulumi.Input<{ name?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serializationLibrary?: pulumi.Input<string> }>, skewedInfo?: pulumi.Input<{ skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>, skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]> }>, sortColumns?: pulumi.Input<{ column: pulumi.Input<string>, sortOrder: pulumi.Input<number> }[]>, storedAsSubDirectories?: pulumi.Input<boolean> }>;
+    readonly storageDescriptor?: pulumi.Input<{ bucketColumns?: pulumi.Input<pulumi.Input<string>[]>, columns?: pulumi.Input<pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>, compressed?: pulumi.Input<boolean>, inputFormat?: pulumi.Input<string>, location?: pulumi.Input<string>, numberOfBuckets?: pulumi.Input<number>, outputFormat?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serDeInfo?: pulumi.Input<{ name?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serializationLibrary?: pulumi.Input<string> }>, skewedInfo?: pulumi.Input<{ skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>, skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]> }>, sortColumns?: pulumi.Input<pulumi.Input<{ column: pulumi.Input<string>, sortOrder: pulumi.Input<number> }>[]>, storedAsSubDirectories?: pulumi.Input<boolean> }>;
     /**
      * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
      */

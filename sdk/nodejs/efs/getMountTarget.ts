@@ -19,7 +19,7 @@ export interface GetMountTargetArgs {
     /**
      * ID of the mount target that you want to have described
      */
-    readonly mountTargetId: pulumi.Input<string>;
+    readonly mountTargetId: string;
 }
 
 /**

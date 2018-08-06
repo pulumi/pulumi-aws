@@ -44,7 +44,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    public readonly bucket: pulumi.Output<string | Bucket>;
+    public readonly bucket: pulumi.Output<string>;
     /**
      * Short description of the Application Version.
      */

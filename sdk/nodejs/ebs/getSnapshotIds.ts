@@ -25,15 +25,15 @@ export interface GetSnapshotIdsArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly owners?: string[];
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */
-    readonly restorableByUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly restorableByUserIds?: string[];
 }
 
 /**
