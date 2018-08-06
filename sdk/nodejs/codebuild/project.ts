@@ -163,7 +163,7 @@ export interface ProjectState {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment?: pulumi.Input<{ computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly environment?: pulumi.Input<{ computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
      * The environment variable's name or key.
      */
@@ -175,7 +175,7 @@ export interface ProjectState {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    readonly source?: pulumi.Input<{ auths?: pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly source?: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -217,7 +217,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment: pulumi.Input<{ computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly environment: pulumi.Input<{ computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
      * The environment variable's name or key.
      */
@@ -229,7 +229,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    readonly source: pulumi.Input<{ auths?: pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly source: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -640,10 +640,8 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
 					"bucket": {
-						// Prefer a strongly typed Bucket reference.
-						Type: awsResource(s3Mod, "Bucket"),
-						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{"string"},
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
 					},
 				},
 			},
@@ -1509,9 +1507,9 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"bucket": {
 						// Prefer a strongly typed Bucket reference.
-						Type: awsResource(s3Mod, "Bucket"),
+						Type: "string",
 						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{"string"},
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
 					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.

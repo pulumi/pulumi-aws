@@ -32,52 +32,52 @@ export interface GetVpcPeeringConnectionArgs {
     /**
      * The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    readonly cidrBlock?: string;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The ID of the specific VPC Peering Connection to retrieve.
      */
-    readonly id?: pulumi.Input<string>;
+    readonly id?: string;
     /**
      * The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    readonly ownerId?: string;
     /**
      * The CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerCidrBlock?: pulumi.Input<string>;
+    readonly peerCidrBlock?: string;
     /**
      * The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerOwnerId?: pulumi.Input<string>;
+    readonly peerOwnerId?: string;
     /**
      * The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerRegion?: pulumi.Input<string>;
+    readonly peerRegion?: string;
     /**
      * The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerVpcId?: pulumi.Input<string>;
+    readonly peerVpcId?: string;
     /**
      * The region of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly region?: pulumi.Input<string>;
+    readonly region?: string;
     /**
      * The status of the specific VPC Peering Connection to retrieve.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: string;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**

@@ -184,7 +184,7 @@ export interface AmiCopyState {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */
@@ -193,7 +193,7 @@ export interface AmiCopyState {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -261,7 +261,7 @@ export interface AmiCopyArgs {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */
@@ -270,7 +270,7 @@ export interface AmiCopyArgs {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;

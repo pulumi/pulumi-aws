@@ -20,7 +20,7 @@ export interface GetStackArgs {
     /**
      * The name of the stack
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

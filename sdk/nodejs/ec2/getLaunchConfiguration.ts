@@ -19,7 +19,7 @@ export interface GetLaunchConfigurationArgs {
     /**
      * The name of the launch configuration.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

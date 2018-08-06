@@ -224,7 +224,7 @@ export interface StackState {
      * When `use_custom_cookbooks` is set, provide this sub-object as
      * described below.
      */
-    readonly customCookbooksSources?: pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url: pulumi.Input<string>, username?: pulumi.Input<string> }[]>;
+    readonly customCookbooksSources?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url: pulumi.Input<string>, username?: pulumi.Input<string> }>[]>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */
@@ -326,7 +326,7 @@ export interface StackArgs {
      * When `use_custom_cookbooks` is set, provide this sub-object as
      * described below.
      */
-    readonly customCookbooksSources?: pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url: pulumi.Input<string>, username?: pulumi.Input<string> }[]>;
+    readonly customCookbooksSources?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url: pulumi.Input<string>, username?: pulumi.Input<string> }>[]>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */

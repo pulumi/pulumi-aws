@@ -249,7 +249,6 @@
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
-  branch = "master"
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -261,7 +260,8 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
+  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
+  version = "v1.1.0"
 
 [[projects]]
   branch = "master"
@@ -581,7 +581,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "b9a0907161faf401da9b1cb7dab972449efebc12"
+  revision = "9bfea8e5c4b4b7522e00796397f72fe3f4984dd7"
 
 [[projects]]
   branch = "master"
@@ -590,7 +590,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "f7064bdeddd27ee2a96d3556e8e7c9cc7689a1f5"
+  revision = "c0f99e5d748ed3a7b17b319bb38675dd72288031"
 
 [[projects]]
   branch = "master"

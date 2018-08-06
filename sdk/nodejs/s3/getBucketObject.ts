@@ -26,17 +26,17 @@ export interface GetBucketObjectArgs {
     /**
      * The name of the bucket to read the object from
      */
-    readonly bucket: pulumi.Input<string>;
+    readonly bucket: string;
     /**
      * The full path to the object inside the bucket
      */
-    readonly key: pulumi.Input<string>;
-    readonly range?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly key: string;
+    readonly range?: string;
+    readonly tags?: {[key: string]: any};
     /**
      * Specific version ID of the object returned (defaults to latest version)
      */
-    readonly versionId?: pulumi.Input<string>;
+    readonly versionId?: string;
 }
 
 /**

@@ -200,7 +200,7 @@ export interface EnvironmentState {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    readonly allSettings?: pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly allSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
@@ -257,7 +257,7 @@ export interface EnvironmentState {
      * override specific values that are set as defaults. The format is detailed
      * below in [Option Settings](#option-settings)
      */
-    readonly settings?: pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
@@ -330,7 +330,7 @@ export interface EnvironmentArgs {
      * override specific values that are set as defaults. The format is detailed
      * below in [Option Settings](#option-settings)
      */
-    readonly settings?: pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]

@@ -21,7 +21,7 @@ export interface GetTopicArgs {
     /**
      * The friendly name of the topic to match.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

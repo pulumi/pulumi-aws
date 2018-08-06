@@ -26,30 +26,30 @@ export function getZone(args?: GetZoneArgs): Promise<GetZoneResult> {
  * A collection of arguments for invoking getZone.
  */
 export interface GetZoneArgs {
-    readonly callerReference?: pulumi.Input<string>;
-    readonly comment?: pulumi.Input<string>;
+    readonly callerReference?: string;
+    readonly comment?: string;
     /**
      * The Hosted Zone name of the desired Hosted Zone.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Used with `name` field to get a private Hosted Zone.
      */
-    readonly privateZone?: pulumi.Input<boolean>;
-    readonly resourceRecordSetCount?: pulumi.Input<number>;
+    readonly privateZone?: boolean;
+    readonly resourceRecordSetCount?: number;
     /**
      * Used with `name` field. A mapping of tags, each pair of which must exactly match
      * a pair on the desired Hosted Zone.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
     /**
      * The Hosted Zone id of the desired Hosted Zone.
      */
-    readonly zoneId?: pulumi.Input<string>;
+    readonly zoneId?: string;
 }
 
 /**

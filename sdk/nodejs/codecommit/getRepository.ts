@@ -19,7 +19,7 @@ export interface GetRepositoryArgs {
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: pulumi.Input<string>;
+    readonly repositoryName: string;
 }
 
 /**

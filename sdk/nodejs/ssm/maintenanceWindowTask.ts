@@ -147,7 +147,7 @@ export interface MaintenanceWindowTaskState {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets?: pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -155,7 +155,7 @@ export interface MaintenanceWindowTaskState {
     /**
      * A structure containing information about parameters required by the particular `task_arn`. Documented below.
      */
-    readonly taskParameters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
@@ -193,7 +193,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets: pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly targets: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -201,7 +201,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * A structure containing information about parameters required by the particular `task_arn`. Documented below.
      */
-    readonly taskParameters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */

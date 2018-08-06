@@ -21,7 +21,7 @@ export interface GetUserArgs {
     /**
      * The friendly IAM user name to match.
      */
-    readonly userName: pulumi.Input<string>;
+    readonly userName: string;
 }
 
 /**

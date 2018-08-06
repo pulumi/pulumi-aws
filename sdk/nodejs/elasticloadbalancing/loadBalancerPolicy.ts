@@ -83,7 +83,7 @@ export interface LoadBalancerPolicyState {
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }[]>;
+    readonly policyAttributes?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The name of the load balancer policy.
      */
@@ -105,7 +105,7 @@ export interface LoadBalancerPolicyArgs {
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }[]>;
+    readonly policyAttributes?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The name of the load balancer policy.
      */

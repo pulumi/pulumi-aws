@@ -103,7 +103,7 @@ export interface PipelineState {
     /**
      * A stage block. Stages are documented below.
      */
-    readonly stages?: pulumi.Input<{ actions: pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }[]>, name: pulumi.Input<string> }[]>;
+    readonly stages?: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface PipelineArgs {
     /**
      * A stage block. Stages are documented below.
      */
-    readonly stages: pulumi.Input<{ actions: pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }[]>, name: pulumi.Input<string> }[]>;
+    readonly stages: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
 }

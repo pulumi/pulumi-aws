@@ -27,24 +27,24 @@ export interface GetSnapshotArgs {
      * several valid keys, for a full reference, check out
      * [describe-snapshots in the AWS CLI reference][1].
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * If more than one result is returned, use the most recent snapshot.
      */
-    readonly mostRecent?: pulumi.Input<boolean>;
+    readonly mostRecent?: boolean;
     /**
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly owners?: string[];
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */
-    readonly restorableByUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly restorableByUserIds?: string[];
     /**
      * Returns information on a specific snapshot_id.
      */
-    readonly snapshotIds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly snapshotIds?: string[];
+    readonly tags?: {[key: string]: any};
 }
 
 /**

@@ -131,7 +131,7 @@ export interface RuleState {
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source?: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }[]>, sourceIdentifier: pulumi.Input<string> }>;
+    readonly source?: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
 }
 
 /**
@@ -163,5 +163,5 @@ export interface RuleArgs {
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }[]>, sourceIdentifier: pulumi.Input<string> }>;
+    readonly source: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
 }

@@ -77,15 +77,15 @@ export interface BucketNotificationState {
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }[]>;
+    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }[]>;
+    readonly queues?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }[]>;
+    readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -99,13 +99,13 @@ export interface BucketNotificationArgs {
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }[]>;
+    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }[]>;
+    readonly queues?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }[]>;
+    readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
 }

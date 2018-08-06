@@ -21,11 +21,11 @@ export interface GetServiceArgs {
     /**
      * The arn of the ECS Cluster
      */
-    readonly clusterArn: pulumi.Input<string>;
+    readonly clusterArn: string;
     /**
      * The name of the ECS Service
      */
-    readonly serviceName: pulumi.Input<string>;
+    readonly serviceName: string;
 }
 
 /**

@@ -227,7 +227,7 @@ export interface ClusterState {
      * `availability_zone`. Referenceable e.g. as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
-    readonly nodes?: pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }[]>;
+    readonly nodes?: pulumi.Input<pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }>[]>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:

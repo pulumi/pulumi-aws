@@ -227,7 +227,7 @@ export interface LoadBalancerState {
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }[]>;
+    readonly subnetMappings?: pulumi.Input<pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
@@ -300,7 +300,7 @@ export interface LoadBalancerArgs {
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }[]>;
+    readonly subnetMappings?: pulumi.Input<pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value

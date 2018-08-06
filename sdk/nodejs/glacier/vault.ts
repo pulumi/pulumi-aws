@@ -104,7 +104,7 @@ export interface VaultState {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -127,7 +127,7 @@ export interface VaultArgs {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
