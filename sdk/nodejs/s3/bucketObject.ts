@@ -29,7 +29,7 @@ export class BucketObject extends pulumi.CustomResource {
     /**
      * The name of the bucket to put the file in.
      */
-    public readonly bucket: pulumi.Output<Bucket | string>;
+    public readonly bucket: pulumi.Output<string>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -170,7 +170,7 @@ export interface BucketObjectState {
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket?: pulumi.Input<Bucket | string>;
+    readonly bucket?: pulumi.Input<string | Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -254,7 +254,7 @@ export interface BucketObjectArgs {
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket: pulumi.Input<Bucket | string>;
+    readonly bucket: pulumi.Input<string | Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */

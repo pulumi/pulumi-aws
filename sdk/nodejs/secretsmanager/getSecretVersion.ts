@@ -21,15 +21,15 @@ export interface GetSecretVersionArgs {
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
      */
-    readonly secretId: pulumi.Input<string>;
+    readonly secretId: string;
     /**
      * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
      */
-    readonly versionId?: pulumi.Input<string>;
+    readonly versionId?: string;
     /**
      * Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
      */
-    readonly versionStage?: pulumi.Input<string>;
+    readonly versionStage?: string;
 }
 
 /**

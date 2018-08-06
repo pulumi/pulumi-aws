@@ -21,9 +21,9 @@ export interface GetCertificateAuthorityArgs {
     /**
      * Amazon Resource Name (ARN) of the certificate authority.
      */
-    readonly arn: pulumi.Input<string>;
-    readonly revocationConfigurations?: pulumi.Input<{ crlConfigurations?: pulumi.Input<{ customCname?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, expirationInDays?: pulumi.Input<number>, s3BucketName?: pulumi.Input<string> }[]> }[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly arn: string;
+    readonly revocationConfigurations?: { crlConfigurations?: { customCname?: string, enabled?: boolean, expirationInDays?: number, s3BucketName?: string }[] }[];
+    readonly tags?: {[key: string]: any};
 }
 
 /**

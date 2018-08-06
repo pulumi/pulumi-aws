@@ -22,16 +22,16 @@ export interface GetInternetGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The id of the specific Internet Gateway to retrieve.
      */
-    readonly internetGatewayId?: pulumi.Input<string>;
+    readonly internetGatewayId?: string;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

@@ -27,11 +27,11 @@ export interface GetPrefixListArgs {
     /**
      * The name of the prefix list to select.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ID of the prefix list to select.
      */
-    readonly prefixListId?: pulumi.Input<string>;
+    readonly prefixListId?: string;
 }
 
 /**

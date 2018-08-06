@@ -64,7 +64,7 @@ export interface RegexMatchSetState {
      * The regular expression pattern that you want AWS WAF to search for in web requests,
      * the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    readonly regexMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, regexPatternSetId: pulumi.Input<string>, textTransformation: pulumi.Input<string> }[]>;
+    readonly regexMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, regexPatternSetId: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -79,5 +79,5 @@ export interface RegexMatchSetArgs {
      * The regular expression pattern that you want AWS WAF to search for in web requests,
      * the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    readonly regexMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, regexPatternSetId: pulumi.Input<string>, textTransformation: pulumi.Input<string> }[]>;
+    readonly regexMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, regexPatternSetId: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
 }

@@ -21,7 +21,7 @@ export interface GetQueueArgs {
     /**
      * The name of the queue to match.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

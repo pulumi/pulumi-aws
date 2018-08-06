@@ -20,7 +20,7 @@ export interface GetJobQueueArgs {
     /**
      * The name of the job queue.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

@@ -24,11 +24,11 @@ export interface GetElasticIpArgs {
     /**
      * The allocation id of the specific EIP to retrieve.
      */
-    readonly id?: pulumi.Input<string>;
+    readonly id?: string;
     /**
      * The public IP of the specific EIP to retrieve.
      */
-    readonly publicIp?: pulumi.Input<string>;
+    readonly publicIp?: string;
 }
 
 /**

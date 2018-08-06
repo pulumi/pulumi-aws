@@ -88,23 +88,23 @@ export interface GetPolicyDocumentArgs {
      * document will overwrite statements with the same `sid` in the current document.
      * Statements without an `sid` cannot be overwritten.
      */
-    readonly overrideJson?: pulumi.Input<string>;
+    readonly overrideJson?: string;
     /**
      * An ID for the policy document.
      */
-    readonly policyId?: pulumi.Input<string>;
+    readonly policyId?: string;
     /**
      * An IAM policy document to import as a base for the
      * current policy document.  Statements with non-blank `sid`s in the current
      * policy document will overwrite statements with the same `sid` in the source
      * json.  Statements without an `sid` cannot be overwritten.
      */
-    readonly sourceJson?: pulumi.Input<string>;
+    readonly sourceJson?: string;
     /**
      * A nested configuration block (described below)
      * configuring one *statement* to be included in the policy document.
      */
-    readonly statements: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, conditions?: pulumi.Input<{ test: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]>, variable: pulumi.Input<string> }[]>, effect?: pulumi.Input<string>, notActions?: pulumi.Input<pulumi.Input<string>[]>, notPrincipals?: pulumi.Input<{ identifiers: pulumi.Input<pulumi.Input<string>[]>, type: pulumi.Input<string> }[]>, notResources?: pulumi.Input<pulumi.Input<string>[]>, principals?: pulumi.Input<{ identifiers: pulumi.Input<pulumi.Input<string>[]>, type: pulumi.Input<string> }[]>, resources?: pulumi.Input<pulumi.Input<string>[]>, sid?: pulumi.Input<string> }[]>;
+    readonly statements: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
 }
 
 /**

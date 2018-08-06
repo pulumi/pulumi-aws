@@ -21,11 +21,11 @@ export interface GetContainerDefinitionArgs {
     /**
      * The name of the container definition
      */
-    readonly containerName: pulumi.Input<string>;
+    readonly containerName: string;
     /**
      * The ARN of the task definition which contains the container
      */
-    readonly taskDefinition: pulumi.Input<string>;
+    readonly taskDefinition: string;
 }
 
 /**

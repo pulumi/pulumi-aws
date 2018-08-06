@@ -21,11 +21,11 @@ export interface GetSecretArgs {
     /**
      * The Amazon Resource Name (ARN) of the secret to retrieve.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The name of the secret to retrieve.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**

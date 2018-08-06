@@ -240,7 +240,7 @@ export interface UserPoolState {
     /**
      * A container with the [schema attributes](#schema-attributes) of a user pool. Maximum of 50 attributes.
      */
-    readonly schemas?: pulumi.Input<{ attributeDataType: pulumi.Input<string>, developerOnlyAttribute?: pulumi.Input<boolean>, mutable?: pulumi.Input<boolean>, name: pulumi.Input<string>, numberAttributeConstraints?: pulumi.Input<{ maxValue?: pulumi.Input<string>, minValue?: pulumi.Input<string> }>, required?: pulumi.Input<boolean>, stringAttributeConstraints?: pulumi.Input<{ maxLength?: pulumi.Input<string>, minLength?: pulumi.Input<string> }> }[]>;
+    readonly schemas?: pulumi.Input<pulumi.Input<{ attributeDataType: pulumi.Input<string>, developerOnlyAttribute?: pulumi.Input<boolean>, mutable?: pulumi.Input<boolean>, name: pulumi.Input<string>, numberAttributeConstraints?: pulumi.Input<{ maxValue?: pulumi.Input<string>, minValue?: pulumi.Input<string> }>, required?: pulumi.Input<boolean>, stringAttributeConstraints?: pulumi.Input<{ maxLength?: pulumi.Input<string>, minLength?: pulumi.Input<string> }> }>[]>;
     /**
      * A string representing the SMS authentication message.
      */
@@ -318,7 +318,7 @@ export interface UserPoolArgs {
     /**
      * A container with the [schema attributes](#schema-attributes) of a user pool. Maximum of 50 attributes.
      */
-    readonly schemas?: pulumi.Input<{ attributeDataType: pulumi.Input<string>, developerOnlyAttribute?: pulumi.Input<boolean>, mutable?: pulumi.Input<boolean>, name: pulumi.Input<string>, numberAttributeConstraints?: pulumi.Input<{ maxValue?: pulumi.Input<string>, minValue?: pulumi.Input<string> }>, required?: pulumi.Input<boolean>, stringAttributeConstraints?: pulumi.Input<{ maxLength?: pulumi.Input<string>, minLength?: pulumi.Input<string> }> }[]>;
+    readonly schemas?: pulumi.Input<pulumi.Input<{ attributeDataType: pulumi.Input<string>, developerOnlyAttribute?: pulumi.Input<boolean>, mutable?: pulumi.Input<boolean>, name: pulumi.Input<string>, numberAttributeConstraints?: pulumi.Input<{ maxValue?: pulumi.Input<string>, minValue?: pulumi.Input<string> }>, required?: pulumi.Input<boolean>, stringAttributeConstraints?: pulumi.Input<{ maxLength?: pulumi.Input<string>, minLength?: pulumi.Input<string> }> }>[]>;
     /**
      * A string representing the SMS authentication message.
      */

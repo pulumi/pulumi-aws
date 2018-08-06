@@ -67,7 +67,7 @@ export interface RuleGroupState {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
+    readonly activatedRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */
@@ -85,7 +85,7 @@ export interface RuleGroupArgs {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
+    readonly activatedRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */

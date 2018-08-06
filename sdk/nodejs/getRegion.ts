@@ -24,15 +24,15 @@ export function getRegion(args?: GetRegionArgs): Promise<GetRegionResult> {
  * A collection of arguments for invoking getRegion.
  */
 export interface GetRegionArgs {
-    readonly current?: pulumi.Input<boolean>;
+    readonly current?: boolean;
     /**
      * The EC2 endpoint of the region to select.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    readonly endpoint?: string;
     /**
      * The full name of the region to select.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**

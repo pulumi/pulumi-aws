@@ -215,7 +215,7 @@ export interface DomainNameState {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<pulumi.Input<string>> }>;
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
      * The ARN for an AWS-managed certificate. Used when a regional domain name is
      * desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
@@ -278,7 +278,7 @@ export interface DomainNameArgs {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<pulumi.Input<string>> }>;
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
      * The ARN for an AWS-managed certificate. Used when a regional domain name is
      * desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and

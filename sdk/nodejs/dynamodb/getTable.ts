@@ -21,9 +21,9 @@ export interface GetTableArgs {
     /**
      * The name of the DynamoDB table.
      */
-    readonly name: pulumi.Input<string>;
-    readonly serverSideEncryption?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly name: string;
+    readonly serverSideEncryption?: { enabled?: boolean };
+    readonly tags?: {[key: string]: any};
 }
 
 /**

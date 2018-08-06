@@ -28,15 +28,15 @@ export interface GetListenerArgs {
     /**
      * The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The arn of the load balander. Required if `arn` is not set.
      */
-    readonly loadBalancerArn?: pulumi.Input<string>;
+    readonly loadBalancerArn?: string;
     /**
      * The port of the listener. Required if `arn` is not set.
      */
-    readonly port?: pulumi.Input<number>;
+    readonly port?: number;
 }
 
 /**

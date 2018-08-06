@@ -26,8 +26,8 @@ export interface GetLoadBalancerArgs {
     /**
      * The unique name of the load balancer.
      */
-    readonly name: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

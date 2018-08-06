@@ -19,7 +19,7 @@ export interface GetInstanceArgs {
     /**
      * The name of the RDS instance
      */
-    readonly dbInstanceIdentifier: pulumi.Input<string>;
+    readonly dbInstanceIdentifier: string;
 }
 
 /**

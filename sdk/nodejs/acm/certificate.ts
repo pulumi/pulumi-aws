@@ -120,7 +120,7 @@ export interface CertificateState {
     /**
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
-    readonly domainValidationOptions?: pulumi.Input<{ domainName?: pulumi.Input<string>, resourceRecordName?: pulumi.Input<string>, resourceRecordType?: pulumi.Input<string>, resourceRecordValue?: pulumi.Input<string> }[]>;
+    readonly domainValidationOptions?: pulumi.Input<pulumi.Input<{ domainName?: pulumi.Input<string>, resourceRecordName?: pulumi.Input<string>, resourceRecordType?: pulumi.Input<string>, resourceRecordValue?: pulumi.Input<string> }>[]>;
     /**
      * A list of domains that should be SANs in the issued certificate
      */

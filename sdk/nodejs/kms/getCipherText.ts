@@ -25,15 +25,15 @@ export interface GetCipherTextArgs {
     /**
      * An optional mapping that makes up the encryption context.
      */
-    readonly context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly context?: {[key: string]: string};
     /**
      * Globally unique key ID for the customer master key.
      */
-    readonly keyId: pulumi.Input<string>;
+    readonly keyId: string;
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    readonly plaintext: pulumi.Input<string>;
+    readonly plaintext: string;
 }
 
 /**

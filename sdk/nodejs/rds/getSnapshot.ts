@@ -27,33 +27,33 @@ export interface GetSnapshotArgs {
     /**
      * Returns the list of snapshots created by the specific db_instance
      */
-    readonly dbInstanceIdentifier?: pulumi.Input<string>;
+    readonly dbInstanceIdentifier?: string;
     /**
      * Returns information on a specific snapshot_id.
      */
-    readonly dbSnapshotIdentifier?: pulumi.Input<string>;
+    readonly dbSnapshotIdentifier?: string;
     /**
      * Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      */
-    readonly includePublic?: pulumi.Input<boolean>;
+    readonly includePublic?: boolean;
     /**
      * Set this value to true to include shared manual DB snapshots from other
      * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
      * The default is `false`.
      */
-    readonly includeShared?: pulumi.Input<boolean>;
+    readonly includeShared?: boolean;
     /**
      * If more than one result is returned, use the most
      * recent Snapshot.
      */
-    readonly mostRecent?: pulumi.Input<boolean>;
+    readonly mostRecent?: boolean;
     /**
      * The type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
      */
-    readonly snapshotType?: pulumi.Input<string>;
+    readonly snapshotType?: string;
 }
 
 /**

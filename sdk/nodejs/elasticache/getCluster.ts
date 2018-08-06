@@ -20,8 +20,8 @@ export interface GetClusterArgs {
     /**
      * Group identifier.
      */
-    readonly clusterId: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly clusterId: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
