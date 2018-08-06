@@ -22,7 +22,7 @@ export interface GetBucketArgs {
     /**
      * The name of the bucket
      */
-    readonly bucket: string;
+    readonly bucket: pulumi.Input<string>;
 }
 
 /**

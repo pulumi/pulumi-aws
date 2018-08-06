@@ -20,7 +20,7 @@ export interface GetComputeEnvironmentArgs {
     /**
      * The name of the Batch Compute Environment
      */
-    readonly computeEnvironmentName: string;
+    readonly computeEnvironmentName: pulumi.Input<string>;
 }
 
 /**

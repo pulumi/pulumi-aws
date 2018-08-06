@@ -22,11 +22,11 @@ export interface GetVpcEndpointServiceArgs {
     /**
      * The common name of an AWS service (e.g. `s3`).
      */
-    readonly service?: string;
+    readonly service?: pulumi.Input<string>;
     /**
      * The service name that can be specified when creating a VPC endpoint.
      */
-    readonly serviceName?: string;
+    readonly serviceName?: pulumi.Input<string>;
 }
 
 /**

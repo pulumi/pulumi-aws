@@ -62,7 +62,7 @@ export interface SqlInjectionMatchSetState {
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sqlInjectionMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -76,5 +76,5 @@ export interface SqlInjectionMatchSetArgs {
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sqlInjectionMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }[]>;
 }

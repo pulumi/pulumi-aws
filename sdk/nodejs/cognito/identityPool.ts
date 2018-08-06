@@ -106,7 +106,7 @@ export interface IdentityPoolState {
     /**
      * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
      */
-    readonly cognitoIdentityProviders?: pulumi.Input<pulumi.Input<{ clientId?: pulumi.Input<string>, providerName?: pulumi.Input<string>, serverSideTokenCheck?: pulumi.Input<boolean> }>[]>;
+    readonly cognitoIdentityProviders?: pulumi.Input<{ clientId?: pulumi.Input<string>, providerName?: pulumi.Input<string>, serverSideTokenCheck?: pulumi.Input<boolean> }[]>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
@@ -141,7 +141,7 @@ export interface IdentityPoolArgs {
     /**
      * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
      */
-    readonly cognitoIdentityProviders?: pulumi.Input<pulumi.Input<{ clientId?: pulumi.Input<string>, providerName?: pulumi.Input<string>, serverSideTokenCheck?: pulumi.Input<boolean> }>[]>;
+    readonly cognitoIdentityProviders?: pulumi.Input<{ clientId?: pulumi.Input<string>, providerName?: pulumi.Input<string>, serverSideTokenCheck?: pulumi.Input<boolean> }[]>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.

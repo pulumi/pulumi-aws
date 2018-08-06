@@ -19,7 +19,7 @@ export interface GetClusterArgs {
     /**
      * The name of the cluster
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
 }
 
 /**

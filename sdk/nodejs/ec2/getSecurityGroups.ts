@@ -24,12 +24,12 @@ export interface GetSecurityGroupsArgs {
      * several valid keys, for a full reference, check out
      * [describe-security-groups in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * A mapping of tags, each pair of which must exactly match for
      * desired security groups.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

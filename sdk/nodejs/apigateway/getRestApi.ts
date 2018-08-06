@@ -23,7 +23,7 @@ export interface GetRestApiArgs {
      * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
      * If multiple REST APIs are found with this name, an error will be returned.
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
 }
 
 /**

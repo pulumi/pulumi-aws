@@ -72,7 +72,7 @@ export interface ParameterGroupState {
     /**
      * The parameters of the parameter group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -90,5 +90,5 @@ export interface ParameterGroupArgs {
     /**
      * The parameters of the parameter group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
 }

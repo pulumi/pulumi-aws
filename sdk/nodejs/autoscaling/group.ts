@@ -307,7 +307,7 @@ export interface GroupState {
      * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
      */
-    readonly initialLifecycleHooks?: pulumi.Input<pulumi.Input<{ defaultResult?: pulumi.Input<string>, heartbeatTimeout?: pulumi.Input<number>, lifecycleTransition: pulumi.Input<string>, name: pulumi.Input<string>, notificationMetadata?: pulumi.Input<string>, notificationTargetArn?: pulumi.Input<string>, roleArn?: pulumi.Input<string> }>[]>;
+    readonly initialLifecycleHooks?: pulumi.Input<{ defaultResult?: pulumi.Input<string>, heartbeatTimeout?: pulumi.Input<number>, lifecycleTransition: pulumi.Input<string>, name: pulumi.Input<string>, notificationMetadata?: pulumi.Input<string>, notificationTargetArn?: pulumi.Input<string>, roleArn?: pulumi.Input<string> }[]>;
     /**
      * The name of the launch configuration to use.
      */
@@ -373,7 +373,7 @@ export interface GroupState {
     /**
      * A list of tag blocks. Tags documented below.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, propagateAtLaunch: pulumi.Input<boolean>, value: pulumi.Input<string> }>[]>;
+    readonly tags?: pulumi.Input<{ key: pulumi.Input<string>, propagateAtLaunch: pulumi.Input<boolean>, value: pulumi.Input<string> }[]>;
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
@@ -453,7 +453,7 @@ export interface GroupArgs {
      * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
      */
-    readonly initialLifecycleHooks?: pulumi.Input<pulumi.Input<{ defaultResult?: pulumi.Input<string>, heartbeatTimeout?: pulumi.Input<number>, lifecycleTransition: pulumi.Input<string>, name: pulumi.Input<string>, notificationMetadata?: pulumi.Input<string>, notificationTargetArn?: pulumi.Input<string>, roleArn?: pulumi.Input<string> }>[]>;
+    readonly initialLifecycleHooks?: pulumi.Input<{ defaultResult?: pulumi.Input<string>, heartbeatTimeout?: pulumi.Input<number>, lifecycleTransition: pulumi.Input<string>, name: pulumi.Input<string>, notificationMetadata?: pulumi.Input<string>, notificationTargetArn?: pulumi.Input<string>, roleArn?: pulumi.Input<string> }[]>;
     /**
      * The name of the launch configuration to use.
      */
@@ -519,7 +519,7 @@ export interface GroupArgs {
     /**
      * A list of tag blocks. Tags documented below.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, propagateAtLaunch: pulumi.Input<boolean>, value: pulumi.Input<string> }>[]>;
+    readonly tags?: pulumi.Input<{ key: pulumi.Input<string>, propagateAtLaunch: pulumi.Input<boolean>, value: pulumi.Input<string> }[]>;
     /**
      * A list of tag blocks (maps). Tags documented below.
      */

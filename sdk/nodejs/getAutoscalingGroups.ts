@@ -21,7 +21,7 @@ export interface GetAutoscalingGroupsArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
 }
 
 /**

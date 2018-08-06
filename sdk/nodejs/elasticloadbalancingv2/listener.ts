@@ -107,7 +107,7 @@ export interface ListenerState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultActions?: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly defaultActions?: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * The ARN of the load balancer.
      */
@@ -137,7 +137,7 @@ export interface ListenerArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultActions: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly defaultActions: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * The ARN of the load balancer.
      */

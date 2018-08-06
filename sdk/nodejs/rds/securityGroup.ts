@@ -92,7 +92,7 @@ export interface SecurityGroupState {
     /**
      * A list of ingress rules.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
+    readonly ingress?: pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }[]>;
     /**
      * The name of the DB security group.
      */
@@ -114,7 +114,7 @@ export interface SecurityGroupArgs {
     /**
      * A list of ingress rules.
      */
-    readonly ingress: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
+    readonly ingress: pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }[]>;
     /**
      * The name of the DB security group.
      */

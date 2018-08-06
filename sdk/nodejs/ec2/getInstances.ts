@@ -35,16 +35,16 @@ export interface GetInstancesArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      */
-    readonly instanceStateNames?: string[];
+    readonly instanceStateNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
-    readonly instanceTags?: {[key: string]: any};
+    readonly instanceTags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

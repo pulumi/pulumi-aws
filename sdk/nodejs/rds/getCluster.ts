@@ -20,8 +20,8 @@ export interface GetClusterArgs {
     /**
      * The cluster identifier of the RDS cluster.
      */
-    readonly clusterIdentifier: string;
-    readonly tags?: {[key: string]: any};
+    readonly clusterIdentifier: pulumi.Input<string>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

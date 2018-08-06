@@ -74,11 +74,11 @@ export interface IdentityPoolRoleAttachmentState {
     /**
      * A List of [Role Mapping](#role-mappings).
      */
-    readonly roleMappings?: pulumi.Input<pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]>;
+    readonly roleMappings?: pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }[]>, type: pulumi.Input<string> }[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles?: pulumi.Input<{[key: string]: pulumi.Input<{ authenticated?: pulumi.Input<string>, unauthenticated?: pulumi.Input<string> }>}>;
+    readonly roles?: pulumi.Input<{[key: string]: { authenticated?: pulumi.Input<string>, unauthenticated?: pulumi.Input<string> }}>;
 }
 
 /**
@@ -92,9 +92,9 @@ export interface IdentityPoolRoleAttachmentArgs {
     /**
      * A List of [Role Mapping](#role-mappings).
      */
-    readonly roleMappings?: pulumi.Input<pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]>;
+    readonly roleMappings?: pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }[]>, type: pulumi.Input<string> }[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles: pulumi.Input<{[key: string]: pulumi.Input<{ authenticated?: pulumi.Input<string>, unauthenticated?: pulumi.Input<string> }>}>;
+    readonly roles: pulumi.Input<{[key: string]: { authenticated?: pulumi.Input<string>, unauthenticated?: pulumi.Input<string> }}>;
 }

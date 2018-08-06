@@ -20,7 +20,7 @@ export interface GetClusterArgs {
     /**
      * The name of the ECS Cluster
      */
-    readonly clusterName: string;
+    readonly clusterName: pulumi.Input<string>;
 }
 
 /**

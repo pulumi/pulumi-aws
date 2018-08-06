@@ -28,7 +28,7 @@ export interface GetAvailabilityZonesArgs {
      * `"unavailable"`. By default the list includes a complete set of Availability Zones
      * to which the underlying AWS account has access, regardless of their state.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
 }
 
 /**

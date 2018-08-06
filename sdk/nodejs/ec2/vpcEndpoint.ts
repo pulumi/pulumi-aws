@@ -153,7 +153,7 @@ export interface VpcEndpointState {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    readonly dnsEntries?: pulumi.Input<pulumi.Input<{ dnsName?: pulumi.Input<string>, hostedZoneId?: pulumi.Input<string> }>[]>;
+    readonly dnsEntries?: pulumi.Input<{ dnsName?: pulumi.Input<string>, hostedZoneId?: pulumi.Input<string> }[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */

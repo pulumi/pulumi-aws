@@ -31,39 +31,39 @@ export interface GetRouteArgs {
     /**
      * The CIDR block of the Route belonging to the Route Table.
      */
-    readonly destinationCidrBlock?: string;
+    readonly destinationCidrBlock?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block of the Route belonging to the Route Table.
      */
-    readonly destinationIpv6CidrBlock?: string;
+    readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
      * The Egress Only Gateway ID of the Route belonging to the Route Table.
      */
-    readonly egressOnlyGatewayId?: string;
+    readonly egressOnlyGatewayId?: pulumi.Input<string>;
     /**
      * The Gateway ID of the Route belonging to the Route Table.
      */
-    readonly gatewayId?: string;
+    readonly gatewayId?: pulumi.Input<string>;
     /**
      * The Instance ID of the Route belonging to the Route Table.
      */
-    readonly instanceId?: string;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * The NAT Gateway ID of the Route belonging to the Route Table.
      */
-    readonly natGatewayId?: string;
+    readonly natGatewayId?: pulumi.Input<string>;
     /**
      * The Network Interface ID of the Route belonging to the Route Table.
      */
-    readonly networkInterfaceId?: string;
+    readonly networkInterfaceId?: pulumi.Input<string>;
     /**
      * The id of the specific Route Table containing the Route entry.
      */
-    readonly routeTableId: string;
+    readonly routeTableId: pulumi.Input<string>;
     /**
      * The VPC Peering Connection ID of the Route belonging to the Route Table.
      */
-    readonly vpcPeeringConnectionId?: string;
+    readonly vpcPeeringConnectionId?: pulumi.Input<string>;
 }
 
 /**

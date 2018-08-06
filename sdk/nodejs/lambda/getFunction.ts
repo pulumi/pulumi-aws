@@ -20,11 +20,11 @@ export interface GetFunctionArgs {
     /**
      * Name of the lambda function.
      */
-    readonly functionName: string;
+    readonly functionName: pulumi.Input<string>;
     /**
      * Qualifier of the lambda function. Defaults to `$LATEST`.
      */
-    readonly qualifier?: string;
+    readonly qualifier?: pulumi.Input<string>;
 }
 
 /**

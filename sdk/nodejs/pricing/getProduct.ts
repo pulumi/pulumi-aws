@@ -21,11 +21,11 @@ export interface GetProductArgs {
     /**
      * A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
-    readonly filters: { field: string, value: string }[];
+    readonly filters: pulumi.Input<{ field: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
     /**
      * The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */
-    readonly serviceCode: string;
+    readonly serviceCode: pulumi.Input<string>;
 }
 
 /**

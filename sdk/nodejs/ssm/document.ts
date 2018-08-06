@@ -208,11 +208,11 @@ export interface DocumentState {
     /**
      * The parameters that are available to this document.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name?: pulumi.Input<string>, type?: pulumi.Input<string> }[]>;
     /**
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>}>;
+    readonly permissions?: pulumi.Input<{[key: string]: { accountIds: pulumi.Input<string>, type: pulumi.Input<string> }}>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -254,7 +254,7 @@ export interface DocumentArgs {
     /**
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>}>;
+    readonly permissions?: pulumi.Input<{[key: string]: { accountIds: pulumi.Input<string>, type: pulumi.Input<string> }}>;
     /**
      * A mapping of tags to assign to the object.
      */

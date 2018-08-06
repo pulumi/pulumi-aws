@@ -211,7 +211,7 @@ export interface BucketState {
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRules?: pulumi.Input<pulumi.Input<{ allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>, allowedMethods: pulumi.Input<pulumi.Input<string>[]>, allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>, maxAgeSeconds?: pulumi.Input<number> }>[]>;
+    readonly corsRules?: pulumi.Input<{ allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>, allowedMethods: pulumi.Input<pulumi.Input<string>[]>, allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>, maxAgeSeconds?: pulumi.Input<number> }[]>;
     /**
      * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
@@ -223,11 +223,11 @@ export interface BucketState {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expirations?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>[]>, id?: pulumi.Input<string>, noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number> }>[]>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
+    readonly lifecycleRules?: pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expirations?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }[]>, id?: pulumi.Input<string>, noncurrentVersionExpirations?: pulumi.Input<{ days?: pulumi.Input<number> }[]>, noncurrentVersionTransitions?: pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }[]> }[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly loggings?: pulumi.Input<pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }>[]>;
+    readonly loggings?: pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }[]>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
      */
@@ -239,7 +239,7 @@ export interface BucketState {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, id?: pulumi.Input<string>, prefix: pulumi.Input<string>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
+    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<{ destination: pulumi.Input<{ bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, id?: pulumi.Input<string>, prefix: pulumi.Input<string>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }[]> }>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -300,7 +300,7 @@ export interface BucketArgs {
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRules?: pulumi.Input<pulumi.Input<{ allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>, allowedMethods: pulumi.Input<pulumi.Input<string>[]>, allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>, maxAgeSeconds?: pulumi.Input<number> }>[]>;
+    readonly corsRules?: pulumi.Input<{ allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>, allowedMethods: pulumi.Input<pulumi.Input<string>[]>, allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>, maxAgeSeconds?: pulumi.Input<number> }[]>;
     /**
      * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
@@ -312,11 +312,11 @@ export interface BucketArgs {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expirations?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>[]>, id?: pulumi.Input<string>, noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number> }>[]>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
+    readonly lifecycleRules?: pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expirations?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }[]>, id?: pulumi.Input<string>, noncurrentVersionExpirations?: pulumi.Input<{ days?: pulumi.Input<number> }[]>, noncurrentVersionTransitions?: pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }[]> }[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly loggings?: pulumi.Input<pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }>[]>;
+    readonly loggings?: pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }[]>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
      */
@@ -328,7 +328,7 @@ export interface BucketArgs {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, id?: pulumi.Input<string>, prefix: pulumi.Input<string>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
+    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<{ destination: pulumi.Input<{ bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, id?: pulumi.Input<string>, prefix: pulumi.Input<string>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }[]> }>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur

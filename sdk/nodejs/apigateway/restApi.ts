@@ -134,7 +134,7 @@ export interface RestApiState {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<pulumi.Input<string>> }>;
     /**
      * The execution ARN part to be used in [`lambda_permission`](/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
@@ -182,7 +182,7 @@ export interface RestApiArgs {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<pulumi.Input<string>> }>;
     /**
      * Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
      */

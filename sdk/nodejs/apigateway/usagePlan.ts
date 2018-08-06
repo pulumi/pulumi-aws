@@ -82,7 +82,7 @@ export interface UsagePlanState {
     /**
      * The associated [API stages](#api-stages-arguments) of the usage plan.
      */
-    readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
+    readonly apiStages?: pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }[]>;
     /**
      * The description of a usage plan.
      */
@@ -112,7 +112,7 @@ export interface UsagePlanArgs {
     /**
      * The associated [API stages](#api-stages-arguments) of the usage plan.
      */
-    readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
+    readonly apiStages?: pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }[]>;
     /**
      * The description of a usage plan.
      */

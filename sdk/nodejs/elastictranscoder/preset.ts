@@ -139,7 +139,7 @@ export interface PresetState {
      * Watermark parameters for the video parameters (documented below)
      * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
      */
-    readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
+    readonly videoWatermarks?: pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -180,5 +180,5 @@ export interface PresetArgs {
      * Watermark parameters for the video parameters (documented below)
      * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
      */
-    readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
+    readonly videoWatermarks?: pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }[]>;
 }

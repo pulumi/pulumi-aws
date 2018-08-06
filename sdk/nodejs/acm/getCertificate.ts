@@ -26,21 +26,21 @@ export interface GetCertificateArgs {
     /**
      * The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      */
-    readonly domain: string;
+    readonly domain: pulumi.Input<string>;
     /**
      * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
      */
-    readonly mostRecent?: boolean;
+    readonly mostRecent?: pulumi.Input<boolean>;
     /**
      * A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
      */
-    readonly statuses?: string[];
+    readonly statuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
-    readonly types?: string[];
+    readonly types?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**

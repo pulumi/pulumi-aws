@@ -28,25 +28,25 @@ export interface GetSecurityGroupArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * The id of the specific security group to retrieve.
      */
-    readonly id?: string;
+    readonly id?: pulumi.Input<string>;
     /**
      * The name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired security group.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The id of the VPC that the desired security group belongs to.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**

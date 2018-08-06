@@ -174,13 +174,13 @@ export interface TableState {
     /**
      * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
-    readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly attributes?: pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * Describe a GSO for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity: pulumi.Input<number>, writeCapacity: pulumi.Input<number> }>[]>;
+    readonly globalSecondaryIndexes?: pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity: pulumi.Input<number>, writeCapacity: pulumi.Input<number> }[]>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -191,7 +191,7 @@ export interface TableState {
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    readonly localSecondaryIndexes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey: pulumi.Input<string> }>[]>;
+    readonly localSecondaryIndexes?: pulumi.Input<{ name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey: pulumi.Input<string> }[]>;
     /**
      * The name of the index
      */
@@ -252,13 +252,13 @@ export interface TableArgs {
     /**
      * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
-    readonly attributes: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly attributes: pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * Describe a GSO for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity: pulumi.Input<number>, writeCapacity: pulumi.Input<number> }>[]>;
+    readonly globalSecondaryIndexes?: pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity: pulumi.Input<number>, writeCapacity: pulumi.Input<number> }[]>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -269,7 +269,7 @@ export interface TableArgs {
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    readonly localSecondaryIndexes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey: pulumi.Input<string> }>[]>;
+    readonly localSecondaryIndexes?: pulumi.Input<{ name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey: pulumi.Input<string> }[]>;
     /**
      * The name of the index
      */

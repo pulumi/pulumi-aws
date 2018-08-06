@@ -95,11 +95,11 @@ export interface NetworkAclState {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly egress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly ingress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * The ID of the associated Subnet. This
      * attribute is deprecated, please use the `subnet_ids` attribute instead
@@ -126,11 +126,11 @@ export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly egress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly ingress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * The ID of the associated Subnet. This
      * attribute is deprecated, please use the `subnet_ids` attribute instead

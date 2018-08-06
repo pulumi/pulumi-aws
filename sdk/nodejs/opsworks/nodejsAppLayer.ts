@@ -193,7 +193,7 @@ export interface NodejsAppLayerState {
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
+    readonly ebsVolumes?: pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -268,7 +268,7 @@ export interface NodejsAppLayerArgs {
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
+    readonly ebsVolumes?: pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */

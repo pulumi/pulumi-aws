@@ -62,7 +62,7 @@ export interface ByteMatchSetState {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, positionalConstraint: pulumi.Input<string>, targetString?: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly byteMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, positionalConstraint: pulumi.Input<string>, targetString?: pulumi.Input<string>, textTransformation: pulumi.Input<string> }[]>;
     /**
      * The name or description of the Byte Match Set.
      */
@@ -78,7 +78,7 @@ export interface ByteMatchSetArgs {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, positionalConstraint: pulumi.Input<string>, targetString?: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly byteMatchTuples?: pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, positionalConstraint: pulumi.Input<string>, targetString?: pulumi.Input<string>, textTransformation: pulumi.Input<string> }[]>;
     /**
      * The name or description of the Byte Match Set.
      */

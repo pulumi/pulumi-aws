@@ -30,34 +30,34 @@ export interface GetVpcArgs {
     /**
      * The cidr block of the desired VPC.
      */
-    readonly cidrBlock?: string;
+    readonly cidrBlock?: pulumi.Input<string>;
     /**
      * Boolean constraint on whether the desired VPC is
      * the default VPC for the region.
      */
-    readonly default?: boolean;
+    readonly default?: pulumi.Input<boolean>;
     /**
      * The DHCP options id of the desired VPC.
      */
-    readonly dhcpOptionsId?: string;
+    readonly dhcpOptionsId?: pulumi.Input<string>;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * The id of the specific VPC to retrieve.
      */
-    readonly id?: string;
+    readonly id?: pulumi.Input<string>;
     /**
      * The current state of the desired VPC.
      * Can be either `"pending"` or `"available"`.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

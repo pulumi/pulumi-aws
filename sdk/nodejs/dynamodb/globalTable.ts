@@ -77,7 +77,7 @@ export interface GlobalTableState {
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    readonly replicas?: pulumi.Input<pulumi.Input<{ regionName: pulumi.Input<string> }>[]>;
+    readonly replicas?: pulumi.Input<{ regionName: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GlobalTableArgs {
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    readonly replicas: pulumi.Input<pulumi.Input<{ regionName: pulumi.Input<string> }>[]>;
+    readonly replicas: pulumi.Input<{ regionName: pulumi.Input<string> }[]>;
 }

@@ -21,7 +21,7 @@ export interface GetGroupArgs {
     /**
      * The friendly IAM group name to match.
      */
-    readonly groupName: string;
+    readonly groupName: pulumi.Input<string>;
 }
 
 /**

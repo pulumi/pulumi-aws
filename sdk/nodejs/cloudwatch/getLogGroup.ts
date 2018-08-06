@@ -19,7 +19,7 @@ export interface GetLogGroupArgs {
     /**
      * The name of the Cloudwatch log group
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
 }
 
 /**

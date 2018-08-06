@@ -25,13 +25,13 @@ export interface GetVolumeArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * If more than one result is returned, use the most
      * recent Volume.
      */
-    readonly mostRecent?: boolean;
-    readonly tags?: {[key: string]: any};
+    readonly mostRecent?: pulumi.Input<boolean>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

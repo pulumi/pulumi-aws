@@ -13,7 +13,7 @@ export function getCredentials(args: GetCredentialsArgs): Promise<GetCredentials
  * A collection of arguments for invoking getCredentials.
  */
 export interface GetCredentialsArgs {
-    readonly registryId: string;
+    readonly registryId: pulumi.Input<string>;
 }
 
 /**

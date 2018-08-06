@@ -225,7 +225,7 @@ export interface ClusterState {
      * List of bootstrap actions that will be run before Hadoop is started on
      * the cluster nodes. Defined below
      */
-    readonly bootstrapActions?: pulumi.Input<pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }>[]>;
+    readonly bootstrapActions?: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }[]>;
     readonly clusterState?: pulumi.Input<string>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
@@ -255,7 +255,7 @@ export interface ClusterState {
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly instanceGroups?: pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }[]>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -300,7 +300,7 @@ export interface ClusterState {
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
      */
-    readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
+    readonly steps?: pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -335,7 +335,7 @@ export interface ClusterArgs {
      * List of bootstrap actions that will be run before Hadoop is started on
      * the cluster nodes. Defined below
      */
-    readonly bootstrapActions?: pulumi.Input<pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }>[]>;
+    readonly bootstrapActions?: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }[]>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
      */
@@ -364,7 +364,7 @@ export interface ClusterArgs {
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly instanceGroups?: pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }[]>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -405,7 +405,7 @@ export interface ClusterArgs {
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
      */
-    readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
+    readonly steps?: pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */

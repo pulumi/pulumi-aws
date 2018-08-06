@@ -28,7 +28,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
      */
-    public readonly alarmActions: pulumi.Output<string[] | undefined>;
+    public readonly alarmActions: pulumi.Output<string | Topic[] | undefined>;
     /**
      * The description for the alarm.
      */
@@ -69,7 +69,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
      */
-    public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
+    public readonly insufficientDataActions: pulumi.Output<string | Topic[] | undefined>;
     /**
      * The name for the alarm's associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -83,7 +83,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
      */
-    public readonly okActions: pulumi.Output<string[] | undefined>;
+    public readonly okActions: pulumi.Output<string | Topic[] | undefined>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
      */

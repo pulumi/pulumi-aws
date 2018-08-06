@@ -27,21 +27,21 @@ export interface GetInstanceArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    readonly getPasswordData?: boolean;
+    readonly getPasswordData?: pulumi.Input<boolean>;
     /**
      * Specify the exact Instance ID with which to populate the data source.
      */
-    readonly instanceId?: string;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * A mapping of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      */
-    readonly instanceTags?: {[key: string]: any};
-    readonly tags?: {[key: string]: any};
+    readonly instanceTags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

@@ -23,19 +23,19 @@ export interface GetServerCertificateArgs {
     /**
      * sort results by expiration date. returns the certificate with expiration date in furthest in the future.
      */
-    readonly latest?: boolean;
+    readonly latest?: pulumi.Input<boolean>;
     /**
      * exact name of the cert to lookup
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * prefix of cert to filter by
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * prefix of path to filter by
      */
-    readonly pathPrefix?: string;
+    readonly pathPrefix?: pulumi.Input<string>;
 }
 
 /**

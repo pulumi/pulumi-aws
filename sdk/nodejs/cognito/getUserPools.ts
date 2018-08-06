@@ -19,7 +19,7 @@ export interface GetUserPoolsArgs {
     /**
      * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
 }
 
 /**

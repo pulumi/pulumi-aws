@@ -117,11 +117,11 @@ export interface DefaultNetworkAclState {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly egress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly ingress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * A list of Subnet IDs to apply the ACL to. See the
      * notes below on managing Subnets in the Default Network ACL
@@ -149,11 +149,11 @@ export interface DefaultNetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly egress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    readonly ingress?: pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }[]>;
     /**
      * A list of Subnet IDs to apply the ACL to. See the
      * notes below on managing Subnets in the Default Network ACL

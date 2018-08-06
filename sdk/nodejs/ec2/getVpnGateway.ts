@@ -27,32 +27,32 @@ export interface GetVpnGatewayArgs {
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      */
-    readonly amazonSideAsn?: string;
+    readonly amazonSideAsn?: pulumi.Input<string>;
     /**
      * The ID of a VPC attached to the specific VPN Gateway to retrieve.
      */
-    readonly attachedVpcId?: string;
+    readonly attachedVpcId?: pulumi.Input<string>;
     /**
      * The Availability Zone of the specific VPN Gateway to retrieve.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * The ID of the specific VPN Gateway to retrieve.
      */
-    readonly id?: string;
+    readonly id?: pulumi.Input<string>;
     /**
      * The state of the specific VPN Gateway to retrieve.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired VPN Gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

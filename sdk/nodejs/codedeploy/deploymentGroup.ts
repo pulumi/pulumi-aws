@@ -171,19 +171,19 @@ export interface DeploymentGroupState {
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    readonly ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly ec2TagFilters?: pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }[]>;
     /**
      * Sets of Tag filters associated with the deployment group, which are referred to as *tag groups* in the document.  See the AWS docs for details.
      */
-    readonly ec2TagSets?: pulumi.Input<pulumi.Input<{ ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]> }>[]>;
+    readonly ec2TagSets?: pulumi.Input<{ ec2TagFilters?: pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }[]> }[]>;
     /**
      * Information about the load balancer to use in a blue/green deployment (documented below).
      */
-    readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]> }>;
+    readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<{ name?: pulumi.Input<string> }[]>, targetGroupInfos?: pulumi.Input<{ name?: pulumi.Input<string> }[]> }>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    readonly onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly onPremisesInstanceTagFilters?: pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }[]>;
     /**
      * The service role ARN that allows deployments.
      */
@@ -191,7 +191,7 @@ export interface DeploymentGroupState {
     /**
      * Trigger Configurations for the deployment group (documented below).
      */
-    readonly triggerConfigurations?: pulumi.Input<pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }>[]>;
+    readonly triggerConfigurations?: pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -233,19 +233,19 @@ export interface DeploymentGroupArgs {
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    readonly ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly ec2TagFilters?: pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }[]>;
     /**
      * Sets of Tag filters associated with the deployment group, which are referred to as *tag groups* in the document.  See the AWS docs for details.
      */
-    readonly ec2TagSets?: pulumi.Input<pulumi.Input<{ ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]> }>[]>;
+    readonly ec2TagSets?: pulumi.Input<{ ec2TagFilters?: pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }[]> }[]>;
     /**
      * Information about the load balancer to use in a blue/green deployment (documented below).
      */
-    readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]> }>;
+    readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<{ name?: pulumi.Input<string> }[]>, targetGroupInfos?: pulumi.Input<{ name?: pulumi.Input<string> }[]> }>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    readonly onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly onPremisesInstanceTagFilters?: pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }[]>;
     /**
      * The service role ARN that allows deployments.
      */
@@ -253,5 +253,5 @@ export interface DeploymentGroupArgs {
     /**
      * Trigger Configurations for the deployment group (documented below).
      */
-    readonly triggerConfigurations?: pulumi.Input<pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }>[]>;
+    readonly triggerConfigurations?: pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }[]>;
 }

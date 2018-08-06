@@ -24,12 +24,12 @@ export function getSecret(args: GetSecretArgs): Promise<GetSecretResult> {
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretArgs {
-    readonly __hasDynamicAttributes?: string;
+    readonly __hasDynamicAttributes?: pulumi.Input<string>;
     /**
      * One or more encrypted payload definitions from the KMS
      * service.  See the Secret Definitions below.
      */
-    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
+    readonly secrets: pulumi.Input<{ context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, grantTokens?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, payload: pulumi.Input<string> }[]>;
 }
 
 /**

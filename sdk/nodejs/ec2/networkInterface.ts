@@ -105,7 +105,7 @@ export interface NetworkInterfaceState {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }>[]>;
+    readonly attachments?: pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }[]>;
     /**
      * A description for the network interface.
      */
@@ -145,7 +145,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }>[]>;
+    readonly attachments?: pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }[]>;
     /**
      * A description for the network interface.
      */

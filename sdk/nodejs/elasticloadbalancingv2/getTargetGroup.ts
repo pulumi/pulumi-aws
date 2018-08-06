@@ -28,12 +28,12 @@ export interface GetTargetGroupArgs {
     /**
      * The full ARN of the target group.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The unique name of the target group.
      */
-    readonly name?: string;
-    readonly tags?: {[key: string]: any};
+    readonly name?: pulumi.Input<string>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**

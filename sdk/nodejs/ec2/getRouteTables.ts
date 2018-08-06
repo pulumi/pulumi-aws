@@ -22,16 +22,16 @@ export interface GetRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired route tables.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The VPC ID that you want to filter from.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**

@@ -28,24 +28,24 @@ export interface GetRouteTableArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * The id of the specific Route Table to retrieve.
      */
-    readonly routeTableId?: string;
+    readonly routeTableId?: pulumi.Input<string>;
     /**
      * The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
      */
-    readonly subnetId?: string;
+    readonly subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired Route Table.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The id of the VPC that the desired Route Table belongs to.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**

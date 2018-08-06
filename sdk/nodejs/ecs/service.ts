@@ -184,7 +184,7 @@ export interface ServiceState {
     /**
      * A load balancer block. Load balancers documented below.
      */
-    readonly loadBalancers?: pulumi.Input<pulumi.Input<{ containerName: pulumi.Input<string>, containerPort: pulumi.Input<number>, elbName?: pulumi.Input<string>, targetGroupArn?: pulumi.Input<string> }>[]>;
+    readonly loadBalancers?: pulumi.Input<{ containerName: pulumi.Input<string>, containerPort: pulumi.Input<number>, elbName?: pulumi.Input<string>, targetGroupArn?: pulumi.Input<string> }[]>;
     /**
      * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -196,16 +196,16 @@ export interface ServiceState {
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
      */
-    readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly orderedPlacementStrategies?: pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
      * `placement_constraints` is `10`. Defined below.
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly placementConstraints?: pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
-    readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly placementStrategies?: pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */
@@ -259,7 +259,7 @@ export interface ServiceArgs {
     /**
      * A load balancer block. Load balancers documented below.
      */
-    readonly loadBalancers?: pulumi.Input<pulumi.Input<{ containerName: pulumi.Input<string>, containerPort: pulumi.Input<number>, elbName?: pulumi.Input<string>, targetGroupArn?: pulumi.Input<string> }>[]>;
+    readonly loadBalancers?: pulumi.Input<{ containerName: pulumi.Input<string>, containerPort: pulumi.Input<number>, elbName?: pulumi.Input<string>, targetGroupArn?: pulumi.Input<string> }[]>;
     /**
      * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -271,16 +271,16 @@ export interface ServiceArgs {
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
      */
-    readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly orderedPlacementStrategies?: pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
      * `placement_constraints` is `10`. Defined below.
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly placementConstraints?: pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
-    readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly placementStrategies?: pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }[]>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */

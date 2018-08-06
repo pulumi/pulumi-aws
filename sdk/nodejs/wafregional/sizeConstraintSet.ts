@@ -62,7 +62,7 @@ export interface SizeConstraintSetState {
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sizeConstraints?: pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -76,5 +76,5 @@ export interface SizeConstraintSetArgs {
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sizeConstraints?: pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }[]>;
 }

@@ -20,11 +20,11 @@ export interface GetParameterArgs {
     /**
      * The name of the parameter.
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      */
-    readonly withDecryption?: boolean;
+    readonly withDecryption?: pulumi.Input<boolean>;
 }
 
 /**

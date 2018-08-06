@@ -189,7 +189,7 @@ export interface DomainState {
     /**
      * Options for publishing slow logs to CloudWatch Logs.
      */
-    readonly logPublishingOptions?: pulumi.Input<pulumi.Input<{ cloudwatchLogGroupArn: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, logType: pulumi.Input<string> }>[]>;
+    readonly logPublishingOptions?: pulumi.Input<{ cloudwatchLogGroupArn: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, logType: pulumi.Input<string> }[]>;
     /**
      * Snapshot related options, see below.
      */
@@ -242,7 +242,7 @@ export interface DomainArgs {
     /**
      * Options for publishing slow logs to CloudWatch Logs.
      */
-    readonly logPublishingOptions?: pulumi.Input<pulumi.Input<{ cloudwatchLogGroupArn: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, logType: pulumi.Input<string> }>[]>;
+    readonly logPublishingOptions?: pulumi.Input<{ cloudwatchLogGroupArn: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, logType: pulumi.Input<string> }[]>;
     /**
      * Snapshot related options, see below.
      */

@@ -98,7 +98,7 @@ export interface PatchBaselineState {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly approvalRules?: pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]> }[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
@@ -114,7 +114,7 @@ export interface PatchBaselineState {
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly globalFilters?: pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * The name of the patch baseline.
      */
@@ -136,7 +136,7 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly approvalRules?: pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]> }[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
@@ -152,7 +152,7 @@ export interface PatchBaselineArgs {
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly globalFilters?: pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }[]>;
     /**
      * The name of the patch baseline.
      */

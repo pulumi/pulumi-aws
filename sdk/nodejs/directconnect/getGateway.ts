@@ -19,7 +19,7 @@ export interface GetGatewayArgs {
     /**
      * The name of the gateway to retrieve.
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
 }
 
 /**

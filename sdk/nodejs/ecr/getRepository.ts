@@ -19,7 +19,7 @@ export interface GetRepositoryArgs {
     /**
      * The name of the ECR Repository.
      */
-    readonly name: string;
+    readonly name: pulumi.Input<string>;
 }
 
 /**

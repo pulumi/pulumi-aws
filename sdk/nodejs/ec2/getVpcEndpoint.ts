@@ -24,19 +24,19 @@ export interface GetVpcEndpointArgs {
     /**
      * The ID of the specific VPC Endpoint to retrieve.
      */
-    readonly id?: string;
+    readonly id?: pulumi.Input<string>;
     /**
      * The AWS service name of the specific VPC Endpoint to retrieve.
      */
-    readonly serviceName?: string;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * The state of the specific VPC Endpoint to retrieve.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * The ID of the VPC in which the specific VPC Endpoint is used.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**

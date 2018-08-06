@@ -124,7 +124,7 @@ export interface PipelineState {
     /**
      * The permissions for the `content_config` object. (documented below)
      */
-    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly contentConfigPermissions?: pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }[]>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
@@ -152,7 +152,7 @@ export interface PipelineState {
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      */
-    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly thumbnailConfigPermissions?: pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }[]>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface PipelineArgs {
     /**
      * The permissions for the `content_config` object. (documented below)
      */
-    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly contentConfigPermissions?: pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }[]>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
@@ -198,5 +198,5 @@ export interface PipelineArgs {
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      */
-    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly thumbnailConfigPermissions?: pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }[]>;
 }

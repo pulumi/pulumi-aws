@@ -21,11 +21,11 @@ export interface GetBrokerArgs {
     /**
      * The unique id of the mq broker.
      */
-    readonly brokerId?: string;
+    readonly brokerId?: pulumi.Input<string>;
     /**
      * The unique name of the mq broker.
      */
-    readonly brokerName?: string;
+    readonly brokerName?: pulumi.Input<string>;
 }
 
 /**

@@ -21,15 +21,15 @@ export interface GetScriptArgs {
     /**
      * A list of the edges in the DAG. Defined below.
      */
-    readonly dagEdges: { source: string, target: string, targetParameter?: string }[];
+    readonly dagEdges: pulumi.Input<{ source: pulumi.Input<string>, target: pulumi.Input<string>, targetParameter?: pulumi.Input<string> }[]>;
     /**
      * A list of the nodes in the DAG. Defined below.
      */
-    readonly dagNodes: { args: { name: string, param?: boolean, value: string }[], id: string, lineNumber?: number, nodeType: string }[];
+    readonly dagNodes: pulumi.Input<{ args: pulumi.Input<{ name: pulumi.Input<string>, param?: pulumi.Input<boolean>, value: pulumi.Input<string> }[]>, id: pulumi.Input<string>, lineNumber?: pulumi.Input<number>, nodeType: pulumi.Input<string> }[]>;
     /**
      * The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
-    readonly language?: string;
+    readonly language?: pulumi.Input<string>;
 }
 
 /**

@@ -134,12 +134,12 @@ export interface SecurityGroupState {
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
+    readonly egress?: pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
+    readonly ingress?: pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }[]>;
     /**
      * The name of the security group. If omitted, Terraform will
      * assign a random, unique name
@@ -186,12 +186,12 @@ export interface SecurityGroupArgs {
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
+    readonly egress?: pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
+    readonly ingress?: pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }[]>;
     /**
      * The name of the security group. If omitted, Terraform will
      * assign a random, unique name

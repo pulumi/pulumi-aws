@@ -133,7 +133,7 @@ export interface FleetState {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }>[]>;
+    readonly ec2InboundPermissions?: pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }[]>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
@@ -162,7 +162,7 @@ export interface FleetState {
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
+    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }[]> }>;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface FleetArgs {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }>[]>;
+    readonly ec2InboundPermissions?: pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }[]>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
@@ -204,5 +204,5 @@ export interface FleetArgs {
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
+    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }[]> }>;
 }

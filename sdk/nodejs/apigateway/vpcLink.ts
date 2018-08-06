@@ -75,7 +75,7 @@ export interface VpcLinkState {
     /**
      * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
-    readonly targetArn?: pulumi.Input<string>;
+    readonly targetArn?: pulumi.Input<pulumi.Input<string>>;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface VpcLinkArgs {
     /**
      * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
-    readonly targetArn: pulumi.Input<string>;
+    readonly targetArn: pulumi.Input<pulumi.Input<string>>;
 }

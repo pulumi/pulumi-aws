@@ -214,7 +214,7 @@ export interface LaunchTemplateState {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See [Block Devices](#block-devices) below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }[]>;
     /**
      * Customize the credit specification of the instance. See [Credit 
      * Specification](#credit-specification) below for more details.
@@ -241,7 +241,7 @@ export interface LaunchTemplateState {
      * The elastic GPU to attach to the instance. See [Elastic GPU](#elastic-gpu)
      * below for more details.
      */
-    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    readonly elasticGpuSpecifications?: pulumi.Input<{ type: pulumi.Input<string> }[]>;
     /**
      * The IAM Instance Profile to launch the instance with. See [Instance Profile](#instance-profile)
      * below for more details.
@@ -293,7 +293,7 @@ export interface LaunchTemplateState {
      * Customize network interfaces to be attached at instance boot time. See [Network 
      * Interfaces](#network-interfaces) below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly networkInterfaces?: pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }[]>;
     /**
      * The placement of the instance. See [Placement](#placement) below for more details.
      */
@@ -310,7 +310,7 @@ export interface LaunchTemplateState {
     /**
      * The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
      */
-    readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly tagSpecifications?: pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -333,7 +333,7 @@ export interface LaunchTemplateArgs {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See [Block Devices](#block-devices) below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }[]>;
     /**
      * Customize the credit specification of the instance. See [Credit 
      * Specification](#credit-specification) below for more details.
@@ -356,7 +356,7 @@ export interface LaunchTemplateArgs {
      * The elastic GPU to attach to the instance. See [Elastic GPU](#elastic-gpu)
      * below for more details.
      */
-    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    readonly elasticGpuSpecifications?: pulumi.Input<{ type: pulumi.Input<string> }[]>;
     /**
      * The IAM Instance Profile to launch the instance with. See [Instance Profile](#instance-profile)
      * below for more details.
@@ -404,7 +404,7 @@ export interface LaunchTemplateArgs {
      * Customize network interfaces to be attached at instance boot time. See [Network 
      * Interfaces](#network-interfaces) below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly networkInterfaces?: pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }[]>;
     /**
      * The placement of the instance. See [Placement](#placement) below for more details.
      */
@@ -421,7 +421,7 @@ export interface LaunchTemplateArgs {
     /**
      * The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
      */
-    readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly tagSpecifications?: pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

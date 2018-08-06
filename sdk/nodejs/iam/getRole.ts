@@ -23,8 +23,8 @@ export interface GetRoleArgs {
     /**
      * The friendly IAM role name to match.
      */
-    readonly name?: string;
-    readonly roleName?: string;
+    readonly name?: pulumi.Input<string>;
+    readonly roleName?: pulumi.Input<string>;
 }
 
 /**

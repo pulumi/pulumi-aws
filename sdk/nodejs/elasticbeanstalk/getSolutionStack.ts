@@ -21,13 +21,13 @@ export interface GetSolutionStackArgs {
      * If more than one result is returned, use the most
      * recent solution stack.
      */
-    readonly mostRecent?: boolean;
+    readonly mostRecent?: pulumi.Input<boolean>;
     /**
      * A regex string to apply to the solution stack list returned
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
      * AWS documentation for reference solution stack names.
      */
-    readonly nameRegex: string;
+    readonly nameRegex: pulumi.Input<string>;
 }
 
 /**
