@@ -18,10 +18,10 @@ const testFunc = new aws.serverless.Function("f", {
   includePaths: ['./Pulumi.yaml'],
 }, async (ev, ctx, cb) => {
   // These variables exist only to ensure that capturing modules doesn't cause any problems.
-  const client = new slack.WebClient("token");
-  const cpus = os.cpus();
-  const expr = express();
-  const s3 = new awsSdk.S3();
+  var _awsSdk = awsSdk;
+  var _express = express;
+  var _os = os;
+  var _slack = slack;
 
   var answer = other.answer;
   console.log(answer);
