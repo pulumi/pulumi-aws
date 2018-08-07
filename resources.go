@@ -380,6 +380,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"tag": {
+						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
+						Name: "tags",
+					},
 					"tags": {
 						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
 						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
