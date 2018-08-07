@@ -70,9 +70,7 @@ func TestMountTarget(t *testing.T) {
 					return
 				}
 
-				if !assert.Nil(t, out.FunctionError) {
-					fmt.Printf("Function error: %s\n", *out.FunctionError)
-				}
+				assert.Nil(t, out.FunctionError, "Function error: %s\n", out.FunctionError)
 			},
 		}),
 	}
