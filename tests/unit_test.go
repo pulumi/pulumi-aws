@@ -3,7 +3,6 @@
 package tests
 
 import (
-	"fmt"
 	"os"
 	"path"
 	"testing"
@@ -70,7 +69,7 @@ func TestMountTarget(t *testing.T) {
 					return
 				}
 
-				assert.Nil(t, out.FunctionError, "Function error: %s\n", out.FunctionError)
+				assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
 			},
 		}),
 	}

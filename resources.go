@@ -380,6 +380,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"tag": {
+						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
+						Name: "tags",
+					},
 					"tags": {
 						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
 						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
@@ -1025,7 +1029,15 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_lb_listener":             {Tok: awsResource(elbv2Mod, "Listener")},
+			"aws_lb_listener": {
+				Tok: awsResource(elbv2Mod, "Listener"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"default_action": {
+						Name:        "defaultAction",
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_lb_listener_certificate": {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
 			"aws_lb_listener_rule":        {Tok: awsResource(elbv2Mod, "ListenerRule")},
 			"aws_lb_target_group": {
@@ -1780,7 +1792,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.14.4-dev-1533439823-g8dca3f7b",
+				"@pulumi/pulumi":    "^0.14.4-dev-1533584706-g5a52c1c0",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
 				"resolve":           "^1.7.1",
