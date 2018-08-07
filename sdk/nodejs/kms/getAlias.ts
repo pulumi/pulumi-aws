@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * By using this data source, you can reference key alias
  * without having to hard code the ARN as input.
  */
-export function getAlias(args: GetAliasArgs): Promise<GetAliasResult> {
+export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     return pulumi.runtime.invoke("aws:kms/getAlias:getAlias", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

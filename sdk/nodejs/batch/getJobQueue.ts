@@ -7,10 +7,10 @@ import * as pulumi from "@pulumi/pulumi";
  * The Batch Job Queue data source allows access to details of a specific
  * job queue within AWS Batch.
  */
-export function getJobQueue(args: GetJobQueueArgs): Promise<GetJobQueueResult> {
+export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
     return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

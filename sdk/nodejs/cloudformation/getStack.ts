@@ -7,10 +7,10 @@ import * as pulumi from "@pulumi/pulumi";
  * The CloudFormation Stack data source allows access to stack
  * outputs and other useful data including the template body.
  */
-export function getStack(args: GetStackArgs): Promise<GetStackResult> {
+export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
     return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

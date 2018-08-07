@@ -3,10 +3,10 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-export function getCredentials(args: GetCredentialsArgs): Promise<GetCredentialsResult> {
+export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
     return pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
         "registryId": args.registryId,
-    });
+    }, opts);
 }
 
 /**

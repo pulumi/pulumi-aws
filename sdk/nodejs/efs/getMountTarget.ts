@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
  */
-export function getMountTarget(args: GetMountTargetArgs): Promise<GetMountTargetResult> {
+export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     return pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
         "mountTargetId": args.mountTargetId,
-    });
+    }, opts);
 }
 
 /**

@@ -9,10 +9,10 @@ import * as pulumi from "@pulumi/pulumi";
  * This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
  * Distribution.
  */
-export function getBucket(args: GetBucketArgs): Promise<GetBucketResult> {
+export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     return pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
-    });
+    }, opts);
 }
 
 /**

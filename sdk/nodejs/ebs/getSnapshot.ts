@@ -6,7 +6,7 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
  */
-export function getSnapshot(args?: GetSnapshotArgs): Promise<GetSnapshotResult> {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
         "filters": args.filters,
@@ -15,7 +15,7 @@ export function getSnapshot(args?: GetSnapshotArgs): Promise<GetSnapshotResult> 
         "restorableByUserIds": args.restorableByUserIds,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

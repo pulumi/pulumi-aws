@@ -8,15 +8,10 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^v0.14.4-dev-1533688022-g152fde08",
-        "aws-sdk": "^2.285.1",
-        "express": "^4.16.3",
-        "@slack/client": "^4.3.1",
-        "mime-types": "^2.1.19"
+        "@pulumi/pulumi": "^0.14.4-dev"
     },
     "devDependencies": {
-        "typescript": "^2.5.3",
-        "@types/mime-types": "^2.1.0"
+        "typescript": "^2.5.3"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"

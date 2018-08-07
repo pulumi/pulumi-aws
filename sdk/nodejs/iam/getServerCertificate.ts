@@ -6,14 +6,14 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to lookup information about IAM Server Certificates.
  */
-export function getServerCertificate(args?: GetServerCertificateArgs): Promise<GetServerCertificateResult> {
+export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {
         "latest": args.latest,
         "name": args.name,
         "namePrefix": args.namePrefix,
         "pathPrefix": args.pathPrefix,
-    });
+    }, opts);
 }
 
 /**

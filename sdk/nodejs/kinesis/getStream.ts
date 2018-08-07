@@ -9,10 +9,10 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * For more details, see the [Amazon Kinesis Documentation][1].
  */
-export function getStream(args: GetStreamArgs): Promise<GetStreamResult> {
+export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

@@ -8,7 +8,7 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * ~> **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  */
-export function getSnapshot(args?: GetSnapshotArgs): Promise<GetSnapshotResult> {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
@@ -17,7 +17,7 @@ export function getSnapshot(args?: GetSnapshotArgs): Promise<GetSnapshotResult> 
         "includeShared": args.includeShared,
         "mostRecent": args.mostRecent,
         "snapshotType": args.snapshotType,
-    });
+    }, opts);
 }
 
 /**

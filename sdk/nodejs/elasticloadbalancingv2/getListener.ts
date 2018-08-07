@@ -12,13 +12,13 @@ import * as pulumi from "@pulumi/pulumi";
  * input variable and needs to know the LB it is attached to, or other
  * information specific to the listener in question.
  */
-export function getListener(args?: GetListenerArgs): Promise<GetListenerResult> {
+export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
         "port": args.port,
-    });
+    }, opts);
 }
 
 /**

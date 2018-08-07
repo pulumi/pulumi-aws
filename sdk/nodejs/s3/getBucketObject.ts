@@ -9,14 +9,14 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * ~> **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
  */
-export function getBucketObject(args: GetBucketObjectArgs): Promise<GetBucketObjectResult> {
+export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> {
     return pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {
         "bucket": args.bucket,
         "key": args.key,
         "range": args.range,
         "tags": args.tags,
         "versionId": args.versionId,
-    });
+    }, opts);
 }
 
 /**

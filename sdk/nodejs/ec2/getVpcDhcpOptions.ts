@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Retrieve information about an EC2 DHCP Options configuration.
  */
-export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs): Promise<GetVpcDhcpOptionsResult> {
+export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

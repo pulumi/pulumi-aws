@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other
  * resources.
  */
-export function getInstance(args?: GetInstanceArgs): Promise<GetInstanceResult> {
+export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
@@ -15,7 +15,7 @@ export function getInstance(args?: GetInstanceArgs): Promise<GetInstanceResult> 
         "instanceId": args.instanceId,
         "instanceTags": args.instanceTags,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

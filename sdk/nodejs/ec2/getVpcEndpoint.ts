@@ -7,14 +7,14 @@ import * as pulumi from "@pulumi/pulumi";
  * The VPC Endpoint data source provides details about
  * a specific VPC endpoint.
  */
-export function getVpcEndpoint(args?: GetVpcEndpointArgs): Promise<GetVpcEndpointResult> {
+export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "id": args.id,
         "serviceName": args.serviceName,
         "state": args.state,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

@@ -7,13 +7,13 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get information about an EBS volume for use in other
  * resources.
  */
-export function getVolume(args?: GetVolumeArgs): Promise<GetVolumeResult> {
+export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

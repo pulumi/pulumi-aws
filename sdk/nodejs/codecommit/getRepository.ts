@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
  */
-export function getRepository(args: GetRepositoryArgs): Promise<GetRepositoryResult> {
+export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     return pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,
-    });
+    }, opts);
 }
 
 /**

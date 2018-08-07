@@ -7,13 +7,13 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get a list of EBS Snapshot IDs matching the specified
  * criteria.
  */
-export function getSnapshotIds(args?: GetSnapshotIdsArgs): Promise<GetSnapshotIdsResult> {
+export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
         "filters": args.filters,
         "owners": args.owners,
         "restorableByUserIds": args.restorableByUserIds,
-    });
+    }, opts);
 }
 
 /**

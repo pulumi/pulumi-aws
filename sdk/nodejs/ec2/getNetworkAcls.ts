@@ -3,13 +3,13 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-export function getNetworkAcls(args?: GetNetworkAclsArgs): Promise<GetNetworkAclsResult> {
+export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

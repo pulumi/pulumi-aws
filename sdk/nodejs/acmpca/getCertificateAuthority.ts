@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
  */
-export function getCertificateAuthority(args: GetCertificateAuthorityArgs): Promise<GetCertificateAuthorityResult> {
+export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
     return pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

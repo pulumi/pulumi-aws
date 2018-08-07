@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * IAM group. By using this data source, you can reference IAM group
  * properties without having to hard code ARNs as input.
  */
-export function getGroup(args: GetGroupArgs): Promise<GetGroupResult> {
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     return pulumi.runtime.invoke("aws:iam/getGroup:getGroup", {
         "groupName": args.groupName,
-    });
+    }, opts);
 }
 
 /**

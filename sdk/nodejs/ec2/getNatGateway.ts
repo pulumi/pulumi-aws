@@ -6,7 +6,7 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides details about a specific Nat Gateway.
  */
-export function getNatGateway(args?: GetNatGatewayArgs): Promise<GetNatGatewayResult> {
+export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
@@ -15,7 +15,7 @@ export function getNatGateway(args?: GetNatGatewayArgs): Promise<GetNatGatewayRe
         "subnetId": args.subnetId,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * `aws_internet_gateway` provides details about a specific Internet Gateway.
  */
-export function getInternetGateway(args?: GetInternetGatewayArgs): Promise<GetInternetGatewayResult> {
+export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getInternetGateway:getInternetGateway", {
         "filters": args.filters,
         "internetGatewayId": args.internetGatewayId,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

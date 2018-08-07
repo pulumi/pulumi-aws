@@ -15,11 +15,11 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * Please take care to secure your secret data outside of resource definitions.
  */
-export function getSecret(args: GetSecretArgs): Promise<GetSecretResult> {
+export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     return pulumi.runtime.invoke("aws:kms/getSecret:getSecret", {
         "__hasDynamicAttributes": args.__hasDynamicAttributes,
         "secrets": args.secrets,
-    });
+    }, opts);
 }
 
 /**

@@ -10,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * associated with a CIDR. For example, finding the peering
  * connection associated with a CIDR value.
  */
-export function getRoute(args: GetRouteArgs): Promise<GetRouteResult> {
+export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
         "destinationCidrBlock": args.destinationCidrBlock,
         "destinationIpv6CidrBlock": args.destinationIpv6CidrBlock,
@@ -21,7 +21,7 @@ export function getRoute(args: GetRouteArgs): Promise<GetRouteResult> {
         "networkInterfaceId": args.networkInterfaceId,
         "routeTableId": args.routeTableId,
         "vpcPeeringConnectionId": args.vpcPeeringConnectionId,
-    });
+    }, opts);
 }
 
 /**

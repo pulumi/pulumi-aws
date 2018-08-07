@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides information about a Lambda Function.
  */
-export function getFunction(args: GetFunctionArgs): Promise<GetFunctionResult> {
+export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
-    });
+    }, opts);
 }
 
 /**

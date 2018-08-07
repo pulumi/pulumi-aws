@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * IAM instance profile. By using this data source, you can reference IAM
  * instance profile properties without having to hard code ARNs as input.
  */
-export function getInstanceProfile(args: GetInstanceProfileArgs): Promise<GetInstanceProfileResult> {
+export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
     return pulumi.runtime.invoke("aws:iam/getInstanceProfile:getInstanceProfile", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

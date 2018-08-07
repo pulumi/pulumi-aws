@@ -10,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * an input variable and needs to, for example, add a route in
  * the Route Table.
  */
-export function getRouteTable(args?: GetRouteTableArgs): Promise<GetRouteTableResult> {
+export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getRouteTable:getRouteTable", {
         "filters": args.filters,
@@ -18,7 +18,7 @@ export function getRouteTable(args?: GetRouteTableArgs): Promise<GetRouteTableRe
         "subnetId": args.subnetId,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

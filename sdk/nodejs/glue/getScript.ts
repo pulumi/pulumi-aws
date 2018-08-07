@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
  */
-export function getScript(args: GetScriptArgs): Promise<GetScriptResult> {
+export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
     return pulumi.runtime.invoke("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,
         "language": args.language,
-    });
+    }, opts);
 }
 
 /**

@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](/docs/providers/aws/d/secretsmanager_secret.html).
  */
-export function getSecretVersion(args: GetSecretVersionArgs): Promise<GetSecretVersionResult> {
+export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
         "secretId": args.secretId,
         "versionId": args.versionId,
         "versionStage": args.versionStage,
-    });
+    }, opts);
 }
 
 /**

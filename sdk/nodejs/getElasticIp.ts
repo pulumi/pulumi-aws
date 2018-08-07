@@ -9,12 +9,12 @@ import * as pulumi from "@pulumi/pulumi";
  * This resource can prove useful when a module accepts an allocation ID or
  * public IP as an input variable and needs to determine the other.
  */
-export function getElasticIp(args?: GetElasticIpArgs): Promise<GetElasticIpResult> {
+export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "id": args.id,
         "publicIp": args.publicIp,
-    });
+    }, opts);
 }
 
 /**

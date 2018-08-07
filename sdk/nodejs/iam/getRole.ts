@@ -8,12 +8,12 @@ import * as pulumi from "@pulumi/pulumi";
  * IAM role. By using this data source, you can reference IAM role
  * properties without having to hard code ARNs as input.
  */
-export function getRole(args?: GetRoleArgs): Promise<GetRoleResult> {
+export function getRole(args?: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
         "roleName": args.roleName,
-    });
+    }, opts);
 }
 
 /**

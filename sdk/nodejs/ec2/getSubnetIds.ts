@@ -8,12 +8,12 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * This resource can be useful for getting back a list of subnet ids for a vpc.
  */
-export function getSubnetIds(args: GetSubnetIdsArgs): Promise<GetSubnetIdsResult> {
+export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
     return pulumi.runtime.invoke("aws:ec2/getSubnetIds:getSubnetIds", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

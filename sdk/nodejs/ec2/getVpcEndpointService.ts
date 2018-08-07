@@ -7,12 +7,12 @@ import * as pulumi from "@pulumi/pulumi";
  * The VPC Endpoint Service data source details about a specific service that
  * can be specified when creating a VPC endpoint within the region configured in the provider.
  */
-export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs): Promise<GetVpcEndpointServiceResult> {
+export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "service": args.service,
         "serviceName": args.serviceName,
-    });
+    }, opts);
 }
 
 /**

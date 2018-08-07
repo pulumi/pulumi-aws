@@ -1,0 +1,3 @@
+name: multiple-regions
+runtime: nodejs
+description: Basic example of AWS web servers in multiple regions accessible over HTTP.

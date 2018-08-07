@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get information about an RDS instance
  */
-export function getInstance(args: GetInstanceArgs): Promise<GetInstanceResult> {
+export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
-    });
+    }, opts);
 }
 
 /**

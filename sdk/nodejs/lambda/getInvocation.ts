@@ -8,12 +8,12 @@ import * as pulumi from "@pulumi/pulumi";
  * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
  * invocation type.
  */
-export function getInvocation(args: GetInvocationArgs): Promise<GetInvocationResult> {
+export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     return pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
         "functionName": args.functionName,
         "input": args.input,
         "qualifier": args.qualifier,
-    });
+    }, opts);
 }
 
 /**

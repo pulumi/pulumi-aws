@@ -10,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * an input variable and needs to, for example, determine the id of the
  * VPC that the security group belongs to.
  */
-export function getSecurityGroup(args?: GetSecurityGroupArgs): Promise<GetSecurityGroupResult> {
+export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getSecurityGroup:getSecurityGroup", {
         "filters": args.filters,
@@ -18,7 +18,7 @@ export function getSecurityGroup(args?: GetSecurityGroupArgs): Promise<GetSecuri
         "name": args.name,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

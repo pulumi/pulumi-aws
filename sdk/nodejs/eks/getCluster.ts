@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Retrieve information about an EKS Cluster.
  */
-export function getCluster(args: GetClusterArgs): Promise<GetClusterResult> {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:eks/getCluster:getCluster", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * By using this data source, you can reference SQS queues without having to hardcode
  * the ARNs as input.
  */
-export function getQueue(args: GetQueueArgs): Promise<GetQueueResult> {
+export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     return pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

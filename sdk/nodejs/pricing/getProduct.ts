@@ -7,11 +7,11 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get the pricing information of all products in AWS.
  * This data source is only available in a us-east-1 or ap-south-1 provider.
  */
-export function getProduct(args: GetProductArgs): Promise<GetProductResult> {
+export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,
-    });
+    }, opts);
 }
 
 /**

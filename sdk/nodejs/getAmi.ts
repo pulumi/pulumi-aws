@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get the ID of a registered AMI for use in other
  * resources.
  */
-export function getAmi(args?: GetAmiArgs): Promise<GetAmiResult> {
+export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
@@ -16,7 +16,7 @@ export function getAmi(args?: GetAmiArgs): Promise<GetAmiResult> {
         "nameRegex": args.nameRegex,
         "owners": args.owners,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**
