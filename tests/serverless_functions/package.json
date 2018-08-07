@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.14.0-rc1",
+        "@pulumi/pulumi": "^0.14.4-dev-1533603029-ga2227051",
         "@slack/client": "^4.3.1",
         "express": "^4.16.3",
         "aws-sdk": "^2.252.1"

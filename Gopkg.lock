@@ -543,6 +543,7 @@
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
+    "pkg/apitype/migrate",
     "pkg/backend",
     "pkg/backend/local",
     "pkg/diag",
@@ -553,6 +554,7 @@
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
+    "pkg/resource/deploy/providers",
     "pkg/resource/graph",
     "pkg/resource/plugin",
     "pkg/resource/provider",
@@ -581,7 +583,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "9bfea8e5c4b4b7522e00796397f72fe3f4984dd7"
+  revision = "a2227051430519983d6cd45a5b9b430a8387b5a9"
 
 [[projects]]
   branch = "master"
@@ -590,13 +592,19 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "c0f99e5d748ed3a7b17b319bb38675dd72288031"
+  revision = "da53546157ba7efb3a5c1ae4eee4d829fec9beca"
 
 [[projects]]
   branch = "master"
   name = "github.com/reconquest/loreley"
   packages = ["."]
   revision = "2ab6b7470a54bfa9b5b0289f9b4e8fc4839838f7"
+
+[[projects]]
+  name = "github.com/satori/go.uuid"
+  packages = ["."]
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
 
 [[projects]]
   branch = "master"
