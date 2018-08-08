@@ -36,7 +36,7 @@ export class EventDestination extends pulumi.CustomResource {
      */
     public readonly kinesisDestination: pulumi.Output<{ roleArn: string, streamArn: string } | undefined>;
     /**
-     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
     public readonly matchingTypes: pulumi.Output<string[]>;
     /**
@@ -108,7 +108,7 @@ export interface EventDestinationState {
      */
     readonly kinesisDestination?: pulumi.Input<{ roleArn: pulumi.Input<string>, streamArn: pulumi.Input<string> }>;
     /**
-     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
     readonly matchingTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -142,7 +142,7 @@ export interface EventDestinationArgs {
      */
     readonly kinesisDestination?: pulumi.Input<{ roleArn: pulumi.Input<string>, streamArn: pulumi.Input<string> }>;
     /**
-     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
     readonly matchingTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

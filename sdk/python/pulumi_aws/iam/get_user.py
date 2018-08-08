@@ -9,7 +9,7 @@ class GetUserResult(object):
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, arn=None, path=None, user_id=None, id=None):
+    def __init__(__self__, arn=None, path=None, permissions_boundary=None, user_id=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -21,6 +21,12 @@ class GetUserResult(object):
         __self__.path = path
         """
         Path in which this user was created.
+        """
+        if permissions_boundary and not isinstance(permissions_boundary, basestring):
+            raise TypeError('Expected argument permissions_boundary to be a basestring')
+        __self__.permissions_boundary = permissions_boundary
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
         """
         if user_id and not isinstance(user_id, basestring):
             raise TypeError('Expected argument user_id to be a basestring')
@@ -49,5 +55,6 @@ def get_user(user_name=None):
     return GetUserResult(
         arn=__ret__.get('arn'),
         path=__ret__.get('path'),
+        permissions_boundary=__ret__.get('permissionsBoundary'),
         user_id=__ret__.get('userId'),
         id=__ret__.get('id'))

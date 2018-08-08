@@ -215,7 +215,7 @@ func (r *Instance) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The address of the RDS instance.
+// The hostname of the RDS instance. See also `endpoint` and `port`.
 func (r *Instance) Address() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["address"])
 }
@@ -311,7 +311,7 @@ func (r *Instance) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
 
-// The connection endpoint.
+// The connection endpoint in `address:port` format.
 func (r *Instance) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
@@ -551,7 +551,7 @@ func (r *Instance) VpcSecurityGroupIds() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Instance resources.
 type InstanceState struct {
-	// The address of the RDS instance.
+	// The hostname of the RDS instance. See also `endpoint` and `port`.
 	Address interface{}
 	// (Required unless a `snapshot_identifier` or
 	// `replicate_source_db` is provided) The allocated storage in gibibytes.
@@ -605,7 +605,7 @@ type InstanceState struct {
 	// Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
 	// Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
 	EnabledCloudwatchLogsExports interface{}
-	// The connection endpoint.
+	// The connection endpoint in `address:port` format.
 	Endpoint interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).

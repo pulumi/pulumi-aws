@@ -45,6 +45,10 @@ export interface GetRegionResult {
      */
     readonly current: boolean;
     /**
+     * The region's description in this format: "Location (Region name)".
+     */
+    readonly description: string;
+    /**
      * The EC2 endpoint for the selected region.
      */
     readonly endpoint: string;

@@ -289,6 +289,10 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        Amazon Resource Name (ARN) of cluster
+        """
         __self__.cluster_resource_id = pulumi.runtime.UNKNOWN
         """
         The RDS Cluster Resource ID
@@ -316,6 +320,8 @@ class Cluster(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'applyImmediately' in outs:
             self.apply_immediately = outs['applyImmediately']
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'availabilityZones' in outs:
             self.availability_zones = outs['availabilityZones']
         if 'backtrackWindow' in outs:

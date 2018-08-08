@@ -74,7 +74,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly engine: pulumi.Output<string>;
     /**
      * Version number of the cache engine to be used.
-     * See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+     * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
      * in the AWS Documentation center for supported versions
      */
     public readonly engineVersion: pulumi.Output<string>;
@@ -285,7 +285,7 @@ export interface ClusterState {
     readonly engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used.
-     * See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+     * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
      * in the AWS Documentation center for supported versions
      */
     readonly engineVersion?: pulumi.Input<string>;
@@ -410,7 +410,7 @@ export interface ClusterArgs {
     readonly engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used.
-     * See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+     * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
      * in the AWS Documentation center for supported versions
      */
     readonly engineVersion?: pulumi.Input<string>;

@@ -57,6 +57,10 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly path: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the policy that is used to set the permissions boundary for the role.
+     */
+    public readonly permissionsBoundary: pulumi.Output<string | undefined>;
+    /**
      * The stable and unique string identifying the role.
      */
     public /*out*/ readonly uniqueId: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class Role extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["path"] = state ? state.path : undefined;
+            inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
@@ -95,6 +100,7 @@ export class Role extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
+            inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface RoleState {
      */
     readonly path?: pulumi.Input<string>;
     /**
+     * The ARN of the policy that is used to set the permissions boundary for the role.
+     */
+    readonly permissionsBoundary?: pulumi.Input<string>;
+    /**
      * The stable and unique string identifying the role.
      */
     readonly uniqueId?: pulumi.Input<string>;
@@ -183,4 +193,8 @@ export interface RoleArgs {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the role.
+     */
+    readonly permissionsBoundary?: pulumi.Input<string>;
 }

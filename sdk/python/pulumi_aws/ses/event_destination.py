@@ -60,7 +60,7 @@ class EventDestination(pulumi.CustomResource):
             raise TypeError('Expected property matching_types to be a list')
         __self__.matching_types = matching_types
         """
-        A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+        A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         """
         __props__['matchingTypes'] = matching_types
 

@@ -28,7 +28,9 @@ func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
 		return nil, err
 	}
 	return &GetVpcResult{
+		Arn: outputs["arn"],
 		CidrBlock: outputs["cidrBlock"],
+		CidrBlockAssociations: outputs["cidrBlockAssociations"],
 		Default: outputs["default"],
 		DhcpOptionsId: outputs["dhcpOptionsId"],
 		EnableDnsHostnames: outputs["enableDnsHostnames"],
@@ -65,7 +67,11 @@ type GetVpcArgs struct {
 
 // A collection of values returned by getVpc.
 type GetVpcResult struct {
+	// Amazon Resource Name (ARN) of VPC
+	Arn interface{}
+	// The CIDR block for the association.
 	CidrBlock interface{}
+	CidrBlockAssociations interface{}
 	Default interface{}
 	DhcpOptionsId interface{}
 	// Whether or not the VPC has DNS hostname support
@@ -80,6 +86,7 @@ type GetVpcResult struct {
 	Ipv6AssociationId interface{}
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock interface{}
+	// The State of the association.
 	State interface{}
 	Tags interface{}
 }

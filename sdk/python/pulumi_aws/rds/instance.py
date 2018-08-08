@@ -462,7 +462,7 @@ class Instance(pulumi.CustomResource):
 
         __self__.address = pulumi.runtime.UNKNOWN
         """
-        The address of the RDS instance.
+        The hostname of the RDS instance. See also `endpoint` and `port`.
         """
         __self__.arn = pulumi.runtime.UNKNOWN
         """
@@ -475,7 +475,7 @@ class Instance(pulumi.CustomResource):
         """
         __self__.endpoint = pulumi.runtime.UNKNOWN
         """
-        The connection endpoint.
+        The connection endpoint in `address:port` format.
         """
         __self__.hosted_zone_id = pulumi.runtime.UNKNOWN
         """

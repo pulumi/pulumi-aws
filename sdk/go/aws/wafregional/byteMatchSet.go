@@ -17,9 +17,11 @@ func NewByteMatchSet(ctx *pulumi.Context,
 	name string, args *ByteMatchSetArgs, opts ...pulumi.ResourceOpt) (*ByteMatchSet, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["byte_match_tuple"] = nil
 		inputs["byteMatchTuples"] = nil
 		inputs["name"] = nil
 	} else {
+		inputs["byte_match_tuple"] = args.Byte_match_tuple
 		inputs["byteMatchTuples"] = args.ByteMatchTuples
 		inputs["name"] = args.Name
 	}
@@ -36,6 +38,7 @@ func GetByteMatchSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ByteMatchSetState, opts ...pulumi.ResourceOpt) (*ByteMatchSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["byte_match_tuple"] = state.Byte_match_tuple
 		inputs["byteMatchTuples"] = state.ByteMatchTuples
 		inputs["name"] = state.Name
 	}
@@ -56,6 +59,11 @@ func (r *ByteMatchSet) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// **Deprecated**, use `byte_match_tuples` instead.
+func (r *ByteMatchSet) Byte_match_tuple() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["byte_match_tuple"])
+}
+
 // Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 func (r *ByteMatchSet) ByteMatchTuples() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["byteMatchTuples"])
@@ -68,6 +76,8 @@ func (r *ByteMatchSet) Name() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering ByteMatchSet resources.
 type ByteMatchSetState struct {
+	// **Deprecated**, use `byte_match_tuples` instead.
+	Byte_match_tuple interface{}
 	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples interface{}
 	// The name or description of the ByteMatchSet.
@@ -76,6 +86,8 @@ type ByteMatchSetState struct {
 
 // The set of arguments for constructing a ByteMatchSet resource.
 type ByteMatchSetArgs struct {
+	// **Deprecated**, use `byte_match_tuples` instead.
+	Byte_match_tuple interface{}
 	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples interface{}
 	// The name or description of the ByteMatchSet.

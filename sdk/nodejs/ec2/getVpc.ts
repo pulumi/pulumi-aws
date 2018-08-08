@@ -64,7 +64,15 @@ export interface GetVpcArgs {
  * A collection of values returned by getVpc.
  */
 export interface GetVpcResult {
+    /**
+     * Amazon Resource Name (ARN) of VPC
+     */
+    readonly arn: string;
+    /**
+     * The CIDR block for the association.
+     */
     readonly cidrBlock: string;
+    readonly cidrBlockAssociations: { associationId: string, cidrBlock: string, state: string }[];
     readonly default: boolean;
     readonly dhcpOptionsId: string;
     /**
@@ -89,6 +97,9 @@ export interface GetVpcResult {
      * The IPv6 CIDR block.
      */
     readonly ipv6CidrBlock: string;
+    /**
+     * The State of the association.
+     */
     readonly state: string;
     readonly tags: {[key: string]: any};
 }

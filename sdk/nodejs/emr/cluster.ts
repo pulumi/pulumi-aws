@@ -46,6 +46,12 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly configurations: pulumi.Output<string | undefined>;
     /**
+     * A JSON string for supplying list of configurations for the EMR cluster.
+     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
+     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
+     */
+    public readonly configurationsJson: pulumi.Output<string | undefined>;
+    /**
      * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
     public readonly coreInstanceCount: pulumi.Output<number | undefined>;
@@ -146,6 +152,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
             inputs["clusterState"] = state ? state.clusterState : undefined;
             inputs["configurations"] = state ? state.configurations : undefined;
+            inputs["configurationsJson"] = state ? state.configurationsJson : undefined;
             inputs["coreInstanceCount"] = state ? state.coreInstanceCount : undefined;
             inputs["coreInstanceType"] = state ? state.coreInstanceType : undefined;
             inputs["customAmiId"] = state ? state.customAmiId : undefined;
@@ -179,6 +186,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["autoscalingRole"] = args ? args.autoscalingRole : undefined;
             inputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
             inputs["configurations"] = args ? args.configurations : undefined;
+            inputs["configurationsJson"] = args ? args.configurationsJson : undefined;
             inputs["coreInstanceCount"] = args ? args.coreInstanceCount : undefined;
             inputs["coreInstanceType"] = args ? args.coreInstanceType : undefined;
             inputs["customAmiId"] = args ? args.customAmiId : undefined;
@@ -231,6 +239,12 @@ export interface ClusterState {
      * List of configurations supplied for the EMR cluster you are creating
      */
     readonly configurations?: pulumi.Input<string>;
+    /**
+     * A JSON string for supplying list of configurations for the EMR cluster.
+     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
+     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
+     */
+    readonly configurationsJson?: pulumi.Input<string>;
     /**
      * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
@@ -340,6 +354,12 @@ export interface ClusterArgs {
      * List of configurations supplied for the EMR cluster you are creating
      */
     readonly configurations?: pulumi.Input<string>;
+    /**
+     * A JSON string for supplying list of configurations for the EMR cluster.
+     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
+     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
+     */
+    readonly configurationsJson?: pulumi.Input<string>;
     /**
      * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */

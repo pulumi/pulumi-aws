@@ -74,6 +74,7 @@
     "aws/signer/v4",
     "internal/sdkio",
     "internal/sdkrand",
+    "internal/sdkuri",
     "internal/shareddefaults",
     "private/protocol",
     "private/protocol/ec2query",
@@ -143,6 +144,7 @@
     "service/lambda",
     "service/lexmodelbuildingservice",
     "service/lightsail",
+    "service/macie",
     "service/mediastore",
     "service/mq",
     "service/neptune",
@@ -162,12 +164,13 @@
     "service/sns",
     "service/sqs",
     "service/ssm",
+    "service/storagegateway",
     "service/sts",
+    "service/swf",
     "service/waf",
     "service/wafregional"
   ]
-  revision = "852052a10992d92f68b9a60862a3312292524903"
-  version = "v1.14.17"
+  revision = "v1.14.33"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -378,8 +381,7 @@
     "tfdiags",
     "version"
   ]
-  revision = "41e50bd32a8825a84535e353c3674af8ce799161"
-  version = "v0.11.7"
+  revision = "ec998a21bc95366269fbd196e09d3a458bba8be7"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -643,7 +645,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "2825c08dd6b344bf91544adf690fcc884ca2218f"
+  revision = "3c56c348f4a4db4256de31b915cc1ef903e4d738"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -872,6 +874,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cb01734c42e32edf61f71a0d9a2a9e26a4fd2ea4b17409fbc833a8d7da6edf31"
+  inputs-digest = "6077cdd75edaae2f7b95bc9531a5d73690777f258262d055416bef160dbd01c2"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -29,6 +29,7 @@ class Pipeline(pulumi.CustomResource):
         __self__.artifact_store = artifact_store
         """
         An artifact_store block. Artifact stores are documented below.
+        * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         """
         __props__['artifactStore'] = artifact_store
 
@@ -55,9 +56,6 @@ class Pipeline(pulumi.CustomResource):
         elif not isinstance(stages, list):
             raise TypeError('Expected property stages to be a list')
         __self__.stages = stages
-        """
-        A stage block. Stages are documented below.
-        """
         __props__['stages'] = stages
 
         __self__.arn = pulumi.runtime.UNKNOWN

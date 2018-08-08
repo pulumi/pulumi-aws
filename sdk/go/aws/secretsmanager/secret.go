@@ -20,6 +20,7 @@ func NewSecret(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["kmsKeyId"] = nil
 		inputs["name"] = nil
+		inputs["policy"] = nil
 		inputs["recoveryWindowInDays"] = nil
 		inputs["rotationLambdaArn"] = nil
 		inputs["rotationRules"] = nil
@@ -28,6 +29,7 @@ func NewSecret(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["name"] = args.Name
+		inputs["policy"] = args.Policy
 		inputs["recoveryWindowInDays"] = args.RecoveryWindowInDays
 		inputs["rotationLambdaArn"] = args.RotationLambdaArn
 		inputs["rotationRules"] = args.RotationRules
@@ -52,6 +54,7 @@ func GetSecret(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["name"] = state.Name
+		inputs["policy"] = state.Policy
 		inputs["recoveryWindowInDays"] = state.RecoveryWindowInDays
 		inputs["rotationEnabled"] = state.RotationEnabled
 		inputs["rotationLambdaArn"] = state.RotationLambdaArn
@@ -95,6 +98,11 @@ func (r *Secret) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+func (r *Secret) Policy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["policy"])
+}
+
 // Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
 func (r *Secret) RecoveryWindowInDays() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["recoveryWindowInDays"])
@@ -130,6 +138,8 @@ type SecretState struct {
 	KmsKeyId interface{}
 	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
 	Name interface{}
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy interface{}
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
 	RecoveryWindowInDays interface{}
 	// Specifies whether automatic rotation is enabled for this secret.
@@ -150,6 +160,8 @@ type SecretArgs struct {
 	KmsKeyId interface{}
 	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
 	Name interface{}
+	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	Policy interface{}
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
 	RecoveryWindowInDays interface{}
 	// Specifies the ARN of the Lambda function that can rotate the secret.

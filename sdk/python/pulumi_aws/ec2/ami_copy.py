@@ -19,7 +19,7 @@ class AmiCopy(pulumi.CustomResource):
     Copying an AMI can take several minutes. The creation of this resource will
     block until the new AMI is available for use on new instances.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, ebs_block_devices=None, encrypted=None, ephemeral_block_devices=None, kms_key_id=None, name=None, source_ami_id=None, source_ami_region=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, ebs_block_devices=None, ena_support=None, encrypted=None, ephemeral_block_devices=None, kms_key_id=None, name=None, source_ami_id=None, source_ami_region=None, tags=None):
         """Create a AmiCopy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -46,6 +46,14 @@ class AmiCopy(pulumi.CustomResource):
         attached to created instances. The structure of this block is described below.
         """
         __props__['ebsBlockDevices'] = ebs_block_devices
+
+        if ena_support and not isinstance(ena_support, bool):
+            raise TypeError('Expected property ena_support to be a bool')
+        __self__.ena_support = ena_support
+        """
+        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        """
+        __props__['enaSupport'] = ena_support
 
         if encrypted and not isinstance(encrypted, bool):
             raise TypeError('Expected property encrypted to be a bool')
@@ -159,6 +167,8 @@ class AmiCopy(pulumi.CustomResource):
             self.description = outs['description']
         if 'ebsBlockDevices' in outs:
             self.ebs_block_devices = outs['ebsBlockDevices']
+        if 'enaSupport' in outs:
+            self.ena_support = outs['enaSupport']
         if 'encrypted' in outs:
             self.encrypted = outs['encrypted']
         if 'ephemeralBlockDevices' in outs:

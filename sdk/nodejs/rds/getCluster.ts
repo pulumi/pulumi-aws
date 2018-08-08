@@ -28,6 +28,7 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
+    readonly arn: string;
     readonly availabilityZones: string[];
     readonly backupRetentionPeriod: number;
     readonly clusterMembers: string[];

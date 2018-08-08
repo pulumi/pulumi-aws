@@ -22,6 +22,10 @@ export class Vpc extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of VPC
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Requests an Amazon-provided IPv6 CIDR 
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
@@ -98,6 +102,7 @@ export class Vpc extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcState = argsOrState as VpcState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
@@ -126,6 +131,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             inputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["defaultNetworkAclId"] = undefined /*out*/;
             inputs["defaultRouteTableId"] = undefined /*out*/;
             inputs["defaultSecurityGroupId"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export class Vpc extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vpc resources.
  */
 export interface VpcState {
+    /**
+     * Amazon Resource Name (ARN) of VPC
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Requests an Amazon-provided IPv6 CIDR 
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or

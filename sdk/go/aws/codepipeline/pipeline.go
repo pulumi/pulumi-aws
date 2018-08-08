@@ -82,6 +82,7 @@ func (r *Pipeline) Arn() *pulumi.StringOutput {
 }
 
 // An artifact_store block. Artifact stores are documented below.
+// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 func (r *Pipeline) ArtifactStore() *pulumi.Output {
 	return r.s.State["artifactStore"]
 }
@@ -96,7 +97,6 @@ func (r *Pipeline) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
-// A stage block. Stages are documented below.
 func (r *Pipeline) Stages() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["stages"])
 }
@@ -106,23 +106,23 @@ type PipelineState struct {
 	// The codepipeline ARN.
 	Arn interface{}
 	// An artifact_store block. Artifact stores are documented below.
+	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore interface{}
 	// The action declaration's name.
 	Name interface{}
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn interface{}
-	// A stage block. Stages are documented below.
 	Stages interface{}
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// An artifact_store block. Artifact stores are documented below.
+	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore interface{}
 	// The action declaration's name.
 	Name interface{}
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn interface{}
-	// A stage block. Stages are documented below.
 	Stages interface{}
 }

@@ -65,7 +65,7 @@ type GetInstanceArgs struct {
 
 // A collection of values returned by getInstance.
 type GetInstanceResult struct {
-	// The address of the RDS instance.
+	// The hostname of the RDS instance. See also `endpoint` and `port`.
 	Address interface{}
 	// Specifies the allocated storage size specified in gigabytes.
 	AllocatedStorage interface{}
@@ -93,7 +93,7 @@ type GetInstanceResult struct {
 	DbSecurityGroups interface{}
 	// Specifies the name of the subnet group associated with the DB instance.
 	DbSubnetGroup interface{}
-	// The connection endpoint.
+	// The connection endpoint in `address:port` format.
 	Endpoint interface{}
 	// Provides the name of the database engine to be used for this DB instance.
 	Engine interface{}

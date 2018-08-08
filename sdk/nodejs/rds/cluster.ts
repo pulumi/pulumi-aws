@@ -51,6 +51,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly applyImmediately: pulumi.Output<boolean>;
     /**
+     * Amazon Resource Name (ARN) of cluster
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in
      */
@@ -201,6 +205,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["backtrackWindow"] = state ? state.backtrackWindow : undefined;
             inputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
@@ -266,6 +271,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["clusterResourceId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
@@ -285,6 +291,10 @@ export interface ClusterState {
      * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of cluster
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in

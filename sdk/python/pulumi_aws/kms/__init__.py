@@ -10,3 +10,4 @@ from get_alias import *
 from get_cipher_text import *
 from get_key import *
 from get_secret import *
+from get_secrets import *

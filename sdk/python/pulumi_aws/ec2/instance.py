@@ -10,7 +10,7 @@ class Instance(pulumi.CustomResource):
     Provides an EC2 instance resource. This allows instances to be created, updated,
     and deleted. Instances also support [provisioning](/docs/provisioners/index.html).
     """
-    def __init__(__self__, __name__, __opts__=None, ami=None, associate_public_ip_address=None, availability_zone=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
         """Create a Instance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -46,6 +46,24 @@ class Instance(pulumi.CustomResource):
         The AZ to start the instance in.
         """
         __props__['availabilityZone'] = availability_zone
+
+        if cpu_core_count and not isinstance(cpu_core_count, int):
+            raise TypeError('Expected property cpu_core_count to be a int')
+        __self__.cpu_core_count = cpu_core_count
+        """
+        Sets the number of CPU cores for an instance. This option is 
+        only supported on creation of instance type that support CPU Options
+        [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        """
+        __props__['cpuCoreCount'] = cpu_core_count
+
+        if cpu_threads_per_core and not isinstance(cpu_threads_per_core, int):
+            raise TypeError('Expected property cpu_threads_per_core to be a int')
+        __self__.cpu_threads_per_core = cpu_threads_per_core
+        """
+        If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        """
+        __props__['cpuThreadsPerCore'] = cpu_threads_per_core
 
         if credit_specification and not isinstance(credit_specification, dict):
             raise TypeError('Expected property credit_specification to be a dict')
@@ -315,6 +333,10 @@ class Instance(pulumi.CustomResource):
             self.associate_public_ip_address = outs['associatePublicIpAddress']
         if 'availabilityZone' in outs:
             self.availability_zone = outs['availabilityZone']
+        if 'cpuCoreCount' in outs:
+            self.cpu_core_count = outs['cpuCoreCount']
+        if 'cpuThreadsPerCore' in outs:
+            self.cpu_threads_per_core = outs['cpuThreadsPerCore']
         if 'creditSpecification' in outs:
             self.credit_specification = outs['creditSpecification']
         if 'disableApiTermination' in outs:

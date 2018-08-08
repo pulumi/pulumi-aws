@@ -50,6 +50,8 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		inputs["associatePublicIpAddress"] = nil
 		inputs["availabilityZone"] = nil
 		inputs["blockDurationMinutes"] = nil
+		inputs["cpuCoreCount"] = nil
+		inputs["cpuThreadsPerCore"] = nil
 		inputs["creditSpecification"] = nil
 		inputs["disableApiTermination"] = nil
 		inputs["ebsBlockDevices"] = nil
@@ -88,6 +90,8 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		inputs["associatePublicIpAddress"] = args.AssociatePublicIpAddress
 		inputs["availabilityZone"] = args.AvailabilityZone
 		inputs["blockDurationMinutes"] = args.BlockDurationMinutes
+		inputs["cpuCoreCount"] = args.CpuCoreCount
+		inputs["cpuThreadsPerCore"] = args.CpuThreadsPerCore
 		inputs["creditSpecification"] = args.CreditSpecification
 		inputs["disableApiTermination"] = args.DisableApiTermination
 		inputs["ebsBlockDevices"] = args.EbsBlockDevices
@@ -149,6 +153,8 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 		inputs["associatePublicIpAddress"] = state.AssociatePublicIpAddress
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["blockDurationMinutes"] = state.BlockDurationMinutes
+		inputs["cpuCoreCount"] = state.CpuCoreCount
+		inputs["cpuThreadsPerCore"] = state.CpuThreadsPerCore
 		inputs["creditSpecification"] = state.CreditSpecification
 		inputs["disableApiTermination"] = state.DisableApiTermination
 		inputs["ebsBlockDevices"] = state.EbsBlockDevices
@@ -230,6 +236,18 @@ func (r *SpotInstanceRequest) AvailabilityZone() *pulumi.StringOutput {
 // Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 func (r *SpotInstanceRequest) BlockDurationMinutes() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["blockDurationMinutes"])
+}
+
+// Sets the number of CPU cores for an instance. This option is 
+// only supported on creation of instance type that support CPU Options
+// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+func (r *SpotInstanceRequest) CpuCoreCount() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["cpuCoreCount"])
+}
+
+// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+func (r *SpotInstanceRequest) CpuThreadsPerCore() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["cpuThreadsPerCore"])
 }
 
 // Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
@@ -482,6 +500,12 @@ type SpotInstanceRequestState struct {
 	// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes interface{}
+	// Sets the number of CPU cores for an instance. This option is 
+	// only supported on creation of instance type that support CPU Options
+	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	CpuCoreCount interface{}
+	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	CpuThreadsPerCore interface{}
 	// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
 	CreditSpecification interface{}
 	// If true, enables [EC2 Instance
@@ -605,6 +629,12 @@ type SpotInstanceRequestArgs struct {
 	// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes interface{}
+	// Sets the number of CPU cores for an instance. This option is 
+	// only supported on creation of instance type that support CPU Options
+	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	CpuCoreCount interface{}
+	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	CpuThreadsPerCore interface{}
 	// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
 	CreditSpecification interface{}
 	// If true, enables [EC2 Instance

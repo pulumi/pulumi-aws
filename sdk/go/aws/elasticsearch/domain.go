@@ -19,6 +19,7 @@ func NewDomain(ctx *pulumi.Context,
 		inputs["accessPolicies"] = nil
 		inputs["advancedOptions"] = nil
 		inputs["clusterConfig"] = nil
+		inputs["cognitoOptions"] = nil
 		inputs["domainName"] = nil
 		inputs["ebsOptions"] = nil
 		inputs["elasticsearchVersion"] = nil
@@ -31,6 +32,7 @@ func NewDomain(ctx *pulumi.Context,
 		inputs["accessPolicies"] = args.AccessPolicies
 		inputs["advancedOptions"] = args.AdvancedOptions
 		inputs["clusterConfig"] = args.ClusterConfig
+		inputs["cognitoOptions"] = args.CognitoOptions
 		inputs["domainName"] = args.DomainName
 		inputs["ebsOptions"] = args.EbsOptions
 		inputs["elasticsearchVersion"] = args.ElasticsearchVersion
@@ -61,6 +63,7 @@ func GetDomain(ctx *pulumi.Context,
 		inputs["advancedOptions"] = state.AdvancedOptions
 		inputs["arn"] = state.Arn
 		inputs["clusterConfig"] = state.ClusterConfig
+		inputs["cognitoOptions"] = state.CognitoOptions
 		inputs["domainId"] = state.DomainId
 		inputs["domainName"] = state.DomainName
 		inputs["ebsOptions"] = state.EbsOptions
@@ -111,6 +114,10 @@ func (r *Domain) Arn() *pulumi.StringOutput {
 // Cluster configuration of the domain, see below.
 func (r *Domain) ClusterConfig() *pulumi.Output {
 	return r.s.State["clusterConfig"]
+}
+
+func (r *Domain) CognitoOptions() *pulumi.Output {
+	return r.s.State["cognitoOptions"]
 }
 
 // Unique identifier for the domain.
@@ -183,6 +190,7 @@ type DomainState struct {
 	Arn interface{}
 	// Cluster configuration of the domain, see below.
 	ClusterConfig interface{}
+	CognitoOptions interface{}
 	// Unique identifier for the domain.
 	DomainId interface{}
 	// Name of the domain.
@@ -220,6 +228,7 @@ type DomainArgs struct {
 	AdvancedOptions interface{}
 	// Cluster configuration of the domain, see below.
 	ClusterConfig interface{}
+	CognitoOptions interface{}
 	// Name of the domain.
 	DomainName interface{}
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.

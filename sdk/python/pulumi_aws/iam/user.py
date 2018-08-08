@@ -9,7 +9,7 @@ class User(pulumi.CustomResource):
     """
     Provides an IAM user.
     """
-    def __init__(__self__, __name__, __opts__=None, force_destroy=None, name=None, path=None):
+    def __init__(__self__, __name__, __opts__=None, force_destroy=None, name=None, path=None, permissions_boundary=None):
         """Create a User resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -46,6 +46,14 @@ class User(pulumi.CustomResource):
         """
         __props__['path'] = path
 
+        if permissions_boundary and not isinstance(permissions_boundary, basestring):
+            raise TypeError('Expected property permissions_boundary to be a basestring')
+        __self__.permissions_boundary = permissions_boundary
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
+        __props__['permissionsBoundary'] = permissions_boundary
+
         __self__.arn = pulumi.runtime.UNKNOWN
         """
         The ARN assigned by AWS for this user.
@@ -70,5 +78,7 @@ class User(pulumi.CustomResource):
             self.name = outs['name']
         if 'path' in outs:
             self.path = outs['path']
+        if 'permissionsBoundary' in outs:
+            self.permissions_boundary = outs['permissionsBoundary']
         if 'uniqueId' in outs:
             self.unique_id = outs['uniqueId']

@@ -9,7 +9,7 @@ class Crawler(pulumi.CustomResource):
     """
     Manages a Glue Crawler. More information can be found in the [AWS Glue Develeper Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
     """
-    def __init__(__self__, __name__, __opts__=None, classifiers=None, configuration=None, database_name=None, description=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, table_prefix=None):
+    def __init__(__self__, __name__, __opts__=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, table_prefix=None):
         """Create a Crawler resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -53,6 +53,14 @@ class Crawler(pulumi.CustomResource):
         Description of the crawler.
         """
         __props__['description'] = description
+
+        if dynamodb_targets and not isinstance(dynamodb_targets, list):
+            raise TypeError('Expected property dynamodb_targets to be a list')
+        __self__.dynamodb_targets = dynamodb_targets
+        """
+        List of nested DynamoDB target arguments. See below.
+        """
+        __props__['dynamodbTargets'] = dynamodb_targets
 
         if jdbc_targets and not isinstance(jdbc_targets, list):
             raise TypeError('Expected property jdbc_targets to be a list')
@@ -127,6 +135,8 @@ class Crawler(pulumi.CustomResource):
             self.database_name = outs['databaseName']
         if 'description' in outs:
             self.description = outs['description']
+        if 'dynamodbTargets' in outs:
+            self.dynamodb_targets = outs['dynamodbTargets']
         if 'jdbcTargets' in outs:
             self.jdbc_targets = outs['jdbcTargets']
         if 'name' in outs:

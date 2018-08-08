@@ -27,6 +27,7 @@ func NewAmi(ctx *pulumi.Context,
 		inputs["architecture"] = nil
 		inputs["description"] = nil
 		inputs["ebsBlockDevices"] = nil
+		inputs["enaSupport"] = nil
 		inputs["ephemeralBlockDevices"] = nil
 		inputs["imageLocation"] = nil
 		inputs["kernelId"] = nil
@@ -40,6 +41,7 @@ func NewAmi(ctx *pulumi.Context,
 		inputs["architecture"] = args.Architecture
 		inputs["description"] = args.Description
 		inputs["ebsBlockDevices"] = args.EbsBlockDevices
+		inputs["enaSupport"] = args.EnaSupport
 		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
 		inputs["imageLocation"] = args.ImageLocation
 		inputs["kernelId"] = args.KernelId
@@ -68,6 +70,7 @@ func GetAmi(ctx *pulumi.Context,
 		inputs["architecture"] = state.Architecture
 		inputs["description"] = state.Description
 		inputs["ebsBlockDevices"] = state.EbsBlockDevices
+		inputs["enaSupport"] = state.EnaSupport
 		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
 		inputs["imageLocation"] = state.ImageLocation
 		inputs["kernelId"] = state.KernelId
@@ -111,6 +114,11 @@ func (r *Ami) Description() *pulumi.StringOutput {
 // attached to created instances. The structure of this block is described below.
 func (r *Ami) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+}
+
+// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+func (r *Ami) EnaSupport() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enaSupport"])
 }
 
 // Nested block describing an ephemeral block device that
@@ -182,6 +190,8 @@ type AmiState struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices interface{}
@@ -220,6 +230,8 @@ type AmiArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices interface{}

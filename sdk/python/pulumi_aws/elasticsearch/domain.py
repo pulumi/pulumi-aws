@@ -6,7 +6,7 @@ import pulumi
 import pulumi.runtime
 
 class Domain(pulumi.CustomResource):
-    def __init__(__self__, __name__, __opts__=None, access_policies=None, advanced_options=None, cluster_config=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, __name__, __opts__=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, snapshot_options=None, tags=None, vpc_options=None):
         """Create a Domain resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -43,6 +43,11 @@ class Domain(pulumi.CustomResource):
         Cluster configuration of the domain, see below.
         """
         __props__['clusterConfig'] = cluster_config
+
+        if cognito_options and not isinstance(cognito_options, dict):
+            raise TypeError('Expected property cognito_options to be a dict')
+        __self__.cognito_options = cognito_options
+        __props__['cognitoOptions'] = cognito_options
 
         if domain_name and not isinstance(domain_name, basestring):
             raise TypeError('Expected property domain_name to be a basestring')
@@ -142,6 +147,8 @@ class Domain(pulumi.CustomResource):
             self.arn = outs['arn']
         if 'clusterConfig' in outs:
             self.cluster_config = outs['clusterConfig']
+        if 'cognitoOptions' in outs:
+            self.cognito_options = outs['cognitoOptions']
         if 'domainId' in outs:
             self.domain_id = outs['domainId']
         if 'domainName' in outs:

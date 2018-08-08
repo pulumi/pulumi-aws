@@ -88,7 +88,9 @@ class Project(pulumi.CustomResource):
         """
         __props__['name'] = name
 
-        if service_role and not isinstance(service_role, basestring):
+        if not service_role:
+            raise TypeError('Missing required property service_role')
+        elif not isinstance(service_role, basestring):
             raise TypeError('Expected property service_role to be a basestring')
         __self__.service_role = service_role
         """

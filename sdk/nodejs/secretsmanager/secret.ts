@@ -36,6 +36,10 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
+     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     */
+    public readonly policy: pulumi.Output<string | undefined>;
+    /**
      * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
      */
     public readonly recoveryWindowInDays: pulumi.Output<number | undefined>;
@@ -72,6 +76,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["policy"] = state ? state.policy : undefined;
             inputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
             inputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
             inputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
@@ -82,6 +87,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
             inputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
             inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
             inputs["rotationRules"] = args ? args.rotationRules : undefined;
@@ -113,6 +119,10 @@ export interface SecretState {
      * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     */
+    readonly policy?: pulumi.Input<string>;
     /**
      * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
      */
@@ -151,6 +161,10 @@ export interface SecretArgs {
      * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     */
+    readonly policy?: pulumi.Input<string>;
     /**
      * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
      */

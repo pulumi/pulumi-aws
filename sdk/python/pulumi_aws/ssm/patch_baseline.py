@@ -76,7 +76,7 @@ class PatchBaseline(pulumi.CustomResource):
             raise TypeError('Expected property operating_system to be a basestring')
         __self__.operating_system = operating_system
         """
-        Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+        Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         """
         __props__['operatingSystem'] = operating_system
 

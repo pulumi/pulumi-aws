@@ -20,10 +20,12 @@ func NewUser(ctx *pulumi.Context,
 		inputs["forceDestroy"] = nil
 		inputs["name"] = nil
 		inputs["path"] = nil
+		inputs["permissionsBoundary"] = nil
 	} else {
 		inputs["forceDestroy"] = args.ForceDestroy
 		inputs["name"] = args.Name
 		inputs["path"] = args.Path
+		inputs["permissionsBoundary"] = args.PermissionsBoundary
 	}
 	inputs["arn"] = nil
 	inputs["uniqueId"] = nil
@@ -44,6 +46,7 @@ func GetUser(ctx *pulumi.Context,
 		inputs["forceDestroy"] = state.ForceDestroy
 		inputs["name"] = state.Name
 		inputs["path"] = state.Path
+		inputs["permissionsBoundary"] = state.PermissionsBoundary
 		inputs["uniqueId"] = state.UniqueId
 	}
 	s, err := ctx.ReadResource("aws:iam/user:User", name, id, inputs, opts...)
@@ -85,6 +88,11 @@ func (r *User) Path() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["path"])
 }
 
+// The ARN of the policy that is used to set the permissions boundary for the user.
+func (r *User) PermissionsBoundary() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["permissionsBoundary"])
+}
+
 // The [unique ID][1] assigned by AWS.
 func (r *User) UniqueId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
@@ -102,6 +110,8 @@ type UserState struct {
 	Name interface{}
 	// Path in which to create the user.
 	Path interface{}
+	// The ARN of the policy that is used to set the permissions boundary for the user.
+	PermissionsBoundary interface{}
 	// The [unique ID][1] assigned by AWS.
 	UniqueId interface{}
 }
@@ -116,4 +126,6 @@ type UserArgs struct {
 	Name interface{}
 	// Path in which to create the user.
 	Path interface{}
+	// The ARN of the policy that is used to set the permissions boundary for the user.
+	PermissionsBoundary interface{}
 }

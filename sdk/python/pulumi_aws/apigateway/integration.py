@@ -9,7 +9,7 @@ class Integration(pulumi.CustomResource):
     """
     Provides an HTTP Method Integration for an API Gateway Integration.
     """
-    def __init__(__self__, __name__, __opts__=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_parameters_in_json=None, request_templates=None, resource_id=None, rest_api=None, type=None, uri=None):
+    def __init__(__self__, __name__, __opts__=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_parameters_in_json=None, request_templates=None, resource_id=None, rest_api=None, timeout_milliseconds=None, type=None, uri=None):
         """Create a Integration resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -144,6 +144,14 @@ class Integration(pulumi.CustomResource):
         """
         __props__['restApi'] = rest_api
 
+        if timeout_milliseconds and not isinstance(timeout_milliseconds, int):
+            raise TypeError('Expected property timeout_milliseconds to be a int')
+        __self__.timeout_milliseconds = timeout_milliseconds
+        """
+        Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        """
+        __props__['timeoutMilliseconds'] = timeout_milliseconds
+
         if not type:
             raise TypeError('Missing required property type')
         elif not isinstance(type, basestring):
@@ -199,6 +207,8 @@ class Integration(pulumi.CustomResource):
             self.resource_id = outs['resourceId']
         if 'restApi' in outs:
             self.rest_api = outs['restApi']
+        if 'timeoutMilliseconds' in outs:
+            self.timeout_milliseconds = outs['timeoutMilliseconds']
         if 'type' in outs:
             self.type = outs['type']
         if 'uri' in outs:

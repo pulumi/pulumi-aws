@@ -220,6 +220,10 @@ class ClusterInstance(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        Amazon Resource Name (ARN) of cluster instance
+        """
         __self__.dbi_resource_id = pulumi.runtime.UNKNOWN
         """
         The region-unique, immutable identifier for the DB instance.
@@ -254,6 +258,8 @@ class ClusterInstance(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'applyImmediately' in outs:
             self.apply_immediately = outs['applyImmediately']
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'autoMinorVersionUpgrade' in outs:
             self.auto_minor_version_upgrade = outs['autoMinorVersionUpgrade']
         if 'availabilityZone' in outs:

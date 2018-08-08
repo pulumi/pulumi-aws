@@ -7,5 +7,6 @@ export * from "./getAlias";
 export * from "./getCipherText";
 export * from "./getKey";
 export * from "./getSecret";
+export * from "./getSecrets";
 export * from "./grant";
 export * from "./key";

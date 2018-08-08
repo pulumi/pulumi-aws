@@ -36,6 +36,16 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly availabilityZone: pulumi.Output<string>;
     /**
+     * Sets the number of CPU cores for an instance. This option is 
+     * only supported on creation of instance type that support CPU Options
+     * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     */
+    public readonly cpuCoreCount: pulumi.Output<number>;
+    /**
+     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     */
+    public readonly cpuThreadsPerCore: pulumi.Output<number>;
+    /**
      * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
      */
     public readonly creditSpecification: pulumi.Output<{ cpuCredits?: string } | undefined>;
@@ -199,6 +209,8 @@ export class Instance extends pulumi.CustomResource {
             inputs["ami"] = state ? state.ami : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            inputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
+            inputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
             inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             inputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
@@ -243,6 +255,8 @@ export class Instance extends pulumi.CustomResource {
             inputs["ami"] = args ? args.ami : undefined;
             inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
+            inputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
             inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
@@ -297,6 +311,16 @@ export interface InstanceState {
      * The AZ to start the instance in.
      */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * Sets the number of CPU cores for an instance. This option is 
+     * only supported on creation of instance type that support CPU Options
+     * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     */
+    readonly cpuCoreCount?: pulumi.Input<number>;
+    /**
+     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     */
+    readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
      */
@@ -463,6 +487,16 @@ export interface InstanceArgs {
      * The AZ to start the instance in.
      */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * Sets the number of CPU cores for an instance. This option is 
+     * only supported on creation of instance type that support CPU Options
+     * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     */
+    readonly cpuCoreCount?: pulumi.Input<number>;
+    /**
+     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     */
+    readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
      */

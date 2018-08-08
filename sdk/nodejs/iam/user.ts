@@ -38,6 +38,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly path: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
+    public readonly permissionsBoundary: pulumi.Output<string | undefined>;
+    /**
      * The [unique ID][1] assigned by AWS.
      */
     public /*out*/ readonly uniqueId: pulumi.Output<string>;
@@ -58,12 +62,14 @@ export class User extends pulumi.CustomResource {
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["path"] = state ? state.path : undefined;
+            inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["path"] = args ? args.path : undefined;
+            inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
@@ -94,6 +100,10 @@ export interface UserState {
      */
     readonly path?: pulumi.Input<string>;
     /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
+    readonly permissionsBoundary?: pulumi.Input<string>;
+    /**
      * The [unique ID][1] assigned by AWS.
      */
     readonly uniqueId?: pulumi.Input<string>;
@@ -117,4 +127,8 @@ export interface UserArgs {
      * Path in which to create the user.
      */
     readonly path?: pulumi.Input<string>;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
+    readonly permissionsBoundary?: pulumi.Input<string>;
 }

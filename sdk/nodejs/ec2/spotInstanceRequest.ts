@@ -62,6 +62,16 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly blockDurationMinutes: pulumi.Output<number | undefined>;
     /**
+     * Sets the number of CPU cores for an instance. This option is 
+     * only supported on creation of instance type that support CPU Options
+     * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     */
+    public readonly cpuCoreCount: pulumi.Output<number>;
+    /**
+     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     */
+    public readonly cpuThreadsPerCore: pulumi.Output<number>;
+    /**
      * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
      */
     public readonly creditSpecification: pulumi.Output<{ cpuCredits?: string } | undefined>;
@@ -263,6 +273,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["blockDurationMinutes"] = state ? state.blockDurationMinutes : undefined;
+            inputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
+            inputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
             inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             inputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
@@ -318,6 +330,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["blockDurationMinutes"] = args ? args.blockDurationMinutes : undefined;
+            inputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
+            inputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
             inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
@@ -388,6 +402,16 @@ export interface SpotInstanceRequestState {
      * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
      */
     readonly blockDurationMinutes?: pulumi.Input<number>;
+    /**
+     * Sets the number of CPU cores for an instance. This option is 
+     * only supported on creation of instance type that support CPU Options
+     * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     */
+    readonly cpuCoreCount?: pulumi.Input<number>;
+    /**
+     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     */
+    readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
      */
@@ -597,6 +621,16 @@ export interface SpotInstanceRequestArgs {
      * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
      */
     readonly blockDurationMinutes?: pulumi.Input<number>;
+    /**
+     * Sets the number of CPU cores for an instance. This option is 
+     * only supported on creation of instance type that support CPU Options
+     * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     */
+    readonly cpuCoreCount?: pulumi.Input<number>;
+    /**
+     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     */
+    readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
      */

@@ -9,13 +9,19 @@ class GetRegionResult(object):
     """
     A collection of values returned by getRegion.
     """
-    def __init__(__self__, current=None, endpoint=None, name=None, id=None):
+    def __init__(__self__, current=None, description=None, endpoint=None, name=None, id=None):
         if current and not isinstance(current, bool):
             raise TypeError('Expected argument current to be a bool')
         __self__.current = current
         """
         `true` if the selected region is the one configured on the
         provider, or `false` otherwise.
+        """
+        if description and not isinstance(description, basestring):
+            raise TypeError('Expected argument description to be a basestring')
+        __self__.description = description
+        """
+        The region's description in this format: "Location (Region name)".
         """
         if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
@@ -54,6 +60,7 @@ def get_region(current=None, endpoint=None, name=None):
 
     return GetRegionResult(
         current=__ret__.get('current'),
+        description=__ret__.get('description'),
         endpoint=__ret__.get('endpoint'),
         name=__ret__.get('name'),
         id=__ret__.get('id'))

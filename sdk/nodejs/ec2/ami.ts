@@ -40,6 +40,10 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize: number, volumeType?: string }[]>;
     /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    public readonly enaSupport: pulumi.Output<boolean | undefined>;
+    /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
@@ -100,6 +104,7 @@ export class Ami extends pulumi.CustomResource {
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
+            inputs["enaSupport"] = state ? state.enaSupport : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
             inputs["imageLocation"] = state ? state.imageLocation : undefined;
             inputs["kernelId"] = state ? state.kernelId : undefined;
@@ -116,6 +121,7 @@ export class Ami extends pulumi.CustomResource {
             inputs["architecture"] = args ? args.architecture : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
+            inputs["enaSupport"] = args ? args.enaSupport : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["imageLocation"] = args ? args.imageLocation : undefined;
             inputs["kernelId"] = args ? args.kernelId : undefined;
@@ -149,6 +155,10 @@ export interface AmiState {
      * attached to created instances. The structure of this block is described below.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    readonly enaSupport?: pulumi.Input<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
@@ -213,6 +223,10 @@ export interface AmiArgs {
      * attached to created instances. The structure of this block is described below.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    readonly enaSupport?: pulumi.Input<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.

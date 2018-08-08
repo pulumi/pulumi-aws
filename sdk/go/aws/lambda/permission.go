@@ -29,6 +29,7 @@ func NewPermission(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["action"] = nil
+		inputs["eventSourceToken"] = nil
 		inputs["function"] = nil
 		inputs["principal"] = nil
 		inputs["qualifier"] = nil
@@ -38,6 +39,7 @@ func NewPermission(ctx *pulumi.Context,
 		inputs["statementIdPrefix"] = nil
 	} else {
 		inputs["action"] = args.Action
+		inputs["eventSourceToken"] = args.EventSourceToken
 		inputs["function"] = args.Function
 		inputs["principal"] = args.Principal
 		inputs["qualifier"] = args.Qualifier
@@ -60,6 +62,7 @@ func GetPermission(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["action"] = state.Action
+		inputs["eventSourceToken"] = state.EventSourceToken
 		inputs["function"] = state.Function
 		inputs["principal"] = state.Principal
 		inputs["qualifier"] = state.Qualifier
@@ -88,6 +91,11 @@ func (r *Permission) ID() *pulumi.IDOutput {
 // The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 func (r *Permission) Action() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["action"])
+}
+
+// The Event Source Token to validate.  Used with [Alexa Skills][1].
+func (r *Permission) EventSourceToken() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["eventSourceToken"])
 }
 
 // Name of the Lambda function whose resource policy you are updating
@@ -138,6 +146,8 @@ func (r *Permission) StatementIdPrefix() *pulumi.StringOutput {
 type PermissionState struct {
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action interface{}
+	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	EventSourceToken interface{}
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{}
 	// The principal who is getting this permission.
@@ -167,6 +177,8 @@ type PermissionState struct {
 type PermissionArgs struct {
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action interface{}
+	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	EventSourceToken interface{}
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{}
 	// The principal who is getting this permission.

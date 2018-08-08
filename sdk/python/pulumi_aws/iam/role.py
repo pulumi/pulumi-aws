@@ -9,7 +9,7 @@ class Role(pulumi.CustomResource):
     """
     Provides an IAM role.
     """
-    def __init__(__self__, __name__, __opts__=None, assume_role_policy=None, description=None, force_detach_policies=None, max_session_duration=None, name=None, name_prefix=None, path=None):
+    def __init__(__self__, __name__, __opts__=None, assume_role_policy=None, description=None, force_detach_policies=None, max_session_duration=None, name=None, name_prefix=None, path=None, permissions_boundary=None):
         """Create a Role resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -79,6 +79,14 @@ class Role(pulumi.CustomResource):
         """
         __props__['path'] = path
 
+        if permissions_boundary and not isinstance(permissions_boundary, basestring):
+            raise TypeError('Expected property permissions_boundary to be a basestring')
+        __self__.permissions_boundary = permissions_boundary
+        """
+        The ARN of the policy that is used to set the permissions boundary for the role.
+        """
+        __props__['permissionsBoundary'] = permissions_boundary
+
         __self__.arn = pulumi.runtime.UNKNOWN
         """
         The Amazon Resource Name (ARN) specifying the role.
@@ -117,5 +125,7 @@ class Role(pulumi.CustomResource):
             self.name_prefix = outs['namePrefix']
         if 'path' in outs:
             self.path = outs['path']
+        if 'permissionsBoundary' in outs:
+            self.permissions_boundary = outs['permissionsBoundary']
         if 'uniqueId' in outs:
             self.unique_id = outs['uniqueId']

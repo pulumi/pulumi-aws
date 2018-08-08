@@ -38,6 +38,7 @@ func NewDefaultVpc(ctx *pulumi.Context,
 		inputs["enableDnsSupport"] = args.EnableDnsSupport
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["assignGeneratedIpv6CidrBlock"] = nil
 	inputs["cidrBlock"] = nil
 	inputs["defaultNetworkAclId"] = nil
@@ -61,6 +62,7 @@ func GetDefaultVpc(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *DefaultVpcState, opts ...pulumi.ResourceOpt) (*DefaultVpc, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["assignGeneratedIpv6CidrBlock"] = state.AssignGeneratedIpv6CidrBlock
 		inputs["cidrBlock"] = state.CidrBlock
 		inputs["defaultNetworkAclId"] = state.DefaultNetworkAclId
@@ -92,6 +94,11 @@ func (r *DefaultVpc) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *DefaultVpc) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// Amazon Resource Name (ARN) of VPC
+func (r *DefaultVpc) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Whether or not an Amazon-provided IPv6 CIDR 
@@ -174,6 +181,8 @@ func (r *DefaultVpc) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering DefaultVpc resources.
 type DefaultVpcState struct {
+	// Amazon Resource Name (ARN) of VPC
+	Arn interface{}
 	// Whether or not an Amazon-provided IPv6 CIDR 
 	// block with a /56 prefix length for the VPC was assigned
 	AssignGeneratedIpv6CidrBlock interface{}
