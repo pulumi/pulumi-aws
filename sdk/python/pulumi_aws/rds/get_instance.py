@@ -14,7 +14,7 @@ class GetInstanceResult(object):
             raise TypeError('Expected argument address to be a basestring')
         __self__.address = address
         """
-        The address of the RDS instance.
+        The hostname of the RDS instance. See also `endpoint` and `port`.
         """
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError('Expected argument allocated_storage to be a int')
@@ -98,7 +98,7 @@ class GetInstanceResult(object):
             raise TypeError('Expected argument endpoint to be a basestring')
         __self__.endpoint = endpoint
         """
-        The connection endpoint.
+        The connection endpoint in `address:port` format.
         """
         if engine and not isinstance(engine, basestring):
             raise TypeError('Expected argument engine to be a basestring')

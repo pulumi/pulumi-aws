@@ -9,7 +9,10 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, availability_zones=None, backup_retention_period=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, arn=None, availability_zones=None, backup_retention_period=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, id=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError('Expected argument availability_zones to be a list')
         __self__.availability_zones = availability_zones
@@ -100,6 +103,7 @@ def get_cluster(cluster_identifier=None, tags=None):
     __ret__ = pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__)
 
     return GetClusterResult(
+        arn=__ret__.get('arn'),
         availability_zones=__ret__.get('availabilityZones'),
         backup_retention_period=__ret__.get('backupRetentionPeriod'),
         cluster_members=__ret__.get('clusterMembers'),

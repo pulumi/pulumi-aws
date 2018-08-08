@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an API Gateway Request Validator.
 type RequestValidator struct {
 	s *pulumi.ResourceState
 }
@@ -65,34 +66,46 @@ func (r *RequestValidator) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// The name of the request validator
 func (r *RequestValidator) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The ID of the associated Rest API
 func (r *RequestValidator) RestApi() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restApi"])
 }
 
+// Boolean whether to validate request body. Defaults to `false`.
 func (r *RequestValidator) ValidateRequestBody() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["validateRequestBody"])
 }
 
+// Boolean whether to validate request parameters. Defaults to `false`.
 func (r *RequestValidator) ValidateRequestParameters() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["validateRequestParameters"])
 }
 
 // Input properties used for looking up and filtering RequestValidator resources.
 type RequestValidatorState struct {
+	// The name of the request validator
 	Name interface{}
+	// The ID of the associated Rest API
 	RestApi interface{}
+	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody interface{}
+	// Boolean whether to validate request parameters. Defaults to `false`.
 	ValidateRequestParameters interface{}
 }
 
 // The set of arguments for constructing a RequestValidator resource.
 type RequestValidatorArgs struct {
+	// The name of the request validator
 	Name interface{}
+	// The ID of the associated Rest API
 	RestApi interface{}
+	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody interface{}
+	// Boolean whether to validate request parameters. Defaults to `false`.
 	ValidateRequestParameters interface{}
 }

@@ -9,10 +9,22 @@ class GetVpcResult(object):
     """
     A collection of values returned by getVpc.
     """
-    def __init__(__self__, cidr_block=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, state=None, tags=None):
+    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, state=None, tags=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        Amazon Resource Name (ARN) of VPC
+        """
         if cidr_block and not isinstance(cidr_block, basestring):
             raise TypeError('Expected argument cidr_block to be a basestring')
         __self__.cidr_block = cidr_block
+        """
+        The CIDR block for the association.
+        """
+        if cidr_block_associations and not isinstance(cidr_block_associations, list):
+            raise TypeError('Expected argument cidr_block_associations to be a list')
+        __self__.cidr_block_associations = cidr_block_associations
         if default and not isinstance(default, bool):
             raise TypeError('Expected argument default to be a bool')
         __self__.default = default
@@ -56,6 +68,9 @@ class GetVpcResult(object):
         if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
+        """
+        The State of the association.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -80,7 +95,9 @@ def get_vpc(cidr_block=None, default=None, dhcp_options_id=None, filters=None, i
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__)
 
     return GetVpcResult(
+        arn=__ret__.get('arn'),
         cidr_block=__ret__.get('cidrBlock'),
+        cidr_block_associations=__ret__.get('cidrBlockAssociations'),
         default=__ret__.get('default'),
         dhcp_options_id=__ret__.get('dhcpOptionsId'),
         enable_dns_hostnames=__ret__.get('enableDnsHostnames'),

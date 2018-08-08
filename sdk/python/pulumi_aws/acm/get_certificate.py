@@ -26,10 +26,8 @@ class GetCertificateResult(object):
 def get_certificate(domain=None, most_recent=None, statuses=None, types=None):
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
-    Manager (ACM). The process of requesting and verifying a certificate in ACM
-    requires some manual steps, which means that Terraform cannot automate the
-    creation of ACM certificates. But using this data source, you can reference
-    them by domain without having to hard code the ARNs as input.
+    Manager (ACM), you can reference
+    it by domain without having to hard code the ARNs as input.
     """
     __args__ = dict()
 

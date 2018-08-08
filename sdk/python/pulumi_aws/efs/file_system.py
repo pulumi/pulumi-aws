@@ -9,7 +9,7 @@ class FileSystem(pulumi.CustomResource):
     """
     Provides an Elastic File System (EFS) resource.
     """
-    def __init__(__self__, __name__, __opts__=None, creation_token=None, encrypted=None, kms_key_id=None, performance_mode=None, reference_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, creation_token=None, encrypted=None, kms_key_id=None, performance_mode=None, provisioned_throughput_in_mibps=None, reference_name=None, tags=None, throughput_mode=None):
         """Create a FileSystem resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -51,10 +51,17 @@ class FileSystem(pulumi.CustomResource):
             raise TypeError('Expected property performance_mode to be a basestring')
         __self__.performance_mode = performance_mode
         """
-        The file system performance mode. Can be either
-        `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+        The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         """
         __props__['performanceMode'] = performance_mode
+
+        if provisioned_throughput_in_mibps and not isinstance(provisioned_throughput_in_mibps, float):
+            raise TypeError('Expected property provisioned_throughput_in_mibps to be a float')
+        __self__.provisioned_throughput_in_mibps = provisioned_throughput_in_mibps
+        """
+        The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        """
+        __props__['provisionedThroughputInMibps'] = provisioned_throughput_in_mibps
 
         if reference_name and not isinstance(reference_name, basestring):
             raise TypeError('Expected property reference_name to be a basestring')
@@ -73,6 +80,14 @@ class FileSystem(pulumi.CustomResource):
         A mapping of tags to assign to the file system.
         """
         __props__['tags'] = tags
+
+        if throughput_mode and not isinstance(throughput_mode, basestring):
+            raise TypeError('Expected property throughput_mode to be a basestring')
+        __self__.throughput_mode = throughput_mode
+        """
+        Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        """
+        __props__['throughputMode'] = throughput_mode
 
         __self__.dns_name = pulumi.runtime.UNKNOWN
         """
@@ -96,7 +111,11 @@ class FileSystem(pulumi.CustomResource):
             self.kms_key_id = outs['kmsKeyId']
         if 'performanceMode' in outs:
             self.performance_mode = outs['performanceMode']
+        if 'provisionedThroughputInMibps' in outs:
+            self.provisioned_throughput_in_mibps = outs['provisionedThroughputInMibps']
         if 'referenceName' in outs:
             self.reference_name = outs['referenceName']
         if 'tags' in outs:
             self.tags = outs['tags']
+        if 'throughputMode' in outs:
+            self.throughput_mode = outs['throughputMode']

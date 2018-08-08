@@ -68,6 +68,7 @@ from get_launch_configuration import *
 from get_nat_gateway import *
 from get_network_acls import *
 from get_network_interface import *
+from get_network_interfaces import *
 from get_route import *
 from get_route_table import *
 from get_route_tables import *

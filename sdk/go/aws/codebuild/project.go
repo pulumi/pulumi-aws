@@ -22,6 +22,9 @@ func NewProject(ctx *pulumi.Context,
 	if args == nil || args.Environment == nil {
 		return nil, errors.New("missing required argument 'Environment'")
 	}
+	if args == nil || args.ServiceRole == nil {
+		return nil, errors.New("missing required argument 'ServiceRole'")
+	}
 	if args == nil || args.Source == nil {
 		return nil, errors.New("missing required argument 'Source'")
 	}

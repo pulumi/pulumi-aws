@@ -24,6 +24,7 @@ export * from "./getLaunchConfiguration";
 export * from "./getNatGateway";
 export * from "./getNetworkAcls";
 export * from "./getNetworkInterface";
+export * from "./getNetworkInterfaces";
 export * from "./getRoute";
 export * from "./getRouteTable";
 export * from "./getRouteTables";

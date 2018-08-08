@@ -45,6 +45,10 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    public readonly enaSupport: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */
     public readonly encrypted: pulumi.Output<boolean | undefined>;
@@ -122,6 +126,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
+            inputs["enaSupport"] = state ? state.enaSupport : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
             inputs["imageLocation"] = state ? state.imageLocation : undefined;
@@ -147,6 +152,7 @@ export class AmiCopy extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
+            inputs["enaSupport"] = args ? args.enaSupport : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -185,6 +191,10 @@ export interface AmiCopyState {
      * attached to created instances. The structure of this block is described below.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    readonly enaSupport?: pulumi.Input<boolean>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */
@@ -262,6 +272,10 @@ export interface AmiCopyArgs {
      * attached to created instances. The structure of this block is described below.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    readonly enaSupport?: pulumi.Input<boolean>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */

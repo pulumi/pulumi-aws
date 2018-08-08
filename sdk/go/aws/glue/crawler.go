@@ -28,6 +28,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["configuration"] = nil
 		inputs["databaseName"] = nil
 		inputs["description"] = nil
+		inputs["dynamodbTargets"] = nil
 		inputs["jdbcTargets"] = nil
 		inputs["name"] = nil
 		inputs["role"] = nil
@@ -40,6 +41,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["configuration"] = args.Configuration
 		inputs["databaseName"] = args.DatabaseName
 		inputs["description"] = args.Description
+		inputs["dynamodbTargets"] = args.DynamodbTargets
 		inputs["jdbcTargets"] = args.JdbcTargets
 		inputs["name"] = args.Name
 		inputs["role"] = args.Role
@@ -65,6 +67,7 @@ func GetCrawler(ctx *pulumi.Context,
 		inputs["configuration"] = state.Configuration
 		inputs["databaseName"] = state.DatabaseName
 		inputs["description"] = state.Description
+		inputs["dynamodbTargets"] = state.DynamodbTargets
 		inputs["jdbcTargets"] = state.JdbcTargets
 		inputs["name"] = state.Name
 		inputs["role"] = state.Role
@@ -108,6 +111,11 @@ func (r *Crawler) DatabaseName() *pulumi.StringOutput {
 // Description of the crawler.
 func (r *Crawler) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
+}
+
+// List of nested DynamoDB target arguments. See below.
+func (r *Crawler) DynamodbTargets() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["dynamodbTargets"])
 }
 
 // List of nested JBDC target arguments. See below.
@@ -155,6 +163,8 @@ type CrawlerState struct {
 	DatabaseName interface{}
 	// Description of the crawler.
 	Description interface{}
+	// List of nested DynamoDB target arguments. See below.
+	DynamodbTargets interface{}
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets interface{}
 	// Name of the crawler.
@@ -181,6 +191,8 @@ type CrawlerArgs struct {
 	DatabaseName interface{}
 	// Description of the crawler.
 	Description interface{}
+	// List of nested DynamoDB target arguments. See below.
+	DynamodbTargets interface{}
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets interface{}
 	// Name of the crawler.

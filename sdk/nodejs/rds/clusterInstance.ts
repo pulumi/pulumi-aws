@@ -38,6 +38,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly applyImmediately: pulumi.Output<boolean>;
     /**
+     * Amazon Resource Name (ARN) of cluster instance
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
     public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
@@ -175,6 +179,7 @@ export class ClusterInstance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ClusterInstanceState = argsOrState as ClusterInstanceState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
@@ -228,6 +233,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["promotionTier"] = args ? args.promotionTier : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dbiResourceId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
@@ -248,6 +254,10 @@ export interface ClusterInstanceState {
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of cluster instance
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */

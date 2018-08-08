@@ -41,7 +41,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * The address of the RDS instance.
+     * The hostname of the RDS instance. See also `endpoint` and `port`.
      */
     public /*out*/ readonly address: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
     /**
-     * The connection endpoint.
+     * The connection endpoint in `address:port` format.
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
@@ -450,7 +450,7 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceState {
     /**
-     * The address of the RDS instance.
+     * The hostname of the RDS instance. See also `endpoint` and `port`.
      */
     readonly address?: pulumi.Input<string>;
     /**
@@ -532,7 +532,7 @@ export interface InstanceState {
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection endpoint.
+     * The connection endpoint in `address:port` format.
      */
     readonly endpoint?: pulumi.Input<string>;
     /**

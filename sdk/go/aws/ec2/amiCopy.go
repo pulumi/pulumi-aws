@@ -36,6 +36,7 @@ func NewAmiCopy(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["ebsBlockDevices"] = nil
+		inputs["enaSupport"] = nil
 		inputs["encrypted"] = nil
 		inputs["ephemeralBlockDevices"] = nil
 		inputs["kmsKeyId"] = nil
@@ -46,6 +47,7 @@ func NewAmiCopy(ctx *pulumi.Context,
 	} else {
 		inputs["description"] = args.Description
 		inputs["ebsBlockDevices"] = args.EbsBlockDevices
+		inputs["enaSupport"] = args.EnaSupport
 		inputs["encrypted"] = args.Encrypted
 		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
 		inputs["kmsKeyId"] = args.KmsKeyId
@@ -79,6 +81,7 @@ func GetAmiCopy(ctx *pulumi.Context,
 		inputs["architecture"] = state.Architecture
 		inputs["description"] = state.Description
 		inputs["ebsBlockDevices"] = state.EbsBlockDevices
+		inputs["enaSupport"] = state.EnaSupport
 		inputs["encrypted"] = state.Encrypted
 		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
 		inputs["imageLocation"] = state.ImageLocation
@@ -126,6 +129,11 @@ func (r *AmiCopy) Description() *pulumi.StringOutput {
 // attached to created instances. The structure of this block is described below.
 func (r *AmiCopy) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+}
+
+// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+func (r *AmiCopy) EnaSupport() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enaSupport"])
 }
 
 // Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
@@ -220,6 +228,8 @@ type AmiCopyState struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport interface{}
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
 	Encrypted interface{}
 	// Nested block describing an ephemeral block device that
@@ -267,6 +277,8 @@ type AmiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport interface{}
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
 	Encrypted interface{}
 	// Nested block describing an ephemeral block device that

@@ -47,6 +47,10 @@ export interface GetRoleResult {
      * The path to the role.
      */
     readonly path: string;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the role.
+     */
+    readonly permissionsBoundary: string;
     readonly roleId: string;
     /**
      * The stable and unique string identifying the role.

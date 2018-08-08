@@ -68,6 +68,10 @@ class DefaultVpc(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        Amazon Resource Name (ARN) of VPC
+        """
         __self__.assign_generated_ipv6_cidr_block = pulumi.runtime.UNKNOWN
         """
         Whether or not an Amazon-provided IPv6 CIDR 
@@ -116,6 +120,8 @@ class DefaultVpc(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'assignGeneratedIpv6CidrBlock' in outs:
             self.assign_generated_ipv6_cidr_block = outs['assignGeneratedIpv6CidrBlock']
         if 'cidrBlock' in outs:

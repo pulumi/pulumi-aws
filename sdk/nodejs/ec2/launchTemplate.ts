@@ -22,6 +22,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the instance profile.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See [Block Devices](#block-devices) below for details.
      */
@@ -147,6 +151,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LaunchTemplateState = argsOrState as LaunchTemplateState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
             inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
@@ -199,6 +204,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
         }
@@ -210,6 +216,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LaunchTemplate resources.
  */
 export interface LaunchTemplateState {
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See [Block Devices](#block-devices) below for details.

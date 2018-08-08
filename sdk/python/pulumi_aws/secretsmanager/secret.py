@@ -9,7 +9,7 @@ class Secret(pulumi.CustomResource):
     """
     Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`aws_secretsmanager_secret_version` resource](/docs/providers/aws/r/secretsmanager_secret_version.html).
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, kms_key_id=None, name=None, recovery_window_in_days=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, kms_key_id=None, name=None, policy=None, recovery_window_in_days=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
         """Create a Secret resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -43,6 +43,14 @@ class Secret(pulumi.CustomResource):
         Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
         """
         __props__['name'] = name
+
+        if policy and not isinstance(policy, basestring):
+            raise TypeError('Expected property policy to be a basestring')
+        __self__.policy = policy
+        """
+        A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        """
+        __props__['policy'] = policy
 
         if recovery_window_in_days and not isinstance(recovery_window_in_days, int):
             raise TypeError('Expected property recovery_window_in_days to be a int')
@@ -100,6 +108,8 @@ class Secret(pulumi.CustomResource):
             self.kms_key_id = outs['kmsKeyId']
         if 'name' in outs:
             self.name = outs['name']
+        if 'policy' in outs:
+            self.policy = outs['policy']
         if 'recoveryWindowInDays' in outs:
             self.recovery_window_in_days = outs['recoveryWindowInDays']
         if 'rotationEnabled' in outs:

@@ -11,7 +11,7 @@ class Cluster(pulumi.CustomResource):
     process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
     for more information.
     """
-    def __init__(__self__, __name__, __opts__=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, core_instance_count=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None):
+    def __init__(__self__, __name__, __opts__=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -62,6 +62,16 @@ class Cluster(pulumi.CustomResource):
         List of configurations supplied for the EMR cluster you are creating
         """
         __props__['configurations'] = configurations
+
+        if configurations_json and not isinstance(configurations_json, basestring):
+            raise TypeError('Expected property configurations_json to be a basestring')
+        __self__.configurations_json = configurations_json
+        """
+        A JSON string for supplying list of configurations for the EMR cluster.
+        ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
+        the `Configurations` field instead of providing empty list as value `"Configurations": []`.
+        """
+        __props__['configurationsJson'] = configurations_json
 
         if core_instance_count and not isinstance(core_instance_count, int):
             raise TypeError('Expected property core_instance_count to be a int')
@@ -246,6 +256,8 @@ class Cluster(pulumi.CustomResource):
             self.cluster_state = outs['clusterState']
         if 'configurations' in outs:
             self.configurations = outs['configurations']
+        if 'configurationsJson' in outs:
+            self.configurations_json = outs['configurationsJson']
         if 'coreInstanceCount' in outs:
             self.core_instance_count = outs['coreInstanceCount']
         if 'coreInstanceType' in outs:

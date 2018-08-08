@@ -36,6 +36,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly description: pulumi.Output<string | undefined>;
     /**
+     * List of nested DynamoDB target arguments. See below.
+     */
+    public readonly dynamodbTargets: pulumi.Output<{ path: string }[] | undefined>;
+    /**
      * List of nested JBDC target arguments. See below.
      */
     public readonly jdbcTargets: pulumi.Output<{ connectionName: string, exclusions?: string[], path: string }[] | undefined>;
@@ -80,6 +84,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["role"] = state ? state.role : undefined;
@@ -99,6 +104,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["role"] = args ? args.role : undefined;
@@ -131,6 +137,10 @@ export interface CrawlerState {
      * Description of the crawler.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * List of nested DynamoDB target arguments. See below.
+     */
+    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<{ path: pulumi.Input<string> }>[]>;
     /**
      * List of nested JBDC target arguments. See below.
      */
@@ -181,6 +191,10 @@ export interface CrawlerArgs {
      * Description of the crawler.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * List of nested DynamoDB target arguments. See below.
+     */
+    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<{ path: pulumi.Input<string> }>[]>;
     /**
      * List of nested JBDC target arguments. See below.
      */

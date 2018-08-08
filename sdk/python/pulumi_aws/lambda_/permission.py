@@ -10,7 +10,7 @@ class Permission(pulumi.CustomResource):
     Creates a Lambda permission to allow external sources invoking the Lambda function
     (e.g. CloudWatch Event Rule, SNS or S3).
     """
-    def __init__(__self__, __name__, __opts__=None, action=None, function=None, principal=None, qualifier=None, source_account=None, source_arn=None, statement_id=None, statement_id_prefix=None):
+    def __init__(__self__, __name__, __opts__=None, action=None, event_source_token=None, function=None, principal=None, qualifier=None, source_account=None, source_arn=None, statement_id=None, statement_id_prefix=None):
         """Create a Permission resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -30,6 +30,14 @@ class Permission(pulumi.CustomResource):
         The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
         """
         __props__['action'] = action
+
+        if event_source_token and not isinstance(event_source_token, basestring):
+            raise TypeError('Expected property event_source_token to be a basestring')
+        __self__.event_source_token = event_source_token
+        """
+        The Event Source Token to validate.  Used with [Alexa Skills][1].
+        """
+        __props__['eventSourceToken'] = event_source_token
 
         if not function:
             raise TypeError('Missing required property function')
@@ -109,6 +117,8 @@ class Permission(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'action' in outs:
             self.action = outs['action']
+        if 'eventSourceToken' in outs:
+            self.event_source_token = outs['eventSourceToken']
         if 'function' in outs:
             self.function = outs['function']
         if 'principal' in outs:

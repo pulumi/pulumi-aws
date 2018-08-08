@@ -9,7 +9,7 @@ class GetRoleResult(object):
     """
     A collection of values returned by getRole.
     """
-    def __init__(__self__, arn=None, assume_role_policy=None, assume_role_policy_document=None, create_date=None, description=None, max_session_duration=None, path=None, role_id=None, unique_id=None, id=None):
+    def __init__(__self__, arn=None, assume_role_policy=None, assume_role_policy_document=None, create_date=None, description=None, max_session_duration=None, path=None, permissions_boundary=None, role_id=None, unique_id=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -39,6 +39,12 @@ class GetRoleResult(object):
         __self__.path = path
         """
         The path to the role.
+        """
+        if permissions_boundary and not isinstance(permissions_boundary, basestring):
+            raise TypeError('Expected argument permissions_boundary to be a basestring')
+        __self__.permissions_boundary = permissions_boundary
+        """
+        The ARN of the policy that is used to set the permissions boundary for the role.
         """
         if role_id and not isinstance(role_id, basestring):
             raise TypeError('Expected argument role_id to be a basestring')
@@ -76,6 +82,7 @@ def get_role(name=None, role_name=None):
         description=__ret__.get('description'),
         max_session_duration=__ret__.get('maxSessionDuration'),
         path=__ret__.get('path'),
+        permissions_boundary=__ret__.get('permissionsBoundary'),
         role_id=__ret__.get('roleId'),
         unique_id=__ret__.get('uniqueId'),
         id=__ret__.get('id'))

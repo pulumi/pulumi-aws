@@ -44,6 +44,7 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["requestTemplates"] = nil
 		inputs["resourceId"] = nil
 		inputs["restApi"] = nil
+		inputs["timeoutMilliseconds"] = nil
 		inputs["type"] = nil
 		inputs["uri"] = nil
 	} else {
@@ -61,6 +62,7 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["requestTemplates"] = args.RequestTemplates
 		inputs["resourceId"] = args.ResourceId
 		inputs["restApi"] = args.RestApi
+		inputs["timeoutMilliseconds"] = args.TimeoutMilliseconds
 		inputs["type"] = args.Type
 		inputs["uri"] = args.Uri
 	}
@@ -91,6 +93,7 @@ func GetIntegration(ctx *pulumi.Context,
 		inputs["requestTemplates"] = state.RequestTemplates
 		inputs["resourceId"] = state.ResourceId
 		inputs["restApi"] = state.RestApi
+		inputs["timeoutMilliseconds"] = state.TimeoutMilliseconds
 		inputs["type"] = state.Type
 		inputs["uri"] = state.Uri
 	}
@@ -187,6 +190,11 @@ func (r *Integration) RestApi() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restApi"])
 }
 
+// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+func (r *Integration) TimeoutMilliseconds() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["timeoutMilliseconds"])
+}
+
 // The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 func (r *Integration) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
@@ -235,6 +243,8 @@ type IntegrationState struct {
 	ResourceId interface{}
 	// The ID of the associated REST API.
 	RestApi interface{}
+	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+	TimeoutMilliseconds interface{}
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type interface{}
 	// The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.
@@ -279,6 +289,8 @@ type IntegrationArgs struct {
 	ResourceId interface{}
 	// The ID of the associated REST API.
 	RestApi interface{}
+	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+	TimeoutMilliseconds interface{}
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type interface{}
 	// The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.

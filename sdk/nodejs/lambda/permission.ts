@@ -27,6 +27,10 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly action: pulumi.Output<string>;
     /**
+     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     */
+    public readonly eventSourceToken: pulumi.Output<string | undefined>;
+    /**
      * Name of the Lambda function whose resource policy you are updating
      */
     public readonly function: pulumi.Output<Function>;
@@ -77,6 +81,7 @@ export class Permission extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: PermissionState = argsOrState as PermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
+            inputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
             inputs["function"] = state ? state.function : undefined;
             inputs["principal"] = state ? state.principal : undefined;
             inputs["qualifier"] = state ? state.qualifier : undefined;
@@ -96,6 +101,7 @@ export class Permission extends pulumi.CustomResource {
                 throw new Error("Missing required property 'principal'");
             }
             inputs["action"] = args ? args.action : undefined;
+            inputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
             inputs["function"] = args ? args.function : undefined;
             inputs["principal"] = args ? args.principal : undefined;
             inputs["qualifier"] = args ? args.qualifier : undefined;
@@ -116,6 +122,10 @@ export interface PermissionState {
      * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
      */
     readonly action?: pulumi.Input<string>;
+    /**
+     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     */
+    readonly eventSourceToken?: pulumi.Input<string>;
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
@@ -163,6 +173,10 @@ export interface PermissionArgs {
      * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
      */
     readonly action: pulumi.Input<string>;
+    /**
+     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     */
+    readonly eventSourceToken?: pulumi.Input<string>;
     /**
      * Name of the Lambda function whose resource policy you are updating
      */

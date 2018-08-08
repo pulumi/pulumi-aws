@@ -27,7 +27,7 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
-     * The address of the RDS instance.
+     * The hostname of the RDS instance. See also `endpoint` and `port`.
      */
     readonly address: string;
     /**
@@ -83,7 +83,7 @@ export interface GetInstanceResult {
      */
     readonly dbSubnetGroup: string;
     /**
-     * The connection endpoint.
+     * The connection endpoint in `address:port` format.
      */
     readonly endpoint: string;
     /**

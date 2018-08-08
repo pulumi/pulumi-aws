@@ -102,6 +102,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 	}
+	inputs["arn"] = nil
 	inputs["clusterResourceId"] = nil
 	inputs["endpoint"] = nil
 	inputs["hostedZoneId"] = nil
@@ -120,6 +121,7 @@ func GetCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["applyImmediately"] = state.ApplyImmediately
+		inputs["arn"] = state.Arn
 		inputs["availabilityZones"] = state.AvailabilityZones
 		inputs["backtrackWindow"] = state.BacktrackWindow
 		inputs["backupRetentionPeriod"] = state.BackupRetentionPeriod
@@ -176,6 +178,11 @@ func (r *Cluster) ID() *pulumi.IDOutput {
 // `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 func (r *Cluster) ApplyImmediately() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+}
+
+// Amazon Resource Name (ARN) of cluster
+func (r *Cluster) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A list of EC2 Availability Zones that
@@ -356,6 +363,8 @@ type ClusterState struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately interface{}
+	// Amazon Resource Name (ARN) of cluster
+	Arn interface{}
 	// A list of EC2 Availability Zones that
 	// instances in the DB cluster can be created in
 	AvailabilityZones interface{}

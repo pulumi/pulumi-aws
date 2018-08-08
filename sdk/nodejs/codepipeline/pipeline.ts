@@ -27,6 +27,7 @@ export class Pipeline extends pulumi.CustomResource {
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An artifact_store block. Artifact stores are documented below.
+     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     public readonly artifactStore: pulumi.Output<{ encryptionKey?: { id: string, type: string }, location: string, type: string }>;
     /**
@@ -37,9 +38,6 @@ export class Pipeline extends pulumi.CustomResource {
      * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      */
     public readonly roleArn: pulumi.Output<string>;
-    /**
-     * A stage block. Stages are documented below.
-     */
     public readonly stages: pulumi.Output<{ actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
     /**
@@ -90,6 +88,7 @@ export interface PipelineState {
     readonly arn?: pulumi.Input<string>;
     /**
      * An artifact_store block. Artifact stores are documented below.
+     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore?: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
@@ -100,9 +99,6 @@ export interface PipelineState {
      * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      */
     readonly roleArn?: pulumi.Input<string>;
-    /**
-     * A stage block. Stages are documented below.
-     */
     readonly stages?: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
 }
 
@@ -112,6 +108,7 @@ export interface PipelineState {
 export interface PipelineArgs {
     /**
      * An artifact_store block. Artifact stores are documented below.
+     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
@@ -122,8 +119,5 @@ export interface PipelineArgs {
      * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      */
     readonly roleArn: pulumi.Input<string>;
-    /**
-     * A stage block. Stages are documented below.
-     */
     readonly stages: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
 }

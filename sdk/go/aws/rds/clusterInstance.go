@@ -77,6 +77,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["publiclyAccessible"] = args.PubliclyAccessible
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["dbiResourceId"] = nil
 	inputs["endpoint"] = nil
 	inputs["kmsKeyId"] = nil
@@ -97,6 +98,7 @@ func GetClusterInstance(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["applyImmediately"] = state.ApplyImmediately
+		inputs["arn"] = state.Arn
 		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["clusterIdentifier"] = state.ClusterIdentifier
@@ -144,6 +146,11 @@ func (r *ClusterInstance) ID() *pulumi.IDOutput {
 // are applied immediately, or during the next maintenance window. Default is`false`.
 func (r *ClusterInstance) ApplyImmediately() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+}
+
+// Amazon Resource Name (ARN) of cluster instance
+func (r *ClusterInstance) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
@@ -300,6 +307,8 @@ type ClusterInstanceState struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately interface{}
+	// Amazon Resource Name (ARN) of cluster instance
+	Arn interface{}
 	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.

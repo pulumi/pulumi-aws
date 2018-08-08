@@ -37,6 +37,10 @@ export interface GetUserResult {
      */
     readonly path: string;
     /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
+    readonly permissionsBoundary: string;
+    /**
      * The unique ID assigned by AWS for this user.
      */
     readonly userId: string;

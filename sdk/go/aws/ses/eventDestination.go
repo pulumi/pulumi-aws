@@ -98,7 +98,7 @@ func (r *EventDestination) KinesisDestination() *pulumi.Output {
 	return r.s.State["kinesisDestination"]
 }
 
-// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
 func (r *EventDestination) MatchingTypes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["matchingTypes"])
 }
@@ -123,7 +123,7 @@ type EventDestinationState struct {
 	Enabled interface{}
 	// Send the events to a kinesis firehose destination
 	KinesisDestination interface{}
-	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
 	MatchingTypes interface{}
 	// The name of the event destination
 	Name interface{}
@@ -141,7 +141,7 @@ type EventDestinationArgs struct {
 	Enabled interface{}
 	// Send the events to a kinesis firehose destination
 	KinesisDestination interface{}
-	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, or `"click"`.
+	// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
 	MatchingTypes interface{}
 	// The name of the event destination
 	Name interface{}

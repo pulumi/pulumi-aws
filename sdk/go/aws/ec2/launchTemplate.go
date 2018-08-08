@@ -67,6 +67,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["userData"] = args.UserData
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 	}
+	inputs["arn"] = nil
 	inputs["defaultVersion"] = nil
 	inputs["latestVersion"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/launchTemplate:LaunchTemplate", name, true, inputs, opts...)
@@ -82,6 +83,7 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *LaunchTemplateState, opts ...pulumi.ResourceOpt) (*LaunchTemplate, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["blockDeviceMappings"] = state.BlockDeviceMappings
 		inputs["creditSpecification"] = state.CreditSpecification
 		inputs["defaultVersion"] = state.DefaultVersion
@@ -124,6 +126,11 @@ func (r *LaunchTemplate) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *LaunchTemplate) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// The Amazon Resource Name (ARN) of the instance profile.
+func (r *LaunchTemplate) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specify volumes to attach to the instance besides the volumes specified by the AMI.
@@ -267,6 +274,8 @@ func (r *LaunchTemplate) VpcSecurityGroupIds() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering LaunchTemplate resources.
 type LaunchTemplateState struct {
+	// The Amazon Resource Name (ARN) of the instance profile.
+	Arn interface{}
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See [Block Devices](#block-devices) below for details.
 	BlockDeviceMappings interface{}

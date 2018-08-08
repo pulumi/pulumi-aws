@@ -91,6 +91,10 @@ class Vpc(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        Amazon Resource Name (ARN) of VPC
+        """
         __self__.default_network_acl_id = pulumi.runtime.UNKNOWN
         """
         The ID of the network ACL created by default on VPC creation
@@ -126,6 +130,8 @@ class Vpc(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'assignGeneratedIpv6CidrBlock' in outs:
             self.assign_generated_ipv6_cidr_block = outs['assignGeneratedIpv6CidrBlock']
         if 'cidrBlock' in outs:

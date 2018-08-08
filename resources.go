@@ -83,6 +83,7 @@ const (
 	kmsMod               = "kms"                      // Key Management Service (KMS)
 	lambdaMod            = "lambda"                   // Lambda
 	lightsailMod         = "lightsail"                // LightSail
+	macieMod             = "macie"                    // Macie
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
 	mqMod                = "mq"                       // MQ
 	neptuneMod           = "neptune"                  // Neptune
@@ -102,6 +103,8 @@ const (
 	simpledbMod          = "simpledb"                 // Simple DB
 	snsMod               = "sns"                      // Simple Notification Service (SNS)
 	sqsMod               = "sqs"                      // Simple Queueing Service (SQS)
+	storagegatewayMod    = "storagegateway"           // Storage Gateway
+	swfMod               = "swf"                      // Simple Workflow Service (SWF)
 	wafMod               = "waf"                      // Web Application Firewall (WAF)
 	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
 )
@@ -217,6 +220,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// AppSync
+			"aws_appsync_api_key":     {Tok: awsResource(appsyncMod, "ApiKey")},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
 			// API Gateway
@@ -1303,6 +1307,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_key_pair":             {Tok: awsResource(lightsailMod, "KeyPair")},
 			"aws_lightsail_static_ip":            {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_static_ip_attachment": {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			// Macie
+			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
+			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
@@ -1310,6 +1317,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_mq_broker":        {Tok: awsResource(mqMod, "Broker")},
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
 			// Neptune
+			"aws_neptune_cluster":                 {Tok: awsResource(neptuneMod, "Cluster")},
+			"aws_neptune_cluster_instance":        {Tok: awsResource(neptuneMod, "ClusterInstance")},
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
 			"aws_neptune_parameter_group": {
 				Tok: awsResource(neptuneMod, "ParameterGroup"),
@@ -1570,6 +1579,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
+			// Storage Gateway
+			"aws_storagegateway_gateway":         {Tok: awsResource(storagegatewayMod, "Gateway")},
+			"aws_storagegateway_nfs_file_share":  {Tok: awsResource(storagegatewayMod, "NfsFileShare")},
+			"aws_storagegateway_upload_buffer":   {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
+			"aws_storagegateway_working_storage": {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
 			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},
@@ -1592,6 +1606,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Step Functions (SFN)
 			"aws_sfn_activity":      {Tok: awsResource(sfnMod, "Activity")},
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
+			// Simple Workflow Service (SWF)
+			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
 			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},
@@ -1606,7 +1622,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
 			// Web Application Firewall (WAF) Regional
-			"aws_wafregional_byte_match_set":          {Tok: awsResource(wafregionalMod, "ByteMatchSet")},
+			"aws_wafregional_byte_match_set": {
+				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// This property is deprecated and renamed to `byte_match_tuples`.  Don't pluralize this depreacted
+					// version so that it doesn't conflict with the replacement.
+					"byte_match_tuple": {
+						Name: "byte_match_tuple",
+					},
+				},
+			},
 			"aws_wafregional_geo_match_set":           {Tok: awsResource(wafregionalMod, "GeoMatchSet")},
 			"aws_wafregional_ipset":                   {Tok: awsResource(wafregionalMod, "IpSet")},
 			"aws_wafregional_rate_based_rule":         {Tok: awsResource(wafregionalMod, "RateBasedRule")},
@@ -1675,6 +1700,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_nat_gateway":            {Tok: awsDataSource(ec2Mod, "getNatGateway")},
 			"aws_network_acls":           {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
 			"aws_network_interface":      {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
+			"aws_network_interfaces":     {Tok: awsDataSource(ec2Mod, "getNetworkInterfaces")},
 			"aws_route":                  {Tok: awsDataSource(ec2Mod, "getRoute")},
 			"aws_route_table":            {Tok: awsDataSource(ec2Mod, "getRouteTable")},
 			"aws_route_tables":           {Tok: awsDataSource(ec2Mod, "getRouteTables")},
@@ -1766,6 +1792,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},
 			"aws_kms_key":        {Tok: awsDataSource(kmsMod, "getKey")},
 			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
+			"aws_kms_secrets":    {Tok: awsDataSource(kmsMod, "getSecrets")},
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
@@ -1789,6 +1816,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
 			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
+			// Storage Gateway
+			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

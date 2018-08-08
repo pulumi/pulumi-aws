@@ -221,6 +221,10 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The Amazon Resource Name (ARN) of the instance profile.
+        """
         __self__.default_version = pulumi.runtime.UNKNOWN
         """
         The default version of the launch template.
@@ -237,6 +241,8 @@ class LaunchTemplate(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'blockDeviceMappings' in outs:
             self.block_device_mappings = outs['blockDeviceMappings']
         if 'creditSpecification' in outs:

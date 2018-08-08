@@ -28,6 +28,7 @@ func NewRole(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
 		inputs["path"] = nil
+		inputs["permissionsBoundary"] = nil
 	} else {
 		inputs["assumeRolePolicy"] = args.AssumeRolePolicy
 		inputs["description"] = args.Description
@@ -36,6 +37,7 @@ func NewRole(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["namePrefix"] = args.NamePrefix
 		inputs["path"] = args.Path
+		inputs["permissionsBoundary"] = args.PermissionsBoundary
 	}
 	inputs["arn"] = nil
 	inputs["createDate"] = nil
@@ -62,6 +64,7 @@ func GetRole(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["namePrefix"] = state.NamePrefix
 		inputs["path"] = state.Path
+		inputs["permissionsBoundary"] = state.PermissionsBoundary
 		inputs["uniqueId"] = state.UniqueId
 	}
 	s, err := ctx.ReadResource("aws:iam/role:Role", name, id, inputs, opts...)
@@ -127,6 +130,11 @@ func (r *Role) Path() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["path"])
 }
 
+// The ARN of the policy that is used to set the permissions boundary for the role.
+func (r *Role) PermissionsBoundary() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["permissionsBoundary"])
+}
+
 // The stable and unique string identifying the role.
 func (r *Role) UniqueId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
@@ -153,6 +161,8 @@ type RoleState struct {
 	// The path to the role.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
+	// The ARN of the policy that is used to set the permissions boundary for the role.
+	PermissionsBoundary interface{}
 	// The stable and unique string identifying the role.
 	UniqueId interface{}
 }
@@ -174,4 +184,6 @@ type RoleArgs struct {
 	// The path to the role.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
+	// The ARN of the policy that is used to set the permissions boundary for the role.
+	PermissionsBoundary interface{}
 }

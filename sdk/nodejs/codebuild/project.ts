@@ -64,7 +64,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    public readonly source: pulumi.Output<{ auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, type: string }>;
+    public readonly source: pulumi.Output<{ auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, reportBuildStatus?: boolean, type: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -106,6 +106,9 @@ export class Project extends pulumi.CustomResource {
             }
             if (!args || args.environment === undefined) {
                 throw new Error("Missing required property 'environment'");
+            }
+            if (!args || args.serviceRole === undefined) {
+                throw new Error("Missing required property 'serviceRole'");
             }
             if (!args || args.source === undefined) {
                 throw new Error("Missing required property 'source'");
@@ -175,7 +178,7 @@ export interface ProjectState {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    readonly source?: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly source?: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -225,11 +228,11 @@ export interface ProjectArgs {
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
-    readonly serviceRole?: pulumi.Input<string>;
+    readonly serviceRole: pulumi.Input<string>;
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    readonly source: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly source: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -37,6 +37,7 @@ export class Domain extends pulumi.CustomResource {
      * Cluster configuration of the domain, see below.
      */
     public readonly clusterConfig: pulumi.Output<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }>;
+    public readonly cognitoOptions: pulumi.Output<{ enabled?: boolean, identityPoolId: string, roleArn: string, userPoolId: string } | undefined>;
     /**
      * Unique identifier for the domain.
      */
@@ -100,6 +101,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
+            inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
             inputs["domainId"] = state ? state.domainId : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["ebsOptions"] = state ? state.ebsOptions : undefined;
@@ -116,6 +118,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
             inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
+            inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             inputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
@@ -156,6 +159,7 @@ export interface DomainState {
      * Cluster configuration of the domain, see below.
      */
     readonly clusterConfig?: pulumi.Input<{ dedicatedMasterCount?: pulumi.Input<number>, dedicatedMasterEnabled?: pulumi.Input<boolean>, dedicatedMasterType?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType?: pulumi.Input<string>, zoneAwarenessEnabled?: pulumi.Input<boolean> }>;
+    readonly cognitoOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, identityPoolId: pulumi.Input<string>, roleArn: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
     /**
      * Unique identifier for the domain.
      */
@@ -223,6 +227,7 @@ export interface DomainArgs {
      * Cluster configuration of the domain, see below.
      */
     readonly clusterConfig?: pulumi.Input<{ dedicatedMasterCount?: pulumi.Input<number>, dedicatedMasterEnabled?: pulumi.Input<boolean>, dedicatedMasterType?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType?: pulumi.Input<string>, zoneAwarenessEnabled?: pulumi.Input<boolean> }>;
+    readonly cognitoOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, identityPoolId: pulumi.Input<string>, roleArn: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
     /**
      * Name of the domain.
      */

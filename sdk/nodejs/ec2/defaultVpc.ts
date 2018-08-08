@@ -31,6 +31,10 @@ export class DefaultVpc extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of VPC
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Whether or not an Amazon-provided IPv6 CIDR 
      * block with a /56 prefix length for the VPC was assigned
      */
@@ -102,6 +106,7 @@ export class DefaultVpc extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultVpcState = argsOrState as DefaultVpcState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
@@ -124,6 +129,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["assignGeneratedIpv6CidrBlock"] = undefined /*out*/;
             inputs["cidrBlock"] = undefined /*out*/;
             inputs["defaultNetworkAclId"] = undefined /*out*/;
@@ -143,6 +149,10 @@ export class DefaultVpc extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpc resources.
  */
 export interface DefaultVpcState {
+    /**
+     * Amazon Resource Name (ARN) of VPC
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Whether or not an Amazon-provided IPv6 CIDR 
      * block with a /56 prefix length for the VPC was assigned

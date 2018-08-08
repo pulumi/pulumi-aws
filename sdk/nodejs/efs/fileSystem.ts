@@ -41,10 +41,13 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * The file system performance mode. Can be either
-     * `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+     * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     public readonly performanceMode: pulumi.Output<string>;
+    /**
+     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+     */
+    public readonly provisionedThroughputInMibps: pulumi.Output<number | undefined>;
     /**
      * **DEPRECATED** (Optional) A reference name used when creating the
      * `Creation Token` which Amazon EFS uses to ensure idempotent file system creation. By
@@ -55,6 +58,10 @@ export class FileSystem extends pulumi.CustomResource {
      * A mapping of tags to assign to the file system.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
+    /**
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+     */
+    public readonly throughputMode: pulumi.Output<string | undefined>;
 
     /**
      * Create a FileSystem resource with the given unique name, arguments, and options.
@@ -73,16 +80,20 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["performanceMode"] = state ? state.performanceMode : undefined;
+            inputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
             inputs["referenceName"] = state ? state.referenceName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["throughputMode"] = state ? state.throughputMode : undefined;
         } else {
             const args = argsOrState as FileSystemArgs | undefined;
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["performanceMode"] = args ? args.performanceMode : undefined;
+            inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             inputs["referenceName"] = args ? args.referenceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["throughputMode"] = args ? args.throughputMode : undefined;
             inputs["dnsName"] = undefined /*out*/;
         }
         super("aws:efs/fileSystem:FileSystem", name, inputs, opts);
@@ -113,10 +124,13 @@ export interface FileSystemState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * The file system performance mode. Can be either
-     * `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+     * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     readonly performanceMode?: pulumi.Input<string>;
+    /**
+     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+     */
+    readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
      * **DEPRECATED** (Optional) A reference name used when creating the
      * `Creation Token` which Amazon EFS uses to ensure idempotent file system creation. By
@@ -127,6 +141,10 @@ export interface FileSystemState {
      * A mapping of tags to assign to the file system.
      */
     readonly tags?: pulumi.Input<Tags>;
+    /**
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+     */
+    readonly throughputMode?: pulumi.Input<string>;
 }
 
 /**
@@ -149,10 +167,13 @@ export interface FileSystemArgs {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * The file system performance mode. Can be either
-     * `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+     * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     readonly performanceMode?: pulumi.Input<string>;
+    /**
+     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+     */
+    readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
      * **DEPRECATED** (Optional) A reference name used when creating the
      * `Creation Token` which Amazon EFS uses to ensure idempotent file system creation. By
@@ -163,4 +184,8 @@ export interface FileSystemArgs {
      * A mapping of tags to assign to the file system.
      */
     readonly tags?: pulumi.Input<Tags>;
+    /**
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+     */
+    readonly throughputMode?: pulumi.Input<string>;
 }

@@ -5,10 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 
 /**
  * Use this data source to get the ARN of a certificate in AWS Certificate
- * Manager (ACM). The process of requesting and verifying a certificate in ACM
- * requires some manual steps, which means that Terraform cannot automate the
- * creation of ACM certificates. But using this data source, you can reference
- * them by domain without having to hard code the ARNs as input.
+ * Manager (ACM), you can reference
+ * it by domain without having to hard code the ARNs as input.
  */
 export function getCertificate(args: GetCertificateArgs): Promise<GetCertificateResult> {
     return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {

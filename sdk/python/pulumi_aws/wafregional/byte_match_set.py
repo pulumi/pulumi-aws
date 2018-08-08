@@ -9,7 +9,7 @@ class ByteMatchSet(pulumi.CustomResource):
     """
     Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
     """
-    def __init__(__self__, __name__, __opts__=None, byte_match_tuples=None, name=None):
+    def __init__(__self__, __name__, __opts__=None, byte_match_tuple=None, byte_match_tuples=None, name=None):
         """Create a ByteMatchSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -19,6 +19,14 @@ class ByteMatchSet(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if byte_match_tuple and not isinstance(byte_match_tuple, list):
+            raise TypeError('Expected property byte_match_tuple to be a list')
+        __self__.byte_match_tuple = byte_match_tuple
+        """
+        **Deprecated**, use `byte_match_tuples` instead.
+        """
+        __props__['byte_match_tuple'] = byte_match_tuple
 
         if byte_match_tuples and not isinstance(byte_match_tuples, list):
             raise TypeError('Expected property byte_match_tuples to be a list')
@@ -43,6 +51,8 @@ class ByteMatchSet(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'byte_match_tuple' in outs:
+            self.byte_match_tuple = outs['byte_match_tuple']
         if 'byteMatchTuples' in outs:
             self.byte_match_tuples = outs['byteMatchTuples']
         if 'name' in outs:

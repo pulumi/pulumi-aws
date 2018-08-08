@@ -22,6 +22,7 @@ func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) 
 	return &GetUserResult{
 		Arn: outputs["arn"],
 		Path: outputs["path"],
+		PermissionsBoundary: outputs["permissionsBoundary"],
 		UserId: outputs["userId"],
 		Id: outputs["id"],
 	}, nil
@@ -39,6 +40,8 @@ type GetUserResult struct {
 	Arn interface{}
 	// Path in which this user was created.
 	Path interface{}
+	// The ARN of the policy that is used to set the permissions boundary for the user.
+	PermissionsBoundary interface{}
 	// The unique ID assigned by AWS for this user.
 	UserId interface{}
 	// id is the provider-assigned unique ID for this managed resource.

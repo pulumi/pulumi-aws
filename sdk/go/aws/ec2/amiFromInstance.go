@@ -39,6 +39,7 @@ func NewAmiFromInstance(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["ebsBlockDevices"] = nil
+		inputs["enaSupport"] = nil
 		inputs["ephemeralBlockDevices"] = nil
 		inputs["name"] = nil
 		inputs["snapshotWithoutReboot"] = nil
@@ -47,6 +48,7 @@ func NewAmiFromInstance(ctx *pulumi.Context,
 	} else {
 		inputs["description"] = args.Description
 		inputs["ebsBlockDevices"] = args.EbsBlockDevices
+		inputs["enaSupport"] = args.EnaSupport
 		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
 		inputs["name"] = args.Name
 		inputs["snapshotWithoutReboot"] = args.SnapshotWithoutReboot
@@ -78,6 +80,7 @@ func GetAmiFromInstance(ctx *pulumi.Context,
 		inputs["architecture"] = state.Architecture
 		inputs["description"] = state.Description
 		inputs["ebsBlockDevices"] = state.EbsBlockDevices
+		inputs["enaSupport"] = state.EnaSupport
 		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
 		inputs["imageLocation"] = state.ImageLocation
 		inputs["kernelId"] = state.KernelId
@@ -123,6 +126,11 @@ func (r *AmiFromInstance) Description() *pulumi.StringOutput {
 // attached to created instances. The structure of this block is described below.
 func (r *AmiFromInstance) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+}
+
+// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+func (r *AmiFromInstance) EnaSupport() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enaSupport"])
 }
 
 // Nested block describing an ephemeral block device that
@@ -206,6 +214,8 @@ type AmiFromInstanceState struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices interface{}
@@ -248,6 +258,8 @@ type AmiFromInstanceArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices interface{}

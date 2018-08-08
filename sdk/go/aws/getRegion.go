@@ -26,6 +26,7 @@ func LookupRegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, e
 	}
 	return &GetRegionResult{
 		Current: outputs["current"],
+		Description: outputs["description"],
 		Endpoint: outputs["endpoint"],
 		Name: outputs["name"],
 		Id: outputs["id"],
@@ -46,6 +47,8 @@ type GetRegionResult struct {
 	// `true` if the selected region is the one configured on the
 	// provider, or `false` otherwise.
 	Current interface{}
+	// The region's description in this format: "Location (Region name)".
+	Description interface{}
 	// The EC2 endpoint for the selected region.
 	Endpoint interface{}
 	// The name of the selected region.

@@ -190,7 +190,7 @@ func (r *Cluster) Engine() *pulumi.StringOutput {
 }
 
 // Version number of the cache engine to be used.
-// See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 // in the AWS Documentation center for supported versions
 func (r *Cluster) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
@@ -323,7 +323,7 @@ type ClusterState struct {
 	// Valid values for this parameter are `memcached` or `redis`
 	Engine interface{}
 	// Version number of the cache engine to be used.
-	// See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion interface{}
 	// Specifies the weekly time range for when maintenance
@@ -400,7 +400,7 @@ type ClusterArgs struct {
 	// Valid values for this parameter are `memcached` or `redis`
 	Engine interface{}
 	// Version number of the cache engine to be used.
-	// See [Selecting a Cache Engine and Version](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html)
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
 	// in the AWS Documentation center for supported versions
 	EngineVersion interface{}
 	// Specifies the weekly time range for when maintenance
