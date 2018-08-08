@@ -1792,7 +1792,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.14.4-dev-1533584706-g5a52c1c0",
+				"@pulumi/pulumi":    "^v0.14.4-dev-1533688022-g152fde08",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
 				"resolve":           "^1.7.1",
