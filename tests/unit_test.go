@@ -69,7 +69,9 @@ func TestMountTarget(t *testing.T) {
 					return
 				}
 
-				assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
+				if out.FunctionError != nil {
+					assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
+				}
 			},
 		}),
 	}
