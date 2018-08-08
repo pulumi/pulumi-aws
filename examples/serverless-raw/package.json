@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.14.4-dev-1533584706-g5a52c1c0"
+        "@pulumi/pulumi": "^v0.14.4-dev-1533688022-g152fde08"
     },
     "devDependencies": {
         "typescript": "^2.5.3"
