@@ -541,10 +541,10 @@
   version = "v1.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
+    "pkg/apitype/migrate",
     "pkg/backend",
     "pkg/backend/local",
     "pkg/diag",
@@ -555,6 +555,7 @@
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
+    "pkg/resource/deploy/providers",
     "pkg/resource/graph",
     "pkg/resource/plugin",
     "pkg/resource/provider",
@@ -583,22 +584,29 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "9bfea8e5c4b4b7522e00796397f72fe3f4984dd7"
+  revision = "cf93373a84a257e732efa96cc54291eccee87b21"
+  version = "v0.15.0-rc1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "d7b54027a5c745e6130c003f2ef61b0fe264b619"
+  revision = "8e4042b7e7cd28d26770a684ca233ec7a10ad4de"
+  version = "v0.15.0-rc1"
 
 [[projects]]
   branch = "master"
   name = "github.com/reconquest/loreley"
   packages = ["."]
   revision = "2ab6b7470a54bfa9b5b0289f9b4e8fc4839838f7"
+
+[[projects]]
+  name = "github.com/satori/go.uuid"
+  packages = ["."]
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
 
 [[projects]]
   branch = "master"
@@ -874,6 +882,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6077cdd75edaae2f7b95bc9531a5d73690777f258262d055416bef160dbd01c2"
+  inputs-digest = "a981f5d697c78389b456018bf83860fbbe0b6372a0cf926fcf75420db3d269f7"
   solver-name = "gps-cdcl"
   solver-version = 1

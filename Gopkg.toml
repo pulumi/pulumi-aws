@@ -1,10 +1,10 @@
 [[constraint]]
   name = "github.com/pulumi/pulumi"
-  branch = "master"
+  branch = "release/0.15"
 
 [[constraint]]
   name = "github.com/pulumi/pulumi-terraform"
-  branch = "master"
+  branch = "release/0.15"
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"
