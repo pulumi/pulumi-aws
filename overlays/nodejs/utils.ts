@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
+type Extract<T, U> = T extends U ? T : never;
 type Diff<T extends string, U extends string> =
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
 
