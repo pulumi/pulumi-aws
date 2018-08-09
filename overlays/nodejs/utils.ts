@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-type Extract<T, U> = T extends U ? T : never;
-type Diff<T extends string, U extends string> =
+
+type Diff<T extends string | number | symbol, U extends string | number | symbol> =
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
 
 // Overwrite allows you to take an existing type, and then overwrite existing properties in it
 // with properties of the same name, but with entirely different types.
-export type Overwrite<T, U> = Pick<T, Diff<Extract<keyof T, string>, Extract<keyof U, string>>> & U;
+export type Overwrite<T, U> = Pick<T, Diff<keyof T, keyof U>> & U;

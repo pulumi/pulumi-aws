@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@types/node": "latest",
-        "typescript": "^2.7.2"
+        "typescript": "^2.6.2"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"

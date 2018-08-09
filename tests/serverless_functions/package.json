@@ -16,7 +16,7 @@
     "devDependencies": {
         "@types/express": "^4.16.0",
         "@types/node": "^10.3.0",
-        "typescript": "^2.5.3"
+        "typescript": "^2.6.2"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"
