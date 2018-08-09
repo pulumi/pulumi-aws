@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get information about an AWS Cloudwatch Log Group
  */
-export function getLogGroup(args: GetLogGroupArgs): Promise<GetLogGroupResult> {
+export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides information about a DynamoDB table.
  */
-export function getTable(args: GetTableArgs): Promise<GetTableResult> {
+export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
         "serverSideEncryption": args.serverSideEncryption,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

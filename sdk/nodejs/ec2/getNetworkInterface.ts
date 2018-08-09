@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get information about a Network Interface.
  */
-export function getNetworkInterface(args?: GetNetworkInterfaceArgs): Promise<GetNetworkInterfaceResult> {
+export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterface:getNetworkInterface", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

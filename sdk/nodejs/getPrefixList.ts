@@ -12,12 +12,12 @@ import * as pulumi from "@pulumi/pulumi";
  * AWS service. The latter may be useful e.g. for adding network ACL
  * rules.
  */
-export function getPrefixList(args?: GetPrefixListArgs): Promise<GetPrefixListResult> {
+export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
         "name": args.name,
         "prefixListId": args.prefixListId,
-    });
+    }, opts);
 }
 
 /**

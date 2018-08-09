@@ -69,13 +69,13 @@ import * as pulumi from "@pulumi/pulumi";
  * valid to use literal JSON strings within your configuration, or to use the
  * `file` interpolation function to read a raw JSON policy document from a file.
  */
-export function getPolicyDocument(args: GetPolicyDocumentArgs): Promise<GetPolicyDocumentResult> {
+export function getPolicyDocument(args: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
         "policyId": args.policyId,
         "sourceJson": args.sourceJson,
         "statements": args.statements,
-    });
+    }, opts);
 }
 
 /**

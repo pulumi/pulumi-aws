@@ -6,9 +6,9 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Returns a unique endpoint specific to the AWS account making the call.
  */
-export function getEndpoint(): Promise<GetEndpointResult> {
+export function getEndpoint(opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     return pulumi.runtime.invoke("aws:iot/getEndpoint:getEndpoint", {
-    });
+    }, opts);
 }
 
 /**

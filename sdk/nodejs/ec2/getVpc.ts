@@ -10,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
  */
-export function getVpc(args?: GetVpcArgs): Promise<GetVpcResult> {
+export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpc:getVpc", {
         "cidrBlock": args.cidrBlock,
@@ -20,7 +20,7 @@ export function getVpc(args?: GetVpcArgs): Promise<GetVpcResult> {
         "id": args.id,
         "state": args.state,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

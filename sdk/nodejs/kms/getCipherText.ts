@@ -10,12 +10,12 @@ import * as pulumi from "@pulumi/pulumi";
  * ~> **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
  */
-export function getCipherText(args: GetCipherTextArgs): Promise<GetCipherTextResult> {
+export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
     return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
         "context": args.context,
         "keyId": args.keyId,
         "plaintext": args.plaintext,
-    });
+    }, opts);
 }
 
 /**

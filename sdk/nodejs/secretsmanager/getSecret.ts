@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](/docs/providers/aws/d/secretsmanager_secret_version.html).
  */
-export function getSecret(args?: GetSecretArgs): Promise<GetSecretResult> {
+export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

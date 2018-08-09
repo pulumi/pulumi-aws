@@ -7,9 +7,9 @@ import * as pulumi from "@pulumi/pulumi";
  * The IAM Account Alias data source allows access to the account alias
  * for the effective account in which Terraform is working.
  */
-export function getAccountAlias(): Promise<GetAccountAliasResult> {
+export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
     return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
-    });
+    }, opts);
 }
 
 /**

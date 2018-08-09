@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
  */
-export function getLocalDisk(args: GetLocalDiskArgs): Promise<GetLocalDiskResult> {
+export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
     return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskPath": args.diskPath,
         "gatewayArn": args.gatewayArn,
-    });
+    }, opts);
 }
 
 /**

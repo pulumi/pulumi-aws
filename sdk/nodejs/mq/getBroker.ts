@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides information about a MQ Broker.
  */
-export function getBroker(args?: GetBrokerArgs): Promise<GetBrokerResult> {
+export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
-    });
+    }, opts);
 }
 
 /**

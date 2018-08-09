@@ -7,11 +7,11 @@ import * as pulumi from "@pulumi/pulumi";
  * The Autoscaling Groups data source allows access to the list of AWS
  * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
  */
-export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs): Promise<GetAutoscalingGroupsResult> {
+export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
         "filters": args.filters,
-    });
+    }, opts);
 }
 
 /**

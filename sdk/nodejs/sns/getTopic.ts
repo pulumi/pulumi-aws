@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * Service (SNS). By using this data source, you can reference SNS topics
  * without having to hard code the ARNs as input.
  */
-export function getTopic(args: GetTopicArgs): Promise<GetTopicResult> {
+export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

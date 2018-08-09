@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
  */
-export function getRepository(args: GetRepositoryArgs): Promise<GetRepositoryResult> {
+export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     return pulumi.runtime.invoke("aws:ecr/getRepository:getRepository", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * The VPN Gateway data source provides details about
  * a specific VPN gateway.
  */
-export function getVpnGateway(args?: GetVpnGatewayArgs): Promise<GetVpnGatewayResult> {
+export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
         "amazonSideAsn": args.amazonSideAsn,
@@ -17,7 +17,7 @@ export function getVpnGateway(args?: GetVpnGatewayArgs): Promise<GetVpnGatewayRe
         "id": args.id,
         "state": args.state,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

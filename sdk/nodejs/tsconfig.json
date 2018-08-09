@@ -474,6 +474,7 @@
         "organizations/policyAttachment.ts",
         "pricing/getProduct.ts",
         "pricing/index.ts",
+        "provider.ts",
         "rds/cluster.ts",
         "rds/clusterInstance.ts",
         "rds/clusterParameterGroup.ts",

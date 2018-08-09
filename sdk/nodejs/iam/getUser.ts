@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * IAM user. By using this data source, you can reference IAM user
  * properties without having to hard code ARNs or unique IDs as input.
  */
-export function getUser(args: GetUserArgs): Promise<GetUserResult> {
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     return pulumi.runtime.invoke("aws:iam/getUser:getUser", {
         "userName": args.userName,
-    });
+    }, opts);
 }
 
 /**

@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Retrieve information about a Direct Connect Gateway.
  */
-export function getGateway(args: GetGatewayArgs): Promise<GetGatewayResult> {
+export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

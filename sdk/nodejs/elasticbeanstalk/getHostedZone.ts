@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
  */
-export function getHostedZone(args?: GetHostedZoneArgs): Promise<GetHostedZoneResult> {
+export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", {
         "region": args.region,
-    });
+    }, opts);
 }
 
 /**

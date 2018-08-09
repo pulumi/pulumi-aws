@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
  */
-export function getRouteTables(args?: GetRouteTablesArgs): Promise<GetRouteTablesResult> {
+export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

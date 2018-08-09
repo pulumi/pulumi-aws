@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get the [IP ranges][1] of various AWS products and services.
  */
-export function getIpRanges(args: GetIpRangesArgs): Promise<GetIpRangesResult> {
+export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
     return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "regions": args.regions,
         "services": args.services,
-    });
+    }, opts);
 }
 
 /**

@@ -7,10 +7,10 @@ import * as pulumi from "@pulumi/pulumi";
  * The ECS Cluster data source allows access to details of a specific
  * cluster within an AWS ECS service.
  */
-export function getCluster(args: GetClusterArgs): Promise<GetClusterResult> {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:ecs/getCluster:getCluster", {
         "clusterName": args.clusterName,
-    });
+    }, opts);
 }
 
 /**

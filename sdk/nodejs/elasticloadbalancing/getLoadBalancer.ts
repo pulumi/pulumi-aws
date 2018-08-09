@@ -12,11 +12,11 @@ import * as pulumi from "@pulumi/pulumi";
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
  */
-export function getLoadBalancer(args: GetLoadBalancerArgs): Promise<GetLoadBalancerResult> {
+export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     return pulumi.runtime.invoke("aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer", {
         "name": args.name,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

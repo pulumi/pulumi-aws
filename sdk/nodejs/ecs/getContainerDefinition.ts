@@ -7,11 +7,11 @@ import * as pulumi from "@pulumi/pulumi";
  * The ECS container definition data source allows access to details of
  * a specific container within an AWS ECS service.
  */
-export function getContainerDefinition(args: GetContainerDefinitionArgs): Promise<GetContainerDefinitionResult> {
+export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
     return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
         "taskDefinition": args.taskDefinition,
-    });
+    }, opts);
 }
 
 /**

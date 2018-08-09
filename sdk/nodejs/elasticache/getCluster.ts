@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get information about an Elasticache Cluster
  */
-export function getCluster(args: GetClusterArgs): Promise<GetClusterResult> {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

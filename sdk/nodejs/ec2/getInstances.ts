@@ -17,13 +17,13 @@ import * as pulumi from "@pulumi/pulumi";
  * instances (e.g. managed via autoscaling group), as the output may change at any time
  * and you'd need to re-run `apply` every time an instance comes up or dies.
  */
-export function getInstances(args?: GetInstancesArgs): Promise<GetInstancesResult> {
+export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
         "filters": args.filters,
         "instanceStateNames": args.instanceStateNames,
         "instanceTags": args.instanceTags,
-    });
+    }, opts);
 }
 
 /**

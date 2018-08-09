@@ -8,13 +8,13 @@ import * as pulumi from "@pulumi/pulumi";
  * Manager (ACM), you can reference
  * it by domain without having to hard code the ARNs as input.
  */
-export function getCertificate(args: GetCertificateArgs): Promise<GetCertificateResult> {
+export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
         "mostRecent": args.mostRecent,
         "statuses": args.statuses,
         "types": args.types,
-    });
+    }, opts);
 }
 
 /**

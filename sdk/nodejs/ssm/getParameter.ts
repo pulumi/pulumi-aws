@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides an SSM Parameter data source.
  */
-export function getParameter(args: GetParameterArgs): Promise<GetParameterResult> {
+export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
     return pulumi.runtime.invoke("aws:ssm/getParameter:getParameter", {
         "name": args.name,
         "withDecryption": args.withDecryption,
-    });
+    }, opts);
 }
 
 /**

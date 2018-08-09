@@ -11,13 +11,13 @@ import * as pulumi from "@pulumi/pulumi";
  * can be useful in a child module which is inheriting an AWS provider
  * configuration from its parent module.
  */
-export function getRegion(args?: GetRegionArgs): Promise<GetRegionResult> {
+export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "current": args.current,
         "endpoint": args.endpoint,
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

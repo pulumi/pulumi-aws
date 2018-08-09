@@ -9,11 +9,11 @@ import * as pulumi from "@pulumi/pulumi";
  * This can be useful to reference key alias 
  * without having to hard code the ARN as input.
  */
-export function getKey(args: GetKeyArgs): Promise<GetKeyResult> {
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     return pulumi.runtime.invoke("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
-    });
+    }, opts);
 }
 
 /**

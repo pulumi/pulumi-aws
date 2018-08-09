@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get information about an Elasticache Replication Group.
  */
-export function getReplicationGroup(args: GetReplicationGroupArgs): Promise<GetReplicationGroupResult> {
+export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
     return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
-    });
+    }, opts);
 }
 
 /**

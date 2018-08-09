@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides information about a Launch Configuration.
  */
-export function getLaunchConfiguration(args: GetLaunchConfigurationArgs): Promise<GetLaunchConfigurationResult> {
+export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
     return pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

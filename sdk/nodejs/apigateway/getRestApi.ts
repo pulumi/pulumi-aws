@@ -9,10 +9,10 @@ import * as pulumi from "@pulumi/pulumi";
  * As there is no unique name constraint on REST APIs this data source will 
  * error if there is more than one match.
  */
-export function getRestApi(args: GetRestApiArgs): Promise<GetRestApiResult> {
+export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
     return pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

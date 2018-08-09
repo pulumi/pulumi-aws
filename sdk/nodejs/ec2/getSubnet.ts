@@ -10,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * an input variable and needs to, for example, determine the id of the
  * VPC that the subnet belongs to.
  */
-export function getSubnet(args?: GetSubnetArgs): Promise<GetSubnetResult> {
+export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getSubnet:getSubnet", {
         "availabilityZone": args.availabilityZone,
@@ -22,7 +22,7 @@ export function getSubnet(args?: GetSubnetArgs): Promise<GetSubnetResult> {
         "state": args.state,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

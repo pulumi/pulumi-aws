@@ -3,12 +3,12 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs): Promise<GetNetworkInterfacesResult> {
+export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

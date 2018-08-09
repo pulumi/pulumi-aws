@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides information about an Elastic File System (EFS).
  */
-export function getFileSystem(args?: GetFileSystemArgs): Promise<GetFileSystemResult> {
+export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

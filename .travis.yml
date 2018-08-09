@@ -11,7 +11,7 @@ before_install:
     - source ${PULUMI_SCRIPTS}/ci/keep-failed-tests.sh
 install:
     - source ${PULUMI_SCRIPTS}/ci/install-common-toolchain.sh
-    - curl -L https://get.pulumi.com/ | bash -s -- --version 0.14.0
+    - curl -L https://get.pulumi.com/ | bash -s -- --version 0.14.4-dev-1533761148-g9a5f4044
     - export PATH=$HOME/.pulumi/bin:$PATH
 before_script:
     - ${PULUMI_SCRIPTS}/ci/ensure-dependencies

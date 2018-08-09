@@ -7,12 +7,12 @@ import * as pulumi from "@pulumi/pulumi";
  * Use this data source to get IDs and VPC membership of Security Groups that are created
  * outside of Terraform.
  */
-export function getSecurityGroups(args?: GetSecurityGroupsArgs): Promise<GetSecurityGroupsResult> {
+export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

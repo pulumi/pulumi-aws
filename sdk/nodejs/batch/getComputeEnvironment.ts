@@ -7,10 +7,10 @@ import * as pulumi from "@pulumi/pulumi";
  * The Batch Compute Environment data source allows access to details of a specific
  * compute environment within AWS Batch.
  */
-export function getComputeEnvironment(args: GetComputeEnvironmentArgs): Promise<GetComputeEnvironmentResult> {
+export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,
-    });
+    }, opts);
 }
 
 /**

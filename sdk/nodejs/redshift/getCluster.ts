@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Provides details about a specific redshift cluster.
  */
-export function getCluster(args: GetClusterArgs): Promise<GetClusterResult> {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

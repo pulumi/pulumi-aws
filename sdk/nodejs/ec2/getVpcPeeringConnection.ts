@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
  */
-export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs): Promise<GetVpcPeeringConnectionResult> {
+export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
         "cidrBlock": args.cidrBlock,
@@ -22,7 +22,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs): Pro
         "status": args.status,
         "tags": args.tags,
         "vpcId": args.vpcId,
-    });
+    }, opts);
 }
 
 /**

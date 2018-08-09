@@ -9,10 +9,10 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  *  -> Note: If you are trying to use a value from a Cloudformation Stack in the same Terraform run please use normal interpolation or Cloudformation Outputs. 
  */
-export function getExport(args: GetExportArgs): Promise<GetExportResult> {
+export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     return pulumi.runtime.invoke("aws:cloudformation/getExport:getExport", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

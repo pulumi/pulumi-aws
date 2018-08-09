@@ -32,7 +32,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly defaultAction: pulumi.Output<{ targetGroupArn: string, type: string }>;
+    public readonly defaultActions: pulumi.Output<{ targetGroupArn: string, type: string }[]>;
     /**
      * The ARN of the load balancer.
      */
@@ -64,15 +64,15 @@ export class Listener extends pulumi.CustomResource {
             const state: ListenerState = argsOrState as ListenerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["defaultAction"] = state ? state.defaultAction : undefined;
+            inputs["defaultActions"] = state ? state.defaultActions : undefined;
             inputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
             inputs["sslPolicy"] = state ? state.sslPolicy : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if (!args || args.defaultAction === undefined) {
-                throw new Error("Missing required property 'defaultAction'");
+            if (!args || args.defaultActions === undefined) {
+                throw new Error("Missing required property 'defaultActions'");
             }
             if (!args || args.loadBalancerArn === undefined) {
                 throw new Error("Missing required property 'loadBalancerArn'");
@@ -81,7 +81,7 @@ export class Listener extends pulumi.CustomResource {
                 throw new Error("Missing required property 'port'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
+            inputs["defaultActions"] = args ? args.defaultActions : undefined;
             inputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
@@ -107,7 +107,7 @@ export interface ListenerState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultAction?: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly defaultActions?: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the load balancer.
      */
@@ -137,7 +137,7 @@ export interface ListenerArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultAction: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly defaultActions: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the load balancer.
      */

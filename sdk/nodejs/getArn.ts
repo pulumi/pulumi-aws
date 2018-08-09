@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Parses an Amazon Resource Name (ARN) into its constituent parts.
  */
-export function getArn(args: GetArnArgs): Promise<GetArnResult> {
+export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
     return pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
-    });
+    }, opts);
 }
 
 /**

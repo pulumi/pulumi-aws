@@ -12,13 +12,13 @@ import * as pulumi from "@pulumi/pulumi";
  * input variable and needs to know its attributes. It can also be used to get the ARN of
  * an LB Target Group for use in other resources, given LB Target Group name.
  */
-export function getTargetGroup(args?: GetTargetGroupArgs): Promise<GetTargetGroupResult> {
+export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

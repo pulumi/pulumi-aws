@@ -6,9 +6,9 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to lookup current AWS partition in which Terraform is working
  */
-export function getPartition(): Promise<GetPartitionResult> {
+export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
-    });
+    }, opts);
 }
 
 /**

@@ -8,9 +8,9 @@ import * as pulumi from "@pulumi/pulumi";
  * Inspector Rules Packages which can be used by AWS Inspector within the region
  * configured in the provider.
  */
-export function getRulesPackages(): Promise<GetRulesPackagesResult> {
+export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
     return pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
-    });
+    }, opts);
 }
 
 /**

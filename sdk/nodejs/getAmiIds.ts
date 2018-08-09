@@ -6,14 +6,14 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
  */
-export function getAmiIds(args?: GetAmiIdsArgs): Promise<GetAmiIdsResult> {
+export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
-    });
+    }, opts);
 }
 
 /**

@@ -8,12 +8,12 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
  */
-export function getVpcs(args?: GetVpcsArgs): Promise<GetVpcsResult> {
+export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getVpcs:getVpcs", {
         "filters": args.filters,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

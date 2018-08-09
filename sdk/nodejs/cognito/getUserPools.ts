@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get a list of cognito user pools.
  */
-export function getUserPools(args: GetUserPoolsArgs): Promise<GetUserPoolsResult> {
+export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> {
     return pulumi.runtime.invoke("aws:cognito/getUserPools:getUserPools", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

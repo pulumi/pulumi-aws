@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
  * a specific AWS ECS task definition.
  * 
  */
-export function getTaskDefinition(args: GetTaskDefinitionArgs): Promise<GetTaskDefinitionResult> {
+export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
-    });
+    }, opts);
 }
 
 /**

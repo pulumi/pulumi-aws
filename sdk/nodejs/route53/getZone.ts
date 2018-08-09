@@ -8,7 +8,7 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
  */
-export function getZone(args?: GetZoneArgs): Promise<GetZoneResult> {
+export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "callerReference": args.callerReference,
@@ -19,7 +19,7 @@ export function getZone(args?: GetZoneArgs): Promise<GetZoneResult> {
         "tags": args.tags,
         "vpcId": args.vpcId,
         "zoneId": args.zoneId,
-    });
+    }, opts);
 }
 
 /**

@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to get the name of a elastic beanstalk solution stack.
  */
-export function getSolutionStack(args: GetSolutionStackArgs): Promise<GetSolutionStackResult> {
+export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
-    });
+    }, opts);
 }
 
 /**

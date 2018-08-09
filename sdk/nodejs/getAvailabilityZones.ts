@@ -11,11 +11,11 @@ import * as pulumi from "@pulumi/pulumi";
  * This is different from the `aws_availability_zone` (singular) data source,
  * which provides some details about a specific availability zone.
  */
-export function getAvailabilityZones(args?: GetAvailabilityZonesArgs): Promise<GetAvailabilityZonesResult> {
+export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "state": args.state,
-    });
+    }, opts);
 }
 
 /**
