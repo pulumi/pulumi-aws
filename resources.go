@@ -1822,6 +1822,7 @@ func Provider() tfbridge.ProviderInfo {
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
 					"tags.ts",   // Tags typedef
+					"utils.ts",  // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {

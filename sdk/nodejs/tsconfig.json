@@ -578,6 +578,7 @@
         "swf/domain.ts",
         "swf/index.ts",
         "tags.ts",
+        "utils.ts",
         "waf/byteMatchSet.ts",
         "waf/geoMatchSet.ts",
         "waf/index.ts",
