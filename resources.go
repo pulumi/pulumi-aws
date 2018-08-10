@@ -384,6 +384,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"tag": {
+						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
+						Name: "tags",
+					},
 					"tags": {
 						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
 						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
@@ -1029,7 +1033,15 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_lb_listener":             {Tok: awsResource(elbv2Mod, "Listener")},
+			"aws_lb_listener": {
+				Tok: awsResource(elbv2Mod, "Listener"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"default_action": {
+						Name:        "defaultAction",
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_lb_listener_certificate": {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
 			"aws_lb_listener_rule":        {Tok: awsResource(elbv2Mod, "ListenerRule")},
 			"aws_lb_target_group": {

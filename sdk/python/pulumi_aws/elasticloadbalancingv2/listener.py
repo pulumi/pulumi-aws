@@ -11,7 +11,7 @@ class Listener(pulumi.CustomResource):
     
     ~> **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
     """
-    def __init__(__self__, __name__, __opts__=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
+    def __init__(__self__, __name__, __opts__=None, certificate_arn=None, default_action=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
         """Create a Listener resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -30,15 +30,15 @@ class Listener(pulumi.CustomResource):
         """
         __props__['certificateArn'] = certificate_arn
 
-        if not default_actions:
-            raise TypeError('Missing required property default_actions')
-        elif not isinstance(default_actions, list):
-            raise TypeError('Expected property default_actions to be a list')
-        __self__.default_actions = default_actions
+        if not default_action:
+            raise TypeError('Missing required property default_action')
+        elif not isinstance(default_action, dict):
+            raise TypeError('Expected property default_action to be a dict')
+        __self__.default_action = default_action
         """
         An Action block. Action blocks are documented below.
         """
-        __props__['defaultActions'] = default_actions
+        __props__['defaultAction'] = default_action
 
         if not load_balancer_arn:
             raise TypeError('Missing required property load_balancer_arn')
@@ -92,8 +92,8 @@ class Listener(pulumi.CustomResource):
             self.arn = outs['arn']
         if 'certificateArn' in outs:
             self.certificate_arn = outs['certificateArn']
-        if 'defaultActions' in outs:
-            self.default_actions = outs['defaultActions']
+        if 'defaultAction' in outs:
+            self.default_action = outs['defaultAction']
         if 'loadBalancerArn' in outs:
             self.load_balancer_arn = outs['loadBalancerArn']
         if 'port' in outs:
