@@ -16,13 +16,13 @@ function createServer(region: aws.Region): aws.ec2.Instance {
         ingress: [
             { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
         ],
-    }, { provider: provider });
+    }, <any>{ provider: provider });
     
     return new aws.ec2.Instance(`web-server-www-${region}`, {
         instanceType: size,
         securityGroups: [ group.name ],
         ami: amiParam.then(p => p.value ),
-    }, { provider: provider });
+    }, <any>{ provider: provider });
 }
 
 export const servers: any = {};
