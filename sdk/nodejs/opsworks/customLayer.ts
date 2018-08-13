@@ -96,8 +96,8 @@ export class CustomLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomLayerArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: CustomLayerArgs | CustomLayerState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: CustomLayerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: CustomLayerArgs | CustomLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CustomLayerState = argsOrState as CustomLayerState | undefined;

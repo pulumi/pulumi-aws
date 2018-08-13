@@ -61,8 +61,8 @@ export class NetworkAcl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkAclArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: NetworkAclArgs | NetworkAclState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: NetworkAclArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NetworkAclArgs | NetworkAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkAclState = argsOrState as NetworkAclState | undefined;

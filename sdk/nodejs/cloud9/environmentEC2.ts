@@ -59,8 +59,8 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EnvironmentEC2State = argsOrState as EnvironmentEC2State | undefined;

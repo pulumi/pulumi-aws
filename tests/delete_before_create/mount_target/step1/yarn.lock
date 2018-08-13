@@ -47,7 +47,7 @@
 
 "@pulumi/pulumi@^0.15.0-rc":
   version "0.15.0-rc2"
-  resolved "https://npmjs.pulumi.com/@pulumi%2fpulumi/-/pulumi-0.15.0-rc2.tgz#5dfbb583a8370334cdc0a20239e94fbcc93d83bf"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.0-rc2.tgz#5dfbb583a8370334cdc0a20239e94fbcc93d83bf"
   dependencies:
     google-protobuf "^3.5.0"
     grpc "^1.12.2"
@@ -63,13 +63,9 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
 
-"@types/node@^10.1.0":
+"@types/node@^10.1.0", "@types/node@latest":
   version "10.5.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.8.tgz#6f14ccecad1d19332f063a6a764f8907801fece0"
-
-"@types/node@latest":
-  version "10.1.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.2.tgz#1b928a0baa408fc8ae3ac012cc81375addc147c6"
 
 abbrev@1:
   version "1.1.1"
@@ -699,8 +695,8 @@ tar@^4:
     yallist "^3.0.2"
 
 ts-node@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.0.tgz#a94a13c75e5e1aa6b82814b84c68deb339ba7bff"
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.1.tgz#9562dc2d1e6d248d24bc55f773e3f614337d9baf"
   dependencies:
     arrify "^1.0.0"
     buffer-from "^1.1.0"
@@ -712,8 +708,8 @@ ts-node@^7.0.0:
     yn "^2.0.0"
 
 typescript@^2.7.2:
-  version "2.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.3.tgz#5d817f9b6f31bb871835f4edf0089f21abe6c170"
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
 typescript@^3.0.0:
   version "3.0.1"

@@ -72,8 +72,8 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FleetState = argsOrState as FleetState | undefined;

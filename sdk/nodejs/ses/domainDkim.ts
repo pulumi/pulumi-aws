@@ -42,8 +42,8 @@ export class DomainDkim extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainDkimArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: DomainDkimArgs | DomainDkimState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: DomainDkimArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DomainDkimArgs | DomainDkimState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainDkimState = argsOrState as DomainDkimState | undefined;

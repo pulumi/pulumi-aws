@@ -117,8 +117,8 @@ export class DomainName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainNameArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainNameState = argsOrState as DomainNameState | undefined;

@@ -47,7 +47,7 @@
 
 "@pulumi/pulumi@^0.15.0-rc":
   version "0.15.0-rc2"
-  resolved "https://npmjs.pulumi.com/@pulumi%2fpulumi/-/pulumi-0.15.0-rc2.tgz#5dfbb583a8370334cdc0a20239e94fbcc93d83bf"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.0-rc2.tgz#5dfbb583a8370334cdc0a20239e94fbcc93d83bf"
   dependencies:
     google-protobuf "^3.5.0"
     grpc "^1.12.2"
@@ -695,8 +695,8 @@ tar@^4:
     yallist "^3.0.2"
 
 ts-node@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.0.tgz#a94a13c75e5e1aa6b82814b84c68deb339ba7bff"
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.1.tgz#9562dc2d1e6d248d24bc55f773e3f614337d9baf"
   dependencies:
     arrify "^1.0.0"
     buffer-from "^1.1.0"
@@ -708,8 +708,8 @@ ts-node@^7.0.0:
     yn "^2.0.0"
 
 typescript@^2.5.3:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
 typescript@^3.0.0:
   version "3.0.1"

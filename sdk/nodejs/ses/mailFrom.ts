@@ -41,8 +41,8 @@ export class MailFrom extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MailFromArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: MailFromArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MailFromState = argsOrState as MailFromState | undefined;

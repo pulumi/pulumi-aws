@@ -35,8 +35,8 @@ export class PatchGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PatchGroupArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: PatchGroupArgs | PatchGroupState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: PatchGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PatchGroupArgs | PatchGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PatchGroupState = argsOrState as PatchGroupState | undefined;

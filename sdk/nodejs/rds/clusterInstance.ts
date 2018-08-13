@@ -173,8 +173,8 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterInstanceState = argsOrState as ClusterInstanceState | undefined;

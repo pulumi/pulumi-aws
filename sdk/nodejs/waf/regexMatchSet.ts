@@ -36,8 +36,8 @@ export class RegexMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RegexMatchSetArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: RegexMatchSetArgs | RegexMatchSetState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: RegexMatchSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RegexMatchSetArgs | RegexMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RegexMatchSetState = argsOrState as RegexMatchSetState | undefined;

@@ -49,8 +49,8 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ListenerRuleState = argsOrState as ListenerRuleState | undefined;

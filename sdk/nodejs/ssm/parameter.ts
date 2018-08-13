@@ -65,8 +65,8 @@ export class Parameter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ParameterArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ParameterState = argsOrState as ParameterState | undefined;

@@ -83,8 +83,8 @@ export class Method extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MethodArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: MethodArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MethodState = argsOrState as MethodState | undefined;

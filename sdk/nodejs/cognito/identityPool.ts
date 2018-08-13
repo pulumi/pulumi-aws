@@ -60,8 +60,8 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityPoolArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: IdentityPoolArgs | IdentityPoolState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: IdentityPoolArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: IdentityPoolArgs | IdentityPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IdentityPoolState = argsOrState as IdentityPoolState | undefined;
