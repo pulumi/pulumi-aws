@@ -31,7 +31,7 @@ export type Runtime =
 
 export let DotnetCore1d0Runtime: Runtime = "dotnetcore1.0";
 export let DotnetCore2d0Runtime: Runtime = "dotnetcore2.0";
-export let DotnetCore2d01untime: Runtime = "dotnetcore2.1";
+export let DotnetCore2d1Runtime: Runtime = "dotnetcore2.1";
 export let Go1dxRuntime: Runtime = "go1.x";
 export let Java8Runtime: Runtime = "java8";
 export let NodeJS4d3EdgeRuntime: Runtime = "nodejs4.3-edge";
