@@ -37,9 +37,20 @@ export interface Context {
 }
 
 /**
- * Handler is the signature for a serverless function.
+ * HandlerSignature is the signature for a serverless function that will be invoked each time
+ * the AWS Lambda is invoked.
  */
-export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
+export type HandlerSignature = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
+
+/**
+ * FactoryHandlerSignature is the signature for a function that will be called once to produce the
+ * serverless function that AWS Lambda will invoke.  It can be used to initialize expensive state
+ * once that can then be used across all invocations of the Lambda (as long as the Lambda is using
+ * the same warm node instance).
+ */
+export type FactoryHandlerSignature = () => HandlerSignature;
+
+export type FuncSignature = HandlerSignature | FactoryHandlerSignature;
 
 /**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
@@ -93,6 +104,18 @@ export type FunctionOptions = Overwrite<lambda.FunctionArgs, {
      * project.json (except @pulumi packages).  Default is `[]`.
      */
     excludePackages?: string[];
+
+    /**
+     * If this is a function which, when invoked, will produce the actual entrypoint function.
+     * Useful for when serializing a function that has high startup cost that only wants to be
+     * run once. The signature of this function should be:  () => (provider_handler_args...) => provider_result
+     *
+     * This will then be emitted as: `exports.[exportName] = serialized_func_name();`
+     *
+     * In other words, the function will be invoked (once) and the resulting inner function will
+     * be what is exported.
+     */
+    isFactoryFunction?: boolean;
 }>;
 
 /**
@@ -104,11 +127,7 @@ export class Function extends pulumi.ComponentResource {
     public readonly lambda: lambda.Function;
     public readonly role: Role;
 
-    constructor(name: string,
-        options: FunctionOptions,
-        func: Handler,
-        opts?: pulumi.ResourceOptions,
-        serialize?: (obj: any) => boolean) {
+    constructor(name: string, options: FunctionOptions, func: FuncSignature, opts?: pulumi.ResourceOptions, serialize?: (obj: any) => boolean) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
@@ -150,14 +169,14 @@ export class Function extends pulumi.ComponentResource {
         const handlerName = "handler";
         const serializedFileNameNoExtension = "__index";
 
-        let closure = pulumi.runtime.serializeFunction(func, {
+        const closure = pulumi.runtime.serializeFunction(func, {
             serialize: finalSerialize,
             exportName: handlerName,
+            isFactoryFunction: options.isFactoryFunction,
         });
 
-        let codePaths = computeCodePaths(
+        const codePaths = computeCodePaths(
             closure, serializedFileNameNoExtension, options.includePaths, options.excludePackages);
-
 
         // Copy over all option values into the function args.  Then overwrite anything we care
         // about with our own values.  This ensures that clients can pass future supported
