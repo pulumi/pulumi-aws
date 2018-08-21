@@ -127,7 +127,12 @@ export class Function extends pulumi.ComponentResource {
     public readonly lambda: lambda.Function;
     public readonly role: Role;
 
-    constructor(name: string, options: FunctionOptions, func: FuncSignature, opts?: pulumi.ResourceOptions, serialize?: (obj: any) => boolean) {
+    constructor(name: string,
+        options: FunctionOptions,
+        func: FuncSignature,
+        opts?: pulumi.ResourceOptions,
+        serialize?: (obj: any) => boolean) {
+
         if (!name) {
             throw new Error("Missing required resource name");
         }
