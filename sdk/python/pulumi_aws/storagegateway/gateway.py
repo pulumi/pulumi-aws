@@ -11,7 +11,7 @@ class Gateway(pulumi.CustomResource):
     
     ~> NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
     """
-    def __init__(__self__, __name__, __opts__=None, activation_key=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, tape_drive_type=None):
+    def __init__(__self__, __name__, __opts__=None, activation_key=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tape_drive_type=None):
         """Create a Gateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -71,6 +71,22 @@ class Gateway(pulumi.CustomResource):
         __self__.medium_changer_type = medium_changer_type
         __props__['mediumChangerType'] = medium_changer_type
 
+        if smb_active_directory_settings and not isinstance(smb_active_directory_settings, dict):
+            raise TypeError('Expected property smb_active_directory_settings to be a dict')
+        __self__.smb_active_directory_settings = smb_active_directory_settings
+        """
+        Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+        """
+        __props__['smbActiveDirectorySettings'] = smb_active_directory_settings
+
+        if smb_guest_password and not isinstance(smb_guest_password, basestring):
+            raise TypeError('Expected property smb_guest_password to be a basestring')
+        __self__.smb_guest_password = smb_guest_password
+        """
+        Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+        """
+        __props__['smbGuestPassword'] = smb_guest_password
+
         if tape_drive_type and not isinstance(tape_drive_type, basestring):
             raise TypeError('Expected property tape_drive_type to be a basestring')
         __self__.tape_drive_type = tape_drive_type
@@ -111,5 +127,9 @@ class Gateway(pulumi.CustomResource):
             self.gateway_type = outs['gatewayType']
         if 'mediumChangerType' in outs:
             self.medium_changer_type = outs['mediumChangerType']
+        if 'smbActiveDirectorySettings' in outs:
+            self.smb_active_directory_settings = outs['smbActiveDirectorySettings']
+        if 'smbGuestPassword' in outs:
+            self.smb_guest_password = outs['smbGuestPassword']
         if 'tapeDriveType' in outs:
             self.tape_drive_type = outs['tapeDriveType']

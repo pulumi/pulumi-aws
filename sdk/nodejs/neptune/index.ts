@@ -5,5 +5,7 @@
 export * from "./cluster";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
+export * from "./clusterSnapshot";
+export * from "./eventSubscription";
 export * from "./parameterGroup";
 export * from "./subnetGroup";

@@ -40,6 +40,7 @@ func NewSubnet(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
 	}
+	inputs["arn"] = nil
 	inputs["ipv6CidrBlockAssociationId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/subnet:Subnet", name, true, inputs, opts...)
 	if err != nil {
@@ -54,6 +55,7 @@ func GetSubnet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *SubnetState, opts ...pulumi.ResourceOpt) (*Subnet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["assignIpv6AddressOnCreation"] = state.AssignIpv6AddressOnCreation
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["cidrBlock"] = state.CidrBlock
@@ -78,6 +80,12 @@ func (r *Subnet) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Subnet) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// The ARN of the subnet.
+// * `availability_zone`- The AZ for the subnet.
+func (r *Subnet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specify true to indicate
@@ -126,6 +134,9 @@ func (r *Subnet) VpcId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Subnet resources.
 type SubnetState struct {
+	// The ARN of the subnet.
+	// * `availability_zone`- The AZ for the subnet.
+	Arn interface{}
 	// Specify true to indicate
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`

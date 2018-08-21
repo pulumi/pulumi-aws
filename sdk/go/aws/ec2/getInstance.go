@@ -24,6 +24,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 	}
 	return &GetInstanceResult{
 		Ami: outputs["ami"],
+		Arn: outputs["arn"],
 		AssociatePublicIpAddress: outputs["associatePublicIpAddress"],
 		AvailabilityZone: outputs["availabilityZone"],
 		CreditSpecifications: outputs["creditSpecifications"],
@@ -76,6 +77,8 @@ type GetInstanceArgs struct {
 type GetInstanceResult struct {
 	// The ID of the AMI used to launch the instance.
 	Ami interface{}
+	// The ARN of the instance.
+	Arn interface{}
 	// Whether or not the Instance is associated with a public IP address or not (Boolean).
 	AssociatePublicIpAddress interface{}
 	// The availability zone of the Instance.

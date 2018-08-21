@@ -22,6 +22,10 @@ export class SecretVersion extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the secret.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     public readonly secretId: pulumi.Output<string>;
@@ -50,6 +54,7 @@ export class SecretVersion extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecretVersionState = argsOrState as SecretVersionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["secretId"] = state ? state.secretId : undefined;
             inputs["secretString"] = state ? state.secretString : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
@@ -65,6 +70,7 @@ export class SecretVersion extends pulumi.CustomResource {
             inputs["secretId"] = args ? args.secretId : undefined;
             inputs["secretString"] = args ? args.secretString : undefined;
             inputs["versionStages"] = args ? args.versionStages : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
         }
         super("aws:secretsmanager/secretVersion:SecretVersion", name, inputs, opts);
@@ -75,6 +81,10 @@ export class SecretVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecretVersion resources.
  */
 export interface SecretVersionState {
+    /**
+     * The ARN of the secret.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */

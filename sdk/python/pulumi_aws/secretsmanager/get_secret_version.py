@@ -9,7 +9,13 @@ class GetSecretVersionResult(object):
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, secret_string=None, version_id=None, version_stages=None, id=None):
+    def __init__(__self__, arn=None, secret_string=None, version_id=None, version_stages=None, id=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        The ARN of the secret.
+        """
         if secret_string and not isinstance(secret_string, basestring):
             raise TypeError('Expected argument secret_string to be a basestring')
         __self__.secret_string = secret_string
@@ -44,6 +50,7 @@ def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__)
 
     return GetSecretVersionResult(
+        arn=__ret__.get('arn'),
         secret_string=__ret__.get('secretString'),
         version_id=__ret__.get('versionId'),
         version_stages=__ret__.get('versionStages'),

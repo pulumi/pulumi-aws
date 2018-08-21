@@ -305,8 +305,7 @@ func (r *Instance) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
 
-// Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-// Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
 func (r *Instance) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
@@ -602,8 +601,7 @@ type InstanceState struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additonal read replica contraints.
 	DbSubnetGroupName interface{}
-	// Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-	// Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
 	EnabledCloudwatchLogsExports interface{}
 	// The connection endpoint in `address:port` format.
 	Endpoint interface{}
@@ -783,8 +781,7 @@ type InstanceArgs struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additonal read replica contraints.
 	DbSubnetGroupName interface{}
-	// Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-	// Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
 	EnabledCloudwatchLogsExports interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).

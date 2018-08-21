@@ -378,6 +378,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         """
         __props__['waitForFulfillment'] = wait_for_fulfillment
 
+        __self__.arn = pulumi.runtime.UNKNOWN
         __self__.instance_state = pulumi.runtime.UNKNOWN
         __self__.network_interface_id = pulumi.runtime.UNKNOWN
         """
@@ -425,6 +426,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'ami' in outs:
             self.ami = outs['ami']
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'associatePublicIpAddress' in outs:
             self.associate_public_ip_address = outs['associatePublicIpAddress']
         if 'availabilityZone' in outs:

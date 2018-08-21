@@ -30,6 +30,7 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 		return nil, err
 	}
 	return &GetSubnetResult{
+		Arn: outputs["arn"],
 		AssignIpv6AddressOnCreation: outputs["assignIpv6AddressOnCreation"],
 		AvailabilityZone: outputs["availabilityZone"],
 		CidrBlock: outputs["cidrBlock"],
@@ -71,6 +72,8 @@ type GetSubnetArgs struct {
 
 // A collection of values returned by getSubnet.
 type GetSubnetResult struct {
+	// The ARN of the subnet.
+	Arn interface{}
 	AssignIpv6AddressOnCreation interface{}
 	AvailabilityZone interface{}
 	CidrBlock interface{}

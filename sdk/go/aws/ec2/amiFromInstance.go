@@ -39,7 +39,6 @@ func NewAmiFromInstance(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["ebsBlockDevices"] = nil
-		inputs["enaSupport"] = nil
 		inputs["ephemeralBlockDevices"] = nil
 		inputs["name"] = nil
 		inputs["snapshotWithoutReboot"] = nil
@@ -48,7 +47,6 @@ func NewAmiFromInstance(ctx *pulumi.Context,
 	} else {
 		inputs["description"] = args.Description
 		inputs["ebsBlockDevices"] = args.EbsBlockDevices
-		inputs["enaSupport"] = args.EnaSupport
 		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
 		inputs["name"] = args.Name
 		inputs["snapshotWithoutReboot"] = args.SnapshotWithoutReboot
@@ -56,6 +54,7 @@ func NewAmiFromInstance(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["architecture"] = nil
+	inputs["enaSupport"] = nil
 	inputs["imageLocation"] = nil
 	inputs["kernelId"] = nil
 	inputs["manageEbsSnapshots"] = nil
@@ -258,8 +257,6 @@ type AmiFromInstanceArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices interface{}

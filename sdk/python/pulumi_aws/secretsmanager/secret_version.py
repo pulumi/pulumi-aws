@@ -50,6 +50,10 @@ class SecretVersion(pulumi.CustomResource):
         """
         __props__['versionStages'] = version_stages
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the secret.
+        """
         __self__.version_id = pulumi.runtime.UNKNOWN
         """
         The unique identifier of the version of the secret.
@@ -62,6 +66,8 @@ class SecretVersion(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'secretId' in outs:
             self.secret_id = outs['secretId']
         if 'secretString' in outs:

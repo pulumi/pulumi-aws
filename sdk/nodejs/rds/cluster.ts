@@ -109,6 +109,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine: pulumi.Output<string | undefined>;
     /**
+     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     */
+    public readonly engineMode: pulumi.Output<string | undefined>;
+    /**
      * The database engine version.
      */
     public readonly engineVersion: pulumi.Output<string>;
@@ -179,7 +183,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
      */
     public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
     /**
@@ -219,6 +223,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
+            inputs["engineMode"] = state ? state.engineMode : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
@@ -253,6 +258,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
+            inputs["engineMode"] = args ? args.engineMode : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             inputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
@@ -350,6 +356,10 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<string>;
     /**
+     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     */
+    readonly engineMode?: pulumi.Input<string>;
+    /**
      * The database engine version.
      */
     readonly engineVersion?: pulumi.Input<string>;
@@ -420,7 +430,7 @@ export interface ClusterState {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
@@ -491,6 +501,10 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
+     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     */
+    readonly engineMode?: pulumi.Input<string>;
+    /**
      * The database engine version.
      */
     readonly engineVersion?: pulumi.Input<string>;
@@ -552,7 +566,7 @@ export interface ClusterArgs {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**

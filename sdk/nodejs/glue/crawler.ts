@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a Glue Crawler. More information can be found in the [AWS Glue Develeper Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+ * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
  */
 export class Crawler extends pulumi.CustomResource {
     /**
