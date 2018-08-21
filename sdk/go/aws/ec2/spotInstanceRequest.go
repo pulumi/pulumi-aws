@@ -126,6 +126,7 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 		inputs["waitForFulfillment"] = args.WaitForFulfillment
 	}
+	inputs["arn"] = nil
 	inputs["instanceState"] = nil
 	inputs["networkInterfaceId"] = nil
 	inputs["passwordData"] = nil
@@ -150,6 +151,7 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["ami"] = state.Ami
+		inputs["arn"] = state.Arn
 		inputs["associatePublicIpAddress"] = state.AssociatePublicIpAddress
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["blockDurationMinutes"] = state.BlockDurationMinutes
@@ -219,6 +221,10 @@ func (r *SpotInstanceRequest) ID() *pulumi.IDOutput {
 // The AMI to use for the instance.
 func (r *SpotInstanceRequest) Ami() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ami"])
+}
+
+func (r *SpotInstanceRequest) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Associate a public ip address with an instance in a VPC.  Boolean value.
@@ -492,6 +498,7 @@ func (r *SpotInstanceRequest) WaitForFulfillment() *pulumi.BoolOutput {
 type SpotInstanceRequestState struct {
 	// The AMI to use for the instance.
 	Ami interface{}
+	Arn interface{}
 	// Associate a public ip address with an instance in a VPC.  Boolean value.
 	AssociatePublicIpAddress interface{}
 	// The AZ to start the instance in.

@@ -53,6 +53,10 @@ export interface GetInstanceResult {
      */
     readonly ami: string;
     /**
+     * The ARN of the instance.
+     */
+    readonly arn: string;
+    /**
      * Whether or not the Instance is associated with a public IP address or not (Boolean).
      */
     readonly associatePublicIpAddress: boolean;

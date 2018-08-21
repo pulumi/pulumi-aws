@@ -118,8 +118,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
-     * Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-     * Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
      */
     public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
     /**
@@ -527,8 +526,7 @@ export interface InstanceState {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-     * Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -802,8 +800,7 @@ export interface InstanceArgs {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-     * Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**

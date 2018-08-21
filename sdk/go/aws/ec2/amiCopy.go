@@ -36,7 +36,6 @@ func NewAmiCopy(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["ebsBlockDevices"] = nil
-		inputs["enaSupport"] = nil
 		inputs["encrypted"] = nil
 		inputs["ephemeralBlockDevices"] = nil
 		inputs["kmsKeyId"] = nil
@@ -47,7 +46,6 @@ func NewAmiCopy(ctx *pulumi.Context,
 	} else {
 		inputs["description"] = args.Description
 		inputs["ebsBlockDevices"] = args.EbsBlockDevices
-		inputs["enaSupport"] = args.EnaSupport
 		inputs["encrypted"] = args.Encrypted
 		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
 		inputs["kmsKeyId"] = args.KmsKeyId
@@ -57,6 +55,7 @@ func NewAmiCopy(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["architecture"] = nil
+	inputs["enaSupport"] = nil
 	inputs["imageLocation"] = nil
 	inputs["kernelId"] = nil
 	inputs["manageEbsSnapshots"] = nil
@@ -277,8 +276,6 @@ type AmiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport interface{}
 	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
 	Encrypted interface{}
 	// Nested block describing an ephemeral block device that

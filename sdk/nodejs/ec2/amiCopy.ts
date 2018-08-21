@@ -47,7 +47,7 @@ export class AmiCopy extends pulumi.CustomResource {
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    public readonly enaSupport: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enaSupport: pulumi.Output<boolean>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */
@@ -152,7 +152,6 @@ export class AmiCopy extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = args ? args.enaSupport : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -161,6 +160,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["architecture"] = undefined /*out*/;
+            inputs["enaSupport"] = undefined /*out*/;
             inputs["imageLocation"] = undefined /*out*/;
             inputs["kernelId"] = undefined /*out*/;
             inputs["manageEbsSnapshots"] = undefined /*out*/;
@@ -272,10 +272,6 @@ export interface AmiCopyArgs {
      * attached to created instances. The structure of this block is described below.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
-    /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-     */
-    readonly enaSupport?: pulumi.Input<boolean>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
      */

@@ -9,7 +9,13 @@ class GetSubnetResult(object):
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, assign_ipv6_address_on_creation=None, availability_zone=None, cidr_block=None, default_for_az=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, cidr_block=None, default_for_az=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, state=None, tags=None, vpc_id=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        The ARN of the subnet.
+        """
         if assign_ipv6_address_on_creation and not isinstance(assign_ipv6_address_on_creation, bool):
             raise TypeError('Expected argument assign_ipv6_address_on_creation to be a bool')
         __self__.assign_ipv6_address_on_creation = assign_ipv6_address_on_creation
@@ -66,6 +72,7 @@ def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, fil
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnet:getSubnet', __args__)
 
     return GetSubnetResult(
+        arn=__ret__.get('arn'),
         assign_ipv6_address_on_creation=__ret__.get('assignIpv6AddressOnCreation'),
         availability_zone=__ret__.get('availabilityZone'),
         cidr_block=__ret__.get('cidrBlock'),

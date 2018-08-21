@@ -47,8 +47,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly configurations: pulumi.Output<string | undefined>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
-     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
      */
     public readonly configurationsJson: pulumi.Output<string | undefined>;
     /**
@@ -241,8 +239,6 @@ export interface ClusterState {
     readonly configurations?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
-     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
      */
     readonly configurationsJson?: pulumi.Input<string>;
     /**
@@ -356,8 +352,6 @@ export interface ClusterArgs {
     readonly configurations?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
-     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
      */
     readonly configurationsJson?: pulumi.Input<string>;
     /**

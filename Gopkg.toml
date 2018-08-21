@@ -11,13 +11,3 @@
   source = "github.com/pulumi/terraform-provider-aws"
   branch = "pulumi-master"
 
-# The current version of terraform-provider-aws (v1.30.0) requires the following
-# specific versions of terraform and aws-sdk-go.  Since these differ from what's 
-# used in pulumi/pulumi-terraform and pulumi/pulumi we need to force override.
-[[override]]
-  name = "github.com/hashicorp/terraform"
-  revision = "ec998a21bc95366269fbd196e09d3a458bba8be7"
-
-[[override]]
-  name = "github.com/aws/aws-sdk-go"
-  revision = "v1.14.33"

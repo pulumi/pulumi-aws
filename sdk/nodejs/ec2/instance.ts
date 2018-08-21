@@ -28,6 +28,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ami: pulumi.Output<string>;
     /**
+     * The ARN of the instance.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */
     public readonly associatePublicIpAddress: pulumi.Output<boolean>;
@@ -207,6 +211,7 @@ export class Instance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: InstanceState = argsOrState as InstanceState | undefined;
             inputs["ami"] = state ? state.ami : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
@@ -283,6 +288,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             inputs["volumeTags"] = args ? args.volumeTags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
@@ -303,6 +309,10 @@ export interface InstanceState {
      * The AMI to use for the instance.
      */
     readonly ami?: pulumi.Input<string>;
+    /**
+     * The ARN of the instance.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */

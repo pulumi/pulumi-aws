@@ -47,6 +47,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * The AMI to use for the instance.
      */
     public readonly ami: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */
@@ -270,6 +271,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: SpotInstanceRequestState = argsOrState as SpotInstanceRequestState | undefined;
             inputs["ami"] = state ? state.ami : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["blockDurationMinutes"] = state ? state.blockDurationMinutes : undefined;
@@ -365,6 +367,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["volumeTags"] = args ? args.volumeTags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
@@ -388,6 +391,7 @@ export interface SpotInstanceRequestState {
      * The AMI to use for the instance.
      */
     readonly ami?: pulumi.Input<string>;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */

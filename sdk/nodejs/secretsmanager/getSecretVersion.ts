@@ -37,6 +37,10 @@ export interface GetSecretVersionArgs {
  */
 export interface GetSecretVersionResult {
     /**
+     * The ARN of the secret.
+     */
+    readonly arn: string;
+    /**
      * The decrypted part of the protected secret information that was originally provided as a string.
      */
     readonly secretString: string;

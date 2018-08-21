@@ -74,6 +74,10 @@ export interface GetSubnetArgs {
  * A collection of values returned by getSubnet.
  */
 export interface GetSubnetResult {
+    /**
+     * The ARN of the subnet.
+     */
+    readonly arn: string;
     readonly assignIpv6AddressOnCreation: boolean;
     readonly availabilityZone: string;
     readonly cidrBlock: string;

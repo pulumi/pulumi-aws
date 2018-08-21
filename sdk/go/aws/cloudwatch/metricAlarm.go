@@ -76,6 +76,7 @@ func NewMetricAlarm(ctx *pulumi.Context,
 		inputs["treatMissingData"] = args.TreatMissingData
 		inputs["unit"] = args.Unit
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -93,6 +94,7 @@ func GetMetricAlarm(ctx *pulumi.Context,
 		inputs["alarmActions"] = state.AlarmActions
 		inputs["alarmDescription"] = state.AlarmDescription
 		inputs["name"] = state.Name
+		inputs["arn"] = state.Arn
 		inputs["comparisonOperator"] = state.ComparisonOperator
 		inputs["datapointsToAlarm"] = state.DatapointsToAlarm
 		inputs["dimensions"] = state.Dimensions
@@ -144,6 +146,11 @@ func (r *MetricAlarm) AlarmDescription() *pulumi.StringOutput {
 // The descriptive name for the alarm. This name must be unique within the user's AWS account
 func (r *MetricAlarm) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// The ARN of the cloudwatch metric alarm.
+func (r *MetricAlarm) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
@@ -239,6 +246,8 @@ type MetricAlarmState struct {
 	AlarmDescription interface{}
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name interface{}
+	// The ARN of the cloudwatch metric alarm.
+	Arn interface{}
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
 	ComparisonOperator interface{}
 	// The number of datapoints that must be breaching to trigger the alarm.

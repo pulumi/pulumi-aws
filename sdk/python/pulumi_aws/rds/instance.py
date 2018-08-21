@@ -147,8 +147,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property enabled_cloudwatch_logs_exports to be a list')
         __self__.enabled_cloudwatch_logs_exports = enabled_cloudwatch_logs_exports
         """
-        Name list of enable log type for exporting to cloudwatch logs. If omitted, any logs will not be exported to cloudwatch logs.
-        Either of the following is supported: `audit`, `error`, `general`, `slowquery`.
+        List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
         """
         __props__['enabledCloudwatchLogsExports'] = enabled_cloudwatch_logs_exports
 
