@@ -20,6 +20,7 @@ export * from "./getRegion";
 export * from "./provider";
 export * from "./region";
 export * from "./tags";
+export * from "./utils";
 
 // Export sub-modules:
 import * as acm from "./acm/index";
