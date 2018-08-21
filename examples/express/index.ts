@@ -5,39 +5,6 @@ import * as express from "express";
 import * as serverlessExpress from "aws-serverless-express";
 import * as middleware from "aws-serverless-express/middleware";
 
-let music = new aws.dynamodb.Table("music", {
-  attributes: [
-    { name: "Album", type: "S" },
-    { name: "Artist", type: "S" },
-    { name: "NumberOfSongs", type: "N" },
-    { name: "Sales", type: "N" },
-  ],
-  hashKey: "Album",
-  rangeKey: "Artist",
-  readCapacity: 1,
-  writeCapacity: 1,
-  globalSecondaryIndexes: [
-    {
-      name: "myGSI",
-      hashKey: "Sales",
-      rangeKey: "Artist",
-      readCapacity: 1,
-      writeCapacity: 1,
-      nonKeyAttributes: ["NumberOfSongs", "Album"],
-      projectionType: "INCLUDE",
-    },
-    {
-      name: "myGSI2",
-      hashKey: "NumberOfSongs",
-      rangeKey: "Sales",
-      nonKeyAttributes: ["Album", "Artist"],
-      projectionType: "INCLUDE",
-      readCapacity: 2,
-      writeCapacity: 2,
-    },
-  ],
-});
-
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
   "mylambda",
