@@ -37,6 +37,7 @@ func TestExamples(t *testing.T) {
 
 	examples := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
 	}
 	if !testing.Short() {
 		examples = append(examples, []integration.ProgramTestOptions{
