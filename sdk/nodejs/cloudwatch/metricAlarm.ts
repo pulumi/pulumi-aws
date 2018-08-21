@@ -38,6 +38,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
+     * The ARN of the cloudwatch metric alarm.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
      */
     public readonly comparisonOperator: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["alarmActions"] = state ? state.alarmActions : undefined;
             inputs["alarmDescription"] = state ? state.alarmDescription : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["comparisonOperator"] = state ? state.comparisonOperator : undefined;
             inputs["datapointsToAlarm"] = state ? state.datapointsToAlarm : undefined;
             inputs["dimensions"] = state ? state.dimensions : undefined;
@@ -176,6 +181,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
             inputs["unit"] = args ? args.unit : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super("aws:cloudwatch/metricAlarm:MetricAlarm", name, inputs, opts);
     }
@@ -201,6 +207,10 @@ export interface MetricAlarmState {
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ARN of the cloudwatch metric alarm.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
      */

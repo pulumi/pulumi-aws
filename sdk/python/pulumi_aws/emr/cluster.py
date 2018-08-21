@@ -68,8 +68,6 @@ class Cluster(pulumi.CustomResource):
         __self__.configurations_json = configurations_json
         """
         A JSON string for supplying list of configurations for the EMR cluster.
-        ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-        the `Configurations` field instead of providing empty list as value `"Configurations": []`.
         """
         __props__['configurationsJson'] = configurations_json
 

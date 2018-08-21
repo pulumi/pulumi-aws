@@ -26,6 +26,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
         return new DefaultSubnet(name, <any>state, { id });
     }
 
+    public /*out*/ readonly arn: pulumi.Output<string>;
     public /*out*/ readonly assignIpv6AddressOnCreation: pulumi.Output<boolean>;
     public readonly availabilityZone: pulumi.Output<string>;
     /**
@@ -64,6 +65,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultSubnetState = argsOrState as DefaultSubnetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
@@ -80,6 +82,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
             inputs["cidrBlock"] = undefined /*out*/;
             inputs["ipv6CidrBlock"] = undefined /*out*/;
@@ -94,6 +97,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultSubnet resources.
  */
 export interface DefaultSubnetState {
+    readonly arn?: pulumi.Input<string>;
     readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
     readonly availabilityZone?: pulumi.Input<string>;
     /**

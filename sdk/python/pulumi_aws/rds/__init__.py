@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from cluster_snapshot import *
 from event_subscription import *
 from instance import *
 from option_group import *
@@ -13,6 +14,7 @@ from subnet_group import *
 from cluster import *
 from cluster_instance import *
 from cluster_parameter_group import *
+from get_cluster_snapshot import *
 from get_instance import *
 from get_snapshot import *
 from get_cluster import *

@@ -384,6 +384,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"tag": {
+						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
+						Name: "tags",
+					},
 					"tags": {
 						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
 						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
@@ -1029,7 +1033,15 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_lb_listener":             {Tok: awsResource(elbv2Mod, "Listener")},
+			"aws_lb_listener": {
+				Tok: awsResource(elbv2Mod, "Listener"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"default_action": {
+						Name:        "defaultAction",
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_lb_listener_certificate": {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
 			"aws_lb_listener_rule":        {Tok: awsResource(elbv2Mod, "ListenerRule")},
 			"aws_lb_target_group": {
@@ -1308,6 +1320,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_cluster":                 {Tok: awsResource(neptuneMod, "Cluster")},
 			"aws_neptune_cluster_instance":        {Tok: awsResource(neptuneMod, "ClusterInstance")},
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
+			"aws_neptune_cluster_snapshot":        {Tok: awsResource(neptuneMod, "ClusterSnapshot")},
+			"aws_neptune_event_subscription":      {Tok: awsResource(neptuneMod, "EventSubscription")},
+
 			"aws_neptune_parameter_group": {
 				Tok: awsResource(neptuneMod, "ParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1369,6 +1384,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_db_cluster_snapshot": {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription": {
 				Tok: awsResource(rdsMod, "EventSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1568,10 +1584,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
 			// Storage Gateway
-			"aws_storagegateway_gateway":         {Tok: awsResource(storagegatewayMod, "Gateway")},
-			"aws_storagegateway_nfs_file_share":  {Tok: awsResource(storagegatewayMod, "NfsFileShare")},
-			"aws_storagegateway_upload_buffer":   {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
-			"aws_storagegateway_working_storage": {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
+			"aws_storagegateway_gateway":             {Tok: awsResource(storagegatewayMod, "Gateway")},
+			"aws_storagegateway_cache":               {Tok: awsResource(storagegatewayMod, "Cache")},
+			"aws_storagegateway_cached_iscsi_volume": {Tok: awsResource(storagegatewayMod, "CachesIscsiVolume")},
+			"aws_storagegateway_nfs_file_share":      {Tok: awsResource(storagegatewayMod, "NfsFileShare")},
+			"aws_storagegateway_smb_file_share":      {Tok: awsResource(storagegatewayMod, "SmbFileShare")},
+			"aws_storagegateway_upload_buffer":       {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
+			"aws_storagegateway_working_storage":     {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
 			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},
@@ -1784,9 +1803,10 @@ func Provider() tfbridge.ProviderInfo {
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
-			"aws_rds_cluster": {Tok: awsDataSource(rdsMod, "getCluster")},
-			"aws_db_instance": {Tok: awsDataSource(rdsMod, "getInstance")},
-			"aws_db_snapshot": {Tok: awsDataSource(rdsMod, "getSnapshot")},
+			"aws_rds_cluster":         {Tok: awsDataSource(rdsMod, "getCluster")},
+			"aws_db_cluster_snapshot": {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
+			"aws_db_instance":         {Tok: awsDataSource(rdsMod, "getInstance")},
+			"aws_db_snapshot":         {Tok: awsDataSource(rdsMod, "getSnapshot")},
 			// RedShift
 			"aws_redshift_cluster":         {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account": {Tok: awsDataSource(redshiftMod, "getServiceAccount")},

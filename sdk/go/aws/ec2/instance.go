@@ -89,6 +89,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["volumeTags"] = args.VolumeTags
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 	}
+	inputs["arn"] = nil
 	inputs["instanceState"] = nil
 	inputs["networkInterfaceId"] = nil
 	inputs["passwordData"] = nil
@@ -110,6 +111,7 @@ func GetInstance(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["ami"] = state.Ami
+		inputs["arn"] = state.Arn
 		inputs["associatePublicIpAddress"] = state.AssociatePublicIpAddress
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["cpuCoreCount"] = state.CpuCoreCount
@@ -168,6 +170,11 @@ func (r *Instance) ID() *pulumi.IDOutput {
 // The AMI to use for the instance.
 func (r *Instance) Ami() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ami"])
+}
+
+// The ARN of the instance.
+func (r *Instance) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Associate a public ip address with an instance in a VPC.  Boolean value.
@@ -381,6 +388,8 @@ func (r *Instance) VpcSecurityGroupIds() *pulumi.ArrayOutput {
 type InstanceState struct {
 	// The AMI to use for the instance.
 	Ami interface{}
+	// The ARN of the instance.
+	Arn interface{}
 	// Associate a public ip address with an instance in a VPC.  Boolean value.
 	AssociatePublicIpAddress interface{}
 	// The AZ to start the instance in.

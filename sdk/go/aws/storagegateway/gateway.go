@@ -32,6 +32,8 @@ func NewGateway(ctx *pulumi.Context,
 		inputs["gatewayTimezone"] = nil
 		inputs["gatewayType"] = nil
 		inputs["mediumChangerType"] = nil
+		inputs["smbActiveDirectorySettings"] = nil
+		inputs["smbGuestPassword"] = nil
 		inputs["tapeDriveType"] = nil
 	} else {
 		inputs["activationKey"] = args.ActivationKey
@@ -40,6 +42,8 @@ func NewGateway(ctx *pulumi.Context,
 		inputs["gatewayTimezone"] = args.GatewayTimezone
 		inputs["gatewayType"] = args.GatewayType
 		inputs["mediumChangerType"] = args.MediumChangerType
+		inputs["smbActiveDirectorySettings"] = args.SmbActiveDirectorySettings
+		inputs["smbGuestPassword"] = args.SmbGuestPassword
 		inputs["tapeDriveType"] = args.TapeDriveType
 	}
 	inputs["arn"] = nil
@@ -65,6 +69,8 @@ func GetGateway(ctx *pulumi.Context,
 		inputs["gatewayTimezone"] = state.GatewayTimezone
 		inputs["gatewayType"] = state.GatewayType
 		inputs["mediumChangerType"] = state.MediumChangerType
+		inputs["smbActiveDirectorySettings"] = state.SmbActiveDirectorySettings
+		inputs["smbGuestPassword"] = state.SmbGuestPassword
 		inputs["tapeDriveType"] = state.TapeDriveType
 	}
 	s, err := ctx.ReadResource("aws:storagegateway/gateway:Gateway", name, id, inputs, opts...)
@@ -123,6 +129,16 @@ func (r *Gateway) MediumChangerType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["mediumChangerType"])
 }
 
+// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+func (r *Gateway) SmbActiveDirectorySettings() *pulumi.Output {
+	return r.s.State["smbActiveDirectorySettings"]
+}
+
+// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+func (r *Gateway) SmbGuestPassword() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["smbGuestPassword"])
+}
+
 // Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 func (r *Gateway) TapeDriveType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tapeDriveType"])
@@ -145,6 +161,10 @@ type GatewayState struct {
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType interface{}
 	MediumChangerType interface{}
+	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+	SmbActiveDirectorySettings interface{}
+	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+	SmbGuestPassword interface{}
 	// Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType interface{}
 }
@@ -162,6 +182,10 @@ type GatewayArgs struct {
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType interface{}
 	MediumChangerType interface{}
+	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+	SmbActiveDirectorySettings interface{}
+	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+	SmbGuestPassword interface{}
 	// Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType interface{}
 }

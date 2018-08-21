@@ -6,5 +6,7 @@
 from cluster import *
 from cluster_instance import *
 from cluster_parameter_group import *
+from cluster_snapshot import *
+from event_subscription import *
 from parameter_group import *
 from subnet_group import *

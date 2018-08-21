@@ -169,8 +169,6 @@ func (r *Cluster) Configurations() *pulumi.StringOutput {
 }
 
 // A JSON string for supplying list of configurations for the EMR cluster.
-// ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-// the `Configurations` field instead of providing empty list as value `"Configurations": []`.
 func (r *Cluster) ConfigurationsJson() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["configurationsJson"])
 }
@@ -292,8 +290,6 @@ type ClusterState struct {
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations interface{}
 	// A JSON string for supplying list of configurations for the EMR cluster.
-	// ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-	// the `Configurations` field instead of providing empty list as value `"Configurations": []`.
 	ConfigurationsJson interface{}
 	// Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
 	CoreInstanceCount interface{}
@@ -353,8 +349,6 @@ type ClusterArgs struct {
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations interface{}
 	// A JSON string for supplying list of configurations for the EMR cluster.
-	// ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-	// the `Configurations` field instead of providing empty list as value `"Configurations": []`.
 	ConfigurationsJson interface{}
 	// Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
 	CoreInstanceCount interface{}
