@@ -46,8 +46,8 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
 "@pulumi/pulumi@^0.15.1-dev":
-  version "0.15.1-dev-1534880632-g8aed774f"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.1-dev-1534880632-g8aed774f.tgz#027a31c99ddf0109e6c674e152a7109192dfdfc6"
+  version "0.15.1-dev-1534890937-g4dab630a"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.1-dev-1534890937-g4dab630a.tgz#3ff3327c7a7adb89840d750363f097e9ff3880df"
   dependencies:
     google-protobuf "^3.5.0"
     grpc "^1.12.2"
@@ -68,8 +68,8 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.7.1.tgz#b704d7c259aa40ee052eec678758a68d07132a2e"
 
 "@types/node@^8.0.25":
-  version "8.10.24"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.24.tgz#302a8f0c00bd1bf364471b6687258617c5d410fc"
+  version "8.10.26"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.26.tgz#950e3d4e6b316ba6e1ae4e84d9155aba67f88c2f"
 
 abbrev@1:
   version "1.1.1"
@@ -604,11 +604,7 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-"semver@2 || 3 || 4 || 5":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
-
-semver@^5.3.0:
+"semver@2 || 3 || 4 || 5", semver@^5.3.0:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"
 
