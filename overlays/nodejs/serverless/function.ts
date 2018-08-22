@@ -150,6 +150,9 @@ export class Function extends pulumi.ComponentResource {
         }
 
         func = optionsFunc || func;
+        if (!func) {
+            throw new Error("Missing required function callback");
+        }
 
         super("aws:serverless:Function", name, { options: options }, opts);
 
