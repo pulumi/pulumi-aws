@@ -70,8 +70,8 @@ export class FileSystem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FileSystemArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: FileSystemArgs | FileSystemState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FileSystemArgs | FileSystemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FileSystemState = argsOrState as FileSystemState | undefined;

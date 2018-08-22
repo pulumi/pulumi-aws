@@ -47,8 +47,8 @@ export class UserGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserGroupArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserGroupState = argsOrState as UserGroupState | undefined;

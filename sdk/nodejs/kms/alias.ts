@@ -50,8 +50,8 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AliasArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AliasState = argsOrState as AliasState | undefined;

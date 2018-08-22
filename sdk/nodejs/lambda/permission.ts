@@ -75,8 +75,8 @@ export class Permission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PermissionArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PermissionState = argsOrState as PermissionState | undefined;

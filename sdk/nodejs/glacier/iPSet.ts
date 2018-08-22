@@ -49,8 +49,8 @@ export class IPSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IPSetArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: IPSetArgs | IPSetState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: IPSetArgs | IPSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IPSetState = argsOrState as IPSetState | undefined;

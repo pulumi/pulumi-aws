@@ -77,8 +77,8 @@ func (r *IdentityPoolRoleAttachment) RoleMappings() *pulumi.ArrayOutput {
 }
 
 // The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-func (r *IdentityPoolRoleAttachment) Roles() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["roles"])
+func (r *IdentityPoolRoleAttachment) Roles() *pulumi.Output {
+	return r.s.State["roles"]
 }
 
 // Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.

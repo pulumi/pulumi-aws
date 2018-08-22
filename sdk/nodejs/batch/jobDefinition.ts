@@ -61,8 +61,8 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JobDefinitionState = argsOrState as JobDefinitionState | undefined;

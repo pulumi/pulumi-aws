@@ -77,7 +77,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
-    public readonly permissions: pulumi.Output<{[key: string]: { accountIds: string, type: string }} | undefined>;
+    public readonly permissions: pulumi.Output<{ accountIds: string, type: string } | undefined>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -102,8 +102,8 @@ export class Document extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DocumentArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DocumentState = argsOrState as DocumentState | undefined;
@@ -212,7 +212,7 @@ export interface DocumentState {
     /**
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>}>;
+    readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -254,7 +254,7 @@ export interface DocumentArgs {
     /**
      * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>}>;
+    readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the object.
      */

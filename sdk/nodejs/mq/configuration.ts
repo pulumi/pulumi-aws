@@ -59,8 +59,8 @@ export class Configuration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConfigurationState = argsOrState as ConfigurationState | undefined;

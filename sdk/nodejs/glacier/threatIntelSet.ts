@@ -49,8 +49,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ThreatIntelSetState = argsOrState as ThreatIntelSetState | undefined;

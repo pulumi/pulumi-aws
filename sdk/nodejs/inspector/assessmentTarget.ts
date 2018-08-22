@@ -37,8 +37,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentTargetArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AssessmentTargetState = argsOrState as AssessmentTargetState | undefined;

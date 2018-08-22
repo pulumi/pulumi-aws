@@ -83,8 +83,8 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DefaultSecurityGroupArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: DefaultSecurityGroupArgs | DefaultSecurityGroupState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: DefaultSecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DefaultSecurityGroupArgs | DefaultSecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultSecurityGroupState = argsOrState as DefaultSecurityGroupState | undefined;

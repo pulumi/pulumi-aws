@@ -69,8 +69,8 @@ export class ReplicationTask extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationTaskArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ReplicationTaskArgs | ReplicationTaskState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ReplicationTaskArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ReplicationTaskArgs | ReplicationTaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ReplicationTaskState = argsOrState as ReplicationTaskState | undefined;

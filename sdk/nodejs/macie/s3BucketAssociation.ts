@@ -45,8 +45,8 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: S3BucketAssociationArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: S3BucketAssociationArgs | S3BucketAssociationState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: S3BucketAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: S3BucketAssociationArgs | S3BucketAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: S3BucketAssociationState = argsOrState as S3BucketAssociationState | undefined;

@@ -50,8 +50,8 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HostedPrivateVirtualInterfaceAccepterArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: HostedPrivateVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: HostedPrivateVirtualInterfaceAccepterState = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;

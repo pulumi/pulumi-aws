@@ -35,8 +35,8 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogDestinationPolicyArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: LogDestinationPolicyArgs | LogDestinationPolicyState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: LogDestinationPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LogDestinationPolicyArgs | LogDestinationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogDestinationPolicyState = argsOrState as LogDestinationPolicyState | undefined;

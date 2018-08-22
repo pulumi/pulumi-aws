@@ -35,8 +35,8 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceDataSyncState = argsOrState as ResourceDataSyncState | undefined;

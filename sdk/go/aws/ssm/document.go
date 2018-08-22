@@ -168,8 +168,8 @@ func (r *Document) Parameters() *pulumi.ArrayOutput {
 }
 
 // Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
-func (r *Document) Permissions() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["permissions"])
+func (r *Document) Permissions() *pulumi.Output {
+	return r.s.State["permissions"]
 }
 
 // A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".

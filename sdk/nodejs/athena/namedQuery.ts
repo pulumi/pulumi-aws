@@ -43,8 +43,8 @@ export class NamedQuery extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamedQueryArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NamedQueryState = argsOrState as NamedQueryState | undefined;
