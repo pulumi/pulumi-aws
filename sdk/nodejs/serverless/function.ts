@@ -40,17 +40,15 @@ export interface Context {
  * HandlerSignature is the signature for a serverless function that will be invoked each time
  * the AWS Lambda is invoked.
  */
-export type HandlerSignature = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
+export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 /**
- * FactoryHandlerSignature is the signature for a function that will be called once to produce the
- * serverless function that AWS Lambda will invoke.  It can be used to initialize expensive state
- * once that can then be used across all invocations of the Lambda (as long as the Lambda is using
- * the same warm node instance).
+ * HandlerFactory is the signature for a function that will be called once to produce the serverless
+ * function that AWS Lambda will invoke.  It can be used to initialize expensive state once that can
+ * then be used across all invocations of the Lambda (as long as the Lambda is using the same warm
+ * node instance).
  */
-export type FactoryHandlerSignature = () => HandlerSignature;
-
-export type FuncSignature = HandlerSignature | FactoryHandlerSignature;
+export type HandlerFactory = () => Handler;
 
 /**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
@@ -70,6 +68,21 @@ export type FunctionOptions = Overwrite<lambda.FunctionArgs, {
      * passed in JavaScript callback.
      */
     handler?: never;
+
+    /**
+     * The Javascript function instance to use as the entrypoint for the AWS Lambda out of.  Either
+     * [handler] or [factoryFunc] must be provided.
+     */
+    func?: Handler;
+
+    /**
+     * The Javascript function instance that will be called to produce the function that is the
+     * entrypoint for the AWS Lambda. Either [func] or [factoryFunc] must be provided.
+     *
+     * In other words, the function will be invoked (once) and the resulting inner function will be
+     * what is exported.
+     */
+    factoryFunc?: HandlerFactory;
 
     /**
      * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
@@ -104,18 +117,6 @@ export type FunctionOptions = Overwrite<lambda.FunctionArgs, {
      * project.json (except @pulumi packages).  Default is `[]`.
      */
     excludePackages?: string[];
-
-    /**
-     * If this is a function which, when invoked, will produce the actual entrypoint function.
-     * Useful for when serializing a function that has high startup cost that only wants to be
-     * run once. The signature of this function should be:  () => (provider_handler_args...) => provider_result
-     *
-     * This will then be emitted as: `exports.[exportName] = serialized_func_name();`
-     *
-     * In other words, the function will be invoked (once) and the resulting inner function will
-     * be what is exported.
-     */
-    isFactoryFunction?: boolean;
 }>;
 
 /**
@@ -129,16 +130,24 @@ export class Function extends pulumi.ComponentResource {
 
     constructor(name: string,
         options: FunctionOptions,
-        func: FuncSignature,
+        func?: Handler,
         opts?: pulumi.ResourceOptions,
         serialize?: (obj: any) => boolean) {
 
         if (!name) {
             throw new Error("Missing required resource name");
         }
-        if (!func) {
-            throw new Error("Missing required function callback");
+
+        if (options.func && options.factoryFunc) {
+            throw new pulumi.RunError("Cannot provide both [options.func] and [options.factoryFunc]");
         }
+
+        const optionsFunc = options.func || options.factoryFunc;
+        if (optionsFunc && func) {
+            throw new pulumi.RunError("Function provided both in options bag and as argument.");
+        }
+
+        func = optionsFunc || func;
 
         super("aws:serverless:Function", name, { options: options }, opts);
 
@@ -177,7 +186,7 @@ export class Function extends pulumi.ComponentResource {
         const closure = pulumi.runtime.serializeFunction(func, {
             serialize: finalSerialize,
             exportName: handlerName,
-            isFactoryFunction: options.isFactoryFunction,
+            isFactoryFunction: !!options.factoryFunc,
         });
 
         const codePaths = computeCodePaths(
