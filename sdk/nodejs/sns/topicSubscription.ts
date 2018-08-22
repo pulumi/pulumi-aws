@@ -73,8 +73,8 @@ export class TopicSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicSubscriptionArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: TopicSubscriptionArgs | TopicSubscriptionState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: TopicSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TopicSubscriptionArgs | TopicSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TopicSubscriptionState = argsOrState as TopicSubscriptionState | undefined;

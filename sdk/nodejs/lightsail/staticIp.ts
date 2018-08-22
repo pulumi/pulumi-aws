@@ -45,8 +45,8 @@ export class StaticIp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: StaticIpArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StaticIpState = argsOrState as StaticIpState | undefined;

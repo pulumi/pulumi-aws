@@ -39,8 +39,8 @@ export class AggregateAuthorization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AggregateAuthorizationArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: AggregateAuthorizationArgs | AggregateAuthorizationState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: AggregateAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AggregateAuthorizationArgs | AggregateAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AggregateAuthorizationState = argsOrState as AggregateAuthorizationState | undefined;

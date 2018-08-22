@@ -51,8 +51,8 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserPoolDomainState = argsOrState as UserPoolDomainState | undefined;

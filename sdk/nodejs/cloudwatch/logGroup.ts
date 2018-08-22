@@ -56,8 +56,8 @@ export class LogGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LogGroupArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: LogGroupArgs | LogGroupState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: LogGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LogGroupArgs | LogGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogGroupState = argsOrState as LogGroupState | undefined;

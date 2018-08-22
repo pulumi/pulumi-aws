@@ -53,8 +53,8 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogSubscriptionFilterArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: LogSubscriptionFilterArgs | LogSubscriptionFilterState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: LogSubscriptionFilterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LogSubscriptionFilterArgs | LogSubscriptionFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogSubscriptionFilterState = argsOrState as LogSubscriptionFilterState | undefined;

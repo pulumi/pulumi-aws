@@ -73,8 +73,8 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteState = argsOrState as RouteState | undefined;

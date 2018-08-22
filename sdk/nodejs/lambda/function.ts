@@ -133,8 +133,8 @@ export class Function extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FunctionArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FunctionState = argsOrState as FunctionState | undefined;

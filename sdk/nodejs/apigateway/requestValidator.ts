@@ -45,8 +45,8 @@ export class RequestValidator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RequestValidatorArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: RequestValidatorArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RequestValidatorState = argsOrState as RequestValidatorState | undefined;

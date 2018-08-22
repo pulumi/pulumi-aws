@@ -39,8 +39,8 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeploymentConfigArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DeploymentConfigState = argsOrState as DeploymentConfigState | undefined;

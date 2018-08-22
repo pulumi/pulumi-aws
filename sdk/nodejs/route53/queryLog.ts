@@ -41,8 +41,8 @@ export class QueryLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: QueryLogArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: QueryLogArgs | QueryLogState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: QueryLogArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: QueryLogArgs | QueryLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: QueryLogState = argsOrState as QueryLogState | undefined;

@@ -75,8 +75,8 @@ export class CatalogTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CatalogTableArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: CatalogTableArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CatalogTableState = argsOrState as CatalogTableState | undefined;

@@ -47,8 +47,8 @@ export class TableItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TableItemArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: TableItemArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TableItemState = argsOrState as TableItemState | undefined;

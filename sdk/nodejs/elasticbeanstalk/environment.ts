@@ -134,8 +134,8 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EnvironmentState = argsOrState as EnvironmentState | undefined;
