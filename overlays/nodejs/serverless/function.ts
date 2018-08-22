@@ -79,8 +79,10 @@ export type FunctionOptions = Overwrite<lambda.FunctionArgs, {
      * The Javascript function instance that will be called to produce the function that is the
      * entrypoint for the AWS Lambda. Either [func] or [factoryFunc] must be provided.
      *
-     * In other words, the function will be invoked (once) and the resulting inner function will be
-     * what is exported.
+     * This form is useful when there is expensive initialization work that should only be executed
+     * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
+     * It can run whatever code it needs, and will end by returning the actual function that Lambda
+     * will call into each time the Lambda is invoked.
      */
     factoryFunc?: HandlerFactory;
 
