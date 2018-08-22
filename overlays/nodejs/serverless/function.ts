@@ -146,7 +146,7 @@ export class Function extends pulumi.ComponentResource {
 
         const optionsFunc = options.func || options.factoryFunc;
         if (optionsFunc && func) {
-            throw new pulumi.RunError("Function provided both in options bag and as argument.");
+            throw new pulumi.RunError("Function provided both in options bag and as argument");
         }
 
         func = optionsFunc || func;
