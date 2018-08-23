@@ -7,26 +7,26 @@ import * as middleware from "aws-serverless-express/middleware";
 
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
-  "mylambda",
-  { policies: [aws.iam.AWSLambdaFullAccess], isFactoryFunction: true },
-  () => {
-    const app = express();
-    app.use(middleware.eventContext());
-    let ctx;
+  "mylambda", {
+    policies: [aws.iam.AWSLambdaFullAccess],
+    factoryFunc: () => {
+      const app = express();
+      app.use(middleware.eventContext());
+      let ctx;
 
-    app.get("/", (req, res) => {
-      console.log("Invoked url: " + req.url);
-      res.json( { message: hello + "\n\nSucceeded with " + ctx.getRemainingTimeInMillis() + "ms remaining.\n" });
-    });
+      app.get("/", (req, res) => {
+        console.log("Invoked url: " + req.url);
+        res.json( { message: hello + "\n\nSucceeded with " + ctx.getRemainingTimeInMillis() + "ms remaining.\n" });
+      });
 
-    const server = serverlessExpress.createServer(app);
+      const server = serverlessExpress.createServer(app);
 
-    return (event, context) => {
-      console.log("Lambda invoked");
-      console.log("Invoked function: " + context.invokedFunctionArn);
-      console.log("Proxying to express");
-      ctx = context;
-      serverlessExpress.proxy(server, event, context);
+      return (event, context) => {
+        console.log("Lambda invoked");
+        console.log("Invoked function: " + context.invokedFunctionArn);
+        console.log("Proxying to express");
+        ctx = context;
+        serverlessExpress.proxy(server, event, <any>context);
+      }
     }
-  },
-);
+  });
