@@ -42,7 +42,7 @@ class ResourceServer(pulumi.CustomResource):
             raise TypeError('Expected property scopes to be a list')
         __self__.scopes = scopes
         """
-        A list of [Authorization Scope](#authorization_scope).
+        A list of Authorization Scope.
         """
         __props__['scopes'] = scopes
 

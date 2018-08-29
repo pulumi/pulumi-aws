@@ -28,11 +28,11 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly budgetType: pulumi.Output<string>;
     /**
-     * Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+     * Map of CostFilters key/value pairs to apply to the budget.
      */
     public readonly costFilters: pulumi.Output<{[key: string]: any}>;
     /**
-     * Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
     public readonly costTypes: pulumi.Output<{ includeCredit?: boolean, includeDiscount?: boolean, includeOtherSubscription?: boolean, includeRecurring?: boolean, includeRefund?: boolean, includeSubscription?: boolean, includeSupport?: boolean, includeTax?: boolean, includeUpfront?: boolean, useAmortized?: boolean, useBlended?: boolean }>;
     /**
@@ -133,11 +133,11 @@ export interface BudgetState {
      */
     readonly budgetType?: pulumi.Input<string>;
     /**
-     * Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+     * Map of CostFilters key/value pairs to apply to the budget.
      */
     readonly costFilters?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
     readonly costTypes?: pulumi.Input<{ includeCredit?: pulumi.Input<boolean>, includeDiscount?: pulumi.Input<boolean>, includeOtherSubscription?: pulumi.Input<boolean>, includeRecurring?: pulumi.Input<boolean>, includeRefund?: pulumi.Input<boolean>, includeSubscription?: pulumi.Input<boolean>, includeSupport?: pulumi.Input<boolean>, includeTax?: pulumi.Input<boolean>, includeUpfront?: pulumi.Input<boolean>, useAmortized?: pulumi.Input<boolean>, useBlended?: pulumi.Input<boolean> }>;
     /**
@@ -183,11 +183,11 @@ export interface BudgetArgs {
      */
     readonly budgetType: pulumi.Input<string>;
     /**
-     * Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+     * Map of CostFilters key/value pairs to apply to the budget.
      */
     readonly costFilters?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
     readonly costTypes?: pulumi.Input<{ includeCredit?: pulumi.Input<boolean>, includeDiscount?: pulumi.Input<boolean>, includeOtherSubscription?: pulumi.Input<boolean>, includeRecurring?: pulumi.Input<boolean>, includeRefund?: pulumi.Input<boolean>, includeSubscription?: pulumi.Input<boolean>, includeSupport?: pulumi.Input<boolean>, includeTax?: pulumi.Input<boolean>, includeUpfront?: pulumi.Input<boolean>, useAmortized?: pulumi.Input<boolean>, useBlended?: pulumi.Input<boolean> }>;
     /**

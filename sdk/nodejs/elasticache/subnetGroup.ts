@@ -8,7 +8,7 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * ~> **NOTE:** ElastiCache Subnet Groups are only for use when working with an
  * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
- * [ElastiCache Security Group resource](elasticache_security_group.html).
+ * ElastiCache Security Group resource.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

@@ -51,7 +51,7 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
             raise TypeError('Expected property vpn_gateway_id to be a basestring')
         __self__.vpn_gateway_id = vpn_gateway_id
         """
-        The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+        The ID of the virtual private gateway to which to connect the virtual interface.
         """
         __props__['vpnGatewayId'] = vpn_gateway_id
 

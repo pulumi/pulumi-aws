@@ -163,7 +163,7 @@ func (r *ClusterInstance) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-// The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+// The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 func (r *ClusterInstance) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -173,7 +173,7 @@ func (r *ClusterInstance) DbParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbParameterGroupName"])
 }
 
-// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
+// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
 func (r *ClusterInstance) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
@@ -313,11 +313,11 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
-	// The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
 	DbSubnetGroupName interface{}
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId interface{}
@@ -394,11 +394,11 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
-	// The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
 	DbSubnetGroupName interface{}
 	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
 	// For information on the difference between the available Aurora MySQL engines

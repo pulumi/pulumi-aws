@@ -133,7 +133,7 @@ class Record(pulumi.CustomResource):
             raise TypeError('Expected property zone_id to be a basestring')
         __self__.zone_id = zone_id
         """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](/docs/providers/aws/r/elb.html#zone_id) for example.
+        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
         """
         __props__['zoneId'] = zone_id
 

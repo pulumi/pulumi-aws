@@ -26,7 +26,7 @@ class Instance(pulumi.CustomResource):
     
     ~> **Note:** All arguments including the username and password will be stored in
     the raw state as plain-text. [Read more about sensitive data in
-    state](/docs/state/sensitive-data.html).
+    state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
         """Create a Instance resource with the given unique name, props, and options."""
@@ -133,7 +133,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property db_subnet_group_name to be a basestring')
         __self__.db_subnet_group_name = db_subnet_group_name
         """
-        Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+        Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
         be created in the VPC associated with the DB subnet group. If unspecified, will
         be created in the `default` VPC, or in EC2 Classic, if available. When working
         with read replicas, it needs to be specified only if the source database
@@ -157,7 +157,7 @@ class Instance(pulumi.CustomResource):
         """
         (Required unless a `snapshot_identifier` or `replicate_source_db`
         is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-        Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+        Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
         For information on the difference between the available Aurora MySQL engines
         see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
         in the Amazon RDS User Guide.
@@ -172,7 +172,7 @@ class Instance(pulumi.CustomResource):
         is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
         this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
         For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-        Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+        Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
         """
         __props__['engineVersion'] = engine_version
 

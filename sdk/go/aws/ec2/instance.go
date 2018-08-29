@@ -9,7 +9,7 @@ import (
 )
 
 // Provides an EC2 instance resource. This allows instances to be created, updated,
-// and deleted. Instances also support [provisioning](/docs/provisioners/index.html).
+// and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
 type Instance struct {
 	s *pulumi.ResourceState
 }
@@ -199,7 +199,7 @@ func (r *Instance) CpuThreadsPerCore() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["cpuThreadsPerCore"])
 }
 
-// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+// Customize the credit specification of the instance. See Credit Specification below for more details.
 func (r *Instance) CreditSpecification() *pulumi.Output {
 	return r.s.State["creditSpecification"]
 }
@@ -211,7 +211,7 @@ func (r *Instance) DisableApiTermination() *pulumi.BoolOutput {
 }
 
 // Additional EBS block devices to attach to the
-// instance.  See [Block Devices](#block-devices) below for details.
+// instance.  See Block Devices below for details.
 func (r *Instance) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
@@ -226,7 +226,7 @@ func (r *Instance) EbsOptimized() *pulumi.BoolOutput {
 }
 
 // Customize Ephemeral (also known as
-// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+// "Instance Store") volumes on the instance. See Block Devices below for details.
 func (r *Instance) EphemeralBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
@@ -269,7 +269,7 @@ func (r *Instance) Ipv6Addresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipv6Addresses"])
 }
 
-// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
 func (r *Instance) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
@@ -279,12 +279,12 @@ func (r *Instance) Monitoring() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["monitoring"])
 }
 
-// Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 func (r *Instance) NetworkInterfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
 }
 
-// The ID of the network interface to attach.
+// The ID of the network interface that was created with the instance.
 func (r *Instance) NetworkInterfaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
@@ -327,13 +327,13 @@ func (r *Instance) PublicDns() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicDns"])
 }
 
-// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
 func (r *Instance) PublicIp() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicIp"])
 }
 
 // Customize details about the root block
-// device of the instance. See [Block Devices](#block-devices) below for details.
+// device of the instance. See Block Devices below for details.
 func (r *Instance) RootBlockDevice() *pulumi.Output {
 	return r.s.State["rootBlockDevice"]
 }
@@ -400,13 +400,13 @@ type InstanceState struct {
 	CpuCoreCount interface{}
 	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore interface{}
-	// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification interface{}
 	// If true, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then
@@ -415,7 +415,7 @@ type InstanceState struct {
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
@@ -434,13 +434,13 @@ type InstanceState struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+	// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
 	KeyName interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
-	// Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces interface{}
-	// The ID of the network interface to attach.
+	// The ID of the network interface that was created with the instance.
 	NetworkInterfaceId interface{}
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
@@ -462,10 +462,10 @@ type InstanceState struct {
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
 	PublicDns interface{}
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
 	PublicIp interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
 	SecurityGroups interface{}
@@ -502,13 +502,13 @@ type InstanceArgs struct {
 	CpuCoreCount interface{}
 	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore interface{}
-	// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification interface{}
 	// If true, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then
@@ -517,7 +517,7 @@ type InstanceArgs struct {
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
@@ -535,11 +535,11 @@ type InstanceArgs struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+	// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
 	KeyName interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
-	// Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces interface{}
 	// The Placement Group to start the instance in.
 	PlacementGroup interface{}
@@ -547,7 +547,7 @@ type InstanceArgs struct {
 	// instance in a VPC.
 	PrivateIp interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
 	SecurityGroups interface{}

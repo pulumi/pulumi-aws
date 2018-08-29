@@ -187,7 +187,7 @@ func (r *Environment) Queues() *pulumi.ArrayOutput {
 
 // Option settings to configure the new Environment. These
 // override specific values that are set as defaults. The format is detailed
-// below in [Option Settings](#option-settings)
+// below in Option Settings
 func (r *Environment) Settings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["settings"])
 }
@@ -271,7 +271,7 @@ type EnvironmentState struct {
 	Queues interface{}
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
-	// below in [Option Settings](#option-settings)
+	// below in Option Settings
 	Settings interface{}
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation][1]
@@ -316,7 +316,7 @@ type EnvironmentArgs struct {
 	PollInterval interface{}
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
-	// below in [Option Settings](#option-settings)
+	// below in Option Settings
 	Settings interface{}
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation][1]

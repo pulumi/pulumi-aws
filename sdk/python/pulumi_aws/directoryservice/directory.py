@@ -10,7 +10,7 @@ class Directory(pulumi.CustomResource):
     Provides a Simple or Managed Microsoft directory in AWS Directory Service.
     
     ~> **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, alias=None, connect_settings=None, description=None, edition=None, enable_sso=None, name=None, password=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
         """Create a Directory resource with the given unique name, props, and options."""

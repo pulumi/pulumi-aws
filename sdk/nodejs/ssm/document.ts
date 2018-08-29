@@ -75,7 +75,7 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly parameters: pulumi.Output<{ defaultValue?: string, description?: string, name?: string, type?: string }[]>;
     /**
-     * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+     * Additional Permissions to attach to the document. See Permissions below for details.
      */
     public readonly permissions: pulumi.Output<{ accountIds: string, type: string } | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface DocumentState {
      */
     readonly parameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
-     * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+     * Additional Permissions to attach to the document. See Permissions below for details.
      */
     readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
@@ -252,7 +252,7 @@ export interface DocumentArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+     * Additional Permissions to attach to the document. See Permissions below for details.
      */
     readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**

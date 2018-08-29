@@ -128,19 +128,19 @@ func (r *LaunchTemplate) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The Amazon Resource Name (ARN) of the instance profile.
+// Amazon Resource Name (ARN) of the launch template.
 func (r *LaunchTemplate) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specify volumes to attach to the instance besides the volumes specified by the AMI.
-// See [Block Devices](#block-devices) below for details.
+// See Block Devices below for details.
 func (r *LaunchTemplate) BlockDeviceMappings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["blockDeviceMappings"])
 }
 
-// Customize the credit specification of the instance. See [Credit 
-// Specification](#credit-specification) below for more details.
+// Customize the credit specification of the instance. See Credit 
+// Specification below for more details.
 func (r *LaunchTemplate) CreditSpecification() *pulumi.Output {
 	return r.s.State["creditSpecification"]
 }
@@ -150,7 +150,7 @@ func (r *LaunchTemplate) DefaultVersion() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["defaultVersion"])
 }
 
-// Description of the network interface.
+// Description of the launch template.
 func (r *LaunchTemplate) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -166,13 +166,13 @@ func (r *LaunchTemplate) EbsOptimized() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
 
-// The elastic GPU to attach to the instance. See [Elastic GPU](#elastic-gpu)
+// The elastic GPU to attach to the instance. See Elastic GPU
 // below for more details.
 func (r *LaunchTemplate) ElasticGpuSpecifications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["elasticGpuSpecifications"])
 }
 
-// The IAM Instance Profile to launch the instance with. See [Instance Profile](#instance-profile)
+// The IAM Instance Profile to launch the instance with. See Instance Profile
 // below for more details.
 func (r *LaunchTemplate) IamInstanceProfile() *pulumi.Output {
 	return r.s.State["iamInstanceProfile"]
@@ -189,7 +189,7 @@ func (r *LaunchTemplate) InstanceInitiatedShutdownBehavior() *pulumi.StringOutpu
 	return (*pulumi.StringOutput)(r.s.State["instanceInitiatedShutdownBehavior"])
 }
 
-// The market (purchasing) option for the instance. See [Market Options](#market-options)
+// The market (purchasing) option for the instance. See Market Options
 // below for details.
 func (r *LaunchTemplate) InstanceMarketOptions() *pulumi.Output {
 	return r.s.State["instanceMarketOptions"]
@@ -215,12 +215,12 @@ func (r *LaunchTemplate) LatestVersion() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["latestVersion"])
 }
 
-// The monitoring option for the instance. See [Monitoring](#monitoring) below for more details.
+// The monitoring option for the instance. See Monitoring below for more details.
 func (r *LaunchTemplate) Monitoring() *pulumi.Output {
 	return r.s.State["monitoring"]
 }
 
-// The name of the instance profile.
+// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
 func (r *LaunchTemplate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -230,13 +230,13 @@ func (r *LaunchTemplate) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// Customize network interfaces to be attached at instance boot time. See [Network 
-// Interfaces](#network-interfaces) below for more details.
+// Customize network interfaces to be attached at instance boot time. See Network 
+// Interfaces below for more details.
 func (r *LaunchTemplate) NetworkInterfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
 }
 
-// The placement of the instance. See [Placement](#placement) below for more details.
+// The placement of the instance. See Placement below for more details.
 func (r *LaunchTemplate) Placement() *pulumi.Output {
 	return r.s.State["placement"]
 }
@@ -252,12 +252,12 @@ func (r *LaunchTemplate) SecurityGroupNames() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
 }
 
-// The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
+// The tags to apply to the resources during launch. See Tags below for more details.
 func (r *LaunchTemplate) TagSpecifications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tagSpecifications"])
 }
 
-// A mapping of tags to assign to the resource.
+// A mapping of tags to assign to the launch template.
 func (r *LaunchTemplate) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -274,27 +274,27 @@ func (r *LaunchTemplate) VpcSecurityGroupIds() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering LaunchTemplate resources.
 type LaunchTemplateState struct {
-	// The Amazon Resource Name (ARN) of the instance profile.
+	// Amazon Resource Name (ARN) of the launch template.
 	Arn interface{}
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See [Block Devices](#block-devices) below for details.
+	// See Block Devices below for details.
 	BlockDeviceMappings interface{}
-	// Customize the credit specification of the instance. See [Credit 
-	// Specification](#credit-specification) below for more details.
+	// Customize the credit specification of the instance. See Credit 
+	// Specification below for more details.
 	CreditSpecification interface{}
 	// The default version of the launch template.
 	DefaultVersion interface{}
-	// Description of the network interface.
+	// Description of the launch template.
 	Description interface{}
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized interface{}
-	// The elastic GPU to attach to the instance. See [Elastic GPU](#elastic-gpu)
+	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
 	ElasticGpuSpecifications interface{}
-	// The IAM Instance Profile to launch the instance with. See [Instance Profile](#instance-profile)
+	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile interface{}
 	// The AMI from which to launch the instance.
@@ -302,7 +302,7 @@ type LaunchTemplateState struct {
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
 	InstanceInitiatedShutdownBehavior interface{}
-	// The market (purchasing) option for the instance. See [Market Options](#market-options)
+	// The market (purchasing) option for the instance. See Market Options
 	// below for details.
 	InstanceMarketOptions interface{}
 	// The type of the instance.
@@ -313,25 +313,25 @@ type LaunchTemplateState struct {
 	KeyName interface{}
 	// The latest version of the launch template.
 	LatestVersion interface{}
-	// The monitoring option for the instance. See [Monitoring](#monitoring) below for more details.
+	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
-	// The name of the instance profile.
+	// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// Customize network interfaces to be attached at instance boot time. See [Network 
-	// Interfaces](#network-interfaces) below for more details.
+	// Customize network interfaces to be attached at instance boot time. See Network 
+	// Interfaces below for more details.
 	NetworkInterfaces interface{}
-	// The placement of the instance. See [Placement](#placement) below for more details.
+	// The placement of the instance. See Placement below for more details.
 	Placement interface{}
 	// The ID of the RAM disk.
 	RamDiskId interface{}
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpc_security_group_ids` instead.
 	SecurityGroupNames interface{}
-	// The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
+	// The tags to apply to the resources during launch. See Tags below for more details.
 	TagSpecifications interface{}
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the launch template.
 	Tags interface{}
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData interface{}
@@ -342,22 +342,22 @@ type LaunchTemplateState struct {
 // The set of arguments for constructing a LaunchTemplate resource.
 type LaunchTemplateArgs struct {
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See [Block Devices](#block-devices) below for details.
+	// See Block Devices below for details.
 	BlockDeviceMappings interface{}
-	// Customize the credit specification of the instance. See [Credit 
-	// Specification](#credit-specification) below for more details.
+	// Customize the credit specification of the instance. See Credit 
+	// Specification below for more details.
 	CreditSpecification interface{}
-	// Description of the network interface.
+	// Description of the launch template.
 	Description interface{}
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized interface{}
-	// The elastic GPU to attach to the instance. See [Elastic GPU](#elastic-gpu)
+	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
 	ElasticGpuSpecifications interface{}
-	// The IAM Instance Profile to launch the instance with. See [Instance Profile](#instance-profile)
+	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile interface{}
 	// The AMI from which to launch the instance.
@@ -365,7 +365,7 @@ type LaunchTemplateArgs struct {
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
 	InstanceInitiatedShutdownBehavior interface{}
-	// The market (purchasing) option for the instance. See [Market Options](#market-options)
+	// The market (purchasing) option for the instance. See Market Options
 	// below for details.
 	InstanceMarketOptions interface{}
 	// The type of the instance.
@@ -374,25 +374,25 @@ type LaunchTemplateArgs struct {
 	KernelId interface{}
 	// The key name to use for the instance.
 	KeyName interface{}
-	// The monitoring option for the instance. See [Monitoring](#monitoring) below for more details.
+	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
-	// The name of the instance profile.
+	// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// Customize network interfaces to be attached at instance boot time. See [Network 
-	// Interfaces](#network-interfaces) below for more details.
+	// Customize network interfaces to be attached at instance boot time. See Network 
+	// Interfaces below for more details.
 	NetworkInterfaces interface{}
-	// The placement of the instance. See [Placement](#placement) below for more details.
+	// The placement of the instance. See Placement below for more details.
 	Placement interface{}
 	// The ID of the RAM disk.
 	RamDiskId interface{}
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpc_security_group_ids` instead.
 	SecurityGroupNames interface{}
-	// The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
+	// The tags to apply to the resources during launch. See Tags below for more details.
 	TagSpecifications interface{}
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the launch template.
 	Tags interface{}
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData interface{}

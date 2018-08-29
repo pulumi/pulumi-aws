@@ -81,7 +81,7 @@ func (r *ResourceServer) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A list of [Authorization Scope](#authorization_scope).
+// A list of Authorization Scope.
 func (r *ResourceServer) Scopes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
 }
@@ -101,7 +101,7 @@ type ResourceServerState struct {
 	Identifier interface{}
 	// A name for the resource server.
 	Name interface{}
-	// A list of [Authorization Scope](#authorization_scope).
+	// A list of Authorization Scope.
 	Scopes interface{}
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers interface{}
@@ -114,7 +114,7 @@ type ResourceServerArgs struct {
 	Identifier interface{}
 	// A name for the resource server.
 	Name interface{}
-	// A list of [Authorization Scope](#authorization_scope).
+	// A list of Authorization Scope.
 	Scopes interface{}
 	UserPoolId interface{}
 }

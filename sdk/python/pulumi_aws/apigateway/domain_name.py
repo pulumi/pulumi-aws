@@ -12,7 +12,7 @@ class DomainName(pulumi.CustomResource):
     This resource just establishes ownership of and the TLS settings for
     a particular domain name. An API can be attached to a particular path
     under the registered domain name using
-    [the `aws_api_gateway_base_path_mapping` resource](api_gateway_base_path_mapping.html).
+    the `aws_api_gateway_base_path_mapping` resource.
     
     API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
     API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
@@ -26,7 +26,7 @@ class DomainName(pulumi.CustomResource):
     the `regional_domain_name` attribute.
     
     ~> **Note:** All arguments including the private key will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, certificate_arn=None, certificate_body=None, certificate_chain=None, certificate_name=None, certificate_private_key=None, domain_name=None, endpoint_configuration=None, regional_certificate_arn=None, regional_certificate_name=None):
         """Create a DomainName resource with the given unique name, props, and options."""

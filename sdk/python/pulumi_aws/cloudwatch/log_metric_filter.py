@@ -45,7 +45,7 @@ class LogMetricFilter(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+        A name for the metric filter.
         """
         __props__['name'] = name
 

@@ -26,7 +26,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
      */
     public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +101,7 @@ export interface ListenerState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface ListenerState {
  */
 export interface ListenerArgs {
     /**
-     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**

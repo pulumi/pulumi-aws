@@ -20,7 +20,7 @@ export class UsagePlan extends pulumi.CustomResource {
     }
 
     /**
-     * The associated [API stages](#api-stages-arguments) of the usage plan.
+     * The associated API stages of the usage plan.
      */
     public readonly apiStages: pulumi.Output<{ apiId: string, stage: string }[] | undefined>;
     /**
@@ -36,11 +36,11 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly productCode: pulumi.Output<string | undefined>;
     /**
-     * The [quota settings](#quota-settings-arguments) of the usage plan.
+     * The quota settings of the usage plan.
      */
     public readonly quotaSettings: pulumi.Output<{ limit: number, offset?: number, period: string } | undefined>;
     /**
-     * The [throttling limits](#throttling-settings-arguments) of the usage plan.
+     * The throttling limits of the usage plan.
      */
     public readonly throttleSettings: pulumi.Output<{ burstLimit?: number, rateLimit?: number } | undefined>;
 
@@ -80,7 +80,7 @@ export class UsagePlan extends pulumi.CustomResource {
  */
 export interface UsagePlanState {
     /**
-     * The associated [API stages](#api-stages-arguments) of the usage plan.
+     * The associated API stages of the usage plan.
      */
     readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
     /**
@@ -96,11 +96,11 @@ export interface UsagePlanState {
      */
     readonly productCode?: pulumi.Input<string>;
     /**
-     * The [quota settings](#quota-settings-arguments) of the usage plan.
+     * The quota settings of the usage plan.
      */
     readonly quotaSettings?: pulumi.Input<{ limit: pulumi.Input<number>, offset?: pulumi.Input<number>, period: pulumi.Input<string> }>;
     /**
-     * The [throttling limits](#throttling-settings-arguments) of the usage plan.
+     * The throttling limits of the usage plan.
      */
     readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
 }
@@ -110,7 +110,7 @@ export interface UsagePlanState {
  */
 export interface UsagePlanArgs {
     /**
-     * The associated [API stages](#api-stages-arguments) of the usage plan.
+     * The associated API stages of the usage plan.
      */
     readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
     /**
@@ -126,11 +126,11 @@ export interface UsagePlanArgs {
      */
     readonly productCode?: pulumi.Input<string>;
     /**
-     * The [quota settings](#quota-settings-arguments) of the usage plan.
+     * The quota settings of the usage plan.
      */
     readonly quotaSettings?: pulumi.Input<{ limit: pulumi.Input<number>, offset?: pulumi.Input<number>, period: pulumi.Input<string> }>;
     /**
-     * The [throttling limits](#throttling-settings-arguments) of the usage plan.
+     * The throttling limits of the usage plan.
      */
     readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
 }

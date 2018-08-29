@@ -61,11 +61,11 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+     * One or more custom error response elements (multiples allowed).
      */
     public readonly customErrorResponses: pulumi.Output<{ errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[] | undefined>;
     /**
-     * The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+     * The default cache behavior for this distribution (maximum
      * one).
      */
     public readonly defaultCacheBehavior: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }>;
@@ -115,19 +115,19 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
-     * The [logging
-     * configuration](#logging-config-arguments) that controls how logs are written
+     * The logging
+     * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
     public readonly loggingConfig: pulumi.Output<{ bucket: string, includeCookies?: boolean, prefix?: string } | undefined>;
     /**
-     * An ordered list of [cache behaviors](#cache-behavior-arguments)
+     * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * +    in order of precedence. The topmost cache behavior will have precedence 0.
      */
     public readonly orderedCacheBehaviors: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[] | undefined>;
     /**
-     * One or more [origins](#origin-arguments) for this
+     * One or more origins for this
      * distribution (multiples allowed).
      */
     public readonly origins: pulumi.Output<{ customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[]>;
@@ -137,8 +137,8 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly priceClass: pulumi.Output<string | undefined>;
     /**
-     * The [restriction
-     * configuration](#restrictions-arguments) for this distribution (maximum one).
+     * The restriction
+     * configuration for this distribution (maximum one).
      */
     public readonly restrictions: pulumi.Output<{ geoRestriction: { locations?: string[], restrictionType: string } }>;
     /**
@@ -158,8 +158,8 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
     /**
-     * The [SSL
-     * configuration](#viewer-certificate-arguments) for this distribution (maximum
+     * The SSL
+     * configuration for this distribution (maximum
      * one).
      */
     public readonly viewerCertificate: pulumi.Output<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }>;
@@ -292,11 +292,11 @@ export interface DistributionState {
      */
     readonly comment?: pulumi.Input<string>;
     /**
-     * One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+     * One or more custom error response elements (multiples allowed).
      */
     readonly customErrorResponses?: pulumi.Input<pulumi.Input<{ errorCachingMinTtl?: pulumi.Input<number>, errorCode: pulumi.Input<number>, responseCode?: pulumi.Input<number>, responsePagePath?: pulumi.Input<string> }>[]>;
     /**
-     * The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+     * The default cache behavior for this distribution (maximum
      * one).
      */
     readonly defaultCacheBehavior?: pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>;
@@ -346,19 +346,19 @@ export interface DistributionState {
      */
     readonly lastModifiedTime?: pulumi.Input<string>;
     /**
-     * The [logging
-     * configuration](#logging-config-arguments) that controls how logs are written
+     * The logging
+     * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
     readonly loggingConfig?: pulumi.Input<{ bucket: pulumi.Input<string>, includeCookies?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
-     * An ordered list of [cache behaviors](#cache-behavior-arguments)
+     * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * +    in order of precedence. The topmost cache behavior will have precedence 0.
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
-     * One or more [origins](#origin-arguments) for this
+     * One or more origins for this
      * distribution (multiples allowed).
      */
     readonly origins?: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
@@ -368,8 +368,8 @@ export interface DistributionState {
      */
     readonly priceClass?: pulumi.Input<string>;
     /**
-     * The [restriction
-     * configuration](#restrictions-arguments) for this distribution (maximum one).
+     * The restriction
+     * configuration for this distribution (maximum one).
      */
     readonly restrictions?: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
     /**
@@ -389,8 +389,8 @@ export interface DistributionState {
      */
     readonly tags?: pulumi.Input<Tags>;
     /**
-     * The [SSL
-     * configuration](#viewer-certificate-arguments) for this distribution (maximum
+     * The SSL
+     * configuration for this distribution (maximum
      * one).
      */
     readonly viewerCertificate?: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
@@ -421,11 +421,11 @@ export interface DistributionArgs {
      */
     readonly comment?: pulumi.Input<string>;
     /**
-     * One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+     * One or more custom error response elements (multiples allowed).
      */
     readonly customErrorResponses?: pulumi.Input<pulumi.Input<{ errorCachingMinTtl?: pulumi.Input<number>, errorCode: pulumi.Input<number>, responseCode?: pulumi.Input<number>, responsePagePath?: pulumi.Input<string> }>[]>;
     /**
-     * The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+     * The default cache behavior for this distribution (maximum
      * one).
      */
     readonly defaultCacheBehavior: pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>;
@@ -450,19 +450,19 @@ export interface DistributionArgs {
      */
     readonly isIpv6Enabled?: pulumi.Input<boolean>;
     /**
-     * The [logging
-     * configuration](#logging-config-arguments) that controls how logs are written
+     * The logging
+     * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
     readonly loggingConfig?: pulumi.Input<{ bucket: pulumi.Input<string>, includeCookies?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
-     * An ordered list of [cache behaviors](#cache-behavior-arguments)
+     * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * +    in order of precedence. The topmost cache behavior will have precedence 0.
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
-     * One or more [origins](#origin-arguments) for this
+     * One or more origins for this
      * distribution (multiples allowed).
      */
     readonly origins: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
@@ -472,8 +472,8 @@ export interface DistributionArgs {
      */
     readonly priceClass?: pulumi.Input<string>;
     /**
-     * The [restriction
-     * configuration](#restrictions-arguments) for this distribution (maximum one).
+     * The restriction
+     * configuration for this distribution (maximum one).
      */
     readonly restrictions: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
     /**
@@ -487,8 +487,8 @@ export interface DistributionArgs {
      */
     readonly tags?: pulumi.Input<Tags>;
     /**
-     * The [SSL
-     * configuration](#viewer-certificate-arguments) for this distribution (maximum
+     * The SSL
+     * configuration for this distribution (maximum
      * one).
      */
     readonly viewerCertificate: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;

@@ -87,7 +87,7 @@ func (r *IdentityPool) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+// An array of Amazon Cognito Identity user pools and their client IDs.
 func (r *IdentityPool) CognitoIdentityProviders() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["cognitoIdentityProviders"])
 }
@@ -124,7 +124,7 @@ type IdentityPoolState struct {
 	AllowUnauthenticatedIdentities interface{}
 	// The ARN of the identity pool.
 	Arn interface{}
-	// An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+	// An array of Amazon Cognito Identity user pools and their client IDs.
 	CognitoIdentityProviders interface{}
 	// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
 	// backend and the Cognito service to communicate about the developer provider.
@@ -143,7 +143,7 @@ type IdentityPoolState struct {
 type IdentityPoolArgs struct {
 	// Whether the identity pool supports unauthenticated logins or not.
 	AllowUnauthenticatedIdentities interface{}
-	// An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+	// An array of Amazon Cognito Identity user pools and their client IDs.
 	CognitoIdentityProviders interface{}
 	// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
 	// backend and the Cognito service to communicate about the developer provider.

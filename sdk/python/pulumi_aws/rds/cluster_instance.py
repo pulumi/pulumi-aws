@@ -62,7 +62,7 @@ class ClusterInstance(pulumi.CustomResource):
             raise TypeError('Expected property cluster_identifier to be a basestring')
         __self__.cluster_identifier = cluster_identifier
         """
-        The identifier of the [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+        The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
         """
         __props__['clusterIdentifier'] = cluster_identifier
 
@@ -78,7 +78,7 @@ class ClusterInstance(pulumi.CustomResource):
             raise TypeError('Expected property db_subnet_group_name to be a basestring')
         __self__.db_subnet_group_name = db_subnet_group_name
         """
-        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](/docs/providers/aws/r/rds_cluster.html).
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
         """
         __props__['dbSubnetGroupName'] = db_subnet_group_name
 

@@ -137,7 +137,7 @@ class GetInstanceResult(object):
             raise TypeError('Expected argument public_ip to be a basestring')
         __self__.public_ip = public_ip
         """
-        The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         """
         if root_block_devices and not isinstance(root_block_devices, list):
             raise TypeError('Expected argument root_block_devices to be a list')

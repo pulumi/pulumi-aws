@@ -130,7 +130,7 @@ func (r *CatalogTable) Retention() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["retention"])
 }
 
-// A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 func (r *CatalogTable) StorageDescriptor() *pulumi.Output {
 	return r.s.State["storageDescriptor"]
 }
@@ -168,7 +168,7 @@ type CatalogTableState struct {
 	PartitionKeys interface{}
 	// Retention time for this table.
 	Retention interface{}
-	// A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor interface{}
 	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
 	TableType interface{}
@@ -196,7 +196,7 @@ type CatalogTableArgs struct {
 	PartitionKeys interface{}
 	// Retention time for this table.
 	Retention interface{}
-	// A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor interface{}
 	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
 	TableType interface{}

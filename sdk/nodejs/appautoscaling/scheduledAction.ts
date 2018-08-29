@@ -40,7 +40,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     public readonly scalableDimension: pulumi.Output<string | undefined>;
     /**
-     * The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+     * The new minimum and maximum capacity. You can set both values or just one. See below
      */
     public readonly scalableTargetAction: pulumi.Output<{ maxCapacity?: number, minCapacity?: number } | undefined>;
     /**
@@ -124,7 +124,7 @@ export interface ScheduledActionState {
      */
     readonly scalableDimension?: pulumi.Input<string>;
     /**
-     * The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+     * The new minimum and maximum capacity. You can set both values or just one. See below
      */
     readonly scalableTargetAction?: pulumi.Input<{ maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number> }>;
     /**
@@ -162,7 +162,7 @@ export interface ScheduledActionArgs {
      */
     readonly scalableDimension?: pulumi.Input<string>;
     /**
-     * The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+     * The new minimum and maximum capacity. You can set both values or just one. See below
      */
     readonly scalableTargetAction?: pulumi.Input<{ maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number> }>;
     /**

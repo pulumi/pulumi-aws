@@ -53,7 +53,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly networkMode: pulumi.Output<string>;
     /**
-     * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     public readonly placementConstraints: pulumi.Output<{ expression?: string, type: string }[] | undefined>;
     /**
@@ -69,7 +69,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly taskRoleArn: pulumi.Output<string | undefined>;
     /**
-     * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+     * A set of volume blocks that containers in your task may use.
      */
     public readonly volumes: pulumi.Output<{ hostPath?: string, name: string }[] | undefined>;
 
@@ -160,7 +160,7 @@ export interface TaskDefinitionState {
      */
     readonly networkMode?: pulumi.Input<string>;
     /**
-     * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
@@ -176,7 +176,7 @@ export interface TaskDefinitionState {
      */
     readonly taskRoleArn?: pulumi.Input<string>;
     /**
-     * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+     * A set of volume blocks that containers in your task may use.
      */
     readonly volumes?: pulumi.Input<pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }
@@ -215,7 +215,7 @@ export interface TaskDefinitionArgs {
      */
     readonly networkMode?: pulumi.Input<string>;
     /**
-     * A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
@@ -227,7 +227,7 @@ export interface TaskDefinitionArgs {
      */
     readonly taskRoleArn?: pulumi.Input<string>;
     /**
-     * A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+     * A set of volume blocks that containers in your task may use.
      */
     readonly volumes?: pulumi.Input<pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }

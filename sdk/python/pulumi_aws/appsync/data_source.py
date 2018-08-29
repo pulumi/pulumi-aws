@@ -42,7 +42,7 @@ class DataSource(pulumi.CustomResource):
             raise TypeError('Expected property dynamodb_config to be a dict')
         __self__.dynamodb_config = dynamodb_config
         """
-        DynamoDB settings. See [below](#dynamodb_config)
+        DynamoDB settings. See below
         """
         __props__['dynamodbConfig'] = dynamodb_config
 
@@ -50,7 +50,7 @@ class DataSource(pulumi.CustomResource):
             raise TypeError('Expected property elasticsearch_config to be a dict')
         __self__.elasticsearch_config = elasticsearch_config
         """
-        Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+        Amazon Elasticsearch settings. See below
         """
         __props__['elasticsearchConfig'] = elasticsearch_config
 
@@ -58,7 +58,7 @@ class DataSource(pulumi.CustomResource):
             raise TypeError('Expected property lambda_config to be a dict')
         __self__.lambda_config = lambda_config
         """
-        AWS Lambda settings. See [below](#lambda_config)
+        AWS Lambda settings. See below
         """
         __props__['lambdaConfig'] = lambda_config
 

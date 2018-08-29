@@ -90,7 +90,7 @@ class CatalogTable(pulumi.CustomResource):
             raise TypeError('Expected property storage_descriptor to be a dict')
         __self__.storage_descriptor = storage_descriptor
         """
-        A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         __props__['storageDescriptor'] = storage_descriptor
 

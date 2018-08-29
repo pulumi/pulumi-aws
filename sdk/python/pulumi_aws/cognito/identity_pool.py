@@ -32,7 +32,7 @@ class IdentityPool(pulumi.CustomResource):
             raise TypeError('Expected property cognito_identity_providers to be a list')
         __self__.cognito_identity_providers = cognito_identity_providers
         """
-        An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+        An array of Amazon Cognito Identity user pools and their client IDs.
         """
         __props__['cognitoIdentityProviders'] = cognito_identity_providers
 

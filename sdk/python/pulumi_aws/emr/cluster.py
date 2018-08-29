@@ -201,7 +201,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property steps to be a list')
         __self__.steps = steps
         """
-        List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+        List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
         """
         __props__['steps'] = steps
 

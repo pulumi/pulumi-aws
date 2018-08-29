@@ -109,12 +109,12 @@ func (r *Budget) BudgetType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["budgetType"])
 }
 
-// Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+// Map of CostFilters key/value pairs to apply to the budget.
 func (r *Budget) CostFilters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["costFilters"])
 }
 
-// Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 func (r *Budget) CostTypes() *pulumi.Output {
 	return r.s.State["costTypes"]
 }
@@ -160,9 +160,9 @@ type BudgetState struct {
 	AccountId interface{}
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType interface{}
-	// Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters interface{}
-	// Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes interface{}
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount interface{}
@@ -186,9 +186,9 @@ type BudgetArgs struct {
 	AccountId interface{}
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType interface{}
-	// Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters interface{}
-	// Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes interface{}
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount interface{}

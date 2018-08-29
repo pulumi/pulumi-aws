@@ -9,7 +9,7 @@ class Rule(pulumi.CustomResource):
     """
     Provides an AWS Config Rule.
     
-    ~> **Note:** Config Rule requires an existing [Configuration Recorder](/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+    ~> **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, input_parameters=None, maximum_execution_frequency=None, name=None, scope=None, source=None):
         """Create a Rule resource with the given unique name, props, and options."""

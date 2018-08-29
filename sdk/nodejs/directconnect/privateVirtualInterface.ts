@@ -66,7 +66,7 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
      */
     public readonly vlan: pulumi.Output<number>;
     /**
-     * The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+     * The ID of the virtual private gateway to which to connect the virtual interface.
      */
     public readonly vpnGatewayId: pulumi.Output<string | undefined>;
 
@@ -174,7 +174,7 @@ export interface PrivateVirtualInterfaceState {
      */
     readonly vlan?: pulumi.Input<number>;
     /**
-     * The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+     * The ID of the virtual private gateway to which to connect the virtual interface.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
@@ -224,7 +224,7 @@ export interface PrivateVirtualInterfaceArgs {
      */
     readonly vlan: pulumi.Input<number>;
     /**
-     * The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+     * The ID of the virtual private gateway to which to connect the virtual interface.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }

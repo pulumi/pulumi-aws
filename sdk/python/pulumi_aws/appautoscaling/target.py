@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class Target(pulumi.CustomResource):
     """
-    Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws_appautoscaling_policy` resource](/docs/providers/aws/r/appautoscaling_policy.html).
+    Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws_appautoscaling_policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
     """
     def __init__(__self__, __name__, __opts__=None, max_capacity=None, min_capacity=None, resource_id=None, role_arn=None, scalable_dimension=None, service_namespace=None):
         """Create a Target resource with the given unique name, props, and options."""

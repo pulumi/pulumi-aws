@@ -33,7 +33,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         __self__.ebs_block_devices = ebs_block_devices
         """
         Additional EBS block devices to attach to the
-        instance.  See [Block Devices](#block-devices) below for details.
+        instance.  See Block Devices below for details.
         """
         __props__['ebsBlockDevices'] = ebs_block_devices
 
@@ -58,7 +58,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         __self__.ephemeral_block_devices = ephemeral_block_devices
         """
         Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+        "Instance Store") volumes on the instance. See Block Devices below for details.
         """
         __props__['ephemeralBlockDevices'] = ephemeral_block_devices
 
@@ -132,7 +132,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         __self__.root_block_device = root_block_device
         """
         Customize details about the root block
-        device of the instance. See [Block Devices](#block-devices) below for details.
+        device of the instance. See Block Devices below for details.
         """
         __props__['rootBlockDevice'] = root_block_device
 

@@ -8,10 +8,10 @@ import pulumi.runtime
 class VpcEndpointService(pulumi.CustomResource):
     """
     Provides a VPC Endpoint Service resource.
-    Service consumers can create an _Interface_ [VPC Endpoint](vpc_endpoint.html) to connect to the service.
+    Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
     
     ~> **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
-    both a standalone [VPC Endpoint Service Allowed Principal](vpc_endpoint_service_allowed_principal.html) resource
+    both a standalone VPC Endpoint Service Allowed Principal resource
     and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
     a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     and will overwrite the association.

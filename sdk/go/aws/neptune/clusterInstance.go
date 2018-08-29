@@ -152,7 +152,7 @@ func (r *ClusterInstance) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-// The identifier of the [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+// The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
 func (r *ClusterInstance) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -202,7 +202,7 @@ func (r *ClusterInstance) NeptuneParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["neptuneParameterGroupName"])
 }
 
-// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html).
+// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
 func (r *ClusterInstance) NeptuneSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["neptuneSubnetGroupName"])
 }
@@ -261,7 +261,7 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone interface{}
-	// The identifier of the [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId interface{}
@@ -281,7 +281,7 @@ type ClusterInstanceState struct {
 	KmsKeyArn interface{}
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName interface{}
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
 	NeptuneSubnetGroupName interface{}
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port interface{}
@@ -311,7 +311,7 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone interface{}
-	// The identifier of the [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine interface{}
@@ -325,7 +325,7 @@ type ClusterInstanceArgs struct {
 	InstanceClass interface{}
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName interface{}
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
 	NeptuneSubnetGroupName interface{}
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port interface{}

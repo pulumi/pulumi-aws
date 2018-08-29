@@ -32,7 +32,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+     * The Amazon Cognito User Pool configuration. See below
      */
     public readonly userPoolConfig: pulumi.Output<{ appIdClientRegex?: string, awsRegion: string, defaultAction: string, userPoolId: string } | undefined>;
 
@@ -83,7 +83,7 @@ export interface GraphQLApiState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+     * The Amazon Cognito User Pool configuration. See below
      */
     readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }
@@ -101,7 +101,7 @@ export interface GraphQLApiArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+     * The Amazon Cognito User Pool configuration. See below
      */
     readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }

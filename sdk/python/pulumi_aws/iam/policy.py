@@ -61,7 +61,7 @@ class Policy(pulumi.CustomResource):
         """
         The policy document. This is a JSON formatted string.
         The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-        source](/docs/providers/aws/d/iam_policy_document.html)
+        source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
         are all helpful here.
         """
         __props__['policy'] = policy

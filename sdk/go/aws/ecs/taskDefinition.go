@@ -131,7 +131,7 @@ func (r *TaskDefinition) NetworkMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkMode"])
 }
 
-// A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 func (r *TaskDefinition) PlacementConstraints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
 }
@@ -151,7 +151,7 @@ func (r *TaskDefinition) TaskRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["taskRoleArn"])
 }
 
-// A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+// A set of volume blocks that containers in your task may use.
 func (r *TaskDefinition) Volumes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["volumes"])
 }
@@ -177,7 +177,7 @@ type TaskDefinitionState struct {
 	Memory interface{}
 	// The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 	NetworkMode interface{}
-	// A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 	PlacementConstraints interface{}
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities interface{}
@@ -185,7 +185,7 @@ type TaskDefinitionState struct {
 	Revision interface{}
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn interface{}
-	// A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+	// A set of volume blocks that containers in your task may use.
 	Volumes interface{}
 }
 
@@ -208,12 +208,12 @@ type TaskDefinitionArgs struct {
 	Memory interface{}
 	// The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 	NetworkMode interface{}
-	// A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 	PlacementConstraints interface{}
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities interface{}
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn interface{}
-	// A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+	// A set of volume blocks that containers in your task may use.
 	Volumes interface{}
 }
