@@ -87,12 +87,12 @@ func (r *Pipeline) ArtifactStore() *pulumi.Output {
 	return r.s.State["artifactStore"]
 }
 
-// The action declaration's name.
+// The name of the pipeline.
 func (r *Pipeline) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 func (r *Pipeline) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
@@ -108,9 +108,9 @@ type PipelineState struct {
 	// An artifact_store block. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore interface{}
-	// The action declaration's name.
+	// The name of the pipeline.
 	Name interface{}
-	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn interface{}
 	Stages interface{}
 }
@@ -120,9 +120,9 @@ type PipelineArgs struct {
 	// An artifact_store block. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore interface{}
-	// The action declaration's name.
+	// The name of the pipeline.
 	Name interface{}
-	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn interface{}
 	Stages interface{}
 }

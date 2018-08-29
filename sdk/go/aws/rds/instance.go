@@ -27,7 +27,7 @@ import (
 // 
 // ~> **Note:** All arguments including the username and password will be stored in
 // the raw state as plain-text. [Read more about sensitive data in
-// state](/docs/state/sensitive-data.html).
+// state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Instance struct {
 	s *pulumi.ResourceState
 }
@@ -294,7 +294,7 @@ func (r *Instance) CopyTagsToSnapshot() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
 }
 
-// Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+// Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
 // be created in the VPC associated with the DB subnet group. If unspecified, will
 // be created in the `default` VPC, or in EC2 Classic, if available. When working
 // with read replicas, it needs to be specified only if the source database
@@ -317,7 +317,7 @@ func (r *Instance) Endpoint() *pulumi.StringOutput {
 
 // (Required unless a `snapshot_identifier` or `replicate_source_db`
 // is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-// Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+// Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
 // For information on the difference between the available Aurora MySQL engines
 // see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 // in the Amazon RDS User Guide.
@@ -329,7 +329,7 @@ func (r *Instance) Engine() *pulumi.StringOutput {
 // is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
 // this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
 // For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-// Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+// Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
 func (r *Instance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
@@ -593,7 +593,7 @@ type InstanceState struct {
 	// `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
 	// Default is `false`.
 	CopyTagsToSnapshot interface{}
-	// Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+	// Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it needs to be specified only if the source database
@@ -607,7 +607,7 @@ type InstanceState struct {
 	Endpoint interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+	// Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -616,7 +616,7 @@ type InstanceState struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
 	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. If omitted, no final snapshot will be made.
@@ -773,7 +773,7 @@ type InstanceArgs struct {
 	// `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
 	// Default is `false`.
 	CopyTagsToSnapshot interface{}
-	// Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+	// Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
 	// with read replicas, it needs to be specified only if the source database
@@ -785,7 +785,7 @@ type InstanceArgs struct {
 	EnabledCloudwatchLogsExports interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+	// Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
 	// For information on the difference between the available Aurora MySQL engines
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
@@ -794,7 +794,7 @@ type InstanceArgs struct {
 	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
 	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-	// Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+	// Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. If omitted, no final snapshot will be made.

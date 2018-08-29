@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Provides an OpsWorks RDS DB Instance resource.
  * 
  * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**

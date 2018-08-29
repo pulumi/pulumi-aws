@@ -98,17 +98,17 @@ func (r *DataSource) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// DynamoDB settings. See [below](#dynamodb_config)
+// DynamoDB settings. See below
 func (r *DataSource) DynamodbConfig() *pulumi.Output {
 	return r.s.State["dynamodbConfig"]
 }
 
-// Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+// Amazon Elasticsearch settings. See below
 func (r *DataSource) ElasticsearchConfig() *pulumi.Output {
 	return r.s.State["elasticsearchConfig"]
 }
 
-// AWS Lambda settings. See [below](#lambda_config)
+// AWS Lambda settings. See below
 func (r *DataSource) LambdaConfig() *pulumi.Output {
 	return r.s.State["lambdaConfig"]
 }
@@ -136,11 +136,11 @@ type DataSourceState struct {
 	Arn interface{}
 	// A description of the DataSource.
 	Description interface{}
-	// DynamoDB settings. See [below](#dynamodb_config)
+	// DynamoDB settings. See below
 	DynamodbConfig interface{}
-	// Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig interface{}
-	// AWS Lambda settings. See [below](#lambda_config)
+	// AWS Lambda settings. See below
 	LambdaConfig interface{}
 	// A user-supplied name for the DataSource.
 	Name interface{}
@@ -156,11 +156,11 @@ type DataSourceArgs struct {
 	ApiId interface{}
 	// A description of the DataSource.
 	Description interface{}
-	// DynamoDB settings. See [below](#dynamodb_config)
+	// DynamoDB settings. See below
 	DynamodbConfig interface{}
-	// Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig interface{}
-	// AWS Lambda settings. See [below](#lambda_config)
+	// AWS Lambda settings. See below
 	LambdaConfig interface{}
 	// A user-supplied name for the DataSource.
 	Name interface{}

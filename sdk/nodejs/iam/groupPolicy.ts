@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import {PolicyDocument} from "./documents";
+
 /**
  * Provides an IAM policy attached to a group.
  */
@@ -94,7 +96,7 @@ export interface GroupPolicyState {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
 /**
@@ -119,5 +121,5 @@ export interface GroupPolicyArgs {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
 }

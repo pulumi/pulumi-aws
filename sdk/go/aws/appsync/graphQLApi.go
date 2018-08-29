@@ -80,7 +80,7 @@ func (r *GraphQLApi) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+// The Amazon Cognito User Pool configuration. See below
 func (r *GraphQLApi) UserPoolConfig() *pulumi.Output {
 	return r.s.State["userPoolConfig"]
 }
@@ -93,7 +93,7 @@ type GraphQLApiState struct {
 	AuthenticationType interface{}
 	// A user-supplied name for the GraphqlApi.
 	Name interface{}
-	// The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+	// The Amazon Cognito User Pool configuration. See below
 	UserPoolConfig interface{}
 }
 
@@ -103,6 +103,6 @@ type GraphQLApiArgs struct {
 	AuthenticationType interface{}
 	// A user-supplied name for the GraphqlApi.
 	Name interface{}
-	// The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+	// The Amazon Cognito User Pool configuration. See below
 	UserPoolConfig interface{}
 }

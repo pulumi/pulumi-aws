@@ -9,7 +9,7 @@ import {Tags} from "../index";
  * Provides a security group resource.
  * 
  * ~> **NOTE on Security Groups and Security Group Rules:** Terraform currently
- * provides both a standalone [Security Group Rule resource](security_group_rule.html) (a single `ingress` or
+ * provides both a standalone Security Group Rule resource (a single `ingress` or
  * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
  * defined in-line. At this time you cannot use a Security Group with in-line rules
  * in conjunction with any Security Group Rule resources. Doing so will cause
@@ -33,7 +33,10 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Description of this egress rule.
+     * The security group description. Defaults to
+     * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
+     * `GroupDescription` attribute, for which there is no Update API. If you'd like
+     * to classify your security groups in a way that can be updated, use `tags`.
      */
     public readonly description: pulumi.Output<string>;
     /**
@@ -127,7 +130,10 @@ export interface SecurityGroupState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Description of this egress rule.
+     * The security group description. Defaults to
+     * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
+     * `GroupDescription` attribute, for which there is no Update API. If you'd like
+     * to classify your security groups in a way that can be updated, use `tags`.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -179,7 +185,10 @@ export interface SecurityGroupState {
  */
 export interface SecurityGroupArgs {
     /**
-     * Description of this egress rule.
+     * The security group description. Defaults to
+     * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
+     * `GroupDescription` attribute, for which there is no Update API. If you'd like
+     * to classify your security groups in a way that can be updated, use `tags`.
      */
     readonly description?: pulumi.Input<string>;
     /**

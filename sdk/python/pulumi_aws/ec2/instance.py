@@ -8,7 +8,7 @@ import pulumi.runtime
 class Instance(pulumi.CustomResource):
     """
     Provides an EC2 instance resource. This allows instances to be created, updated,
-    and deleted. Instances also support [provisioning](/docs/provisioners/index.html).
+    and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
     """
     def __init__(__self__, __name__, __opts__=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
         """Create a Instance resource with the given unique name, props, and options."""
@@ -69,7 +69,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property credit_specification to be a dict')
         __self__.credit_specification = credit_specification
         """
-        Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+        Customize the credit specification of the instance. See Credit Specification below for more details.
         """
         __props__['creditSpecification'] = credit_specification
 
@@ -87,7 +87,7 @@ class Instance(pulumi.CustomResource):
         __self__.ebs_block_devices = ebs_block_devices
         """
         Additional EBS block devices to attach to the
-        instance.  See [Block Devices](#block-devices) below for details.
+        instance.  See Block Devices below for details.
         """
         __props__['ebsBlockDevices'] = ebs_block_devices
 
@@ -108,7 +108,7 @@ class Instance(pulumi.CustomResource):
         __self__.ephemeral_block_devices = ephemeral_block_devices
         """
         Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+        "Instance Store") volumes on the instance. See Block Devices below for details.
         """
         __props__['ephemeralBlockDevices'] = ephemeral_block_devices
 
@@ -168,7 +168,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property key_name to be a basestring')
         __self__.key_name = key_name
         """
-        The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+        The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
         """
         __props__['keyName'] = key_name
 
@@ -184,7 +184,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property network_interfaces to be a list')
         __self__.network_interfaces = network_interfaces
         """
-        Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+        Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         """
         __props__['networkInterfaces'] = network_interfaces
 
@@ -210,7 +210,7 @@ class Instance(pulumi.CustomResource):
         __self__.root_block_device = root_block_device
         """
         Customize details about the root block
-        device of the instance. See [Block Devices](#block-devices) below for details.
+        device of the instance. See Block Devices below for details.
         """
         __props__['rootBlockDevice'] = root_block_device
 
@@ -294,7 +294,7 @@ class Instance(pulumi.CustomResource):
         __self__.instance_state = pulumi.runtime.UNKNOWN
         __self__.network_interface_id = pulumi.runtime.UNKNOWN
         """
-        The ID of the network interface to attach.
+        The ID of the network interface that was created with the instance.
         """
         __self__.password_data = pulumi.runtime.UNKNOWN
         """
@@ -321,7 +321,7 @@ class Instance(pulumi.CustomResource):
         """
         __self__.public_ip = pulumi.runtime.UNKNOWN
         """
-        The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         """
 
         super(Instance, __self__).__init__(

@@ -153,7 +153,7 @@ func (r *PrivateVirtualInterface) Vlan() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["vlan"])
 }
 
-// The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+// The ID of the virtual private gateway to which to connect the virtual interface.
 func (r *PrivateVirtualInterface) VpnGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
@@ -182,7 +182,7 @@ type PrivateVirtualInterfaceState struct {
 	Tags interface{}
 	// The VLAN ID.
 	Vlan interface{}
-	// The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+	// The ID of the virtual private gateway to which to connect the virtual interface.
 	VpnGatewayId interface{}
 }
 
@@ -208,6 +208,6 @@ type PrivateVirtualInterfaceArgs struct {
 	Tags interface{}
 	// The VLAN ID.
 	Vlan interface{}
-	// The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+	// The ID of the virtual private gateway to which to connect the virtual interface.
 	VpnGatewayId interface{}
 }

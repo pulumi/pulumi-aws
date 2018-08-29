@@ -24,7 +24,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property admin_create_user_config to be a dict')
         __self__.admin_create_user_config = admin_create_user_config
         """
-        The configuration for [AdminCreateUser](#admin-create-user-config) requests.
+        The configuration for AdminCreateUser requests.
         """
         __props__['adminCreateUserConfig'] = admin_create_user_config
 
@@ -48,7 +48,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property device_configuration to be a dict')
         __self__.device_configuration = device_configuration
         """
-        The configuration for the [user pool's device tracking](#device-configuration).
+        The configuration for the user pool's device tracking.
         """
         __props__['deviceConfiguration'] = device_configuration
 
@@ -56,7 +56,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property email_configuration to be a dict')
         __self__.email_configuration = email_configuration
         """
-        The [Email Configuration](#email-configuration).
+        The Email Configuration.
         """
         __props__['emailConfiguration'] = email_configuration
 
@@ -80,7 +80,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property lambda_config to be a dict')
         __self__.lambda_config = lambda_config
         """
-        A container for the AWS [Lambda triggers](#lambda-configuration) associated with the user pool.
+        A container for the AWS Lambda triggers associated with the user pool.
         """
         __props__['lambdaConfig'] = lambda_config
 
@@ -104,7 +104,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property password_policy to be a dict')
         __self__.password_policy = password_policy
         """
-        A container for information about the [user pool password policy](#password-policy).
+        A container for information about the user pool password policy.
         """
         __props__['passwordPolicy'] = password_policy
 
@@ -112,7 +112,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property schemas to be a list')
         __self__.schemas = schemas
         """
-        A container with the [schema attributes](#schema-attributes) of a user pool. Maximum of 50 attributes.
+        A container with the schema attributes of a user pool. Maximum of 50 attributes.
         """
         __props__['schemas'] = schemas
 
@@ -128,7 +128,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property sms_configuration to be a dict')
         __self__.sms_configuration = sms_configuration
         """
-        The [SMS Configuration](#sms-configuration).
+        The SMS Configuration.
         """
         __props__['smsConfiguration'] = sms_configuration
 
@@ -160,7 +160,7 @@ class UserPool(pulumi.CustomResource):
             raise TypeError('Expected property verification_message_template to be a dict')
         __self__.verification_message_template = verification_message_template
         """
-        The [verification message templates](#verification-message-template) configuration.
+        The verification message templates configuration.
         """
         __props__['verificationMessageTemplate'] = verification_message_template
 

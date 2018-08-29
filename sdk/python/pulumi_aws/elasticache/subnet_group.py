@@ -11,7 +11,7 @@ class SubnetGroup(pulumi.CustomResource):
     
     ~> **NOTE:** ElastiCache Subnet Groups are only for use when working with an
     ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
-    [ElastiCache Security Group resource](elasticache_security_group.html).
+    ElastiCache Security Group resource.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, name=None, subnet_ids=None):
         """Create a SubnetGroup resource with the given unique name, props, and options."""

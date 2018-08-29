@@ -12,7 +12,7 @@ class SecurityGroup(pulumi.CustomResource):
     
     ~> **NOTE:** ElastiCache Security Groups are for use only when working with an
     ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
-    [ElastiCache Subnet Group resource](elasticache_subnet_group.html).
+    ElastiCache Subnet Group resource.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, name=None, security_group_names=None):
         """Create a SecurityGroup resource with the given unique name, props, and options."""

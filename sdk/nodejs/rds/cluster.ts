@@ -29,7 +29,7 @@ import {Tags} from "../index";
  * for more information.
  * 
  * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbClusterParameterGroupName: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
@@ -339,7 +339,7 @@ export interface ClusterState {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -488,7 +488,7 @@ export interface ClusterArgs {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**

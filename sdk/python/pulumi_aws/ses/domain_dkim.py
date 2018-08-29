@@ -9,7 +9,7 @@ class DomainDkim(pulumi.CustomResource):
     """
     Provides an SES domain DKIM generation resource.
     
-    Domain ownership needs to be confirmed first using [ses_domain_identity Resource](/docs/providers/aws/r/ses_domain_identity.html)
+    Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
     """
     def __init__(__self__, __name__, __opts__=None, domain=None):
         """Create a DomainDkim resource with the given unique name, props, and options."""

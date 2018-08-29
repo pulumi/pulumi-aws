@@ -100,7 +100,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property credit_specification to be a dict')
         __self__.credit_specification = credit_specification
         """
-        Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+        Customize the credit specification of the instance. See Credit Specification below for more details.
         """
         __props__['creditSpecification'] = credit_specification
 
@@ -118,7 +118,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __self__.ebs_block_devices = ebs_block_devices
         """
         Additional EBS block devices to attach to the
-        instance.  See [Block Devices](#block-devices) below for details.
+        instance.  See Block Devices below for details.
         """
         __props__['ebsBlockDevices'] = ebs_block_devices
 
@@ -139,7 +139,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __self__.ephemeral_block_devices = ephemeral_block_devices
         """
         Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+        "Instance Store") volumes on the instance. See Block Devices below for details.
         """
         __props__['ephemeralBlockDevices'] = ephemeral_block_devices
 
@@ -207,7 +207,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property key_name to be a basestring')
         __self__.key_name = key_name
         """
-        The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+        The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
         """
         __props__['keyName'] = key_name
 
@@ -232,7 +232,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property network_interfaces to be a list')
         __self__.network_interfaces = network_interfaces
         """
-        Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+        Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         """
         __props__['networkInterfaces'] = network_interfaces
 
@@ -258,7 +258,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __self__.root_block_device = root_block_device
         """
         Customize details about the root block
-        device of the instance. See [Block Devices](#block-devices) below for details.
+        device of the instance. See Block Devices below for details.
         """
         __props__['rootBlockDevice'] = root_block_device
 
@@ -381,9 +381,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __self__.arn = pulumi.runtime.UNKNOWN
         __self__.instance_state = pulumi.runtime.UNKNOWN
         __self__.network_interface_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the network interface to attach.
-        """
         __self__.password_data = pulumi.runtime.UNKNOWN
         __self__.primary_network_interface_id = pulumi.runtime.UNKNOWN
         __self__.private_dns = pulumi.runtime.UNKNOWN

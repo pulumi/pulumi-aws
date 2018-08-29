@@ -120,7 +120,7 @@ type GetInstanceResult struct {
 	// The public DNS name assigned to the Instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns interface{}
-	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
 	PublicIp interface{}
 	// The root block device mappings of the Instance
 	RootBlockDevices interface{}

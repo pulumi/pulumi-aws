@@ -99,7 +99,7 @@ func (r *Policy) Path() *pulumi.StringOutput {
 
 // The policy document. This is a JSON formatted string.
 // The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-// source](/docs/providers/aws/d/iam_policy_document.html)
+// source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
 // are all helpful here.
 func (r *Policy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
@@ -120,7 +120,7 @@ type PolicyState struct {
 	Path interface{}
 	// The policy document. This is a JSON formatted string.
 	// The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-	// source](/docs/providers/aws/d/iam_policy_document.html)
+	// source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
 	// are all helpful here.
 	Policy interface{}
 }
@@ -138,7 +138,7 @@ type PolicyArgs struct {
 	Path interface{}
 	// The policy document. This is a JSON formatted string.
 	// The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-	// source](/docs/providers/aws/d/iam_policy_document.html)
+	// source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
 	// are all helpful here.
 	Policy interface{}
 }

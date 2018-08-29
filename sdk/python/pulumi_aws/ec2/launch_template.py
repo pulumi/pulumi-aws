@@ -25,7 +25,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __self__.block_device_mappings = block_device_mappings
         """
         Specify volumes to attach to the instance besides the volumes specified by the AMI.
-        See [Block Devices](#block-devices) below for details.
+        See Block Devices below for details.
         """
         __props__['blockDeviceMappings'] = block_device_mappings
 
@@ -33,8 +33,8 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property credit_specification to be a dict')
         __self__.credit_specification = credit_specification
         """
-        Customize the credit specification of the instance. See [Credit 
-        Specification](#credit-specification) below for more details.
+        Customize the credit specification of the instance. See Credit 
+        Specification below for more details.
         """
         __props__['creditSpecification'] = credit_specification
 
@@ -42,7 +42,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property description to be a basestring')
         __self__.description = description
         """
-        Description of the network interface.
+        Description of the launch template.
         """
         __props__['description'] = description
 
@@ -67,7 +67,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property elastic_gpu_specifications to be a list')
         __self__.elastic_gpu_specifications = elastic_gpu_specifications
         """
-        The elastic GPU to attach to the instance. See [Elastic GPU](#elastic-gpu)
+        The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
         """
         __props__['elasticGpuSpecifications'] = elastic_gpu_specifications
@@ -76,7 +76,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property iam_instance_profile to be a dict')
         __self__.iam_instance_profile = iam_instance_profile
         """
-        The IAM Instance Profile to launch the instance with. See [Instance Profile](#instance-profile)
+        The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
         """
         __props__['iamInstanceProfile'] = iam_instance_profile
@@ -102,7 +102,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property instance_market_options to be a dict')
         __self__.instance_market_options = instance_market_options
         """
-        The market (purchasing) option for the instance. See [Market Options](#market-options)
+        The market (purchasing) option for the instance. See Market Options
         below for details.
         """
         __props__['instanceMarketOptions'] = instance_market_options
@@ -135,7 +135,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property monitoring to be a dict')
         __self__.monitoring = monitoring
         """
-        The monitoring option for the instance. See [Monitoring](#monitoring) below for more details.
+        The monitoring option for the instance. See Monitoring below for more details.
         """
         __props__['monitoring'] = monitoring
 
@@ -143,7 +143,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the instance profile.
+        The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
         """
         __props__['name'] = name
 
@@ -159,8 +159,8 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property network_interfaces to be a list')
         __self__.network_interfaces = network_interfaces
         """
-        Customize network interfaces to be attached at instance boot time. See [Network 
-        Interfaces](#network-interfaces) below for more details.
+        Customize network interfaces to be attached at instance boot time. See Network 
+        Interfaces below for more details.
         """
         __props__['networkInterfaces'] = network_interfaces
 
@@ -168,7 +168,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property placement to be a dict')
         __self__.placement = placement
         """
-        The placement of the instance. See [Placement](#placement) below for more details.
+        The placement of the instance. See Placement below for more details.
         """
         __props__['placement'] = placement
 
@@ -193,7 +193,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property tag_specifications to be a list')
         __self__.tag_specifications = tag_specifications
         """
-        The tags to apply to the resources during launch. See [Tags](#tags) below for more details.
+        The tags to apply to the resources during launch. See Tags below for more details.
         """
         __props__['tagSpecifications'] = tag_specifications
 
@@ -201,7 +201,7 @@ class LaunchTemplate(pulumi.CustomResource):
             raise TypeError('Expected property tags to be a dict')
         __self__.tags = tags
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the launch template.
         """
         __props__['tags'] = tags
 
@@ -223,7 +223,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
         __self__.arn = pulumi.runtime.UNKNOWN
         """
-        The Amazon Resource Name (ARN) of the instance profile.
+        Amazon Resource Name (ARN) of the launch template.
         """
         __self__.default_version = pulumi.runtime.UNKNOWN
         """

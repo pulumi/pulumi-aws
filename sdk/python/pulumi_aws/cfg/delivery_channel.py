@@ -9,7 +9,7 @@ class DeliveryChannel(pulumi.CustomResource):
     """
     Provides an AWS Config Delivery Channel.
     
-    ~> **Note:** Delivery Channel requires a [Configuration Recorder](/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    ~> **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, s3_bucket_name=None, s3_key_prefix=None, snapshot_delivery_properties=None, sns_topic_arn=None):
         """Create a DeliveryChannel resource with the given unique name, props, and options."""

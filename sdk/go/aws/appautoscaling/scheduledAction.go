@@ -108,7 +108,7 @@ func (r *ScheduledAction) ScalableDimension() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scalableDimension"])
 }
 
-// The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+// The new minimum and maximum capacity. You can set both values or just one. See below
 func (r *ScheduledAction) ScalableTargetAction() *pulumi.Output {
 	return r.s.State["scalableTargetAction"]
 }
@@ -140,7 +140,7 @@ type ScheduledActionState struct {
 	ResourceId interface{}
 	// The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
 	ScalableDimension interface{}
-	// The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+	// The new minimum and maximum capacity. You can set both values or just one. See below
 	ScalableTargetAction interface{}
 	// The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
 	Schedule interface{}
@@ -160,7 +160,7 @@ type ScheduledActionArgs struct {
 	ResourceId interface{}
 	// The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
 	ScalableDimension interface{}
-	// The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+	// The new minimum and maximum capacity. You can set both values or just one. See below
 	ScalableTargetAction interface{}
 	// The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
 	Schedule interface{}

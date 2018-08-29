@@ -32,15 +32,15 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly description: pulumi.Output<string | undefined>;
     /**
-     * DynamoDB settings. See [below](#dynamodb_config)
+     * DynamoDB settings. See below
      */
     public readonly dynamodbConfig: pulumi.Output<{ region: string, tableName: string, useCallerCredentials?: boolean } | undefined>;
     /**
-     * Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+     * Amazon Elasticsearch settings. See below
      */
     public readonly elasticsearchConfig: pulumi.Output<{ endpoint: string, region: string } | undefined>;
     /**
-     * AWS Lambda settings. See [below](#lambda_config)
+     * AWS Lambda settings. See below
      */
     public readonly lambdaConfig: pulumi.Output<{ functionArn: string } | undefined>;
     /**
@@ -116,15 +116,15 @@ export interface DataSourceState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * DynamoDB settings. See [below](#dynamodb_config)
+     * DynamoDB settings. See below
      */
     readonly dynamodbConfig?: pulumi.Input<{ region: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
-     * Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+     * Amazon Elasticsearch settings. See below
      */
     readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region: pulumi.Input<string> }>;
     /**
-     * AWS Lambda settings. See [below](#lambda_config)
+     * AWS Lambda settings. See below
      */
     readonly lambdaConfig?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
@@ -154,15 +154,15 @@ export interface DataSourceArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * DynamoDB settings. See [below](#dynamodb_config)
+     * DynamoDB settings. See below
      */
     readonly dynamodbConfig?: pulumi.Input<{ region: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
-     * Amazon Elasticsearch settings. See [below](#elasticsearch_config)
+     * Amazon Elasticsearch settings. See below
      */
     readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region: pulumi.Input<string> }>;
     /**
-     * AWS Lambda settings. See [below](#lambda_config)
+     * AWS Lambda settings. See below
      */
     readonly lambdaConfig?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**

@@ -26,7 +26,7 @@ class Listener(pulumi.CustomResource):
             raise TypeError('Expected property certificate_arn to be a basestring')
         __self__.certificate_arn = certificate_arn
         """
-        The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+        The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
         """
         __props__['certificateArn'] = certificate_arn
 

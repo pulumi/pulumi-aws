@@ -135,7 +135,7 @@ func (r *AmiCopy) EnaSupport() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enaSupport"])
 }
 
-// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 func (r *AmiCopy) Encrypted() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
 }
@@ -158,9 +158,7 @@ func (r *AmiCopy) KernelId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kernelId"])
 }
 
-// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-// if this parameter is not specified, the default CMK for EBS is used
+// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 func (r *AmiCopy) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -229,7 +227,7 @@ type AmiCopyState struct {
 	EbsBlockDevices interface{}
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport interface{}
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -240,9 +238,7 @@ type AmiCopyState struct {
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId interface{}
-	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId interface{}
 	ManageEbsSnapshots interface{}
 	// A region-unique name for the AMI.
@@ -276,14 +272,12 @@ type AmiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices interface{}
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted interface{}
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices interface{}
-	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId interface{}
 	// A region-unique name for the AMI.
 	Name interface{}

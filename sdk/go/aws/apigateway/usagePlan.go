@@ -68,7 +68,7 @@ func (r *UsagePlan) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The associated [API stages](#api-stages-arguments) of the usage plan.
+// The associated API stages of the usage plan.
 func (r *UsagePlan) ApiStages() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["apiStages"])
 }
@@ -88,19 +88,19 @@ func (r *UsagePlan) ProductCode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["productCode"])
 }
 
-// The [quota settings](#quota-settings-arguments) of the usage plan.
+// The quota settings of the usage plan.
 func (r *UsagePlan) QuotaSettings() *pulumi.Output {
 	return r.s.State["quotaSettings"]
 }
 
-// The [throttling limits](#throttling-settings-arguments) of the usage plan.
+// The throttling limits of the usage plan.
 func (r *UsagePlan) ThrottleSettings() *pulumi.Output {
 	return r.s.State["throttleSettings"]
 }
 
 // Input properties used for looking up and filtering UsagePlan resources.
 type UsagePlanState struct {
-	// The associated [API stages](#api-stages-arguments) of the usage plan.
+	// The associated API stages of the usage plan.
 	ApiStages interface{}
 	// The description of a usage plan.
 	Description interface{}
@@ -108,15 +108,15 @@ type UsagePlanState struct {
 	Name interface{}
 	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode interface{}
-	// The [quota settings](#quota-settings-arguments) of the usage plan.
+	// The quota settings of the usage plan.
 	QuotaSettings interface{}
-	// The [throttling limits](#throttling-settings-arguments) of the usage plan.
+	// The throttling limits of the usage plan.
 	ThrottleSettings interface{}
 }
 
 // The set of arguments for constructing a UsagePlan resource.
 type UsagePlanArgs struct {
-	// The associated [API stages](#api-stages-arguments) of the usage plan.
+	// The associated API stages of the usage plan.
 	ApiStages interface{}
 	// The description of a usage plan.
 	Description interface{}
@@ -124,8 +124,8 @@ type UsagePlanArgs struct {
 	Name interface{}
 	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode interface{}
-	// The [quota settings](#quota-settings-arguments) of the usage plan.
+	// The quota settings of the usage plan.
 	QuotaSettings interface{}
-	// The [throttling limits](#throttling-settings-arguments) of the usage plan.
+	// The throttling limits of the usage plan.
 	ThrottleSettings interface{}
 }

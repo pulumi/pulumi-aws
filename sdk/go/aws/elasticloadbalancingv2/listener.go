@@ -87,7 +87,7 @@ func (r *Listener) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
 func (r *Listener) CertificateArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
 }
@@ -121,7 +121,7 @@ func (r *Listener) SslPolicy() *pulumi.StringOutput {
 type ListenerState struct {
 	// The ARN of the listener (matches `id`)
 	Arn interface{}
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
 	CertificateArn interface{}
 	// An Action block. Action blocks are documented below.
 	DefaultAction interface{}
@@ -137,7 +137,7 @@ type ListenerState struct {
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
 	CertificateArn interface{}
 	// An Action block. Action blocks are documented below.
 	DefaultAction interface{}

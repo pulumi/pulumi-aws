@@ -9,7 +9,7 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     Provides an ElastiCache Replication Group resource.
     For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
-    [`aws_elasticache_cluster` resource](/docs/providers/aws/r/elasticache_cluster.html).
+    [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
     """
     def __init__(__self__, __name__, __opts__=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None):
         """Create a ReplicationGroup resource with the given unique name, props, and options."""

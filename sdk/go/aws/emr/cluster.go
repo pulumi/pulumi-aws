@@ -255,7 +255,7 @@ func (r *Cluster) ServiceRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRole"])
 }
 
-// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
 func (r *Cluster) Steps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["steps"])
 }
@@ -325,7 +325,7 @@ type ClusterState struct {
 	SecurityConfiguration interface{}
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
 	ServiceRole interface{}
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
@@ -382,7 +382,7 @@ type ClusterArgs struct {
 	SecurityConfiguration interface{}
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
 	ServiceRole interface{}
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}

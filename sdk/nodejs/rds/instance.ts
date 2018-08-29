@@ -25,7 +25,7 @@ import {Tags} from "../index";
  * 
  * ~> **Note:** All arguments including the username and password will be stored in
  * the raw state as plain-text. [Read more about sensitive data in
- * state](/docs/state/sensitive-data.html).
+ * state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
-     * Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
      * with read replicas, it needs to be specified only if the source database
@@ -128,7 +128,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
      * For information on the difference between the available Aurora MySQL engines
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
@@ -139,7 +139,7 @@ export class Instance extends pulumi.CustomResource {
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
      */
     public readonly engineVersion: pulumi.Output<string>;
     /**
@@ -516,7 +516,7 @@ export interface InstanceState {
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
      * with read replicas, it needs to be specified only if the source database
@@ -536,7 +536,7 @@ export interface InstanceState {
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
      * For information on the difference between the available Aurora MySQL engines
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
@@ -547,7 +547,7 @@ export interface InstanceState {
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -790,7 +790,7 @@ export interface InstanceArgs {
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
      * with read replicas, it needs to be specified only if the source database
@@ -806,7 +806,7 @@ export interface InstanceArgs {
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
      * For information on the difference between the available Aurora MySQL engines
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
@@ -817,7 +817,7 @@ export interface InstanceArgs {
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**

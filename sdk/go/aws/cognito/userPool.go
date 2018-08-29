@@ -112,7 +112,7 @@ func (r *UserPool) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The configuration for [AdminCreateUser](#admin-create-user-config) requests.
+// The configuration for AdminCreateUser requests.
 func (r *UserPool) AdminCreateUserConfig() *pulumi.Output {
 	return r.s.State["adminCreateUserConfig"]
 }
@@ -137,12 +137,12 @@ func (r *UserPool) CreationDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["creationDate"])
 }
 
-// The configuration for the [user pool's device tracking](#device-configuration).
+// The configuration for the user pool's device tracking.
 func (r *UserPool) DeviceConfiguration() *pulumi.Output {
 	return r.s.State["deviceConfiguration"]
 }
 
-// The [Email Configuration](#email-configuration).
+// The Email Configuration.
 func (r *UserPool) EmailConfiguration() *pulumi.Output {
 	return r.s.State["emailConfiguration"]
 }
@@ -162,7 +162,7 @@ func (r *UserPool) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
-// A container for the AWS [Lambda triggers](#lambda-configuration) associated with the user pool.
+// A container for the AWS Lambda triggers associated with the user pool.
 func (r *UserPool) LambdaConfig() *pulumi.Output {
 	return r.s.State["lambdaConfig"]
 }
@@ -182,12 +182,12 @@ func (r *UserPool) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A container for information about the [user pool password policy](#password-policy).
+// A container for information about the user pool password policy.
 func (r *UserPool) PasswordPolicy() *pulumi.Output {
 	return r.s.State["passwordPolicy"]
 }
 
-// A container with the [schema attributes](#schema-attributes) of a user pool. Maximum of 50 attributes.
+// A container with the schema attributes of a user pool. Maximum of 50 attributes.
 func (r *UserPool) Schemas() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["schemas"])
 }
@@ -197,7 +197,7 @@ func (r *UserPool) SmsAuthenticationMessage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["smsAuthenticationMessage"])
 }
 
-// The [SMS Configuration](#sms-configuration).
+// The SMS Configuration.
 func (r *UserPool) SmsConfiguration() *pulumi.Output {
 	return r.s.State["smsConfiguration"]
 }
@@ -217,14 +217,14 @@ func (r *UserPool) UsernameAttributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["usernameAttributes"])
 }
 
-// The [verification message templates](#verification-message-template) configuration.
+// The verification message templates configuration.
 func (r *UserPool) VerificationMessageTemplate() *pulumi.Output {
 	return r.s.State["verificationMessageTemplate"]
 }
 
 // Input properties used for looking up and filtering UserPool resources.
 type UserPoolState struct {
-	// The configuration for [AdminCreateUser](#admin-create-user-config) requests.
+	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig interface{}
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
 	AliasAttributes interface{}
@@ -234,9 +234,9 @@ type UserPoolState struct {
 	AutoVerifiedAttributes interface{}
 	// The date the user pool was created.
 	CreationDate interface{}
-	// The configuration for the [user pool's device tracking](#device-configuration).
+	// The configuration for the user pool's device tracking.
 	DeviceConfiguration interface{}
-	// The [Email Configuration](#email-configuration).
+	// The Email Configuration.
 	EmailConfiguration interface{}
 	// A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
 	EmailVerificationMessage interface{}
@@ -244,7 +244,7 @@ type UserPoolState struct {
 	EmailVerificationSubject interface{}
 	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
 	Endpoint interface{}
-	// A container for the AWS [Lambda triggers](#lambda-configuration) associated with the user pool.
+	// A container for the AWS Lambda triggers associated with the user pool.
 	LambdaConfig interface{}
 	// The date the user pool was last modified.
 	LastModifiedDate interface{}
@@ -252,13 +252,13 @@ type UserPoolState struct {
 	MfaConfiguration interface{}
 	// The name of the attribute.
 	Name interface{}
-	// A container for information about the [user pool password policy](#password-policy).
+	// A container for information about the user pool password policy.
 	PasswordPolicy interface{}
-	// A container with the [schema attributes](#schema-attributes) of a user pool. Maximum of 50 attributes.
+	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
 	Schemas interface{}
 	// A string representing the SMS authentication message.
 	SmsAuthenticationMessage interface{}
-	// The [SMS Configuration](#sms-configuration).
+	// The SMS Configuration.
 	SmsConfiguration interface{}
 	// A string representing the SMS verification message.
 	SmsVerificationMessage interface{}
@@ -266,39 +266,39 @@ type UserPoolState struct {
 	Tags interface{}
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
 	UsernameAttributes interface{}
-	// The [verification message templates](#verification-message-template) configuration.
+	// The verification message templates configuration.
 	VerificationMessageTemplate interface{}
 }
 
 // The set of arguments for constructing a UserPool resource.
 type UserPoolArgs struct {
-	// The configuration for [AdminCreateUser](#admin-create-user-config) requests.
+	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig interface{}
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
 	AliasAttributes interface{}
 	// The attributes to be auto-verified. Possible values: email, phone_number.
 	AutoVerifiedAttributes interface{}
-	// The configuration for the [user pool's device tracking](#device-configuration).
+	// The configuration for the user pool's device tracking.
 	DeviceConfiguration interface{}
-	// The [Email Configuration](#email-configuration).
+	// The Email Configuration.
 	EmailConfiguration interface{}
 	// A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
 	EmailVerificationMessage interface{}
 	// A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
 	EmailVerificationSubject interface{}
-	// A container for the AWS [Lambda triggers](#lambda-configuration) associated with the user pool.
+	// A container for the AWS Lambda triggers associated with the user pool.
 	LambdaConfig interface{}
 	// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
 	MfaConfiguration interface{}
 	// The name of the attribute.
 	Name interface{}
-	// A container for information about the [user pool password policy](#password-policy).
+	// A container for information about the user pool password policy.
 	PasswordPolicy interface{}
-	// A container with the [schema attributes](#schema-attributes) of a user pool. Maximum of 50 attributes.
+	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
 	Schemas interface{}
 	// A string representing the SMS authentication message.
 	SmsAuthenticationMessage interface{}
-	// The [SMS Configuration](#sms-configuration).
+	// The SMS Configuration.
 	SmsConfiguration interface{}
 	// A string representing the SMS verification message.
 	SmsVerificationMessage interface{}
@@ -306,6 +306,6 @@ type UserPoolArgs struct {
 	Tags interface{}
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
 	UsernameAttributes interface{}
-	// The [verification message templates](#verification-message-template) configuration.
+	// The verification message templates configuration.
 	VerificationMessageTemplate interface{}
 }

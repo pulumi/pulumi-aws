@@ -55,7 +55,7 @@ class ClusterInstance(pulumi.CustomResource):
             raise TypeError('Expected property cluster_identifier to be a basestring')
         __self__.cluster_identifier = cluster_identifier
         """
-        The identifier of the [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
         """
         __props__['clusterIdentifier'] = cluster_identifier
 
@@ -113,7 +113,7 @@ class ClusterInstance(pulumi.CustomResource):
             raise TypeError('Expected property neptune_subnet_group_name to be a basestring')
         __self__.neptune_subnet_group_name = neptune_subnet_group_name
         """
-        A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](/docs/providers/aws/r/neptune_cluster.html).
+        A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
         """
         __props__['neptuneSubnetGroupName'] = neptune_subnet_group_name
 

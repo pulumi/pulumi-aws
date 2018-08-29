@@ -60,7 +60,7 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property custom_error_responses to be a list')
         __self__.custom_error_responses = custom_error_responses
         """
-        One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+        One or more custom error response elements (multiples allowed).
         """
         __props__['customErrorResponses'] = custom_error_responses
 
@@ -70,7 +70,7 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property default_cache_behavior to be a dict')
         __self__.default_cache_behavior = default_cache_behavior
         """
-        The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+        The default cache behavior for this distribution (maximum
         one).
         """
         __props__['defaultCacheBehavior'] = default_cache_behavior
@@ -117,8 +117,8 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property logging_config to be a dict')
         __self__.logging_config = logging_config
         """
-        The [logging
-        configuration](#logging-config-arguments) that controls how logs are written
+        The logging
+        configuration that controls how logs are written
         to your distribution (maximum one).
         """
         __props__['loggingConfig'] = logging_config
@@ -127,7 +127,7 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property ordered_cache_behaviors to be a list')
         __self__.ordered_cache_behaviors = ordered_cache_behaviors
         """
-        An ordered list of [cache behaviors](#cache-behavior-arguments)
+        An ordered list of cache behaviors
         resource for this distribution. List from top to bottom
         +    in order of precedence. The topmost cache behavior will have precedence 0.
         """
@@ -139,7 +139,7 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property origins to be a list')
         __self__.origins = origins
         """
-        One or more [origins](#origin-arguments) for this
+        One or more origins for this
         distribution (multiples allowed).
         """
         __props__['origins'] = origins
@@ -159,8 +159,8 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property restrictions to be a dict')
         __self__.restrictions = restrictions
         """
-        The [restriction
-        configuration](#restrictions-arguments) for this distribution (maximum one).
+        The restriction
+        configuration for this distribution (maximum one).
         """
         __props__['restrictions'] = restrictions
 
@@ -188,8 +188,8 @@ class Distribution(pulumi.CustomResource):
             raise TypeError('Expected property viewer_certificate to be a dict')
         __self__.viewer_certificate = viewer_certificate
         """
-        The [SSL
-        configuration](#viewer-certificate-arguments) for this distribution (maximum
+        The SSL
+        configuration for this distribution (maximum
         one).
         """
         __props__['viewerCertificate'] = viewer_certificate

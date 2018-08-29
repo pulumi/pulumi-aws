@@ -167,7 +167,7 @@ func (r *Document) Parameters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
-// Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+// Additional Permissions to attach to the document. See Permissions below for details.
 func (r *Document) Permissions() *pulumi.Output {
 	return r.s.State["permissions"]
 }
@@ -219,7 +219,7 @@ type DocumentState struct {
 	Owner interface{}
 	// The parameters that are available to this document.
 	Parameters interface{}
-	// Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+	// Additional Permissions to attach to the document. See Permissions below for details.
 	Permissions interface{}
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes interface{}
@@ -241,7 +241,7 @@ type DocumentArgs struct {
 	DocumentType interface{}
 	// The name of the document.
 	Name interface{}
-	// Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+	// Additional Permissions to attach to the document. See Permissions below for details.
 	Permissions interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}

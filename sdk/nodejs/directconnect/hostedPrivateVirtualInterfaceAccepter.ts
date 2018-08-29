@@ -39,7 +39,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      */
     public readonly virtualInterfaceId: pulumi.Output<string>;
     /**
-     * The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+     * The ID of the virtual private gateway to which to connect the virtual interface.
      */
     public readonly vpnGatewayId: pulumi.Output<string | undefined>;
 
@@ -96,7 +96,7 @@ export interface HostedPrivateVirtualInterfaceAccepterState {
      */
     readonly virtualInterfaceId?: pulumi.Input<string>;
     /**
-     * The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+     * The ID of the virtual private gateway to which to connect the virtual interface.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
@@ -118,7 +118,7 @@ export interface HostedPrivateVirtualInterfaceAccepterArgs {
      */
     readonly virtualInterfaceId: pulumi.Input<string>;
     /**
-     * The ID of the [virtual private gateway](vpn_gateway.html) to which to connect the virtual interface.
+     * The ID of the virtual private gateway to which to connect the virtual interface.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }

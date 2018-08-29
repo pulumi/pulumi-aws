@@ -32,7 +32,7 @@ import {Tags} from "../index";
  * documentation on [aws_route_table][tf-route-tables].
  * 
  * ~> **NOTE on Route Tables and Routes:** Terraform currently
- * provides both a standalone [Route resource](route.html) and a Route Table resource with routes
+ * provides both a standalone Route resource and a Route Table resource with routes
  * defined in-line. At this time you cannot use a Route Table with in-line routes
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite routes.

@@ -88,7 +88,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
-     * below in [Option Settings](#option-settings)
+     * below in Option Settings
      */
     public readonly settings: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[] | undefined>;
     /**
@@ -255,7 +255,7 @@ export interface EnvironmentState {
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
-     * below in [Option Settings](#option-settings)
+     * below in Option Settings
      */
     readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -328,7 +328,7 @@ export interface EnvironmentArgs {
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
-     * below in [Option Settings](#option-settings)
+     * below in Option Settings
      */
     readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**

@@ -79,7 +79,7 @@ class Environment(pulumi.CustomResource):
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed
-        below in [Option Settings](#option-settings)
+        below in Option Settings
         """
         __props__['settings'] = settings
 

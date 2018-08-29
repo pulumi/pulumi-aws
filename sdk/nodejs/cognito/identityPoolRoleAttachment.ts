@@ -24,7 +24,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
      */
     public readonly identityPoolId: pulumi.Output<string>;
     /**
-     * A List of [Role Mapping](#role-mappings).
+     * A List of Role Mapping.
      */
     public readonly roleMappings: pulumi.Output<{ ambiguousRoleResolution?: string, identityProvider: string, mappingRules?: { claim: string, matchType: string, roleArn: string, value: string }[], type: string }[] | undefined>;
     /**
@@ -72,7 +72,7 @@ export interface IdentityPoolRoleAttachmentState {
      */
     readonly identityPoolId?: pulumi.Input<string>;
     /**
-     * A List of [Role Mapping](#role-mappings).
+     * A List of Role Mapping.
      */
     readonly roleMappings?: pulumi.Input<pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]>;
     /**
@@ -90,7 +90,7 @@ export interface IdentityPoolRoleAttachmentArgs {
      */
     readonly identityPoolId: pulumi.Input<string>;
     /**
-     * A List of [Role Mapping](#role-mappings).
+     * A List of Role Mapping.
      */
     readonly roleMappings?: pulumi.Input<pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]>;
     /**

@@ -1119,9 +1119,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
 			"aws_iam_account_password_policy": {Tok: awsResource(iamMod, "AccountPasswordPolicy")},
-			"aws_iam_group_policy":            {Tok: awsResource(iamMod, "GroupPolicy")},
-			"aws_iam_group":                   {Tok: awsResource(iamMod, "Group")},
-			"aws_iam_group_membership":        {Tok: awsResource(iamMod, "GroupMembership")},
+			"aws_iam_group_policy": {
+				Tok: awsResource(iamMod, "GroupPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
+			"aws_iam_group":            {Tok: awsResource(iamMod, "Group")},
+			"aws_iam_group_membership": {Tok: awsResource(iamMod, "GroupMembership")},
 			"aws_iam_group_policy_attachment": {
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1187,12 +1196,22 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
 					},
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
 				},
 			},
 			"aws_iam_role": {
 				Tok: awsResource(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 64),
+					"assume_role_policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
 				},
 			},
 			"aws_iam_saml_provider":         {Tok: awsResource(iamMod, "SamlProvider")},
@@ -1212,7 +1231,16 @@ func Provider() tfbridge.ProviderInfo {
 				// deletes the same attachment we just created, since it is structurally equivalent!
 				DeleteBeforeReplace: true,
 			},
-			"aws_iam_user_policy":        {Tok: awsResource(iamMod, "UserPolicy")},
+			"aws_iam_user_policy": {
+				Tok: awsResource(iamMod, "UserPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			"aws_iam_user_ssh_key":       {Tok: awsResource(iamMod, "SshKey")},
 			"aws_iam_user":               {Tok: awsResource(iamMod, "User")},
 			"aws_iam_user_login_profile": {Tok: awsResource(iamMod, "UserLoginProfile")},
@@ -1550,7 +1578,16 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_s3_bucket_policy": {Tok: awsResource(s3Mod, "BucketPolicy")},
+			"aws_s3_bucket_policy": {
+				Tok: awsResource(s3Mod, "BucketPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":  {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association": {Tok: awsResource(ssmMod, "Association")},

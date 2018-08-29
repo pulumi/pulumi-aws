@@ -30,7 +30,7 @@ import (
 // for more information.
 // 
 // ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Cluster struct {
 	s *pulumi.ResourceState
 }
@@ -234,7 +234,7 @@ func (r *Cluster) DbClusterParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
 }
 
-// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
@@ -392,7 +392,7 @@ type ClusterState struct {
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
@@ -473,7 +473,7 @@ type ClusterArgs struct {
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.

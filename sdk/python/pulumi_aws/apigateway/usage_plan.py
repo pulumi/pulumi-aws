@@ -24,7 +24,7 @@ class UsagePlan(pulumi.CustomResource):
             raise TypeError('Expected property api_stages to be a list')
         __self__.api_stages = api_stages
         """
-        The associated [API stages](#api-stages-arguments) of the usage plan.
+        The associated API stages of the usage plan.
         """
         __props__['apiStages'] = api_stages
 
@@ -56,7 +56,7 @@ class UsagePlan(pulumi.CustomResource):
             raise TypeError('Expected property quota_settings to be a dict')
         __self__.quota_settings = quota_settings
         """
-        The [quota settings](#quota-settings-arguments) of the usage plan.
+        The quota settings of the usage plan.
         """
         __props__['quotaSettings'] = quota_settings
 
@@ -64,7 +64,7 @@ class UsagePlan(pulumi.CustomResource):
             raise TypeError('Expected property throttle_settings to be a dict')
         __self__.throttle_settings = throttle_settings
         """
-        The [throttling limits](#throttling-settings-arguments) of the usage plan.
+        The throttling limits of the usage plan.
         """
         __props__['throttleSettings'] = throttle_settings
 

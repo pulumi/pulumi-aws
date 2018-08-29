@@ -11,9 +11,9 @@ import (
 // Provides a Virtual Private Gateway attachment resource, allowing for an existing
 // hardware VPN gateway to be attached and/or detached from a VPC.
 // 
-// -> **Note:** The [`aws_vpn_gateway`](vpn_gateway.html)
+// -> **Note:** The `aws_vpn_gateway`
 // resource can also automatically attach the Virtual Private Gateway it creates
-// to an existing VPC by setting the [`vpc_id`](vpn_gateway.html#vpc_id) attribute accordingly.
+// to an existing VPC by setting the `vpc_id` attribute accordingly.
 type VpnGatewayAttachment struct {
 	s *pulumi.ResourceState
 }

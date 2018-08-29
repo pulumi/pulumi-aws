@@ -42,7 +42,7 @@ class Budget(pulumi.CustomResource):
             raise TypeError('Expected property cost_filters to be a dict')
         __self__.cost_filters = cost_filters
         """
-        Map of [CostFilters](#CostFilters) key/value pairs to apply to the budget.
+        Map of CostFilters key/value pairs to apply to the budget.
         """
         __props__['costFilters'] = cost_filters
 
@@ -50,7 +50,7 @@ class Budget(pulumi.CustomResource):
             raise TypeError('Expected property cost_types to be a dict')
         __self__.cost_types = cost_types
         """
-        Object containing [CostTypes](#CostTypes) The types of cost included in a budget, such as tax and subscriptions..
+        Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
         """
         __props__['costTypes'] = cost_types
 

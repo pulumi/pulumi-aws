@@ -31,11 +31,11 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly artifactStore: pulumi.Output<{ encryptionKey?: { id: string, type: string }, location: string, type: string }>;
     /**
-     * The action declaration's name.
+     * The name of the pipeline.
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     public readonly roleArn: pulumi.Output<string>;
     public readonly stages: pulumi.Output<{ actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
@@ -92,11 +92,11 @@ export interface PipelineState {
      */
     readonly artifactStore?: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * The action declaration's name.
+     * The name of the pipeline.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn?: pulumi.Input<string>;
     readonly stages?: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
@@ -112,11 +112,11 @@ export interface PipelineArgs {
      */
     readonly artifactStore: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * The action declaration's name.
+     * The name of the pipeline.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn: pulumi.Input<string>;
     readonly stages: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;

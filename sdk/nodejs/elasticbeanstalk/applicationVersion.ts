@@ -15,7 +15,7 @@ import {Application} from "./application";
  * Environment.
  * 
  * ~> **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
- * [Elastic Beanstalk Environments](elastic_beanstalk_environment.html) it is possible that an error may be returned
+ * Elastic Beanstalk Environments it is possible that an error may be returned
  * when attempting to delete an Application Version while it is still in use by a different environment.
  * To work around this you can:
  * <ol>
