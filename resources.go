@@ -683,6 +683,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_cluster": {
 				Tok: awsResource(elasticacheMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_id": tfbridge.AutoNameTransform("clusterId", 20, func(name string) string {
+						return strings.ToLower(name)
+					}),
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},

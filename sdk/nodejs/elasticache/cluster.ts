@@ -170,7 +170,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
@@ -203,9 +203,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.clusterId === undefined) {
-                throw new Error("Missing required property 'clusterId'");
-            }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -402,7 +399,7 @@ export interface ClusterArgs {
      * Group identifier. ElastiCache converts
      * this name to lowercase
      */
-    readonly clusterId: pulumi.Input<string>;
+    readonly clusterId?: pulumi.Input<string>;
     /**
      * Name of the cache engine to be used for this cache cluster.
      * Valid values for this parameter are `memcached` or `redis`

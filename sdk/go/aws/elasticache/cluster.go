@@ -4,7 +4,6 @@
 package elasticache
 
 import (
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -25,9 +24,6 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	if args == nil || args.ClusterId == nil {
-		return nil, errors.New("missing required argument 'ClusterId'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["applyImmediately"] = nil
