@@ -64,9 +64,7 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['azMode'] = az_mode
 
-        if not cluster_id:
-            raise TypeError('Missing required property cluster_id')
-        elif not isinstance(cluster_id, basestring):
+        if cluster_id and not isinstance(cluster_id, basestring):
             raise TypeError('Expected property cluster_id to be a basestring')
         __self__.cluster_id = cluster_id
         """
