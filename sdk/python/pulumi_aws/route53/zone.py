@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Zone(pulumi.CustomResource):
     """
@@ -20,6 +21,7 @@ class Zone(pulumi.CustomResource):
 
         __props__ = dict()
 
+        comment = 'Managed by Pulumi'
         if comment and not isinstance(comment, basestring):
             raise TypeError('Expected property comment to be a basestring')
         __self__.comment = comment

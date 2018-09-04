@@ -200,6 +200,9 @@ func Provider() tfbridge.ProviderInfo {
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsType("region", "Region"),
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
+				},
 			},
 		},
 		PreConfigureCallback: preConfigureCallback,

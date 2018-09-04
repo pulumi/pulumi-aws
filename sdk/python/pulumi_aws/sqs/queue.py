@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None):

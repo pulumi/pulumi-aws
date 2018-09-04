@@ -23,8 +23,8 @@ type SecurityGroup struct {
 func NewSecurityGroup(ctx *pulumi.Context,
 	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["description"] = nil
 		inputs["egress"] = nil
 		inputs["ingress"] = nil
 		inputs["name"] = nil

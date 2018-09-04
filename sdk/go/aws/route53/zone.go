@@ -16,8 +16,8 @@ type Zone struct {
 func NewZone(ctx *pulumi.Context,
 	name string, args *ZoneArgs, opts ...pulumi.ResourceOpt) (*Zone, error) {
 	inputs := make(map[string]interface{})
+	inputs["comment"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["comment"] = nil
 		inputs["delegationSetId"] = nil
 		inputs["forceDestroy"] = nil
 		inputs["name"] = nil

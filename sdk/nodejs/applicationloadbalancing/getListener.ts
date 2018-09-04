@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * ~> **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.

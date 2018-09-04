@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
@@ -91,7 +92,7 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["options"] = args ? args.options : undefined;
-            inputs["optionGroupDescription"] = args ? args.optionGroupDescription : undefined;
+            inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) || "Managed by Pulumi";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }

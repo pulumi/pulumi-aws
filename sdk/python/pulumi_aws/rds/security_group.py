@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class SecurityGroup(pulumi.CustomResource):
     """
@@ -23,6 +24,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        description = 'Managed by Pulumi'
         if description and not isinstance(description, basestring):
             raise TypeError('Expected property description to be a basestring')
         __self__.description = description
