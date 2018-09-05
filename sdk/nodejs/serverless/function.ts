@@ -195,7 +195,10 @@ export class Function extends pulumi.ComponentResource {
         });
 
         const codePaths = computeCodePaths(
-            closure, serializedFileNameNoExtension, options.includePaths, options.excludePackages);
+            closure, serializedFileNameNoExtension,
+            options.includePaths || [],
+            options.includePackages || [],
+            options.excludePackages || []);
 
         // Copy over all option values into the function args.  Then overwrite anything we care
         // about with our own values.  This ensures that clients can pass future supported
@@ -218,9 +221,9 @@ export class Function extends pulumi.ComponentResource {
 async function computeCodePaths(
         closure: Promise<pulumi.runtime.SerializedFunction>,
         serializedFileNameNoExtension: string,
-        extraIncludePaths?: string[],
-        extraIncludePackages?: string[],
-        extraExcludePackages?: string[]): Promise<pulumi.asset.AssetMap> {
+        extraIncludePaths: string[],
+        extraIncludePackages: string[],
+        extraExcludePackages: string[]): Promise<pulumi.asset.AssetMap> {
 
     const serializedFunction = await closure;
 
@@ -230,10 +233,14 @@ async function computeCodePaths(
         [serializedFileNameNoExtension + ".js"]: new pulumi.asset.StringAsset(serializedFunction.text),
     };
 
+    // Use the 'require'd modules to determine if there are any extra sub-dependencies we need to
+    // ensure are included.
+    const requiredSubPaths = pulumi.runtime.computeRequiredSubDependencyPaths(serializedFunction.requiredPackages);
+    extraIncludePaths.push(...requiredSubPaths);
+
     // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided
     // extraIncludePackages so that users can force aws-sdk to be included (if they need a specific
     // version).
-    extraExcludePackages = extraExcludePackages || [];
     extraExcludePackages.push("aws-sdk");
 
     let modulePaths = await pulumi.runtime.computeCodePaths(
