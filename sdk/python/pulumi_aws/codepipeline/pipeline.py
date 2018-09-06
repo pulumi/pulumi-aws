@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Pipeline(pulumi.CustomResource):
     """
@@ -37,7 +38,7 @@ class Pipeline(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The action declaration's name.
+        The name of the pipeline.
         """
         __props__['name'] = name
 
@@ -47,7 +48,7 @@ class Pipeline(pulumi.CustomResource):
             raise TypeError('Expected property role_arn to be a basestring')
         __self__.role_arn = role_arn
         """
-        The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
+        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         __props__['roleArn'] = role_arn
 

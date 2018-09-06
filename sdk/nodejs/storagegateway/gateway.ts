@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
@@ -51,6 +52,14 @@ export class Gateway extends pulumi.CustomResource {
     public readonly gatewayType: pulumi.Output<string | undefined>;
     public readonly mediumChangerType: pulumi.Output<string | undefined>;
     /**
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     */
+    public readonly smbActiveDirectorySettings: pulumi.Output<{ domainName: string, password: string, username: string } | undefined>;
+    /**
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+     */
+    public readonly smbGuestPassword: pulumi.Output<string | undefined>;
+    /**
      * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
     public readonly tapeDriveType: pulumi.Output<string | undefined>;
@@ -75,6 +84,8 @@ export class Gateway extends pulumi.CustomResource {
             inputs["gatewayTimezone"] = state ? state.gatewayTimezone : undefined;
             inputs["gatewayType"] = state ? state.gatewayType : undefined;
             inputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
+            inputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
+            inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
             inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
@@ -90,6 +101,8 @@ export class Gateway extends pulumi.CustomResource {
             inputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
             inputs["gatewayType"] = args ? args.gatewayType : undefined;
             inputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
+            inputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
+            inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
             inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["gatewayId"] = undefined /*out*/;
@@ -132,6 +145,14 @@ export interface GatewayState {
     readonly gatewayType?: pulumi.Input<string>;
     readonly mediumChangerType?: pulumi.Input<string>;
     /**
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     */
+    readonly smbActiveDirectorySettings?: pulumi.Input<{ domainName: pulumi.Input<string>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
+    /**
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+     */
+    readonly smbGuestPassword?: pulumi.Input<string>;
+    /**
      * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
     readonly tapeDriveType?: pulumi.Input<string>;
@@ -162,6 +183,14 @@ export interface GatewayArgs {
      */
     readonly gatewayType?: pulumi.Input<string>;
     readonly mediumChangerType?: pulumi.Input<string>;
+    /**
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     */
+    readonly smbActiveDirectorySettings?: pulumi.Input<{ domainName: pulumi.Input<string>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
+    /**
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+     */
+    readonly smbGuestPassword?: pulumi.Input<string>;
     /**
      * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */

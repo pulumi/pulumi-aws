@@ -170,7 +170,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "v1.14.33"
+  revision = "66974140c322f22c1daaf95a18930ea6a9e4d21e"
+  version = "v1.15.16"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -294,7 +295,7 @@
 [[projects]]
   name = "github.com/hashicorp/go-multierror"
   packages = ["."]
-  revision = "d30f09973e19c1dfcd120b2d9c4f168e68d6b5d5"
+  revision = "3d5d8f294aa03d8e98859feac328afbdf1ae0703"
 
 [[projects]]
   name = "github.com/hashicorp/go-uuid"
@@ -381,7 +382,7 @@
     "tfdiags",
     "version"
   ]
-  revision = "ec998a21bc95366269fbd196e09d3a458bba8be7"
+  revision = "bb37637a139151be0ff9bf00c85c448538e5b3d2"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -459,7 +460,7 @@
 [[projects]]
   name = "github.com/mitchellh/go-homedir"
   packages = ["."]
-  revision = "b8bc1bf767474819792c23f32d8286a45736f1c6"
+  revision = "58046073cbffe2f25d425fe1331102f55cf719de"
 
 [[projects]]
   branch = "master"
@@ -584,8 +585,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "23cbfa503d856f57a3e00599d53c04fe69c93cf0"
-  version = "v0.15.0"
+  revision = "1ebd698a7ab2926ef88eb97a8f268e6c95f44816"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -593,8 +593,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "bd7ae49ed76ec49f8fbbb7b8b55b407ad38c3c30"
-  version = "v0.15.0"
+  revision = "95c5ae2284ada1866845359ac2fec69329c67ab8"
 
 [[projects]]
   branch = "master"
@@ -653,7 +652,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "3c56c348f4a4db4256de31b915cc1ef903e4d738"
+  revision = "d5e1ecebd60b35f681341e334c244b9434125681"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -882,6 +881,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a981f5d697c78389b456018bf83860fbbe0b6372a0cf926fcf75420db3d269f7"
+  inputs-digest = "cb01734c42e32edf61f71a0d9a2a9e26a4fd2ea4b17409fbc833a8d7da6edf31"
   solver-name = "gps-cdcl"
   solver-version = 1

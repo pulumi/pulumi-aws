@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](/docs/providers/aws/d/secretsmanager_secret.html).
+// Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
 func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetSecretVersionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -20,6 +20,7 @@ func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetS
 		return nil, err
 	}
 	return &GetSecretVersionResult{
+		Arn: outputs["arn"],
 		SecretString: outputs["secretString"],
 		VersionId: outputs["versionId"],
 		VersionStages: outputs["versionStages"],
@@ -39,6 +40,8 @@ type GetSecretVersionArgs struct {
 
 // A collection of values returned by getSecretVersion.
 type GetSecretVersionResult struct {
+	// The ARN of the secret.
+	Arn interface{}
 	// The decrypted part of the protected secret information that was originally provided as a string.
 	SecretString interface{}
 	// The unique identifier of this version of the secret.

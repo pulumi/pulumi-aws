@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
 /**
  * Provides an RDS security group resource. This is only for DB instances in the
  * EC2-Classic Platform. For instances inside a VPC, use the
- * [`aws_db_instance.vpc_security_group_ids`](/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
+ * [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
  * attribute instead.
  */
 export class SecurityGroup extends pulumi.CustomResource {
@@ -67,7 +68,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             if (!args || args.ingress === undefined) {
                 throw new Error("Missing required property 'ingress'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["ingress"] = args ? args.ingress : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;

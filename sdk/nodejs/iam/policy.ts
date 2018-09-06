@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an IAM policy.
@@ -43,7 +44,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-     * source](/docs/providers/aws/d/iam_policy_document.html)
+     * source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
      * are all helpful here.
      */
     public readonly policy: pulumi.Output<string>;
@@ -110,7 +111,7 @@ export interface PolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-     * source](/docs/providers/aws/d/iam_policy_document.html)
+     * source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
      * are all helpful here.
      */
     readonly policy?: pulumi.Input<string>;
@@ -140,7 +141,7 @@ export interface PolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-     * source](/docs/providers/aws/d/iam_policy_document.html)
+     * source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
      * are all helpful here.
      */
     readonly policy: pulumi.Input<string>;

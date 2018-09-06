@@ -34,6 +34,7 @@ func NewDefaultSubnet(ctx *pulumi.Context,
 		inputs["mapPublicIpOnLaunch"] = args.MapPublicIpOnLaunch
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["assignIpv6AddressOnCreation"] = nil
 	inputs["cidrBlock"] = nil
 	inputs["ipv6CidrBlock"] = nil
@@ -52,6 +53,7 @@ func GetDefaultSubnet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *DefaultSubnetState, opts ...pulumi.ResourceOpt) (*DefaultSubnet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["assignIpv6AddressOnCreation"] = state.AssignIpv6AddressOnCreation
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["cidrBlock"] = state.CidrBlock
@@ -76,6 +78,10 @@ func (r *DefaultSubnet) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *DefaultSubnet) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+func (r *DefaultSubnet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 func (r *DefaultSubnet) AssignIpv6AddressOnCreation() *pulumi.BoolOutput {
@@ -119,6 +125,7 @@ func (r *DefaultSubnet) VpcId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering DefaultSubnet resources.
 type DefaultSubnetState struct {
+	Arn interface{}
 	AssignIpv6AddressOnCreation interface{}
 	AvailabilityZone interface{}
 	// The CIDR block for the subnet.

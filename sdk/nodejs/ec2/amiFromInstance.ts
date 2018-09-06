@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * The "AMI from instance" resource allows the creation of an Amazon Machine
@@ -51,7 +52,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    public readonly enaSupport: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enaSupport: pulumi.Output<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
@@ -142,13 +143,13 @@ export class AmiFromInstance extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = args ? args.enaSupport : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["snapshotWithoutReboot"] = args ? args.snapshotWithoutReboot : undefined;
             inputs["sourceInstanceId"] = args ? args.sourceInstanceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["architecture"] = undefined /*out*/;
+            inputs["enaSupport"] = undefined /*out*/;
             inputs["imageLocation"] = undefined /*out*/;
             inputs["kernelId"] = undefined /*out*/;
             inputs["manageEbsSnapshots"] = undefined /*out*/;
@@ -251,10 +252,6 @@ export interface AmiFromInstanceArgs {
      * attached to created instances. The structure of this block is described below.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
-    /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-     */
-    readonly enaSupport?: pulumi.Input<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.

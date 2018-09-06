@@ -126,6 +126,7 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 		inputs["waitForFulfillment"] = args.WaitForFulfillment
 	}
+	inputs["arn"] = nil
 	inputs["instanceState"] = nil
 	inputs["networkInterfaceId"] = nil
 	inputs["passwordData"] = nil
@@ -150,6 +151,7 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["ami"] = state.Ami
+		inputs["arn"] = state.Arn
 		inputs["associatePublicIpAddress"] = state.AssociatePublicIpAddress
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["blockDurationMinutes"] = state.BlockDurationMinutes
@@ -221,6 +223,10 @@ func (r *SpotInstanceRequest) Ami() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ami"])
 }
 
+func (r *SpotInstanceRequest) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // Associate a public ip address with an instance in a VPC.  Boolean value.
 func (r *SpotInstanceRequest) AssociatePublicIpAddress() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["associatePublicIpAddress"])
@@ -250,7 +256,7 @@ func (r *SpotInstanceRequest) CpuThreadsPerCore() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["cpuThreadsPerCore"])
 }
 
-// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+// Customize the credit specification of the instance. See Credit Specification below for more details.
 func (r *SpotInstanceRequest) CreditSpecification() *pulumi.Output {
 	return r.s.State["creditSpecification"]
 }
@@ -262,7 +268,7 @@ func (r *SpotInstanceRequest) DisableApiTermination() *pulumi.BoolOutput {
 }
 
 // Additional EBS block devices to attach to the
-// instance.  See [Block Devices](#block-devices) below for details.
+// instance.  See Block Devices below for details.
 func (r *SpotInstanceRequest) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
@@ -277,7 +283,7 @@ func (r *SpotInstanceRequest) EbsOptimized() *pulumi.BoolOutput {
 }
 
 // Customize Ephemeral (also known as
-// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+// "Instance Store") volumes on the instance. See Block Devices below for details.
 func (r *SpotInstanceRequest) EphemeralBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
@@ -325,7 +331,7 @@ func (r *SpotInstanceRequest) Ipv6Addresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipv6Addresses"])
 }
 
-// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
 func (r *SpotInstanceRequest) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
@@ -341,12 +347,11 @@ func (r *SpotInstanceRequest) Monitoring() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["monitoring"])
 }
 
-// Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 func (r *SpotInstanceRequest) NetworkInterfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
 }
 
-// The ID of the network interface to attach.
 func (r *SpotInstanceRequest) NetworkInterfaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
@@ -389,7 +394,7 @@ func (r *SpotInstanceRequest) PublicIp() *pulumi.StringOutput {
 }
 
 // Customize details about the root block
-// device of the instance. See [Block Devices](#block-devices) below for details.
+// device of the instance. See Block Devices below for details.
 func (r *SpotInstanceRequest) RootBlockDevice() *pulumi.Output {
 	return r.s.State["rootBlockDevice"]
 }
@@ -492,6 +497,7 @@ func (r *SpotInstanceRequest) WaitForFulfillment() *pulumi.BoolOutput {
 type SpotInstanceRequestState struct {
 	// The AMI to use for the instance.
 	Ami interface{}
+	Arn interface{}
 	// Associate a public ip address with an instance in a VPC.  Boolean value.
 	AssociatePublicIpAddress interface{}
 	// The AZ to start the instance in.
@@ -506,13 +512,13 @@ type SpotInstanceRequestState struct {
 	CpuCoreCount interface{}
 	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore interface{}
-	// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification interface{}
 	// If true, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then
@@ -521,7 +527,7 @@ type SpotInstanceRequestState struct {
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
@@ -542,16 +548,15 @@ type SpotInstanceRequestState struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+	// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
 	KeyName interface{}
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
-	// Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces interface{}
-	// The ID of the network interface to attach.
 	NetworkInterfaceId interface{}
 	PasswordData interface{}
 	// The Placement Group to start the instance in.
@@ -570,7 +575,7 @@ type SpotInstanceRequestState struct {
 	// The public IP address assigned to the instance, if applicable.
 	PublicIp interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
 	SecurityGroups interface{}
@@ -635,13 +640,13 @@ type SpotInstanceRequestArgs struct {
 	CpuCoreCount interface{}
 	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore interface{}
-	// Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification interface{}
 	// If true, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then
@@ -650,7 +655,7 @@ type SpotInstanceRequestArgs struct {
 	// See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
 	EbsOptimized interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
@@ -670,14 +675,14 @@ type SpotInstanceRequestArgs struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+	// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
 	KeyName interface{}
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
-	// Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces interface{}
 	// The Placement Group to start the instance in.
 	PlacementGroup interface{}
@@ -685,7 +690,7 @@ type SpotInstanceRequestArgs struct {
 	// instance in a VPC.
 	PrivateIp interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
 	// A list of security group names to associate with.
 	SecurityGroups interface{}

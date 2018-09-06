@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito Resource Server.
@@ -28,7 +29,7 @@ export class ResourceServer extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * A list of [Authorization Scope](#authorization_scope).
+     * A list of Authorization Scope.
      */
     public readonly scopes: pulumi.Output<{ scopeDescription: string, scopeName: string }[] | undefined>;
     /**
@@ -85,7 +86,7 @@ export interface ResourceServerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of [Authorization Scope](#authorization_scope).
+     * A list of Authorization Scope.
      */
     readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
     /**
@@ -108,7 +109,7 @@ export interface ResourceServerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of [Authorization Scope](#authorization_scope).
+     * A list of Authorization Scope.
      */
     readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
     readonly userPoolId: pulumi.Input<string>;

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * `aws_subnet` provides details about a specific VPC subnet.
@@ -74,6 +75,10 @@ export interface GetSubnetArgs {
  * A collection of values returned by getSubnet.
  */
 export interface GetSubnetResult {
+    /**
+     * The ARN of the subnet.
+     */
+    readonly arn: string;
     readonly assignIpv6AddressOnCreation: boolean;
     readonly availabilityZone: string;
     readonly cidrBlock: string;

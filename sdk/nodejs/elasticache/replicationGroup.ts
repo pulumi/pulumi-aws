@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
 /**
  * Provides an ElastiCache Replication Group resource.
  * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
- * [`aws_elasticache_cluster` resource](/docs/providers/aws/r/elasticache_cluster.html).
+ * [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
  */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**

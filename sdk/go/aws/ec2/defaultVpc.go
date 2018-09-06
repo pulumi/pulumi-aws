@@ -169,7 +169,7 @@ func (r *DefaultVpc) Ipv6CidrBlock() *pulumi.StringOutput {
 
 // The ID of the main route table associated with
 // this VPC. Note that you can change a VPC's main route table by using an
-// [`aws_main_route_table_association`](/docs/providers/aws/r/main_route_table_assoc.html)
+// [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
 func (r *DefaultVpc) MainRouteTableId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["mainRouteTableId"])
 }
@@ -212,7 +212,7 @@ type DefaultVpcState struct {
 	Ipv6CidrBlock interface{}
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`aws_main_route_table_association`](/docs/providers/aws/r/main_route_table_assoc.html)
+	// [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
 	MainRouteTableId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

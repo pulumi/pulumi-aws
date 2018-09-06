@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
@@ -12,17 +13,17 @@ import {Tags} from "../index";
  * It deals with requesting certificates and managing their attributes and life-cycle.
  * This resource does not deal with validation of a certificate but can provide inputs
  * for other resources implementing the validation. It does not wait for a certificate to be issued.
- * Use a [`aws_acm_certificate_validation`](acm_certificate_validation.html) resource for this.
+ * Use a `aws_acm_certificate_validation` resource for this.
  * 
- * Most commonly, this resource is used to together with [`aws_route53_record`](route53_record.html) and
- * [`aws_acm_certificate_validation`](acm_certificate_validation.html) to request a DNS validated certificate,
+ * Most commonly, this resource is used to together with `aws_route53_record` and
+ * `aws_acm_certificate_validation` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
  * 
  * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
  * of Terraform.
  * 
  * It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
- * which is currently in use (eg, by [`aws_lb_listener`](lb_listener.html)).
+ * which is currently in use (eg, by `aws_lb_listener`).
  */
 export class Certificate extends pulumi.CustomResource {
     /**

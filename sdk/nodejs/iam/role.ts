@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
+
+import {PolicyDocument} from "./documents";
 
 /**
  * Provides an IAM role.
@@ -120,7 +123,7 @@ export interface RoleState {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy?: pulumi.Input<string>;
+    readonly assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The creation date of the IAM role.
      */
@@ -167,7 +170,7 @@ export interface RoleArgs {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy: pulumi.Input<string>;
+    readonly assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
     /**
      * The description of the role.
      */

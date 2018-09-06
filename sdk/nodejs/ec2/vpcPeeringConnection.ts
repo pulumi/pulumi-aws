@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
@@ -9,7 +10,7 @@ import {Tags} from "../index";
  * Provides a resource to manage a VPC peering connection.
  * 
  * ~> **NOTE on VPC Peering Connections and VPC Peering Connection Options:** Terraform provides
- * both a standalone [VPC Peering Connection Options](vpc_peering_options.html) and a VPC Peering Connection
+ * both a standalone VPC Peering Connection Options and a VPC Peering Connection
  * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
  * connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
  * Doing so will cause a conflict of options and will overwrite the options.

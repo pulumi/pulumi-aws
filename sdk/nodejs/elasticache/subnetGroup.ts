@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Subnet Group resource.
  * 
  * ~> **NOTE:** ElastiCache Subnet Groups are only for use when working with an
  * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
- * [ElastiCache Security Group resource](elasticache_security_group.html).
+ * ElastiCache Security Group resource.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -56,7 +57,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             if (!args || args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
         }

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other
@@ -52,6 +53,10 @@ export interface GetInstanceResult {
      * The ID of the AMI used to launch the instance.
      */
     readonly ami: string;
+    /**
+     * The ARN of the instance.
+     */
+    readonly arn: string;
     /**
      * Whether or not the Instance is associated with a public IP address or not (Boolean).
      */
@@ -126,7 +131,7 @@ export interface GetInstanceResult {
      */
     readonly publicDns: string;
     /**
-     * The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
      */
     readonly publicIp: string;
     /**

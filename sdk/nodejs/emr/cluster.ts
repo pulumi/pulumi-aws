@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
@@ -47,8 +48,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly configurations: pulumi.Output<string | undefined>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
-     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
      */
     public readonly configurationsJson: pulumi.Output<string | undefined>;
     /**
@@ -118,7 +117,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly serviceRole: pulumi.Output<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
      */
     public readonly steps: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
     /**
@@ -241,8 +240,6 @@ export interface ClusterState {
     readonly configurations?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
-     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
      */
     readonly configurationsJson?: pulumi.Input<string>;
     /**
@@ -312,7 +309,7 @@ export interface ClusterState {
      */
     readonly serviceRole?: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
      */
     readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**
@@ -356,8 +353,6 @@ export interface ClusterArgs {
     readonly configurations?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
-     * ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-     * the `Configurations` field instead of providing empty list as value `"Configurations": []`.
      */
     readonly configurationsJson?: pulumi.Input<string>;
     /**
@@ -423,7 +418,7 @@ export interface ClusterArgs {
      */
     readonly serviceRole: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
      */
     readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**

@@ -230,7 +230,7 @@ func (r *Instance) DeleteEip() *pulumi.BoolOutput {
 }
 
 // Additional EBS block devices to attach to the
-// instance.  See [Block Devices](#block-devices) below for details.
+// instance.  See Block Devices below for details.
 func (r *Instance) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
@@ -254,7 +254,7 @@ func (r *Instance) ElasticIp() *pulumi.StringOutput {
 }
 
 // Customize Ephemeral (also known as
-// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+// "Instance Store") volumes on the instance. See Block Devices below for details.
 func (r *Instance) EphemeralBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
@@ -344,7 +344,7 @@ func (r *Instance) ReportedOsVersion() *pulumi.StringOutput {
 }
 
 // Customize details about the root block
-// device of the instance. See [Block Devices](#block-devices) below for details.
+// device of the instance. See Block Devices below for details.
 func (r *Instance) RootBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rootBlockDevices"])
 }
@@ -423,7 +423,7 @@ type InstanceState struct {
 	DeleteEbs interface{}
 	DeleteEip interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized interface{}
@@ -432,7 +432,7 @@ type InstanceState struct {
 	EcsClusterArn interface{}
 	ElasticIp interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// The instance's host name.
 	Hostname interface{}
@@ -465,7 +465,7 @@ type InstanceState struct {
 	ReportedOsName interface{}
 	ReportedOsVersion interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevices interface{}
 	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
 	RootDeviceType interface{}
@@ -507,14 +507,14 @@ type InstanceArgs struct {
 	DeleteEbs interface{}
 	DeleteEip interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized interface{}
 	EcsClusterArn interface{}
 	ElasticIp interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// The instance's host name.
 	Hostname interface{}
@@ -547,7 +547,7 @@ type InstanceArgs struct {
 	ReportedOsName interface{}
 	ReportedOsVersion interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevices interface{}
 	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
 	RootDeviceType interface{}

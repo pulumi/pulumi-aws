@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class MetricAlarm(pulumi.CustomResource):
     """
@@ -192,6 +193,11 @@ class MetricAlarm(pulumi.CustomResource):
         """
         __props__['unit'] = unit
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the cloudwatch metric alarm.
+        """
+
         super(MetricAlarm, __self__).__init__(
             'aws:cloudwatch/metricAlarm:MetricAlarm',
             __name__,
@@ -207,6 +213,8 @@ class MetricAlarm(pulumi.CustomResource):
             self.alarm_description = outs['alarmDescription']
         if 'name' in outs:
             self.name = outs['name']
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'comparisonOperator' in outs:
             self.comparison_operator = outs['comparisonOperator']
         if 'datapointsToAlarm' in outs:

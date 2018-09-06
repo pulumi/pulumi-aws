@@ -4,12 +4,19 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class GetSecretVersionResult(object):
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, secret_string=None, version_id=None, version_stages=None, id=None):
+    def __init__(__self__, arn=None, secret_string=None, version_id=None, version_stages=None, id=None):
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        The ARN of the secret.
+        """
         if secret_string and not isinstance(secret_string, basestring):
             raise TypeError('Expected argument secret_string to be a basestring')
         __self__.secret_string = secret_string
@@ -34,7 +41,7 @@ class GetSecretVersionResult(object):
 
 def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     """
-    Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](/docs/providers/aws/d/secretsmanager_secret.html).
+    Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
     """
     __args__ = dict()
 
@@ -44,6 +51,7 @@ def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__)
 
     return GetSecretVersionResult(
+        arn=__ret__.get('arn'),
         secret_string=__ret__.get('secretString'),
         version_id=__ret__.get('versionId'),
         version_stages=__ret__.get('versionStages'),

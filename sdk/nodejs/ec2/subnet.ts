@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
@@ -21,6 +22,11 @@ export class Subnet extends pulumi.CustomResource {
         return new Subnet(name, <any>state, { id });
     }
 
+    /**
+     * The ARN of the subnet.
+     * * `availability_zone`- The AZ for the subnet.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
@@ -68,6 +74,7 @@ export class Subnet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubnetState = argsOrState as SubnetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
@@ -91,6 +98,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
         }
         super("aws:ec2/subnet:Subnet", name, inputs, opts);
@@ -101,6 +109,11 @@ export class Subnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Subnet resources.
  */
 export interface SubnetState {
+    /**
+     * The ARN of the subnet.
+     * * `availability_zone`- The AZ for the subnet.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be

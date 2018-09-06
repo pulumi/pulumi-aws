@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a new launch configuration, used for autoscaling groups.
@@ -25,7 +26,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See [Block Devices](#block-devices) below for details.
+     * instance.  See Block Devices below for details.
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     /**
@@ -38,7 +39,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     public readonly enableMonitoring: pulumi.Output<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as
-     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
     public readonly ephemeralBlockDevices: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
     /**
@@ -76,7 +77,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     public readonly placementTenancy: pulumi.Output<string | undefined>;
     /**
      * Customize details about the root block
-     * device of the instance. See [Block Devices](#block-devices) below for details.
+     * device of the instance. See Block Devices below for details.
      */
     public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }>;
     /**
@@ -177,7 +178,7 @@ export interface LaunchConfigurationState {
     readonly associatePublicIpAddress?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See [Block Devices](#block-devices) below for details.
+     * instance.  See Block Devices below for details.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, noDevice?: pulumi.Input<boolean>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
@@ -190,7 +191,7 @@ export interface LaunchConfigurationState {
     readonly enableMonitoring?: pulumi.Input<boolean>;
     /**
      * Customize Ephemeral (also known as
-     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
     /**
@@ -228,7 +229,7 @@ export interface LaunchConfigurationState {
     readonly placementTenancy?: pulumi.Input<string>;
     /**
      * Customize details about the root block
-     * device of the instance. See [Block Devices](#block-devices) below for details.
+     * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
@@ -267,7 +268,7 @@ export interface LaunchConfigurationArgs {
     readonly associatePublicIpAddress?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See [Block Devices](#block-devices) below for details.
+     * instance.  See Block Devices below for details.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, noDevice?: pulumi.Input<boolean>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
@@ -280,7 +281,7 @@ export interface LaunchConfigurationArgs {
     readonly enableMonitoring?: pulumi.Input<boolean>;
     /**
      * Customize Ephemeral (also known as
-     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
     /**
@@ -318,7 +319,7 @@ export interface LaunchConfigurationArgs {
     readonly placementTenancy?: pulumi.Input<string>;
     /**
      * Customize details about the root block
-     * device of the instance. See [Block Devices](#block-devices) below for details.
+     * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**

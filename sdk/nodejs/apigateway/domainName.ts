@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Registers a custom domain name for use with AWS API Gateway.
@@ -9,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * This resource just establishes ownership of and the TLS settings for
  * a particular domain name. An API can be attached to a particular path
  * under the registered domain name using
- * [the `aws_api_gateway_base_path_mapping` resource](api_gateway_base_path_mapping.html).
+ * the `aws_api_gateway_base_path_mapping` resource.
  * 
  * API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
  * API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
@@ -23,7 +24,7 @@ import * as pulumi from "@pulumi/pulumi";
  * the `regional_domain_name` attribute.
  * 
  * ~> **Note:** All arguments including the private key will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class DomainName extends pulumi.CustomResource {
     /**

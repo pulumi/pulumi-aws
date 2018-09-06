@@ -37,6 +37,7 @@ func TestExamples(t *testing.T) {
 
 	examples := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
 	}
 	if !testing.Short() {
 		examples = append(examples, []integration.ProgramTestOptions{
@@ -63,7 +64,13 @@ func TestExamples(t *testing.T) {
 					"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
 				},
 			}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless-raw")}),
+			baseJS.With(integration.ProgramTestOptions{
+				Dir: path.Join(cwd, "serverless-raw"),
+				// Two changes are known to occur during refresh of the resources in this example:
+				// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
+				// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
+				ExpectRefreshChanges: true,
+			}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
 			// Python tests:

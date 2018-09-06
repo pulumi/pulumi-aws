@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
+
+import {PolicyDocument} from "./documents";
 
 /**
  * Provides an IAM policy attached to a user.
@@ -86,7 +89,7 @@ export interface UserPolicyState {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * IAM user to which to attach this policy.
      */
@@ -109,7 +112,7 @@ export interface UserPolicyArgs {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * IAM user to which to attach this policy.
      */

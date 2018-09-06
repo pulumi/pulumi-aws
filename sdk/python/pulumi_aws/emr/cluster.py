@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Cluster(pulumi.CustomResource):
     """
@@ -68,8 +69,6 @@ class Cluster(pulumi.CustomResource):
         __self__.configurations_json = configurations_json
         """
         A JSON string for supplying list of configurations for the EMR cluster.
-        ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-        the `Configurations` field instead of providing empty list as value `"Configurations": []`.
         """
         __props__['configurationsJson'] = configurations_json
 
@@ -203,7 +202,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property steps to be a list')
         __self__.steps = steps
         """
-        List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+        List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
         """
         __props__['steps'] = steps
 

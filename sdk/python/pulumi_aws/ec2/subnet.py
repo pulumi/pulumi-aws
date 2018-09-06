@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Subnet(pulumi.CustomResource):
     """
@@ -82,6 +83,11 @@ class Subnet(pulumi.CustomResource):
         """
         __props__['vpcId'] = vpc_id
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the subnet.
+        * `availability_zone`- The AZ for the subnet.
+        """
         __self__.ipv6_cidr_block_association_id = pulumi.runtime.UNKNOWN
         """
         The association ID for the IPv6 CIDR block.
@@ -94,6 +100,8 @@ class Subnet(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'assignIpv6AddressOnCreation' in outs:
             self.assign_ipv6_address_on_creation = outs['assignIpv6AddressOnCreation']
         if 'availabilityZone' in outs:

@@ -120,7 +120,7 @@ func (r *LaunchConfiguration) AssociatePublicIpAddress() *pulumi.BoolOutput {
 }
 
 // Additional EBS block devices to attach to the
-// instance.  See [Block Devices](#block-devices) below for details.
+// instance.  See Block Devices below for details.
 func (r *LaunchConfiguration) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
@@ -136,7 +136,7 @@ func (r *LaunchConfiguration) EnableMonitoring() *pulumi.BoolOutput {
 }
 
 // Customize Ephemeral (also known as
-// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+// "Instance Store") volumes on the instance. See Block Devices below for details.
 func (r *LaunchConfiguration) EphemeralBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
@@ -182,7 +182,7 @@ func (r *LaunchConfiguration) PlacementTenancy() *pulumi.StringOutput {
 }
 
 // Customize details about the root block
-// device of the instance. See [Block Devices](#block-devices) below for details.
+// device of the instance. See Block Devices below for details.
 func (r *LaunchConfiguration) RootBlockDevice() *pulumi.Output {
 	return r.s.State["rootBlockDevice"]
 }
@@ -222,14 +222,14 @@ type LaunchConfigurationState struct {
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized interface{}
 	// Enables/disables detailed monitoring. This is enabled by default.
 	EnableMonitoring interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// The IAM instance profile to associate
 	// with launched instances.
@@ -251,7 +251,7 @@ type LaunchConfigurationState struct {
 	// for more details
 	PlacementTenancy interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
 	// A list of associated security group IDS.
 	SecurityGroups interface{}
@@ -272,14 +272,14 @@ type LaunchConfigurationArgs struct {
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See [Block Devices](#block-devices) below for details.
+	// instance.  See Block Devices below for details.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized interface{}
 	// Enables/disables detailed monitoring. This is enabled by default.
 	EnableMonitoring interface{}
 	// Customize Ephemeral (also known as
-	// "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
 	// The IAM instance profile to associate
 	// with launched instances.
@@ -301,7 +301,7 @@ type LaunchConfigurationArgs struct {
 	// for more details
 	PlacementTenancy interface{}
 	// Customize details about the root block
-	// device of the instance. See [Block Devices](#block-devices) below for details.
+	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
 	// A list of associated security group IDS.
 	SecurityGroups interface{}

@@ -169,8 +169,6 @@ func (r *Cluster) Configurations() *pulumi.StringOutput {
 }
 
 // A JSON string for supplying list of configurations for the EMR cluster.
-// ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-// the `Configurations` field instead of providing empty list as value `"Configurations": []`.
 func (r *Cluster) ConfigurationsJson() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["configurationsJson"])
 }
@@ -257,7 +255,7 @@ func (r *Cluster) ServiceRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRole"])
 }
 
-// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
 func (r *Cluster) Steps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["steps"])
 }
@@ -292,8 +290,6 @@ type ClusterState struct {
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations interface{}
 	// A JSON string for supplying list of configurations for the EMR cluster.
-	// ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-	// the `Configurations` field instead of providing empty list as value `"Configurations": []`.
 	ConfigurationsJson interface{}
 	// Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
 	CoreInstanceCount interface{}
@@ -329,7 +325,7 @@ type ClusterState struct {
 	SecurityConfiguration interface{}
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
 	ServiceRole interface{}
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
@@ -353,8 +349,6 @@ type ClusterArgs struct {
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations interface{}
 	// A JSON string for supplying list of configurations for the EMR cluster.
-	// ~> **NOTE on configurations_json:** If the `Configurations` value is empty then you should skip
-	// the `Configurations` field instead of providing empty list as value `"Configurations": []`.
 	ConfigurationsJson interface{}
 	// Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
 	CoreInstanceCount interface{}
@@ -388,7 +382,7 @@ type ClusterArgs struct {
 	SecurityConfiguration interface{}
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
 	ServiceRole interface{}
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}

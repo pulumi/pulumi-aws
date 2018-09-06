@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Load Balancer Attachment resource.
  * 
  * ~> **NOTE on ELB Instances and ELB Attachments:** Terraform currently provides
  * both a standalone ELB Attachment resource (describing an instance attached to
- * an ELB), and an [Elastic Load Balancer resource](elb.html) with
+ * an ELB), and an Elastic Load Balancer resource with
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with an ELB Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.

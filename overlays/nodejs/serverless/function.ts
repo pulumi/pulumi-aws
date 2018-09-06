@@ -16,6 +16,7 @@ import * as crypto from "crypto";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
+import { Overwrite } from "../utils";
 import { ARN } from "../arn";
 
 /**
@@ -36,66 +37,89 @@ export interface Context {
 }
 
 /**
- * Handler is the signature for a serverless function.
+ * HandlerSignature is the signature for a serverless function that will be invoked each time
+ * the AWS Lambda is invoked.
  */
 export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
 
 /**
- * FunctionOptions provides configuration options for the serverless Function.
+ * HandlerFactory is the signature for a function that will be called once to produce the serverless
+ * function that AWS Lambda will invoke.  It can be used to initialize expensive state once that can
+ * then be used across all invocations of the Lambda (as long as the Lambda is using the same warm
+ * node instance).
  */
-export interface FunctionOptions {
+export type HandlerFactory = () => Handler;
+
+/**
+ * FunctionOptions provides configuration options for the serverless Function.  It is effectively
+ * equivalent to [aws.lambda.FunctionArgs] except with a few important differences documented at the
+ * property level.  For example, [role] is an actual iam.Role instance, and not an ARN. Properties
+ * like [runtime] are now optional.  And some properties (like [code]) are entirely disallowed.
+ */
+export type FunctionOptions = Overwrite<lambda.FunctionArgs, {
+    /**
+     * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
+     * passed in JavaScript callback.
+     */
+    code?: never;
+
+    /**
+     * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
+     * passed in JavaScript callback.
+     */
+    handler?: never;
+
+    /**
+     * The Javascript function instance to use as the entrypoint for the AWS Lambda out of.  Either
+     * [handler] or [factoryFunc] must be provided.
+     */
+    func?: Handler;
+
+    /**
+     * The Javascript function instance that will be called to produce the function that is the
+     * entrypoint for the AWS Lambda. Either [func] or [factoryFunc] must be provided.
+     *
+     * This form is useful when there is expensive initialization work that should only be executed
+     * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
+     * It can run whatever code it needs, and will end by returning the actual function that Lambda
+     * will call into each time the Lambda is invoked.
+     */
+    factoryFunc?: HandlerFactory;
+
     /**
      * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
      */
     policies?: ARN[];
+
     /**
      * A pre-created role to use for the Function.  Must provide either [policies] or [role].
      */
     role?: Role;
+
     /**
-     * A timout, in seconds, to apply to the Function.
-     */
-    timeout?: number;
-    /**
-     * The memory size limit to use for execution of the Function.
-     */
-    memorySize?: number;
-    /**
-     * The Lambda runtime to use.
+     * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
      */
     runtime?: lambda.Runtime;
-    /**
-     * A dead letter target ARN to send function invocation failures to.
-     */
-    deadLetterConfig?: { targetArn: pulumi.Input<string>; };
-    /**
-     * Configuration for a VPC to run the Function within.
-     */
-    vpcConfig?: {
-        securityGroupIds: pulumi.Input<string[]>,
-        subnetIds: pulumi.Input<string[]>,
-    };
-    /**
-     * The Lambda environment's configuration settings.
-     */
-    environment?: pulumi.Input<{ variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>;
+
     /**
      * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
      */
     includePaths?: string[];
+
     /**
      * The packages relative to the program folder to include in the Lambda upload.  The version of
      * the package installed in the program folder and it's dependencies will all be included.
      * Default is `[]`.
      */
     includePackages?: string[];
+
     /**
      * The packages relative to the program folder to not include the Lambda upload. This can be
      * used to override the default serialization logic that includes all packages referenced by
      * project.json (except @pulumi packages).  Default is `[]`.
      */
     excludePackages?: string[];
-}
+}>;
 
 /**
  * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
@@ -108,12 +132,24 @@ export class Function extends pulumi.ComponentResource {
 
     constructor(name: string,
         options: FunctionOptions,
-        func: Handler,
+        func?: Handler,
         opts?: pulumi.ResourceOptions,
         serialize?: (obj: any) => boolean) {
+
         if (!name) {
             throw new Error("Missing required resource name");
         }
+
+        if (options.func && options.factoryFunc) {
+            throw new pulumi.RunError("Cannot provide both [options.func] and [options.factoryFunc]");
+        }
+
+        const optionsFunc = options.func || options.factoryFunc;
+        if (optionsFunc && func) {
+            throw new pulumi.RunError("Function provided both in options bag and as argument");
+        }
+
+        func = optionsFunc || func;
         if (!func) {
             throw new Error("Missing required function callback");
         }
@@ -152,26 +188,29 @@ export class Function extends pulumi.ComponentResource {
         const handlerName = "handler";
         const serializedFileNameNoExtension = "__index";
 
-        let closure = pulumi.runtime.serializeFunction(func, {
+        const closure = pulumi.runtime.serializeFunction(func, {
             serialize: finalSerialize,
             exportName: handlerName,
+            isFactoryFunction: !!options.factoryFunc,
         });
 
-        let codePaths = computeCodePaths(
+        const codePaths = computeCodePaths(
             closure, serializedFileNameNoExtension, options.includePaths, options.excludePackages);
 
-        // Create the Lambda Function.
-        this.lambda = new lambda.Function(name, {
+        // Copy over all option values into the function args.  Then overwrite anything we care
+        // about with our own values.  This ensures that clients can pass future supported
+        // lambda options without us having to know about it.
+        const copy = {
+            ...options,
             code: new pulumi.asset.AssetArchive(codePaths),
             handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: options.runtime || lambda.NodeJS8d10Runtime,
-            environment: options.environment,
             role: this.role.arn,
             timeout: options.timeout === undefined ? 180 : options.timeout,
-            memorySize: options.memorySize,
-            deadLetterConfig: options.deadLetterConfig,
-            vpcConfig: options.vpcConfig,
-        }, { parent: this });
+        };
+
+        // Create the Lambda Function.
+        this.lambda = new lambda.Function(name, copy, { parent: this });
     }
 }
 

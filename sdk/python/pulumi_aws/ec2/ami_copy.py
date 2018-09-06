@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class AmiCopy(pulumi.CustomResource):
     """
@@ -19,7 +20,7 @@ class AmiCopy(pulumi.CustomResource):
     Copying an AMI can take several minutes. The creation of this resource will
     block until the new AMI is available for use on new instances.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, ebs_block_devices=None, ena_support=None, encrypted=None, ephemeral_block_devices=None, kms_key_id=None, name=None, source_ami_id=None, source_ami_region=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, ebs_block_devices=None, encrypted=None, ephemeral_block_devices=None, kms_key_id=None, name=None, source_ami_id=None, source_ami_region=None, tags=None):
         """Create a AmiCopy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -47,19 +48,11 @@ class AmiCopy(pulumi.CustomResource):
         """
         __props__['ebsBlockDevices'] = ebs_block_devices
 
-        if ena_support and not isinstance(ena_support, bool):
-            raise TypeError('Expected property ena_support to be a bool')
-        __self__.ena_support = ena_support
-        """
-        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-        """
-        __props__['enaSupport'] = ena_support
-
         if encrypted and not isinstance(encrypted, bool):
             raise TypeError('Expected property encrypted to be a bool')
         __self__.encrypted = encrypted
         """
-        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         """
         __props__['encrypted'] = encrypted
 
@@ -76,9 +69,7 @@ class AmiCopy(pulumi.CustomResource):
             raise TypeError('Expected property kms_key_id to be a basestring')
         __self__.kms_key_id = kms_key_id
         """
-        The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        if this parameter is not specified, the default CMK for EBS is used
+        The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         """
         __props__['kmsKeyId'] = kms_key_id
 
@@ -120,6 +111,10 @@ class AmiCopy(pulumi.CustomResource):
         __self__.architecture = pulumi.runtime.UNKNOWN
         """
         Machine architecture for created instances. Defaults to "x86_64".
+        """
+        __self__.ena_support = pulumi.runtime.UNKNOWN
+        """
+        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
         __self__.image_location = pulumi.runtime.UNKNOWN
         """

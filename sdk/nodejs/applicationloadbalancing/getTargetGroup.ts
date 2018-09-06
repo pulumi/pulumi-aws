@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * ~> **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.

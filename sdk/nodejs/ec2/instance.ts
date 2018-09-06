@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 import {InstanceType} from "./instanceType";
 
 /**
  * Provides an EC2 instance resource. This allows instances to be created, updated,
- * and deleted. Instances also support [provisioning](/docs/provisioners/index.html).
+ * and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -28,6 +29,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ami: pulumi.Output<string>;
     /**
+     * The ARN of the instance.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */
     public readonly associatePublicIpAddress: pulumi.Output<boolean>;
@@ -46,7 +51,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly cpuThreadsPerCore: pulumi.Output<number>;
     /**
-     * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+     * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
     public readonly creditSpecification: pulumi.Output<{ cpuCredits?: string } | undefined>;
     /**
@@ -56,7 +61,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly disableApiTermination: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See [Block Devices](#block-devices) below for details.
+     * instance.  See Block Devices below for details.
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
@@ -69,7 +74,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as
-     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
     public readonly ephemeralBlockDevices: pulumi.Output<{ deviceName: string, noDevice?: boolean, virtualName?: string }[]>;
     /**
@@ -100,7 +105,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ipv6Addresses: pulumi.Output<string[]>;
     /**
-     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+     * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
      */
     public readonly keyName: pulumi.Output<string>;
     /**
@@ -108,11 +113,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly monitoring: pulumi.Output<boolean | undefined>;
     /**
-     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+     * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     public readonly networkInterfaces: pulumi.Output<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
     /**
-     * The ID of the network interface to attach.
+     * The ID of the network interface that was created with the instance.
      */
     public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
     /**
@@ -148,12 +153,12 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicDns: pulumi.Output<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
      */
     public /*out*/ readonly publicIp: pulumi.Output<string>;
     /**
      * Customize details about the root block
-     * device of the instance. See [Block Devices](#block-devices) below for details.
+     * device of the instance. See Block Devices below for details.
      */
     public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeId: string, volumeSize: number, volumeType: string }>;
     /**
@@ -207,6 +212,7 @@ export class Instance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: InstanceState = argsOrState as InstanceState | undefined;
             inputs["ami"] = state ? state.ami : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
@@ -283,6 +289,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             inputs["volumeTags"] = args ? args.volumeTags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
@@ -304,6 +311,10 @@ export interface InstanceState {
      */
     readonly ami?: pulumi.Input<string>;
     /**
+     * The ARN of the instance.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */
     readonly associatePublicIpAddress?: pulumi.Input<boolean>;
@@ -322,7 +333,7 @@ export interface InstanceState {
      */
     readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
-     * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+     * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
     readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
@@ -332,7 +343,7 @@ export interface InstanceState {
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See [Block Devices](#block-devices) below for details.
+     * instance.  See Block Devices below for details.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
@@ -345,7 +356,7 @@ export interface InstanceState {
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
      * Customize Ephemeral (also known as
-     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
@@ -376,7 +387,7 @@ export interface InstanceState {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+     * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -384,11 +395,11 @@ export interface InstanceState {
      */
     readonly monitoring?: pulumi.Input<boolean>;
     /**
-     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+     * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
     /**
-     * The ID of the network interface to attach.
+     * The ID of the network interface that was created with the instance.
      */
     readonly networkInterfaceId?: pulumi.Input<string>;
     /**
@@ -424,12 +435,12 @@ export interface InstanceState {
      */
     readonly publicDns?: pulumi.Input<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
      */
     readonly publicIp?: pulumi.Input<string>;
     /**
      * Customize details about the root block
-     * device of the instance. See [Block Devices](#block-devices) below for details.
+     * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
@@ -498,7 +509,7 @@ export interface InstanceArgs {
      */
     readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
-     * Customize the credit specification of the instance. See [Credit Specification](#credit-specification) below for more details.
+     * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
     readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
@@ -508,7 +519,7 @@ export interface InstanceArgs {
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See [Block Devices](#block-devices) below for details.
+     * instance.  See Block Devices below for details.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
@@ -521,7 +532,7 @@ export interface InstanceArgs {
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
      * Customize Ephemeral (also known as
-     * "Instance Store") volumes on the instance. See [Block Devices](#block-devices) below for details.
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
@@ -551,7 +562,7 @@ export interface InstanceArgs {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name of the Key Pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html).
+     * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -559,7 +570,7 @@ export interface InstanceArgs {
      */
     readonly monitoring?: pulumi.Input<boolean>;
     /**
-     * Customize network interfaces to be attached at instance boot time. See [Network Interfaces](#network-interfaces) below for more details.
+     * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
     /**
@@ -573,7 +584,7 @@ export interface InstanceArgs {
     readonly privateIp?: pulumi.Input<string>;
     /**
      * Customize details about the root block
-     * device of the instance. See [Block Devices](#block-devices) below for details.
+     * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**

@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class DefaultVpc(pulumi.CustomResource):
     """
@@ -110,7 +111,7 @@ class DefaultVpc(pulumi.CustomResource):
         """
         The ID of the main route table associated with
         this VPC. Note that you can change a VPC's main route table by using an
-        [`aws_main_route_table_association`](/docs/providers/aws/r/main_route_table_assoc.html)
+        [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
         """
 
         super(DefaultVpc, __self__).__init__(

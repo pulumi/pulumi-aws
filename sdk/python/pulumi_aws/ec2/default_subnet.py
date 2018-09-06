@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class DefaultSubnet(pulumi.CustomResource):
     """
@@ -50,6 +51,7 @@ class DefaultSubnet(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        __self__.arn = pulumi.runtime.UNKNOWN
         __self__.assign_ipv6_address_on_creation = pulumi.runtime.UNKNOWN
         __self__.cidr_block = pulumi.runtime.UNKNOWN
         """
@@ -72,6 +74,8 @@ class DefaultSubnet(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'assignIpv6AddressOnCreation' in outs:
             self.assign_ipv6_address_on_creation = outs['assignIpv6AddressOnCreation']
         if 'availabilityZone' in outs:

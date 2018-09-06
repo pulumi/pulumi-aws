@@ -4,17 +4,24 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class GetInstanceResult(object):
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, vpc_security_group_ids=None, id=None):
         if ami and not isinstance(ami, basestring):
             raise TypeError('Expected argument ami to be a basestring')
         __self__.ami = ami
         """
         The ID of the AMI used to launch the instance.
+        """
+        if arn and not isinstance(arn, basestring):
+            raise TypeError('Expected argument arn to be a basestring')
+        __self__.arn = arn
+        """
+        The ARN of the instance.
         """
         if associate_public_ip_address and not isinstance(associate_public_ip_address, bool):
             raise TypeError('Expected argument associate_public_ip_address to be a bool')
@@ -131,7 +138,7 @@ class GetInstanceResult(object):
             raise TypeError('Expected argument public_ip to be a basestring')
         __self__.public_ip = public_ip
         """
-        The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         """
         if root_block_devices and not isinstance(root_block_devices, list):
             raise TypeError('Expected argument root_block_devices to be a list')
@@ -204,6 +211,7 @@ def get_instance(filters=None, get_password_data=None, instance_id=None, instanc
 
     return GetInstanceResult(
         ami=__ret__.get('ami'),
+        arn=__ret__.get('arn'),
         associate_public_ip_address=__ret__.get('associatePublicIpAddress'),
         availability_zone=__ret__.get('availabilityZone'),
         credit_specifications=__ret__.get('creditSpecifications'),

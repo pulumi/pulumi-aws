@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
@@ -29,7 +30,7 @@ import {Tags} from "../index";
  * for more information.
  * 
  * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -92,7 +93,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbClusterParameterGroupName: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
@@ -108,6 +109,10 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
      */
     public readonly engine: pulumi.Output<string | undefined>;
+    /**
+     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     */
+    public readonly engineMode: pulumi.Output<string | undefined>;
     /**
      * The database engine version.
      */
@@ -179,7 +184,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
      */
     public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
     /**
@@ -219,6 +224,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
+            inputs["engineMode"] = state ? state.engineMode : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
@@ -253,6 +259,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
+            inputs["engineMode"] = args ? args.engineMode : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             inputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
@@ -333,7 +340,7 @@ export interface ClusterState {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -349,6 +356,10 @@ export interface ClusterState {
      * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
      */
     readonly engine?: pulumi.Input<string>;
+    /**
+     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     */
+    readonly engineMode?: pulumi.Input<string>;
     /**
      * The database engine version.
      */
@@ -420,7 +431,7 @@ export interface ClusterState {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
@@ -478,7 +489,7 @@ export interface ClusterArgs {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -490,6 +501,10 @@ export interface ClusterArgs {
      * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
      */
     readonly engine?: pulumi.Input<string>;
+    /**
+     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     */
+    readonly engineMode?: pulumi.Input<string>;
     /**
      * The database engine version.
      */
@@ -552,7 +567,7 @@ export interface ClusterArgs {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**

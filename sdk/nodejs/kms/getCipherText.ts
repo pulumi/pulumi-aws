@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
  * by using an AWS KMS customer master key.
  * 
  * ~> **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
     return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {

@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class ScheduledAction(pulumi.CustomResource):
     """
@@ -58,7 +59,7 @@ class ScheduledAction(pulumi.CustomResource):
             raise TypeError('Expected property scalable_target_action to be a dict')
         __self__.scalable_target_action = scalable_target_action
         """
-        The new minimum and maximum capacity. You can set both values or just one. See [below](#scalable-target-action-arguments)
+        The new minimum and maximum capacity. You can set both values or just one. See below
         """
         __props__['scalableTargetAction'] = scalable_target_action
 

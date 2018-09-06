@@ -12,7 +12,7 @@ import (
 // 
 // ~> **NOTE:** ElastiCache Subnet Groups are only for use when working with an
 // ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
-// [ElastiCache Security Group resource](elasticache_security_group.html).
+// ElastiCache Security Group resource.
 type SubnetGroup struct {
 	s *pulumi.ResourceState
 }
@@ -24,8 +24,8 @@ func NewSubnetGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'SubnetIds'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["subnetIds"] = nil
 	} else {

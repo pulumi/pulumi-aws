@@ -8,10 +8,10 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.15.0"
+        "@pulumi/pulumi": "^0.15.1-rc"
     },
     "devDependencies": {
-        "typescript": "^2.5.3"
+        "typescript": "^2.6.2"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"

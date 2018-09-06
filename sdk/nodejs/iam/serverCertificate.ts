@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an IAM Server Certificate resource to upload Server Certificates.
@@ -16,7 +17,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Certificates][2] in AWS Documentation.
  * 
  * ~> **Note:** All arguments including the private key will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class ServerCertificate extends pulumi.CustomResource {
     /**

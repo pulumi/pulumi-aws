@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
@@ -52,7 +53,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly retention: pulumi.Output<number | undefined>;
     /**
-     * A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     public readonly storageDescriptor: pulumi.Output<{ bucketColumns?: string[], columns?: { comment?: string, name: string, type?: string }[], compressed?: boolean, inputFormat?: string, location?: string, numberOfBuckets?: number, outputFormat?: string, parameters?: {[key: string]: string}, serDeInfo?: { name?: string, parameters?: {[key: string]: string}, serializationLibrary?: string }, skewedInfo?: { skewedColumnNames?: string[], skewedColumnValueLocationMaps?: {[key: string]: string}, skewedColumnValues?: string[] }, sortColumns?: { column: string, sortOrder: number }[], storedAsSubDirectories?: boolean } | undefined>;
     /**
@@ -151,7 +152,7 @@ export interface CatalogTableState {
      */
     readonly retention?: pulumi.Input<number>;
     /**
-     * A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     readonly storageDescriptor?: pulumi.Input<{ bucketColumns?: pulumi.Input<pulumi.Input<string>[]>, columns?: pulumi.Input<pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>, compressed?: pulumi.Input<boolean>, inputFormat?: pulumi.Input<string>, location?: pulumi.Input<string>, numberOfBuckets?: pulumi.Input<number>, outputFormat?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serDeInfo?: pulumi.Input<{ name?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serializationLibrary?: pulumi.Input<string> }>, skewedInfo?: pulumi.Input<{ skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>, skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]> }>, sortColumns?: pulumi.Input<pulumi.Input<{ column: pulumi.Input<string>, sortOrder: pulumi.Input<number> }>[]>, storedAsSubDirectories?: pulumi.Input<boolean> }>;
     /**
@@ -205,7 +206,7 @@ export interface CatalogTableArgs {
      */
     readonly retention?: pulumi.Input<number>;
     /**
-     * A [storage descriptor](#storage_descriptor) object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     readonly storageDescriptor?: pulumi.Input<{ bucketColumns?: pulumi.Input<pulumi.Input<string>[]>, columns?: pulumi.Input<pulumi.Input<{ comment?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>, compressed?: pulumi.Input<boolean>, inputFormat?: pulumi.Input<string>, location?: pulumi.Input<string>, numberOfBuckets?: pulumi.Input<number>, outputFormat?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serDeInfo?: pulumi.Input<{ name?: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serializationLibrary?: pulumi.Input<string> }>, skewedInfo?: pulumi.Input<{ skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>, skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]> }>, sortColumns?: pulumi.Input<pulumi.Input<{ column: pulumi.Input<string>, sortOrder: pulumi.Input<number> }>[]>, storedAsSubDirectories?: pulumi.Input<boolean> }>;
     /**

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
@@ -15,7 +16,7 @@ import {Application} from "./application";
  * Environment.
  * 
  * ~> **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
- * [Elastic Beanstalk Environments](elastic_beanstalk_environment.html) it is possible that an error may be returned
+ * Elastic Beanstalk Environments it is possible that an error may be returned
  * when attempting to delete an Application Version while it is still in use by a different environment.
  * To work around this you can:
  * <ol>

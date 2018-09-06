@@ -4,12 +4,13 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class SecurityGroup(pulumi.CustomResource):
     """
     Provides an RDS security group resource. This is only for DB instances in the
     EC2-Classic Platform. For instances inside a VPC, use the
-    [`aws_db_instance.vpc_security_group_ids`](/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
+    [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
     attribute instead.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, ingress=None, name=None, tags=None):
@@ -23,6 +24,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        description = 'Managed by Pulumi'
         if description and not isinstance(description, basestring):
             raise TypeError('Expected property description to be a basestring')
         __self__.description = description

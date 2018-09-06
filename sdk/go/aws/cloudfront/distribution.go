@@ -183,12 +183,12 @@ func (r *Distribution) Comment() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["comment"])
 }
 
-// One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+// One or more custom error response elements (multiples allowed).
 func (r *Distribution) CustomErrorResponses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["customErrorResponses"])
 }
 
-// The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+// The default cache behavior for this distribution (maximum
 // one).
 func (r *Distribution) DefaultCacheBehavior() *pulumi.Output {
 	return r.s.State["defaultCacheBehavior"]
@@ -248,21 +248,21 @@ func (r *Distribution) LastModifiedTime() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["lastModifiedTime"])
 }
 
-// The [logging
-// configuration](#logging-config-arguments) that controls how logs are written
+// The logging
+// configuration that controls how logs are written
 // to your distribution (maximum one).
 func (r *Distribution) LoggingConfig() *pulumi.Output {
 	return r.s.State["loggingConfig"]
 }
 
-// An ordered list of [cache behaviors](#cache-behavior-arguments)
+// An ordered list of cache behaviors
 // resource for this distribution. List from top to bottom
 // +    in order of precedence. The topmost cache behavior will have precedence 0.
 func (r *Distribution) OrderedCacheBehaviors() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["orderedCacheBehaviors"])
 }
 
-// One or more [origins](#origin-arguments) for this
+// One or more origins for this
 // distribution (multiples allowed).
 func (r *Distribution) Origins() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["origins"])
@@ -274,8 +274,8 @@ func (r *Distribution) PriceClass() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["priceClass"])
 }
 
-// The [restriction
-// configuration](#restrictions-arguments) for this distribution (maximum one).
+// The restriction
+// configuration for this distribution (maximum one).
 func (r *Distribution) Restrictions() *pulumi.Output {
 	return r.s.State["restrictions"]
 }
@@ -299,8 +299,8 @@ func (r *Distribution) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The [SSL
-// configuration](#viewer-certificate-arguments) for this distribution (maximum
+// The SSL
+// configuration for this distribution (maximum
 // one).
 func (r *Distribution) ViewerCertificate() *pulumi.Output {
 	return r.s.State["viewerCertificate"]
@@ -332,9 +332,9 @@ type DistributionState struct {
 	// Any comments you want to include about the
 	// distribution.
 	Comment interface{}
-	// One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses interface{}
-	// The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+	// The default cache behavior for this distribution (maximum
 	// one).
 	DefaultCacheBehavior interface{}
 	// The object that you want CloudFront to
@@ -364,22 +364,22 @@ type DistributionState struct {
 	IsIpv6Enabled interface{}
 	// The date and time the distribution was last modified.
 	LastModifiedTime interface{}
-	// The [logging
-	// configuration](#logging-config-arguments) that controls how logs are written
+	// The logging
+	// configuration that controls how logs are written
 	// to your distribution (maximum one).
 	LoggingConfig interface{}
-	// An ordered list of [cache behaviors](#cache-behavior-arguments)
+	// An ordered list of cache behaviors
 	// resource for this distribution. List from top to bottom
 	// +    in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors interface{}
-	// One or more [origins](#origin-arguments) for this
+	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
 	// The price class for this distribution. One of
 	// `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 	PriceClass interface{}
-	// The [restriction
-	// configuration](#restrictions-arguments) for this distribution (maximum one).
+	// The restriction
+	// configuration for this distribution (maximum one).
 	Restrictions interface{}
 	// Disables the distribution instead of
 	// deleting it when destroying the resource through Terraform. If this is set,
@@ -391,8 +391,8 @@ type DistributionState struct {
 	Status interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The [SSL
-	// configuration](#viewer-certificate-arguments) for this distribution (maximum
+	// The SSL
+	// configuration for this distribution (maximum
 	// one).
 	ViewerCertificate interface{}
 	// If you're using AWS WAF to filter CloudFront
@@ -411,9 +411,9 @@ type DistributionArgs struct {
 	// Any comments you want to include about the
 	// distribution.
 	Comment interface{}
-	// One or more [custom error response](#custom-error-response-arguments) elements (multiples allowed).
+	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses interface{}
-	// The [default cache behavior](#default-cache-behavior-arguments) for this distribution (maximum
+	// The default cache behavior for this distribution (maximum
 	// one).
 	DefaultCacheBehavior interface{}
 	// The object that you want CloudFront to
@@ -428,22 +428,22 @@ type DistributionArgs struct {
 	HttpVersion interface{}
 	// Whether the IPv6 is enabled for the distribution.
 	IsIpv6Enabled interface{}
-	// The [logging
-	// configuration](#logging-config-arguments) that controls how logs are written
+	// The logging
+	// configuration that controls how logs are written
 	// to your distribution (maximum one).
 	LoggingConfig interface{}
-	// An ordered list of [cache behaviors](#cache-behavior-arguments)
+	// An ordered list of cache behaviors
 	// resource for this distribution. List from top to bottom
 	// +    in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors interface{}
-	// One or more [origins](#origin-arguments) for this
+	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
 	// The price class for this distribution. One of
 	// `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 	PriceClass interface{}
-	// The [restriction
-	// configuration](#restrictions-arguments) for this distribution (maximum one).
+	// The restriction
+	// configuration for this distribution (maximum one).
 	Restrictions interface{}
 	// Disables the distribution instead of
 	// deleting it when destroying the resource through Terraform. If this is set,
@@ -451,8 +451,8 @@ type DistributionArgs struct {
 	RetainOnDelete interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The [SSL
-	// configuration](#viewer-certificate-arguments) for this distribution (maximum
+	// The SSL
+	// configuration for this distribution (maximum
 	// one).
 	ViewerCertificate interface{}
 	// If you're using AWS WAF to filter CloudFront

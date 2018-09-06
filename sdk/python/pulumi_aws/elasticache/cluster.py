@@ -4,12 +4,13 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Cluster(pulumi.CustomResource):
     """
     Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
     For working with Redis (Cluster Mode Enabled) replication groups, see the
-    [`aws_elasticache_replication_group` resource](/docs/providers/aws/r/elasticache_replication_group.html).
+    [`aws_elasticache_replication_group` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
     
     ~> **Note:** When you change an attribute, such as `node_type`, by default
     it is applied in the next maintenance window. Because of this, Terraform may report
@@ -64,9 +65,7 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['azMode'] = az_mode
 
-        if not cluster_id:
-            raise TypeError('Missing required property cluster_id')
-        elif not isinstance(cluster_id, basestring):
+        if cluster_id and not isinstance(cluster_id, basestring):
             raise TypeError('Expected property cluster_id to be a basestring')
         __self__.cluster_id = cluster_id
         """

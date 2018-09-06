@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class TaskDefinition(pulumi.CustomResource):
     """
@@ -81,7 +82,7 @@ class TaskDefinition(pulumi.CustomResource):
             raise TypeError('Expected property placement_constraints to be a list')
         __self__.placement_constraints = placement_constraints
         """
-        A set of [placement constraints](#placement-constraints-arguments) rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+        A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
         """
         __props__['placementConstraints'] = placement_constraints
 
@@ -105,7 +106,7 @@ class TaskDefinition(pulumi.CustomResource):
             raise TypeError('Expected property volumes to be a list')
         __self__.volumes = volumes
         """
-        A set of [volume blocks](#volume-block-arguments) that containers in your task may use.
+        A set of volume blocks that containers in your task may use.
         """
         __props__['volumes'] = volumes
 

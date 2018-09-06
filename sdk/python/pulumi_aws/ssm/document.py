@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Document(pulumi.CustomResource):
     """
@@ -64,7 +65,7 @@ class Document(pulumi.CustomResource):
             raise TypeError('Expected property permissions to be a dict')
         __self__.permissions = permissions
         """
-        Additional Permissions to attach to the document. See [Permissions](#permissions) below for details.
+        Additional Permissions to attach to the document. See Permissions below for details.
         """
         __props__['permissions'] = permissions
 

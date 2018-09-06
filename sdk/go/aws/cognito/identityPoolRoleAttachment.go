@@ -71,21 +71,21 @@ func (r *IdentityPoolRoleAttachment) IdentityPoolId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identityPoolId"])
 }
 
-// A List of [Role Mapping](#role-mappings).
+// A List of Role Mapping.
 func (r *IdentityPoolRoleAttachment) RoleMappings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["roleMappings"])
 }
 
 // The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-func (r *IdentityPoolRoleAttachment) Roles() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["roles"])
+func (r *IdentityPoolRoleAttachment) Roles() *pulumi.Output {
+	return r.s.State["roles"]
 }
 
 // Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
 type IdentityPoolRoleAttachmentState struct {
 	// An identity pool ID in the format REGION:GUID.
 	IdentityPoolId interface{}
-	// A List of [Role Mapping](#role-mappings).
+	// A List of Role Mapping.
 	RoleMappings interface{}
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
 	Roles interface{}
@@ -95,7 +95,7 @@ type IdentityPoolRoleAttachmentState struct {
 type IdentityPoolRoleAttachmentArgs struct {
 	// An identity pool ID in the format REGION:GUID.
 	IdentityPoolId interface{}
-	// A List of [Role Mapping](#role-mappings).
+	// A List of Role Mapping.
 	RoleMappings interface{}
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
 	Roles interface{}

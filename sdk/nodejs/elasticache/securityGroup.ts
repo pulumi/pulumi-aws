@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Security Group to control access to one or more cache
@@ -9,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * ~> **NOTE:** ElastiCache Security Groups are for use only when working with an
  * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
- * [ElastiCache Subnet Group resource](elasticache_subnet_group.html).
+ * ElastiCache Subnet Group resource.
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
@@ -58,7 +59,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             if (!args || args.securityGroupNames === undefined) {
                 throw new Error("Missing required property 'securityGroupNames'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
         }

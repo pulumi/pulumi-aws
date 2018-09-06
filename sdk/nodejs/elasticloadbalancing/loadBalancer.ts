@@ -2,16 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
 /**
  * Provides an Elastic Load Balancer resource, also known as a "Classic
  * Load Balancer" after the release of
- * [Application/Network Load Balancers](/docs/providers/aws/r/lb.html).
+ * [Application/Network Load Balancers](https://www.terraform.io/docs/providers/aws/r/lb.html).
  * 
  * ~> **NOTE on ELB Instances and ELB Attachments:** Terraform currently
- * provides both a standalone [ELB Attachment resource](elb_attachment.html)
+ * provides both a standalone ELB Attachment resource
  * (describing an instance attached to an ELB), and an ELB resource with
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with a ELB Attachment resources. Doing so will cause a

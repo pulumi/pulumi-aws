@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "./utilities";
 
 import {Region} from "./region";
 
@@ -17,12 +18,9 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            if (!args || args.region === undefined) {
-                throw new Error("Missing required property 'region'");
-            }
             inputs["accessKey"] = args ? args.accessKey : undefined;
             inputs["allowedAccountIds"] = args ? args.allowedAccountIds : undefined;
             inputs["assumeRole"] = args ? args.assumeRole : undefined;
@@ -31,7 +29,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["insecure"] = args ? args.insecure : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["profile"] = args ? args.profile : undefined;
-            inputs["region"] = args ? args.region : undefined;
+            inputs["region"] = (args ? args.region : undefined) || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = args ? args.s3ForcePathStyle : undefined;
             inputs["secretKey"] = args ? args.secretKey : undefined;
             inputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
@@ -75,7 +73,7 @@ export interface ProviderArgs {
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      */
-    readonly region: pulumi.Input<Region>;
+    readonly region?: pulumi.Input<Region>;
     /**
      * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).

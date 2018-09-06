@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Cluster(pulumi.CustomResource):
     """
@@ -30,9 +31,9 @@ class Cluster(pulumi.CustomResource):
     for more information.
     
     ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -122,7 +123,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property db_subnet_group_name to be a basestring')
         __self__.db_subnet_group_name = db_subnet_group_name
         """
-        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+        A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
         """
         __props__['dbSubnetGroupName'] = db_subnet_group_name
 
@@ -142,6 +143,14 @@ class Cluster(pulumi.CustomResource):
         The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
         """
         __props__['engine'] = engine
+
+        if engine_mode and not isinstance(engine_mode, basestring):
+            raise TypeError('Expected property engine_mode to be a basestring')
+        __self__.engine_mode = engine_mode
+        """
+        The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        """
+        __props__['engineMode'] = engine_mode
 
         if engine_version and not isinstance(engine_version, basestring):
             raise TypeError('Expected property engine_version to be a basestring')
@@ -268,7 +277,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property storage_encrypted to be a bool')
         __self__.storage_encrypted = storage_encrypted
         """
-        Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+        Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
         """
         __props__['storageEncrypted'] = storage_encrypted
 
@@ -348,6 +357,8 @@ class Cluster(pulumi.CustomResource):
             self.endpoint = outs['endpoint']
         if 'engine' in outs:
             self.engine = outs['engine']
+        if 'engineMode' in outs:
+            self.engine_mode = outs['engineMode']
         if 'engineVersion' in outs:
             self.engine_version = outs['engineVersion']
         if 'finalSnapshotIdentifier' in outs:

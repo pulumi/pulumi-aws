@@ -83,7 +83,7 @@ func (r *LogMetricFilter) MetricTransformation() *pulumi.Output {
 	return r.s.State["metricTransformation"]
 }
 
-// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+// A name for the metric filter.
 func (r *LogMetricFilter) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -101,7 +101,7 @@ type LogMetricFilterState struct {
 	// A block defining collection of information
 	// needed to define how metric data gets emitted. See below.
 	MetricTransformation interface{}
-	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+	// A name for the metric filter.
 	Name interface{}
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.
@@ -115,7 +115,7 @@ type LogMetricFilterArgs struct {
 	// A block defining collection of information
 	// needed to define how metric data gets emitted. See below.
 	MetricTransformation interface{}
-	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+	// A name for the metric filter.
 	Name interface{}
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.

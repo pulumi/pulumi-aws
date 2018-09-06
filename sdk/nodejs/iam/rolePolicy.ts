@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
+import {PolicyDocument} from "./documents";
 import {Role} from "./role";
 
 /**
@@ -92,7 +94,7 @@ export interface RolePolicyState {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
      */
@@ -117,7 +119,7 @@ export interface RolePolicyArgs {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here.
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
      */

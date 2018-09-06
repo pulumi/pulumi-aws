@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides a security group rule resource. Represents a single `ingress` or
@@ -9,7 +10,7 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * ~> **NOTE on Security Groups and Security Group Rules:** Terraform currently
  * provides both a standalone Security Group Rule resource (a single `ingress` or
- * `egress` rule), and a [Security Group resource](security_group.html) with `ingress` and `egress` rules
+ * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
  * defined in-line. At this time you cannot use a Security Group with in-line rules
  * in conjunction with any Security Group Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.

@@ -10,7 +10,7 @@ import (
 
 // Provides an ElastiCache Replication Group resource.
 // For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
-// [`aws_elasticache_cluster` resource](/docs/providers/aws/r/elasticache_cluster.html).
+// [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
 type ReplicationGroup struct {
 	s *pulumi.ResourceState
 }

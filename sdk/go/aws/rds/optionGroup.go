@@ -27,13 +27,13 @@ func NewOptionGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'MajorEngineVersion'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["optionGroupDescription"] = "Managed by Pulumi"
 	if args == nil {
 		inputs["engineName"] = nil
 		inputs["majorEngineVersion"] = nil
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
 		inputs["options"] = nil
-		inputs["optionGroupDescription"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["engineName"] = args.EngineName

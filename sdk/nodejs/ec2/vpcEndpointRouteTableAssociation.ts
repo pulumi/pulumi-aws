@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an association between a VPC endpoint and routing table.
  * 
  * ~> **NOTE on VPC Endpoints and VPC Endpoint Route Table Associations:** Terraform provides
  * both a standalone VPC Endpoint Route Table Association (an association between a VPC endpoint
- * and a single `route_table_id`) and a [VPC Endpoint](vpc_endpoint.html) resource with a `route_table_ids`
+ * and a single `route_table_id`) and a VPC Endpoint resource with a `route_table_ids`
  * attribute. Do not use the same route table ID in both a VPC Endpoint resource and a VPC Endpoint Route
  * Table Association resource. Doing so will cause a conflict of associations and will overwrite the association.
  */

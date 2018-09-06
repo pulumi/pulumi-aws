@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Attachment resource.
  * 
  * ~> **NOTE on AutoScaling Groups and ASG Attachments:** Terraform currently provides
  * both a standalone ASG Attachment resource (describing an ASG attached to
- * an ELB), and an [AutoScaling Group resource](autoscaling_group.html) with
+ * an ELB), and an AutoScaling Group resource with
  * `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
  * load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.

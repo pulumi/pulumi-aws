@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class GraphQLApi(pulumi.CustomResource):
     """
@@ -42,7 +43,7 @@ class GraphQLApi(pulumi.CustomResource):
             raise TypeError('Expected property user_pool_config to be a dict')
         __self__.user_pool_config = user_pool_config
         """
-        The Amazon Cognito User Pool configuration. See [below](#user_pool_config)
+        The Amazon Cognito User Pool configuration. See below
         """
         __props__['userPoolConfig'] = user_pool_config
 

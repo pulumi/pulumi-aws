@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
+
+import {PolicyDocument} from "../iam/documents";
 
 /**
  * Attaches a policy to an S3 bucket resource.
@@ -68,7 +71,7 @@ export interface BucketPolicyState {
     /**
      * The text of the policy.
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
 /**
@@ -82,5 +85,5 @@ export interface BucketPolicyArgs {
     /**
      * The text of the policy.
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
 }

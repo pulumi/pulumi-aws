@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool.
@@ -28,7 +29,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     * An array of Amazon Cognito Identity user pools and their client IDs.
      */
     public readonly cognitoIdentityProviders: pulumi.Output<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[] | undefined>;
     /**
@@ -104,7 +105,7 @@ export interface IdentityPoolState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     * An array of Amazon Cognito Identity user pools and their client IDs.
      */
     readonly cognitoIdentityProviders?: pulumi.Input<pulumi.Input<{ clientId?: pulumi.Input<string>, providerName?: pulumi.Input<string>, serverSideTokenCheck?: pulumi.Input<boolean> }>[]>;
     /**
@@ -139,7 +140,7 @@ export interface IdentityPoolArgs {
      */
     readonly allowUnauthenticatedIdentities?: pulumi.Input<boolean>;
     /**
-     * An array of [Amazon Cognito Identity user pools](#cognito-identity-providers) and their client IDs.
+     * An array of Amazon Cognito Identity user pools and their client IDs.
      */
     readonly cognitoIdentityProviders?: pulumi.Input<pulumi.Input<{ clientId?: pulumi.Input<string>, providerName?: pulumi.Input<string>, serverSideTokenCheck?: pulumi.Input<boolean> }>[]>;
     /**

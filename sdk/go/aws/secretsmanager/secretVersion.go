@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws_secretsmanager_secret` resource](/docs/providers/aws/r/secretsmanager_secret.html).
+// Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws_secretsmanager_secret` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
 // 
 // ~> **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from Terraform unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from Terraform to fully trigger version deprecation if necessary.
 type SecretVersion struct {
@@ -34,6 +34,7 @@ func NewSecretVersion(ctx *pulumi.Context,
 		inputs["secretString"] = args.SecretString
 		inputs["versionStages"] = args.VersionStages
 	}
+	inputs["arn"] = nil
 	inputs["versionId"] = nil
 	s, err := ctx.RegisterResource("aws:secretsmanager/secretVersion:SecretVersion", name, true, inputs, opts...)
 	if err != nil {
@@ -48,6 +49,7 @@ func GetSecretVersion(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *SecretVersionState, opts ...pulumi.ResourceOpt) (*SecretVersion, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["secretId"] = state.SecretId
 		inputs["secretString"] = state.SecretString
 		inputs["versionId"] = state.VersionId
@@ -68,6 +70,11 @@ func (r *SecretVersion) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SecretVersion) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// The ARN of the secret.
+func (r *SecretVersion) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -92,6 +99,8 @@ func (r *SecretVersion) VersionStages() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SecretVersion resources.
 type SecretVersionState struct {
+	// The ARN of the secret.
+	Arn interface{}
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 	SecretId interface{}
 	// Specifies text data that you want to encrypt and store in this version of the secret.

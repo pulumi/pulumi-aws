@@ -13,7 +13,7 @@ import (
 // 
 // ~> **NOTE:** ElastiCache Security Groups are for use only when working with an
 // ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
-// [ElastiCache Subnet Group resource](elasticache_subnet_group.html).
+// ElastiCache Subnet Group resource.
 type SecurityGroup struct {
 	s *pulumi.ResourceState
 }
@@ -25,8 +25,8 @@ func NewSecurityGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'SecurityGroupNames'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["securityGroupNames"] = nil
 	} else {

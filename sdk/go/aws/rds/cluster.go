@@ -30,7 +30,7 @@ import (
 // for more information.
 // 
 // ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Cluster struct {
 	s *pulumi.ResourceState
 }
@@ -52,6 +52,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["dbSubnetGroupName"] = nil
 		inputs["enabledCloudwatchLogsExports"] = nil
 		inputs["engine"] = nil
+		inputs["engineMode"] = nil
 		inputs["engineVersion"] = nil
 		inputs["finalSnapshotIdentifier"] = nil
 		inputs["iamDatabaseAuthenticationEnabled"] = nil
@@ -83,6 +84,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
 		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
 		inputs["engine"] = args.Engine
+		inputs["engineMode"] = args.EngineMode
 		inputs["engineVersion"] = args.EngineVersion
 		inputs["finalSnapshotIdentifier"] = args.FinalSnapshotIdentifier
 		inputs["iamDatabaseAuthenticationEnabled"] = args.IamDatabaseAuthenticationEnabled
@@ -135,6 +137,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
 		inputs["endpoint"] = state.Endpoint
 		inputs["engine"] = state.Engine
+		inputs["engineMode"] = state.EngineMode
 		inputs["engineVersion"] = state.EngineVersion
 		inputs["finalSnapshotIdentifier"] = state.FinalSnapshotIdentifier
 		inputs["hostedZoneId"] = state.HostedZoneId
@@ -231,7 +234,7 @@ func (r *Cluster) DbClusterParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
 }
 
-// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
@@ -250,6 +253,11 @@ func (r *Cluster) Endpoint() *pulumi.StringOutput {
 // The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 func (r *Cluster) Engine() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engine"])
+}
+
+// The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+func (r *Cluster) EngineMode() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["engineMode"])
 }
 
 // The database engine version.
@@ -341,7 +349,7 @@ func (r *Cluster) SourceRegion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceRegion"])
 }
 
-// Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
 func (r *Cluster) StorageEncrypted() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
@@ -384,7 +392,7 @@ type ClusterState struct {
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
@@ -393,6 +401,8 @@ type ClusterState struct {
 	Endpoint interface{}
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}
+	// The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	EngineMode interface{}
 	// The database engine version.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
@@ -431,7 +441,7 @@ type ClusterState struct {
 	SnapshotIdentifier interface{}
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion interface{}
-	// Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
 	StorageEncrypted interface{}
 	// A mapping of tags to assign to the DB cluster.
 	Tags interface{}
@@ -463,13 +473,15 @@ type ClusterArgs struct {
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
 	EnabledCloudwatchLogsExports interface{}
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}
+	// The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	EngineMode interface{}
 	// The database engine version.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
@@ -503,7 +515,7 @@ type ClusterArgs struct {
 	SnapshotIdentifier interface{}
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion interface{}
-	// Specifies whether the DB cluster is encrypted. The default is `false` if not specified.
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
 	StorageEncrypted interface{}
 	// A mapping of tags to assign to the DB cluster.
 	Tags interface{}

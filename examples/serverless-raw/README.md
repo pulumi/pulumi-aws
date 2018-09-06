@@ -1,4 +1,4 @@
-# examples/scenarios/aws/serverless-raw
+# examples/serverless-raw
 
 An example using some serverless AWS resources, currently including:
 
@@ -6,16 +6,3 @@ An example using some serverless AWS resources, currently including:
 * AWS IAM Role
 * AWS DynamoDB Table
 * AWS APIGateway RestAPI
-
-To deploy (and re-deploy):
-
-```bash
-tsc && lumi deploy
-```
-
-To invoke the lambda deployed by the script:
-
-```bash
-./invoke.sh
-```
-

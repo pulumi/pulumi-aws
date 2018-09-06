@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class S3BucketAssociation(pulumi.CustomResource):
     """

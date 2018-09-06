@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class AmiFromInstance(pulumi.CustomResource):
     """
@@ -25,7 +26,7 @@ class AmiFromInstance(pulumi.CustomResource):
     the generated AMI. Users may taint or otherwise recreate the resource in order
     to produce a fresh snapshot.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, ebs_block_devices=None, ena_support=None, ephemeral_block_devices=None, name=None, snapshot_without_reboot=None, source_instance_id=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, ebs_block_devices=None, ephemeral_block_devices=None, name=None, snapshot_without_reboot=None, source_instance_id=None, tags=None):
         """Create a AmiFromInstance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -52,14 +53,6 @@ class AmiFromInstance(pulumi.CustomResource):
         attached to created instances. The structure of this block is described below.
         """
         __props__['ebsBlockDevices'] = ebs_block_devices
-
-        if ena_support and not isinstance(ena_support, bool):
-            raise TypeError('Expected property ena_support to be a bool')
-        __self__.ena_support = ena_support
-        """
-        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-        """
-        __props__['enaSupport'] = ena_support
 
         if ephemeral_block_devices and not isinstance(ephemeral_block_devices, list):
             raise TypeError('Expected property ephemeral_block_devices to be a list')
@@ -107,6 +100,10 @@ class AmiFromInstance(pulumi.CustomResource):
         __self__.architecture = pulumi.runtime.UNKNOWN
         """
         Machine architecture for created instances. Defaults to "x86_64".
+        """
+        __self__.ena_support = pulumi.runtime.UNKNOWN
+        """
+        Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
         __self__.image_location = pulumi.runtime.UNKNOWN
         """

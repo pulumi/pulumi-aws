@@ -4,10 +4,11 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class SecretVersion(pulumi.CustomResource):
     """
-    Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws_secretsmanager_secret` resource](/docs/providers/aws/r/secretsmanager_secret.html).
+    Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws_secretsmanager_secret` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
     
     ~> **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from Terraform unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from Terraform to fully trigger version deprecation if necessary.
     """
@@ -50,6 +51,10 @@ class SecretVersion(pulumi.CustomResource):
         """
         __props__['versionStages'] = version_stages
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the secret.
+        """
         __self__.version_id = pulumi.runtime.UNKNOWN
         """
         The unique identifier of the version of the secret.
@@ -62,6 +67,8 @@ class SecretVersion(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'secretId' in outs:
             self.secret_id = outs['secretId']
         if 'secretString' in outs:

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Beanstalk Configuration Template, which are associated with
@@ -40,7 +41,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
-     * below in [Option Settings](#option-settings)
+     * below in Option Settings
      */
     public readonly settings: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[]>;
     /**
@@ -106,7 +107,7 @@ export interface ConfigurationTemplateState {
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
-     * below in [Option Settings](#option-settings)
+     * below in Option Settings
      */
     readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -139,7 +140,7 @@ export interface ConfigurationTemplateArgs {
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
-     * below in [Option Settings](#option-settings)
+     * below in Option Settings
      */
     readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**

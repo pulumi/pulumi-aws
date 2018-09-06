@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Metric Filter resource.
@@ -29,7 +30,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
      */
     public readonly metricTransformation: pulumi.Output<{ defaultValue?: number, name: string, namespace: string, value: string }>;
     /**
-     * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+     * A name for the metric filter.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -88,7 +89,7 @@ export interface LogMetricFilterState {
      */
     readonly metricTransformation?: pulumi.Input<{ defaultValue?: pulumi.Input<number>, name: pulumi.Input<string>, namespace: pulumi.Input<string>, value: pulumi.Input<string> }>;
     /**
-     * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+     * A name for the metric filter.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -112,7 +113,7 @@ export interface LogMetricFilterArgs {
      */
     readonly metricTransformation: pulumi.Input<{ defaultValue?: pulumi.Input<number>, name: pulumi.Input<string>, namespace: pulumi.Input<string>, value: pulumi.Input<string> }>;
     /**
-     * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+     * A name for the metric filter.
      */
     readonly name?: pulumi.Input<string>;
     /**

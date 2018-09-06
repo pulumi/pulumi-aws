@@ -200,6 +200,9 @@ func Provider() tfbridge.ProviderInfo {
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsType("region", "Region"),
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
+				},
 			},
 		},
 		PreConfigureCallback: preConfigureCallback,
@@ -683,6 +686,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_cluster": {
 				Tok: awsResource(elasticacheMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_id": tfbridge.AutoNameTransform("clusterId", 20, func(name string) string {
+						return strings.ToLower(name)
+					}),
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
@@ -1119,9 +1125,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
 			"aws_iam_account_password_policy": {Tok: awsResource(iamMod, "AccountPasswordPolicy")},
-			"aws_iam_group_policy":            {Tok: awsResource(iamMod, "GroupPolicy")},
-			"aws_iam_group":                   {Tok: awsResource(iamMod, "Group")},
-			"aws_iam_group_membership":        {Tok: awsResource(iamMod, "GroupMembership")},
+			"aws_iam_group_policy": {
+				Tok: awsResource(iamMod, "GroupPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
+			"aws_iam_group":            {Tok: awsResource(iamMod, "Group")},
+			"aws_iam_group_membership": {Tok: awsResource(iamMod, "GroupMembership")},
 			"aws_iam_group_policy_attachment": {
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1187,12 +1202,22 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
 					},
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
 				},
 			},
 			"aws_iam_role": {
 				Tok: awsResource(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 64),
+					"assume_role_policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
 				},
 			},
 			"aws_iam_saml_provider":         {Tok: awsResource(iamMod, "SamlProvider")},
@@ -1212,7 +1237,16 @@ func Provider() tfbridge.ProviderInfo {
 				// deletes the same attachment we just created, since it is structurally equivalent!
 				DeleteBeforeReplace: true,
 			},
-			"aws_iam_user_policy":        {Tok: awsResource(iamMod, "UserPolicy")},
+			"aws_iam_user_policy": {
+				Tok: awsResource(iamMod, "UserPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			"aws_iam_user_ssh_key":       {Tok: awsResource(iamMod, "SshKey")},
 			"aws_iam_user":               {Tok: awsResource(iamMod, "User")},
 			"aws_iam_user_login_profile": {Tok: awsResource(iamMod, "UserLoginProfile")},
@@ -1320,6 +1354,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_cluster":                 {Tok: awsResource(neptuneMod, "Cluster")},
 			"aws_neptune_cluster_instance":        {Tok: awsResource(neptuneMod, "ClusterInstance")},
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
+			"aws_neptune_cluster_snapshot":        {Tok: awsResource(neptuneMod, "ClusterSnapshot")},
+			"aws_neptune_event_subscription":      {Tok: awsResource(neptuneMod, "EventSubscription")},
+
 			"aws_neptune_parameter_group": {
 				Tok: awsResource(neptuneMod, "ParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1381,6 +1418,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_db_cluster_snapshot": {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription": {
 				Tok: awsResource(rdsMod, "EventSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1546,7 +1584,16 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_s3_bucket_policy": {Tok: awsResource(s3Mod, "BucketPolicy")},
+			"aws_s3_bucket_policy": {
+				Tok: awsResource(s3Mod, "BucketPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":  {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association": {Tok: awsResource(ssmMod, "Association")},
@@ -1580,10 +1627,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
 			// Storage Gateway
-			"aws_storagegateway_gateway":         {Tok: awsResource(storagegatewayMod, "Gateway")},
-			"aws_storagegateway_nfs_file_share":  {Tok: awsResource(storagegatewayMod, "NfsFileShare")},
-			"aws_storagegateway_upload_buffer":   {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
-			"aws_storagegateway_working_storage": {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
+			"aws_storagegateway_gateway":             {Tok: awsResource(storagegatewayMod, "Gateway")},
+			"aws_storagegateway_cache":               {Tok: awsResource(storagegatewayMod, "Cache")},
+			"aws_storagegateway_cached_iscsi_volume": {Tok: awsResource(storagegatewayMod, "CachesIscsiVolume")},
+			"aws_storagegateway_nfs_file_share":      {Tok: awsResource(storagegatewayMod, "NfsFileShare")},
+			"aws_storagegateway_smb_file_share":      {Tok: awsResource(storagegatewayMod, "SmbFileShare")},
+			"aws_storagegateway_upload_buffer":       {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
+			"aws_storagegateway_working_storage":     {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
 			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},
@@ -1796,9 +1846,10 @@ func Provider() tfbridge.ProviderInfo {
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
-			"aws_rds_cluster": {Tok: awsDataSource(rdsMod, "getCluster")},
-			"aws_db_instance": {Tok: awsDataSource(rdsMod, "getInstance")},
-			"aws_db_snapshot": {Tok: awsDataSource(rdsMod, "getSnapshot")},
+			"aws_rds_cluster":         {Tok: awsDataSource(rdsMod, "getCluster")},
+			"aws_db_cluster_snapshot": {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
+			"aws_db_instance":         {Tok: awsDataSource(rdsMod, "getInstance")},
+			"aws_db_snapshot":         {Tok: awsDataSource(rdsMod, "getSnapshot")},
 			// RedShift
 			"aws_redshift_cluster":         {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account": {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
@@ -1821,7 +1872,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.15.0",
+				"@pulumi/pulumi":    "^0.15.1-rc",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
 				"resolve":           "^1.7.1",
@@ -1834,6 +1885,7 @@ func Provider() tfbridge.ProviderInfo {
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
 					"tags.ts",   // Tags typedef
+					"utils.ts",  // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
@@ -1882,7 +1934,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.15.0,<0.16.0",
+				"pulumi": ">=0.15.1rc,<0.16.0",
 			},
 		},
 	}

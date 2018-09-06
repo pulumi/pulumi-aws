@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class IdentityPoolRoleAttachment(pulumi.CustomResource):
     """
@@ -34,7 +35,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             raise TypeError('Expected property role_mappings to be a list')
         __self__.role_mappings = role_mappings
         """
-        A List of [Role Mapping](#role-mappings).
+        A List of Role Mapping.
         """
         __props__['roleMappings'] = role_mappings
 

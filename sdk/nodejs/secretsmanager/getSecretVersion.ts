@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
- * Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](/docs/providers/aws/d/secretsmanager_secret.html).
+ * Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
@@ -36,6 +37,10 @@ export interface GetSecretVersionArgs {
  * A collection of values returned by getSecretVersion.
  */
 export interface GetSecretVersionResult {
+    /**
+     * The ARN of the secret.
+     */
+    readonly arn: string;
     /**
      * The decrypted part of the protected secret information that was originally provided as a string.
      */

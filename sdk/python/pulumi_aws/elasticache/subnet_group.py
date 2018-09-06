@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class SubnetGroup(pulumi.CustomResource):
     """
@@ -11,7 +12,7 @@ class SubnetGroup(pulumi.CustomResource):
     
     ~> **NOTE:** ElastiCache Subnet Groups are only for use when working with an
     ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
-    [ElastiCache Security Group resource](elasticache_security_group.html).
+    ElastiCache Security Group resource.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, name=None, subnet_ids=None):
         """Create a SubnetGroup resource with the given unique name, props, and options."""
@@ -24,6 +25,7 @@ class SubnetGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        description = 'Managed by Pulumi'
         if description and not isinstance(description, basestring):
             raise TypeError('Expected property description to be a basestring')
         __self__.description = description

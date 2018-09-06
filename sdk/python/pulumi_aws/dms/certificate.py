@@ -4,13 +4,14 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Certificate(pulumi.CustomResource):
     """
     Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
     
     ~> **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, certificate_id=None, certificate_pem=None, certificate_wallet=None):
         """Create a Certificate resource with the given unique name, props, and options."""
