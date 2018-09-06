@@ -23,8 +23,8 @@ func NewSecurityGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'Ingress'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["description"] = nil
 		inputs["ingress"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil

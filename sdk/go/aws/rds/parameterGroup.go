@@ -25,8 +25,8 @@ func NewParameterGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'Family'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["description"] = nil
 		inputs["family"] = nil
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil

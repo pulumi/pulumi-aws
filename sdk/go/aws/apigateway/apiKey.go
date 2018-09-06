@@ -18,8 +18,8 @@ type ApiKey struct {
 func NewApiKey(ctx *pulumi.Context,
 	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOpt) (*ApiKey, error) {
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
-		inputs["description"] = nil
 		inputs["enabled"] = nil
 		inputs["name"] = nil
 		inputs["stageKeys"] = nil

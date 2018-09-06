@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class OptionGroup(pulumi.CustomResource):
     """
@@ -68,6 +69,7 @@ class OptionGroup(pulumi.CustomResource):
         """
         __props__['options'] = options
 
+        option_group_description = 'Managed by Pulumi'
         if option_group_description and not isinstance(option_group_description, basestring):
             raise TypeError('Expected property option_group_description to be a basestring')
         __self__.option_group_description = option_group_description
