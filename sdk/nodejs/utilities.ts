@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+import * as pulumi from "@pulumi/pulumi";
+
 export function getEnv(...vars: string[]): string | undefined {
     for (const v of vars) {
         const value = process.env[v];
@@ -47,4 +49,23 @@ export function requireWithDefault<T>(req: () => T, def: T | undefined): T {
         }
     }
     return def;
+}
+
+export function unwrap(val: pulumi.Input<any>): pulumi.Output<any> {
+    if (val === null || typeof val !== "object") {
+        return pulumi.output(val);
+    } else if (val instanceof Promise) {
+        return pulumi.output(val).apply(unwrap);
+    } else if (pulumi.Output.isInstance(val)) {
+        return val.apply(unwrap);
+    } else if (val instanceof Array) {
+        return pulumi.all(val.map(unwrap));
+    } else {
+        const unwrappedObject: any = {};
+        Object.keys(val).forEach(k => {
+            unwrappedObject[k] = unwrap(val[k]);
+        });
+
+        return pulumi.all(unwrappedObject);
+    }
 }
