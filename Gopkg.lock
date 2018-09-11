@@ -416,6 +416,12 @@
   revision = "0b12d6b5"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/kballard/go-shellquote"
+  packages = ["."]
+  revision = "95032a82bc518f77982ea72343cc1ade730072f0"
+
+[[projects]]
   name = "github.com/kevinburke/ssh_config"
   packages = ["."]
   revision = "9fc7bb800b555d63157c65a904c86a2cc7b4e795"
@@ -442,10 +448,22 @@
   revision = "f63716704117f5bd34d8f0f068f7e8369d20d4ab"
 
 [[projects]]
+  name = "github.com/mattn/go-colorable"
+  packages = ["."]
+  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
+  version = "v0.0.9"
+
+[[projects]]
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
   version = "v0.0.3"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mgutz/ansi"
+  packages = ["."]
+  revision = "9520e82c474b0a04dd04f8a40959027271bab992"
 
 [[projects]]
   name = "github.com/mitchellh/cli"
@@ -542,13 +560,13 @@
   version = "v1.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
     "pkg/apitype/migrate",
     "pkg/backend",
-    "pkg/backend/local",
+    "pkg/backend/display",
+    "pkg/backend/filestate",
     "pkg/diag",
     "pkg/diag/colors",
     "pkg/encoding",
@@ -575,6 +593,7 @@
     "pkg/util/httputil",
     "pkg/util/logging",
     "pkg/util/mapper",
+    "pkg/util/result",
     "pkg/util/retry",
     "pkg/util/rpcutil",
     "pkg/util/rpcutil/rpcerror",
@@ -586,16 +605,17 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "1ebd698a7ab2926ef88eb97a8f268e6c95f44816"
+  revision = "c7d3cc5731d0ca2b26ad5e18e6a23b43b74b44b7"
+  version = "v0.15.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "95c5ae2284ada1866845359ac2fec69329c67ab8"
+  revision = "8808584154671f6480f5adff72da24f2a773cbfc"
+  version = "v0.15.1"
 
 [[projects]]
   branch = "master"
@@ -656,6 +676,12 @@
   packages = ["aws"]
   revision = "d5e1ecebd60b35f681341e334c244b9434125681"
   source = "github.com/pulumi/terraform-provider-aws"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/texttheater/golang-levenshtein"
+  packages = ["levenshtein"]
+  revision = "d188e65d659ef53fcdb0691c12f1bba64928b649"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -811,6 +837,16 @@
   version = "v1.7.2"
 
 [[projects]]
+  name = "gopkg.in/AlecAivazis/survey.v1"
+  packages = [
+    ".",
+    "core",
+    "terminal"
+  ]
+  revision = "f30c5d1830c892f533140f29a1de89141dc217f5"
+  version = "v1.6.2"
+
+[[projects]]
   name = "gopkg.in/src-d/go-billy.v4"
   packages = [
     ".",
@@ -883,6 +919,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cb01734c42e32edf61f71a0d9a2a9e26a4fd2ea4b17409fbc833a8d7da6edf31"
+  inputs-digest = "c6e3910b928d9fe885bfed019afe696aecbbe5f67df5e51a7058b19ab0f2a539"
   solver-name = "gps-cdcl"
   solver-version = 1

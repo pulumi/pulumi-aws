@@ -45,13 +45,14 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
-"@pulumi/pulumi@^0.15.1-rc":
-  version "0.15.1-rc1"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.1-rc1.tgz#69a92fa2a65becdf481348f9ef154f7a1fdd6b4f"
+"@pulumi/pulumi@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.1.tgz#1b94077ec0bfb8fef868d6aa66643d7f726c0678"
   dependencies:
     google-protobuf "^3.5.0"
     grpc "^1.12.2"
     minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
     protobufjs "^6.8.6"
     read-package-tree "^5.2.1"
     require-from-string "^2.0.1"
@@ -414,7 +415,7 @@ nopt@^4.0.1:
     abbrev "1"
     osenv "^0.1.4"
 
-normalize-package-data@^2.0.0:
+normalize-package-data@^2.0.0, normalize-package-data@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.4.0.tgz#12f95a307d58352075a04907b84ac8be98ac012f"
   dependencies:
