@@ -11,7 +11,7 @@
         "@pulumi/pulumi": "^0.15.1"
     },
     "devDependencies": {
-        "typescript": "^2.6.2"
+        "typescript": "^3.0.3"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"
