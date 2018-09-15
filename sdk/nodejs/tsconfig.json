@@ -229,6 +229,7 @@
         "ec2/networkInterfaceSecurityGroupAttachment.ts",
         "ec2/peeringConnectionOptions.ts",
         "ec2/placementGroup.ts",
+        "ec2/placementStrategy.ts",
         "ec2/proxyProtocolPolicy.ts",
         "ec2/route.ts",
         "ec2/routeTable.ts",
