@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {InstanceProfile} from "../iam";
+
 /**
  * Provides a resource to create a new launch configuration, used for autoscaling groups.
  */
@@ -198,7 +200,7 @@ export interface LaunchConfigurationState {
      * The IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string>;
+    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
      * The EC2 image ID to launch.
      */
@@ -288,7 +290,7 @@ export interface LaunchConfigurationArgs {
      * The IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string>;
+    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
      * The EC2 image ID to launch.
      */
