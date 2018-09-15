@@ -387,6 +387,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"launch_configuration": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(ec2Mod, "LaunchConfiguration")},
+					},
 					"placement_group": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},

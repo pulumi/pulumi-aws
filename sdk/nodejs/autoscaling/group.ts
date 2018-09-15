@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {LaunchConfiguration} from "../ec2/launchConfiguration";
 import {PlacementGroup} from "../ec2/placementGroup";
 import {Tags} from "../index";
 
@@ -313,7 +314,7 @@ export interface GroupState {
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration?: pulumi.Input<string>;
+    readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
     /**
      * Launch template specification to use to launch instances.
      * See Launch Template Specification below for more details.
@@ -459,7 +460,7 @@ export interface GroupArgs {
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration?: pulumi.Input<string>;
+    readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
     /**
      * Launch template specification to use to launch instances.
      * See Launch Template Specification below for more details.
