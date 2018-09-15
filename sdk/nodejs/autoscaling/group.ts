@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PlacementGroup} from "../ec2/placementGroup";
 import {Tags} from "../index";
 
 /**
@@ -355,7 +356,7 @@ export interface GroupState {
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: pulumi.Input<string>;
+    readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination
@@ -501,7 +502,7 @@ export interface GroupArgs {
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: pulumi.Input<string>;
+    readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination
