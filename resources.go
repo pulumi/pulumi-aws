@@ -761,6 +761,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_instance": {
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"iam_instance_profile": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod, "InstanceProfile")},
+					},
 					"instance_type": {
 						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
 					},
