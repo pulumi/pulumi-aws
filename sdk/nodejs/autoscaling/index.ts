@@ -5,6 +5,7 @@
 export * from "./attachment";
 export * from "./group";
 export * from "./lifecycleHook";
+export * from "./metrics";
 export * from "./notification";
 export * from "./notificationType";
 export * from "./policy";
