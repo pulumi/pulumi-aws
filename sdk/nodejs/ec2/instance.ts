@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {InstanceProfile} from "../iam";
 import {Tags} from "../index";
 import {InstanceType} from "./instanceType";
 
@@ -368,7 +369,7 @@ export interface InstanceState {
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string>;
+    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
      * Shutdown behavior for the
      * instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -544,7 +545,7 @@ export interface InstanceArgs {
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string>;
+    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
      * Shutdown behavior for the
      * instance. Amazon defaults this to `stop` for EBS-backed instances and

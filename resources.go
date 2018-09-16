@@ -387,6 +387,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"launch_configuration": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(ec2Mod, "LaunchConfiguration")},
+					},
+					"placement_group": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
+					},
 					"tag": {
 						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
 						Name: "tags",
@@ -761,6 +769,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_instance": {
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"iam_instance_profile": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod, "InstanceProfile")},
+					},
 					"instance_type": {
 						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
 					},
@@ -773,8 +785,16 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_key_pair":             {Tok: awsResource(ec2Mod, "KeyPair")},
-			"aws_launch_configuration": {Tok: awsResource(ec2Mod, "LaunchConfiguration")},
+			"aws_key_pair": {Tok: awsResource(ec2Mod, "KeyPair")},
+			"aws_launch_configuration": {
+				Tok: awsResource(ec2Mod, "LaunchConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"iam_instance_profile": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod, "InstanceProfile")},
+					},
+				},
+			},
 			"aws_launch_template": {
 				Tok: awsResource(ec2Mod, "LaunchTemplate"),
 				Fields: map[string]*tfbridge.SchemaInfo{
