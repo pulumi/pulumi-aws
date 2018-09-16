@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PlacementStrategy} from "./placementStrategy";
+
 /**
  * Provides an EC2 placement group. Read more about placement groups
  * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
@@ -28,7 +30,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The placement strategy.
      */
-    public readonly strategy: pulumi.Output<string>;
+    public readonly strategy: pulumi.Output<PlacementStrategy>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -67,7 +69,7 @@ export interface PlacementGroupState {
     /**
      * The placement strategy.
      */
-    readonly strategy?: pulumi.Input<string>;
+    readonly strategy?: pulumi.Input<PlacementStrategy>;
 }
 
 /**
@@ -81,5 +83,5 @@ export interface PlacementGroupArgs {
     /**
      * The placement strategy.
      */
-    readonly strategy: pulumi.Input<string>;
+    readonly strategy: pulumi.Input<PlacementStrategy>;
 }

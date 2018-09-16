@@ -54,6 +54,7 @@ export * from "./networkInterfaceAttachment";
 export * from "./networkInterfaceSecurityGroupAttachment";
 export * from "./peeringConnectionOptions";
 export * from "./placementGroup";
+export * from "./placementStrategy";
 export * from "./proxyProtocolPolicy";
 export * from "./route";
 export * from "./routeTable";

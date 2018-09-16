@@ -839,9 +839,16 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
-			"aws_placement_group":              {Tok: awsResource(ec2Mod, "PlacementGroup")},
-			"aws_proxy_protocol_policy":        {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
-			"aws_route":                        {Tok: awsResource(ec2Mod, "Route")},
+			"aws_placement_group": {
+				Tok: awsResource(ec2Mod, "PlacementGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"strategy": {
+						Type: awsType(ec2Mod+"/placementStrategy", "PlacementStrategy"),
+					},
+				},
+			},
+			"aws_proxy_protocol_policy": {Tok: awsResource(ec2Mod, "ProxyProtocolPolicy")},
+			"aws_route":                 {Tok: awsResource(ec2Mod, "Route")},
 			"aws_route_table": {
 				Tok: awsResource(ec2Mod, "RouteTable"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1920,7 +1927,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"ec2": {
 						Files: []string{
-							"instanceType.ts", // InstanceType union type and constants
+							"instanceType.ts",      // InstanceType union type and constants
+							"placementStrategy.ts", // PlacementStrategy union type and constants
 						},
 					},
 					"ecs": {
