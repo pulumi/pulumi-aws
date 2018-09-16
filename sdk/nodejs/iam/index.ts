@@ -23,6 +23,7 @@ export * from "./managedPolicies";
 export * from "./openIdConnectProvider";
 export * from "./policy";
 export * from "./policyAttachment";
+export * from "./principals";
 export * from "./role";
 export * from "./rolePolicy";
 export * from "./rolePolicyAttachment";
