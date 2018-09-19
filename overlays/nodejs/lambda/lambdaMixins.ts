@@ -14,11 +14,13 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as arn from "../arn";
-import * as func from "./function";
 import * as iam from "../iam";
 import * as serverless from "../serverless";
 import * as runtime from "./runtimes";
 import * as utils from "../utils";
+
+import * as func from "./function";
+import * as permission from "./permission";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -153,4 +155,21 @@ export function createLambdaFunction<E, R>(
         name, functionOptions, /*handler*/ undefined, opts);
 
     return serverlessFunction.lambda;
+}
+
+/**
+ * Base type for all subscription types.  A subscription represents a connection between some
+ * AWS resource an an AWS lambda that will be triggered when something happens to that resource.
+ */
+export class Subscription extends pulumi.ComponentResource {
+    public permission: permission.Permission;
+    public func: func.Function;
+
+    public constructor(
+        type: string, name: string, func: func.Function, props: Record<string, any>, opts?: pulumi.ResourceOptions) {
+
+        super(type, name, props, opts);
+
+        this.func = func;
+    }
 }
