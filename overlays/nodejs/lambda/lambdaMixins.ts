@@ -61,6 +61,15 @@ export type EntryPoint<E, R> = (event: E, context: Context, callback: (error: an
 export type EntryPointFactory<E, R> = () => EntryPoint<E, R>;
 
 /**
+ * An EventHandler is either a JavaScript Function instance or an aws.lambda.Function that can be
+ * used to handle an event triggered by some resource.  If just a JavaScript function is provided
+ * the AWS Lambda will be created by calling [createFunction] on it.  If more control over the
+ * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
+ * of that to any code that needs an EventHandler.
+ */
+export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
+
+/**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
  * equivalent to [aws.lambda.FunctionArgs] except with a few important differences documented at the
  * property level.  For example, [role] is an actual iam.Role instance, and not an ARN. Properties
@@ -137,15 +146,6 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
      */
     serialize?: (obj: any) => boolean
 }>;
-
-/**
- * An EventHandler is either a JavaScript Function instance or an aws.lambda.Function that can be
- * used to handle an event triggered by some resource.  If just a JavaScript function is provided
- * the AWS Lambda will be created by calling [createFunction] on it.  If more control over the
- * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
- * of that to any code that needs an EventHandler.
- */
-export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
 
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some

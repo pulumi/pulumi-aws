@@ -44,11 +44,11 @@ export interface Context {
  * EntryPoint is the signature for a serverless function that will be invoked each time the AWS
  * Lambda is invoked.
  *
- * It can be a synchronous or asynchronous function that can be converted into an AWS lambda.  Async
- * callbacks are only supported with an AWS lambda runtime of 8.10 or higher.  On those runtimes a
- * Promise can be returned, 'callback' parameter can be ignored, and AWS will appropriately handle
- * things. For AWS lambda pre-8.10, a synchronous function must be provided.  The synchronous
- * function should return nothing, and should instead invoke 'callback' when complete.
+ * This function can be synchronous or asynchronous function, though async is only supported with an
+ * AWS Lambda runtime of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
+ * parameter can be ignored, and AWS will appropriately handle things. For AWS lambda pre-8.10, a
+ * synchronous function must be provided.  The synchronous function should return nothing, and
+ * should instead invoke 'callback' when complete.
  */
 export type EntryPoint<E, R> = (event: E, context: Context, callback: (error: any, result: R) => void) => Promise<R> | void;
 
@@ -59,6 +59,15 @@ export type EntryPoint<E, R> = (event: E, context: Context, callback: (error: an
  * the same warm node instance).
  */
 export type EntryPointFactory<E, R> = () => EntryPoint<E, R>;
+
+/**
+ * An EventHandler is either a JavaScript Function instance or an aws.lambda.Function that can be
+ * used to handle an event triggered by some resource.  If just a JavaScript function is provided
+ * the AWS Lambda will be created by calling [createFunction] on it.  If more control over the
+ * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
+ * of that to any code that needs an EventHandler.
+ */
+export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
 
 /**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
@@ -137,15 +146,6 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
      */
     serialize?: (obj: any) => boolean
 }>;
-
-/**
- * An EventHandler is either a JavaScript Function instance or an aws.lambda.Function that can be
- * used to handle an event triggered by some resource.  If just a JavaScript function is provided
- * the AWS Lambda will be created by calling [createFunction] on it.  If more control over the
- * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
- * of that to any code that needs an EventHandler.
- */
-export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
 
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some
