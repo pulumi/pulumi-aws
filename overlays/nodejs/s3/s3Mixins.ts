@@ -109,7 +109,7 @@ export function onEvent(
     name: string, bucket: Bucket, handler: BucketEventHandler,
     args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription {
 
-    const func = lambda.createLambdaFunction<BucketEvent, void>(
+    const func = lambda.createFunction<BucketEvent, void>(
         name + "-bucket-event", { func: handler }, opts);
     return new BucketEventSubscription(name, bucket, func, args, opts);
 }

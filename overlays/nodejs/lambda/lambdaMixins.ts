@@ -156,15 +156,10 @@ export class EventSubscription extends pulumi.ComponentResource {
 }
 
 /**
- * Creates an AWS Lambda from a provided Handler.  If the Handler is already an AWS Lambda, this
- * does nothing and simply returns that instance.  Otherwise, if it is a JavaScript Function
- * instance, this will serialize that Function instance into a usable packaged form that is then
- * exposed through an AWS Lambda.
- *
- * If no [policies] are included in [functionOptions] a default policy of
- * [aws.iam.AWSLambdaFullAccess] will be used.
+ * Creates an AWS Lambda out of the provider options.func or options.factoryFunc.  Configuration of
+ * this lambda can be provided through [options].
  */
-export function createLambdaFunction<E, R>(
+export function createFunction<E, R>(
     name: string, options: FunctionOptions<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
 
     if (!name) {
@@ -302,7 +297,7 @@ function sha1hash(s: string): string {
 declare module "./function" {
     interface Function {
         // Actual Role instance value for this Function.  Will only be set if this function
-        // was created from [createLambdaFunction]
+        // was created from [createFunction]
         roleInstance?: iam.Role;
     }
 }

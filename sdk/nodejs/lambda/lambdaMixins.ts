@@ -159,7 +159,7 @@ export class EventSubscription extends pulumi.ComponentResource {
  * Creates an AWS Lambda out of the provider options.func or options.factoryFunc.  Configuration of
  * this lambda can be provided through [options].
  */
-export function createLambdaFunction<E, R>(
+export function createFunction<E, R>(
     name: string, options: FunctionOptions<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
 
     if (!name) {
@@ -297,7 +297,7 @@ function sha1hash(s: string): string {
 declare module "./function" {
     interface Function {
         // Actual Role instance value for this Function.  Will only be set if this function
-        // was created from [createLambdaFunction]
+        // was created from [createFunction]
         roleInstance?: iam.Role;
     }
 }

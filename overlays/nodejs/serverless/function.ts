@@ -50,7 +50,7 @@ export type FunctionOptions = lambda.FunctionOptions<any, any>;
  * Function is a higher-level API for creating and managing AWS Lambda Function resources
  * implemented by a Pulumi lambda expression and with a set of attached policies.
  *
- * @deprecated Use [lambda.createLambdaFunction] instead.
+ * @deprecated Use [lambda.createFunction] instead.
  */
 export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
