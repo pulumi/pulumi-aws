@@ -97,7 +97,7 @@ export interface BucketRecord {
     };
 }
 
-export type BucketEventHandler = lambda.EntryPoint<BucketEvent, void>;
+export type BucketEventHandler = lambda.EventHandler<BucketEvent, void>;
 
 interface SubscriptionInfo {
     name: string;

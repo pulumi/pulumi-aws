@@ -22,6 +22,7 @@ import * as utils from "../utils";
 
 import * as lambdaFunction from "./function";
 import * as permission from "./permission";
+import { lambda } from "..";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
@@ -139,6 +140,15 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
 }>;
 
 /**
+ * An EventHandler is either a JavaScript Function instance or an aws.lambda.Function that can be
+ * used to handle an event triggered by some resource.  If just a JavaScript function is provided
+ * the AWS Lambda will be created by calling [createFunction] on it.  If more control over the
+ * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
+ * of that to any code that needs an EventHandler.
+ */
+export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
+
+/**
  * Base type for all subscription types.  An event subscription represents a connection between some
  * AWS resource an an AWS lambda that will be triggered when something happens to that resource.
  */
@@ -152,6 +162,17 @@ export class EventSubscription extends pulumi.ComponentResource {
         super(type, name, props, opts);
 
         this.func = func;
+    }
+}
+
+/* @internal */ function createFunctionFromEventHandler<E, R>(
+    name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
+
+    if (handler instanceof Function) {
+        return createFunction(name, { func: handler } , opts);
+    }
+    else {
+        return handler;
     }
 }
 
