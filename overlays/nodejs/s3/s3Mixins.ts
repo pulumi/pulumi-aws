@@ -14,6 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi"
 import { Bucket } from "./bucket";
+import { BucketNotification } from "./bucketNotification";
 import * as lambda from "../lambda"
 
 /**
@@ -96,18 +97,33 @@ export interface BucketRecord {
     };
 }
 
-// tslint:disable:max-line-length
-export type BucketEventHandler = lambda.Handler<BucketEvent, void>;
+export type BucketEventHandler = lambda.EntryPoint<BucketEvent, void>;
 
-declare module "./bucket" {
-    interface Bucket {
-        onObjectCreated(
-            name: string, handler: BucketEventHandler,
-            args?: ObjectCreatedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
-    }
+/**
+ * Creates a new subscription to the given bucket using the lambda provided, along with optional
+ * options to control the behavior of the subscription.  This function should be used when full
+ * control over the subscription is wanted, and other helpers (like onPut/onDelete) are not
+ * sufficient.
+ */
+export function onEvent(
+    name: string, bucket: Bucket, handler: BucketEventHandler,
+    args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription {
+
+    const func = lambda.createLambdaFunction<BucketEvent, void>(
+        name + "-bucket-event", { func: handler }, opts);
+    return new BucketEventSubscription(name, bucket, func, args, opts);
 }
 
-Bucket.prototype.onObjectCreated = <any>(() => {});
+interface SubscriptionInfo {
+    name: string;
+    events: string[];
+    filterPrefix?: string;
+    filterSuffix?: string;
+    lambdaFunctionArn: pulumi.Output<string>;
+    permission: lambda.Permission;
+}
+
+let bucketSubscriptionInfos = new Map<Bucket, SubscriptionInfo[]>();
 
 /**
  * A component corresponding to a single underlying aws.s3.BucketNotification created for a bucket.
@@ -115,7 +131,7 @@ Bucket.prototype.onObjectCreated = <any>(() => {});
  * actual aws.s3.BucketNotification instances will only be created once the pulumi program runs to
  * completion and all subscriptions have been heard about.
  */
-export class BucketEventSubscription extends EventSubscription {
+export class BucketEventSubscription extends lambda.EventSubscription {
     public readonly bucket: pulumi.Output<Bucket>;
 
     public constructor(
@@ -124,7 +140,7 @@ export class BucketEventSubscription extends EventSubscription {
 
         super("aws-serverless:bucket:BucketEventSubscription", name, func, { bucket: bucket }, opts);
 
-        const permission = new aws.lambda.Permission(name, {
+        const permission = new lambda.Permission(name, {
             function: func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
@@ -163,7 +179,7 @@ process.on("beforeExit", () => {
 
     for (const [bucket, subscriptions] of copy) {
         const permissions = subscriptions.map(s => s.permission);
-        const _ = new aws.s3.BucketNotification(subscriptions[0].name, {
+        const _ = new BucketNotification(subscriptions[0].name, {
             bucket: bucket.id,
             lambdaFunctions: subscriptions.map(subscription => ({
                 events: subscription.events,
@@ -174,3 +190,42 @@ process.on("beforeExit", () => {
         }, { parent: bucket, dependsOn: permissions });
     }
 });
+
+// Mixin event handling functionality onto Bucket.
+declare module "./bucket" {
+    interface Bucket {
+        onObjectCreated(
+            name: string, handler: BucketEventHandler,
+            args?: ObjectCreatedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
+
+        onObjectRemoved(
+            name: string, handler: BucketEventHandler,
+            args?: ObjectRemovedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
+    }
+}
+
+Bucket.prototype.onObjectCreated = function (this: Bucket, name, handler, args, opts) {
+    args = args || {};
+    args.event = args.event || "*";
+
+    const argsCopy = {
+        filterPrefix: args.filterPrefix,
+        filterSuffix: args.filterSuffix,
+        events: ["s3:ObjectCreated:" + args.event],
+    };
+
+    return onEvent(name + "-object-created", this, handler, argsCopy, opts);
+}
+
+Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, opts) {
+    args = args || {};
+    args.event = args.event || "*";
+
+    const argsCopy = {
+        filterPrefix: args.filterPrefix,
+        filterSuffix: args.filterSuffix,
+        events: ["s3:ObjectRemoved:" + args.event],
+    };
+
+    return onEvent(name + "-object-removed", this, handler, argsCopy, opts);
+}
