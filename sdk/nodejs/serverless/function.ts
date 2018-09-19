@@ -16,6 +16,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { Role } from "../iam";
 import * as lambda from "../lambda";
 
+/**
+ * @deprecated Use [aws.lambda.Context] instead.
+ */
 export type Context = lambda.Context;
 
 /**
