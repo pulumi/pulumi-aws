@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 import {LaunchConfiguration} from "../ec2/launchConfiguration";
 import {PlacementGroup} from "../ec2/placementGroup";
 import {Tags} from "../index";
+import {Metric, MetricsGranularity} from "./metrics";
 
 /**
  * Provides an AutoScaling Group resource.
@@ -52,7 +53,7 @@ export class Group extends pulumi.CustomResource {
      * for Capacity below.) Setting this to "0" causes
      * Terraform to skip all Capacity Waiting behavior.
      */
-    public readonly enabledMetrics: pulumi.Output<string[] | undefined>;
+    public readonly enabledMetrics: pulumi.Output<Metric[] | undefined>;
     /**
      * Allows deleting the autoscaling group without waiting
      * for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -284,7 +285,7 @@ export interface GroupState {
      * for Capacity below.) Setting this to "0" causes
      * Terraform to skip all Capacity Waiting behavior.
      */
-    readonly enabledMetrics?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
     /**
      * Allows deleting the autoscaling group without waiting
      * for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -332,7 +333,7 @@ export interface GroupState {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string>;
+    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
     /**
      * Setting this causes Terraform to wait for
      * this number of instances to show up healthy in the ELB only on creation.
@@ -430,7 +431,7 @@ export interface GroupArgs {
      * for Capacity below.) Setting this to "0" causes
      * Terraform to skip all Capacity Waiting behavior.
      */
-    readonly enabledMetrics?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
     /**
      * Allows deleting the autoscaling group without waiting
      * for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -478,7 +479,7 @@ export interface GroupArgs {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string>;
+    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
     /**
      * Setting this causes Terraform to wait for
      * this number of instances to show up healthy in the ELB only on creation.
