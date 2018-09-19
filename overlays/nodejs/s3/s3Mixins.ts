@@ -99,21 +99,6 @@ export interface BucketRecord {
 
 export type BucketEventHandler = lambda.EntryPoint<BucketEvent, void>;
 
-/**
- * Creates a new subscription to the given bucket using the lambda provided, along with optional
- * options to control the behavior of the subscription.  This function should be used when full
- * control over the subscription is wanted, and other helpers (like onPut/onDelete) are not
- * sufficient.
- */
-export function onEvent(
-    name: string, bucket: Bucket, handler: BucketEventHandler,
-    args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription {
-
-    const func = lambda.createFunction<BucketEvent, void>(
-        name + "-bucket-event", { func: handler }, opts);
-    return new BucketEventSubscription(name, bucket, func, args, opts);
-}
-
 interface SubscriptionInfo {
     name: string;
     events: string[];
@@ -201,6 +186,16 @@ declare module "./bucket" {
         onObjectRemoved(
             name: string, handler: BucketEventHandler,
             args?: ObjectRemovedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
+
+        /**
+         * Creates a new subscription to the given bucket using the lambda provided, along with
+         * optional options to control the behavior of the subscription.  This function should be
+         * used when full control over the subscription is wanted, and other helpers (like
+         * onObjectCreated/onObjectRemoved) are not sufficient.
+         */
+        onEvent(
+            name: string, handler: BucketEventHandler,
+            args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
     }
 }
 
@@ -214,7 +209,7 @@ Bucket.prototype.onObjectCreated = function (this: Bucket, name, handler, args, 
         events: ["s3:ObjectCreated:" + args.event],
     };
 
-    return onEvent(name + "-object-created", this, handler, argsCopy, opts);
+    return this.onEvent(name + "-object-created", handler, argsCopy, opts);
 }
 
 Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, opts) {
@@ -227,5 +222,11 @@ Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, 
         events: ["s3:ObjectRemoved:" + args.event],
     };
 
-    return onEvent(name + "-object-removed", this, handler, argsCopy, opts);
+    return this.onEvent(name + "-object-removed", handler, argsCopy, opts);
+}
+
+Bucket.prototype.onEvent = function (this: Bucket, name, handler, args, opts) {
+    const func = lambda.createFunction<BucketEvent, void>(
+        name + "-bucket-event", { func: handler }, opts);
+    return new BucketEventSubscription(name, this, func, args, opts);
 }
