@@ -16,6 +16,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { Role } from "../iam";
 import * as lambda from "../lambda";
 
+/**
+ * @deprecated Use [aws.lambda.Context] instead.
+ */
 export type Context = lambda.Context;
 
 /**
@@ -72,8 +75,7 @@ export class Function extends pulumi.ComponentResource {
         options.serialize = options.serialize || serialize;
         opts = opts || { parent: this };
 
-        const [lambdaFunction, role] = lambda.createLambdaFunctionAndRole(name, options, opts)
-        this.lambda = lambdaFunction;
-        this.role = role;
+        this.lambda = lambda.createFunction(name, options, opts);
+        this.role = this.lambda.roleInstance;
     }
 }

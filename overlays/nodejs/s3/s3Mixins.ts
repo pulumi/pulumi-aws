@@ -226,7 +226,6 @@ Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, 
 }
 
 Bucket.prototype.onEvent = function (this: Bucket, name, handler, args, opts) {
-    const func = lambda.createFunction<BucketEvent, void>(
-        name + "-bucket-event", { func: handler }, opts);
+    const func = lambda.createFunctionFromEventHandler(name, handler, opts);
     return new BucketEventSubscription(name, this, func, args, opts);
 }

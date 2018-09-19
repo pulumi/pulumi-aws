@@ -73,8 +73,9 @@ export class Function extends pulumi.ComponentResource {
 
         options.func = options.func || func;
         options.serialize = options.serialize || serialize;
+        opts = opts || { parent: this };
 
-        this.lambda = lambda.createFunction(name, options, { parent: this });
+        this.lambda = lambda.createFunction(name, options, opts);
         this.role = this.lambda.roleInstance;
     }
 }

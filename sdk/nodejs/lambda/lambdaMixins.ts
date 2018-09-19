@@ -22,7 +22,6 @@ import * as utils from "../utils";
 
 import * as lambdaFunction from "./function";
 import * as permission from "./permission";
-import { lambda } from "..";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
