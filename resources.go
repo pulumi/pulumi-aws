@@ -1945,6 +1945,12 @@ func Provider() tfbridge.ProviderInfo {
 					"lambda": {
 						Files: []string{
 							"runtimes.ts", // a union type and constants for available Lambda runtimes.
+							"lambdaMixins.ts",
+						},
+					},
+					"s3": {
+						Files: []string{
+							"s3Mixins.ts",
 						},
 					},
 					"serverless": {

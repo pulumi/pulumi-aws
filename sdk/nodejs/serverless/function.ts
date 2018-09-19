@@ -16,37 +16,24 @@ import * as crypto from "crypto";
 import * as pulumi from "@pulumi/pulumi";
 import { Role, RolePolicyAttachment } from "../iam";
 import * as lambda from "../lambda";
-import { Overwrite } from "../utils";
-import { ARN } from "../arn";
+
+export type Context = lambda.Context;
 
 /**
- * Context is the shape of the context object passed to a Function callback.
+ * [Handler] is the signature for a serverless function that will be invoked each time the AWS
+ * Lambda is invoked.
+ *
+ * @deprecated Use [aws.lambda.EntryPoint] instead.
  */
-export interface Context {
-    callbackWaitsForEmptyEventLoop: boolean;
-    readonly functionName: string;
-    readonly functionVersion: string;
-    readonly invokedFunctionArn: string;
-    readonly memoryLimitInMB: string;
-    readonly awsRequestId: string;
-    readonly logGroupName: string;
-    readonly logStreamName: string;
-    readonly identity: any;
-    readonly clientContext: any;
-    getRemainingTimeInMillis(): string;
-}
-
-/**
- * HandlerSignature is the signature for a serverless function that will be invoked each time
- * the AWS Lambda is invoked.
- */
-export type Handler = (event: any, context: Context, callback: (error: any, result: any) => void) => any;
+export type Handler = lambda.EntryPoint<any, any>;
 
 /**
  * HandlerFactory is the signature for a function that will be called once to produce the serverless
  * function that AWS Lambda will invoke.  It can be used to initialize expensive state once that can
  * then be used across all invocations of the Lambda (as long as the Lambda is using the same warm
  * node instance).
+ *
+ * @deprecated Use [aws.lambda.EntryPointFactory] instead.
  */
 export type HandlerFactory = () => Handler;
 
@@ -55,81 +42,23 @@ export type HandlerFactory = () => Handler;
  * equivalent to [aws.lambda.FunctionArgs] except with a few important differences documented at the
  * property level.  For example, [role] is an actual iam.Role instance, and not an ARN. Properties
  * like [runtime] are now optional.  And some properties (like [code]) are entirely disallowed.
+ *
+ * @deprecated Use [aws.lambda.FunctionOptions] instead.
  */
-export type FunctionOptions = Overwrite<lambda.FunctionArgs, {
-    /**
-     * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
-     * passed in JavaScript callback.
-     */
-    code?: never;
-
-    /**
-     * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
-     * passed in JavaScript callback.
-     */
-    handler?: never;
-
-    /**
-     * The Javascript function instance to use as the entrypoint for the AWS Lambda out of.  Either
-     * [handler] or [factoryFunc] must be provided.
-     */
-    func?: Handler;
-
-    /**
-     * The Javascript function instance that will be called to produce the function that is the
-     * entrypoint for the AWS Lambda. Either [func] or [factoryFunc] must be provided.
-     *
-     * This form is useful when there is expensive initialization work that should only be executed
-     * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
-     * It can run whatever code it needs, and will end by returning the actual function that Lambda
-     * will call into each time the Lambda is invoked.
-     */
-    factoryFunc?: HandlerFactory;
-
-    /**
-     * A list of IAM policy ARNs to attach to the Function.  Must provide either [policies] or [role].
-     */
-    policies?: ARN[];
-
-    /**
-     * A pre-created role to use for the Function.  Must provide either [policies] or [role].
-     */
-    role?: Role;
-
-    /**
-     * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
-     */
-    runtime?: lambda.Runtime;
-
-    /**
-     * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
-     */
-    includePaths?: string[];
-
-    /**
-     * The packages relative to the program folder to include in the Lambda upload.  The version of
-     * the package installed in the program folder and it's dependencies will all be included.
-     * Default is `[]`.
-     */
-    includePackages?: string[];
-
-    /**
-     * The packages relative to the program folder to not include the Lambda upload. This can be
-     * used to override the default serialization logic that includes all packages referenced by
-     * project.json (except @pulumi packages).  Default is `[]`.
-     */
-    excludePackages?: string[];
-}>;
+export type FunctionOptions = lambda.FunctionOptions<any, any>;
 
 /**
- * Function is a higher-level API for creating and managing AWS Lambda Function resources implemented
- * by a Lumi lambda expression and with a set of attached policies.
+ * Function is a higher-level API for creating and managing AWS Lambda Function resources
+ * implemented by a Pulumi lambda expression and with a set of attached policies.
  */
 export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
     public readonly role: Role;
 
+    /**
+     * @param func Deprecated.  Pass the function as [options.func] or [options.factoryFunc] instead.
+     */
     constructor(name: string,
         options: FunctionOptions,
         func?: Handler,
@@ -149,7 +78,7 @@ export class Function extends pulumi.ComponentResource {
             throw new pulumi.RunError("Function provided both in options bag and as argument");
         }
 
-        func = optionsFunc || func;
+        func = <any>(optionsFunc || func);
         if (!func) {
             throw new Error("Missing required function callback");
         }
