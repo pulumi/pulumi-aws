@@ -44,11 +44,11 @@ export interface Context {
  * EntryPoint is the signature for a serverless function that will be invoked each time the AWS
  * Lambda is invoked.
  *
- * It can be a synchronous or asynchronous function that can be converted into an AWS lambda.  Async
- * callbacks are only supported with an AWS lambda runtime of 8.10 or higher.  On those runtimes a
- * Promise can be returned, 'callback' parameter can be ignored, and AWS will appropriately handle
- * things. For AWS lambda pre-8.10, a synchronous function must be provided.  The synchronous
- * function should return nothing, and should instead invoke 'callback' when complete.
+ * This function can be synchronous or asynchronous function, though async is only supported with an
+ * AWS Lambda runtime of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
+ * parameter can be ignored, and AWS will appropriately handle things. For AWS lambda pre-8.10, a
+ * synchronous function must be provided.  The synchronous function should return nothing, and
+ * should instead invoke 'callback' when complete.
  */
 export type EntryPoint<E, R> = (event: E, context: Context, callback: (error: any, result: R) => void) => Promise<R> | void;
 
