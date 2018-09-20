@@ -38,7 +38,9 @@ func TestExamples(t *testing.T) {
 	examples := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket")}),
+		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
+		// change during a `pulumi refresh` for reasons outside our control.
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket"), ExpectRefreshChanges: true}),
 	}
 
 	if !testing.Short() {
