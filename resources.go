@@ -1925,6 +1925,11 @@ func Provider() tfbridge.ProviderInfo {
 							"require.ts", // requireRegion helpers for validating proper config
 						},
 					},
+					"dynamodb": {
+						Files: []string{
+							"dynamodbMixins.ts",
+						},
+					},
 					"ec2": {
 						Files: []string{
 							"instanceType.ts",      // InstanceType union type and constants

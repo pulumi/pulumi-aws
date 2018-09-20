@@ -166,7 +166,7 @@ export class EventSubscription extends pulumi.ComponentResource {
     name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
 
     if (handler instanceof Function) {
-        return createFunction(name, { func: handler } , opts);
+        return createFunction(name, { func: handler }, opts);
     }
     else {
         return handler;
