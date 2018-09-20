@@ -384,6 +384,7 @@
         "iam/openIdConnectProvider.ts",
         "iam/policy.ts",
         "iam/policyAttachment.ts",
+        "iam/principals.ts",
         "iam/role.ts",
         "iam/rolePolicy.ts",
         "iam/rolePolicyAttachment.ts",
