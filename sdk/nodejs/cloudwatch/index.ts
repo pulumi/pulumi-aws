@@ -6,6 +6,7 @@ export * from "./cloudwatchMixins";
 export * from "./dashboard";
 export * from "./eventPermission";
 export * from "./eventRule";
+export * from "./eventRuleMixins";
 export * from "./eventTarget";
 export * from "./getLogGroup";
 export * from "./logDestination";

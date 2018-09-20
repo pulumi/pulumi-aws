@@ -13,112 +13,16 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-import * as lambda from "../lambda";
-import * as eventRule from "./eventRule";
-import * as eventTarget from "./eventTarget";
-
-/**
- * Arguments to control the event rule subscription.  Currently empty, but still defined in case of
- * future need.
- */
-export interface EventRuleEventSubscriptionArgs {
-}
-
-export interface EventRuleEvent {
-    // aws version.
-    version: string;
-
-    // The 12-digit number identifying an AWS account.
-    account: string;
-
-    // Identifies the AWS region where the event originated.
-    region: string;
-
-    // Identifies, in combination with the source field, the fields and values that appear in the
-    // detail field.
-    "detail-type": string;
-
-    // Identifies the service that sourced the event. All events sourced from within AWS begin with
-    // "aws." Customer-generated events can have any value here, as long as it doesn't begin with
-    // "aws." We recommend the use of Java package-name style reverse domain-name strings.
-    source: string;
-
-    // The event timestamp, which can be specified by the service originating the event. If the
-    // event spans a time interval, the service might choose to report the start time, so this value
-    // can be noticeably before the time the event is actually received.
-    time: string;
-
-    // A unique value is generated for every event. This can be helpful in tracing events as they
-    // move through rules to targets, and are processed.
-    id: string;
-
-    // This JSON array contains ARNs that identify resources that are involved in the event.
-    // Inclusion of these ARNs is at the discretion of the service. For example, Amazon EC2 instance
-    // state-changes include Amazon EC2 instance ARNs, Auto Scaling events include ARNs for both
-    // instances and Auto Scaling groups, but API calls with AWS CloudTrail do not include resource
-    // ARNs.
-    resources: string[];
-
-    // A JSON object, whose content is at the discretion of the service originating the event.
-    detail: Record<string, any>;
-}
-
-export type EventRuleEventHandler = lambda.EventHandler<EventRuleEvent, void>;
-
-export class EventRuleEventSubscription extends lambda.EventSubscription {
-    public readonly eventRule: eventRule.EventRule;
-    public readonly target: eventTarget.EventTarget;
-
-    public constructor(
-        name: string, eventRuleOrSchedule: eventRule.EventRule | string, handler: EventRuleEventHandler,
-        args: EventRuleEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
-
-        super("aws:cloudwatch:EventRuleEventSubscription", name, { }, opts);
-
-        if (typeof eventRuleOrSchedule === "string") {
-            this.eventRule = new eventRule.EventRule(name, {
-                scheduleExpression: eventRuleOrSchedule
-            },
-            { parent: this });
-        }
-        else {
-            this.eventRule = eventRuleOrSchedule;
-        }
-
-        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
-
-        this.target = new eventTarget.EventTarget(name, {
-            rule: this.eventRule.name,
-            arn: this.func.arn,
-            targetId: name,
-        }, { parent: this });
-
-        this.permission = new lambda.Permission(name, {
-            action: "lambda:invokeFunction",
-            function: this.func,
-            principal: "events.amazonaws.com",
-            sourceArn: this.eventRule.arn,
-        }, { parent: this });
-    }
-}
+import * as eventRule from "./eventRuleMixins";
 
 /**
  * Creates a CloudWatch event that will fire based on the specified schedule.  This will create
  * an EventRule which will then invoke the provided handler every time it fires.
  */
-export function onSchedule(name: string, schedule: string, handler: EventRuleEventHandler, args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ResourceOptions): EventRuleEventSubscription {
-    return new EventRuleEventSubscription(name, schedule, handler, args, opts);
-}
-
-// Mixin helpers to create lambda triggers directly from an event rule event.
-
-declare module "./eventRule" {
-    interface EventRule {
-        onEvent(name: string, handler: EventRuleEventHandler,
-                args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ResourceOptions): EventRuleEventSubscription;
-    }
-}
-
-eventRule.EventRule.prototype.onEvent = function(this: eventRule.EventRule, name, handler, args, opts) {
-    return new EventRuleEventSubscription(name, this, handler, args, opts);
+export function onSchedule(
+        name: string, schedule: string,
+        handler: eventRule.EventRuleEventHandler,
+        args?: eventRule.EventRuleEventSubscriptionArgs,
+        opts?: pulumi.ResourceOptions): eventRule.EventRuleEventSubscription {
+    return new eventRule.EventRuleEventSubscription(name, schedule, handler, args, opts);
 }

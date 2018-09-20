@@ -101,6 +101,7 @@
         "cloudwatch/dashboard.ts",
         "cloudwatch/eventPermission.ts",
         "cloudwatch/eventRule.ts",
+        "cloudwatch/eventRuleMixins.ts",
         "cloudwatch/eventTarget.ts",
         "cloudwatch/getLogGroup.ts",
         "cloudwatch/index.ts",

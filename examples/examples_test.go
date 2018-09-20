@@ -41,6 +41,7 @@ func TestExamples(t *testing.T) {
 		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
 		// change during a `pulumi refresh` for reasons outside our control.
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
 	}
 

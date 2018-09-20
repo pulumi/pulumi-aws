@@ -1923,6 +1923,7 @@ func Provider() tfbridge.ProviderInfo {
 					"cloudwatch": {
 						Files: []string{
 							"cloudwatchMixins.ts",
+							"eventRuleMixins.ts",
 						},
 					},
 					"config": {
