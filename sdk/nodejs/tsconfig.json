@@ -97,6 +97,7 @@
         "cloudtrail/getServiceAccount.ts",
         "cloudtrail/index.ts",
         "cloudtrail/trail.ts",
+        "cloudwatch/cloudwatchMixins.ts",
         "cloudwatch/dashboard.ts",
         "cloudwatch/eventPermission.ts",
         "cloudwatch/eventRule.ts",

@@ -1912,12 +1912,17 @@ func Provider() tfbridge.ProviderInfo {
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
 					"tags.ts",   // Tags typedef
-					"utils.ts",  // Helpers
+					"utils.ts",  // Helpers,
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
 						Files: []string{
 							"notificationType.ts", // NotificationType union type and constants
+						},
+					},
+					"cloudwatch": {
+						Files: []string{
+							"cloudwatchMixins.ts",
 						},
 					},
 					"config": {
