@@ -120,13 +120,15 @@ export class BucketEventSubscription extends lambda.EventSubscription {
     public readonly bucket: pulumi.Output<Bucket>;
 
     public constructor(
-        name: string, bucket: Bucket, func: lambda.Function,
+        name: string, bucket: Bucket, handler: BucketEventHandler,
         args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
 
-        super("aws-serverless:bucket:BucketEventSubscription", name, func, { bucket: bucket }, opts);
+        super("aws:s3:BucketEventSubscription", name, { bucket: bucket }, opts);
+
+        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
 
         const permission = new lambda.Permission(name, {
-            function: func,
+            function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
             sourceArn: bucket.id.apply(bucketName => `arn:aws:s3:::${bucketName}`),
@@ -149,7 +151,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             events: args.events,
             filterPrefix: args.filterPrefix,
             filterSuffix: args.filterSuffix,
-            lambdaFunctionArn: func.arn,
+            lambdaFunctionArn: this.func.arn,
             permission: permission,
         });
     }
@@ -158,8 +160,8 @@ export class BucketEventSubscription extends lambda.EventSubscription {
 process.on("beforeExit", () => {
     const copy = bucketSubscriptionInfos;
 
-    // Since we are generating more work on the event loop, we will casue `beforeExit` to be invoked again.
-    // Make sure to clear out eh pending subscrpitions array so that we don't try to apply them again.
+    // Since we are generating more work on the event loop, we will cause `beforeExit` to be invoked again.
+    // Make sure to clear out eh pending subscriptions array so that we don't try to apply them again.
     bucketSubscriptionInfos = new Map();
 
     for (const [bucket, subscriptions] of copy) {
@@ -226,6 +228,5 @@ Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, 
 }
 
 Bucket.prototype.onEvent = function (this: Bucket, name, handler, args, opts) {
-    const func = lambda.createFunctionFromEventHandler(name, handler, opts);
-    return new BucketEventSubscription(name, this, func, args, opts);
+    return new BucketEventSubscription(name, this, handler, args, opts);
 }

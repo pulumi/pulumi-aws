@@ -156,11 +156,9 @@ export class EventSubscription extends pulumi.ComponentResource {
     public func: lambdaFunction.Function;
 
     public constructor(
-        type: string, name: string, func: lambdaFunction.Function, props: Record<string, any>, opts?: pulumi.ResourceOptions) {
+        type: string, name: string, props: Record<string, any>, opts?: pulumi.ResourceOptions) {
 
         super(type, name, props, opts);
-
-        this.func = func;
     }
 }
 
