@@ -1970,6 +1970,11 @@ func Provider() tfbridge.ProviderInfo {
 							"function.ts", // a union type and constants for available Lambda runtimes.
 						},
 					},
+					"sns": {
+						Files: []string{
+							"snsMixins.ts",
+						},
+					},
 					"sqs": {
 						Files: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.

@@ -560,6 +560,7 @@
         "sns/index.ts",
         "sns/platformApplication.ts",
         "sns/smsPreferences.ts",
+        "sns/snsMixins.ts",
         "sns/topic.ts",
         "sns/topicPolicy.ts",
         "sns/topicSubscription.ts",

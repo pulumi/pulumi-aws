@@ -5,6 +5,7 @@
 export * from "./getTopic";
 export * from "./platformApplication";
 export * from "./smsPreferences";
+export * from "./snsMixins";
 export * from "./topic";
 export * from "./topicPolicy";
 export * from "./topicSubscription";
