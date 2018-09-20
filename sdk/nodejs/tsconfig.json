@@ -108,6 +108,7 @@
         "cloudwatch/logDestination.ts",
         "cloudwatch/logDestinationPolicy.ts",
         "cloudwatch/logGroup.ts",
+        "cloudwatch/logGroupMixins.ts",
         "cloudwatch/logMetricFilter.ts",
         "cloudwatch/logResourcePolicy.ts",
         "cloudwatch/logStream.ts",

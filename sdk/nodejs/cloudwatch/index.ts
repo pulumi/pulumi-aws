@@ -12,6 +12,7 @@ export * from "./getLogGroup";
 export * from "./logDestination";
 export * from "./logDestinationPolicy";
 export * from "./logGroup";
+export * from "./logGroupMixins";
 export * from "./logMetricFilter";
 export * from "./logResourcePolicy";
 export * from "./logStream";
