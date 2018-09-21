@@ -19,7 +19,7 @@ import * as arn from "../arn";
 import * as iam from "../iam";
 import * as utils from "../utils";
 
-import * as lambdaFunction from "./function";
+import { Function as LambdaFunction, FunctionArgs } from "./function";
 import * as permission from "./permission";
 import * as runtime from "./runtimes";
 
@@ -137,7 +137,7 @@ export type EntryPointFactory<E, R> = () => EntryPoint<E, R>;
  * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
  * of that to any code that needs an EventHandler.
  */
-export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
+export type EventHandler<E, R> = EntryPoint<E, R> | LambdaFunction;
 
 /**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
@@ -145,7 +145,7 @@ export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
  * property level.  For example, [role] is an actual iam.Role instance, and not an ARN. Properties
  * like [runtime] are now optional.  And some properties (like [code]) are entirely disallowed.
  */
-export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs, {
+export type FunctionOptions<E, R> = utils.Overwrite<FunctionArgs, {
     /**
      * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
      * passed in JavaScript callback.
@@ -205,7 +205,7 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
  */
 export class EventSubscription extends pulumi.ComponentResource {
     public permission: permission.Permission;
-    public func: lambdaFunction.Function;
+    public func: LambdaFunction;
 
     public constructor(
         type: string, name: string, props: Record<string, any>, opts?: pulumi.ResourceOptions) {
@@ -215,7 +215,7 @@ export class EventSubscription extends pulumi.ComponentResource {
 }
 
 /* @internal */ export function createFunctionFromEventHandler<E, R>(
-    name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
+    name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): LambdaFunction {
 
     if (handler instanceof Function) {
         return createFunction(name, { entryPoint: handler } , opts);
@@ -230,7 +230,7 @@ export class EventSubscription extends pulumi.ComponentResource {
  * this lambda can be provided through [options].
  */
 export function createFunction<E, R>(
-    name: string, options: FunctionOptions<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
+    name: string, options: FunctionOptions<E, R>, opts?: pulumi.ResourceOptions): LambdaFunction {
 
     if (!name) {
         throw new Error("Missing required resource name");
@@ -298,7 +298,7 @@ export function createFunction<E, R>(
     };
 
     // Create the Lambda Function.
-    const lambda = new lambdaFunction.Function(name, copy, opts);
+    const lambda = new LambdaFunction(name, copy, opts);
     lambda.roleInstance = role;
     return lambda;
 }
