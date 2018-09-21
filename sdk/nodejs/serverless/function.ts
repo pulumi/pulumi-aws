@@ -89,7 +89,7 @@ export type FunctionOptions = utils.Overwrite<lambda.CallbackFunctionArgs<any, a
  * Function is a higher-level API for creating and managing AWS Lambda Function resources
  * implemented by a Pulumi lambda expression and with a set of attached policies.
  *
- * @deprecated Use [lambda.createFunction] instead.
+ * @deprecated Use [lambda.CallbackFunction] instead.
  */
 export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
