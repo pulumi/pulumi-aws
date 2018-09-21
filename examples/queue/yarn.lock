@@ -45,18 +45,33 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
-"@pulumi/aws@^0.15.1":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-0.15.1.tgz#6c313b2ad082a956683c5cb0652e98ed41e581e7"
+"@pulumi/aws@^0.15.2-dev":
+  version "0.15.2-dev-1537555818-g2160331"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-0.15.2-dev-1537555818-g2160331.tgz#b7e194900bbfed72de6c3212f01e00d276c89ad8"
   dependencies:
-    "@pulumi/pulumi" "^0.15.1"
+    "@pulumi/pulumi" "^0.15.3-dev"
     builtin-modules "3.0.0"
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
-"@pulumi/pulumi@^0.15.1":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.1.tgz#1b94077ec0bfb8fef868d6aa66643d7f726c0678"
+"@pulumi/pulumi@^0.15.3-dev":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.3.tgz#2a4ee8f1270384b722fc6b18e5f98a3fa82a5619"
+  dependencies:
+    google-protobuf "^3.5.0"
+    grpc "^1.12.2"
+    minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
+    protobufjs "^6.8.6"
+    read-package-tree "^5.2.1"
+    require-from-string "^2.0.1"
+    source-map-support "^0.4.16"
+    ts-node "^7.0.0"
+    typescript "^3.0.0"
+
+"@pulumi/pulumi@^0.15.4-dev":
+  version "0.15.4-dev-1537556338-g2b610ce5"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.15.4-dev-1537556338-g2b610ce5.tgz#e2e0dcf7d3c4ac761cad1e5577fb28fd294fdfa5"
   dependencies:
     google-protobuf "^3.5.0"
     grpc "^1.12.2"
@@ -791,11 +806,7 @@ ts-node@^7.0.0:
     source-map-support "^0.5.6"
     yn "^2.0.0"
 
-typescript@^2.1.4:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.1.tgz#fdb19d2c67a15d11995fd15640e373e09ab09961"
-
-typescript@^3.0.0:
+typescript@^3.0.0, typescript@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.0.3.tgz#4853b3e275ecdaa27f78fda46dc273a7eb7fc1c8"
 

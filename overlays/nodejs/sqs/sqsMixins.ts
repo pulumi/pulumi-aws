@@ -54,17 +54,6 @@ export type QueueEventSubscriptionArgs = {
     batchSize?: number;
  };
 
-/**
- * Creates a new subscription to the given queue using the lambda provided, along with optional
- * options to control the behavior of the subscription.
- */
-export function onEvent(
-    name: string, queue: queue.Queue, handler: QueueEventHandler,
-    args?: QueueEventSubscriptionArgs, opts?: pulumi.ResourceOptions): QueueEventSubscription {
-
-    return new QueueEventSubscription(name, queue, handler, args, opts);
-}
-
 export class QueueEventSubscription extends lambda.EventSubscription {
     public readonly queue: queue.Queue;
 
@@ -111,4 +100,20 @@ function createFunctionFromEventHandler(
     else {
         return handler;
     }
+}
+
+declare module "./queue" {
+    interface Queue {
+        /**
+         * Creates a new subscription to the given queue using the lambda provided, along with optional
+         * options to control the behavior of the subscription.
+         */
+        onEvent(
+            name: string, handler: QueueEventHandler,
+            args?: QueueEventSubscriptionArgs, opts?: pulumi.ResourceOptions): QueueEventSubscription;
+    }
+}
+
+queue.Queue.prototype.onEvent = function(this: queue.Queue, name, handler, args, opts) {
+    return new QueueEventSubscription(name, this, handler, args, opts);
 }
