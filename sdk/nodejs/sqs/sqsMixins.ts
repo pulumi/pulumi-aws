@@ -1,0 +1,114 @@
+// Copyright 2016-2018, Pulumi Corporation.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import * as pulumi from "@pulumi/pulumi"
+import * as iam from "../iam";
+import * as lambda from "../lambda";
+import * as queue from "./queue";
+
+export interface QueueEvent {
+    Records: QueueRecord[];
+}
+
+export interface QueueRecord {
+    messageId: string;
+    receiptHandle: string;
+    body: string;
+    attributes: {
+        ApproximateReceiveCount: string;
+        SentTimestamp: string;
+        SenderId: string;
+        ApproximateFirstReceiveTimestamp: string;
+    };
+    messageAttributes: Record<string, any>;
+    md5OfBody: string;
+    eventSource: string;
+    eventSourceARN: string;
+    awsRegion: string;
+}
+
+export type QueueEventHandler = lambda.EventHandler<QueueEvent, void>;
+
+/**
+ * Arguments to control the sqs subscription.
+ */
+export type QueueEventSubscriptionArgs = {
+    /**
+     * The largest number of records that AWS Lambda will retrieve. The maximum batch size supported
+     * by Amazon Simple Queue Service is up to 10 queue messages per batch. The default setting is
+     * 10.
+     *
+     * See https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html for more details.
+     */
+    batchSize?: number;
+ };
+
+/**
+ * Creates a new subscription to the given queue using the lambda provided, along with optional
+ * options to control the behavior of the subscription.
+ */
+export function onEvent(
+    name: string, queue: queue.Queue, handler: QueueEventHandler,
+    args?: QueueEventSubscriptionArgs, opts?: pulumi.ResourceOptions): QueueEventSubscription {
+
+    return new QueueEventSubscription(name, queue, handler, args, opts);
+}
+
+export class QueueEventSubscription extends lambda.EventSubscription {
+    public readonly queue: queue.Queue;
+
+    /**
+     * The underlying sns object created for the subscription.
+     */
+    public readonly eventSourceMapping: lambda.EventSourceMapping;
+
+    public constructor(
+        name: string, queue: queue.Queue, handler: QueueEventHandler,
+        args: QueueEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+
+        super("aws:sqs:QueueEventSubscription", name, { }, opts);
+
+        args = args || {};
+
+        this.func = createFunctionFromEventHandler(name, handler, { parent: this });
+
+        this.permission = new lambda.Permission(name, {
+            action: "lambda:*",
+            function: this.func,
+            principal: "sqs.amazonaws.com",
+            sourceArn: queue.arn,
+        }, { parent: this });
+
+        this.eventSourceMapping = new lambda.EventSourceMapping(name, {
+            batchSize: args.batchSize,
+            enabled: true,
+            eventSourceArn: queue.arn,
+            functionName: this.func.name,
+        }, { parent: this });
+    }
+}
+
+function createFunctionFromEventHandler(
+    name: string, handler: QueueEventHandler, opts?: pulumi.ResourceOptions): lambda.Function {
+
+    if (handler instanceof Function) {
+        return lambda.createFunction(name, {
+            entryPoint: handler,
+            policies: [iam.AWSLambdaFullAccess, iam.AmazonSQSFullAccess]
+        } , opts);
+    }
+    else {
+        return handler;
+    }
+}

@@ -569,6 +569,7 @@
         "sqs/queue.ts",
         "sqs/queuePolicy.ts",
         "sqs/redrive.ts",
+        "sqs/sqsMixins.ts",
         "ssm/activation.ts",
         "ssm/association.ts",
         "ssm/document.ts",
