@@ -380,7 +380,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
 			"aws_appautoscaling_target":           {Tok: awsResource(appautoscalingMod, "Target")},
 			// Athena
-			"aws_athena_database":    {Tok: awsResource(athenaMod, "Database")},
+			"aws_athena_database": {
+				Tok: awsResource(athenaMod, "Database"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
+								return resource.NewUniqueHex(string(res.URN.Name())+"_", 7, 255)
+							},
+						},
+					},
+				},
+			},
 			"aws_athena_named_query": {Tok: awsResource(athenaMod, "NamedQuery")},
 			// Auto Scaling
 			"aws_autoscaling_attachment": {Tok: awsResource(autoscalingMod, "Attachment")},
@@ -471,7 +482,12 @@ func Provider() tfbridge.ProviderInfo {
 					"name": tfbridge.AutoName("name", 64),
 				},
 			},
-			"aws_cloudwatch_event_target":           {Tok: awsResource(cloudwatchMod, "EventTarget")},
+			"aws_cloudwatch_event_target": {
+				Tok: awsResource(cloudwatchMod, "EventTarget"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"target_id": tfbridge.AutoName("targetId", 255),
+				},
+			},
 			"aws_cloudwatch_log_destination":        {Tok: awsResource(cloudwatchMod, "LogDestination")},
 			"aws_cloudwatch_log_destination_policy": {Tok: awsResource(cloudwatchMod, "LogDestinationPolicy")},
 			"aws_cloudwatch_log_group": {
@@ -792,7 +808,12 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_key_pair": {Tok: awsResource(ec2Mod, "KeyPair")},
+			"aws_key_pair": {
+				Tok: awsResource(ec2Mod, "KeyPair"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"key_name": tfbridge.AutoName("keyName", 255),
+				},
+			},
 			"aws_launch_configuration": {
 				Tok: awsResource(ec2Mod, "LaunchConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1462,6 +1483,20 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_instance": {
 				Tok: awsResource(rdsMod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"identifier": {
+						Default: &tfbridge.DefaultInfo{
+							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
+								name, rand, maxlen := string(res.URN.Name()), 7, 255
+								if engine, ok := res.Properties["engine"]; ok && engine.IsString() {
+									if strings.Contains(strings.ToLower(engine.StringValue()), "sqlserver") {
+										// SQL Server identifers are capped at 15 characters.
+										rand, maxlen = 3, 15
+									}
+								}
+								return resource.NewUniqueHex(name, rand, maxlen)
+							},
+						},
+					},
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
@@ -1812,7 +1847,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecs_service":              {Tok: awsDataSource(ecsMod, "getService")},
 			"aws_ecs_task_definition":      {Tok: awsDataSource(ecsMod, "getTaskDefinition")},
 			// Elastic Filesystem
-			"aws_efs_file_system":  {Tok: awsDataSource(efsMod, "getFileSystem")},
+			"aws_efs_file_system": {
+				Tok: awsDataSource(efsMod, "getFileSystem"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"creation_token": tfbridge.AutoName("creationToken", 255),
+				},
+			},
 			"aws_efs_mount_target": {Tok: awsDataSource(efsMod, "getMountTarget")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {Tok: awsDataSource(eksMod, "getCluster")},
