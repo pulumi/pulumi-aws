@@ -17,11 +17,11 @@ import * as crypto from "crypto";
 
 import * as arn from "../arn";
 import * as iam from "../iam";
-import * as runtime from "./runtimes";
 import * as utils from "../utils";
 
 import * as lambdaFunction from "./function";
 import * as permission from "./permission";
+import * as runtime from "./runtimes";
 
 /**
  * Context is the shape of the context object passed to a Function callback.
