@@ -79,20 +79,21 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         super("aws:cloudwatch:LogGroupEventSubscription", name, { logGroup: logGroup }, opts);
 
         args = args || {};
-        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
+        const parentOpts = { parent: this };
+        this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: `logs.${config.requireRegion()}.amazonaws.com`,
             sourceArn: logGroup.arn,
-        }, { parent: this });
+        }, parentOpts);
 
         this.logSubscriptionFilter = new logSubscriptionFilter.LogSubscriptionFilter(name, {
             destinationArn: this.func.arn,
             filterPattern: args.filterPattern || "",
             logGroup: logGroup,
-        }, { parent: this });
+        }, parentOpts);
     }
 }
 

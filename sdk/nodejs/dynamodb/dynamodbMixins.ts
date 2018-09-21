@@ -70,14 +70,15 @@ export class TableEventSubscription extends lambda.EventSubscription {
 
         super("aws:dynamodb:TableEventSubscription", name, { table: table }, opts);
 
-        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
+        const parentOpts = { parent: this };
+        this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "dynamodb.amazonaws.com",
             sourceArn: table.streamArn,
-        }, { parent: this });
+        }, parentOpts);
 
         this.eventSourceMapping = new lambda.EventSourceMapping(name, {
             batchSize: args.batchSize,
@@ -85,7 +86,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
             eventSourceArn: table.streamArn,
             functionName: this.func.name,
             startingPosition: args.startingPosition,
-        }, { parent: this });
+        }, parentOpts);
     }
 }
 

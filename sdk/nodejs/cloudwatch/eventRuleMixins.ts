@@ -75,30 +75,31 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
 
         super("aws:cloudwatch:EventRuleEventSubscription", name, { }, opts);
 
+        const parentOpts = { parent: this };
         if (typeof eventRuleOrSchedule === "string") {
             this.eventRule = new eventRule.EventRule(name, {
                 scheduleExpression: eventRuleOrSchedule
             },
-            { parent: this });
+            parentOpts);
         }
         else {
             this.eventRule = eventRuleOrSchedule;
         }
 
-        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
+        this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.target = new eventTarget.EventTarget(name, {
             rule: this.eventRule.name,
             arn: this.func.arn,
             targetId: name,
-        }, { parent: this });
+        }, parentOpts);
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: "events.amazonaws.com",
             sourceArn: this.eventRule.arn,
-        }, { parent: this });
+        }, parentOpts);
     }
 }
 

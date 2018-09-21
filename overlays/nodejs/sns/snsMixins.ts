@@ -72,20 +72,21 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         args = args || {};
         this.topic = topic;
 
-        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
+        const parentOpts = { parent: this };
+        this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: "sns.amazonaws.com",
             sourceArn: topic.id,
-        }, { parent: this });
+        }, parentOpts);
 
         this.subscription = new topicSubscription.TopicSubscription(name, {
             topic: topic,
             protocol: "lambda",
             endpoint: this.func.arn,
-        }, { parent: this });
+        }, parentOpts);
     }
 }
 

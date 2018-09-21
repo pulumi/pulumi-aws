@@ -70,21 +70,22 @@ export class QueueEventSubscription extends lambda.EventSubscription {
 
         args = args || {};
 
-        this.func = createFunctionFromEventHandler(name, handler, { parent: this });
+        const parentOpts = { parent: this };
+        this.func = createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:*",
             function: this.func,
             principal: "sqs.amazonaws.com",
             sourceArn: queue.arn,
-        }, { parent: this });
+        }, parentOpts);
 
         this.eventSourceMapping = new lambda.EventSourceMapping(name, {
             batchSize: args.batchSize,
             enabled: true,
             eventSourceArn: queue.arn,
             functionName: this.func.name,
-        }, { parent: this });
+        }, parentOpts);
     }
 }
 
