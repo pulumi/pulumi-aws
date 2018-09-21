@@ -1906,7 +1906,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.15.3-dev",
+				"@pulumi/pulumi":    "^0.15.4-dev",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
 				"resolve":           "^1.7.1",
@@ -1954,6 +1954,12 @@ func Provider() tfbridge.ProviderInfo {
 					"lambda": {
 						Files: []string{
 							"runtimes.ts", // a union type and constants for available Lambda runtimes.
+							"lambdaMixins.ts",
+						},
+					},
+					"s3": {
+						Files: []string{
+							"s3Mixins.ts",
 						},
 					},
 					"serverless": {

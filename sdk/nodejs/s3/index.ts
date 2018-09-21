@@ -10,3 +10,4 @@ export * from "./bucketPolicy";
 export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./inventory";
+export * from "./s3Mixins";

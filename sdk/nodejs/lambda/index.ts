@@ -7,5 +7,6 @@ export * from "./eventSourceMapping";
 export * from "./function";
 export * from "./getFunction";
 export * from "./getInvocation";
+export * from "./lambdaMixins";
 export * from "./permission";
 export * from "./runtimes";
