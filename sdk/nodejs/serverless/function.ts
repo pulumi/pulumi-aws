@@ -50,6 +50,16 @@ export type HandlerFactory = () => Handler;
  */
 export type FunctionOptions = utils.Overwrite<lambda.FunctionOptions<any, any>, {
     /**
+     * @deprecated use [entryPoint] instead.
+     */
+    func?: Handler;
+
+    /**
+     * @deprecated use [entryPointFactory] instead.
+     */
+    factoryFunc?: HandlerFactory;
+
+    /**
      * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
      *
      * @deprecated Use [codePathOptions] instead.
@@ -97,8 +107,11 @@ export class Function extends pulumi.ComponentResource {
 
         super("aws:serverless:Function", name, { options: options }, opts);
 
-        options.func = options.func || func;
         opts = opts || { parent: this };
+
+        // Migrate old aws-serverless.FunctionOptions forward to lambda.FunctionOptions.
+        options.entryPoint = options.entryPoint || options.func || func;
+        options.entryPointFactory = options.entryPointFactory || options.factoryFunc;
 
         if (!options.codePathOptions) {
             options.codePathOptions = {

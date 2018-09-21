@@ -97,20 +97,20 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
 
     /**
      * The Javascript function instance to use as the entrypoint for the AWS Lambda out of.  Either
-     * [func] or [factoryFunc] must be provided.
+     * [entryPoint] or [entryPointFactory] must be provided.
      */
-    func?: EntryPoint<E, R>;
+    entryPoint?: EntryPoint<E, R>;
 
     /**
      * The Javascript function instance that will be called to produce the function that is the
-     * entrypoint for the AWS Lambda. Either [func] or [factoryFunc] must be provided.
+     * entrypoint for the AWS Lambda. Either [entryPoint] or [entryPointFactory] must be provided.
      *
      * This form is useful when there is expensive initialization work that should only be executed
      * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
      * It can run whatever code it needs, and will end by returning the actual function that Lambda
      * will call into each time the Lambda is invoked.
      */
-    factoryFunc?: EntryPointFactory<E, R>;
+    entryPointFactory?: EntryPointFactory<E, R>;
 
     /**
      * A pre-created role to use for the Function. If not provided, [policies] will be used.
@@ -155,7 +155,7 @@ export class EventSubscription extends pulumi.ComponentResource {
     name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): lambdaFunction.Function {
 
     if (handler instanceof Function) {
-        return createFunction(name, { func: handler } , opts);
+        return createFunction(name, { entryPoint: handler } , opts);
     }
     else {
         return handler;
@@ -173,13 +173,13 @@ export function createFunction<E, R>(
         throw new Error("Missing required resource name");
     }
 
-    if (options.func && options.factoryFunc) {
-        throw new pulumi.RunError("Cannot provide both [options.func] and [options.factoryFunc]");
+    if (options.entryPoint && options.entryPointFactory) {
+        throw new pulumi.RunError("Cannot provide both [options.entryPoint] and [options.entryPointFactory]");
     }
 
-    const func = options.func || options.factoryFunc;
+    const func = options.entryPoint || options.entryPointFactory;
     if (!func) {
-        throw new Error("Missing required function callback");
+        throw new Error("One of [entryPoint] or [entryPointFactory] must be provided.");
     }
 
     let role: iam.Role;
@@ -216,7 +216,7 @@ export function createFunction<E, R>(
     const closure = pulumi.runtime.serializeFunction(func, {
         serialize: _ => true,
         exportName: handlerName,
-        isFactoryFunction: !!options.factoryFunc,
+        isFactoryFunction: !!options.entryPointFactory,
     });
 
     const codePaths = computeCodePaths(
