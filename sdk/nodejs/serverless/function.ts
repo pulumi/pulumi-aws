@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import { Role } from "../iam";
 import * as lambda from "../lambda";
+import * as utils from "../utils";
 
 /**
  * @deprecated Use [aws.lambda.Context] instead.
@@ -47,7 +48,32 @@ export type HandlerFactory = () => Handler;
  *
  * @deprecated Use [aws.lambda.FunctionOptions] instead.
  */
-export type FunctionOptions = lambda.FunctionOptions<any, any>;
+export type FunctionOptions = utils.Overwrite<lambda.FunctionOptions<any, any>, {
+    /**
+     * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
+     *
+     * @deprecated Use [codePathOptions] instead.
+     */
+    includePaths?: string[];
+
+    /**
+     * The packages relative to the program folder to include in the Lambda upload.  The version of
+     * the package installed in the program folder and it's dependencies will all be included.
+     * Default is `[]`.
+     *
+     * @deprecated Use [codePathOptions] instead.
+     */
+    includePackages?: string[];
+
+    /**
+     * The packages relative to the program folder to not include the Lambda upload. This can be
+     * used to override the default serialization logic that includes all packages referenced by
+     * project.json (except @pulumi packages).  Default is `[]`.
+     *
+     * @deprecated Use [codePathOptions] instead.
+     */
+    excludePackages?: string[];
+}>;
 
 /**
  * Function is a higher-level API for creating and managing AWS Lambda Function resources
@@ -72,8 +98,15 @@ export class Function extends pulumi.ComponentResource {
         super("aws:serverless:Function", name, { options: options }, opts);
 
         options.func = options.func || func;
-        options.serialize = options.serialize || serialize;
         opts = opts || { parent: this };
+
+        if (!options.codePathOptions) {
+            options.codePathOptions = {
+                extraIncludePaths: options.includePaths,
+                extraIncludePackages: options.includePackages,
+                extraExcludePackages: options.excludePackages,
+            };
+        }
 
         this.lambda = lambda.createFunction(name, options, opts);
         this.role = this.lambda.roleInstance;

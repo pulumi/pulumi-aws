@@ -69,6 +69,13 @@ export type EntryPointFactory<E, R> = () => EntryPoint<E, R>;
  */
 export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
 
+
+export interface CodePathOptions {
+    extraIncludePaths?: string[];
+    extraIncludePackages?: string[];
+    extraExcludePackages?: string[];
+}
+
 /**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
  * equivalent to [aws.lambda.FunctionArgs] except with a few important differences documented at the
@@ -123,28 +130,10 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
     runtime?: runtime.Runtime;
 
     /**
-     * The paths relative to the program folder to include in the Lambda upload.  Default is `[]`.
+     * Options to control which paths/packages should be included or excluded in the zip file containing
+     * the code for the AWS lambda.
      */
-    includePaths?: string[];
-
-    /**
-     * The packages relative to the program folder to include in the Lambda upload.  The version of
-     * the package installed in the program folder and it's dependencies will all be included.
-     * Default is `[]`.
-     */
-    includePackages?: string[];
-
-    /**
-     * The packages relative to the program folder to not include the Lambda upload. This can be
-     * used to override the default serialization logic that includes all packages referenced by
-     * project.json (except @pulumi packages).  Default is `[]`.
-     */
-    excludePackages?: string[];
-
-    /**
-     * @internal.  TODO(cyrusn): Remove if not needed by higher layers.
-     */
-    serialize?: (obj: any) => boolean
+    codePathOptions?: CodePathOptions;
 }>;
 
 /**
@@ -221,23 +210,17 @@ export function createFunction<E, R>(
     // Now compile the function text into an asset we can use to create the lambda. Note: to
     // prevent a circularity/deadlock, we list this Function object as something that the
     // serialized closure cannot reference.
-    let lambda: lambdaFunction.Function;
-    let serialize = options.serialize || (_ => true);
-    const finalSerialize = (o: any) => {
-        return serialize(o) && o !== lambda;
-    }
-
     const handlerName = "handler";
     const serializedFileNameNoExtension = "__index";
 
     const closure = pulumi.runtime.serializeFunction(func, {
-        serialize: finalSerialize,
+        serialize: _ => true,
         exportName: handlerName,
         isFactoryFunction: !!options.factoryFunc,
     });
 
     const codePaths = computeCodePaths(
-        closure, serializedFileNameNoExtension, options.includePaths, options.excludePackages);
+        closure, serializedFileNameNoExtension, options.codePathOptions);
 
     // Copy over all option values into the function args.  Then overwrite anything we care
     // about with our own values.  This ensures that clients can pass future supported
@@ -252,7 +235,7 @@ export function createFunction<E, R>(
     };
 
     // Create the Lambda Function.
-    lambda = new lambdaFunction.Function(name, copy, opts);
+    const lambda = new lambdaFunction.Function(name, copy, opts);
     lambda.roleInstance = role;
     return lambda;
 }
@@ -261,9 +244,7 @@ export function createFunction<E, R>(
 async function computeCodePaths(
         closure: Promise<pulumi.runtime.SerializedFunction>,
         serializedFileNameNoExtension: string,
-        extraIncludePaths?: string[],
-        extraIncludePackages?: string[],
-        extraExcludePackages?: string[]): Promise<pulumi.asset.AssetMap> {
+        codePathOptions: CodePathOptions | undefined): Promise<pulumi.asset.AssetMap> {
 
     const serializedFunction = await closure;
 
@@ -276,11 +257,11 @@ async function computeCodePaths(
     // AWS Lambda always provides `aws-sdk`, so skip this.  Do this before processing user-provided
     // extraIncludePackages so that users can force aws-sdk to be included (if they need a specific
     // version).
-    extraExcludePackages = extraExcludePackages || [];
-    extraExcludePackages.push("aws-sdk");
+    codePathOptions = codePathOptions || {};
+    codePathOptions.extraExcludePackages = codePathOptions.extraExcludePackages || [];
+    codePathOptions.extraExcludePackages.push("aws-sdk");
 
-    let modulePaths = await pulumi.runtime.computeCodePaths(
-        extraIncludePaths, extraIncludePackages, extraExcludePackages);
+    const modulePaths = await pulumi.runtime.computeCodePaths(codePathOptions);
 
     for (const [path, asset] of modulePaths) {
         codePaths[path] = asset;
