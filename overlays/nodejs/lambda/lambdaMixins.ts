@@ -69,13 +69,6 @@ export type EntryPointFactory<E, R> = () => EntryPoint<E, R>;
  */
 export type EventHandler<E, R> = EntryPoint<E, R> | lambdaFunction.Function;
 
-
-export interface CodePathOptions {
-    extraIncludePaths?: string[];
-    extraIncludePackages?: string[];
-    extraExcludePackages?: string[];
-}
-
 /**
  * FunctionOptions provides configuration options for the serverless Function.  It is effectively
  * equivalent to [aws.lambda.FunctionArgs] except with a few important differences documented at the
@@ -133,7 +126,7 @@ export type FunctionOptions<E, R> = utils.Overwrite<lambdaFunction.FunctionArgs,
      * Options to control which paths/packages should be included or excluded in the zip file containing
      * the code for the AWS lambda.
      */
-    codePathOptions?: CodePathOptions;
+    codePathOptions?: pulumi.runtime.CodePathOptions;
 }>;
 
 /**
@@ -244,7 +237,7 @@ export function createFunction<E, R>(
 async function computeCodePaths(
         closure: Promise<pulumi.runtime.SerializedFunction>,
         serializedFileNameNoExtension: string,
-        codePathOptions: CodePathOptions | undefined): Promise<pulumi.asset.AssetMap> {
+        codePathOptions: pulumi.runtime.CodePathOptions | undefined): Promise<pulumi.asset.AssetMap> {
 
     const serializedFunction = await closure;
 
