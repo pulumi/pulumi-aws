@@ -26,7 +26,7 @@ const bucket = new aws.s3.Bucket("testbucket", {
     forceDestroy: true,
 });
 
-bucket.onObjectCreated("test", async (event) => {
+bucket.onObjectCreated("bucket-callback", async (event) => {
     const awssdk = await import("aws-sdk");
     const s3 = new awssdk.S3();
 
