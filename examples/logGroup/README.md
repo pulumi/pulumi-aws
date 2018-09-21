@@ -1,3 +1,3 @@
-# examples/bucket
+# examples/loggroup
 
-A simple example of using the `Bucket` APIs.
+A simple example of using the `LogGroup` APIs.

@@ -1,3 +1,3 @@
-# examples/bucket
+# examples/cloudwatch
 
-A simple example of using the `Bucket` APIs.
+A simple example of using the `CloudWatch` APIs.
