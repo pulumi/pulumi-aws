@@ -4,7 +4,7 @@
 
 [[constraint]]
   name = "github.com/pulumi/pulumi-terraform"
-  version = "v0.15.1"
+  branch = "master"
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-aws"

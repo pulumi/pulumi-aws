@@ -130,15 +130,27 @@ export class BucketEventSubscription extends lambda.EventSubscription {
 
         super("aws:s3:BucketEventSubscription", name, { bucket: bucket }, opts);
 
+<<<<<<< HEAD
         const parentOpts = { parent: this };
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
+=======
+        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
+
+        const permission = new lambda.Permission(name, {
+>>>>>>> origin/master
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
             sourceArn: bucket.id.apply(bucketName => `arn:aws:s3:::${bucketName}`),
+<<<<<<< HEAD
         }, parentOpts);
+=======
+        }, { parent: this });
+
+        this.permission = permission;
+>>>>>>> origin/master
 
         // We must create only a single BucketNotification per Bucket per AWS API limitations.  See
         // https://github.com/terraform-providers/terraform-provider-aws/issues/1715.  So we push
@@ -156,7 +168,11 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             filterPrefix: args.filterPrefix,
             filterSuffix: args.filterSuffix,
             lambdaFunctionArn: this.func.arn,
+<<<<<<< HEAD
             permission: this.permission,
+=======
+            permission: permission,
+>>>>>>> origin/master
         });
     }
 }

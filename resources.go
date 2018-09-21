@@ -395,6 +395,13 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
 					},
+					"enabled_metrics": {
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod+"/metrics", "Metric")},
+					},
+					"metrics_granularity": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(autoscalingMod+"/metrics", "MetricsGranularity")},
+					},
 					"tag": {
 						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
 						Name: "tags",
@@ -1917,6 +1924,7 @@ func Provider() tfbridge.ProviderInfo {
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
 						Files: []string{
+							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
 						},
 					},
@@ -1952,6 +1960,7 @@ func Provider() tfbridge.ProviderInfo {
 						Files: []string{
 							"documents.ts",       // policy document schemas.
 							"managedPolicies.ts", // handy constants that predefine all known managed policies.
+							"principals.ts",      // Pre-defined objects representing Service Principals
 						},
 					},
 					"lambda": {
