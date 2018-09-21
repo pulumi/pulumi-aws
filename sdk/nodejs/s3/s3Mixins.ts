@@ -22,10 +22,15 @@ import * as lambda from "../lambda"
  */
 export interface CommonBucketSubscriptionArgs {
     /**
-     * An optional prefix or suffix to filter down notifications.  See
+     * An optional prefix to filter down notifications.  See
      * aws.s3.BucketNotification.lambdaFunctions for more details.
      */
     filterPrefix?: string;
+
+    /**
+     * An optional suffix to filter down notifications.  See
+     * aws.s3.BucketNotification.lambdaFunctions for more details.
+     */
     filterSuffix?: string;
 }
 
