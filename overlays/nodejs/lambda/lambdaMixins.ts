@@ -111,8 +111,7 @@ export interface Context {
 }
 
 /**
- * EntryPoint is the signature for a serverless function that will be invoked each time the AWS
- * Lambda is invoked.
+ * Callback is the signature for an AWS Lambda function entrypoint.
  *
  * This function can be synchronous or asynchronous function, though async is only supported with an
  * AWS Lambda runtime of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
@@ -120,32 +119,33 @@ export interface Context {
  * synchronous function must be provided.  The synchronous function should return nothing, and
  * should instead invoke 'callback' when complete.
  */
-export type EntryPoint<E, R> = (event: E, context: Context, callback: (error: any, result: R) => void) => Promise<R> | void;
+export type Callback<E, R> = (event: E, context: Context, callback: (error: any, result: R) => void) => Promise<R> | void;
 
 /**
- * EntryPointFactory is the signature for a function that will be called once to produce the
- * serverless function that AWS Lambda will invoke.  It can be used to initialize expensive state
+ * CallbackFactory is the signature for a function that will be called once to produce the
+ * entrypoint function that AWS Lambda will invoke.  It can be used to initialize expensive state
  * once that can then be used across all invocations of the Lambda (as long as the Lambda is using
  * the same warm node instance).
  */
-export type EntryPointFactory<E, R> = () => EntryPoint<E, R>;
+export type CallbackFactory<E, R> = () => Callback<E, R>;
 
 /**
- * An EventHandler is either a JavaScript Function instance or an aws.lambda.Function that can be
- * used to handle an event triggered by some resource.  If just a JavaScript function is provided
- * the AWS Lambda will be created by calling [createFunction] on it.  If more control over the
- * resultant AWS Lambda is required, clients can call [createFunction] directly and pass the result
- * of that to any code that needs an EventHandler.
+ * An EventHandler is either a JavaScript callback or an aws.lambda.Function that can be used to
+ * handle an event triggered by some resource.  If just a JavaScript callback is provided the AWS
+ * Lambda will be created by calling [createCallbackFunction] on it.  If more control over the
+ * resultant AWS Lambda is required, clients can call [createCallbackFunction] directly and pass the
+ * result of that to any code that needs an EventHandler.
  */
-export type EventHandler<E, R> = EntryPoint<E, R> | LambdaFunction;
+export type EventHandler<E, R> = Callback<E, R> | LambdaFunction;
 
 /**
- * FunctionOptions provides configuration options for the serverless Function.  It is effectively
- * equivalent to [aws.lambda.FunctionArgs] except with a few important differences documented at the
- * property level.  For example, [role] is an actual iam.Role instance, and not an ARN. Properties
- * like [runtime] are now optional.  And some properties (like [code]) are entirely disallowed.
+ * CallbackFunctionArgs provides configuration options for the serverless Function.  It is
+ * effectively equivalent to [aws.lambda.FunctionArgs] except with a few important differences
+ * documented at the property level.  For example, [role] is an actual iam.Role instance, and not an
+ * ARN. Properties like [runtime] are now optional.  And some properties (like [code]) are entirely
+ * disallowed.
  */
-export type FunctionOptions<E, R> = utils.Overwrite<FunctionArgs, {
+export type CallbackFunctionArgs<E, R> = utils.Overwrite<FunctionArgs, {
     /**
      * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
      * passed in JavaScript callback.
@@ -159,21 +159,22 @@ export type FunctionOptions<E, R> = utils.Overwrite<FunctionArgs, {
     handler?: never;
 
     /**
-     * The Javascript function instance to use as the entrypoint for the AWS Lambda out of.  Either
-     * [entryPoint] or [entryPointFactory] must be provided.
+     * The Javascript callback to use as the entrypoint for the AWS Lambda out of.  Either
+     * [callback] or [callbackFactory] must be provided.
      */
-    entryPoint?: EntryPoint<E, R>;
+    callback?: Callback<E, R>;
 
     /**
-     * The Javascript function instance that will be called to produce the function that is the
-     * entrypoint for the AWS Lambda. Either [entryPoint] or [entryPointFactory] must be provided.
+     * The Javascript function instance that will be called to produce the callback function that is
+     * the entrypoint for the AWS Lambda. Either [callback] or [callbackFactory] must be
+     * provided.
      *
      * This form is useful when there is expensive initialization work that should only be executed
      * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
      * It can run whatever code it needs, and will end by returning the actual function that Lambda
      * will call into each time the Lambda is invoked.
      */
-    entryPointFactory?: EntryPointFactory<E, R>;
+    callbackFactory?: CallbackFactory<E, R>;
 
     /**
      * A pre-created role to use for the Function. If not provided, [policies] will be used.
@@ -218,7 +219,7 @@ export class EventSubscription extends pulumi.ComponentResource {
     name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): LambdaFunction {
 
     if (handler instanceof Function) {
-        return createFunction(name, { entryPoint: handler } , opts);
+        return new CallbackFunction(name, { callback: handler }, opts);
     }
     else {
         return handler;
@@ -226,81 +227,82 @@ export class EventSubscription extends pulumi.ComponentResource {
 }
 
 /**
- * Creates an AWS Lambda out of the provider options.func or options.factoryFunc.  Configuration of
- * this lambda can be provided through [options].
+ * A CallbackFunction is a special type of aws.lambda.Function that can be created out of an actual
+ * JavaScript function instance.  The function instance will be analyzed and packaged up (including
+ * dependencies) into a form that can be used by AWS Lambda.  See
+ * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
+ * details on this process.
  */
-export function createFunction<E, R>(
-    name: string, options: FunctionOptions<E, R>, opts?: pulumi.ResourceOptions): LambdaFunction {
-
-    if (!name) {
-        throw new Error("Missing required resource name");
-    }
-
-    if (options.entryPoint && options.entryPointFactory) {
-        throw new pulumi.RunError("Cannot provide both [options.entryPoint] and [options.entryPointFactory]");
-    }
-
-    const func = options.entryPoint || options.entryPointFactory;
-    if (!func) {
-        throw new Error("One of [entryPoint] or [entryPointFactory] must be provided.");
-    }
-
-    let role: iam.Role;
-    if (options.role) {
-        role = options.role;
-    } else {
-        // Attach a role and then, if there are policies, attach those too.
-        role = new iam.Role(name, {
-            assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        }, opts);
-
-        if (!options.policies) {
-            // Provides wide access to "serverless" services (Dynamo, S3, etc.)
-            options.policies = [iam.AWSLambdaFullAccess];
+export class CallbackFunction<E, R> extends LambdaFunction {
+    public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts?: pulumi.ResourceOptions) {
+        if (!name) {
+            throw new Error("Missing required resource name");
         }
 
-        for (let policy of options.policies) {
-            // RolePolicyAttachment objects don't have a physical identity, and create/deletes are processed
-            // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
-            // structural identity by using a name that includes the role name and policyArn.
-            let attachment = new iam.RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
-                role: role,
-                policyArn: policy,
+        if (args.callback && args.callbackFactory) {
+            throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
+        }
+
+        const func = args.callback || args.callbackFactory;
+        if (!func) {
+            throw new Error("One of [callback] or [callbackFactory] must be provided.");
+        }
+
+        let role: iam.Role;
+        if (args.role) {
+            role = args.role;
+        } else {
+            // Attach a role and then, if there are policies, attach those too.
+            role = new iam.Role(name, {
+                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
             }, opts);
+
+            if (!args.policies) {
+                // Provides wide access to "serverless" services (Dynamo, S3, etc.)
+                args.policies = [iam.AWSLambdaFullAccess];
+            }
+
+            for (const policy of args.policies) {
+                // RolePolicyAttachment objects don't have a physical identity, and create/deletes are processed
+                // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
+                // structural identity by using a name that includes the role name and policyArn.
+                const attachment = new iam.RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                    role: role,
+                    policyArn: policy,
+                }, opts);
+            }
         }
+
+        // Now compile the function text into an asset we can use to create the lambda. Note: to
+        // prevent a circularity/deadlock, we list this Function object as something that the
+        // serialized closure cannot reference.
+        const handlerName = "handler";
+        const serializedFileNameNoExtension = "__index";
+
+        const closure = pulumi.runtime.serializeFunction(func, {
+            serialize: _ => true,
+            exportName: handlerName,
+            isFactoryFunction: !!args.callbackFactory,
+        });
+
+        const codePaths = computeCodePaths(
+            closure, serializedFileNameNoExtension, args.codePathOptions);
+
+        // Copy over all option values into the function args.  Then overwrite anything we care
+        // about with our own values.  This ensures that clients can pass future supported
+        // lambda options without us having to know about it.
+        const functionArgs = {
+            ...args,
+            code: new pulumi.asset.AssetArchive(codePaths),
+            handler: serializedFileNameNoExtension + "." + handlerName,
+            runtime: args.runtime || runtime.NodeJS8d10Runtime,
+            role: role.arn,
+            timeout: args.timeout === undefined ? 180 : args.timeout,
+        };
+
+        super(name, functionArgs, opts);
+        this.roleInstance = role;
     }
-
-    // Now compile the function text into an asset we can use to create the lambda. Note: to
-    // prevent a circularity/deadlock, we list this Function object as something that the
-    // serialized closure cannot reference.
-    const handlerName = "handler";
-    const serializedFileNameNoExtension = "__index";
-
-    const closure = pulumi.runtime.serializeFunction(func, {
-        serialize: _ => true,
-        exportName: handlerName,
-        isFactoryFunction: !!options.entryPointFactory,
-    });
-
-    const codePaths = computeCodePaths(
-        closure, serializedFileNameNoExtension, options.codePathOptions);
-
-    // Copy over all option values into the function args.  Then overwrite anything we care
-    // about with our own values.  This ensures that clients can pass future supported
-    // lambda options without us having to know about it.
-    const copy = {
-        ...options,
-        code: new pulumi.asset.AssetArchive(codePaths),
-        handler: serializedFileNameNoExtension + "." + handlerName,
-        runtime: options.runtime || runtime.NodeJS8d10Runtime,
-        role: role.arn,
-        timeout: options.timeout === undefined ? 180 : options.timeout,
-    };
-
-    // Create the Lambda Function.
-    const lambda = new LambdaFunction(name, copy, opts);
-    lambda.roleInstance = role;
-    return lambda;
 }
 
 // computeCodePaths calculates an AssetMap of files to include in the Lambda package.
