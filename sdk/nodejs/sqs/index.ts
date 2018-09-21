@@ -6,3 +6,4 @@ export * from "./getQueue";
 export * from "./queue";
 export * from "./queuePolicy";
 export * from "./redrive";
+export * from "./sqsMixins";

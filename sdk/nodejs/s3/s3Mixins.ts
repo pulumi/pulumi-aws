@@ -130,16 +130,15 @@ export class BucketEventSubscription extends lambda.EventSubscription {
 
         super("aws:s3:BucketEventSubscription", name, { bucket: bucket }, opts);
 
-        this.func = lambda.createFunctionFromEventHandler(name, handler, { parent: this });
+        const parentOpts = { parent: this };
+        this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
-        const permission = new lambda.Permission(name, {
+        this.permission = new lambda.Permission(name, {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
             sourceArn: bucket.id.apply(bucketName => `arn:aws:s3:::${bucketName}`),
-        }, { parent: this });
-
-        this.permission = permission;
+        }, parentOpts);
 
         // We must create only a single BucketNotification per Bucket per AWS API limitations.  See
         // https://github.com/terraform-providers/terraform-provider-aws/issues/1715.  So we push
@@ -157,7 +156,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             filterPrefix: args.filterPrefix,
             filterSuffix: args.filterSuffix,
             lambdaFunctionArn: this.func.arn,
-            permission: permission,
+            permission: this.permission,
         });
     }
 }
@@ -186,17 +185,27 @@ process.on("beforeExit", () => {
 // Mixin event handling functionality onto Bucket.
 declare module "./bucket" {
     interface Bucket {
+        /**
+         * Creates a new subscription to events fired from this Bucket to the handler provided,
+         * along with options to control the behavior of the subscription.  The handler will be
+         * called whenever a matching [s3.Object] is created.
+         */
         onObjectCreated(
             name: string, handler: BucketEventHandler,
             args?: ObjectCreatedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
 
+        /**
+         * Creates a new subscription to events fired from this Bucket to the handler provided,
+         * along with options to control the behavior of the subscription.  The handler will be
+         * called whenever an matching [s3.Object] is removed.
+         */
         onObjectRemoved(
             name: string, handler: BucketEventHandler,
             args?: ObjectRemovedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
 
         /**
-         * Creates a new subscription to the given bucket using the lambda provided, along with
-         * optional options to control the behavior of the subscription.  This function should be
+         * Creates a new subscription to events fired from this Bucket to the handler provided,
+         * along with options to control the behavior of the subscription.  This function should be
          * used when full control over the subscription is wanted, and other helpers (like
          * onObjectCreated/onObjectRemoved) are not sufficient.
          */

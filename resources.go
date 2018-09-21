@@ -1919,7 +1919,7 @@ func Provider() tfbridge.ProviderInfo {
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
 					"tags.ts",   // Tags typedef
-					"utils.ts",  // Helpers
+					"utils.ts",  // Helpers,
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
@@ -1928,9 +1928,21 @@ func Provider() tfbridge.ProviderInfo {
 							"notificationType.ts", // NotificationType union type and constants
 						},
 					},
+					"cloudwatch": {
+						Files: []string{
+							"cloudwatchMixins.ts",
+							"eventRuleMixins.ts",
+							"logGroupMixins.ts",
+						},
+					},
 					"config": {
 						Files: []string{
 							"require.ts", // requireRegion helpers for validating proper config
+						},
+					},
+					"dynamodb": {
+						Files: []string{
+							"dynamodbMixins.ts",
 						},
 					},
 					"ec2": {
@@ -1967,9 +1979,15 @@ func Provider() tfbridge.ProviderInfo {
 							"function.ts", // a union type and constants for available Lambda runtimes.
 						},
 					},
+					"sns": {
+						Files: []string{
+							"snsMixins.ts",
+						},
+					},
 					"sqs": {
 						Files: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
+							"sqsMixins.ts",
 						},
 					},
 				},
