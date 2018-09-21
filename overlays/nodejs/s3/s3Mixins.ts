@@ -22,10 +22,15 @@ import * as lambda from "../lambda"
  */
 export interface CommonBucketSubscriptionArgs {
     /**
-     * An optional prefix or suffix to filter down notifications.  See
+     * An optional prefix to filter down notifications.  See
      * aws.s3.BucketNotification.lambdaFunctions for more details.
      */
     filterPrefix?: string;
+
+    /**
+     * An optional suffix to filter down notifications.  See
+     * aws.s3.BucketNotification.lambdaFunctions for more details.
+     */
     filterSuffix?: string;
 }
 
@@ -211,7 +216,7 @@ Bucket.prototype.onObjectCreated = function (this: Bucket, name, handler, args, 
         events: ["s3:ObjectCreated:" + args.event],
     };
 
-    return this.onEvent(name + "-object-created", handler, argsCopy, opts);
+    return this.onEvent(name, handler, argsCopy, opts);
 }
 
 Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, opts) {
@@ -224,7 +229,7 @@ Bucket.prototype.onObjectRemoved = function (this: Bucket, name, handler, args, 
         events: ["s3:ObjectRemoved:" + args.event],
     };
 
-    return this.onEvent(name + "-object-removed", handler, argsCopy, opts);
+    return this.onEvent(name, handler, argsCopy, opts);
 }
 
 Bucket.prototype.onEvent = function (this: Bucket, name, handler, args, opts) {
