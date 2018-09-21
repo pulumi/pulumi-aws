@@ -106,8 +106,8 @@ function createFunctionFromEventHandler(
 declare module "./queue" {
     interface Queue {
         /**
-         * Creates a new subscription to the given queue using the lambda provided, along with optional
-         * options to control the behavior of the subscription.
+         * Creates a new subscription to events fired from this Queue to the handler provided, along
+         * with options to control the behavior of the subscription.
          */
         onEvent(
             name: string, handler: QueueEventHandler,

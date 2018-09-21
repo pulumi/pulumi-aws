@@ -99,9 +99,23 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
 
 declare module "./logGroup" {
     interface LogGroup {
+        /**
+         * Creates a new subscription to events fired from this LogGroup to the handler provided,
+         * along with options to control the behavior of the subscription.
+         *
+         * The events will be produced in raw (gzipped + base64 encoded) form.
+         */
         onEvent(name: string, handler: LogGroupEventHandler,
                 args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ResourceOptions): LogGroupEventSubscription;
 
+        /**
+         * Creates a new subscription to events fired from this LogGroup to the handler provided,
+         * along with options to control the behavior of the subscription.
+         *
+         * The events will be provided in their decoded form.  Because this event hookup needs to
+         * execute code to convert the raw messages, it can only be passed an [EntryPoint] callback,
+         * not a [lambda.Function] instance.
+         */
         onDecodedEvent(name: string, handler: lambda.EntryPoint<DecodedLogGroupEvent, void>,
             args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ResourceOptions): LogGroupEventSubscription;
     }

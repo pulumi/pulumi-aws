@@ -93,8 +93,8 @@ export class TopicEventSubscription extends lambda.EventSubscription {
 declare module "./topic" {
     interface Topic {
         /**
-         * Creates a new subscription to the given topic using the handler provided, along with
-         * optional options to control the behavior of the subscription.
+         * Creates a new subscription to events fired from this Topic to the handler provided, along
+         * with options to control the behavior of the subscription.
          */
         onEvent(
             name: string, handler: TopicEventHandler,

@@ -107,6 +107,10 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
 
 declare module "./eventRule" {
     interface EventRule {
+        /**
+         * Creates a new subscription to events fired from this EventRule to the handler provided, along
+         * with options to control the behavior of the subscription.
+         */
         onEvent(name: string, handler: EventRuleEventHandler,
                 args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ResourceOptions): EventRuleEventSubscription;
     }
