@@ -26,9 +26,9 @@ export type Context = lambda.Context;
  * [Handler] is the signature for a serverless function that will be invoked each time the AWS
  * Lambda is invoked.
  *
- * @deprecated Use [aws.lambda.EntryPoint] instead.
+ * @deprecated Use [aws.lambda.Callback] instead.
  */
-export type Handler = lambda.EntryPoint<any, any>;
+export type Handler = lambda.Callback<any, any>;
 
 /**
  * HandlerFactory is the signature for a function that will be called once to produce the serverless
@@ -36,7 +36,7 @@ export type Handler = lambda.EntryPoint<any, any>;
  * then be used across all invocations of the Lambda (as long as the Lambda is using the same warm
  * node instance).
  *
- * @deprecated Use [aws.lambda.EntryPointFactory] instead.
+ * @deprecated Use [aws.lambda.CallbackFactory] instead.
  */
 export type HandlerFactory = () => Handler;
 
@@ -48,14 +48,14 @@ export type HandlerFactory = () => Handler;
  *
  * @deprecated Use [aws.lambda.FunctionOptions] instead.
  */
-export type FunctionOptions = utils.Overwrite<lambda.FunctionOptions<any, any>, {
+export type FunctionOptions = utils.Overwrite<lambda.CallbackFunctionArgs<any, any>, {
     /**
-     * @deprecated use [entryPoint] instead.
+     * @deprecated use [callback] instead.
      */
     func?: Handler;
 
     /**
-     * @deprecated use [entryPointFactory] instead.
+     * @deprecated use [callbackFactory] instead.
      */
     factoryFunc?: HandlerFactory;
 
@@ -89,7 +89,7 @@ export type FunctionOptions = utils.Overwrite<lambda.FunctionOptions<any, any>, 
  * Function is a higher-level API for creating and managing AWS Lambda Function resources
  * implemented by a Pulumi lambda expression and with a set of attached policies.
  *
- * @deprecated Use [lambda.createFunction] instead.
+ * @deprecated Use [lambda.CallbackFunction] instead.
  */
 export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
@@ -110,8 +110,8 @@ export class Function extends pulumi.ComponentResource {
         opts = opts || { parent: this };
 
         // Migrate old aws-serverless.FunctionOptions forward to lambda.FunctionOptions.
-        options.entryPoint = options.entryPoint || options.func || func;
-        options.entryPointFactory = options.entryPointFactory || options.factoryFunc;
+        options.callback = options.callback || options.func || func;
+        options.callbackFactory = options.callbackFactory || options.factoryFunc;
 
         if (!options.codePathOptions) {
             options.codePathOptions = {
@@ -121,7 +121,7 @@ export class Function extends pulumi.ComponentResource {
             };
         }
 
-        this.lambda = lambda.createFunction(name, options, opts);
+        this.lambda = new lambda.CallbackFunction(name, options, opts);
         this.role = this.lambda.roleInstance;
     }
 }

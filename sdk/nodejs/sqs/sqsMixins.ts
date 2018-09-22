@@ -93,8 +93,8 @@ function createFunctionFromEventHandler(
     name: string, handler: QueueEventHandler, opts?: pulumi.ResourceOptions): lambda.Function {
 
     if (handler instanceof Function) {
-        return lambda.createFunction(name, {
-            entryPoint: handler,
+        return new lambda.CallbackFunction(name, {
+            callback: handler,
             policies: [iam.AWSLambdaFullAccess, iam.AmazonSQSFullAccess]
         } , opts);
     }
