@@ -1952,7 +1952,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			Overlay: &tfbridge.OverlayInfo{
-				Files: []string{
+				DestFiles: []string{
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region union type and constants
 					"tags.ts",   // Tags typedef
@@ -1960,69 +1960,69 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
-						Files: []string{
+						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
 						},
 					},
 					"cloudwatch": {
-						Files: []string{
+						DestFiles: []string{
 							"cloudwatchMixins.ts",
 							"eventRuleMixins.ts",
 							"logGroupMixins.ts",
 						},
 					},
 					"config": {
-						Files: []string{
+						DestFiles: []string{
 							"require.ts", // requireRegion helpers for validating proper config
 						},
 					},
 					"dynamodb": {
-						Files: []string{
+						DestFiles: []string{
 							"dynamodbMixins.ts",
 						},
 					},
 					"ec2": {
-						Files: []string{
+						DestFiles: []string{
 							"instanceType.ts",      // InstanceType union type and constants
 							"placementStrategy.ts", // PlacementStrategy union type and constants
 						},
 					},
 					"ecs": {
-						Files: []string{
+						DestFiles: []string{
 							"container.ts", // Container definition JSON schema
 						},
 					},
 					"iam": {
-						Files: []string{
+						DestFiles: []string{
 							"documents.ts",       // policy document schemas.
 							"managedPolicies.ts", // handy constants that predefine all known managed policies.
 							"principals.ts",      // Pre-defined objects representing Service Principals
 						},
 					},
 					"lambda": {
-						Files: []string{
+						DestFiles: []string{
 							"runtimes.ts", // a union type and constants for available Lambda runtimes.
 							"lambdaMixins.ts",
 						},
 					},
 					"s3": {
-						Files: []string{
+						DestFiles: []string{
 							"s3Mixins.ts",
 						},
 					},
 					"serverless": {
-						Files: []string{
+						DestFiles: []string{
 							"function.ts", // a union type and constants for available Lambda runtimes.
 						},
 					},
 					"sns": {
-						Files: []string{
+						DestFiles: []string{
 							"snsMixins.ts",
 						},
 					},
 					"sqs": {
-						Files: []string{
+						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
 						},
