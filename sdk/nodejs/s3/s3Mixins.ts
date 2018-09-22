@@ -158,6 +158,11 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             lambdaFunctionArn: this.func.arn,
             permission: this.permission,
         });
+
+        this.registerOutputs({
+            func: this.func,
+            permission: this.permission,
+        });
     }
 }
 

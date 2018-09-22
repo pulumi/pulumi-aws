@@ -88,18 +88,24 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
 
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
-        this.target = new eventTarget.EventTarget(name, {
-            rule: this.eventRule.name,
-            arn: this.func.arn,
-            targetId: name,
-        }, parentOpts);
-
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: "events.amazonaws.com",
             sourceArn: this.eventRule.arn,
         }, parentOpts);
+
+        this.target = new eventTarget.EventTarget(name, {
+            rule: this.eventRule.name,
+            arn: this.func.arn,
+            targetId: name,
+        }, parentOpts);
+
+        this.registerOutputs({
+            func: this.func,
+            permission: this.permission,
+            target: this.target,
+        });
     }
 }
 

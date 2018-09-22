@@ -94,6 +94,12 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
             filterPattern: args.filterPattern || "",
             logGroup: logGroup,
         }, parentOpts);
+
+        this.registerOutputs({
+            func: this.func,
+            permission: this.permission,
+            logSubscriptionFilter: this.logSubscriptionFilter,
+        });
     }
 }
 
