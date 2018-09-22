@@ -87,6 +87,12 @@ export class TopicEventSubscription extends lambda.EventSubscription {
             protocol: "lambda",
             endpoint: this.func.arn,
         }, parentOpts);
+
+        this.registerOutputs({
+            func: this.func,
+            permission: this.permission,
+            subscription: this.subscription,
+        });
     }
 }
 

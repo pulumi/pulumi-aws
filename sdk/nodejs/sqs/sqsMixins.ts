@@ -86,6 +86,12 @@ export class QueueEventSubscription extends lambda.EventSubscription {
             eventSourceArn: queue.arn,
             functionName: this.func.name,
         }, parentOpts);
+
+        this.registerOutputs({
+            func: this.func,
+            permission: this.permission,
+            eventSourceMapping: this.eventSourceMapping,
+        });
     }
 }
 

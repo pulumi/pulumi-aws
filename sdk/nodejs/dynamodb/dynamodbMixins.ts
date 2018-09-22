@@ -87,6 +87,12 @@ export class TableEventSubscription extends lambda.EventSubscription {
             functionName: this.func.name,
             startingPosition: args.startingPosition,
         }, parentOpts);
+
+        this.registerOutputs({
+            func: this.func,
+            permission: this.permission,
+            eventSourceMapping: this.eventSourceMapping,
+        });
     }
 }
 
