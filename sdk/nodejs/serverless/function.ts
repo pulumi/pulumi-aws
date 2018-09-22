@@ -121,7 +121,7 @@ export class Function extends pulumi.ComponentResource {
             };
         }
 
-        this.lambda = new lambda.CallbackFunction(name, options, opts);
+        this.lambda = new lambda.CallbackFunction(name, options, { parent: this });
         this.role = this.lambda.roleInstance;
     }
 }
