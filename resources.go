@@ -1029,7 +1029,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"tags": {Type: awsType(awsMod, "Tags")},
+					"creation_token": tfbridge.AutoName("creationToken", 255),
+					"tags":           {Type: awsType(awsMod, "Tags")},
 				},
 			},
 			"aws_efs_mount_target": {
@@ -1497,6 +1498,7 @@ func Provider() tfbridge.ProviderInfo {
 							},
 						},
 					},
+					"name": {Name: "name"},
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
@@ -1847,12 +1849,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecs_service":              {Tok: awsDataSource(ecsMod, "getService")},
 			"aws_ecs_task_definition":      {Tok: awsDataSource(ecsMod, "getTaskDefinition")},
 			// Elastic Filesystem
-			"aws_efs_file_system": {
-				Tok: awsDataSource(efsMod, "getFileSystem"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"creation_token": tfbridge.AutoName("creationToken", 255),
-				},
-			},
+			"aws_efs_file_system":  {Tok: awsDataSource(efsMod, "getFileSystem")},
 			"aws_efs_mount_target": {Tok: awsDataSource(efsMod, "getMountTarget")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {Tok: awsDataSource(eksMod, "getCluster")},
