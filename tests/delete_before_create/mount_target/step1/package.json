@@ -7,7 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.15.1"
+        "@pulumi/pulumi": "dev"
     },
     "devDependencies": {
         "@types/node": "latest",
