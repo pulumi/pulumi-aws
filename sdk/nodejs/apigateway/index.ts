@@ -26,3 +26,4 @@ export * from "./stage";
 export * from "./usagePlan";
 export * from "./usagePlanKey";
 export * from "./vpcLink";
+export * from "./x";
