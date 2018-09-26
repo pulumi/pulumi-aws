@@ -8,8 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "dev",
-        "@pulumi/aws": "dev"
+        "@pulumi/pulumi": "dev"
     },
     "devDependencies": {
         "@types/aws-sdk": "^2.7.0",
@@ -17,6 +16,6 @@
         "typescript": "^3.0.3"
     },
     "peerDependencies": {
-        "@pulumi/aws-serverless": "latest"
+        "@pulumi/aws": "latest"
     }
 }
