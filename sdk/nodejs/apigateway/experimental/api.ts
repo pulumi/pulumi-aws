@@ -111,6 +111,7 @@ export interface APIArgs {
      * Routes to use to initialize the APIGateway.
      */
     routes?: Route[];
+
     /**
      * Static routes to use to initialize the APIGateway.
      */
@@ -141,7 +142,7 @@ export class API extends pulumi.ComponentResource {
     public url: pulumi.Output<string>;
 
     constructor(name: string, args: APIArgs, opts?: pulumi.ResourceOptions) {
-        super("aws-serverless:apigateway:API", name, {}, opts);
+        super("aws:apigateway:x:API", name, {}, opts);
 
         let swaggerString: pulumi.Output<string>;
         let swaggerSpec: SwaggerSpec | undefined;
@@ -153,7 +154,7 @@ export class API extends pulumi.ComponentResource {
             swaggerString = createSwaggerString(swaggerSpec);
         }
         else {
-            throw new Error("API must specify either [swaggerString], [swaggerSpec], or as least one type of [route] option.");
+            throw new Error("API must specify either [swaggerString] or as least one of the [route] options.");
         }
 
         const stageName = args.stageName || "stage";
@@ -224,6 +225,9 @@ export class API extends pulumi.ComponentResource {
         }, { parent: this, dependsOn: permissions });
 
         this.registerOutputs({
+            restAPI: this.restAPI,
+            deployment: this.deployment,
+            stage: this.stage,
             url: this.url,
         });
     }
