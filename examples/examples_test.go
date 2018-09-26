@@ -61,6 +61,7 @@ func TestExamples(t *testing.T) {
 					assert.Equal(t, "<h1>Hello world!</h1>", body)
 				}),
 			}},
+			ExpectRefreshChanges: true,
 		}),
 	}
 
