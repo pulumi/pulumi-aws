@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as serverless from "@pulumi/aws";
+import * as aws from "@pulumi/aws";
 
 const api = new aws.apigateway.x.API("myapi", {
     routes: [
