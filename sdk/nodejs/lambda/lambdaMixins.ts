@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-import * as crypto from "crypto";
 
 import * as arn from "../arn";
 import * as iam from "../iam";
@@ -266,7 +265,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                 // RolePolicyAttachment objects don't have a physical identity, and create/deletes are processed
                 // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
                 // structural identity by using a name that includes the role name and policyArn.
-                const attachment = new iam.RolePolicyAttachment(`${name}-${sha1hash(policy)}`, {
+                const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
                     role: role,
                     policyArn: policy,
                 }, opts);
@@ -348,13 +347,6 @@ const lambdaRolePolicy = {
         },
     ],
 };
-
-// sha1hash returns a partial SHA1 hash of the input string.
-function sha1hash(s: string): string {
-    const shasum: crypto.Hash = crypto.createHash("sha1");
-    shasum.update(s);
-    return shasum.digest("hex").substring(0, 8);
-}
 
 // Mixin the Role we potentially create into the Function instances we return.
 

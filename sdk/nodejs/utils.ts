@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as crypto from "crypto";
 
 type Diff<T extends string | number | symbol, U extends string | number | symbol> =
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
@@ -19,3 +20,10 @@ type Diff<T extends string | number | symbol, U extends string | number | symbol
 // Overwrite allows you to take an existing type, and then overwrite existing properties in it
 // with properties of the same name, but with entirely different types.
 export type Overwrite<T, U> = Pick<T, Diff<keyof T, keyof U>> & U;
+
+// sha1hash returns a partial SHA1 hash of the input string.
+export function sha1hash(s: string): string {
+  const shasum: crypto.Hash = crypto.createHash("sha1");
+  shasum.update(s);
+  return shasum.digest("hex").substring(0, 8);
+}

@@ -1950,6 +1950,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+				"@types/mime": "^2.0.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
@@ -1963,6 +1964,11 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
+						},
+					},
+					"apigateway": {
+						DestFiles: []string{
+							"x.ts",
 						},
 					},
 					"cloudwatch": {
