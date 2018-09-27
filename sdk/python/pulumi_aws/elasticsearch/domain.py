@@ -70,7 +70,7 @@ class Domain(pulumi.CustomResource):
             raise TypeError('Expected property elasticsearch_version to be a basestring')
         __self__.elasticsearch_version = elasticsearch_version
         """
-        The version of ElasticSearch to deploy. Defaults to `1.5`
+        The version of Elasticsearch to deploy. Defaults to `1.5`
         """
         __props__['elasticsearchVersion'] = elasticsearch_version
 

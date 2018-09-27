@@ -100,7 +100,7 @@ func (r *Activation) IamRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iamRole"])
 }
 
-// The default name of the registerd managed instance.
+// The default name of the registered managed instance.
 func (r *Activation) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -127,7 +127,7 @@ type ActivationState struct {
 	Expired interface{}
 	// The IAM Role to attach to the managed instance.
 	IamRole interface{}
-	// The default name of the registerd managed instance.
+	// The default name of the registered managed instance.
 	Name interface{}
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount interface{}
@@ -143,7 +143,7 @@ type ActivationArgs struct {
 	ExpirationDate interface{}
 	// The IAM Role to attach to the managed instance.
 	IamRole interface{}
-	// The default name of the registerd managed instance.
+	// The default name of the registered managed instance.
 	Name interface{}
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit interface{}

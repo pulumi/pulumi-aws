@@ -52,7 +52,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly ebsOptions: pulumi.Output<{ ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType: string }>;
     /**
-     * The version of ElasticSearch to deploy. Defaults to `1.5`
+     * The version of Elasticsearch to deploy. Defaults to `1.5`
      */
     public readonly elasticsearchVersion: pulumi.Output<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface DomainState {
      */
     readonly ebsOptions?: pulumi.Input<{ ebsEnabled: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
-     * The version of ElasticSearch to deploy. Defaults to `1.5`
+     * The version of Elasticsearch to deploy. Defaults to `1.5`
      */
     readonly elasticsearchVersion?: pulumi.Input<string>;
     /**
@@ -238,7 +238,7 @@ export interface DomainArgs {
      */
     readonly ebsOptions?: pulumi.Input<{ ebsEnabled: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
-     * The version of ElasticSearch to deploy. Defaults to `1.5`
+     * The version of Elasticsearch to deploy. Defaults to `1.5`
      */
     readonly elasticsearchVersion?: pulumi.Input<string>;
     /**

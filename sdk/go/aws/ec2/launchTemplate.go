@@ -162,8 +162,8 @@ func (r *LaunchTemplate) DisableApiTermination() *pulumi.BoolOutput {
 }
 
 // If `true`, the launched EC2 instance will be EBS-optimized.
-func (r *LaunchTemplate) EbsOptimized() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
+func (r *LaunchTemplate) EbsOptimized() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ebsOptimized"])
 }
 
 // The elastic GPU to attach to the instance. See Elastic GPU

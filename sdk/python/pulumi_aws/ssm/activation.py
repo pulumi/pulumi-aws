@@ -51,7 +51,7 @@ class Activation(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The default name of the registerd managed instance.
+        The default name of the registered managed instance.
         """
         __props__['name'] = name
 

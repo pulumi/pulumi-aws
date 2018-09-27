@@ -102,12 +102,12 @@ func (r *Listener) LoadBalancerArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadBalancerArn"])
 }
 
-// The port on which the load balancer is listening.
+// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 func (r *Listener) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
-// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 func (r *Listener) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -127,9 +127,9 @@ type ListenerState struct {
 	DefaultAction interface{}
 	// The ARN of the load balancer.
 	LoadBalancerArn interface{}
-	// The port on which the load balancer is listening.
+	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port interface{}
-	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol interface{}
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
 	SslPolicy interface{}
@@ -143,9 +143,9 @@ type ListenerArgs struct {
 	DefaultAction interface{}
 	// The ARN of the load balancer.
 	LoadBalancerArn interface{}
-	// The port on which the load balancer is listening.
+	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port interface{}
-	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol interface{}
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
 	SslPolicy interface{}

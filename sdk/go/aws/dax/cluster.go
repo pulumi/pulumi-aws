@@ -40,6 +40,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["parameterGroupName"] = nil
 		inputs["replicationFactor"] = nil
 		inputs["securityGroupIds"] = nil
+		inputs["serverSideEncryption"] = nil
 		inputs["subnetGroupName"] = nil
 		inputs["tags"] = nil
 	} else {
@@ -53,6 +54,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["parameterGroupName"] = args.ParameterGroupName
 		inputs["replicationFactor"] = args.ReplicationFactor
 		inputs["securityGroupIds"] = args.SecurityGroupIds
+		inputs["serverSideEncryption"] = args.ServerSideEncryption
 		inputs["subnetGroupName"] = args.SubnetGroupName
 		inputs["tags"] = args.Tags
 	}
@@ -89,6 +91,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["port"] = state.Port
 		inputs["replicationFactor"] = state.ReplicationFactor
 		inputs["securityGroupIds"] = state.SecurityGroupIds
+		inputs["serverSideEncryption"] = state.ServerSideEncryption
 		inputs["subnetGroupName"] = state.SubnetGroupName
 		inputs["tags"] = state.Tags
 	}
@@ -201,6 +204,11 @@ func (r *Cluster) SecurityGroupIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
 }
 
+// Encrypt at rest options
+func (r *Cluster) ServerSideEncryption() *pulumi.Output {
+	return r.s.State["serverSideEncryption"]
+}
+
 // Name of the subnet group to be used for the
 // cluster
 func (r *Cluster) SubnetGroupName() *pulumi.StringOutput {
@@ -261,6 +269,8 @@ type ClusterState struct {
 	// One or more VPC security groups associated
 	// with the cluster
 	SecurityGroupIds interface{}
+	// Encrypt at rest options
+	ServerSideEncryption interface{}
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName interface{}
@@ -304,6 +314,8 @@ type ClusterArgs struct {
 	// One or more VPC security groups associated
 	// with the cluster
 	SecurityGroupIds interface{}
+	// Encrypt at rest options
+	ServerSideEncryption interface{}
 	// Name of the subnet group to be used for the
 	// cluster
 	SubnetGroupName interface{}

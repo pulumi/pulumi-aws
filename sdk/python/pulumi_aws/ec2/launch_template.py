@@ -56,8 +56,8 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         __props__['disableApiTermination'] = disable_api_termination
 
-        if ebs_optimized and not isinstance(ebs_optimized, bool):
-            raise TypeError('Expected property ebs_optimized to be a bool')
+        if ebs_optimized and not isinstance(ebs_optimized, basestring):
+            raise TypeError('Expected property ebs_optimized to be a basestring')
         __self__.ebs_optimized = ebs_optimized
         """
         If `true`, the launched EC2 instance will be EBS-optimized.

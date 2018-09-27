@@ -8,7 +8,7 @@ from .. import utilities
 
 class DomainPolicy(pulumi.CustomResource):
     """
-    Allows setting policy to an ElasticSearch domain while referencing domain attributes (e.g. ARN)
+    Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
     """
     def __init__(__self__, __name__, __opts__=None, access_policies=None, domain_name=None):
         """Create a DomainPolicy resource with the given unique name, props, and options."""

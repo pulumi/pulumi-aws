@@ -10,7 +10,7 @@ class Stage(pulumi.CustomResource):
     """
     Provides an API Gateway Stage.
     """
-    def __init__(__self__, __name__, __opts__=None, access_log_settings=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, rest_api=None, stage_name=None, tags=None, variables=None):
+    def __init__(__self__, __name__, __opts__=None, access_log_settings=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, rest_api=None, stage_name=None, tags=None, variables=None, xray_tracing_enabled=None):
         """Create a Stage resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -116,6 +116,14 @@ class Stage(pulumi.CustomResource):
         """
         __props__['variables'] = variables
 
+        if xray_tracing_enabled and not isinstance(xray_tracing_enabled, bool):
+            raise TypeError('Expected property xray_tracing_enabled to be a bool')
+        __self__.xray_tracing_enabled = xray_tracing_enabled
+        """
+        Whether active tracing with X-ray is enabled. Defaults to `false`.
+        """
+        __props__['xrayTracingEnabled'] = xray_tracing_enabled
+
         __self__.execution_arn = pulumi.runtime.UNKNOWN
         """
         The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
@@ -161,3 +169,5 @@ class Stage(pulumi.CustomResource):
             self.tags = outs['tags']
         if 'variables' in outs:
             self.variables = outs['variables']
+        if 'xrayTracingEnabled' in outs:
+            self.xray_tracing_enabled = outs['xrayTracingEnabled']

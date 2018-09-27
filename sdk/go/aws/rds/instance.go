@@ -50,6 +50,8 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["characterSetName"] = nil
 		inputs["copyTagsToSnapshot"] = nil
 		inputs["dbSubnetGroupName"] = nil
+		inputs["domain"] = nil
+		inputs["domainIamRoleName"] = nil
 		inputs["enabledCloudwatchLogsExports"] = nil
 		inputs["engine"] = nil
 		inputs["engineVersion"] = nil
@@ -93,6 +95,8 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["characterSetName"] = args.CharacterSetName
 		inputs["copyTagsToSnapshot"] = args.CopyTagsToSnapshot
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
+		inputs["domain"] = args.Domain
+		inputs["domainIamRoleName"] = args.DomainIamRoleName
 		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
 		inputs["engine"] = args.Engine
 		inputs["engineVersion"] = args.EngineVersion
@@ -160,6 +164,8 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["characterSetName"] = state.CharacterSetName
 		inputs["copyTagsToSnapshot"] = state.CopyTagsToSnapshot
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
+		inputs["domain"] = state.Domain
+		inputs["domainIamRoleName"] = state.DomainIamRoleName
 		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
 		inputs["endpoint"] = state.Endpoint
 		inputs["engine"] = state.Engine
@@ -300,9 +306,19 @@ func (r *Instance) CopyTagsToSnapshot() *pulumi.BoolOutput {
 // with read replicas, it needs to be specified only if the source database
 // specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 // action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-// for additonal read replica contraints.
+// for additional read replica contraints.
 func (r *Instance) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
+}
+
+// The ID of the Directory Service Active Directory domain to create the instance in.
+func (r *Instance) Domain() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["domain"])
+}
+
+// The name of the IAM role to be used when making API calls to the Directory Service.
+func (r *Instance) DomainIamRoleName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["domainIamRoleName"])
 }
 
 // List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
@@ -599,8 +615,12 @@ type InstanceState struct {
 	// with read replicas, it needs to be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additonal read replica contraints.
+	// for additional read replica contraints.
 	DbSubnetGroupName interface{}
+	// The ID of the Directory Service Active Directory domain to create the instance in.
+	Domain interface{}
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName interface{}
 	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
 	EnabledCloudwatchLogsExports interface{}
 	// The connection endpoint in `address:port` format.
@@ -779,8 +799,12 @@ type InstanceArgs struct {
 	// with read replicas, it needs to be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additonal read replica contraints.
+	// for additional read replica contraints.
 	DbSubnetGroupName interface{}
+	// The ID of the Directory Service Active Directory domain to create the instance in.
+	Domain interface{}
+	// The name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIamRoleName interface{}
 	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
 	EnabledCloudwatchLogsExports interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`

@@ -213,7 +213,7 @@ func (r *ClusterInstance) IdentifierPrefix() *pulumi.StringOutput {
 
 // The instance class to use. For details on CPU
 // and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-// supports the below instance classes.
+// supports the below instance classes. Please see [AWS Documentation][7] for complete details.
 // - db.t2.small
 // - db.t2.medium
 // - db.r3.large
@@ -336,7 +336,7 @@ type ClusterInstanceState struct {
 	IdentifierPrefix interface{}
 	// The instance class to use. For details on CPU
 	// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-	// supports the below instance classes.
+	// supports the below instance classes. Please see [AWS Documentation][7] for complete details.
 	// - db.t2.small
 	// - db.t2.medium
 	// - db.r3.large
@@ -413,7 +413,7 @@ type ClusterInstanceArgs struct {
 	IdentifierPrefix interface{}
 	// The instance class to use. For details on CPU
 	// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-	// supports the below instance classes.
+	// supports the below instance classes. Please see [AWS Documentation][7] for complete details.
 	// - db.t2.small
 	// - db.t2.medium
 	// - db.r3.large

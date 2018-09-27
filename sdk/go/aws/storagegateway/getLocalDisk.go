@@ -11,6 +11,7 @@ import (
 func LookupLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs) (*GetLocalDiskResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["diskNode"] = args.DiskNode
 		inputs["diskPath"] = args.DiskPath
 		inputs["gatewayArn"] = args.GatewayArn
 	}
@@ -26,7 +27,9 @@ func LookupLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs) (*GetLocalDisk
 
 // A collection of arguments for invoking getLocalDisk.
 type GetLocalDiskArgs struct {
-	// The device path of the local disk to retrieve. For example, `/dev/sdb` or `/dev/xvdb`.
+	// The device node of the local disk to retrieve. For example, `/dev/sdb`.
+	DiskNode interface{}
+	// The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath interface{}
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn interface{}

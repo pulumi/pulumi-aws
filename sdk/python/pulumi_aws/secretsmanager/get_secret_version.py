@@ -41,7 +41,7 @@ class GetSecretVersionResult(object):
 
 def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     """
-    Retrieve information about a Secrets Manager secret version includings its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+    Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
     """
     __args__ = dict()
 

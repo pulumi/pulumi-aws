@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Allows setting policy to an ElasticSearch domain while referencing domain attributes (e.g. ARN)
+ * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

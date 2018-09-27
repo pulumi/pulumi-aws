@@ -38,6 +38,8 @@ func NewProject(ctx *pulumi.Context,
 		inputs["encryptionKey"] = nil
 		inputs["environment"] = nil
 		inputs["name"] = nil
+		inputs["secondaryArtifacts"] = nil
+		inputs["secondarySources"] = nil
 		inputs["serviceRole"] = nil
 		inputs["source"] = nil
 		inputs["tags"] = nil
@@ -51,11 +53,14 @@ func NewProject(ctx *pulumi.Context,
 		inputs["encryptionKey"] = args.EncryptionKey
 		inputs["environment"] = args.Environment
 		inputs["name"] = args.Name
+		inputs["secondaryArtifacts"] = args.SecondaryArtifacts
+		inputs["secondarySources"] = args.SecondarySources
 		inputs["serviceRole"] = args.ServiceRole
 		inputs["source"] = args.Source
 		inputs["tags"] = args.Tags
 		inputs["vpcConfig"] = args.VpcConfig
 	}
+	inputs["arn"] = nil
 	inputs["badgeUrl"] = nil
 	s, err := ctx.RegisterResource("aws:codebuild/project:Project", name, true, inputs, opts...)
 	if err != nil {
@@ -70,6 +75,7 @@ func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ProjectState, opts ...pulumi.ResourceOpt) (*Project, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["artifacts"] = state.Artifacts
 		inputs["badgeEnabled"] = state.BadgeEnabled
 		inputs["badgeUrl"] = state.BadgeUrl
@@ -79,6 +85,8 @@ func GetProject(ctx *pulumi.Context,
 		inputs["encryptionKey"] = state.EncryptionKey
 		inputs["environment"] = state.Environment
 		inputs["name"] = state.Name
+		inputs["secondaryArtifacts"] = state.SecondaryArtifacts
+		inputs["secondarySources"] = state.SecondarySources
 		inputs["serviceRole"] = state.ServiceRole
 		inputs["source"] = state.Source
 		inputs["tags"] = state.Tags
@@ -99,6 +107,11 @@ func (r *Project) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Project) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// The ARN of the CodeBuild project.
+func (r *Project) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Information about the project's build output artifacts. Artifact blocks are documented below.
@@ -141,9 +154,19 @@ func (r *Project) Environment() *pulumi.Output {
 	return r.s.State["environment"]
 }
 
-// The environment variable's name or key.
+// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 func (r *Project) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+func (r *Project) SecondaryArtifacts() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["secondaryArtifacts"])
+}
+
+// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+func (r *Project) SecondarySources() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["secondarySources"])
 }
 
 // The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
@@ -168,6 +191,8 @@ func (r *Project) VpcConfig() *pulumi.Output {
 
 // Input properties used for looking up and filtering Project resources.
 type ProjectState struct {
+	// The ARN of the CodeBuild project.
+	Arn interface{}
 	// Information about the project's build output artifacts. Artifact blocks are documented below.
 	Artifacts interface{}
 	// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
@@ -184,8 +209,12 @@ type ProjectState struct {
 	EncryptionKey interface{}
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment interface{}
-	// The environment variable's name or key.
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name interface{}
+	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+	SecondaryArtifacts interface{}
+	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+	SecondarySources interface{}
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole interface{}
 	// Information about the project's input source code. Source blocks are documented below.
@@ -212,8 +241,12 @@ type ProjectArgs struct {
 	EncryptionKey interface{}
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment interface{}
-	// The environment variable's name or key.
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name interface{}
+	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+	SecondaryArtifacts interface{}
+	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+	SecondarySources interface{}
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole interface{}
 	// Information about the project's input source code. Source blocks are documented below.

@@ -21,6 +21,7 @@ func LookupIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesRes
 	return &GetIpRangesResult{
 		CidrBlocks: outputs["cidrBlocks"],
 		CreateDate: outputs["createDate"],
+		Ipv6CidrBlocks: outputs["ipv6CidrBlocks"],
 		SyncToken: outputs["syncToken"],
 		Id: outputs["id"],
 	}, nil
@@ -43,6 +44,8 @@ type GetIpRangesResult struct {
 	CidrBlocks interface{}
 	// The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
 	CreateDate interface{}
+	// The lexically ordered list of IPv6 CIDR blocks.
+	Ipv6CidrBlocks interface{}
 	// The publication time of the IP ranges, in Unix epoch time format
 	// (e.g. `1470267965`).
 	SyncToken interface{}

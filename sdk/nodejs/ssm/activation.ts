@@ -41,7 +41,7 @@ export class Activation extends pulumi.CustomResource {
      */
     public readonly iamRole: pulumi.Output<string>;
     /**
-     * The default name of the registerd managed instance.
+     * The default name of the registered managed instance.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export interface ActivationState {
      */
     readonly iamRole?: pulumi.Input<string>;
     /**
-     * The default name of the registerd managed instance.
+     * The default name of the registered managed instance.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -146,7 +146,7 @@ export interface ActivationArgs {
      */
     readonly iamRole: pulumi.Input<string>;
     /**
-     * The default name of the registerd managed instance.
+     * The default name of the registered managed instance.
      */
     readonly name?: pulumi.Input<string>;
     /**

@@ -67,7 +67,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             raise TypeError('Expected property iam_instance_profile to be a basestring')
         __self__.iam_instance_profile = iam_instance_profile
         """
-        The IAM instance profile to associate
+        The name attribute of the IAM instance profile to associate
         with launched instances.
         """
         __props__['iamInstanceProfile'] = iam_instance_profile

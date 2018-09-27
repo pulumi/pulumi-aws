@@ -30,7 +30,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    public readonly blockDeviceMappings: pulumi.Output<{ deviceName?: string, ebs?: { deleteOnTermination?: boolean, encrypted?: boolean, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[] | undefined>;
+    public readonly blockDeviceMappings: pulumi.Output<{ deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[] | undefined>;
     /**
      * Customize the credit specification of the instance. See Credit 
      * Specification below for more details.
@@ -52,7 +52,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
+    public readonly ebsOptimized: pulumi.Output<string | undefined>;
     /**
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
@@ -109,7 +109,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network 
      * Interfaces below for more details.
      */
-    public readonly networkInterfaces: pulumi.Output<{ associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount: number, ipv4Addresses?: string[], ipv6AddressCount: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[] | undefined>;
+    public readonly networkInterfaces: pulumi.Output<{ associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[] | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
@@ -225,7 +225,7 @@ export interface LaunchTemplateState {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * Customize the credit specification of the instance. See Credit 
      * Specification below for more details.
@@ -247,7 +247,7 @@ export interface LaunchTemplateState {
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: pulumi.Input<boolean>;
+    readonly ebsOptimized?: pulumi.Input<string>;
     /**
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
@@ -344,7 +344,7 @@ export interface LaunchTemplateArgs {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * Customize the credit specification of the instance. See Credit 
      * Specification below for more details.
@@ -362,7 +362,7 @@ export interface LaunchTemplateArgs {
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: pulumi.Input<boolean>;
+    readonly ebsOptimized?: pulumi.Input<string>;
     /**
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.

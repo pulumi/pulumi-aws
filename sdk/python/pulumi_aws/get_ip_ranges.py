@@ -10,7 +10,7 @@ class GetIpRangesResult(object):
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, cidr_blocks=None, create_date=None, sync_token=None, id=None):
+    def __init__(__self__, cidr_blocks=None, create_date=None, ipv6_cidr_blocks=None, sync_token=None, id=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError('Expected argument cidr_blocks to be a list')
         __self__.cidr_blocks = cidr_blocks
@@ -22,6 +22,12 @@ class GetIpRangesResult(object):
         __self__.create_date = create_date
         """
         The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
+        """
+        if ipv6_cidr_blocks and not isinstance(ipv6_cidr_blocks, list):
+            raise TypeError('Expected argument ipv6_cidr_blocks to be a list')
+        __self__.ipv6_cidr_blocks = ipv6_cidr_blocks
+        """
+        The lexically ordered list of IPv6 CIDR blocks.
         """
         if sync_token and not isinstance(sync_token, int):
             raise TypeError('Expected argument sync_token to be a int')
@@ -50,5 +56,6 @@ def get_ip_ranges(regions=None, services=None):
     return GetIpRangesResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
         create_date=__ret__.get('createDate'),
+        ipv6_cidr_blocks=__ret__.get('ipv6CidrBlocks'),
         sync_token=__ret__.get('syncToken'),
         id=__ret__.get('id'))

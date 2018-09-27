@@ -57,7 +57,7 @@ class Secret(pulumi.CustomResource):
             raise TypeError('Expected property recovery_window_in_days to be a int')
         __self__.recovery_window_in_days = recovery_window_in_days
         """
-        Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+        Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         """
         __props__['recoveryWindowInDays'] = recovery_window_in_days
 

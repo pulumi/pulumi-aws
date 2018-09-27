@@ -7,12 +7,7 @@ import * as utilities from "../utilities";
 import {Tags} from "../index";
 
 /**
- * Provides an RDS Cluster Resource. A Cluster Resource defines attributes that are
- * applied to the entire cluster of [RDS Cluster Instances][3]. Use the RDS Cluster
- * resource and RDS Cluster Instances to create and use Amazon Aurora, a MySQL-compatible
- * database engine.
- * 
- * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+ * Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
  * 
  * For information on the difference between the available Aurora MySQL engines
  * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -110,7 +105,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine: pulumi.Output<string | undefined>;
     /**
-     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode: pulumi.Output<string | undefined>;
     /**
@@ -128,7 +123,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
      */
     public readonly iamDatabaseAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -171,6 +166,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly replicationSourceIdentifier: pulumi.Output<string | undefined>;
     public readonly s3Import: pulumi.Output<{ bucketName: string, bucketPrefix?: string, ingestionRole: string, sourceEngine: string, sourceEngineVersion: string } | undefined>;
+    /**
+     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     */
+    public readonly scalingConfiguration: pulumi.Output<{ autoPause?: boolean, maxCapacity?: number, minCapacity?: number, secondsUntilAutoPause?: number } | undefined>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
@@ -239,6 +238,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
             inputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
             inputs["s3Import"] = state ? state.s3Import : undefined;
+            inputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
             inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             inputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
@@ -272,6 +272,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             inputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
             inputs["s3Import"] = args ? args.s3Import : undefined;
+            inputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
             inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
@@ -357,7 +358,7 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
@@ -375,7 +376,7 @@ export interface ClusterState {
      */
     readonly hostedZoneId?: pulumi.Input<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -418,6 +419,10 @@ export interface ClusterState {
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
+    /**
+     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     */
+    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number> }>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
@@ -502,7 +507,7 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
@@ -516,7 +521,7 @@ export interface ClusterArgs {
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -554,6 +559,10 @@ export interface ClusterArgs {
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
+    /**
+     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     */
+    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number> }>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */

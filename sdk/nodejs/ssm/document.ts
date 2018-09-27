@@ -48,7 +48,7 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly documentFormat: pulumi.Output<string | undefined>;
     /**
-     * The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
      */
     public readonly documentType: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface DocumentState {
      */
     readonly documentFormat?: pulumi.Input<string>;
     /**
-     * The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
      */
     readonly documentType?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface DocumentArgs {
      */
     readonly documentFormat?: pulumi.Input<string>;
     /**
-     * The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
      */
     readonly documentType: pulumi.Input<string>;
     /**
