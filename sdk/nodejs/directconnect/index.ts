@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./bgpPeer";
 export * from "./connection";
 export * from "./connectionAssociation";
 export * from "./gateway";

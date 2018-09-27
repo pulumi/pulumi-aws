@@ -9,6 +9,7 @@ export * from "./clusterSnapshot";
 export * from "./eventSubscription";
 export * from "./getCluster";
 export * from "./getClusterSnapshot";
+export * from "./getEventCategories";
 export * from "./getInstance";
 export * from "./getSnapshot";
 export * from "./instance";

@@ -11,6 +11,7 @@ export * from "./deployment";
 export * from "./documentationPart";
 export * from "./documentationVersion";
 export * from "./domainName";
+export * from "./getGatewayResource";
 export * from "./getRestApi";
 export * from "./integration";
 export * from "./integrationResponse";
