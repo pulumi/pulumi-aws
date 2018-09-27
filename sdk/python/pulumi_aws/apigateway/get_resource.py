@@ -6,9 +6,9 @@ import pulumi
 import pulumi.runtime
 from .. import utilities
 
-class GetGatewayResourceResult(object):
+class GetResourceResult(object):
     """
-    A collection of values returned by getGatewayResource.
+    A collection of values returned by getResource.
     """
     def __init__(__self__, parent_id=None, path_part=None, id=None):
         if parent_id and not isinstance(parent_id, basestring):
@@ -30,7 +30,7 @@ class GetGatewayResourceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_gateway_resource(path=None, rest_api_id=None):
+def get_resource(path=None, rest_api_id=None):
     """
     Use this data source to get the id of a Resource in API Gateway. 
     To fetch the Resource, you must provide the REST API id as well as the full path.  
@@ -39,9 +39,9 @@ def get_gateway_resource(path=None, rest_api_id=None):
 
     __args__['path'] = path
     __args__['restApiId'] = rest_api_id
-    __ret__ = pulumi.runtime.invoke('aws:apigateway/getGatewayResource:getGatewayResource', __args__)
+    __ret__ = pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__)
 
-    return GetGatewayResourceResult(
+    return GetResourceResult(
         parent_id=__ret__.get('parentId'),
         path_part=__ret__.get('pathPart'),
         id=__ret__.get('id'))

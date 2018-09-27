@@ -1789,7 +1789,7 @@ func Provider() tfbridge.ProviderInfo {
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			// API Gateway
-			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getGatewayResource")},
+			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
 			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},

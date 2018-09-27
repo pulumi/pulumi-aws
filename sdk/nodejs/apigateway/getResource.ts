@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
  * Use this data source to get the id of a Resource in API Gateway. 
  * To fetch the Resource, you must provide the REST API id as well as the full path.  
  */
-export function getGatewayResource(args: GetGatewayResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResourceResult> {
-    return pulumi.runtime.invoke("aws:apigateway/getGatewayResource:getGatewayResource", {
+export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
+    return pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {
         "path": args.path,
         "restApiId": args.restApiId,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking getGatewayResource.
+ * A collection of arguments for invoking getResource.
  */
-export interface GetGatewayResourceArgs {
+export interface GetResourceArgs {
     /**
      * The full path of the resource.  If no path is found, an error will be returned.
      */
@@ -30,9 +30,9 @@ export interface GetGatewayResourceArgs {
 }
 
 /**
- * A collection of values returned by getGatewayResource.
+ * A collection of values returned by getResource.
  */
-export interface GetGatewayResourceResult {
+export interface GetResourceResult {
     /**
      * Set to the ID of the parent Resource.
      */
