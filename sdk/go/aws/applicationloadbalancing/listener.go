@@ -18,8 +18,8 @@ type Listener struct {
 // NewListener registers a new resource with the given unique name, arguments, and options.
 func NewListener(ctx *pulumi.Context,
 	name string, args *ListenerArgs, opts ...pulumi.ResourceOpt) (*Listener, error) {
-	if args == nil || args.DefaultActions == nil {
-		return nil, errors.New("missing required argument 'DefaultActions'")
+	if args == nil || args.DefaultAction == nil {
+		return nil, errors.New("missing required argument 'DefaultAction'")
 	}
 	if args == nil || args.LoadBalancerArn == nil {
 		return nil, errors.New("missing required argument 'LoadBalancerArn'")
@@ -30,14 +30,14 @@ func NewListener(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["certificateArn"] = nil
-		inputs["defaultActions"] = nil
+		inputs["defaultAction"] = nil
 		inputs["loadBalancerArn"] = nil
 		inputs["port"] = nil
 		inputs["protocol"] = nil
 		inputs["sslPolicy"] = nil
 	} else {
 		inputs["certificateArn"] = args.CertificateArn
-		inputs["defaultActions"] = args.DefaultActions
+		inputs["defaultAction"] = args.DefaultAction
 		inputs["loadBalancerArn"] = args.LoadBalancerArn
 		inputs["port"] = args.Port
 		inputs["protocol"] = args.Protocol
@@ -59,7 +59,7 @@ func GetListener(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["certificateArn"] = state.CertificateArn
-		inputs["defaultActions"] = state.DefaultActions
+		inputs["defaultAction"] = state.DefaultAction
 		inputs["loadBalancerArn"] = state.LoadBalancerArn
 		inputs["port"] = state.Port
 		inputs["protocol"] = state.Protocol
@@ -93,8 +93,8 @@ func (r *Listener) CertificateArn() *pulumi.StringOutput {
 }
 
 // An Action block. Action blocks are documented below.
-func (r *Listener) DefaultActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["defaultActions"])
+func (r *Listener) DefaultAction() *pulumi.Output {
+	return r.s.State["defaultAction"]
 }
 
 // The ARN of the load balancer.
@@ -102,12 +102,12 @@ func (r *Listener) LoadBalancerArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadBalancerArn"])
 }
 
-// The port on which the load balancer is listening.
+// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 func (r *Listener) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
-// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 func (r *Listener) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -124,12 +124,12 @@ type ListenerState struct {
 	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
 	CertificateArn interface{}
 	// An Action block. Action blocks are documented below.
-	DefaultActions interface{}
+	DefaultAction interface{}
 	// The ARN of the load balancer.
 	LoadBalancerArn interface{}
-	// The port on which the load balancer is listening.
+	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port interface{}
-	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol interface{}
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
 	SslPolicy interface{}
@@ -140,12 +140,12 @@ type ListenerArgs struct {
 	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
 	CertificateArn interface{}
 	// An Action block. Action blocks are documented below.
-	DefaultActions interface{}
+	DefaultAction interface{}
 	// The ARN of the load balancer.
 	LoadBalancerArn interface{}
-	// The port on which the load balancer is listening.
+	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port interface{}
-	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol interface{}
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
 	SslPolicy interface{}

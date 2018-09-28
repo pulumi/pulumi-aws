@@ -45,7 +45,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     public readonly ephemeralBlockDevices: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
     /**
-     * The IAM instance profile to associate
+     * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
     public readonly iamInstanceProfile: pulumi.Output<string | undefined>;
@@ -197,7 +197,7 @@ export interface LaunchConfigurationState {
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
     /**
-     * The IAM instance profile to associate
+     * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
     readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
@@ -287,7 +287,7 @@ export interface LaunchConfigurationArgs {
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
     /**
-     * The IAM instance profile to associate
+     * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
     readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;

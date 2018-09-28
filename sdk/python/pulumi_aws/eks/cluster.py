@@ -70,6 +70,10 @@ class Cluster(pulumi.CustomResource):
         """
         The endpoint for your Kubernetes API server.
         """
+        __self__.platform_version = pulumi.runtime.UNKNOWN
+        """
+        The platform version for the cluster.
+        """
 
         super(Cluster, __self__).__init__(
             'aws:eks/cluster:Cluster',
@@ -88,6 +92,8 @@ class Cluster(pulumi.CustomResource):
             self.endpoint = outs['endpoint']
         if 'name' in outs:
             self.name = outs['name']
+        if 'platformVersion' in outs:
+            self.platform_version = outs['platformVersion']
         if 'roleArn' in outs:
             self.role_arn = outs['roleArn']
         if 'version' in outs:

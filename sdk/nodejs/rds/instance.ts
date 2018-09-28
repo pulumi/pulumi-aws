@@ -115,9 +115,17 @@ export class Instance extends pulumi.CustomResource {
      * with read replicas, it needs to be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additonal read replica contraints.
+     * for additional read replica contraints.
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
+    /**
+     * The ID of the Directory Service Active Directory domain to create the instance in.
+     */
+    public readonly domain: pulumi.Output<string | undefined>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    public readonly domainIamRoleName: pulumi.Output<string | undefined>;
     /**
      * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
      */
@@ -348,6 +356,8 @@ export class Instance extends pulumi.CustomResource {
             inputs["characterSetName"] = state ? state.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["domain"] = state ? state.domain : undefined;
+            inputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
@@ -400,6 +410,8 @@ export class Instance extends pulumi.CustomResource {
             inputs["characterSetName"] = args ? args.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["domain"] = args ? args.domain : undefined;
+            inputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -523,9 +535,17 @@ export interface InstanceState {
      * with read replicas, it needs to be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additonal read replica contraints.
+     * for additional read replica contraints.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * The ID of the Directory Service Active Directory domain to create the instance in.
+     */
+    readonly domain?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    readonly domainIamRoleName?: pulumi.Input<string>;
     /**
      * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
      */
@@ -797,9 +817,17 @@ export interface InstanceArgs {
      * with read replicas, it needs to be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additonal read replica contraints.
+     * for additional read replica contraints.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * The ID of the Directory Service Active Directory domain to create the instance in.
+     */
+    readonly domain?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    readonly domainIamRoleName?: pulumi.Input<string>;
     /**
      * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
      */

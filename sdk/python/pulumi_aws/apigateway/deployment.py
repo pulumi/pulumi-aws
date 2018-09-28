@@ -56,7 +56,7 @@ class Deployment(pulumi.CustomResource):
             raise TypeError('Expected property stage_name to be a basestring')
         __self__.stage_name = stage_name
         """
-        The name of the stage
+        The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
         """
         __props__['stageName'] = stage_name
 

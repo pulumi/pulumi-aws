@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  */
 export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
     return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
+        "diskNode": args.diskNode,
         "diskPath": args.diskPath,
         "gatewayArn": args.gatewayArn,
     }, opts);
@@ -19,9 +20,13 @@ export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetLocalDiskArgs {
     /**
-     * The device path of the local disk to retrieve. For example, `/dev/sdb` or `/dev/xvdb`.
+     * The device node of the local disk to retrieve. For example, `/dev/sdb`.
      */
-    readonly diskPath: string;
+    readonly diskNode?: string;
+    /**
+     * The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     */
+    readonly diskPath?: string;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */

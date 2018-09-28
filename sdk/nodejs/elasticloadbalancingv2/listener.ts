@@ -33,17 +33,17 @@ export class Listener extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly defaultAction: pulumi.Output<{ targetGroupArn: string, type: string }>;
+    public readonly defaultAction: pulumi.Output<{ fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }>;
     /**
      * The ARN of the load balancer.
      */
     public readonly loadBalancerArn: pulumi.Output<string>;
     /**
-     * The port on which the load balancer is listening.
+     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      */
     public readonly port: pulumi.Output<number>;
     /**
-     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      */
     public readonly protocol: pulumi.Output<string | undefined>;
     /**
@@ -108,17 +108,17 @@ export interface ListenerState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultAction?: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly defaultAction?: pulumi.Input<{ fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * The ARN of the load balancer.
      */
     readonly loadBalancerArn?: pulumi.Input<string>;
     /**
-     * The port on which the load balancer is listening.
+     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -138,17 +138,17 @@ export interface ListenerArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultAction: pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly defaultAction: pulumi.Input<{ fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * The ARN of the load balancer.
      */
     readonly loadBalancerArn: pulumi.Input<string>;
     /**
-     * The port on which the load balancer is listening.
+     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      */
     readonly port: pulumi.Input<number>;
     /**
-     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**

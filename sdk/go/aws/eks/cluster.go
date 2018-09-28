@@ -38,6 +38,7 @@ func NewCluster(ctx *pulumi.Context,
 	inputs["certificateAuthority"] = nil
 	inputs["createdAt"] = nil
 	inputs["endpoint"] = nil
+	inputs["platformVersion"] = nil
 	s, err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -56,6 +57,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["createdAt"] = state.CreatedAt
 		inputs["endpoint"] = state.Endpoint
 		inputs["name"] = state.Name
+		inputs["platformVersion"] = state.PlatformVersion
 		inputs["roleArn"] = state.RoleArn
 		inputs["version"] = state.Version
 		inputs["vpcConfig"] = state.VpcConfig
@@ -101,6 +103,11 @@ func (r *Cluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The platform version for the cluster.
+func (r *Cluster) PlatformVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["platformVersion"])
+}
+
 // The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 func (r *Cluster) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
@@ -127,6 +134,8 @@ type ClusterState struct {
 	Endpoint interface{}
 	// Name of the cluster.
 	Name interface{}
+	// The platform version for the cluster.
+	PlatformVersion interface{}
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn interface{}
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version is used.

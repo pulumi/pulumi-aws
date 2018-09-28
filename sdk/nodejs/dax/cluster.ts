@@ -100,6 +100,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
+     * Encrypt at rest options
+     */
+    public readonly serverSideEncryption: pulumi.Output<{ enabled?: boolean } | undefined>;
+    /**
      * Name of the subnet group to be used for the
      * cluster
      */
@@ -136,6 +140,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["port"] = state ? state.port : undefined;
             inputs["replicationFactor"] = state ? state.replicationFactor : undefined;
             inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -162,6 +167,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             inputs["replicationFactor"] = args ? args.replicationFactor : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -256,6 +262,10 @@ export interface ClusterState {
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Encrypt at rest options
+     */
+    readonly serverSideEncryption?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
+    /**
      * Name of the subnet group to be used for the
      * cluster
      */
@@ -324,6 +334,10 @@ export interface ClusterArgs {
      * with the cluster
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Encrypt at rest options
+     */
+    readonly serverSideEncryption?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
     /**
      * Name of the subnet group to be used for the
      * cluster

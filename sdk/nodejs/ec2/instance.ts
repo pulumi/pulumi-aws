@@ -163,7 +163,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeId: string, volumeSize: number, volumeType: string }>;
     /**
-     * A list of security group names to associate with.
+     * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
     public readonly securityGroups: pulumi.Output<string[]>;
     /**
@@ -445,7 +445,7 @@ export interface InstanceState {
      */
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
-     * A list of security group names to associate with.
+     * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -589,7 +589,7 @@ export interface InstanceArgs {
      */
     readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
-     * A list of security group names to associate with.
+     * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -29,7 +29,7 @@ class Instance(pulumi.CustomResource):
     the raw state as plain-text. [Read more about sensitive data in
     state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
         """Create a Instance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -140,9 +140,25 @@ class Instance(pulumi.CustomResource):
         with read replicas, it needs to be specified only if the source database
         specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additonal read replica contraints.
+        for additional read replica contraints.
         """
         __props__['dbSubnetGroupName'] = db_subnet_group_name
+
+        if domain and not isinstance(domain, basestring):
+            raise TypeError('Expected property domain to be a basestring')
+        __self__.domain = domain
+        """
+        The ID of the Directory Service Active Directory domain to create the instance in.
+        """
+        __props__['domain'] = domain
+
+        if domain_iam_role_name and not isinstance(domain_iam_role_name, basestring):
+            raise TypeError('Expected property domain_iam_role_name to be a basestring')
+        __self__.domain_iam_role_name = domain_iam_role_name
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        __props__['domainIamRoleName'] = domain_iam_role_name
 
         if enabled_cloudwatch_logs_exports and not isinstance(enabled_cloudwatch_logs_exports, list):
             raise TypeError('Expected property enabled_cloudwatch_logs_exports to be a list')
@@ -525,6 +541,10 @@ class Instance(pulumi.CustomResource):
             self.copy_tags_to_snapshot = outs['copyTagsToSnapshot']
         if 'dbSubnetGroupName' in outs:
             self.db_subnet_group_name = outs['dbSubnetGroupName']
+        if 'domain' in outs:
+            self.domain = outs['domain']
+        if 'domainIamRoleName' in outs:
+            self.domain_iam_role_name = outs['domainIamRoleName']
         if 'enabledCloudwatchLogsExports' in outs:
             self.enabled_cloudwatch_logs_exports = outs['enabledCloudwatchLogsExports']
         if 'endpoint' in outs:

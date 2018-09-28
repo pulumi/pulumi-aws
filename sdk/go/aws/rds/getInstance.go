@@ -32,6 +32,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		DbParameterGroups: outputs["dbParameterGroups"],
 		DbSecurityGroups: outputs["dbSecurityGroups"],
 		DbSubnetGroup: outputs["dbSubnetGroup"],
+		EnabledCloudwatchLogsExports: outputs["enabledCloudwatchLogsExports"],
 		Endpoint: outputs["endpoint"],
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
@@ -93,6 +94,8 @@ type GetInstanceResult struct {
 	DbSecurityGroups interface{}
 	// Specifies the name of the subnet group associated with the DB instance.
 	DbSubnetGroup interface{}
+	// List of log types to export to cloudwatch.
+	EnabledCloudwatchLogsExports interface{}
 	// The connection endpoint in `address:port` format.
 	Endpoint interface{}
 	// Provides the name of the database engine to be used for this DB instance.

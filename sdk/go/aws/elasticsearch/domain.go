@@ -135,7 +135,7 @@ func (r *Domain) EbsOptions() *pulumi.Output {
 	return r.s.State["ebsOptions"]
 }
 
-// The version of ElasticSearch to deploy. Defaults to `1.5`
+// The version of Elasticsearch to deploy. Defaults to `1.5`
 func (r *Domain) ElasticsearchVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["elasticsearchVersion"])
 }
@@ -197,7 +197,7 @@ type DomainState struct {
 	DomainName interface{}
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
 	EbsOptions interface{}
-	// The version of ElasticSearch to deploy. Defaults to `1.5`
+	// The version of Elasticsearch to deploy. Defaults to `1.5`
 	ElasticsearchVersion interface{}
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
 	EncryptAtRest interface{}
@@ -233,7 +233,7 @@ type DomainArgs struct {
 	DomainName interface{}
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
 	EbsOptions interface{}
-	// The version of ElasticSearch to deploy. Defaults to `1.5`
+	// The version of Elasticsearch to deploy. Defaults to `1.5`
 	ElasticsearchVersion interface{}
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
 	EncryptAtRest interface{}

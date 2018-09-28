@@ -57,7 +57,7 @@ class Listener(pulumi.CustomResource):
             raise TypeError('Expected property port to be a int')
         __self__.port = port
         """
-        The port on which the load balancer is listening.
+        The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         """
         __props__['port'] = port
 
@@ -65,7 +65,7 @@ class Listener(pulumi.CustomResource):
             raise TypeError('Expected property protocol to be a basestring')
         __self__.protocol = protocol
         """
-        The protocol for connections from clients to the load balancer. Valid values are `TCP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         """
         __props__['protocol'] = protocol
 

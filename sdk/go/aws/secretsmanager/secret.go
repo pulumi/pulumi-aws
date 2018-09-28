@@ -103,7 +103,7 @@ func (r *Secret) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
 
-// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 func (r *Secret) RecoveryWindowInDays() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["recoveryWindowInDays"])
 }
@@ -140,7 +140,7 @@ type SecretState struct {
 	Name interface{}
 	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
 	Policy interface{}
-	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays interface{}
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled interface{}
@@ -162,7 +162,7 @@ type SecretArgs struct {
 	Name interface{}
 	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
 	Policy interface{}
-	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays interface{}
 	// Specifies the ARN of the Lambda function that can rotate the secret.
 	RotationLambdaArn interface{}

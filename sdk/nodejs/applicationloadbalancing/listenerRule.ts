@@ -25,7 +25,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly actions: pulumi.Output<{ targetGroupArn: string, type: string }[]>;
+    public readonly actions: pulumi.Output<{ fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
@@ -88,7 +88,7 @@ export interface ListenerRuleState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<{ fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
@@ -114,7 +114,7 @@ export interface ListenerRuleArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions: pulumi.Input<pulumi.Input<{ targetGroupArn: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<{ fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * A Condition block. Condition blocks are documented below.
      */

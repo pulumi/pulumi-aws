@@ -38,6 +38,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
+     * The platform version for the cluster.
+     */
+    public /*out*/ readonly platformVersion: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     public readonly roleArn: pulumi.Output<string>;
@@ -67,6 +71,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
@@ -86,6 +91,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["certificateAuthority"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["platformVersion"] = undefined /*out*/;
         }
         super("aws:eks/cluster:Cluster", name, inputs, opts);
     }
@@ -112,6 +118,10 @@ export interface ClusterState {
      * Name of the cluster.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The platform version for the cluster.
+     */
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */

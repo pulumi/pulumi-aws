@@ -44,6 +44,10 @@ export interface GetIpRangesResult {
      */
     readonly createDate: string;
     /**
+     * The lexically ordered list of IPv6 CIDR blocks.
+     */
+    readonly ipv6CidrBlocks: string[];
+    /**
      * The publication time of the IP ranges, in Unix epoch time format
      * (e.g. `1470267965`).
      */

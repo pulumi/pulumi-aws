@@ -23,9 +23,13 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the CodeBuild project.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    public readonly artifacts: pulumi.Output<{ location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }>;
+    public readonly artifacts: pulumi.Output<{ encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      */
@@ -55,9 +59,17 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly environment: pulumi.Output<{ computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, privilegedMode?: boolean, type: string }>;
     /**
-     * The environment variable's name or key.
+     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+     */
+    public readonly secondaryArtifacts: pulumi.Output<{ artifactIdentifier: string, encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[] | undefined>;
+    /**
+     * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+     */
+    public readonly secondarySources: pulumi.Output<{ auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, reportBuildStatus?: boolean, sourceIdentifier: string, type: string }[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -87,6 +99,7 @@ export class Project extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ProjectState = argsOrState as ProjectState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["artifacts"] = state ? state.artifacts : undefined;
             inputs["badgeEnabled"] = state ? state.badgeEnabled : undefined;
             inputs["badgeUrl"] = state ? state.badgeUrl : undefined;
@@ -96,6 +109,8 @@ export class Project extends pulumi.CustomResource {
             inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             inputs["environment"] = state ? state.environment : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
+            inputs["secondarySources"] = state ? state.secondarySources : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -122,10 +137,13 @@ export class Project extends pulumi.CustomResource {
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["environment"] = args ? args.environment : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
+            inputs["secondarySources"] = args ? args.secondarySources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["badgeUrl"] = undefined /*out*/;
         }
         super("aws:codebuild/project:Project", name, inputs, opts);
@@ -137,9 +155,13 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectState {
     /**
+     * The ARN of the CodeBuild project.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    readonly artifacts?: pulumi.Input<{ location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifacts?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      */
@@ -169,9 +191,17 @@ export interface ProjectState {
      */
     readonly environment?: pulumi.Input<{ computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
-     * The environment variable's name or key.
+     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+     */
+    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+     */
+    readonly secondarySources?: pulumi.Input<pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, sourceIdentifier: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -197,7 +227,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    readonly artifacts: pulumi.Input<{ location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifacts: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      */
@@ -223,9 +253,17 @@ export interface ProjectArgs {
      */
     readonly environment: pulumi.Input<{ computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
-     * The environment variable's name or key.
+     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+     */
+    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+     */
+    readonly secondarySources?: pulumi.Input<pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, sourceIdentifier: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */

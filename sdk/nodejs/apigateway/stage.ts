@@ -80,6 +80,10 @@ export class Stage extends pulumi.CustomResource {
      * A map that defines the stage variables
      */
     public readonly variables: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Whether active tracing with X-ray is enabled. Defaults to `false`.
+     */
+    public readonly xrayTracingEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["stageName"] = state ? state.stageName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["variables"] = state ? state.variables : undefined;
+            inputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
         } else {
             const args = argsOrState as StageArgs | undefined;
             if (!args || args.deployment === undefined) {
@@ -128,6 +133,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["stageName"] = args ? args.stageName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["variables"] = args ? args.variables : undefined;
+            inputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
         }
@@ -195,6 +201,10 @@ export interface StageState {
      * A map that defines the stage variables
      */
     readonly variables?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether active tracing with X-ray is enabled. Defaults to `false`.
+     */
+    readonly xrayTracingEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -246,4 +256,8 @@ export interface StageArgs {
      * A map that defines the stage variables
      */
     readonly variables?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether active tracing with X-ray is enabled. Defaults to `false`.
+     */
+    readonly xrayTracingEnabled?: pulumi.Input<boolean>;
 }

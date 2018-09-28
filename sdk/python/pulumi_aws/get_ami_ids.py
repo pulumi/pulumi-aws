@@ -21,9 +21,11 @@ class GetAmiIdsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_ami_ids(executable_users=None, filters=None, name_regex=None, owners=None):
+def get_ami_ids(executable_users=None, filters=None, name_regex=None, owners=None, sort_ascending=None):
     """
     Use this data source to get a list of AMI IDs matching the specified criteria.
+    
+    ~> **NOTE:** The `owners` argument will be **required** in the next major version.
     """
     __args__ = dict()
 
@@ -31,6 +33,7 @@ def get_ami_ids(executable_users=None, filters=None, name_regex=None, owners=Non
     __args__['filters'] = filters
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
+    __args__['sortAscending'] = sort_ascending
     __ret__ = pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__)
 
     return GetAmiIdsResult(

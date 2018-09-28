@@ -338,7 +338,7 @@ func (r *Instance) RootBlockDevice() *pulumi.Output {
 	return r.s.State["rootBlockDevice"]
 }
 
-// A list of security group names to associate with.
+// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 func (r *Instance) SecurityGroups() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
@@ -467,7 +467,7 @@ type InstanceState struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
-	// A list of security group names to associate with.
+	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups interface{}
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -549,7 +549,7 @@ type InstanceArgs struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice interface{}
-	// A list of security group names to associate with.
+	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups interface{}
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.

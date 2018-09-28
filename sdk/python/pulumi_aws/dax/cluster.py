@@ -10,7 +10,7 @@ class Cluster(pulumi.CustomResource):
     """
     Provides a DAX Cluster resource.
     """
-    def __init__(__self__, __name__, __opts__=None, availability_zones=None, cluster_name=None, description=None, iam_role_arn=None, maintenance_window=None, node_type=None, notification_topic_arn=None, parameter_group_name=None, replication_factor=None, security_group_ids=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, availability_zones=None, cluster_name=None, description=None, iam_role_arn=None, maintenance_window=None, node_type=None, notification_topic_arn=None, parameter_group_name=None, replication_factor=None, security_group_ids=None, server_side_encryption=None, subnet_group_name=None, tags=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -123,6 +123,14 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['securityGroupIds'] = security_group_ids
 
+        if server_side_encryption and not isinstance(server_side_encryption, dict):
+            raise TypeError('Expected property server_side_encryption to be a dict')
+        __self__.server_side_encryption = server_side_encryption
+        """
+        Encrypt at rest options
+        """
+        __props__['serverSideEncryption'] = server_side_encryption
+
         if subnet_group_name and not isinstance(subnet_group_name, basestring):
             raise TypeError('Expected property subnet_group_name to be a basestring')
         __self__.subnet_group_name = subnet_group_name
@@ -201,6 +209,8 @@ class Cluster(pulumi.CustomResource):
             self.replication_factor = outs['replicationFactor']
         if 'securityGroupIds' in outs:
             self.security_group_ids = outs['securityGroupIds']
+        if 'serverSideEncryption' in outs:
+            self.server_side_encryption = outs['serverSideEncryption']
         if 'subnetGroupName' in outs:
             self.subnet_group_name = outs['subnetGroupName']
         if 'tags' in outs:

@@ -267,7 +267,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             raise TypeError('Expected property security_groups to be a list')
         __self__.security_groups = security_groups
         """
-        A list of security group names to associate with.
+        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         """
         __props__['securityGroups'] = security_groups
 

@@ -8,12 +8,7 @@ from .. import utilities
 
 class Cluster(pulumi.CustomResource):
     """
-    Provides an RDS Cluster Resource. A Cluster Resource defines attributes that are
-    applied to the entire cluster of [RDS Cluster Instances][3]. Use the RDS Cluster
-    resource and RDS Cluster Instances to create and use Amazon Aurora, a MySQL-compatible
-    database engine.
-    
-    For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+    Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
     
     For information on the difference between the available Aurora MySQL engines
     see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -33,7 +28,7 @@ class Cluster(pulumi.CustomResource):
     ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -148,7 +143,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property engine_mode to be a basestring')
         __self__.engine_mode = engine_mode
         """
-        The database engine mode. Valid values: `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         """
         __props__['engineMode'] = engine_mode
 
@@ -174,7 +169,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property iam_database_authentication_enabled to be a bool')
         __self__.iam_database_authentication_enabled = iam_database_authentication_enabled
         """
-        Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
         """
         __props__['iamDatabaseAuthenticationEnabled'] = iam_database_authentication_enabled
 
@@ -248,6 +243,14 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property s3_import to be a dict')
         __self__.s3_import = s3_import
         __props__['s3Import'] = s3_import
+
+        if scaling_configuration and not isinstance(scaling_configuration, dict):
+            raise TypeError('Expected property scaling_configuration to be a dict')
+        __self__.scaling_configuration = scaling_configuration
+        """
+        Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        """
+        __props__['scalingConfiguration'] = scaling_configuration
 
         if skip_final_snapshot and not isinstance(skip_final_snapshot, bool):
             raise TypeError('Expected property skip_final_snapshot to be a bool')
@@ -387,6 +390,8 @@ class Cluster(pulumi.CustomResource):
             self.replication_source_identifier = outs['replicationSourceIdentifier']
         if 's3Import' in outs:
             self.s3_import = outs['s3Import']
+        if 'scalingConfiguration' in outs:
+            self.scaling_configuration = outs['scalingConfiguration']
         if 'skipFinalSnapshot' in outs:
             self.skip_final_snapshot = outs['skipFinalSnapshot']
         if 'snapshotIdentifier' in outs:

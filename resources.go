@@ -465,6 +465,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_cloudfront_public_key":             {Tok: awsResource(cloudfrontMod, "PublicKey")},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
 			// CloudTrail
 			"aws_cloudtrail": {
@@ -628,6 +629,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Direct Connect
+			"aws_dx_bgp_peer": {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection": {
 				Tok: awsResource(dxMod, "Connection"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1787,6 +1789,7 @@ func Provider() tfbridge.ProviderInfo {
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			// API Gateway
+			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
 			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
@@ -1919,6 +1922,7 @@ func Provider() tfbridge.ProviderInfo {
 			// RDS
 			"aws_rds_cluster":         {Tok: awsDataSource(rdsMod, "getCluster")},
 			"aws_db_cluster_snapshot": {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
+			"aws_db_event_categories": {Tok: awsDataSource(rdsMod, "getEventCategories")},
 			"aws_db_instance":         {Tok: awsDataSource(rdsMod, "getInstance")},
 			"aws_db_snapshot":         {Tok: awsDataSource(rdsMod, "getSnapshot")},
 			// RedShift

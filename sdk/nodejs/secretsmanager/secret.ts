@@ -41,7 +41,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly policy: pulumi.Output<string | undefined>;
     /**
-     * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+     * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
     public readonly recoveryWindowInDays: pulumi.Output<number | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface SecretState {
      */
     readonly policy?: pulumi.Input<string>;
     /**
-     * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+     * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
     readonly recoveryWindowInDays?: pulumi.Input<number>;
     /**
@@ -167,7 +167,7 @@ export interface SecretArgs {
      */
     readonly policy?: pulumi.Input<string>;
     /**
-     * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+     * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
     readonly recoveryWindowInDays?: pulumi.Input<number>;
     /**

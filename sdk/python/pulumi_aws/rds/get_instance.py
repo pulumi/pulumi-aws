@@ -10,7 +10,7 @@ class GetInstanceResult(object):
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None, id=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None, id=None):
         if address and not isinstance(address, basestring):
             raise TypeError('Expected argument address to be a basestring')
         __self__.address = address
@@ -94,6 +94,12 @@ class GetInstanceResult(object):
         __self__.db_subnet_group = db_subnet_group
         """
         Specifies the name of the subnet group associated with the DB instance.
+        """
+        if enabled_cloudwatch_logs_exports and not isinstance(enabled_cloudwatch_logs_exports, list):
+            raise TypeError('Expected argument enabled_cloudwatch_logs_exports to be a list')
+        __self__.enabled_cloudwatch_logs_exports = enabled_cloudwatch_logs_exports
+        """
+        List of log types to export to cloudwatch.
         """
         if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
@@ -252,6 +258,7 @@ def get_instance(db_instance_identifier=None):
         db_parameter_groups=__ret__.get('dbParameterGroups'),
         db_security_groups=__ret__.get('dbSecurityGroups'),
         db_subnet_group=__ret__.get('dbSubnetGroup'),
+        enabled_cloudwatch_logs_exports=__ret__.get('enabledCloudwatchLogsExports'),
         endpoint=__ret__.get('endpoint'),
         engine=__ret__.get('engine'),
         engine_version=__ret__.get('engineVersion'),

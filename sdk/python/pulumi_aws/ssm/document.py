@@ -49,7 +49,7 @@ class Document(pulumi.CustomResource):
             raise TypeError('Expected property document_type to be a basestring')
         __self__.document_type = document_type
         """
-        The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+        The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
         """
         __props__['documentType'] = document_type
 

@@ -10,7 +10,7 @@ class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, endpoint=None, role_arn=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, endpoint=None, platform_version=None, role_arn=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -34,6 +34,12 @@ class GetClusterResult(object):
         __self__.endpoint = endpoint
         """
         The endpoint for your Kubernetes API server.
+        """
+        if platform_version and not isinstance(platform_version, basestring):
+            raise TypeError('Expected argument platform_version to be a basestring')
+        __self__.platform_version = platform_version
+        """
+        The platform version for the cluster.
         """
         if role_arn and not isinstance(role_arn, basestring):
             raise TypeError('Expected argument role_arn to be a basestring')
@@ -74,6 +80,7 @@ def get_cluster(name=None):
         certificate_authority=__ret__.get('certificateAuthority'),
         created_at=__ret__.get('createdAt'),
         endpoint=__ret__.get('endpoint'),
+        platform_version=__ret__.get('platformVersion'),
         role_arn=__ret__.get('roleArn'),
         version=__ret__.get('version'),
         vpc_config=__ret__.get('vpcConfig'),

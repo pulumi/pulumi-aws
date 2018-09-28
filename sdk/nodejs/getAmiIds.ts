@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
+ * 
+ * ~> **NOTE:** The `owners` argument will be **required** in the next major version.
  */
 export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     args = args || {};
@@ -14,6 +16,7 @@ export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pr
         "filters": args.filters,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "sortAscending": args.sortAscending,
     }, opts);
 }
 
@@ -45,6 +48,10 @@ export interface GetAmiIdsArgs {
      * the numeric account ID, `amazon`, or `self`.
      */
     readonly owners?: string[];
+    /**
+     * Used to sort AMIs by creation time.
+     */
+    readonly sortAscending?: boolean;
 }
 
 /**

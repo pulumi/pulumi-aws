@@ -38,6 +38,7 @@ func NewStage(ctx *pulumi.Context,
 		inputs["stageName"] = nil
 		inputs["tags"] = nil
 		inputs["variables"] = nil
+		inputs["xrayTracingEnabled"] = nil
 	} else {
 		inputs["accessLogSettings"] = args.AccessLogSettings
 		inputs["cacheClusterEnabled"] = args.CacheClusterEnabled
@@ -50,6 +51,7 @@ func NewStage(ctx *pulumi.Context,
 		inputs["stageName"] = args.StageName
 		inputs["tags"] = args.Tags
 		inputs["variables"] = args.Variables
+		inputs["xrayTracingEnabled"] = args.XrayTracingEnabled
 	}
 	inputs["executionArn"] = nil
 	inputs["invokeUrl"] = nil
@@ -79,6 +81,7 @@ func GetStage(ctx *pulumi.Context,
 		inputs["stageName"] = state.StageName
 		inputs["tags"] = state.Tags
 		inputs["variables"] = state.Variables
+		inputs["xrayTracingEnabled"] = state.XrayTracingEnabled
 	}
 	s, err := ctx.ReadResource("aws:apigateway/stage:Stage", name, id, inputs, opts...)
 	if err != nil {
@@ -166,6 +169,11 @@ func (r *Stage) Variables() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["variables"])
 }
 
+// Whether active tracing with X-ray is enabled. Defaults to `false`.
+func (r *Stage) XrayTracingEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["xrayTracingEnabled"])
+}
+
 // Input properties used for looking up and filtering Stage resources.
 type StageState struct {
 	// Enables access logs for the API stage. Detailed below.
@@ -198,6 +206,8 @@ type StageState struct {
 	Tags interface{}
 	// A map that defines the stage variables
 	Variables interface{}
+	// Whether active tracing with X-ray is enabled. Defaults to `false`.
+	XrayTracingEnabled interface{}
 }
 
 // The set of arguments for constructing a Stage resource.
@@ -225,4 +235,6 @@ type StageArgs struct {
 	Tags interface{}
 	// A map that defines the stage variables
 	Variables interface{}
+	// Whether active tracing with X-ray is enabled. Defaults to `false`.
+	XrayTracingEnabled interface{}
 }

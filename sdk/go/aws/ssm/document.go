@@ -132,7 +132,7 @@ func (r *Document) DocumentFormat() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["documentFormat"])
 }
 
-// The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+// The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
 func (r *Document) DocumentType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["documentType"])
 }
@@ -205,7 +205,7 @@ type DocumentState struct {
 	Description interface{}
 	// The format of the document. Valid document types include: `JSON` and `YAML`
 	DocumentFormat interface{}
-	// The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+	// The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
 	DocumentType interface{}
 	// The sha1 or sha256 of the document content
 	Hash interface{}
@@ -237,7 +237,7 @@ type DocumentArgs struct {
 	Content interface{}
 	// The format of the document. Valid document types include: `JSON` and `YAML`
 	DocumentFormat interface{}
-	// The type of the document. Valid document types include: `Command`, `Policy` and `Automation`
+	// The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
 	DocumentType interface{}
 	// The name of the document.
 	Name interface{}

@@ -22,6 +22,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		CertificateAuthority: outputs["certificateAuthority"],
 		CreatedAt: outputs["createdAt"],
 		Endpoint: outputs["endpoint"],
+		PlatformVersion: outputs["platformVersion"],
 		RoleArn: outputs["roleArn"],
 		Version: outputs["version"],
 		VpcConfig: outputs["vpcConfig"],
@@ -45,6 +46,8 @@ type GetClusterResult struct {
 	CreatedAt interface{}
 	// The endpoint for your Kubernetes API server.
 	Endpoint interface{}
+	// The platform version for the cluster.
+	PlatformVersion interface{}
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn interface{}
 	// The Kubernetes server version for the cluster.

@@ -10,7 +10,7 @@ class Project(pulumi.CustomResource):
     """
     Provides a CodeBuild Project resource.
     """
-    def __init__(__self__, __name__, __opts__=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, name=None, service_role=None, source=None, tags=None, vpc_config=None):
+    def __init__(__self__, __name__, __opts__=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None):
         """Create a Project resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -85,9 +85,25 @@ class Project(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The environment variable's name or key.
+        The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         """
         __props__['name'] = name
+
+        if secondary_artifacts and not isinstance(secondary_artifacts, list):
+            raise TypeError('Expected property secondary_artifacts to be a list')
+        __self__.secondary_artifacts = secondary_artifacts
+        """
+        A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+        """
+        __props__['secondaryArtifacts'] = secondary_artifacts
+
+        if secondary_sources and not isinstance(secondary_sources, list):
+            raise TypeError('Expected property secondary_sources to be a list')
+        __self__.secondary_sources = secondary_sources
+        """
+        A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+        """
+        __props__['secondarySources'] = secondary_sources
 
         if not service_role:
             raise TypeError('Missing required property service_role')
@@ -125,6 +141,10 @@ class Project(pulumi.CustomResource):
         """
         __props__['vpcConfig'] = vpc_config
 
+        __self__.arn = pulumi.runtime.UNKNOWN
+        """
+        The ARN of the CodeBuild project.
+        """
         __self__.badge_url = pulumi.runtime.UNKNOWN
         """
         The URL of the build badge when `badge_enabled` is enabled.
@@ -137,6 +157,8 @@ class Project(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'arn' in outs:
+            self.arn = outs['arn']
         if 'artifacts' in outs:
             self.artifacts = outs['artifacts']
         if 'badgeEnabled' in outs:
@@ -155,6 +177,10 @@ class Project(pulumi.CustomResource):
             self.environment = outs['environment']
         if 'name' in outs:
             self.name = outs['name']
+        if 'secondaryArtifacts' in outs:
+            self.secondary_artifacts = outs['secondaryArtifacts']
+        if 'secondarySources' in outs:
+            self.secondary_sources = outs['secondarySources']
         if 'serviceRole' in outs:
             self.service_role = outs['serviceRole']
         if 'source' in outs:

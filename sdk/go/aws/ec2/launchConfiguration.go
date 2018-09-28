@@ -141,7 +141,7 @@ func (r *LaunchConfiguration) EphemeralBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
 
-// The IAM instance profile to associate
+// The name attribute of the IAM instance profile to associate
 // with launched instances.
 func (r *LaunchConfiguration) IamInstanceProfile() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iamInstanceProfile"])
@@ -231,7 +231,7 @@ type LaunchConfigurationState struct {
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
-	// The IAM instance profile to associate
+	// The name attribute of the IAM instance profile to associate
 	// with launched instances.
 	IamInstanceProfile interface{}
 	// The EC2 image ID to launch.
@@ -281,7 +281,7 @@ type LaunchConfigurationArgs struct {
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
-	// The IAM instance profile to associate
+	// The name attribute of the IAM instance profile to associate
 	// with launched instances.
 	IamInstanceProfile interface{}
 	// The EC2 image ID to launch.

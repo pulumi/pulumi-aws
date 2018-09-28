@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Allows setting policy to an ElasticSearch domain while referencing domain attributes (e.g. ARN)
+// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
 type DomainPolicy struct {
 	s *pulumi.ResourceState
 }

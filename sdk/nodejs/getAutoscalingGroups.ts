@@ -30,6 +30,10 @@ export interface GetAutoscalingGroupsArgs {
  */
 export interface GetAutoscalingGroupsResult {
     /**
+     * A list of the Autoscaling Groups Arns in the current region.
+     */
+    readonly arns: string[];
+    /**
      * A list of the Autoscaling Groups in the current region.
      */
     readonly names: string[];

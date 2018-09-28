@@ -84,6 +84,10 @@ export interface GetInstanceResult {
      */
     readonly dbSubnetGroup: string;
     /**
+     * List of log types to export to cloudwatch.
+     */
+    readonly enabledCloudwatchLogsExports: string[];
+    /**
      * The connection endpoint in `address:port` format.
      */
     readonly endpoint: string;

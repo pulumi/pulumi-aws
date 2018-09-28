@@ -72,7 +72,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A set of volume blocks that containers in your task may use.
      */
-    public readonly volumes: pulumi.Output<{ hostPath?: string, name: string }[] | undefined>;
+    public readonly volumes: pulumi.Output<{ dockerVolumeConfiguration?: { autoprovision?: boolean, driver?: string, driverOpts?: {[key: string]: string}, labels?: {[key: string]: string}, scope: string }, hostPath?: string, name: string }[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -179,7 +179,7 @@ export interface TaskDefinitionState {
     /**
      * A set of volume blocks that containers in your task may use.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<{ dockerVolumeConfiguration?: pulumi.Input<{ autoprovision?: pulumi.Input<boolean>, driver?: pulumi.Input<string>, driverOpts?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, scope?: pulumi.Input<string> }>, hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -230,5 +230,5 @@ export interface TaskDefinitionArgs {
     /**
      * A set of volume blocks that containers in your task may use.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<{ hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<{ dockerVolumeConfiguration?: pulumi.Input<{ autoprovision?: pulumi.Input<boolean>, driver?: pulumi.Input<string>, driverOpts?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, scope?: pulumi.Input<string> }>, hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }

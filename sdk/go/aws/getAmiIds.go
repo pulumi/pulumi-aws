@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
+// 
+// ~> **NOTE:** The `owners` argument will be **required** in the next major version.
 func LookupAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -15,6 +17,7 @@ func LookupAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, e
 		inputs["filters"] = args.Filters
 		inputs["nameRegex"] = args.NameRegex
 		inputs["owners"] = args.Owners
+		inputs["sortAscending"] = args.SortAscending
 	}
 	outputs, err := ctx.Invoke("aws:index/getAmiIds:getAmiIds", inputs)
 	if err != nil {
@@ -44,6 +47,8 @@ type GetAmiIdsArgs struct {
 	// Limit search to specific AMI owners. Valid items are
 	// the numeric account ID, `amazon`, or `self`.
 	Owners interface{}
+	// Used to sort AMIs by creation time.
+	SortAscending interface{}
 }
 
 // A collection of values returned by getAmiIds.

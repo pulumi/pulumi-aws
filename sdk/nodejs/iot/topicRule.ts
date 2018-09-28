@@ -33,7 +33,7 @@ export class TopicRule extends pulumi.CustomResource {
      * Specifies whether the rule is enabled.
      */
     public readonly enabled: pulumi.Output<boolean>;
-    public readonly firehose: pulumi.Output<{ deliveryStreamName: string, roleArn: string } | undefined>;
+    public readonly firehose: pulumi.Output<{ deliveryStreamName: string, roleArn: string, separator?: string } | undefined>;
     public readonly kinesis: pulumi.Output<{ partitionKey?: string, roleArn: string, streamName: string } | undefined>;
     public readonly lambda: pulumi.Output<{ functionArn: string } | undefined>;
     /**
@@ -135,7 +135,7 @@ export interface TopicRuleState {
      * Specifies whether the rule is enabled.
      */
     readonly enabled?: pulumi.Input<boolean>;
-    readonly firehose?: pulumi.Input<{ deliveryStreamName: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
+    readonly firehose?: pulumi.Input<{ deliveryStreamName: pulumi.Input<string>, roleArn: pulumi.Input<string>, separator?: pulumi.Input<string> }>;
     readonly kinesis?: pulumi.Input<{ partitionKey?: pulumi.Input<string>, roleArn: pulumi.Input<string>, streamName: pulumi.Input<string> }>;
     readonly lambda?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
@@ -172,7 +172,7 @@ export interface TopicRuleArgs {
      * Specifies whether the rule is enabled.
      */
     readonly enabled: pulumi.Input<boolean>;
-    readonly firehose?: pulumi.Input<{ deliveryStreamName: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
+    readonly firehose?: pulumi.Input<{ deliveryStreamName: pulumi.Input<string>, roleArn: pulumi.Input<string>, separator?: pulumi.Input<string> }>;
     readonly kinesis?: pulumi.Input<{ partitionKey?: pulumi.Input<string>, roleArn: pulumi.Input<string>, streamName: pulumi.Input<string> }>;
     readonly lambda?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**

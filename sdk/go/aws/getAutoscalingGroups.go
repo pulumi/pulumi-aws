@@ -19,6 +19,7 @@ func LookupAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs
 		return nil, err
 	}
 	return &GetAutoscalingGroupsResult{
+		Arns: outputs["arns"],
 		Names: outputs["names"],
 		Id: outputs["id"],
 	}, nil
@@ -32,6 +33,8 @@ type GetAutoscalingGroupsArgs struct {
 
 // A collection of values returned by getAutoscalingGroups.
 type GetAutoscalingGroupsResult struct {
+	// A list of the Autoscaling Groups Arns in the current region.
+	Arns interface{}
 	// A list of the Autoscaling Groups in the current region.
 	Names interface{}
 	// id is the provider-assigned unique ID for this managed resource.

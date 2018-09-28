@@ -44,6 +44,10 @@ export interface GetClusterResult {
      */
     readonly endpoint: string;
     /**
+     * The platform version for the cluster.
+     */
+    readonly platformVersion: string;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     readonly roleArn: string;
