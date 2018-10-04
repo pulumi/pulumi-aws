@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import * as aws from "@pulumi/aws";
+import { x } from "@pulumi/aws/apigateway";
 import * as pulumi from "@pulumi/pulumi";
 
 const policy: aws.iam.PolicyDocument = {
@@ -42,16 +43,24 @@ const lambda = new aws.lambda.Function("myfunction", {
     runtime: aws.lambda.NodeJS8d10Runtime,
 });
 
-const api = new aws.apigateway.x.API("myapi", {
-    routes: [
-        { method: "GET", path: "/a", handler: async (event) => {
-            return {
-                statusCode: 200,
-                body: "<h1>Hello world!</h1>",
-            };
-        }},
-        { method: "GET", path: "/b", handler: lambda },
-    ],
+const api = new x.API("myapi", {
+    routes: {
+        "/a": {
+            kind: "EventHandler",
+            method: "GET",
+            eventHandler: async (event) => {
+                return {
+                    statusCode: 200,
+                    body: "<h1>Hello world!</h1>",
+                };
+            }
+        },
+        "/b": {
+            kind: "EventHandler",
+            method: "GET",
+            eventHandler: lambda
+        },
+    },
 });
 
 export const url = api.url;
