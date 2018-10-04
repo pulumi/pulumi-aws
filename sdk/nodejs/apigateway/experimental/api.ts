@@ -71,12 +71,6 @@ export interface Response {
 
 export type Method = "ANY" | "GET" | "PUT" | "POST" | "DELETE" | "PATCH";
 
-// export enum RouteKind {
-//     EventHandler = "EventHandler",
-//     Static = "Static",
-//     Proxy = "Proxy",
-// }
-
 /**
  * A route that that APIGateway should accept and forward to some type of destination. All routes
  * have an incoming path that they match against.  However, destinations are determined by the kind
@@ -322,7 +316,6 @@ interface ApigatewayIntegration {
 }
 
 function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: Routes): SwaggerSpec {
-
     // Set up the initial swagger spec.
     const swagger: SwaggerSpec = {
         swagger: "2.0",
@@ -348,7 +341,6 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
     };
 
     // Now add all the routes to it.
-
     for (const path in routes) {
         if (routes.hasOwnProperty(path)) {
             const route = routes[path];
@@ -365,19 +357,13 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
                     continue;
                 default:
                     const exhaustiveMatch: never = route;
-                    throw new Error('Non-exhausive match for route');
+                    throw new Error('Non-exhaustive match for route');
             }
         }
     }
 
     return swagger;
 }
-
-// function ensureSwaggerPath(swagger: SwaggerSpec, path: string) {
-//     if (!swagger.paths[path]) {
-//         swagger.paths[path] = {};
-//     }
-// }
 
 function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string, operation: SwaggerOperation) {
     if (!swagger.paths[path]) {
@@ -394,8 +380,7 @@ function addEventHandlerRouteToSwaggerSpec(
     const lambdaFunc = lambda.createFunctionFromEventHandler(
         name + sha1hash(method + ":" + path), route.eventHandler, opts);
 
-    addSwaggerOperation(swagger, path, method,
-        createSwaggerOperationForLambda(lambdaFunc));
+    addSwaggerOperation(swagger, path, method, createSwaggerOperationForLambda(lambdaFunc));
     return;
 
     function createSwaggerOperationForLambda(lambda: aws.lambda.Function): SwaggerOperation {
@@ -466,8 +451,7 @@ function addStaticRouteToSwaggerSpec(
 
         createBucketObject(key, route.localPath, route.contentType);
 
-        addSwaggerOperation(swagger, path, method,
-            createSwaggerOperationForObjectKey(key, role));
+        addSwaggerOperation(swagger, path, method, createSwaggerOperationForObjectKey(key, role));
     }
 
     function processDirectory(directory: StaticRoute) {
@@ -530,8 +514,7 @@ function addStaticRouteToSwaggerSpec(
         // Take whatever path the client wants to host this folder at, and add the
         // greedy matching predicate to the end.
         const proxyPath = directoryServerPath + "{proxy+}";
-        addSwaggerOperation(swagger, proxyPath, swaggerMethod("ANY"),
-            createSwaggerOperationForObjectKey(directoryKey, role, "proxy"));
+        addSwaggerOperation(swagger, proxyPath, swaggerMethod("ANY"), createSwaggerOperationForObjectKey(directoryKey, role, "proxy"));
     }
 
     function createSwaggerOperationForObjectKey(
