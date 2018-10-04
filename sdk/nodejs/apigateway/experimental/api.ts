@@ -518,9 +518,9 @@ function addStaticRouteToSwaggerSpec(
     }
 
     function createSwaggerOperationForObjectKey(
-        objectKey: string,
-        role: aws.iam.Role,
-        pathParameter?: string): SwaggerOperation {
+            objectKey: string,
+            role: aws.iam.Role,
+            pathParameter?: string): SwaggerOperation {
 
         const region = aws.config.requireRegion();
 
