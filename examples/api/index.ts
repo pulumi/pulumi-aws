@@ -44,23 +44,20 @@ const lambda = new aws.lambda.Function("myfunction", {
 });
 
 const api = new x.API("myapi", {
-    routes: {
-        "/a": {
-            kind: "EventHandler",
-            method: "GET",
-            eventHandler: async (event) => {
-                return {
-                    statusCode: 200,
-                    body: "<h1>Hello world!</h1>",
-                };
-            }
+    routes: [{
+        path: "/a",
+        method: "GET",
+        eventHandler: async (event) => {
+            return {
+                statusCode: 200,
+                body: "<h1>Hello world!</h1>",
+            };
         },
-        "/b": {
-            kind: "EventHandler",
-            method: "GET",
-            eventHandler: lambda
-        },
-    },
+    }, {
+        path: "/b",
+        method: "GET",
+        eventHandler: lambda,
+    }],
 });
 
 export const url = api.url;

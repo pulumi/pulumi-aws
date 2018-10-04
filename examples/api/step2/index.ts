@@ -15,18 +15,16 @@
 import * as aws from "@pulumi/aws";
 
 const api = new aws.apigateway.x.API("myapi", {
-    routes: {
-        "/b": {
-            kind: "EventHandler",
-            method: "GET",
-            eventHandler: async (event) => {
-                return {
-                    statusCode: 200,
-                    body: "<h1>Hello world!</h1>",
-                };
-            }
-        },
-    }
+    routes: [{
+        path: "/b",
+        method: "GET",
+        eventHandler: async (event) => {
+            return {
+                statusCode: 200,
+                body: "<h1>Hello world!</h1>",
+            };
+        }
+    }],
 });
 
 export const url = api.url;
