@@ -43,15 +43,20 @@ const lambda = new aws.lambda.Function("myfunction", {
 });
 
 const api = new aws.apigateway.x.API("myapi", {
-    routes: [
-        { method: "GET", path: "/a", handler: async (event) => {
+    routes: [{
+        path: "/a",
+        method: "GET",
+        eventHandler: async (event) => {
             return {
                 statusCode: 200,
                 body: "<h1>Hello world!</h1>",
             };
-        }},
-        { method: "GET", path: "/b", handler: lambda },
-    ],
+        },
+    }, {
+        path: "/b",
+        method: "GET",
+        eventHandler: lambda,
+    }],
 });
 
 export const url = api.url;
