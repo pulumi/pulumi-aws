@@ -74,9 +74,10 @@ export type Method = "ANY" | "GET" | "PUT" | "POST" | "DELETE" | "PATCH";
 /**
  * A route that that APIGateway should accept and forward to some type of destination. All routes
  * have an incoming path that they match against.  However, destinations are determined by the kind
- * of the route.  See [EventHandlerRoute], [StaticRoute] and [ProxyRoute] for additional details.
+ * of the route.  See [EventHandlerRoute], [StaticRoute], [ProxyRoute] and [RawJsonRoute] for
+ * additional details.
  */
-export type Route = EventHandlerRoute | StaticRoute | ProxyRoute;
+export type Route = EventHandlerRoute | StaticRoute | ProxyRoute | RawDataRoute;
 
 export type EventHandlerRoute = {
     path: string;
@@ -117,6 +118,9 @@ function isStaticRoute(route: Route): route is StaticRoute {
     return (<StaticRoute>route).localPath !== undefined;
 }
 
+/**
+ * An apigateway route that maps to some target uri, or some elastic-load-balancer host/port.
+ */
 export type ProxyRoute = {
     path: string;
     target: string | pulumi.Output<Endpoint>;
@@ -124,6 +128,25 @@ export type ProxyRoute = {
 
 function isProxyRoute(route: Route): route is ProxyRoute {
     return (<ProxyRoute>route).target !== undefined;
+}
+
+/**
+ * Fallback route for when raw swagger control is desired.  The [data] field should be a javascript
+ * object that will be then included in the final swagger specification like so:
+ *
+ * `"paths": { [path]: { [method]: data } }`
+ *
+ * This value will be JSON.stringify'd as part of normal processing.  It should not be passed as
+ * string here.
+ */
+export type RawDataRoute = {
+    path: string;
+    method: Method;
+    data: any;
+}
+
+function isRawDataRoute(route: Route): route is RawDataRoute {
+    return (<RawDataRoute>route).data !== undefined;
 }
 
 export interface Endpoint {
@@ -353,6 +376,11 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
         }
         else if (isProxyRoute(route)) {
             addProxyRouteToSwaggerSpec(name, swagger, route, opts);
+        }
+        else if (isRawDataRoute(route)) {
+            // Simply take the [data] part of the route and place it into the correct place in the
+            // swagger spec "paths" location.
+            addSwaggerOperation(swagger, route.path, swaggerMethod(route.method), route.data);
         }
         else {
             const exhaustiveMatch: never = route;
