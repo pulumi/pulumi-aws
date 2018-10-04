@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import * as aws from "@pulumi/aws";
-import { x } from "@pulumi/aws/apigateway";
 import * as pulumi from "@pulumi/pulumi";
 
 const policy: aws.iam.PolicyDocument = {
@@ -43,7 +42,7 @@ const lambda = new aws.lambda.Function("myfunction", {
     runtime: aws.lambda.NodeJS8d10Runtime,
 });
 
-const api = new x.API("myapi", {
+const api = new aws.apigateway.x.API("myapi", {
     routes: [{
         path: "/a",
         method: "GET",
