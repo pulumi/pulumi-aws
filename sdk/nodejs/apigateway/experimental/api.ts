@@ -368,6 +368,8 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
 
     // Now add all the routes to it.
     for (const route of routes) {
+        checkRoute(route, "path", opts);
+
         if (isEventHandler(route)) {
             addEventHandlerRouteToSwaggerSpec(name, swagger, route, opts);
         }
@@ -378,9 +380,7 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
             addProxyRouteToSwaggerSpec(name, swagger, route, opts);
         }
         else if (isRawDataRoute(route)) {
-            // Simply take the [data] part of the route and place it into the correct place in the
-            // swagger spec "paths" location.
-            addSwaggerOperation(swagger, route.path, swaggerMethod(route.method), route.data);
+            addRawDataRouteToSwaggerSpec(name, swagger, route, opts);
         }
         else {
             const exhaustiveMatch: never = route;
@@ -399,8 +399,17 @@ function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string,
     swagger.paths[path][method] = operation;
 }
 
+function checkRoute<TRoute>(route: TRoute, propName: keyof TRoute, opts: pulumi.ResourceOptions) {
+    if (route[propName] === undefined) {
+        throw new pulumi.ResourceError(`Route missing required [${propName}] property`, opts.parent);
+    }
+}
+
 function addEventHandlerRouteToSwaggerSpec(
     name: string, swagger: SwaggerSpec, route: EventHandlerRoute, opts: pulumi.ResourceOptions) {
+
+    checkRoute(route, "eventHandler", opts);
+    checkRoute(route, "method", opts);
 
     const method = swaggerMethod(route.method);
     const lambdaFunc = lambda.createFunctionFromEventHandler(
@@ -428,6 +437,8 @@ function addEventHandlerRouteToSwaggerSpec(
 
 function addStaticRouteToSwaggerSpec(
     name: string, swagger: SwaggerSpec, route: StaticRoute, opts: pulumi.ResourceOptions) {
+
+    checkRoute(route, "localPath", opts);
 
     const method = swaggerMethod("GET");
 
@@ -614,6 +625,8 @@ function addStaticRouteToSwaggerSpec(
 function addProxyRouteToSwaggerSpec(
     name: string, swagger: SwaggerSpec, route: ProxyRoute, opts: pulumi.ResourceOptions) {
 
+    checkRoute(route, "target", opts);
+
     // If this is an Endpoint proxy, create a VpcLink to the load balancer in the VPC
     let vpcLink: aws.apigateway.VpcLink | undefined = undefined;
     if (typeof route.target !== "string") {
@@ -706,6 +719,17 @@ function addProxyRouteToSwaggerSpec(
         }
         return result;
     }
+}
+
+function addRawDataRouteToSwaggerSpec(
+    name: string, swagger: SwaggerSpec, route: RawDataRoute, opts: pulumi.ResourceOptions) {
+
+    checkRoute(route, "data", opts);
+    checkRoute(route, "method", opts);
+
+    // Simply take the [data] part of the route and place it into the correct place in the
+    // swagger spec "paths" location.
+    addSwaggerOperation(swagger, route.path, swaggerMethod(route.method), route.data);
 }
 
 function swaggerMethod(method: Method): string {
