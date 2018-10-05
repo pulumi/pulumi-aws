@@ -400,7 +400,7 @@ function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string,
 }
 
 function checkRoute<TRoute>(route: TRoute, propName: keyof TRoute, opts: pulumi.ResourceOptions) {
-    if (!route[propName]) {
+    if (route[propName] === undefined) {
         throw new pulumi.ResourceError(`Route missing required [${propName}] property`, opts.parent);
     }
 }
