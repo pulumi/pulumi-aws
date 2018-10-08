@@ -138,13 +138,13 @@ export type CallbackFactory<E, R> = () => Callback<E, R>;
 export type EventHandler<E, R> = Callback<E, R> | LambdaFunction;
 
 /**
- * CallbackFunctionArgs provides configuration options for the serverless Function.  It is
+ * BaseCallbackFunctionArgs provides configuration options for the serverless Function.  It is
  * effectively equivalent to [aws.lambda.FunctionArgs] except with a few important differences
  * documented at the property level.  For example, [role] is an actual iam.Role instance, and not an
  * ARN. Properties like [runtime] are now optional.  And some properties (like [code]) are entirely
  * disallowed.
  */
-export type CallbackFunctionArgs<E, R> = utils.Overwrite<FunctionArgs, {
+export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     /**
      * Not allowed when creating an aws.serverless.Function.  The [code] will be generated from the
      * passed in JavaScript callback.
@@ -156,24 +156,6 @@ export type CallbackFunctionArgs<E, R> = utils.Overwrite<FunctionArgs, {
      * passed in JavaScript callback.
      */
     handler?: never;
-
-    /**
-     * The Javascript callback to use as the entrypoint for the AWS Lambda out of.  Either
-     * [callback] or [callbackFactory] must be provided.
-     */
-    callback?: Callback<E, R>;
-
-    /**
-     * The Javascript function instance that will be called to produce the callback function that is
-     * the entrypoint for the AWS Lambda. Either [callback] or [callbackFactory] must be
-     * provided.
-     *
-     * This form is useful when there is expensive initialization work that should only be executed
-     * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
-     * It can run whatever code it needs, and will end by returning the actual function that Lambda
-     * will call into each time the Lambda is invoked.
-     */
-    callbackFactory?: CallbackFactory<E, R>;
 
     /**
      * A pre-created role to use for the Function. If not provided, [policies] will be used.
@@ -198,6 +180,33 @@ export type CallbackFunctionArgs<E, R> = utils.Overwrite<FunctionArgs, {
      */
     codePathOptions?: pulumi.runtime.CodePathOptions;
 }>;
+
+/**
+ * CallbackFunctionArgs provides configuration options for the serverless Function.  It is
+ * effectively equivalent to [aws.lambda.FunctionArgs] except with a few important differences
+ * documented at the property level.  For example, [role] is an actual iam.Role instance, and not an
+ * ARN. Properties like [runtime] are now optional.  And some properties (like [code]) are entirely
+ * disallowed.
+ */
+export interface CallbackFunctionArgs<E, R> extends BaseCallbackFunctionArgs {
+    /**
+     * The Javascript callback to use as the entrypoint for the AWS Lambda out of.  Either
+     * [callback] or [callbackFactory] must be provided.
+     */
+    callback?: Callback<E, R>;
+
+    /**
+     * The Javascript function instance that will be called to produce the callback function that is
+     * the entrypoint for the AWS Lambda. Either [callback] or [callbackFactory] must be
+     * provided.
+     *
+     * This form is useful when there is expensive initialization work that should only be executed
+     * once.  The factory-function will be invoked once when the final AWS Lambda module is loaded.
+     * It can run whatever code it needs, and will end by returning the actual function that Lambda
+     * will call into each time the Lambda is invoked.
+     */
+    callbackFactory?: CallbackFactory<E, R>;
+};
 
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some
