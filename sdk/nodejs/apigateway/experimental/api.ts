@@ -367,6 +367,12 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
     };
 
     // Now add all the routes to it.
+
+    // For static routes, we'll end up creating a bucket to store all the data.  We only want to do
+    // this once.  So have a value here that can be lazily initialized the first route we hit, which
+    // can then be used for all successive static routes.
+    let staticRouteBucket: aws.s3.Bucket;
+
     for (const route of routes) {
         checkRoute(route, "path", opts);
 
@@ -374,7 +380,7 @@ function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: R
             addEventHandlerRouteToSwaggerSpec(name, swagger, route, opts);
         }
         else if (isStaticRoute(route)) {
-            addStaticRouteToSwaggerSpec(name, swagger, route, opts);
+            staticRouteBucket = addStaticRouteToSwaggerSpec(name, swagger, route, opts, staticRouteBucket);
         }
         else if (isProxyRoute(route)) {
             addProxyRouteToSwaggerSpec(name, swagger, route, opts);
@@ -436,14 +442,15 @@ function addEventHandlerRouteToSwaggerSpec(
 }
 
 function addStaticRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: StaticRoute, opts: pulumi.ResourceOptions) {
+    name: string, swagger: SwaggerSpec, route: StaticRoute,
+    opts: pulumi.ResourceOptions, bucket: aws.s3.Bucket | undefined) {
 
     checkRoute(route, "localPath", opts);
 
     const method = swaggerMethod("GET");
 
     // Create a bucket to place all the static data under.
-    const bucket = new aws.s3.Bucket(safeS3BucketName(name), undefined, opts);
+    bucket = bucket || new aws.s3.Bucket(safeS3BucketName(name), undefined, opts);
 
     // For each static file, just make a simple bucket object to hold it, and create a swagger path
     // that routes from the file path to the arn for the bucket object.
@@ -458,7 +465,7 @@ function addStaticRouteToSwaggerSpec(
         processDirectory(route);
     }
 
-    return;
+    return bucket;
 
     function createRole(key: string) {
         // Create a role and attach it so that this route can access the AWS bucket.
