@@ -4,3 +4,6 @@
 Pulumi.*.yaml
 
 **/command-output/
+
+.idea/
+*.iml
