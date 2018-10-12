@@ -527,6 +527,7 @@
         "s3/bucketNotification.ts",
         "s3/bucketObject.ts",
         "s3/bucketPolicy.ts",
+        "s3/cannedAcl.ts",
         "s3/getBucket.ts",
         "s3/getBucketObject.ts",
         "s3/index.ts",

@@ -1621,6 +1621,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket": {
 				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"acl": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(s3Mod+"/cannedAcl", "CannedAcl")},
+					},
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
@@ -2019,6 +2023,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"s3": {
 						DestFiles: []string{
+							"cannedAcl.ts", // a union type and constants for canned ACL names.
 							"s3Mixins.ts",
 						},
 					},

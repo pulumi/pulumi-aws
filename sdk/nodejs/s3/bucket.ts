@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {Tags} from "../index";
+import {CannedAcl} from "./cannedAcl";
 
 /**
  * Provides a S3 bucket resource.
@@ -188,7 +189,7 @@ export interface BucketState {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string>;
+    readonly acl?: pulumi.Input<string | CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -285,7 +286,7 @@ export interface BucketArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string>;
+    readonly acl?: pulumi.Input<string | CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
