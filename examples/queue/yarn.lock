@@ -55,7 +55,23 @@
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
-"@pulumi/pulumi@^0.16.0-rc1", "@pulumi/pulumi@dev":
+"@pulumi/pulumi@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.16.0.tgz#8c199cadffe93d5407bfbf19fbe1e41a39b01bcc"
+  dependencies:
+    google-protobuf "^3.5.0"
+    grpc "^1.12.2"
+    minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
+    protobufjs "^6.8.6"
+    read-package-tree "^5.2.1"
+    require-from-string "^2.0.1"
+    source-map-support "^0.4.16"
+    ts-node "^7.0.0"
+    typescript "^3.0.0"
+    upath "^1.1.0"
+
+"@pulumi/pulumi@dev":
   version "0.16.0-rc1"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.16.0-rc1.tgz#8e53c1b5b4d914738544a9ca164e4a38bedb6f2f"
   dependencies:
