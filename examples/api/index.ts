@@ -56,6 +56,12 @@ const api = new aws.apigateway.x.API("myapi", {
         path: "/b",
         method: "GET",
         eventHandler: lambda,
+    }, {
+        path: "/www",
+        localPath: "www"
+    }, {
+        path: "/www_old",
+        localPath: "www"
     }],
 });
 

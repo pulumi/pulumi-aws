@@ -112,13 +112,23 @@ export interface Context {
 /**
  * Callback is the signature for an AWS Lambda function entrypoint.
  *
+ * [event] is the data passed in by specific services calling the Lambda (like s3, or kinesis).  The
+ * shape of it will be specific to individual services.
+ *
+ * [context] AWS Lambda uses this parameter to provide details of your Lambda function's execution.
+ * For more information, see
+ * https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html
+ *
+ * [callback] See https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html#nodejs-prog-model-handler-callback
+ * for details.
+ *
  * This function can be synchronous or asynchronous function, though async is only supported with an
  * AWS Lambda runtime of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
  * parameter can be ignored, and AWS will appropriately handle things. For AWS lambda pre-8.10, a
  * synchronous function must be provided.  The synchronous function should return nothing, and
  * should instead invoke 'callback' when complete.
  */
-export type Callback<E, R> = (event: E, context: Context, callback: (error: any, result: R) => void) => Promise<R> | void;
+export type Callback<E, R> = (event: E, context: Context, callback: (error?: any, result?: R) => void) => Promise<R> | void;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the
