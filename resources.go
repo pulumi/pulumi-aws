@@ -2011,6 +2011,11 @@ func Provider() tfbridge.ProviderInfo {
 							"principals.ts",      // Pre-defined objects representing Service Principals
 						},
 					},
+					"kinesis": {
+						DestFiles: []string{
+							"kinesisMixins.ts",
+						},
+					},
 					"lambda": {
 						DestFiles: []string{
 							"runtimes.ts", // a union type and constants for available Lambda runtimes.

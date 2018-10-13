@@ -421,6 +421,7 @@
         "kinesis/firehoseDeliveryStream.ts",
         "kinesis/getStream.ts",
         "kinesis/index.ts",
+        "kinesis/kinesisMixins.ts",
         "kinesis/stream.ts",
         "kms/alias.ts",
         "kms/getAlias.ts",

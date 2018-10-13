@@ -4,4 +4,5 @@
 // Export members:
 export * from "./firehoseDeliveryStream";
 export * from "./getStream";
+export * from "./kinesisMixins";
 export * from "./stream";
