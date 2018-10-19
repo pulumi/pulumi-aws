@@ -8,9 +8,41 @@ import * as utilities from "../utilities";
  * Retrieve information about an EKS Cluster.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    return pulumi.runtime.invoke("aws:eks/getCluster:getCluster", {
+    const cluster = pulumi.runtime.invoke("aws:eks/getCluster:getCluster", {
         "name": args.name,
     }, opts);
+
+    cluster.kubeConfig = {
+        apiVersion: "v1",
+        clusters: [{
+            cluster: {
+                server: cluster.endpoint,
+                "certificate-authority-data": cluster.certificateAuthority.data,
+            },
+            name: "kubernetes",
+        }],
+        contexts: [{
+            context: {
+                cluster: "kubernetes",
+                user: "aws",
+            },
+            name: "aws",
+        }],
+        "current-context": "aws",
+        kind: "Config",
+        users: [{
+            name: "aws",
+            user: {
+                exec: {
+                    apiVersion: "client.authentication.k8s.io/v1alpha1",
+                    command: "aws-iam-authenticator",
+                    args: ["token", "-i", args.name],
+                },
+            },
+        }],
+    };
+
+    return cluster;
 }
 
 /**
@@ -63,4 +95,8 @@ export interface GetClusterResult {
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * kubeconfig A kubeconfig that can be used to connect to the EKS cluster.
+     */
+    readonly kubeConfig: string;
 }
