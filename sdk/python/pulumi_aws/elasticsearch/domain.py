@@ -7,7 +7,7 @@ import pulumi.runtime
 from .. import utilities
 
 class Domain(pulumi.CustomResource):
-    def __init__(__self__, __name__, __opts__=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, __name__, __opts__=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None):
         """Create a Domain resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -90,6 +90,14 @@ class Domain(pulumi.CustomResource):
         """
         __props__['logPublishingOptions'] = log_publishing_options
 
+        if node_to_node_encryption and not isinstance(node_to_node_encryption, dict):
+            raise TypeError('Expected property node_to_node_encryption to be a dict')
+        __self__.node_to_node_encryption = node_to_node_encryption
+        """
+        Node-to-node encryption options. See below.
+        """
+        __props__['nodeToNodeEncryption'] = node_to_node_encryption
+
         if snapshot_options and not isinstance(snapshot_options, dict):
             raise TypeError('Expected property snapshot_options to be a dict')
         __self__.snapshot_options = snapshot_options
@@ -166,6 +174,8 @@ class Domain(pulumi.CustomResource):
             self.kibana_endpoint = outs['kibanaEndpoint']
         if 'logPublishingOptions' in outs:
             self.log_publishing_options = outs['logPublishingOptions']
+        if 'nodeToNodeEncryption' in outs:
+            self.node_to_node_encryption = outs['nodeToNodeEncryption']
         if 'snapshotOptions' in outs:
             self.snapshot_options = outs['snapshotOptions']
         if 'tags' in outs:

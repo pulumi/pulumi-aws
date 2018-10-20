@@ -43,6 +43,9 @@ class TopicSubscription(pulumi.CustomResource):
         if delivery_policy and not isinstance(delivery_policy, basestring):
             raise TypeError('Expected property delivery_policy to be a basestring')
         __self__.delivery_policy = delivery_policy
+        """
+        JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+        """
         __props__['deliveryPolicy'] = delivery_policy
 
         if not endpoint:
@@ -67,7 +70,7 @@ class TopicSubscription(pulumi.CustomResource):
             raise TypeError('Expected property filter_policy to be a basestring')
         __self__.filter_policy = filter_policy
         """
-        The text of a filter policy to the topic subscription.
+        JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         """
         __props__['filterPolicy'] = filter_policy
 

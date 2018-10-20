@@ -27,7 +27,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The policy document. This is a JSON formatted string.
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     public readonly policy: pulumi.Output<string>;
     /**
@@ -75,7 +75,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
  */
 export interface RepositoryPolicyState {
     /**
-     * The policy document. This is a JSON formatted string.
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy?: pulumi.Input<string>;
     /**
@@ -93,7 +93,7 @@ export interface RepositoryPolicyState {
  */
 export interface RepositoryPolicyArgs {
     /**
-     * The policy document. This is a JSON formatted string.
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy: pulumi.Input<string>;
     /**

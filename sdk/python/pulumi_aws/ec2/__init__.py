@@ -14,6 +14,7 @@ from default_security_group import *
 from default_subnet import *
 from default_vpc import *
 from default_vpc_dhcp_options import *
+from fleet import *
 from egress_only_internet_gateway import *
 from eip import *
 from eip_association import *
@@ -65,6 +66,7 @@ from get_instance import *
 from get_instances import *
 from get_internet_gateway import *
 from get_launch_configuration import *
+from get_launch_template import *
 from get_nat_gateway import *
 from get_network_acls import *
 from get_network_interface import *

@@ -21,15 +21,14 @@ func NewSecretVersion(ctx *pulumi.Context,
 	if args == nil || args.SecretId == nil {
 		return nil, errors.New("missing required argument 'SecretId'")
 	}
-	if args == nil || args.SecretString == nil {
-		return nil, errors.New("missing required argument 'SecretString'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["secretBinary"] = nil
 		inputs["secretId"] = nil
 		inputs["secretString"] = nil
 		inputs["versionStages"] = nil
 	} else {
+		inputs["secretBinary"] = args.SecretBinary
 		inputs["secretId"] = args.SecretId
 		inputs["secretString"] = args.SecretString
 		inputs["versionStages"] = args.VersionStages
@@ -50,6 +49,7 @@ func GetSecretVersion(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["secretBinary"] = state.SecretBinary
 		inputs["secretId"] = state.SecretId
 		inputs["secretString"] = state.SecretString
 		inputs["versionId"] = state.VersionId
@@ -77,12 +77,17 @@ func (r *SecretVersion) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+func (r *SecretVersion) SecretBinary() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secretBinary"])
+}
+
 // Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 func (r *SecretVersion) SecretId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secretId"])
 }
 
-// Specifies text data that you want to encrypt and store in this version of the secret.
+// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
 func (r *SecretVersion) SecretString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secretString"])
 }
@@ -101,9 +106,11 @@ func (r *SecretVersion) VersionStages() *pulumi.ArrayOutput {
 type SecretVersionState struct {
 	// The ARN of the secret.
 	Arn interface{}
+	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+	SecretBinary interface{}
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 	SecretId interface{}
-	// Specifies text data that you want to encrypt and store in this version of the secret.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
 	SecretString interface{}
 	// The unique identifier of the version of the secret.
 	VersionId interface{}
@@ -113,9 +120,11 @@ type SecretVersionState struct {
 
 // The set of arguments for constructing a SecretVersion resource.
 type SecretVersionArgs struct {
+	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+	SecretBinary interface{}
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 	SecretId interface{}
-	// Specifies text data that you want to encrypt and store in this version of the secret.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
 	SecretString interface{}
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
 	VersionStages interface{}

@@ -48,7 +48,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "v1.15.41"
+  version = "v1.15.55"
   [override.metadata]
     govendor-overriden=true
 
@@ -174,7 +174,7 @@
 
 [[override]]
   name = "github.com/hashicorp/terraform"
-  version = "v0.11.8"
+  version = "v0.11.9-beta1"
   [override.metadata]
     govendor-overriden=true
 

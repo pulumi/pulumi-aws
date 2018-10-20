@@ -11,7 +11,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     instances to be requested on the Spot market.
     """
-    def __init__(__self__, __name__, __opts__=None, allocation_strategy=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None):
+    def __init__(__self__, __name__, __opts__=None, allocation_strategy=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, instance_pools_to_use_count=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None):
         """Create a SpotFleetRequest resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,7 +28,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         """
         Indicates how to allocate the target capacity across
         the Spot pools specified by the Spot fleet request. The default is
-        lowestPrice.
+        `lowestPrice`.
         """
         __props__['allocationStrategy'] = allocation_strategy
 
@@ -73,6 +73,18 @@ class SpotFleetRequest(pulumi.CustomResource):
         `terminate`.
         """
         __props__['instanceInterruptionBehaviour'] = instance_interruption_behaviour
+
+        if instance_pools_to_use_count and not isinstance(instance_pools_to_use_count, int):
+            raise TypeError('Expected property instance_pools_to_use_count to be a int')
+        __self__.instance_pools_to_use_count = instance_pools_to_use_count
+        """
+        
+        The number of Spot pools across which to allocate your target Spot capacity.
+        Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+        the cheapest Spot pools and evenly allocates your target Spot capacity across
+        the number of Spot pools that you specify.
+        """
+        __props__['instancePoolsToUseCount'] = instance_pools_to_use_count
 
         if not launch_specifications:
             raise TypeError('Missing required property launch_specifications')
@@ -191,6 +203,8 @@ class SpotFleetRequest(pulumi.CustomResource):
             self.iam_fleet_role = outs['iamFleetRole']
         if 'instanceInterruptionBehaviour' in outs:
             self.instance_interruption_behaviour = outs['instanceInterruptionBehaviour']
+        if 'instancePoolsToUseCount' in outs:
+            self.instance_pools_to_use_count = outs['instancePoolsToUseCount']
         if 'launchSpecifications' in outs:
             self.launch_specifications = outs['launchSpecifications']
         if 'loadBalancers' in outs:

@@ -32,6 +32,8 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
     an IAM policy document, for use with resources which expect policy documents,
     such as the `aws_iam_policy` resource.
     
+    -> For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+    
     ```hcl
     data "aws_iam_policy_document" "example" {
       statement {

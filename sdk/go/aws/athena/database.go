@@ -22,10 +22,12 @@ func NewDatabase(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["bucket"] = nil
+		inputs["encryptionConfiguration"] = nil
 		inputs["forceDestroy"] = nil
 		inputs["name"] = nil
 	} else {
 		inputs["bucket"] = args.Bucket
+		inputs["encryptionConfiguration"] = args.EncryptionConfiguration
 		inputs["forceDestroy"] = args.ForceDestroy
 		inputs["name"] = args.Name
 	}
@@ -43,6 +45,7 @@ func GetDatabase(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["bucket"] = state.Bucket
+		inputs["encryptionConfiguration"] = state.EncryptionConfiguration
 		inputs["forceDestroy"] = state.ForceDestroy
 		inputs["name"] = state.Name
 	}
@@ -68,6 +71,11 @@ func (r *Database) Bucket() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bucket"])
 }
 
+// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+func (r *Database) EncryptionConfiguration() *pulumi.Output {
+	return r.s.State["encryptionConfiguration"]
+}
+
 // A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
 func (r *Database) ForceDestroy() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
@@ -82,6 +90,8 @@ func (r *Database) Name() *pulumi.StringOutput {
 type DatabaseState struct {
 	// Name of s3 bucket to save the results of the query execution.
 	Bucket interface{}
+	// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+	EncryptionConfiguration interface{}
 	// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
 	ForceDestroy interface{}
 	// Name of the database to create.
@@ -92,6 +102,8 @@ type DatabaseState struct {
 type DatabaseArgs struct {
 	// Name of s3 bucket to save the results of the query execution.
 	Bucket interface{}
+	// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+	EncryptionConfiguration interface{}
 	// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
 	ForceDestroy interface{}
 	// Name of the database to create.

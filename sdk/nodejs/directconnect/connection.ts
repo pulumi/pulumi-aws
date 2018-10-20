@@ -31,6 +31,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly bandwidth: pulumi.Output<string>;
     /**
+     * Boolean value representing if jumbo frames have been enabled for this connection.
+     */
+    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
     public readonly location: pulumi.Output<string>;
@@ -57,6 +61,7 @@ export class Connection extends pulumi.CustomResource {
             const state: ConnectionState = argsOrState as ConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bandwidth"] = state ? state.bandwidth : undefined;
+            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -73,6 +78,7 @@ export class Connection extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["jumboFrameCapable"] = undefined /*out*/;
         }
         super("aws:directconnect/connection:Connection", name, inputs, opts);
     }
@@ -90,6 +96,10 @@ export interface ConnectionState {
      * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
     readonly bandwidth?: pulumi.Input<string>;
+    /**
+     * Boolean value representing if jumbo frames have been enabled for this connection.
+     */
+    readonly jumboFrameCapable?: pulumi.Input<boolean>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */

@@ -34,8 +34,7 @@ export class RolePolicy extends pulumi.CustomResource {
      */
     public readonly namePrefix: pulumi.Output<string | undefined>;
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here.
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     public readonly policy: pulumi.Output<string>;
     /**
@@ -91,8 +90,7 @@ export interface RolePolicyState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here.
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -116,8 +114,7 @@ export interface RolePolicyArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here.
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**

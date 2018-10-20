@@ -12,7 +12,7 @@ class SecretVersion(pulumi.CustomResource):
     
     ~> **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from Terraform unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from Terraform to fully trigger version deprecation if necessary.
     """
-    def __init__(__self__, __name__, __opts__=None, secret_id=None, secret_string=None, version_stages=None):
+    def __init__(__self__, __name__, __opts__=None, secret_binary=None, secret_id=None, secret_string=None, version_stages=None):
         """Create a SecretVersion resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -22,6 +22,14 @@ class SecretVersion(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if secret_binary and not isinstance(secret_binary, basestring):
+            raise TypeError('Expected property secret_binary to be a basestring')
+        __self__.secret_binary = secret_binary
+        """
+        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        """
+        __props__['secretBinary'] = secret_binary
 
         if not secret_id:
             raise TypeError('Missing required property secret_id')
@@ -33,13 +41,11 @@ class SecretVersion(pulumi.CustomResource):
         """
         __props__['secretId'] = secret_id
 
-        if not secret_string:
-            raise TypeError('Missing required property secret_string')
-        elif not isinstance(secret_string, basestring):
+        if secret_string and not isinstance(secret_string, basestring):
             raise TypeError('Expected property secret_string to be a basestring')
         __self__.secret_string = secret_string
         """
-        Specifies text data that you want to encrypt and store in this version of the secret.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
         """
         __props__['secretString'] = secret_string
 
@@ -69,6 +75,8 @@ class SecretVersion(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'arn' in outs:
             self.arn = outs['arn']
+        if 'secretBinary' in outs:
+            self.secret_binary = outs['secretBinary']
         if 'secretId' in outs:
             self.secret_id = outs['secretId']
         if 'secretString' in outs:

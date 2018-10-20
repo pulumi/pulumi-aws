@@ -47,6 +47,10 @@ export interface GetSecretResult {
     readonly kmsKeyId: string;
     readonly name: string;
     /**
+     * The resource-based policy document that's attached to the secret.
+     */
+    readonly policy: string;
+    /**
      * Whether rotation is enabled or not.
      */
     readonly rotationEnabled: boolean;

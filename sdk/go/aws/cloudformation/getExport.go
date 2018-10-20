@@ -29,7 +29,7 @@ func LookupExport(ctx *pulumi.Context, args *GetExportArgs) (*GetExportResult, e
 
 // A collection of arguments for invoking getExport.
 type GetExportArgs struct {
-	// The name of the cross stack reference
+	// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Name interface{}
 }
 

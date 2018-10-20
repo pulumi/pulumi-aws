@@ -95,7 +95,7 @@ class Broker(pulumi.CustomResource):
             raise TypeError('Expected property engine_version to be a basestring')
         __self__.engine_version = engine_version
         """
-        The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+        The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
         """
         __props__['engineVersion'] = engine_version
 
@@ -161,6 +161,7 @@ class Broker(pulumi.CustomResource):
         """
         A list of information about allocated brokers (both active & standby).
         * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+        * `instances.0.ip_address` - The IP Address of the broker.
         * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
         * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
         * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`

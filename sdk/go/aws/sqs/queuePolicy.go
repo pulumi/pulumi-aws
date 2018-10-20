@@ -64,7 +64,7 @@ func (r *QueuePolicy) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The JSON policy for the SQS queue
+// The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *QueuePolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -76,7 +76,7 @@ func (r *QueuePolicy) QueueUrl() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type QueuePolicyState struct {
-	// The JSON policy for the SQS queue
+	// The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl interface{}
@@ -84,7 +84,7 @@ type QueuePolicyState struct {
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	// The JSON policy for the SQS queue
+	// The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl interface{}

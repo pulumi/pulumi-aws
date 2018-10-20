@@ -35,9 +35,7 @@ class Policy(pulumi.CustomResource):
             raise TypeError('Expected property policy to be a basestring')
         __self__.policy = policy
         """
-        The policy document. This is a JSON formatted string.
-        The heredoc syntax or `file` function is helpful here. Use the [IoT Developer Guide]
-        (http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies
+        The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         """
         __props__['policy'] = policy
 

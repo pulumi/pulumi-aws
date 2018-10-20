@@ -70,7 +70,7 @@ func (r *TopicPolicy) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The fully-formed AWS policy as JSON
+// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -79,7 +79,7 @@ func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
 	Arn interface{}
-	// The fully-formed AWS policy as JSON
+	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }
 
@@ -87,6 +87,6 @@ type TopicPolicyState struct {
 type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn interface{}
-	// The fully-formed AWS policy as JSON
+	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }

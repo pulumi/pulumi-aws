@@ -45,6 +45,7 @@ const (
 	budgetsMod           = "budgets"                  // Budgets
 	cloud9Mod            = "cloud9"                   // Cloud9
 	cloudformationMod    = "cloudformation"           // Cloud Formation
+	cloudhsmv2Mod        = "cloudhsmv2"               // Cloud HSM
 	cloudfrontMod        = "cloudfront"               // Cloud Front
 	cloudtrailMod        = "cloudtrail"               // Cloud Trail
 	cloudwatchMod        = "cloudwatch"               // Cloud Watch
@@ -89,6 +90,7 @@ const (
 	neptuneMod           = "neptune"                  // Neptune
 	opsworksMod          = "opsworks"                 // OpsWorks
 	organizationsMod     = "organizations"            // Organizations
+	pinpointMod          = "pinpoint"                 // Pinpoint
 	pricingMod           = "pricing"                  // Pricing
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
@@ -107,6 +109,7 @@ const (
 	swfMod               = "swf"                      // Simple Workflow Service (SWF)
 	wafMod               = "waf"                      // Web Application Firewall (WAF)
 	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
+	workspacesMod        = "workspaces"               // Workspaces
 )
 
 // awsMember manufactures a type token for the AWS package and the given module and type.
@@ -458,6 +461,9 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			// CloudHSM
+			"aws_cloudhsm_v2_cluster": {Tok: awsResource(cloudhsmv2Mod, "Cluster")},
+			"aws_cloudhsm_v2_hsm":     {Tok: awsResource(cloudhsmv2Mod, "Hsm")},
 			// CloudFront
 			"aws_cloudfront_distribution": {
 				Tok: awsResource(cloudfrontMod, "Distribution"),
@@ -561,7 +567,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodePipeline
-			"aws_codepipeline": {Tok: awsResource(codepipelineMod, "Pipeline")},
+			"aws_codepipeline":         {Tok: awsResource(codepipelineMod, "Pipeline")},
+			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
 			// Cognito
 			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},
 			"aws_cognito_identity_pool_roles_attachment": {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
@@ -705,6 +712,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Block Store
 			"aws_ebs_snapshot": {
 				Tok: awsResource(ebsMod, "Snapshot"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ebs_snapshot_copy": {
+				Tok: awsResource(ebsMod, "SnapshotCopy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
@@ -891,6 +904,12 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_ec2_fleet": {
+				Tok: awsResource(ec2Mod, "Fleet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
 			"aws_security_group": {
 				Tok: awsResource(ec2Mod, "SecurityGroup"),
@@ -1065,6 +1084,15 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "lb_listener.html.markdown",
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Force this to be projected as a singleton for backward compatibility and to continue to match
+					// `aws_lb_listener`.  Both of these are wrong though, and the MaxItemsOne overrride should be
+					// removed.  This will be a breaking change, so leaving as is for now.
+					"default_action": {
+						Name:        "defaultAction",
+						MaxItemsOne: boolRef(true),
+					},
+				},
 			},
 			"aws_alb_listener_certificate": {
 				Tok: awsResource(albMod, "ListenerCertificate"),
@@ -1100,6 +1128,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lb_listener": {
 				Tok: awsResource(elbv2Mod, "Listener"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					// This is wrong, but leaving as is for now for backward compatibility.  When a breaking change is
+					// acceptable we should remove this and project this property as `default_actions`.
 					"default_action": {
 						Name:        "defaultAction",
 						MaxItemsOne: boolRef(true),
@@ -1414,7 +1444,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
 			"aws_neptune_cluster_snapshot":        {Tok: awsResource(neptuneMod, "ClusterSnapshot")},
 			"aws_neptune_event_subscription":      {Tok: awsResource(neptuneMod, "EventSubscription")},
-
 			"aws_neptune_parameter_group": {
 				Tok: awsResource(neptuneMod, "ParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1454,6 +1483,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_organization":      {Tok: awsResource(organizationsMod, "Organization")},
 			"aws_organizations_policy":            {Tok: awsResource(organizationsMod, "Policy")},
 			"aws_organizations_policy_attachment": {Tok: awsResource(organizationsMod, "PolicyAttachment")},
+			// Pinpoint
+			"aws_pinpoint_adm_channel":   {Tok: awsResource(pinpointMod, "AdmChannel")},
+			"aws_pinpoint_apns_channel":  {Tok: awsResource(pinpointMod, "ApnsChannel")},
+			"aws_pinpoint_app":           {Tok: awsResource(pinpointMod, "App")},
+			"aws_pinpoint_baidu_channel": {Tok: awsResource(pinpointMod, "BaiduChannel")},
+			"aws_pinpoint_email_channel": {Tok: awsResource(pinpointMod, "EmailChannel")},
+			"aws_pinpoint_event_stream":  {Tok: awsResource(pinpointMod, "EventStream")},
+			"aws_pinpoint_gcm_channel":   {Tok: awsResource(pinpointMod, "GcmChannel")},
+			"aws_pinpoint_sms_channel":   {Tok: awsResource(pinpointMod, "SmsChannel")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster": {
 				Tok: awsResource(rdsMod, "Cluster"),
@@ -1545,14 +1583,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			"aws_redshift_security_group": {
-				Tok: awsResource(redshiftMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-				},
-			},
+			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
 			"aws_redshift_parameter_group": {
 				Tok: awsResource(redshiftMod, "ParameterGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1561,6 +1592,15 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_redshift_security_group": {
+				Tok: awsResource(redshiftMod, "SecurityGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {Default: managedByPulumi},
+					// Use "ingress" instead of "ingresses" to match AWS APIs
+					"ingress": {Name: "ingress"},
+				},
+			},
+			"aws_redshift_snapshot_copy_grant": {Tok: awsResource(redshiftMod, "SnapshotCopyGrant")},
 			"aws_redshift_subnet_group": {
 				Tok: awsResource(redshiftMod, "SubnetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1801,6 +1841,8 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudFormation
 			"aws_cloudformation_stack":  {Tok: awsDataSource(cloudformationMod, "getStack")},
 			"aws_cloudformation_export": {Tok: awsDataSource(cloudformationMod, "getExport")},
+			// CloudHSM
+			"aws_cloudhsm_v2_cluster": {Tok: awsDataSource(cloudhsmv2Mod, "getCluster")},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
@@ -1825,6 +1867,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_instances":              {Tok: awsDataSource(ec2Mod, "getInstances")},
 			"aws_internet_gateway":       {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
 			"aws_launch_configuration":   {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
+			"aws_launch_template":        {Tok: awsDataSource(ec2Mod, "getLaunchTemplate")},
 			"aws_nat_gateway":            {Tok: awsDataSource(ec2Mod, "getNatGateway")},
 			"aws_network_acls":           {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
 			"aws_network_interface":      {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
@@ -1948,6 +1991,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
+			// Workspaces
+			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

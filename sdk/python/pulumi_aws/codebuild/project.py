@@ -101,7 +101,7 @@ class Project(pulumi.CustomResource):
             raise TypeError('Expected property secondary_sources to be a list')
         __self__.secondary_sources = secondary_sources
         """
-        A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+        A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
         """
         __props__['secondarySources'] = secondary_sources
 

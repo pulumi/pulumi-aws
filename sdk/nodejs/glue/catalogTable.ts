@@ -41,7 +41,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly owner: pulumi.Output<string | undefined>;
     /**
-     * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+     * A map of initialization parameters for the SerDe, in key-value form.
      */
     public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface CatalogTableState {
      */
     readonly owner?: pulumi.Input<string>;
     /**
-     * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+     * A map of initialization parameters for the SerDe, in key-value form.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -194,7 +194,7 @@ export interface CatalogTableArgs {
      */
     readonly owner?: pulumi.Input<string>;
     /**
-     * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+     * A map of initialization parameters for the SerDe, in key-value form.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

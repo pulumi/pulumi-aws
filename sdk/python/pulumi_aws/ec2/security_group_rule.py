@@ -17,6 +17,8 @@ class SecurityGroupRule(pulumi.CustomResource):
     defined in-line. At this time you cannot use a Security Group with in-line rules
     in conjunction with any Security Group Rule resources. Doing so will cause
     a conflict of rule settings and will overwrite rules.
+    
+    ~> **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by Terraform and may generate warnings in the future.
     """
     def __init__(__self__, __name__, __opts__=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None):
         """Create a SecurityGroupRule resource with the given unique name, props, and options."""

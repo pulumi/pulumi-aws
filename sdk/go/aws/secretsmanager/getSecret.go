@@ -23,6 +23,7 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 		Description: outputs["description"],
 		KmsKeyId: outputs["kmsKeyId"],
 		Name: outputs["name"],
+		Policy: outputs["policy"],
 		RotationEnabled: outputs["rotationEnabled"],
 		RotationLambdaArn: outputs["rotationLambdaArn"],
 		RotationRules: outputs["rotationRules"],
@@ -48,6 +49,8 @@ type GetSecretResult struct {
 	// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId interface{}
 	Name interface{}
+	// The resource-based policy document that's attached to the secret.
+	Policy interface{}
 	// Whether rotation is enabled or not.
 	RotationEnabled interface{}
 	// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.

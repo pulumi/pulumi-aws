@@ -28,6 +28,7 @@ func NewDataSource(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["dynamodbConfig"] = nil
 		inputs["elasticsearchConfig"] = nil
+		inputs["httpConfig"] = nil
 		inputs["lambdaConfig"] = nil
 		inputs["name"] = nil
 		inputs["serviceRoleArn"] = nil
@@ -37,6 +38,7 @@ func NewDataSource(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["dynamodbConfig"] = args.DynamodbConfig
 		inputs["elasticsearchConfig"] = args.ElasticsearchConfig
+		inputs["httpConfig"] = args.HttpConfig
 		inputs["lambdaConfig"] = args.LambdaConfig
 		inputs["name"] = args.Name
 		inputs["serviceRoleArn"] = args.ServiceRoleArn
@@ -61,6 +63,7 @@ func GetDataSource(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["dynamodbConfig"] = state.DynamodbConfig
 		inputs["elasticsearchConfig"] = state.ElasticsearchConfig
+		inputs["httpConfig"] = state.HttpConfig
 		inputs["lambdaConfig"] = state.LambdaConfig
 		inputs["name"] = state.Name
 		inputs["serviceRoleArn"] = state.ServiceRoleArn
@@ -108,6 +111,11 @@ func (r *DataSource) ElasticsearchConfig() *pulumi.Output {
 	return r.s.State["elasticsearchConfig"]
 }
 
+// HTTP settings. See below
+func (r *DataSource) HttpConfig() *pulumi.Output {
+	return r.s.State["httpConfig"]
+}
+
 // AWS Lambda settings. See below
 func (r *DataSource) LambdaConfig() *pulumi.Output {
 	return r.s.State["lambdaConfig"]
@@ -123,7 +131,7 @@ func (r *DataSource) ServiceRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
 
-// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
 func (r *DataSource) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -140,13 +148,15 @@ type DataSourceState struct {
 	DynamodbConfig interface{}
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig interface{}
+	// HTTP settings. See below
+	HttpConfig interface{}
 	// AWS Lambda settings. See below
 	LambdaConfig interface{}
 	// A user-supplied name for the DataSource.
 	Name interface{}
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn interface{}
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
 	Type interface{}
 }
 
@@ -160,12 +170,14 @@ type DataSourceArgs struct {
 	DynamodbConfig interface{}
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig interface{}
+	// HTTP settings. See below
+	HttpConfig interface{}
 	// AWS Lambda settings. See below
 	LambdaConfig interface{}
 	// A user-supplied name for the DataSource.
 	Name interface{}
 	// The IAM service role ARN for the data source.
 	ServiceRoleArn interface{}
-	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
 	Type interface{}
 }

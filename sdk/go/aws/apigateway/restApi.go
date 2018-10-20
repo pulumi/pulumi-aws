@@ -127,7 +127,7 @@ func (r *RestApi) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// JSON formatted policy document that controls access to the API Gateway
+// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 func (r *RestApi) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -159,7 +159,7 @@ type RestApiState struct {
 	MinimumCompressionSize interface{}
 	// The name of the REST API
 	Name interface{}
-	// JSON formatted policy document that controls access to the API Gateway
+	// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 	Policy interface{}
 	// The resource ID of the REST API's root
 	RootResourceId interface{}
@@ -181,6 +181,6 @@ type RestApiArgs struct {
 	MinimumCompressionSize interface{}
 	// The name of the REST API
 	Name interface{}
-	// JSON formatted policy document that controls access to the API Gateway
+	// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 	Policy interface{}
 }

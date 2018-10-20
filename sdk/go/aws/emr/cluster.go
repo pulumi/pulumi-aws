@@ -143,7 +143,7 @@ func (r *Cluster) AdditionalInfo() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["additionalInfo"])
 }
 
-// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 func (r *Cluster) Applications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["applications"])
 }
@@ -279,7 +279,7 @@ func (r *Cluster) VisibleToAllUsers() *pulumi.BoolOutput {
 type ClusterState struct {
 	// A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform.
 	AdditionalInfo interface{}
-	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications interface{}
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole interface{}
@@ -339,7 +339,7 @@ type ClusterState struct {
 type ClusterArgs struct {
 	// A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform.
 	AdditionalInfo interface{}
-	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications interface{}
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole interface{}

@@ -24,7 +24,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * Indicates how to allocate the target capacity across
      * the Spot pools specified by the Spot fleet request. The default is
-     * lowestPrice.
+     * `lowestPrice`.
      */
     public readonly allocationStrategy: pulumi.Output<string | undefined>;
     public /*out*/ readonly clientToken: pulumi.Output<string>;
@@ -52,6 +52,14 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * `terminate`.
      */
     public readonly instanceInterruptionBehaviour: pulumi.Output<string | undefined>;
+    /**
+     * 
+     * The number of Spot pools across which to allocate your target Spot capacity.
+     * Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+     * the cheapest Spot pools and evenly allocates your target Spot capacity across
+     * the number of Spot pools that you specify.
+     */
+    public readonly instancePoolsToUseCount: pulumi.Output<number | undefined>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
@@ -123,6 +131,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["fleetType"] = state ? state.fleetType : undefined;
             inputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
             inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
+            inputs["instancePoolsToUseCount"] = state ? state.instancePoolsToUseCount : undefined;
             inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
@@ -150,6 +159,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["fleetType"] = args ? args.fleetType : undefined;
             inputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
             inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
+            inputs["instancePoolsToUseCount"] = args ? args.instancePoolsToUseCount : undefined;
             inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
@@ -174,7 +184,7 @@ export interface SpotFleetRequestState {
     /**
      * Indicates how to allocate the target capacity across
      * the Spot pools specified by the Spot fleet request. The default is
-     * lowestPrice.
+     * `lowestPrice`.
      */
     readonly allocationStrategy?: pulumi.Input<string>;
     readonly clientToken?: pulumi.Input<string>;
@@ -202,6 +212,14 @@ export interface SpotFleetRequestState {
      * `terminate`.
      */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
+    /**
+     * 
+     * The number of Spot pools across which to allocate your target Spot capacity.
+     * Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+     * the cheapest Spot pools and evenly allocates your target Spot capacity across
+     * the number of Spot pools that you specify.
+     */
+    readonly instancePoolsToUseCount?: pulumi.Input<number>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
@@ -263,7 +281,7 @@ export interface SpotFleetRequestArgs {
     /**
      * Indicates how to allocate the target capacity across
      * the Spot pools specified by the Spot fleet request. The default is
-     * lowestPrice.
+     * `lowestPrice`.
      */
     readonly allocationStrategy?: pulumi.Input<string>;
     /**
@@ -290,6 +308,14 @@ export interface SpotFleetRequestArgs {
      * `terminate`.
      */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
+    /**
+     * 
+     * The number of Spot pools across which to allocate your target Spot capacity.
+     * Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+     * the cheapest Spot pools and evenly allocates your target Spot capacity across
+     * the number of Spot pools that you specify.
+     */
+    readonly instancePoolsToUseCount?: pulumi.Input<number>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids

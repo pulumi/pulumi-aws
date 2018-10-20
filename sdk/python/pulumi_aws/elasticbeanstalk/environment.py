@@ -15,7 +15,7 @@ class Environment(pulumi.CustomResource):
     Environments are often things such as `development`, `integration`, or
     `production`.
     """
-    def __init__(__self__, __name__, __opts__=None, application=None, cname_prefix=None, description=None, name=None, poll_interval=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, version=None, wait_for_ready_timeout=None):
+    def __init__(__self__, __name__, __opts__=None, application=None, cname_prefix=None, description=None, name=None, platform_arn=None, poll_interval=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, version=None, wait_for_ready_timeout=None):
         """Create a Environment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -62,6 +62,15 @@ class Environment(pulumi.CustomResource):
         in the application URL
         """
         __props__['name'] = name
+
+        if platform_arn and not isinstance(platform_arn, basestring):
+            raise TypeError('Expected property platform_arn to be a basestring')
+        __self__.platform_arn = platform_arn
+        """
+        The [ARN][2] of the Elastic Beanstalk [Platform][3]
+        to use in deployment
+        """
+        __props__['platformArn'] = platform_arn
 
         if poll_interval and not isinstance(poll_interval, basestring):
             raise TypeError('Expected property poll_interval to be a basestring')
@@ -204,6 +213,8 @@ class Environment(pulumi.CustomResource):
             self.load_balancers = outs['loadBalancers']
         if 'name' in outs:
             self.name = outs['name']
+        if 'platformArn' in outs:
+            self.platform_arn = outs['platformArn']
         if 'pollInterval' in outs:
             self.poll_interval = outs['pollInterval']
         if 'queues' in outs:
