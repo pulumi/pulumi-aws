@@ -35,6 +35,7 @@ func NewConnection(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
+	inputs["jumboFrameCapable"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -50,6 +51,7 @@ func GetConnection(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["bandwidth"] = state.Bandwidth
+		inputs["jumboFrameCapable"] = state.JumboFrameCapable
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["tags"] = state.Tags
@@ -81,6 +83,11 @@ func (r *Connection) Bandwidth() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bandwidth"])
 }
 
+// Boolean value representing if jumbo frames have been enabled for this connection.
+func (r *Connection) JumboFrameCapable() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+}
+
 // The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 func (r *Connection) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -102,6 +109,8 @@ type ConnectionState struct {
 	Arn interface{}
 	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
 	Bandwidth interface{}
+	// Boolean value representing if jumbo frames have been enabled for this connection.
+	JumboFrameCapable interface{}
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location interface{}
 	// The name of the connection.

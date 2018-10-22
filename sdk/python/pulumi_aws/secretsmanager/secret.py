@@ -49,7 +49,7 @@ class Secret(pulumi.CustomResource):
             raise TypeError('Expected property policy to be a basestring')
         __self__.policy = policy
         """
-        A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         """
         __props__['policy'] = policy
 

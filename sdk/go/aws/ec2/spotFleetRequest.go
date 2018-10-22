@@ -33,6 +33,7 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 		inputs["fleetType"] = nil
 		inputs["iamFleetRole"] = nil
 		inputs["instanceInterruptionBehaviour"] = nil
+		inputs["instancePoolsToUseCount"] = nil
 		inputs["launchSpecifications"] = nil
 		inputs["loadBalancers"] = nil
 		inputs["replaceUnhealthyInstances"] = nil
@@ -49,6 +50,7 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 		inputs["fleetType"] = args.FleetType
 		inputs["iamFleetRole"] = args.IamFleetRole
 		inputs["instanceInterruptionBehaviour"] = args.InstanceInterruptionBehaviour
+		inputs["instancePoolsToUseCount"] = args.InstancePoolsToUseCount
 		inputs["launchSpecifications"] = args.LaunchSpecifications
 		inputs["loadBalancers"] = args.LoadBalancers
 		inputs["replaceUnhealthyInstances"] = args.ReplaceUnhealthyInstances
@@ -81,6 +83,7 @@ func GetSpotFleetRequest(ctx *pulumi.Context,
 		inputs["fleetType"] = state.FleetType
 		inputs["iamFleetRole"] = state.IamFleetRole
 		inputs["instanceInterruptionBehaviour"] = state.InstanceInterruptionBehaviour
+		inputs["instancePoolsToUseCount"] = state.InstancePoolsToUseCount
 		inputs["launchSpecifications"] = state.LaunchSpecifications
 		inputs["loadBalancers"] = state.LoadBalancers
 		inputs["replaceUnhealthyInstances"] = state.ReplaceUnhealthyInstances
@@ -112,7 +115,7 @@ func (r *SpotFleetRequest) ID() *pulumi.IDOutput {
 
 // Indicates how to allocate the target capacity across
 // the Spot pools specified by the Spot fleet request. The default is
-// lowestPrice.
+// `lowestPrice`.
 func (r *SpotFleetRequest) AllocationStrategy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["allocationStrategy"])
 }
@@ -147,6 +150,15 @@ func (r *SpotFleetRequest) IamFleetRole() *pulumi.StringOutput {
 // `terminate`.
 func (r *SpotFleetRequest) InstanceInterruptionBehaviour() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceInterruptionBehaviour"])
+}
+
+// 
+// The number of Spot pools across which to allocate your target Spot capacity.
+// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+// the cheapest Spot pools and evenly allocates your target Spot capacity across
+// the number of Spot pools that you specify.
+func (r *SpotFleetRequest) InstancePoolsToUseCount() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["instancePoolsToUseCount"])
 }
 
 // Used to define the launch configuration of the
@@ -216,7 +228,7 @@ func (r *SpotFleetRequest) WaitForFulfillment() *pulumi.BoolOutput {
 type SpotFleetRequestState struct {
 	// Indicates how to allocate the target capacity across
 	// the Spot pools specified by the Spot fleet request. The default is
-	// lowestPrice.
+	// `lowestPrice`.
 	AllocationStrategy interface{}
 	ClientToken interface{}
 	// Indicates whether running Spot
@@ -235,6 +247,12 @@ type SpotFleetRequestState struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour interface{}
+	// 
+	// The number of Spot pools across which to allocate your target Spot capacity.
+	// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+	// the cheapest Spot pools and evenly allocates your target Spot capacity across
+	// the number of Spot pools that you specify.
+	InstancePoolsToUseCount interface{}
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types.
@@ -271,7 +289,7 @@ type SpotFleetRequestState struct {
 type SpotFleetRequestArgs struct {
 	// Indicates how to allocate the target capacity across
 	// the Spot pools specified by the Spot fleet request. The default is
-	// lowestPrice.
+	// `lowestPrice`.
 	AllocationStrategy interface{}
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
@@ -289,6 +307,12 @@ type SpotFleetRequestArgs struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour interface{}
+	// 
+	// The number of Spot pools across which to allocate your target Spot capacity.
+	// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+	// the cheapest Spot pools and evenly allocates your target Spot capacity across
+	// the number of Spot pools that you specify.
+	InstancePoolsToUseCount interface{}
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types.

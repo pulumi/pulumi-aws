@@ -10,12 +10,18 @@ class GetSecretVersionResult(object):
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, arn=None, secret_string=None, version_id=None, version_stages=None, id=None):
+    def __init__(__self__, arn=None, secret_binary=None, secret_string=None, version_id=None, version_stages=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
         """
         The ARN of the secret.
+        """
+        if secret_binary and not isinstance(secret_binary, basestring):
+            raise TypeError('Expected argument secret_binary to be a basestring')
+        __self__.secret_binary = secret_binary
+        """
+        The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         """
         if secret_string and not isinstance(secret_string, basestring):
             raise TypeError('Expected argument secret_string to be a basestring')
@@ -52,6 +58,7 @@ def get_secret_version(secret_id=None, version_id=None, version_stage=None):
 
     return GetSecretVersionResult(
         arn=__ret__.get('arn'),
+        secret_binary=__ret__.get('secretBinary'),
         secret_string=__ret__.get('secretString'),
         version_id=__ret__.get('versionId'),
         version_stages=__ret__.get('versionStages'),

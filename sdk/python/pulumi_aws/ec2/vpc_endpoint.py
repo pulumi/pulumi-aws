@@ -40,8 +40,7 @@ class VpcEndpoint(pulumi.CustomResource):
             raise TypeError('Expected property policy to be a basestring')
         __self__.policy = policy
         """
-        A policy to attach to the endpoint that controls access to the service. Applicable for endpoints of type `Gateway`.
-        Defaults to full access.
+        A policy to attach to the endpoint that controls access to the service. Applicable for endpoints of type `Gateway`. Defaults to full access. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         """
         __props__['policy'] = policy
 

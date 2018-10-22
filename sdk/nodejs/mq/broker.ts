@@ -65,7 +65,7 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly engineType: pulumi.Output<string>;
     /**
-     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
      */
     public readonly engineVersion: pulumi.Output<string>;
     /**
@@ -75,6 +75,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * A list of information about allocated brokers (both active & standby).
      * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.ip_address` - The IP Address of the broker.
      * * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
      * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
      * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
@@ -82,7 +83,7 @@ export class Broker extends pulumi.CustomResource {
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
      */
-    public /*out*/ readonly instances: pulumi.Output<{ consoleUrl: string, endpoints: string[] }[]>;
+    public /*out*/ readonly instances: pulumi.Output<{ consoleUrl: string, endpoints: string[], ipAddress: string }[]>;
     /**
      * Maintenance window start time. See below.
      */
@@ -205,7 +206,7 @@ export interface BrokerState {
      */
     readonly engineType?: pulumi.Input<string>;
     /**
-     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -215,6 +216,7 @@ export interface BrokerState {
     /**
      * A list of information about allocated brokers (both active & standby).
      * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.ip_address` - The IP Address of the broker.
      * * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
      * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
      * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
@@ -222,7 +224,7 @@ export interface BrokerState {
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
      */
-    readonly instances?: pulumi.Input<pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly instances?: pulumi.Input<pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]>, ipAddress?: pulumi.Input<string> }>[]>;
     /**
      * Maintenance window start time. See below.
      */
@@ -275,7 +277,7 @@ export interface BrokerArgs {
      */
     readonly engineType: pulumi.Input<string>;
     /**
-     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
      */
     readonly engineVersion: pulumi.Input<string>;
     /**

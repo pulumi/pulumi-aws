@@ -27,13 +27,17 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+     */
+    public readonly secretBinary: pulumi.Output<string | undefined>;
+    /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     public readonly secretId: pulumi.Output<string>;
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
      */
-    public readonly secretString: pulumi.Output<string>;
+    public readonly secretString: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the version of the secret.
      */
@@ -56,6 +60,7 @@ export class SecretVersion extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: SecretVersionState = argsOrState as SecretVersionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["secretBinary"] = state ? state.secretBinary : undefined;
             inputs["secretId"] = state ? state.secretId : undefined;
             inputs["secretString"] = state ? state.secretString : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
@@ -65,9 +70,7 @@ export class SecretVersion extends pulumi.CustomResource {
             if (!args || args.secretId === undefined) {
                 throw new Error("Missing required property 'secretId'");
             }
-            if (!args || args.secretString === undefined) {
-                throw new Error("Missing required property 'secretString'");
-            }
+            inputs["secretBinary"] = args ? args.secretBinary : undefined;
             inputs["secretId"] = args ? args.secretId : undefined;
             inputs["secretString"] = args ? args.secretString : undefined;
             inputs["versionStages"] = args ? args.versionStages : undefined;
@@ -87,11 +90,15 @@ export interface SecretVersionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+     */
+    readonly secretBinary?: pulumi.Input<string>;
+    /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     readonly secretId?: pulumi.Input<string>;
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
      */
     readonly secretString?: pulumi.Input<string>;
     /**
@@ -109,13 +116,17 @@ export interface SecretVersionState {
  */
 export interface SecretVersionArgs {
     /**
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+     */
+    readonly secretBinary?: pulumi.Input<string>;
+    /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     readonly secretId: pulumi.Input<string>;
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
      */
-    readonly secretString: pulumi.Input<string>;
+    readonly secretString?: pulumi.Input<string>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      */

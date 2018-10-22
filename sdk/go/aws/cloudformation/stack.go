@@ -129,7 +129,7 @@ func (r *Stack) Outputs() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["outputs"])
 }
 
-// A list of Parameter structures that specify input parameters for the stack.
+// A map of Parameter structures that specify input parameters for the stack.
 func (r *Stack) Parameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["parameters"])
 }
@@ -185,7 +185,7 @@ type StackState struct {
 	OnFailure interface{}
 	// A map of outputs from the stack.
 	Outputs interface{}
-	// A list of Parameter structures that specify input parameters for the stack.
+	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters interface{}
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policy_url`.
@@ -220,7 +220,7 @@ type StackArgs struct {
 	// Action to be taken if stack creation fails. This must be
 	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
 	OnFailure interface{}
-	// A list of Parameter structures that specify input parameters for the stack.
+	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters interface{}
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policy_url`.

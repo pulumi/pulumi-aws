@@ -86,8 +86,7 @@ func (r *GroupPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document. This is a JSON formatted string.
-// The heredoc syntax or `file` function is helpful here.
+// The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 func (r *GroupPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -102,8 +101,7 @@ type GroupPolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
-	// The heredoc syntax or `file` function is helpful here.
+	// The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 	Policy interface{}
 }
 
@@ -117,7 +115,6 @@ type GroupPolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
-	// The heredoc syntax or `file` function is helpful here.
+	// The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 	Policy interface{}
 }

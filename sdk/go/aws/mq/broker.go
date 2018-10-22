@@ -163,7 +163,7 @@ func (r *Broker) EngineType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineType"])
 }
 
-// The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+// The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
 func (r *Broker) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
@@ -175,6 +175,7 @@ func (r *Broker) HostInstanceType() *pulumi.StringOutput {
 
 // A list of information about allocated brokers (both active & standby).
 // * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+// * `instances.0.ip_address` - The IP Address of the broker.
 // * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
 // * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
 // * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
@@ -227,12 +228,13 @@ type BrokerState struct {
 	DeploymentMode interface{}
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
 	EngineType interface{}
-	// The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+	// The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
 	EngineVersion interface{}
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
 	HostInstanceType interface{}
 	// A list of information about allocated brokers (both active & standby).
 	// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+	// * `instances.0.ip_address` - The IP Address of the broker.
 	// * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
 	// * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
 	// * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
@@ -267,7 +269,7 @@ type BrokerArgs struct {
 	DeploymentMode interface{}
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
 	EngineType interface{}
-	// The version of the broker engine. Currently, Amazon MQ supports only `5.15.0`.
+	// The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
 	EngineVersion interface{}
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
 	HostInstanceType interface{}

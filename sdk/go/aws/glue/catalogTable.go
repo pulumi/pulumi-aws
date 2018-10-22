@@ -115,7 +115,7 @@ func (r *CatalogTable) Owner() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["owner"])
 }
 
-// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+// A map of initialization parameters for the SerDe, in key-value form.
 func (r *CatalogTable) Parameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["parameters"])
 }
@@ -162,7 +162,7 @@ type CatalogTableState struct {
 	Name interface{}
 	// Owner of the table.
 	Owner interface{}
-	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters interface{}
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 	PartitionKeys interface{}
@@ -190,7 +190,7 @@ type CatalogTableArgs struct {
 	Name interface{}
 	// Owner of the table.
 	Owner interface{}
-	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	// A map of initialization parameters for the SerDe, in key-value form.
 	Parameters interface{}
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 	PartitionKeys interface{}

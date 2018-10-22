@@ -81,7 +81,7 @@ class RestApi(pulumi.CustomResource):
             raise TypeError('Expected property policy to be a basestring')
         __self__.policy = policy
         """
-        JSON formatted policy document that controls access to the API Gateway
+        JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
         """
         __props__['policy'] = policy
 

@@ -45,6 +45,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = nil
 		inputs["dbClusterParameterGroupName"] = nil
 		inputs["dbSubnetGroupName"] = nil
+		inputs["deletionProtection"] = nil
 		inputs["enabledCloudwatchLogsExports"] = nil
 		inputs["engine"] = nil
 		inputs["engineMode"] = nil
@@ -78,6 +79,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = args.DatabaseName
 		inputs["dbClusterParameterGroupName"] = args.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
+		inputs["deletionProtection"] = args.DeletionProtection
 		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
 		inputs["engine"] = args.Engine
 		inputs["engineMode"] = args.EngineMode
@@ -131,6 +133,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = state.DatabaseName
 		inputs["dbClusterParameterGroupName"] = state.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
+		inputs["deletionProtection"] = state.DeletionProtection
 		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
 		inputs["endpoint"] = state.Endpoint
 		inputs["engine"] = state.Engine
@@ -237,6 +240,11 @@ func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
 
+// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+func (r *Cluster) DeletionProtection() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["deletionProtection"])
+}
+
 // List of log types to export to cloudwatch. If omitted, no logs will be exported.
 // The following log types are supported: `audit`, `error`, `general`, `slowquery`.
 func (r *Cluster) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
@@ -258,7 +266,7 @@ func (r *Cluster) EngineMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineMode"])
 }
 
-// The database engine version.
+// The database engine version. Updating this argument results in an outage.
 func (r *Cluster) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
@@ -397,6 +405,8 @@ type ClusterState struct {
 	DbClusterParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
+	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+	DeletionProtection interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
 	EnabledCloudwatchLogsExports interface{}
@@ -406,7 +416,7 @@ type ClusterState struct {
 	Engine interface{}
 	// The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode interface{}
-	// The database engine version.
+	// The database engine version. Updating this argument results in an outage.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -480,6 +490,8 @@ type ClusterArgs struct {
 	DbClusterParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
+	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+	DeletionProtection interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
 	EnabledCloudwatchLogsExports interface{}
@@ -487,7 +499,7 @@ type ClusterArgs struct {
 	Engine interface{}
 	// The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode interface{}
-	// The database engine version.
+	// The database engine version. Updating this argument results in an outage.
 	EngineVersion interface{}
 	// The name of your final DB snapshot
 	// when this DB cluster is deleted. If omitted, no final snapshot will be

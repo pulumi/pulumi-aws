@@ -35,7 +35,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property applications to be a list')
         __self__.applications = applications
         """
-        A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+        A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
         """
         __props__['applications'] = applications
 

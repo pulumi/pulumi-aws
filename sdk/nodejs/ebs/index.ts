@@ -6,4 +6,5 @@ export * from "./getSnapshot";
 export * from "./getSnapshotIds";
 export * from "./getVolume";
 export * from "./snapshot";
+export * from "./snapshotCopy";
 export * from "./volume";

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an ECS task definition to be used in `aws_ecs_service`.
+ * Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
  */
 export class TaskDefinition extends pulumi.CustomResource {
     /**

@@ -76,7 +76,7 @@ class Stack(pulumi.CustomResource):
             raise TypeError('Expected property parameters to be a dict')
         __self__.parameters = parameters
         """
-        A list of Parameter structures that specify input parameters for the stack.
+        A map of Parameter structures that specify input parameters for the stack.
         """
         __props__['parameters'] = parameters
 

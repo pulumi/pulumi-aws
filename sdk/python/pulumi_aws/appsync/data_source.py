@@ -10,7 +10,7 @@ class DataSource(pulumi.CustomResource):
     """
     Provides an AppSync DataSource.
     """
-    def __init__(__self__, __name__, __opts__=None, api_id=None, description=None, dynamodb_config=None, elasticsearch_config=None, lambda_config=None, name=None, service_role_arn=None, type=None):
+    def __init__(__self__, __name__, __opts__=None, api_id=None, description=None, dynamodb_config=None, elasticsearch_config=None, http_config=None, lambda_config=None, name=None, service_role_arn=None, type=None):
         """Create a DataSource resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -55,6 +55,14 @@ class DataSource(pulumi.CustomResource):
         """
         __props__['elasticsearchConfig'] = elasticsearch_config
 
+        if http_config and not isinstance(http_config, dict):
+            raise TypeError('Expected property http_config to be a dict')
+        __self__.http_config = http_config
+        """
+        HTTP settings. See below
+        """
+        __props__['httpConfig'] = http_config
+
         if lambda_config and not isinstance(lambda_config, dict):
             raise TypeError('Expected property lambda_config to be a dict')
         __self__.lambda_config = lambda_config
@@ -85,7 +93,7 @@ class DataSource(pulumi.CustomResource):
             raise TypeError('Expected property type to be a basestring')
         __self__.type = type
         """
-        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+        The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
         """
         __props__['type'] = type
 
@@ -111,6 +119,8 @@ class DataSource(pulumi.CustomResource):
             self.dynamodb_config = outs['dynamodbConfig']
         if 'elasticsearchConfig' in outs:
             self.elasticsearch_config = outs['elasticsearchConfig']
+        if 'httpConfig' in outs:
+            self.http_config = outs['httpConfig']
         if 'lambdaConfig' in outs:
             self.lambda_config = outs['lambdaConfig']
         if 'name' in outs:

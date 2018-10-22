@@ -30,6 +30,7 @@ func NewEnvironment(ctx *pulumi.Context,
 		inputs["cnamePrefix"] = nil
 		inputs["description"] = nil
 		inputs["name"] = nil
+		inputs["platformArn"] = nil
 		inputs["pollInterval"] = nil
 		inputs["settings"] = nil
 		inputs["solutionStackName"] = nil
@@ -43,6 +44,7 @@ func NewEnvironment(ctx *pulumi.Context,
 		inputs["cnamePrefix"] = args.CnamePrefix
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
+		inputs["platformArn"] = args.PlatformArn
 		inputs["pollInterval"] = args.PollInterval
 		inputs["settings"] = args.Settings
 		inputs["solutionStackName"] = args.SolutionStackName
@@ -85,6 +87,7 @@ func GetEnvironment(ctx *pulumi.Context,
 		inputs["launchConfigurations"] = state.LaunchConfigurations
 		inputs["loadBalancers"] = state.LoadBalancers
 		inputs["name"] = state.Name
+		inputs["platformArn"] = state.PlatformArn
 		inputs["pollInterval"] = state.PollInterval
 		inputs["queues"] = state.Queues
 		inputs["settings"] = state.Settings
@@ -170,6 +173,12 @@ func (r *Environment) LoadBalancers() *pulumi.ArrayOutput {
 // in the application URL
 func (r *Environment) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+// to use in deployment
+func (r *Environment) PlatformArn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["platformArn"])
 }
 
 // The time between polling the AWS API to
@@ -262,6 +271,9 @@ type EnvironmentState struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name interface{}
+	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// to use in deployment
+	PlatformArn interface{}
 	// The time between polling the AWS API to
 	// check if changes have been applied. Use this to adjust the rate of API calls
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
@@ -309,6 +321,9 @@ type EnvironmentArgs struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name interface{}
+	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// to use in deployment
+	PlatformArn interface{}
 	// The time between polling the AWS API to
 	// check if changes have been applied. Use this to adjust the rate of API calls
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to

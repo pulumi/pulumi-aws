@@ -22,14 +22,19 @@ func NewGraphQLApi(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["authenticationType"] = nil
+		inputs["logConfig"] = nil
 		inputs["name"] = nil
+		inputs["openidConnectConfig"] = nil
 		inputs["userPoolConfig"] = nil
 	} else {
 		inputs["authenticationType"] = args.AuthenticationType
+		inputs["logConfig"] = args.LogConfig
 		inputs["name"] = args.Name
+		inputs["openidConnectConfig"] = args.OpenidConnectConfig
 		inputs["userPoolConfig"] = args.UserPoolConfig
 	}
 	inputs["arn"] = nil
+	inputs["uris"] = nil
 	s, err := ctx.RegisterResource("aws:appsync/graphQLApi:GraphQLApi", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -45,7 +50,10 @@ func GetGraphQLApi(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["authenticationType"] = state.AuthenticationType
+		inputs["logConfig"] = state.LogConfig
 		inputs["name"] = state.Name
+		inputs["openidConnectConfig"] = state.OpenidConnectConfig
+		inputs["uris"] = state.Uris
 		inputs["userPoolConfig"] = state.UserPoolConfig
 	}
 	s, err := ctx.ReadResource("aws:appsync/graphQLApi:GraphQLApi", name, id, inputs, opts...)
@@ -70,9 +78,14 @@ func (r *GraphQLApi) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
 func (r *GraphQLApi) AuthenticationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["authenticationType"])
+}
+
+// Nested argument containing logging configuration. Defined below.
+func (r *GraphQLApi) LogConfig() *pulumi.Output {
+	return r.s.State["logConfig"]
 }
 
 // A user-supplied name for the GraphqlApi.
@@ -80,7 +93,17 @@ func (r *GraphQLApi) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The Amazon Cognito User Pool configuration. See below
+// Nested argument containing OpenID Connect configuration. Defined below.
+func (r *GraphQLApi) OpenidConnectConfig() *pulumi.Output {
+	return r.s.State["openidConnectConfig"]
+}
+
+// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+func (r *GraphQLApi) Uris() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["uris"])
+}
+
+// The Amazon Cognito User Pool configuration. Defined below.
 func (r *GraphQLApi) UserPoolConfig() *pulumi.Output {
 	return r.s.State["userPoolConfig"]
 }
@@ -89,20 +112,30 @@ func (r *GraphQLApi) UserPoolConfig() *pulumi.Output {
 type GraphQLApiState struct {
 	// The ARN
 	Arn interface{}
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
 	AuthenticationType interface{}
+	// Nested argument containing logging configuration. Defined below.
+	LogConfig interface{}
 	// A user-supplied name for the GraphqlApi.
 	Name interface{}
-	// The Amazon Cognito User Pool configuration. See below
+	// Nested argument containing OpenID Connect configuration. Defined below.
+	OpenidConnectConfig interface{}
+	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	Uris interface{}
+	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig interface{}
 }
 
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
 	AuthenticationType interface{}
+	// Nested argument containing logging configuration. Defined below.
+	LogConfig interface{}
 	// A user-supplied name for the GraphqlApi.
 	Name interface{}
-	// The Amazon Cognito User Pool configuration. See below
+	// Nested argument containing OpenID Connect configuration. Defined below.
+	OpenidConnectConfig interface{}
+	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig interface{}
 }

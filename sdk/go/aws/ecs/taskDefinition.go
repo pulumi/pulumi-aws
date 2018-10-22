@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an ECS task definition to be used in `aws_ecs_service`.
+// Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
 type TaskDefinition struct {
 	s *pulumi.ResourceState
 }

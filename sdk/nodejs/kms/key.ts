@@ -54,7 +54,7 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly keyUsage: pulumi.Output<string>;
     /**
-     * A valid policy JSON document.
+     * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     public readonly policy: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface KeyState {
      */
     readonly keyUsage?: pulumi.Input<string>;
     /**
-     * A valid policy JSON document.
+     * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy?: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface KeyArgs {
      */
     readonly keyUsage?: pulumi.Input<string>;
     /**
-     * A valid policy JSON document.
+     * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy?: pulumi.Input<string>;
     /**
