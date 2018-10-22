@@ -74,6 +74,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly logPublishingOptions: pulumi.Output<{ cloudwatchLogGroupArn: string, enabled?: boolean, logType: string }[] | undefined>;
     /**
+     * Node-to-node encryption options. See below.
+     */
+    public readonly nodeToNodeEncryption: pulumi.Output<{ enabled: boolean }>;
+    /**
      * Snapshot related options, see below.
      */
     public readonly snapshotOptions: pulumi.Output<{ automatedSnapshotStartHour: number } | undefined>;
@@ -111,6 +115,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
             inputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
+            inputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
             inputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcOptions"] = state ? state.vpcOptions : undefined;
@@ -125,6 +130,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
             inputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
             inputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
+            inputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
             inputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcOptions"] = args ? args.vpcOptions : undefined;
@@ -196,6 +202,10 @@ export interface DomainState {
      */
     readonly logPublishingOptions?: pulumi.Input<pulumi.Input<{ cloudwatchLogGroupArn: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, logType: pulumi.Input<string> }>[]>;
     /**
+     * Node-to-node encryption options. See below.
+     */
+    readonly nodeToNodeEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    /**
      * Snapshot related options, see below.
      */
     readonly snapshotOptions?: pulumi.Input<{ automatedSnapshotStartHour: pulumi.Input<number> }>;
@@ -249,6 +259,10 @@ export interface DomainArgs {
      * Options for publishing slow logs to CloudWatch Logs.
      */
     readonly logPublishingOptions?: pulumi.Input<pulumi.Input<{ cloudwatchLogGroupArn: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, logType: pulumi.Input<string> }>[]>;
+    /**
+     * Node-to-node encryption options. See below.
+     */
+    readonly nodeToNodeEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
     /**
      * Snapshot related options, see below.
      */

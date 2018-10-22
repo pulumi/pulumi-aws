@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * an IAM policy document, for use with resources which expect policy documents,
  * such as the `aws_iam_policy` resource.
  * 
+ * -> For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+ * 
  * ```hcl
  * data "aws_iam_policy_document" "example" {
  *   statement {
@@ -70,7 +72,8 @@ import * as utilities from "../utilities";
  * valid to use literal JSON strings within your configuration, or to use the
  * `file` interpolation function to read a raw JSON policy document from a file.
  */
-export function getPolicyDocument(args: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
+export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
+    args = args || {};
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
         "policyId": args.policyId,
@@ -105,7 +108,7 @@ export interface GetPolicyDocumentArgs {
      * A nested configuration block (described below)
      * configuring one *statement* to be included in the policy document.
      */
-    readonly statements: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
 }
 
 /**

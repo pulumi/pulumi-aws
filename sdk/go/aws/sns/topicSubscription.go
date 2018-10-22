@@ -107,6 +107,7 @@ func (r *TopicSubscription) ConfirmationTimeoutInMinutes() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["confirmationTimeoutInMinutes"])
 }
 
+// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
 func (r *TopicSubscription) DeliveryPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deliveryPolicy"])
 }
@@ -121,7 +122,7 @@ func (r *TopicSubscription) EndpointAutoConfirms() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["endpointAutoConfirms"])
 }
 
-// The text of a filter policy to the topic subscription.
+// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 func (r *TopicSubscription) FilterPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["filterPolicy"])
 }
@@ -147,12 +148,13 @@ type TopicSubscriptionState struct {
 	Arn interface{}
 	// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
 	ConfirmationTimeoutInMinutes interface{}
+	// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
 	DeliveryPolicy interface{}
 	// The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
 	Endpoint interface{}
 	// Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
 	EndpointAutoConfirms interface{}
-	// The text of a filter policy to the topic subscription.
+	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy interface{}
 	// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
 	Protocol interface{}
@@ -166,12 +168,13 @@ type TopicSubscriptionState struct {
 type TopicSubscriptionArgs struct {
 	// Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
 	ConfirmationTimeoutInMinutes interface{}
+	// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
 	DeliveryPolicy interface{}
 	// The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
 	Endpoint interface{}
 	// Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
 	EndpointAutoConfirms interface{}
-	// The text of a filter policy to the topic subscription.
+	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy interface{}
 	// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
 	Protocol interface{}

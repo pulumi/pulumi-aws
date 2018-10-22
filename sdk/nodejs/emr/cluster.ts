@@ -29,7 +29,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly additionalInfo: pulumi.Output<string | undefined>;
     /**
-     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
     public readonly applications: pulumi.Output<string[] | undefined>;
     /**
@@ -221,7 +221,7 @@ export interface ClusterState {
      */
     readonly additionalInfo?: pulumi.Input<string>;
     /**
-     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
     readonly applications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -335,7 +335,7 @@ export interface ClusterArgs {
      */
     readonly additionalInfo?: pulumi.Input<string>;
     /**
-     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, and `Spark`. Case insensitive
+     * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
     readonly applications?: pulumi.Input<pulumi.Input<string>[]>;
     /**

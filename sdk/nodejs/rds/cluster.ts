@@ -92,6 +92,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    public readonly deletionProtection: pulumi.Output<boolean | undefined>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
      */
@@ -109,7 +113,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engineMode: pulumi.Output<string | undefined>;
     /**
-     * The database engine version.
+     * The database engine version. Updating this argument results in an outage.
      */
     public readonly engineVersion: pulumi.Output<string>;
     /**
@@ -220,6 +224,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
@@ -257,6 +262,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineMode"] = args ? args.engineMode : undefined;
@@ -345,6 +351,10 @@ export interface ClusterState {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
      */
@@ -362,7 +372,7 @@ export interface ClusterState {
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
-     * The database engine version.
+     * The database engine version. Updating this argument results in an outage.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -498,6 +508,10 @@ export interface ClusterArgs {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
      */
@@ -511,7 +525,7 @@ export interface ClusterArgs {
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
-     * The database engine version.
+     * The database engine version. Updating this argument results in an outage.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**

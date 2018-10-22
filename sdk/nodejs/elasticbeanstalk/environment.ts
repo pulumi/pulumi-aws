@@ -76,6 +76,11 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
+     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * to use in deployment
+     */
+    public readonly platformArn: pulumi.Output<string>;
+    /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
@@ -151,6 +156,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["launchConfigurations"] = state ? state.launchConfigurations : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["platformArn"] = state ? state.platformArn : undefined;
             inputs["pollInterval"] = state ? state.pollInterval : undefined;
             inputs["queues"] = state ? state.queues : undefined;
             inputs["settings"] = state ? state.settings : undefined;
@@ -170,6 +176,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["cnamePrefix"] = args ? args.cnamePrefix : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["platformArn"] = args ? args.platformArn : undefined;
             inputs["pollInterval"] = args ? args.pollInterval : undefined;
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
@@ -242,6 +249,11 @@ export interface EnvironmentState {
      * in the application URL
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * to use in deployment
+     */
+    readonly platformArn?: pulumi.Input<string>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
@@ -319,6 +331,11 @@ export interface EnvironmentArgs {
      * in the application URL
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * to use in deployment
+     */
+    readonly platformArn?: pulumi.Input<string>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls

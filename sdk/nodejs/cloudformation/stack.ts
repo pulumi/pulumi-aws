@@ -54,7 +54,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public /*out*/ readonly outputs: pulumi.Output<{[key: string]: any}>;
     /**
-     * A list of Parameter structures that specify input parameters for the stack.
+     * A map of Parameter structures that specify input parameters for the stack.
      */
     public readonly parameters: pulumi.Output<{[key: string]: any}>;
     /**
@@ -167,7 +167,7 @@ export interface StackState {
      */
     readonly outputs?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A list of Parameter structures that specify input parameters for the stack.
+     * A map of Parameter structures that specify input parameters for the stack.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -230,7 +230,7 @@ export interface StackArgs {
      */
     readonly onFailure?: pulumi.Input<string>;
     /**
-     * A list of Parameter structures that specify input parameters for the stack.
+     * A map of Parameter structures that specify input parameters for the stack.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**

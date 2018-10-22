@@ -61,6 +61,10 @@ class Connection(pulumi.CustomResource):
         """
         The ARN of the connection.
         """
+        __self__.jumbo_frame_capable = pulumi.runtime.UNKNOWN
+        """
+        Boolean value representing if jumbo frames have been enabled for this connection.
+        """
 
         super(Connection, __self__).__init__(
             'aws:directconnect/connection:Connection',
@@ -73,6 +77,8 @@ class Connection(pulumi.CustomResource):
             self.arn = outs['arn']
         if 'bandwidth' in outs:
             self.bandwidth = outs['bandwidth']
+        if 'jumboFrameCapable' in outs:
+            self.jumbo_frame_capable = outs['jumboFrameCapable']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:

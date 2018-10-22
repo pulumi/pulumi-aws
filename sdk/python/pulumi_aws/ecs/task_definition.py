@@ -8,7 +8,7 @@ from .. import utilities
 
 class TaskDefinition(pulumi.CustomResource):
     """
-    Provides an ECS task definition to be used in `aws_ecs_service`.
+    Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
     """
     def __init__(__self__, __name__, __opts__=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, memory=None, network_mode=None, placement_constraints=None, requires_compatibilities=None, task_role_arn=None, volumes=None):
         """Create a TaskDefinition resource with the given unique name, props, and options."""

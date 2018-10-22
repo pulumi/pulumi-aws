@@ -27,7 +27,7 @@ export class BucketPolicy extends pulumi.CustomResource {
      */
     public readonly bucket: pulumi.Output<string>;
     /**
-     * The text of the policy.
+     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     public readonly policy: pulumi.Output<string>;
 
@@ -69,7 +69,7 @@ export interface BucketPolicyState {
      */
     readonly bucket?: pulumi.Input<string>;
     /**
-     * The text of the policy.
+     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
@@ -83,7 +83,7 @@ export interface BucketPolicyArgs {
      */
     readonly bucket: pulumi.Input<string>;
     /**
-     * The text of the policy.
+     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

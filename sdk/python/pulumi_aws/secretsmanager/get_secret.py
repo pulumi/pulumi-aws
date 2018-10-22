@@ -10,7 +10,7 @@ class GetSecretResult(object):
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, id=None):
+    def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, policy=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, id=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -32,6 +32,12 @@ class GetSecretResult(object):
         if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
+        if policy and not isinstance(policy, basestring):
+            raise TypeError('Expected argument policy to be a basestring')
+        __self__.policy = policy
+        """
+        The resource-based policy document that's attached to the secret.
+        """
         if rotation_enabled and not isinstance(rotation_enabled, bool):
             raise TypeError('Expected argument rotation_enabled to be a bool')
         __self__.rotation_enabled = rotation_enabled
@@ -78,6 +84,7 @@ def get_secret(arn=None, name=None):
         description=__ret__.get('description'),
         kms_key_id=__ret__.get('kmsKeyId'),
         name=__ret__.get('name'),
+        policy=__ret__.get('policy'),
         rotation_enabled=__ret__.get('rotationEnabled'),
         rotation_lambda_arn=__ret__.get('rotationLambdaArn'),
         rotation_rules=__ret__.get('rotationRules'),

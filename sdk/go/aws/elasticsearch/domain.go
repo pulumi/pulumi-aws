@@ -25,6 +25,7 @@ func NewDomain(ctx *pulumi.Context,
 		inputs["elasticsearchVersion"] = nil
 		inputs["encryptAtRest"] = nil
 		inputs["logPublishingOptions"] = nil
+		inputs["nodeToNodeEncryption"] = nil
 		inputs["snapshotOptions"] = nil
 		inputs["tags"] = nil
 		inputs["vpcOptions"] = nil
@@ -38,6 +39,7 @@ func NewDomain(ctx *pulumi.Context,
 		inputs["elasticsearchVersion"] = args.ElasticsearchVersion
 		inputs["encryptAtRest"] = args.EncryptAtRest
 		inputs["logPublishingOptions"] = args.LogPublishingOptions
+		inputs["nodeToNodeEncryption"] = args.NodeToNodeEncryption
 		inputs["snapshotOptions"] = args.SnapshotOptions
 		inputs["tags"] = args.Tags
 		inputs["vpcOptions"] = args.VpcOptions
@@ -72,6 +74,7 @@ func GetDomain(ctx *pulumi.Context,
 		inputs["endpoint"] = state.Endpoint
 		inputs["kibanaEndpoint"] = state.KibanaEndpoint
 		inputs["logPublishingOptions"] = state.LogPublishingOptions
+		inputs["nodeToNodeEncryption"] = state.NodeToNodeEncryption
 		inputs["snapshotOptions"] = state.SnapshotOptions
 		inputs["tags"] = state.Tags
 		inputs["vpcOptions"] = state.VpcOptions
@@ -162,6 +165,11 @@ func (r *Domain) LogPublishingOptions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["logPublishingOptions"])
 }
 
+// Node-to-node encryption options. See below.
+func (r *Domain) NodeToNodeEncryption() *pulumi.Output {
+	return r.s.State["nodeToNodeEncryption"]
+}
+
 // Snapshot related options, see below.
 func (r *Domain) SnapshotOptions() *pulumi.Output {
 	return r.s.State["snapshotOptions"]
@@ -209,6 +217,8 @@ type DomainState struct {
 	KibanaEndpoint interface{}
 	// Options for publishing slow logs to CloudWatch Logs.
 	LogPublishingOptions interface{}
+	// Node-to-node encryption options. See below.
+	NodeToNodeEncryption interface{}
 	// Snapshot related options, see below.
 	SnapshotOptions interface{}
 	// A mapping of tags to assign to the resource
@@ -239,6 +249,8 @@ type DomainArgs struct {
 	EncryptAtRest interface{}
 	// Options for publishing slow logs to CloudWatch Logs.
 	LogPublishingOptions interface{}
+	// Node-to-node encryption options. See below.
+	NodeToNodeEncryption interface{}
 	// Snapshot related options, see below.
 	SnapshotOptions interface{}
 	// A mapping of tags to assign to the resource

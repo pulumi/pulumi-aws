@@ -59,7 +59,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * JSON formatted policy document that controls access to the API Gateway
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     public readonly policy: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface RestApiState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * JSON formatted policy document that controls access to the API Gateway
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface RestApiArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * JSON formatted policy document that controls access to the API Gateway
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy?: pulumi.Input<string>;
 }

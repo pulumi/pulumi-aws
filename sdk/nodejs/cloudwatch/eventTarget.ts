@@ -31,7 +31,7 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    public readonly ecsTarget: pulumi.Output<{ taskCount?: number, taskDefinitionArn: string } | undefined>;
+    public readonly ecsTarget: pulumi.Output<{ group?: string, launchType?: string, networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] }, platformVersion?: string, taskCount?: number, taskDefinitionArn: string } | undefined>;
     /**
      * Valid JSON text passed to the target.
      */
@@ -134,7 +134,7 @@ export interface EventTargetState {
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: pulumi.Input<{ taskCount?: pulumi.Input<number>, taskDefinitionArn: pulumi.Input<string> }>;
+    readonly ecsTarget?: pulumi.Input<{ group?: pulumi.Input<string>, launchType?: pulumi.Input<string>, networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>, platformVersion?: pulumi.Input<string>, taskCount?: pulumi.Input<number>, taskDefinitionArn: pulumi.Input<string> }>;
     /**
      * Valid JSON text passed to the target.
      */
@@ -189,7 +189,7 @@ export interface EventTargetArgs {
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: pulumi.Input<{ taskCount?: pulumi.Input<number>, taskDefinitionArn: pulumi.Input<string> }>;
+    readonly ecsTarget?: pulumi.Input<{ group?: pulumi.Input<string>, launchType?: pulumi.Input<string>, networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>, platformVersion?: pulumi.Input<string>, taskCount?: pulumi.Input<number>, taskDefinitionArn: pulumi.Input<string> }>;
     /**
      * Valid JSON text passed to the target.
      */

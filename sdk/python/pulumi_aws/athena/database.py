@@ -10,7 +10,7 @@ class Database(pulumi.CustomResource):
     """
     Provides an Athena database.
     """
-    def __init__(__self__, __name__, __opts__=None, bucket=None, force_destroy=None, name=None):
+    def __init__(__self__, __name__, __opts__=None, bucket=None, encryption_configuration=None, force_destroy=None, name=None):
         """Create a Database resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -30,6 +30,14 @@ class Database(pulumi.CustomResource):
         Name of s3 bucket to save the results of the query execution.
         """
         __props__['bucket'] = bucket
+
+        if encryption_configuration and not isinstance(encryption_configuration, dict):
+            raise TypeError('Expected property encryption_configuration to be a dict')
+        __self__.encryption_configuration = encryption_configuration
+        """
+        The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+        """
+        __props__['encryptionConfiguration'] = encryption_configuration
 
         if force_destroy and not isinstance(force_destroy, bool):
             raise TypeError('Expected property force_destroy to be a bool')
@@ -56,6 +64,8 @@ class Database(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'bucket' in outs:
             self.bucket = outs['bucket']
+        if 'encryptionConfiguration' in outs:
+            self.encryption_configuration = outs['encryptionConfiguration']
         if 'forceDestroy' in outs:
             self.force_destroy = outs['forceDestroy']
         if 'name' in outs:

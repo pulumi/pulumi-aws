@@ -164,7 +164,7 @@ func (r *Project) SecondaryArtifacts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["secondaryArtifacts"])
 }
 
-// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
 func (r *Project) SecondarySources() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["secondarySources"])
 }
@@ -213,7 +213,7 @@ type ProjectState struct {
 	Name interface{}
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
 	SecondaryArtifacts interface{}
-	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
 	SecondarySources interface{}
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole interface{}
@@ -245,7 +245,7 @@ type ProjectArgs struct {
 	Name interface{}
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
 	SecondaryArtifacts interface{}
-	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below. 
+	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
 	SecondarySources interface{}
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole interface{}

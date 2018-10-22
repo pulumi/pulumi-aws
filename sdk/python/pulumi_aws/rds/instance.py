@@ -29,7 +29,7 @@ class Instance(pulumi.CustomResource):
     the raw state as plain-text. [Read more about sensitive data in
     state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
         """Create a Instance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -94,7 +94,7 @@ class Instance(pulumi.CustomResource):
         __self__.backup_retention_period = backup_retention_period
         """
         The days to retain backups for. Must be
-        `1` or greater to be a source for a [Read Replica][1].
+        between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
         """
         __props__['backupRetentionPeriod'] = backup_retention_period
 
@@ -143,6 +143,14 @@ class Instance(pulumi.CustomResource):
         for additional read replica contraints.
         """
         __props__['dbSubnetGroupName'] = db_subnet_group_name
+
+        if deletion_protection and not isinstance(deletion_protection, bool):
+            raise TypeError('Expected property deletion_protection to be a bool')
+        __self__.deletion_protection = deletion_protection
+        """
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        """
+        __props__['deletionProtection'] = deletion_protection
 
         if domain and not isinstance(domain, basestring):
             raise TypeError('Expected property domain to be a basestring')
@@ -541,6 +549,8 @@ class Instance(pulumi.CustomResource):
             self.copy_tags_to_snapshot = outs['copyTagsToSnapshot']
         if 'dbSubnetGroupName' in outs:
             self.db_subnet_group_name = outs['dbSubnetGroupName']
+        if 'deletionProtection' in outs:
+            self.deletion_protection = outs['deletionProtection']
         if 'domain' in outs:
             self.domain = outs['domain']
         if 'domainIamRoleName' in outs:

@@ -10,7 +10,7 @@ class GraphQLApi(pulumi.CustomResource):
     """
     Provides an AppSync GraphQL API.
     """
-    def __init__(__self__, __name__, __opts__=None, authentication_type=None, name=None, user_pool_config=None):
+    def __init__(__self__, __name__, __opts__=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, user_pool_config=None):
         """Create a GraphQLApi resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -27,9 +27,17 @@ class GraphQLApi(pulumi.CustomResource):
             raise TypeError('Expected property authentication_type to be a basestring')
         __self__.authentication_type = authentication_type
         """
-        The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
         """
         __props__['authenticationType'] = authentication_type
+
+        if log_config and not isinstance(log_config, dict):
+            raise TypeError('Expected property log_config to be a dict')
+        __self__.log_config = log_config
+        """
+        Nested argument containing logging configuration. Defined below.
+        """
+        __props__['logConfig'] = log_config
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
@@ -39,17 +47,29 @@ class GraphQLApi(pulumi.CustomResource):
         """
         __props__['name'] = name
 
+        if openid_connect_config and not isinstance(openid_connect_config, dict):
+            raise TypeError('Expected property openid_connect_config to be a dict')
+        __self__.openid_connect_config = openid_connect_config
+        """
+        Nested argument containing OpenID Connect configuration. Defined below.
+        """
+        __props__['openidConnectConfig'] = openid_connect_config
+
         if user_pool_config and not isinstance(user_pool_config, dict):
             raise TypeError('Expected property user_pool_config to be a dict')
         __self__.user_pool_config = user_pool_config
         """
-        The Amazon Cognito User Pool configuration. See below
+        The Amazon Cognito User Pool configuration. Defined below.
         """
         __props__['userPoolConfig'] = user_pool_config
 
         __self__.arn = pulumi.runtime.UNKNOWN
         """
         The ARN
+        """
+        __self__.uris = pulumi.runtime.UNKNOWN
+        """
+        Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """
 
         super(GraphQLApi, __self__).__init__(
@@ -63,7 +83,13 @@ class GraphQLApi(pulumi.CustomResource):
             self.arn = outs['arn']
         if 'authenticationType' in outs:
             self.authentication_type = outs['authenticationType']
+        if 'logConfig' in outs:
+            self.log_config = outs['logConfig']
         if 'name' in outs:
             self.name = outs['name']
+        if 'openidConnectConfig' in outs:
+            self.openid_connect_config = outs['openidConnectConfig']
+        if 'uris' in outs:
+            self.uris = outs['uris']
         if 'userPoolConfig' in outs:
             self.user_pool_config = outs['userPoolConfig']

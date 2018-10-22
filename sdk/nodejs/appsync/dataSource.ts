@@ -41,6 +41,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly elasticsearchConfig: pulumi.Output<{ endpoint: string, region: string } | undefined>;
     /**
+     * HTTP settings. See below
+     */
+    public readonly httpConfig: pulumi.Output<{ endpoint: string } | undefined>;
+    /**
      * AWS Lambda settings. See below
      */
     public readonly lambdaConfig: pulumi.Output<{ functionArn: string } | undefined>;
@@ -53,7 +57,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn: pulumi.Output<string | undefined>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
      */
     public readonly type: pulumi.Output<string>;
 
@@ -74,6 +78,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodbConfig"] = state ? state.dynamodbConfig : undefined;
             inputs["elasticsearchConfig"] = state ? state.elasticsearchConfig : undefined;
+            inputs["httpConfig"] = state ? state.httpConfig : undefined;
             inputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
@@ -90,6 +95,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodbConfig"] = args ? args.dynamodbConfig : undefined;
             inputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
+            inputs["httpConfig"] = args ? args.httpConfig : undefined;
             inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
@@ -119,11 +125,15 @@ export interface DataSourceState {
     /**
      * DynamoDB settings. See below
      */
-    readonly dynamodbConfig?: pulumi.Input<{ region: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
+    readonly dynamodbConfig?: pulumi.Input<{ region?: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region: pulumi.Input<string> }>;
+    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region?: pulumi.Input<string> }>;
+    /**
+     * HTTP settings. See below
+     */
+    readonly httpConfig?: pulumi.Input<{ endpoint: pulumi.Input<string> }>;
     /**
      * AWS Lambda settings. See below
      */
@@ -137,7 +147,7 @@ export interface DataSourceState {
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -157,11 +167,15 @@ export interface DataSourceArgs {
     /**
      * DynamoDB settings. See below
      */
-    readonly dynamodbConfig?: pulumi.Input<{ region: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
+    readonly dynamodbConfig?: pulumi.Input<{ region?: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region: pulumi.Input<string> }>;
+    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region?: pulumi.Input<string> }>;
+    /**
+     * HTTP settings. See below
+     */
+    readonly httpConfig?: pulumi.Input<{ endpoint: pulumi.Input<string> }>;
     /**
      * AWS Lambda settings. See below
      */
@@ -175,7 +189,7 @@ export interface DataSourceArgs {
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB` and `AMAZON_ELASTICSEARCH`, `NONE`.
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
      */
     readonly type: pulumi.Input<string>;
 }

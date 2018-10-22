@@ -41,6 +41,9 @@ export class TopicSubscription extends pulumi.CustomResource {
      * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
      */
     public readonly confirmationTimeoutInMinutes: pulumi.Output<number | undefined>;
+    /**
+     * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+     */
     public readonly deliveryPolicy: pulumi.Output<string | undefined>;
     /**
      * The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
@@ -51,7 +54,7 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     public readonly endpointAutoConfirms: pulumi.Output<boolean | undefined>;
     /**
-     * The text of a filter policy to the topic subscription.
+     * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
     public readonly filterPolicy: pulumi.Output<string | undefined>;
     /**
@@ -125,6 +128,9 @@ export interface TopicSubscriptionState {
      * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
      */
     readonly confirmationTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+     */
     readonly deliveryPolicy?: pulumi.Input<string>;
     /**
      * The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
@@ -135,7 +141,7 @@ export interface TopicSubscriptionState {
      */
     readonly endpointAutoConfirms?: pulumi.Input<boolean>;
     /**
-     * The text of a filter policy to the topic subscription.
+     * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
     readonly filterPolicy?: pulumi.Input<string>;
     /**
@@ -160,6 +166,9 @@ export interface TopicSubscriptionArgs {
      * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
      */
     readonly confirmationTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+     */
     readonly deliveryPolicy?: pulumi.Input<string>;
     /**
      * The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
@@ -170,7 +179,7 @@ export interface TopicSubscriptionArgs {
      */
     readonly endpointAutoConfirms?: pulumi.Input<boolean>;
     /**
-     * The text of a filter policy to the topic subscription.
+     * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
     readonly filterPolicy?: pulumi.Input<string>;
     /**

@@ -25,15 +25,27 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
     public readonly authenticationType: pulumi.Output<string>;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
+    public readonly logConfig: pulumi.Output<{ cloudwatchLogsRoleArn: string, fieldLogLevel: string } | undefined>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The Amazon Cognito User Pool configuration. See below
+     * Nested argument containing OpenID Connect configuration. Defined below.
+     */
+    public readonly openidConnectConfig: pulumi.Output<{ authTtl?: number, clientId?: string, iatTtl?: number, issuer: string } | undefined>;
+    /**
+     * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     */
+    public /*out*/ readonly uris: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Amazon Cognito User Pool configuration. Defined below.
      */
     public readonly userPoolConfig: pulumi.Output<{ appIdClientRegex?: string, awsRegion: string, defaultAction: string, userPoolId: string } | undefined>;
 
@@ -51,7 +63,10 @@ export class GraphQLApi extends pulumi.CustomResource {
             const state: GraphQLApiState = argsOrState as GraphQLApiState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationType"] = state ? state.authenticationType : undefined;
+            inputs["logConfig"] = state ? state.logConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
+            inputs["uris"] = state ? state.uris : undefined;
             inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
@@ -59,9 +74,12 @@ export class GraphQLApi extends pulumi.CustomResource {
                 throw new Error("Missing required property 'authenticationType'");
             }
             inputs["authenticationType"] = args ? args.authenticationType : undefined;
+            inputs["logConfig"] = args ? args.logConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
             inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["uris"] = undefined /*out*/;
         }
         super("aws:appsync/graphQLApi:GraphQLApi", name, inputs, opts);
     }
@@ -76,17 +94,29 @@ export interface GraphQLApiState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
     readonly authenticationType?: pulumi.Input<string>;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
+    readonly logConfig?: pulumi.Input<{ cloudwatchLogsRoleArn: pulumi.Input<string>, fieldLogLevel: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Amazon Cognito User Pool configuration. See below
+     * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
+    readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
+    /**
+     * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     */
+    readonly uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Cognito User Pool configuration. Defined below.
+     */
+    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }
 
 /**
@@ -94,15 +124,23 @@ export interface GraphQLApiState {
  */
 export interface GraphQLApiArgs {
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM` and `AMAZON_COGNITO_USER_POOLS`
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
     readonly authenticationType: pulumi.Input<string>;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
+    readonly logConfig?: pulumi.Input<{ cloudwatchLogsRoleArn: pulumi.Input<string>, fieldLogLevel: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Amazon Cognito User Pool configuration. See below
+     * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
+    readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
+    /**
+     * The Amazon Cognito User Pool configuration. Defined below.
+     */
+    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }

@@ -50,6 +50,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["characterSetName"] = nil
 		inputs["copyTagsToSnapshot"] = nil
 		inputs["dbSubnetGroupName"] = nil
+		inputs["deletionProtection"] = nil
 		inputs["domain"] = nil
 		inputs["domainIamRoleName"] = nil
 		inputs["enabledCloudwatchLogsExports"] = nil
@@ -95,6 +96,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["characterSetName"] = args.CharacterSetName
 		inputs["copyTagsToSnapshot"] = args.CopyTagsToSnapshot
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
+		inputs["deletionProtection"] = args.DeletionProtection
 		inputs["domain"] = args.Domain
 		inputs["domainIamRoleName"] = args.DomainIamRoleName
 		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
@@ -164,6 +166,7 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["characterSetName"] = state.CharacterSetName
 		inputs["copyTagsToSnapshot"] = state.CopyTagsToSnapshot
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
+		inputs["deletionProtection"] = state.DeletionProtection
 		inputs["domain"] = state.Domain
 		inputs["domainIamRoleName"] = state.DomainIamRoleName
 		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
@@ -266,7 +269,7 @@ func (r *Instance) AvailabilityZone() *pulumi.StringOutput {
 }
 
 // The days to retain backups for. Must be
-// `1` or greater to be a source for a [Read Replica][1].
+// between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
 func (r *Instance) BackupRetentionPeriod() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
@@ -309,6 +312,11 @@ func (r *Instance) CopyTagsToSnapshot() *pulumi.BoolOutput {
 // for additional read replica contraints.
 func (r *Instance) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
+}
+
+// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+func (r *Instance) DeletionProtection() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["deletionProtection"])
 }
 
 // The ID of the Directory Service Active Directory domain to create the instance in.
@@ -590,7 +598,7 @@ type InstanceState struct {
 	// The AZ for the RDS instance.
 	AvailabilityZone interface{}
 	// The days to retain backups for. Must be
-	// `1` or greater to be a source for a [Read Replica][1].
+	// between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
 	BackupRetentionPeriod interface{}
 	// The daily time range (in UTC) during which
 	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
@@ -617,6 +625,8 @@ type InstanceState struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName interface{}
+	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+	DeletionProtection interface{}
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain interface{}
 	// The name of the IAM role to be used when making API calls to the Directory Service.
@@ -777,7 +787,7 @@ type InstanceArgs struct {
 	// The AZ for the RDS instance.
 	AvailabilityZone interface{}
 	// The days to retain backups for. Must be
-	// `1` or greater to be a source for a [Read Replica][1].
+	// between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
 	BackupRetentionPeriod interface{}
 	// The daily time range (in UTC) during which
 	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
@@ -801,6 +811,8 @@ type InstanceArgs struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName interface{}
+	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+	DeletionProtection interface{}
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain interface{}
 	// The name of the IAM role to be used when making API calls to the Directory Service.

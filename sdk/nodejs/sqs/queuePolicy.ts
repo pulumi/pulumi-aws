@@ -22,7 +22,7 @@ export class QueuePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The JSON policy for the SQS queue
+     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     public readonly policy: pulumi.Output<string>;
     /**
@@ -64,7 +64,7 @@ export class QueuePolicy extends pulumi.CustomResource {
  */
 export interface QueuePolicyState {
     /**
-     * The JSON policy for the SQS queue
+     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy?: pulumi.Input<string>;
     /**
@@ -78,7 +78,7 @@ export interface QueuePolicyState {
  */
 export interface QueuePolicyArgs {
     /**
-     * The JSON policy for the SQS queue
+     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy: pulumi.Input<string>;
     /**

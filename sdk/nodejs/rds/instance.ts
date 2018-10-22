@@ -80,7 +80,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly availabilityZone: pulumi.Output<string>;
     /**
      * The days to retain backups for. Must be
-     * `1` or greater to be a source for a [Read Replica][1].
+     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
      */
     public readonly backupRetentionPeriod: pulumi.Output<number>;
     /**
@@ -118,6 +118,10 @@ export class Instance extends pulumi.CustomResource {
      * for additional read replica contraints.
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
+    /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in.
      */
@@ -356,6 +360,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["characterSetName"] = state ? state.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
@@ -410,6 +415,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["characterSetName"] = args ? args.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
@@ -500,7 +506,7 @@ export interface InstanceState {
     readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The days to retain backups for. Must be
-     * `1` or greater to be a source for a [Read Replica][1].
+     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -538,6 +544,10 @@ export interface InstanceState {
      * for additional read replica contraints.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in.
      */
@@ -787,7 +797,7 @@ export interface InstanceArgs {
     readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The days to retain backups for. Must be
-     * `1` or greater to be a source for a [Read Replica][1].
+     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -820,6 +830,10 @@ export interface InstanceArgs {
      * for additional read replica contraints.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in.
      */

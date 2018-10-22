@@ -42,10 +42,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly path: pulumi.Output<string | undefined>;
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-     * source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
-     * are all helpful here.
+     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     public readonly policy: pulumi.Output<string>;
 
@@ -109,10 +106,7 @@ export interface PolicyState {
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-     * source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
-     * are all helpful here.
+     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy?: pulumi.Input<string>;
 }
@@ -139,10 +133,7 @@ export interface PolicyArgs {
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax, `file` function, or the [`aws_iam_policy_document` data
-     * source](https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html)
-     * are all helpful here.
+     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
     readonly policy: pulumi.Input<string>;
 }
