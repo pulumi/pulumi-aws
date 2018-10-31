@@ -1417,8 +1417,9 @@ func Provider() tfbridge.ProviderInfo {
 				IDFields: []string{"statement_id"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": {
-						Name: "function",
-						Type: awsType(lambdaMod+"/function", "Function"),
+						Name:     "function",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(lambdaMod+"/function", "Function")},
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
