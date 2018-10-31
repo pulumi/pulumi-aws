@@ -34,7 +34,7 @@ export class Permission extends pulumi.CustomResource {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    public readonly function: pulumi.Output<Function>;
+    public readonly function: pulumi.Output<string>;
     /**
      * The principal who is getting this permission.
      * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
@@ -130,7 +130,7 @@ export interface PermissionState {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    readonly function?: pulumi.Input<Function>;
+    readonly function?: pulumi.Input<string | Function>;
     /**
      * The principal who is getting this permission.
      * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
@@ -181,7 +181,7 @@ export interface PermissionArgs {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    readonly function: pulumi.Input<Function>;
+    readonly function: pulumi.Input<string | Function>;
     /**
      * The principal who is getting this permission.
      * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
