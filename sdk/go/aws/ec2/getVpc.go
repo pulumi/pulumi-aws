@@ -39,6 +39,7 @@ func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
 		InstanceTenancy: outputs["instanceTenancy"],
 		Ipv6AssociationId: outputs["ipv6AssociationId"],
 		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
+		MainRouteTableId: outputs["mainRouteTableId"],
 		State: outputs["state"],
 		Tags: outputs["tags"],
 	}, nil
@@ -86,6 +87,8 @@ type GetVpcResult struct {
 	Ipv6AssociationId interface{}
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock interface{}
+	// The ID of the main route table associated with this VPC.
+	MainRouteTableId interface{}
 	// The State of the association.
 	State interface{}
 	Tags interface{}

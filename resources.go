@@ -904,6 +904,21 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_ec2_capacity_reservation": {
+				Tok: awsResource(ec2Mod, "CapacityReservation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"instance_type": {
+						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
+					},
+					"instance_platform": {
+						Type: awsType(ec2Mod+"/instancePlatform", "InstancePlatform"),
+					},
+					"tags": {Type: awsType(awsMod, "Tags")},
+					"tenancy": {
+						Type: awsType(ec2Mod+"/tenancy", "Tenancy"),
+					},
+				},
+			},
 			"aws_ec2_fleet": {
 				Tok: awsResource(ec2Mod, "Fleet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1193,13 +1208,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Glue
-			"aws_glue_catalog_database": {Tok: awsResource(glueMod, "CatalogDatabase")},
-			"aws_glue_catalog_table":    {Tok: awsResource(glueMod, "CatalogTable")},
-			"aws_glue_classifier":       {Tok: awsResource(glueMod, "Classifier")},
-			"aws_glue_connection":       {Tok: awsResource(glueMod, "Connection")},
-			"aws_glue_crawler":          {Tok: awsResource(glueMod, "Crawler")},
-			"aws_glue_job":              {Tok: awsResource(glueMod, "Job")},
-			"aws_glue_trigger":          {Tok: awsResource(glueMod, "Trigger")},
+			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
+			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
+			"aws_glue_classifier":             {Tok: awsResource(glueMod, "Classifier")},
+			"aws_glue_connection":             {Tok: awsResource(glueMod, "Connection")},
+			"aws_glue_crawler":                {Tok: awsResource(glueMod, "Crawler")},
+			"aws_glue_job":                    {Tok: awsResource(glueMod, "Job")},
+			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
+			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			// Glacier
 			"aws_gamelift_alias": {Tok: awsResource(glacierMod, "Alias")},
 			"aws_gamelift_build": {Tok: awsResource(glacierMod, "Build")},
@@ -1347,13 +1363,33 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			// IoT
+			// IOT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
 			"aws_iot_policy": {
 				Tok:      awsResource(iotMod, "Policy"),
 				IDFields: []string{"name"},
 			},
-			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_policy_attachment": {
+				Tok: awsResource(iotMod, "PolicyAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iotMod, "Policy")},
+					},
+					"target": {
+						Type: awsType(awsMod, "ARN"),
+					},
+				},
+			},
+			"aws_iot_thing": {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_thing_principal_attachment": {
+				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"principal": {
+						Type: awsType(awsMod, "ARN"),
+					},
+				},
+			},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),
@@ -1485,14 +1521,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_policy":            {Tok: awsResource(organizationsMod, "Policy")},
 			"aws_organizations_policy_attachment": {Tok: awsResource(organizationsMod, "PolicyAttachment")},
 			// Pinpoint
-			"aws_pinpoint_adm_channel":   {Tok: awsResource(pinpointMod, "AdmChannel")},
-			"aws_pinpoint_apns_channel":  {Tok: awsResource(pinpointMod, "ApnsChannel")},
-			"aws_pinpoint_app":           {Tok: awsResource(pinpointMod, "App")},
-			"aws_pinpoint_baidu_channel": {Tok: awsResource(pinpointMod, "BaiduChannel")},
-			"aws_pinpoint_email_channel": {Tok: awsResource(pinpointMod, "EmailChannel")},
-			"aws_pinpoint_event_stream":  {Tok: awsResource(pinpointMod, "EventStream")},
-			"aws_pinpoint_gcm_channel":   {Tok: awsResource(pinpointMod, "GcmChannel")},
-			"aws_pinpoint_sms_channel":   {Tok: awsResource(pinpointMod, "SmsChannel")},
+			"aws_pinpoint_adm_channel":               {Tok: awsResource(pinpointMod, "AdmChannel")},
+			"aws_pinpoint_apns_channel":              {Tok: awsResource(pinpointMod, "ApnsChannel")},
+			"aws_pinpoint_apns_sandbox_channel":      {Tok: awsResource(pinpointMod, "ApnsSandboxChannel")},
+			"aws_pinpoint_apns_voip_channel":         {Tok: awsResource(pinpointMod, "ApnsVoipChannel")},
+			"aws_pinpoint_apns_voip_sandbox_channel": {Tok: awsResource(pinpointMod, "ApnsVoipSandboxChannel")},
+			"aws_pinpoint_app":                       {Tok: awsResource(pinpointMod, "App")},
+			"aws_pinpoint_baidu_channel":             {Tok: awsResource(pinpointMod, "BaiduChannel")},
+			"aws_pinpoint_email_channel":             {Tok: awsResource(pinpointMod, "EmailChannel")},
+			"aws_pinpoint_event_stream":              {Tok: awsResource(pinpointMod, "EventStream")},
+			"aws_pinpoint_gcm_channel":               {Tok: awsResource(pinpointMod, "GcmChannel")},
+			"aws_pinpoint_sms_channel":               {Tok: awsResource(pinpointMod, "SmsChannel")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster": {
 				Tok: awsResource(rdsMod, "Cluster"),
@@ -2046,7 +2085,9 @@ func Provider() tfbridge.ProviderInfo {
 					"ec2": {
 						DestFiles: []string{
 							"instanceType.ts",      // InstanceType union type and constants
+							"instancePlatform.ts",  // InstancePlatform union type and constants
 							"placementStrategy.ts", // PlacementStrategy union type and constants
+							"tenancy.ts",           // Tenancy union type and constants
 						},
 					},
 					"ecs": {

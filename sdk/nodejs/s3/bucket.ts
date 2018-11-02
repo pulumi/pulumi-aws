@@ -82,7 +82,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    public readonly replicationConfiguration: pulumi.Output<{ role: string, rules: { destination: { accessControlTranslation?: { owner: string }, accountId?: string, bucket: string, replicaKmsKeyId?: string, storageClass?: string }, id?: string, prefix: string, sourceSelectionCriteria?: { sseKmsEncryptedObjects?: { enabled: boolean } }, status: string }[] } | undefined>;
+    public readonly replicationConfiguration: pulumi.Output<{ role: string, rules: { destination: { accessControlTranslation?: { owner: string }, accountId?: string, bucket: string, replicaKmsKeyId?: string, storageClass?: string }, filter?: { prefix?: string, tags?: {[key: string]: any} }, id?: string, prefix?: string, priority?: number, sourceSelectionCriteria?: { sseKmsEncryptedObjects?: { enabled: boolean } }, status: string }[] } | undefined>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -95,7 +95,8 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly serverSideEncryptionConfiguration: pulumi.Output<{ rule: { applyServerSideEncryptionByDefault: { kmsMasterKeyId?: string, sseAlgorithm: string } } } | undefined>;
     /**
-     * Specifies object tags key and value.
+     * A mapping of tags that identifies subset of objects to which the rule applies.
+     * The rule applies only to objects having all the tags in its tagset.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
     /**
@@ -241,7 +242,7 @@ export interface BucketState {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ accessControlTranslation?: pulumi.Input<{ owner: pulumi.Input<string> }>, accountId?: pulumi.Input<string>, bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, id?: pulumi.Input<string>, prefix: pulumi.Input<string>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
+    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ accessControlTranslation?: pulumi.Input<{ owner: pulumi.Input<string> }>, accountId?: pulumi.Input<string>, bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>, id?: pulumi.Input<string>, prefix?: pulumi.Input<string>, priority?: pulumi.Input<number>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -254,7 +255,8 @@ export interface BucketState {
      */
     readonly serverSideEncryptionConfiguration?: pulumi.Input<{ rule: pulumi.Input<{ applyServerSideEncryptionByDefault: pulumi.Input<{ kmsMasterKeyId?: pulumi.Input<string>, sseAlgorithm: pulumi.Input<string> }> }> }>;
     /**
-     * Specifies object tags key and value.
+     * A mapping of tags that identifies subset of objects to which the rule applies.
+     * The rule applies only to objects having all the tags in its tagset.
      */
     readonly tags?: pulumi.Input<Tags>;
     /**
@@ -330,7 +332,7 @@ export interface BucketArgs {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ accessControlTranslation?: pulumi.Input<{ owner: pulumi.Input<string> }>, accountId?: pulumi.Input<string>, bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, id?: pulumi.Input<string>, prefix: pulumi.Input<string>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
+    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ accessControlTranslation?: pulumi.Input<{ owner: pulumi.Input<string> }>, accountId?: pulumi.Input<string>, bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>, id?: pulumi.Input<string>, prefix?: pulumi.Input<string>, priority?: pulumi.Input<number>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -343,7 +345,8 @@ export interface BucketArgs {
      */
     readonly serverSideEncryptionConfiguration?: pulumi.Input<{ rule: pulumi.Input<{ applyServerSideEncryptionByDefault: pulumi.Input<{ kmsMasterKeyId?: pulumi.Input<string>, sseAlgorithm: pulumi.Input<string> }> }> }>;
     /**
-     * Specifies object tags key and value.
+     * A mapping of tags that identifies subset of objects to which the rule applies.
+     * The rule applies only to objects having all the tags in its tagset.
      */
     readonly tags?: pulumi.Input<Tags>;
     /**

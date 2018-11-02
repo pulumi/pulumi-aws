@@ -9,5 +9,6 @@ from classifier import *
 from connection import *
 from crawler import *
 from job import *
+from security_configuration import *
 from trigger import *
 from get_script import *

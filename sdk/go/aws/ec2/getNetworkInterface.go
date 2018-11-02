@@ -56,6 +56,7 @@ type GetNetworkInterfaceResult struct {
 	Attachments interface{}
 	// The Availability Zone.
 	AvailabilityZone interface{}
+	// Description of the network interface.
 	Description interface{}
 	Id interface{}
 	// The type of interface.
@@ -66,13 +67,20 @@ type GetNetworkInterfaceResult struct {
 	MacAddress interface{}
 	// The AWS account ID of the owner of the network interface.
 	OwnerId interface{}
+	// The private DNS name.
 	PrivateDnsName interface{}
+	// The private IPv4 address of the network interface within the subnet.
 	PrivateIp interface{}
+	// The private IPv4 addresses associated with the network interface.
 	PrivateIps interface{}
 	// The ID of the entity that launched the instance on your behalf.
 	RequesterId interface{}
+	// The list of security groups for the network interface.
 	SecurityGroups interface{}
+	// The ID of the subnet.
 	SubnetId interface{}
+	// Any tags assigned to the network interface.
 	Tags interface{}
+	// The ID of the VPC.
 	VpcId interface{}
 }

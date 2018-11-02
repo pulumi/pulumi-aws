@@ -11,7 +11,7 @@ class FlowLog(pulumi.CustomResource):
     Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
     interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group.
     """
-    def __init__(__self__, __name__, __opts__=None, eni_id=None, iam_role_arn=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None):
+    def __init__(__self__, __name__, __opts__=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None):
         """Create a FlowLog resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -30,24 +30,35 @@ class FlowLog(pulumi.CustomResource):
         """
         __props__['eniId'] = eni_id
 
-        if not iam_role_arn:
-            raise TypeError('Missing required property iam_role_arn')
-        elif not isinstance(iam_role_arn, basestring):
+        if iam_role_arn and not isinstance(iam_role_arn, basestring):
             raise TypeError('Expected property iam_role_arn to be a basestring')
         __self__.iam_role_arn = iam_role_arn
         """
-        The ARN for the IAM role that's used to post flow
-        logs to a CloudWatch Logs log group
+        The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         """
         __props__['iamRoleArn'] = iam_role_arn
 
-        if not log_group_name:
-            raise TypeError('Missing required property log_group_name')
-        elif not isinstance(log_group_name, basestring):
+        if log_destination and not isinstance(log_destination, basestring):
+            raise TypeError('Expected property log_destination to be a basestring')
+        __self__.log_destination = log_destination
+        """
+        The ARN of the logging destination.
+        """
+        __props__['logDestination'] = log_destination
+
+        if log_destination_type and not isinstance(log_destination_type, basestring):
+            raise TypeError('Expected property log_destination_type to be a basestring')
+        __self__.log_destination_type = log_destination_type
+        """
+        The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        """
+        __props__['logDestinationType'] = log_destination_type
+
+        if log_group_name and not isinstance(log_group_name, basestring):
             raise TypeError('Expected property log_group_name to be a basestring')
         __self__.log_group_name = log_group_name
         """
-        The name of the CloudWatch log group
+        *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
         """
         __props__['logGroupName'] = log_group_name
 
@@ -65,8 +76,7 @@ class FlowLog(pulumi.CustomResource):
             raise TypeError('Expected property traffic_type to be a basestring')
         __self__.traffic_type = traffic_type
         """
-        The type of traffic to capture. Valid values:
-        `ACCEPT`,`REJECT`, `ALL`
+        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         """
         __props__['trafficType'] = traffic_type
 
@@ -89,6 +99,10 @@ class FlowLog(pulumi.CustomResource):
             self.eni_id = outs['eniId']
         if 'iamRoleArn' in outs:
             self.iam_role_arn = outs['iamRoleArn']
+        if 'logDestination' in outs:
+            self.log_destination = outs['logDestination']
+        if 'logDestinationType' in outs:
+            self.log_destination_type = outs['logDestinationType']
         if 'logGroupName' in outs:
             self.log_group_name = outs['logGroupName']
         if 'subnetId' in outs:

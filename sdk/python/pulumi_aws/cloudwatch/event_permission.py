@@ -10,7 +10,7 @@ class EventPermission(pulumi.CustomResource):
     """
     Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
     """
-    def __init__(__self__, __name__, __opts__=None, action=None, principal=None, statement_id=None):
+    def __init__(__self__, __name__, __opts__=None, action=None, condition=None, principal=None, statement_id=None):
         """Create a EventPermission resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -29,13 +29,21 @@ class EventPermission(pulumi.CustomResource):
         """
         __props__['action'] = action
 
+        if condition and not isinstance(condition, dict):
+            raise TypeError('Expected property condition to be a dict')
+        __self__.condition = condition
+        """
+        Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        """
+        __props__['condition'] = condition
+
         if not principal:
             raise TypeError('Missing required property principal')
         elif not isinstance(principal, basestring):
             raise TypeError('Expected property principal to be a basestring')
         __self__.principal = principal
         """
-        The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+        The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         """
         __props__['principal'] = principal
 
@@ -58,6 +66,8 @@ class EventPermission(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'action' in outs:
             self.action = outs['action']
+        if 'condition' in outs:
+            self.condition = outs['condition']
         if 'principal' in outs:
             self.principal = outs['principal']
         if 'statementId' in outs:

@@ -44,6 +44,9 @@ export interface GetNetworkInterfaceResult {
      * The Availability Zone.
      */
     readonly availabilityZone: string;
+    /**
+     * Description of the network interface.
+     */
     readonly description: string;
     readonly id: string;
     /**
@@ -62,15 +65,36 @@ export interface GetNetworkInterfaceResult {
      * The AWS account ID of the owner of the network interface.
      */
     readonly ownerId: string;
+    /**
+     * The private DNS name.
+     */
     readonly privateDnsName: string;
+    /**
+     * The private IPv4 address of the network interface within the subnet.
+     */
     readonly privateIp: string;
+    /**
+     * The private IPv4 addresses associated with the network interface.
+     */
     readonly privateIps: string[];
     /**
      * The ID of the entity that launched the instance on your behalf.
      */
     readonly requesterId: string;
+    /**
+     * The list of security groups for the network interface.
+     */
     readonly securityGroups: string[];
+    /**
+     * The ID of the subnet.
+     */
     readonly subnetId: string;
+    /**
+     * Any tags assigned to the network interface.
+     */
     readonly tags: {[key: string]: any};
+    /**
+     * The ID of the VPC.
+     */
     readonly vpcId: string;
 }

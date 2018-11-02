@@ -10,7 +10,7 @@ class Secret(pulumi.CustomResource):
     """
     Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`aws_secretsmanager_secret_version` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, kms_key_id=None, name=None, policy=None, recovery_window_in_days=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, kms_key_id=None, name=None, name_prefix=None, policy=None, recovery_window_in_days=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
         """Create a Secret resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -41,9 +41,17 @@ class Secret(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+        Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
         """
         __props__['name'] = name
+
+        if name_prefix and not isinstance(name_prefix, basestring):
+            raise TypeError('Expected property name_prefix to be a basestring')
+        __self__.name_prefix = name_prefix
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        __props__['namePrefix'] = name_prefix
 
         if policy and not isinstance(policy, basestring):
             raise TypeError('Expected property policy to be a basestring')
@@ -109,6 +117,8 @@ class Secret(pulumi.CustomResource):
             self.kms_key_id = outs['kmsKeyId']
         if 'name' in outs:
             self.name = outs['name']
+        if 'namePrefix' in outs:
+            self.name_prefix = outs['namePrefix']
         if 'policy' in outs:
             self.policy = outs['policy']
         if 'recoveryWindowInDays' in outs:

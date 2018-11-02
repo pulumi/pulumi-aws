@@ -14,6 +14,7 @@ from default_security_group import *
 from default_subnet import *
 from default_vpc import *
 from default_vpc_dhcp_options import *
+from capacity_reservation import *
 from fleet import *
 from egress_only_internet_gateway import *
 from eip import *

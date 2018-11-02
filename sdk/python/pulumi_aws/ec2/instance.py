@@ -62,7 +62,7 @@ class Instance(pulumi.CustomResource):
             raise TypeError('Expected property cpu_threads_per_core to be a int')
         __self__.cpu_threads_per_core = cpu_threads_per_core
         """
-        If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
         __props__['cpuThreadsPerCore'] = cpu_threads_per_core
 

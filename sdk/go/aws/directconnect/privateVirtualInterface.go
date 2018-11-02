@@ -37,6 +37,7 @@ func NewPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["connectionId"] = nil
 		inputs["customerAddress"] = nil
 		inputs["dxGatewayId"] = nil
+		inputs["mtu"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil
 		inputs["vlan"] = nil
@@ -49,12 +50,14 @@ func NewPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["connectionId"] = args.ConnectionId
 		inputs["customerAddress"] = args.CustomerAddress
 		inputs["dxGatewayId"] = args.DxGatewayId
+		inputs["mtu"] = args.Mtu
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 		inputs["vlan"] = args.Vlan
 		inputs["vpnGatewayId"] = args.VpnGatewayId
 	}
 	inputs["arn"] = nil
+	inputs["jumboFrameCapable"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -76,6 +79,8 @@ func GetPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["connectionId"] = state.ConnectionId
 		inputs["customerAddress"] = state.CustomerAddress
 		inputs["dxGatewayId"] = state.DxGatewayId
+		inputs["jumboFrameCapable"] = state.JumboFrameCapable
+		inputs["mtu"] = state.Mtu
 		inputs["name"] = state.Name
 		inputs["tags"] = state.Tags
 		inputs["vlan"] = state.Vlan
@@ -138,6 +143,17 @@ func (r *PrivateVirtualInterface) DxGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
 
+// Indicates whether jumbo frames (9001 MTU) are supported.
+func (r *PrivateVirtualInterface) JumboFrameCapable() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+}
+
+// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+func (r *PrivateVirtualInterface) Mtu() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["mtu"])
+}
+
 // The name for the virtual interface.
 func (r *PrivateVirtualInterface) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -176,6 +192,11 @@ type PrivateVirtualInterfaceState struct {
 	CustomerAddress interface{}
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId interface{}
+	// Indicates whether jumbo frames (9001 MTU) are supported.
+	JumboFrameCapable interface{}
+	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+	Mtu interface{}
 	// The name for the virtual interface.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
@@ -202,6 +223,9 @@ type PrivateVirtualInterfaceArgs struct {
 	CustomerAddress interface{}
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId interface{}
+	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+	Mtu interface{}
 	// The name for the virtual interface.
 	Name interface{}
 	// A mapping of tags to assign to the resource.

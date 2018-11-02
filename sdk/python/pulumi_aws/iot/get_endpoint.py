@@ -15,7 +15,12 @@ class GetEndpointResult(object):
             raise TypeError('Expected argument endpoint_address to be a basestring')
         __self__.endpoint_address = endpoint_address
         """
-        The endpoint. The format of the endpoint is as follows: `IDENTIFIER.iot.REGION.amazonaws.com`.
+        The endpoint based on `endpoint_type`:
+        * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
+        * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
+        * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
+        * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
+        * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
         """
         if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
@@ -24,12 +29,13 @@ class GetEndpointResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_endpoint():
+def get_endpoint(endpoint_type=None):
     """
     Returns a unique endpoint specific to the AWS account making the call.
     """
     __args__ = dict()
 
+    __args__['endpointType'] = endpoint_type
     __ret__ = pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__)
 
     return GetEndpointResult(

@@ -29,6 +29,9 @@ class GetNetworkInterfaceResult(object):
         if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
+        """
+        Description of the network interface.
+        """
         if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
         __self__.id = id
@@ -59,12 +62,21 @@ class GetNetworkInterfaceResult(object):
         if private_dns_name and not isinstance(private_dns_name, basestring):
             raise TypeError('Expected argument private_dns_name to be a basestring')
         __self__.private_dns_name = private_dns_name
+        """
+        The private DNS name.
+        """
         if private_ip and not isinstance(private_ip, basestring):
             raise TypeError('Expected argument private_ip to be a basestring')
         __self__.private_ip = private_ip
+        """
+        The private IPv4 address of the network interface within the subnet.
+        """
         if private_ips and not isinstance(private_ips, list):
             raise TypeError('Expected argument private_ips to be a list')
         __self__.private_ips = private_ips
+        """
+        The private IPv4 addresses associated with the network interface.
+        """
         if requester_id and not isinstance(requester_id, basestring):
             raise TypeError('Expected argument requester_id to be a basestring')
         __self__.requester_id = requester_id
@@ -74,15 +86,27 @@ class GetNetworkInterfaceResult(object):
         if security_groups and not isinstance(security_groups, list):
             raise TypeError('Expected argument security_groups to be a list')
         __self__.security_groups = security_groups
+        """
+        The list of security groups for the network interface.
+        """
         if subnet_id and not isinstance(subnet_id, basestring):
             raise TypeError('Expected argument subnet_id to be a basestring')
         __self__.subnet_id = subnet_id
+        """
+        The ID of the subnet.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
+        """
+        Any tags assigned to the network interface.
+        """
         if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected argument vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
+        """
+        The ID of the VPC.
+        """
 
 def get_network_interface(filters=None, id=None, tags=None):
     """

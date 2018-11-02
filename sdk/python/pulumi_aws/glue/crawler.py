@@ -85,7 +85,7 @@ class Crawler(pulumi.CustomResource):
             raise TypeError('Expected property role to be a basestring')
         __self__.role = role
         """
-        The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+        The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         """
         __props__['role'] = role
 

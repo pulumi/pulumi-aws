@@ -24,9 +24,11 @@ func NewUserPoolDomain(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["certificateArn"] = nil
 		inputs["domain"] = nil
 		inputs["userPoolId"] = nil
 	} else {
+		inputs["certificateArn"] = args.CertificateArn
 		inputs["domain"] = args.Domain
 		inputs["userPoolId"] = args.UserPoolId
 	}
@@ -48,6 +50,7 @@ func GetUserPoolDomain(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["awsAccountId"] = state.AwsAccountId
+		inputs["certificateArn"] = state.CertificateArn
 		inputs["cloudfrontDistributionArn"] = state.CloudfrontDistributionArn
 		inputs["domain"] = state.Domain
 		inputs["s3Bucket"] = state.S3Bucket
@@ -74,6 +77,11 @@ func (r *UserPoolDomain) ID() *pulumi.IDOutput {
 // The AWS account ID for the user pool owner.
 func (r *UserPoolDomain) AwsAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["awsAccountId"])
+}
+
+// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+func (r *UserPoolDomain) CertificateArn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
 }
 
 // The ARN of the CloudFront distribution.
@@ -105,6 +113,8 @@ func (r *UserPoolDomain) Version() *pulumi.StringOutput {
 type UserPoolDomainState struct {
 	// The AWS account ID for the user pool owner.
 	AwsAccountId interface{}
+	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+	CertificateArn interface{}
 	// The ARN of the CloudFront distribution.
 	CloudfrontDistributionArn interface{}
 	// The domain string.
@@ -119,6 +129,8 @@ type UserPoolDomainState struct {
 
 // The set of arguments for constructing a UserPoolDomain resource.
 type UserPoolDomainArgs struct {
+	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+	CertificateArn interface{}
 	// The domain string.
 	Domain interface{}
 	// The user pool ID.

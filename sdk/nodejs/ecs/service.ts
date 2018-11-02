@@ -33,7 +33,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly deploymentMaximumPercent: pulumi.Output<number | undefined>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     public readonly deploymentMinimumHealthyPercent: pulumi.Output<number | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface ServiceState {
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
@@ -238,7 +238,7 @@ export interface ServiceArgs {
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
-     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+     * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
     readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**

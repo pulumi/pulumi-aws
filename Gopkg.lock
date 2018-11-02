@@ -184,8 +184,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "c0037b52736b07cea4e0cb6521f7995adef833bc"
-  version = "v1.15.59"
+  revision = "97a47d14fbb0744966b484d5b089cdc9814b493b"
+  version = "v1.15.67"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -274,8 +274,8 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
-  version = "v1.1.0"
+  revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/golang/snappy"
@@ -699,7 +699,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "c5f4c2c84362e81dcb9787aa1e2303891290c2cb"
+  revision = "03a8516d988de201ca3358f09b92a22f2507894d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -837,6 +837,7 @@
   packages = [
     ".",
     "balancer",
+    "balancer/roundrobin",
     "codes",
     "connectivity",
     "credentials",
@@ -850,13 +851,14 @@
     "reflection",
     "reflection/grpc_reflection_v1alpha",
     "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
     "stats",
     "status",
     "tap",
     "transport"
   ]
-  revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
-  version = "v1.7.2"
+  revision = "b5eab4ccac6df282ff981436a5a87554d7377c75"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -942,6 +944,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0b24857843116511f80a0fb64a76fbd2da4029fe2c0e6ed1169fb1763965771d"
+  inputs-digest = "697a73922b724645fb5886d33a71e7b50335221f135b56205b1daa95ee220a8e"
   solver-name = "gps-cdcl"
   solver-version = 1
