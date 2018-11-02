@@ -5,6 +5,7 @@
 export * from "./admChannel";
 export * from "./apnsChannel";
 export * from "./apnsSandboxChannel";
+export * from "./apnsVoipChannel";
 export * from "./app";
 export * from "./baiduChannel";
 export * from "./emailChannel";

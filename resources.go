@@ -1524,6 +1524,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_pinpoint_adm_channel":          {Tok: awsResource(pinpointMod, "AdmChannel")},
 			"aws_pinpoint_apns_channel":         {Tok: awsResource(pinpointMod, "ApnsChannel")},
 			"aws_pinpoint_apns_sandbox_channel": {Tok: awsResource(pinpointMod, "ApnsSandboxChannel")},
+			"aws_pinpoint_apns_voip_channel":    {Tok: awsResource(pinpointMod, "ApnsVoipChannel")},
 			"aws_pinpoint_app":                  {Tok: awsResource(pinpointMod, "App")},
 			"aws_pinpoint_baidu_channel":        {Tok: awsResource(pinpointMod, "BaiduChannel")},
 			"aws_pinpoint_email_channel":        {Tok: awsResource(pinpointMod, "EmailChannel")},
