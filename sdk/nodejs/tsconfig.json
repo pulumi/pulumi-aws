@@ -505,6 +505,7 @@
         "pinpoint/apnsChannel.ts",
         "pinpoint/apnsSandboxChannel.ts",
         "pinpoint/apnsVoipChannel.ts",
+        "pinpoint/apnsVoipSandboxChannel.ts",
         "pinpoint/app.ts",
         "pinpoint/baiduChannel.ts",
         "pinpoint/emailChannel.ts",
