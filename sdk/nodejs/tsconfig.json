@@ -380,6 +380,7 @@
         "glue/getScript.ts",
         "glue/index.ts",
         "glue/job.ts",
+        "glue/securityConfiguration.ts",
         "glue/trigger.ts",
         "iam/accessKey.ts",
         "iam/accountAlias.ts",
