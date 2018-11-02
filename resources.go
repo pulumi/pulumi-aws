@@ -904,6 +904,21 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_ec2_capacity_reservation": {
+				Tok: awsResource(ec2Mod, "CapacityReservation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"instance_type": {
+						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
+					},
+					"instance_platform": {
+						Type: awsType(ec2Mod+"/instancePlatform", "InstancePlatform"),
+					},
+					"tags": {Type: awsType(awsMod, "Tags")},
+					"tenancy": {
+						Type: awsType(ec2Mod+"/tenancy", "Tenancy"),
+					},
+				},
+			},
 			"aws_ec2_fleet": {
 				Tok: awsResource(ec2Mod, "Fleet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2046,7 +2061,9 @@ func Provider() tfbridge.ProviderInfo {
 					"ec2": {
 						DestFiles: []string{
 							"instanceType.ts",      // InstanceType union type and constants
+							"instancePlatform.ts",  // InstancePlatform union type and constants
 							"placementStrategy.ts", // PlacementStrategy union type and constants
+							"tenancy.ts",           // Tenancy union type and constants
 						},
 					},
 					"ecs": {
