@@ -11,7 +11,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
     Provides a Direct Connect hosted private virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
     A hosted virtual interface is a virtual interface that is owned by another AWS account.
     """
-    def __init__(__self__, __name__, __opts__=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, name=None, owner_account_id=None, vlan=None):
+    def __init__(__self__, __name__, __opts__=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, mtu=None, name=None, owner_account_id=None, vlan=None):
         """Create a HostedPrivateVirtualInterface resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -76,6 +76,14 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         """
         __props__['customerAddress'] = customer_address
 
+        if mtu and not isinstance(mtu, int):
+            raise TypeError('Expected property mtu to be a int')
+        __self__.mtu = mtu
+        """
+        The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+        """
+        __props__['mtu'] = mtu
+
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
@@ -108,6 +116,10 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         """
         The ARN of the virtual interface.
         """
+        __self__.jumbo_frame_capable = pulumi.runtime.UNKNOWN
+        """
+        Indicates whether jumbo frames (9001 MTU) are supported.
+        """
 
         super(HostedPrivateVirtualInterface, __self__).__init__(
             'aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface',
@@ -130,6 +142,10 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
             self.connection_id = outs['connectionId']
         if 'customerAddress' in outs:
             self.customer_address = outs['customerAddress']
+        if 'jumboFrameCapable' in outs:
+            self.jumbo_frame_capable = outs['jumboFrameCapable']
+        if 'mtu' in outs:
+            self.mtu = outs['mtu']
         if 'name' in outs:
             self.name = outs['name']
         if 'ownerAccountId' in outs:

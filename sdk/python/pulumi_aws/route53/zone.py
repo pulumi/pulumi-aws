@@ -8,9 +8,9 @@ from .. import utilities
 
 class Zone(pulumi.CustomResource):
     """
-    Provides a Route53 Hosted Zone resource.
+    Manages a Route53 Hosted Zone.
     """
-    def __init__(__self__, __name__, __opts__=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpc_id=None, vpc_region=None):
+    def __init__(__self__, __name__, __opts__=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpcs=None, vpc_id=None, vpc_region=None):
         """Create a Zone resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -34,8 +34,7 @@ class Zone(pulumi.CustomResource):
             raise TypeError('Expected property delegation_set_id to be a basestring')
         __self__.delegation_set_id = delegation_set_id
         """
-        The ID of the reusable delegation set whose NS records you want to assign to the hosted zone.
-        Conflicts w/ `vpc_id` as delegation sets can only be used for public zones.
+        The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
         """
         __props__['delegationSetId'] = delegation_set_id
 
@@ -43,8 +42,7 @@ class Zone(pulumi.CustomResource):
             raise TypeError('Expected property force_destroy to be a bool')
         __self__.force_destroy = force_destroy
         """
-        Whether to destroy all records (possibly managed outside of Terraform)
-        in the zone when destroying the zone.
+        Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
         """
         __props__['forceDestroy'] = force_destroy
 
@@ -64,12 +62,19 @@ class Zone(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        if vpcs and not isinstance(vpcs, list):
+            raise TypeError('Expected property vpcs to be a list')
+        __self__.vpcs = vpcs
+        """
+        Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        """
+        __props__['vpcs'] = vpcs
+
         if vpc_id and not isinstance(vpc_id, basestring):
             raise TypeError('Expected property vpc_id to be a basestring')
         __self__.vpc_id = vpc_id
         """
-        The VPC to associate with a private hosted zone. Specifying `vpc_id` will create a private hosted zone.
-        Conflicts w/ `delegation_set_id` as delegation sets can only be used for public zones.
+        ID of the VPC to associate.
         """
         __props__['vpcId'] = vpc_id
 
@@ -77,7 +82,7 @@ class Zone(pulumi.CustomResource):
             raise TypeError('Expected property vpc_region to be a basestring')
         __self__.vpc_region = vpc_region
         """
-        The VPC's region. Defaults to the region of the AWS provider.
+        Region of the VPC to associate. Defaults to AWS provider region.
         """
         __props__['vpcRegion'] = vpc_region
 
@@ -110,6 +115,8 @@ class Zone(pulumi.CustomResource):
             self.name_servers = outs['nameServers']
         if 'tags' in outs:
             self.tags = outs['tags']
+        if 'vpcs' in outs:
+            self.vpcs = outs['vpcs']
         if 'vpcId' in outs:
             self.vpc_id = outs['vpcId']
         if 'vpcRegion' in outs:

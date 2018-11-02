@@ -10,7 +10,7 @@ class GetVpcResult(object):
     """
     A collection of values returned by getVpc.
     """
-    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, state=None, tags=None):
+    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, state=None, tags=None):
         if arn and not isinstance(arn, basestring):
             raise TypeError('Expected argument arn to be a basestring')
         __self__.arn = arn
@@ -66,6 +66,12 @@ class GetVpcResult(object):
         """
         The IPv6 CIDR block.
         """
+        if main_route_table_id and not isinstance(main_route_table_id, basestring):
+            raise TypeError('Expected argument main_route_table_id to be a basestring')
+        __self__.main_route_table_id = main_route_table_id
+        """
+        The ID of the main route table associated with this VPC.
+        """
         if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
@@ -107,5 +113,6 @@ def get_vpc(cidr_block=None, default=None, dhcp_options_id=None, filters=None, i
         instance_tenancy=__ret__.get('instanceTenancy'),
         ipv6_association_id=__ret__.get('ipv6AssociationId'),
         ipv6_cidr_block=__ret__.get('ipv6CidrBlock'),
+        main_route_table_id=__ret__.get('mainRouteTableId'),
         state=__ret__.get('state'),
         tags=__ret__.get('tags'))

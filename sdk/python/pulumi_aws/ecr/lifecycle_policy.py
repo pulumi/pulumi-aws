@@ -8,7 +8,11 @@ from .. import utilities
 
 class LifecyclePolicy(pulumi.CustomResource):
     """
-    Provides an ECR lifecycle policy.
+    Manages an ECR repository lifecycle policy.
+    
+    ~> **NOTE:** Only one `aws_ecr_lifecycle_policy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
+    
+    ~> **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the Terraform code, the resource will be flagged for recreation every `terraform plan`.
     """
     def __init__(__self__, __name__, __opts__=None, policy=None, repository=None):
         """Create a LifecyclePolicy resource with the given unique name, props, and options."""

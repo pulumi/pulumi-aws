@@ -49,7 +49,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     public readonly role: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export interface CrawlerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     readonly role?: pulumi.Input<string>;
     /**
@@ -205,7 +205,7 @@ export interface CrawlerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     readonly role: pulumi.Input<string>;
     /**

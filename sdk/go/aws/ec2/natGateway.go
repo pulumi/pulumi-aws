@@ -25,19 +25,16 @@ func NewNatGateway(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["allocationId"] = nil
-		inputs["networkInterfaceId"] = nil
-		inputs["privateIp"] = nil
-		inputs["publicIp"] = nil
 		inputs["subnetId"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["allocationId"] = args.AllocationId
-		inputs["networkInterfaceId"] = args.NetworkInterfaceId
-		inputs["privateIp"] = args.PrivateIp
-		inputs["publicIp"] = args.PublicIp
 		inputs["subnetId"] = args.SubnetId
 		inputs["tags"] = args.Tags
 	}
+	inputs["networkInterfaceId"] = nil
+	inputs["privateIp"] = nil
+	inputs["publicIp"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/natGateway:NatGateway", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -125,12 +122,6 @@ type NatGatewayState struct {
 type NatGatewayArgs struct {
 	// The Allocation ID of the Elastic IP address for the gateway.
 	AllocationId interface{}
-	// The ENI ID of the network interface created by the NAT gateway.
-	NetworkInterfaceId interface{}
-	// The private IP address of the NAT Gateway.
-	PrivateIp interface{}
-	// The public IP address of the NAT Gateway.
-	PublicIp interface{}
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId interface{}
 	// A mapping of tags to assign to the resource.

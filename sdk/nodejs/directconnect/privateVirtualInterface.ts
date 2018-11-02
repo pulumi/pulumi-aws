@@ -55,6 +55,15 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
      */
     public readonly dxGatewayId: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+     * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    public readonly mtu: pulumi.Output<number | undefined>;
+    /**
      * The name for the virtual interface.
      */
     public readonly name: pulumi.Output<string>;
@@ -91,6 +100,8 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             inputs["connectionId"] = state ? state.connectionId : undefined;
             inputs["customerAddress"] = state ? state.customerAddress : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
+            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            inputs["mtu"] = state ? state.mtu : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vlan"] = state ? state.vlan : undefined;
@@ -116,11 +127,13 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             inputs["connectionId"] = args ? args.connectionId : undefined;
             inputs["customerAddress"] = args ? args.customerAddress : undefined;
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
+            inputs["mtu"] = args ? args.mtu : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["jumboFrameCapable"] = undefined /*out*/;
         }
         super("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, inputs, opts);
     }
@@ -162,6 +175,15 @@ export interface PrivateVirtualInterfaceState {
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
     readonly dxGatewayId?: pulumi.Input<string>;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+    readonly jumboFrameCapable?: pulumi.Input<boolean>;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+     * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    readonly mtu?: pulumi.Input<number>;
     /**
      * The name for the virtual interface.
      */
@@ -212,6 +234,11 @@ export interface PrivateVirtualInterfaceArgs {
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
     readonly dxGatewayId?: pulumi.Input<string>;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+     * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    readonly mtu?: pulumi.Input<number>;
     /**
      * The name for the virtual interface.
      */

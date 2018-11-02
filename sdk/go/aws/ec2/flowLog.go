@@ -17,12 +17,6 @@ type FlowLog struct {
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
 func NewFlowLog(ctx *pulumi.Context,
 	name string, args *FlowLogArgs, opts ...pulumi.ResourceOpt) (*FlowLog, error) {
-	if args == nil || args.IamRoleArn == nil {
-		return nil, errors.New("missing required argument 'IamRoleArn'")
-	}
-	if args == nil || args.LogGroupName == nil {
-		return nil, errors.New("missing required argument 'LogGroupName'")
-	}
 	if args == nil || args.TrafficType == nil {
 		return nil, errors.New("missing required argument 'TrafficType'")
 	}
@@ -30,6 +24,8 @@ func NewFlowLog(ctx *pulumi.Context,
 	if args == nil {
 		inputs["eniId"] = nil
 		inputs["iamRoleArn"] = nil
+		inputs["logDestination"] = nil
+		inputs["logDestinationType"] = nil
 		inputs["logGroupName"] = nil
 		inputs["subnetId"] = nil
 		inputs["trafficType"] = nil
@@ -37,6 +33,8 @@ func NewFlowLog(ctx *pulumi.Context,
 	} else {
 		inputs["eniId"] = args.EniId
 		inputs["iamRoleArn"] = args.IamRoleArn
+		inputs["logDestination"] = args.LogDestination
+		inputs["logDestinationType"] = args.LogDestinationType
 		inputs["logGroupName"] = args.LogGroupName
 		inputs["subnetId"] = args.SubnetId
 		inputs["trafficType"] = args.TrafficType
@@ -57,6 +55,8 @@ func GetFlowLog(ctx *pulumi.Context,
 	if state != nil {
 		inputs["eniId"] = state.EniId
 		inputs["iamRoleArn"] = state.IamRoleArn
+		inputs["logDestination"] = state.LogDestination
+		inputs["logDestinationType"] = state.LogDestinationType
 		inputs["logGroupName"] = state.LogGroupName
 		inputs["subnetId"] = state.SubnetId
 		inputs["trafficType"] = state.TrafficType
@@ -84,13 +84,22 @@ func (r *FlowLog) EniId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eniId"])
 }
 
-// The ARN for the IAM role that's used to post flow
-// logs to a CloudWatch Logs log group
+// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 func (r *FlowLog) IamRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iamRoleArn"])
 }
 
-// The name of the CloudWatch log group
+// The ARN of the logging destination.
+func (r *FlowLog) LogDestination() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["logDestination"])
+}
+
+// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+func (r *FlowLog) LogDestinationType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["logDestinationType"])
+}
+
+// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
 func (r *FlowLog) LogGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logGroupName"])
 }
@@ -100,8 +109,7 @@ func (r *FlowLog) SubnetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
-// The type of traffic to capture. Valid values:
-// `ACCEPT`,`REJECT`, `ALL`
+// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 func (r *FlowLog) TrafficType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["trafficType"])
 }
@@ -115,15 +123,17 @@ func (r *FlowLog) VpcId() *pulumi.StringOutput {
 type FlowLogState struct {
 	// Elastic Network Interface ID to attach to
 	EniId interface{}
-	// The ARN for the IAM role that's used to post flow
-	// logs to a CloudWatch Logs log group
+	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn interface{}
-	// The name of the CloudWatch log group
+	// The ARN of the logging destination.
+	LogDestination interface{}
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	LogDestinationType interface{}
+	// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
 	LogGroupName interface{}
 	// Subnet ID to attach to
 	SubnetId interface{}
-	// The type of traffic to capture. Valid values:
-	// `ACCEPT`,`REJECT`, `ALL`
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType interface{}
 	// VPC ID to attach to
 	VpcId interface{}
@@ -133,15 +143,17 @@ type FlowLogState struct {
 type FlowLogArgs struct {
 	// Elastic Network Interface ID to attach to
 	EniId interface{}
-	// The ARN for the IAM role that's used to post flow
-	// logs to a CloudWatch Logs log group
+	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
 	IamRoleArn interface{}
-	// The name of the CloudWatch log group
+	// The ARN of the logging destination.
+	LogDestination interface{}
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	LogDestinationType interface{}
+	// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
 	LogGroupName interface{}
 	// Subnet ID to attach to
 	SubnetId interface{}
-	// The type of traffic to capture. Valid values:
-	// `ACCEPT`,`REJECT`, `ALL`
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType interface{}
 	// VPC ID to attach to
 	VpcId interface{}

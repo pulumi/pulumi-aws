@@ -25,7 +25,11 @@ export class EventPermission extends pulumi.CustomResource {
      */
     public readonly action: pulumi.Output<string | undefined>;
     /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+     */
+    public readonly condition: pulumi.Output<{ key: string, type: string, value: string } | undefined>;
+    /**
+     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
     public readonly principal: pulumi.Output<string>;
     /**
@@ -46,6 +50,7 @@ export class EventPermission extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: EventPermissionState = argsOrState as EventPermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
+            inputs["condition"] = state ? state.condition : undefined;
             inputs["principal"] = state ? state.principal : undefined;
             inputs["statementId"] = state ? state.statementId : undefined;
         } else {
@@ -57,6 +62,7 @@ export class EventPermission extends pulumi.CustomResource {
                 throw new Error("Missing required property 'statementId'");
             }
             inputs["action"] = args ? args.action : undefined;
+            inputs["condition"] = args ? args.condition : undefined;
             inputs["principal"] = args ? args.principal : undefined;
             inputs["statementId"] = args ? args.statementId : undefined;
         }
@@ -73,7 +79,11 @@ export interface EventPermissionState {
      */
     readonly action?: pulumi.Input<string>;
     /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+     */
+    readonly condition?: pulumi.Input<{ key: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>;
+    /**
+     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
     readonly principal?: pulumi.Input<string>;
     /**
@@ -91,7 +101,11 @@ export interface EventPermissionArgs {
      */
     readonly action?: pulumi.Input<string>;
     /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+     */
+    readonly condition?: pulumi.Input<{ key: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>;
+    /**
+     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
     readonly principal: pulumi.Input<string>;
     /**

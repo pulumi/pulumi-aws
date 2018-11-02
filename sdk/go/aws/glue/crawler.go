@@ -128,7 +128,7 @@ func (r *Crawler) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 func (r *Crawler) Role() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["role"])
 }
@@ -169,7 +169,7 @@ type CrawlerState struct {
 	JdbcTargets interface{}
 	// Name of the crawler.
 	Name interface{}
-	// The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role interface{}
 	// List nested Amazon S3 target arguments. See below.
 	S3Targets interface{}
@@ -197,7 +197,7 @@ type CrawlerArgs struct {
 	JdbcTargets interface{}
 	// Name of the crawler.
 	Name interface{}
-	// The IAM role (or ARN of an IAM role) used by the crawler to access other resources.
+	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role interface{}
 	// List nested Amazon S3 target arguments. See below.
 	S3Targets interface{}

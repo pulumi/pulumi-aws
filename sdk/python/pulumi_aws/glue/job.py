@@ -10,7 +10,7 @@ class Job(pulumi.CustomResource):
     """
     Provides a Glue Job resource.
     """
-    def __init__(__self__, __name__, __opts__=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, max_retries=None, name=None, role_arn=None, timeout=None):
+    def __init__(__self__, __name__, __opts__=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None):
         """Create a Job resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -97,6 +97,14 @@ class Job(pulumi.CustomResource):
         """
         __props__['roleArn'] = role_arn
 
+        if security_configuration and not isinstance(security_configuration, basestring):
+            raise TypeError('Expected property security_configuration to be a basestring')
+        __self__.security_configuration = security_configuration
+        """
+        The name of the Security Configuration to be associated with the job. 
+        """
+        __props__['securityConfiguration'] = security_configuration
+
         if timeout and not isinstance(timeout, int):
             raise TypeError('Expected property timeout to be a int')
         __self__.timeout = timeout
@@ -130,5 +138,7 @@ class Job(pulumi.CustomResource):
             self.name = outs['name']
         if 'roleArn' in outs:
             self.role_arn = outs['roleArn']
+        if 'securityConfiguration' in outs:
+            self.security_configuration = outs['securityConfiguration']
         if 'timeout' in outs:
             self.timeout = outs['timeout']

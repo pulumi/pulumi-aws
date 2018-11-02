@@ -33,6 +33,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["maxRetries"] = nil
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
+		inputs["securityConfiguration"] = nil
 		inputs["timeout"] = nil
 	} else {
 		inputs["allocatedCapacity"] = args.AllocatedCapacity
@@ -44,6 +45,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["maxRetries"] = args.MaxRetries
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
+		inputs["securityConfiguration"] = args.SecurityConfiguration
 		inputs["timeout"] = args.Timeout
 	}
 	s, err := ctx.RegisterResource("aws:glue/job:Job", name, true, inputs, opts...)
@@ -68,6 +70,7 @@ func GetJob(ctx *pulumi.Context,
 		inputs["maxRetries"] = state.MaxRetries
 		inputs["name"] = state.Name
 		inputs["roleArn"] = state.RoleArn
+		inputs["securityConfiguration"] = state.SecurityConfiguration
 		inputs["timeout"] = state.Timeout
 	}
 	s, err := ctx.ReadResource("aws:glue/job:Job", name, id, inputs, opts...)
@@ -132,6 +135,11 @@ func (r *Job) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
+// The name of the Security Configuration to be associated with the job. 
+func (r *Job) SecurityConfiguration() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["securityConfiguration"])
+}
+
 // The job timeout in minutes. The default is 2880 minutes (48 hours).
 func (r *Job) Timeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["timeout"])
@@ -157,6 +165,8 @@ type JobState struct {
 	Name interface{}
 	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
+	// The name of the Security Configuration to be associated with the job. 
+	SecurityConfiguration interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}
 }
@@ -181,6 +191,8 @@ type JobArgs struct {
 	Name interface{}
 	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
+	// The name of the Security Configuration to be associated with the job. 
+	SecurityConfiguration interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}
 }

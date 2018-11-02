@@ -10,7 +10,7 @@ class NatGateway(pulumi.CustomResource):
     """
     Provides a resource to create a VPC NAT Gateway.
     """
-    def __init__(__self__, __name__, __opts__=None, allocation_id=None, network_interface_id=None, private_ip=None, public_ip=None, subnet_id=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, allocation_id=None, subnet_id=None, tags=None):
         """Create a NatGateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -31,30 +31,6 @@ class NatGateway(pulumi.CustomResource):
         """
         __props__['allocationId'] = allocation_id
 
-        if network_interface_id and not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected property network_interface_id to be a basestring')
-        __self__.network_interface_id = network_interface_id
-        """
-        The ENI ID of the network interface created by the NAT gateway.
-        """
-        __props__['networkInterfaceId'] = network_interface_id
-
-        if private_ip and not isinstance(private_ip, basestring):
-            raise TypeError('Expected property private_ip to be a basestring')
-        __self__.private_ip = private_ip
-        """
-        The private IP address of the NAT Gateway.
-        """
-        __props__['privateIp'] = private_ip
-
-        if public_ip and not isinstance(public_ip, basestring):
-            raise TypeError('Expected property public_ip to be a basestring')
-        __self__.public_ip = public_ip
-        """
-        The public IP address of the NAT Gateway.
-        """
-        __props__['publicIp'] = public_ip
-
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
         elif not isinstance(subnet_id, basestring):
@@ -72,6 +48,19 @@ class NatGateway(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         __props__['tags'] = tags
+
+        __self__.network_interface_id = pulumi.runtime.UNKNOWN
+        """
+        The ENI ID of the network interface created by the NAT gateway.
+        """
+        __self__.private_ip = pulumi.runtime.UNKNOWN
+        """
+        The private IP address of the NAT Gateway.
+        """
+        __self__.public_ip = pulumi.runtime.UNKNOWN
+        """
+        The public IP address of the NAT Gateway.
+        """
 
         super(NatGateway, __self__).__init__(
             'aws:ec2/natGateway:NatGateway',

@@ -10,7 +10,7 @@ class UserPoolDomain(pulumi.CustomResource):
     """
     Provides a Cognito User Pool Domain resource.
     """
-    def __init__(__self__, __name__, __opts__=None, domain=None, user_pool_id=None):
+    def __init__(__self__, __name__, __opts__=None, certificate_arn=None, domain=None, user_pool_id=None):
         """Create a UserPoolDomain resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -20,6 +20,14 @@ class UserPoolDomain(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if certificate_arn and not isinstance(certificate_arn, basestring):
+            raise TypeError('Expected property certificate_arn to be a basestring')
+        __self__.certificate_arn = certificate_arn
+        """
+        The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        """
+        __props__['certificateArn'] = certificate_arn
 
         if not domain:
             raise TypeError('Missing required property domain')
@@ -67,6 +75,8 @@ class UserPoolDomain(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'awsAccountId' in outs:
             self.aws_account_id = outs['awsAccountId']
+        if 'certificateArn' in outs:
+            self.certificate_arn = outs['certificateArn']
         if 'cloudfrontDistributionArn' in outs:
             self.cloudfront_distribution_arn = outs['cloudfrontDistributionArn']
         if 'domain' in outs:

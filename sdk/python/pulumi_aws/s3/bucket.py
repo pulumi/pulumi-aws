@@ -148,7 +148,8 @@ class Bucket(pulumi.CustomResource):
             raise TypeError('Expected property tags to be a dict')
         __self__.tags = tags
         """
-        Specifies object tags key and value.
+        A mapping of tags that identifies subset of objects to which the rule applies.
+        The rule applies only to objects having all the tags in its tagset.
         """
         __props__['tags'] = tags
 

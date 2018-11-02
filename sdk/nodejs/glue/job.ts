@@ -57,6 +57,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly roleArn: pulumi.Output<string>;
     /**
+     * The name of the Security Configuration to be associated with the job. 
+     */
+    public readonly securityConfiguration: pulumi.Output<string | undefined>;
+    /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
     public readonly timeout: pulumi.Output<number | undefined>;
@@ -82,6 +86,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
+            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
@@ -100,6 +105,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
         super("aws:glue/job:Job", name, inputs, opts);
@@ -147,6 +153,10 @@ export interface JobState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
+     * The name of the Security Configuration to be associated with the job. 
+     */
+    readonly securityConfiguration?: pulumi.Input<string>;
+    /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
     readonly timeout?: pulumi.Input<number>;
@@ -192,6 +202,10 @@ export interface JobArgs {
      * The ARN of the IAM role associated with this job.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * The name of the Security Configuration to be associated with the job. 
+     */
+    readonly securityConfiguration?: pulumi.Input<string>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */

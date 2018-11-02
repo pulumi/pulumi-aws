@@ -38,8 +38,6 @@ func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGate
 // A collection of arguments for invoking getNatGateway.
 type GetNatGatewayArgs struct {
 	// Custom filter block as described below.
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters interface{}
 	// The id of the specific Nat Gateway to retrieve.
 	Id interface{}
@@ -47,6 +45,8 @@ type GetNatGatewayArgs struct {
 	State interface{}
 	// The id of subnet that the Nat Gateway resides in.
 	SubnetId interface{}
+	// A mapping of tags, each pair of which must exactly match
+	// a pair on the desired Nat Gateway.
 	Tags interface{}
 	// The id of the VPC that the Nat Gateway resides in.
 	VpcId interface{}

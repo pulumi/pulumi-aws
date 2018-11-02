@@ -45,7 +45,7 @@ class Service(pulumi.CustomResource):
             raise TypeError('Expected property deployment_minimum_healthy_percent to be a int')
         __self__.deployment_minimum_healthy_percent = deployment_minimum_healthy_percent
         """
-        The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+        The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         """
         __props__['deploymentMinimumHealthyPercent'] = deployment_minimum_healthy_percent
 

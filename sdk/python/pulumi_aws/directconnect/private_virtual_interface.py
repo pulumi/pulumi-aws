@@ -10,7 +10,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     """
     Provides a Direct Connect private virtual interface resource.
     """
-    def __init__(__self__, __name__, __opts__=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, name=None, tags=None, vlan=None, vpn_gateway_id=None):
+    def __init__(__self__, __name__, __opts__=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, mtu=None, name=None, tags=None, vlan=None, vpn_gateway_id=None):
         """Create a PrivateVirtualInterface resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -83,6 +83,15 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         """
         __props__['dxGatewayId'] = dx_gateway_id
 
+        if mtu and not isinstance(mtu, int):
+            raise TypeError('Expected property mtu to be a int')
+        __self__.mtu = mtu
+        """
+        The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+        The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+        """
+        __props__['mtu'] = mtu
+
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
@@ -121,6 +130,10 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         """
         The ARN of the virtual interface.
         """
+        __self__.jumbo_frame_capable = pulumi.runtime.UNKNOWN
+        """
+        Indicates whether jumbo frames (9001 MTU) are supported.
+        """
 
         super(PrivateVirtualInterface, __self__).__init__(
             'aws:directconnect/privateVirtualInterface:PrivateVirtualInterface',
@@ -145,6 +158,10 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             self.customer_address = outs['customerAddress']
         if 'dxGatewayId' in outs:
             self.dx_gateway_id = outs['dxGatewayId']
+        if 'jumboFrameCapable' in outs:
+            self.jumbo_frame_capable = outs['jumboFrameCapable']
+        if 'mtu' in outs:
+            self.mtu = outs['mtu']
         if 'name' in outs:
             self.name = outs['name']
         if 'tags' in outs:

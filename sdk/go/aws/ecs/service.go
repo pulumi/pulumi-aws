@@ -119,7 +119,7 @@ func (r *Service) DeploymentMaximumPercent() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["deploymentMaximumPercent"])
 }
 
-// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 func (r *Service) DeploymentMinimumHealthyPercent() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["deploymentMinimumHealthyPercent"])
 }
@@ -201,7 +201,7 @@ type ServiceState struct {
 	Cluster interface{}
 	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent interface{}
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent interface{}
 	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
@@ -240,7 +240,7 @@ type ServiceArgs struct {
 	Cluster interface{}
 	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent interface{}
-	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
 	DeploymentMinimumHealthyPercent interface{}
 	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
