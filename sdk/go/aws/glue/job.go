@@ -82,12 +82,12 @@ func GetJob(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *Job) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Job) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.

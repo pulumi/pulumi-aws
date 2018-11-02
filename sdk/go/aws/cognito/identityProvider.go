@@ -73,12 +73,12 @@ func GetIdentityProvider(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *IdentityProvider) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *IdentityProvider) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)

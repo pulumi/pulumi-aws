@@ -88,12 +88,12 @@ func GetCapacityReservation(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *CapacityReservation) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *CapacityReservation) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The Availability Zone in which to create the Capacity Reservation.

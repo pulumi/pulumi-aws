@@ -66,12 +66,12 @@ func GetConfigurationTemplate(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *ConfigurationTemplate) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ConfigurationTemplate) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // name of the application to associate with this configuration template

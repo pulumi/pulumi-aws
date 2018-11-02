@@ -75,12 +75,12 @@ func GetWebhook(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *Webhook) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Webhook) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.

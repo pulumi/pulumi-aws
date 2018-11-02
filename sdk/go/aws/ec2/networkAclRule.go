@@ -94,12 +94,12 @@ func GetNetworkAclRule(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *NetworkAclRule) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NetworkAclRule) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).

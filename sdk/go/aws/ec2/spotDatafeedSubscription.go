@@ -55,12 +55,12 @@ func GetSpotDatafeedSubscription(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *SpotDatafeedSubscription) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SpotDatafeedSubscription) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The Amazon S3 bucket in which to store the Spot instance data feed.

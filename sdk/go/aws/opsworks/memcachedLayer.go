@@ -109,12 +109,12 @@ func GetMemcachedLayer(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *MemcachedLayer) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *MemcachedLayer) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.

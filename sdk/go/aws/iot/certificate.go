@@ -57,12 +57,12 @@ func GetCertificate(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *Certificate) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Certificate) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Boolean flag to indicate if the certificate should be active

@@ -59,12 +59,12 @@ func GetLoadBalancerBackendServerPolicy(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *LoadBalancerBackendServerPolicy) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *LoadBalancerBackendServerPolicy) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The instance port to apply the policy to.

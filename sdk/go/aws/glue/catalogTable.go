@@ -82,12 +82,12 @@ func GetCatalogTable(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *CatalogTable) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *CatalogTable) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.

@@ -67,12 +67,12 @@ func GetMethodSettings(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *MethodSettings) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *MethodSettings) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.

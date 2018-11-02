@@ -99,12 +99,12 @@ func GetBucketObject(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *BucketObject) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *BucketObject) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".

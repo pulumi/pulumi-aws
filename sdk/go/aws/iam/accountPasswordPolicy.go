@@ -75,12 +75,12 @@ func GetAccountPasswordPolicy(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *AccountPasswordPolicy) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *AccountPasswordPolicy) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Whether to allow users to change their own password

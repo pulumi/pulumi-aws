@@ -106,12 +106,12 @@ func GetBucket(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *Bucket) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Bucket) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.

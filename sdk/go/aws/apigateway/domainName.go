@@ -102,12 +102,12 @@ func GetDomainName(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *DomainName) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *DomainName) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is

@@ -63,12 +63,12 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *RepositoryPolicy) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *RepositoryPolicy) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)

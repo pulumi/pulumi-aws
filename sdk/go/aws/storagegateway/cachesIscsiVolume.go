@@ -91,12 +91,12 @@ func GetCachesIscsiVolume(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *CachesIscsiVolume) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *CachesIscsiVolume) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.

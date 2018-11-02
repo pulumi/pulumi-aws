@@ -57,12 +57,12 @@ func GetSnapshotCopyGrant(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *SnapshotCopyGrant) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SnapshotCopyGrant) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
