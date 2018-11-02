@@ -427,6 +427,7 @@
         "iot/getEndpoint.ts",
         "iot/index.ts",
         "iot/policy.ts",
+        "iot/policyAttachment.ts",
         "iot/thing.ts",
         "iot/thingType.ts",
         "iot/topicRule.ts",

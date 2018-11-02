@@ -1363,11 +1363,23 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			// IoT
+			// IOT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
 			"aws_iot_policy": {
 				Tok:      awsResource(iotMod, "Policy"),
 				IDFields: []string{"name"},
+			},
+			"aws_iot_policy_attachment": {
+				Tok: awsResource(iotMod, "PolicyAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iotMod, "Policy")},
+					},
+					"target": {
+						Type: awsType(awsMod, "ARN"),
+					},
+				},
 			},
 			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
