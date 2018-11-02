@@ -14,37 +14,19 @@ class Group(pulumi.CustomResource):
         """Create a Group resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        """
         __props__['name'] = name
 
-        if path and not isinstance(path, basestring):
-            raise TypeError('Expected property path to be a basestring')
-        __self__.path = path
-        """
-        Path in which to create the group.
-        """
         __props__['path'] = path
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS for this group.
-        """
-        __self__.unique_id = pulumi.runtime.UNKNOWN
-        """
-        The [unique ID][1] assigned by AWS.
-        """
+        __props__['arn'] = None
+        __props__['unique_id'] = None
 
         super(Group, __self__).__init__(
             'aws:iam/group:Group',
@@ -52,12 +34,3 @@ class Group(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'path' in outs:
-            self.path = outs['path']
-        if 'uniqueId' in outs:
-            self.unique_id = outs['uniqueId']

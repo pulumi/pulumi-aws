@@ -14,53 +14,23 @@ class UserGroup(pulumi.CustomResource):
         """Create a UserGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the user group.
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the user group.
-        """
         __props__['name'] = name
 
-        if precedence and not isinstance(precedence, int):
-            raise TypeError('Expected property precedence to be a int')
-        __self__.precedence = precedence
-        """
-        The precedence of the user group.
-        """
         __props__['precedence'] = precedence
 
-        if role_arn and not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The ARN of the IAM role to be associated with the user group.
-        """
         __props__['roleArn'] = role_arn
 
         if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
-        elif not isinstance(user_pool_id, basestring):
-            raise TypeError('Expected property user_pool_id to be a basestring')
-        __self__.user_pool_id = user_pool_id
-        """
-        The user pool ID.
-        """
         __props__['userPoolId'] = user_pool_id
 
         super(UserGroup, __self__).__init__(
@@ -69,14 +39,3 @@ class UserGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'precedence' in outs:
-            self.precedence = outs['precedence']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'userPoolId' in outs:
-            self.user_pool_id = outs['userPoolId']

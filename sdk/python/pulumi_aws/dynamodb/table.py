@@ -16,7 +16,7 @@ class Table(pulumi.CustomResource):
         """Create a Table resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,144 +25,43 @@ class Table(pulumi.CustomResource):
 
         if not attributes:
             raise TypeError('Missing required property attributes')
-        elif not isinstance(attributes, list):
-            raise TypeError('Expected property attributes to be a list')
-        __self__.attributes = attributes
-        """
-        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
-        """
         __props__['attributes'] = attributes
 
-        if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
-            raise TypeError('Expected property global_secondary_indexes to be a list')
-        __self__.global_secondary_indexes = global_secondary_indexes
-        """
-        Describe a GSO for the table;
-        subject to the normal limits on the number of GSIs, projected
-        attributes, etc.
-        """
         __props__['globalSecondaryIndexes'] = global_secondary_indexes
 
         if not hash_key:
             raise TypeError('Missing required property hash_key')
-        elif not isinstance(hash_key, basestring):
-            raise TypeError('Expected property hash_key to be a basestring')
-        __self__.hash_key = hash_key
-        """
-        The name of the hash key in the index; must be
-        defined as an attribute in the resource.
-        """
         __props__['hashKey'] = hash_key
 
-        if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
-            raise TypeError('Expected property local_secondary_indexes to be a list')
-        __self__.local_secondary_indexes = local_secondary_indexes
-        """
-        Describe an LSI on the table;
-        these can only be allocated *at creation* so you cannot change this
-        definition after you have created the resource.
-        """
         __props__['localSecondaryIndexes'] = local_secondary_indexes
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the index
-        """
         __props__['name'] = name
 
-        if point_in_time_recovery and not isinstance(point_in_time_recovery, dict):
-            raise TypeError('Expected property point_in_time_recovery to be a dict')
-        __self__.point_in_time_recovery = point_in_time_recovery
-        """
-        Point-in-time recovery options.
-        """
         __props__['pointInTimeRecovery'] = point_in_time_recovery
 
-        if range_key and not isinstance(range_key, basestring):
-            raise TypeError('Expected property range_key to be a basestring')
-        __self__.range_key = range_key
-        """
-        The name of the range key; must be defined
-        """
         __props__['rangeKey'] = range_key
 
         if not read_capacity:
             raise TypeError('Missing required property read_capacity')
-        elif not isinstance(read_capacity, int):
-            raise TypeError('Expected property read_capacity to be a int')
-        __self__.read_capacity = read_capacity
-        """
-        The number of read units for this index
-        """
         __props__['readCapacity'] = read_capacity
 
-        if server_side_encryption and not isinstance(server_side_encryption, dict):
-            raise TypeError('Expected property server_side_encryption to be a dict')
-        __self__.server_side_encryption = server_side_encryption
-        """
-        Encrypt at rest options.
-        """
         __props__['serverSideEncryption'] = server_side_encryption
 
-        if stream_enabled and not isinstance(stream_enabled, bool):
-            raise TypeError('Expected property stream_enabled to be a bool')
-        __self__.stream_enabled = stream_enabled
-        """
-        Indicates whether Streams are to be enabled (true) or disabled (false).
-        """
         __props__['streamEnabled'] = stream_enabled
 
-        if stream_view_type and not isinstance(stream_view_type, basestring):
-            raise TypeError('Expected property stream_view_type to be a basestring')
-        __self__.stream_view_type = stream_view_type
-        """
-        When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-        """
         __props__['streamViewType'] = stream_view_type
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A map of tags to populate on the created table.
-        """
         __props__['tags'] = tags
 
-        if ttl and not isinstance(ttl, dict):
-            raise TypeError('Expected property ttl to be a dict')
-        __self__.ttl = ttl
-        """
-        Defines ttl, has two properties, and can only be specified once:
-        """
         __props__['ttl'] = ttl
 
         if not write_capacity:
             raise TypeError('Missing required property write_capacity')
-        elif not isinstance(write_capacity, int):
-            raise TypeError('Expected property write_capacity to be a int')
-        __self__.write_capacity = write_capacity
-        """
-        The number of write units for this index
-        """
         __props__['writeCapacity'] = write_capacity
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The arn of the table
-        """
-        __self__.stream_arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the Table Stream. Only available when `stream_enabled = true`
-        """
-        __self__.stream_label = pulumi.runtime.UNKNOWN
-        """
-        A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-        a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-        table name and this field is guaranteed to be unique.
-        It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
-        """
+        __props__['arn'] = None
+        __props__['stream_arn'] = None
+        __props__['stream_label'] = None
 
         super(Table, __self__).__init__(
             'aws:dynamodb/table:Table',
@@ -170,38 +69,3 @@ class Table(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'attributes' in outs:
-            self.attributes = outs['attributes']
-        if 'globalSecondaryIndexes' in outs:
-            self.global_secondary_indexes = outs['globalSecondaryIndexes']
-        if 'hashKey' in outs:
-            self.hash_key = outs['hashKey']
-        if 'localSecondaryIndexes' in outs:
-            self.local_secondary_indexes = outs['localSecondaryIndexes']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'pointInTimeRecovery' in outs:
-            self.point_in_time_recovery = outs['pointInTimeRecovery']
-        if 'rangeKey' in outs:
-            self.range_key = outs['rangeKey']
-        if 'readCapacity' in outs:
-            self.read_capacity = outs['readCapacity']
-        if 'serverSideEncryption' in outs:
-            self.server_side_encryption = outs['serverSideEncryption']
-        if 'streamArn' in outs:
-            self.stream_arn = outs['streamArn']
-        if 'streamEnabled' in outs:
-            self.stream_enabled = outs['streamEnabled']
-        if 'streamLabel' in outs:
-            self.stream_label = outs['streamLabel']
-        if 'streamViewType' in outs:
-            self.stream_view_type = outs['streamViewType']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'ttl' in outs:
-            self.ttl = outs['ttl']
-        if 'writeCapacity' in outs:
-            self.write_capacity = outs['writeCapacity']

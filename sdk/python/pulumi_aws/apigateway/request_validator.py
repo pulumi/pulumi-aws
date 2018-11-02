@@ -14,45 +14,21 @@ class RequestValidator(pulumi.CustomResource):
         """Create a RequestValidator resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the request validator
-        """
         __props__['name'] = name
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        elif not isinstance(rest_api, basestring):
-            raise TypeError('Expected property rest_api to be a basestring')
-        __self__.rest_api = rest_api
-        """
-        The ID of the associated Rest API
-        """
         __props__['restApi'] = rest_api
 
-        if validate_request_body and not isinstance(validate_request_body, bool):
-            raise TypeError('Expected property validate_request_body to be a bool')
-        __self__.validate_request_body = validate_request_body
-        """
-        Boolean whether to validate request body. Defaults to `false`.
-        """
         __props__['validateRequestBody'] = validate_request_body
 
-        if validate_request_parameters and not isinstance(validate_request_parameters, bool):
-            raise TypeError('Expected property validate_request_parameters to be a bool')
-        __self__.validate_request_parameters = validate_request_parameters
-        """
-        Boolean whether to validate request parameters. Defaults to `false`.
-        """
         __props__['validateRequestParameters'] = validate_request_parameters
 
         super(RequestValidator, __self__).__init__(
@@ -61,12 +37,3 @@ class RequestValidator(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'restApi' in outs:
-            self.rest_api = outs['restApi']
-        if 'validateRequestBody' in outs:
-            self.validate_request_body = outs['validateRequestBody']
-        if 'validateRequestParameters' in outs:
-            self.validate_request_parameters = outs['validateRequestParameters']

@@ -16,7 +16,7 @@ class CertificateAuthority(pulumi.CustomResource):
         """Create a CertificateAuthority resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,78 +25,24 @@ class CertificateAuthority(pulumi.CustomResource):
 
         if not certificate_authority_configuration:
             raise TypeError('Missing required property certificate_authority_configuration')
-        elif not isinstance(certificate_authority_configuration, dict):
-            raise TypeError('Expected property certificate_authority_configuration to be a dict')
-        __self__.certificate_authority_configuration = certificate_authority_configuration
-        """
-        Nested argument containing algorithms and certificate subject information. Defined below.
-        """
         __props__['certificateAuthorityConfiguration'] = certificate_authority_configuration
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        """
         __props__['enabled'] = enabled
 
-        if revocation_configuration and not isinstance(revocation_configuration, dict):
-            raise TypeError('Expected property revocation_configuration to be a dict')
-        __self__.revocation_configuration = revocation_configuration
-        """
-        Nested argument containing revocation configuration. Defined below.
-        """
         __props__['revocationConfiguration'] = revocation_configuration
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-        """
         __props__['tags'] = tags
 
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of the certificate authority. Currently, this must be `SUBORDINATE`.
-        """
         __props__['type'] = type
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        Amazon Resource Name (ARN) of the certificate authority.
-        """
-        __self__.certificate = pulumi.runtime.UNKNOWN
-        """
-        Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        """
-        __self__.certificate_chain = pulumi.runtime.UNKNOWN
-        """
-        Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-        """
-        __self__.certificate_signing_request = pulumi.runtime.UNKNOWN
-        """
-        The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        """
-        __self__.not_after = pulumi.runtime.UNKNOWN
-        """
-        Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        """
-        __self__.not_before = pulumi.runtime.UNKNOWN
-        """
-        Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        """
-        __self__.serial = pulumi.runtime.UNKNOWN
-        """
-        Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        """
-        __self__.status = pulumi.runtime.UNKNOWN
-        """
-        Status of the certificate authority.
-        """
+        __props__['arn'] = None
+        __props__['certificate'] = None
+        __props__['certificate_chain'] = None
+        __props__['certificate_signing_request'] = None
+        __props__['not_after'] = None
+        __props__['not_before'] = None
+        __props__['serial'] = None
+        __props__['status'] = None
 
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
@@ -104,30 +50,3 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'certificate' in outs:
-            self.certificate = outs['certificate']
-        if 'certificateAuthorityConfiguration' in outs:
-            self.certificate_authority_configuration = outs['certificateAuthorityConfiguration']
-        if 'certificateChain' in outs:
-            self.certificate_chain = outs['certificateChain']
-        if 'certificateSigningRequest' in outs:
-            self.certificate_signing_request = outs['certificateSigningRequest']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'notAfter' in outs:
-            self.not_after = outs['notAfter']
-        if 'notBefore' in outs:
-            self.not_before = outs['notBefore']
-        if 'revocationConfiguration' in outs:
-            self.revocation_configuration = outs['revocationConfiguration']
-        if 'serial' in outs:
-            self.serial = outs['serial']
-        if 'status' in outs:
-            self.status = outs['status']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'type' in outs:
-            self.type = outs['type']

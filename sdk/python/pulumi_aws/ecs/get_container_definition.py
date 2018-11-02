@@ -35,14 +35,14 @@ class GetContainerDefinitionResult(object):
         """
         The environment in use
         """
-        if image and not isinstance(image, basestring):
-            raise TypeError('Expected argument image to be a basestring')
+        if image and not isinstance(image, str):
+            raise TypeError('Expected argument image to be a str')
         __self__.image = image
         """
         The docker image in use, including the digest
         """
-        if image_digest and not isinstance(image_digest, basestring):
-            raise TypeError('Expected argument image_digest to be a basestring')
+        if image_digest and not isinstance(image_digest, str):
+            raise TypeError('Expected argument image_digest to be a str')
         __self__.image_digest = image_digest
         """
         The digest of the docker image in use
@@ -59,8 +59,8 @@ class GetContainerDefinitionResult(object):
         """
         The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -24,113 +24,43 @@ class SecurityGroupRule(pulumi.CustomResource):
         """Create a SecurityGroupRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if cidr_blocks and not isinstance(cidr_blocks, list):
-            raise TypeError('Expected property cidr_blocks to be a list')
-        __self__.cidr_blocks = cidr_blocks
-        """
-        List of CIDR blocks. Cannot be specified with `source_security_group_id`.
-        """
         __props__['cidrBlocks'] = cidr_blocks
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Description of the rule.
-        """
         __props__['description'] = description
 
         if not from_port:
             raise TypeError('Missing required property from_port')
-        elif not isinstance(from_port, int):
-            raise TypeError('Expected property from_port to be a int')
-        __self__.from_port = from_port
-        """
-        The start port (or ICMP type number if protocol is "icmp").
-        """
         __props__['fromPort'] = from_port
 
-        if ipv6_cidr_blocks and not isinstance(ipv6_cidr_blocks, list):
-            raise TypeError('Expected property ipv6_cidr_blocks to be a list')
-        __self__.ipv6_cidr_blocks = ipv6_cidr_blocks
-        """
-        List of IPv6 CIDR blocks.
-        """
         __props__['ipv6CidrBlocks'] = ipv6_cidr_blocks
 
-        if prefix_list_ids and not isinstance(prefix_list_ids, list):
-            raise TypeError('Expected property prefix_list_ids to be a list')
-        __self__.prefix_list_ids = prefix_list_ids
-        """
-        List of prefix list IDs (for allowing access to VPC endpoints).
-        Only valid with `egress`.
-        """
         __props__['prefixListIds'] = prefix_list_ids
 
         if not protocol:
             raise TypeError('Missing required property protocol')
-        elif not isinstance(protocol, basestring):
-            raise TypeError('Expected property protocol to be a basestring')
-        __self__.protocol = protocol
-        """
-        The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-        """
         __props__['protocol'] = protocol
 
         if not security_group_id:
             raise TypeError('Missing required property security_group_id')
-        elif not isinstance(security_group_id, basestring):
-            raise TypeError('Expected property security_group_id to be a basestring')
-        __self__.security_group_id = security_group_id
-        """
-        The security group to apply this rule to.
-        """
         __props__['securityGroupId'] = security_group_id
 
-        if self and not isinstance(self, bool):
-            raise TypeError('Expected property self to be a bool')
-        __self__.self = self
-        """
-        If true, the security group itself will be added as
-        a source to this ingress rule.
-        """
         __props__['self'] = self
 
-        if source_security_group_id and not isinstance(source_security_group_id, basestring):
-            raise TypeError('Expected property source_security_group_id to be a basestring')
-        __self__.source_security_group_id = source_security_group_id
-        """
-        The security group id to allow access to/from,
-        depending on the `type`. Cannot be specified with `cidr_blocks`.
-        """
         __props__['sourceSecurityGroupId'] = source_security_group_id
 
         if not to_port:
             raise TypeError('Missing required property to_port')
-        elif not isinstance(to_port, int):
-            raise TypeError('Expected property to_port to be a int')
-        __self__.to_port = to_port
-        """
-        The end port (or ICMP code if protocol is "icmp").
-        """
         __props__['toPort'] = to_port
 
         if not type:
             raise TypeError('Missing required property type')
-        elif not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of rule being created. Valid options are `ingress` (inbound)
-        or `egress` (outbound).
-        """
         __props__['type'] = type
 
         super(SecurityGroupRule, __self__).__init__(
@@ -139,26 +69,3 @@ class SecurityGroupRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cidrBlocks' in outs:
-            self.cidr_blocks = outs['cidrBlocks']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'fromPort' in outs:
-            self.from_port = outs['fromPort']
-        if 'ipv6CidrBlocks' in outs:
-            self.ipv6_cidr_blocks = outs['ipv6CidrBlocks']
-        if 'prefixListIds' in outs:
-            self.prefix_list_ids = outs['prefixListIds']
-        if 'protocol' in outs:
-            self.protocol = outs['protocol']
-        if 'securityGroupId' in outs:
-            self.security_group_id = outs['securityGroupId']
-        if 'self' in outs:
-            self.self = outs['self']
-        if 'sourceSecurityGroupId' in outs:
-            self.source_security_group_id = outs['sourceSecurityGroupId']
-        if 'toPort' in outs:
-            self.to_port = outs['toPort']
-        if 'type' in outs:
-            self.type = outs['type']

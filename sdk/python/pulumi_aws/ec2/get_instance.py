@@ -11,14 +11,14 @@ class GetInstanceResult(object):
     A collection of values returned by getInstance.
     """
     def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, vpc_security_group_ids=None, id=None):
-        if ami and not isinstance(ami, basestring):
-            raise TypeError('Expected argument ami to be a basestring')
+        if ami and not isinstance(ami, str):
+            raise TypeError('Expected argument ami to be a str')
         __self__.ami = ami
         """
         The ID of the AMI used to launch the instance.
         """
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the instance.
@@ -29,8 +29,8 @@ class GetInstanceResult(object):
         """
         Whether or not the Instance is associated with a public IP address or not (Boolean).
         """
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
         """
         The availability zone of the Instance.
@@ -62,26 +62,26 @@ class GetInstanceResult(object):
         """
         The ephemeral block device mappings of the Instance.
         """
-        if iam_instance_profile and not isinstance(iam_instance_profile, basestring):
-            raise TypeError('Expected argument iam_instance_profile to be a basestring')
+        if iam_instance_profile and not isinstance(iam_instance_profile, str):
+            raise TypeError('Expected argument iam_instance_profile to be a str')
         __self__.iam_instance_profile = iam_instance_profile
         """
         The name of the instance profile associated with the Instance.
         """
-        if instance_state and not isinstance(instance_state, basestring):
-            raise TypeError('Expected argument instance_state to be a basestring')
+        if instance_state and not isinstance(instance_state, str):
+            raise TypeError('Expected argument instance_state to be a str')
         __self__.instance_state = instance_state
         if instance_tags and not isinstance(instance_tags, dict):
             raise TypeError('Expected argument instance_tags to be a dict')
         __self__.instance_tags = instance_tags
-        if instance_type and not isinstance(instance_type, basestring):
-            raise TypeError('Expected argument instance_type to be a basestring')
+        if instance_type and not isinstance(instance_type, str):
+            raise TypeError('Expected argument instance_type to be a str')
         __self__.instance_type = instance_type
         """
         The type of the Instance.
         """
-        if key_name and not isinstance(key_name, basestring):
-            raise TypeError('Expected argument key_name to be a basestring')
+        if key_name and not isinstance(key_name, str):
+            raise TypeError('Expected argument key_name to be a str')
         __self__.key_name = key_name
         """
         The key name of the Instance.
@@ -92,14 +92,14 @@ class GetInstanceResult(object):
         """
         Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
         """
-        if network_interface_id and not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected argument network_interface_id to be a basestring')
+        if network_interface_id and not isinstance(network_interface_id, str):
+            raise TypeError('Expected argument network_interface_id to be a str')
         __self__.network_interface_id = network_interface_id
         """
         The ID of the network interface that was created with the Instance.
         """
-        if password_data and not isinstance(password_data, basestring):
-            raise TypeError('Expected argument password_data to be a basestring')
+        if password_data and not isinstance(password_data, str):
+            raise TypeError('Expected argument password_data to be a str')
         __self__.password_data = password_data
         """
         Base-64 encoded encrypted password data for the instance.
@@ -107,35 +107,35 @@ class GetInstanceResult(object):
         This attribute is only exported if `get_password_data` is true.
         See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         """
-        if placement_group and not isinstance(placement_group, basestring):
-            raise TypeError('Expected argument placement_group to be a basestring')
+        if placement_group and not isinstance(placement_group, str):
+            raise TypeError('Expected argument placement_group to be a str')
         __self__.placement_group = placement_group
         """
         The placement group of the Instance.
         """
-        if private_dns and not isinstance(private_dns, basestring):
-            raise TypeError('Expected argument private_dns to be a basestring')
+        if private_dns and not isinstance(private_dns, str):
+            raise TypeError('Expected argument private_dns to be a str')
         __self__.private_dns = private_dns
         """
         The private DNS name assigned to the Instance. Can only be
         used inside the Amazon EC2, and only available if you've enabled DNS hostnames
         for your VPC.
         """
-        if private_ip and not isinstance(private_ip, basestring):
-            raise TypeError('Expected argument private_ip to be a basestring')
+        if private_ip and not isinstance(private_ip, str):
+            raise TypeError('Expected argument private_ip to be a str')
         __self__.private_ip = private_ip
         """
         The private IP address assigned to the Instance.
         """
-        if public_dns and not isinstance(public_dns, basestring):
-            raise TypeError('Expected argument public_dns to be a basestring')
+        if public_dns and not isinstance(public_dns, str):
+            raise TypeError('Expected argument public_dns to be a str')
         __self__.public_dns = public_dns
         """
         The public DNS name assigned to the Instance. For EC2-VPC, this
         is only available if you've enabled DNS hostnames for your VPC.
         """
-        if public_ip and not isinstance(public_ip, basestring):
-            raise TypeError('Expected argument public_ip to be a basestring')
+        if public_ip and not isinstance(public_ip, str):
+            raise TypeError('Expected argument public_ip to be a str')
         __self__.public_ip = public_ip
         """
         The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
@@ -158,8 +158,8 @@ class GetInstanceResult(object):
         """
         Whether the network interface performs source/destination checking (Boolean).
         """
-        if subnet_id and not isinstance(subnet_id, basestring):
-            raise TypeError('Expected argument subnet_id to be a basestring')
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError('Expected argument subnet_id to be a str')
         __self__.subnet_id = subnet_id
         """
         The VPC subnet ID.
@@ -170,14 +170,14 @@ class GetInstanceResult(object):
         """
         A mapping of tags assigned to the Instance.
         """
-        if tenancy and not isinstance(tenancy, basestring):
-            raise TypeError('Expected argument tenancy to be a basestring')
+        if tenancy and not isinstance(tenancy, str):
+            raise TypeError('Expected argument tenancy to be a str')
         __self__.tenancy = tenancy
         """
         The tenancy of the instance: `dedicated`, `default`, `host`.
         """
-        if user_data and not isinstance(user_data, basestring):
-            raise TypeError('Expected argument user_data to be a basestring')
+        if user_data and not isinstance(user_data, str):
+            raise TypeError('Expected argument user_data to be a str')
         __self__.user_data = user_data
         """
         The User Data supplied to the Instance.
@@ -188,8 +188,8 @@ class GetInstanceResult(object):
         """
         The associated security groups in a non-default VPC.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

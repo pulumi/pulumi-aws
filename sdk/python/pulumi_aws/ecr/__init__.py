@@ -3,8 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from lifecycle_policy import *
-from repository import *
-from repository_policy import *
-from get_credentials import *
-from get_repository import *
+from .lifecycle_policy import *
+from .repository import *
+from .repository_policy import *
+from .get_credentials import *
+from .get_repository import *

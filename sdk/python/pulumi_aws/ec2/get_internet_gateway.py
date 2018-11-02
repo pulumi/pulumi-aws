@@ -14,14 +14,14 @@ class GetInternetGatewayResult(object):
         if attachments and not isinstance(attachments, list):
             raise TypeError('Expected argument attachments to be a list')
         __self__.attachments = attachments
-        if internet_gateway_id and not isinstance(internet_gateway_id, basestring):
-            raise TypeError('Expected argument internet_gateway_id to be a basestring')
+        if internet_gateway_id and not isinstance(internet_gateway_id, str):
+            raise TypeError('Expected argument internet_gateway_id to be a str')
         __self__.internet_gateway_id = internet_gateway_id
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

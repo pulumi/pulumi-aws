@@ -16,54 +16,23 @@ class Vault(pulumi.CustomResource):
         """Create a Vault resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if access_policy and not isinstance(access_policy, basestring):
-            raise TypeError('Expected property access_policy to be a basestring')
-        __self__.access_policy = access_policy
-        """
-        The policy document. This is a JSON formatted string.
-        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-        """
         __props__['accessPolicy'] = access_policy
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        """
         __props__['name'] = name
 
-        if notifications and not isinstance(notifications, list):
-            raise TypeError('Expected property notifications to be a list')
-        __self__.notifications = notifications
-        """
-        The notifications for the Vault. Fields documented below.
-        """
         __props__['notifications'] = notifications
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the vault.
-        """
-        __self__.location = pulumi.runtime.UNKNOWN
-        """
-        The URI of the vault that was created.
-        """
+        __props__['arn'] = None
+        __props__['location'] = None
 
         super(Vault, __self__).__init__(
             'aws:glacier/vault:Vault',
@@ -71,16 +40,3 @@ class Vault(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accessPolicy' in outs:
-            self.access_policy = outs['accessPolicy']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'notifications' in outs:
-            self.notifications = outs['notifications']
-        if 'tags' in outs:
-            self.tags = outs['tags']

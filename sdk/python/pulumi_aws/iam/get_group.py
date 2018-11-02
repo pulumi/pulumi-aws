@@ -11,26 +11,26 @@ class GetGroupResult(object):
     A collection of values returned by getGroup.
     """
     def __init__(__self__, arn=None, group_id=None, path=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) specifying the group.
         """
-        if group_id and not isinstance(group_id, basestring):
-            raise TypeError('Expected argument group_id to be a basestring')
+        if group_id and not isinstance(group_id, str):
+            raise TypeError('Expected argument group_id to be a str')
         __self__.group_id = group_id
         """
         The stable and unique string identifying the group.
         """
-        if path and not isinstance(path, basestring):
-            raise TypeError('Expected argument path to be a basestring')
+        if path and not isinstance(path, str):
+            raise TypeError('Expected argument path to be a str')
         __self__.path = path
         """
         The path to the group.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

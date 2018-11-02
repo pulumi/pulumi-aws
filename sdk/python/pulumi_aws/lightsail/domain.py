@@ -20,7 +20,7 @@ class Domain(pulumi.CustomResource):
         """Create a Domain resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -29,18 +29,9 @@ class Domain(pulumi.CustomResource):
 
         if not domain_name:
             raise TypeError('Missing required property domain_name')
-        elif not isinstance(domain_name, basestring):
-            raise TypeError('Expected property domain_name to be a basestring')
-        __self__.domain_name = domain_name
-        """
-        The name of the Lightsail domain to manage
-        """
         __props__['domainName'] = domain_name
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the Lightsail domain
-        """
+        __props__['arn'] = None
 
         super(Domain, __self__).__init__(
             'aws:lightsail/domain:Domain',
@@ -48,8 +39,3 @@ class Domain(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'domainName' in outs:
-            self.domain_name = outs['domainName']

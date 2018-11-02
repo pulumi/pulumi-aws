@@ -14,7 +14,7 @@ class ResourceGroup(pulumi.CustomResource):
         """Create a ResourceGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,18 +23,9 @@ class ResourceGroup(pulumi.CustomResource):
 
         if not tags:
             raise TypeError('Missing required property tags')
-        elif not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        The tags on your EC2 Instance.
-        """
         __props__['tags'] = tags
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The resource group ARN.
-        """
+        __props__['arn'] = None
 
         super(ResourceGroup, __self__).__init__(
             'aws:inspector/resourceGroup:ResourceGroup',
@@ -42,8 +33,3 @@ class ResourceGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'tags' in outs:
-            self.tags = outs['tags']

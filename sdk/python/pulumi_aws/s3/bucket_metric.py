@@ -14,7 +14,7 @@ class BucketMetric(pulumi.CustomResource):
         """Create a BucketMetric resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,28 +23,10 @@ class BucketMetric(pulumi.CustomResource):
 
         if not bucket:
             raise TypeError('Missing required property bucket')
-        elif not isinstance(bucket, basestring):
-            raise TypeError('Expected property bucket to be a basestring')
-        __self__.bucket = bucket
-        """
-        The name of the bucket to put metric configuration.
-        """
         __props__['bucket'] = bucket
 
-        if filter and not isinstance(filter, dict):
-            raise TypeError('Expected property filter to be a dict')
-        __self__.filter = filter
-        """
-        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        """
         __props__['filter'] = filter
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Unique identifier of the metrics configuration for the bucket.
-        """
         __props__['name'] = name
 
         super(BucketMetric, __self__).__init__(
@@ -53,10 +35,3 @@ class BucketMetric(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'bucket' in outs:
-            self.bucket = outs['bucket']
-        if 'filter' in outs:
-            self.filter = outs['filter']
-        if 'name' in outs:
-            self.name = outs['name']

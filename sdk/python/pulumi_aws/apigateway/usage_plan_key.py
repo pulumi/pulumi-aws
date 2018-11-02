@@ -14,7 +14,7 @@ class UsagePlanKey(pulumi.CustomResource):
         """Create a UsagePlanKey resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,42 +23,18 @@ class UsagePlanKey(pulumi.CustomResource):
 
         if not key_id:
             raise TypeError('Missing required property key_id')
-        elif not isinstance(key_id, basestring):
-            raise TypeError('Expected property key_id to be a basestring')
-        __self__.key_id = key_id
-        """
-        The identifier of the API key resource.
-        """
         __props__['keyId'] = key_id
 
         if not key_type:
             raise TypeError('Missing required property key_type')
-        elif not isinstance(key_type, basestring):
-            raise TypeError('Expected property key_type to be a basestring')
-        __self__.key_type = key_type
-        """
-        The type of the API key resource. Currently, the valid key type is API_KEY.
-        """
         __props__['keyType'] = key_type
 
         if not usage_plan_id:
             raise TypeError('Missing required property usage_plan_id')
-        elif not isinstance(usage_plan_id, basestring):
-            raise TypeError('Expected property usage_plan_id to be a basestring')
-        __self__.usage_plan_id = usage_plan_id
-        """
-        The Id of the usage plan resource representing to associate the key to.
-        """
         __props__['usagePlanId'] = usage_plan_id
 
-        __self__.name = pulumi.runtime.UNKNOWN
-        """
-        The name of a usage plan key.
-        """
-        __self__.value = pulumi.runtime.UNKNOWN
-        """
-        The value of a usage plan key.
-        """
+        __props__['name'] = None
+        __props__['value'] = None
 
         super(UsagePlanKey, __self__).__init__(
             'aws:apigateway/usagePlanKey:UsagePlanKey',
@@ -66,14 +42,3 @@ class UsagePlanKey(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'keyId' in outs:
-            self.key_id = outs['keyId']
-        if 'keyType' in outs:
-            self.key_type = outs['keyType']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'usagePlanId' in outs:
-            self.usage_plan_id = outs['usagePlanId']
-        if 'value' in outs:
-            self.value = outs['value']

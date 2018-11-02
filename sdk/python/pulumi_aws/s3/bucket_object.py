@@ -14,161 +14,50 @@ class BucketObject(pulumi.CustomResource):
         """Create a BucketObject resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if acl and not isinstance(acl, basestring):
-            raise TypeError('Expected property acl to be a basestring')
-        __self__.acl = acl
-        """
-        The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
-        """
         __props__['acl'] = acl
 
         if not bucket:
             raise TypeError('Missing required property bucket')
-        elif not isinstance(bucket, basestring):
-            raise TypeError('Expected property bucket to be a basestring')
-        __self__.bucket = bucket
-        """
-        The name of the bucket to put the file in.
-        """
         __props__['bucket'] = bucket
 
-        if cache_control and not isinstance(cache_control, basestring):
-            raise TypeError('Expected property cache_control to be a basestring')
-        __self__.cache_control = cache_control
-        """
-        Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        """
         __props__['cacheControl'] = cache_control
 
-        if content and not isinstance(content, basestring):
-            raise TypeError('Expected property content to be a basestring')
-        __self__.content = content
-        """
-        Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
-        """
         __props__['content'] = content
 
-        if content_base64 and not isinstance(content_base64, basestring):
-            raise TypeError('Expected property content_base64 to be a basestring')
-        __self__.content_base64 = content_base64
-        """
-        Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
-        """
         __props__['contentBase64'] = content_base64
 
-        if content_disposition and not isinstance(content_disposition, basestring):
-            raise TypeError('Expected property content_disposition to be a basestring')
-        __self__.content_disposition = content_disposition
-        """
-        Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-        """
         __props__['contentDisposition'] = content_disposition
 
-        if content_encoding and not isinstance(content_encoding, basestring):
-            raise TypeError('Expected property content_encoding to be a basestring')
-        __self__.content_encoding = content_encoding
-        """
-        Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        """
         __props__['contentEncoding'] = content_encoding
 
-        if content_language and not isinstance(content_language, basestring):
-            raise TypeError('Expected property content_language to be a basestring')
-        __self__.content_language = content_language
-        """
-        The language the content is in e.g. en-US or en-GB.
-        """
         __props__['contentLanguage'] = content_language
 
-        if content_type and not isinstance(content_type, basestring):
-            raise TypeError('Expected property content_type to be a basestring')
-        __self__.content_type = content_type
-        """
-        A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
-        """
         __props__['contentType'] = content_type
 
-        if etag and not isinstance(etag, basestring):
-            raise TypeError('Expected property etag to be a basestring')
-        __self__.etag = etag
-        """
-        Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
-        This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
-        """
         __props__['etag'] = etag
 
-        if key and not isinstance(key, basestring):
-            raise TypeError('Expected property key to be a basestring')
-        __self__.key = key
-        """
-        The name of the object once it is in the bucket.
-        """
         __props__['key'] = key
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        Specifies the AWS KMS Key ARN to use for object encryption.
-        This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
-        use the exported `arn` attribute:
-        `kms_key_id = "${aws_kms_key.foo.arn}"`
-        """
         __props__['kmsKeyId'] = kms_key_id
 
-        if server_side_encryption and not isinstance(server_side_encryption, basestring):
-            raise TypeError('Expected property server_side_encryption to be a basestring')
-        __self__.server_side_encryption = server_side_encryption
-        """
-        Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        """
         __props__['serverSideEncryption'] = server_side_encryption
 
-        if source and not isinstance(source, pulumi.Asset):
-            raise TypeError('Expected property source to be a pulumi.Asset')
-        __self__.source = source
-        """
-        The path to a file that will be read and uploaded as raw bytes for the object content.
-        """
         __props__['source'] = source
 
-        if storage_class and not isinstance(storage_class, basestring):
-            raise TypeError('Expected property storage_class to be a basestring')
-        __self__.storage_class = storage_class
-        """
-        Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-        for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
-        """
         __props__['storageClass'] = storage_class
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the object.
-        """
         __props__['tags'] = tags
 
-        if website_redirect and not isinstance(website_redirect, basestring):
-            raise TypeError('Expected property website_redirect to be a basestring')
-        __self__.website_redirect = website_redirect
-        """
-        Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-        """
         __props__['websiteRedirect'] = website_redirect
 
-        __self__.version_id = pulumi.runtime.UNKNOWN
-        """
-        A unique version ID value for the object, if bucket versioning
-        is enabled.
-        """
+        __props__['version_id'] = None
 
         super(BucketObject, __self__).__init__(
             'aws:s3/bucketObject:BucketObject',
@@ -176,40 +65,3 @@ class BucketObject(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'acl' in outs:
-            self.acl = outs['acl']
-        if 'bucket' in outs:
-            self.bucket = outs['bucket']
-        if 'cacheControl' in outs:
-            self.cache_control = outs['cacheControl']
-        if 'content' in outs:
-            self.content = outs['content']
-        if 'contentBase64' in outs:
-            self.content_base64 = outs['contentBase64']
-        if 'contentDisposition' in outs:
-            self.content_disposition = outs['contentDisposition']
-        if 'contentEncoding' in outs:
-            self.content_encoding = outs['contentEncoding']
-        if 'contentLanguage' in outs:
-            self.content_language = outs['contentLanguage']
-        if 'contentType' in outs:
-            self.content_type = outs['contentType']
-        if 'etag' in outs:
-            self.etag = outs['etag']
-        if 'key' in outs:
-            self.key = outs['key']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'serverSideEncryption' in outs:
-            self.server_side_encryption = outs['serverSideEncryption']
-        if 'source' in outs:
-            self.source = outs['source']
-        if 'storageClass' in outs:
-            self.storage_class = outs['storageClass']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'versionId' in outs:
-            self.version_id = outs['versionId']
-        if 'websiteRedirect' in outs:
-            self.website_redirect = outs['websiteRedirect']

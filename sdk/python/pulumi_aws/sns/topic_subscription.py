@@ -25,87 +25,36 @@ class TopicSubscription(pulumi.CustomResource):
         """Create a TopicSubscription resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if confirmation_timeout_in_minutes and not isinstance(confirmation_timeout_in_minutes, int):
-            raise TypeError('Expected property confirmation_timeout_in_minutes to be a int')
-        __self__.confirmation_timeout_in_minutes = confirmation_timeout_in_minutes
-        """
-        Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
-        """
         __props__['confirmationTimeoutInMinutes'] = confirmation_timeout_in_minutes
 
-        if delivery_policy and not isinstance(delivery_policy, basestring):
-            raise TypeError('Expected property delivery_policy to be a basestring')
-        __self__.delivery_policy = delivery_policy
-        """
-        JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
-        """
         __props__['deliveryPolicy'] = delivery_policy
 
         if not endpoint:
             raise TypeError('Missing required property endpoint')
-        elif not isinstance(endpoint, basestring):
-            raise TypeError('Expected property endpoint to be a basestring')
-        __self__.endpoint = endpoint
-        """
-        The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
-        """
         __props__['endpoint'] = endpoint
 
-        if endpoint_auto_confirms and not isinstance(endpoint_auto_confirms, bool):
-            raise TypeError('Expected property endpoint_auto_confirms to be a bool')
-        __self__.endpoint_auto_confirms = endpoint_auto_confirms
-        """
-        Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
-        """
         __props__['endpointAutoConfirms'] = endpoint_auto_confirms
 
-        if filter_policy and not isinstance(filter_policy, basestring):
-            raise TypeError('Expected property filter_policy to be a basestring')
-        __self__.filter_policy = filter_policy
-        """
-        JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
-        """
         __props__['filterPolicy'] = filter_policy
 
         if not protocol:
             raise TypeError('Missing required property protocol')
-        elif not isinstance(protocol, basestring):
-            raise TypeError('Expected property protocol to be a basestring')
-        __self__.protocol = protocol
-        """
-        The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
-        """
         __props__['protocol'] = protocol
 
-        if raw_message_delivery and not isinstance(raw_message_delivery, bool):
-            raise TypeError('Expected property raw_message_delivery to be a bool')
-        __self__.raw_message_delivery = raw_message_delivery
-        """
-        Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
-        """
         __props__['rawMessageDelivery'] = raw_message_delivery
 
         if not topic:
             raise TypeError('Missing required property topic')
-        elif not isinstance(topic, basestring):
-            raise TypeError('Expected property topic to be a basestring')
-        __self__.topic = topic
-        """
-        The ARN of the SNS topic to subscribe to
-        """
         __props__['topic'] = topic
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the subscription stored as a more user-friendly property
-        """
+        __props__['arn'] = None
 
         super(TopicSubscription, __self__).__init__(
             'aws:sns/topicSubscription:TopicSubscription',
@@ -113,22 +62,3 @@ class TopicSubscription(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'confirmationTimeoutInMinutes' in outs:
-            self.confirmation_timeout_in_minutes = outs['confirmationTimeoutInMinutes']
-        if 'deliveryPolicy' in outs:
-            self.delivery_policy = outs['deliveryPolicy']
-        if 'endpoint' in outs:
-            self.endpoint = outs['endpoint']
-        if 'endpointAutoConfirms' in outs:
-            self.endpoint_auto_confirms = outs['endpointAutoConfirms']
-        if 'filterPolicy' in outs:
-            self.filter_policy = outs['filterPolicy']
-        if 'protocol' in outs:
-            self.protocol = outs['protocol']
-        if 'rawMessageDelivery' in outs:
-            self.raw_message_delivery = outs['rawMessageDelivery']
-        if 'topic' in outs:
-            self.topic = outs['topic']

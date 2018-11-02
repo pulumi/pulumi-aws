@@ -14,7 +14,7 @@ class CustomerGateway(pulumi.CustomResource):
         """Create a CustomerGateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,41 +23,16 @@ class CustomerGateway(pulumi.CustomResource):
 
         if not bgp_asn:
             raise TypeError('Missing required property bgp_asn')
-        elif not isinstance(bgp_asn, int):
-            raise TypeError('Expected property bgp_asn to be a int')
-        __self__.bgp_asn = bgp_asn
-        """
-        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-        """
         __props__['bgpAsn'] = bgp_asn
 
         if not ip_address:
             raise TypeError('Missing required property ip_address')
-        elif not isinstance(ip_address, basestring):
-            raise TypeError('Expected property ip_address to be a basestring')
-        __self__.ip_address = ip_address
-        """
-        The IP address of the gateway's Internet-routable external interface.
-        """
         __props__['ipAddress'] = ip_address
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        Tags to apply to the gateway.
-        """
         __props__['tags'] = tags
 
         if not type:
             raise TypeError('Missing required property type')
-        elif not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of customer gateway. The only type AWS
-        supports at this time is "ipsec.1".
-        """
         __props__['type'] = type
 
         super(CustomerGateway, __self__).__init__(
@@ -66,12 +41,3 @@ class CustomerGateway(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'bgpAsn' in outs:
-            self.bgp_asn = outs['bgpAsn']
-        if 'ipAddress' in outs:
-            self.ip_address = outs['ipAddress']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'type' in outs:
-            self.type = outs['type']

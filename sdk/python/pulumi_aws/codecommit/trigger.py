@@ -18,7 +18,7 @@ class Trigger(pulumi.CustomResource):
         """Create a Trigger resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,22 +27,13 @@ class Trigger(pulumi.CustomResource):
 
         if not repository_name:
             raise TypeError('Missing required property repository_name')
-        elif not isinstance(repository_name, basestring):
-            raise TypeError('Expected property repository_name to be a basestring')
-        __self__.repository_name = repository_name
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         __props__['repositoryName'] = repository_name
 
         if not triggers:
             raise TypeError('Missing required property triggers')
-        elif not isinstance(triggers, list):
-            raise TypeError('Expected property triggers to be a list')
-        __self__.triggers = triggers
         __props__['triggers'] = triggers
 
-        __self__.configuration_id = pulumi.runtime.UNKNOWN
+        __props__['configuration_id'] = None
 
         super(Trigger, __self__).__init__(
             'aws:codecommit/trigger:Trigger',
@@ -50,10 +41,3 @@ class Trigger(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'configurationId' in outs:
-            self.configuration_id = outs['configurationId']
-        if 'repositoryName' in outs:
-            self.repository_name = outs['repositoryName']
-        if 'triggers' in outs:
-            self.triggers = outs['triggers']

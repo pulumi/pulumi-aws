@@ -18,29 +18,29 @@ class GetVpcPeeringConnectionResult(object):
         A configuration block that describes [VPC Peering Connection]
         (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
         """
-        if cidr_block and not isinstance(cidr_block, basestring):
-            raise TypeError('Expected argument cidr_block to be a basestring')
+        if cidr_block and not isinstance(cidr_block, str):
+            raise TypeError('Expected argument cidr_block to be a str')
         __self__.cidr_block = cidr_block
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
-        if owner_id and not isinstance(owner_id, basestring):
-            raise TypeError('Expected argument owner_id to be a basestring')
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
         __self__.owner_id = owner_id
-        if peer_cidr_block and not isinstance(peer_cidr_block, basestring):
-            raise TypeError('Expected argument peer_cidr_block to be a basestring')
+        if peer_cidr_block and not isinstance(peer_cidr_block, str):
+            raise TypeError('Expected argument peer_cidr_block to be a str')
         __self__.peer_cidr_block = peer_cidr_block
-        if peer_owner_id and not isinstance(peer_owner_id, basestring):
-            raise TypeError('Expected argument peer_owner_id to be a basestring')
+        if peer_owner_id and not isinstance(peer_owner_id, str):
+            raise TypeError('Expected argument peer_owner_id to be a str')
         __self__.peer_owner_id = peer_owner_id
-        if peer_region and not isinstance(peer_region, basestring):
-            raise TypeError('Expected argument peer_region to be a basestring')
+        if peer_region and not isinstance(peer_region, str):
+            raise TypeError('Expected argument peer_region to be a str')
         __self__.peer_region = peer_region
-        if peer_vpc_id and not isinstance(peer_vpc_id, basestring):
-            raise TypeError('Expected argument peer_vpc_id to be a basestring')
+        if peer_vpc_id and not isinstance(peer_vpc_id, str):
+            raise TypeError('Expected argument peer_vpc_id to be a str')
         __self__.peer_vpc_id = peer_vpc_id
-        if region and not isinstance(region, basestring):
-            raise TypeError('Expected argument region to be a basestring')
+        if region and not isinstance(region, str):
+            raise TypeError('Expected argument region to be a str')
         __self__.region = region
         if requester and not isinstance(requester, dict):
             raise TypeError('Expected argument requester to be a dict')
@@ -49,14 +49,14 @@ class GetVpcPeeringConnectionResult(object):
         A configuration block that describes [VPC Peering Connection]
         (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
 def get_vpc_peering_connection(cidr_block=None, filters=None, id=None, owner_id=None, peer_cidr_block=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, status=None, tags=None, vpc_id=None):

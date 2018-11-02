@@ -23,32 +23,32 @@ class GetClusterResult(object):
         """
         The backup retention period
         """
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
         """
         The availability zone of the cluster
         """
-        if bucket_name and not isinstance(bucket_name, basestring):
-            raise TypeError('Expected argument bucket_name to be a basestring')
+        if bucket_name and not isinstance(bucket_name, str):
+            raise TypeError('Expected argument bucket_name to be a str')
         __self__.bucket_name = bucket_name
         """
         The name of the S3 bucket where the log files are to be stored
         """
-        if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, basestring):
-            raise TypeError('Expected argument cluster_parameter_group_name to be a basestring')
+        if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, str):
+            raise TypeError('Expected argument cluster_parameter_group_name to be a str')
         __self__.cluster_parameter_group_name = cluster_parameter_group_name
         """
         The name of the parameter group to be associated with this cluster
         """
-        if cluster_public_key and not isinstance(cluster_public_key, basestring):
-            raise TypeError('Expected argument cluster_public_key to be a basestring')
+        if cluster_public_key and not isinstance(cluster_public_key, str):
+            raise TypeError('Expected argument cluster_public_key to be a str')
         __self__.cluster_public_key = cluster_public_key
         """
         The public key for the cluster
         """
-        if cluster_revision_number and not isinstance(cluster_revision_number, basestring):
-            raise TypeError('Expected argument cluster_revision_number to be a basestring')
+        if cluster_revision_number and not isinstance(cluster_revision_number, str):
+            raise TypeError('Expected argument cluster_revision_number to be a str')
         __self__.cluster_revision_number = cluster_revision_number
         """
         The cluster revision number
@@ -59,29 +59,29 @@ class GetClusterResult(object):
         """
         The security groups associated with the cluster
         """
-        if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, basestring):
-            raise TypeError('Expected argument cluster_subnet_group_name to be a basestring')
+        if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
+            raise TypeError('Expected argument cluster_subnet_group_name to be a str')
         __self__.cluster_subnet_group_name = cluster_subnet_group_name
         """
         The name of a cluster subnet group to be associated with this cluster
         """
-        if cluster_type and not isinstance(cluster_type, basestring):
-            raise TypeError('Expected argument cluster_type to be a basestring')
+        if cluster_type and not isinstance(cluster_type, str):
+            raise TypeError('Expected argument cluster_type to be a str')
         __self__.cluster_type = cluster_type
         """
         The cluster type
         """
-        if cluster_version and not isinstance(cluster_version, basestring):
-            raise TypeError('Expected argument cluster_version to be a basestring')
+        if cluster_version and not isinstance(cluster_version, str):
+            raise TypeError('Expected argument cluster_version to be a str')
         __self__.cluster_version = cluster_version
-        if database_name and not isinstance(database_name, basestring):
-            raise TypeError('Expected argument database_name to be a basestring')
+        if database_name and not isinstance(database_name, str):
+            raise TypeError('Expected argument database_name to be a str')
         __self__.database_name = database_name
         """
         The name of the default database in the cluster
         """
-        if elastic_ip and not isinstance(elastic_ip, basestring):
-            raise TypeError('Expected argument elastic_ip to be a basestring')
+        if elastic_ip and not isinstance(elastic_ip, str):
+            raise TypeError('Expected argument elastic_ip to be a str')
         __self__.elastic_ip = elastic_ip
         """
         The Elastic IP of the cluster
@@ -98,8 +98,8 @@ class GetClusterResult(object):
         """
         Whether the cluster data is encrypted
         """
-        if endpoint and not isinstance(endpoint, basestring):
-            raise TypeError('Expected argument endpoint to be a basestring')
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError('Expected argument endpoint to be a str')
         __self__.endpoint = endpoint
         """
         The cluster endpoint
@@ -116,20 +116,20 @@ class GetClusterResult(object):
         """
         The IAM roles associated to the cluster
         """
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected argument kms_key_id to be a basestring')
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError('Expected argument kms_key_id to be a str')
         __self__.kms_key_id = kms_key_id
         """
         The KMS encryption key associated to the cluster
         """
-        if master_username and not isinstance(master_username, basestring):
-            raise TypeError('Expected argument master_username to be a basestring')
+        if master_username and not isinstance(master_username, str):
+            raise TypeError('Expected argument master_username to be a str')
         __self__.master_username = master_username
         """
         Username for the master DB user
         """
-        if node_type and not isinstance(node_type, basestring):
-            raise TypeError('Expected argument node_type to be a basestring')
+        if node_type and not isinstance(node_type, str):
+            raise TypeError('Expected argument node_type to be a str')
         __self__.node_type = node_type
         """
         The cluster node type
@@ -146,8 +146,8 @@ class GetClusterResult(object):
         """
         The port the cluster responds on
         """
-        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
-            raise TypeError('Expected argument preferred_maintenance_window to be a basestring')
+        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
+            raise TypeError('Expected argument preferred_maintenance_window to be a str')
         __self__.preferred_maintenance_window = preferred_maintenance_window
         """
         The maintenance window
@@ -158,14 +158,14 @@ class GetClusterResult(object):
         """
         Whether the cluster is publicly accessible
         """
-        if s3_key_prefix and not isinstance(s3_key_prefix, basestring):
-            raise TypeError('Expected argument s3_key_prefix to be a basestring')
+        if s3_key_prefix and not isinstance(s3_key_prefix, str):
+            raise TypeError('Expected argument s3_key_prefix to be a str')
         __self__.s3_key_prefix = s3_key_prefix
         """
         The folder inside the S3 bucket where the log files are stored
         """
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
         """
         The VPC Id associated with the cluster
@@ -176,8 +176,8 @@ class GetClusterResult(object):
         """
         The VPC security group Ids associated with the cluster
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

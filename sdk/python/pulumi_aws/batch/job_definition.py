@@ -14,73 +14,29 @@ class JobDefinition(pulumi.CustomResource):
         """Create a JobDefinition resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if container_properties and not isinstance(container_properties, basestring):
-            raise TypeError('Expected property container_properties to be a basestring')
-        __self__.container_properties = container_properties
-        """
-        A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-        """
         __props__['containerProperties'] = container_properties
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the job definition.
-        """
         __props__['name'] = name
 
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError('Expected property parameters to be a dict')
-        __self__.parameters = parameters
-        """
-        Specifies the parameter substitution placeholders to set in the job definition.
-        """
         __props__['parameters'] = parameters
 
-        if retry_strategy and not isinstance(retry_strategy, dict):
-            raise TypeError('Expected property retry_strategy to be a dict')
-        __self__.retry_strategy = retry_strategy
-        """
-        Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-        Maximum number of `retry_strategy` is `1`.  Defined below.
-        """
         __props__['retryStrategy'] = retry_strategy
 
-        if timeout and not isinstance(timeout, dict):
-            raise TypeError('Expected property timeout to be a dict')
-        __self__.timeout = timeout
-        """
-        Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        """
         __props__['timeout'] = timeout
 
         if not type:
             raise TypeError('Missing required property type')
-        elif not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of job definition.  Must be `container`
-        """
         __props__['type'] = type
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name of the job definition.
-        """
-        __self__.revision = pulumi.runtime.UNKNOWN
-        """
-        The revision of the job definition.
-        """
+        __props__['arn'] = None
+        __props__['revision'] = None
 
         super(JobDefinition, __self__).__init__(
             'aws:batch/jobDefinition:JobDefinition',
@@ -88,20 +44,3 @@ class JobDefinition(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'containerProperties' in outs:
-            self.container_properties = outs['containerProperties']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'parameters' in outs:
-            self.parameters = outs['parameters']
-        if 'retryStrategy' in outs:
-            self.retry_strategy = outs['retryStrategy']
-        if 'revision' in outs:
-            self.revision = outs['revision']
-        if 'timeout' in outs:
-            self.timeout = outs['timeout']
-        if 'type' in outs:
-            self.type = outs['type']

@@ -11,8 +11,8 @@ class GetJobQueueResult(object):
     A collection of values returned by getJobQueue.
     """
     def __init__(__self__, arn=None, compute_environment_orders=None, priority=None, state=None, status=None, status_reason=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the job queue.
@@ -33,27 +33,27 @@ class GetJobQueueResult(object):
         The priority of the job queue. Job queues with a higher priority are evaluated first when
         associated with the same compute environment.
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         The current status of the job queue (for example, `CREATING` or `VALID`).
         """
-        if status_reason and not isinstance(status_reason, basestring):
-            raise TypeError('Expected argument status_reason to be a basestring')
+        if status_reason and not isinstance(status_reason, str):
+            raise TypeError('Expected argument status_reason to be a str')
         __self__.status_reason = status_reason
         """
         A short, human-readable string to provide additional details about the current status
         of the job queue.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

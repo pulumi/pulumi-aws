@@ -11,8 +11,8 @@ class GetLaunchTemplateResult(object):
     A collection of values returned by getLaunchTemplate.
     """
     def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profiles=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, monitorings=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         Amazon Resource Name (ARN) of the launch template.
@@ -36,8 +36,8 @@ class GetLaunchTemplateResult(object):
         """
         The default version of the launch template.
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         Description of the launch template.
@@ -49,8 +49,8 @@ class GetLaunchTemplateResult(object):
         If `true`, enables [EC2 Instance
         Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
         """
-        if ebs_optimized and not isinstance(ebs_optimized, basestring):
-            raise TypeError('Expected argument ebs_optimized to be a basestring')
+        if ebs_optimized and not isinstance(ebs_optimized, str):
+            raise TypeError('Expected argument ebs_optimized to be a str')
         __self__.ebs_optimized = ebs_optimized
         """
         If `true`, the launched EC2 instance will be EBS-optimized.
@@ -69,14 +69,14 @@ class GetLaunchTemplateResult(object):
         The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
         """
-        if image_id and not isinstance(image_id, basestring):
-            raise TypeError('Expected argument image_id to be a basestring')
+        if image_id and not isinstance(image_id, str):
+            raise TypeError('Expected argument image_id to be a str')
         __self__.image_id = image_id
         """
         The AMI from which to launch the instance.
         """
-        if instance_initiated_shutdown_behavior and not isinstance(instance_initiated_shutdown_behavior, basestring):
-            raise TypeError('Expected argument instance_initiated_shutdown_behavior to be a basestring')
+        if instance_initiated_shutdown_behavior and not isinstance(instance_initiated_shutdown_behavior, str):
+            raise TypeError('Expected argument instance_initiated_shutdown_behavior to be a str')
         __self__.instance_initiated_shutdown_behavior = instance_initiated_shutdown_behavior
         """
         Shutdown behavior for the instance. Can be `stop` or `terminate`.
@@ -89,20 +89,20 @@ class GetLaunchTemplateResult(object):
         The market (purchasing) option for the instance.
         below for details.
         """
-        if instance_type and not isinstance(instance_type, basestring):
-            raise TypeError('Expected argument instance_type to be a basestring')
+        if instance_type and not isinstance(instance_type, str):
+            raise TypeError('Expected argument instance_type to be a str')
         __self__.instance_type = instance_type
         """
         The type of the instance.
         """
-        if kernel_id and not isinstance(kernel_id, basestring):
-            raise TypeError('Expected argument kernel_id to be a basestring')
+        if kernel_id and not isinstance(kernel_id, str):
+            raise TypeError('Expected argument kernel_id to be a str')
         __self__.kernel_id = kernel_id
         """
         The kernel ID.
         """
-        if key_name and not isinstance(key_name, basestring):
-            raise TypeError('Expected argument key_name to be a basestring')
+        if key_name and not isinstance(key_name, str):
+            raise TypeError('Expected argument key_name to be a str')
         __self__.key_name = key_name
         """
         The key name to use for the instance.
@@ -132,8 +132,8 @@ class GetLaunchTemplateResult(object):
         """
         The placement of the instance.
         """
-        if ram_disk_id and not isinstance(ram_disk_id, basestring):
-            raise TypeError('Expected argument ram_disk_id to be a basestring')
+        if ram_disk_id and not isinstance(ram_disk_id, str):
+            raise TypeError('Expected argument ram_disk_id to be a str')
         __self__.ram_disk_id = ram_disk_id
         """
         The ID of the RAM disk.
@@ -157,8 +157,8 @@ class GetLaunchTemplateResult(object):
         """
         (Optional) A mapping of tags to assign to the launch template.
         """
-        if user_data and not isinstance(user_data, basestring):
-            raise TypeError('Expected argument user_data to be a basestring')
+        if user_data and not isinstance(user_data, str):
+            raise TypeError('Expected argument user_data to be a str')
         __self__.user_data = user_data
         """
         The Base64-encoded user data to provide when launching the instance.
@@ -169,8 +169,8 @@ class GetLaunchTemplateResult(object):
         """
         A list of security group IDs to associate with.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

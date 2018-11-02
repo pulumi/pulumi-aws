@@ -11,14 +11,14 @@ class GetRestApiResult(object):
     A collection of values returned by getRestApi.
     """
     def __init__(__self__, root_resource_id=None, id=None):
-        if root_resource_id and not isinstance(root_resource_id, basestring):
-            raise TypeError('Expected argument root_resource_id to be a basestring')
+        if root_resource_id and not isinstance(root_resource_id, str):
+            raise TypeError('Expected argument root_resource_id to be a str')
         __self__.root_resource_id = root_resource_id
         """
         Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

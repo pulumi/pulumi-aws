@@ -11,17 +11,17 @@ class GetCredentialsResult(object):
     A collection of values returned by getCredentials.
     """
     def __init__(__self__, authorization_token=None, expires_at=None, proxy_endpoint=None, id=None):
-        if authorization_token and not isinstance(authorization_token, basestring):
-            raise TypeError('Expected argument authorization_token to be a basestring')
+        if authorization_token and not isinstance(authorization_token, str):
+            raise TypeError('Expected argument authorization_token to be a str')
         __self__.authorization_token = authorization_token
-        if expires_at and not isinstance(expires_at, basestring):
-            raise TypeError('Expected argument expires_at to be a basestring')
+        if expires_at and not isinstance(expires_at, str):
+            raise TypeError('Expected argument expires_at to be a str')
         __self__.expires_at = expires_at
-        if proxy_endpoint and not isinstance(proxy_endpoint, basestring):
-            raise TypeError('Expected argument proxy_endpoint to be a basestring')
+        if proxy_endpoint and not isinstance(proxy_endpoint, str):
+            raise TypeError('Expected argument proxy_endpoint to be a str')
         __self__.proxy_endpoint = proxy_endpoint
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

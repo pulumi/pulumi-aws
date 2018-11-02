@@ -16,53 +16,23 @@ class PolicyAttachment(pulumi.CustomResource):
         """Create a PolicyAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if groups and not isinstance(groups, list):
-            raise TypeError('Expected property groups to be a list')
-        __self__.groups = groups
-        """
-        The group(s) the policy should be applied to
-        """
         __props__['groups'] = groups
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the attachment. This cannot be an empty string.
-        """
         __props__['name'] = name
 
         if not policy_arn:
             raise TypeError('Missing required property policy_arn')
-        elif not isinstance(policy_arn, basestring):
-            raise TypeError('Expected property policy_arn to be a basestring')
-        __self__.policy_arn = policy_arn
-        """
-        The ARN of the policy you want to apply
-        """
         __props__['policyArn'] = policy_arn
 
-        if roles and not isinstance(roles, list):
-            raise TypeError('Expected property roles to be a list')
-        __self__.roles = roles
-        """
-        The role(s) the policy should be applied to
-        """
         __props__['roles'] = roles
 
-        if users and not isinstance(users, list):
-            raise TypeError('Expected property users to be a list')
-        __self__.users = users
-        """
-        The user(s) the policy should be applied to
-        """
         __props__['users'] = users
 
         super(PolicyAttachment, __self__).__init__(
@@ -71,14 +41,3 @@ class PolicyAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'groups' in outs:
-            self.groups = outs['groups']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'policyArn' in outs:
-            self.policy_arn = outs['policyArn']
-        if 'roles' in outs:
-            self.roles = outs['roles']
-        if 'users' in outs:
-            self.users = outs['users']

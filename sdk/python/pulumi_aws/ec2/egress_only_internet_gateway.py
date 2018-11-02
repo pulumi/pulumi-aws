@@ -17,7 +17,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         """Create a EgressOnlyInternetGateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -26,12 +26,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The VPC ID to create in.
-        """
         __props__['vpcId'] = vpc_id
 
         super(EgressOnlyInternetGateway, __self__).__init__(
@@ -40,6 +34,3 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

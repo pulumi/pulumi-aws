@@ -14,7 +14,7 @@ class PolicyAttachment(pulumi.CustomResource):
         """Create a PolicyAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,22 +23,10 @@ class PolicyAttachment(pulumi.CustomResource):
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        The name of the policy to attach.
-        """
         __props__['policy'] = policy
 
         if not target:
             raise TypeError('Missing required property target')
-        elif not isinstance(target, basestring):
-            raise TypeError('Expected property target to be a basestring')
-        __self__.target = target
-        """
-        The identity to which the policy is attached.
-        """
         __props__['target'] = target
 
         super(PolicyAttachment, __self__).__init__(
@@ -47,8 +35,3 @@ class PolicyAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'policy' in outs:
-            self.policy = outs['policy']
-        if 'target' in outs:
-            self.target = outs['target']

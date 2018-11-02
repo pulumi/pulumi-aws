@@ -18,183 +18,58 @@ class ClusterInstance(pulumi.CustomResource):
         """Create a ClusterInstance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if apply_immediately and not isinstance(apply_immediately, bool):
-            raise TypeError('Expected property apply_immediately to be a bool')
-        __self__.apply_immediately = apply_immediately
-        """
-        Specifies whether any instance modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         __props__['applyImmediately'] = apply_immediately
 
-        if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
-            raise TypeError('Expected property auto_minor_version_upgrade to be a bool')
-        __self__.auto_minor_version_upgrade = auto_minor_version_upgrade
-        """
-        Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-        """
         __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
 
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The EC2 Availability Zone that the neptune instance is created in.
-        """
         __props__['availabilityZone'] = availability_zone
 
         if not cluster_identifier:
             raise TypeError('Missing required property cluster_identifier')
-        elif not isinstance(cluster_identifier, basestring):
-            raise TypeError('Expected property cluster_identifier to be a basestring')
-        __self__.cluster_identifier = cluster_identifier
-        """
-        The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
-        """
         __props__['clusterIdentifier'] = cluster_identifier
 
-        if engine and not isinstance(engine, basestring):
-            raise TypeError('Expected property engine to be a basestring')
-        __self__.engine = engine
-        """
-        The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        """
         __props__['engine'] = engine
 
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected property engine_version to be a basestring')
-        __self__.engine_version = engine_version
-        """
-        The neptune engine version.
-        """
         __props__['engineVersion'] = engine_version
 
-        if identifier and not isinstance(identifier, basestring):
-            raise TypeError('Expected property identifier to be a basestring')
-        __self__.identifier = identifier
-        """
-        The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
-        """
         __props__['identifier'] = identifier
 
-        if identifier_prefix and not isinstance(identifier_prefix, basestring):
-            raise TypeError('Expected property identifier_prefix to be a basestring')
-        __self__.identifier_prefix = identifier_prefix
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
-        """
         __props__['identifierPrefix'] = identifier_prefix
 
         if not instance_class:
             raise TypeError('Missing required property instance_class')
-        elif not isinstance(instance_class, basestring):
-            raise TypeError('Expected property instance_class to be a basestring')
-        __self__.instance_class = instance_class
-        """
-        The instance class to use.
-        """
         __props__['instanceClass'] = instance_class
 
-        if neptune_parameter_group_name and not isinstance(neptune_parameter_group_name, basestring):
-            raise TypeError('Expected property neptune_parameter_group_name to be a basestring')
-        __self__.neptune_parameter_group_name = neptune_parameter_group_name
-        """
-        The name of the neptune parameter group to associate with this instance.
-        """
         __props__['neptuneParameterGroupName'] = neptune_parameter_group_name
 
-        if neptune_subnet_group_name and not isinstance(neptune_subnet_group_name, basestring):
-            raise TypeError('Expected property neptune_subnet_group_name to be a basestring')
-        __self__.neptune_subnet_group_name = neptune_subnet_group_name
-        """
-        A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
-        """
         __props__['neptuneSubnetGroupName'] = neptune_subnet_group_name
 
-        if port and not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port on which the DB accepts connections. Defaults to `8182`.
-        """
         __props__['port'] = port
 
-        if preferred_backup_window and not isinstance(preferred_backup_window, basestring):
-            raise TypeError('Expected property preferred_backup_window to be a basestring')
-        __self__.preferred_backup_window = preferred_backup_window
-        """
-        The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-        """
         __props__['preferredBackupWindow'] = preferred_backup_window
 
-        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
-            raise TypeError('Expected property preferred_maintenance_window to be a basestring')
-        __self__.preferred_maintenance_window = preferred_maintenance_window
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         __props__['preferredMaintenanceWindow'] = preferred_maintenance_window
 
-        if promotion_tier and not isinstance(promotion_tier, int):
-            raise TypeError('Expected property promotion_tier to be a int')
-        __self__.promotion_tier = promotion_tier
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         __props__['promotionTier'] = promotion_tier
 
-        if publicly_accessible and not isinstance(publicly_accessible, bool):
-            raise TypeError('Expected property publicly_accessible to be a bool')
-        __self__.publicly_accessible = publicly_accessible
-        """
-        Bool to control if instance is publicly accessible. Default is `false`.
-        """
         __props__['publiclyAccessible'] = publicly_accessible
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the instance.
-        """
         __props__['tags'] = tags
 
-        __self__.address = pulumi.runtime.UNKNOWN
-        """
-        The hostname of the instance. See also `endpoint` and `port`.
-        """
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        Amazon Resource Name (ARN) of neptune instance
-        """
-        __self__.dbi_resource_id = pulumi.runtime.UNKNOWN
-        """
-        The region-unique, immutable identifier for the neptune instance.
-        """
-        __self__.endpoint = pulumi.runtime.UNKNOWN
-        """
-        The connection endpoint in `address:port` format.
-        """
-        __self__.kms_key_arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN for the KMS encryption key if one is set to the neptune cluster.
-        """
-        __self__.storage_encrypted = pulumi.runtime.UNKNOWN
-        """
-        Specifies whether the neptune cluster is encrypted.
-        """
-        __self__.writer = pulumi.runtime.UNKNOWN
-        """
-        Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        """
+        __props__['address'] = None
+        __props__['arn'] = None
+        __props__['dbi_resource_id'] = None
+        __props__['endpoint'] = None
+        __props__['kms_key_arn'] = None
+        __props__['storage_encrypted'] = None
+        __props__['writer'] = None
 
         super(ClusterInstance, __self__).__init__(
             'aws:neptune/clusterInstance:ClusterInstance',
@@ -202,52 +77,3 @@ class ClusterInstance(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'address' in outs:
-            self.address = outs['address']
-        if 'applyImmediately' in outs:
-            self.apply_immediately = outs['applyImmediately']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'autoMinorVersionUpgrade' in outs:
-            self.auto_minor_version_upgrade = outs['autoMinorVersionUpgrade']
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'clusterIdentifier' in outs:
-            self.cluster_identifier = outs['clusterIdentifier']
-        if 'dbiResourceId' in outs:
-            self.dbi_resource_id = outs['dbiResourceId']
-        if 'endpoint' in outs:
-            self.endpoint = outs['endpoint']
-        if 'engine' in outs:
-            self.engine = outs['engine']
-        if 'engineVersion' in outs:
-            self.engine_version = outs['engineVersion']
-        if 'identifier' in outs:
-            self.identifier = outs['identifier']
-        if 'identifierPrefix' in outs:
-            self.identifier_prefix = outs['identifierPrefix']
-        if 'instanceClass' in outs:
-            self.instance_class = outs['instanceClass']
-        if 'kmsKeyArn' in outs:
-            self.kms_key_arn = outs['kmsKeyArn']
-        if 'neptuneParameterGroupName' in outs:
-            self.neptune_parameter_group_name = outs['neptuneParameterGroupName']
-        if 'neptuneSubnetGroupName' in outs:
-            self.neptune_subnet_group_name = outs['neptuneSubnetGroupName']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'preferredBackupWindow' in outs:
-            self.preferred_backup_window = outs['preferredBackupWindow']
-        if 'preferredMaintenanceWindow' in outs:
-            self.preferred_maintenance_window = outs['preferredMaintenanceWindow']
-        if 'promotionTier' in outs:
-            self.promotion_tier = outs['promotionTier']
-        if 'publiclyAccessible' in outs:
-            self.publicly_accessible = outs['publiclyAccessible']
-        if 'storageEncrypted' in outs:
-            self.storage_encrypted = outs['storageEncrypted']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'writer' in outs:
-            self.writer = outs['writer']

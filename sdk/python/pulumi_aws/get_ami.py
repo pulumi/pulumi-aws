@@ -11,8 +11,8 @@ class GetAmiResult(object):
     A collection of values returned by getAmi.
     """
     def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, hypervisor=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, name=None, owner_id=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None, id=None):
-        if architecture and not isinstance(architecture, basestring):
-            raise TypeError('Expected argument architecture to be a basestring')
+        if architecture and not isinstance(architecture, str):
+            raise TypeError('Expected argument architecture to be a str')
         __self__.architecture = architecture
         """
         The OS architecture of the AMI (ie: `i386` or `x86_64`).
@@ -37,71 +37,71 @@ class GetAmiResult(object):
         * `block_device_mappings.#.virtual_name` - The virtual device name (for
         instance stores).
         """
-        if creation_date and not isinstance(creation_date, basestring):
-            raise TypeError('Expected argument creation_date to be a basestring')
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError('Expected argument creation_date to be a str')
         __self__.creation_date = creation_date
         """
         The date and time the image was created.
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         The description of the AMI that was provided during image
         creation.
         """
-        if hypervisor and not isinstance(hypervisor, basestring):
-            raise TypeError('Expected argument hypervisor to be a basestring')
+        if hypervisor and not isinstance(hypervisor, str):
+            raise TypeError('Expected argument hypervisor to be a str')
         __self__.hypervisor = hypervisor
         """
         The hypervisor type of the image.
         """
-        if image_id and not isinstance(image_id, basestring):
-            raise TypeError('Expected argument image_id to be a basestring')
+        if image_id and not isinstance(image_id, str):
+            raise TypeError('Expected argument image_id to be a str')
         __self__.image_id = image_id
         """
         The ID of the AMI. Should be the same as the resource `id`.
         """
-        if image_location and not isinstance(image_location, basestring):
-            raise TypeError('Expected argument image_location to be a basestring')
+        if image_location and not isinstance(image_location, str):
+            raise TypeError('Expected argument image_location to be a str')
         __self__.image_location = image_location
         """
         The location of the AMI.
         """
-        if image_owner_alias and not isinstance(image_owner_alias, basestring):
-            raise TypeError('Expected argument image_owner_alias to be a basestring')
+        if image_owner_alias and not isinstance(image_owner_alias, str):
+            raise TypeError('Expected argument image_owner_alias to be a str')
         __self__.image_owner_alias = image_owner_alias
         """
         The AWS account alias (for example, `amazon`, `self`) or
         the AWS account ID of the AMI owner.
         """
-        if image_type and not isinstance(image_type, basestring):
-            raise TypeError('Expected argument image_type to be a basestring')
+        if image_type and not isinstance(image_type, str):
+            raise TypeError('Expected argument image_type to be a str')
         __self__.image_type = image_type
         """
         The type of image.
         """
-        if kernel_id and not isinstance(kernel_id, basestring):
-            raise TypeError('Expected argument kernel_id to be a basestring')
+        if kernel_id and not isinstance(kernel_id, str):
+            raise TypeError('Expected argument kernel_id to be a str')
         __self__.kernel_id = kernel_id
         """
         The kernel associated with the image, if any. Only applicable
         for machine images.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         """
         The name of the AMI that was provided during image creation.
         """
-        if owner_id and not isinstance(owner_id, basestring):
-            raise TypeError('Expected argument owner_id to be a basestring')
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
         __self__.owner_id = owner_id
         """
         The AWS account ID of the image owner.
         """
-        if platform and not isinstance(platform, basestring):
-            raise TypeError('Expected argument platform to be a basestring')
+        if platform and not isinstance(platform, str):
+            raise TypeError('Expected argument platform to be a str')
         __self__.platform = platform
         """
         The value is Windows for `Windows` AMIs; otherwise blank.
@@ -120,40 +120,40 @@ class GetAmiResult(object):
         """
         `true` if the image has public launch permissions.
         """
-        if ramdisk_id and not isinstance(ramdisk_id, basestring):
-            raise TypeError('Expected argument ramdisk_id to be a basestring')
+        if ramdisk_id and not isinstance(ramdisk_id, str):
+            raise TypeError('Expected argument ramdisk_id to be a str')
         __self__.ramdisk_id = ramdisk_id
         """
         The RAM disk associated with the image, if any. Only applicable
         for machine images.
         """
-        if root_device_name and not isinstance(root_device_name, basestring):
-            raise TypeError('Expected argument root_device_name to be a basestring')
+        if root_device_name and not isinstance(root_device_name, str):
+            raise TypeError('Expected argument root_device_name to be a str')
         __self__.root_device_name = root_device_name
         """
         The device name of the root device.
         """
-        if root_device_type and not isinstance(root_device_type, basestring):
-            raise TypeError('Expected argument root_device_type to be a basestring')
+        if root_device_type and not isinstance(root_device_type, str):
+            raise TypeError('Expected argument root_device_type to be a str')
         __self__.root_device_type = root_device_type
         """
         The type of root device (ie: `ebs` or `instance-store`).
         """
-        if root_snapshot_id and not isinstance(root_snapshot_id, basestring):
-            raise TypeError('Expected argument root_snapshot_id to be a basestring')
+        if root_snapshot_id and not isinstance(root_snapshot_id, str):
+            raise TypeError('Expected argument root_snapshot_id to be a str')
         __self__.root_snapshot_id = root_snapshot_id
         """
         The snapshot id associated with the root device, if any
         (only applies to `ebs` root devices).
         """
-        if sriov_net_support and not isinstance(sriov_net_support, basestring):
-            raise TypeError('Expected argument sriov_net_support to be a basestring')
+        if sriov_net_support and not isinstance(sriov_net_support, str):
+            raise TypeError('Expected argument sriov_net_support to be a str')
         __self__.sriov_net_support = sriov_net_support
         """
         Specifies whether enhanced networking is enabled.
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The current state of the AMI. If the state is `available`, the image
@@ -175,15 +175,15 @@ class GetAmiResult(object):
         * `tags.#.key` - The key name of the tag.
         * `tags.#.value` - The value of the tag.
         """
-        if virtualization_type and not isinstance(virtualization_type, basestring):
-            raise TypeError('Expected argument virtualization_type to be a basestring')
+        if virtualization_type and not isinstance(virtualization_type, str):
+            raise TypeError('Expected argument virtualization_type to be a str')
         __self__.virtualization_type = virtualization_type
         """
         The type of virtualization of the AMI (ie: `hvm` or
         `paravirtual`).
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

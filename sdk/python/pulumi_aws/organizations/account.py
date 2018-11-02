@@ -18,7 +18,7 @@ class Account(pulumi.CustomResource):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,45 +27,18 @@ class Account(pulumi.CustomResource):
 
         if not email:
             raise TypeError('Missing required property email')
-        elif not isinstance(email, basestring):
-            raise TypeError('Expected property email to be a basestring')
-        __self__.email = email
-        """
-        The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        """
         __props__['email'] = email
 
-        if iam_user_access_to_billing and not isinstance(iam_user_access_to_billing, basestring):
-            raise TypeError('Expected property iam_user_access_to_billing to be a basestring')
-        __self__.iam_user_access_to_billing = iam_user_access_to_billing
-        """
-        If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
-        """
         __props__['iamUserAccessToBilling'] = iam_user_access_to_billing
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A friendly name for the member account.
-        """
         __props__['name'] = name
 
-        if role_name and not isinstance(role_name, basestring):
-            raise TypeError('Expected property role_name to be a basestring')
-        __self__.role_name = role_name
-        """
-        The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
-        """
         __props__['roleName'] = role_name
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN for this account.
-        """
-        __self__.joined_method = pulumi.runtime.UNKNOWN
-        __self__.joined_timestamp = pulumi.runtime.UNKNOWN
-        __self__.status = pulumi.runtime.UNKNOWN
+        __props__['arn'] = None
+        __props__['joined_method'] = None
+        __props__['joined_timestamp'] = None
+        __props__['status'] = None
 
         super(Account, __self__).__init__(
             'aws:organizations/account:Account',
@@ -73,20 +46,3 @@ class Account(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'email' in outs:
-            self.email = outs['email']
-        if 'iamUserAccessToBilling' in outs:
-            self.iam_user_access_to_billing = outs['iamUserAccessToBilling']
-        if 'joinedMethod' in outs:
-            self.joined_method = outs['joinedMethod']
-        if 'joinedTimestamp' in outs:
-            self.joined_timestamp = outs['joinedTimestamp']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'roleName' in outs:
-            self.role_name = outs['roleName']
-        if 'status' in outs:
-            self.status = outs['status']

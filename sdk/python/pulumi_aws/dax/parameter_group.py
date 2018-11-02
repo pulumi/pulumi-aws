@@ -14,35 +14,17 @@ class ParameterGroup(pulumi.CustomResource):
         """Create a ParameterGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A description of the parameter group.
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the parameter group.
-        """
         __props__['name'] = name
 
-        if parameters and not isinstance(parameters, list):
-            raise TypeError('Expected property parameters to be a list')
-        __self__.parameters = parameters
-        """
-        The parameters of the parameter group.
-        """
         __props__['parameters'] = parameters
 
         super(ParameterGroup, __self__).__init__(
@@ -51,10 +33,3 @@ class ParameterGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'parameters' in outs:
-            self.parameters = outs['parameters']

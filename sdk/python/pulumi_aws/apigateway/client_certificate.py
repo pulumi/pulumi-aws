@@ -14,33 +14,18 @@ class ClientCertificate(pulumi.CustomResource):
         """Create a ClientCertificate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the client certificate.
-        """
         __props__['description'] = description
 
-        __self__.created_date = pulumi.runtime.UNKNOWN
-        """
-        The date when the client certificate was created.
-        """
-        __self__.expiration_date = pulumi.runtime.UNKNOWN
-        """
-        The date when the client certificate will expire.
-        """
-        __self__.pem_encoded_certificate = pulumi.runtime.UNKNOWN
-        """
-        The PEM-encoded public key of the client certificate.
-        """
+        __props__['created_date'] = None
+        __props__['expiration_date'] = None
+        __props__['pem_encoded_certificate'] = None
 
         super(ClientCertificate, __self__).__init__(
             'aws:apigateway/clientCertificate:ClientCertificate',
@@ -48,12 +33,3 @@ class ClientCertificate(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'createdDate' in outs:
-            self.created_date = outs['createdDate']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'expirationDate' in outs:
-            self.expiration_date = outs['expirationDate']
-        if 'pemEncodedCertificate' in outs:
-            self.pem_encoded_certificate = outs['pemEncodedCertificate']

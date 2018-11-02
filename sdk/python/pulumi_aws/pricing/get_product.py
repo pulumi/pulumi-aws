@@ -11,14 +11,14 @@ class GetProductResult(object):
     A collection of values returned by getProduct.
     """
     def __init__(__self__, result=None, id=None):
-        if result and not isinstance(result, basestring):
-            raise TypeError('Expected argument result to be a basestring')
+        if result and not isinstance(result, str):
+            raise TypeError('Expected argument result to be a str')
         __self__.result = result
         """
         Set to the product returned from the API.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

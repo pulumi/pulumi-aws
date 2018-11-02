@@ -11,8 +11,8 @@ class GetClusterResult(object):
     A collection of values returned by getCluster.
     """
     def __init__(__self__, arn=None, certificate_authority=None, created_at=None, endpoint=None, platform_version=None, role_arn=None, version=None, vpc_config=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the cluster.
@@ -23,32 +23,32 @@ class GetClusterResult(object):
         """
         Nested attribute containing `certificate-authority-data` for your cluster.
         """
-        if created_at and not isinstance(created_at, basestring):
-            raise TypeError('Expected argument created_at to be a basestring')
+        if created_at and not isinstance(created_at, str):
+            raise TypeError('Expected argument created_at to be a str')
         __self__.created_at = created_at
         """
         The Unix epoch time stamp in seconds for when the cluster was created.
         """
-        if endpoint and not isinstance(endpoint, basestring):
-            raise TypeError('Expected argument endpoint to be a basestring')
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError('Expected argument endpoint to be a str')
         __self__.endpoint = endpoint
         """
         The endpoint for your Kubernetes API server.
         """
-        if platform_version and not isinstance(platform_version, basestring):
-            raise TypeError('Expected argument platform_version to be a basestring')
+        if platform_version and not isinstance(platform_version, str):
+            raise TypeError('Expected argument platform_version to be a str')
         __self__.platform_version = platform_version
         """
         The platform version for the cluster.
         """
-        if role_arn and not isinstance(role_arn, basestring):
-            raise TypeError('Expected argument role_arn to be a basestring')
+        if role_arn and not isinstance(role_arn, str):
+            raise TypeError('Expected argument role_arn to be a str')
         __self__.role_arn = role_arn
         """
         The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         """
-        if version and not isinstance(version, basestring):
-            raise TypeError('Expected argument version to be a basestring')
+        if version and not isinstance(version, str):
+            raise TypeError('Expected argument version to be a str')
         __self__.version = version
         """
         The Kubernetes server version for the cluster.
@@ -59,8 +59,8 @@ class GetClusterResult(object):
         """
         Nested attribute containing VPC configuration for the cluster.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

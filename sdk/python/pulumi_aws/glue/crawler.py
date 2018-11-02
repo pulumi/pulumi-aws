@@ -14,111 +14,39 @@ class Crawler(pulumi.CustomResource):
         """Create a Crawler resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if classifiers and not isinstance(classifiers, list):
-            raise TypeError('Expected property classifiers to be a list')
-        __self__.classifiers = classifiers
-        """
-        List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-        """
         __props__['classifiers'] = classifiers
 
-        if configuration and not isinstance(configuration, basestring):
-            raise TypeError('Expected property configuration to be a basestring')
-        __self__.configuration = configuration
-        """
-        JSON string of configuration information.
-        """
         __props__['configuration'] = configuration
 
         if not database_name:
             raise TypeError('Missing required property database_name')
-        elif not isinstance(database_name, basestring):
-            raise TypeError('Expected property database_name to be a basestring')
-        __self__.database_name = database_name
-        """
-        Glue database where results are written.
-        """
         __props__['databaseName'] = database_name
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Description of the crawler.
-        """
         __props__['description'] = description
 
-        if dynamodb_targets and not isinstance(dynamodb_targets, list):
-            raise TypeError('Expected property dynamodb_targets to be a list')
-        __self__.dynamodb_targets = dynamodb_targets
-        """
-        List of nested DynamoDB target arguments. See below.
-        """
         __props__['dynamodbTargets'] = dynamodb_targets
 
-        if jdbc_targets and not isinstance(jdbc_targets, list):
-            raise TypeError('Expected property jdbc_targets to be a list')
-        __self__.jdbc_targets = jdbc_targets
-        """
-        List of nested JBDC target arguments. See below.
-        """
         __props__['jdbcTargets'] = jdbc_targets
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Name of the crawler.
-        """
         __props__['name'] = name
 
         if not role:
             raise TypeError('Missing required property role')
-        elif not isinstance(role, basestring):
-            raise TypeError('Expected property role to be a basestring')
-        __self__.role = role
-        """
-        The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        """
         __props__['role'] = role
 
-        if s3_targets and not isinstance(s3_targets, list):
-            raise TypeError('Expected property s3_targets to be a list')
-        __self__.s3_targets = s3_targets
-        """
-        List nested Amazon S3 target arguments. See below.
-        """
         __props__['s3Targets'] = s3_targets
 
-        if schedule and not isinstance(schedule, basestring):
-            raise TypeError('Expected property schedule to be a basestring')
-        __self__.schedule = schedule
-        """
-        A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-        """
         __props__['schedule'] = schedule
 
-        if schema_change_policy and not isinstance(schema_change_policy, dict):
-            raise TypeError('Expected property schema_change_policy to be a dict')
-        __self__.schema_change_policy = schema_change_policy
-        """
-        Policy for the crawler's update and deletion behavior.
-        """
         __props__['schemaChangePolicy'] = schema_change_policy
 
-        if table_prefix and not isinstance(table_prefix, basestring):
-            raise TypeError('Expected property table_prefix to be a basestring')
-        __self__.table_prefix = table_prefix
-        """
-        The table prefix used for catalog tables that are created.
-        """
         __props__['tablePrefix'] = table_prefix
 
         super(Crawler, __self__).__init__(
@@ -127,28 +55,3 @@ class Crawler(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'classifiers' in outs:
-            self.classifiers = outs['classifiers']
-        if 'configuration' in outs:
-            self.configuration = outs['configuration']
-        if 'databaseName' in outs:
-            self.database_name = outs['databaseName']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'dynamodbTargets' in outs:
-            self.dynamodb_targets = outs['dynamodbTargets']
-        if 'jdbcTargets' in outs:
-            self.jdbc_targets = outs['jdbcTargets']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'role' in outs:
-            self.role = outs['role']
-        if 's3Targets' in outs:
-            self.s3_targets = outs['s3Targets']
-        if 'schedule' in outs:
-            self.schedule = outs['schedule']
-        if 'schemaChangePolicy' in outs:
-            self.schema_change_policy = outs['schemaChangePolicy']
-        if 'tablePrefix' in outs:
-            self.table_prefix = outs['tablePrefix']

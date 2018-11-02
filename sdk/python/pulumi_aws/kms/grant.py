@@ -14,87 +14,37 @@ class Grant(pulumi.CustomResource):
         """Create a Grant resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if constraints and not isinstance(constraints, list):
-            raise TypeError('Expected property constraints to be a list')
-        __self__.constraints = constraints
-        """
-        A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
-        """
         __props__['constraints'] = constraints
 
-        if grant_creation_tokens and not isinstance(grant_creation_tokens, list):
-            raise TypeError('Expected property grant_creation_tokens to be a list')
-        __self__.grant_creation_tokens = grant_creation_tokens
-        """
-        A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-        * `retire_on_delete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        """
         __props__['grantCreationTokens'] = grant_creation_tokens
 
         if not grantee_principal:
             raise TypeError('Missing required property grantee_principal')
-        elif not isinstance(grantee_principal, basestring):
-            raise TypeError('Expected property grantee_principal to be a basestring')
-        __self__.grantee_principal = grantee_principal
-        """
-        The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, terraform's state may not always be refreshed to reflect what is true in AWS.
-        """
         __props__['granteePrincipal'] = grantee_principal
 
         if not key_id:
             raise TypeError('Missing required property key_id')
-        elif not isinstance(key_id, basestring):
-            raise TypeError('Expected property key_id to be a basestring')
-        __self__.key_id = key_id
-        """
-        The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        """
         __props__['keyId'] = key_id
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A friendly name for identifying the grant.
-        """
         __props__['name'] = name
 
         if not operations:
             raise TypeError('Missing required property operations')
-        elif not isinstance(operations, list):
-            raise TypeError('Expected property operations to be a list')
-        __self__.operations = operations
-        """
-        A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-        """
         __props__['operations'] = operations
 
-        if retire_on_delete and not isinstance(retire_on_delete, bool):
-            raise TypeError('Expected property retire_on_delete to be a bool')
-        __self__.retire_on_delete = retire_on_delete
         __props__['retireOnDelete'] = retire_on_delete
 
-        if retiring_principal and not isinstance(retiring_principal, basestring):
-            raise TypeError('Expected property retiring_principal to be a basestring')
-        __self__.retiring_principal = retiring_principal
         __props__['retiringPrincipal'] = retiring_principal
 
-        __self__.grant_id = pulumi.runtime.UNKNOWN
-        """
-        The unique identifier for the grant.
-        """
-        __self__.grant_token = pulumi.runtime.UNKNOWN
-        """
-        The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
-        """
+        __props__['grant_id'] = None
+        __props__['grant_token'] = None
 
         super(Grant, __self__).__init__(
             'aws:kms/grant:Grant',
@@ -102,24 +52,3 @@ class Grant(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'constraints' in outs:
-            self.constraints = outs['constraints']
-        if 'grantCreationTokens' in outs:
-            self.grant_creation_tokens = outs['grantCreationTokens']
-        if 'grantId' in outs:
-            self.grant_id = outs['grantId']
-        if 'grantToken' in outs:
-            self.grant_token = outs['grantToken']
-        if 'granteePrincipal' in outs:
-            self.grantee_principal = outs['granteePrincipal']
-        if 'keyId' in outs:
-            self.key_id = outs['keyId']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'operations' in outs:
-            self.operations = outs['operations']
-        if 'retireOnDelete' in outs:
-            self.retire_on_delete = outs['retireOnDelete']
-        if 'retiringPrincipal' in outs:
-            self.retiring_principal = outs['retiringPrincipal']

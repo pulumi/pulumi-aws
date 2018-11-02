@@ -14,7 +14,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         """Create a ThingPrincipalAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,22 +23,10 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         if not principal:
             raise TypeError('Missing required property principal')
-        elif not isinstance(principal, basestring):
-            raise TypeError('Expected property principal to be a basestring')
-        __self__.principal = principal
-        """
-        The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        """
         __props__['principal'] = principal
 
         if not thing:
             raise TypeError('Missing required property thing')
-        elif not isinstance(thing, basestring):
-            raise TypeError('Expected property thing to be a basestring')
-        __self__.thing = thing
-        """
-        The name of the thing.
-        """
         __props__['thing'] = thing
 
         super(ThingPrincipalAttachment, __self__).__init__(
@@ -47,8 +35,3 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'principal' in outs:
-            self.principal = outs['principal']
-        if 'thing' in outs:
-            self.thing = outs['thing']

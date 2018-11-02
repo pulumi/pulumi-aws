@@ -23,7 +23,7 @@ class Cluster(pulumi.CustomResource):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -32,62 +32,21 @@ class Cluster(pulumi.CustomResource):
 
         if not hsm_type:
             raise TypeError('Missing required property hsm_type')
-        elif not isinstance(hsm_type, basestring):
-            raise TypeError('Expected property hsm_type to be a basestring')
-        __self__.hsm_type = hsm_type
-        """
-        The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
-        """
         __props__['hsmType'] = hsm_type
 
-        if source_backup_identifier and not isinstance(source_backup_identifier, basestring):
-            raise TypeError('Expected property source_backup_identifier to be a basestring')
-        __self__.source_backup_identifier = source_backup_identifier
-        """
-        The id of Cloud HSM v2 cluster backup to be restored.
-        """
         __props__['sourceBackupIdentifier'] = source_backup_identifier
 
         if not subnet_ids:
             raise TypeError('Missing required property subnet_ids')
-        elif not isinstance(subnet_ids, list):
-            raise TypeError('Expected property subnet_ids to be a list')
-        __self__.subnet_ids = subnet_ids
-        """
-        The IDs of subnets in which cluster will operate.
-        """
         __props__['subnetIds'] = subnet_ids
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
         __props__['tags'] = tags
 
-        __self__.cluster_certificates = pulumi.runtime.UNKNOWN
-        """
-        The list of cluster certificates.
-        * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-        * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.
-        * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
-        * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
-        * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-        """
-        __self__.cluster_id = pulumi.runtime.UNKNOWN
-        """
-        The id of the CloudHSM cluster.
-        """
-        __self__.cluster_state = pulumi.runtime.UNKNOWN
-        """
-        The state of the cluster.
-        """
-        __self__.security_group_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the security group associated with the CloudHSM cluster.
-        """
-        __self__.vpc_id = pulumi.runtime.UNKNOWN
-        """
-        The id of the VPC that the CloudHSM cluster resides in.
-        """
+        __props__['cluster_certificates'] = None
+        __props__['cluster_id'] = None
+        __props__['cluster_state'] = None
+        __props__['security_group_id'] = None
+        __props__['vpc_id'] = None
 
         super(Cluster, __self__).__init__(
             'aws:cloudhsmv2/cluster:Cluster',
@@ -95,22 +54,3 @@ class Cluster(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'clusterCertificates' in outs:
-            self.cluster_certificates = outs['clusterCertificates']
-        if 'clusterId' in outs:
-            self.cluster_id = outs['clusterId']
-        if 'clusterState' in outs:
-            self.cluster_state = outs['clusterState']
-        if 'hsmType' in outs:
-            self.hsm_type = outs['hsmType']
-        if 'securityGroupId' in outs:
-            self.security_group_id = outs['securityGroupId']
-        if 'sourceBackupIdentifier' in outs:
-            self.source_backup_identifier = outs['sourceBackupIdentifier']
-        if 'subnetIds' in outs:
-            self.subnet_ids = outs['subnetIds']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

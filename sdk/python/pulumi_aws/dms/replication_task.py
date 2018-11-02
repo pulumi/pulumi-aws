@@ -14,101 +14,44 @@ class ReplicationTask(pulumi.CustomResource):
         """Create a ReplicationTask resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if cdc_start_time and not isinstance(cdc_start_time, basestring):
-            raise TypeError('Expected property cdc_start_time to be a basestring')
-        __self__.cdc_start_time = cdc_start_time
-        """
-        The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-        """
         __props__['cdcStartTime'] = cdc_start_time
 
         if not migration_type:
             raise TypeError('Missing required property migration_type')
-        elif not isinstance(migration_type, basestring):
-            raise TypeError('Expected property migration_type to be a basestring')
-        __self__.migration_type = migration_type
-        """
-        The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-        """
         __props__['migrationType'] = migration_type
 
         if not replication_instance_arn:
             raise TypeError('Missing required property replication_instance_arn')
-        elif not isinstance(replication_instance_arn, basestring):
-            raise TypeError('Expected property replication_instance_arn to be a basestring')
-        __self__.replication_instance_arn = replication_instance_arn
-        """
-        The Amazon Resource Name (ARN) of the replication instance.
-        """
         __props__['replicationInstanceArn'] = replication_instance_arn
 
         if not replication_task_id:
             raise TypeError('Missing required property replication_task_id')
-        elif not isinstance(replication_task_id, basestring):
-            raise TypeError('Expected property replication_task_id to be a basestring')
-        __self__.replication_task_id = replication_task_id
-        """
-        The replication task identifier.
-        """
         __props__['replicationTaskId'] = replication_task_id
 
-        if replication_task_settings and not isinstance(replication_task_settings, basestring):
-            raise TypeError('Expected property replication_task_settings to be a basestring')
-        __self__.replication_task_settings = replication_task_settings
-        """
-        An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-        """
         __props__['replicationTaskSettings'] = replication_task_settings
 
         if not source_endpoint_arn:
             raise TypeError('Missing required property source_endpoint_arn')
-        elif not isinstance(source_endpoint_arn, basestring):
-            raise TypeError('Expected property source_endpoint_arn to be a basestring')
-        __self__.source_endpoint_arn = source_endpoint_arn
-        """
-        The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-        """
         __props__['sourceEndpointArn'] = source_endpoint_arn
 
         if not table_mappings:
             raise TypeError('Missing required property table_mappings')
-        elif not isinstance(table_mappings, basestring):
-            raise TypeError('Expected property table_mappings to be a basestring')
-        __self__.table_mappings = table_mappings
-        """
-        An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-        """
         __props__['tableMappings'] = table_mappings
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not target_endpoint_arn:
             raise TypeError('Missing required property target_endpoint_arn')
-        elif not isinstance(target_endpoint_arn, basestring):
-            raise TypeError('Expected property target_endpoint_arn to be a basestring')
-        __self__.target_endpoint_arn = target_endpoint_arn
-        """
-        The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-        """
         __props__['targetEndpointArn'] = target_endpoint_arn
 
-        __self__.replication_task_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) for the replication task.
-        """
+        __props__['replication_task_arn'] = None
 
         super(ReplicationTask, __self__).__init__(
             'aws:dms/replicationTask:ReplicationTask',
@@ -116,24 +59,3 @@ class ReplicationTask(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cdcStartTime' in outs:
-            self.cdc_start_time = outs['cdcStartTime']
-        if 'migrationType' in outs:
-            self.migration_type = outs['migrationType']
-        if 'replicationInstanceArn' in outs:
-            self.replication_instance_arn = outs['replicationInstanceArn']
-        if 'replicationTaskArn' in outs:
-            self.replication_task_arn = outs['replicationTaskArn']
-        if 'replicationTaskId' in outs:
-            self.replication_task_id = outs['replicationTaskId']
-        if 'replicationTaskSettings' in outs:
-            self.replication_task_settings = outs['replicationTaskSettings']
-        if 'sourceEndpointArn' in outs:
-            self.source_endpoint_arn = outs['sourceEndpointArn']
-        if 'tableMappings' in outs:
-            self.table_mappings = outs['tableMappings']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'targetEndpointArn' in outs:
-            self.target_endpoint_arn = outs['targetEndpointArn']

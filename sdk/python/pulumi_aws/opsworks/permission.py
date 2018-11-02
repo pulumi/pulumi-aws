@@ -14,53 +14,23 @@ class Permission(pulumi.CustomResource):
         """Create a Permission resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allow_ssh and not isinstance(allow_ssh, bool):
-            raise TypeError('Expected property allow_ssh to be a bool')
-        __self__.allow_ssh = allow_ssh
-        """
-        Whether the user is allowed to use SSH to communicate with the instance
-        """
         __props__['allowSsh'] = allow_ssh
 
-        if allow_sudo and not isinstance(allow_sudo, bool):
-            raise TypeError('Expected property allow_sudo to be a bool')
-        __self__.allow_sudo = allow_sudo
-        """
-        Whether the user is allowed to use sudo to elevate privileges
-        """
         __props__['allowSudo'] = allow_sudo
 
-        if level and not isinstance(level, basestring):
-            raise TypeError('Expected property level to be a basestring')
-        __self__.level = level
-        """
-        The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
-        """
         __props__['level'] = level
 
-        if stack_id and not isinstance(stack_id, basestring):
-            raise TypeError('Expected property stack_id to be a basestring')
-        __self__.stack_id = stack_id
-        """
-        The stack to set the permissions for
-        """
         __props__['stackId'] = stack_id
 
         if not user_arn:
             raise TypeError('Missing required property user_arn')
-        elif not isinstance(user_arn, basestring):
-            raise TypeError('Expected property user_arn to be a basestring')
-        __self__.user_arn = user_arn
-        """
-        The user's IAM ARN to set permissions for
-        """
         __props__['userArn'] = user_arn
 
         super(Permission, __self__).__init__(
@@ -69,14 +39,3 @@ class Permission(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allowSsh' in outs:
-            self.allow_ssh = outs['allowSsh']
-        if 'allowSudo' in outs:
-            self.allow_sudo = outs['allowSudo']
-        if 'level' in outs:
-            self.level = outs['level']
-        if 'stackId' in outs:
-            self.stack_id = outs['stackId']
-        if 'userArn' in outs:
-            self.user_arn = outs['userArn']

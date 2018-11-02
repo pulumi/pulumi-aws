@@ -14,91 +14,32 @@ class RestApi(pulumi.CustomResource):
         """Create a RestApi resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if api_key_source and not isinstance(api_key_source, basestring):
-            raise TypeError('Expected property api_key_source to be a basestring')
-        __self__.api_key_source = api_key_source
-        """
-        The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
-        """
         __props__['apiKeySource'] = api_key_source
 
-        if binary_media_types and not isinstance(binary_media_types, list):
-            raise TypeError('Expected property binary_media_types to be a list')
-        __self__.binary_media_types = binary_media_types
-        """
-        The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
-        """
         __props__['binaryMediaTypes'] = binary_media_types
 
-        if body and not isinstance(body, basestring):
-            raise TypeError('Expected property body to be a basestring')
-        __self__.body = body
-        """
-        An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
-        """
         __props__['body'] = body
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the REST API
-        """
         __props__['description'] = description
 
-        if endpoint_configuration and not isinstance(endpoint_configuration, dict):
-            raise TypeError('Expected property endpoint_configuration to be a dict')
-        __self__.endpoint_configuration = endpoint_configuration
-        """
-        Nested argument defining API endpoint configuration including endpoint type. Defined below.
-        """
         __props__['endpointConfiguration'] = endpoint_configuration
 
-        if minimum_compression_size and not isinstance(minimum_compression_size, int):
-            raise TypeError('Expected property minimum_compression_size to be a int')
-        __self__.minimum_compression_size = minimum_compression_size
-        """
-        Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
-        """
         __props__['minimumCompressionSize'] = minimum_compression_size
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the REST API
-        """
         __props__['name'] = name
 
-        if policy and not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-        """
         __props__['policy'] = policy
 
-        __self__.created_date = pulumi.runtime.UNKNOWN
-        """
-        The creation date of the REST API
-        """
-        __self__.execution_arn = pulumi.runtime.UNKNOWN
-        """
-        The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
-        """
-        __self__.root_resource_id = pulumi.runtime.UNKNOWN
-        """
-        The resource ID of the REST API's root
-        """
+        __props__['created_date'] = None
+        __props__['execution_arn'] = None
+        __props__['root_resource_id'] = None
 
         super(RestApi, __self__).__init__(
             'aws:apigateway/restApi:RestApi',
@@ -106,26 +47,3 @@ class RestApi(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'apiKeySource' in outs:
-            self.api_key_source = outs['apiKeySource']
-        if 'binaryMediaTypes' in outs:
-            self.binary_media_types = outs['binaryMediaTypes']
-        if 'body' in outs:
-            self.body = outs['body']
-        if 'createdDate' in outs:
-            self.created_date = outs['createdDate']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'endpointConfiguration' in outs:
-            self.endpoint_configuration = outs['endpointConfiguration']
-        if 'executionArn' in outs:
-            self.execution_arn = outs['executionArn']
-        if 'minimumCompressionSize' in outs:
-            self.minimum_compression_size = outs['minimumCompressionSize']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'policy' in outs:
-            self.policy = outs['policy']
-        if 'rootResourceId' in outs:
-            self.root_resource_id = outs['rootResourceId']

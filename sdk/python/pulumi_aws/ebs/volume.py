@@ -14,7 +14,7 @@ class Volume(pulumi.CustomResource):
         """Create a Volume resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,74 +23,23 @@ class Volume(pulumi.CustomResource):
 
         if not availability_zone:
             raise TypeError('Missing required property availability_zone')
-        elif not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The AZ where the EBS volume will exist.
-        """
         __props__['availabilityZone'] = availability_zone
 
-        if encrypted and not isinstance(encrypted, bool):
-            raise TypeError('Expected property encrypted to be a bool')
-        __self__.encrypted = encrypted
-        """
-        If true, the disk will be encrypted.
-        """
         __props__['encrypted'] = encrypted
 
-        if iops and not isinstance(iops, int):
-            raise TypeError('Expected property iops to be a int')
-        __self__.iops = iops
-        """
-        The amount of IOPS to provision for the disk.
-        """
         __props__['iops'] = iops
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
-        if size and not isinstance(size, int):
-            raise TypeError('Expected property size to be a int')
-        __self__.size = size
-        """
-        The size of the drive in GiBs.
-        """
         __props__['size'] = size
 
-        if snapshot_id and not isinstance(snapshot_id, basestring):
-            raise TypeError('Expected property snapshot_id to be a basestring')
-        __self__.snapshot_id = snapshot_id
-        """
-        A snapshot to base the EBS volume off of.
-        """
         __props__['snapshotId'] = snapshot_id
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-        """
         __props__['type'] = type
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-        """
+        __props__['arn'] = None
 
         super(Volume, __self__).__init__(
             'aws:ebs/volume:Volume',
@@ -98,22 +47,3 @@ class Volume(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'encrypted' in outs:
-            self.encrypted = outs['encrypted']
-        if 'iops' in outs:
-            self.iops = outs['iops']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'size' in outs:
-            self.size = outs['size']
-        if 'snapshotId' in outs:
-            self.snapshot_id = outs['snapshotId']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'type' in outs:
-            self.type = outs['type']

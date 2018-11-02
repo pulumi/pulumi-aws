@@ -11,8 +11,8 @@ class GetInvocationResult(object):
     A collection of values returned by getInvocation.
     """
     def __init__(__self__, result=None, result_map=None, id=None):
-        if result and not isinstance(result, basestring):
-            raise TypeError('Expected argument result to be a basestring')
+        if result and not isinstance(result, str):
+            raise TypeError('Expected argument result to be a str')
         __self__.result = result
         """
         A result of the lambda function invocation.
@@ -23,8 +23,8 @@ class GetInvocationResult(object):
         """
         This field is set only if result is a map of primitive types.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

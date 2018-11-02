@@ -14,59 +14,26 @@ class Service(pulumi.CustomResource):
         """Create a Service resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the service.
-        """
         __props__['description'] = description
 
         if not dns_config:
             raise TypeError('Missing required property dns_config')
-        elif not isinstance(dns_config, dict):
-            raise TypeError('Expected property dns_config to be a dict')
-        __self__.dns_config = dns_config
-        """
-        A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-        """
         __props__['dnsConfig'] = dns_config
 
-        if health_check_config and not isinstance(health_check_config, dict):
-            raise TypeError('Expected property health_check_config to be a dict')
-        __self__.health_check_config = health_check_config
-        """
-        A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-        """
         __props__['healthCheckConfig'] = health_check_config
 
-        if health_check_custom_config and not isinstance(health_check_custom_config, dict):
-            raise TypeError('Expected property health_check_custom_config to be a dict')
-        __self__.health_check_custom_config = health_check_custom_config
-        """
-        A complex type that contains settings for ECS managed health checks.
-        """
         __props__['healthCheckCustomConfig'] = health_check_custom_config
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the service.
-        """
         __props__['name'] = name
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the service.
-        """
+        __props__['arn'] = None
 
         super(Service, __self__).__init__(
             'aws:servicediscovery/service:Service',
@@ -74,16 +41,3 @@ class Service(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'dnsConfig' in outs:
-            self.dns_config = outs['dnsConfig']
-        if 'healthCheckConfig' in outs:
-            self.health_check_config = outs['healthCheckConfig']
-        if 'healthCheckCustomConfig' in outs:
-            self.health_check_custom_config = outs['healthCheckCustomConfig']
-        if 'name' in outs:
-            self.name = outs['name']

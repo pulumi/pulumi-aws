@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from application import *
-from deployment_config import *
-from deployment_group import *
+from .application import *
+from .deployment_config import *
+from .deployment_group import *

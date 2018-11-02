@@ -11,11 +11,11 @@ class GetTargetGroupResult(object):
     A collection of values returned by getTargetGroup.
     """
     def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
-        if arn_suffix and not isinstance(arn_suffix, basestring):
-            raise TypeError('Expected argument arn_suffix to be a basestring')
+        if arn_suffix and not isinstance(arn_suffix, str):
+            raise TypeError('Expected argument arn_suffix to be a str')
         __self__.arn_suffix = arn_suffix
         if deregistration_delay and not isinstance(deregistration_delay, int):
             raise TypeError('Expected argument deregistration_delay to be a int')
@@ -23,14 +23,14 @@ class GetTargetGroupResult(object):
         if health_check and not isinstance(health_check, dict):
             raise TypeError('Expected argument health_check to be a dict')
         __self__.health_check = health_check
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
-        if protocol and not isinstance(protocol, basestring):
-            raise TypeError('Expected argument protocol to be a basestring')
+        if protocol and not isinstance(protocol, str):
+            raise TypeError('Expected argument protocol to be a str')
         __self__.protocol = protocol
         if slow_start and not isinstance(slow_start, int):
             raise TypeError('Expected argument slow_start to be a int')
@@ -41,11 +41,11 @@ class GetTargetGroupResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

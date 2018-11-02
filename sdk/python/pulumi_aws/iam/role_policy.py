@@ -14,49 +14,23 @@ class RolePolicy(pulumi.CustomResource):
         """Create a RolePolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the role policy. If omitted, Terraform will
-        assign a random, unique name.
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-        """
         __props__['policy'] = policy
 
         if not role:
             raise TypeError('Missing required property role')
-        elif not isinstance(role, basestring):
-            raise TypeError('Expected property role to be a basestring')
-        __self__.role = role
-        """
-        The IAM role to attach to the policy.
-        """
         __props__['role'] = role
 
         super(RolePolicy, __self__).__init__(
@@ -65,12 +39,3 @@ class RolePolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'policy' in outs:
-            self.policy = outs['policy']
-        if 'role' in outs:
-            self.role = outs['role']

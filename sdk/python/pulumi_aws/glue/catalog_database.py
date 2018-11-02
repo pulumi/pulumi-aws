@@ -14,51 +14,21 @@ class CatalogDatabase(pulumi.CustomResource):
         """Create a CatalogDatabase resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if catalog_id and not isinstance(catalog_id, basestring):
-            raise TypeError('Expected property catalog_id to be a basestring')
-        __self__.catalog_id = catalog_id
-        """
-        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        """
         __props__['catalogId'] = catalog_id
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Description of the database.
-        """
         __props__['description'] = description
 
-        if location_uri and not isinstance(location_uri, basestring):
-            raise TypeError('Expected property location_uri to be a basestring')
-        __self__.location_uri = location_uri
-        """
-        The location of the database (for example, an HDFS path).
-        """
         __props__['locationUri'] = location_uri
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the database.
-        """
         __props__['name'] = name
 
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError('Expected property parameters to be a dict')
-        __self__.parameters = parameters
-        """
-        A list of key-value pairs that define parameters and properties of the database.
-        """
         __props__['parameters'] = parameters
 
         super(CatalogDatabase, __self__).__init__(
@@ -67,14 +37,3 @@ class CatalogDatabase(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'catalogId' in outs:
-            self.catalog_id = outs['catalogId']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'locationUri' in outs:
-            self.location_uri = outs['locationUri']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'parameters' in outs:
-            self.parameters = outs['parameters']

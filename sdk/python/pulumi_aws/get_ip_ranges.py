@@ -17,8 +17,8 @@ class GetIpRangesResult(object):
         """
         The lexically ordered list of CIDR blocks.
         """
-        if create_date and not isinstance(create_date, basestring):
-            raise TypeError('Expected argument create_date to be a basestring')
+        if create_date and not isinstance(create_date, str):
+            raise TypeError('Expected argument create_date to be a str')
         __self__.create_date = create_date
         """
         The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
@@ -36,8 +36,8 @@ class GetIpRangesResult(object):
         The publication time of the IP ranges, in Unix epoch time format
         (e.g. `1470267965`).
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

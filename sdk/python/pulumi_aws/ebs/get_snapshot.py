@@ -11,14 +11,14 @@ class GetSnapshotResult(object):
     A collection of values returned by getSnapshot.
     """
     def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, snapshot_id=None, state=None, tags=None, volume_id=None, volume_size=None, id=None):
-        if data_encryption_key_id and not isinstance(data_encryption_key_id, basestring):
-            raise TypeError('Expected argument data_encryption_key_id to be a basestring')
+        if data_encryption_key_id and not isinstance(data_encryption_key_id, str):
+            raise TypeError('Expected argument data_encryption_key_id to be a str')
         __self__.data_encryption_key_id = data_encryption_key_id
         """
         The data encryption key identifier for the snapshot.
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         A description for the snapshot
@@ -29,32 +29,32 @@ class GetSnapshotResult(object):
         """
         Whether the snapshot is encrypted.
         """
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected argument kms_key_id to be a basestring')
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError('Expected argument kms_key_id to be a str')
         __self__.kms_key_id = kms_key_id
         """
         The ARN for the KMS encryption key.
         """
-        if owner_alias and not isinstance(owner_alias, basestring):
-            raise TypeError('Expected argument owner_alias to be a basestring')
+        if owner_alias and not isinstance(owner_alias, str):
+            raise TypeError('Expected argument owner_alias to be a str')
         __self__.owner_alias = owner_alias
         """
         Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         """
-        if owner_id and not isinstance(owner_id, basestring):
-            raise TypeError('Expected argument owner_id to be a basestring')
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
         __self__.owner_id = owner_id
         """
         The AWS account ID of the EBS snapshot owner.
         """
-        if snapshot_id and not isinstance(snapshot_id, basestring):
-            raise TypeError('Expected argument snapshot_id to be a basestring')
+        if snapshot_id and not isinstance(snapshot_id, str):
+            raise TypeError('Expected argument snapshot_id to be a str')
         __self__.snapshot_id = snapshot_id
         """
         The snapshot ID (e.g. snap-59fcb34e).
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The snapshot state.
@@ -65,8 +65,8 @@ class GetSnapshotResult(object):
         """
         A mapping of tags for the resource.
         """
-        if volume_id and not isinstance(volume_id, basestring):
-            raise TypeError('Expected argument volume_id to be a basestring')
+        if volume_id and not isinstance(volume_id, str):
+            raise TypeError('Expected argument volume_id to be a str')
         __self__.volume_id = volume_id
         """
         The volume ID (e.g. vol-59fcb34e).
@@ -77,8 +77,8 @@ class GetSnapshotResult(object):
         """
         The size of the drive in GiBs.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -17,8 +17,8 @@ class GetStackResult(object):
         """
         A list of capabilities
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         Description of the stack
@@ -29,8 +29,8 @@ class GetStackResult(object):
         """
         Whether the rollback of the stack is disabled when stack creation fails
         """
-        if iam_role_arn and not isinstance(iam_role_arn, basestring):
-            raise TypeError('Expected argument iam_role_arn to be a basestring')
+        if iam_role_arn and not isinstance(iam_role_arn, str):
+            raise TypeError('Expected argument iam_role_arn to be a str')
         __self__.iam_role_arn = iam_role_arn
         """
         The ARN of the IAM role used to create the stack.
@@ -59,8 +59,8 @@ class GetStackResult(object):
         """
         A map of tags associated with this stack.
         """
-        if template_body and not isinstance(template_body, basestring):
-            raise TypeError('Expected argument template_body to be a basestring')
+        if template_body and not isinstance(template_body, str):
+            raise TypeError('Expected argument template_body to be a str')
         __self__.template_body = template_body
         """
         Structure containing the template body.
@@ -71,8 +71,8 @@ class GetStackResult(object):
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

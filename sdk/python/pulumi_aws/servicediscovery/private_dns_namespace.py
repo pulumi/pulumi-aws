@@ -14,47 +14,23 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         """Create a PrivateDnsNamespace resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description that you specify for the namespace when you create it.
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the namespace.
-        """
         __props__['name'] = name
 
         if not vpc:
             raise TypeError('Missing required property vpc')
-        elif not isinstance(vpc, basestring):
-            raise TypeError('Expected property vpc to be a basestring')
-        __self__.vpc = vpc
-        """
-        The ID of VPC that you want to associate the namespace with.
-        """
         __props__['vpc'] = vpc
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        """
-        __self__.hosted_zone = pulumi.runtime.UNKNOWN
-        """
-        The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-        """
+        __props__['arn'] = None
+        __props__['hosted_zone'] = None
 
         super(PrivateDnsNamespace, __self__).__init__(
             'aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace',
@@ -62,14 +38,3 @@ class PrivateDnsNamespace(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'hostedZone' in outs:
-            self.hosted_zone = outs['hostedZone']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'vpc' in outs:
-            self.vpc = outs['vpc']

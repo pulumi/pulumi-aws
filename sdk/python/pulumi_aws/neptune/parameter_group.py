@@ -14,59 +14,26 @@ class ParameterGroup(pulumi.CustomResource):
         """Create a ParameterGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the Neptune parameter group. Defaults to "Managed by Terraform".
-        """
         __props__['description'] = description
 
         if not family:
             raise TypeError('Missing required property family')
-        elif not isinstance(family, basestring):
-            raise TypeError('Expected property family to be a basestring')
-        __self__.family = family
-        """
-        The family of the Neptune parameter group.
-        """
         __props__['family'] = family
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Neptune parameter.
-        """
         __props__['name'] = name
 
-        if parameters and not isinstance(parameters, list):
-            raise TypeError('Expected property parameters to be a list')
-        __self__.parameters = parameters
-        """
-        A list of Neptune parameters to apply.
-        """
         __props__['parameters'] = parameters
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Neptune parameter group Amazon Resource Name (ARN).
-        """
+        __props__['arn'] = None
 
         super(ParameterGroup, __self__).__init__(
             'aws:neptune/parameterGroup:ParameterGroup',
@@ -74,16 +41,3 @@ class ParameterGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'family' in outs:
-            self.family = outs['family']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'parameters' in outs:
-            self.parameters = outs['parameters']
-        if 'tags' in outs:
-            self.tags = outs['tags']

@@ -14,7 +14,7 @@ class DomainIdentity(pulumi.CustomResource):
         """Create a DomainIdentity resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,28 +23,10 @@ class DomainIdentity(pulumi.CustomResource):
 
         if not domain:
             raise TypeError('Missing required property domain')
-        elif not isinstance(domain, basestring):
-            raise TypeError('Expected property domain to be a basestring')
-        __self__.domain = domain
-        """
-        The domain name to assign to SES
-        """
         __props__['domain'] = domain
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the domain identity.
-        """
-        __self__.verification_token = pulumi.runtime.UNKNOWN
-        """
-        A code which when added to the domain as a TXT record
-        will signal to SES that the owner of the domain has authorised SES to act on
-        their behalf. The domain identity will be in state "verification pending"
-        until this is done. See below for an example of how this might be achieved
-        when the domain is hosted in Route 53 and managed by Terraform.  Find out
-        more about verifying domains in Amazon SES in the [AWS SES
-        docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-        """
+        __props__['arn'] = None
+        __props__['verification_token'] = None
 
         super(DomainIdentity, __self__).__init__(
             'aws:ses/domainIdentity:DomainIdentity',
@@ -52,10 +34,3 @@ class DomainIdentity(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'domain' in outs:
-            self.domain = outs['domain']
-        if 'verificationToken' in outs:
-            self.verification_token = outs['verificationToken']

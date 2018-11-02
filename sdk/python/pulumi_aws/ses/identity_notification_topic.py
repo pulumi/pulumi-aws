@@ -14,7 +14,7 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         """Create a IdentityNotificationTopic resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,30 +23,12 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         if not identity:
             raise TypeError('Missing required property identity')
-        elif not isinstance(identity, basestring):
-            raise TypeError('Expected property identity to be a basestring')
-        __self__.identity = identity
-        """
-        The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-        """
         __props__['identity'] = identity
 
         if not notification_type:
             raise TypeError('Missing required property notification_type')
-        elif not isinstance(notification_type, basestring):
-            raise TypeError('Expected property notification_type to be a basestring')
-        __self__.notification_type = notification_type
-        """
-        The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
-        """
         __props__['notificationType'] = notification_type
 
-        if topic_arn and not isinstance(topic_arn, basestring):
-            raise TypeError('Expected property topic_arn to be a basestring')
-        __self__.topic_arn = topic_arn
-        """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
-        """
         __props__['topicArn'] = topic_arn
 
         super(IdentityNotificationTopic, __self__).__init__(
@@ -55,10 +37,3 @@ class IdentityNotificationTopic(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'identity' in outs:
-            self.identity = outs['identity']
-        if 'notificationType' in outs:
-            self.notification_type = outs['notificationType']
-        if 'topicArn' in outs:
-            self.topic_arn = outs['topicArn']

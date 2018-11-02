@@ -11,26 +11,26 @@ class GetMountTargetResult(object):
     A collection of values returned by getMountTarget.
     """
     def __init__(__self__, dns_name=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None, id=None):
-        if dns_name and not isinstance(dns_name, basestring):
-            raise TypeError('Expected argument dns_name to be a basestring')
+        if dns_name and not isinstance(dns_name, str):
+            raise TypeError('Expected argument dns_name to be a str')
         __self__.dns_name = dns_name
         """
         The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
-        if file_system_id and not isinstance(file_system_id, basestring):
-            raise TypeError('Expected argument file_system_id to be a basestring')
+        if file_system_id and not isinstance(file_system_id, str):
+            raise TypeError('Expected argument file_system_id to be a str')
         __self__.file_system_id = file_system_id
         """
         ID of the file system for which the mount target is intended.
         """
-        if ip_address and not isinstance(ip_address, basestring):
-            raise TypeError('Expected argument ip_address to be a basestring')
+        if ip_address and not isinstance(ip_address, str):
+            raise TypeError('Expected argument ip_address to be a str')
         __self__.ip_address = ip_address
         """
         Address at which the file system may be mounted via the mount target.
         """
-        if network_interface_id and not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected argument network_interface_id to be a basestring')
+        if network_interface_id and not isinstance(network_interface_id, str):
+            raise TypeError('Expected argument network_interface_id to be a str')
         __self__.network_interface_id = network_interface_id
         """
         The ID of the network interface that Amazon EFS created when it created the mount target.
@@ -41,14 +41,14 @@ class GetMountTargetResult(object):
         """
         List of VPC security group IDs attached to the mount target.
         """
-        if subnet_id and not isinstance(subnet_id, basestring):
-            raise TypeError('Expected argument subnet_id to be a basestring')
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError('Expected argument subnet_id to be a str')
         __self__.subnet_id = subnet_id
         """
         ID of the mount target's subnet.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

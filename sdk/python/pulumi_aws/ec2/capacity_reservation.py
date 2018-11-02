@@ -14,7 +14,7 @@ class CapacityReservation(pulumi.CustomResource):
         """Create a CapacityReservation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,98 +23,32 @@ class CapacityReservation(pulumi.CustomResource):
 
         if not availability_zone:
             raise TypeError('Missing required property availability_zone')
-        elif not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The Availability Zone in which to create the Capacity Reservation.
-        """
         __props__['availabilityZone'] = availability_zone
 
-        if ebs_optimized and not isinstance(ebs_optimized, bool):
-            raise TypeError('Expected property ebs_optimized to be a bool')
-        __self__.ebs_optimized = ebs_optimized
-        """
-        Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        """
         __props__['ebsOptimized'] = ebs_optimized
 
-        if end_date and not isinstance(end_date, basestring):
-            raise TypeError('Expected property end_date to be a basestring')
-        __self__.end_date = end_date
-        """
-        The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         __props__['endDate'] = end_date
 
-        if end_date_type and not isinstance(end_date_type, basestring):
-            raise TypeError('Expected property end_date_type to be a basestring')
-        __self__.end_date_type = end_date_type
-        """
-        Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        """
         __props__['endDateType'] = end_date_type
 
-        if ephemeral_storage and not isinstance(ephemeral_storage, bool):
-            raise TypeError('Expected property ephemeral_storage to be a bool')
-        __self__.ephemeral_storage = ephemeral_storage
-        """
-        Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        """
         __props__['ephemeralStorage'] = ephemeral_storage
 
         if not instance_count:
             raise TypeError('Missing required property instance_count')
-        elif not isinstance(instance_count, int):
-            raise TypeError('Expected property instance_count to be a int')
-        __self__.instance_count = instance_count
-        """
-        The number of instances for which to reserve capacity.
-        """
         __props__['instanceCount'] = instance_count
 
-        if instance_match_criteria and not isinstance(instance_match_criteria, basestring):
-            raise TypeError('Expected property instance_match_criteria to be a basestring')
-        __self__.instance_match_criteria = instance_match_criteria
-        """
-        Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        """
         __props__['instanceMatchCriteria'] = instance_match_criteria
 
         if not instance_platform:
             raise TypeError('Missing required property instance_platform')
-        elif not isinstance(instance_platform, basestring):
-            raise TypeError('Expected property instance_platform to be a basestring')
-        __self__.instance_platform = instance_platform
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         __props__['instancePlatform'] = instance_platform
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        elif not isinstance(instance_type, basestring):
-            raise TypeError('Expected property instance_type to be a basestring')
-        __self__.instance_type = instance_type
-        """
-        The instance type for which to reserve capacity.
-        """
         __props__['instanceType'] = instance_type
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if tenancy and not isinstance(tenancy, basestring):
-            raise TypeError('Expected property tenancy to be a basestring')
-        __self__.tenancy = tenancy
-        """
-        Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-        """
         __props__['tenancy'] = tenancy
 
         super(CapacityReservation, __self__).__init__(
@@ -123,26 +57,3 @@ class CapacityReservation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'ebsOptimized' in outs:
-            self.ebs_optimized = outs['ebsOptimized']
-        if 'endDate' in outs:
-            self.end_date = outs['endDate']
-        if 'endDateType' in outs:
-            self.end_date_type = outs['endDateType']
-        if 'ephemeralStorage' in outs:
-            self.ephemeral_storage = outs['ephemeralStorage']
-        if 'instanceCount' in outs:
-            self.instance_count = outs['instanceCount']
-        if 'instanceMatchCriteria' in outs:
-            self.instance_match_criteria = outs['instanceMatchCriteria']
-        if 'instancePlatform' in outs:
-            self.instance_platform = outs['instancePlatform']
-        if 'instanceType' in outs:
-            self.instance_type = outs['instanceType']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'tenancy' in outs:
-            self.tenancy = outs['tenancy']

@@ -14,95 +14,35 @@ class Fleet(pulumi.CustomResource):
         """Create a Fleet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if excess_capacity_termination_policy and not isinstance(excess_capacity_termination_policy, basestring):
-            raise TypeError('Expected property excess_capacity_termination_policy to be a basestring')
-        __self__.excess_capacity_termination_policy = excess_capacity_termination_policy
-        """
-        Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-        """
         __props__['excessCapacityTerminationPolicy'] = excess_capacity_termination_policy
 
         if not launch_template_config:
             raise TypeError('Missing required property launch_template_config')
-        elif not isinstance(launch_template_config, dict):
-            raise TypeError('Expected property launch_template_config to be a dict')
-        __self__.launch_template_config = launch_template_config
-        """
-        Nested argument containing EC2 Launch Template configurations. Defined below.
-        """
         __props__['launchTemplateConfig'] = launch_template_config
 
-        if on_demand_options and not isinstance(on_demand_options, dict):
-            raise TypeError('Expected property on_demand_options to be a dict')
-        __self__.on_demand_options = on_demand_options
-        """
-        Nested argument containing On-Demand configurations. Defined below.
-        """
         __props__['onDemandOptions'] = on_demand_options
 
-        if replace_unhealthy_instances and not isinstance(replace_unhealthy_instances, bool):
-            raise TypeError('Expected property replace_unhealthy_instances to be a bool')
-        __self__.replace_unhealthy_instances = replace_unhealthy_instances
-        """
-        Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-        """
         __props__['replaceUnhealthyInstances'] = replace_unhealthy_instances
 
-        if spot_options and not isinstance(spot_options, dict):
-            raise TypeError('Expected property spot_options to be a dict')
-        __self__.spot_options = spot_options
-        """
-        Nested argument containing Spot configurations. Defined below.
-        """
         __props__['spotOptions'] = spot_options
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-        """
         __props__['tags'] = tags
 
         if not target_capacity_specification:
             raise TypeError('Missing required property target_capacity_specification')
-        elif not isinstance(target_capacity_specification, dict):
-            raise TypeError('Expected property target_capacity_specification to be a dict')
-        __self__.target_capacity_specification = target_capacity_specification
-        """
-        Nested argument containing target capacity configurations. Defined below.
-        """
         __props__['targetCapacitySpecification'] = target_capacity_specification
 
-        if terminate_instances and not isinstance(terminate_instances, bool):
-            raise TypeError('Expected property terminate_instances to be a bool')
-        __self__.terminate_instances = terminate_instances
-        """
-        Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        """
         __props__['terminateInstances'] = terminate_instances
 
-        if terminate_instances_with_expiration and not isinstance(terminate_instances_with_expiration, bool):
-            raise TypeError('Expected property terminate_instances_with_expiration to be a bool')
-        __self__.terminate_instances_with_expiration = terminate_instances_with_expiration
-        """
-        Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        """
         __props__['terminateInstancesWithExpiration'] = terminate_instances_with_expiration
 
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-        """
         __props__['type'] = type
 
         super(Fleet, __self__).__init__(
@@ -111,24 +51,3 @@ class Fleet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'excessCapacityTerminationPolicy' in outs:
-            self.excess_capacity_termination_policy = outs['excessCapacityTerminationPolicy']
-        if 'launchTemplateConfig' in outs:
-            self.launch_template_config = outs['launchTemplateConfig']
-        if 'onDemandOptions' in outs:
-            self.on_demand_options = outs['onDemandOptions']
-        if 'replaceUnhealthyInstances' in outs:
-            self.replace_unhealthy_instances = outs['replaceUnhealthyInstances']
-        if 'spotOptions' in outs:
-            self.spot_options = outs['spotOptions']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'targetCapacitySpecification' in outs:
-            self.target_capacity_specification = outs['targetCapacitySpecification']
-        if 'terminateInstances' in outs:
-            self.terminate_instances = outs['terminateInstances']
-        if 'terminateInstancesWithExpiration' in outs:
-            self.terminate_instances_with_expiration = outs['terminateInstancesWithExpiration']
-        if 'type' in outs:
-            self.type = outs['type']

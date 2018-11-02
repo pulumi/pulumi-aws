@@ -11,8 +11,8 @@ class GetInstanceResult(object):
     A collection of values returned by getInstance.
     """
     def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None, id=None):
-        if address and not isinstance(address, basestring):
-            raise TypeError('Expected argument address to be a basestring')
+        if address and not isinstance(address, str):
+            raise TypeError('Expected argument address to be a str')
         __self__.address = address
         """
         The hostname of the RDS instance. See also `endpoint` and `port`.
@@ -29,8 +29,8 @@ class GetInstanceResult(object):
         """
         Indicates that minor version patches are applied automatically.
         """
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
         """
         Specifies the name of the Availability Zone the DB instance is located in.
@@ -41,26 +41,26 @@ class GetInstanceResult(object):
         """
         Specifies the number of days for which automatic DB snapshots are retained.
         """
-        if ca_cert_identifier and not isinstance(ca_cert_identifier, basestring):
-            raise TypeError('Expected argument ca_cert_identifier to be a basestring')
+        if ca_cert_identifier and not isinstance(ca_cert_identifier, str):
+            raise TypeError('Expected argument ca_cert_identifier to be a str')
         __self__.ca_cert_identifier = ca_cert_identifier
         """
         Specifies the identifier of the CA certificate for the DB instance.
         """
-        if db_cluster_identifier and not isinstance(db_cluster_identifier, basestring):
-            raise TypeError('Expected argument db_cluster_identifier to be a basestring')
+        if db_cluster_identifier and not isinstance(db_cluster_identifier, str):
+            raise TypeError('Expected argument db_cluster_identifier to be a str')
         __self__.db_cluster_identifier = db_cluster_identifier
         """
         If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
         """
-        if db_instance_arn and not isinstance(db_instance_arn, basestring):
-            raise TypeError('Expected argument db_instance_arn to be a basestring')
+        if db_instance_arn and not isinstance(db_instance_arn, str):
+            raise TypeError('Expected argument db_instance_arn to be a str')
         __self__.db_instance_arn = db_instance_arn
         """
         The Amazon Resource Name (ARN) for the DB instance.
         """
-        if db_instance_class and not isinstance(db_instance_class, basestring):
-            raise TypeError('Expected argument db_instance_class to be a basestring')
+        if db_instance_class and not isinstance(db_instance_class, str):
+            raise TypeError('Expected argument db_instance_class to be a str')
         __self__.db_instance_class = db_instance_class
         """
         Contains the name of the compute and memory capacity class of the DB instance.
@@ -71,8 +71,8 @@ class GetInstanceResult(object):
         """
         Specifies the port that the DB instance listens on.
         """
-        if db_name and not isinstance(db_name, basestring):
-            raise TypeError('Expected argument db_name to be a basestring')
+        if db_name and not isinstance(db_name, str):
+            raise TypeError('Expected argument db_name to be a str')
         __self__.db_name = db_name
         """
         Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -89,8 +89,8 @@ class GetInstanceResult(object):
         """
         Provides List of DB security groups associated to this DB instance.
         """
-        if db_subnet_group and not isinstance(db_subnet_group, basestring):
-            raise TypeError('Expected argument db_subnet_group to be a basestring')
+        if db_subnet_group and not isinstance(db_subnet_group, str):
+            raise TypeError('Expected argument db_subnet_group to be a str')
         __self__.db_subnet_group = db_subnet_group
         """
         Specifies the name of the subnet group associated with the DB instance.
@@ -101,26 +101,26 @@ class GetInstanceResult(object):
         """
         List of log types to export to cloudwatch.
         """
-        if endpoint and not isinstance(endpoint, basestring):
-            raise TypeError('Expected argument endpoint to be a basestring')
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError('Expected argument endpoint to be a str')
         __self__.endpoint = endpoint
         """
         The connection endpoint in `address:port` format.
         """
-        if engine and not isinstance(engine, basestring):
-            raise TypeError('Expected argument engine to be a basestring')
+        if engine and not isinstance(engine, str):
+            raise TypeError('Expected argument engine to be a str')
         __self__.engine = engine
         """
         Provides the name of the database engine to be used for this DB instance.
         """
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected argument engine_version to be a basestring')
+        if engine_version and not isinstance(engine_version, str):
+            raise TypeError('Expected argument engine_version to be a str')
         __self__.engine_version = engine_version
         """
         Indicates the database engine version.
         """
-        if hosted_zone_id and not isinstance(hosted_zone_id, basestring):
-            raise TypeError('Expected argument hosted_zone_id to be a basestring')
+        if hosted_zone_id and not isinstance(hosted_zone_id, str):
+            raise TypeError('Expected argument hosted_zone_id to be a str')
         __self__.hosted_zone_id = hosted_zone_id
         """
         The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
@@ -131,20 +131,20 @@ class GetInstanceResult(object):
         """
         Specifies the Provisioned IOPS (I/O operations per second) value.
         """
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected argument kms_key_id to be a basestring')
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError('Expected argument kms_key_id to be a str')
         __self__.kms_key_id = kms_key_id
         """
         If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
         """
-        if license_model and not isinstance(license_model, basestring):
-            raise TypeError('Expected argument license_model to be a basestring')
+        if license_model and not isinstance(license_model, str):
+            raise TypeError('Expected argument license_model to be a str')
         __self__.license_model = license_model
         """
         License model information for this DB instance.
         """
-        if master_username and not isinstance(master_username, basestring):
-            raise TypeError('Expected argument master_username to be a basestring')
+        if master_username and not isinstance(master_username, str):
+            raise TypeError('Expected argument master_username to be a str')
         __self__.master_username = master_username
         """
         Contains the master username for the DB instance.
@@ -155,8 +155,8 @@ class GetInstanceResult(object):
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         """
-        if monitoring_role_arn and not isinstance(monitoring_role_arn, basestring):
-            raise TypeError('Expected argument monitoring_role_arn to be a basestring')
+        if monitoring_role_arn and not isinstance(monitoring_role_arn, str):
+            raise TypeError('Expected argument monitoring_role_arn to be a str')
         __self__.monitoring_role_arn = monitoring_role_arn
         """
         The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
@@ -179,14 +179,14 @@ class GetInstanceResult(object):
         """
         The database port.
         """
-        if preferred_backup_window and not isinstance(preferred_backup_window, basestring):
-            raise TypeError('Expected argument preferred_backup_window to be a basestring')
+        if preferred_backup_window and not isinstance(preferred_backup_window, str):
+            raise TypeError('Expected argument preferred_backup_window to be a str')
         __self__.preferred_backup_window = preferred_backup_window
         """
         Specifies the daily time range during which automated backups are created.
         """
-        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
-            raise TypeError('Expected argument preferred_maintenance_window to be a basestring')
+        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
+            raise TypeError('Expected argument preferred_maintenance_window to be a str')
         __self__.preferred_maintenance_window = preferred_maintenance_window
         """
         Specifies the weekly time range during which system maintenance can occur in UTC.
@@ -197,8 +197,8 @@ class GetInstanceResult(object):
         """
         Specifies the accessibility options for the DB instance.
         """
-        if replicate_source_db and not isinstance(replicate_source_db, basestring):
-            raise TypeError('Expected argument replicate_source_db to be a basestring')
+        if replicate_source_db and not isinstance(replicate_source_db, str):
+            raise TypeError('Expected argument replicate_source_db to be a str')
         __self__.replicate_source_db = replicate_source_db
         """
         The identifier of the source DB that this is a replica of.
@@ -209,14 +209,14 @@ class GetInstanceResult(object):
         """
         Specifies whether the DB instance is encrypted.
         """
-        if storage_type and not isinstance(storage_type, basestring):
-            raise TypeError('Expected argument storage_type to be a basestring')
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError('Expected argument storage_type to be a str')
         __self__.storage_type = storage_type
         """
         Specifies the storage type associated with DB instance.
         """
-        if timezone and not isinstance(timezone, basestring):
-            raise TypeError('Expected argument timezone to be a basestring')
+        if timezone and not isinstance(timezone, str):
+            raise TypeError('Expected argument timezone to be a str')
         __self__.timezone = timezone
         """
         The time zone of the DB instance.
@@ -227,8 +227,8 @@ class GetInstanceResult(object):
         """
         Provides a list of VPC security group elements that the DB instance belongs to.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

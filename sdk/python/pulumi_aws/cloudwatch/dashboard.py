@@ -14,7 +14,7 @@ class Dashboard(pulumi.CustomResource):
         """Create a Dashboard resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,28 +23,13 @@ class Dashboard(pulumi.CustomResource):
 
         if not dashboard_body:
             raise TypeError('Missing required property dashboard_body')
-        elif not isinstance(dashboard_body, basestring):
-            raise TypeError('Expected property dashboard_body to be a basestring')
-        __self__.dashboard_body = dashboard_body
-        """
-        The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        """
         __props__['dashboardBody'] = dashboard_body
 
         if not dashboard_name:
             raise TypeError('Missing required property dashboard_name')
-        elif not isinstance(dashboard_name, basestring):
-            raise TypeError('Expected property dashboard_name to be a basestring')
-        __self__.dashboard_name = dashboard_name
-        """
-        The name of the dashboard.
-        """
         __props__['dashboardName'] = dashboard_name
 
-        __self__.dashboard_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) of the dashboard.
-        """
+        __props__['dashboard_arn'] = None
 
         super(Dashboard, __self__).__init__(
             'aws:cloudwatch/dashboard:Dashboard',
@@ -52,10 +37,3 @@ class Dashboard(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'dashboardArn' in outs:
-            self.dashboard_arn = outs['dashboardArn']
-        if 'dashboardBody' in outs:
-            self.dashboard_body = outs['dashboardBody']
-        if 'dashboardName' in outs:
-            self.dashboard_name = outs['dashboardName']

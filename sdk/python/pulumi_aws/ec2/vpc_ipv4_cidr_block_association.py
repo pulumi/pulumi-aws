@@ -17,7 +17,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         """Create a VpcIpv4CidrBlockAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -26,22 +26,10 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         if not cidr_block:
             raise TypeError('Missing required property cidr_block')
-        elif not isinstance(cidr_block, basestring):
-            raise TypeError('Expected property cidr_block to be a basestring')
-        __self__.cidr_block = cidr_block
-        """
-        The additional IPv4 CIDR block to associate with the VPC.
-        """
         __props__['cidrBlock'] = cidr_block
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The ID of the VPC to make the association with.
-        """
         __props__['vpcId'] = vpc_id
 
         super(VpcIpv4CidrBlockAssociation, __self__).__init__(
@@ -50,8 +38,3 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cidrBlock' in outs:
-            self.cidr_block = outs['cidrBlock']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

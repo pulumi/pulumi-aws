@@ -15,174 +15,53 @@ class SpotFleetRequest(pulumi.CustomResource):
         """Create a SpotFleetRequest resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allocation_strategy and not isinstance(allocation_strategy, basestring):
-            raise TypeError('Expected property allocation_strategy to be a basestring')
-        __self__.allocation_strategy = allocation_strategy
-        """
-        Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. The default is
-        `lowestPrice`.
-        """
         __props__['allocationStrategy'] = allocation_strategy
 
-        if excess_capacity_termination_policy and not isinstance(excess_capacity_termination_policy, basestring):
-            raise TypeError('Expected property excess_capacity_termination_policy to be a basestring')
-        __self__.excess_capacity_termination_policy = excess_capacity_termination_policy
-        """
-        Indicates whether running Spot
-        instances should be terminated if the target capacity of the Spot fleet
-        request is decreased below the current size of the Spot fleet.
-        """
         __props__['excessCapacityTerminationPolicy'] = excess_capacity_termination_policy
 
-        if fleet_type and not isinstance(fleet_type, basestring):
-            raise TypeError('Expected property fleet_type to be a basestring')
-        __self__.fleet_type = fleet_type
-        """
-        The type of fleet request. Indicates whether the Spot Fleet only requests the target
-        capacity or also attempts to maintain it. Default is `maintain`.
-        """
         __props__['fleetType'] = fleet_type
 
         if not iam_fleet_role:
             raise TypeError('Missing required property iam_fleet_role')
-        elif not isinstance(iam_fleet_role, basestring):
-            raise TypeError('Expected property iam_fleet_role to be a basestring')
-        __self__.iam_fleet_role = iam_fleet_role
-        """
-        Grants the Spot fleet permission to terminate
-        Spot instances on your behalf when you cancel its Spot fleet request using
-        CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-        terminateInstancesWithExpiration.
-        """
         __props__['iamFleetRole'] = iam_fleet_role
 
-        if instance_interruption_behaviour and not isinstance(instance_interruption_behaviour, basestring):
-            raise TypeError('Expected property instance_interruption_behaviour to be a basestring')
-        __self__.instance_interruption_behaviour = instance_interruption_behaviour
-        """
-        Indicates whether a Spot
-        instance stops or terminates when it is interrupted. Default is
-        `terminate`.
-        """
         __props__['instanceInterruptionBehaviour'] = instance_interruption_behaviour
 
-        if instance_pools_to_use_count and not isinstance(instance_pools_to_use_count, int):
-            raise TypeError('Expected property instance_pools_to_use_count to be a int')
-        __self__.instance_pools_to_use_count = instance_pools_to_use_count
-        """
-        
-        The number of Spot pools across which to allocate your target Spot capacity.
-        Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
-        the cheapest Spot pools and evenly allocates your target Spot capacity across
-        the number of Spot pools that you specify.
-        """
         __props__['instancePoolsToUseCount'] = instance_pools_to_use_count
 
         if not launch_specifications:
             raise TypeError('Missing required property launch_specifications')
-        elif not isinstance(launch_specifications, list):
-            raise TypeError('Expected property launch_specifications to be a list')
-        __self__.launch_specifications = launch_specifications
-        """
-        Used to define the launch configuration of the
-        spot-fleet request. Can be specified multiple times to define different bids
-        across different markets and instance types.
-        """
         __props__['launchSpecifications'] = launch_specifications
 
-        if load_balancers and not isinstance(load_balancers, list):
-            raise TypeError('Expected property load_balancers to be a list')
-        __self__.load_balancers = load_balancers
-        """
-        A list of elastic load balancer names to add to the Spot fleet.
-        """
         __props__['loadBalancers'] = load_balancers
 
-        if replace_unhealthy_instances and not isinstance(replace_unhealthy_instances, bool):
-            raise TypeError('Expected property replace_unhealthy_instances to be a bool')
-        __self__.replace_unhealthy_instances = replace_unhealthy_instances
-        """
-        Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        """
         __props__['replaceUnhealthyInstances'] = replace_unhealthy_instances
 
-        if spot_price and not isinstance(spot_price, basestring):
-            raise TypeError('Expected property spot_price to be a basestring')
-        __self__.spot_price = spot_price
-        """
-        The maximum bid price per unit hour.
-        """
         __props__['spotPrice'] = spot_price
 
         if not target_capacity:
             raise TypeError('Missing required property target_capacity')
-        elif not isinstance(target_capacity, int):
-            raise TypeError('Expected property target_capacity to be a int')
-        __self__.target_capacity = target_capacity
-        """
-        The number of units to request. You can choose to set the
-        target capacity in terms of instances or a performance characteristic that is
-        important to your application workload, such as vCPUs, memory, or I/O.
-        """
         __props__['targetCapacity'] = target_capacity
 
-        if target_group_arns and not isinstance(target_group_arns, list):
-            raise TypeError('Expected property target_group_arns to be a list')
-        __self__.target_group_arns = target_group_arns
-        """
-        A list of `aws_alb_target_group` ARNs, for use with
-        Application Load Balancing.
-        """
         __props__['targetGroupArns'] = target_group_arns
 
-        if terminate_instances_with_expiration and not isinstance(terminate_instances_with_expiration, bool):
-            raise TypeError('Expected property terminate_instances_with_expiration to be a bool')
-        __self__.terminate_instances_with_expiration = terminate_instances_with_expiration
-        """
-        Indicates whether running Spot
-        instances should be terminated when the Spot fleet request expires.
-        """
         __props__['terminateInstancesWithExpiration'] = terminate_instances_with_expiration
 
-        if valid_from and not isinstance(valid_from, basestring):
-            raise TypeError('Expected property valid_from to be a basestring')
-        __self__.valid_from = valid_from
-        """
-        The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         __props__['validFrom'] = valid_from
 
-        if valid_until and not isinstance(valid_until, basestring):
-            raise TypeError('Expected property valid_until to be a basestring')
-        __self__.valid_until = valid_until
-        """
-        The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
-        """
         __props__['validUntil'] = valid_until
 
-        if wait_for_fulfillment and not isinstance(wait_for_fulfillment, bool):
-            raise TypeError('Expected property wait_for_fulfillment to be a bool')
-        __self__.wait_for_fulfillment = wait_for_fulfillment
-        """
-        If set, Terraform will
-        wait for the Spot Request to be fulfilled, and will throw an error if the
-        timeout of 10m is reached.
-        """
         __props__['waitForFulfillment'] = wait_for_fulfillment
 
-        __self__.client_token = pulumi.runtime.UNKNOWN
-        __self__.spot_request_state = pulumi.runtime.UNKNOWN
-        """
-        The state of the Spot fleet request.
-        """
+        __props__['client_token'] = None
+        __props__['spot_request_state'] = None
 
         super(SpotFleetRequest, __self__).__init__(
             'aws:ec2/spotFleetRequest:SpotFleetRequest',
@@ -190,40 +69,3 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allocationStrategy' in outs:
-            self.allocation_strategy = outs['allocationStrategy']
-        if 'clientToken' in outs:
-            self.client_token = outs['clientToken']
-        if 'excessCapacityTerminationPolicy' in outs:
-            self.excess_capacity_termination_policy = outs['excessCapacityTerminationPolicy']
-        if 'fleetType' in outs:
-            self.fleet_type = outs['fleetType']
-        if 'iamFleetRole' in outs:
-            self.iam_fleet_role = outs['iamFleetRole']
-        if 'instanceInterruptionBehaviour' in outs:
-            self.instance_interruption_behaviour = outs['instanceInterruptionBehaviour']
-        if 'instancePoolsToUseCount' in outs:
-            self.instance_pools_to_use_count = outs['instancePoolsToUseCount']
-        if 'launchSpecifications' in outs:
-            self.launch_specifications = outs['launchSpecifications']
-        if 'loadBalancers' in outs:
-            self.load_balancers = outs['loadBalancers']
-        if 'replaceUnhealthyInstances' in outs:
-            self.replace_unhealthy_instances = outs['replaceUnhealthyInstances']
-        if 'spotPrice' in outs:
-            self.spot_price = outs['spotPrice']
-        if 'spotRequestState' in outs:
-            self.spot_request_state = outs['spotRequestState']
-        if 'targetCapacity' in outs:
-            self.target_capacity = outs['targetCapacity']
-        if 'targetGroupArns' in outs:
-            self.target_group_arns = outs['targetGroupArns']
-        if 'terminateInstancesWithExpiration' in outs:
-            self.terminate_instances_with_expiration = outs['terminateInstancesWithExpiration']
-        if 'validFrom' in outs:
-            self.valid_from = outs['validFrom']
-        if 'validUntil' in outs:
-            self.valid_until = outs['validUntil']
-        if 'waitForFulfillment' in outs:
-            self.wait_for_fulfillment = outs['waitForFulfillment']

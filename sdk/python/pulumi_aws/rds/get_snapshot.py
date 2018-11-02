@@ -17,14 +17,14 @@ class GetSnapshotResult(object):
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
         """
         Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
-        if db_snapshot_arn and not isinstance(db_snapshot_arn, basestring):
-            raise TypeError('Expected argument db_snapshot_arn to be a basestring')
+        if db_snapshot_arn and not isinstance(db_snapshot_arn, str):
+            raise TypeError('Expected argument db_snapshot_arn to be a str')
         __self__.db_snapshot_arn = db_snapshot_arn
         """
         The Amazon Resource Name (ARN) for the DB snapshot.
@@ -35,14 +35,14 @@ class GetSnapshotResult(object):
         """
         Specifies whether the DB snapshot is encrypted.
         """
-        if engine and not isinstance(engine, basestring):
-            raise TypeError('Expected argument engine to be a basestring')
+        if engine and not isinstance(engine, str):
+            raise TypeError('Expected argument engine to be a str')
         __self__.engine = engine
         """
         Specifies the name of the database engine.
         """
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected argument engine_version to be a basestring')
+        if engine_version and not isinstance(engine_version, str):
+            raise TypeError('Expected argument engine_version to be a str')
         __self__.engine_version = engine_version
         """
         Specifies the version of the database engine.
@@ -53,20 +53,20 @@ class GetSnapshotResult(object):
         """
         Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected argument kms_key_id to be a basestring')
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError('Expected argument kms_key_id to be a str')
         __self__.kms_key_id = kms_key_id
         """
         The ARN for the KMS encryption key.
         """
-        if license_model and not isinstance(license_model, basestring):
-            raise TypeError('Expected argument license_model to be a basestring')
+        if license_model and not isinstance(license_model, str):
+            raise TypeError('Expected argument license_model to be a str')
         __self__.license_model = license_model
         """
         License model information for the restored DB instance.
         """
-        if option_group_name and not isinstance(option_group_name, basestring):
-            raise TypeError('Expected argument option_group_name to be a basestring')
+        if option_group_name and not isinstance(option_group_name, str):
+            raise TypeError('Expected argument option_group_name to be a str')
         __self__.option_group_name = option_group_name
         """
         Provides the option group name for the DB snapshot.
@@ -74,44 +74,44 @@ class GetSnapshotResult(object):
         if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
-        if snapshot_create_time and not isinstance(snapshot_create_time, basestring):
-            raise TypeError('Expected argument snapshot_create_time to be a basestring')
+        if snapshot_create_time and not isinstance(snapshot_create_time, str):
+            raise TypeError('Expected argument snapshot_create_time to be a str')
         __self__.snapshot_create_time = snapshot_create_time
         """
         Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
         """
-        if source_db_snapshot_identifier and not isinstance(source_db_snapshot_identifier, basestring):
-            raise TypeError('Expected argument source_db_snapshot_identifier to be a basestring')
+        if source_db_snapshot_identifier and not isinstance(source_db_snapshot_identifier, str):
+            raise TypeError('Expected argument source_db_snapshot_identifier to be a str')
         __self__.source_db_snapshot_identifier = source_db_snapshot_identifier
         """
         The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         """
-        if source_region and not isinstance(source_region, basestring):
-            raise TypeError('Expected argument source_region to be a basestring')
+        if source_region and not isinstance(source_region, str):
+            raise TypeError('Expected argument source_region to be a str')
         __self__.source_region = source_region
         """
         The region that the DB snapshot was created in or copied from.
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         Specifies the status of this DB snapshot.
         """
-        if storage_type and not isinstance(storage_type, basestring):
-            raise TypeError('Expected argument storage_type to be a basestring')
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError('Expected argument storage_type to be a str')
         __self__.storage_type = storage_type
         """
         Specifies the storage type associated with DB snapshot.
         """
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
         """
         Specifies the ID of the VPC associated with the DB snapshot.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

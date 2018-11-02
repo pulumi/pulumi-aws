@@ -11,8 +11,8 @@ class GetEndpointResult(object):
     A collection of values returned by getEndpoint.
     """
     def __init__(__self__, endpoint_address=None, id=None):
-        if endpoint_address and not isinstance(endpoint_address, basestring):
-            raise TypeError('Expected argument endpoint_address to be a basestring')
+        if endpoint_address and not isinstance(endpoint_address, str):
+            raise TypeError('Expected argument endpoint_address to be a str')
         __self__.endpoint_address = endpoint_address
         """
         The endpoint based on `endpoint_type`:
@@ -22,8 +22,8 @@ class GetEndpointResult(object):
         * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
         * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

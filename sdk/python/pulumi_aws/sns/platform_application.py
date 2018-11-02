@@ -14,109 +14,40 @@ class PlatformApplication(pulumi.CustomResource):
         """Create a PlatformApplication resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if event_delivery_failure_topic_arn and not isinstance(event_delivery_failure_topic_arn, basestring):
-            raise TypeError('Expected property event_delivery_failure_topic_arn to be a basestring')
-        __self__.event_delivery_failure_topic_arn = event_delivery_failure_topic_arn
-        """
-        SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        """
         __props__['eventDeliveryFailureTopicArn'] = event_delivery_failure_topic_arn
 
-        if event_endpoint_created_topic_arn and not isinstance(event_endpoint_created_topic_arn, basestring):
-            raise TypeError('Expected property event_endpoint_created_topic_arn to be a basestring')
-        __self__.event_endpoint_created_topic_arn = event_endpoint_created_topic_arn
-        """
-        SNS Topic triggered when a new platform endpoint is added to your platform application.
-        """
         __props__['eventEndpointCreatedTopicArn'] = event_endpoint_created_topic_arn
 
-        if event_endpoint_deleted_topic_arn and not isinstance(event_endpoint_deleted_topic_arn, basestring):
-            raise TypeError('Expected property event_endpoint_deleted_topic_arn to be a basestring')
-        __self__.event_endpoint_deleted_topic_arn = event_endpoint_deleted_topic_arn
-        """
-        SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        """
         __props__['eventEndpointDeletedTopicArn'] = event_endpoint_deleted_topic_arn
 
-        if event_endpoint_updated_topic_arn and not isinstance(event_endpoint_updated_topic_arn, basestring):
-            raise TypeError('Expected property event_endpoint_updated_topic_arn to be a basestring')
-        __self__.event_endpoint_updated_topic_arn = event_endpoint_updated_topic_arn
-        """
-        SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        """
         __props__['eventEndpointUpdatedTopicArn'] = event_endpoint_updated_topic_arn
 
-        if failure_feedback_role_arn and not isinstance(failure_feedback_role_arn, basestring):
-            raise TypeError('Expected property failure_feedback_role_arn to be a basestring')
-        __self__.failure_feedback_role_arn = failure_feedback_role_arn
-        """
-        The IAM role permitted to receive failure feedback for this application.
-        """
         __props__['failureFeedbackRoleArn'] = failure_feedback_role_arn
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The friendly name for the SNS platform application
-        """
         __props__['name'] = name
 
         if not platform:
             raise TypeError('Missing required property platform')
-        elif not isinstance(platform, basestring):
-            raise TypeError('Expected property platform to be a basestring')
-        __self__.platform = platform
-        """
-        The platform that the app is registered with. See [Platform][1] for supported platforms.
-        """
         __props__['platform'] = platform
 
         if not platform_credential:
             raise TypeError('Missing required property platform_credential')
-        elif not isinstance(platform_credential, basestring):
-            raise TypeError('Expected property platform_credential to be a basestring')
-        __self__.platform_credential = platform_credential
-        """
-        Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         __props__['platformCredential'] = platform_credential
 
-        if platform_principal and not isinstance(platform_principal, basestring):
-            raise TypeError('Expected property platform_principal to be a basestring')
-        __self__.platform_principal = platform_principal
-        """
-        Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        """
         __props__['platformPrincipal'] = platform_principal
 
-        if success_feedback_role_arn and not isinstance(success_feedback_role_arn, basestring):
-            raise TypeError('Expected property success_feedback_role_arn to be a basestring')
-        __self__.success_feedback_role_arn = success_feedback_role_arn
-        """
-        The IAM role permitted to receive success feedback for this application.
-        """
         __props__['successFeedbackRoleArn'] = success_feedback_role_arn
 
-        if success_feedback_sample_rate and not isinstance(success_feedback_sample_rate, basestring):
-            raise TypeError('Expected property success_feedback_sample_rate to be a basestring')
-        __self__.success_feedback_sample_rate = success_feedback_sample_rate
-        """
-        The percentage of success to sample (0-100)
-        """
         __props__['successFeedbackSampleRate'] = success_feedback_sample_rate
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the SNS platform application
-        """
+        __props__['arn'] = None
 
         super(PlatformApplication, __self__).__init__(
             'aws:sns/platformApplication:PlatformApplication',
@@ -124,28 +55,3 @@ class PlatformApplication(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'eventDeliveryFailureTopicArn' in outs:
-            self.event_delivery_failure_topic_arn = outs['eventDeliveryFailureTopicArn']
-        if 'eventEndpointCreatedTopicArn' in outs:
-            self.event_endpoint_created_topic_arn = outs['eventEndpointCreatedTopicArn']
-        if 'eventEndpointDeletedTopicArn' in outs:
-            self.event_endpoint_deleted_topic_arn = outs['eventEndpointDeletedTopicArn']
-        if 'eventEndpointUpdatedTopicArn' in outs:
-            self.event_endpoint_updated_topic_arn = outs['eventEndpointUpdatedTopicArn']
-        if 'failureFeedbackRoleArn' in outs:
-            self.failure_feedback_role_arn = outs['failureFeedbackRoleArn']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'platform' in outs:
-            self.platform = outs['platform']
-        if 'platformCredential' in outs:
-            self.platform_credential = outs['platformCredential']
-        if 'platformPrincipal' in outs:
-            self.platform_principal = outs['platformPrincipal']
-        if 'successFeedbackRoleArn' in outs:
-            self.success_feedback_role_arn = outs['successFeedbackRoleArn']
-        if 'successFeedbackSampleRate' in outs:
-            self.success_feedback_sample_rate = outs['successFeedbackSampleRate']

@@ -14,7 +14,7 @@ class SubnetGroup(pulumi.CustomResource):
         """Create a SubnetGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -22,38 +22,14 @@ class SubnetGroup(pulumi.CustomResource):
         __props__ = dict()
 
         description = 'Managed by Pulumi'
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Redshift Subnet group.
-        """
         __props__['name'] = name
 
         if not subnet_ids:
             raise TypeError('Missing required property subnet_ids')
-        elif not isinstance(subnet_ids, list):
-            raise TypeError('Expected property subnet_ids to be a list')
-        __self__.subnet_ids = subnet_ids
-        """
-        An array of VPC subnet IDs.
-        """
         __props__['subnetIds'] = subnet_ids
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         super(SubnetGroup, __self__).__init__(
@@ -62,12 +38,3 @@ class SubnetGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'subnetIds' in outs:
-            self.subnet_ids = outs['subnetIds']
-        if 'tags' in outs:
-            self.tags = outs['tags']

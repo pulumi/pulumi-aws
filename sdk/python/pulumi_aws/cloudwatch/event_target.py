@@ -14,7 +14,7 @@ class EventTarget(pulumi.CustomResource):
         """Create a EventTarget resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,103 +23,30 @@ class EventTarget(pulumi.CustomResource):
 
         if not arn:
             raise TypeError('Missing required property arn')
-        elif not isinstance(arn, basestring):
-            raise TypeError('Expected property arn to be a basestring')
-        __self__.arn = arn
-        """
-        The Amazon Resource Name (ARN) associated of the target.
-        """
         __props__['arn'] = arn
 
-        if batch_target and not isinstance(batch_target, dict):
-            raise TypeError('Expected property batch_target to be a dict')
-        __self__.batch_target = batch_target
-        """
-        Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        """
         __props__['batchTarget'] = batch_target
 
-        if ecs_target and not isinstance(ecs_target, dict):
-            raise TypeError('Expected property ecs_target to be a dict')
-        __self__.ecs_target = ecs_target
-        """
-        Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        """
         __props__['ecsTarget'] = ecs_target
 
-        if input and not isinstance(input, basestring):
-            raise TypeError('Expected property input to be a basestring')
-        __self__.input = input
-        """
-        Valid JSON text passed to the target.
-        """
         __props__['input'] = input
 
-        if input_path and not isinstance(input_path, basestring):
-            raise TypeError('Expected property input_path to be a basestring')
-        __self__.input_path = input_path
-        """
-        The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        that is used for extracting part of the matched event when passing it to the target.
-        """
         __props__['inputPath'] = input_path
 
-        if input_transformer and not isinstance(input_transformer, dict):
-            raise TypeError('Expected property input_transformer to be a dict')
-        __self__.input_transformer = input_transformer
-        """
-        Parameters used when you are providing a custom input to a target based on certain event data.
-        """
         __props__['inputTransformer'] = input_transformer
 
-        if kinesis_target and not isinstance(kinesis_target, dict):
-            raise TypeError('Expected property kinesis_target to be a dict')
-        __self__.kinesis_target = kinesis_target
-        """
-        Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        """
         __props__['kinesisTarget'] = kinesis_target
 
-        if role_arn and not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
-        """
         __props__['roleArn'] = role_arn
 
         if not rule:
             raise TypeError('Missing required property rule')
-        elif not isinstance(rule, basestring):
-            raise TypeError('Expected property rule to be a basestring')
-        __self__.rule = rule
-        """
-        The name of the rule you want to add targets to.
-        """
         __props__['rule'] = rule
 
-        if run_command_targets and not isinstance(run_command_targets, list):
-            raise TypeError('Expected property run_command_targets to be a list')
-        __self__.run_command_targets = run_command_targets
-        """
-        Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        """
         __props__['runCommandTargets'] = run_command_targets
 
-        if sqs_target and not isinstance(sqs_target, dict):
-            raise TypeError('Expected property sqs_target to be a dict')
-        __self__.sqs_target = sqs_target
-        """
-        Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        """
         __props__['sqsTarget'] = sqs_target
 
-        if target_id and not isinstance(target_id, basestring):
-            raise TypeError('Expected property target_id to be a basestring')
-        __self__.target_id = target_id
-        """
-        The unique target assignment ID.  If missing, will generate a random, unique id.
-        """
         __props__['targetId'] = target_id
 
         super(EventTarget, __self__).__init__(
@@ -128,28 +55,3 @@ class EventTarget(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'batchTarget' in outs:
-            self.batch_target = outs['batchTarget']
-        if 'ecsTarget' in outs:
-            self.ecs_target = outs['ecsTarget']
-        if 'input' in outs:
-            self.input = outs['input']
-        if 'inputPath' in outs:
-            self.input_path = outs['inputPath']
-        if 'inputTransformer' in outs:
-            self.input_transformer = outs['inputTransformer']
-        if 'kinesisTarget' in outs:
-            self.kinesis_target = outs['kinesisTarget']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'rule' in outs:
-            self.rule = outs['rule']
-        if 'runCommandTargets' in outs:
-            self.run_command_targets = outs['runCommandTargets']
-        if 'sqsTarget' in outs:
-            self.sqs_target = outs['sqsTarget']
-        if 'targetId' in outs:
-            self.target_id = outs['targetId']

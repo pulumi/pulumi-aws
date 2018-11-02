@@ -11,11 +11,11 @@ class GetFileSystemResult(object):
     A collection of values returned by getFileSystem.
     """
     def __init__(__self__, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None, id=None):
-        if creation_token and not isinstance(creation_token, basestring):
-            raise TypeError('Expected argument creation_token to be a basestring')
+        if creation_token and not isinstance(creation_token, str):
+            raise TypeError('Expected argument creation_token to be a str')
         __self__.creation_token = creation_token
-        if dns_name and not isinstance(dns_name, basestring):
-            raise TypeError('Expected argument dns_name to be a basestring')
+        if dns_name and not isinstance(dns_name, str):
+            raise TypeError('Expected argument dns_name to be a str')
         __self__.dns_name = dns_name
         """
         The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
@@ -26,17 +26,17 @@ class GetFileSystemResult(object):
         """
         Whether EFS is encrypted.
         """
-        if file_system_id and not isinstance(file_system_id, basestring):
-            raise TypeError('Expected argument file_system_id to be a basestring')
+        if file_system_id and not isinstance(file_system_id, str):
+            raise TypeError('Expected argument file_system_id to be a str')
         __self__.file_system_id = file_system_id
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected argument kms_key_id to be a basestring')
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError('Expected argument kms_key_id to be a str')
         __self__.kms_key_id = kms_key_id
         """
         The ARN for the KMS encryption key.
         """
-        if performance_mode and not isinstance(performance_mode, basestring):
-            raise TypeError('Expected argument performance_mode to be a basestring')
+        if performance_mode and not isinstance(performance_mode, str):
+            raise TypeError('Expected argument performance_mode to be a str')
         __self__.performance_mode = performance_mode
         """
         The PerformanceMode of the file system.
@@ -47,8 +47,8 @@ class GetFileSystemResult(object):
         """
         The list of tags assigned to the file system.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

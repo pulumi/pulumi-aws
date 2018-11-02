@@ -14,7 +14,7 @@ class Webhook(pulumi.CustomResource):
         """Create a Webhook resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,64 +23,25 @@ class Webhook(pulumi.CustomResource):
 
         if not authentication:
             raise TypeError('Missing required property authentication')
-        elif not isinstance(authentication, basestring):
-            raise TypeError('Expected property authentication to be a basestring')
-        __self__.authentication = authentication
-        """
-        The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-        """
         __props__['authentication'] = authentication
 
-        if authentication_configuration and not isinstance(authentication_configuration, dict):
-            raise TypeError('Expected property authentication_configuration to be a dict')
-        __self__.authentication_configuration = authentication_configuration
-        """
-        An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-        """
         __props__['authenticationConfiguration'] = authentication_configuration
 
         if not filters:
             raise TypeError('Missing required property filters')
-        elif not isinstance(filters, list):
-            raise TypeError('Expected property filters to be a list')
-        __self__.filters = filters
-        """
-        One or more `filter` blocks. Filter blocks are documented below.
-        """
         __props__['filters'] = filters
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the webhook.
-        """
         __props__['name'] = name
 
         if not target_action:
             raise TypeError('Missing required property target_action')
-        elif not isinstance(target_action, basestring):
-            raise TypeError('Expected property target_action to be a basestring')
-        __self__.target_action = target_action
-        """
-        The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-        """
         __props__['targetAction'] = target_action
 
         if not target_pipeline:
             raise TypeError('Missing required property target_pipeline')
-        elif not isinstance(target_pipeline, basestring):
-            raise TypeError('Expected property target_pipeline to be a basestring')
-        __self__.target_pipeline = target_pipeline
-        """
-        The name of the pipeline.
-        """
         __props__['targetPipeline'] = target_pipeline
 
-        __self__.url = pulumi.runtime.UNKNOWN
-        """
-        The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-        """
+        __props__['url'] = None
 
         super(Webhook, __self__).__init__(
             'aws:codepipeline/webhook:Webhook',
@@ -88,18 +49,3 @@ class Webhook(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'authentication' in outs:
-            self.authentication = outs['authentication']
-        if 'authenticationConfiguration' in outs:
-            self.authentication_configuration = outs['authenticationConfiguration']
-        if 'filters' in outs:
-            self.filters = outs['filters']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'targetAction' in outs:
-            self.target_action = outs['targetAction']
-        if 'targetPipeline' in outs:
-            self.target_pipeline = outs['targetPipeline']
-        if 'url' in outs:
-            self.url = outs['url']

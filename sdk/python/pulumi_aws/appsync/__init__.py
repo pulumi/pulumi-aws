@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from api_key import *
-from data_source import *
-from graph_ql_api import *
+from .api_key import *
+from .data_source import *
+from .graph_ql_api import *

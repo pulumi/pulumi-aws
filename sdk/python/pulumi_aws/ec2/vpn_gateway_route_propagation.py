@@ -18,7 +18,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         """Create a VpnGatewayRoutePropagation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,22 +27,10 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
 
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
-        elif not isinstance(route_table_id, basestring):
-            raise TypeError('Expected property route_table_id to be a basestring')
-        __self__.route_table_id = route_table_id
-        """
-        The id of the `aws_route_table` to propagate routes into.
-        """
         __props__['routeTableId'] = route_table_id
 
         if not vpn_gateway_id:
             raise TypeError('Missing required property vpn_gateway_id')
-        elif not isinstance(vpn_gateway_id, basestring):
-            raise TypeError('Expected property vpn_gateway_id to be a basestring')
-        __self__.vpn_gateway_id = vpn_gateway_id
-        """
-        The id of the `aws_vpn_gateway` to propagate routes from.
-        """
         __props__['vpnGatewayId'] = vpn_gateway_id
 
         super(VpnGatewayRoutePropagation, __self__).__init__(
@@ -51,8 +39,3 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'routeTableId' in outs:
-            self.route_table_id = outs['routeTableId']
-        if 'vpnGatewayId' in outs:
-            self.vpn_gateway_id = outs['vpnGatewayId']

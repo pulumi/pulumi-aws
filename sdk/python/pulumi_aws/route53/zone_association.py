@@ -18,7 +18,7 @@ class ZoneAssociation(pulumi.CustomResource):
         """Create a ZoneAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,30 +27,12 @@ class ZoneAssociation(pulumi.CustomResource):
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The VPC to associate with the private hosted zone.
-        """
         __props__['vpcId'] = vpc_id
 
-        if vpc_region and not isinstance(vpc_region, basestring):
-            raise TypeError('Expected property vpc_region to be a basestring')
-        __self__.vpc_region = vpc_region
-        """
-        The VPC's region. Defaults to the region of the AWS provider.
-        """
         __props__['vpcRegion'] = vpc_region
 
         if not zone_id:
             raise TypeError('Missing required property zone_id')
-        elif not isinstance(zone_id, basestring):
-            raise TypeError('Expected property zone_id to be a basestring')
-        __self__.zone_id = zone_id
-        """
-        The private hosted zone to associate.
-        """
         __props__['zoneId'] = zone_id
 
         super(ZoneAssociation, __self__).__init__(
@@ -59,10 +41,3 @@ class ZoneAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']
-        if 'vpcRegion' in outs:
-            self.vpc_region = outs['vpcRegion']
-        if 'zoneId' in outs:
-            self.zone_id = outs['zoneId']

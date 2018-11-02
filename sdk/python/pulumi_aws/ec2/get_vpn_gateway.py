@@ -11,20 +11,20 @@ class GetVpnGatewayResult(object):
     A collection of values returned by getVpnGateway.
     """
     def __init__(__self__, amazon_side_asn=None, attached_vpc_id=None, availability_zone=None, id=None, state=None, tags=None):
-        if amazon_side_asn and not isinstance(amazon_side_asn, basestring):
-            raise TypeError('Expected argument amazon_side_asn to be a basestring')
+        if amazon_side_asn and not isinstance(amazon_side_asn, str):
+            raise TypeError('Expected argument amazon_side_asn to be a str')
         __self__.amazon_side_asn = amazon_side_asn
-        if attached_vpc_id and not isinstance(attached_vpc_id, basestring):
-            raise TypeError('Expected argument attached_vpc_id to be a basestring')
+        if attached_vpc_id and not isinstance(attached_vpc_id, str):
+            raise TypeError('Expected argument attached_vpc_id to be a str')
         __self__.attached_vpc_id = attached_vpc_id
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')

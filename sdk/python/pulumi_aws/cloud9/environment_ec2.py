@@ -14,71 +14,29 @@ class EnvironmentEC2(pulumi.CustomResource):
         """Create a EnvironmentEC2 resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if automatic_stop_time_minutes and not isinstance(automatic_stop_time_minutes, int):
-            raise TypeError('Expected property automatic_stop_time_minutes to be a int')
-        __self__.automatic_stop_time_minutes = automatic_stop_time_minutes
-        """
-        The number of minutes until the running instance is shut down after the environment has last been used.
-        """
         __props__['automaticStopTimeMinutes'] = automatic_stop_time_minutes
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the environment.
-        """
         __props__['description'] = description
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        elif not isinstance(instance_type, basestring):
-            raise TypeError('Expected property instance_type to be a basestring')
-        __self__.instance_type = instance_type
-        """
-        The type of instance to connect to the environment, e.g. `t2.micro`.
-        """
         __props__['instanceType'] = instance_type
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the environment.
-        """
         __props__['name'] = name
 
-        if owner_arn and not isinstance(owner_arn, basestring):
-            raise TypeError('Expected property owner_arn to be a basestring')
-        __self__.owner_arn = owner_arn
-        """
-        The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        """
         __props__['ownerArn'] = owner_arn
 
-        if subnet_id and not isinstance(subnet_id, basestring):
-            raise TypeError('Expected property subnet_id to be a basestring')
-        __self__.subnet_id = subnet_id
-        """
-        The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        """
         __props__['subnetId'] = subnet_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the environment.
-        """
-        __self__.type = pulumi.runtime.UNKNOWN
-        """
-        The type of the environment (e.g. `ssh` or `ec2`)
-        """
+        __props__['arn'] = None
+        __props__['type'] = None
 
         super(EnvironmentEC2, __self__).__init__(
             'aws:cloud9/environmentEC2:EnvironmentEC2',
@@ -86,20 +44,3 @@ class EnvironmentEC2(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'automaticStopTimeMinutes' in outs:
-            self.automatic_stop_time_minutes = outs['automaticStopTimeMinutes']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'instanceType' in outs:
-            self.instance_type = outs['instanceType']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'ownerArn' in outs:
-            self.owner_arn = outs['ownerArn']
-        if 'subnetId' in outs:
-            self.subnet_id = outs['subnetId']
-        if 'type' in outs:
-            self.type = outs['type']

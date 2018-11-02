@@ -14,7 +14,7 @@ class Role(pulumi.CustomResource):
         """Create a Role resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,83 +23,25 @@ class Role(pulumi.CustomResource):
 
         if not assume_role_policy:
             raise TypeError('Missing required property assume_role_policy')
-        elif not isinstance(assume_role_policy, basestring):
-            raise TypeError('Expected property assume_role_policy to be a basestring')
-        __self__.assume_role_policy = assume_role_policy
-        """
-        The policy that grants an entity permission to assume the role.
-        """
         __props__['assumeRolePolicy'] = assume_role_policy
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the role.
-        """
         __props__['description'] = description
 
-        if force_detach_policies and not isinstance(force_detach_policies, bool):
-            raise TypeError('Expected property force_detach_policies to be a bool')
-        __self__.force_detach_policies = force_detach_policies
-        """
-        Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-        """
         __props__['forceDetachPolicies'] = force_detach_policies
 
-        if max_session_duration and not isinstance(max_session_duration, int):
-            raise TypeError('Expected property max_session_duration to be a int')
-        __self__.max_session_duration = max_session_duration
-        """
-        The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-        """
         __props__['maxSessionDuration'] = max_session_duration
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the role. If omitted, Terraform will assign a random, unique name.
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
-        if path and not isinstance(path, basestring):
-            raise TypeError('Expected property path to be a basestring')
-        __self__.path = path
-        """
-        The path to the role.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        """
         __props__['path'] = path
 
-        if permissions_boundary and not isinstance(permissions_boundary, basestring):
-            raise TypeError('Expected property permissions_boundary to be a basestring')
-        __self__.permissions_boundary = permissions_boundary
-        """
-        The ARN of the policy that is used to set the permissions boundary for the role.
-        """
         __props__['permissionsBoundary'] = permissions_boundary
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) specifying the role.
-        """
-        __self__.create_date = pulumi.runtime.UNKNOWN
-        """
-        The creation date of the IAM role.
-        """
-        __self__.unique_id = pulumi.runtime.UNKNOWN
-        """
-        The stable and unique string identifying the role.
-        """
+        __props__['arn'] = None
+        __props__['create_date'] = None
+        __props__['unique_id'] = None
 
         super(Role, __self__).__init__(
             'aws:iam/role:Role',
@@ -107,26 +49,3 @@ class Role(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'assumeRolePolicy' in outs:
-            self.assume_role_policy = outs['assumeRolePolicy']
-        if 'createDate' in outs:
-            self.create_date = outs['createDate']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'forceDetachPolicies' in outs:
-            self.force_detach_policies = outs['forceDetachPolicies']
-        if 'maxSessionDuration' in outs:
-            self.max_session_duration = outs['maxSessionDuration']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'path' in outs:
-            self.path = outs['path']
-        if 'permissionsBoundary' in outs:
-            self.permissions_boundary = outs['permissionsBoundary']
-        if 'uniqueId' in outs:
-            self.unique_id = outs['uniqueId']

@@ -14,7 +14,7 @@ class Schedule(pulumi.CustomResource):
         """Create a Schedule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,80 +23,25 @@ class Schedule(pulumi.CustomResource):
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        elif not isinstance(autoscaling_group_name, basestring):
-            raise TypeError('Expected property autoscaling_group_name to be a basestring')
-        __self__.autoscaling_group_name = autoscaling_group_name
-        """
-        The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-        """
         __props__['autoscalingGroupName'] = autoscaling_group_name
 
-        if desired_capacity and not isinstance(desired_capacity, int):
-            raise TypeError('Expected property desired_capacity to be a int')
-        __self__.desired_capacity = desired_capacity
-        """
-        The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
-        """
         __props__['desiredCapacity'] = desired_capacity
 
-        if end_time and not isinstance(end_time, basestring):
-            raise TypeError('Expected property end_time to be a basestring')
-        __self__.end_time = end_time
-        """
-        The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-        If you try to schedule your action in the past, Auto Scaling returns an error message.
-        """
         __props__['endTime'] = end_time
 
-        if max_size and not isinstance(max_size, int):
-            raise TypeError('Expected property max_size to be a int')
-        __self__.max_size = max_size
-        """
-        The maximum size for the Auto Scaling group. Default 0.
-        Set to -1 if you don't want to change the maximum size at the scheduled time.
-        """
         __props__['maxSize'] = max_size
 
-        if min_size and not isinstance(min_size, int):
-            raise TypeError('Expected property min_size to be a int')
-        __self__.min_size = min_size
-        """
-        The minimum size for the Auto Scaling group. Default 0.
-        Set to -1 if you don't want to change the minimum size at the scheduled time.
-        """
         __props__['minSize'] = min_size
 
-        if recurrence and not isinstance(recurrence, basestring):
-            raise TypeError('Expected property recurrence to be a basestring')
-        __self__.recurrence = recurrence
-        """
-        The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
-        """
         __props__['recurrence'] = recurrence
 
         if not scheduled_action_name:
             raise TypeError('Missing required property scheduled_action_name')
-        elif not isinstance(scheduled_action_name, basestring):
-            raise TypeError('Expected property scheduled_action_name to be a basestring')
-        __self__.scheduled_action_name = scheduled_action_name
-        """
-        The name of this scaling action.
-        """
         __props__['scheduledActionName'] = scheduled_action_name
 
-        if start_time and not isinstance(start_time, basestring):
-            raise TypeError('Expected property start_time to be a basestring')
-        __self__.start_time = start_time
-        """
-        The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-        If you try to schedule your action in the past, Auto Scaling returns an error message.
-        """
         __props__['startTime'] = start_time
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS to the autoscaling schedule.
-        """
+        __props__['arn'] = None
 
         super(Schedule, __self__).__init__(
             'aws:autoscaling/schedule:Schedule',
@@ -104,22 +49,3 @@ class Schedule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'autoscalingGroupName' in outs:
-            self.autoscaling_group_name = outs['autoscalingGroupName']
-        if 'desiredCapacity' in outs:
-            self.desired_capacity = outs['desiredCapacity']
-        if 'endTime' in outs:
-            self.end_time = outs['endTime']
-        if 'maxSize' in outs:
-            self.max_size = outs['maxSize']
-        if 'minSize' in outs:
-            self.min_size = outs['minSize']
-        if 'recurrence' in outs:
-            self.recurrence = outs['recurrence']
-        if 'scheduledActionName' in outs:
-            self.scheduled_action_name = outs['scheduledActionName']
-        if 'startTime' in outs:
-            self.start_time = outs['startTime']

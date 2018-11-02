@@ -14,7 +14,7 @@ class NfsFileShare(pulumi.CustomResource):
         """Create a NfsFileShare resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,124 +23,40 @@ class NfsFileShare(pulumi.CustomResource):
 
         if not client_lists:
             raise TypeError('Missing required property client_lists')
-        elif not isinstance(client_lists, list):
-            raise TypeError('Expected property client_lists to be a list')
-        __self__.client_lists = client_lists
-        """
-        The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
-        """
         __props__['clientLists'] = client_lists
 
-        if default_storage_class and not isinstance(default_storage_class, basestring):
-            raise TypeError('Expected property default_storage_class to be a basestring')
-        __self__.default_storage_class = default_storage_class
-        """
-        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
-        """
         __props__['defaultStorageClass'] = default_storage_class
 
         if not gateway_arn:
             raise TypeError('Missing required property gateway_arn')
-        elif not isinstance(gateway_arn, basestring):
-            raise TypeError('Expected property gateway_arn to be a basestring')
-        __self__.gateway_arn = gateway_arn
-        """
-        Amazon Resource Name (ARN) of the file gateway.
-        """
         __props__['gatewayArn'] = gateway_arn
 
-        if guess_mime_type_enabled and not isinstance(guess_mime_type_enabled, bool):
-            raise TypeError('Expected property guess_mime_type_enabled to be a bool')
-        __self__.guess_mime_type_enabled = guess_mime_type_enabled
-        """
-        Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
-        """
         __props__['guessMimeTypeEnabled'] = guess_mime_type_enabled
 
-        if kms_encrypted and not isinstance(kms_encrypted, bool):
-            raise TypeError('Expected property kms_encrypted to be a bool')
-        __self__.kms_encrypted = kms_encrypted
-        """
-        Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        """
         __props__['kmsEncrypted'] = kms_encrypted
 
-        if kms_key_arn and not isinstance(kms_key_arn, basestring):
-            raise TypeError('Expected property kms_key_arn to be a basestring')
-        __self__.kms_key_arn = kms_key_arn
-        """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
-        """
         __props__['kmsKeyArn'] = kms_key_arn
 
         if not location_arn:
             raise TypeError('Missing required property location_arn')
-        elif not isinstance(location_arn, basestring):
-            raise TypeError('Expected property location_arn to be a basestring')
-        __self__.location_arn = location_arn
-        """
-        The ARN of the backed storage used for storing file data.
-        """
         __props__['locationArn'] = location_arn
 
-        if nfs_file_share_defaults and not isinstance(nfs_file_share_defaults, dict):
-            raise TypeError('Expected property nfs_file_share_defaults to be a dict')
-        __self__.nfs_file_share_defaults = nfs_file_share_defaults
-        """
-        Nested argument with file share default values. More information below.
-        """
         __props__['nfsFileShareDefaults'] = nfs_file_share_defaults
 
-        if object_acl and not isinstance(object_acl, basestring):
-            raise TypeError('Expected property object_acl to be a basestring')
-        __self__.object_acl = object_acl
-        """
-        Access Control List permission for S3 bucket objects. Defaults to `private`.
-        """
         __props__['objectAcl'] = object_acl
 
-        if read_only and not isinstance(read_only, bool):
-            raise TypeError('Expected property read_only to be a bool')
-        __self__.read_only = read_only
-        """
-        Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-        """
         __props__['readOnly'] = read_only
 
-        if requester_pays and not isinstance(requester_pays, bool):
-            raise TypeError('Expected property requester_pays to be a bool')
-        __self__.requester_pays = requester_pays
-        """
-        Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
-        """
         __props__['requesterPays'] = requester_pays
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        elif not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-        """
         __props__['roleArn'] = role_arn
 
-        if squash and not isinstance(squash, basestring):
-            raise TypeError('Expected property squash to be a basestring')
-        __self__.squash = squash
-        """
-        Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
-        """
         __props__['squash'] = squash
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        Amazon Resource Name (ARN) of the NFS File Share.
-        """
-        __self__.fileshare_id = pulumi.runtime.UNKNOWN
-        """
-        ID of the NFS File Share.
-        """
+        __props__['arn'] = None
+        __props__['fileshare_id'] = None
 
         super(NfsFileShare, __self__).__init__(
             'aws:storagegateway/nfsFileShare:NfsFileShare',
@@ -148,34 +64,3 @@ class NfsFileShare(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'clientLists' in outs:
-            self.client_lists = outs['clientLists']
-        if 'defaultStorageClass' in outs:
-            self.default_storage_class = outs['defaultStorageClass']
-        if 'fileshareId' in outs:
-            self.fileshare_id = outs['fileshareId']
-        if 'gatewayArn' in outs:
-            self.gateway_arn = outs['gatewayArn']
-        if 'guessMimeTypeEnabled' in outs:
-            self.guess_mime_type_enabled = outs['guessMimeTypeEnabled']
-        if 'kmsEncrypted' in outs:
-            self.kms_encrypted = outs['kmsEncrypted']
-        if 'kmsKeyArn' in outs:
-            self.kms_key_arn = outs['kmsKeyArn']
-        if 'locationArn' in outs:
-            self.location_arn = outs['locationArn']
-        if 'nfsFileShareDefaults' in outs:
-            self.nfs_file_share_defaults = outs['nfsFileShareDefaults']
-        if 'objectAcl' in outs:
-            self.object_acl = outs['objectAcl']
-        if 'readOnly' in outs:
-            self.read_only = outs['readOnly']
-        if 'requesterPays' in outs:
-            self.requester_pays = outs['requesterPays']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'squash' in outs:
-            self.squash = outs['squash']

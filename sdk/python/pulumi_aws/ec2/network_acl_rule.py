@@ -20,107 +20,41 @@ class NetworkAclRule(pulumi.CustomResource):
         """Create a NetworkAclRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if cidr_block and not isinstance(cidr_block, basestring):
-            raise TypeError('Expected property cidr_block to be a basestring')
-        __self__.cidr_block = cidr_block
-        """
-        The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        """
         __props__['cidrBlock'] = cidr_block
 
-        if egress and not isinstance(egress, bool):
-            raise TypeError('Expected property egress to be a bool')
-        __self__.egress = egress
-        """
-        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        """
         __props__['egress'] = egress
 
-        if from_port and not isinstance(from_port, int):
-            raise TypeError('Expected property from_port to be a int')
-        __self__.from_port = from_port
-        """
-        The from port to match.
-        """
         __props__['fromPort'] = from_port
 
-        if icmp_code and not isinstance(icmp_code, basestring):
-            raise TypeError('Expected property icmp_code to be a basestring')
-        __self__.icmp_code = icmp_code
-        """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-        """
         __props__['icmpCode'] = icmp_code
 
-        if icmp_type and not isinstance(icmp_type, basestring):
-            raise TypeError('Expected property icmp_type to be a basestring')
-        __self__.icmp_type = icmp_type
-        """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
-        """
         __props__['icmpType'] = icmp_type
 
-        if ipv6_cidr_block and not isinstance(ipv6_cidr_block, basestring):
-            raise TypeError('Expected property ipv6_cidr_block to be a basestring')
-        __self__.ipv6_cidr_block = ipv6_cidr_block
-        """
-        The IPv6 CIDR block to allow or deny.
-        """
         __props__['ipv6CidrBlock'] = ipv6_cidr_block
 
         if not network_acl_id:
             raise TypeError('Missing required property network_acl_id')
-        elif not isinstance(network_acl_id, basestring):
-            raise TypeError('Expected property network_acl_id to be a basestring')
-        __self__.network_acl_id = network_acl_id
-        """
-        The ID of the network ACL.
-        """
         __props__['networkAclId'] = network_acl_id
 
         if not protocol:
             raise TypeError('Missing required property protocol')
-        elif not isinstance(protocol, basestring):
-            raise TypeError('Expected property protocol to be a basestring')
-        __self__.protocol = protocol
-        """
-        The protocol. A value of -1 means all protocols.
-        """
         __props__['protocol'] = protocol
 
         if not rule_action:
             raise TypeError('Missing required property rule_action')
-        elif not isinstance(rule_action, basestring):
-            raise TypeError('Expected property rule_action to be a basestring')
-        __self__.rule_action = rule_action
-        """
-        Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        """
         __props__['ruleAction'] = rule_action
 
         if not rule_number:
             raise TypeError('Missing required property rule_number')
-        elif not isinstance(rule_number, int):
-            raise TypeError('Expected property rule_number to be a int')
-        __self__.rule_number = rule_number
-        """
-        The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        """
         __props__['ruleNumber'] = rule_number
 
-        if to_port and not isinstance(to_port, int):
-            raise TypeError('Expected property to_port to be a int')
-        __self__.to_port = to_port
-        """
-        The to port to match.
-        """
         __props__['toPort'] = to_port
 
         super(NetworkAclRule, __self__).__init__(
@@ -129,26 +63,3 @@ class NetworkAclRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cidrBlock' in outs:
-            self.cidr_block = outs['cidrBlock']
-        if 'egress' in outs:
-            self.egress = outs['egress']
-        if 'fromPort' in outs:
-            self.from_port = outs['fromPort']
-        if 'icmpCode' in outs:
-            self.icmp_code = outs['icmpCode']
-        if 'icmpType' in outs:
-            self.icmp_type = outs['icmpType']
-        if 'ipv6CidrBlock' in outs:
-            self.ipv6_cidr_block = outs['ipv6CidrBlock']
-        if 'networkAclId' in outs:
-            self.network_acl_id = outs['networkAclId']
-        if 'protocol' in outs:
-            self.protocol = outs['protocol']
-        if 'ruleAction' in outs:
-            self.rule_action = outs['ruleAction']
-        if 'ruleNumber' in outs:
-            self.rule_number = outs['ruleNumber']
-        if 'toPort' in outs:
-            self.to_port = outs['toPort']

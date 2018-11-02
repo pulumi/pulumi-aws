@@ -14,8 +14,8 @@ class GetRouteTableResult(object):
         if associations and not isinstance(associations, list):
             raise TypeError('Expected argument associations to be a list')
         __self__.associations = associations
-        if route_table_id and not isinstance(route_table_id, basestring):
-            raise TypeError('Expected argument route_table_id to be a basestring')
+        if route_table_id and not isinstance(route_table_id, str):
+            raise TypeError('Expected argument route_table_id to be a str')
         __self__.route_table_id = route_table_id
         """
         The Route Table ID.
@@ -23,8 +23,8 @@ class GetRouteTableResult(object):
         if routes and not isinstance(routes, list):
             raise TypeError('Expected argument routes to be a list')
         __self__.routes = routes
-        if subnet_id and not isinstance(subnet_id, basestring):
-            raise TypeError('Expected argument subnet_id to be a basestring')
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError('Expected argument subnet_id to be a str')
         __self__.subnet_id = subnet_id
         """
         The Subnet ID.
@@ -32,11 +32,11 @@ class GetRouteTableResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -14,7 +14,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         """Create a LogSubscriptionFilter resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,56 +23,20 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
         if not destination_arn:
             raise TypeError('Missing required property destination_arn')
-        elif not isinstance(destination_arn, basestring):
-            raise TypeError('Expected property destination_arn to be a basestring')
-        __self__.destination_arn = destination_arn
-        """
-        The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-        """
         __props__['destinationArn'] = destination_arn
 
-        if distribution and not isinstance(distribution, basestring):
-            raise TypeError('Expected property distribution to be a basestring')
-        __self__.distribution = distribution
-        """
-        The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-        """
         __props__['distribution'] = distribution
 
         if not filter_pattern:
             raise TypeError('Missing required property filter_pattern')
-        elif not isinstance(filter_pattern, basestring):
-            raise TypeError('Expected property filter_pattern to be a basestring')
-        __self__.filter_pattern = filter_pattern
-        """
-        A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
-        """
         __props__['filterPattern'] = filter_pattern
 
         if not log_group:
             raise TypeError('Missing required property log_group')
-        elif not isinstance(log_group, basestring):
-            raise TypeError('Expected property log_group to be a basestring')
-        __self__.log_group = log_group
-        """
-        The name of the log group to associate the subscription filter with
-        """
         __props__['logGroup'] = log_group
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A name for the subscription filter
-        """
         __props__['name'] = name
 
-        if role_arn and not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
-        """
         __props__['roleArn'] = role_arn
 
         super(LogSubscriptionFilter, __self__).__init__(
@@ -81,16 +45,3 @@ class LogSubscriptionFilter(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'destinationArn' in outs:
-            self.destination_arn = outs['destinationArn']
-        if 'distribution' in outs:
-            self.distribution = outs['distribution']
-        if 'filterPattern' in outs:
-            self.filter_pattern = outs['filterPattern']
-        if 'logGroup' in outs:
-            self.log_group = outs['logGroup']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']

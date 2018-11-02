@@ -20,91 +20,37 @@ class Route(pulumi.CustomResource):
         """Create a Route resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if destination_cidr_block and not isinstance(destination_cidr_block, basestring):
-            raise TypeError('Expected property destination_cidr_block to be a basestring')
-        __self__.destination_cidr_block = destination_cidr_block
-        """
-        The destination CIDR block.
-        """
         __props__['destinationCidrBlock'] = destination_cidr_block
 
-        if destination_ipv6_cidr_block and not isinstance(destination_ipv6_cidr_block, basestring):
-            raise TypeError('Expected property destination_ipv6_cidr_block to be a basestring')
-        __self__.destination_ipv6_cidr_block = destination_ipv6_cidr_block
-        """
-        The destination IPv6 CIDR block.
-        """
         __props__['destinationIpv6CidrBlock'] = destination_ipv6_cidr_block
 
-        if egress_only_gateway_id and not isinstance(egress_only_gateway_id, basestring):
-            raise TypeError('Expected property egress_only_gateway_id to be a basestring')
-        __self__.egress_only_gateway_id = egress_only_gateway_id
-        """
-        An ID of a VPC Egress Only Internet Gateway.
-        """
         __props__['egressOnlyGatewayId'] = egress_only_gateway_id
 
-        if gateway_id and not isinstance(gateway_id, basestring):
-            raise TypeError('Expected property gateway_id to be a basestring')
-        __self__.gateway_id = gateway_id
-        """
-        An ID of a VPC internet gateway or a virtual private gateway.
-        """
         __props__['gatewayId'] = gateway_id
 
-        if instance_id and not isinstance(instance_id, basestring):
-            raise TypeError('Expected property instance_id to be a basestring')
-        __self__.instance_id = instance_id
-        """
-        An ID of an EC2 instance.
-        """
         __props__['instanceId'] = instance_id
 
-        if nat_gateway_id and not isinstance(nat_gateway_id, basestring):
-            raise TypeError('Expected property nat_gateway_id to be a basestring')
-        __self__.nat_gateway_id = nat_gateway_id
-        """
-        An ID of a VPC NAT gateway.
-        """
         __props__['natGatewayId'] = nat_gateway_id
 
-        if network_interface_id and not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected property network_interface_id to be a basestring')
-        __self__.network_interface_id = network_interface_id
-        """
-        An ID of a network interface.
-        """
         __props__['networkInterfaceId'] = network_interface_id
 
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
-        elif not isinstance(route_table_id, basestring):
-            raise TypeError('Expected property route_table_id to be a basestring')
-        __self__.route_table_id = route_table_id
-        """
-        The ID of the routing table.
-        """
         __props__['routeTableId'] = route_table_id
 
-        if vpc_peering_connection_id and not isinstance(vpc_peering_connection_id, basestring):
-            raise TypeError('Expected property vpc_peering_connection_id to be a basestring')
-        __self__.vpc_peering_connection_id = vpc_peering_connection_id
-        """
-        An ID of a VPC peering connection.
-        """
         __props__['vpcPeeringConnectionId'] = vpc_peering_connection_id
 
-        __self__.destination_prefix_list_id = pulumi.runtime.UNKNOWN
-        __self__.instance_owner_id = pulumi.runtime.UNKNOWN
-        __self__.origin = pulumi.runtime.UNKNOWN
-        __self__.state = pulumi.runtime.UNKNOWN
+        __props__['destination_prefix_list_id'] = None
+        __props__['instance_owner_id'] = None
+        __props__['origin'] = None
+        __props__['state'] = None
 
         super(Route, __self__).__init__(
             'aws:ec2/route:Route',
@@ -112,30 +58,3 @@ class Route(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'destinationCidrBlock' in outs:
-            self.destination_cidr_block = outs['destinationCidrBlock']
-        if 'destinationIpv6CidrBlock' in outs:
-            self.destination_ipv6_cidr_block = outs['destinationIpv6CidrBlock']
-        if 'destinationPrefixListId' in outs:
-            self.destination_prefix_list_id = outs['destinationPrefixListId']
-        if 'egressOnlyGatewayId' in outs:
-            self.egress_only_gateway_id = outs['egressOnlyGatewayId']
-        if 'gatewayId' in outs:
-            self.gateway_id = outs['gatewayId']
-        if 'instanceId' in outs:
-            self.instance_id = outs['instanceId']
-        if 'instanceOwnerId' in outs:
-            self.instance_owner_id = outs['instanceOwnerId']
-        if 'natGatewayId' in outs:
-            self.nat_gateway_id = outs['natGatewayId']
-        if 'networkInterfaceId' in outs:
-            self.network_interface_id = outs['networkInterfaceId']
-        if 'origin' in outs:
-            self.origin = outs['origin']
-        if 'routeTableId' in outs:
-            self.route_table_id = outs['routeTableId']
-        if 'state' in outs:
-            self.state = outs['state']
-        if 'vpcPeeringConnectionId' in outs:
-            self.vpc_peering_connection_id = outs['vpcPeeringConnectionId']

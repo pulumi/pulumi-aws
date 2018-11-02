@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from cluster import *
-from hsm import *
-from get_cluster import *
+from .cluster import *
+from .hsm import *
+from .get_cluster import *

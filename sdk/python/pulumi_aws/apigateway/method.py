@@ -14,117 +14,41 @@ class Method(pulumi.CustomResource):
         """Create a Method resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if api_key_required and not isinstance(api_key_required, bool):
-            raise TypeError('Expected property api_key_required to be a bool')
-        __self__.api_key_required = api_key_required
-        """
-        Specify if the method requires an API key
-        """
         __props__['apiKeyRequired'] = api_key_required
 
         if not authorization:
             raise TypeError('Missing required property authorization')
-        elif not isinstance(authorization, basestring):
-            raise TypeError('Expected property authorization to be a basestring')
-        __self__.authorization = authorization
-        """
-        The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        """
         __props__['authorization'] = authorization
 
-        if authorization_scopes and not isinstance(authorization_scopes, list):
-            raise TypeError('Expected property authorization_scopes to be a list')
-        __self__.authorization_scopes = authorization_scopes
-        """
-        The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        """
         __props__['authorizationScopes'] = authorization_scopes
 
-        if authorizer_id and not isinstance(authorizer_id, basestring):
-            raise TypeError('Expected property authorizer_id to be a basestring')
-        __self__.authorizer_id = authorizer_id
-        """
-        The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
-        """
         __props__['authorizerId'] = authorizer_id
 
         if not http_method:
             raise TypeError('Missing required property http_method')
-        elif not isinstance(http_method, basestring):
-            raise TypeError('Expected property http_method to be a basestring')
-        __self__.http_method = http_method
-        """
-        The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        """
         __props__['httpMethod'] = http_method
 
-        if request_models and not isinstance(request_models, dict):
-            raise TypeError('Expected property request_models to be a dict')
-        __self__.request_models = request_models
-        """
-        A map of the API models used for the request's content type
-        where key is the content type (e.g. `application/json`)
-        and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
-        """
         __props__['requestModels'] = request_models
 
-        if request_parameters and not isinstance(request_parameters, dict):
-            raise TypeError('Expected property request_parameters to be a dict')
-        __self__.request_parameters = request_parameters
-        """
-        A map of request query string parameters and headers that should be passed to the integration.
-        For example:
-        ```hcl
-        request_parameters = {
-        "method.request.header.X-Some-Header" = true,
-        "method.request.querystring.some-query-param"  = true,
-        }
-        ```
-        would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
-        """
         __props__['requestParameters'] = request_parameters
 
-        if request_parameters_in_json and not isinstance(request_parameters_in_json, basestring):
-            raise TypeError('Expected property request_parameters_in_json to be a basestring')
-        __self__.request_parameters_in_json = request_parameters_in_json
-        """
-        **Deprecated**, use `request_parameters` instead.
-        """
         __props__['requestParametersInJson'] = request_parameters_in_json
 
-        if request_validator_id and not isinstance(request_validator_id, basestring):
-            raise TypeError('Expected property request_validator_id to be a basestring')
-        __self__.request_validator_id = request_validator_id
-        """
-        The ID of a `aws_api_gateway_request_validator`
-        """
         __props__['requestValidatorId'] = request_validator_id
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        elif not isinstance(resource_id, basestring):
-            raise TypeError('Expected property resource_id to be a basestring')
-        __self__.resource_id = resource_id
-        """
-        The API resource ID
-        """
         __props__['resourceId'] = resource_id
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        elif not isinstance(rest_api, basestring):
-            raise TypeError('Expected property rest_api to be a basestring')
-        __self__.rest_api = rest_api
-        """
-        The ID of the associated REST API
-        """
         __props__['restApi'] = rest_api
 
         super(Method, __self__).__init__(
@@ -133,26 +57,3 @@ class Method(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'apiKeyRequired' in outs:
-            self.api_key_required = outs['apiKeyRequired']
-        if 'authorization' in outs:
-            self.authorization = outs['authorization']
-        if 'authorizationScopes' in outs:
-            self.authorization_scopes = outs['authorizationScopes']
-        if 'authorizerId' in outs:
-            self.authorizer_id = outs['authorizerId']
-        if 'httpMethod' in outs:
-            self.http_method = outs['httpMethod']
-        if 'requestModels' in outs:
-            self.request_models = outs['requestModels']
-        if 'requestParameters' in outs:
-            self.request_parameters = outs['requestParameters']
-        if 'requestParametersInJson' in outs:
-            self.request_parameters_in_json = outs['requestParametersInJson']
-        if 'requestValidatorId' in outs:
-            self.request_validator_id = outs['requestValidatorId']
-        if 'resourceId' in outs:
-            self.resource_id = outs['resourceId']
-        if 'restApi' in outs:
-            self.rest_api = outs['restApi']

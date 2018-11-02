@@ -16,67 +16,26 @@ class InstanceProfile(pulumi.CustomResource):
         """Create a InstanceProfile resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The profile's name. If omitted, Terraform will assign a random, unique name.
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
-        if path and not isinstance(path, basestring):
-            raise TypeError('Expected property path to be a basestring')
-        __self__.path = path
-        """
-        Path in which to create the profile.
-        """
         __props__['path'] = path
 
-        if role and not isinstance(role, basestring):
-            raise TypeError('Expected property role to be a basestring')
-        __self__.role = role
-        """
-        The role name to include in the profile.
-        """
         __props__['role'] = role
 
-        if roles and not isinstance(roles, list):
-            raise TypeError('Expected property roles to be a list')
-        __self__.roles = roles
-        """
-        
-        A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-        WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
-        """
         __props__['roles'] = roles
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS to the instance profile.
-        """
-        __self__.create_date = pulumi.runtime.UNKNOWN
-        """
-        The creation timestamp of the instance profile.
-        """
-        __self__.unique_id = pulumi.runtime.UNKNOWN
-        """
-        The [unique ID][1] assigned by AWS.
-        """
+        __props__['arn'] = None
+        __props__['create_date'] = None
+        __props__['unique_id'] = None
 
         super(InstanceProfile, __self__).__init__(
             'aws:iam/instanceProfile:InstanceProfile',
@@ -84,20 +43,3 @@ class InstanceProfile(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'createDate' in outs:
-            self.create_date = outs['createDate']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'path' in outs:
-            self.path = outs['path']
-        if 'role' in outs:
-            self.role = outs['role']
-        if 'roles' in outs:
-            self.roles = outs['roles']
-        if 'uniqueId' in outs:
-            self.unique_id = outs['uniqueId']

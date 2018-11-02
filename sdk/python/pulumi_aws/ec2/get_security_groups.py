@@ -27,8 +27,8 @@ class GetSecurityGroupsResult(object):
         The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
         unless the `vpc-id` filter is also used.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

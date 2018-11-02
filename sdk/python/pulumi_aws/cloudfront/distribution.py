@@ -24,233 +24,68 @@ class Distribution(pulumi.CustomResource):
         """Create a Distribution resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if aliases and not isinstance(aliases, list):
-            raise TypeError('Expected property aliases to be a list')
-        __self__.aliases = aliases
-        """
-        Extra CNAMEs (alternate domain names), if any, for
-        this distribution.
-        """
         __props__['aliases'] = aliases
 
-        if cache_behaviors and not isinstance(cache_behaviors, list):
-            raise TypeError('Expected property cache_behaviors to be a list')
-        __self__.cache_behaviors = cache_behaviors
-        """
-        **Deprecated**, use `ordered_cache_behavior` instead.
-        """
         __props__['cacheBehaviors'] = cache_behaviors
 
-        if comment and not isinstance(comment, basestring):
-            raise TypeError('Expected property comment to be a basestring')
-        __self__.comment = comment
-        """
-        Any comments you want to include about the
-        distribution.
-        """
         __props__['comment'] = comment
 
-        if custom_error_responses and not isinstance(custom_error_responses, list):
-            raise TypeError('Expected property custom_error_responses to be a list')
-        __self__.custom_error_responses = custom_error_responses
-        """
-        One or more custom error response elements (multiples allowed).
-        """
         __props__['customErrorResponses'] = custom_error_responses
 
         if not default_cache_behavior:
             raise TypeError('Missing required property default_cache_behavior')
-        elif not isinstance(default_cache_behavior, dict):
-            raise TypeError('Expected property default_cache_behavior to be a dict')
-        __self__.default_cache_behavior = default_cache_behavior
-        """
-        The default cache behavior for this distribution (maximum
-        one).
-        """
         __props__['defaultCacheBehavior'] = default_cache_behavior
 
-        if default_root_object and not isinstance(default_root_object, basestring):
-            raise TypeError('Expected property default_root_object to be a basestring')
-        __self__.default_root_object = default_root_object
-        """
-        The object that you want CloudFront to
-        return (for example, index.html) when an end user requests the root URL.
-        """
         __props__['defaultRootObject'] = default_root_object
 
         if not enabled:
             raise TypeError('Missing required property enabled')
-        elif not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Whether the distribution is enabled to accept end
-        user requests for content.
-        """
         __props__['enabled'] = enabled
 
-        if http_version and not isinstance(http_version, basestring):
-            raise TypeError('Expected property http_version to be a basestring')
-        __self__.http_version = http_version
-        """
-        The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1` and `http2`. The default is
-        `http2`.
-        """
         __props__['httpVersion'] = http_version
 
-        if is_ipv6_enabled and not isinstance(is_ipv6_enabled, bool):
-            raise TypeError('Expected property is_ipv6_enabled to be a bool')
-        __self__.is_ipv6_enabled = is_ipv6_enabled
-        """
-        Whether the IPv6 is enabled for the distribution.
-        """
         __props__['isIpv6Enabled'] = is_ipv6_enabled
 
-        if logging_config and not isinstance(logging_config, dict):
-            raise TypeError('Expected property logging_config to be a dict')
-        __self__.logging_config = logging_config
-        """
-        The logging
-        configuration that controls how logs are written
-        to your distribution (maximum one).
-        """
         __props__['loggingConfig'] = logging_config
 
-        if ordered_cache_behaviors and not isinstance(ordered_cache_behaviors, list):
-            raise TypeError('Expected property ordered_cache_behaviors to be a list')
-        __self__.ordered_cache_behaviors = ordered_cache_behaviors
-        """
-        An ordered list of cache behaviors
-        resource for this distribution. List from top to bottom
-        +    in order of precedence. The topmost cache behavior will have precedence 0.
-        """
         __props__['orderedCacheBehaviors'] = ordered_cache_behaviors
 
         if not origins:
             raise TypeError('Missing required property origins')
-        elif not isinstance(origins, list):
-            raise TypeError('Expected property origins to be a list')
-        __self__.origins = origins
-        """
-        One or more origins for this
-        distribution (multiples allowed).
-        """
         __props__['origins'] = origins
 
-        if price_class and not isinstance(price_class, basestring):
-            raise TypeError('Expected property price_class to be a basestring')
-        __self__.price_class = price_class
-        """
-        The price class for this distribution. One of
-        `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
-        """
         __props__['priceClass'] = price_class
 
         if not restrictions:
             raise TypeError('Missing required property restrictions')
-        elif not isinstance(restrictions, dict):
-            raise TypeError('Expected property restrictions to be a dict')
-        __self__.restrictions = restrictions
-        """
-        The restriction
-        configuration for this distribution (maximum one).
-        """
         __props__['restrictions'] = restrictions
 
-        if retain_on_delete and not isinstance(retain_on_delete, bool):
-            raise TypeError('Expected property retain_on_delete to be a bool')
-        __self__.retain_on_delete = retain_on_delete
-        """
-        Disables the distribution instead of
-        deleting it when destroying the resource through Terraform. If this is set,
-        the distribution needs to be deleted manually afterwards. Default: `false`.
-        """
         __props__['retainOnDelete'] = retain_on_delete
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not viewer_certificate:
             raise TypeError('Missing required property viewer_certificate')
-        elif not isinstance(viewer_certificate, dict):
-            raise TypeError('Expected property viewer_certificate to be a dict')
-        __self__.viewer_certificate = viewer_certificate
-        """
-        The SSL
-        configuration for this distribution (maximum
-        one).
-        """
         __props__['viewerCertificate'] = viewer_certificate
 
-        if web_acl_id and not isinstance(web_acl_id, basestring):
-            raise TypeError('Expected property web_acl_id to be a basestring')
-        __self__.web_acl_id = web_acl_id
-        """
-        If you're using AWS WAF to filter CloudFront
-        requests, the Id of the AWS WAF web ACL that is associated with the
-        distribution.
-        """
         __props__['webAclId'] = web_acl_id
 
-        __self__.active_trusted_signers = pulumi.runtime.UNKNOWN
-        """
-        The key pair IDs that CloudFront is aware of for
-        each trusted signer, if the distribution is set up to serve private content
-        with signed URLs.
-        """
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-        """
-        __self__.caller_reference = pulumi.runtime.UNKNOWN
-        """
-        Internal value used by CloudFront to allow future
-        updates to the distribution configuration.
-        """
-        __self__.domain_name = pulumi.runtime.UNKNOWN
-        """
-        The DNS domain name of either the S3 bucket, or
-        web site of your custom origin.
-        """
-        __self__.etag = pulumi.runtime.UNKNOWN
-        """
-        The current version of the distribution's information. For example:
-        `E2QWRUHAPOMQZL`.
-        """
-        __self__.hosted_zone_id = pulumi.runtime.UNKNOWN
-        """
-        The CloudFront Route 53 zone ID that can be used to
-        route an [Alias Resource Record Set][7] to. This attribute is simply an
-        alias for the zone ID `Z2FDTNDATAQYW2`.
-        """
-        __self__.in_progress_validation_batches = pulumi.runtime.UNKNOWN
-        """
-        The number of invalidation batches
-        currently in progress.
-        """
-        __self__.last_modified_time = pulumi.runtime.UNKNOWN
-        """
-        The date and time the distribution was last modified.
-        """
-        __self__.status = pulumi.runtime.UNKNOWN
-        """
-        The current status of the distribution. `Deployed` if the
-        distribution's information is fully propagated throughout the Amazon
-        CloudFront system.
-        """
+        __props__['active_trusted_signers'] = None
+        __props__['arn'] = None
+        __props__['caller_reference'] = None
+        __props__['domain_name'] = None
+        __props__['etag'] = None
+        __props__['hosted_zone_id'] = None
+        __props__['in_progress_validation_batches'] = None
+        __props__['last_modified_time'] = None
+        __props__['status'] = None
 
         super(Distribution, __self__).__init__(
             'aws:cloudfront/distribution:Distribution',
@@ -258,58 +93,3 @@ class Distribution(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'activeTrustedSigners' in outs:
-            self.active_trusted_signers = outs['activeTrustedSigners']
-        if 'aliases' in outs:
-            self.aliases = outs['aliases']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'cacheBehaviors' in outs:
-            self.cache_behaviors = outs['cacheBehaviors']
-        if 'callerReference' in outs:
-            self.caller_reference = outs['callerReference']
-        if 'comment' in outs:
-            self.comment = outs['comment']
-        if 'customErrorResponses' in outs:
-            self.custom_error_responses = outs['customErrorResponses']
-        if 'defaultCacheBehavior' in outs:
-            self.default_cache_behavior = outs['defaultCacheBehavior']
-        if 'defaultRootObject' in outs:
-            self.default_root_object = outs['defaultRootObject']
-        if 'domainName' in outs:
-            self.domain_name = outs['domainName']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'etag' in outs:
-            self.etag = outs['etag']
-        if 'hostedZoneId' in outs:
-            self.hosted_zone_id = outs['hostedZoneId']
-        if 'httpVersion' in outs:
-            self.http_version = outs['httpVersion']
-        if 'inProgressValidationBatches' in outs:
-            self.in_progress_validation_batches = outs['inProgressValidationBatches']
-        if 'isIpv6Enabled' in outs:
-            self.is_ipv6_enabled = outs['isIpv6Enabled']
-        if 'lastModifiedTime' in outs:
-            self.last_modified_time = outs['lastModifiedTime']
-        if 'loggingConfig' in outs:
-            self.logging_config = outs['loggingConfig']
-        if 'orderedCacheBehaviors' in outs:
-            self.ordered_cache_behaviors = outs['orderedCacheBehaviors']
-        if 'origins' in outs:
-            self.origins = outs['origins']
-        if 'priceClass' in outs:
-            self.price_class = outs['priceClass']
-        if 'restrictions' in outs:
-            self.restrictions = outs['restrictions']
-        if 'retainOnDelete' in outs:
-            self.retain_on_delete = outs['retainOnDelete']
-        if 'status' in outs:
-            self.status = outs['status']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'viewerCertificate' in outs:
-            self.viewer_certificate = outs['viewerCertificate']
-        if 'webAclId' in outs:
-            self.web_acl_id = outs['webAclId']

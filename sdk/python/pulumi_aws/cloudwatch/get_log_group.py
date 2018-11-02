@@ -11,8 +11,8 @@ class GetLogGroupResult(object):
     A collection of values returned by getLogGroup.
     """
     def __init__(__self__, arn=None, creation_time=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the Cloudwatch log group
@@ -23,8 +23,8 @@ class GetLogGroupResult(object):
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

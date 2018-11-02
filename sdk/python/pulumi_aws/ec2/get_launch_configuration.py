@@ -41,32 +41,32 @@ class GetLaunchConfigurationResult(object):
         """
         The Ephemeral volumes on the instance.
         """
-        if iam_instance_profile and not isinstance(iam_instance_profile, basestring):
-            raise TypeError('Expected argument iam_instance_profile to be a basestring')
+        if iam_instance_profile and not isinstance(iam_instance_profile, str):
+            raise TypeError('Expected argument iam_instance_profile to be a str')
         __self__.iam_instance_profile = iam_instance_profile
         """
         The IAM Instance Profile to associate with launched instances.
         """
-        if image_id and not isinstance(image_id, basestring):
-            raise TypeError('Expected argument image_id to be a basestring')
+        if image_id and not isinstance(image_id, str):
+            raise TypeError('Expected argument image_id to be a str')
         __self__.image_id = image_id
         """
         The EC2 Image ID of the instance.
         """
-        if instance_type and not isinstance(instance_type, basestring):
-            raise TypeError('Expected argument instance_type to be a basestring')
+        if instance_type and not isinstance(instance_type, str):
+            raise TypeError('Expected argument instance_type to be a str')
         __self__.instance_type = instance_type
         """
         The Instance Type of the instance to launch.
         """
-        if key_name and not isinstance(key_name, basestring):
-            raise TypeError('Expected argument key_name to be a basestring')
+        if key_name and not isinstance(key_name, str):
+            raise TypeError('Expected argument key_name to be a str')
         __self__.key_name = key_name
         """
         The Key Name that should be used for the instance.
         """
-        if placement_tenancy and not isinstance(placement_tenancy, basestring):
-            raise TypeError('Expected argument placement_tenancy to be a basestring')
+        if placement_tenancy and not isinstance(placement_tenancy, str):
+            raise TypeError('Expected argument placement_tenancy to be a str')
         __self__.placement_tenancy = placement_tenancy
         """
         The Tenancy of the instance.
@@ -83,20 +83,20 @@ class GetLaunchConfigurationResult(object):
         """
         A list of associated Security Group IDS.
         """
-        if spot_price and not isinstance(spot_price, basestring):
-            raise TypeError('Expected argument spot_price to be a basestring')
+        if spot_price and not isinstance(spot_price, str):
+            raise TypeError('Expected argument spot_price to be a str')
         __self__.spot_price = spot_price
         """
         The Price to use for reserving Spot instances.
         """
-        if user_data and not isinstance(user_data, basestring):
-            raise TypeError('Expected argument user_data to be a basestring')
+        if user_data and not isinstance(user_data, str):
+            raise TypeError('Expected argument user_data to be a str')
         __self__.user_data = user_data
         """
         The User Data of the instance.
         """
-        if vpc_classic_link_id and not isinstance(vpc_classic_link_id, basestring):
-            raise TypeError('Expected argument vpc_classic_link_id to be a basestring')
+        if vpc_classic_link_id and not isinstance(vpc_classic_link_id, str):
+            raise TypeError('Expected argument vpc_classic_link_id to be a str')
         __self__.vpc_classic_link_id = vpc_classic_link_id
         """
         The ID of a ClassicLink-enabled VPC.
@@ -107,8 +107,8 @@ class GetLaunchConfigurationResult(object):
         """
         The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

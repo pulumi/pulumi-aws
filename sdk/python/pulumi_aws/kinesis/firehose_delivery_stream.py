@@ -16,96 +16,35 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         """Create a FirehoseDeliveryStream resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected property arn to be a basestring')
-        __self__.arn = arn
-        """
-        The Amazon Resource Name (ARN) specifying the Stream
-        """
         __props__['arn'] = arn
 
         if not destination:
             raise TypeError('Missing required property destination')
-        elif not isinstance(destination, basestring):
-            raise TypeError('Expected property destination to be a basestring')
-        __self__.destination = destination
-        """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
-        """
         __props__['destination'] = destination
 
-        if destination_id and not isinstance(destination_id, basestring):
-            raise TypeError('Expected property destination_id to be a basestring')
-        __self__.destination_id = destination_id
         __props__['destinationId'] = destination_id
 
-        if elasticsearch_configuration and not isinstance(elasticsearch_configuration, dict):
-            raise TypeError('Expected property elasticsearch_configuration to be a dict')
-        __self__.elasticsearch_configuration = elasticsearch_configuration
         __props__['elasticsearchConfiguration'] = elasticsearch_configuration
 
-        if extended_s3_configuration and not isinstance(extended_s3_configuration, dict):
-            raise TypeError('Expected property extended_s3_configuration to be a dict')
-        __self__.extended_s3_configuration = extended_s3_configuration
-        """
-        Enhanced configuration options for the s3 destination. More details are given below.
-        """
         __props__['extendedS3Configuration'] = extended_s3_configuration
 
-        if kinesis_source_configuration and not isinstance(kinesis_source_configuration, dict):
-            raise TypeError('Expected property kinesis_source_configuration to be a dict')
-        __self__.kinesis_source_configuration = kinesis_source_configuration
-        """
-        Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        """
         __props__['kinesisSourceConfiguration'] = kinesis_source_configuration
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
-        """
         __props__['name'] = name
 
-        if redshift_configuration and not isinstance(redshift_configuration, dict):
-            raise TypeError('Expected property redshift_configuration to be a dict')
-        __self__.redshift_configuration = redshift_configuration
-        """
-        Configuration options if redshift is the destination.
-        Using `redshift_configuration` requires the user to also specify a
-        `s3_configuration` block. More details are given below.
-        """
         __props__['redshiftConfiguration'] = redshift_configuration
 
-        if s3_configuration and not isinstance(s3_configuration, dict):
-            raise TypeError('Expected property s3_configuration to be a dict')
-        __self__.s3_configuration = s3_configuration
-        """
-        Configuration options for the s3 destination (or the intermediate bucket if the destination
-        is redshift). More details are given below.
-        """
         __props__['s3Configuration'] = s3_configuration
 
-        if splunk_configuration and not isinstance(splunk_configuration, dict):
-            raise TypeError('Expected property splunk_configuration to be a dict')
-        __self__.splunk_configuration = splunk_configuration
         __props__['splunkConfiguration'] = splunk_configuration
 
-        if version_id and not isinstance(version_id, basestring):
-            raise TypeError('Expected property version_id to be a basestring')
-        __self__.version_id = version_id
-        """
-        Specifies the table version for the output data schema. Defaults to `LATEST`.
-        """
         __props__['versionId'] = version_id
 
         super(FirehoseDeliveryStream, __self__).__init__(
@@ -114,26 +53,3 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'destination' in outs:
-            self.destination = outs['destination']
-        if 'destinationId' in outs:
-            self.destination_id = outs['destinationId']
-        if 'elasticsearchConfiguration' in outs:
-            self.elasticsearch_configuration = outs['elasticsearchConfiguration']
-        if 'extendedS3Configuration' in outs:
-            self.extended_s3_configuration = outs['extendedS3Configuration']
-        if 'kinesisSourceConfiguration' in outs:
-            self.kinesis_source_configuration = outs['kinesisSourceConfiguration']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'redshiftConfiguration' in outs:
-            self.redshift_configuration = outs['redshiftConfiguration']
-        if 's3Configuration' in outs:
-            self.s3_configuration = outs['s3Configuration']
-        if 'splunkConfiguration' in outs:
-            self.splunk_configuration = outs['splunkConfiguration']
-        if 'versionId' in outs:
-            self.version_id = outs['versionId']

@@ -14,19 +14,13 @@ class ConfgurationSet(pulumi.CustomResource):
         """Create a ConfgurationSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the configuration set
-        """
         __props__['name'] = name
 
         super(ConfgurationSet, __self__).__init__(
@@ -35,6 +29,3 @@ class ConfgurationSet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']

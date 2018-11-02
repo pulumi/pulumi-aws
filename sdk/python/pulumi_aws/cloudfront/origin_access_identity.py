@@ -19,48 +19,20 @@ class OriginAccessIdentity(pulumi.CustomResource):
         """Create a OriginAccessIdentity resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if comment and not isinstance(comment, basestring):
-            raise TypeError('Expected property comment to be a basestring')
-        __self__.comment = comment
-        """
-        An optional comment for the origin access identity.
-        """
         __props__['comment'] = comment
 
-        __self__.caller_reference = pulumi.runtime.UNKNOWN
-        """
-        Internal value used by CloudFront to allow future
-        updates to the origin access identity.
-        """
-        __self__.cloudfront_access_identity_path = pulumi.runtime.UNKNOWN
-        """
-        A shortcut to the full path for the
-        origin access identity to use in CloudFront, see below.
-        """
-        __self__.etag = pulumi.runtime.UNKNOWN
-        """
-        The current version of the origin access identity's information.
-        For example: `E2QWRUHAPOMQZL`.
-        """
-        __self__.iam_arn = pulumi.runtime.UNKNOWN
-        """
-        A pre-generated ARN for use in S3 bucket policies (see below).
-        Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-        E2QWRUHAPOMQZL`.
-        """
-        __self__.s3_canonical_user_id = pulumi.runtime.UNKNOWN
-        """
-        The Amazon S3 canonical user ID for the origin
-        access identity, which you use when giving the origin access identity read
-        permission to an object in Amazon S3.
-        """
+        __props__['caller_reference'] = None
+        __props__['cloudfront_access_identity_path'] = None
+        __props__['etag'] = None
+        __props__['iam_arn'] = None
+        __props__['s3_canonical_user_id'] = None
 
         super(OriginAccessIdentity, __self__).__init__(
             'aws:cloudfront/originAccessIdentity:OriginAccessIdentity',
@@ -68,16 +40,3 @@ class OriginAccessIdentity(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'callerReference' in outs:
-            self.caller_reference = outs['callerReference']
-        if 'cloudfrontAccessIdentityPath' in outs:
-            self.cloudfront_access_identity_path = outs['cloudfrontAccessIdentityPath']
-        if 'comment' in outs:
-            self.comment = outs['comment']
-        if 'etag' in outs:
-            self.etag = outs['etag']
-        if 'iamArn' in outs:
-            self.iam_arn = outs['iamArn']
-        if 's3CanonicalUserId' in outs:
-            self.s3_canonical_user_id = outs['s3CanonicalUserId']

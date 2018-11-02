@@ -20,111 +20,40 @@ class Policy(pulumi.CustomResource):
         """Create a Policy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if adjustment_type and not isinstance(adjustment_type, basestring):
-            raise TypeError('Expected property adjustment_type to be a basestring')
-        __self__.adjustment_type = adjustment_type
-        """
-        Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        """
         __props__['adjustmentType'] = adjustment_type
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        elif not isinstance(autoscaling_group_name, basestring):
-            raise TypeError('Expected property autoscaling_group_name to be a basestring')
-        __self__.autoscaling_group_name = autoscaling_group_name
-        """
-        The name of the autoscaling group.
-        """
         __props__['autoscalingGroupName'] = autoscaling_group_name
 
-        if cooldown and not isinstance(cooldown, int):
-            raise TypeError('Expected property cooldown to be a int')
-        __self__.cooldown = cooldown
-        """
-        The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        """
         __props__['cooldown'] = cooldown
 
-        if estimated_instance_warmup and not isinstance(estimated_instance_warmup, int):
-            raise TypeError('Expected property estimated_instance_warmup to be a int')
-        __self__.estimated_instance_warmup = estimated_instance_warmup
-        """
-        The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
-        """
         __props__['estimatedInstanceWarmup'] = estimated_instance_warmup
 
-        if metric_aggregation_type and not isinstance(metric_aggregation_type, basestring):
-            raise TypeError('Expected property metric_aggregation_type to be a basestring')
-        __self__.metric_aggregation_type = metric_aggregation_type
-        """
-        The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        """
         __props__['metricAggregationType'] = metric_aggregation_type
 
-        if min_adjustment_magnitude and not isinstance(min_adjustment_magnitude, int):
-            raise TypeError('Expected property min_adjustment_magnitude to be a int')
-        __self__.min_adjustment_magnitude = min_adjustment_magnitude
         __props__['minAdjustmentMagnitude'] = min_adjustment_magnitude
 
-        if min_adjustment_step and not isinstance(min_adjustment_step, int):
-            raise TypeError('Expected property min_adjustment_step to be a int')
-        __self__.min_adjustment_step = min_adjustment_step
-        """
-        Use `min_adjustment_magnitude` instead.
-        """
         __props__['minAdjustmentStep'] = min_adjustment_step
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the dimension.
-        """
         __props__['name'] = name
 
-        if policy_type and not isinstance(policy_type, basestring):
-            raise TypeError('Expected property policy_type to be a basestring')
-        __self__.policy_type = policy_type
-        """
-        The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        """
         __props__['policyType'] = policy_type
 
-        if scaling_adjustment and not isinstance(scaling_adjustment, int):
-            raise TypeError('Expected property scaling_adjustment to be a int')
-        __self__.scaling_adjustment = scaling_adjustment
-        """
-        The number of members by which to
-        scale, when the adjustment bounds are breached. A positive value scales
-        up. A negative value scales down.
-        """
         __props__['scalingAdjustment'] = scaling_adjustment
 
-        if step_adjustments and not isinstance(step_adjustments, list):
-            raise TypeError('Expected property step_adjustments to be a list')
-        __self__.step_adjustments = step_adjustments
         __props__['stepAdjustments'] = step_adjustments
 
-        if target_tracking_configuration and not isinstance(target_tracking_configuration, dict):
-            raise TypeError('Expected property target_tracking_configuration to be a dict')
-        __self__.target_tracking_configuration = target_tracking_configuration
-        """
-        A target tracking policy. These have the following structure:
-        """
         __props__['targetTrackingConfiguration'] = target_tracking_configuration
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS to the scaling policy.
-        """
+        __props__['arn'] = None
 
         super(Policy, __self__).__init__(
             'aws:autoscaling/policy:Policy',
@@ -132,30 +61,3 @@ class Policy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'adjustmentType' in outs:
-            self.adjustment_type = outs['adjustmentType']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'autoscalingGroupName' in outs:
-            self.autoscaling_group_name = outs['autoscalingGroupName']
-        if 'cooldown' in outs:
-            self.cooldown = outs['cooldown']
-        if 'estimatedInstanceWarmup' in outs:
-            self.estimated_instance_warmup = outs['estimatedInstanceWarmup']
-        if 'metricAggregationType' in outs:
-            self.metric_aggregation_type = outs['metricAggregationType']
-        if 'minAdjustmentMagnitude' in outs:
-            self.min_adjustment_magnitude = outs['minAdjustmentMagnitude']
-        if 'minAdjustmentStep' in outs:
-            self.min_adjustment_step = outs['minAdjustmentStep']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'policyType' in outs:
-            self.policy_type = outs['policyType']
-        if 'scalingAdjustment' in outs:
-            self.scaling_adjustment = outs['scalingAdjustment']
-        if 'stepAdjustments' in outs:
-            self.step_adjustments = outs['stepAdjustments']
-        if 'targetTrackingConfiguration' in outs:
-            self.target_tracking_configuration = outs['targetTrackingConfiguration']

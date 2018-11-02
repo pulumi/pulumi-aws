@@ -19,7 +19,7 @@ class SecurityGroup(pulumi.CustomResource):
         """Create a SecurityGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,31 +27,12 @@ class SecurityGroup(pulumi.CustomResource):
         __props__ = dict()
 
         description = 'Managed by Pulumi'
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        description for the cache security group. Defaults to "Managed by Terraform".
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Name for the cache security group. This value is stored as a lowercase string.
-        """
         __props__['name'] = name
 
         if not security_group_names:
             raise TypeError('Missing required property security_group_names')
-        elif not isinstance(security_group_names, list):
-            raise TypeError('Expected property security_group_names to be a list')
-        __self__.security_group_names = security_group_names
-        """
-        List of EC2 security group names to be
-        authorized for ingress to the cache security group
-        """
         __props__['securityGroupNames'] = security_group_names
 
         super(SecurityGroup, __self__).__init__(
@@ -60,10 +41,3 @@ class SecurityGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'securityGroupNames' in outs:
-            self.security_group_names = outs['securityGroupNames']

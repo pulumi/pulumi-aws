@@ -3,14 +3,14 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from adm_channel import *
-from apns_channel import *
-from apns_sandbox_channel import *
-from apns_voip_channel import *
-from apns_voip_sandbox_channel import *
-from app import *
-from baidu_channel import *
-from email_channel import *
-from event_stream import *
-from gcm_channel import *
-from sms_channel import *
+from .adm_channel import *
+from .apns_channel import *
+from .apns_sandbox_channel import *
+from .apns_voip_channel import *
+from .apns_voip_sandbox_channel import *
+from .app import *
+from .baidu_channel import *
+from .email_channel import *
+from .event_stream import *
+from .gcm_channel import *
+from .sms_channel import *

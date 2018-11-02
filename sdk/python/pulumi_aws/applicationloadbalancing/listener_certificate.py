@@ -18,7 +18,7 @@ class ListenerCertificate(pulumi.CustomResource):
         """Create a ListenerCertificate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,22 +27,10 @@ class ListenerCertificate(pulumi.CustomResource):
 
         if not certificate_arn:
             raise TypeError('Missing required property certificate_arn')
-        elif not isinstance(certificate_arn, basestring):
-            raise TypeError('Expected property certificate_arn to be a basestring')
-        __self__.certificate_arn = certificate_arn
-        """
-        The ARN of the certificate to attach to the listener.
-        """
         __props__['certificateArn'] = certificate_arn
 
         if not listener_arn:
             raise TypeError('Missing required property listener_arn')
-        elif not isinstance(listener_arn, basestring):
-            raise TypeError('Expected property listener_arn to be a basestring')
-        __self__.listener_arn = listener_arn
-        """
-        The ARN of the listener to which to attach the certificate.
-        """
         __props__['listenerArn'] = listener_arn
 
         super(ListenerCertificate, __self__).__init__(
@@ -51,8 +39,3 @@ class ListenerCertificate(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'certificateArn' in outs:
-            self.certificate_arn = outs['certificateArn']
-        if 'listenerArn' in outs:
-            self.listener_arn = outs['listenerArn']

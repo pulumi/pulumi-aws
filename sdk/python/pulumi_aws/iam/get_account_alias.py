@@ -11,14 +11,14 @@ class GetAccountAliasResult(object):
     A collection of values returned by getAccountAlias.
     """
     def __init__(__self__, account_alias=None, id=None):
-        if account_alias and not isinstance(account_alias, basestring):
-            raise TypeError('Expected argument account_alias to be a basestring')
+        if account_alias and not isinstance(account_alias, str):
+            raise TypeError('Expected argument account_alias to be a str')
         __self__.account_alias = account_alias
         """
         The alias associated with the AWS account.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

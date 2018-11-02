@@ -3,5 +3,5 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from member_account_association import *
-from s3_bucket_association import *
+from .member_account_association import *
+from .s3_bucket_association import *

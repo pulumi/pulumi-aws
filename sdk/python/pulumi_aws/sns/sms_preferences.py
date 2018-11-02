@@ -14,59 +14,23 @@ class SmsPreferences(pulumi.CustomResource):
         """Create a SmsPreferences resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if default_sender_id and not isinstance(default_sender_id, basestring):
-            raise TypeError('Expected property default_sender_id to be a basestring')
-        __self__.default_sender_id = default_sender_id
-        """
-        A string, such as your business brand, that is displayed as the sender on the receiving device.
-        """
         __props__['defaultSenderId'] = default_sender_id
 
-        if default_sms_type and not isinstance(default_sms_type, basestring):
-            raise TypeError('Expected property default_sms_type to be a basestring')
-        __self__.default_sms_type = default_sms_type
-        """
-        The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-        """
         __props__['defaultSmsType'] = default_sms_type
 
-        if delivery_status_iam_role_arn and not isinstance(delivery_status_iam_role_arn, basestring):
-            raise TypeError('Expected property delivery_status_iam_role_arn to be a basestring')
-        __self__.delivery_status_iam_role_arn = delivery_status_iam_role_arn
-        """
-        The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-        """
         __props__['deliveryStatusIamRoleArn'] = delivery_status_iam_role_arn
 
-        if delivery_status_success_sampling_rate and not isinstance(delivery_status_success_sampling_rate, basestring):
-            raise TypeError('Expected property delivery_status_success_sampling_rate to be a basestring')
-        __self__.delivery_status_success_sampling_rate = delivery_status_success_sampling_rate
-        """
-        The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        """
         __props__['deliveryStatusSuccessSamplingRate'] = delivery_status_success_sampling_rate
 
-        if monthly_spend_limit and not isinstance(monthly_spend_limit, basestring):
-            raise TypeError('Expected property monthly_spend_limit to be a basestring')
-        __self__.monthly_spend_limit = monthly_spend_limit
-        """
-        The maximum amount in USD that you are willing to spend each month to send SMS messages.
-        """
         __props__['monthlySpendLimit'] = monthly_spend_limit
 
-        if usage_report_s3_bucket and not isinstance(usage_report_s3_bucket, basestring):
-            raise TypeError('Expected property usage_report_s3_bucket to be a basestring')
-        __self__.usage_report_s3_bucket = usage_report_s3_bucket
-        """
-        The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-        """
         __props__['usageReportS3Bucket'] = usage_report_s3_bucket
 
         super(SmsPreferences, __self__).__init__(
@@ -75,16 +39,3 @@ class SmsPreferences(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'defaultSenderId' in outs:
-            self.default_sender_id = outs['defaultSenderId']
-        if 'defaultSmsType' in outs:
-            self.default_sms_type = outs['defaultSmsType']
-        if 'deliveryStatusIamRoleArn' in outs:
-            self.delivery_status_iam_role_arn = outs['deliveryStatusIamRoleArn']
-        if 'deliveryStatusSuccessSamplingRate' in outs:
-            self.delivery_status_success_sampling_rate = outs['deliveryStatusSuccessSamplingRate']
-        if 'monthlySpendLimit' in outs:
-            self.monthly_spend_limit = outs['monthlySpendLimit']
-        if 'usageReportS3Bucket' in outs:
-            self.usage_report_s3_bucket = outs['usageReportS3Bucket']

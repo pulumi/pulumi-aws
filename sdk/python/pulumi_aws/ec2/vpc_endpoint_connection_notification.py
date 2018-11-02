@@ -15,7 +15,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         """Create a VpcEndpointConnectionNotification resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -24,48 +24,18 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
         if not connection_events:
             raise TypeError('Missing required property connection_events')
-        elif not isinstance(connection_events, list):
-            raise TypeError('Expected property connection_events to be a list')
-        __self__.connection_events = connection_events
-        """
-        One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-        """
         __props__['connectionEvents'] = connection_events
 
         if not connection_notification_arn:
             raise TypeError('Missing required property connection_notification_arn')
-        elif not isinstance(connection_notification_arn, basestring):
-            raise TypeError('Expected property connection_notification_arn to be a basestring')
-        __self__.connection_notification_arn = connection_notification_arn
-        """
-        The ARN of the SNS topic for the notifications.
-        """
         __props__['connectionNotificationArn'] = connection_notification_arn
 
-        if vpc_endpoint_id and not isinstance(vpc_endpoint_id, basestring):
-            raise TypeError('Expected property vpc_endpoint_id to be a basestring')
-        __self__.vpc_endpoint_id = vpc_endpoint_id
-        """
-        The ID of the VPC Endpoint to receive notifications for.
-        """
         __props__['vpcEndpointId'] = vpc_endpoint_id
 
-        if vpc_endpoint_service_id and not isinstance(vpc_endpoint_service_id, basestring):
-            raise TypeError('Expected property vpc_endpoint_service_id to be a basestring')
-        __self__.vpc_endpoint_service_id = vpc_endpoint_service_id
-        """
-        The ID of the VPC Endpoint Service to receive notifications for.
-        """
         __props__['vpcEndpointServiceId'] = vpc_endpoint_service_id
 
-        __self__.notification_type = pulumi.runtime.UNKNOWN
-        """
-        The type of notification.
-        """
-        __self__.state = pulumi.runtime.UNKNOWN
-        """
-        The state of the notification.
-        """
+        __props__['notification_type'] = None
+        __props__['state'] = None
 
         super(VpcEndpointConnectionNotification, __self__).__init__(
             'aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification',
@@ -73,16 +43,3 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'connectionEvents' in outs:
-            self.connection_events = outs['connectionEvents']
-        if 'connectionNotificationArn' in outs:
-            self.connection_notification_arn = outs['connectionNotificationArn']
-        if 'notificationType' in outs:
-            self.notification_type = outs['notificationType']
-        if 'state' in outs:
-            self.state = outs['state']
-        if 'vpcEndpointId' in outs:
-            self.vpc_endpoint_id = outs['vpcEndpointId']
-        if 'vpcEndpointServiceId' in outs:
-            self.vpc_endpoint_service_id = outs['vpcEndpointServiceId']

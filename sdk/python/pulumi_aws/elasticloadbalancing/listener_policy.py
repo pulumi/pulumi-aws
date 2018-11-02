@@ -15,7 +15,7 @@ class ListenerPolicy(pulumi.CustomResource):
         """Create a ListenerPolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -24,30 +24,12 @@ class ListenerPolicy(pulumi.CustomResource):
 
         if not load_balancer_name:
             raise TypeError('Missing required property load_balancer_name')
-        elif not isinstance(load_balancer_name, basestring):
-            raise TypeError('Expected property load_balancer_name to be a basestring')
-        __self__.load_balancer_name = load_balancer_name
-        """
-        The load balancer to attach the policy to.
-        """
         __props__['loadBalancerName'] = load_balancer_name
 
         if not load_balancer_port:
             raise TypeError('Missing required property load_balancer_port')
-        elif not isinstance(load_balancer_port, int):
-            raise TypeError('Expected property load_balancer_port to be a int')
-        __self__.load_balancer_port = load_balancer_port
-        """
-        The load balancer listener port to apply the policy to.
-        """
         __props__['loadBalancerPort'] = load_balancer_port
 
-        if policy_names and not isinstance(policy_names, list):
-            raise TypeError('Expected property policy_names to be a list')
-        __self__.policy_names = policy_names
-        """
-        List of Policy Names to apply to the backend server.
-        """
         __props__['policyNames'] = policy_names
 
         super(ListenerPolicy, __self__).__init__(
@@ -56,10 +38,3 @@ class ListenerPolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'loadBalancerName' in outs:
-            self.load_balancer_name = outs['loadBalancerName']
-        if 'loadBalancerPort' in outs:
-            self.load_balancer_port = outs['loadBalancerPort']
-        if 'policyNames' in outs:
-            self.policy_names = outs['policyNames']

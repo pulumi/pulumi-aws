@@ -14,7 +14,7 @@ class Snapshot(pulumi.CustomResource):
         """Create a Snapshot resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,86 +23,29 @@ class Snapshot(pulumi.CustomResource):
 
         if not db_instance_identifier:
             raise TypeError('Missing required property db_instance_identifier')
-        elif not isinstance(db_instance_identifier, basestring):
-            raise TypeError('Expected property db_instance_identifier to be a basestring')
-        __self__.db_instance_identifier = db_instance_identifier
-        """
-        The DB Instance Identifier from which to take the snapshot.
-        """
         __props__['dbInstanceIdentifier'] = db_instance_identifier
 
         if not db_snapshot_identifier:
             raise TypeError('Missing required property db_snapshot_identifier')
-        elif not isinstance(db_snapshot_identifier, basestring):
-            raise TypeError('Expected property db_snapshot_identifier to be a basestring')
-        __self__.db_snapshot_identifier = db_snapshot_identifier
-        """
-        The Identifier for the snapshot.
-        """
         __props__['dbSnapshotIdentifier'] = db_snapshot_identifier
 
-        __self__.allocated_storage = pulumi.runtime.UNKNOWN
-        """
-        Specifies the allocated storage size in gigabytes (GB).
-        """
-        __self__.availability_zone = pulumi.runtime.UNKNOWN
-        """
-        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-        """
-        __self__.db_snapshot_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) for the DB snapshot.
-        """
-        __self__.encrypted = pulumi.runtime.UNKNOWN
-        """
-        Specifies whether the DB snapshot is encrypted.
-        """
-        __self__.engine = pulumi.runtime.UNKNOWN
-        """
-        Specifies the name of the database engine.
-        """
-        __self__.engine_version = pulumi.runtime.UNKNOWN
-        """
-        Specifies the version of the database engine.
-        """
-        __self__.iops = pulumi.runtime.UNKNOWN
-        """
-        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-        """
-        __self__.kms_key_id = pulumi.runtime.UNKNOWN
-        """
-        The ARN for the KMS encryption key.
-        """
-        __self__.license_model = pulumi.runtime.UNKNOWN
-        """
-        License model information for the restored DB instance.
-        """
-        __self__.option_group_name = pulumi.runtime.UNKNOWN
-        """
-        Provides the option group name for the DB snapshot.
-        """
-        __self__.port = pulumi.runtime.UNKNOWN
-        __self__.snapshot_type = pulumi.runtime.UNKNOWN
-        __self__.source_db_snapshot_identifier = pulumi.runtime.UNKNOWN
-        """
-        The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-        """
-        __self__.source_region = pulumi.runtime.UNKNOWN
-        """
-        The region that the DB snapshot was created in or copied from.
-        """
-        __self__.status = pulumi.runtime.UNKNOWN
-        """
-        Specifies the status of this DB snapshot.
-        """
-        __self__.storage_type = pulumi.runtime.UNKNOWN
-        """
-        Specifies the storage type associated with DB snapshot.
-        """
-        __self__.vpc_id = pulumi.runtime.UNKNOWN
-        """
-        Specifies the storage type associated with DB snapshot.
-        """
+        __props__['allocated_storage'] = None
+        __props__['availability_zone'] = None
+        __props__['db_snapshot_arn'] = None
+        __props__['encrypted'] = None
+        __props__['engine'] = None
+        __props__['engine_version'] = None
+        __props__['iops'] = None
+        __props__['kms_key_id'] = None
+        __props__['license_model'] = None
+        __props__['option_group_name'] = None
+        __props__['port'] = None
+        __props__['snapshot_type'] = None
+        __props__['source_db_snapshot_identifier'] = None
+        __props__['source_region'] = None
+        __props__['status'] = None
+        __props__['storage_type'] = None
+        __props__['vpc_id'] = None
 
         super(Snapshot, __self__).__init__(
             'aws:rds/snapshot:Snapshot',
@@ -110,42 +53,3 @@ class Snapshot(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allocatedStorage' in outs:
-            self.allocated_storage = outs['allocatedStorage']
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'dbInstanceIdentifier' in outs:
-            self.db_instance_identifier = outs['dbInstanceIdentifier']
-        if 'dbSnapshotArn' in outs:
-            self.db_snapshot_arn = outs['dbSnapshotArn']
-        if 'dbSnapshotIdentifier' in outs:
-            self.db_snapshot_identifier = outs['dbSnapshotIdentifier']
-        if 'encrypted' in outs:
-            self.encrypted = outs['encrypted']
-        if 'engine' in outs:
-            self.engine = outs['engine']
-        if 'engineVersion' in outs:
-            self.engine_version = outs['engineVersion']
-        if 'iops' in outs:
-            self.iops = outs['iops']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'licenseModel' in outs:
-            self.license_model = outs['licenseModel']
-        if 'optionGroupName' in outs:
-            self.option_group_name = outs['optionGroupName']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'snapshotType' in outs:
-            self.snapshot_type = outs['snapshotType']
-        if 'sourceDbSnapshotIdentifier' in outs:
-            self.source_db_snapshot_identifier = outs['sourceDbSnapshotIdentifier']
-        if 'sourceRegion' in outs:
-            self.source_region = outs['sourceRegion']
-        if 'status' in outs:
-            self.status = outs['status']
-        if 'storageType' in outs:
-            self.storage_type = outs['storageType']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

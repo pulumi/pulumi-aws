@@ -16,7 +16,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         """Create a StaticIpAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,22 +25,10 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         if not instance_name:
             raise TypeError('Missing required property instance_name')
-        elif not isinstance(instance_name, basestring):
-            raise TypeError('Expected property instance_name to be a basestring')
-        __self__.instance_name = instance_name
-        """
-        The name of the Lightsail instance to attach the IP to
-        """
         __props__['instanceName'] = instance_name
 
         if not static_ip_name:
             raise TypeError('Missing required property static_ip_name')
-        elif not isinstance(static_ip_name, basestring):
-            raise TypeError('Expected property static_ip_name to be a basestring')
-        __self__.static_ip_name = static_ip_name
-        """
-        The name of the allocated static IP
-        """
         __props__['staticIpName'] = static_ip_name
 
         super(StaticIpAttachment, __self__).__init__(
@@ -49,8 +37,3 @@ class StaticIpAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'instanceName' in outs:
-            self.instance_name = outs['instanceName']
-        if 'staticIpName' in outs:
-            self.static_ip_name = outs['staticIpName']

@@ -14,7 +14,7 @@ class Inventory(pulumi.CustomResource):
         """Create a Inventory resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,74 +23,26 @@ class Inventory(pulumi.CustomResource):
 
         if not bucket:
             raise TypeError('Missing required property bucket')
-        elif not isinstance(bucket, basestring):
-            raise TypeError('Expected property bucket to be a basestring')
-        __self__.bucket = bucket
-        """
-        The S3 bucket configuration where inventory results are published (documented below).
-        """
         __props__['bucket'] = bucket
 
         if not destination:
             raise TypeError('Missing required property destination')
-        elif not isinstance(destination, dict):
-            raise TypeError('Expected property destination to be a dict')
-        __self__.destination = destination
-        """
-        Destination bucket where inventory list files are written (documented below).
-        """
         __props__['destination'] = destination
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Specifies whether the inventory is enabled or disabled.
-        """
         __props__['enabled'] = enabled
 
-        if filter and not isinstance(filter, dict):
-            raise TypeError('Expected property filter to be a dict')
-        __self__.filter = filter
-        """
-        Object filtering that accepts a prefix (documented below).
-        """
         __props__['filter'] = filter
 
         if not included_object_versions:
             raise TypeError('Missing required property included_object_versions')
-        elif not isinstance(included_object_versions, basestring):
-            raise TypeError('Expected property included_object_versions to be a basestring')
-        __self__.included_object_versions = included_object_versions
-        """
-        Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
-        """
         __props__['includedObjectVersions'] = included_object_versions
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Unique identifier of the inventory configuration for the bucket.
-        """
         __props__['name'] = name
 
-        if optional_fields and not isinstance(optional_fields, list):
-            raise TypeError('Expected property optional_fields to be a list')
-        __self__.optional_fields = optional_fields
-        """
-        Contains the optional fields that are included in the inventory results.
-        """
         __props__['optionalFields'] = optional_fields
 
         if not schedule:
             raise TypeError('Missing required property schedule')
-        elif not isinstance(schedule, dict):
-            raise TypeError('Expected property schedule to be a dict')
-        __self__.schedule = schedule
-        """
-        Contains the frequency for generating inventory results (documented below).
-        """
         __props__['schedule'] = schedule
 
         super(Inventory, __self__).__init__(
@@ -99,20 +51,3 @@ class Inventory(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'bucket' in outs:
-            self.bucket = outs['bucket']
-        if 'destination' in outs:
-            self.destination = outs['destination']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'filter' in outs:
-            self.filter = outs['filter']
-        if 'includedObjectVersions' in outs:
-            self.included_object_versions = outs['includedObjectVersions']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'optionalFields' in outs:
-            self.optional_fields = outs['optionalFields']
-        if 'schedule' in outs:
-            self.schedule = outs['schedule']

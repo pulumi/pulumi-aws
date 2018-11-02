@@ -640,7 +640,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "4bee073ca625f06d09fc9d42a09294526d35928f"
+  revision = "1b0887ef14be123f06c58c59c4133e5f26f65b10"
 
 [[projects]]
   branch = "master"

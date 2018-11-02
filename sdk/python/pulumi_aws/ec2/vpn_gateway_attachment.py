@@ -19,7 +19,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         """Create a VpnGatewayAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -28,22 +28,10 @@ class VpnGatewayAttachment(pulumi.CustomResource):
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The ID of the VPC.
-        """
         __props__['vpcId'] = vpc_id
 
         if not vpn_gateway_id:
             raise TypeError('Missing required property vpn_gateway_id')
-        elif not isinstance(vpn_gateway_id, basestring):
-            raise TypeError('Expected property vpn_gateway_id to be a basestring')
-        __self__.vpn_gateway_id = vpn_gateway_id
-        """
-        The ID of the Virtual Private Gateway.
-        """
         __props__['vpnGatewayId'] = vpn_gateway_id
 
         super(VpnGatewayAttachment, __self__).__init__(
@@ -52,8 +40,3 @@ class VpnGatewayAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']
-        if 'vpnGatewayId' in outs:
-            self.vpn_gateway_id = outs['vpnGatewayId']

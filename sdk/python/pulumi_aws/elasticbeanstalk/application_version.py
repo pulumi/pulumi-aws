@@ -29,7 +29,7 @@ class ApplicationVersion(pulumi.CustomResource):
         """Create a ApplicationVersion resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -38,57 +38,20 @@ class ApplicationVersion(pulumi.CustomResource):
 
         if not application:
             raise TypeError('Missing required property application')
-        elif not isinstance(application, basestring):
-            raise TypeError('Expected property application to be a basestring')
-        __self__.application = application
-        """
-        Name of the Beanstalk Application the version is associated with.
-        """
         __props__['application'] = application
 
         if not bucket:
             raise TypeError('Missing required property bucket')
-        elif not isinstance(bucket, basestring):
-            raise TypeError('Expected property bucket to be a basestring')
-        __self__.bucket = bucket
-        """
-        S3 bucket that contains the Application Version source bundle.
-        """
         __props__['bucket'] = bucket
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Short description of the Application Version.
-        """
         __props__['description'] = description
 
-        if force_delete and not isinstance(force_delete, bool):
-            raise TypeError('Expected property force_delete to be a bool')
-        __self__.force_delete = force_delete
-        """
-        On delete, force an Application Version to be deleted when it may be in use
-        by multiple Elastic Beanstalk Environments.
-        """
         __props__['forceDelete'] = force_delete
 
         if not key:
             raise TypeError('Missing required property key')
-        elif not isinstance(key, basestring):
-            raise TypeError('Expected property key to be a basestring')
-        __self__.key = key
-        """
-        S3 object that is the Application Version source bundle.
-        """
         __props__['key'] = key
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A unique name for the this Application Version.
-        """
         __props__['name'] = name
 
         super(ApplicationVersion, __self__).__init__(
@@ -97,16 +60,3 @@ class ApplicationVersion(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'application' in outs:
-            self.application = outs['application']
-        if 'bucket' in outs:
-            self.bucket = outs['bucket']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'forceDelete' in outs:
-            self.force_delete = outs['forceDelete']
-        if 'key' in outs:
-            self.key = outs['key']
-        if 'name' in outs:
-            self.name = outs['name']

@@ -3,16 +3,16 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from dashboard import *
-from event_permission import *
-from event_rule import *
-from event_target import *
-from log_destination import *
-from log_destination_policy import *
-from log_group import *
-from log_metric_filter import *
-from log_resource_policy import *
-from log_stream import *
-from log_subscription_filter import *
-from metric_alarm import *
-from get_log_group import *
+from .dashboard import *
+from .event_permission import *
+from .event_rule import *
+from .event_target import *
+from .log_destination import *
+from .log_destination_policy import *
+from .log_group import *
+from .log_metric_filter import *
+from .log_resource_policy import *
+from .log_stream import *
+from .log_subscription_filter import *
+from .metric_alarm import *
+from .get_log_group import *

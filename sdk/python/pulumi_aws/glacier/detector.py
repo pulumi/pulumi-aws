@@ -16,25 +16,16 @@ class Detector(pulumi.CustomResource):
         """Create a Detector resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if enable and not isinstance(enable, bool):
-            raise TypeError('Expected property enable to be a bool')
-        __self__.enable = enable
-        """
-        Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-        """
         __props__['enable'] = enable
 
-        __self__.account_id = pulumi.runtime.UNKNOWN
-        """
-        The AWS account ID of the GuardDuty detector
-        """
+        __props__['account_id'] = None
 
         super(Detector, __self__).__init__(
             'aws:glacier/detector:Detector',
@@ -42,8 +33,3 @@ class Detector(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accountId' in outs:
-            self.account_id = outs['accountId']
-        if 'enable' in outs:
-            self.enable = outs['enable']

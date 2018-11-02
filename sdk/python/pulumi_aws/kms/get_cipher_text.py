@@ -11,14 +11,14 @@ class GetCipherTextResult(object):
     A collection of values returned by getCipherText.
     """
     def __init__(__self__, ciphertext_blob=None, id=None):
-        if ciphertext_blob and not isinstance(ciphertext_blob, basestring):
-            raise TypeError('Expected argument ciphertext_blob to be a basestring')
+        if ciphertext_blob and not isinstance(ciphertext_blob, str):
+            raise TypeError('Expected argument ciphertext_blob to be a str')
         __self__.ciphertext_blob = ciphertext_blob
         """
         Base64 encoded ciphertext
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

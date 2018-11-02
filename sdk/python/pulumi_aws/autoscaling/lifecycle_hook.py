@@ -26,7 +26,7 @@ class LifecycleHook(pulumi.CustomResource):
         """Create a LifecycleHook resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -35,70 +35,22 @@ class LifecycleHook(pulumi.CustomResource):
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        elif not isinstance(autoscaling_group_name, basestring):
-            raise TypeError('Expected property autoscaling_group_name to be a basestring')
-        __self__.autoscaling_group_name = autoscaling_group_name
-        """
-        The name of the Auto Scaling group to which you want to assign the lifecycle hook
-        """
         __props__['autoscalingGroupName'] = autoscaling_group_name
 
-        if default_result and not isinstance(default_result, basestring):
-            raise TypeError('Expected property default_result to be a basestring')
-        __self__.default_result = default_result
-        """
-        Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
-        """
         __props__['defaultResult'] = default_result
 
-        if heartbeat_timeout and not isinstance(heartbeat_timeout, int):
-            raise TypeError('Expected property heartbeat_timeout to be a int')
-        __self__.heartbeat_timeout = heartbeat_timeout
-        """
-        Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
-        """
         __props__['heartbeatTimeout'] = heartbeat_timeout
 
         if not lifecycle_transition:
             raise TypeError('Missing required property lifecycle_transition')
-        elif not isinstance(lifecycle_transition, basestring):
-            raise TypeError('Expected property lifecycle_transition to be a basestring')
-        __self__.lifecycle_transition = lifecycle_transition
-        """
-        The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
-        """
         __props__['lifecycleTransition'] = lifecycle_transition
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the lifecycle hook.
-        """
         __props__['name'] = name
 
-        if notification_metadata and not isinstance(notification_metadata, basestring):
-            raise TypeError('Expected property notification_metadata to be a basestring')
-        __self__.notification_metadata = notification_metadata
-        """
-        Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
-        """
         __props__['notificationMetadata'] = notification_metadata
 
-        if notification_target_arn and not isinstance(notification_target_arn, basestring):
-            raise TypeError('Expected property notification_target_arn to be a basestring')
-        __self__.notification_target_arn = notification_target_arn
-        """
-        The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-        """
         __props__['notificationTargetArn'] = notification_target_arn
 
-        if role_arn and not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-        """
         __props__['roleArn'] = role_arn
 
         super(LifecycleHook, __self__).__init__(
@@ -107,20 +59,3 @@ class LifecycleHook(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'autoscalingGroupName' in outs:
-            self.autoscaling_group_name = outs['autoscalingGroupName']
-        if 'defaultResult' in outs:
-            self.default_result = outs['defaultResult']
-        if 'heartbeatTimeout' in outs:
-            self.heartbeat_timeout = outs['heartbeatTimeout']
-        if 'lifecycleTransition' in outs:
-            self.lifecycle_transition = outs['lifecycleTransition']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'notificationMetadata' in outs:
-            self.notification_metadata = outs['notificationMetadata']
-        if 'notificationTargetArn' in outs:
-            self.notification_target_arn = outs['notificationTargetArn']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']

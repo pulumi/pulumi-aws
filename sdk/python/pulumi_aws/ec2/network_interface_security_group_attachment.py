@@ -26,7 +26,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         """Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -35,22 +35,10 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
 
         if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
-        elif not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected property network_interface_id to be a basestring')
-        __self__.network_interface_id = network_interface_id
-        """
-        The ID of the network interface to attach to.
-        """
         __props__['networkInterfaceId'] = network_interface_id
 
         if not security_group_id:
             raise TypeError('Missing required property security_group_id')
-        elif not isinstance(security_group_id, basestring):
-            raise TypeError('Expected property security_group_id to be a basestring')
-        __self__.security_group_id = security_group_id
-        """
-        The ID of the security group.
-        """
         __props__['securityGroupId'] = security_group_id
 
         super(NetworkInterfaceSecurityGroupAttachment, __self__).__init__(
@@ -59,8 +47,3 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'networkInterfaceId' in outs:
-            self.network_interface_id = outs['networkInterfaceId']
-        if 'securityGroupId' in outs:
-            self.security_group_id = outs['securityGroupId']

@@ -16,48 +16,23 @@ class Alias(pulumi.CustomResource):
         """Create a Alias resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
         if not target_key_id:
             raise TypeError('Missing required property target_key_id')
-        elif not isinstance(target_key_id, basestring):
-            raise TypeError('Expected property target_key_id to be a basestring')
-        __self__.target_key_id = target_key_id
-        """
-        Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        """
         __props__['targetKeyId'] = target_key_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) of the key alias.
-        """
-        __self__.target_key_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) of the target key identifier.
-        """
+        __props__['arn'] = None
+        __props__['target_key_arn'] = None
 
         super(Alias, __self__).__init__(
             'aws:kms/alias:Alias',
@@ -65,14 +40,3 @@ class Alias(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'targetKeyArn' in outs:
-            self.target_key_arn = outs['targetKeyArn']
-        if 'targetKeyId' in outs:
-            self.target_key_id = outs['targetKeyId']

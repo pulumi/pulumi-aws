@@ -14,125 +14,41 @@ class ReceiptRule(pulumi.CustomResource):
         """Create a ReceiptRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if add_header_actions and not isinstance(add_header_actions, list):
-            raise TypeError('Expected property add_header_actions to be a list')
-        __self__.add_header_actions = add_header_actions
-        """
-        A list of Add Header Action blocks. Documented below.
-        """
         __props__['addHeaderActions'] = add_header_actions
 
-        if after and not isinstance(after, basestring):
-            raise TypeError('Expected property after to be a basestring')
-        __self__.after = after
-        """
-        The name of the rule to place this rule after
-        """
         __props__['after'] = after
 
-        if bounce_actions and not isinstance(bounce_actions, list):
-            raise TypeError('Expected property bounce_actions to be a list')
-        __self__.bounce_actions = bounce_actions
-        """
-        A list of Bounce Action blocks. Documented below.
-        """
         __props__['bounceActions'] = bounce_actions
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        If true, the rule will be enabled
-        """
         __props__['enabled'] = enabled
 
-        if lambda_actions and not isinstance(lambda_actions, list):
-            raise TypeError('Expected property lambda_actions to be a list')
-        __self__.lambda_actions = lambda_actions
-        """
-        A list of Lambda Action blocks. Documented below.
-        """
         __props__['lambdaActions'] = lambda_actions
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the rule
-        """
         __props__['name'] = name
 
-        if recipients and not isinstance(recipients, list):
-            raise TypeError('Expected property recipients to be a list')
-        __self__.recipients = recipients
-        """
-        A list of email addresses
-        """
         __props__['recipients'] = recipients
 
         if not rule_set_name:
             raise TypeError('Missing required property rule_set_name')
-        elif not isinstance(rule_set_name, basestring):
-            raise TypeError('Expected property rule_set_name to be a basestring')
-        __self__.rule_set_name = rule_set_name
-        """
-        The name of the rule set
-        """
         __props__['ruleSetName'] = rule_set_name
 
-        if s3_actions and not isinstance(s3_actions, list):
-            raise TypeError('Expected property s3_actions to be a list')
-        __self__.s3_actions = s3_actions
-        """
-        A list of S3 Action blocks. Documented below.
-        """
         __props__['s3Actions'] = s3_actions
 
-        if scan_enabled and not isinstance(scan_enabled, bool):
-            raise TypeError('Expected property scan_enabled to be a bool')
-        __self__.scan_enabled = scan_enabled
-        """
-        If true, incoming emails will be scanned for spam and viruses
-        """
         __props__['scanEnabled'] = scan_enabled
 
-        if sns_actions and not isinstance(sns_actions, list):
-            raise TypeError('Expected property sns_actions to be a list')
-        __self__.sns_actions = sns_actions
-        """
-        A list of SNS Action blocks. Documented below.
-        """
         __props__['snsActions'] = sns_actions
 
-        if stop_actions and not isinstance(stop_actions, list):
-            raise TypeError('Expected property stop_actions to be a list')
-        __self__.stop_actions = stop_actions
-        """
-        A list of Stop Action blocks. Documented below.
-        """
         __props__['stopActions'] = stop_actions
 
-        if tls_policy and not isinstance(tls_policy, basestring):
-            raise TypeError('Expected property tls_policy to be a basestring')
-        __self__.tls_policy = tls_policy
-        """
-        Require or Optional
-        """
         __props__['tlsPolicy'] = tls_policy
 
-        if workmail_actions and not isinstance(workmail_actions, list):
-            raise TypeError('Expected property workmail_actions to be a list')
-        __self__.workmail_actions = workmail_actions
-        """
-        A list of WorkMail Action blocks. Documented below.
-        """
         __props__['workmailActions'] = workmail_actions
 
         super(ReceiptRule, __self__).__init__(
@@ -141,32 +57,3 @@ class ReceiptRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'addHeaderActions' in outs:
-            self.add_header_actions = outs['addHeaderActions']
-        if 'after' in outs:
-            self.after = outs['after']
-        if 'bounceActions' in outs:
-            self.bounce_actions = outs['bounceActions']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'lambdaActions' in outs:
-            self.lambda_actions = outs['lambdaActions']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'recipients' in outs:
-            self.recipients = outs['recipients']
-        if 'ruleSetName' in outs:
-            self.rule_set_name = outs['ruleSetName']
-        if 's3Actions' in outs:
-            self.s3_actions = outs['s3Actions']
-        if 'scanEnabled' in outs:
-            self.scan_enabled = outs['scanEnabled']
-        if 'snsActions' in outs:
-            self.sns_actions = outs['snsActions']
-        if 'stopActions' in outs:
-            self.stop_actions = outs['stopActions']
-        if 'tlsPolicy' in outs:
-            self.tls_policy = outs['tlsPolicy']
-        if 'workmailActions' in outs:
-            self.workmail_actions = outs['workmailActions']

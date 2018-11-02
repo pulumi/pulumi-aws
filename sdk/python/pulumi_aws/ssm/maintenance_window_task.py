@@ -14,105 +14,45 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         """Create a MaintenanceWindowTask resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if logging_info and not isinstance(logging_info, dict):
-            raise TypeError('Expected property logging_info to be a dict')
-        __self__.logging_info = logging_info
-        """
-        A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
-        """
         __props__['loggingInfo'] = logging_info
 
         if not max_concurrency:
             raise TypeError('Missing required property max_concurrency')
-        elif not isinstance(max_concurrency, basestring):
-            raise TypeError('Expected property max_concurrency to be a basestring')
-        __self__.max_concurrency = max_concurrency
-        """
-        The maximum number of targets this task can be run for in parallel.
-        """
         __props__['maxConcurrency'] = max_concurrency
 
         if not max_errors:
             raise TypeError('Missing required property max_errors')
-        elif not isinstance(max_errors, basestring):
-            raise TypeError('Expected property max_errors to be a basestring')
-        __self__.max_errors = max_errors
-        """
-        The maximum number of errors allowed before this task stops being scheduled.
-        """
         __props__['maxErrors'] = max_errors
 
-        if priority and not isinstance(priority, int):
-            raise TypeError('Expected property priority to be a int')
-        __self__.priority = priority
-        """
-        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        """
         __props__['priority'] = priority
 
         if not service_role_arn:
             raise TypeError('Missing required property service_role_arn')
-        elif not isinstance(service_role_arn, basestring):
-            raise TypeError('Expected property service_role_arn to be a basestring')
-        __self__.service_role_arn = service_role_arn
-        """
-        The role that should be assumed when executing the task.
-        """
         __props__['serviceRoleArn'] = service_role_arn
 
         if not targets:
             raise TypeError('Missing required property targets')
-        elif not isinstance(targets, list):
-            raise TypeError('Expected property targets to be a list')
-        __self__.targets = targets
-        """
-        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-        """
         __props__['targets'] = targets
 
         if not task_arn:
             raise TypeError('Missing required property task_arn')
-        elif not isinstance(task_arn, basestring):
-            raise TypeError('Expected property task_arn to be a basestring')
-        __self__.task_arn = task_arn
-        """
-        The ARN of the task to execute.
-        """
         __props__['taskArn'] = task_arn
 
-        if task_parameters and not isinstance(task_parameters, list):
-            raise TypeError('Expected property task_parameters to be a list')
-        __self__.task_parameters = task_parameters
-        """
-        A structure containing information about parameters required by the particular `task_arn`. Documented below.
-        """
         __props__['taskParameters'] = task_parameters
 
         if not task_type:
             raise TypeError('Missing required property task_type')
-        elif not isinstance(task_type, basestring):
-            raise TypeError('Expected property task_type to be a basestring')
-        __self__.task_type = task_type
-        """
-        The type of task being registered. The only allowed value is `RUN_COMMAND`.
-        """
         __props__['taskType'] = task_type
 
         if not window_id:
             raise TypeError('Missing required property window_id')
-        elif not isinstance(window_id, basestring):
-            raise TypeError('Expected property window_id to be a basestring')
-        __self__.window_id = window_id
-        """
-        The Id of the maintenance window to register the task with.
-        """
         __props__['windowId'] = window_id
 
         super(MaintenanceWindowTask, __self__).__init__(
@@ -121,24 +61,3 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'loggingInfo' in outs:
-            self.logging_info = outs['loggingInfo']
-        if 'maxConcurrency' in outs:
-            self.max_concurrency = outs['maxConcurrency']
-        if 'maxErrors' in outs:
-            self.max_errors = outs['maxErrors']
-        if 'priority' in outs:
-            self.priority = outs['priority']
-        if 'serviceRoleArn' in outs:
-            self.service_role_arn = outs['serviceRoleArn']
-        if 'targets' in outs:
-            self.targets = outs['targets']
-        if 'taskArn' in outs:
-            self.task_arn = outs['taskArn']
-        if 'taskParameters' in outs:
-            self.task_parameters = outs['taskParameters']
-        if 'taskType' in outs:
-            self.task_type = outs['taskType']
-        if 'windowId' in outs:
-            self.window_id = outs['windowId']

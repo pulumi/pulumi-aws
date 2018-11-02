@@ -16,7 +16,7 @@ class Member(pulumi.CustomResource):
         """Create a Member resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,62 +25,23 @@ class Member(pulumi.CustomResource):
 
         if not account_id:
             raise TypeError('Missing required property account_id')
-        elif not isinstance(account_id, basestring):
-            raise TypeError('Expected property account_id to be a basestring')
-        __self__.account_id = account_id
-        """
-        AWS account ID for member account.
-        """
         __props__['accountId'] = account_id
 
         if not detector_id:
             raise TypeError('Missing required property detector_id')
-        elif not isinstance(detector_id, basestring):
-            raise TypeError('Expected property detector_id to be a basestring')
-        __self__.detector_id = detector_id
-        """
-        The detector ID of the GuardDuty account where you want to create member accounts.
-        """
         __props__['detectorId'] = detector_id
 
-        if disable_email_notification and not isinstance(disable_email_notification, bool):
-            raise TypeError('Expected property disable_email_notification to be a bool')
-        __self__.disable_email_notification = disable_email_notification
-        """
-        Boolean whether an email notification is sent to the accounts. Defaults to `false`.
-        """
         __props__['disableEmailNotification'] = disable_email_notification
 
         if not email:
             raise TypeError('Missing required property email')
-        elif not isinstance(email, basestring):
-            raise TypeError('Expected property email to be a basestring')
-        __self__.email = email
-        """
-        Email address for member account.
-        """
         __props__['email'] = email
 
-        if invitation_message and not isinstance(invitation_message, basestring):
-            raise TypeError('Expected property invitation_message to be a basestring')
-        __self__.invitation_message = invitation_message
-        """
-        Message for invitation.
-        """
         __props__['invitationMessage'] = invitation_message
 
-        if invite and not isinstance(invite, bool):
-            raise TypeError('Expected property invite to be a bool')
-        __self__.invite = invite
-        """
-        Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-        """
         __props__['invite'] = invite
 
-        __self__.relationship_status = pulumi.runtime.UNKNOWN
-        """
-        The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-        """
+        __props__['relationship_status'] = None
 
         super(Member, __self__).__init__(
             'aws:glacier/member:Member',
@@ -88,18 +49,3 @@ class Member(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accountId' in outs:
-            self.account_id = outs['accountId']
-        if 'detectorId' in outs:
-            self.detector_id = outs['detectorId']
-        if 'disableEmailNotification' in outs:
-            self.disable_email_notification = outs['disableEmailNotification']
-        if 'email' in outs:
-            self.email = outs['email']
-        if 'invitationMessage' in outs:
-            self.invitation_message = outs['invitationMessage']
-        if 'invite' in outs:
-            self.invite = outs['invite']
-        if 'relationshipStatus' in outs:
-            self.relationship_status = outs['relationshipStatus']

@@ -38,63 +38,26 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         """Create a DefaultSecurityGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if egress and not isinstance(egress, list):
-            raise TypeError('Expected property egress to be a list')
-        __self__.egress = egress
-        """
-        Can be specified multiple times for each
-        egress rule. Each egress block supports fields documented below.
-        """
         __props__['egress'] = egress
 
-        if ingress and not isinstance(ingress, list):
-            raise TypeError('Expected property ingress to be a list')
-        __self__.ingress = ingress
-        """
-        Can be specified multiple times for each
-        ingress rule. Each ingress block supports fields documented below.
-        """
         __props__['ingress'] = ingress
 
-        if revoke_rules_on_delete and not isinstance(revoke_rules_on_delete, bool):
-            raise TypeError('Expected property revoke_rules_on_delete to be a bool')
-        __self__.revoke_rules_on_delete = revoke_rules_on_delete
         __props__['revokeRulesOnDelete'] = revoke_rules_on_delete
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The VPC ID. **Note that changing
-        the `vpc_id` will _not_ restore any default security group rules that were
-        modified, added, or removed.** It will be left in its current state
-        """
         __props__['vpcId'] = vpc_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        __self__.name = pulumi.runtime.UNKNOWN
-        """
-        The name of the security group
-        """
-        __self__.owner_id = pulumi.runtime.UNKNOWN
-        """
-        The owner ID.
-        """
+        __props__['arn'] = None
+        __props__['name'] = None
+        __props__['owner_id'] = None
 
         super(DefaultSecurityGroup, __self__).__init__(
             'aws:ec2/defaultSecurityGroup:DefaultSecurityGroup',
@@ -102,20 +65,3 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'egress' in outs:
-            self.egress = outs['egress']
-        if 'ingress' in outs:
-            self.ingress = outs['ingress']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'ownerId' in outs:
-            self.owner_id = outs['ownerId']
-        if 'revokeRulesOnDelete' in outs:
-            self.revoke_rules_on_delete = outs['revokeRulesOnDelete']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

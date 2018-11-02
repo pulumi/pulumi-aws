@@ -16,27 +16,16 @@ class Account(pulumi.CustomResource):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if cloudwatch_role_arn and not isinstance(cloudwatch_role_arn, basestring):
-            raise TypeError('Expected property cloudwatch_role_arn to be a basestring')
-        __self__.cloudwatch_role_arn = cloudwatch_role_arn
-        """
-        The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
-        See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
-        Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        """
         __props__['cloudwatchRoleArn'] = cloudwatch_role_arn
 
-        __self__.throttle_settings = pulumi.runtime.UNKNOWN
-        """
-        Account-Level throttle settings. See exported fields below.
-        """
+        __props__['throttle_settings'] = None
 
         super(Account, __self__).__init__(
             'aws:apigateway/account:Account',
@@ -44,8 +33,3 @@ class Account(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cloudwatchRoleArn' in outs:
-            self.cloudwatch_role_arn = outs['cloudwatchRoleArn']
-        if 'throttleSettings' in outs:
-            self.throttle_settings = outs['throttleSettings']

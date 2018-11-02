@@ -14,27 +14,16 @@ class DelegationSet(pulumi.CustomResource):
         """Create a DelegationSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if reference_name and not isinstance(reference_name, basestring):
-            raise TypeError('Expected property reference_name to be a basestring')
-        __self__.reference_name = reference_name
-        """
-        This is a reference name used in Caller Reference
-        (helpful for identifying single delegation set amongst others)
-        """
         __props__['referenceName'] = reference_name
 
-        __self__.name_servers = pulumi.runtime.UNKNOWN
-        """
-        A list of authoritative name servers for the hosted zone
-        (effectively a list of NS records).
-        """
+        __props__['name_servers'] = None
 
         super(DelegationSet, __self__).__init__(
             'aws:route53/delegationSet:DelegationSet',
@@ -42,8 +31,3 @@ class DelegationSet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'nameServers' in outs:
-            self.name_servers = outs['nameServers']
-        if 'referenceName' in outs:
-            self.reference_name = outs['referenceName']

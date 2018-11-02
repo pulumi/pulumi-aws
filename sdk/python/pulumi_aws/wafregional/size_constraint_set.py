@@ -14,27 +14,15 @@ class SizeConstraintSet(pulumi.CustomResource):
         """Create a SizeConstraintSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name or description of the Size Constraint Set.
-        """
         __props__['name'] = name
 
-        if size_constraints and not isinstance(size_constraints, list):
-            raise TypeError('Expected property size_constraints to be a list')
-        __self__.size_constraints = size_constraints
-        """
-        Specifies the parts of web requests that you want to inspect the size of.
-        """
         __props__['sizeConstraints'] = size_constraints
 
         super(SizeConstraintSet, __self__).__init__(
@@ -43,8 +31,3 @@ class SizeConstraintSet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'sizeConstraints' in outs:
-            self.size_constraints = outs['sizeConstraints']

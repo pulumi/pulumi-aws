@@ -14,7 +14,7 @@ class ContainerPolicy(pulumi.CustomResource):
         """Create a ContainerPolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,22 +23,10 @@ class ContainerPolicy(pulumi.CustomResource):
 
         if not container_name:
             raise TypeError('Missing required property container_name')
-        elif not isinstance(container_name, basestring):
-            raise TypeError('Expected property container_name to be a basestring')
-        __self__.container_name = container_name
-        """
-        The name of the container.
-        """
         __props__['containerName'] = container_name
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-        """
         __props__['policy'] = policy
 
         super(ContainerPolicy, __self__).__init__(
@@ -47,8 +35,3 @@ class ContainerPolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'containerName' in outs:
-            self.container_name = outs['containerName']
-        if 'policy' in outs:
-            self.policy = outs['policy']

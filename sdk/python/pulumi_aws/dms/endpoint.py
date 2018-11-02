@@ -17,151 +17,52 @@ class Endpoint(pulumi.CustomResource):
         """Create a Endpoint resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if certificate_arn and not isinstance(certificate_arn, basestring):
-            raise TypeError('Expected property certificate_arn to be a basestring')
-        __self__.certificate_arn = certificate_arn
-        """
-        The Amazon Resource Name (ARN) for the certificate.
-        """
         __props__['certificateArn'] = certificate_arn
 
-        if database_name and not isinstance(database_name, basestring):
-            raise TypeError('Expected property database_name to be a basestring')
-        __self__.database_name = database_name
-        """
-        The name of the endpoint database.
-        """
         __props__['databaseName'] = database_name
 
         if not endpoint_id:
             raise TypeError('Missing required property endpoint_id')
-        elif not isinstance(endpoint_id, basestring):
-            raise TypeError('Expected property endpoint_id to be a basestring')
-        __self__.endpoint_id = endpoint_id
-        """
-        The database endpoint identifier.
-        """
         __props__['endpointId'] = endpoint_id
 
         if not endpoint_type:
             raise TypeError('Missing required property endpoint_type')
-        elif not isinstance(endpoint_type, basestring):
-            raise TypeError('Expected property endpoint_type to be a basestring')
-        __self__.endpoint_type = endpoint_type
-        """
-        The type of endpoint. Can be one of `source | target`.
-        """
         __props__['endpointType'] = endpoint_type
 
         if not engine_name:
             raise TypeError('Missing required property engine_name')
-        elif not isinstance(engine_name, basestring):
-            raise TypeError('Expected property engine_name to be a basestring')
-        __self__.engine_name = engine_name
-        """
-        The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb | mongodb | s3 | azuredb`.
-        """
         __props__['engineName'] = engine_name
 
-        if extra_connection_attributes and not isinstance(extra_connection_attributes, basestring):
-            raise TypeError('Expected property extra_connection_attributes to be a basestring')
-        __self__.extra_connection_attributes = extra_connection_attributes
-        """
-        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
-        """
         __props__['extraConnectionAttributes'] = extra_connection_attributes
 
-        if kms_key_arn and not isinstance(kms_key_arn, basestring):
-            raise TypeError('Expected property kms_key_arn to be a basestring')
-        __self__.kms_key_arn = kms_key_arn
-        """
-        The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        """
         __props__['kmsKeyArn'] = kms_key_arn
 
-        if mongodb_settings and not isinstance(mongodb_settings, dict):
-            raise TypeError('Expected property mongodb_settings to be a dict')
-        __self__.mongodb_settings = mongodb_settings
-        """
-        Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `PASSWORD`), `auth_mechanism` (default: `DEFAULT`), `nesting_level` (default: `NONE`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
-        """
         __props__['mongodbSettings'] = mongodb_settings
 
-        if password and not isinstance(password, basestring):
-            raise TypeError('Expected property password to be a basestring')
-        __self__.password = password
-        """
-        The password to be used to login to the endpoint database.
-        """
         __props__['password'] = password
 
-        if port and not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port used by the endpoint database.
-        """
         __props__['port'] = port
 
-        if s3_settings and not isinstance(s3_settings, dict):
-            raise TypeError('Expected property s3_settings to be a dict')
-        __self__.s3_settings = s3_settings
-        """
-        Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
-        """
         __props__['s3Settings'] = s3_settings
 
-        if server_name and not isinstance(server_name, basestring):
-            raise TypeError('Expected property server_name to be a basestring')
-        __self__.server_name = server_name
-        """
-        The host name of the server.
-        """
         __props__['serverName'] = server_name
 
-        if service_access_role and not isinstance(service_access_role, basestring):
-            raise TypeError('Expected property service_access_role to be a basestring')
-        __self__.service_access_role = service_access_role
-        """
-        The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
-        """
         __props__['serviceAccessRole'] = service_access_role
 
-        if ssl_mode and not isinstance(ssl_mode, basestring):
-            raise TypeError('Expected property ssl_mode to be a basestring')
-        __self__.ssl_mode = ssl_mode
-        """
-        The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
-        """
         __props__['sslMode'] = ssl_mode
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if username and not isinstance(username, basestring):
-            raise TypeError('Expected property username to be a basestring')
-        __self__.username = username
-        """
-        The user name to be used to login to the endpoint database.
-        """
         __props__['username'] = username
 
-        __self__.endpoint_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) for the endpoint.
-        """
+        __props__['endpoint_arn'] = None
 
         super(Endpoint, __self__).__init__(
             'aws:dms/endpoint:Endpoint',
@@ -169,38 +70,3 @@ class Endpoint(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'certificateArn' in outs:
-            self.certificate_arn = outs['certificateArn']
-        if 'databaseName' in outs:
-            self.database_name = outs['databaseName']
-        if 'endpointArn' in outs:
-            self.endpoint_arn = outs['endpointArn']
-        if 'endpointId' in outs:
-            self.endpoint_id = outs['endpointId']
-        if 'endpointType' in outs:
-            self.endpoint_type = outs['endpointType']
-        if 'engineName' in outs:
-            self.engine_name = outs['engineName']
-        if 'extraConnectionAttributes' in outs:
-            self.extra_connection_attributes = outs['extraConnectionAttributes']
-        if 'kmsKeyArn' in outs:
-            self.kms_key_arn = outs['kmsKeyArn']
-        if 'mongodbSettings' in outs:
-            self.mongodb_settings = outs['mongodbSettings']
-        if 'password' in outs:
-            self.password = outs['password']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 's3Settings' in outs:
-            self.s3_settings = outs['s3Settings']
-        if 'serverName' in outs:
-            self.server_name = outs['serverName']
-        if 'serviceAccessRole' in outs:
-            self.service_access_role = outs['serviceAccessRole']
-        if 'sslMode' in outs:
-            self.ssl_mode = outs['sslMode']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'username' in outs:
-            self.username = outs['username']

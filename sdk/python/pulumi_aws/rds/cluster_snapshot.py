@@ -14,7 +14,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         """Create a ClusterSnapshot resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,70 +23,25 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         if not db_cluster_identifier:
             raise TypeError('Missing required property db_cluster_identifier')
-        elif not isinstance(db_cluster_identifier, basestring):
-            raise TypeError('Expected property db_cluster_identifier to be a basestring')
-        __self__.db_cluster_identifier = db_cluster_identifier
-        """
-        The DB Cluster Identifier from which to take the snapshot.
-        """
         __props__['dbClusterIdentifier'] = db_cluster_identifier
 
         if not db_cluster_snapshot_identifier:
             raise TypeError('Missing required property db_cluster_snapshot_identifier')
-        elif not isinstance(db_cluster_snapshot_identifier, basestring):
-            raise TypeError('Expected property db_cluster_snapshot_identifier to be a basestring')
-        __self__.db_cluster_snapshot_identifier = db_cluster_snapshot_identifier
-        """
-        The Identifier for the snapshot.
-        """
         __props__['dbClusterSnapshotIdentifier'] = db_cluster_snapshot_identifier
 
-        __self__.allocated_storage = pulumi.runtime.UNKNOWN
-        """
-        Specifies the allocated storage size in gigabytes (GB).
-        """
-        __self__.availability_zones = pulumi.runtime.UNKNOWN
-        """
-        List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        """
-        __self__.db_cluster_snapshot_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        """
-        __self__.engine = pulumi.runtime.UNKNOWN
-        """
-        Specifies the name of the database engine.
-        """
-        __self__.engine_version = pulumi.runtime.UNKNOWN
-        """
-        Version of the database engine for this DB cluster snapshot.
-        """
-        __self__.kms_key_id = pulumi.runtime.UNKNOWN
-        """
-        If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-        """
-        __self__.license_model = pulumi.runtime.UNKNOWN
-        """
-        License model information for the restored DB cluster.
-        """
-        __self__.port = pulumi.runtime.UNKNOWN
-        """
-        Port that the DB cluster was listening on at the time of the snapshot.
-        """
-        __self__.snapshot_type = pulumi.runtime.UNKNOWN
-        __self__.source_db_cluster_snapshot_arn = pulumi.runtime.UNKNOWN
-        __self__.status = pulumi.runtime.UNKNOWN
-        """
-        The status of this DB Cluster Snapshot.
-        """
-        __self__.storage_encrypted = pulumi.runtime.UNKNOWN
-        """
-        Specifies whether the DB cluster snapshot is encrypted.
-        """
-        __self__.vpc_id = pulumi.runtime.UNKNOWN
-        """
-        The VPC ID associated with the DB cluster snapshot.
-        """
+        __props__['allocated_storage'] = None
+        __props__['availability_zones'] = None
+        __props__['db_cluster_snapshot_arn'] = None
+        __props__['engine'] = None
+        __props__['engine_version'] = None
+        __props__['kms_key_id'] = None
+        __props__['license_model'] = None
+        __props__['port'] = None
+        __props__['snapshot_type'] = None
+        __props__['source_db_cluster_snapshot_arn'] = None
+        __props__['status'] = None
+        __props__['storage_encrypted'] = None
+        __props__['vpc_id'] = None
 
         super(ClusterSnapshot, __self__).__init__(
             'aws:rds/clusterSnapshot:ClusterSnapshot',
@@ -94,34 +49,3 @@ class ClusterSnapshot(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allocatedStorage' in outs:
-            self.allocated_storage = outs['allocatedStorage']
-        if 'availabilityZones' in outs:
-            self.availability_zones = outs['availabilityZones']
-        if 'dbClusterIdentifier' in outs:
-            self.db_cluster_identifier = outs['dbClusterIdentifier']
-        if 'dbClusterSnapshotArn' in outs:
-            self.db_cluster_snapshot_arn = outs['dbClusterSnapshotArn']
-        if 'dbClusterSnapshotIdentifier' in outs:
-            self.db_cluster_snapshot_identifier = outs['dbClusterSnapshotIdentifier']
-        if 'engine' in outs:
-            self.engine = outs['engine']
-        if 'engineVersion' in outs:
-            self.engine_version = outs['engineVersion']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'licenseModel' in outs:
-            self.license_model = outs['licenseModel']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'snapshotType' in outs:
-            self.snapshot_type = outs['snapshotType']
-        if 'sourceDbClusterSnapshotArn' in outs:
-            self.source_db_cluster_snapshot_arn = outs['sourceDbClusterSnapshotArn']
-        if 'status' in outs:
-            self.status = outs['status']
-        if 'storageEncrypted' in outs:
-            self.storage_encrypted = outs['storageEncrypted']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

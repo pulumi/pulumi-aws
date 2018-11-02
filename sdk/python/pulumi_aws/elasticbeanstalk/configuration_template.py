@@ -16,7 +16,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         """Create a ConfigurationTemplate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,55 +25,16 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         if not application:
             raise TypeError('Missing required property application')
-        elif not isinstance(application, basestring):
-            raise TypeError('Expected property application to be a basestring')
-        __self__.application = application
-        """
-        name of the application to associate with this configuration template
-        """
         __props__['application'] = application
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Short description of the Template
-        """
         __props__['description'] = description
 
-        if environment_id and not isinstance(environment_id, basestring):
-            raise TypeError('Expected property environment_id to be a basestring')
-        __self__.environment_id = environment_id
-        """
-        The ID of the environment used with this configuration template
-        """
         __props__['environmentId'] = environment_id
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A unique name for this Template.
-        """
         __props__['name'] = name
 
-        if settings and not isinstance(settings, list):
-            raise TypeError('Expected property settings to be a list')
-        __self__.settings = settings
-        """
-        Option settings to configure the new Environment. These
-        override specific values that are set as defaults. The format is detailed
-        below in Option Settings
-        """
         __props__['settings'] = settings
 
-        if solution_stack_name and not isinstance(solution_stack_name, basestring):
-            raise TypeError('Expected property solution_stack_name to be a basestring')
-        __self__.solution_stack_name = solution_stack_name
-        """
-        A solution stack to base your Template
-        off of. Example stacks can be found in the [Amazon API documentation][1]
-        """
         __props__['solutionStackName'] = solution_stack_name
 
         super(ConfigurationTemplate, __self__).__init__(
@@ -82,16 +43,3 @@ class ConfigurationTemplate(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'application' in outs:
-            self.application = outs['application']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'environmentId' in outs:
-            self.environment_id = outs['environmentId']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'settings' in outs:
-            self.settings = outs['settings']
-        if 'solutionStackName' in outs:
-            self.solution_stack_name = outs['solutionStackName']

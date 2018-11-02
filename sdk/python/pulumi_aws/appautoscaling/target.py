@@ -14,7 +14,7 @@ class Target(pulumi.CustomResource):
         """Create a Target resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,61 +23,24 @@ class Target(pulumi.CustomResource):
 
         if not max_capacity:
             raise TypeError('Missing required property max_capacity')
-        elif not isinstance(max_capacity, int):
-            raise TypeError('Expected property max_capacity to be a int')
-        __self__.max_capacity = max_capacity
-        """
-        The max capacity of the scalable target.
-        """
         __props__['maxCapacity'] = max_capacity
 
         if not min_capacity:
             raise TypeError('Missing required property min_capacity')
-        elif not isinstance(min_capacity, int):
-            raise TypeError('Expected property min_capacity to be a int')
-        __self__.min_capacity = min_capacity
-        """
-        The min capacity of the scalable target.
-        """
         __props__['minCapacity'] = min_capacity
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        elif not isinstance(resource_id, basestring):
-            raise TypeError('Expected property resource_id to be a basestring')
-        __self__.resource_id = resource_id
-        """
-        The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        """
         __props__['resourceId'] = resource_id
 
-        if role_arn and not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The ARN of the IAM role that allows Application
-        AutoScaling to modify your scalable target on your behalf.
-        """
         __props__['roleArn'] = role_arn
 
         if not scalable_dimension:
             raise TypeError('Missing required property scalable_dimension')
-        elif not isinstance(scalable_dimension, basestring):
-            raise TypeError('Expected property scalable_dimension to be a basestring')
-        __self__.scalable_dimension = scalable_dimension
-        """
-        The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        """
         __props__['scalableDimension'] = scalable_dimension
 
         if not service_namespace:
             raise TypeError('Missing required property service_namespace')
-        elif not isinstance(service_namespace, basestring):
-            raise TypeError('Expected property service_namespace to be a basestring')
-        __self__.service_namespace = service_namespace
-        """
-        The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        """
         __props__['serviceNamespace'] = service_namespace
 
         super(Target, __self__).__init__(
@@ -86,16 +49,3 @@ class Target(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'maxCapacity' in outs:
-            self.max_capacity = outs['maxCapacity']
-        if 'minCapacity' in outs:
-            self.min_capacity = outs['minCapacity']
-        if 'resourceId' in outs:
-            self.resource_id = outs['resourceId']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'scalableDimension' in outs:
-            self.scalable_dimension = outs['scalableDimension']
-        if 'serviceNamespace' in outs:
-            self.service_namespace = outs['serviceNamespace']

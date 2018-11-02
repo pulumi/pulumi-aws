@@ -11,44 +11,44 @@ class GetKeyResult(object):
     A collection of values returned by getKey.
     """
     def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, deletion_date=None, description=None, enabled=None, expiration_model=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
-        if aws_account_id and not isinstance(aws_account_id, basestring):
-            raise TypeError('Expected argument aws_account_id to be a basestring')
+        if aws_account_id and not isinstance(aws_account_id, str):
+            raise TypeError('Expected argument aws_account_id to be a str')
         __self__.aws_account_id = aws_account_id
-        if creation_date and not isinstance(creation_date, basestring):
-            raise TypeError('Expected argument creation_date to be a basestring')
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError('Expected argument creation_date to be a str')
         __self__.creation_date = creation_date
-        if deletion_date and not isinstance(deletion_date, basestring):
-            raise TypeError('Expected argument deletion_date to be a basestring')
+        if deletion_date and not isinstance(deletion_date, str):
+            raise TypeError('Expected argument deletion_date to be a str')
         __self__.deletion_date = deletion_date
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         if enabled and not isinstance(enabled, bool):
             raise TypeError('Expected argument enabled to be a bool')
         __self__.enabled = enabled
-        if expiration_model and not isinstance(expiration_model, basestring):
-            raise TypeError('Expected argument expiration_model to be a basestring')
+        if expiration_model and not isinstance(expiration_model, str):
+            raise TypeError('Expected argument expiration_model to be a str')
         __self__.expiration_model = expiration_model
-        if key_manager and not isinstance(key_manager, basestring):
-            raise TypeError('Expected argument key_manager to be a basestring')
+        if key_manager and not isinstance(key_manager, str):
+            raise TypeError('Expected argument key_manager to be a str')
         __self__.key_manager = key_manager
-        if key_state and not isinstance(key_state, basestring):
-            raise TypeError('Expected argument key_state to be a basestring')
+        if key_state and not isinstance(key_state, str):
+            raise TypeError('Expected argument key_state to be a str')
         __self__.key_state = key_state
-        if key_usage and not isinstance(key_usage, basestring):
-            raise TypeError('Expected argument key_usage to be a basestring')
+        if key_usage and not isinstance(key_usage, str):
+            raise TypeError('Expected argument key_usage to be a str')
         __self__.key_usage = key_usage
-        if origin and not isinstance(origin, basestring):
-            raise TypeError('Expected argument origin to be a basestring')
+        if origin and not isinstance(origin, str):
+            raise TypeError('Expected argument origin to be a str')
         __self__.origin = origin
-        if valid_to and not isinstance(valid_to, basestring):
-            raise TypeError('Expected argument valid_to to be a basestring')
+        if valid_to and not isinstance(valid_to, str):
+            raise TypeError('Expected argument valid_to to be a str')
         __self__.valid_to = valid_to
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

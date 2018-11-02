@@ -14,7 +14,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         """Create a LoadBalancerPolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,40 +23,16 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
         if not load_balancer_name:
             raise TypeError('Missing required property load_balancer_name')
-        elif not isinstance(load_balancer_name, basestring):
-            raise TypeError('Expected property load_balancer_name to be a basestring')
-        __self__.load_balancer_name = load_balancer_name
-        """
-        The load balancer on which the policy is defined.
-        """
         __props__['loadBalancerName'] = load_balancer_name
 
-        if policy_attributes and not isinstance(policy_attributes, list):
-            raise TypeError('Expected property policy_attributes to be a list')
-        __self__.policy_attributes = policy_attributes
-        """
-        Policy attribute to apply to the policy.
-        """
         __props__['policyAttributes'] = policy_attributes
 
         if not policy_name:
             raise TypeError('Missing required property policy_name')
-        elif not isinstance(policy_name, basestring):
-            raise TypeError('Expected property policy_name to be a basestring')
-        __self__.policy_name = policy_name
-        """
-        The name of the load balancer policy.
-        """
         __props__['policyName'] = policy_name
 
         if not policy_type_name:
             raise TypeError('Missing required property policy_type_name')
-        elif not isinstance(policy_type_name, basestring):
-            raise TypeError('Expected property policy_type_name to be a basestring')
-        __self__.policy_type_name = policy_type_name
-        """
-        The policy type.
-        """
         __props__['policyTypeName'] = policy_type_name
 
         super(LoadBalancerPolicy, __self__).__init__(
@@ -65,12 +41,3 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'loadBalancerName' in outs:
-            self.load_balancer_name = outs['loadBalancerName']
-        if 'policyAttributes' in outs:
-            self.policy_attributes = outs['policyAttributes']
-        if 'policyName' in outs:
-            self.policy_name = outs['policyName']
-        if 'policyTypeName' in outs:
-            self.policy_type_name = outs['policyTypeName']

@@ -11,40 +11,40 @@ class GetArnResult(object):
     A collection of values returned by getArn.
     """
     def __init__(__self__, account=None, partition=None, region=None, resource=None, service=None, id=None):
-        if account and not isinstance(account, basestring):
-            raise TypeError('Expected argument account to be a basestring')
+        if account and not isinstance(account, str):
+            raise TypeError('Expected argument account to be a str')
         __self__.account = account
         """
         The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
         """
-        if partition and not isinstance(partition, basestring):
-            raise TypeError('Expected argument partition to be a basestring')
+        if partition and not isinstance(partition, str):
+            raise TypeError('Expected argument partition to be a str')
         __self__.partition = partition
         """
         The partition that the resource is in.
         """
-        if region and not isinstance(region, basestring):
-            raise TypeError('Expected argument region to be a basestring')
+        if region and not isinstance(region, str):
+            raise TypeError('Expected argument region to be a str')
         __self__.region = region
         """
         The region the resource resides in.
         Note that the ARNs for some resources do not require a region, so this component might be omitted.
         """
-        if resource and not isinstance(resource, basestring):
-            raise TypeError('Expected argument resource to be a basestring')
+        if resource and not isinstance(resource, str):
+            raise TypeError('Expected argument resource to be a str')
         __self__.resource = resource
         """
         The content of this part of the ARN varies by service.
         It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
         """
-        if service and not isinstance(service, basestring):
-            raise TypeError('Expected argument service to be a basestring')
+        if service and not isinstance(service, str):
+            raise TypeError('Expected argument service to be a str')
         __self__.service = service
         """
         The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

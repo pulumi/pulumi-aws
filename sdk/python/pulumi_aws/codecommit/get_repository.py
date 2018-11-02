@@ -11,32 +11,32 @@ class GetRepositoryResult(object):
     A collection of values returned by getRepository.
     """
     def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, repository_id=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the repository
         """
-        if clone_url_http and not isinstance(clone_url_http, basestring):
-            raise TypeError('Expected argument clone_url_http to be a basestring')
+        if clone_url_http and not isinstance(clone_url_http, str):
+            raise TypeError('Expected argument clone_url_http to be a str')
         __self__.clone_url_http = clone_url_http
         """
         The URL to use for cloning the repository over HTTPS.
         """
-        if clone_url_ssh and not isinstance(clone_url_ssh, basestring):
-            raise TypeError('Expected argument clone_url_ssh to be a basestring')
+        if clone_url_ssh and not isinstance(clone_url_ssh, str):
+            raise TypeError('Expected argument clone_url_ssh to be a str')
         __self__.clone_url_ssh = clone_url_ssh
         """
         The URL to use for cloning the repository over SSH.
         """
-        if repository_id and not isinstance(repository_id, basestring):
-            raise TypeError('Expected argument repository_id to be a basestring')
+        if repository_id and not isinstance(repository_id, str):
+            raise TypeError('Expected argument repository_id to be a str')
         __self__.repository_id = repository_id
         """
         The ID of the repository
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

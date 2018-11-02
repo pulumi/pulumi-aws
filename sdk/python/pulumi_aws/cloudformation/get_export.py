@@ -11,20 +11,20 @@ class GetExportResult(object):
     A collection of values returned by getExport.
     """
     def __init__(__self__, exporting_stack_id=None, value=None, id=None):
-        if exporting_stack_id and not isinstance(exporting_stack_id, basestring):
-            raise TypeError('Expected argument exporting_stack_id to be a basestring')
+        if exporting_stack_id and not isinstance(exporting_stack_id, str):
+            raise TypeError('Expected argument exporting_stack_id to be a str')
         __self__.exporting_stack_id = exporting_stack_id
         """
         The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html) 
         """
-        if value and not isinstance(value, basestring):
-            raise TypeError('Expected argument value to be a basestring')
+        if value and not isinstance(value, str):
+            raise TypeError('Expected argument value to be a str')
         __self__.value = value
         """
         The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

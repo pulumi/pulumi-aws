@@ -21,110 +21,40 @@ class VpcEndpoint(pulumi.CustomResource):
         """Create a VpcEndpoint resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if auto_accept and not isinstance(auto_accept, bool):
-            raise TypeError('Expected property auto_accept to be a bool')
-        __self__.auto_accept = auto_accept
-        """
-        Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        """
         __props__['autoAccept'] = auto_accept
 
-        if policy and not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        A policy to attach to the endpoint that controls access to the service. Applicable for endpoints of type `Gateway`. Defaults to full access. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-        """
         __props__['policy'] = policy
 
-        if private_dns_enabled and not isinstance(private_dns_enabled, bool):
-            raise TypeError('Expected property private_dns_enabled to be a bool')
-        __self__.private_dns_enabled = private_dns_enabled
-        """
-        Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
-        Defaults to `false`.
-        """
         __props__['privateDnsEnabled'] = private_dns_enabled
 
-        if route_table_ids and not isinstance(route_table_ids, list):
-            raise TypeError('Expected property route_table_ids to be a list')
-        __self__.route_table_ids = route_table_ids
-        """
-        One or more route table IDs. Applicable for endpoints of type `Gateway`.
-        """
         __props__['routeTableIds'] = route_table_ids
 
-        if security_group_ids and not isinstance(security_group_ids, list):
-            raise TypeError('Expected property security_group_ids to be a list')
-        __self__.security_group_ids = security_group_ids
-        """
-        The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
-        """
         __props__['securityGroupIds'] = security_group_ids
 
         if not service_name:
             raise TypeError('Missing required property service_name')
-        elif not isinstance(service_name, basestring):
-            raise TypeError('Expected property service_name to be a basestring')
-        __self__.service_name = service_name
-        """
-        The service name, in the form `com.amazonaws.region.service` for AWS services.
-        """
         __props__['serviceName'] = service_name
 
-        if subnet_ids and not isinstance(subnet_ids, list):
-            raise TypeError('Expected property subnet_ids to be a list')
-        __self__.subnet_ids = subnet_ids
-        """
-        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
-        """
         __props__['subnetIds'] = subnet_ids
 
-        if vpc_endpoint_type and not isinstance(vpc_endpoint_type, basestring):
-            raise TypeError('Expected property vpc_endpoint_type to be a basestring')
-        __self__.vpc_endpoint_type = vpc_endpoint_type
-        """
-        The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
-        """
         __props__['vpcEndpointType'] = vpc_endpoint_type
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The ID of the VPC in which the endpoint will be used.
-        """
         __props__['vpcId'] = vpc_id
 
-        __self__.cidr_blocks = pulumi.runtime.UNKNOWN
-        """
-        The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        """
-        __self__.dns_entries = pulumi.runtime.UNKNOWN
-        """
-        The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-        """
-        __self__.network_interface_ids = pulumi.runtime.UNKNOWN
-        """
-        One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-        """
-        __self__.prefix_list_id = pulumi.runtime.UNKNOWN
-        """
-        The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        """
-        __self__.state = pulumi.runtime.UNKNOWN
-        """
-        The state of the VPC endpoint.
-        """
+        __props__['cidr_blocks'] = None
+        __props__['dns_entries'] = None
+        __props__['network_interface_ids'] = None
+        __props__['prefix_list_id'] = None
+        __props__['state'] = None
 
         super(VpcEndpoint, __self__).__init__(
             'aws:ec2/vpcEndpoint:VpcEndpoint',
@@ -132,32 +62,3 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'autoAccept' in outs:
-            self.auto_accept = outs['autoAccept']
-        if 'cidrBlocks' in outs:
-            self.cidr_blocks = outs['cidrBlocks']
-        if 'dnsEntries' in outs:
-            self.dns_entries = outs['dnsEntries']
-        if 'networkInterfaceIds' in outs:
-            self.network_interface_ids = outs['networkInterfaceIds']
-        if 'policy' in outs:
-            self.policy = outs['policy']
-        if 'prefixListId' in outs:
-            self.prefix_list_id = outs['prefixListId']
-        if 'privateDnsEnabled' in outs:
-            self.private_dns_enabled = outs['privateDnsEnabled']
-        if 'routeTableIds' in outs:
-            self.route_table_ids = outs['routeTableIds']
-        if 'securityGroupIds' in outs:
-            self.security_group_ids = outs['securityGroupIds']
-        if 'serviceName' in outs:
-            self.service_name = outs['serviceName']
-        if 'state' in outs:
-            self.state = outs['state']
-        if 'subnetIds' in outs:
-            self.subnet_ids = outs['subnetIds']
-        if 'vpcEndpointType' in outs:
-            self.vpc_endpoint_type = outs['vpcEndpointType']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

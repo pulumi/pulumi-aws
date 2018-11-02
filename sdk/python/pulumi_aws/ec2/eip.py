@@ -18,66 +18,28 @@ class Eip(pulumi.CustomResource):
         """Create a Eip resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if associate_with_private_ip and not isinstance(associate_with_private_ip, basestring):
-            raise TypeError('Expected property associate_with_private_ip to be a basestring')
-        __self__.associate_with_private_ip = associate_with_private_ip
-        """
-        A user specified primary or secondary private IP address to
-        associate with the Elastic IP address. If no private IP address is specified,
-        the Elastic IP address is associated with the primary private IP address.
-        """
         __props__['associateWithPrivateIp'] = associate_with_private_ip
 
-        if instance and not isinstance(instance, basestring):
-            raise TypeError('Expected property instance to be a basestring')
-        __self__.instance = instance
-        """
-        EC2 instance ID.
-        """
         __props__['instance'] = instance
 
-        if network_interface and not isinstance(network_interface, basestring):
-            raise TypeError('Expected property network_interface to be a basestring')
-        __self__.network_interface = network_interface
-        """
-        Network interface ID to associate with.
-        """
         __props__['networkInterface'] = network_interface
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if vpc and not isinstance(vpc, bool):
-            raise TypeError('Expected property vpc to be a bool')
-        __self__.vpc = vpc
-        """
-        Boolean if the EIP is in a VPC or not.
-        """
         __props__['vpc'] = vpc
 
-        __self__.allocation_id = pulumi.runtime.UNKNOWN
-        __self__.association_id = pulumi.runtime.UNKNOWN
-        __self__.domain = pulumi.runtime.UNKNOWN
-        __self__.private_ip = pulumi.runtime.UNKNOWN
-        """
-        Contains the private IP address (if in VPC).
-        """
-        __self__.public_ip = pulumi.runtime.UNKNOWN
-        """
-        Contains the public IP address.
-        """
+        __props__['allocation_id'] = None
+        __props__['association_id'] = None
+        __props__['domain'] = None
+        __props__['private_ip'] = None
+        __props__['public_ip'] = None
 
         super(Eip, __self__).__init__(
             'aws:ec2/eip:Eip',
@@ -85,24 +47,3 @@ class Eip(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allocationId' in outs:
-            self.allocation_id = outs['allocationId']
-        if 'associateWithPrivateIp' in outs:
-            self.associate_with_private_ip = outs['associateWithPrivateIp']
-        if 'associationId' in outs:
-            self.association_id = outs['associationId']
-        if 'domain' in outs:
-            self.domain = outs['domain']
-        if 'instance' in outs:
-            self.instance = outs['instance']
-        if 'networkInterface' in outs:
-            self.network_interface = outs['networkInterface']
-        if 'privateIp' in outs:
-            self.private_ip = outs['privateIp']
-        if 'publicIp' in outs:
-            self.public_ip = outs['publicIp']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpc' in outs:
-            self.vpc = outs['vpc']
