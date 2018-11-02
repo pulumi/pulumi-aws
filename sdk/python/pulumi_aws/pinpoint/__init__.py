@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from adm_channel import *
 from apns_channel import *
+from apns_sandbox_channel import *
 from app import *
 from baidu_channel import *
 from email_channel import *

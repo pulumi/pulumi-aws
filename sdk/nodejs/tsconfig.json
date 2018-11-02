@@ -503,6 +503,7 @@
         "organizations/policyAttachment.ts",
         "pinpoint/admChannel.ts",
         "pinpoint/apnsChannel.ts",
+        "pinpoint/apnsSandboxChannel.ts",
         "pinpoint/app.ts",
         "pinpoint/baiduChannel.ts",
         "pinpoint/emailChannel.ts",
