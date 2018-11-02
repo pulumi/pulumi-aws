@@ -1381,7 +1381,15 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_thing": {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_thing_principal_attachment": {
+				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"principal": {
+						Type: awsType(awsMod, "ARN"),
+					},
+				},
+			},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),

@@ -7,5 +7,6 @@ export * from "./getEndpoint";
 export * from "./policy";
 export * from "./policyAttachment";
 export * from "./thing";
+export * from "./thingPrincipalAttachment";
 export * from "./thingType";
 export * from "./topicRule";

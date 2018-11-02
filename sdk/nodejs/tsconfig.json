@@ -429,6 +429,7 @@
         "iot/policy.ts",
         "iot/policyAttachment.ts",
         "iot/thing.ts",
+        "iot/thingPrincipalAttachment.ts",
         "iot/thingType.ts",
         "iot/topicRule.ts",
         "kinesis/firehoseDeliveryStream.ts",
