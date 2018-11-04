@@ -238,6 +238,15 @@
   version = "v1.13.1"
 
 [[projects]]
+  name = "github.com/dustin/go-humanize"
+  packages = [
+    ".",
+    "english"
+  ]
+  revision = "9f541cc9db5d55bce703bd99987c9d5cb8eea45e"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/emirpasic/gods"
   packages = [
     "containers",
@@ -585,6 +594,7 @@
   revision = "f4461a52b6329c11190f11fe3384ec8aa964e21c"
 
 [[projects]]
+  branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -611,6 +621,7 @@
     "pkg/tools",
     "pkg/util/buildutil",
     "pkg/util/cancel",
+    "pkg/util/ciutil",
     "pkg/util/cmdutil",
     "pkg/util/contract",
     "pkg/util/fsutil",
@@ -622,7 +633,6 @@
     "pkg/util/retry",
     "pkg/util/rpcutil",
     "pkg/util/rpcutil/rpcerror",
-    "pkg/util/testutil",
     "pkg/version",
     "pkg/workspace",
     "sdk/go/pulumi",
@@ -630,8 +640,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "c7d3cc5731d0ca2b26ad5e18e6a23b43b74b44b7"
-  version = "v0.15.1"
+  revision = "0e868f15fc3aad99ac77eca29f8c0600a27b5ae3"
 
 [[projects]]
   branch = "master"
@@ -640,7 +649,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "c08676f1cfcf3bb871ef20e60ce7ba7c7570fffb"
+  revision = "8f5d8e993fe779394ce39fe330591759a4b1cc67"
 
 [[projects]]
   branch = "master"
@@ -944,6 +953,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "697a73922b724645fb5886d33a71e7b50335221f135b56205b1daa95ee220a8e"
+  inputs-digest = "cedbf5ae867a310abe0026c90d5db588c2fc28ed3d012c137d4024c15ea7a8d4"
   solver-name = "gps-cdcl"
   solver-version = 1
