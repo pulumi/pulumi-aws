@@ -21,7 +21,7 @@ class VpcEndpointService(pulumi.CustomResource):
         """Create a VpcEndpointService resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -30,56 +30,20 @@ class VpcEndpointService(pulumi.CustomResource):
 
         if not acceptance_required:
             raise TypeError('Missing required property acceptance_required')
-        elif not isinstance(acceptance_required, bool):
-            raise TypeError('Expected property acceptance_required to be a bool')
-        __self__.acceptance_required = acceptance_required
-        """
-        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        """
         __props__['acceptanceRequired'] = acceptance_required
 
-        if allowed_principals and not isinstance(allowed_principals, list):
-            raise TypeError('Expected property allowed_principals to be a list')
-        __self__.allowed_principals = allowed_principals
-        """
-        The ARNs of one or more principals allowed to discover the endpoint service.
-        """
         __props__['allowedPrincipals'] = allowed_principals
 
         if not network_load_balancer_arns:
             raise TypeError('Missing required property network_load_balancer_arns')
-        elif not isinstance(network_load_balancer_arns, list):
-            raise TypeError('Expected property network_load_balancer_arns to be a list')
-        __self__.network_load_balancer_arns = network_load_balancer_arns
-        """
-        The ARNs of one or more Network Load Balancers for the endpoint service.
-        """
         __props__['networkLoadBalancerArns'] = network_load_balancer_arns
 
-        __self__.availability_zones = pulumi.runtime.UNKNOWN
-        """
-        The Availability Zones in which the service is available.
-        """
-        __self__.base_endpoint_dns_names = pulumi.runtime.UNKNOWN
-        """
-        The DNS names for the service.
-        """
-        __self__.private_dns_name = pulumi.runtime.UNKNOWN
-        """
-        The private DNS name for the service.
-        """
-        __self__.service_name = pulumi.runtime.UNKNOWN
-        """
-        The service name.
-        """
-        __self__.service_type = pulumi.runtime.UNKNOWN
-        """
-        The service type, `Gateway` or `Interface`.
-        """
-        __self__.state = pulumi.runtime.UNKNOWN
-        """
-        The state of the VPC endpoint service.
-        """
+        __props__['availability_zones'] = None
+        __props__['base_endpoint_dns_names'] = None
+        __props__['private_dns_name'] = None
+        __props__['service_name'] = None
+        __props__['service_type'] = None
+        __props__['state'] = None
 
         super(VpcEndpointService, __self__).__init__(
             'aws:ec2/vpcEndpointService:VpcEndpointService',
@@ -87,22 +51,3 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'acceptanceRequired' in outs:
-            self.acceptance_required = outs['acceptanceRequired']
-        if 'allowedPrincipals' in outs:
-            self.allowed_principals = outs['allowedPrincipals']
-        if 'availabilityZones' in outs:
-            self.availability_zones = outs['availabilityZones']
-        if 'baseEndpointDnsNames' in outs:
-            self.base_endpoint_dns_names = outs['baseEndpointDnsNames']
-        if 'networkLoadBalancerArns' in outs:
-            self.network_load_balancer_arns = outs['networkLoadBalancerArns']
-        if 'privateDnsName' in outs:
-            self.private_dns_name = outs['privateDnsName']
-        if 'serviceName' in outs:
-            self.service_name = outs['serviceName']
-        if 'serviceType' in outs:
-            self.service_type = outs['serviceType']
-        if 'state' in outs:
-            self.state = outs['state']

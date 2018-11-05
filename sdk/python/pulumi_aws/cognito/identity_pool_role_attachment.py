@@ -14,7 +14,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         """Create a IdentityPoolRoleAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,30 +23,12 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
         if not identity_pool_id:
             raise TypeError('Missing required property identity_pool_id')
-        elif not isinstance(identity_pool_id, basestring):
-            raise TypeError('Expected property identity_pool_id to be a basestring')
-        __self__.identity_pool_id = identity_pool_id
-        """
-        An identity pool ID in the format REGION:GUID.
-        """
         __props__['identityPoolId'] = identity_pool_id
 
-        if role_mappings and not isinstance(role_mappings, list):
-            raise TypeError('Expected property role_mappings to be a list')
-        __self__.role_mappings = role_mappings
-        """
-        A List of Role Mapping.
-        """
         __props__['roleMappings'] = role_mappings
 
         if not roles:
             raise TypeError('Missing required property roles')
-        elif not isinstance(roles, dict):
-            raise TypeError('Expected property roles to be a dict')
-        __self__.roles = roles
-        """
-        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        """
         __props__['roles'] = roles
 
         super(IdentityPoolRoleAttachment, __self__).__init__(
@@ -55,10 +37,3 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'identityPoolId' in outs:
-            self.identity_pool_id = outs['identityPoolId']
-        if 'roleMappings' in outs:
-            self.role_mappings = outs['roleMappings']
-        if 'roles' in outs:
-            self.roles = outs['roles']

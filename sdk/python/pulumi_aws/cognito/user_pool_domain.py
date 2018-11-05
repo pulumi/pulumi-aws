@@ -14,57 +14,27 @@ class UserPoolDomain(pulumi.CustomResource):
         """Create a UserPoolDomain resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if certificate_arn and not isinstance(certificate_arn, basestring):
-            raise TypeError('Expected property certificate_arn to be a basestring')
-        __self__.certificate_arn = certificate_arn
-        """
-        The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        """
         __props__['certificateArn'] = certificate_arn
 
         if not domain:
             raise TypeError('Missing required property domain')
-        elif not isinstance(domain, basestring):
-            raise TypeError('Expected property domain to be a basestring')
-        __self__.domain = domain
-        """
-        The domain string.
-        """
         __props__['domain'] = domain
 
         if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
-        elif not isinstance(user_pool_id, basestring):
-            raise TypeError('Expected property user_pool_id to be a basestring')
-        __self__.user_pool_id = user_pool_id
-        """
-        The user pool ID.
-        """
         __props__['userPoolId'] = user_pool_id
 
-        __self__.aws_account_id = pulumi.runtime.UNKNOWN
-        """
-        The AWS account ID for the user pool owner.
-        """
-        __self__.cloudfront_distribution_arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the CloudFront distribution.
-        """
-        __self__.s3_bucket = pulumi.runtime.UNKNOWN
-        """
-        The S3 bucket where the static files for this domain are stored.
-        """
-        __self__.version = pulumi.runtime.UNKNOWN
-        """
-        The app version.
-        """
+        __props__['aws_account_id'] = None
+        __props__['cloudfront_distribution_arn'] = None
+        __props__['s3_bucket'] = None
+        __props__['version'] = None
 
         super(UserPoolDomain, __self__).__init__(
             'aws:cognito/userPoolDomain:UserPoolDomain',
@@ -72,18 +42,3 @@ class UserPoolDomain(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'awsAccountId' in outs:
-            self.aws_account_id = outs['awsAccountId']
-        if 'certificateArn' in outs:
-            self.certificate_arn = outs['certificateArn']
-        if 'cloudfrontDistributionArn' in outs:
-            self.cloudfront_distribution_arn = outs['cloudfrontDistributionArn']
-        if 'domain' in outs:
-            self.domain = outs['domain']
-        if 's3Bucket' in outs:
-            self.s3_bucket = outs['s3Bucket']
-        if 'userPoolId' in outs:
-            self.user_pool_id = outs['userPoolId']
-        if 'version' in outs:
-            self.version = outs['version']

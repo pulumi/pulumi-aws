@@ -14,7 +14,7 @@ class GatewayAssociation(pulumi.CustomResource):
         """Create a GatewayAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,22 +23,10 @@ class GatewayAssociation(pulumi.CustomResource):
 
         if not dx_gateway_id:
             raise TypeError('Missing required property dx_gateway_id')
-        elif not isinstance(dx_gateway_id, basestring):
-            raise TypeError('Expected property dx_gateway_id to be a basestring')
-        __self__.dx_gateway_id = dx_gateway_id
-        """
-        The ID of the Direct Connect Gateway.
-        """
         __props__['dxGatewayId'] = dx_gateway_id
 
         if not vpn_gateway_id:
             raise TypeError('Missing required property vpn_gateway_id')
-        elif not isinstance(vpn_gateway_id, basestring):
-            raise TypeError('Expected property vpn_gateway_id to be a basestring')
-        __self__.vpn_gateway_id = vpn_gateway_id
-        """
-        The ID of the VGW with which to associate the gateway.
-        """
         __props__['vpnGatewayId'] = vpn_gateway_id
 
         super(GatewayAssociation, __self__).__init__(
@@ -47,8 +35,3 @@ class GatewayAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'dxGatewayId' in outs:
-            self.dx_gateway_id = outs['dxGatewayId']
-        if 'vpnGatewayId' in outs:
-            self.vpn_gateway_id = outs['vpnGatewayId']

@@ -14,7 +14,7 @@ class BgpPeer(pulumi.CustomResource):
         """Create a BgpPeer resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,64 +23,23 @@ class BgpPeer(pulumi.CustomResource):
 
         if not address_family:
             raise TypeError('Missing required property address_family')
-        elif not isinstance(address_family, basestring):
-            raise TypeError('Expected property address_family to be a basestring')
-        __self__.address_family = address_family
-        """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        """
         __props__['addressFamily'] = address_family
 
-        if amazon_address and not isinstance(amazon_address, basestring):
-            raise TypeError('Expected property amazon_address to be a basestring')
-        __self__.amazon_address = amazon_address
-        """
-        The IPv4 CIDR address to use to send traffic to Amazon.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         __props__['amazonAddress'] = amazon_address
 
         if not bgp_asn:
             raise TypeError('Missing required property bgp_asn')
-        elif not isinstance(bgp_asn, int):
-            raise TypeError('Expected property bgp_asn to be a int')
-        __self__.bgp_asn = bgp_asn
-        """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        """
         __props__['bgpAsn'] = bgp_asn
 
-        if bgp_auth_key and not isinstance(bgp_auth_key, basestring):
-            raise TypeError('Expected property bgp_auth_key to be a basestring')
-        __self__.bgp_auth_key = bgp_auth_key
-        """
-        The authentication key for BGP configuration.
-        """
         __props__['bgpAuthKey'] = bgp_auth_key
 
-        if customer_address and not isinstance(customer_address, basestring):
-            raise TypeError('Expected property customer_address to be a basestring')
-        __self__.customer_address = customer_address
-        """
-        The IPv4 CIDR destination address to which Amazon should send traffic.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         __props__['customerAddress'] = customer_address
 
         if not virtual_interface_id:
             raise TypeError('Missing required property virtual_interface_id')
-        elif not isinstance(virtual_interface_id, basestring):
-            raise TypeError('Expected property virtual_interface_id to be a basestring')
-        __self__.virtual_interface_id = virtual_interface_id
-        """
-        The ID of the Direct Connect virtual interface on which to create the BGP peer.
-        """
         __props__['virtualInterfaceId'] = virtual_interface_id
 
-        __self__.bgp_status = pulumi.runtime.UNKNOWN
-        """
-        The Up/Down state of the BGP peer.
-        """
+        __props__['bgp_status'] = None
 
         super(BgpPeer, __self__).__init__(
             'aws:directconnect/bgpPeer:BgpPeer',
@@ -88,18 +47,3 @@ class BgpPeer(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'addressFamily' in outs:
-            self.address_family = outs['addressFamily']
-        if 'amazonAddress' in outs:
-            self.amazon_address = outs['amazonAddress']
-        if 'bgpAsn' in outs:
-            self.bgp_asn = outs['bgpAsn']
-        if 'bgpAuthKey' in outs:
-            self.bgp_auth_key = outs['bgpAuthKey']
-        if 'bgpStatus' in outs:
-            self.bgp_status = outs['bgpStatus']
-        if 'customerAddress' in outs:
-            self.customer_address = outs['customerAddress']
-        if 'virtualInterfaceId' in outs:
-            self.virtual_interface_id = outs['virtualInterfaceId']

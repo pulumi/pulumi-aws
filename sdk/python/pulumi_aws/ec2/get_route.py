@@ -11,32 +11,32 @@ class GetRouteResult(object):
     A collection of values returned by getRoute.
     """
     def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, vpc_peering_connection_id=None, id=None):
-        if destination_cidr_block and not isinstance(destination_cidr_block, basestring):
-            raise TypeError('Expected argument destination_cidr_block to be a basestring')
+        if destination_cidr_block and not isinstance(destination_cidr_block, str):
+            raise TypeError('Expected argument destination_cidr_block to be a str')
         __self__.destination_cidr_block = destination_cidr_block
-        if destination_ipv6_cidr_block and not isinstance(destination_ipv6_cidr_block, basestring):
-            raise TypeError('Expected argument destination_ipv6_cidr_block to be a basestring')
+        if destination_ipv6_cidr_block and not isinstance(destination_ipv6_cidr_block, str):
+            raise TypeError('Expected argument destination_ipv6_cidr_block to be a str')
         __self__.destination_ipv6_cidr_block = destination_ipv6_cidr_block
-        if egress_only_gateway_id and not isinstance(egress_only_gateway_id, basestring):
-            raise TypeError('Expected argument egress_only_gateway_id to be a basestring')
+        if egress_only_gateway_id and not isinstance(egress_only_gateway_id, str):
+            raise TypeError('Expected argument egress_only_gateway_id to be a str')
         __self__.egress_only_gateway_id = egress_only_gateway_id
-        if gateway_id and not isinstance(gateway_id, basestring):
-            raise TypeError('Expected argument gateway_id to be a basestring')
+        if gateway_id and not isinstance(gateway_id, str):
+            raise TypeError('Expected argument gateway_id to be a str')
         __self__.gateway_id = gateway_id
-        if instance_id and not isinstance(instance_id, basestring):
-            raise TypeError('Expected argument instance_id to be a basestring')
+        if instance_id and not isinstance(instance_id, str):
+            raise TypeError('Expected argument instance_id to be a str')
         __self__.instance_id = instance_id
-        if nat_gateway_id and not isinstance(nat_gateway_id, basestring):
-            raise TypeError('Expected argument nat_gateway_id to be a basestring')
+        if nat_gateway_id and not isinstance(nat_gateway_id, str):
+            raise TypeError('Expected argument nat_gateway_id to be a str')
         __self__.nat_gateway_id = nat_gateway_id
-        if network_interface_id and not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected argument network_interface_id to be a basestring')
+        if network_interface_id and not isinstance(network_interface_id, str):
+            raise TypeError('Expected argument network_interface_id to be a str')
         __self__.network_interface_id = network_interface_id
-        if vpc_peering_connection_id and not isinstance(vpc_peering_connection_id, basestring):
-            raise TypeError('Expected argument vpc_peering_connection_id to be a basestring')
+        if vpc_peering_connection_id and not isinstance(vpc_peering_connection_id, str):
+            raise TypeError('Expected argument vpc_peering_connection_id to be a str')
         __self__.vpc_peering_connection_id = vpc_peering_connection_id
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

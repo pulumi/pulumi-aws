@@ -37,7 +37,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         """Create a DefaultNetworkAcl resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -46,52 +46,17 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         if not default_network_acl_id:
             raise TypeError('Missing required property default_network_acl_id')
-        elif not isinstance(default_network_acl_id, basestring):
-            raise TypeError('Expected property default_network_acl_id to be a basestring')
-        __self__.default_network_acl_id = default_network_acl_id
-        """
-        The Network ACL ID to manage. This
-        attribute is exported from `aws_vpc`, or manually found via the AWS Console.
-        """
         __props__['defaultNetworkAclId'] = default_network_acl_id
 
-        if egress and not isinstance(egress, list):
-            raise TypeError('Expected property egress to be a list')
-        __self__.egress = egress
-        """
-        Specifies an egress rule. Parameters defined below.
-        """
         __props__['egress'] = egress
 
-        if ingress and not isinstance(ingress, list):
-            raise TypeError('Expected property ingress to be a list')
-        __self__.ingress = ingress
-        """
-        Specifies an ingress rule. Parameters defined below.
-        """
         __props__['ingress'] = ingress
 
-        if subnet_ids and not isinstance(subnet_ids, list):
-            raise TypeError('Expected property subnet_ids to be a list')
-        __self__.subnet_ids = subnet_ids
-        """
-        A list of Subnet IDs to apply the ACL to. See the
-        notes below on managing Subnets in the Default Network ACL
-        """
         __props__['subnetIds'] = subnet_ids
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.vpc_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the associated VPC
-        """
+        __props__['vpc_id'] = None
 
         super(DefaultNetworkAcl, __self__).__init__(
             'aws:ec2/defaultNetworkAcl:DefaultNetworkAcl',
@@ -99,16 +64,3 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'defaultNetworkAclId' in outs:
-            self.default_network_acl_id = outs['defaultNetworkAclId']
-        if 'egress' in outs:
-            self.egress = outs['egress']
-        if 'ingress' in outs:
-            self.ingress = outs['ingress']
-        if 'subnetIds' in outs:
-            self.subnet_ids = outs['subnetIds']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

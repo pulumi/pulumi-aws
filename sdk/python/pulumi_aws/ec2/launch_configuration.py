@@ -14,175 +14,53 @@ class LaunchConfiguration(pulumi.CustomResource):
         """Create a LaunchConfiguration resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if associate_public_ip_address and not isinstance(associate_public_ip_address, bool):
-            raise TypeError('Expected property associate_public_ip_address to be a bool')
-        __self__.associate_public_ip_address = associate_public_ip_address
-        """
-        Associate a public ip address with an instance in a VPC.
-        """
         __props__['associatePublicIpAddress'] = associate_public_ip_address
 
-        if ebs_block_devices and not isinstance(ebs_block_devices, list):
-            raise TypeError('Expected property ebs_block_devices to be a list')
-        __self__.ebs_block_devices = ebs_block_devices
-        """
-        Additional EBS block devices to attach to the
-        instance.  See Block Devices below for details.
-        """
         __props__['ebsBlockDevices'] = ebs_block_devices
 
-        if ebs_optimized and not isinstance(ebs_optimized, bool):
-            raise TypeError('Expected property ebs_optimized to be a bool')
-        __self__.ebs_optimized = ebs_optimized
-        """
-        If true, the launched EC2 instance will be EBS-optimized.
-        """
         __props__['ebsOptimized'] = ebs_optimized
 
-        if enable_monitoring and not isinstance(enable_monitoring, bool):
-            raise TypeError('Expected property enable_monitoring to be a bool')
-        __self__.enable_monitoring = enable_monitoring
-        """
-        Enables/disables detailed monitoring. This is enabled by default.
-        """
         __props__['enableMonitoring'] = enable_monitoring
 
-        if ephemeral_block_devices and not isinstance(ephemeral_block_devices, list):
-            raise TypeError('Expected property ephemeral_block_devices to be a list')
-        __self__.ephemeral_block_devices = ephemeral_block_devices
-        """
-        Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See Block Devices below for details.
-        """
         __props__['ephemeralBlockDevices'] = ephemeral_block_devices
 
-        if iam_instance_profile and not isinstance(iam_instance_profile, basestring):
-            raise TypeError('Expected property iam_instance_profile to be a basestring')
-        __self__.iam_instance_profile = iam_instance_profile
-        """
-        The name attribute of the IAM instance profile to associate
-        with launched instances.
-        """
         __props__['iamInstanceProfile'] = iam_instance_profile
 
         if not image_id:
             raise TypeError('Missing required property image_id')
-        elif not isinstance(image_id, basestring):
-            raise TypeError('Expected property image_id to be a basestring')
-        __self__.image_id = image_id
-        """
-        The EC2 image ID to launch.
-        """
         __props__['imageId'] = image_id
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        elif not isinstance(instance_type, basestring):
-            raise TypeError('Expected property instance_type to be a basestring')
-        __self__.instance_type = instance_type
-        """
-        The size of instance to launch.
-        """
         __props__['instanceType'] = instance_type
 
-        if key_name and not isinstance(key_name, basestring):
-            raise TypeError('Expected property key_name to be a basestring')
-        __self__.key_name = key_name
-        """
-        The key name that should be used for the instance.
-        """
         __props__['keyName'] = key_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the launch configuration. If you leave
-        this blank, Terraform will auto-generate a unique name.
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
-        if placement_tenancy and not isinstance(placement_tenancy, basestring):
-            raise TypeError('Expected property placement_tenancy to be a basestring')
-        __self__.placement_tenancy = placement_tenancy
-        """
-        The tenancy of the instance. Valid values are
-        `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        for more details
-        """
         __props__['placementTenancy'] = placement_tenancy
 
-        if root_block_device and not isinstance(root_block_device, dict):
-            raise TypeError('Expected property root_block_device to be a dict')
-        __self__.root_block_device = root_block_device
-        """
-        Customize details about the root block
-        device of the instance. See Block Devices below for details.
-        """
         __props__['rootBlockDevice'] = root_block_device
 
-        if security_groups and not isinstance(security_groups, list):
-            raise TypeError('Expected property security_groups to be a list')
-        __self__.security_groups = security_groups
-        """
-        A list of associated security group IDS.
-        """
         __props__['securityGroups'] = security_groups
 
-        if spot_price and not isinstance(spot_price, basestring):
-            raise TypeError('Expected property spot_price to be a basestring')
-        __self__.spot_price = spot_price
-        """
-        The maximum price to use for reserving spot instances.
-        """
         __props__['spotPrice'] = spot_price
 
-        if user_data and not isinstance(user_data, basestring):
-            raise TypeError('Expected property user_data to be a basestring')
-        __self__.user_data = user_data
-        """
-        The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-        """
         __props__['userData'] = user_data
 
-        if user_data_base64 and not isinstance(user_data_base64, basestring):
-            raise TypeError('Expected property user_data_base64 to be a basestring')
-        __self__.user_data_base64 = user_data_base64
-        """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        """
         __props__['userDataBase64'] = user_data_base64
 
-        if vpc_classic_link_id and not isinstance(vpc_classic_link_id, basestring):
-            raise TypeError('Expected property vpc_classic_link_id to be a basestring')
-        __self__.vpc_classic_link_id = vpc_classic_link_id
-        """
-        The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        """
         __props__['vpcClassicLinkId'] = vpc_classic_link_id
 
-        if vpc_classic_link_security_groups and not isinstance(vpc_classic_link_security_groups, list):
-            raise TypeError('Expected property vpc_classic_link_security_groups to be a list')
-        __self__.vpc_classic_link_security_groups = vpc_classic_link_security_groups
-        """
-        The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        """
         __props__['vpcClassicLinkSecurityGroups'] = vpc_classic_link_security_groups
 
         super(LaunchConfiguration, __self__).__init__(
@@ -191,42 +69,3 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'associatePublicIpAddress' in outs:
-            self.associate_public_ip_address = outs['associatePublicIpAddress']
-        if 'ebsBlockDevices' in outs:
-            self.ebs_block_devices = outs['ebsBlockDevices']
-        if 'ebsOptimized' in outs:
-            self.ebs_optimized = outs['ebsOptimized']
-        if 'enableMonitoring' in outs:
-            self.enable_monitoring = outs['enableMonitoring']
-        if 'ephemeralBlockDevices' in outs:
-            self.ephemeral_block_devices = outs['ephemeralBlockDevices']
-        if 'iamInstanceProfile' in outs:
-            self.iam_instance_profile = outs['iamInstanceProfile']
-        if 'imageId' in outs:
-            self.image_id = outs['imageId']
-        if 'instanceType' in outs:
-            self.instance_type = outs['instanceType']
-        if 'keyName' in outs:
-            self.key_name = outs['keyName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'placementTenancy' in outs:
-            self.placement_tenancy = outs['placementTenancy']
-        if 'rootBlockDevice' in outs:
-            self.root_block_device = outs['rootBlockDevice']
-        if 'securityGroups' in outs:
-            self.security_groups = outs['securityGroups']
-        if 'spotPrice' in outs:
-            self.spot_price = outs['spotPrice']
-        if 'userData' in outs:
-            self.user_data = outs['userData']
-        if 'userDataBase64' in outs:
-            self.user_data_base64 = outs['userDataBase64']
-        if 'vpcClassicLinkId' in outs:
-            self.vpc_classic_link_id = outs['vpcClassicLinkId']
-        if 'vpcClassicLinkSecurityGroups' in outs:
-            self.vpc_classic_link_security_groups = outs['vpcClassicLinkSecurityGroups']

@@ -14,7 +14,7 @@ class LogStream(pulumi.CustomResource):
         """Create a LogStream resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,26 +23,11 @@ class LogStream(pulumi.CustomResource):
 
         if not log_group_name:
             raise TypeError('Missing required property log_group_name')
-        elif not isinstance(log_group_name, basestring):
-            raise TypeError('Expected property log_group_name to be a basestring')
-        __self__.log_group_name = log_group_name
-        """
-        The name of the log group under which the log stream is to be created.
-        """
         __props__['logGroupName'] = log_group_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        """
         __props__['name'] = name
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) specifying the log stream.
-        """
+        __props__['arn'] = None
 
         super(LogStream, __self__).__init__(
             'aws:cloudwatch/logStream:LogStream',
@@ -50,10 +35,3 @@ class LogStream(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'logGroupName' in outs:
-            self.log_group_name = outs['logGroupName']
-        if 'name' in outs:
-            self.name = outs['name']

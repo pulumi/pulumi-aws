@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from snapshot import *
-from snapshot_copy import *
-from volume import *
-from get_snapshot import *
-from get_snapshot_ids import *
-from get_volume import *
+from .snapshot import *
+from .snapshot_copy import *
+from .volume import *
+from .get_snapshot import *
+from .get_snapshot_ids import *
+from .get_volume import *

@@ -14,62 +14,29 @@ class MaintenanceWindow(pulumi.CustomResource):
         """Create a MaintenanceWindow resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allow_unassociated_targets and not isinstance(allow_unassociated_targets, bool):
-            raise TypeError('Expected property allow_unassociated_targets to be a bool')
-        __self__.allow_unassociated_targets = allow_unassociated_targets
-        """
-        Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-        """
         __props__['allowUnassociatedTargets'] = allow_unassociated_targets
 
         if not cutoff:
             raise TypeError('Missing required property cutoff')
-        elif not isinstance(cutoff, int):
-            raise TypeError('Expected property cutoff to be a int')
-        __self__.cutoff = cutoff
-        """
-        The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-        """
         __props__['cutoff'] = cutoff
 
         if not duration:
             raise TypeError('Missing required property duration')
-        elif not isinstance(duration, int):
-            raise TypeError('Expected property duration to be a int')
-        __self__.duration = duration
-        """
-        The duration of the Maintenance Window in hours.
-        """
         __props__['duration'] = duration
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
         __props__['enabled'] = enabled
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the maintenance window.
-        """
         __props__['name'] = name
 
         if not schedule:
             raise TypeError('Missing required property schedule')
-        elif not isinstance(schedule, basestring):
-            raise TypeError('Expected property schedule to be a basestring')
-        __self__.schedule = schedule
-        """
-        The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
-        """
         __props__['schedule'] = schedule
 
         super(MaintenanceWindow, __self__).__init__(
@@ -78,16 +45,3 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allowUnassociatedTargets' in outs:
-            self.allow_unassociated_targets = outs['allowUnassociatedTargets']
-        if 'cutoff' in outs:
-            self.cutoff = outs['cutoff']
-        if 'duration' in outs:
-            self.duration = outs['duration']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'schedule' in outs:
-            self.schedule = outs['schedule']

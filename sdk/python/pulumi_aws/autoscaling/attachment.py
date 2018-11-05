@@ -21,37 +21,19 @@ class Attachment(pulumi.CustomResource):
         """Create a Attachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if alb_target_group_arn and not isinstance(alb_target_group_arn, basestring):
-            raise TypeError('Expected property alb_target_group_arn to be a basestring')
-        __self__.alb_target_group_arn = alb_target_group_arn
-        """
-        The ARN of an ALB Target Group.
-        """
         __props__['albTargetGroupArn'] = alb_target_group_arn
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        elif not isinstance(autoscaling_group_name, basestring):
-            raise TypeError('Expected property autoscaling_group_name to be a basestring')
-        __self__.autoscaling_group_name = autoscaling_group_name
-        """
-        Name of ASG to associate with the ELB.
-        """
         __props__['autoscalingGroupName'] = autoscaling_group_name
 
-        if elb and not isinstance(elb, basestring):
-            raise TypeError('Expected property elb to be a basestring')
-        __self__.elb = elb
-        """
-        The name of the ELB.
-        """
         __props__['elb'] = elb
 
         super(Attachment, __self__).__init__(
@@ -60,10 +42,3 @@ class Attachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'albTargetGroupArn' in outs:
-            self.alb_target_group_arn = outs['albTargetGroupArn']
-        if 'autoscalingGroupName' in outs:
-            self.autoscaling_group_name = outs['autoscalingGroupName']
-        if 'elb' in outs:
-            self.elb = outs['elb']

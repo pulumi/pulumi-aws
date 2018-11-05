@@ -16,128 +16,45 @@ class TargetGroup(pulumi.CustomResource):
         """Create a TargetGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if deregistration_delay and not isinstance(deregistration_delay, int):
-            raise TypeError('Expected property deregistration_delay to be a int')
-        __self__.deregistration_delay = deregistration_delay
-        """
-        The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        """
         __props__['deregistrationDelay'] = deregistration_delay
 
-        if health_check and not isinstance(health_check, dict):
-            raise TypeError('Expected property health_check to be a dict')
-        __self__.health_check = health_check
-        """
-        A Health Check block. Health Check blocks are documented below.
-        """
         __props__['healthCheck'] = health_check
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the target group. If omitted, Terraform will assign a random, unique name.
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        """
         __props__['namePrefix'] = name_prefix
 
         if not port:
             raise TypeError('Missing required property port')
-        elif not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
-        """
         __props__['port'] = port
 
         if not protocol:
             raise TypeError('Missing required property protocol')
-        elif not isinstance(protocol, basestring):
-            raise TypeError('Expected property protocol to be a basestring')
-        __self__.protocol = protocol
-        """
-        The protocol to use to connect with the target. Defaults to `HTTP`.
-        """
         __props__['protocol'] = protocol
 
-        if proxy_protocol_v2 and not isinstance(proxy_protocol_v2, bool):
-            raise TypeError('Expected property proxy_protocol_v2 to be a bool')
-        __self__.proxy_protocol_v2 = proxy_protocol_v2
-        """
-        Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
-        """
         __props__['proxyProtocolV2'] = proxy_protocol_v2
 
-        if slow_start and not isinstance(slow_start, int):
-            raise TypeError('Expected property slow_start to be a int')
-        __self__.slow_start = slow_start
-        """
-        The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        """
         __props__['slowStart'] = slow_start
 
-        if stickiness and not isinstance(stickiness, dict):
-            raise TypeError('Expected property stickiness to be a dict')
-        __self__.stickiness = stickiness
-        """
-        A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
-        """
         __props__['stickiness'] = stickiness
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if target_type and not isinstance(target_type, basestring):
-            raise TypeError('Expected property target_type to be a basestring')
-        __self__.target_type = target_type
-        """
-        The type of target that you must specify when registering targets with this target group.
-        The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
-        The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-        If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
-        the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-        You can't specify publicly routable IP addresses.
-        """
         __props__['targetType'] = target_type
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The identifier of the VPC in which to create the target group.
-        """
         __props__['vpcId'] = vpc_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the Target Group (matches `id`)
-        """
-        __self__.arn_suffix = pulumi.runtime.UNKNOWN
-        """
-        The ARN suffix for use with CloudWatch Metrics.
-        """
+        __props__['arn'] = None
+        __props__['arn_suffix'] = None
 
         super(TargetGroup, __self__).__init__(
             'aws:applicationloadbalancing/targetGroup:TargetGroup',
@@ -145,32 +62,3 @@ class TargetGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'arnSuffix' in outs:
-            self.arn_suffix = outs['arnSuffix']
-        if 'deregistrationDelay' in outs:
-            self.deregistration_delay = outs['deregistrationDelay']
-        if 'healthCheck' in outs:
-            self.health_check = outs['healthCheck']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'protocol' in outs:
-            self.protocol = outs['protocol']
-        if 'proxyProtocolV2' in outs:
-            self.proxy_protocol_v2 = outs['proxyProtocolV2']
-        if 'slowStart' in outs:
-            self.slow_start = outs['slowStart']
-        if 'stickiness' in outs:
-            self.stickiness = outs['stickiness']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'targetType' in outs:
-            self.target_type = outs['targetType']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

@@ -14,7 +14,7 @@ class WebAcl(pulumi.CustomResource):
         """Create a WebAcl resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,38 +23,14 @@ class WebAcl(pulumi.CustomResource):
 
         if not default_action:
             raise TypeError('Missing required property default_action')
-        elif not isinstance(default_action, dict):
-            raise TypeError('Expected property default_action to be a dict')
-        __self__.default_action = default_action
-        """
-        The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
-        """
         __props__['defaultAction'] = default_action
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        elif not isinstance(metric_name, basestring):
-            raise TypeError('Expected property metric_name to be a basestring')
-        __self__.metric_name = metric_name
-        """
-        The name or description for the Amazon CloudWatch metric of this web ACL.
-        """
         __props__['metricName'] = metric_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name or description of the web ACL.
-        """
         __props__['name'] = name
 
-        if rules and not isinstance(rules, list):
-            raise TypeError('Expected property rules to be a list')
-        __self__.rules = rules
-        """
-        The rules to associate with the web ACL and the settings for each rule.
-        """
         __props__['rules'] = rules
 
         super(WebAcl, __self__).__init__(
@@ -63,12 +39,3 @@ class WebAcl(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'defaultAction' in outs:
-            self.default_action = outs['defaultAction']
-        if 'metricName' in outs:
-            self.metric_name = outs['metricName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'rules' in outs:
-            self.rules = outs['rules']

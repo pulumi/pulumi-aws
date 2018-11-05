@@ -11,35 +11,35 @@ class GetAvailabilityZoneResult(object):
     A collection of values returned by getAvailabilityZone.
     """
     def __init__(__self__, name=None, name_suffix=None, region=None, state=None, id=None):
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         """
         The name of the selected availability zone.
         """
-        if name_suffix and not isinstance(name_suffix, basestring):
-            raise TypeError('Expected argument name_suffix to be a basestring')
+        if name_suffix and not isinstance(name_suffix, str):
+            raise TypeError('Expected argument name_suffix to be a str')
         __self__.name_suffix = name_suffix
         """
         The part of the AZ name that appears after the region name,
         uniquely identifying the AZ within its region.
         """
-        if region and not isinstance(region, basestring):
-            raise TypeError('Expected argument region to be a basestring')
+        if region and not isinstance(region, str):
+            raise TypeError('Expected argument region to be a str')
         __self__.region = region
         """
         The region where the selected availability zone resides.
         This is always the region selected on the provider, since this data source
         searches only within that region.
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The current state of the AZ.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

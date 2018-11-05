@@ -17,123 +17,42 @@ class Directory(pulumi.CustomResource):
         """Create a Directory resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if alias and not isinstance(alias, basestring):
-            raise TypeError('Expected property alias to be a basestring')
-        __self__.alias = alias
-        """
-        The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        """
         __props__['alias'] = alias
 
-        if connect_settings and not isinstance(connect_settings, dict):
-            raise TypeError('Expected property connect_settings to be a dict')
-        __self__.connect_settings = connect_settings
-        """
-        Connector related information about the directory. Fields documented below.
-        """
         __props__['connectSettings'] = connect_settings
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A textual description for the directory.
-        """
         __props__['description'] = description
 
-        if edition and not isinstance(edition, basestring):
-            raise TypeError('Expected property edition to be a basestring')
-        __self__.edition = edition
-        """
-        The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
-        """
         __props__['edition'] = edition
 
-        if enable_sso and not isinstance(enable_sso, bool):
-            raise TypeError('Expected property enable_sso to be a bool')
-        __self__.enable_sso = enable_sso
-        """
-        Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        """
         __props__['enableSso'] = enable_sso
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The fully qualified name for the directory, such as `corp.example.com`
-        """
         __props__['name'] = name
 
         if not password:
             raise TypeError('Missing required property password')
-        elif not isinstance(password, basestring):
-            raise TypeError('Expected property password to be a basestring')
-        __self__.password = password
-        """
-        The password for the directory administrator or connector user.
-        """
         __props__['password'] = password
 
-        if short_name and not isinstance(short_name, basestring):
-            raise TypeError('Expected property short_name to be a basestring')
-        __self__.short_name = short_name
-        """
-        The short name of the directory, such as `CORP`.
-        """
         __props__['shortName'] = short_name
 
-        if size and not isinstance(size, basestring):
-            raise TypeError('Expected property size to be a basestring')
-        __self__.size = size
-        """
-        The size of the directory (`Small` or `Large` are accepted values).
-        """
         __props__['size'] = size
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        """
         __props__['type'] = type
 
-        if vpc_settings and not isinstance(vpc_settings, dict):
-            raise TypeError('Expected property vpc_settings to be a dict')
-        __self__.vpc_settings = vpc_settings
-        """
-        VPC related information about the directory. Fields documented below.
-        """
         __props__['vpcSettings'] = vpc_settings
 
-        __self__.access_url = pulumi.runtime.UNKNOWN
-        """
-        The access URL for the directory, such as `http://alias.awsapps.com`.
-        """
-        __self__.dns_ip_addresses = pulumi.runtime.UNKNOWN
-        """
-        A list of IP addresses of the DNS servers for the directory or connector.
-        """
-        __self__.security_group_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
-        """
+        __props__['access_url'] = None
+        __props__['dns_ip_addresses'] = None
+        __props__['security_group_id'] = None
 
         super(Directory, __self__).__init__(
             'aws:directoryservice/directory:Directory',
@@ -141,34 +60,3 @@ class Directory(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accessUrl' in outs:
-            self.access_url = outs['accessUrl']
-        if 'alias' in outs:
-            self.alias = outs['alias']
-        if 'connectSettings' in outs:
-            self.connect_settings = outs['connectSettings']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'dnsIpAddresses' in outs:
-            self.dns_ip_addresses = outs['dnsIpAddresses']
-        if 'edition' in outs:
-            self.edition = outs['edition']
-        if 'enableSso' in outs:
-            self.enable_sso = outs['enableSso']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'password' in outs:
-            self.password = outs['password']
-        if 'securityGroupId' in outs:
-            self.security_group_id = outs['securityGroupId']
-        if 'shortName' in outs:
-            self.short_name = outs['shortName']
-        if 'size' in outs:
-            self.size = outs['size']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'type' in outs:
-            self.type = outs['type']
-        if 'vpcSettings' in outs:
-            self.vpc_settings = outs['vpcSettings']

@@ -16,7 +16,7 @@ class AccountAlias(pulumi.CustomResource):
         """Create a AccountAlias resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,12 +25,6 @@ class AccountAlias(pulumi.CustomResource):
 
         if not account_alias:
             raise TypeError('Missing required property account_alias')
-        elif not isinstance(account_alias, basestring):
-            raise TypeError('Expected property account_alias to be a basestring')
-        __self__.account_alias = account_alias
-        """
-        The account alias
-        """
         __props__['accountAlias'] = account_alias
 
         super(AccountAlias, __self__).__init__(
@@ -39,6 +33,3 @@ class AccountAlias(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accountAlias' in outs:
-            self.account_alias = outs['accountAlias']

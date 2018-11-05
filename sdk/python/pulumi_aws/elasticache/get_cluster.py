@@ -11,11 +11,11 @@ class GetClusterResult(object):
     A collection of values returned by getCluster.
     """
     def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, configuration_endpoint=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
         """
         The Availability Zone for the cache cluster.
@@ -27,45 +27,45 @@ class GetClusterResult(object):
         List of node objects including `id`, `address`, `port` and `availability_zone`.
         Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
         """
-        if cluster_address and not isinstance(cluster_address, basestring):
-            raise TypeError('Expected argument cluster_address to be a basestring')
+        if cluster_address and not isinstance(cluster_address, str):
+            raise TypeError('Expected argument cluster_address to be a str')
         __self__.cluster_address = cluster_address
         """
         (Memcached only) The DNS name of the cache cluster without the port appended.
         """
-        if configuration_endpoint and not isinstance(configuration_endpoint, basestring):
-            raise TypeError('Expected argument configuration_endpoint to be a basestring')
+        if configuration_endpoint and not isinstance(configuration_endpoint, str):
+            raise TypeError('Expected argument configuration_endpoint to be a str')
         __self__.configuration_endpoint = configuration_endpoint
         """
         (Memcached only) The configuration endpoint to allow host discovery.
         """
-        if engine and not isinstance(engine, basestring):
-            raise TypeError('Expected argument engine to be a basestring')
+        if engine and not isinstance(engine, str):
+            raise TypeError('Expected argument engine to be a str')
         __self__.engine = engine
         """
         Name of the cache engine.
         """
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected argument engine_version to be a basestring')
+        if engine_version and not isinstance(engine_version, str):
+            raise TypeError('Expected argument engine_version to be a str')
         __self__.engine_version = engine_version
         """
         Version number of the cache engine.
         """
-        if maintenance_window and not isinstance(maintenance_window, basestring):
-            raise TypeError('Expected argument maintenance_window to be a basestring')
+        if maintenance_window and not isinstance(maintenance_window, str):
+            raise TypeError('Expected argument maintenance_window to be a str')
         __self__.maintenance_window = maintenance_window
         """
         Specifies the weekly time range for when maintenance
         on the cache cluster is performed.
         """
-        if node_type and not isinstance(node_type, basestring):
-            raise TypeError('Expected argument node_type to be a basestring')
+        if node_type and not isinstance(node_type, str):
+            raise TypeError('Expected argument node_type to be a str')
         __self__.node_type = node_type
         """
         The cluster node type.
         """
-        if notification_topic_arn and not isinstance(notification_topic_arn, basestring):
-            raise TypeError('Expected argument notification_topic_arn to be a basestring')
+        if notification_topic_arn and not isinstance(notification_topic_arn, str):
+            raise TypeError('Expected argument notification_topic_arn to be a str')
         __self__.notification_topic_arn = notification_topic_arn
         """
         An Amazon Resource Name (ARN) of an
@@ -77,8 +77,8 @@ class GetClusterResult(object):
         """
         The number of cache nodes that the cache cluster has.
         """
-        if parameter_group_name and not isinstance(parameter_group_name, basestring):
-            raise TypeError('Expected argument parameter_group_name to be a basestring')
+        if parameter_group_name and not isinstance(parameter_group_name, str):
+            raise TypeError('Expected argument parameter_group_name to be a str')
         __self__.parameter_group_name = parameter_group_name
         """
         Name of the parameter group associated with this cache cluster.
@@ -90,8 +90,8 @@ class GetClusterResult(object):
         The port number on which each of the cache nodes will
         accept connections.
         """
-        if replication_group_id and not isinstance(replication_group_id, basestring):
-            raise TypeError('Expected argument replication_group_id to be a basestring')
+        if replication_group_id and not isinstance(replication_group_id, str):
+            raise TypeError('Expected argument replication_group_id to be a str')
         __self__.replication_group_id = replication_group_id
         """
         The replication group to which this cache cluster belongs.
@@ -115,15 +115,15 @@ class GetClusterResult(object):
         The number of days for which ElastiCache will
         retain automatic cache cluster snapshots before deleting them.
         """
-        if snapshot_window and not isinstance(snapshot_window, basestring):
-            raise TypeError('Expected argument snapshot_window to be a basestring')
+        if snapshot_window and not isinstance(snapshot_window, str):
+            raise TypeError('Expected argument snapshot_window to be a str')
         __self__.snapshot_window = snapshot_window
         """
         The daily time range (in UTC) during which ElastiCache will
         begin taking a daily snapshot of the cache cluster.
         """
-        if subnet_group_name and not isinstance(subnet_group_name, basestring):
-            raise TypeError('Expected argument subnet_group_name to be a basestring')
+        if subnet_group_name and not isinstance(subnet_group_name, str):
+            raise TypeError('Expected argument subnet_group_name to be a str')
         __self__.subnet_group_name = subnet_group_name
         """
         Name of the subnet group associated to the cache cluster.
@@ -134,8 +134,8 @@ class GetClusterResult(object):
         """
         The tags assigned to the resource
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

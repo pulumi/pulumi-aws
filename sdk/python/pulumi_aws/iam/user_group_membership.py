@@ -19,7 +19,7 @@ class UserGroupMembership(pulumi.CustomResource):
         """Create a UserGroupMembership resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -28,22 +28,10 @@ class UserGroupMembership(pulumi.CustomResource):
 
         if not groups:
             raise TypeError('Missing required property groups')
-        elif not isinstance(groups, list):
-            raise TypeError('Expected property groups to be a list')
-        __self__.groups = groups
-        """
-        A list of [IAM Groups][1] to add the user to
-        """
         __props__['groups'] = groups
 
         if not user:
             raise TypeError('Missing required property user')
-        elif not isinstance(user, basestring):
-            raise TypeError('Expected property user to be a basestring')
-        __self__.user = user
-        """
-        The name of the [IAM User][2] to add to groups
-        """
         __props__['user'] = user
 
         super(UserGroupMembership, __self__).__init__(
@@ -52,8 +40,3 @@ class UserGroupMembership(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'groups' in outs:
-            self.groups = outs['groups']
-        if 'user' in outs:
-            self.user = outs['user']

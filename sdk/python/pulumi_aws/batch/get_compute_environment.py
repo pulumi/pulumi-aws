@@ -11,50 +11,50 @@ class GetComputeEnvironmentResult(object):
     A collection of values returned by getComputeEnvironment.
     """
     def __init__(__self__, arn=None, ecs_cluster_arn=None, service_role=None, state=None, status=None, status_reason=None, type=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the compute environment.
         """
-        if ecs_cluster_arn and not isinstance(ecs_cluster_arn, basestring):
-            raise TypeError('Expected argument ecs_cluster_arn to be a basestring')
+        if ecs_cluster_arn and not isinstance(ecs_cluster_arn, str):
+            raise TypeError('Expected argument ecs_cluster_arn to be a str')
         __self__.ecs_cluster_arn = ecs_cluster_arn
         """
         The ARN of the underlying Amazon ECS cluster used by the compute environment.
         """
-        if service_role and not isinstance(service_role, basestring):
-            raise TypeError('Expected argument service_role to be a basestring')
+        if service_role and not isinstance(service_role, str):
+            raise TypeError('Expected argument service_role to be a str')
         __self__.service_role = service_role
         """
         The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         The current status of the compute environment (for example, `CREATING` or `VALID`).
         """
-        if status_reason and not isinstance(status_reason, basestring):
-            raise TypeError('Expected argument status_reason to be a basestring')
+        if status_reason and not isinstance(status_reason, str):
+            raise TypeError('Expected argument status_reason to be a str')
         __self__.status_reason = status_reason
         """
         A short, human-readable string to provide additional details about the current status of the compute environment.
         """
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected argument type to be a basestring')
+        if type and not isinstance(type, str):
+            raise TypeError('Expected argument type to be a str')
         __self__.type = type
         """
         The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

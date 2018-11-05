@@ -11,11 +11,11 @@ class GetElasticIpResult(object):
     A collection of values returned by getElasticIp.
     """
     def __init__(__self__, id=None, public_ip=None):
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
-        if public_ip and not isinstance(public_ip, basestring):
-            raise TypeError('Expected argument public_ip to be a basestring')
+        if public_ip and not isinstance(public_ip, str):
+            raise TypeError('Expected argument public_ip to be a str')
         __self__.public_ip = public_ip
 
 def get_elastic_ip(id=None, public_ip=None):

@@ -14,7 +14,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
         """Create a LogDestinationPolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,22 +23,10 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         if not access_policy:
             raise TypeError('Missing required property access_policy')
-        elif not isinstance(access_policy, basestring):
-            raise TypeError('Expected property access_policy to be a basestring')
-        __self__.access_policy = access_policy
-        """
-        The policy document. This is a JSON formatted string.
-        """
         __props__['accessPolicy'] = access_policy
 
         if not destination_name:
             raise TypeError('Missing required property destination_name')
-        elif not isinstance(destination_name, basestring):
-            raise TypeError('Expected property destination_name to be a basestring')
-        __self__.destination_name = destination_name
-        """
-        A name for the subscription filter
-        """
         __props__['destinationName'] = destination_name
 
         super(LogDestinationPolicy, __self__).__init__(
@@ -47,8 +35,3 @@ class LogDestinationPolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accessPolicy' in outs:
-            self.access_policy = outs['accessPolicy']
-        if 'destinationName' in outs:
-            self.destination_name = outs['destinationName']

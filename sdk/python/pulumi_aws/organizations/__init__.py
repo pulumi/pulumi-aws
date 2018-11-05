@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from account import *
-from organization import *
-from policy import *
-from policy_attachment import *
+from .account import *
+from .organization import *
+from .policy import *
+from .policy_attachment import *

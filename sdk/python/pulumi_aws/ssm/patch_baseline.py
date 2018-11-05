@@ -18,75 +18,27 @@ class PatchBaseline(pulumi.CustomResource):
         """Create a PatchBaseline resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if approval_rules and not isinstance(approval_rules, list):
-            raise TypeError('Expected property approval_rules to be a list')
-        __self__.approval_rules = approval_rules
-        """
-        A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
-        """
         __props__['approvalRules'] = approval_rules
 
-        if approved_patches and not isinstance(approved_patches, list):
-            raise TypeError('Expected property approved_patches to be a list')
-        __self__.approved_patches = approved_patches
-        """
-        A list of explicitly approved patches for the baseline.
-        """
         __props__['approvedPatches'] = approved_patches
 
-        if approved_patches_compliance_level and not isinstance(approved_patches_compliance_level, basestring):
-            raise TypeError('Expected property approved_patches_compliance_level to be a basestring')
-        __self__.approved_patches_compliance_level = approved_patches_compliance_level
-        """
-        Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        """
         __props__['approvedPatchesComplianceLevel'] = approved_patches_compliance_level
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the patch baseline.
-        """
         __props__['description'] = description
 
-        if global_filters and not isinstance(global_filters, list):
-            raise TypeError('Expected property global_filters to be a list')
-        __self__.global_filters = global_filters
-        """
-        A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-        """
         __props__['globalFilters'] = global_filters
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the patch baseline.
-        """
         __props__['name'] = name
 
-        if operating_system and not isinstance(operating_system, basestring):
-            raise TypeError('Expected property operating_system to be a basestring')
-        __self__.operating_system = operating_system
-        """
-        Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
-        """
         __props__['operatingSystem'] = operating_system
 
-        if rejected_patches and not isinstance(rejected_patches, list):
-            raise TypeError('Expected property rejected_patches to be a list')
-        __self__.rejected_patches = rejected_patches
-        """
-        A list of rejected patches.
-        """
         __props__['rejectedPatches'] = rejected_patches
 
         super(PatchBaseline, __self__).__init__(
@@ -95,20 +47,3 @@ class PatchBaseline(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'approvalRules' in outs:
-            self.approval_rules = outs['approvalRules']
-        if 'approvedPatches' in outs:
-            self.approved_patches = outs['approvedPatches']
-        if 'approvedPatchesComplianceLevel' in outs:
-            self.approved_patches_compliance_level = outs['approvedPatchesComplianceLevel']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'globalFilters' in outs:
-            self.global_filters = outs['globalFilters']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'operatingSystem' in outs:
-            self.operating_system = outs['operatingSystem']
-        if 'rejectedPatches' in outs:
-            self.rejected_patches = outs['rejectedPatches']

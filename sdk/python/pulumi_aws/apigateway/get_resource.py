@@ -11,20 +11,20 @@ class GetResourceResult(object):
     A collection of values returned by getResource.
     """
     def __init__(__self__, parent_id=None, path_part=None, id=None):
-        if parent_id and not isinstance(parent_id, basestring):
-            raise TypeError('Expected argument parent_id to be a basestring')
+        if parent_id and not isinstance(parent_id, str):
+            raise TypeError('Expected argument parent_id to be a str')
         __self__.parent_id = parent_id
         """
         Set to the ID of the parent Resource.
         """
-        if path_part and not isinstance(path_part, basestring):
-            raise TypeError('Expected argument path_part to be a basestring')
+        if path_part and not isinstance(path_part, str):
+            raise TypeError('Expected argument path_part to be a str')
         __self__.path_part = path_part
         """
         Set to the path relative to the parent Resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

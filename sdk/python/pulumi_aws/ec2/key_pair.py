@@ -22,43 +22,22 @@ class KeyPair(pulumi.CustomResource):
         """Create a KeyPair resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if key_name and not isinstance(key_name, basestring):
-            raise TypeError('Expected property key_name to be a basestring')
-        __self__.key_name = key_name
-        """
-        The name for the key pair.
-        """
         __props__['keyName'] = key_name
 
-        if key_name_prefix and not isinstance(key_name_prefix, basestring):
-            raise TypeError('Expected property key_name_prefix to be a basestring')
-        __self__.key_name_prefix = key_name_prefix
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
-        """
         __props__['keyNamePrefix'] = key_name_prefix
 
         if not public_key:
             raise TypeError('Missing required property public_key')
-        elif not isinstance(public_key, basestring):
-            raise TypeError('Expected property public_key to be a basestring')
-        __self__.public_key = public_key
-        """
-        The public key material.
-        """
         __props__['publicKey'] = public_key
 
-        __self__.fingerprint = pulumi.runtime.UNKNOWN
-        """
-        The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        """
+        __props__['fingerprint'] = None
 
         super(KeyPair, __self__).__init__(
             'aws:ec2/keyPair:KeyPair',
@@ -66,12 +45,3 @@ class KeyPair(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'fingerprint' in outs:
-            self.fingerprint = outs['fingerprint']
-        if 'keyName' in outs:
-            self.key_name = outs['keyName']
-        if 'keyNamePrefix' in outs:
-            self.key_name_prefix = outs['keyNamePrefix']
-        if 'publicKey' in outs:
-            self.public_key = outs['publicKey']

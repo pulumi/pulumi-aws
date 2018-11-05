@@ -14,47 +14,23 @@ class Portfolio(pulumi.CustomResource):
         """Create a Portfolio resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Description of the portfolio
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the portfolio.
-        """
         __props__['name'] = name
 
-        if provider_name and not isinstance(provider_name, basestring):
-            raise TypeError('Expected property provider_name to be a basestring')
-        __self__.provider_name = provider_name
-        """
-        Name of the person or organization who owns the portfolio.
-        """
         __props__['providerName'] = provider_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        Tags to apply to the connection.
-        """
         __props__['tags'] = tags
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        __self__.created_time = pulumi.runtime.UNKNOWN
+        __props__['arn'] = None
+        __props__['created_time'] = None
 
         super(Portfolio, __self__).__init__(
             'aws:servicecatalog/portfolio:Portfolio',
@@ -62,16 +38,3 @@ class Portfolio(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'createdTime' in outs:
-            self.created_time = outs['createdTime']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'providerName' in outs:
-            self.provider_name = outs['providerName']
-        if 'tags' in outs:
-            self.tags = outs['tags']

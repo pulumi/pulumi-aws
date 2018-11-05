@@ -11,7 +11,7 @@ class GcmChannel(pulumi.CustomResource):
         """Create a GcmChannel resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -20,21 +20,12 @@ class GcmChannel(pulumi.CustomResource):
 
         if not api_key:
             raise TypeError('Missing required property api_key')
-        elif not isinstance(api_key, basestring):
-            raise TypeError('Expected property api_key to be a basestring')
-        __self__.api_key = api_key
         __props__['apiKey'] = api_key
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        elif not isinstance(application_id, basestring):
-            raise TypeError('Expected property application_id to be a basestring')
-        __self__.application_id = application_id
         __props__['applicationId'] = application_id
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
         __props__['enabled'] = enabled
 
         super(GcmChannel, __self__).__init__(
@@ -43,10 +34,3 @@ class GcmChannel(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'apiKey' in outs:
-            self.api_key = outs['apiKey']
-        if 'applicationId' in outs:
-            self.application_id = outs['applicationId']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']

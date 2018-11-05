@@ -11,14 +11,14 @@ class GetLocalDiskResult(object):
     A collection of values returned by getLocalDisk.
     """
     def __init__(__self__, disk_id=None, id=None):
-        if disk_id and not isinstance(disk_id, basestring):
-            raise TypeError('Expected argument disk_id to be a basestring')
+        if disk_id and not isinstance(disk_id, str):
+            raise TypeError('Expected argument disk_id to be a str')
         __self__.disk_id = disk_id
         """
         The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -18,7 +18,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         """Create a LifecyclePolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,28 +27,13 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-        """
         __props__['policy'] = policy
 
         if not repository:
             raise TypeError('Missing required property repository')
-        elif not isinstance(repository, basestring):
-            raise TypeError('Expected property repository to be a basestring')
-        __self__.repository = repository
-        """
-        Name of the repository to apply the policy.
-        """
         __props__['repository'] = repository
 
-        __self__.registry_id = pulumi.runtime.UNKNOWN
-        """
-        The registry ID where the repository was created.
-        """
+        __props__['registry_id'] = None
 
         super(LifecyclePolicy, __self__).__init__(
             'aws:ecr/lifecyclePolicy:LifecyclePolicy',
@@ -56,10 +41,3 @@ class LifecyclePolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'policy' in outs:
-            self.policy = outs['policy']
-        if 'registryId' in outs:
-            self.registry_id = outs['registryId']
-        if 'repository' in outs:
-            self.repository = outs['repository']

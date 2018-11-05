@@ -14,60 +14,24 @@ class LogGroup(pulumi.CustomResource):
         """Create a LogGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-        AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-        permissions for the CMK whenever the encrypted data is requested.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the log group. If omitted, Terraform will assign a random, unique name.
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
-        if retention_in_days and not isinstance(retention_in_days, int):
-            raise TypeError('Expected property retention_in_days to be a int')
-        __self__.retention_in_days = retention_in_days
-        """
-        Specifies the number of days
-        you want to retain log events in the specified log group.
-        """
         __props__['retentionInDays'] = retention_in_days
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) specifying the log group.
-        """
+        __props__['arn'] = None
 
         super(LogGroup, __self__).__init__(
             'aws:cloudwatch/logGroup:LogGroup',
@@ -75,16 +39,3 @@ class LogGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'retentionInDays' in outs:
-            self.retention_in_days = outs['retentionInDays']
-        if 'tags' in outs:
-            self.tags = outs['tags']

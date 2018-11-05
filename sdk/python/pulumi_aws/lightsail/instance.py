@@ -18,7 +18,7 @@ class Instance(pulumi.CustomResource):
         """Create a Instance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,78 +27,31 @@ class Instance(pulumi.CustomResource):
 
         if not availability_zone:
             raise TypeError('Missing required property availability_zone')
-        elif not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The Availability Zone in which to create your
-        instance. At this time, must be in `us-east-1`, `us-east-2`, `us-west-2`, `eu-west-1`, `eu-west-2`, `eu-central-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, `ap-south-1` regions
-        """
         __props__['availabilityZone'] = availability_zone
 
         if not blueprint_id:
             raise TypeError('Missing required property blueprint_id')
-        elif not isinstance(blueprint_id, basestring):
-            raise TypeError('Expected property blueprint_id to be a basestring')
-        __self__.blueprint_id = blueprint_id
-        """
-        The ID for a virtual private server image
-        (see list below)
-        """
         __props__['blueprintId'] = blueprint_id
 
         if not bundle_id:
             raise TypeError('Missing required property bundle_id')
-        elif not isinstance(bundle_id, basestring):
-            raise TypeError('Expected property bundle_id to be a basestring')
-        __self__.bundle_id = bundle_id
-        """
-        The bundle of specification information (see list below)
-        """
         __props__['bundleId'] = bundle_id
 
-        if key_pair_name and not isinstance(key_pair_name, basestring):
-            raise TypeError('Expected property key_pair_name to be a basestring')
-        __self__.key_pair_name = key_pair_name
-        """
-        The name of your key pair. Created in the
-        Lightsail console (cannot use `aws_key_pair` at this time)
-        """
         __props__['keyPairName'] = key_pair_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Lightsail Instance
-        """
         __props__['name'] = name
 
-        if user_data and not isinstance(user_data, basestring):
-            raise TypeError('Expected property user_data to be a basestring')
-        __self__.user_data = user_data
-        """
-        launch script to configure server with additional user data
-        """
         __props__['userData'] = user_data
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the Lightsail instance (matches `id`).
-        * `availability_zone`
-        * `blueprint_id`
-        * `bundle_id`
-        * `key_pair_name`
-        * `user_data`
-        """
-        __self__.cpu_count = pulumi.runtime.UNKNOWN
-        __self__.created_at = pulumi.runtime.UNKNOWN
-        __self__.ipv6_address = pulumi.runtime.UNKNOWN
-        __self__.is_static_ip = pulumi.runtime.UNKNOWN
-        __self__.private_ip_address = pulumi.runtime.UNKNOWN
-        __self__.public_ip_address = pulumi.runtime.UNKNOWN
-        __self__.ram_size = pulumi.runtime.UNKNOWN
-        __self__.username = pulumi.runtime.UNKNOWN
+        __props__['arn'] = None
+        __props__['cpu_count'] = None
+        __props__['created_at'] = None
+        __props__['ipv6_address'] = None
+        __props__['is_static_ip'] = None
+        __props__['private_ip_address'] = None
+        __props__['public_ip_address'] = None
+        __props__['ram_size'] = None
+        __props__['username'] = None
 
         super(Instance, __self__).__init__(
             'aws:lightsail/instance:Instance',
@@ -106,34 +59,3 @@ class Instance(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'blueprintId' in outs:
-            self.blueprint_id = outs['blueprintId']
-        if 'bundleId' in outs:
-            self.bundle_id = outs['bundleId']
-        if 'cpuCount' in outs:
-            self.cpu_count = outs['cpuCount']
-        if 'createdAt' in outs:
-            self.created_at = outs['createdAt']
-        if 'ipv6Address' in outs:
-            self.ipv6_address = outs['ipv6Address']
-        if 'isStaticIp' in outs:
-            self.is_static_ip = outs['isStaticIp']
-        if 'keyPairName' in outs:
-            self.key_pair_name = outs['keyPairName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'privateIpAddress' in outs:
-            self.private_ip_address = outs['privateIpAddress']
-        if 'publicIpAddress' in outs:
-            self.public_ip_address = outs['publicIpAddress']
-        if 'ramSize' in outs:
-            self.ram_size = outs['ramSize']
-        if 'userData' in outs:
-            self.user_data = outs['userData']
-        if 'username' in outs:
-            self.username = outs['username']

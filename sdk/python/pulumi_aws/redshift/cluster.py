@@ -17,322 +17,92 @@ class Cluster(pulumi.CustomResource):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
-            raise TypeError('Expected property allow_version_upgrade to be a bool')
-        __self__.allow_version_upgrade = allow_version_upgrade
-        """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
-        """
         __props__['allowVersionUpgrade'] = allow_version_upgrade
 
-        if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, int):
-            raise TypeError('Expected property automated_snapshot_retention_period to be a int')
-        __self__.automated_snapshot_retention_period = automated_snapshot_retention_period
-        """
-        The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        """
         __props__['automatedSnapshotRetentionPeriod'] = automated_snapshot_retention_period
 
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
-        """
         __props__['availabilityZone'] = availability_zone
 
-        if bucket_name and not isinstance(bucket_name, basestring):
-            raise TypeError('Expected property bucket_name to be a basestring')
-        __self__.bucket_name = bucket_name
-        """
-        The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-        For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        """
         __props__['bucketName'] = bucket_name
 
         if not cluster_identifier:
             raise TypeError('Missing required property cluster_identifier')
-        elif not isinstance(cluster_identifier, basestring):
-            raise TypeError('Expected property cluster_identifier to be a basestring')
-        __self__.cluster_identifier = cluster_identifier
-        """
-        The Cluster Identifier. Must be a lower case
-        string.
-        """
         __props__['clusterIdentifier'] = cluster_identifier
 
-        if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, basestring):
-            raise TypeError('Expected property cluster_parameter_group_name to be a basestring')
-        __self__.cluster_parameter_group_name = cluster_parameter_group_name
-        """
-        The name of the parameter group to be associated with this cluster.
-        """
         __props__['clusterParameterGroupName'] = cluster_parameter_group_name
 
-        if cluster_public_key and not isinstance(cluster_public_key, basestring):
-            raise TypeError('Expected property cluster_public_key to be a basestring')
-        __self__.cluster_public_key = cluster_public_key
-        """
-        The public key for the cluster
-        """
         __props__['clusterPublicKey'] = cluster_public_key
 
-        if cluster_revision_number and not isinstance(cluster_revision_number, basestring):
-            raise TypeError('Expected property cluster_revision_number to be a basestring')
-        __self__.cluster_revision_number = cluster_revision_number
-        """
-        The specific revision number of the database in the cluster
-        """
         __props__['clusterRevisionNumber'] = cluster_revision_number
 
-        if cluster_security_groups and not isinstance(cluster_security_groups, list):
-            raise TypeError('Expected property cluster_security_groups to be a list')
-        __self__.cluster_security_groups = cluster_security_groups
-        """
-        A list of security groups to be associated with this cluster.
-        """
         __props__['clusterSecurityGroups'] = cluster_security_groups
 
-        if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, basestring):
-            raise TypeError('Expected property cluster_subnet_group_name to be a basestring')
-        __self__.cluster_subnet_group_name = cluster_subnet_group_name
-        """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        """
         __props__['clusterSubnetGroupName'] = cluster_subnet_group_name
 
-        if cluster_type and not isinstance(cluster_type, basestring):
-            raise TypeError('Expected property cluster_type to be a basestring')
-        __self__.cluster_type = cluster_type
-        """
-        The cluster type to use. Either `single-node` or `multi-node`.
-        """
         __props__['clusterType'] = cluster_type
 
-        if cluster_version and not isinstance(cluster_version, basestring):
-            raise TypeError('Expected property cluster_version to be a basestring')
-        __self__.cluster_version = cluster_version
-        """
-        The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-        The version selected runs on all the nodes in the cluster.
-        """
         __props__['clusterVersion'] = cluster_version
 
-        if database_name and not isinstance(database_name, basestring):
-            raise TypeError('Expected property database_name to be a basestring')
-        __self__.database_name = database_name
-        """
-        The name of the first database to be created when the cluster is created.
-        If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        """
         __props__['databaseName'] = database_name
 
-        if elastic_ip and not isinstance(elastic_ip, basestring):
-            raise TypeError('Expected property elastic_ip to be a basestring')
-        __self__.elastic_ip = elastic_ip
-        """
-        The Elastic IP (EIP) address for the cluster.
-        """
         __props__['elasticIp'] = elastic_ip
 
-        if enable_logging and not isinstance(enable_logging, bool):
-            raise TypeError('Expected property enable_logging to be a bool')
-        __self__.enable_logging = enable_logging
         __props__['enableLogging'] = enable_logging
 
-        if encrypted and not isinstance(encrypted, bool):
-            raise TypeError('Expected property encrypted to be a bool')
-        __self__.encrypted = encrypted
-        """
-        If true , the data in the cluster is encrypted at rest.
-        """
         __props__['encrypted'] = encrypted
 
-        if endpoint and not isinstance(endpoint, basestring):
-            raise TypeError('Expected property endpoint to be a basestring')
-        __self__.endpoint = endpoint
-        """
-        The connection endpoint
-        """
         __props__['endpoint'] = endpoint
 
-        if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
-            raise TypeError('Expected property enhanced_vpc_routing to be a bool')
-        __self__.enhanced_vpc_routing = enhanced_vpc_routing
-        """
-        If true , enhanced VPC routing is enabled.
-        """
         __props__['enhancedVpcRouting'] = enhanced_vpc_routing
 
-        if final_snapshot_identifier and not isinstance(final_snapshot_identifier, basestring):
-            raise TypeError('Expected property final_snapshot_identifier to be a basestring')
-        __self__.final_snapshot_identifier = final_snapshot_identifier
-        """
-        The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        """
         __props__['finalSnapshotIdentifier'] = final_snapshot_identifier
 
-        if iam_roles and not isinstance(iam_roles, list):
-            raise TypeError('Expected property iam_roles to be a list')
-        __self__.iam_roles = iam_roles
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         __props__['iamRoles'] = iam_roles
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
-        if logging and not isinstance(logging, dict):
-            raise TypeError('Expected property logging to be a dict')
-        __self__.logging = logging
-        """
-        Logging, documented below.
-        """
         __props__['logging'] = logging
 
-        if master_password and not isinstance(master_password, basestring):
-            raise TypeError('Expected property master_password to be a basestring')
-        __self__.master_password = master_password
-        """
-        Password for the master DB user.
-        Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        contain at least one uppercase letter, one lowercase letter, and one number.
-        """
         __props__['masterPassword'] = master_password
 
-        if master_username and not isinstance(master_username, basestring):
-            raise TypeError('Expected property master_username to be a basestring')
-        __self__.master_username = master_username
-        """
-        Username for the master DB user.
-        """
         __props__['masterUsername'] = master_username
 
         if not node_type:
             raise TypeError('Missing required property node_type')
-        elif not isinstance(node_type, basestring):
-            raise TypeError('Expected property node_type to be a basestring')
-        __self__.node_type = node_type
-        """
-        The node type to be provisioned for the cluster.
-        """
         __props__['nodeType'] = node_type
 
-        if number_of_nodes and not isinstance(number_of_nodes, int):
-            raise TypeError('Expected property number_of_nodes to be a int')
-        __self__.number_of_nodes = number_of_nodes
-        """
-        The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        """
         __props__['numberOfNodes'] = number_of_nodes
 
-        if owner_account and not isinstance(owner_account, basestring):
-            raise TypeError('Expected property owner_account to be a basestring')
-        __self__.owner_account = owner_account
-        """
-        The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        """
         __props__['ownerAccount'] = owner_account
 
-        if port and not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port number on which the cluster accepts incoming connections.
-        The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
-        """
         __props__['port'] = port
 
-        if preferred_maintenance_window and not isinstance(preferred_maintenance_window, basestring):
-            raise TypeError('Expected property preferred_maintenance_window to be a basestring')
-        __self__.preferred_maintenance_window = preferred_maintenance_window
-        """
-        The weekly time range (in UTC) during which automated cluster maintenance can occur.
-        Format: ddd:hh24:mi-ddd:hh24:mi
-        """
         __props__['preferredMaintenanceWindow'] = preferred_maintenance_window
 
-        if publicly_accessible and not isinstance(publicly_accessible, bool):
-            raise TypeError('Expected property publicly_accessible to be a bool')
-        __self__.publicly_accessible = publicly_accessible
-        """
-        If true, the cluster can be accessed from a public network. Default is `true`.
-        """
         __props__['publiclyAccessible'] = publicly_accessible
 
-        if s3_key_prefix and not isinstance(s3_key_prefix, basestring):
-            raise TypeError('Expected property s3_key_prefix to be a basestring')
-        __self__.s3_key_prefix = s3_key_prefix
-        """
-        The prefix applied to the log file names.
-        """
         __props__['s3KeyPrefix'] = s3_key_prefix
 
-        if skip_final_snapshot and not isinstance(skip_final_snapshot, bool):
-            raise TypeError('Expected property skip_final_snapshot to be a bool')
-        __self__.skip_final_snapshot = skip_final_snapshot
-        """
-        Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        """
         __props__['skipFinalSnapshot'] = skip_final_snapshot
 
-        if snapshot_cluster_identifier and not isinstance(snapshot_cluster_identifier, basestring):
-            raise TypeError('Expected property snapshot_cluster_identifier to be a basestring')
-        __self__.snapshot_cluster_identifier = snapshot_cluster_identifier
-        """
-        The name of the cluster the source snapshot was created from.
-        """
         __props__['snapshotClusterIdentifier'] = snapshot_cluster_identifier
 
-        if snapshot_copy and not isinstance(snapshot_copy, dict):
-            raise TypeError('Expected property snapshot_copy to be a dict')
-        __self__.snapshot_copy = snapshot_copy
-        """
-        Configuration of automatic copy of snapshots from one region to another. Documented below.
-        """
         __props__['snapshotCopy'] = snapshot_copy
 
-        if snapshot_identifier and not isinstance(snapshot_identifier, basestring):
-            raise TypeError('Expected property snapshot_identifier to be a basestring')
-        __self__.snapshot_identifier = snapshot_identifier
-        """
-        The name of the snapshot from which to create the new cluster.
-        """
         __props__['snapshotIdentifier'] = snapshot_identifier
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
-            raise TypeError('Expected property vpc_security_group_ids to be a list')
-        __self__.vpc_security_group_ids = vpc_security_group_ids
-        """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
-        """
         __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
 
-        __self__.dns_name = pulumi.runtime.UNKNOWN
-        """
-        The DNS name of the cluster
-        """
+        __props__['dns_name'] = None
 
         super(Cluster, __self__).__init__(
             'aws:redshift/cluster:Cluster',
@@ -340,80 +110,3 @@ class Cluster(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allowVersionUpgrade' in outs:
-            self.allow_version_upgrade = outs['allowVersionUpgrade']
-        if 'automatedSnapshotRetentionPeriod' in outs:
-            self.automated_snapshot_retention_period = outs['automatedSnapshotRetentionPeriod']
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'bucketName' in outs:
-            self.bucket_name = outs['bucketName']
-        if 'clusterIdentifier' in outs:
-            self.cluster_identifier = outs['clusterIdentifier']
-        if 'clusterParameterGroupName' in outs:
-            self.cluster_parameter_group_name = outs['clusterParameterGroupName']
-        if 'clusterPublicKey' in outs:
-            self.cluster_public_key = outs['clusterPublicKey']
-        if 'clusterRevisionNumber' in outs:
-            self.cluster_revision_number = outs['clusterRevisionNumber']
-        if 'clusterSecurityGroups' in outs:
-            self.cluster_security_groups = outs['clusterSecurityGroups']
-        if 'clusterSubnetGroupName' in outs:
-            self.cluster_subnet_group_name = outs['clusterSubnetGroupName']
-        if 'clusterType' in outs:
-            self.cluster_type = outs['clusterType']
-        if 'clusterVersion' in outs:
-            self.cluster_version = outs['clusterVersion']
-        if 'databaseName' in outs:
-            self.database_name = outs['databaseName']
-        if 'dnsName' in outs:
-            self.dns_name = outs['dnsName']
-        if 'elasticIp' in outs:
-            self.elastic_ip = outs['elasticIp']
-        if 'enableLogging' in outs:
-            self.enable_logging = outs['enableLogging']
-        if 'encrypted' in outs:
-            self.encrypted = outs['encrypted']
-        if 'endpoint' in outs:
-            self.endpoint = outs['endpoint']
-        if 'enhancedVpcRouting' in outs:
-            self.enhanced_vpc_routing = outs['enhancedVpcRouting']
-        if 'finalSnapshotIdentifier' in outs:
-            self.final_snapshot_identifier = outs['finalSnapshotIdentifier']
-        if 'iamRoles' in outs:
-            self.iam_roles = outs['iamRoles']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'logging' in outs:
-            self.logging = outs['logging']
-        if 'masterPassword' in outs:
-            self.master_password = outs['masterPassword']
-        if 'masterUsername' in outs:
-            self.master_username = outs['masterUsername']
-        if 'nodeType' in outs:
-            self.node_type = outs['nodeType']
-        if 'numberOfNodes' in outs:
-            self.number_of_nodes = outs['numberOfNodes']
-        if 'ownerAccount' in outs:
-            self.owner_account = outs['ownerAccount']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'preferredMaintenanceWindow' in outs:
-            self.preferred_maintenance_window = outs['preferredMaintenanceWindow']
-        if 'publiclyAccessible' in outs:
-            self.publicly_accessible = outs['publiclyAccessible']
-        if 's3KeyPrefix' in outs:
-            self.s3_key_prefix = outs['s3KeyPrefix']
-        if 'skipFinalSnapshot' in outs:
-            self.skip_final_snapshot = outs['skipFinalSnapshot']
-        if 'snapshotClusterIdentifier' in outs:
-            self.snapshot_cluster_identifier = outs['snapshotClusterIdentifier']
-        if 'snapshotCopy' in outs:
-            self.snapshot_copy = outs['snapshotCopy']
-        if 'snapshotIdentifier' in outs:
-            self.snapshot_identifier = outs['snapshotIdentifier']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcSecurityGroupIds' in outs:
-            self.vpc_security_group_ids = outs['vpcSecurityGroupIds']

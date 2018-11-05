@@ -20,7 +20,7 @@ class QueryLog(pulumi.CustomResource):
         """Create a QueryLog resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -29,22 +29,10 @@ class QueryLog(pulumi.CustomResource):
 
         if not cloudwatch_log_group_arn:
             raise TypeError('Missing required property cloudwatch_log_group_arn')
-        elif not isinstance(cloudwatch_log_group_arn, basestring):
-            raise TypeError('Expected property cloudwatch_log_group_arn to be a basestring')
-        __self__.cloudwatch_log_group_arn = cloudwatch_log_group_arn
-        """
-        CloudWatch log group ARN to send query logs.
-        """
         __props__['cloudwatchLogGroupArn'] = cloudwatch_log_group_arn
 
         if not zone_id:
             raise TypeError('Missing required property zone_id')
-        elif not isinstance(zone_id, basestring):
-            raise TypeError('Expected property zone_id to be a basestring')
-        __self__.zone_id = zone_id
-        """
-        Route53 hosted zone ID to enable query logs.
-        """
         __props__['zoneId'] = zone_id
 
         super(QueryLog, __self__).__init__(
@@ -53,8 +41,3 @@ class QueryLog(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cloudwatchLogGroupArn' in outs:
-            self.cloudwatch_log_group_arn = outs['cloudwatchLogGroupArn']
-        if 'zoneId' in outs:
-            self.zone_id = outs['zoneId']

@@ -68,12 +68,12 @@ func GetListenerRule(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *ListenerRule) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ListenerRule) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // An Action block. Action blocks are documented below.

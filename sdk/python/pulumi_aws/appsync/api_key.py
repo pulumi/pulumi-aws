@@ -14,7 +14,7 @@ class ApiKey(pulumi.CustomResource):
         """Create a ApiKey resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,34 +23,13 @@ class ApiKey(pulumi.CustomResource):
 
         if not api_id:
             raise TypeError('Missing required property api_id')
-        elif not isinstance(api_id, basestring):
-            raise TypeError('Expected property api_id to be a basestring')
-        __self__.api_id = api_id
-        """
-        The ID of the associated AppSync API
-        """
         __props__['apiId'] = api_id
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The API key description. Defaults to "Managed by Terraform".
-        """
         __props__['description'] = description
 
-        if expires and not isinstance(expires, basestring):
-            raise TypeError('Expected property expires to be a basestring')
-        __self__.expires = expires
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         __props__['expires'] = expires
 
-        __self__.key = pulumi.runtime.UNKNOWN
-        """
-        The API key
-        """
+        __props__['key'] = None
 
         super(ApiKey, __self__).__init__(
             'aws:appsync/apiKey:ApiKey',
@@ -58,12 +37,3 @@ class ApiKey(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'apiId' in outs:
-            self.api_id = outs['apiId']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'expires' in outs:
-            self.expires = outs['expires']
-        if 'key' in outs:
-            self.key = outs['key']

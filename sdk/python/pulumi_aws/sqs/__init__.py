@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from queue import *
-from queue_policy import *
-from get_queue import *
+from .queue import *
+from .queue_policy import *
+from .get_queue import *

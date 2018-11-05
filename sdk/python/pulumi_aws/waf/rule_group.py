@@ -14,37 +14,19 @@ class RuleGroup(pulumi.CustomResource):
         """Create a RuleGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if activated_rules and not isinstance(activated_rules, list):
-            raise TypeError('Expected property activated_rules to be a list')
-        __self__.activated_rules = activated_rules
-        """
-        A list of activated rules, see below
-        """
         __props__['activatedRules'] = activated_rules
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        elif not isinstance(metric_name, basestring):
-            raise TypeError('Expected property metric_name to be a basestring')
-        __self__.metric_name = metric_name
-        """
-        A friendly name for the metrics from the rule group
-        """
         __props__['metricName'] = metric_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A friendly name of the rule group
-        """
         __props__['name'] = name
 
         super(RuleGroup, __self__).__init__(
@@ -53,10 +35,3 @@ class RuleGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'activatedRules' in outs:
-            self.activated_rules = outs['activatedRules']
-        if 'metricName' in outs:
-            self.metric_name = outs['metricName']
-        if 'name' in outs:
-            self.name = outs['name']

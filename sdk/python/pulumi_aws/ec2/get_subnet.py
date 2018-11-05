@@ -11,8 +11,8 @@ class GetSubnetResult(object):
     A collection of values returned by getSubnet.
     """
     def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, cidr_block=None, default_for_az=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, state=None, tags=None, vpc_id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the subnet.
@@ -20,35 +20,35 @@ class GetSubnetResult(object):
         if assign_ipv6_address_on_creation and not isinstance(assign_ipv6_address_on_creation, bool):
             raise TypeError('Expected argument assign_ipv6_address_on_creation to be a bool')
         __self__.assign_ipv6_address_on_creation = assign_ipv6_address_on_creation
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected argument availability_zone to be a basestring')
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
-        if cidr_block and not isinstance(cidr_block, basestring):
-            raise TypeError('Expected argument cidr_block to be a basestring')
+        if cidr_block and not isinstance(cidr_block, str):
+            raise TypeError('Expected argument cidr_block to be a str')
         __self__.cidr_block = cidr_block
         if default_for_az and not isinstance(default_for_az, bool):
             raise TypeError('Expected argument default_for_az to be a bool')
         __self__.default_for_az = default_for_az
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
-        if ipv6_cidr_block and not isinstance(ipv6_cidr_block, basestring):
-            raise TypeError('Expected argument ipv6_cidr_block to be a basestring')
+        if ipv6_cidr_block and not isinstance(ipv6_cidr_block, str):
+            raise TypeError('Expected argument ipv6_cidr_block to be a str')
         __self__.ipv6_cidr_block = ipv6_cidr_block
-        if ipv6_cidr_block_association_id and not isinstance(ipv6_cidr_block_association_id, basestring):
-            raise TypeError('Expected argument ipv6_cidr_block_association_id to be a basestring')
+        if ipv6_cidr_block_association_id and not isinstance(ipv6_cidr_block_association_id, str):
+            raise TypeError('Expected argument ipv6_cidr_block_association_id to be a str')
         __self__.ipv6_cidr_block_association_id = ipv6_cidr_block_association_id
         if map_public_ip_on_launch and not isinstance(map_public_ip_on_launch, bool):
             raise TypeError('Expected argument map_public_ip_on_launch to be a bool')
         __self__.map_public_ip_on_launch = map_public_ip_on_launch
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
 def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, state=None, tags=None, vpc_id=None):

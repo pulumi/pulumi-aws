@@ -14,47 +14,23 @@ class Build(pulumi.CustomResource):
         """Create a Build resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Name of the build
-        """
         __props__['name'] = name
 
         if not operating_system:
             raise TypeError('Missing required property operating_system')
-        elif not isinstance(operating_system, basestring):
-            raise TypeError('Expected property operating_system to be a basestring')
-        __self__.operating_system = operating_system
-        """
-        Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
-        """
         __props__['operatingSystem'] = operating_system
 
         if not storage_location:
             raise TypeError('Missing required property storage_location')
-        elif not isinstance(storage_location, dict):
-            raise TypeError('Expected property storage_location to be a dict')
-        __self__.storage_location = storage_location
-        """
-        Information indicating where your game build files are stored. See below.
-        """
         __props__['storageLocation'] = storage_location
 
-        if version and not isinstance(version, basestring):
-            raise TypeError('Expected property version to be a basestring')
-        __self__.version = version
-        """
-        Version that is associated with this build.
-        """
         __props__['version'] = version
 
         super(Build, __self__).__init__(
@@ -63,12 +39,3 @@ class Build(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'operatingSystem' in outs:
-            self.operating_system = outs['operatingSystem']
-        if 'storageLocation' in outs:
-            self.storage_location = outs['storageLocation']
-        if 'version' in outs:
-            self.version = outs['version']

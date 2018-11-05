@@ -15,51 +15,24 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         """Create a HostedPrivateVirtualInterfaceAccepter resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if dx_gateway_id and not isinstance(dx_gateway_id, basestring):
-            raise TypeError('Expected property dx_gateway_id to be a basestring')
-        __self__.dx_gateway_id = dx_gateway_id
-        """
-        The ID of the Direct Connect gateway to which to connect the virtual interface.
-        """
         __props__['dxGatewayId'] = dx_gateway_id
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not virtual_interface_id:
             raise TypeError('Missing required property virtual_interface_id')
-        elif not isinstance(virtual_interface_id, basestring):
-            raise TypeError('Expected property virtual_interface_id to be a basestring')
-        __self__.virtual_interface_id = virtual_interface_id
-        """
-        The ID of the Direct Connect virtual interface to accept.
-        """
         __props__['virtualInterfaceId'] = virtual_interface_id
 
-        if vpn_gateway_id and not isinstance(vpn_gateway_id, basestring):
-            raise TypeError('Expected property vpn_gateway_id to be a basestring')
-        __self__.vpn_gateway_id = vpn_gateway_id
-        """
-        The ID of the virtual private gateway to which to connect the virtual interface.
-        """
         __props__['vpnGatewayId'] = vpn_gateway_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the virtual interface.
-        """
+        __props__['arn'] = None
 
         super(HostedPrivateVirtualInterfaceAccepter, __self__).__init__(
             'aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter',
@@ -67,14 +40,3 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'dxGatewayId' in outs:
-            self.dx_gateway_id = outs['dxGatewayId']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'virtualInterfaceId' in outs:
-            self.virtual_interface_id = outs['virtualInterfaceId']
-        if 'vpnGatewayId' in outs:
-            self.vpn_gateway_id = outs['vpnGatewayId']

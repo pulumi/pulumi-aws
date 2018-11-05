@@ -14,49 +14,25 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         """Create a MaintenanceWindowTarget resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if owner_information and not isinstance(owner_information, basestring):
-            raise TypeError('Expected property owner_information to be a basestring')
-        __self__.owner_information = owner_information
-        """
-        User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-        """
         __props__['ownerInformation'] = owner_information
 
         if not resource_type:
             raise TypeError('Missing required property resource_type')
-        elif not isinstance(resource_type, basestring):
-            raise TypeError('Expected property resource_type to be a basestring')
-        __self__.resource_type = resource_type
-        """
-        The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
-        """
         __props__['resourceType'] = resource_type
 
         if not targets:
             raise TypeError('Missing required property targets')
-        elif not isinstance(targets, list):
-            raise TypeError('Expected property targets to be a list')
-        __self__.targets = targets
-        """
-        The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
-        """
         __props__['targets'] = targets
 
         if not window_id:
             raise TypeError('Missing required property window_id')
-        elif not isinstance(window_id, basestring):
-            raise TypeError('Expected property window_id to be a basestring')
-        __self__.window_id = window_id
-        """
-        The Id of the maintenance window to register the target with.
-        """
         __props__['windowId'] = window_id
 
         super(MaintenanceWindowTarget, __self__).__init__(
@@ -65,12 +41,3 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'ownerInformation' in outs:
-            self.owner_information = outs['ownerInformation']
-        if 'resourceType' in outs:
-            self.resource_type = outs['resourceType']
-        if 'targets' in outs:
-            self.targets = outs['targets']
-        if 'windowId' in outs:
-            self.window_id = outs['windowId']

@@ -14,112 +14,46 @@ class Policy(pulumi.CustomResource):
         """Create a Policy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if adjustment_type and not isinstance(adjustment_type, basestring):
-            raise TypeError('Expected property adjustment_type to be a basestring')
-        __self__.adjustment_type = adjustment_type
-        """
-        The scaling policy's adjustment type.
-        """
         __props__['adjustmentType'] = adjustment_type
 
-        if alarms and not isinstance(alarms, list):
-            raise TypeError('Expected property alarms to be a list')
-        __self__.alarms = alarms
         __props__['alarms'] = alarms
 
-        if cooldown and not isinstance(cooldown, int):
-            raise TypeError('Expected property cooldown to be a int')
-        __self__.cooldown = cooldown
         __props__['cooldown'] = cooldown
 
-        if metric_aggregation_type and not isinstance(metric_aggregation_type, basestring):
-            raise TypeError('Expected property metric_aggregation_type to be a basestring')
-        __self__.metric_aggregation_type = metric_aggregation_type
         __props__['metricAggregationType'] = metric_aggregation_type
 
-        if min_adjustment_magnitude and not isinstance(min_adjustment_magnitude, int):
-            raise TypeError('Expected property min_adjustment_magnitude to be a int')
-        __self__.min_adjustment_magnitude = min_adjustment_magnitude
         __props__['minAdjustmentMagnitude'] = min_adjustment_magnitude
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the policy.
-        """
         __props__['name'] = name
 
-        if policy_type and not isinstance(policy_type, basestring):
-            raise TypeError('Expected property policy_type to be a basestring')
-        __self__.policy_type = policy_type
-        """
-        For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
-        """
         __props__['policyType'] = policy_type
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        elif not isinstance(resource_id, basestring):
-            raise TypeError('Expected property resource_id to be a basestring')
-        __self__.resource_id = resource_id
-        """
-        The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        """
         __props__['resourceId'] = resource_id
 
         if not scalable_dimension:
             raise TypeError('Missing required property scalable_dimension')
-        elif not isinstance(scalable_dimension, basestring):
-            raise TypeError('Expected property scalable_dimension to be a basestring')
-        __self__.scalable_dimension = scalable_dimension
-        """
-        The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        """
         __props__['scalableDimension'] = scalable_dimension
 
         if not service_namespace:
             raise TypeError('Missing required property service_namespace')
-        elif not isinstance(service_namespace, basestring):
-            raise TypeError('Expected property service_namespace to be a basestring')
-        __self__.service_namespace = service_namespace
-        """
-        The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        """
         __props__['serviceNamespace'] = service_namespace
 
-        if step_adjustments and not isinstance(step_adjustments, list):
-            raise TypeError('Expected property step_adjustments to be a list')
-        __self__.step_adjustments = step_adjustments
         __props__['stepAdjustments'] = step_adjustments
 
-        if step_scaling_policy_configurations and not isinstance(step_scaling_policy_configurations, list):
-            raise TypeError('Expected property step_scaling_policy_configurations to be a list')
-        __self__.step_scaling_policy_configurations = step_scaling_policy_configurations
-        """
-        Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        """
         __props__['stepScalingPolicyConfigurations'] = step_scaling_policy_configurations
 
-        if target_tracking_scaling_policy_configuration and not isinstance(target_tracking_scaling_policy_configuration, dict):
-            raise TypeError('Expected property target_tracking_scaling_policy_configuration to be a dict')
-        __self__.target_tracking_scaling_policy_configuration = target_tracking_scaling_policy_configuration
-        """
-        A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
-        """
         __props__['targetTrackingScalingPolicyConfiguration'] = target_tracking_scaling_policy_configuration
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS to the scaling policy.
-        """
+        __props__['arn'] = None
 
         super(Policy, __self__).__init__(
             'aws:appautoscaling/policy:Policy',
@@ -127,32 +61,3 @@ class Policy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'adjustmentType' in outs:
-            self.adjustment_type = outs['adjustmentType']
-        if 'alarms' in outs:
-            self.alarms = outs['alarms']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'cooldown' in outs:
-            self.cooldown = outs['cooldown']
-        if 'metricAggregationType' in outs:
-            self.metric_aggregation_type = outs['metricAggregationType']
-        if 'minAdjustmentMagnitude' in outs:
-            self.min_adjustment_magnitude = outs['minAdjustmentMagnitude']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'policyType' in outs:
-            self.policy_type = outs['policyType']
-        if 'resourceId' in outs:
-            self.resource_id = outs['resourceId']
-        if 'scalableDimension' in outs:
-            self.scalable_dimension = outs['scalableDimension']
-        if 'serviceNamespace' in outs:
-            self.service_namespace = outs['serviceNamespace']
-        if 'stepAdjustments' in outs:
-            self.step_adjustments = outs['stepAdjustments']
-        if 'stepScalingPolicyConfigurations' in outs:
-            self.step_scaling_policy_configurations = outs['stepScalingPolicyConfigurations']
-        if 'targetTrackingScalingPolicyConfiguration' in outs:
-            self.target_tracking_scaling_policy_configuration = outs['targetTrackingScalingPolicyConfiguration']

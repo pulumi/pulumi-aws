@@ -11,7 +11,7 @@ class SmsChannel(pulumi.CustomResource):
         """Create a SmsChannel resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -20,28 +20,16 @@ class SmsChannel(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        elif not isinstance(application_id, basestring):
-            raise TypeError('Expected property application_id to be a basestring')
-        __self__.application_id = application_id
         __props__['applicationId'] = application_id
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
         __props__['enabled'] = enabled
 
-        if sender_id and not isinstance(sender_id, basestring):
-            raise TypeError('Expected property sender_id to be a basestring')
-        __self__.sender_id = sender_id
         __props__['senderId'] = sender_id
 
-        if short_code and not isinstance(short_code, basestring):
-            raise TypeError('Expected property short_code to be a basestring')
-        __self__.short_code = short_code
         __props__['shortCode'] = short_code
 
-        __self__.promotional_messages_per_second = pulumi.runtime.UNKNOWN
-        __self__.transactional_messages_per_second = pulumi.runtime.UNKNOWN
+        __props__['promotional_messages_per_second'] = None
+        __props__['transactional_messages_per_second'] = None
 
         super(SmsChannel, __self__).__init__(
             'aws:pinpoint/smsChannel:SmsChannel',
@@ -49,16 +37,3 @@ class SmsChannel(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'applicationId' in outs:
-            self.application_id = outs['applicationId']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'promotionalMessagesPerSecond' in outs:
-            self.promotional_messages_per_second = outs['promotionalMessagesPerSecond']
-        if 'senderId' in outs:
-            self.sender_id = outs['senderId']
-        if 'shortCode' in outs:
-            self.short_code = outs['shortCode']
-        if 'transactionalMessagesPerSecond' in outs:
-            self.transactional_messages_per_second = outs['transactionalMessagesPerSecond']

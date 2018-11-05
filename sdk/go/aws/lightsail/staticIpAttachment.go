@@ -57,12 +57,12 @@ func GetStaticIpAttachment(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *StaticIpAttachment) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *StaticIpAttachment) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The name of the Lightsail instance to attach the IP to

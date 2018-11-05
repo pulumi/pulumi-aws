@@ -33,488 +33,113 @@ class Instance(pulumi.CustomResource):
         """Create a Instance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allocated_storage and not isinstance(allocated_storage, int):
-            raise TypeError('Expected property allocated_storage to be a int')
-        __self__.allocated_storage = allocated_storage
-        """
-        (Required unless a `snapshot_identifier` or
-        `replicate_source_db` is provided) The allocated storage in gibibytes.
-        """
         __props__['allocatedStorage'] = allocated_storage
 
-        if allow_major_version_upgrade and not isinstance(allow_major_version_upgrade, bool):
-            raise TypeError('Expected property allow_major_version_upgrade to be a bool')
-        __self__.allow_major_version_upgrade = allow_major_version_upgrade
-        """
-        Indicates that major version
-        upgrades are allowed. Changing this parameter does not result in an outage and
-        the change is asynchronously applied as soon as possible.
-        """
         __props__['allowMajorVersionUpgrade'] = allow_major_version_upgrade
 
-        if apply_immediately and not isinstance(apply_immediately, bool):
-            raise TypeError('Expected property apply_immediately to be a bool')
-        __self__.apply_immediately = apply_immediately
-        """
-        Specifies whether any database modifications
-        are applied immediately, or during the next maintenance window. Default is
-        `false`. See [Amazon RDS Documentation for more
-        information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        for more information.
-        """
         __props__['applyImmediately'] = apply_immediately
 
-        if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
-            raise TypeError('Expected property auto_minor_version_upgrade to be a bool')
-        __self__.auto_minor_version_upgrade = auto_minor_version_upgrade
-        """
-        Indicates that minor engine upgrades
-        will be applied automatically to the DB instance during the maintenance window.
-        Defaults to true.
-        """
         __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
 
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The AZ for the RDS instance.
-        """
         __props__['availabilityZone'] = availability_zone
 
-        if backup_retention_period and not isinstance(backup_retention_period, int):
-            raise TypeError('Expected property backup_retention_period to be a int')
-        __self__.backup_retention_period = backup_retention_period
-        """
-        The days to retain backups for. Must be
-        between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
-        """
         __props__['backupRetentionPeriod'] = backup_retention_period
 
-        if backup_window and not isinstance(backup_window, basestring):
-            raise TypeError('Expected property backup_window to be a basestring')
-        __self__.backup_window = backup_window
-        """
-        The daily time range (in UTC) during which
-        automated backups are created if they are enabled. Example: "09:46-10:16". Must
-        not overlap with `maintenance_window`.
-        """
         __props__['backupWindow'] = backup_window
 
-        if character_set_name and not isinstance(character_set_name, basestring):
-            raise TypeError('Expected property character_set_name to be a basestring')
-        __self__.character_set_name = character_set_name
-        """
-        The character set name to use for DB
-        encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-        Supported in Amazon
-        RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        for more information.
-        """
         __props__['characterSetName'] = character_set_name
 
-        if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
-            raise TypeError('Expected property copy_tags_to_snapshot to be a bool')
-        __self__.copy_tags_to_snapshot = copy_tags_to_snapshot
-        """
-        On delete, copy all Instance
-        `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-        Default is `false`.
-        """
         __props__['copyTagsToSnapshot'] = copy_tags_to_snapshot
 
-        if db_subnet_group_name and not isinstance(db_subnet_group_name, basestring):
-            raise TypeError('Expected property db_subnet_group_name to be a basestring')
-        __self__.db_subnet_group_name = db_subnet_group_name
-        """
-        Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
-        be created in the VPC associated with the DB subnet group. If unspecified, will
-        be created in the `default` VPC, or in EC2 Classic, if available. When working
-        with read replicas, it needs to be specified only if the source database
-        specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-        action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica contraints.
-        """
         __props__['dbSubnetGroupName'] = db_subnet_group_name
 
-        if deletion_protection and not isinstance(deletion_protection, bool):
-            raise TypeError('Expected property deletion_protection to be a bool')
-        __self__.deletion_protection = deletion_protection
-        """
-        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        """
         __props__['deletionProtection'] = deletion_protection
 
-        if domain and not isinstance(domain, basestring):
-            raise TypeError('Expected property domain to be a basestring')
-        __self__.domain = domain
-        """
-        The ID of the Directory Service Active Directory domain to create the instance in.
-        """
         __props__['domain'] = domain
 
-        if domain_iam_role_name and not isinstance(domain_iam_role_name, basestring):
-            raise TypeError('Expected property domain_iam_role_name to be a basestring')
-        __self__.domain_iam_role_name = domain_iam_role_name
-        """
-        The name of the IAM role to be used when making API calls to the Directory Service.
-        """
         __props__['domainIamRoleName'] = domain_iam_role_name
 
-        if enabled_cloudwatch_logs_exports and not isinstance(enabled_cloudwatch_logs_exports, list):
-            raise TypeError('Expected property enabled_cloudwatch_logs_exports to be a list')
-        __self__.enabled_cloudwatch_logs_exports = enabled_cloudwatch_logs_exports
-        """
-        List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
-        """
         __props__['enabledCloudwatchLogsExports'] = enabled_cloudwatch_logs_exports
 
-        if engine and not isinstance(engine, basestring):
-            raise TypeError('Expected property engine to be a basestring')
-        __self__.engine = engine
-        """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-        Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
-        For information on the difference between the available Aurora MySQL engines
-        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-        in the Amazon RDS User Guide.
-        """
         __props__['engine'] = engine
 
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected property engine_version to be a basestring')
-        __self__.engine_version = engine_version
-        """
-        The engine version to use. If `auto_minor_version_upgrade`
-        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-        this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
-        For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-        Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
-        """
         __props__['engineVersion'] = engine_version
 
-        if final_snapshot_identifier and not isinstance(final_snapshot_identifier, basestring):
-            raise TypeError('Expected property final_snapshot_identifier to be a basestring')
-        __self__.final_snapshot_identifier = final_snapshot_identifier
-        """
-        The name of your final DB snapshot
-        when this DB instance is deleted. If omitted, no final snapshot will be made.
-        """
         __props__['finalSnapshotIdentifier'] = final_snapshot_identifier
 
-        if iam_database_authentication_enabled and not isinstance(iam_database_authentication_enabled, bool):
-            raise TypeError('Expected property iam_database_authentication_enabled to be a bool')
-        __self__.iam_database_authentication_enabled = iam_database_authentication_enabled
-        """
-        Specifies whether or
-        mappings of AWS Identity and Access Management (IAM) accounts to database
-        accounts is enabled.
-        """
         __props__['iamDatabaseAuthenticationEnabled'] = iam_database_authentication_enabled
 
-        if identifier and not isinstance(identifier, basestring):
-            raise TypeError('Expected property identifier to be a basestring')
-        __self__.identifier = identifier
-        """
-        The name of the RDS instance,
-        if omitted, Terraform will assign a random, unique identifier.
-        """
         __props__['identifier'] = identifier
 
-        if identifier_prefix and not isinstance(identifier_prefix, basestring):
-            raise TypeError('Expected property identifier_prefix to be a basestring')
-        __self__.identifier_prefix = identifier_prefix
-        """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifer`.
-        """
         __props__['identifierPrefix'] = identifier_prefix
 
         if not instance_class:
             raise TypeError('Missing required property instance_class')
-        elif not isinstance(instance_class, basestring):
-            raise TypeError('Expected property instance_class to be a basestring')
-        __self__.instance_class = instance_class
-        """
-        The instance type of the RDS instance.
-        """
         __props__['instanceClass'] = instance_class
 
-        if iops and not isinstance(iops, int):
-            raise TypeError('Expected property iops to be a int')
-        __self__.iops = iops
-        """
-        The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1".
-        """
         __props__['iops'] = iops
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The ARN for the KMS encryption key. If creating an
-        encrypted replica, set this to the destination KMS ARN.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
-        if license_model and not isinstance(license_model, basestring):
-            raise TypeError('Expected property license_model to be a basestring')
-        __self__.license_model = license_model
-        """
-        (Optional, but required for some DB engines, i.e. Oracle
-        SE1) License model information for this DB instance.
-        """
         __props__['licenseModel'] = license_model
 
-        if maintenance_window and not isinstance(maintenance_window, basestring):
-            raise TypeError('Expected property maintenance_window to be a basestring')
-        __self__.maintenance_window = maintenance_window
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
-        Maintenance Window
-        docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
-        for more information.
-        """
         __props__['maintenanceWindow'] = maintenance_window
 
-        if monitoring_interval and not isinstance(monitoring_interval, int):
-            raise TypeError('Expected property monitoring_interval to be a int')
-        __self__.monitoring_interval = monitoring_interval
-        """
-        The interval, in seconds, between points
-        when Enhanced Monitoring metrics are collected for the DB instance. To disable
-        collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
-        Values: 0, 1, 5, 10, 15, 30, 60.
-        """
         __props__['monitoringInterval'] = monitoring_interval
 
-        if monitoring_role_arn and not isinstance(monitoring_role_arn, basestring):
-            raise TypeError('Expected property monitoring_role_arn to be a basestring')
-        __self__.monitoring_role_arn = monitoring_role_arn
-        """
-        The ARN for the IAM role that permits RDS
-        to send enhanced monitoring metrics to CloudWatch Logs. You can find more
-        information on the [AWS
-        Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
-        what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-        """
         __props__['monitoringRoleArn'] = monitoring_role_arn
 
-        if multi_az and not isinstance(multi_az, bool):
-            raise TypeError('Expected property multi_az to be a bool')
-        __self__.multi_az = multi_az
-        """
-        Specifies if the RDS instance is multi-AZ
-        """
         __props__['multiAz'] = multi_az
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
-        """
         __props__['name'] = name
 
-        if option_group_name and not isinstance(option_group_name, basestring):
-            raise TypeError('Expected property option_group_name to be a basestring')
-        __self__.option_group_name = option_group_name
-        """
-        Name of the DB option group to associate.
-        """
         __props__['optionGroupName'] = option_group_name
 
-        if parameter_group_name and not isinstance(parameter_group_name, basestring):
-            raise TypeError('Expected property parameter_group_name to be a basestring')
-        __self__.parameter_group_name = parameter_group_name
-        """
-        Name of the DB parameter group to
-        associate.
-        """
         __props__['parameterGroupName'] = parameter_group_name
 
-        if password and not isinstance(password, basestring):
-            raise TypeError('Expected property password to be a basestring')
-        __self__.password = password
-        """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Password for the master DB user. Note that this may show up in
-        logs, and it will be stored in the state file.
-        """
         __props__['password'] = password
 
-        if port and not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port on which the DB accepts connections.
-        """
         __props__['port'] = port
 
-        if publicly_accessible and not isinstance(publicly_accessible, bool):
-            raise TypeError('Expected property publicly_accessible to be a bool')
-        __self__.publicly_accessible = publicly_accessible
-        """
-        Bool to control if instance is publicly
-        accessible. Default is `false`.
-        """
         __props__['publiclyAccessible'] = publicly_accessible
 
-        if replicate_source_db and not isinstance(replicate_source_db, basestring):
-            raise TypeError('Expected property replicate_source_db to be a basestring')
-        __self__.replicate_source_db = replicate_source_db
-        """
-        Specifies that this resource is a Replicate
-        database, and to use this value as the source database. This correlates to the
-        `identifier` of another Amazon RDS Database to replicate. Note that if you are
-        creating a cross-region replica of an encrypted database you will also need to
-        specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
-        PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-        for more information on using Replication.
-        """
         __props__['replicateSourceDb'] = replicate_source_db
 
-        if s3_import and not isinstance(s3_import, dict):
-            raise TypeError('Expected property s3_import to be a dict')
-        __self__.s3_import = s3_import
-        """
-        Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-        """
         __props__['s3Import'] = s3_import
 
-        if security_group_names and not isinstance(security_group_names, list):
-            raise TypeError('Expected property security_group_names to be a list')
-        __self__.security_group_names = security_group_names
-        """
-        List of DB Security Groups to
-        associate. Only used for [DB Instances on the _EC2-Classic_
-        Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        """
         __props__['securityGroupNames'] = security_group_names
 
-        if skip_final_snapshot and not isinstance(skip_final_snapshot, bool):
-            raise TypeError('Expected property skip_final_snapshot to be a bool')
-        __self__.skip_final_snapshot = skip_final_snapshot
-        """
-        Determines whether a final DB snapshot is
-        created before the DB instance is deleted. If true is specified, no DBSnapshot
-        is created. If false is specified, a DB snapshot is created before the DB
-        instance is deleted, using the value from `final_snapshot_identifier`. Default
-        is `false`.
-        """
         __props__['skipFinalSnapshot'] = skip_final_snapshot
 
-        if snapshot_identifier and not isinstance(snapshot_identifier, basestring):
-            raise TypeError('Expected property snapshot_identifier to be a basestring')
-        __self__.snapshot_identifier = snapshot_identifier
-        """
-        Specifies whether or not to create this
-        database from a snapshot. This correlates to the snapshot ID you'd find in the
-        RDS console, e.g: rds:production-2015-06-26-06-05.
-        """
         __props__['snapshotIdentifier'] = snapshot_identifier
 
-        if storage_encrypted and not isinstance(storage_encrypted, bool):
-            raise TypeError('Expected property storage_encrypted to be a bool')
-        __self__.storage_encrypted = storage_encrypted
-        """
-        Specifies whether the DB instance is
-        encrypted. Note that if you are creating a cross-region read replica this field
-        is ignored and you should instead declare `kms_key_id` with a valid ARN. The
-        default is `false` if not specified.
-        """
         __props__['storageEncrypted'] = storage_encrypted
 
-        if storage_type and not isinstance(storage_type, basestring):
-            raise TypeError('Expected property storage_type to be a basestring')
-        __self__.storage_type = storage_type
-        """
-        One of "standard" (magnetic), "gp2" (general
-        purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        specified, "standard" if not. Note that this behaviour is different from the AWS
-        web console, where the default is "gp2".
-        """
         __props__['storageType'] = storage_type
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if timezone and not isinstance(timezone, basestring):
-            raise TypeError('Expected property timezone to be a basestring')
-        __self__.timezone = timezone
-        """
-        Time zone of the DB instance. `timezone` is currently
-        only supported by Microsoft SQL Server. The `timezone` can only be set on
-        creation. See [MSSQL User
-        Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
-        for more information.
-        """
         __props__['timezone'] = timezone
 
-        if username and not isinstance(username, basestring):
-            raise TypeError('Expected property username to be a basestring')
-        __self__.username = username
-        """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Username for the master DB user.
-        """
         __props__['username'] = username
 
-        if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
-            raise TypeError('Expected property vpc_security_group_ids to be a list')
-        __self__.vpc_security_group_ids = vpc_security_group_ids
-        """
-        List of VPC security groups to
-        associate.
-        """
         __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
 
-        __self__.address = pulumi.runtime.UNKNOWN
-        """
-        The hostname of the RDS instance. See also `endpoint` and `port`.
-        """
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the RDS instance.
-        """
-        __self__.ca_cert_identifier = pulumi.runtime.UNKNOWN
-        """
-        Specifies the identifier of the CA certificate for the
-        DB instance.
-        """
-        __self__.endpoint = pulumi.runtime.UNKNOWN
-        """
-        The connection endpoint in `address:port` format.
-        """
-        __self__.hosted_zone_id = pulumi.runtime.UNKNOWN
-        """
-        The canonical hosted zone ID of the DB instance (to be used
-        in a Route 53 Alias record).
-        """
-        __self__.replicas = pulumi.runtime.UNKNOWN
-        __self__.resource_id = pulumi.runtime.UNKNOWN
-        """
-        The RDS Resource ID of this instance.
-        """
-        __self__.status = pulumi.runtime.UNKNOWN
-        """
-        The RDS instance status.
-        """
+        __props__['address'] = None
+        __props__['arn'] = None
+        __props__['ca_cert_identifier'] = None
+        __props__['endpoint'] = None
+        __props__['hosted_zone_id'] = None
+        __props__['replicas'] = None
+        __props__['resource_id'] = None
+        __props__['status'] = None
 
         super(Instance, __self__).__init__(
             'aws:rds/instance:Instance',
@@ -522,110 +147,3 @@ class Instance(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'address' in outs:
-            self.address = outs['address']
-        if 'allocatedStorage' in outs:
-            self.allocated_storage = outs['allocatedStorage']
-        if 'allowMajorVersionUpgrade' in outs:
-            self.allow_major_version_upgrade = outs['allowMajorVersionUpgrade']
-        if 'applyImmediately' in outs:
-            self.apply_immediately = outs['applyImmediately']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'autoMinorVersionUpgrade' in outs:
-            self.auto_minor_version_upgrade = outs['autoMinorVersionUpgrade']
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'backupRetentionPeriod' in outs:
-            self.backup_retention_period = outs['backupRetentionPeriod']
-        if 'backupWindow' in outs:
-            self.backup_window = outs['backupWindow']
-        if 'caCertIdentifier' in outs:
-            self.ca_cert_identifier = outs['caCertIdentifier']
-        if 'characterSetName' in outs:
-            self.character_set_name = outs['characterSetName']
-        if 'copyTagsToSnapshot' in outs:
-            self.copy_tags_to_snapshot = outs['copyTagsToSnapshot']
-        if 'dbSubnetGroupName' in outs:
-            self.db_subnet_group_name = outs['dbSubnetGroupName']
-        if 'deletionProtection' in outs:
-            self.deletion_protection = outs['deletionProtection']
-        if 'domain' in outs:
-            self.domain = outs['domain']
-        if 'domainIamRoleName' in outs:
-            self.domain_iam_role_name = outs['domainIamRoleName']
-        if 'enabledCloudwatchLogsExports' in outs:
-            self.enabled_cloudwatch_logs_exports = outs['enabledCloudwatchLogsExports']
-        if 'endpoint' in outs:
-            self.endpoint = outs['endpoint']
-        if 'engine' in outs:
-            self.engine = outs['engine']
-        if 'engineVersion' in outs:
-            self.engine_version = outs['engineVersion']
-        if 'finalSnapshotIdentifier' in outs:
-            self.final_snapshot_identifier = outs['finalSnapshotIdentifier']
-        if 'hostedZoneId' in outs:
-            self.hosted_zone_id = outs['hostedZoneId']
-        if 'iamDatabaseAuthenticationEnabled' in outs:
-            self.iam_database_authentication_enabled = outs['iamDatabaseAuthenticationEnabled']
-        if 'identifier' in outs:
-            self.identifier = outs['identifier']
-        if 'identifierPrefix' in outs:
-            self.identifier_prefix = outs['identifierPrefix']
-        if 'instanceClass' in outs:
-            self.instance_class = outs['instanceClass']
-        if 'iops' in outs:
-            self.iops = outs['iops']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'licenseModel' in outs:
-            self.license_model = outs['licenseModel']
-        if 'maintenanceWindow' in outs:
-            self.maintenance_window = outs['maintenanceWindow']
-        if 'monitoringInterval' in outs:
-            self.monitoring_interval = outs['monitoringInterval']
-        if 'monitoringRoleArn' in outs:
-            self.monitoring_role_arn = outs['monitoringRoleArn']
-        if 'multiAz' in outs:
-            self.multi_az = outs['multiAz']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'optionGroupName' in outs:
-            self.option_group_name = outs['optionGroupName']
-        if 'parameterGroupName' in outs:
-            self.parameter_group_name = outs['parameterGroupName']
-        if 'password' in outs:
-            self.password = outs['password']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'publiclyAccessible' in outs:
-            self.publicly_accessible = outs['publiclyAccessible']
-        if 'replicas' in outs:
-            self.replicas = outs['replicas']
-        if 'replicateSourceDb' in outs:
-            self.replicate_source_db = outs['replicateSourceDb']
-        if 'resourceId' in outs:
-            self.resource_id = outs['resourceId']
-        if 's3Import' in outs:
-            self.s3_import = outs['s3Import']
-        if 'securityGroupNames' in outs:
-            self.security_group_names = outs['securityGroupNames']
-        if 'skipFinalSnapshot' in outs:
-            self.skip_final_snapshot = outs['skipFinalSnapshot']
-        if 'snapshotIdentifier' in outs:
-            self.snapshot_identifier = outs['snapshotIdentifier']
-        if 'status' in outs:
-            self.status = outs['status']
-        if 'storageEncrypted' in outs:
-            self.storage_encrypted = outs['storageEncrypted']
-        if 'storageType' in outs:
-            self.storage_type = outs['storageType']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'timezone' in outs:
-            self.timezone = outs['timezone']
-        if 'username' in outs:
-            self.username = outs['username']
-        if 'vpcSecurityGroupIds' in outs:
-            self.vpc_security_group_ids = outs['vpcSecurityGroupIds']

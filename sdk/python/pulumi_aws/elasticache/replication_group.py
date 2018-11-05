@@ -16,248 +16,72 @@ class ReplicationGroup(pulumi.CustomResource):
         """Create a ReplicationGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if apply_immediately and not isinstance(apply_immediately, bool):
-            raise TypeError('Expected property apply_immediately to be a bool')
-        __self__.apply_immediately = apply_immediately
-        """
-        Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        """
         __props__['applyImmediately'] = apply_immediately
 
-        if at_rest_encryption_enabled and not isinstance(at_rest_encryption_enabled, bool):
-            raise TypeError('Expected property at_rest_encryption_enabled to be a bool')
-        __self__.at_rest_encryption_enabled = at_rest_encryption_enabled
-        """
-        Whether to enable encryption at rest.
-        """
         __props__['atRestEncryptionEnabled'] = at_rest_encryption_enabled
 
-        if auth_token and not isinstance(auth_token, basestring):
-            raise TypeError('Expected property auth_token to be a basestring')
-        __self__.auth_token = auth_token
-        """
-        The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        """
         __props__['authToken'] = auth_token
 
-        if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
-            raise TypeError('Expected property auto_minor_version_upgrade to be a bool')
-        __self__.auto_minor_version_upgrade = auto_minor_version_upgrade
-        """
-        Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
-        """
         __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
 
-        if automatic_failover_enabled and not isinstance(automatic_failover_enabled, bool):
-            raise TypeError('Expected property automatic_failover_enabled to be a bool')
-        __self__.automatic_failover_enabled = automatic_failover_enabled
-        """
-        Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-        """
         __props__['automaticFailoverEnabled'] = automatic_failover_enabled
 
-        if availability_zones and not isinstance(availability_zones, list):
-            raise TypeError('Expected property availability_zones to be a list')
-        __self__.availability_zones = availability_zones
-        """
-        A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-        """
         __props__['availabilityZones'] = availability_zones
 
-        if cluster_mode and not isinstance(cluster_mode, dict):
-            raise TypeError('Expected property cluster_mode to be a dict')
-        __self__.cluster_mode = cluster_mode
-        """
-        Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
-        """
         __props__['clusterMode'] = cluster_mode
 
-        if engine and not isinstance(engine, basestring):
-            raise TypeError('Expected property engine to be a basestring')
-        __self__.engine = engine
-        """
-        The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
-        """
         __props__['engine'] = engine
 
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected property engine_version to be a basestring')
-        __self__.engine_version = engine_version
-        """
-        The version number of the cache engine to be used for the cache clusters in this replication group.
-        """
         __props__['engineVersion'] = engine_version
 
-        if maintenance_window and not isinstance(maintenance_window, basestring):
-            raise TypeError('Expected property maintenance_window to be a basestring')
-        __self__.maintenance_window = maintenance_window
-        """
-        Specifies the weekly time range for when maintenance
-        on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-        The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-        """
         __props__['maintenanceWindow'] = maintenance_window
 
-        if node_type and not isinstance(node_type, basestring):
-            raise TypeError('Expected property node_type to be a basestring')
-        __self__.node_type = node_type
-        """
-        The compute and memory capacity of the nodes in the node group.
-        """
         __props__['nodeType'] = node_type
 
-        if notification_topic_arn and not isinstance(notification_topic_arn, basestring):
-            raise TypeError('Expected property notification_topic_arn to be a basestring')
-        __self__.notification_topic_arn = notification_topic_arn
-        """
-        An Amazon Resource Name (ARN) of an
-        SNS topic to send ElastiCache notifications to. Example:
-        `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        """
         __props__['notificationTopicArn'] = notification_topic_arn
 
-        if number_cache_clusters and not isinstance(number_cache_clusters, int):
-            raise TypeError('Expected property number_cache_clusters to be a int')
-        __self__.number_cache_clusters = number_cache_clusters
-        """
-        The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
-        """
         __props__['numberCacheClusters'] = number_cache_clusters
 
-        if parameter_group_name and not isinstance(parameter_group_name, basestring):
-            raise TypeError('Expected property parameter_group_name to be a basestring')
-        __self__.parameter_group_name = parameter_group_name
-        """
-        The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-        """
         __props__['parameterGroupName'] = parameter_group_name
 
-        if port and not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-        """
         __props__['port'] = port
 
         if not replication_group_description:
             raise TypeError('Missing required property replication_group_description')
-        elif not isinstance(replication_group_description, basestring):
-            raise TypeError('Expected property replication_group_description to be a basestring')
-        __self__.replication_group_description = replication_group_description
-        """
-        A user-created description for the replication group.
-        """
         __props__['replicationGroupDescription'] = replication_group_description
 
         if not replication_group_id:
             raise TypeError('Missing required property replication_group_id')
-        elif not isinstance(replication_group_id, basestring):
-            raise TypeError('Expected property replication_group_id to be a basestring')
-        __self__.replication_group_id = replication_group_id
-        """
-        The replication group identifier. This parameter is stored as a lowercase string.
-        """
         __props__['replicationGroupId'] = replication_group_id
 
-        if security_group_ids and not isinstance(security_group_ids, list):
-            raise TypeError('Expected property security_group_ids to be a list')
-        __self__.security_group_ids = security_group_ids
-        """
-        One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-        """
         __props__['securityGroupIds'] = security_group_ids
 
-        if security_group_names and not isinstance(security_group_names, list):
-            raise TypeError('Expected property security_group_names to be a list')
-        __self__.security_group_names = security_group_names
-        """
-        A list of cache security group names to associate with this replication group.
-        """
         __props__['securityGroupNames'] = security_group_names
 
-        if snapshot_arns and not isinstance(snapshot_arns, list):
-            raise TypeError('Expected property snapshot_arns to be a list')
-        __self__.snapshot_arns = snapshot_arns
-        """
-        A single-element string list containing an
-        Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-        Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-        """
         __props__['snapshotArns'] = snapshot_arns
 
-        if snapshot_name and not isinstance(snapshot_name, basestring):
-            raise TypeError('Expected property snapshot_name to be a basestring')
-        __self__.snapshot_name = snapshot_name
-        """
-        The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        """
         __props__['snapshotName'] = snapshot_name
 
-        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
-            raise TypeError('Expected property snapshot_retention_limit to be a int')
-        __self__.snapshot_retention_limit = snapshot_retention_limit
-        """
-        The number of days for which ElastiCache will
-        retain automatic cache cluster snapshots before deleting them. For example, if you set
-        SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-        before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-        Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
-        """
         __props__['snapshotRetentionLimit'] = snapshot_retention_limit
 
-        if snapshot_window and not isinstance(snapshot_window, basestring):
-            raise TypeError('Expected property snapshot_window to be a basestring')
-        __self__.snapshot_window = snapshot_window
-        """
-        The daily time range (in UTC) during which ElastiCache will
-        begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-        """
         __props__['snapshotWindow'] = snapshot_window
 
-        if subnet_group_name and not isinstance(subnet_group_name, basestring):
-            raise TypeError('Expected property subnet_group_name to be a basestring')
-        __self__.subnet_group_name = subnet_group_name
-        """
-        The name of the cache subnet group to be used for the replication group.
-        """
         __props__['subnetGroupName'] = subnet_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource
-        """
         __props__['tags'] = tags
 
-        if transit_encryption_enabled and not isinstance(transit_encryption_enabled, bool):
-            raise TypeError('Expected property transit_encryption_enabled to be a bool')
-        __self__.transit_encryption_enabled = transit_encryption_enabled
-        """
-        Whether to enable encryption in transit.
-        """
         __props__['transitEncryptionEnabled'] = transit_encryption_enabled
 
-        __self__.configuration_endpoint_address = pulumi.runtime.UNKNOWN
-        """
-        The address of the replication group configuration endpoint when cluster mode is enabled.
-        """
-        __self__.member_clusters = pulumi.runtime.UNKNOWN
-        """
-        The identifiers of all the nodes that are part of this replication group.
-        """
-        __self__.primary_endpoint_address = pulumi.runtime.UNKNOWN
-        """
-        (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-        """
+        __props__['configuration_endpoint_address'] = None
+        __props__['member_clusters'] = None
+        __props__['primary_endpoint_address'] = None
 
         super(ReplicationGroup, __self__).__init__(
             'aws:elasticache/replicationGroup:ReplicationGroup',
@@ -265,62 +89,3 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'applyImmediately' in outs:
-            self.apply_immediately = outs['applyImmediately']
-        if 'atRestEncryptionEnabled' in outs:
-            self.at_rest_encryption_enabled = outs['atRestEncryptionEnabled']
-        if 'authToken' in outs:
-            self.auth_token = outs['authToken']
-        if 'autoMinorVersionUpgrade' in outs:
-            self.auto_minor_version_upgrade = outs['autoMinorVersionUpgrade']
-        if 'automaticFailoverEnabled' in outs:
-            self.automatic_failover_enabled = outs['automaticFailoverEnabled']
-        if 'availabilityZones' in outs:
-            self.availability_zones = outs['availabilityZones']
-        if 'clusterMode' in outs:
-            self.cluster_mode = outs['clusterMode']
-        if 'configurationEndpointAddress' in outs:
-            self.configuration_endpoint_address = outs['configurationEndpointAddress']
-        if 'engine' in outs:
-            self.engine = outs['engine']
-        if 'engineVersion' in outs:
-            self.engine_version = outs['engineVersion']
-        if 'maintenanceWindow' in outs:
-            self.maintenance_window = outs['maintenanceWindow']
-        if 'memberClusters' in outs:
-            self.member_clusters = outs['memberClusters']
-        if 'nodeType' in outs:
-            self.node_type = outs['nodeType']
-        if 'notificationTopicArn' in outs:
-            self.notification_topic_arn = outs['notificationTopicArn']
-        if 'numberCacheClusters' in outs:
-            self.number_cache_clusters = outs['numberCacheClusters']
-        if 'parameterGroupName' in outs:
-            self.parameter_group_name = outs['parameterGroupName']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'primaryEndpointAddress' in outs:
-            self.primary_endpoint_address = outs['primaryEndpointAddress']
-        if 'replicationGroupDescription' in outs:
-            self.replication_group_description = outs['replicationGroupDescription']
-        if 'replicationGroupId' in outs:
-            self.replication_group_id = outs['replicationGroupId']
-        if 'securityGroupIds' in outs:
-            self.security_group_ids = outs['securityGroupIds']
-        if 'securityGroupNames' in outs:
-            self.security_group_names = outs['securityGroupNames']
-        if 'snapshotArns' in outs:
-            self.snapshot_arns = outs['snapshotArns']
-        if 'snapshotName' in outs:
-            self.snapshot_name = outs['snapshotName']
-        if 'snapshotRetentionLimit' in outs:
-            self.snapshot_retention_limit = outs['snapshotRetentionLimit']
-        if 'snapshotWindow' in outs:
-            self.snapshot_window = outs['snapshotWindow']
-        if 'subnetGroupName' in outs:
-            self.subnet_group_name = outs['subnetGroupName']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'transitEncryptionEnabled' in outs:
-            self.transit_encryption_enabled = outs['transitEncryptionEnabled']

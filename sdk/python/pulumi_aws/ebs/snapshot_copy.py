@@ -14,80 +14,34 @@ class SnapshotCopy(pulumi.CustomResource):
         """Create a SnapshotCopy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A description of what the snapshot is.
-        """
         __props__['description'] = description
 
-        if encrypted and not isinstance(encrypted, bool):
-            raise TypeError('Expected property encrypted to be a bool')
-        __self__.encrypted = encrypted
-        """
-        Whether the snapshot is encrypted.
-        """
         __props__['encrypted'] = encrypted
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The ARN for the KMS encryption key.
-        * `source_snapshot_id` The ARN for the snapshot to be copied.
-        * `source_region` The region of the source snapshot.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
         if not source_region:
             raise TypeError('Missing required property source_region')
-        elif not isinstance(source_region, basestring):
-            raise TypeError('Expected property source_region to be a basestring')
-        __self__.source_region = source_region
         __props__['sourceRegion'] = source_region
 
         if not source_snapshot_id:
             raise TypeError('Missing required property source_snapshot_id')
-        elif not isinstance(source_snapshot_id, basestring):
-            raise TypeError('Expected property source_snapshot_id to be a basestring')
-        __self__.source_snapshot_id = source_snapshot_id
         __props__['sourceSnapshotId'] = source_snapshot_id
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags for the snapshot.
-        """
         __props__['tags'] = tags
 
-        __self__.data_encryption_key_id = pulumi.runtime.UNKNOWN
-        """
-        The data encryption key identifier for the snapshot.
-        * `source_snapshot_id` The ARN of the copied snapshot.
-        * `source_region` The region of the source snapshot.
-        """
-        __self__.owner_alias = pulumi.runtime.UNKNOWN
-        """
-        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        """
-        __self__.owner_id = pulumi.runtime.UNKNOWN
-        """
-        The AWS account ID of the snapshot owner.
-        """
-        __self__.volume_id = pulumi.runtime.UNKNOWN
-        __self__.volume_size = pulumi.runtime.UNKNOWN
-        """
-        The size of the drive in GiBs.
-        """
+        __props__['data_encryption_key_id'] = None
+        __props__['owner_alias'] = None
+        __props__['owner_id'] = None
+        __props__['volume_id'] = None
+        __props__['volume_size'] = None
 
         super(SnapshotCopy, __self__).__init__(
             'aws:ebs/snapshotCopy:SnapshotCopy',
@@ -95,26 +49,3 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'dataEncryptionKeyId' in outs:
-            self.data_encryption_key_id = outs['dataEncryptionKeyId']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'encrypted' in outs:
-            self.encrypted = outs['encrypted']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'ownerAlias' in outs:
-            self.owner_alias = outs['ownerAlias']
-        if 'ownerId' in outs:
-            self.owner_id = outs['ownerId']
-        if 'sourceRegion' in outs:
-            self.source_region = outs['sourceRegion']
-        if 'sourceSnapshotId' in outs:
-            self.source_snapshot_id = outs['sourceSnapshotId']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'volumeId' in outs:
-            self.volume_id = outs['volumeId']
-        if 'volumeSize' in outs:
-            self.volume_size = outs['volumeSize']

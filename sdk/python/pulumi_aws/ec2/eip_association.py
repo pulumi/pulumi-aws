@@ -20,68 +20,23 @@ class EipAssociation(pulumi.CustomResource):
         """Create a EipAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allocation_id and not isinstance(allocation_id, basestring):
-            raise TypeError('Expected property allocation_id to be a basestring')
-        __self__.allocation_id = allocation_id
-        """
-        The allocation ID. This is required for EC2-VPC.
-        """
         __props__['allocationId'] = allocation_id
 
-        if allow_reassociation and not isinstance(allow_reassociation, bool):
-            raise TypeError('Expected property allow_reassociation to be a bool')
-        __self__.allow_reassociation = allow_reassociation
-        """
-        Whether to allow an Elastic IP to
-        be re-associated. Defaults to `true` in VPC.
-        """
         __props__['allowReassociation'] = allow_reassociation
 
-        if instance_id and not isinstance(instance_id, basestring):
-            raise TypeError('Expected property instance_id to be a basestring')
-        __self__.instance_id = instance_id
-        """
-        The ID of the instance. This is required for
-        EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-        network interface ID, but not both. The operation fails if you specify an
-        instance ID unless exactly one network interface is attached.
-        """
         __props__['instanceId'] = instance_id
 
-        if network_interface_id and not isinstance(network_interface_id, basestring):
-            raise TypeError('Expected property network_interface_id to be a basestring')
-        __self__.network_interface_id = network_interface_id
-        """
-        The ID of the network interface. If the
-        instance has more than one network interface, you must specify a network
-        interface ID.
-        """
         __props__['networkInterfaceId'] = network_interface_id
 
-        if private_ip_address and not isinstance(private_ip_address, basestring):
-            raise TypeError('Expected property private_ip_address to be a basestring')
-        __self__.private_ip_address = private_ip_address
-        """
-        The primary or secondary private IP address
-        to associate with the Elastic IP address. If no private IP address is
-        specified, the Elastic IP address is associated with the primary private IP
-        address.
-        """
         __props__['privateIpAddress'] = private_ip_address
 
-        if public_ip and not isinstance(public_ip, basestring):
-            raise TypeError('Expected property public_ip to be a basestring')
-        __self__.public_ip = public_ip
-        """
-        The Elastic IP address. This is required for EC2-Classic.
-        """
         __props__['publicIp'] = public_ip
 
         super(EipAssociation, __self__).__init__(
@@ -90,16 +45,3 @@ class EipAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allocationId' in outs:
-            self.allocation_id = outs['allocationId']
-        if 'allowReassociation' in outs:
-            self.allow_reassociation = outs['allowReassociation']
-        if 'instanceId' in outs:
-            self.instance_id = outs['instanceId']
-        if 'networkInterfaceId' in outs:
-            self.network_interface_id = outs['networkInterfaceId']
-        if 'privateIpAddress' in outs:
-            self.private_ip_address = outs['privateIpAddress']
-        if 'publicIp' in outs:
-            self.public_ip = outs['publicIp']

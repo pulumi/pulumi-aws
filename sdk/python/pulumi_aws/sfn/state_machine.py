@@ -14,7 +14,7 @@ class StateMachine(pulumi.CustomResource):
         """Create a StateMachine resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,40 +23,16 @@ class StateMachine(pulumi.CustomResource):
 
         if not definition:
             raise TypeError('Missing required property definition')
-        elif not isinstance(definition, basestring):
-            raise TypeError('Expected property definition to be a basestring')
-        __self__.definition = definition
-        """
-        The Amazon States Language definition of the state machine.
-        """
         __props__['definition'] = definition
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the state machine.
-        """
         __props__['name'] = name
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        elif not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        """
         __props__['roleArn'] = role_arn
 
-        __self__.creation_date = pulumi.runtime.UNKNOWN
-        """
-        The date the state machine was created.
-        """
-        __self__.status = pulumi.runtime.UNKNOWN
-        """
-        The current status of the state machine. Either "ACTIVE" or "DELETING".
-        """
+        __props__['creation_date'] = None
+        __props__['status'] = None
 
         super(StateMachine, __self__).__init__(
             'aws:sfn/stateMachine:StateMachine',
@@ -64,14 +40,3 @@ class StateMachine(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'creationDate' in outs:
-            self.creation_date = outs['creationDate']
-        if 'definition' in outs:
-            self.definition = outs['definition']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'status' in outs:
-            self.status = outs['status']

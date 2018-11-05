@@ -14,204 +14,65 @@ class Stack(pulumi.CustomResource):
         """Create a Stack resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if agent_version and not isinstance(agent_version, basestring):
-            raise TypeError('Expected property agent_version to be a basestring')
-        __self__.agent_version = agent_version
-        """
-        If set to `"LATEST"`, OpsWorks will automatically install the latest version.
-        """
         __props__['agentVersion'] = agent_version
 
-        if berkshelf_version and not isinstance(berkshelf_version, basestring):
-            raise TypeError('Expected property berkshelf_version to be a basestring')
-        __self__.berkshelf_version = berkshelf_version
-        """
-        If `manage_berkshelf` is enabled, the version of Berkshelf to use.
-        """
         __props__['berkshelfVersion'] = berkshelf_version
 
-        if color and not isinstance(color, basestring):
-            raise TypeError('Expected property color to be a basestring')
-        __self__.color = color
-        """
-        Color to paint next to the stack's resources in the OpsWorks console.
-        """
         __props__['color'] = color
 
-        if configuration_manager_name and not isinstance(configuration_manager_name, basestring):
-            raise TypeError('Expected property configuration_manager_name to be a basestring')
-        __self__.configuration_manager_name = configuration_manager_name
-        """
-        Name of the configuration manager to use. Defaults to "Chef".
-        """
         __props__['configurationManagerName'] = configuration_manager_name
 
-        if configuration_manager_version and not isinstance(configuration_manager_version, basestring):
-            raise TypeError('Expected property configuration_manager_version to be a basestring')
-        __self__.configuration_manager_version = configuration_manager_version
-        """
-        Version of the configuration manager to use. Defaults to "11.4".
-        """
         __props__['configurationManagerVersion'] = configuration_manager_version
 
-        if custom_cookbooks_sources and not isinstance(custom_cookbooks_sources, list):
-            raise TypeError('Expected property custom_cookbooks_sources to be a list')
-        __self__.custom_cookbooks_sources = custom_cookbooks_sources
-        """
-        When `use_custom_cookbooks` is set, provide this sub-object as
-        described below.
-        """
         __props__['customCookbooksSources'] = custom_cookbooks_sources
 
-        if custom_json and not isinstance(custom_json, basestring):
-            raise TypeError('Expected property custom_json to be a basestring')
-        __self__.custom_json = custom_json
-        """
-        Custom JSON attributes to apply to the entire stack.
-        """
         __props__['customJson'] = custom_json
 
-        if default_availability_zone and not isinstance(default_availability_zone, basestring):
-            raise TypeError('Expected property default_availability_zone to be a basestring')
-        __self__.default_availability_zone = default_availability_zone
-        """
-        Name of the availability zone where instances will be created
-        by default. This is required unless you set `vpc_id`.
-        """
         __props__['defaultAvailabilityZone'] = default_availability_zone
 
         if not default_instance_profile_arn:
             raise TypeError('Missing required property default_instance_profile_arn')
-        elif not isinstance(default_instance_profile_arn, basestring):
-            raise TypeError('Expected property default_instance_profile_arn to be a basestring')
-        __self__.default_instance_profile_arn = default_instance_profile_arn
-        """
-        The ARN of an IAM Instance Profile that created instances
-        will have by default.
-        """
         __props__['defaultInstanceProfileArn'] = default_instance_profile_arn
 
-        if default_os and not isinstance(default_os, basestring):
-            raise TypeError('Expected property default_os to be a basestring')
-        __self__.default_os = default_os
-        """
-        Name of OS that will be installed on instances by default.
-        """
         __props__['defaultOs'] = default_os
 
-        if default_root_device_type and not isinstance(default_root_device_type, basestring):
-            raise TypeError('Expected property default_root_device_type to be a basestring')
-        __self__.default_root_device_type = default_root_device_type
-        """
-        Name of the type of root device instances will have by default.
-        """
         __props__['defaultRootDeviceType'] = default_root_device_type
 
-        if default_ssh_key_name and not isinstance(default_ssh_key_name, basestring):
-            raise TypeError('Expected property default_ssh_key_name to be a basestring')
-        __self__.default_ssh_key_name = default_ssh_key_name
-        """
-        Name of the SSH keypair that instances will have by default.
-        """
         __props__['defaultSshKeyName'] = default_ssh_key_name
 
-        if default_subnet_id and not isinstance(default_subnet_id, basestring):
-            raise TypeError('Expected property default_subnet_id to be a basestring')
-        __self__.default_subnet_id = default_subnet_id
-        """
-        Id of the subnet in which instances will be created by default. Mandatory
-        if `vpc_id` is set, and forbidden if it isn't.
-        """
         __props__['defaultSubnetId'] = default_subnet_id
 
-        if hostname_theme and not isinstance(hostname_theme, basestring):
-            raise TypeError('Expected property hostname_theme to be a basestring')
-        __self__.hostname_theme = hostname_theme
-        """
-        Keyword representing the naming scheme that will be used for instance hostnames
-        within this stack.
-        """
         __props__['hostnameTheme'] = hostname_theme
 
-        if manage_berkshelf and not isinstance(manage_berkshelf, bool):
-            raise TypeError('Expected property manage_berkshelf to be a bool')
-        __self__.manage_berkshelf = manage_berkshelf
-        """
-        Boolean value controlling whether Opsworks will run Berkshelf for this stack.
-        """
         __props__['manageBerkshelf'] = manage_berkshelf
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the stack.
-        """
         __props__['name'] = name
 
         if not region:
             raise TypeError('Missing required property region')
-        elif not isinstance(region, basestring):
-            raise TypeError('Expected property region to be a basestring')
-        __self__.region = region
-        """
-        The name of the region where the stack will exist.
-        """
         __props__['region'] = region
 
         if not service_role_arn:
             raise TypeError('Missing required property service_role_arn')
-        elif not isinstance(service_role_arn, basestring):
-            raise TypeError('Expected property service_role_arn to be a basestring')
-        __self__.service_role_arn = service_role_arn
-        """
-        The ARN of an IAM role that the OpsWorks service will act as.
-        """
         __props__['serviceRoleArn'] = service_role_arn
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if use_custom_cookbooks and not isinstance(use_custom_cookbooks, bool):
-            raise TypeError('Expected property use_custom_cookbooks to be a bool')
-        __self__.use_custom_cookbooks = use_custom_cookbooks
-        """
-        Boolean value controlling whether the custom cookbook settings are
-        enabled.
-        """
         __props__['useCustomCookbooks'] = use_custom_cookbooks
 
-        if use_opsworks_security_groups and not isinstance(use_opsworks_security_groups, bool):
-            raise TypeError('Expected property use_opsworks_security_groups to be a bool')
-        __self__.use_opsworks_security_groups = use_opsworks_security_groups
-        """
-        Boolean value controlling whether the standard OpsWorks
-        security groups apply to created instances.
-        """
         __props__['useOpsworksSecurityGroups'] = use_opsworks_security_groups
 
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The id of the VPC that this stack belongs to.
-        """
         __props__['vpcId'] = vpc_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        __self__.stack_endpoint = pulumi.runtime.UNKNOWN
+        __props__['arn'] = None
+        __props__['stack_endpoint'] = None
 
         super(Stack, __self__).__init__(
             'aws:opsworks/stack:Stack',
@@ -219,52 +80,3 @@ class Stack(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'agentVersion' in outs:
-            self.agent_version = outs['agentVersion']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'berkshelfVersion' in outs:
-            self.berkshelf_version = outs['berkshelfVersion']
-        if 'color' in outs:
-            self.color = outs['color']
-        if 'configurationManagerName' in outs:
-            self.configuration_manager_name = outs['configurationManagerName']
-        if 'configurationManagerVersion' in outs:
-            self.configuration_manager_version = outs['configurationManagerVersion']
-        if 'customCookbooksSources' in outs:
-            self.custom_cookbooks_sources = outs['customCookbooksSources']
-        if 'customJson' in outs:
-            self.custom_json = outs['customJson']
-        if 'defaultAvailabilityZone' in outs:
-            self.default_availability_zone = outs['defaultAvailabilityZone']
-        if 'defaultInstanceProfileArn' in outs:
-            self.default_instance_profile_arn = outs['defaultInstanceProfileArn']
-        if 'defaultOs' in outs:
-            self.default_os = outs['defaultOs']
-        if 'defaultRootDeviceType' in outs:
-            self.default_root_device_type = outs['defaultRootDeviceType']
-        if 'defaultSshKeyName' in outs:
-            self.default_ssh_key_name = outs['defaultSshKeyName']
-        if 'defaultSubnetId' in outs:
-            self.default_subnet_id = outs['defaultSubnetId']
-        if 'hostnameTheme' in outs:
-            self.hostname_theme = outs['hostnameTheme']
-        if 'manageBerkshelf' in outs:
-            self.manage_berkshelf = outs['manageBerkshelf']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'region' in outs:
-            self.region = outs['region']
-        if 'serviceRoleArn' in outs:
-            self.service_role_arn = outs['serviceRoleArn']
-        if 'stackEndpoint' in outs:
-            self.stack_endpoint = outs['stackEndpoint']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'useCustomCookbooks' in outs:
-            self.use_custom_cookbooks = outs['useCustomCookbooks']
-        if 'useOpsworksSecurityGroups' in outs:
-            self.use_opsworks_security_groups = outs['useOpsworksSecurityGroups']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

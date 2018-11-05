@@ -16,55 +16,25 @@ class SecretVersion(pulumi.CustomResource):
         """Create a SecretVersion resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if secret_binary and not isinstance(secret_binary, basestring):
-            raise TypeError('Expected property secret_binary to be a basestring')
-        __self__.secret_binary = secret_binary
-        """
-        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
-        """
         __props__['secretBinary'] = secret_binary
 
         if not secret_id:
             raise TypeError('Missing required property secret_id')
-        elif not isinstance(secret_id, basestring):
-            raise TypeError('Expected property secret_id to be a basestring')
-        __self__.secret_id = secret_id
-        """
-        Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-        """
         __props__['secretId'] = secret_id
 
-        if secret_string and not isinstance(secret_string, basestring):
-            raise TypeError('Expected property secret_string to be a basestring')
-        __self__.secret_string = secret_string
-        """
-        Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
-        """
         __props__['secretString'] = secret_string
 
-        if version_stages and not isinstance(version_stages, list):
-            raise TypeError('Expected property version_stages to be a list')
-        __self__.version_stages = version_stages
-        """
-        Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-        """
         __props__['versionStages'] = version_stages
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the secret.
-        """
-        __self__.version_id = pulumi.runtime.UNKNOWN
-        """
-        The unique identifier of the version of the secret.
-        """
+        __props__['arn'] = None
+        __props__['version_id'] = None
 
         super(SecretVersion, __self__).__init__(
             'aws:secretsmanager/secretVersion:SecretVersion',
@@ -72,16 +42,3 @@ class SecretVersion(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'secretBinary' in outs:
-            self.secret_binary = outs['secretBinary']
-        if 'secretId' in outs:
-            self.secret_id = outs['secretId']
-        if 'secretString' in outs:
-            self.secret_string = outs['secretString']
-        if 'versionId' in outs:
-            self.version_id = outs['versionId']
-        if 'versionStages' in outs:
-            self.version_stages = outs['versionStages']

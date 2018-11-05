@@ -11,32 +11,32 @@ class GetBrokerResult(object):
     A collection of values returned by getBroker.
     """
     def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, users=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError('Expected argument auto_minor_version_upgrade to be a bool')
         __self__.auto_minor_version_upgrade = auto_minor_version_upgrade
-        if broker_id and not isinstance(broker_id, basestring):
-            raise TypeError('Expected argument broker_id to be a basestring')
+        if broker_id and not isinstance(broker_id, str):
+            raise TypeError('Expected argument broker_id to be a str')
         __self__.broker_id = broker_id
-        if broker_name and not isinstance(broker_name, basestring):
-            raise TypeError('Expected argument broker_name to be a basestring')
+        if broker_name and not isinstance(broker_name, str):
+            raise TypeError('Expected argument broker_name to be a str')
         __self__.broker_name = broker_name
         if configuration and not isinstance(configuration, dict):
             raise TypeError('Expected argument configuration to be a dict')
         __self__.configuration = configuration
-        if deployment_mode and not isinstance(deployment_mode, basestring):
-            raise TypeError('Expected argument deployment_mode to be a basestring')
+        if deployment_mode and not isinstance(deployment_mode, str):
+            raise TypeError('Expected argument deployment_mode to be a str')
         __self__.deployment_mode = deployment_mode
-        if engine_type and not isinstance(engine_type, basestring):
-            raise TypeError('Expected argument engine_type to be a basestring')
+        if engine_type and not isinstance(engine_type, str):
+            raise TypeError('Expected argument engine_type to be a str')
         __self__.engine_type = engine_type
-        if engine_version and not isinstance(engine_version, basestring):
-            raise TypeError('Expected argument engine_version to be a basestring')
+        if engine_version and not isinstance(engine_version, str):
+            raise TypeError('Expected argument engine_version to be a str')
         __self__.engine_version = engine_version
-        if host_instance_type and not isinstance(host_instance_type, basestring):
-            raise TypeError('Expected argument host_instance_type to be a basestring')
+        if host_instance_type and not isinstance(host_instance_type, str):
+            raise TypeError('Expected argument host_instance_type to be a str')
         __self__.host_instance_type = host_instance_type
         if instances and not isinstance(instances, list):
             raise TypeError('Expected argument instances to be a list')
@@ -56,8 +56,8 @@ class GetBrokerResult(object):
         if users and not isinstance(users, list):
             raise TypeError('Expected argument users to be a list')
         __self__.users = users
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

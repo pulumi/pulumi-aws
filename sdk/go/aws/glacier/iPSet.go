@@ -72,12 +72,12 @@ func GetIPSet(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *IPSet) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *IPSet) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Specifies whether GuardDuty is to start using the uploaded IPSet.

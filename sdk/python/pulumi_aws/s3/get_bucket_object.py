@@ -11,32 +11,32 @@ class GetBucketObjectResult(object):
     A collection of values returned by getBucketObject.
     """
     def __init__(__self__, body=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, last_modified=None, metadata=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None, id=None):
-        if body and not isinstance(body, basestring):
-            raise TypeError('Expected argument body to be a basestring')
+        if body and not isinstance(body, str):
+            raise TypeError('Expected argument body to be a str')
         __self__.body = body
         """
         Object data (see **limitations above** to understand cases in which this field is actually available)
         """
-        if cache_control and not isinstance(cache_control, basestring):
-            raise TypeError('Expected argument cache_control to be a basestring')
+        if cache_control and not isinstance(cache_control, str):
+            raise TypeError('Expected argument cache_control to be a str')
         __self__.cache_control = cache_control
         """
         Specifies caching behavior along the request/reply chain.
         """
-        if content_disposition and not isinstance(content_disposition, basestring):
-            raise TypeError('Expected argument content_disposition to be a basestring')
+        if content_disposition and not isinstance(content_disposition, str):
+            raise TypeError('Expected argument content_disposition to be a str')
         __self__.content_disposition = content_disposition
         """
         Specifies presentational information for the object.
         """
-        if content_encoding and not isinstance(content_encoding, basestring):
-            raise TypeError('Expected argument content_encoding to be a basestring')
+        if content_encoding and not isinstance(content_encoding, str):
+            raise TypeError('Expected argument content_encoding to be a str')
         __self__.content_encoding = content_encoding
         """
         Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
         """
-        if content_language and not isinstance(content_language, basestring):
-            raise TypeError('Expected argument content_language to be a basestring')
+        if content_language and not isinstance(content_language, str):
+            raise TypeError('Expected argument content_language to be a str')
         __self__.content_language = content_language
         """
         The language the content is in.
@@ -47,32 +47,32 @@ class GetBucketObjectResult(object):
         """
         Size of the body in bytes.
         """
-        if content_type and not isinstance(content_type, basestring):
-            raise TypeError('Expected argument content_type to be a basestring')
+        if content_type and not isinstance(content_type, str):
+            raise TypeError('Expected argument content_type to be a str')
         __self__.content_type = content_type
         """
         A standard MIME type describing the format of the object data.
         """
-        if etag and not isinstance(etag, basestring):
-            raise TypeError('Expected argument etag to be a basestring')
+        if etag and not isinstance(etag, str):
+            raise TypeError('Expected argument etag to be a str')
         __self__.etag = etag
         """
         [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
         """
-        if expiration and not isinstance(expiration, basestring):
-            raise TypeError('Expected argument expiration to be a basestring')
+        if expiration and not isinstance(expiration, str):
+            raise TypeError('Expected argument expiration to be a str')
         __self__.expiration = expiration
         """
         If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
         """
-        if expires and not isinstance(expires, basestring):
-            raise TypeError('Expected argument expires to be a basestring')
+        if expires and not isinstance(expires, str):
+            raise TypeError('Expected argument expires to be a str')
         __self__.expires = expires
         """
         The date and time at which the object is no longer cacheable.
         """
-        if last_modified and not isinstance(last_modified, basestring):
-            raise TypeError('Expected argument last_modified to be a basestring')
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError('Expected argument last_modified to be a str')
         __self__.last_modified = last_modified
         """
         Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
@@ -83,20 +83,20 @@ class GetBucketObjectResult(object):
         """
         A map of metadata stored with the object in S3
         """
-        if server_side_encryption and not isinstance(server_side_encryption, basestring):
-            raise TypeError('Expected argument server_side_encryption to be a basestring')
+        if server_side_encryption and not isinstance(server_side_encryption, str):
+            raise TypeError('Expected argument server_side_encryption to be a str')
         __self__.server_side_encryption = server_side_encryption
         """
         If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
         """
-        if sse_kms_key_id and not isinstance(sse_kms_key_id, basestring):
-            raise TypeError('Expected argument sse_kms_key_id to be a basestring')
+        if sse_kms_key_id and not isinstance(sse_kms_key_id, str):
+            raise TypeError('Expected argument sse_kms_key_id to be a str')
         __self__.sse_kms_key_id = sse_kms_key_id
         """
         If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
         """
-        if storage_class and not isinstance(storage_class, basestring):
-            raise TypeError('Expected argument storage_class to be a basestring')
+        if storage_class and not isinstance(storage_class, str):
+            raise TypeError('Expected argument storage_class to be a str')
         __self__.storage_class = storage_class
         """
         [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
@@ -107,20 +107,20 @@ class GetBucketObjectResult(object):
         """
         A mapping of tags assigned to the object.
         """
-        if version_id and not isinstance(version_id, basestring):
-            raise TypeError('Expected argument version_id to be a basestring')
+        if version_id and not isinstance(version_id, str):
+            raise TypeError('Expected argument version_id to be a str')
         __self__.version_id = version_id
         """
         The latest version ID of the object returned.
         """
-        if website_redirect_location and not isinstance(website_redirect_location, basestring):
-            raise TypeError('Expected argument website_redirect_location to be a basestring')
+        if website_redirect_location and not isinstance(website_redirect_location, str):
+            raise TypeError('Expected argument website_redirect_location to be a str')
         __self__.website_redirect_location = website_redirect_location
         """
         If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

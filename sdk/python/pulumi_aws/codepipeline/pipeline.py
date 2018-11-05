@@ -16,7 +16,7 @@ class Pipeline(pulumi.CustomResource):
         """Create a Pipeline resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,44 +25,19 @@ class Pipeline(pulumi.CustomResource):
 
         if not artifact_store:
             raise TypeError('Missing required property artifact_store')
-        elif not isinstance(artifact_store, dict):
-            raise TypeError('Expected property artifact_store to be a dict')
-        __self__.artifact_store = artifact_store
-        """
-        An artifact_store block. Artifact stores are documented below.
-        * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
-        """
         __props__['artifactStore'] = artifact_store
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the pipeline.
-        """
         __props__['name'] = name
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        elif not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        """
         __props__['roleArn'] = role_arn
 
         if not stages:
             raise TypeError('Missing required property stages')
-        elif not isinstance(stages, list):
-            raise TypeError('Expected property stages to be a list')
-        __self__.stages = stages
         __props__['stages'] = stages
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The codepipeline ARN.
-        """
+        __props__['arn'] = None
 
         super(Pipeline, __self__).__init__(
             'aws:codepipeline/pipeline:Pipeline',
@@ -70,14 +45,3 @@ class Pipeline(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'artifactStore' in outs:
-            self.artifact_store = outs['artifactStore']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'stages' in outs:
-            self.stages = outs['stages']

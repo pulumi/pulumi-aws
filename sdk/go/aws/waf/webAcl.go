@@ -61,12 +61,12 @@ func GetWebAcl(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *WebAcl) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *WebAcl) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.

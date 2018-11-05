@@ -17,80 +17,29 @@ class Stream(pulumi.CustomResource):
         """Create a Stream resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected property arn to be a basestring')
-        __self__.arn = arn
-        """
-        The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-        """
         __props__['arn'] = arn
 
-        if encryption_type and not isinstance(encryption_type, basestring):
-            raise TypeError('Expected property encryption_type to be a basestring')
-        __self__.encryption_type = encryption_type
-        """
-        The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-        """
         __props__['encryptionType'] = encryption_type
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
-        """
         __props__['name'] = name
 
-        if retention_period and not isinstance(retention_period, int):
-            raise TypeError('Expected property retention_period to be a int')
-        __self__.retention_period = retention_period
-        """
-        Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
-        """
         __props__['retentionPeriod'] = retention_period
 
         if not shard_count:
             raise TypeError('Missing required property shard_count')
-        elif not isinstance(shard_count, int):
-            raise TypeError('Expected property shard_count to be a int')
-        __self__.shard_count = shard_count
-        """
-        The number of shards that the stream will use.
-        Amazon has guidlines for specifying the Stream size that should be referenced
-        when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
-        """
         __props__['shardCount'] = shard_count
 
-        if shard_level_metrics and not isinstance(shard_level_metrics, list):
-            raise TypeError('Expected property shard_level_metrics to be a list')
-        __self__.shard_level_metrics = shard_level_metrics
-        """
-        A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        """
         __props__['shardLevelMetrics'] = shard_level_metrics
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         super(Stream, __self__).__init__(
@@ -99,20 +48,3 @@ class Stream(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'encryptionType' in outs:
-            self.encryption_type = outs['encryptionType']
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'retentionPeriod' in outs:
-            self.retention_period = outs['retentionPeriod']
-        if 'shardCount' in outs:
-            self.shard_count = outs['shardCount']
-        if 'shardLevelMetrics' in outs:
-            self.shard_level_metrics = outs['shardLevelMetrics']
-        if 'tags' in outs:
-            self.tags = outs['tags']

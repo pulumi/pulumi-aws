@@ -14,7 +14,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         """Create a GroupPolicyAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,22 +23,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         if not group:
             raise TypeError('Missing required property group')
-        elif not isinstance(group, basestring):
-            raise TypeError('Expected property group to be a basestring')
-        __self__.group = group
-        """
-        The group the policy should be applied to
-        """
         __props__['group'] = group
 
         if not policy_arn:
             raise TypeError('Missing required property policy_arn')
-        elif not isinstance(policy_arn, basestring):
-            raise TypeError('Expected property policy_arn to be a basestring')
-        __self__.policy_arn = policy_arn
-        """
-        The ARN of the policy you want to apply
-        """
         __props__['policyArn'] = policy_arn
 
         super(GroupPolicyAttachment, __self__).__init__(
@@ -47,8 +35,3 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'group' in outs:
-            self.group = outs['group']
-        if 'policyArn' in outs:
-            self.policy_arn = outs['policyArn']

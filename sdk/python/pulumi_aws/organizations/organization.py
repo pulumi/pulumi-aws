@@ -14,37 +14,19 @@ class Organization(pulumi.CustomResource):
         """Create a Organization resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if feature_set and not isinstance(feature_set, basestring):
-            raise TypeError('Expected property feature_set to be a basestring')
-        __self__.feature_set = feature_set
-        """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        """
         __props__['featureSet'] = feature_set
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        ARN of the organization
-        """
-        __self__.master_account_arn = pulumi.runtime.UNKNOWN
-        """
-        ARN of the master account
-        """
-        __self__.master_account_email = pulumi.runtime.UNKNOWN
-        """
-        Email address of the master account
-        """
-        __self__.master_account_id = pulumi.runtime.UNKNOWN
-        """
-        Identifier of the master account
-        """
+        __props__['arn'] = None
+        __props__['master_account_arn'] = None
+        __props__['master_account_email'] = None
+        __props__['master_account_id'] = None
 
         super(Organization, __self__).__init__(
             'aws:organizations/organization:Organization',
@@ -52,14 +34,3 @@ class Organization(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'featureSet' in outs:
-            self.feature_set = outs['featureSet']
-        if 'masterAccountArn' in outs:
-            self.master_account_arn = outs['masterAccountArn']
-        if 'masterAccountEmail' in outs:
-            self.master_account_email = outs['masterAccountEmail']
-        if 'masterAccountId' in outs:
-            self.master_account_id = outs['masterAccountId']

@@ -16,7 +16,7 @@ class BasePathMapping(pulumi.CustomResource):
         """Create a BasePathMapping resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,38 +25,14 @@ class BasePathMapping(pulumi.CustomResource):
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        elif not isinstance(rest_api, basestring):
-            raise TypeError('Expected property rest_api to be a basestring')
-        __self__.rest_api = rest_api
-        """
-        The id of the API to connect.
-        """
         __props__['restApi'] = rest_api
 
-        if base_path and not isinstance(base_path, basestring):
-            raise TypeError('Expected property base_path to be a basestring')
-        __self__.base_path = base_path
-        """
-        Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        """
         __props__['basePath'] = base_path
 
         if not domain_name:
             raise TypeError('Missing required property domain_name')
-        elif not isinstance(domain_name, basestring):
-            raise TypeError('Expected property domain_name to be a basestring')
-        __self__.domain_name = domain_name
-        """
-        The already-registered domain name to connect the API to.
-        """
         __props__['domainName'] = domain_name
 
-        if stage_name and not isinstance(stage_name, basestring):
-            raise TypeError('Expected property stage_name to be a basestring')
-        __self__.stage_name = stage_name
-        """
-        The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-        """
         __props__['stageName'] = stage_name
 
         super(BasePathMapping, __self__).__init__(
@@ -65,12 +41,3 @@ class BasePathMapping(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'restApi' in outs:
-            self.rest_api = outs['restApi']
-        if 'basePath' in outs:
-            self.base_path = outs['basePath']
-        if 'domainName' in outs:
-            self.domain_name = outs['domainName']
-        if 'stageName' in outs:
-            self.stage_name = outs['stageName']

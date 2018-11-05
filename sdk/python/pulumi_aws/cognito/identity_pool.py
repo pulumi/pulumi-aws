@@ -14,76 +14,30 @@ class IdentityPool(pulumi.CustomResource):
         """Create a IdentityPool resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allow_unauthenticated_identities and not isinstance(allow_unauthenticated_identities, bool):
-            raise TypeError('Expected property allow_unauthenticated_identities to be a bool')
-        __self__.allow_unauthenticated_identities = allow_unauthenticated_identities
-        """
-        Whether the identity pool supports unauthenticated logins or not.
-        """
         __props__['allowUnauthenticatedIdentities'] = allow_unauthenticated_identities
 
-        if cognito_identity_providers and not isinstance(cognito_identity_providers, list):
-            raise TypeError('Expected property cognito_identity_providers to be a list')
-        __self__.cognito_identity_providers = cognito_identity_providers
-        """
-        An array of Amazon Cognito Identity user pools and their client IDs.
-        """
         __props__['cognitoIdentityProviders'] = cognito_identity_providers
 
-        if developer_provider_name and not isinstance(developer_provider_name, basestring):
-            raise TypeError('Expected property developer_provider_name to be a basestring')
-        __self__.developer_provider_name = developer_provider_name
-        """
-        The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
-        backend and the Cognito service to communicate about the developer provider.
-        """
         __props__['developerProviderName'] = developer_provider_name
 
         if not identity_pool_name:
             raise TypeError('Missing required property identity_pool_name')
-        elif not isinstance(identity_pool_name, basestring):
-            raise TypeError('Expected property identity_pool_name to be a basestring')
-        __self__.identity_pool_name = identity_pool_name
-        """
-        The Cognito Identity Pool name.
-        """
         __props__['identityPoolName'] = identity_pool_name
 
-        if openid_connect_provider_arns and not isinstance(openid_connect_provider_arns, list):
-            raise TypeError('Expected property openid_connect_provider_arns to be a list')
-        __self__.openid_connect_provider_arns = openid_connect_provider_arns
-        """
-        A list of OpendID Connect provider ARNs.
-        """
         __props__['openidConnectProviderArns'] = openid_connect_provider_arns
 
-        if saml_provider_arns and not isinstance(saml_provider_arns, list):
-            raise TypeError('Expected property saml_provider_arns to be a list')
-        __self__.saml_provider_arns = saml_provider_arns
-        """
-        An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-        """
         __props__['samlProviderArns'] = saml_provider_arns
 
-        if supported_login_providers and not isinstance(supported_login_providers, dict):
-            raise TypeError('Expected property supported_login_providers to be a dict')
-        __self__.supported_login_providers = supported_login_providers
-        """
-        Key-Value pairs mapping provider names to provider app IDs.
-        """
         __props__['supportedLoginProviders'] = supported_login_providers
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the identity pool.
-        """
+        __props__['arn'] = None
 
         super(IdentityPool, __self__).__init__(
             'aws:cognito/identityPool:IdentityPool',
@@ -91,20 +45,3 @@ class IdentityPool(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allowUnauthenticatedIdentities' in outs:
-            self.allow_unauthenticated_identities = outs['allowUnauthenticatedIdentities']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'cognitoIdentityProviders' in outs:
-            self.cognito_identity_providers = outs['cognitoIdentityProviders']
-        if 'developerProviderName' in outs:
-            self.developer_provider_name = outs['developerProviderName']
-        if 'identityPoolName' in outs:
-            self.identity_pool_name = outs['identityPoolName']
-        if 'openidConnectProviderArns' in outs:
-            self.openid_connect_provider_arns = outs['openidConnectProviderArns']
-        if 'samlProviderArns' in outs:
-            self.saml_provider_arns = outs['samlProviderArns']
-        if 'supportedLoginProviders' in outs:
-            self.supported_login_providers = outs['supportedLoginProviders']

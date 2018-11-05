@@ -21,7 +21,7 @@ class SecurityGroup(pulumi.CustomResource):
         """Create a SecurityGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -29,91 +29,24 @@ class SecurityGroup(pulumi.CustomResource):
         __props__ = dict()
 
         description = 'Managed by Pulumi'
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The security group description. Defaults to
-        "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
-        `GroupDescription` attribute, for which there is no Update API. If you'd like
-        to classify your security groups in a way that can be updated, use `tags`.
-        """
         __props__['description'] = description
 
-        if egress and not isinstance(egress, list):
-            raise TypeError('Expected property egress to be a list')
-        __self__.egress = egress
-        """
-        Can be specified multiple times for each
-        egress rule. Each egress block supports fields documented below.
-        """
         __props__['egress'] = egress
 
-        if ingress and not isinstance(ingress, list):
-            raise TypeError('Expected property ingress to be a list')
-        __self__.ingress = ingress
-        """
-        Can be specified multiple times for each
-        ingress rule. Each ingress block supports fields documented below.
-        """
         __props__['ingress'] = ingress
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the security group. If omitted, Terraform will
-        assign a random, unique name
-        """
         __props__['name'] = name
 
-        if name_prefix and not isinstance(name_prefix, basestring):
-            raise TypeError('Expected property name_prefix to be a basestring')
-        __self__.name_prefix = name_prefix
-        """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
-        """
         __props__['namePrefix'] = name_prefix
 
-        if revoke_rules_on_delete and not isinstance(revoke_rules_on_delete, bool):
-            raise TypeError('Expected property revoke_rules_on_delete to be a bool')
-        __self__.revoke_rules_on_delete = revoke_rules_on_delete
-        """
-        Instruct Terraform to revoke all of the
-        Security Groups attached ingress and egress rules before deleting the rule
-        itself. This is normally not needed, however certain AWS services such as
-        Elastic Map Reduce may automatically add required rules to security groups used
-        with the service, and those rules may contain a cyclic dependency that prevent
-        the security groups from being destroyed without removing the dependency first.
-        Default `false`
-        """
         __props__['revokeRulesOnDelete'] = revoke_rules_on_delete
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The VPC ID.
-        """
         __props__['vpcId'] = vpc_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the security group
-        """
-        __self__.owner_id = pulumi.runtime.UNKNOWN
-        """
-        The owner ID.
-        """
+        __props__['arn'] = None
+        __props__['owner_id'] = None
 
         super(SecurityGroup, __self__).__init__(
             'aws:ec2/securityGroup:SecurityGroup',
@@ -121,24 +54,3 @@ class SecurityGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'egress' in outs:
-            self.egress = outs['egress']
-        if 'ingress' in outs:
-            self.ingress = outs['ingress']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namePrefix' in outs:
-            self.name_prefix = outs['namePrefix']
-        if 'ownerId' in outs:
-            self.owner_id = outs['ownerId']
-        if 'revokeRulesOnDelete' in outs:
-            self.revoke_rules_on_delete = outs['revokeRulesOnDelete']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

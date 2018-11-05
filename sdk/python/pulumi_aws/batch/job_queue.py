@@ -14,7 +14,7 @@ class JobQueue(pulumi.CustomResource):
         """Create a JobQueue resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,50 +23,19 @@ class JobQueue(pulumi.CustomResource):
 
         if not compute_environments:
             raise TypeError('Missing required property compute_environments')
-        elif not isinstance(compute_environments, list):
-            raise TypeError('Expected property compute_environments to be a list')
-        __self__.compute_environments = compute_environments
-        """
-        Specifies the set of compute environments
-        mapped to a job queue and their order.  The position of the compute environments
-        in the list will dictate the order. You can associate up to 3 compute environments
-        with a job queue.
-        """
         __props__['computeEnvironments'] = compute_environments
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the job queue.
-        """
         __props__['name'] = name
 
         if not priority:
             raise TypeError('Missing required property priority')
-        elif not isinstance(priority, int):
-            raise TypeError('Expected property priority to be a int')
-        __self__.priority = priority
-        """
-        The priority of the job queue. Job queues with a higher priority
-        are evaluated first when associated with the same compute environment.
-        """
         __props__['priority'] = priority
 
         if not state:
             raise TypeError('Missing required property state')
-        elif not isinstance(state, basestring):
-            raise TypeError('Expected property state to be a basestring')
-        __self__.state = state
-        """
-        The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
-        """
         __props__['state'] = state
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name of the job queue.
-        """
+        __props__['arn'] = None
 
         super(JobQueue, __self__).__init__(
             'aws:batch/jobQueue:JobQueue',
@@ -74,14 +43,3 @@ class JobQueue(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'computeEnvironments' in outs:
-            self.compute_environments = outs['computeEnvironments']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'priority' in outs:
-            self.priority = outs['priority']
-        if 'state' in outs:
-            self.state = outs['state']

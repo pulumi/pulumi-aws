@@ -14,7 +14,7 @@ class Connection(pulumi.CustomResource):
         """Create a Connection resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,48 +23,18 @@ class Connection(pulumi.CustomResource):
 
         if not bandwidth:
             raise TypeError('Missing required property bandwidth')
-        elif not isinstance(bandwidth, basestring):
-            raise TypeError('Expected property bandwidth to be a basestring')
-        __self__.bandwidth = bandwidth
-        """
-        The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
-        """
         __props__['bandwidth'] = bandwidth
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the connection.
-        """
         __props__['name'] = name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the connection.
-        """
-        __self__.jumbo_frame_capable = pulumi.runtime.UNKNOWN
-        """
-        Boolean value representing if jumbo frames have been enabled for this connection.
-        """
+        __props__['arn'] = None
+        __props__['jumbo_frame_capable'] = None
 
         super(Connection, __self__).__init__(
             'aws:directconnect/connection:Connection',
@@ -72,16 +42,3 @@ class Connection(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'bandwidth' in outs:
-            self.bandwidth = outs['bandwidth']
-        if 'jumboFrameCapable' in outs:
-            self.jumbo_frame_capable = outs['jumboFrameCapable']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'tags' in outs:
-            self.tags = outs['tags']

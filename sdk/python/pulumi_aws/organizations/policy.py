@@ -14,7 +14,7 @@ class Policy(pulumi.CustomResource):
         """Create a Policy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,42 +23,15 @@ class Policy(pulumi.CustomResource):
 
         if not content:
             raise TypeError('Missing required property content')
-        elif not isinstance(content, basestring):
-            raise TypeError('Expected property content to be a basestring')
-        __self__.content = content
-        """
-        The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
-        """
         __props__['content'] = content
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A description to assign to the policy.
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The friendly name to assign to the policy.
-        """
         __props__['name'] = name
 
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
-        """
         __props__['type'] = type
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        Amazon Resource Name (ARN) of the policy.
-        """
+        __props__['arn'] = None
 
         super(Policy, __self__).__init__(
             'aws:organizations/policy:Policy',
@@ -66,14 +39,3 @@ class Policy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'content' in outs:
-            self.content = outs['content']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'type' in outs:
-            self.type = outs['type']

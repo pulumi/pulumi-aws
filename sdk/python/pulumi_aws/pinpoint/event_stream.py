@@ -11,7 +11,7 @@ class EventStream(pulumi.CustomResource):
         """Create a EventStream resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -20,23 +20,14 @@ class EventStream(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        elif not isinstance(application_id, basestring):
-            raise TypeError('Expected property application_id to be a basestring')
-        __self__.application_id = application_id
         __props__['applicationId'] = application_id
 
         if not destination_stream_arn:
             raise TypeError('Missing required property destination_stream_arn')
-        elif not isinstance(destination_stream_arn, basestring):
-            raise TypeError('Expected property destination_stream_arn to be a basestring')
-        __self__.destination_stream_arn = destination_stream_arn
         __props__['destinationStreamArn'] = destination_stream_arn
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        elif not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
         __props__['roleArn'] = role_arn
 
         super(EventStream, __self__).__init__(
@@ -45,10 +36,3 @@ class EventStream(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'applicationId' in outs:
-            self.application_id = outs['applicationId']
-        if 'destinationStreamArn' in outs:
-            self.destination_stream_arn = outs['destinationStreamArn']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']

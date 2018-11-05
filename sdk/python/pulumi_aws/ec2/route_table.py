@@ -33,45 +33,21 @@ class RouteTable(pulumi.CustomResource):
         """Create a RouteTable resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if propagating_vgws and not isinstance(propagating_vgws, list):
-            raise TypeError('Expected property propagating_vgws to be a list')
-        __self__.propagating_vgws = propagating_vgws
-        """
-        A list of virtual gateways for propagation.
-        """
         __props__['propagatingVgws'] = propagating_vgws
 
-        if routes and not isinstance(routes, list):
-            raise TypeError('Expected property routes to be a list')
-        __self__.routes = routes
-        """
-        A list of route objects. Their keys are documented below.
-        """
         __props__['routes'] = routes
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The VPC ID.
-        """
         __props__['vpcId'] = vpc_id
 
         super(RouteTable, __self__).__init__(
@@ -80,12 +56,3 @@ class RouteTable(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'propagatingVgws' in outs:
-            self.propagating_vgws = outs['propagatingVgws']
-        if 'routes' in outs:
-            self.routes = outs['routes']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

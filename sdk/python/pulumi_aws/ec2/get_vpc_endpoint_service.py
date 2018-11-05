@@ -29,23 +29,23 @@ class GetVpcEndpointServiceResult(object):
         """
         The DNS names for the service.
         """
-        if owner and not isinstance(owner, basestring):
-            raise TypeError('Expected argument owner to be a basestring')
+        if owner and not isinstance(owner, str):
+            raise TypeError('Expected argument owner to be a str')
         __self__.owner = owner
         """
         The AWS account ID of the service owner or `amazon`.
         """
-        if private_dns_name and not isinstance(private_dns_name, basestring):
-            raise TypeError('Expected argument private_dns_name to be a basestring')
+        if private_dns_name and not isinstance(private_dns_name, str):
+            raise TypeError('Expected argument private_dns_name to be a str')
         __self__.private_dns_name = private_dns_name
         """
         The private DNS name for the service.
         """
-        if service_name and not isinstance(service_name, basestring):
-            raise TypeError('Expected argument service_name to be a basestring')
+        if service_name and not isinstance(service_name, str):
+            raise TypeError('Expected argument service_name to be a str')
         __self__.service_name = service_name
-        if service_type and not isinstance(service_type, basestring):
-            raise TypeError('Expected argument service_type to be a basestring')
+        if service_type and not isinstance(service_type, str):
+            raise TypeError('Expected argument service_type to be a str')
         __self__.service_type = service_type
         """
         The service type, `Gateway` or `Interface`.
@@ -56,8 +56,8 @@ class GetVpcEndpointServiceResult(object):
         """
         Whether or not the service supports endpoint policies - `true` or `false`.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

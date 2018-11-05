@@ -85,12 +85,12 @@ func GetIntegrationResponse(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *IntegrationResponse) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *IntegrationResponse) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.

@@ -115,12 +115,12 @@ func GetVpnConnection(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *VpnConnection) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *VpnConnection) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The configuration information for the VPN connection's customer gateway (in the native XML format).

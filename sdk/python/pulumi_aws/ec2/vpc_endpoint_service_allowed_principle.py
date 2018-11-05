@@ -20,7 +20,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         """Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -29,22 +29,10 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
         if not principal_arn:
             raise TypeError('Missing required property principal_arn')
-        elif not isinstance(principal_arn, basestring):
-            raise TypeError('Expected property principal_arn to be a basestring')
-        __self__.principal_arn = principal_arn
-        """
-        The ARN of the principal to allow permissions.
-        """
         __props__['principalArn'] = principal_arn
 
         if not vpc_endpoint_service_id:
             raise TypeError('Missing required property vpc_endpoint_service_id')
-        elif not isinstance(vpc_endpoint_service_id, basestring):
-            raise TypeError('Expected property vpc_endpoint_service_id to be a basestring')
-        __self__.vpc_endpoint_service_id = vpc_endpoint_service_id
-        """
-        The ID of the VPC endpoint service to allow permission.
-        """
         __props__['vpcEndpointServiceId'] = vpc_endpoint_service_id
 
         super(VpcEndpointServiceAllowedPrinciple, __self__).__init__(
@@ -53,8 +41,3 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'principalArn' in outs:
-            self.principal_arn = outs['principalArn']
-        if 'vpcEndpointServiceId' in outs:
-            self.vpc_endpoint_service_id = outs['vpcEndpointServiceId']

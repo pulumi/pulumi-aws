@@ -14,7 +14,7 @@ class Zone(pulumi.CustomResource):
         """Create a Zone resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -22,79 +22,24 @@ class Zone(pulumi.CustomResource):
         __props__ = dict()
 
         comment = 'Managed by Pulumi'
-        if comment and not isinstance(comment, basestring):
-            raise TypeError('Expected property comment to be a basestring')
-        __self__.comment = comment
-        """
-        A comment for the hosted zone. Defaults to 'Managed by Terraform'.
-        """
         __props__['comment'] = comment
 
-        if delegation_set_id and not isinstance(delegation_set_id, basestring):
-            raise TypeError('Expected property delegation_set_id to be a basestring')
-        __self__.delegation_set_id = delegation_set_id
-        """
-        The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
-        """
         __props__['delegationSetId'] = delegation_set_id
 
-        if force_destroy and not isinstance(force_destroy, bool):
-            raise TypeError('Expected property force_destroy to be a bool')
-        __self__.force_destroy = force_destroy
-        """
-        Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
-        """
         __props__['forceDestroy'] = force_destroy
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        This is the name of the hosted zone.
-        """
         __props__['name'] = name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the zone.
-        """
         __props__['tags'] = tags
 
-        if vpcs and not isinstance(vpcs, list):
-            raise TypeError('Expected property vpcs to be a list')
-        __self__.vpcs = vpcs
-        """
-        Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
-        """
         __props__['vpcs'] = vpcs
 
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        ID of the VPC to associate.
-        """
         __props__['vpcId'] = vpc_id
 
-        if vpc_region and not isinstance(vpc_region, basestring):
-            raise TypeError('Expected property vpc_region to be a basestring')
-        __self__.vpc_region = vpc_region
-        """
-        Region of the VPC to associate. Defaults to AWS provider region.
-        """
         __props__['vpcRegion'] = vpc_region
 
-        __self__.name_servers = pulumi.runtime.UNKNOWN
-        """
-        A list of name servers in associated (or default) delegation set.
-        Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
-        """
-        __self__.zone_id = pulumi.runtime.UNKNOWN
-        """
-        The Hosted Zone ID. This can be referenced by zone records.
-        """
+        __props__['name_servers'] = None
+        __props__['zone_id'] = None
 
         super(Zone, __self__).__init__(
             'aws:route53/zone:Zone',
@@ -102,24 +47,3 @@ class Zone(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'comment' in outs:
-            self.comment = outs['comment']
-        if 'delegationSetId' in outs:
-            self.delegation_set_id = outs['delegationSetId']
-        if 'forceDestroy' in outs:
-            self.force_destroy = outs['forceDestroy']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'nameServers' in outs:
-            self.name_servers = outs['nameServers']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcs' in outs:
-            self.vpcs = outs['vpcs']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']
-        if 'vpcRegion' in outs:
-            self.vpc_region = outs['vpcRegion']
-        if 'zoneId' in outs:
-            self.zone_id = outs['zoneId']

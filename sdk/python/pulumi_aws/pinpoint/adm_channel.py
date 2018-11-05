@@ -18,7 +18,7 @@ class AdmChannel(pulumi.CustomResource):
         """Create a AdmChannel resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,40 +27,16 @@ class AdmChannel(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        elif not isinstance(application_id, basestring):
-            raise TypeError('Expected property application_id to be a basestring')
-        __self__.application_id = application_id
-        """
-        The application ID.
-        """
         __props__['applicationId'] = application_id
 
         if not client_id:
             raise TypeError('Missing required property client_id')
-        elif not isinstance(client_id, basestring):
-            raise TypeError('Expected property client_id to be a basestring')
-        __self__.client_id = client_id
-        """
-        Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         __props__['clientId'] = client_id
 
         if not client_secret:
             raise TypeError('Missing required property client_secret')
-        elif not isinstance(client_secret, basestring):
-            raise TypeError('Expected property client_secret to be a basestring')
-        __self__.client_secret = client_secret
-        """
-        Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         __props__['clientSecret'] = client_secret
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         __props__['enabled'] = enabled
 
         super(AdmChannel, __self__).__init__(
@@ -69,12 +45,3 @@ class AdmChannel(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'applicationId' in outs:
-            self.application_id = outs['applicationId']
-        if 'clientId' in outs:
-            self.client_id = outs['clientId']
-        if 'clientSecret' in outs:
-            self.client_secret = outs['clientSecret']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']

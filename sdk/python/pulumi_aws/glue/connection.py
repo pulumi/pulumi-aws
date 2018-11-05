@@ -14,69 +14,27 @@ class Connection(pulumi.CustomResource):
         """Create a Connection resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if catalog_id and not isinstance(catalog_id, basestring):
-            raise TypeError('Expected property catalog_id to be a basestring')
-        __self__.catalog_id = catalog_id
-        """
-        The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-        """
         __props__['catalogId'] = catalog_id
 
         if not connection_properties:
             raise TypeError('Missing required property connection_properties')
-        elif not isinstance(connection_properties, dict):
-            raise TypeError('Expected property connection_properties to be a dict')
-        __self__.connection_properties = connection_properties
-        """
-        A map of key-value pairs used as parameters for this connection.
-        """
         __props__['connectionProperties'] = connection_properties
 
-        if connection_type and not isinstance(connection_type, basestring):
-            raise TypeError('Expected property connection_type to be a basestring')
-        __self__.connection_type = connection_type
-        """
-        The type of the connection. Defaults to `JBDC`.
-        """
         __props__['connectionType'] = connection_type
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Description of the connection.
-        """
         __props__['description'] = description
 
-        if match_criterias and not isinstance(match_criterias, list):
-            raise TypeError('Expected property match_criterias to be a list')
-        __self__.match_criterias = match_criterias
-        """
-        A list of criteria that can be used in selecting this connection.
-        """
         __props__['matchCriterias'] = match_criterias
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the connection.
-        """
         __props__['name'] = name
 
-        if physical_connection_requirements and not isinstance(physical_connection_requirements, dict):
-            raise TypeError('Expected property physical_connection_requirements to be a dict')
-        __self__.physical_connection_requirements = physical_connection_requirements
-        """
-        A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
-        """
         __props__['physicalConnectionRequirements'] = physical_connection_requirements
 
         super(Connection, __self__).__init__(
@@ -85,18 +43,3 @@ class Connection(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'catalogId' in outs:
-            self.catalog_id = outs['catalogId']
-        if 'connectionProperties' in outs:
-            self.connection_properties = outs['connectionProperties']
-        if 'connectionType' in outs:
-            self.connection_type = outs['connectionType']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'matchCriterias' in outs:
-            self.match_criterias = outs['matchCriterias']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'physicalConnectionRequirements' in outs:
-            self.physical_connection_requirements = outs['physicalConnectionRequirements']

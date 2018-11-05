@@ -23,8 +23,8 @@ class GetReplicationGroupResult(object):
         """
         A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         """
-        if configuration_endpoint_address and not isinstance(configuration_endpoint_address, basestring):
-            raise TypeError('Expected argument configuration_endpoint_address to be a basestring')
+        if configuration_endpoint_address and not isinstance(configuration_endpoint_address, str):
+            raise TypeError('Expected argument configuration_endpoint_address to be a str')
         __self__.configuration_endpoint_address = configuration_endpoint_address
         """
         The configuration endpoint address to allow host discovery.
@@ -35,8 +35,8 @@ class GetReplicationGroupResult(object):
         """
         The identifiers of all the nodes that are part of this replication group.
         """
-        if node_type and not isinstance(node_type, basestring):
-            raise TypeError('Expected argument node_type to be a basestring')
+        if node_type and not isinstance(node_type, str):
+            raise TypeError('Expected argument node_type to be a str')
         __self__.node_type = node_type
         """
         The cluster node type.
@@ -53,14 +53,14 @@ class GetReplicationGroupResult(object):
         """
         The port number on which the configuration endpoint will accept connections.
         """
-        if primary_endpoint_address and not isinstance(primary_endpoint_address, basestring):
-            raise TypeError('Expected argument primary_endpoint_address to be a basestring')
+        if primary_endpoint_address and not isinstance(primary_endpoint_address, str):
+            raise TypeError('Expected argument primary_endpoint_address to be a str')
         __self__.primary_endpoint_address = primary_endpoint_address
         """
         The endpoint of the primary node in this node group (shard).
         """
-        if replication_group_description and not isinstance(replication_group_description, basestring):
-            raise TypeError('Expected argument replication_group_description to be a basestring')
+        if replication_group_description and not isinstance(replication_group_description, str):
+            raise TypeError('Expected argument replication_group_description to be a str')
         __self__.replication_group_description = replication_group_description
         """
         The description of the replication group.
@@ -71,14 +71,14 @@ class GetReplicationGroupResult(object):
         """
         The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         """
-        if snapshot_window and not isinstance(snapshot_window, basestring):
-            raise TypeError('Expected argument snapshot_window to be a basestring')
+        if snapshot_window and not isinstance(snapshot_window, str):
+            raise TypeError('Expected argument snapshot_window to be a str')
         __self__.snapshot_window = snapshot_window
         """
         The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

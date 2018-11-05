@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from attachment import *
-from group import *
-from lifecycle_hook import *
-from notification import *
-from policy import *
-from schedule import *
+from .attachment import *
+from .group import *
+from .lifecycle_hook import *
+from .notification import *
+from .policy import *
+from .schedule import *

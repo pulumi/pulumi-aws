@@ -14,151 +14,49 @@ class Application(pulumi.CustomResource):
         """Create a Application resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if app_sources and not isinstance(app_sources, list):
-            raise TypeError('Expected property app_sources to be a list')
-        __self__.app_sources = app_sources
-        """
-        SCM configuration of the app as described below.
-        """
         __props__['appSources'] = app_sources
 
-        if auto_bundle_on_deploy and not isinstance(auto_bundle_on_deploy, basestring):
-            raise TypeError('Expected property auto_bundle_on_deploy to be a basestring')
-        __self__.auto_bundle_on_deploy = auto_bundle_on_deploy
-        """
-        Run bundle install when deploying for application of type `rails`.
-        """
         __props__['autoBundleOnDeploy'] = auto_bundle_on_deploy
 
-        if aws_flow_ruby_settings and not isinstance(aws_flow_ruby_settings, basestring):
-            raise TypeError('Expected property aws_flow_ruby_settings to be a basestring')
-        __self__.aws_flow_ruby_settings = aws_flow_ruby_settings
-        """
-        Specify activity and workflow workers for your app using the aws-flow gem.
-        """
         __props__['awsFlowRubySettings'] = aws_flow_ruby_settings
 
-        if data_source_arn and not isinstance(data_source_arn, basestring):
-            raise TypeError('Expected property data_source_arn to be a basestring')
-        __self__.data_source_arn = data_source_arn
-        """
-        The data source's ARN.
-        """
         __props__['dataSourceArn'] = data_source_arn
 
-        if data_source_database_name and not isinstance(data_source_database_name, basestring):
-            raise TypeError('Expected property data_source_database_name to be a basestring')
-        __self__.data_source_database_name = data_source_database_name
-        """
-        The database name.
-        """
         __props__['dataSourceDatabaseName'] = data_source_database_name
 
-        if data_source_type and not isinstance(data_source_type, basestring):
-            raise TypeError('Expected property data_source_type to be a basestring')
-        __self__.data_source_type = data_source_type
-        """
-        The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-        """
         __props__['dataSourceType'] = data_source_type
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A description of the app.
-        """
         __props__['description'] = description
 
-        if document_root and not isinstance(document_root, basestring):
-            raise TypeError('Expected property document_root to be a basestring')
-        __self__.document_root = document_root
-        """
-        Subfolder for the document root for application of type `rails`.
-        """
         __props__['documentRoot'] = document_root
 
-        if domains and not isinstance(domains, list):
-            raise TypeError('Expected property domains to be a list')
-        __self__.domains = domains
-        """
-        A list of virtual host alias.
-        """
         __props__['domains'] = domains
 
-        if enable_ssl and not isinstance(enable_ssl, bool):
-            raise TypeError('Expected property enable_ssl to be a bool')
-        __self__.enable_ssl = enable_ssl
-        """
-        Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        """
         __props__['enableSsl'] = enable_ssl
 
-        if environments and not isinstance(environments, list):
-            raise TypeError('Expected property environments to be a list')
-        __self__.environments = environments
-        """
-        Object to define environment variables.  Object is described below.
-        """
         __props__['environments'] = environments
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A human-readable name for the application.
-        """
         __props__['name'] = name
 
-        if rails_env and not isinstance(rails_env, basestring):
-            raise TypeError('Expected property rails_env to be a basestring')
-        __self__.rails_env = rails_env
-        """
-        The name of the Rails environment for application of type `rails`.
-        """
         __props__['railsEnv'] = rails_env
 
-        if short_name and not isinstance(short_name, basestring):
-            raise TypeError('Expected property short_name to be a basestring')
-        __self__.short_name = short_name
-        """
-        A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        """
         __props__['shortName'] = short_name
 
-        if ssl_configurations and not isinstance(ssl_configurations, list):
-            raise TypeError('Expected property ssl_configurations to be a list')
-        __self__.ssl_configurations = ssl_configurations
-        """
-        The SSL configuration of the app. Object is described below.
-        """
         __props__['sslConfigurations'] = ssl_configurations
 
         if not stack_id:
             raise TypeError('Missing required property stack_id')
-        elif not isinstance(stack_id, basestring):
-            raise TypeError('Expected property stack_id to be a basestring')
-        __self__.stack_id = stack_id
-        """
-        The id of the stack the application will belong to.
-        """
         __props__['stackId'] = stack_id
 
         if not type:
             raise TypeError('Missing required property type')
-        elif not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The type of source to use. For example, "archive".
-        """
         __props__['type'] = type
 
         super(Application, __self__).__init__(
@@ -167,38 +65,3 @@ class Application(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'appSources' in outs:
-            self.app_sources = outs['appSources']
-        if 'autoBundleOnDeploy' in outs:
-            self.auto_bundle_on_deploy = outs['autoBundleOnDeploy']
-        if 'awsFlowRubySettings' in outs:
-            self.aws_flow_ruby_settings = outs['awsFlowRubySettings']
-        if 'dataSourceArn' in outs:
-            self.data_source_arn = outs['dataSourceArn']
-        if 'dataSourceDatabaseName' in outs:
-            self.data_source_database_name = outs['dataSourceDatabaseName']
-        if 'dataSourceType' in outs:
-            self.data_source_type = outs['dataSourceType']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'documentRoot' in outs:
-            self.document_root = outs['documentRoot']
-        if 'domains' in outs:
-            self.domains = outs['domains']
-        if 'enableSsl' in outs:
-            self.enable_ssl = outs['enableSsl']
-        if 'environments' in outs:
-            self.environments = outs['environments']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'railsEnv' in outs:
-            self.rails_env = outs['railsEnv']
-        if 'shortName' in outs:
-            self.short_name = outs['shortName']
-        if 'sslConfigurations' in outs:
-            self.ssl_configurations = outs['sslConfigurations']
-        if 'stackId' in outs:
-            self.stack_id = outs['stackId']
-        if 'type' in outs:
-            self.type = outs['type']

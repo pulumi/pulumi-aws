@@ -11,14 +11,14 @@ class GetVpcResult(object):
     A collection of values returned by getVpc.
     """
     def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, state=None, tags=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         Amazon Resource Name (ARN) of VPC
         """
-        if cidr_block and not isinstance(cidr_block, basestring):
-            raise TypeError('Expected argument cidr_block to be a basestring')
+        if cidr_block and not isinstance(cidr_block, str):
+            raise TypeError('Expected argument cidr_block to be a str')
         __self__.cidr_block = cidr_block
         """
         The CIDR block for the association.
@@ -29,8 +29,8 @@ class GetVpcResult(object):
         if default and not isinstance(default, bool):
             raise TypeError('Expected argument default to be a bool')
         __self__.default = default
-        if dhcp_options_id and not isinstance(dhcp_options_id, basestring):
-            raise TypeError('Expected argument dhcp_options_id to be a basestring')
+        if dhcp_options_id and not isinstance(dhcp_options_id, str):
+            raise TypeError('Expected argument dhcp_options_id to be a str')
         __self__.dhcp_options_id = dhcp_options_id
         if enable_dns_hostnames and not isinstance(enable_dns_hostnames, bool):
             raise TypeError('Expected argument enable_dns_hostnames to be a bool')
@@ -44,36 +44,36 @@ class GetVpcResult(object):
         """
         Whether or not the VPC has DNS support
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
-        if instance_tenancy and not isinstance(instance_tenancy, basestring):
-            raise TypeError('Expected argument instance_tenancy to be a basestring')
+        if instance_tenancy and not isinstance(instance_tenancy, str):
+            raise TypeError('Expected argument instance_tenancy to be a str')
         __self__.instance_tenancy = instance_tenancy
         """
         The allowed tenancy of instances launched into the
         selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
         """
-        if ipv6_association_id and not isinstance(ipv6_association_id, basestring):
-            raise TypeError('Expected argument ipv6_association_id to be a basestring')
+        if ipv6_association_id and not isinstance(ipv6_association_id, str):
+            raise TypeError('Expected argument ipv6_association_id to be a str')
         __self__.ipv6_association_id = ipv6_association_id
         """
         The association ID for the IPv6 CIDR block.
         """
-        if ipv6_cidr_block and not isinstance(ipv6_cidr_block, basestring):
-            raise TypeError('Expected argument ipv6_cidr_block to be a basestring')
+        if ipv6_cidr_block and not isinstance(ipv6_cidr_block, str):
+            raise TypeError('Expected argument ipv6_cidr_block to be a str')
         __self__.ipv6_cidr_block = ipv6_cidr_block
         """
         The IPv6 CIDR block.
         """
-        if main_route_table_id and not isinstance(main_route_table_id, basestring):
-            raise TypeError('Expected argument main_route_table_id to be a basestring')
+        if main_route_table_id and not isinstance(main_route_table_id, str):
+            raise TypeError('Expected argument main_route_table_id to be a str')
         __self__.main_route_table_id = main_route_table_id
         """
         The ID of the main route table associated with this VPC.
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The State of the association.

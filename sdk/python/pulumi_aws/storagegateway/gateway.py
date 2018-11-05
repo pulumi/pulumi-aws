@@ -16,94 +16,37 @@ class Gateway(pulumi.CustomResource):
         """Create a Gateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if activation_key and not isinstance(activation_key, basestring):
-            raise TypeError('Expected property activation_key to be a basestring')
-        __self__.activation_key = activation_key
-        """
-        Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-        """
         __props__['activationKey'] = activation_key
 
-        if gateway_ip_address and not isinstance(gateway_ip_address, basestring):
-            raise TypeError('Expected property gateway_ip_address to be a basestring')
-        __self__.gateway_ip_address = gateway_ip_address
-        """
-        Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where Terraform is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-        """
         __props__['gatewayIpAddress'] = gateway_ip_address
 
         if not gateway_name:
             raise TypeError('Missing required property gateway_name')
-        elif not isinstance(gateway_name, basestring):
-            raise TypeError('Expected property gateway_name to be a basestring')
-        __self__.gateway_name = gateway_name
-        """
-        Name of the gateway.
-        """
         __props__['gatewayName'] = gateway_name
 
         if not gateway_timezone:
             raise TypeError('Missing required property gateway_timezone')
-        elif not isinstance(gateway_timezone, basestring):
-            raise TypeError('Expected property gateway_timezone to be a basestring')
-        __self__.gateway_timezone = gateway_timezone
-        """
-        Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-        """
         __props__['gatewayTimezone'] = gateway_timezone
 
-        if gateway_type and not isinstance(gateway_type, basestring):
-            raise TypeError('Expected property gateway_type to be a basestring')
-        __self__.gateway_type = gateway_type
-        """
-        Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-        """
         __props__['gatewayType'] = gateway_type
 
-        if medium_changer_type and not isinstance(medium_changer_type, basestring):
-            raise TypeError('Expected property medium_changer_type to be a basestring')
-        __self__.medium_changer_type = medium_changer_type
         __props__['mediumChangerType'] = medium_changer_type
 
-        if smb_active_directory_settings and not isinstance(smb_active_directory_settings, dict):
-            raise TypeError('Expected property smb_active_directory_settings to be a dict')
-        __self__.smb_active_directory_settings = smb_active_directory_settings
-        """
-        Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
-        """
         __props__['smbActiveDirectorySettings'] = smb_active_directory_settings
 
-        if smb_guest_password and not isinstance(smb_guest_password, basestring):
-            raise TypeError('Expected property smb_guest_password to be a basestring')
-        __self__.smb_guest_password = smb_guest_password
-        """
-        Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
-        """
         __props__['smbGuestPassword'] = smb_guest_password
 
-        if tape_drive_type and not isinstance(tape_drive_type, basestring):
-            raise TypeError('Expected property tape_drive_type to be a basestring')
-        __self__.tape_drive_type = tape_drive_type
-        """
-        Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-        """
         __props__['tapeDriveType'] = tape_drive_type
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        Amazon Resource Name (ARN) of the gateway.
-        """
-        __self__.gateway_id = pulumi.runtime.UNKNOWN
-        """
-        Identifier of the gateway.
-        """
+        __props__['arn'] = None
+        __props__['gateway_id'] = None
 
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',
@@ -111,26 +54,3 @@ class Gateway(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'activationKey' in outs:
-            self.activation_key = outs['activationKey']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'gatewayId' in outs:
-            self.gateway_id = outs['gatewayId']
-        if 'gatewayIpAddress' in outs:
-            self.gateway_ip_address = outs['gatewayIpAddress']
-        if 'gatewayName' in outs:
-            self.gateway_name = outs['gatewayName']
-        if 'gatewayTimezone' in outs:
-            self.gateway_timezone = outs['gatewayTimezone']
-        if 'gatewayType' in outs:
-            self.gateway_type = outs['gatewayType']
-        if 'mediumChangerType' in outs:
-            self.medium_changer_type = outs['mediumChangerType']
-        if 'smbActiveDirectorySettings' in outs:
-            self.smb_active_directory_settings = outs['smbActiveDirectorySettings']
-        if 'smbGuestPassword' in outs:
-            self.smb_guest_password = outs['smbGuestPassword']
-        if 'tapeDriveType' in outs:
-            self.tape_drive_type = outs['tapeDriveType']

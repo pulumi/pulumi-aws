@@ -14,163 +14,53 @@ class Integration(pulumi.CustomResource):
         """Create a Integration resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if cache_key_parameters and not isinstance(cache_key_parameters, list):
-            raise TypeError('Expected property cache_key_parameters to be a list')
-        __self__.cache_key_parameters = cache_key_parameters
-        """
-        A list of cache key parameters for the integration.
-        """
         __props__['cacheKeyParameters'] = cache_key_parameters
 
-        if cache_namespace and not isinstance(cache_namespace, basestring):
-            raise TypeError('Expected property cache_namespace to be a basestring')
-        __self__.cache_namespace = cache_namespace
-        """
-        The integration's cache namespace.
-        """
         __props__['cacheNamespace'] = cache_namespace
 
-        if connection_id and not isinstance(connection_id, basestring):
-            raise TypeError('Expected property connection_id to be a basestring')
-        __self__.connection_id = connection_id
-        """
-        The id of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
-        """
         __props__['connectionId'] = connection_id
 
-        if connection_type and not isinstance(connection_type, basestring):
-            raise TypeError('Expected property connection_type to be a basestring')
-        __self__.connection_type = connection_type
-        """
-        The integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
-        """
         __props__['connectionType'] = connection_type
 
-        if content_handling and not isinstance(content_handling, basestring):
-            raise TypeError('Expected property content_handling to be a basestring')
-        __self__.content_handling = content_handling
-        """
-        Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
-        """
         __props__['contentHandling'] = content_handling
 
-        if credentials and not isinstance(credentials, basestring):
-            raise TypeError('Expected property credentials to be a basestring')
-        __self__.credentials = credentials
-        """
-        The credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
-        """
         __props__['credentials'] = credentials
 
         if not http_method:
             raise TypeError('Missing required property http_method')
-        elif not isinstance(http_method, basestring):
-            raise TypeError('Expected property http_method to be a basestring')
-        __self__.http_method = http_method
-        """
-        The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
-        when calling the associated resource.
-        """
         __props__['httpMethod'] = http_method
 
-        if integration_http_method and not isinstance(integration_http_method, basestring):
-            raise TypeError('Expected property integration_http_method to be a basestring')
-        __self__.integration_http_method = integration_http_method
-        """
-        The integration HTTP method
-        (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`) specifying how API Gateway will interact with the back end.
-        **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
-        Not all methods are compatible with all `AWS` integrations.
-        e.g. Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
-        """
         __props__['integrationHttpMethod'] = integration_http_method
 
-        if passthrough_behavior and not isinstance(passthrough_behavior, basestring):
-            raise TypeError('Expected property passthrough_behavior to be a basestring')
-        __self__.passthrough_behavior = passthrough_behavior
-        """
-        The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
-        """
         __props__['passthroughBehavior'] = passthrough_behavior
 
-        if request_parameters and not isinstance(request_parameters, dict):
-            raise TypeError('Expected property request_parameters to be a dict')
-        __self__.request_parameters = request_parameters
-        """
-        A map of request query string parameters and headers that should be passed to the backend responder.
-        For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
-        """
         __props__['requestParameters'] = request_parameters
 
-        if request_parameters_in_json and not isinstance(request_parameters_in_json, basestring):
-            raise TypeError('Expected property request_parameters_in_json to be a basestring')
-        __self__.request_parameters_in_json = request_parameters_in_json
-        """
-        **Deprecated**, use `request_parameters` instead.
-        """
         __props__['requestParametersInJson'] = request_parameters_in_json
 
-        if request_templates and not isinstance(request_templates, dict):
-            raise TypeError('Expected property request_templates to be a dict')
-        __self__.request_templates = request_templates
-        """
-        A map of the integration's request templates.
-        """
         __props__['requestTemplates'] = request_templates
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        elif not isinstance(resource_id, basestring):
-            raise TypeError('Expected property resource_id to be a basestring')
-        __self__.resource_id = resource_id
-        """
-        The API resource ID.
-        """
         __props__['resourceId'] = resource_id
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        elif not isinstance(rest_api, basestring):
-            raise TypeError('Expected property rest_api to be a basestring')
-        __self__.rest_api = rest_api
-        """
-        The ID of the associated REST API.
-        """
         __props__['restApi'] = rest_api
 
-        if timeout_milliseconds and not isinstance(timeout_milliseconds, int):
-            raise TypeError('Expected property timeout_milliseconds to be a int')
-        __self__.timeout_milliseconds = timeout_milliseconds
-        """
-        Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
-        """
         __props__['timeoutMilliseconds'] = timeout_milliseconds
 
         if not type:
             raise TypeError('Missing required property type')
-        elif not isinstance(type, basestring):
-            raise TypeError('Expected property type to be a basestring')
-        __self__.type = type
-        """
-        The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
-        """
         __props__['type'] = type
 
-        if uri and not isinstance(uri, basestring):
-            raise TypeError('Expected property uri to be a basestring')
-        __self__.uri = uri
-        """
-        The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.
-        For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
-        e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
-        """
         __props__['uri'] = uri
 
         super(Integration, __self__).__init__(
@@ -179,38 +69,3 @@ class Integration(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cacheKeyParameters' in outs:
-            self.cache_key_parameters = outs['cacheKeyParameters']
-        if 'cacheNamespace' in outs:
-            self.cache_namespace = outs['cacheNamespace']
-        if 'connectionId' in outs:
-            self.connection_id = outs['connectionId']
-        if 'connectionType' in outs:
-            self.connection_type = outs['connectionType']
-        if 'contentHandling' in outs:
-            self.content_handling = outs['contentHandling']
-        if 'credentials' in outs:
-            self.credentials = outs['credentials']
-        if 'httpMethod' in outs:
-            self.http_method = outs['httpMethod']
-        if 'integrationHttpMethod' in outs:
-            self.integration_http_method = outs['integrationHttpMethod']
-        if 'passthroughBehavior' in outs:
-            self.passthrough_behavior = outs['passthroughBehavior']
-        if 'requestParameters' in outs:
-            self.request_parameters = outs['requestParameters']
-        if 'requestParametersInJson' in outs:
-            self.request_parameters_in_json = outs['requestParametersInJson']
-        if 'requestTemplates' in outs:
-            self.request_templates = outs['requestTemplates']
-        if 'resourceId' in outs:
-            self.resource_id = outs['resourceId']
-        if 'restApi' in outs:
-            self.rest_api = outs['restApi']
-        if 'timeoutMilliseconds' in outs:
-            self.timeout_milliseconds = outs['timeoutMilliseconds']
-        if 'type' in outs:
-            self.type = outs['type']
-        if 'uri' in outs:
-            self.uri = outs['uri']

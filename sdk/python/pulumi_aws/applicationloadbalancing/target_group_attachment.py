@@ -16,47 +16,23 @@ class TargetGroupAttachment(pulumi.CustomResource):
         """Create a TargetGroupAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if availability_zone and not isinstance(availability_zone, basestring):
-            raise TypeError('Expected property availability_zone to be a basestring')
-        __self__.availability_zone = availability_zone
-        """
-        The Availability Zone where the IP address of the target is to be registered.
-        """
         __props__['availabilityZone'] = availability_zone
 
-        if port and not isinstance(port, int):
-            raise TypeError('Expected property port to be a int')
-        __self__.port = port
-        """
-        The port on which targets receive traffic.
-        """
         __props__['port'] = port
 
         if not target_group_arn:
             raise TypeError('Missing required property target_group_arn')
-        elif not isinstance(target_group_arn, basestring):
-            raise TypeError('Expected property target_group_arn to be a basestring')
-        __self__.target_group_arn = target_group_arn
-        """
-        The ARN of the target group with which to register targets
-        """
         __props__['targetGroupArn'] = target_group_arn
 
         if not target_id:
             raise TypeError('Missing required property target_id')
-        elif not isinstance(target_id, basestring):
-            raise TypeError('Expected property target_id to be a basestring')
-        __self__.target_id = target_id
-        """
-        The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
-        """
         __props__['targetId'] = target_id
 
         super(TargetGroupAttachment, __self__).__init__(
@@ -65,12 +41,3 @@ class TargetGroupAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'availabilityZone' in outs:
-            self.availability_zone = outs['availabilityZone']
-        if 'port' in outs:
-            self.port = outs['port']
-        if 'targetGroupArn' in outs:
-            self.target_group_arn = outs['targetGroupArn']
-        if 'targetId' in outs:
-            self.target_id = outs['targetId']

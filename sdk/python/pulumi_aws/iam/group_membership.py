@@ -21,7 +21,7 @@ class GroupMembership(pulumi.CustomResource):
         """Create a GroupMembership resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -30,30 +30,12 @@ class GroupMembership(pulumi.CustomResource):
 
         if not group:
             raise TypeError('Missing required property group')
-        elif not isinstance(group, basestring):
-            raise TypeError('Expected property group to be a basestring')
-        __self__.group = group
-        """
-        The IAM Group name to attach the list of `users` to
-        """
         __props__['group'] = group
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name to identify the Group Membership
-        """
         __props__['name'] = name
 
         if not users:
             raise TypeError('Missing required property users')
-        elif not isinstance(users, list):
-            raise TypeError('Expected property users to be a list')
-        __self__.users = users
-        """
-        A list of IAM User names to associate with the Group
-        """
         __props__['users'] = users
 
         super(GroupMembership, __self__).__init__(
@@ -62,10 +44,3 @@ class GroupMembership(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'group' in outs:
-            self.group = outs['group']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'users' in outs:
-            self.users = outs['users']

@@ -11,8 +11,8 @@ class GetStreamResult(object):
     A collection of values returned by getStream.
     """
     def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, tags=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
@@ -47,8 +47,8 @@ class GetStreamResult(object):
         """
         A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch][3] for more.
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
@@ -59,8 +59,8 @@ class GetStreamResult(object):
         """
         A mapping of tags to assigned to the stream.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

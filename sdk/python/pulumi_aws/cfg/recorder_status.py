@@ -16,7 +16,7 @@ class RecorderStatus(pulumi.CustomResource):
         """Create a RecorderStatus resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,20 +25,8 @@ class RecorderStatus(pulumi.CustomResource):
 
         if not is_enabled:
             raise TypeError('Missing required property is_enabled')
-        elif not isinstance(is_enabled, bool):
-            raise TypeError('Expected property is_enabled to be a bool')
-        __self__.is_enabled = is_enabled
-        """
-        Whether the configuration recorder should be enabled or disabled.
-        """
         __props__['isEnabled'] = is_enabled
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the recorder
-        """
         __props__['name'] = name
 
         super(RecorderStatus, __self__).__init__(
@@ -47,8 +35,3 @@ class RecorderStatus(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'isEnabled' in outs:
-            self.is_enabled = outs['isEnabled']
-        if 'name' in outs:
-            self.name = outs['name']

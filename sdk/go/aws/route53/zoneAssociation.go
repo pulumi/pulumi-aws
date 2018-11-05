@@ -62,12 +62,12 @@ func GetZoneAssociation(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *ZoneAssociation) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ZoneAssociation) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The VPC to associate with the private hosted zone.

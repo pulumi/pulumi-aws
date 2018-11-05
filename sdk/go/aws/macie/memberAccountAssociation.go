@@ -51,12 +51,12 @@ func GetMemberAccountAssociation(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *MemberAccountAssociation) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *MemberAccountAssociation) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The ID of the AWS account that you want to associate with Amazon Macie as a member account.

@@ -17,20 +17,20 @@ class GetBundleResult(object):
         """
         The compute type. See supported fields below.
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         The description of the bundle.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         """
         The name of the compute type.
         """
-        if owner and not isinstance(owner, basestring):
-            raise TypeError('Expected argument owner to be a basestring')
+        if owner and not isinstance(owner, str):
+            raise TypeError('Expected argument owner to be a str')
         __self__.owner = owner
         """
         The owner of the bundle.
@@ -47,8 +47,8 @@ class GetBundleResult(object):
         """
         The user storage. See supported fields below.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

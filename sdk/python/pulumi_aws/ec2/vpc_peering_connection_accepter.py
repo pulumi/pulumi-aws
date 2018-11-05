@@ -21,77 +21,30 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         """Create a VpcPeeringConnectionAccepter resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if accepter and not isinstance(accepter, dict):
-            raise TypeError('Expected property accepter to be a dict')
-        __self__.accepter = accepter
-        """
-        A configuration block that describes [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
-        """
         __props__['accepter'] = accepter
 
-        if auto_accept and not isinstance(auto_accept, bool):
-            raise TypeError('Expected property auto_accept to be a bool')
-        __self__.auto_accept = auto_accept
-        """
-        Whether or not to accept the peering request. Defaults to `false`.
-        """
         __props__['autoAccept'] = auto_accept
 
-        if requester and not isinstance(requester, dict):
-            raise TypeError('Expected property requester to be a dict')
-        __self__.requester = requester
-        """
-        A configuration block that describes [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
-        """
         __props__['requester'] = requester
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not vpc_peering_connection_id:
             raise TypeError('Missing required property vpc_peering_connection_id')
-        elif not isinstance(vpc_peering_connection_id, basestring):
-            raise TypeError('Expected property vpc_peering_connection_id to be a basestring')
-        __self__.vpc_peering_connection_id = vpc_peering_connection_id
-        """
-        The VPC Peering Connection ID to manage.
-        """
         __props__['vpcPeeringConnectionId'] = vpc_peering_connection_id
 
-        __self__.accept_status = pulumi.runtime.UNKNOWN
-        """
-        The status of the VPC Peering Connection request.
-        """
-        __self__.peer_owner_id = pulumi.runtime.UNKNOWN
-        """
-        The AWS account ID of the owner of the requester VPC.
-        """
-        __self__.peer_region = pulumi.runtime.UNKNOWN
-        """
-        The region of the accepter VPC.
-        """
-        __self__.peer_vpc_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the requester VPC.
-        """
-        __self__.vpc_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the accepter VPC.
-        """
+        __props__['accept_status'] = None
+        __props__['peer_owner_id'] = None
+        __props__['peer_region'] = None
+        __props__['peer_vpc_id'] = None
+        __props__['vpc_id'] = None
 
         super(VpcPeeringConnectionAccepter, __self__).__init__(
             'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter',
@@ -99,24 +52,3 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'acceptStatus' in outs:
-            self.accept_status = outs['acceptStatus']
-        if 'accepter' in outs:
-            self.accepter = outs['accepter']
-        if 'autoAccept' in outs:
-            self.auto_accept = outs['autoAccept']
-        if 'peerOwnerId' in outs:
-            self.peer_owner_id = outs['peerOwnerId']
-        if 'peerRegion' in outs:
-            self.peer_region = outs['peerRegion']
-        if 'peerVpcId' in outs:
-            self.peer_vpc_id = outs['peerVpcId']
-        if 'requester' in outs:
-            self.requester = outs['requester']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']
-        if 'vpcPeeringConnectionId' in outs:
-            self.vpc_peering_connection_id = outs['vpcPeeringConnectionId']

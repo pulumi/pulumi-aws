@@ -16,43 +16,19 @@ class Classifier(pulumi.CustomResource):
         """Create a Classifier resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if grok_classifier and not isinstance(grok_classifier, dict):
-            raise TypeError('Expected property grok_classifier to be a dict')
-        __self__.grok_classifier = grok_classifier
-        """
-        A classifier that uses grok patterns. Defined below.
-        """
         __props__['grokClassifier'] = grok_classifier
 
-        if json_classifier and not isinstance(json_classifier, dict):
-            raise TypeError('Expected property json_classifier to be a dict')
-        __self__.json_classifier = json_classifier
-        """
-        A classifier for JSON content. Defined below.
-        """
         __props__['jsonClassifier'] = json_classifier
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the classifier.
-        """
         __props__['name'] = name
 
-        if xml_classifier and not isinstance(xml_classifier, dict):
-            raise TypeError('Expected property xml_classifier to be a dict')
-        __self__.xml_classifier = xml_classifier
-        """
-        A classifier for XML content. Defined below.
-        """
         __props__['xmlClassifier'] = xml_classifier
 
         super(Classifier, __self__).__init__(
@@ -61,12 +37,3 @@ class Classifier(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'grokClassifier' in outs:
-            self.grok_classifier = outs['grokClassifier']
-        if 'jsonClassifier' in outs:
-            self.json_classifier = outs['jsonClassifier']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'xmlClassifier' in outs:
-            self.xml_classifier = outs['xmlClassifier']

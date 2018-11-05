@@ -11,17 +11,17 @@ class GetParameterResult(object):
     A collection of values returned by getParameter.
     """
     def __init__(__self__, arn=None, type=None, value=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected argument type to be a basestring')
+        if type and not isinstance(type, str):
+            raise TypeError('Expected argument type to be a str')
         __self__.type = type
-        if value and not isinstance(value, basestring):
-            raise TypeError('Expected argument value to be a basestring')
+        if value and not isinstance(value, str):
+            raise TypeError('Expected argument value to be a str')
         __self__.value = value
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

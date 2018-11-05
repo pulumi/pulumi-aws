@@ -14,7 +14,7 @@ class ConditionalForwader(pulumi.CustomResource):
         """Create a ConditionalForwader resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,32 +23,14 @@ class ConditionalForwader(pulumi.CustomResource):
 
         if not directory_id:
             raise TypeError('Missing required property directory_id')
-        elif not isinstance(directory_id, basestring):
-            raise TypeError('Expected property directory_id to be a basestring')
-        __self__.directory_id = directory_id
-        """
-        The id of directory.
-        """
         __props__['directoryId'] = directory_id
 
         if not dns_ips:
             raise TypeError('Missing required property dns_ips')
-        elif not isinstance(dns_ips, list):
-            raise TypeError('Expected property dns_ips to be a list')
-        __self__.dns_ips = dns_ips
-        """
-        A list of forwarder IP addresses.
-        """
         __props__['dnsIps'] = dns_ips
 
         if not remote_domain_name:
             raise TypeError('Missing required property remote_domain_name')
-        elif not isinstance(remote_domain_name, basestring):
-            raise TypeError('Expected property remote_domain_name to be a basestring')
-        __self__.remote_domain_name = remote_domain_name
-        """
-        The fully qualified domain name of the remote domain for which forwarders will be used.
-        """
         __props__['remoteDomainName'] = remote_domain_name
 
         super(ConditionalForwader, __self__).__init__(
@@ -57,10 +39,3 @@ class ConditionalForwader(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'directoryId' in outs:
-            self.directory_id = outs['directoryId']
-        if 'dnsIps' in outs:
-            self.dns_ips = outs['dnsIps']
-        if 'remoteDomainName' in outs:
-            self.remote_domain_name = outs['remoteDomainName']

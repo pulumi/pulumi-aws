@@ -16,34 +16,19 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         """Create a SnapshotCopyGrant resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected property kms_key_id to be a basestring')
-        __self__.kms_key_id = kms_key_id
-        """
-        The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-        """
         __props__['kmsKeyId'] = kms_key_id
 
         if not snapshot_copy_grant_name:
             raise TypeError('Missing required property snapshot_copy_grant_name')
-        elif not isinstance(snapshot_copy_grant_name, basestring):
-            raise TypeError('Expected property snapshot_copy_grant_name to be a basestring')
-        __self__.snapshot_copy_grant_name = snapshot_copy_grant_name
-        """
-        A friendly name for identifying the grant.
-        """
         __props__['snapshotCopyGrantName'] = snapshot_copy_grant_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
         __props__['tags'] = tags
 
         super(SnapshotCopyGrant, __self__).__init__(
@@ -52,10 +37,3 @@ class SnapshotCopyGrant(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'kmsKeyId' in outs:
-            self.kms_key_id = outs['kmsKeyId']
-        if 'snapshotCopyGrantName' in outs:
-            self.snapshot_copy_grant_name = outs['snapshotCopyGrantName']
-        if 'tags' in outs:
-            self.tags = outs['tags']

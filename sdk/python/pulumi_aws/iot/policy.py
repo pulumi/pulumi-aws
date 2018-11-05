@@ -14,39 +14,21 @@ class Policy(pulumi.CustomResource):
         """Create a Policy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the policy.
-        """
         __props__['name'] = name
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-        """
         __props__['policy'] = policy
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS to this policy.
-        """
-        __self__.default_version_id = pulumi.runtime.UNKNOWN
-        """
-        The default version of this policy.
-        """
+        __props__['arn'] = None
+        __props__['default_version_id'] = None
 
         super(Policy, __self__).__init__(
             'aws:iot/policy:Policy',
@@ -54,12 +36,3 @@ class Policy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'defaultVersionId' in outs:
-            self.default_version_id = outs['defaultVersionId']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'policy' in outs:
-            self.policy = outs['policy']

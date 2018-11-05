@@ -15,35 +15,20 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         """Create a HostedPublicVirtualInterfaceAccepter resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not virtual_interface_id:
             raise TypeError('Missing required property virtual_interface_id')
-        elif not isinstance(virtual_interface_id, basestring):
-            raise TypeError('Expected property virtual_interface_id to be a basestring')
-        __self__.virtual_interface_id = virtual_interface_id
-        """
-        The ID of the Direct Connect virtual interface to accept.
-        """
         __props__['virtualInterfaceId'] = virtual_interface_id
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the virtual interface.
-        """
+        __props__['arn'] = None
 
         super(HostedPublicVirtualInterfaceAccepter, __self__).__init__(
             'aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter',
@@ -51,10 +36,3 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'virtualInterfaceId' in outs:
-            self.virtual_interface_id = outs['virtualInterfaceId']

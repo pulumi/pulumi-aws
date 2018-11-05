@@ -103,12 +103,12 @@ func GetHealthCheck(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *HealthCheck) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *HealthCheck) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive

@@ -14,7 +14,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         """Create a ActiveReceiptRuleSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,12 +23,6 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         if not rule_set_name:
             raise TypeError('Missing required property rule_set_name')
-        elif not isinstance(rule_set_name, basestring):
-            raise TypeError('Expected property rule_set_name to be a basestring')
-        __self__.rule_set_name = rule_set_name
-        """
-        The name of the rule set
-        """
         __props__['ruleSetName'] = rule_set_name
 
         super(ActiveReceiptRuleSet, __self__).__init__(
@@ -37,6 +31,3 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'ruleSetName' in outs:
-            self.rule_set_name = outs['ruleSetName']

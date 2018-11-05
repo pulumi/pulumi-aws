@@ -79,12 +79,12 @@ func GetEventSourceMapping(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *EventSourceMapping) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *EventSourceMapping) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.

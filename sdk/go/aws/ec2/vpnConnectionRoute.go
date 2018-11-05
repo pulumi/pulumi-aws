@@ -55,12 +55,12 @@ func GetVpnConnectionRoute(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *VpnConnectionRoute) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *VpnConnectionRoute) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The CIDR block associated with the local subnet of the customer network.

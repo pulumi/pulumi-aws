@@ -14,7 +14,7 @@ class Gateway(pulumi.CustomResource):
         """Create a Gateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,20 +23,8 @@ class Gateway(pulumi.CustomResource):
 
         if not amazon_side_asn:
             raise TypeError('Missing required property amazon_side_asn')
-        elif not isinstance(amazon_side_asn, basestring):
-            raise TypeError('Expected property amazon_side_asn to be a basestring')
-        __self__.amazon_side_asn = amazon_side_asn
-        """
-        The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-        """
         __props__['amazonSideAsn'] = amazon_side_asn
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the connection.
-        """
         __props__['name'] = name
 
         super(Gateway, __self__).__init__(
@@ -45,8 +33,3 @@ class Gateway(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'amazonSideAsn' in outs:
-            self.amazon_side_asn = outs['amazonSideAsn']
-        if 'name' in outs:
-            self.name = outs['name']

@@ -71,12 +71,12 @@ func GetNetworkAcl(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *NetworkAcl) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NetworkAcl) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Specifies an egress rule. Parameters defined below.

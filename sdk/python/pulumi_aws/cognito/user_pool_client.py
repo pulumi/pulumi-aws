@@ -14,131 +14,44 @@ class UserPoolClient(pulumi.CustomResource):
         """Create a UserPoolClient resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allowed_oauth_flows and not isinstance(allowed_oauth_flows, list):
-            raise TypeError('Expected property allowed_oauth_flows to be a list')
-        __self__.allowed_oauth_flows = allowed_oauth_flows
-        """
-        List of allowed OAuth flows (code, implicit, client_credentials).
-        """
         __props__['allowedOauthFlows'] = allowed_oauth_flows
 
-        if allowed_oauth_flows_user_pool_client and not isinstance(allowed_oauth_flows_user_pool_client, bool):
-            raise TypeError('Expected property allowed_oauth_flows_user_pool_client to be a bool')
-        __self__.allowed_oauth_flows_user_pool_client = allowed_oauth_flows_user_pool_client
-        """
-        Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        """
         __props__['allowedOauthFlowsUserPoolClient'] = allowed_oauth_flows_user_pool_client
 
-        if allowed_oauth_scopes and not isinstance(allowed_oauth_scopes, list):
-            raise TypeError('Expected property allowed_oauth_scopes to be a list')
-        __self__.allowed_oauth_scopes = allowed_oauth_scopes
-        """
-        List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-        """
         __props__['allowedOauthScopes'] = allowed_oauth_scopes
 
-        if callback_urls and not isinstance(callback_urls, list):
-            raise TypeError('Expected property callback_urls to be a list')
-        __self__.callback_urls = callback_urls
-        """
-        List of allowed callback URLs for the identity providers.
-        """
         __props__['callbackUrls'] = callback_urls
 
-        if default_redirect_uri and not isinstance(default_redirect_uri, basestring):
-            raise TypeError('Expected property default_redirect_uri to be a basestring')
-        __self__.default_redirect_uri = default_redirect_uri
-        """
-        The default redirect URI. Must be in the list of callback URLs.
-        """
         __props__['defaultRedirectUri'] = default_redirect_uri
 
-        if explicit_auth_flows and not isinstance(explicit_auth_flows, list):
-            raise TypeError('Expected property explicit_auth_flows to be a list')
-        __self__.explicit_auth_flows = explicit_auth_flows
-        """
-        List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
-        """
         __props__['explicitAuthFlows'] = explicit_auth_flows
 
-        if generate_secret and not isinstance(generate_secret, bool):
-            raise TypeError('Expected property generate_secret to be a bool')
-        __self__.generate_secret = generate_secret
-        """
-        Should an application secret be generated. AWS JavaScript SDK requires this to be false.
-        """
         __props__['generateSecret'] = generate_secret
 
-        if logout_urls and not isinstance(logout_urls, list):
-            raise TypeError('Expected property logout_urls to be a list')
-        __self__.logout_urls = logout_urls
-        """
-        List of allowed logout URLs for the identity providers.
-        """
         __props__['logoutUrls'] = logout_urls
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the application client.
-        """
         __props__['name'] = name
 
-        if read_attributes and not isinstance(read_attributes, list):
-            raise TypeError('Expected property read_attributes to be a list')
-        __self__.read_attributes = read_attributes
-        """
-        List of user pool attributes the application client can read from.
-        """
         __props__['readAttributes'] = read_attributes
 
-        if refresh_token_validity and not isinstance(refresh_token_validity, int):
-            raise TypeError('Expected property refresh_token_validity to be a int')
-        __self__.refresh_token_validity = refresh_token_validity
-        """
-        The time limit in days refresh tokens are valid for.
-        """
         __props__['refreshTokenValidity'] = refresh_token_validity
 
-        if supported_identity_providers and not isinstance(supported_identity_providers, list):
-            raise TypeError('Expected property supported_identity_providers to be a list')
-        __self__.supported_identity_providers = supported_identity_providers
-        """
-        List of provider names for the identity providers that are supported on this client.
-        """
         __props__['supportedIdentityProviders'] = supported_identity_providers
 
         if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
-        elif not isinstance(user_pool_id, basestring):
-            raise TypeError('Expected property user_pool_id to be a basestring')
-        __self__.user_pool_id = user_pool_id
-        """
-        The user pool the client belongs to.
-        """
         __props__['userPoolId'] = user_pool_id
 
-        if write_attributes and not isinstance(write_attributes, list):
-            raise TypeError('Expected property write_attributes to be a list')
-        __self__.write_attributes = write_attributes
-        """
-        List of user pool attributes the application client can write to.
-        """
         __props__['writeAttributes'] = write_attributes
 
-        __self__.client_secret = pulumi.runtime.UNKNOWN
-        """
-        The client secret of the user pool client.
-        """
+        __props__['client_secret'] = None
 
         super(UserPoolClient, __self__).__init__(
             'aws:cognito/userPoolClient:UserPoolClient',
@@ -146,34 +59,3 @@ class UserPoolClient(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allowedOauthFlows' in outs:
-            self.allowed_oauth_flows = outs['allowedOauthFlows']
-        if 'allowedOauthFlowsUserPoolClient' in outs:
-            self.allowed_oauth_flows_user_pool_client = outs['allowedOauthFlowsUserPoolClient']
-        if 'allowedOauthScopes' in outs:
-            self.allowed_oauth_scopes = outs['allowedOauthScopes']
-        if 'callbackUrls' in outs:
-            self.callback_urls = outs['callbackUrls']
-        if 'clientSecret' in outs:
-            self.client_secret = outs['clientSecret']
-        if 'defaultRedirectUri' in outs:
-            self.default_redirect_uri = outs['defaultRedirectUri']
-        if 'explicitAuthFlows' in outs:
-            self.explicit_auth_flows = outs['explicitAuthFlows']
-        if 'generateSecret' in outs:
-            self.generate_secret = outs['generateSecret']
-        if 'logoutUrls' in outs:
-            self.logout_urls = outs['logoutUrls']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'readAttributes' in outs:
-            self.read_attributes = outs['readAttributes']
-        if 'refreshTokenValidity' in outs:
-            self.refresh_token_validity = outs['refreshTokenValidity']
-        if 'supportedIdentityProviders' in outs:
-            self.supported_identity_providers = outs['supportedIdentityProviders']
-        if 'userPoolId' in outs:
-            self.user_pool_id = outs['userPoolId']
-        if 'writeAttributes' in outs:
-            self.write_attributes = outs['writeAttributes']

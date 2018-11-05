@@ -14,7 +14,7 @@ class ReceiptFilter(pulumi.CustomResource):
         """Create a ReceiptFilter resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,30 +23,12 @@ class ReceiptFilter(pulumi.CustomResource):
 
         if not cidr:
             raise TypeError('Missing required property cidr')
-        elif not isinstance(cidr, basestring):
-            raise TypeError('Expected property cidr to be a basestring')
-        __self__.cidr = cidr
-        """
-        The IP address or address range to filter, in CIDR notation
-        """
         __props__['cidr'] = cidr
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the filter
-        """
         __props__['name'] = name
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        Block or Allow
-        """
         __props__['policy'] = policy
 
         super(ReceiptFilter, __self__).__init__(
@@ -55,10 +37,3 @@ class ReceiptFilter(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'cidr' in outs:
-            self.cidr = outs['cidr']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'policy' in outs:
-            self.policy = outs['policy']

@@ -14,35 +14,17 @@ class ByteMatchSet(pulumi.CustomResource):
         """Create a ByteMatchSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if byte_match_tuple and not isinstance(byte_match_tuple, list):
-            raise TypeError('Expected property byte_match_tuple to be a list')
-        __self__.byte_match_tuple = byte_match_tuple
-        """
-        **Deprecated**, use `byte_match_tuples` instead.
-        """
         __props__['byte_match_tuple'] = byte_match_tuple
 
-        if byte_match_tuples and not isinstance(byte_match_tuples, list):
-            raise TypeError('Expected property byte_match_tuples to be a list')
-        __self__.byte_match_tuples = byte_match_tuples
-        """
-        Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-        """
         __props__['byteMatchTuples'] = byte_match_tuples
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name or description of the ByteMatchSet.
-        """
         __props__['name'] = name
 
         super(ByteMatchSet, __self__).__init__(
@@ -51,10 +33,3 @@ class ByteMatchSet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'byte_match_tuple' in outs:
-            self.byte_match_tuple = outs['byte_match_tuple']
-        if 'byteMatchTuples' in outs:
-            self.byte_match_tuples = outs['byteMatchTuples']
-        if 'name' in outs:
-            self.name = outs['name']

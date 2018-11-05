@@ -16,7 +16,7 @@ class TopicPolicy(pulumi.CustomResource):
         """Create a TopicPolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,22 +25,10 @@ class TopicPolicy(pulumi.CustomResource):
 
         if not arn:
             raise TypeError('Missing required property arn')
-        elif not isinstance(arn, basestring):
-            raise TypeError('Expected property arn to be a basestring')
-        __self__.arn = arn
-        """
-        The ARN of the SNS topic
-        """
         __props__['arn'] = arn
 
         if not policy:
             raise TypeError('Missing required property policy')
-        elif not isinstance(policy, basestring):
-            raise TypeError('Expected property policy to be a basestring')
-        __self__.policy = policy
-        """
-        The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-        """
         __props__['policy'] = policy
 
         super(TopicPolicy, __self__).__init__(
@@ -49,8 +37,3 @@ class TopicPolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'policy' in outs:
-            self.policy = outs['policy']

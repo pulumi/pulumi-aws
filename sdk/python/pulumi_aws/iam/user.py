@@ -14,55 +14,23 @@ class User(pulumi.CustomResource):
         """Create a User resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if force_destroy and not isinstance(force_destroy, bool):
-            raise TypeError('Expected property force_destroy to be a bool')
-        __self__.force_destroy = force_destroy
-        """
-        When destroying this user, destroy even if it
-        has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-        a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
-        """
         __props__['forceDestroy'] = force_destroy
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-        """
         __props__['name'] = name
 
-        if path and not isinstance(path, basestring):
-            raise TypeError('Expected property path to be a basestring')
-        __self__.path = path
-        """
-        Path in which to create the user.
-        """
         __props__['path'] = path
 
-        if permissions_boundary and not isinstance(permissions_boundary, basestring):
-            raise TypeError('Expected property permissions_boundary to be a basestring')
-        __self__.permissions_boundary = permissions_boundary
-        """
-        The ARN of the policy that is used to set the permissions boundary for the user.
-        """
         __props__['permissionsBoundary'] = permissions_boundary
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN assigned by AWS for this user.
-        """
-        __self__.unique_id = pulumi.runtime.UNKNOWN
-        """
-        The [unique ID][1] assigned by AWS.
-        """
+        __props__['arn'] = None
+        __props__['unique_id'] = None
 
         super(User, __self__).__init__(
             'aws:iam/user:User',
@@ -70,16 +38,3 @@ class User(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'forceDestroy' in outs:
-            self.force_destroy = outs['forceDestroy']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'path' in outs:
-            self.path = outs['path']
-        if 'permissionsBoundary' in outs:
-            self.permissions_boundary = outs['permissionsBoundary']
-        if 'uniqueId' in outs:
-            self.unique_id = outs['uniqueId']

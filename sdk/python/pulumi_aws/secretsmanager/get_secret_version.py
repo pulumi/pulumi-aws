@@ -11,26 +11,26 @@ class GetSecretVersionResult(object):
     A collection of values returned by getSecretVersion.
     """
     def __init__(__self__, arn=None, secret_binary=None, secret_string=None, version_id=None, version_stages=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the secret.
         """
-        if secret_binary and not isinstance(secret_binary, basestring):
-            raise TypeError('Expected argument secret_binary to be a basestring')
+        if secret_binary and not isinstance(secret_binary, str):
+            raise TypeError('Expected argument secret_binary to be a str')
         __self__.secret_binary = secret_binary
         """
         The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         """
-        if secret_string and not isinstance(secret_string, basestring):
-            raise TypeError('Expected argument secret_string to be a basestring')
+        if secret_string and not isinstance(secret_string, str):
+            raise TypeError('Expected argument secret_string to be a str')
         __self__.secret_string = secret_string
         """
         The decrypted part of the protected secret information that was originally provided as a string.
         """
-        if version_id and not isinstance(version_id, basestring):
-            raise TypeError('Expected argument version_id to be a basestring')
+        if version_id and not isinstance(version_id, str):
+            raise TypeError('Expected argument version_id to be a str')
         __self__.version_id = version_id
         """
         The unique identifier of this version of the secret.
@@ -38,8 +38,8 @@ class GetSecretVersionResult(object):
         if version_stages and not isinstance(version_stages, list):
             raise TypeError('Expected argument version_stages to be a list')
         __self__.version_stages = version_stages
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

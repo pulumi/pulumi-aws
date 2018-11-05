@@ -11,14 +11,14 @@ class GetGatewayResult(object):
     A collection of values returned by getGateway.
     """
     def __init__(__self__, amazon_side_asn=None, id=None):
-        if amazon_side_asn and not isinstance(amazon_side_asn, basestring):
-            raise TypeError('Expected argument amazon_side_asn to be a basestring')
+        if amazon_side_asn and not isinstance(amazon_side_asn, str):
+            raise TypeError('Expected argument amazon_side_asn to be a str')
         __self__.amazon_side_asn = amazon_side_asn
         """
         The ASN on the Amazon side of the connection.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

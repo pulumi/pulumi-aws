@@ -14,7 +14,7 @@ class SshKey(pulumi.CustomResource):
         """Create a SshKey resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,50 +23,20 @@ class SshKey(pulumi.CustomResource):
 
         if not encoding:
             raise TypeError('Missing required property encoding')
-        elif not isinstance(encoding, basestring):
-            raise TypeError('Expected property encoding to be a basestring')
-        __self__.encoding = encoding
-        """
-        Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        """
         __props__['encoding'] = encoding
 
         if not public_key:
             raise TypeError('Missing required property public_key')
-        elif not isinstance(public_key, basestring):
-            raise TypeError('Expected property public_key to be a basestring')
-        __self__.public_key = public_key
-        """
-        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        """
         __props__['publicKey'] = public_key
 
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected property status to be a basestring')
-        __self__.status = status
-        """
-        The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        """
         __props__['status'] = status
 
         if not username:
             raise TypeError('Missing required property username')
-        elif not isinstance(username, basestring):
-            raise TypeError('Expected property username to be a basestring')
-        __self__.username = username
-        """
-        The name of the IAM user to associate the SSH public key with.
-        """
         __props__['username'] = username
 
-        __self__.fingerprint = pulumi.runtime.UNKNOWN
-        """
-        The MD5 message digest of the SSH public key.
-        """
-        __self__.ssh_public_key_id = pulumi.runtime.UNKNOWN
-        """
-        The unique identifier for the SSH public key.
-        """
+        __props__['fingerprint'] = None
+        __props__['ssh_public_key_id'] = None
 
         super(SshKey, __self__).__init__(
             'aws:iam/sshKey:SshKey',
@@ -74,16 +44,3 @@ class SshKey(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'encoding' in outs:
-            self.encoding = outs['encoding']
-        if 'fingerprint' in outs:
-            self.fingerprint = outs['fingerprint']
-        if 'publicKey' in outs:
-            self.public_key = outs['publicKey']
-        if 'sshPublicKeyId' in outs:
-            self.ssh_public_key_id = outs['sshPublicKeyId']
-        if 'status' in outs:
-            self.status = outs['status']
-        if 'username' in outs:
-            self.username = outs['username']

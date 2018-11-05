@@ -23,8 +23,8 @@ class GetVpcEndpointResult(object):
         """
         The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError('Expected argument network_interface_ids to be a list')
@@ -32,14 +32,14 @@ class GetVpcEndpointResult(object):
         """
         One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         """
-        if policy and not isinstance(policy, basestring):
-            raise TypeError('Expected argument policy to be a basestring')
+        if policy and not isinstance(policy, str):
+            raise TypeError('Expected argument policy to be a str')
         __self__.policy = policy
         """
         The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         """
-        if prefix_list_id and not isinstance(prefix_list_id, basestring):
-            raise TypeError('Expected argument prefix_list_id to be a basestring')
+        if prefix_list_id and not isinstance(prefix_list_id, str):
+            raise TypeError('Expected argument prefix_list_id to be a str')
         __self__.prefix_list_id = prefix_list_id
         """
         The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -62,11 +62,11 @@ class GetVpcEndpointResult(object):
         """
         One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
         """
-        if service_name and not isinstance(service_name, basestring):
-            raise TypeError('Expected argument service_name to be a basestring')
+        if service_name and not isinstance(service_name, str):
+            raise TypeError('Expected argument service_name to be a str')
         __self__.service_name = service_name
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError('Expected argument subnet_ids to be a list')
@@ -74,14 +74,14 @@ class GetVpcEndpointResult(object):
         """
         One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         """
-        if vpc_endpoint_type and not isinstance(vpc_endpoint_type, basestring):
-            raise TypeError('Expected argument vpc_endpoint_type to be a basestring')
+        if vpc_endpoint_type and not isinstance(vpc_endpoint_type, str):
+            raise TypeError('Expected argument vpc_endpoint_type to be a str')
         __self__.vpc_endpoint_type = vpc_endpoint_type
         """
         The VPC Endpoint type, `Gateway` or `Interface`.
         """
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
 def get_vpc_endpoint(id=None, service_name=None, state=None, vpc_id=None):

@@ -11,8 +11,8 @@ class GetClusterResult(object):
     A collection of values returned by getCluster.
     """
     def __init__(__self__, arn=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, status=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the ECS Cluster
@@ -35,14 +35,14 @@ class GetClusterResult(object):
         """
         The number of running tasks for the ECS Cluster
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         The status of the ECS Cluster
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

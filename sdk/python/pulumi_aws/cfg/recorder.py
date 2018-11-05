@@ -16,39 +16,19 @@ class Recorder(pulumi.CustomResource):
         """Create a Recorder resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        """
         __props__['name'] = name
 
-        if recording_group and not isinstance(recording_group, dict):
-            raise TypeError('Expected property recording_group to be a dict')
-        __self__.recording_group = recording_group
-        """
-        Recording group - see below.
-        """
         __props__['recordingGroup'] = recording_group
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        elif not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        Amazon Resource Name (ARN) of the IAM role.
-        used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-        See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        """
         __props__['roleArn'] = role_arn
 
         super(Recorder, __self__).__init__(
@@ -57,10 +37,3 @@ class Recorder(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'recordingGroup' in outs:
-            self.recording_group = outs['recordingGroup']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']

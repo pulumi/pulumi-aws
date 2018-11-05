@@ -14,7 +14,7 @@ class Rule(pulumi.CustomResource):
         """Create a Rule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,28 +23,10 @@ class Rule(pulumi.CustomResource):
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        elif not isinstance(metric_name, basestring):
-            raise TypeError('Expected property metric_name to be a basestring')
-        __self__.metric_name = metric_name
-        """
-        The name or description for the Amazon CloudWatch metric of this rule.
-        """
         __props__['metricName'] = metric_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name or description of the rule.
-        """
         __props__['name'] = name
 
-        if predicates and not isinstance(predicates, list):
-            raise TypeError('Expected property predicates to be a list')
-        __self__.predicates = predicates
-        """
-        The objects to include in a rule.
-        """
         __props__['predicates'] = predicates
 
         super(Rule, __self__).__init__(
@@ -53,10 +35,3 @@ class Rule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'metricName' in outs:
-            self.metric_name = outs['metricName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'predicates' in outs:
-            self.predicates = outs['predicates']

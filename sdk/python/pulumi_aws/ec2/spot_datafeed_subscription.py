@@ -17,7 +17,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         """Create a SpotDatafeedSubscription resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -26,20 +26,8 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         if not bucket:
             raise TypeError('Missing required property bucket')
-        elif not isinstance(bucket, basestring):
-            raise TypeError('Expected property bucket to be a basestring')
-        __self__.bucket = bucket
-        """
-        The Amazon S3 bucket in which to store the Spot instance data feed.
-        """
         __props__['bucket'] = bucket
 
-        if prefix and not isinstance(prefix, basestring):
-            raise TypeError('Expected property prefix to be a basestring')
-        __self__.prefix = prefix
-        """
-        Path of folder inside bucket to place spot pricing data.
-        """
         __props__['prefix'] = prefix
 
         super(SpotDatafeedSubscription, __self__).__init__(
@@ -48,8 +36,3 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'bucket' in outs:
-            self.bucket = outs['bucket']
-        if 'prefix' in outs:
-            self.prefix = outs['prefix']

@@ -44,7 +44,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         """Create a DefaultRouteTable resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -53,39 +53,15 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         if not default_route_table_id:
             raise TypeError('Missing required property default_route_table_id')
-        elif not isinstance(default_route_table_id, basestring):
-            raise TypeError('Expected property default_route_table_id to be a basestring')
-        __self__.default_route_table_id = default_route_table_id
-        """
-        The ID of the Default Routing Table.
-        """
         __props__['defaultRouteTableId'] = default_route_table_id
 
-        if propagating_vgws and not isinstance(propagating_vgws, list):
-            raise TypeError('Expected property propagating_vgws to be a list')
-        __self__.propagating_vgws = propagating_vgws
-        """
-        A list of virtual gateways for propagation.
-        """
         __props__['propagatingVgws'] = propagating_vgws
 
-        if routes and not isinstance(routes, list):
-            raise TypeError('Expected property routes to be a list')
-        __self__.routes = routes
-        """
-        A list of route objects. Their keys are documented below.
-        """
         __props__['routes'] = routes
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.vpc_id = pulumi.runtime.UNKNOWN
+        __props__['vpc_id'] = None
 
         super(DefaultRouteTable, __self__).__init__(
             'aws:ec2/defaultRouteTable:DefaultRouteTable',
@@ -93,14 +69,3 @@ class DefaultRouteTable(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'defaultRouteTableId' in outs:
-            self.default_route_table_id = outs['defaultRouteTableId']
-        if 'propagatingVgws' in outs:
-            self.propagating_vgws = outs['propagatingVgws']
-        if 'routes' in outs:
-            self.routes = outs['routes']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

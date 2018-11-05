@@ -11,32 +11,32 @@ class GetCertificateAuthorityResult(object):
     A collection of values returned by getCertificateAuthority.
     """
     def __init__(__self__, certificate=None, certificate_chain=None, certificate_signing_request=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, id=None):
-        if certificate and not isinstance(certificate, basestring):
-            raise TypeError('Expected argument certificate to be a basestring')
+        if certificate and not isinstance(certificate, str):
+            raise TypeError('Expected argument certificate to be a str')
         __self__.certificate = certificate
         """
         Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         """
-        if certificate_chain and not isinstance(certificate_chain, basestring):
-            raise TypeError('Expected argument certificate_chain to be a basestring')
+        if certificate_chain and not isinstance(certificate_chain, str):
+            raise TypeError('Expected argument certificate_chain to be a str')
         __self__.certificate_chain = certificate_chain
         """
         Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         """
-        if certificate_signing_request and not isinstance(certificate_signing_request, basestring):
-            raise TypeError('Expected argument certificate_signing_request to be a basestring')
+        if certificate_signing_request and not isinstance(certificate_signing_request, str):
+            raise TypeError('Expected argument certificate_signing_request to be a str')
         __self__.certificate_signing_request = certificate_signing_request
         """
         The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         """
-        if not_after and not isinstance(not_after, basestring):
-            raise TypeError('Expected argument not_after to be a basestring')
+        if not_after and not isinstance(not_after, str):
+            raise TypeError('Expected argument not_after to be a str')
         __self__.not_after = not_after
         """
         Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
-        if not_before and not isinstance(not_before, basestring):
-            raise TypeError('Expected argument not_before to be a basestring')
+        if not_before and not isinstance(not_before, str):
+            raise TypeError('Expected argument not_before to be a str')
         __self__.not_before = not_before
         """
         Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
@@ -52,14 +52,14 @@ class GetCertificateAuthorityResult(object):
         * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
         """
-        if serial and not isinstance(serial, basestring):
-            raise TypeError('Expected argument serial to be a basestring')
+        if serial and not isinstance(serial, str):
+            raise TypeError('Expected argument serial to be a str')
         __self__.serial = serial
         """
         Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         Status of the certificate authority.
@@ -70,14 +70,14 @@ class GetCertificateAuthorityResult(object):
         """
         Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         """
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected argument type to be a basestring')
+        if type and not isinstance(type, str):
+            raise TypeError('Expected argument type to be a str')
         __self__.type = type
         """
         The type of the certificate authority.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

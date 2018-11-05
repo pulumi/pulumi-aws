@@ -14,7 +14,7 @@ class NatGateway(pulumi.CustomResource):
         """Create a NatGateway resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,44 +23,17 @@ class NatGateway(pulumi.CustomResource):
 
         if not allocation_id:
             raise TypeError('Missing required property allocation_id')
-        elif not isinstance(allocation_id, basestring):
-            raise TypeError('Expected property allocation_id to be a basestring')
-        __self__.allocation_id = allocation_id
-        """
-        The Allocation ID of the Elastic IP address for the gateway.
-        """
         __props__['allocationId'] = allocation_id
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        elif not isinstance(subnet_id, basestring):
-            raise TypeError('Expected property subnet_id to be a basestring')
-        __self__.subnet_id = subnet_id
-        """
-        The Subnet ID of the subnet in which to place the gateway.
-        """
         __props__['subnetId'] = subnet_id
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.network_interface_id = pulumi.runtime.UNKNOWN
-        """
-        The ENI ID of the network interface created by the NAT gateway.
-        """
-        __self__.private_ip = pulumi.runtime.UNKNOWN
-        """
-        The private IP address of the NAT Gateway.
-        """
-        __self__.public_ip = pulumi.runtime.UNKNOWN
-        """
-        The public IP address of the NAT Gateway.
-        """
+        __props__['network_interface_id'] = None
+        __props__['private_ip'] = None
+        __props__['public_ip'] = None
 
         super(NatGateway, __self__).__init__(
             'aws:ec2/natGateway:NatGateway',
@@ -68,16 +41,3 @@ class NatGateway(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allocationId' in outs:
-            self.allocation_id = outs['allocationId']
-        if 'networkInterfaceId' in outs:
-            self.network_interface_id = outs['networkInterfaceId']
-        if 'privateIp' in outs:
-            self.private_ip = outs['privateIp']
-        if 'publicIp' in outs:
-            self.public_ip = outs['publicIp']
-        if 'subnetId' in outs:
-            self.subnet_id = outs['subnetId']
-        if 'tags' in outs:
-            self.tags = outs['tags']

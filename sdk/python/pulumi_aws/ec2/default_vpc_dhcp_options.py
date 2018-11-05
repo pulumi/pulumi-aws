@@ -23,40 +23,22 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         """Create a DefaultVpcDhcpOptions resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if netbios_name_servers and not isinstance(netbios_name_servers, list):
-            raise TypeError('Expected property netbios_name_servers to be a list')
-        __self__.netbios_name_servers = netbios_name_servers
-        """
-        List of NETBIOS name servers.
-        """
         __props__['netbiosNameServers'] = netbios_name_servers
 
-        if netbios_node_type and not isinstance(netbios_node_type, basestring):
-            raise TypeError('Expected property netbios_node_type to be a basestring')
-        __self__.netbios_node_type = netbios_node_type
-        """
-        The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-        """
         __props__['netbiosNodeType'] = netbios_node_type
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.domain_name = pulumi.runtime.UNKNOWN
-        __self__.domain_name_servers = pulumi.runtime.UNKNOWN
-        __self__.ntp_servers = pulumi.runtime.UNKNOWN
+        __props__['domain_name'] = None
+        __props__['domain_name_servers'] = None
+        __props__['ntp_servers'] = None
 
         super(DefaultVpcDhcpOptions, __self__).__init__(
             'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions',
@@ -64,16 +46,3 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'domainName' in outs:
-            self.domain_name = outs['domainName']
-        if 'domainNameServers' in outs:
-            self.domain_name_servers = outs['domainNameServers']
-        if 'netbiosNameServers' in outs:
-            self.netbios_name_servers = outs['netbiosNameServers']
-        if 'netbiosNodeType' in outs:
-            self.netbios_node_type = outs['netbiosNodeType']
-        if 'ntpServers' in outs:
-            self.ntp_servers = outs['ntpServers']
-        if 'tags' in outs:
-            self.tags = outs['tags']

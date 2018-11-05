@@ -16,39 +16,21 @@ class MailFrom(pulumi.CustomResource):
         """Create a MailFrom resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if behavior_on_mx_failure and not isinstance(behavior_on_mx_failure, basestring):
-            raise TypeError('Expected property behavior_on_mx_failure to be a basestring')
-        __self__.behavior_on_mx_failure = behavior_on_mx_failure
-        """
-        The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        """
         __props__['behaviorOnMxFailure'] = behavior_on_mx_failure
 
         if not domain:
             raise TypeError('Missing required property domain')
-        elif not isinstance(domain, basestring):
-            raise TypeError('Expected property domain to be a basestring')
-        __self__.domain = domain
-        """
-        Verified domain name to generate DKIM tokens for.
-        """
         __props__['domain'] = domain
 
         if not mail_from_domain:
             raise TypeError('Missing required property mail_from_domain')
-        elif not isinstance(mail_from_domain, basestring):
-            raise TypeError('Expected property mail_from_domain to be a basestring')
-        __self__.mail_from_domain = mail_from_domain
-        """
-        Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-        """
         __props__['mailFromDomain'] = mail_from_domain
 
         super(MailFrom, __self__).__init__(
@@ -57,10 +39,3 @@ class MailFrom(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'behaviorOnMxFailure' in outs:
-            self.behavior_on_mx_failure = outs['behaviorOnMxFailure']
-        if 'domain' in outs:
-            self.domain = outs['domain']
-        if 'mailFromDomain' in outs:
-            self.mail_from_domain = outs['mailFromDomain']

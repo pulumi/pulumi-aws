@@ -16,201 +16,65 @@ class Function(pulumi.CustomResource):
         """Create a Function resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if dead_letter_config and not isinstance(dead_letter_config, dict):
-            raise TypeError('Expected property dead_letter_config to be a dict')
-        __self__.dead_letter_config = dead_letter_config
-        """
-        Nested block to configure the function's *dead letter queue*. See details below.
-        """
         __props__['deadLetterConfig'] = dead_letter_config
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Description of what your Lambda Function does.
-        """
         __props__['description'] = description
 
-        if environment and not isinstance(environment, dict):
-            raise TypeError('Expected property environment to be a dict')
-        __self__.environment = environment
-        """
-        The Lambda environment's configuration settings. Fields documented below.
-        """
         __props__['environment'] = environment
 
-        if code and not isinstance(code, pulumi.Archive):
-            raise TypeError('Expected property code to be a pulumi.Archive')
-        __self__.code = code
-        """
-        The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        """
         __props__['code'] = code
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        A unique name for your Lambda Function.
-        """
         __props__['name'] = name
 
         if not handler:
             raise TypeError('Missing required property handler')
-        elif not isinstance(handler, basestring):
-            raise TypeError('Expected property handler to be a basestring')
-        __self__.handler = handler
-        """
-        The function [entrypoint][3] in your code.
-        """
         __props__['handler'] = handler
 
-        if kms_key_arn and not isinstance(kms_key_arn, basestring):
-            raise TypeError('Expected property kms_key_arn to be a basestring')
-        __self__.kms_key_arn = kms_key_arn
-        """
-        The ARN for the KMS encryption key.
-        """
         __props__['kmsKeyArn'] = kms_key_arn
 
-        if memory_size and not isinstance(memory_size, int):
-            raise TypeError('Expected property memory_size to be a int')
-        __self__.memory_size = memory_size
-        """
-        Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
-        """
         __props__['memorySize'] = memory_size
 
-        if publish and not isinstance(publish, bool):
-            raise TypeError('Expected property publish to be a bool')
-        __self__.publish = publish
-        """
-        Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-        """
         __props__['publish'] = publish
 
-        if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, int):
-            raise TypeError('Expected property reserved_concurrent_executions to be a int')
-        __self__.reserved_concurrent_executions = reserved_concurrent_executions
-        """
-        The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
-        """
         __props__['reservedConcurrentExecutions'] = reserved_concurrent_executions
 
         if not role:
             raise TypeError('Missing required property role')
-        elif not isinstance(role, basestring):
-            raise TypeError('Expected property role to be a basestring')
-        __self__.role = role
-        """
-        IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-        """
         __props__['role'] = role
 
         if not runtime:
             raise TypeError('Missing required property runtime')
-        elif not isinstance(runtime, basestring):
-            raise TypeError('Expected property runtime to be a basestring')
-        __self__.runtime = runtime
-        """
-        See [Runtimes][6] for valid values.
-        """
         __props__['runtime'] = runtime
 
-        if s3_bucket and not isinstance(s3_bucket, basestring):
-            raise TypeError('Expected property s3_bucket to be a basestring')
-        __self__.s3_bucket = s3_bucket
-        """
-        The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        """
         __props__['s3Bucket'] = s3_bucket
 
-        if s3_key and not isinstance(s3_key, basestring):
-            raise TypeError('Expected property s3_key to be a basestring')
-        __self__.s3_key = s3_key
-        """
-        The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-        """
         __props__['s3Key'] = s3_key
 
-        if s3_object_version and not isinstance(s3_object_version, basestring):
-            raise TypeError('Expected property s3_object_version to be a basestring')
-        __self__.s3_object_version = s3_object_version
-        """
-        The object version containing the function's deployment package. Conflicts with `filename`.
-        """
         __props__['s3ObjectVersion'] = s3_object_version
 
-        if source_code_hash and not isinstance(source_code_hash, basestring):
-            raise TypeError('Expected property source_code_hash to be a basestring')
-        __self__.source_code_hash = source_code_hash
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
-        """
         __props__['sourceCodeHash'] = source_code_hash
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the object.
-        """
         __props__['tags'] = tags
 
-        if timeout and not isinstance(timeout, int):
-            raise TypeError('Expected property timeout to be a int')
-        __self__.timeout = timeout
-        """
-        The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-        """
         __props__['timeout'] = timeout
 
-        if tracing_config and not isinstance(tracing_config, dict):
-            raise TypeError('Expected property tracing_config to be a dict')
-        __self__.tracing_config = tracing_config
         __props__['tracingConfig'] = tracing_config
 
-        if vpc_config and not isinstance(vpc_config, dict):
-            raise TypeError('Expected property vpc_config to be a dict')
-        __self__.vpc_config = vpc_config
-        """
-        Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
-        """
         __props__['vpcConfig'] = vpc_config
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) identifying your Lambda Function.
-        """
-        __self__.invoke_arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
-        """
-        __self__.last_modified = pulumi.runtime.UNKNOWN
-        """
-        The date this resource was last modified.
-        """
-        __self__.qualified_arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) identifying your Lambda Function Version
-        (if versioning is enabled via `publish = true`).
-        """
-        __self__.source_code_size = pulumi.runtime.UNKNOWN
-        """
-        The size in bytes of the function .zip file.
-        """
-        __self__.version = pulumi.runtime.UNKNOWN
-        """
-        Latest published version of your Lambda Function.
-        """
+        __props__['arn'] = None
+        __props__['invoke_arn'] = None
+        __props__['last_modified'] = None
+        __props__['qualified_arn'] = None
+        __props__['source_code_size'] = None
+        __props__['version'] = None
 
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
@@ -218,56 +82,3 @@ class Function(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'deadLetterConfig' in outs:
-            self.dead_letter_config = outs['deadLetterConfig']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'environment' in outs:
-            self.environment = outs['environment']
-        if 'code' in outs:
-            self.code = outs['code']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'handler' in outs:
-            self.handler = outs['handler']
-        if 'invokeArn' in outs:
-            self.invoke_arn = outs['invokeArn']
-        if 'kmsKeyArn' in outs:
-            self.kms_key_arn = outs['kmsKeyArn']
-        if 'lastModified' in outs:
-            self.last_modified = outs['lastModified']
-        if 'memorySize' in outs:
-            self.memory_size = outs['memorySize']
-        if 'publish' in outs:
-            self.publish = outs['publish']
-        if 'qualifiedArn' in outs:
-            self.qualified_arn = outs['qualifiedArn']
-        if 'reservedConcurrentExecutions' in outs:
-            self.reserved_concurrent_executions = outs['reservedConcurrentExecutions']
-        if 'role' in outs:
-            self.role = outs['role']
-        if 'runtime' in outs:
-            self.runtime = outs['runtime']
-        if 's3Bucket' in outs:
-            self.s3_bucket = outs['s3Bucket']
-        if 's3Key' in outs:
-            self.s3_key = outs['s3Key']
-        if 's3ObjectVersion' in outs:
-            self.s3_object_version = outs['s3ObjectVersion']
-        if 'sourceCodeHash' in outs:
-            self.source_code_hash = outs['sourceCodeHash']
-        if 'sourceCodeSize' in outs:
-            self.source_code_size = outs['sourceCodeSize']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'timeout' in outs:
-            self.timeout = outs['timeout']
-        if 'tracingConfig' in outs:
-            self.tracing_config = outs['tracingConfig']
-        if 'version' in outs:
-            self.version = outs['version']
-        if 'vpcConfig' in outs:
-            self.vpc_config = outs['vpcConfig']

@@ -11,20 +11,20 @@ class GetZoneResult(object):
     A collection of values returned by getZone.
     """
     def __init__(__self__, caller_reference=None, comment=None, name=None, name_servers=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None, id=None):
-        if caller_reference and not isinstance(caller_reference, basestring):
-            raise TypeError('Expected argument caller_reference to be a basestring')
+        if caller_reference and not isinstance(caller_reference, str):
+            raise TypeError('Expected argument caller_reference to be a str')
         __self__.caller_reference = caller_reference
         """
         Caller Reference of the Hosted Zone.
         """
-        if comment and not isinstance(comment, basestring):
-            raise TypeError('Expected argument comment to be a basestring')
+        if comment and not isinstance(comment, str):
+            raise TypeError('Expected argument comment to be a str')
         __self__.comment = comment
         """
         The comment field of the Hosted Zone.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         if name_servers and not isinstance(name_servers, list):
             raise TypeError('Expected argument name_servers to be a list')
@@ -41,14 +41,14 @@ class GetZoneResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
-        if zone_id and not isinstance(zone_id, basestring):
-            raise TypeError('Expected argument zone_id to be a basestring')
+        if zone_id and not isinstance(zone_id, str):
+            raise TypeError('Expected argument zone_id to be a str')
         __self__.zone_id = zone_id
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

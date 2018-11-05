@@ -16,35 +16,20 @@ class GlobalTable(pulumi.CustomResource):
         """Create a GlobalTable resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        """
         __props__['name'] = name
 
         if not replicas:
             raise TypeError('Missing required property replicas')
-        elif not isinstance(replicas, list):
-            raise TypeError('Expected property replicas to be a list')
-        __self__.replicas = replicas
-        """
-        Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        """
         __props__['replicas'] = replicas
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the DynamoDB Global Table
-        """
+        __props__['arn'] = None
 
         super(GlobalTable, __self__).__init__(
             'aws:dynamodb/globalTable:GlobalTable',
@@ -52,10 +37,3 @@ class GlobalTable(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'replicas' in outs:
-            self.replicas = outs['replicas']

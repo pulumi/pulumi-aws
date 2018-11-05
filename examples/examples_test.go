@@ -101,7 +101,8 @@ func TestExamples(t *testing.T) {
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
 			// Python tests:
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
+			// TODO(swgillespie): re-enable when https://github.com/pulumi/pulumi/issues/2138 is fixed
+			// base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
 			// Go tests:
 			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
 		}...)

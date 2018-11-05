@@ -14,7 +14,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         """Create a SecurityConfiguration resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,20 +23,8 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         if not encryption_configuration:
             raise TypeError('Missing required property encryption_configuration')
-        elif not isinstance(encryption_configuration, dict):
-            raise TypeError('Expected property encryption_configuration to be a dict')
-        __self__.encryption_configuration = encryption_configuration
-        """
-        Configuration block containing encryption configuration. Detailed below.
-        """
         __props__['encryptionConfiguration'] = encryption_configuration
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Name of the security configuration.
-        """
         __props__['name'] = name
 
         super(SecurityConfiguration, __self__).__init__(
@@ -45,8 +33,3 @@ class SecurityConfiguration(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'encryptionConfiguration' in outs:
-            self.encryption_configuration = outs['encryptionConfiguration']
-        if 'name' in outs:
-            self.name = outs['name']

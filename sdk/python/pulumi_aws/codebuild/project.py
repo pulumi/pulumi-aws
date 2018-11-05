@@ -14,7 +14,7 @@ class Project(pulumi.CustomResource):
         """Create a Project resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,132 +23,42 @@ class Project(pulumi.CustomResource):
 
         if not artifacts:
             raise TypeError('Missing required property artifacts')
-        elif not isinstance(artifacts, dict):
-            raise TypeError('Expected property artifacts to be a dict')
-        __self__.artifacts = artifacts
-        """
-        Information about the project's build output artifacts. Artifact blocks are documented below.
-        """
         __props__['artifacts'] = artifacts
 
-        if badge_enabled and not isinstance(badge_enabled, bool):
-            raise TypeError('Expected property badge_enabled to be a bool')
-        __self__.badge_enabled = badge_enabled
-        """
-        Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        """
         __props__['badgeEnabled'] = badge_enabled
 
-        if build_timeout and not isinstance(build_timeout, int):
-            raise TypeError('Expected property build_timeout to be a int')
-        __self__.build_timeout = build_timeout
-        """
-        How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        """
         __props__['buildTimeout'] = build_timeout
 
-        if cache and not isinstance(cache, dict):
-            raise TypeError('Expected property cache to be a dict')
-        __self__.cache = cache
-        """
-        Information about the cache storage for the project. Cache blocks are documented below.
-        """
         __props__['cache'] = cache
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A short description of the project.
-        """
         __props__['description'] = description
 
-        if encryption_key and not isinstance(encryption_key, basestring):
-            raise TypeError('Expected property encryption_key to be a basestring')
-        __self__.encryption_key = encryption_key
-        """
-        The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        """
         __props__['encryptionKey'] = encryption_key
 
         if not environment:
             raise TypeError('Missing required property environment')
-        elif not isinstance(environment, dict):
-            raise TypeError('Expected property environment to be a dict')
-        __self__.environment = environment
-        """
-        Information about the project's build environment. Environment blocks are documented below.
-        """
         __props__['environment'] = environment
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         __props__['name'] = name
 
-        if secondary_artifacts and not isinstance(secondary_artifacts, list):
-            raise TypeError('Expected property secondary_artifacts to be a list')
-        __self__.secondary_artifacts = secondary_artifacts
-        """
-        A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
-        """
         __props__['secondaryArtifacts'] = secondary_artifacts
 
-        if secondary_sources and not isinstance(secondary_sources, list):
-            raise TypeError('Expected property secondary_sources to be a list')
-        __self__.secondary_sources = secondary_sources
-        """
-        A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
-        """
         __props__['secondarySources'] = secondary_sources
 
         if not service_role:
             raise TypeError('Missing required property service_role')
-        elif not isinstance(service_role, basestring):
-            raise TypeError('Expected property service_role to be a basestring')
-        __self__.service_role = service_role
-        """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-        """
         __props__['serviceRole'] = service_role
 
         if not source:
             raise TypeError('Missing required property source')
-        elif not isinstance(source, dict):
-            raise TypeError('Expected property source to be a dict')
-        __self__.source = source
-        """
-        Information about the project's input source code. Source blocks are documented below.
-        """
         __props__['source'] = source
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if vpc_config and not isinstance(vpc_config, dict):
-            raise TypeError('Expected property vpc_config to be a dict')
-        __self__.vpc_config = vpc_config
-        """
-        Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
-        """
         __props__['vpcConfig'] = vpc_config
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the CodeBuild project.
-        """
-        __self__.badge_url = pulumi.runtime.UNKNOWN
-        """
-        The URL of the build badge when `badge_enabled` is enabled.
-        """
+        __props__['arn'] = None
+        __props__['badge_url'] = None
 
         super(Project, __self__).__init__(
             'aws:codebuild/project:Project',
@@ -156,36 +66,3 @@ class Project(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'artifacts' in outs:
-            self.artifacts = outs['artifacts']
-        if 'badgeEnabled' in outs:
-            self.badge_enabled = outs['badgeEnabled']
-        if 'badgeUrl' in outs:
-            self.badge_url = outs['badgeUrl']
-        if 'buildTimeout' in outs:
-            self.build_timeout = outs['buildTimeout']
-        if 'cache' in outs:
-            self.cache = outs['cache']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'encryptionKey' in outs:
-            self.encryption_key = outs['encryptionKey']
-        if 'environment' in outs:
-            self.environment = outs['environment']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'secondaryArtifacts' in outs:
-            self.secondary_artifacts = outs['secondaryArtifacts']
-        if 'secondarySources' in outs:
-            self.secondary_sources = outs['secondarySources']
-        if 'serviceRole' in outs:
-            self.service_role = outs['serviceRole']
-        if 'source' in outs:
-            self.source = outs['source']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcConfig' in outs:
-            self.vpc_config = outs['vpcConfig']

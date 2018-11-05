@@ -14,7 +14,7 @@ class Resource(pulumi.CustomResource):
         """Create a Resource resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,38 +23,17 @@ class Resource(pulumi.CustomResource):
 
         if not parent_id:
             raise TypeError('Missing required property parent_id')
-        elif not isinstance(parent_id, basestring):
-            raise TypeError('Expected property parent_id to be a basestring')
-        __self__.parent_id = parent_id
-        """
-        The ID of the parent API resource
-        """
         __props__['parentId'] = parent_id
 
         if not path_part:
             raise TypeError('Missing required property path_part')
-        elif not isinstance(path_part, basestring):
-            raise TypeError('Expected property path_part to be a basestring')
-        __self__.path_part = path_part
-        """
-        The last path segment of this API resource.
-        """
         __props__['pathPart'] = path_part
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        elif not isinstance(rest_api, basestring):
-            raise TypeError('Expected property rest_api to be a basestring')
-        __self__.rest_api = rest_api
-        """
-        The ID of the associated REST API
-        """
         __props__['restApi'] = rest_api
 
-        __self__.path = pulumi.runtime.UNKNOWN
-        """
-        The complete path for this API resource, including all parent paths.
-        """
+        __props__['path'] = None
 
         super(Resource, __self__).__init__(
             'aws:apigateway/resource:Resource',
@@ -62,12 +41,3 @@ class Resource(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'parentId' in outs:
-            self.parent_id = outs['parentId']
-        if 'path' in outs:
-            self.path = outs['path']
-        if 'pathPart' in outs:
-            self.path_part = outs['pathPart']
-        if 'restApi' in outs:
-            self.rest_api = outs['restApi']

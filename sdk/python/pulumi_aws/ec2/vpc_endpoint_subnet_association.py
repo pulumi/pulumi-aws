@@ -20,7 +20,7 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         """Create a VpcEndpointSubnetAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -29,22 +29,10 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        elif not isinstance(subnet_id, basestring):
-            raise TypeError('Expected property subnet_id to be a basestring')
-        __self__.subnet_id = subnet_id
-        """
-        The ID of the subnet to be associated with the VPC endpoint.
-        """
         __props__['subnetId'] = subnet_id
 
         if not vpc_endpoint_id:
             raise TypeError('Missing required property vpc_endpoint_id')
-        elif not isinstance(vpc_endpoint_id, basestring):
-            raise TypeError('Expected property vpc_endpoint_id to be a basestring')
-        __self__.vpc_endpoint_id = vpc_endpoint_id
-        """
-        The ID of the VPC endpoint with which the subnet will be associated.
-        """
         __props__['vpcEndpointId'] = vpc_endpoint_id
 
         super(VpcEndpointSubnetAssociation, __self__).__init__(
@@ -53,8 +41,3 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'subnetId' in outs:
-            self.subnet_id = outs['subnetId']
-        if 'vpcEndpointId' in outs:
-            self.vpc_endpoint_id = outs['vpcEndpointId']

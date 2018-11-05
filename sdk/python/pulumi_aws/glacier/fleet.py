@@ -14,7 +14,7 @@ class Fleet(pulumi.CustomResource):
         """Create a Fleet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,89 +23,29 @@ class Fleet(pulumi.CustomResource):
 
         if not build_id:
             raise TypeError('Missing required property build_id')
-        elif not isinstance(build_id, basestring):
-            raise TypeError('Expected property build_id to be a basestring')
-        __self__.build_id = build_id
-        """
-        ID of the Gamelift Build to be deployed on the fleet.
-        """
         __props__['buildId'] = build_id
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        Human-readable description of the fleet.
-        """
         __props__['description'] = description
 
-        if ec2_inbound_permissions and not isinstance(ec2_inbound_permissions, list):
-            raise TypeError('Expected property ec2_inbound_permissions to be a list')
-        __self__.ec2_inbound_permissions = ec2_inbound_permissions
-        """
-        Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        """
         __props__['ec2InboundPermissions'] = ec2_inbound_permissions
 
         if not ec2_instance_type:
             raise TypeError('Missing required property ec2_instance_type')
-        elif not isinstance(ec2_instance_type, basestring):
-            raise TypeError('Expected property ec2_instance_type to be a basestring')
-        __self__.ec2_instance_type = ec2_instance_type
-        """
-        Name of an EC2 instance type. e.g. `t2.micro`
-        """
         __props__['ec2InstanceType'] = ec2_instance_type
 
-        if metric_groups and not isinstance(metric_groups, list):
-            raise TypeError('Expected property metric_groups to be a list')
-        __self__.metric_groups = metric_groups
-        """
-        List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        """
         __props__['metricGroups'] = metric_groups
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the fleet.
-        """
         __props__['name'] = name
 
-        if new_game_session_protection_policy and not isinstance(new_game_session_protection_policy, basestring):
-            raise TypeError('Expected property new_game_session_protection_policy to be a basestring')
-        __self__.new_game_session_protection_policy = new_game_session_protection_policy
-        """
-        Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
-        """
         __props__['newGameSessionProtectionPolicy'] = new_game_session_protection_policy
 
-        if resource_creation_limit_policy and not isinstance(resource_creation_limit_policy, dict):
-            raise TypeError('Expected property resource_creation_limit_policy to be a dict')
-        __self__.resource_creation_limit_policy = resource_creation_limit_policy
-        """
-        Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        """
         __props__['resourceCreationLimitPolicy'] = resource_creation_limit_policy
 
-        if runtime_configuration and not isinstance(runtime_configuration, dict):
-            raise TypeError('Expected property runtime_configuration to be a dict')
-        __self__.runtime_configuration = runtime_configuration
-        """
-        Instructions for launching server processes on each instance in the fleet. See below.
-        """
         __props__['runtimeConfiguration'] = runtime_configuration
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        Fleet ARN.
-        """
-        __self__.log_paths = pulumi.runtime.UNKNOWN
-        __self__.operating_system = pulumi.runtime.UNKNOWN
-        """
-        Operating system of the fleet's computing resources.
-        """
+        __props__['arn'] = None
+        __props__['log_paths'] = None
+        __props__['operating_system'] = None
 
         super(Fleet, __self__).__init__(
             'aws:glacier/fleet:Fleet',
@@ -113,28 +53,3 @@ class Fleet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'buildId' in outs:
-            self.build_id = outs['buildId']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'ec2InboundPermissions' in outs:
-            self.ec2_inbound_permissions = outs['ec2InboundPermissions']
-        if 'ec2InstanceType' in outs:
-            self.ec2_instance_type = outs['ec2InstanceType']
-        if 'logPaths' in outs:
-            self.log_paths = outs['logPaths']
-        if 'metricGroups' in outs:
-            self.metric_groups = outs['metricGroups']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'newGameSessionProtectionPolicy' in outs:
-            self.new_game_session_protection_policy = outs['newGameSessionProtectionPolicy']
-        if 'operatingSystem' in outs:
-            self.operating_system = outs['operatingSystem']
-        if 'resourceCreationLimitPolicy' in outs:
-            self.resource_creation_limit_policy = outs['resourceCreationLimitPolicy']
-        if 'runtimeConfiguration' in outs:
-            self.runtime_configuration = outs['runtimeConfiguration']

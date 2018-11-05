@@ -16,7 +16,7 @@ class MemberAccountAssociation(pulumi.CustomResource):
         """Create a MemberAccountAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,12 +25,6 @@ class MemberAccountAssociation(pulumi.CustomResource):
 
         if not member_account_id:
             raise TypeError('Missing required property member_account_id')
-        elif not isinstance(member_account_id, basestring):
-            raise TypeError('Expected property member_account_id to be a basestring')
-        __self__.member_account_id = member_account_id
-        """
-        The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-        """
         __props__['memberAccountId'] = member_account_id
 
         super(MemberAccountAssociation, __self__).__init__(
@@ -39,6 +33,3 @@ class MemberAccountAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'memberAccountId' in outs:
-            self.member_account_id = outs['memberAccountId']

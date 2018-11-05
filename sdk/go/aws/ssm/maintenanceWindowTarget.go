@@ -64,12 +64,12 @@ func GetMaintenanceWindowTarget(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *MaintenanceWindowTarget) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *MaintenanceWindowTarget) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.

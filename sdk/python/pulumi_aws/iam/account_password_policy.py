@@ -18,92 +18,32 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         """Create a AccountPasswordPolicy resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if allow_users_to_change_password and not isinstance(allow_users_to_change_password, bool):
-            raise TypeError('Expected property allow_users_to_change_password to be a bool')
-        __self__.allow_users_to_change_password = allow_users_to_change_password
-        """
-        Whether to allow users to change their own password
-        """
         __props__['allowUsersToChangePassword'] = allow_users_to_change_password
 
-        if hard_expiry and not isinstance(hard_expiry, bool):
-            raise TypeError('Expected property hard_expiry to be a bool')
-        __self__.hard_expiry = hard_expiry
-        """
-        Whether users are prevented from setting a new password after their password has expired
-        (i.e. require administrator reset)
-        """
         __props__['hardExpiry'] = hard_expiry
 
-        if max_password_age and not isinstance(max_password_age, int):
-            raise TypeError('Expected property max_password_age to be a int')
-        __self__.max_password_age = max_password_age
-        """
-        The number of days that an user password is valid.
-        """
         __props__['maxPasswordAge'] = max_password_age
 
-        if minimum_password_length and not isinstance(minimum_password_length, int):
-            raise TypeError('Expected property minimum_password_length to be a int')
-        __self__.minimum_password_length = minimum_password_length
-        """
-        Minimum length to require for user passwords.
-        """
         __props__['minimumPasswordLength'] = minimum_password_length
 
-        if password_reuse_prevention and not isinstance(password_reuse_prevention, int):
-            raise TypeError('Expected property password_reuse_prevention to be a int')
-        __self__.password_reuse_prevention = password_reuse_prevention
-        """
-        The number of previous passwords that users are prevented from reusing.
-        """
         __props__['passwordReusePrevention'] = password_reuse_prevention
 
-        if require_lowercase_characters and not isinstance(require_lowercase_characters, bool):
-            raise TypeError('Expected property require_lowercase_characters to be a bool')
-        __self__.require_lowercase_characters = require_lowercase_characters
-        """
-        Whether to require lowercase characters for user passwords.
-        """
         __props__['requireLowercaseCharacters'] = require_lowercase_characters
 
-        if require_numbers and not isinstance(require_numbers, bool):
-            raise TypeError('Expected property require_numbers to be a bool')
-        __self__.require_numbers = require_numbers
-        """
-        Whether to require numbers for user passwords.
-        """
         __props__['requireNumbers'] = require_numbers
 
-        if require_symbols and not isinstance(require_symbols, bool):
-            raise TypeError('Expected property require_symbols to be a bool')
-        __self__.require_symbols = require_symbols
-        """
-        Whether to require symbols for user passwords.
-        """
         __props__['requireSymbols'] = require_symbols
 
-        if require_uppercase_characters and not isinstance(require_uppercase_characters, bool):
-            raise TypeError('Expected property require_uppercase_characters to be a bool')
-        __self__.require_uppercase_characters = require_uppercase_characters
-        """
-        Whether to require uppercase characters for user passwords.
-        """
         __props__['requireUppercaseCharacters'] = require_uppercase_characters
 
-        __self__.expire_passwords = pulumi.runtime.UNKNOWN
-        """
-        Indicates whether passwords in the account expire.
-        Returns `true` if `max_password_age` contains a value greater than `0`.
-        Returns `false` if it is `0` or _not present_.
-        """
+        __props__['expire_passwords'] = None
 
         super(AccountPasswordPolicy, __self__).__init__(
             'aws:iam/accountPasswordPolicy:AccountPasswordPolicy',
@@ -111,24 +51,3 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'allowUsersToChangePassword' in outs:
-            self.allow_users_to_change_password = outs['allowUsersToChangePassword']
-        if 'expirePasswords' in outs:
-            self.expire_passwords = outs['expirePasswords']
-        if 'hardExpiry' in outs:
-            self.hard_expiry = outs['hardExpiry']
-        if 'maxPasswordAge' in outs:
-            self.max_password_age = outs['maxPasswordAge']
-        if 'minimumPasswordLength' in outs:
-            self.minimum_password_length = outs['minimumPasswordLength']
-        if 'passwordReusePrevention' in outs:
-            self.password_reuse_prevention = outs['passwordReusePrevention']
-        if 'requireLowercaseCharacters' in outs:
-            self.require_lowercase_characters = outs['requireLowercaseCharacters']
-        if 'requireNumbers' in outs:
-            self.require_numbers = outs['requireNumbers']
-        if 'requireSymbols' in outs:
-            self.require_symbols = outs['requireSymbols']
-        if 'requireUppercaseCharacters' in outs:
-            self.require_uppercase_characters = outs['requireUppercaseCharacters']

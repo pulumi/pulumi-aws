@@ -26,91 +26,34 @@ class VpcPeeringConnection(pulumi.CustomResource):
         """Create a VpcPeeringConnection resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if accepter and not isinstance(accepter, dict):
-            raise TypeError('Expected property accepter to be a dict')
-        __self__.accepter = accepter
-        """
-        An optional configuration block that allows for [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
-        """
         __props__['accepter'] = accepter
 
-        if auto_accept and not isinstance(auto_accept, bool):
-            raise TypeError('Expected property auto_accept to be a bool')
-        __self__.auto_accept = auto_accept
-        """
-        Accept the peering (both VPCs need to be in the same AWS account).
-        """
         __props__['autoAccept'] = auto_accept
 
-        if peer_owner_id and not isinstance(peer_owner_id, basestring):
-            raise TypeError('Expected property peer_owner_id to be a basestring')
-        __self__.peer_owner_id = peer_owner_id
-        """
-        The AWS account ID of the owner of the peer VPC.
-        Defaults to the account ID the [AWS provider][1] is currently connected to.
-        """
         __props__['peerOwnerId'] = peer_owner_id
 
-        if peer_region and not isinstance(peer_region, basestring):
-            raise TypeError('Expected property peer_region to be a basestring')
-        __self__.peer_region = peer_region
-        """
-        The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
-        and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
-        """
         __props__['peerRegion'] = peer_region
 
         if not peer_vpc_id:
             raise TypeError('Missing required property peer_vpc_id')
-        elif not isinstance(peer_vpc_id, basestring):
-            raise TypeError('Expected property peer_vpc_id to be a basestring')
-        __self__.peer_vpc_id = peer_vpc_id
-        """
-        The ID of the VPC with which you are creating the VPC Peering Connection.
-        """
         __props__['peerVpcId'] = peer_vpc_id
 
-        if requester and not isinstance(requester, dict):
-            raise TypeError('Expected property requester to be a dict')
-        __self__.requester = requester
-        """
-        A optional configuration block that allows for [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
-        """
         __props__['requester'] = requester
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        elif not isinstance(vpc_id, basestring):
-            raise TypeError('Expected property vpc_id to be a basestring')
-        __self__.vpc_id = vpc_id
-        """
-        The ID of the requester VPC.
-        """
         __props__['vpcId'] = vpc_id
 
-        __self__.accept_status = pulumi.runtime.UNKNOWN
-        """
-        The status of the VPC Peering Connection request.
-        """
+        __props__['accept_status'] = None
 
         super(VpcPeeringConnection, __self__).__init__(
             'aws:ec2/vpcPeeringConnection:VpcPeeringConnection',
@@ -118,22 +61,3 @@ class VpcPeeringConnection(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'acceptStatus' in outs:
-            self.accept_status = outs['acceptStatus']
-        if 'accepter' in outs:
-            self.accepter = outs['accepter']
-        if 'autoAccept' in outs:
-            self.auto_accept = outs['autoAccept']
-        if 'peerOwnerId' in outs:
-            self.peer_owner_id = outs['peerOwnerId']
-        if 'peerRegion' in outs:
-            self.peer_region = outs['peerRegion']
-        if 'peerVpcId' in outs:
-            self.peer_vpc_id = outs['peerVpcId']
-        if 'requester' in outs:
-            self.requester = outs['requester']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'vpcId' in outs:
-            self.vpc_id = outs['vpcId']

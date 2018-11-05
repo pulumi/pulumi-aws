@@ -14,78 +14,30 @@ class Association(pulumi.CustomResource):
         """Create a Association resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if association_name and not isinstance(association_name, basestring):
-            raise TypeError('Expected property association_name to be a basestring')
-        __self__.association_name = association_name
-        """
-        The descriptive name for the association.
-        """
         __props__['associationName'] = association_name
 
-        if document_version and not isinstance(document_version, basestring):
-            raise TypeError('Expected property document_version to be a basestring')
-        __self__.document_version = document_version
-        """
-        The document version you want to associate with the target(s). Can be a specific version or the default version.
-        """
         __props__['documentVersion'] = document_version
 
-        if instance_id and not isinstance(instance_id, basestring):
-            raise TypeError('Expected property instance_id to be a basestring')
-        __self__.instance_id = instance_id
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
-        """
         __props__['instanceId'] = instance_id
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the SSM document to apply.
-        """
         __props__['name'] = name
 
-        if output_location and not isinstance(output_location, dict):
-            raise TypeError('Expected property output_location to be a dict')
-        __self__.output_location = output_location
-        """
-        An output location block. Output Location is documented below.
-        """
         __props__['outputLocation'] = output_location
 
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError('Expected property parameters to be a dict')
-        __self__.parameters = parameters
-        """
-        A block of arbitrary string parameters to pass to the SSM document.
-        """
         __props__['parameters'] = parameters
 
-        if schedule_expression and not isinstance(schedule_expression, basestring):
-            raise TypeError('Expected property schedule_expression to be a basestring')
-        __self__.schedule_expression = schedule_expression
-        """
-        A cron expression when the association will be applied to the target(s).
-        """
         __props__['scheduleExpression'] = schedule_expression
 
-        if targets and not isinstance(targets, list):
-            raise TypeError('Expected property targets to be a list')
-        __self__.targets = targets
-        """
-        A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-        """
         __props__['targets'] = targets
 
-        __self__.association_id = pulumi.runtime.UNKNOWN
+        __props__['association_id'] = None
 
         super(Association, __self__).__init__(
             'aws:ssm/association:Association',
@@ -93,22 +45,3 @@ class Association(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'associationId' in outs:
-            self.association_id = outs['associationId']
-        if 'associationName' in outs:
-            self.association_name = outs['associationName']
-        if 'documentVersion' in outs:
-            self.document_version = outs['documentVersion']
-        if 'instanceId' in outs:
-            self.instance_id = outs['instanceId']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'outputLocation' in outs:
-            self.output_location = outs['outputLocation']
-        if 'parameters' in outs:
-            self.parameters = outs['parameters']
-        if 'scheduleExpression' in outs:
-            self.schedule_expression = outs['scheduleExpression']
-        if 'targets' in outs:
-            self.targets = outs['targets']

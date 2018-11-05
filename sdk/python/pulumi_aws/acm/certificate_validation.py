@@ -22,7 +22,7 @@ class CertificateValidation(pulumi.CustomResource):
         """Create a CertificateValidation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -31,20 +31,8 @@ class CertificateValidation(pulumi.CustomResource):
 
         if not certificate_arn:
             raise TypeError('Missing required property certificate_arn')
-        elif not isinstance(certificate_arn, basestring):
-            raise TypeError('Expected property certificate_arn to be a basestring')
-        __self__.certificate_arn = certificate_arn
-        """
-        The ARN of the certificate that is being validated.
-        """
         __props__['certificateArn'] = certificate_arn
 
-        if validation_record_fqdns and not isinstance(validation_record_fqdns, list):
-            raise TypeError('Expected property validation_record_fqdns to be a list')
-        __self__.validation_record_fqdns = validation_record_fqdns
-        """
-        List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        """
         __props__['validationRecordFqdns'] = validation_record_fqdns
 
         super(CertificateValidation, __self__).__init__(
@@ -53,8 +41,3 @@ class CertificateValidation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'certificateArn' in outs:
-            self.certificate_arn = outs['certificateArn']
-        if 'validationRecordFqdns' in outs:
-            self.validation_record_fqdns = outs['validationRecordFqdns']

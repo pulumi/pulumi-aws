@@ -14,66 +14,30 @@ class Cluster(pulumi.CustomResource):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Name of the cluster.
-        """
         __props__['name'] = name
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        elif not isinstance(role_arn, basestring):
-            raise TypeError('Expected property role_arn to be a basestring')
-        __self__.role_arn = role_arn
-        """
-        The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-        """
         __props__['roleArn'] = role_arn
 
-        if version and not isinstance(version, basestring):
-            raise TypeError('Expected property version to be a basestring')
-        __self__.version = version
-        """
-        Desired Kubernetes master version. If you do not specify a value, the latest available version is used.
-        """
         __props__['version'] = version
 
         if not vpc_config:
             raise TypeError('Missing required property vpc_config')
-        elif not isinstance(vpc_config, dict):
-            raise TypeError('Expected property vpc_config to be a dict')
-        __self__.vpc_config = vpc_config
-        """
-        Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
-        """
         __props__['vpcConfig'] = vpc_config
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The Amazon Resource Name (ARN) of the cluster.
-        """
-        __self__.certificate_authority = pulumi.runtime.UNKNOWN
-        """
-        Nested attribute containing `certificate-authority-data` for your cluster.
-        """
-        __self__.created_at = pulumi.runtime.UNKNOWN
-        __self__.endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint for your Kubernetes API server.
-        """
-        __self__.platform_version = pulumi.runtime.UNKNOWN
-        """
-        The platform version for the cluster.
-        """
+        __props__['arn'] = None
+        __props__['certificate_authority'] = None
+        __props__['created_at'] = None
+        __props__['endpoint'] = None
+        __props__['platform_version'] = None
 
         super(Cluster, __self__).__init__(
             'aws:eks/cluster:Cluster',
@@ -81,22 +45,3 @@ class Cluster(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'certificateAuthority' in outs:
-            self.certificate_authority = outs['certificateAuthority']
-        if 'createdAt' in outs:
-            self.created_at = outs['createdAt']
-        if 'endpoint' in outs:
-            self.endpoint = outs['endpoint']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'platformVersion' in outs:
-            self.platform_version = outs['platformVersion']
-        if 'roleArn' in outs:
-            self.role_arn = outs['roleArn']
-        if 'version' in outs:
-            self.version = outs['version']
-        if 'vpcConfig' in outs:
-            self.vpc_config = outs['vpcConfig']
