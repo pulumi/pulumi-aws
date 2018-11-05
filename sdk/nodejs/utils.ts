@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Re-export the awssdk.Service class/namespace out as 'runtime' so there is easy access to this API
+// at actual cloud-runtime.
+export { Service as runtime } from "aws-sdk";
+
 import * as crypto from "crypto";
 
 type Diff<T extends string | number | symbol, U extends string | number | symbol> =
@@ -22,6 +26,7 @@ type Diff<T extends string | number | symbol, U extends string | number | symbol
 export type Overwrite<T, U> = Pick<T, Diff<keyof T, keyof U>> & U;
 
 // sha1hash returns a partial SHA1 hash of the input string.
+/** @internal */
 export function sha1hash(s: string): string {
   const shasum: crypto.Hash = crypto.createHash("sha1");
   shasum.update(s);

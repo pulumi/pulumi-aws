@@ -12,9 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Re-export the awssdk.DynamoDB class/namespace out as 'runtime' so there is easy access to this
+// API at actual cloud-runtime.
+export { DynamoDB as runtime } from "aws-sdk";
+
 import * as pulumi from "@pulumi/pulumi";
 import * as table from "./table";
-import * as iam from "../iam";
 import * as lambda from "../lambda";
 
 /**
