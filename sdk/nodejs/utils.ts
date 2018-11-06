@@ -15,6 +15,9 @@
 // Re-export the awssdk.Service class/namespace out as 'runtime' so there is easy access to this API
 // at actual cloud-runtime.
 export { Service as runtime } from "aws-sdk";
+import * as pulumiAws from ".";
+
+(<any>pulumiAws).deploymentOnlyModule = true;
 
 import * as crypto from "crypto";
 
