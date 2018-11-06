@@ -16,9 +16,13 @@
 // at actual cloud-runtime.
 // export { Service as runtime } from "aws-sdk";
 import * as pulumiAws from ".";
+import * as pulumiSns from "./sns";
 
 (<any>pulumiAws).deploymentOnlyModule = true;
-
+(<any>pulumiSns).deploymentOnlyModule = true;
+Object.defineProperty(pulumiSns, "runtime", {
+  get: () => require("aws-sdk").SNS,
+})
 
 import * as crypto from "crypto";
 
