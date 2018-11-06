@@ -18,9 +18,9 @@
 type awsSdkType = typeof import("aws-sdk");
 export const runtime: awsSdkType["DynamoDB"] = <any>undefined;
 
-Object.defineProperty(exports, "runtime", {
-    get: () => require("aws-sdk").DynamoDB,
-});
+// Object.defineProperty(exports, "runtime", {
+//     get: () => require("aws-sdk").DynamoDB,
+// });
 // export { DynamoDB as runtime } from "aws-sdk";
 
 import * as pulumi from "@pulumi/pulumi";

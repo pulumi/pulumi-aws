@@ -14,7 +14,8 @@
 
 // Re-export the awssdk.S3 class/namespace out as 'runtime' so there is easy access to this
 // API at actual cloud-runtime.
-export { S3 as runtime } from "aws-sdk";
+type awsSdkType = typeof import("aws-sdk");
+export const runtime: awsSdkType["S3"] = <any>undefined;
 
 import * as pulumi from "@pulumi/pulumi"
 import { Bucket } from "./bucket";
