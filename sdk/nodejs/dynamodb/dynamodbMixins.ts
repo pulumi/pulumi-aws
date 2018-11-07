@@ -12,17 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Re-export the awssdk.DynamoDB class/namespace out as 'runtime' so there is easy access to this
-// API at actual cloud-runtime.
-
-type awsSdkType = typeof import("aws-sdk");
-export const runtime: awsSdkType["DynamoDB"] = <any>undefined;
-
-// Object.defineProperty(exports, "runtime", {
-//     get: () => require("aws-sdk").DynamoDB,
-// });
-// export { DynamoDB as runtime } from "aws-sdk";
-
 import * as pulumi from "@pulumi/pulumi";
 import * as table from "./table";
 import * as lambda from "../lambda";

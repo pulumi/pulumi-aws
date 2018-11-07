@@ -73,6 +73,7 @@
         "autoscaling/notificationType.ts",
         "autoscaling/policy.ts",
         "autoscaling/schedule.ts",
+        "awsMixins.ts",
         "batch/computeEnvironment.ts",
         "batch/getComputeEnvironment.ts",
         "batch/getJobQueue.ts",

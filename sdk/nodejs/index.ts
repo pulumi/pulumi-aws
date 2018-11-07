@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./arn";
+export * from "./awsMixins";
 export * from "./getAmi";
 export * from "./getAmiIds";
 export * from "./getArn";

@@ -12,19 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Re-export the awssdk.SNS class/namespace out as 'runtime' so there is easy access to this
-// API at actual cloud-runtime.
-// export { SNS as runtime } from "aws-sdk";
-
-type awsSdkType = typeof import("aws-sdk");
-export const runtime: awsSdkType["SNS"] = <any>undefined;
-
-
-
-// Object.defineProperty(exports, "runtime", {
-//     get: () => require("aws-sdk").SNS,
-// });
-
 import * as pulumi from "@pulumi/pulumi";
 import * as lambda from "../lambda";
 import * as topic from "./topic";

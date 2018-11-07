@@ -12,26 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as pulumiAws from ".";
-import * as pulumiDynamoDB from "./dynamodb";
-import * as pulumiSns from "./sns";
-import * as pulumiS3 from "./s3";
-
-(<any>pulumiAws).deploymentOnlyModule = true;
-(<any>pulumiDynamoDB).deploymentOnlyModule = true;
-(<any>pulumiSns).deploymentOnlyModule = true;
-(<any>pulumiS3).deploymentOnlyModule = true;
-
-Object.defineProperty(pulumiDynamoDB, "runtime", {
-  get: () => require("aws-sdk").DynamoDB,
-})
-Object.defineProperty(pulumiSns, "runtime", {
-  get: () => require("aws-sdk").SNS,
-})
-Object.defineProperty(pulumiS3, "runtime", {
-  get: () => require("aws-sdk").S3,
-})
-
 import * as crypto from "crypto";
 
 type Diff<T extends string | number | symbol, U extends string | number | symbol> =
