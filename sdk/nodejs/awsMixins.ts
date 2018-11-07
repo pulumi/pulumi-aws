@@ -13,9 +13,6 @@
 // limitations under the License.
 
 import * as pulumiAws from ".";
-import * as pulumiDynamoDB from "./dynamodb";
-import * as pulumiS3 from "./s3";
-import * as pulumiSns from "./sns";
 
 // @pulumi/aws (and submodules) are deployment-only module.  If someone tries to capture it, and we
 // fail for some reason we want to give a good message about what the problem likely is.  Note that
@@ -73,12 +70,17 @@ declare module "./sns" {
 // By defining things in this way, that require ends up having no impact on closure serialization or
 // modules-inclusion.  Instead, if just emits code that works correctly in AWS lambda due to 'aws-sdk'
 // being a well known node-module that is always available.
+import * as pulumiDynamoDB from "./dynamodb";
 Object.defineProperty(pulumiDynamoDB, "runtime", {
   get: () => require("aws-sdk").DynamoDB,
 })
+
+import * as pulumiS3 from "./s3";
 Object.defineProperty(pulumiS3, "runtime", {
   get: () => require("aws-sdk").S3,
 })
+
+import * as pulumiSns from "./sns";
 Object.defineProperty(pulumiSns, "runtime", {
   get: () => require("aws-sdk").SNS,
 })
