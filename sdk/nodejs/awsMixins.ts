@@ -20,13 +20,14 @@ import * as pulumiSns from "./sns";
 // @pulumi/aws (and submodules) are deployment-only module.  If someone tries to capture it, and we
 // fail for some reason we want to give a good message about what the problem likely is.  Note that
 // capturing a deployment time module can be ok in some cases.  For example, using
-// "aws.dynamodb.runtime" is fine, and will give runtime access to the right awssdk API. However, in
-// general, the majority of this API is not safe to use at 'run time' and will fail.
+// "aws.dynamodb.runtime" is fine, and will give runtime access to the right awssdk API. This will
+// ensure that those 'safe to serialize' values are cpatured 'by-value' However, in general, the
+// majority of this API is not safe to use at 'run time' and will fail.
 (<any>pulumiAws).deploymentOnlyModule = true;
 
 // Mark submodules as well.
 for (const key in pulumiAws) {
-    if (pulumiAws.hasOwnProperty(key )&& pulumiAws[key]) {
+    if (pulumiAws.hasOwnProperty(key) && pulumiAws[key]) {
         pulumiAws[key].deploymentOnlyModule = true;
     }
 }
@@ -35,7 +36,18 @@ for (const key in pulumiAws) {
 // access to the relevant sub-module/namespace from the awssdk.  Note that we're exporting *both*
 // the value *and* namespace side.  That's why we need both `typeof import("aws-sdk")` (which gives
 // the entire share of that module), as well as types like `awsSdkType["DynamoDB"]` which gets the
-// entire shape of that submemeber.
+// entire shape of that submember.
+//
+// With this downstream clients can now write the following in an lambda:
+//
+//      import * as aws from "@pulumi/aws";
+//      ...
+//      /* inside a lambda now: */
+//      const client = new aws.dynamodb.runtime.DocumentClient(/*opt-args*/);
+//
+// Inside the serialized lambda for the above, 'runtime' will be a property with a getter that ends
+// up returning `require("aws-sdk").DynamoDB`, which is the right aws-sdk submodule that corresponds
+// to the @pulumi/aws 'dynamodb' submodule.
 type awsSdkType = typeof import("aws-sdk");
 
 declare module "./dynamodb" {
