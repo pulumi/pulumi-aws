@@ -46,8 +46,8 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
 "@pulumi/pulumi@dev":
-  version "0.16.4-dev-1541651056-g08fc305b"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.16.4-dev-1541651056-g08fc305b.tgz#f9d7fa0363b29b8709ce1c7962cc1c95603f4b23"
+  version "0.16.4-dev-1541707761-gadb0d9ae"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.16.4-dev-1541707761-gadb0d9ae.tgz#b378d696bce0b519fda8be5541754f06d9e562ff"
   dependencies:
     google-protobuf "^3.5.0"
     grpc "^1.12.2"
@@ -116,8 +116,8 @@ ascli@~1:
     optjs "~3.2.2"
 
 aws-sdk@^2.0.0:
-  version "2.348.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.348.0.tgz#69c5b6dd77a5eac85b54bf7cc1640c19d762d3ee"
+  version "2.351.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.351.0.tgz#c09ae170341e193bd3708ddb2925806732d3a3ab"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -519,7 +519,7 @@ optjs@~3.2.2:
 
 os-homedir@^1.0.0:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+  resolved "http://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
 os-locale@^1.4.0:
   version "1.4.0"
@@ -529,7 +529,7 @@ os-locale@^1.4.0:
 
 os-tmpdir@^1.0.0:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+  resolved "http://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
 osenv@^0.1.4:
   version "0.1.5"
@@ -540,7 +540,7 @@ osenv@^0.1.4:
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+  resolved "http://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
 path-parse@^1.0.5:
   version "1.0.6"

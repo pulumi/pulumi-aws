@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as pulumiAws from ".";
+import * as pulumiAws from "..";
 
 // @pulumi/aws (and submodules) are deployment-only module.  If someone tries to capture it, and we
 // fail for some reason we want to give a good message about what the problem likely is.  Note that
@@ -22,12 +22,12 @@ import * as pulumiAws from ".";
 // majority of this API is not safe to use at 'run time' and will fail.
 (<any>pulumiAws).deploymentOnlyModule = true;
 
-// Mark submodules as well.
-for (const key in pulumiAws) {
-    if (pulumiAws.hasOwnProperty(key) && pulumiAws[key]) {
-        pulumiAws[key].deploymentOnlyModule = true;
-    }
-}
+// // Mark submodules as well.
+// for (const key in pulumiAws) {
+//     if (pulumiAws.hasOwnProperty(key) && pulumiAws[key]) {
+//         pulumiAws[key].deploymentOnlyModule = true;
+//     }
+// }
 
 // Now, go through all our @pulumi/aws/xxx submodules and export a 'runtime' property that provides
 // access to the relevant sub-module/namespace from the awssdk.  Note that we're exporting *both*
@@ -40,24 +40,27 @@ for (const key in pulumiAws) {
 //      import * as aws from "@pulumi/aws";
 //      ...
 //      /* inside a lambda now: */
-//      const client = new aws.dynamodb.runtime.DocumentClient(/*opt-args*/);
+//      const client = new aws.runtime.DynamoDB.DocumentClient(/*opt-args*/);
 //
-// Inside the serialized lambda for the above, 'runtime' will be a property with a getter that ends
-// up returning `require("aws-sdk").DynamoDB`, which is the right aws-sdk submodule that corresponds
-// to the @pulumi/aws 'dynamodb' submodule.
-type awsSdkType = typeof import("aws-sdk");
+// Inside the serialized lambda for the above, 'runtime' will be a property with a getter function
+// that ends up returning `require("aws-sdk")` inside of it.
+// type awsSdkType = typeof import("aws-sdk");
 
-declare module "./dynamodb" {
-    export const runtime: awsSdkType["DynamoDB"];
+declare module ".." {
+    export const runtime: typeof import("aws-sdk");
 }
 
-declare module "./s3" {
-    export const runtime: awsSdkType["S3"];
-}
+// declare module "./dynamodb" {
+//     export const runtime: awsSdkType["DynamoDB"];
+// }
 
-declare module "./sns" {
-    export const runtime: awsSdkType["SNS"];
-}
+// declare module "./s3" {
+//     export const runtime: awsSdkType["S3"];
+// }
+
+// declare module "./sns" {
+//     export const runtime: awsSdkType["SNS"];
+// }
 
 // Now, actually provide the exported members.  Note, we implement the 'runtime' properties as
 // 'getters'.  This is actually important so that we're not actually exporting an aws-sdk submodule
@@ -70,17 +73,17 @@ declare module "./sns" {
 // By defining things in this way, that require ends up having no impact on closure serialization or
 // modules-inclusion.  Instead, if just emits code that works correctly in AWS lambda due to 'aws-sdk'
 // being a well known node-module that is always available.
-import * as pulumiDynamoDB from "./dynamodb";
-Object.defineProperty(pulumiDynamoDB, "runtime", {
-  get: () => require("aws-sdk").DynamoDB,
+// import * as pulumiDynamoDB from "./dynamodb";
+Object.defineProperty(pulumiAws, "runtime", {
+  get: () => require("aws-sdk"),
 })
 
-import * as pulumiS3 from "./s3";
-Object.defineProperty(pulumiS3, "runtime", {
-  get: () => require("aws-sdk").S3,
-})
+// import * as pulumiS3 from "./s3";
+// Object.defineProperty(pulumiS3, "runtime", {
+//   get: () => require("aws-sdk").S3,
+// })
 
-import * as pulumiSns from "./sns";
-Object.defineProperty(pulumiSns, "runtime", {
-  get: () => require("aws-sdk").SNS,
-})
+// import * as pulumiSns from "./sns";
+// Object.defineProperty(pulumiSns, "runtime", {
+//   get: () => require("aws-sdk").SNS,
+// })
