@@ -150,7 +150,7 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 	return ""
 }
 
-// preConfigureCallback validates that AWS credentials can be succesfully discovered. This emulates the credentials
+// preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
