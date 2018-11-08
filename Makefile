@@ -11,9 +11,6 @@ PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
 
-GOMETALINTERBIN=gometalinter
-GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
-
 TESTPARALLELISM := 4
 
 # NOTE: Since the plugin is published using the nodejs style semver version
@@ -44,7 +41,7 @@ build::
 		cd ./bin && $(PYTHON) setup.py build sdist
 
 lint::
-	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
+	golangci-lint run
 
 install::
 	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
