@@ -25,8 +25,8 @@ import * as pulumiAws from ".";
 (<any>pulumiAws).deploymentOnlyModule = true;
 
 // Now, export a 'runtime' property that provides access to the the aws nodejs sdk.  Note that we're
-// exporting *both* the value *and* namespace side.  That's why we need both `typeof
-// import("aws-sdk")` (which gives the entire share of that module).
+// exporting *both* the value *and* namespace side.  That's why we need `typeof import("aws-sdk")`
+// (which gives the entire share of that module).
 //
 // With this downstream clients can now write the following in an lambda:
 //
