@@ -18,13 +18,13 @@ import * as pulumiAws from ".";
 
 // @pulumi/aws (and submodules) is a deployment-only module.  If someone tries to capture it, and we
 // fail for some reason we want to give a good message about what the problem likely is.  Note that
-// capturing a deployment time module can be ok in some cases.  For example, using "aws.runtime" is
+// capturing a deployment time module can be ok in some cases.  For example, using "aws.sdk" is
 // fine, and will give runtime access to the right awssdk API. This will ensure that those 'safe to
 // serialize' values are captured 'by-value' However, in general, the majority of this API is not
 // safe to use at 'run time' and will fail.
 (<any>pulumiAws).deploymentOnlyModule = true;
 
-// Now, export a 'runtime' property that provides access to the the aws nodejs sdk.  Note that we're
+// Now, export a 'sdk' property that provides access to the the aws nodejs sdk.  Note that we're
 // exporting *both* the value *and* namespace side.  That's why we need `typeof import("aws-sdk")`
 // (which gives the entire share of that module).
 //
@@ -33,9 +33,9 @@ import * as pulumiAws from ".";
 //      import * as aws from "@pulumi/aws";
 //      ...
 //      /* inside a lambda now: */
-//      const client = new aws.runtime.DynamoDB.DocumentClient(/*opt-args*/);
+//      const client = new aws.sdk.DynamoDB.DocumentClient(/*opt-args*/);
 //
-// Inside the serialized lambda for the above, 'runtime' will be a property with a getter function
+// Inside the serialized lambda for the above, 'sdk' will be a property with a getter function
 // that ends up returning `require("aws-sdk")` inside of it.
 
 declare module "." {
@@ -50,16 +50,16 @@ declare module "." {
      *    // ...
      *
      *    // inside the callback function for an AWS Lambda:
-     *    const client = new aws.runtime.DynamoDB.DocumentClient(...opt-args...);
+     *    const client = new aws.sdk.DynamoDB.DocumentClient(...opt-args...);
      * ```
      *
      * Note: this property will give you the aws-sdk module that AWS automatically includes
      * with any javascript Lambda.
      */
-    export const runtime: typeof import("aws-sdk");
+    export const sdk: typeof import("aws-sdk");
 }
 
-// Now, actually provide the exported members.  Note, we implement the 'runtime' property as a
+// Now, actually provide the exported members.  Note, we implement the 'sdk' property as a
 // 'getter'.  This is actually important so that we're not actually exporting the aws-sdk module
 // itself.  If we exported that module, serialization would either try to actually serialize it
 // (bad), or it would try to reference it through the aws node_modules path (also bad).  We don't
@@ -71,6 +71,6 @@ declare module "." {
 // modules-inclusion.  Instead, if just emits code that works correctly in AWS lambda due to
 // 'aws-sdk' being a well known node-module that is always available. import * as pulumiDynamoDB
 // from "./dynamodb";
-Object.defineProperty(pulumiAws, "runtime", {
+Object.defineProperty(pulumiAws, "sdk", {
   get: () => require("aws-sdk"),
 })
