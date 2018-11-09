@@ -1169,11 +1169,9 @@ func Provider() tfbridge.ProviderInfo {
 					"domain_name": tfbridge.AutoNameTransform("domainName", 28, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					// These only accept a single value in the AWS API, but are not marked as MaxItems==1 in the TF
-					// provider.
-					"cluster_config":   {Name: "clusterConfig", MaxItemsOne: boolRef(true)},
-					"ebs_options":      {Name: "ebsOptions", MaxItemsOne: boolRef(true)},
-					"snapshot_options": {Name: "snapshotOptions", MaxItemsOne: boolRef(true)},
+					"cluster_config":   {Name: "clusterConfig"},
+					"ebs_options":      {Name: "ebsOptions"},
+					"snapshot_options": {Name: "snapshotOptions"},
 					"tags":             {Type: awsType(awsMod, "Tags")},
 				},
 			},
@@ -1710,7 +1708,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
 					// provider.
-					"website": {Name: "website", MaxItemsOne: boolRef(true)},
+					"website": {Name: "website"},
 					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
