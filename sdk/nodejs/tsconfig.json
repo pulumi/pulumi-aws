@@ -146,7 +146,6 @@
         "cognito/userPool.ts",
         "cognito/userPoolClient.ts",
         "cognito/userPoolDomain.ts",
-        "config/awsMixins.ts",
         "config/index.ts",
         "config/require.ts",
         "config/vars.ts",

@@ -2075,7 +2075,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"config": {
 						DestFiles: []string{
-							"awsMixins.ts",
 							"require.ts", // requireRegion helpers for validating proper config
 						},
 					},
