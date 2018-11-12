@@ -4,7 +4,7 @@
 
 [[constraint]]
   name = "github.com/pulumi/pulumi-terraform"
-  branch = "master"
+  branch = "ellismg/rollback-importers"
 
 [[constraint]]
   branch = "pulumi-master"
