@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Response(pulumi.CustomResource):
     """
@@ -21,23 +21,30 @@ class Response(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['responseParameters'] = response_parameters
+        __props__['response_parameters'] = response_parameters
 
-        __props__['responseTemplates'] = response_templates
+        __props__['response_templates'] = response_templates
 
         if not response_type:
             raise TypeError('Missing required property response_type')
-        __props__['responseType'] = response_type
+        __props__['response_type'] = response_type
 
         if not rest_api_id:
             raise TypeError('Missing required property rest_api_id')
-        __props__['restApiId'] = rest_api_id
+        __props__['rest_api_id'] = rest_api_id
 
-        __props__['statusCode'] = status_code
+        __props__['status_code'] = status_code
 
         super(Response, __self__).__init__(
             'aws:apigateway/response:Response',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

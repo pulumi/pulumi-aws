@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EventTarget(pulumi.CustomResource):
     """
@@ -25,33 +25,40 @@ class EventTarget(pulumi.CustomResource):
             raise TypeError('Missing required property arn')
         __props__['arn'] = arn
 
-        __props__['batchTarget'] = batch_target
+        __props__['batch_target'] = batch_target
 
-        __props__['ecsTarget'] = ecs_target
+        __props__['ecs_target'] = ecs_target
 
         __props__['input'] = input
 
-        __props__['inputPath'] = input_path
+        __props__['input_path'] = input_path
 
-        __props__['inputTransformer'] = input_transformer
+        __props__['input_transformer'] = input_transformer
 
-        __props__['kinesisTarget'] = kinesis_target
+        __props__['kinesis_target'] = kinesis_target
 
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         if not rule:
             raise TypeError('Missing required property rule')
         __props__['rule'] = rule
 
-        __props__['runCommandTargets'] = run_command_targets
+        __props__['run_command_targets'] = run_command_targets
 
-        __props__['sqsTarget'] = sqs_target
+        __props__['sqs_target'] = sqs_target
 
-        __props__['targetId'] = target_id
+        __props__['target_id'] = target_id
 
         super(EventTarget, __self__).__init__(
             'aws:cloudwatch/eventTarget:EventTarget',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

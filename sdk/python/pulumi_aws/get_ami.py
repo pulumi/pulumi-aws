@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetAmiResult(object):
     """
@@ -189,7 +189,7 @@ class GetAmiResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=None, owners=None, tags=None):
+async def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=None, owners=None, tags=None):
     """
     Use this data source to get the ID of a registered AMI for use in other
     resources.
@@ -204,7 +204,7 @@ def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=No
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__)
 
     return GetAmiResult(
         architecture=__ret__.get('architecture'),

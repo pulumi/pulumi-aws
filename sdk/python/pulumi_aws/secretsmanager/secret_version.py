@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SecretVersion(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class SecretVersion(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['secretBinary'] = secret_binary
+        __props__['secret_binary'] = secret_binary
 
         if not secret_id:
             raise TypeError('Missing required property secret_id')
-        __props__['secretId'] = secret_id
+        __props__['secret_id'] = secret_id
 
-        __props__['secretString'] = secret_string
+        __props__['secret_string'] = secret_string
 
-        __props__['versionStages'] = version_stages
+        __props__['version_stages'] = version_stages
 
         __props__['arn'] = None
         __props__['version_id'] = None
@@ -41,4 +41,11 @@ class SecretVersion(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

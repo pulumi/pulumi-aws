@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DataSource(pulumi.CustomResource):
     """
@@ -23,21 +23,21 @@ class DataSource(pulumi.CustomResource):
 
         if not api_id:
             raise TypeError('Missing required property api_id')
-        __props__['apiId'] = api_id
+        __props__['api_id'] = api_id
 
         __props__['description'] = description
 
-        __props__['dynamodbConfig'] = dynamodb_config
+        __props__['dynamodb_config'] = dynamodb_config
 
-        __props__['elasticsearchConfig'] = elasticsearch_config
+        __props__['elasticsearch_config'] = elasticsearch_config
 
-        __props__['httpConfig'] = http_config
+        __props__['http_config'] = http_config
 
-        __props__['lambdaConfig'] = lambda_config
+        __props__['lambda_config'] = lambda_config
 
         __props__['name'] = name
 
-        __props__['serviceRoleArn'] = service_role_arn
+        __props__['service_role_arn'] = service_role_arn
 
         if not type:
             raise TypeError('Missing required property type')
@@ -50,4 +50,11 @@ class DataSource(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

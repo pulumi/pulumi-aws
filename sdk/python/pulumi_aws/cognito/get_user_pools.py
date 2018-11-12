@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetUserPoolsResult(object):
     """
@@ -27,14 +27,14 @@ class GetUserPoolsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_user_pools(name=None):
+async def get_user_pools(name=None):
     """
     Use this data source to get a list of cognito user pools.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__)
 
     return GetUserPoolsResult(
         arns=__ret__.get('arns'),

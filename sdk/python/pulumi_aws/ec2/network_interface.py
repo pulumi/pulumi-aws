@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NetworkInterface(pulumi.CustomResource):
     """
@@ -25,19 +25,19 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['privateIp'] = private_ip
+        __props__['private_ip'] = private_ip
 
-        __props__['privateIps'] = private_ips
+        __props__['private_ips'] = private_ips
 
-        __props__['privateIpsCount'] = private_ips_count
+        __props__['private_ips_count'] = private_ips_count
 
-        __props__['securityGroups'] = security_groups
+        __props__['security_groups'] = security_groups
 
-        __props__['sourceDestCheck'] = source_dest_check
+        __props__['source_dest_check'] = source_dest_check
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         __props__['tags'] = tags
 
@@ -48,4 +48,11 @@ class NetworkInterface(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

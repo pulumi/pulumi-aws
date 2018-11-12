@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ConnectionAssociation(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class ConnectionAssociation(pulumi.CustomResource):
 
         if not connection_id:
             raise TypeError('Missing required property connection_id')
-        __props__['connectionId'] = connection_id
+        __props__['connection_id'] = connection_id
 
         if not lag_id:
             raise TypeError('Missing required property lag_id')
-        __props__['lagId'] = lag_id
+        __props__['lag_id'] = lag_id
 
         super(ConnectionAssociation, __self__).__init__(
             'aws:directconnect/connectionAssociation:ConnectionAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

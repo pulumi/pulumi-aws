@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpointSubnetAssociation(pulumi.CustomResource):
     """
@@ -29,15 +29,22 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         if not vpc_endpoint_id:
             raise TypeError('Missing required property vpc_endpoint_id')
-        __props__['vpcEndpointId'] = vpc_endpoint_id
+        __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
         super(VpcEndpointSubnetAssociation, __self__).__init__(
             'aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

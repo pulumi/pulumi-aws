@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Integration(pulumi.CustomResource):
     """
@@ -21,41 +21,41 @@ class Integration(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cacheKeyParameters'] = cache_key_parameters
+        __props__['cache_key_parameters'] = cache_key_parameters
 
-        __props__['cacheNamespace'] = cache_namespace
+        __props__['cache_namespace'] = cache_namespace
 
-        __props__['connectionId'] = connection_id
+        __props__['connection_id'] = connection_id
 
-        __props__['connectionType'] = connection_type
+        __props__['connection_type'] = connection_type
 
-        __props__['contentHandling'] = content_handling
+        __props__['content_handling'] = content_handling
 
         __props__['credentials'] = credentials
 
         if not http_method:
             raise TypeError('Missing required property http_method')
-        __props__['httpMethod'] = http_method
+        __props__['http_method'] = http_method
 
-        __props__['integrationHttpMethod'] = integration_http_method
+        __props__['integration_http_method'] = integration_http_method
 
-        __props__['passthroughBehavior'] = passthrough_behavior
+        __props__['passthrough_behavior'] = passthrough_behavior
 
-        __props__['requestParameters'] = request_parameters
+        __props__['request_parameters'] = request_parameters
 
-        __props__['requestParametersInJson'] = request_parameters_in_json
+        __props__['request_parameters_in_json'] = request_parameters_in_json
 
-        __props__['requestTemplates'] = request_templates
+        __props__['request_templates'] = request_templates
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
-        __props__['timeoutMilliseconds'] = timeout_milliseconds
+        __props__['timeout_milliseconds'] = timeout_milliseconds
 
         if not type:
             raise TypeError('Missing required property type')
@@ -68,4 +68,11 @@ class Integration(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

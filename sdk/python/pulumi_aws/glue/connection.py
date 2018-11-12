@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Connection(pulumi.CustomResource):
     """
@@ -21,25 +21,32 @@ class Connection(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['catalogId'] = catalog_id
+        __props__['catalog_id'] = catalog_id
 
         if not connection_properties:
             raise TypeError('Missing required property connection_properties')
-        __props__['connectionProperties'] = connection_properties
+        __props__['connection_properties'] = connection_properties
 
-        __props__['connectionType'] = connection_type
+        __props__['connection_type'] = connection_type
 
         __props__['description'] = description
 
-        __props__['matchCriterias'] = match_criterias
+        __props__['match_criterias'] = match_criterias
 
         __props__['name'] = name
 
-        __props__['physicalConnectionRequirements'] = physical_connection_requirements
+        __props__['physical_connection_requirements'] = physical_connection_requirements
 
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Webhook(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Webhook(pulumi.CustomResource):
             raise TypeError('Missing required property authentication')
         __props__['authentication'] = authentication
 
-        __props__['authenticationConfiguration'] = authentication_configuration
+        __props__['authentication_configuration'] = authentication_configuration
 
         if not filters:
             raise TypeError('Missing required property filters')
@@ -35,11 +35,11 @@ class Webhook(pulumi.CustomResource):
 
         if not target_action:
             raise TypeError('Missing required property target_action')
-        __props__['targetAction'] = target_action
+        __props__['target_action'] = target_action
 
         if not target_pipeline:
             raise TypeError('Missing required property target_pipeline')
-        __props__['targetPipeline'] = target_pipeline
+        __props__['target_pipeline'] = target_pipeline
 
         __props__['url'] = None
 
@@ -48,4 +48,11 @@ class Webhook(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

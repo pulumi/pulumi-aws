@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VolumeAttachment(pulumi.CustomResource):
     """
@@ -26,23 +26,30 @@ class VolumeAttachment(pulumi.CustomResource):
 
         if not device_name:
             raise TypeError('Missing required property device_name')
-        __props__['deviceName'] = device_name
+        __props__['device_name'] = device_name
 
-        __props__['forceDetach'] = force_detach
+        __props__['force_detach'] = force_detach
 
         if not instance_id:
             raise TypeError('Missing required property instance_id')
-        __props__['instanceId'] = instance_id
+        __props__['instance_id'] = instance_id
 
-        __props__['skipDestroy'] = skip_destroy
+        __props__['skip_destroy'] = skip_destroy
 
         if not volume_id:
             raise TypeError('Missing required property volume_id')
-        __props__['volumeId'] = volume_id
+        __props__['volume_id'] = volume_id
 
         super(VolumeAttachment, __self__).__init__(
             'aws:ec2/volumeAttachment:VolumeAttachment',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

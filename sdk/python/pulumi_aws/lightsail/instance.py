@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Instance(pulumi.CustomResource):
     """
@@ -27,21 +27,21 @@ class Instance(pulumi.CustomResource):
 
         if not availability_zone:
             raise TypeError('Missing required property availability_zone')
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
         if not blueprint_id:
             raise TypeError('Missing required property blueprint_id')
-        __props__['blueprintId'] = blueprint_id
+        __props__['blueprint_id'] = blueprint_id
 
         if not bundle_id:
             raise TypeError('Missing required property bundle_id')
-        __props__['bundleId'] = bundle_id
+        __props__['bundle_id'] = bundle_id
 
-        __props__['keyPairName'] = key_pair_name
+        __props__['key_pair_name'] = key_pair_name
 
         __props__['name'] = name
 
-        __props__['userData'] = user_data
+        __props__['user_data'] = user_data
 
         __props__['arn'] = None
         __props__['cpu_count'] = None
@@ -58,4 +58,11 @@ class Instance(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

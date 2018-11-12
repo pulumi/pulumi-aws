@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Gateway(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Gateway(pulumi.CustomResource):
 
         if not amazon_side_asn:
             raise TypeError('Missing required property amazon_side_asn')
-        __props__['amazonSideAsn'] = amazon_side_asn
+        __props__['amazon_side_asn'] = amazon_side_asn
 
         __props__['name'] = name
 
@@ -32,4 +32,11 @@ class Gateway(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

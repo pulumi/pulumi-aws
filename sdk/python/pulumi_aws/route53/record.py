@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Record(pulumi.CustomResource):
     """
@@ -23,23 +23,23 @@ class Record(pulumi.CustomResource):
 
         __props__['aliases'] = aliases
 
-        __props__['allowOverwrite'] = allow_overwrite
+        __props__['allow_overwrite'] = allow_overwrite
 
-        __props__['failoverRoutingPolicies'] = failover_routing_policies
+        __props__['failover_routing_policies'] = failover_routing_policies
 
-        __props__['geolocationRoutingPolicies'] = geolocation_routing_policies
+        __props__['geolocation_routing_policies'] = geolocation_routing_policies
 
-        __props__['healthCheckId'] = health_check_id
+        __props__['health_check_id'] = health_check_id
 
-        __props__['latencyRoutingPolicies'] = latency_routing_policies
+        __props__['latency_routing_policies'] = latency_routing_policies
 
-        __props__['multivalueAnswerRoutingPolicy'] = multivalue_answer_routing_policy
+        __props__['multivalue_answer_routing_policy'] = multivalue_answer_routing_policy
 
         __props__['name'] = name
 
         __props__['records'] = records
 
-        __props__['setIdentifier'] = set_identifier
+        __props__['set_identifier'] = set_identifier
 
         __props__['ttl'] = ttl
 
@@ -47,11 +47,11 @@ class Record(pulumi.CustomResource):
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
-        __props__['weightedRoutingPolicies'] = weighted_routing_policies
+        __props__['weighted_routing_policies'] = weighted_routing_policies
 
         if not zone_id:
             raise TypeError('Missing required property zone_id')
-        __props__['zoneId'] = zone_id
+        __props__['zone_id'] = zone_id
 
         __props__['fqdn'] = None
 
@@ -60,4 +60,11 @@ class Record(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

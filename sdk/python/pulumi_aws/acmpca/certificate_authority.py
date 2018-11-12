@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class CertificateAuthority(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class CertificateAuthority(pulumi.CustomResource):
 
         if not certificate_authority_configuration:
             raise TypeError('Missing required property certificate_authority_configuration')
-        __props__['certificateAuthorityConfiguration'] = certificate_authority_configuration
+        __props__['certificate_authority_configuration'] = certificate_authority_configuration
 
         __props__['enabled'] = enabled
 
-        __props__['revocationConfiguration'] = revocation_configuration
+        __props__['revocation_configuration'] = revocation_configuration
 
         __props__['tags'] = tags
 
@@ -49,4 +49,11 @@ class CertificateAuthority(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

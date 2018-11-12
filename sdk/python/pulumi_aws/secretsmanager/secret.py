@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Secret(pulumi.CustomResource):
     """
@@ -23,19 +23,19 @@ class Secret(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         __props__['policy'] = policy
 
-        __props__['recoveryWindowInDays'] = recovery_window_in_days
+        __props__['recovery_window_in_days'] = recovery_window_in_days
 
-        __props__['rotationLambdaArn'] = rotation_lambda_arn
+        __props__['rotation_lambda_arn'] = rotation_lambda_arn
 
-        __props__['rotationRules'] = rotation_rules
+        __props__['rotation_rules'] = rotation_rules
 
         __props__['tags'] = tags
 
@@ -47,4 +47,11 @@ class Secret(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

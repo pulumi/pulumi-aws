@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Parameter(pulumi.CustomResource):
     """
@@ -21,13 +21,13 @@ class Parameter(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowedPattern'] = allowed_pattern
+        __props__['allowed_pattern'] = allowed_pattern
 
         __props__['arn'] = arn
 
         __props__['description'] = description
 
-        __props__['keyId'] = key_id
+        __props__['key_id'] = key_id
 
         __props__['name'] = name
 
@@ -48,4 +48,11 @@ class Parameter(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

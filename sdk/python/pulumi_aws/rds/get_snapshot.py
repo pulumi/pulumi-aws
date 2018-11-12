@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSnapshotResult(object):
     """
@@ -117,7 +117,7 @@ class GetSnapshotResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_snapshot(db_instance_identifier=None, db_snapshot_identifier=None, include_public=None, include_shared=None, most_recent=None, snapshot_type=None):
+async def get_snapshot(db_instance_identifier=None, db_snapshot_identifier=None, include_public=None, include_shared=None, most_recent=None, snapshot_type=None):
     """
     Use this data source to get information about a DB Snapshot for use when provisioning DB instances
     
@@ -132,7 +132,7 @@ def get_snapshot(db_instance_identifier=None, db_snapshot_identifier=None, inclu
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
-    __ret__ = pulumi.runtime.invoke('aws:rds/getSnapshot:getSnapshot', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:rds/getSnapshot:getSnapshot', __args__)
 
     return GetSnapshotResult(
         allocated_storage=__ret__.get('allocatedStorage'),

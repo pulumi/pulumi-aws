@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TopicSubscription(pulumi.CustomResource):
     """
@@ -32,23 +32,23 @@ class TopicSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['confirmationTimeoutInMinutes'] = confirmation_timeout_in_minutes
+        __props__['confirmation_timeout_in_minutes'] = confirmation_timeout_in_minutes
 
-        __props__['deliveryPolicy'] = delivery_policy
+        __props__['delivery_policy'] = delivery_policy
 
         if not endpoint:
             raise TypeError('Missing required property endpoint')
         __props__['endpoint'] = endpoint
 
-        __props__['endpointAutoConfirms'] = endpoint_auto_confirms
+        __props__['endpoint_auto_confirms'] = endpoint_auto_confirms
 
-        __props__['filterPolicy'] = filter_policy
+        __props__['filter_policy'] = filter_policy
 
         if not protocol:
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
-        __props__['rawMessageDelivery'] = raw_message_delivery
+        __props__['raw_message_delivery'] = raw_message_delivery
 
         if not topic:
             raise TypeError('Missing required property topic')
@@ -61,4 +61,11 @@ class TopicSubscription(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

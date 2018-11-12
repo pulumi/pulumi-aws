@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Instance(pulumi.CustomResource):
     """
@@ -21,97 +21,97 @@ class Instance(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['agentVersion'] = agent_version
+        __props__['agent_version'] = agent_version
 
-        __props__['amiId'] = ami_id
+        __props__['ami_id'] = ami_id
 
         __props__['architecture'] = architecture
 
-        __props__['autoScalingType'] = auto_scaling_type
+        __props__['auto_scaling_type'] = auto_scaling_type
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
-        __props__['createdAt'] = created_at
+        __props__['created_at'] = created_at
 
-        __props__['deleteEbs'] = delete_ebs
+        __props__['delete_ebs'] = delete_ebs
 
-        __props__['deleteEip'] = delete_eip
+        __props__['delete_eip'] = delete_eip
 
-        __props__['ebsBlockDevices'] = ebs_block_devices
+        __props__['ebs_block_devices'] = ebs_block_devices
 
-        __props__['ebsOptimized'] = ebs_optimized
+        __props__['ebs_optimized'] = ebs_optimized
 
-        __props__['ecsClusterArn'] = ecs_cluster_arn
+        __props__['ecs_cluster_arn'] = ecs_cluster_arn
 
-        __props__['elasticIp'] = elastic_ip
+        __props__['elastic_ip'] = elastic_ip
 
-        __props__['ephemeralBlockDevices'] = ephemeral_block_devices
+        __props__['ephemeral_block_devices'] = ephemeral_block_devices
 
         __props__['hostname'] = hostname
 
-        __props__['infrastructureClass'] = infrastructure_class
+        __props__['infrastructure_class'] = infrastructure_class
 
-        __props__['installUpdatesOnBoot'] = install_updates_on_boot
+        __props__['install_updates_on_boot'] = install_updates_on_boot
 
-        __props__['instanceProfileArn'] = instance_profile_arn
+        __props__['instance_profile_arn'] = instance_profile_arn
 
-        __props__['instanceType'] = instance_type
+        __props__['instance_type'] = instance_type
 
-        __props__['lastServiceErrorId'] = last_service_error_id
+        __props__['last_service_error_id'] = last_service_error_id
 
         if not layer_ids:
             raise TypeError('Missing required property layer_ids')
-        __props__['layerIds'] = layer_ids
+        __props__['layer_ids'] = layer_ids
 
         __props__['os'] = os
 
         __props__['platform'] = platform
 
-        __props__['privateDns'] = private_dns
+        __props__['private_dns'] = private_dns
 
-        __props__['privateIp'] = private_ip
+        __props__['private_ip'] = private_ip
 
-        __props__['publicDns'] = public_dns
+        __props__['public_dns'] = public_dns
 
-        __props__['publicIp'] = public_ip
+        __props__['public_ip'] = public_ip
 
-        __props__['registeredBy'] = registered_by
+        __props__['registered_by'] = registered_by
 
-        __props__['reportedAgentVersion'] = reported_agent_version
+        __props__['reported_agent_version'] = reported_agent_version
 
-        __props__['reportedOsFamily'] = reported_os_family
+        __props__['reported_os_family'] = reported_os_family
 
-        __props__['reportedOsName'] = reported_os_name
+        __props__['reported_os_name'] = reported_os_name
 
-        __props__['reportedOsVersion'] = reported_os_version
+        __props__['reported_os_version'] = reported_os_version
 
-        __props__['rootBlockDevices'] = root_block_devices
+        __props__['root_block_devices'] = root_block_devices
 
-        __props__['rootDeviceType'] = root_device_type
+        __props__['root_device_type'] = root_device_type
 
-        __props__['rootDeviceVolumeId'] = root_device_volume_id
+        __props__['root_device_volume_id'] = root_device_volume_id
 
-        __props__['securityGroupIds'] = security_group_ids
+        __props__['security_group_ids'] = security_group_ids
 
-        __props__['sshHostDsaKeyFingerprint'] = ssh_host_dsa_key_fingerprint
+        __props__['ssh_host_dsa_key_fingerprint'] = ssh_host_dsa_key_fingerprint
 
-        __props__['sshHostRsaKeyFingerprint'] = ssh_host_rsa_key_fingerprint
+        __props__['ssh_host_rsa_key_fingerprint'] = ssh_host_rsa_key_fingerprint
 
-        __props__['sshKeyName'] = ssh_key_name
+        __props__['ssh_key_name'] = ssh_key_name
 
         if not stack_id:
             raise TypeError('Missing required property stack_id')
-        __props__['stackId'] = stack_id
+        __props__['stack_id'] = stack_id
 
         __props__['state'] = state
 
         __props__['status'] = status
 
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         __props__['tenancy'] = tenancy
 
-        __props__['virtualizationType'] = virtualization_type
+        __props__['virtualization_type'] = virtualization_type
 
         __props__['ec2_instance_id'] = None
 
@@ -120,4 +120,11 @@ class Instance(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

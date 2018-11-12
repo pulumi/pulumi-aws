@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LifecycleHook(pulumi.CustomResource):
     """
@@ -35,27 +35,34 @@ class LifecycleHook(pulumi.CustomResource):
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        __props__['autoscalingGroupName'] = autoscaling_group_name
+        __props__['autoscaling_group_name'] = autoscaling_group_name
 
-        __props__['defaultResult'] = default_result
+        __props__['default_result'] = default_result
 
-        __props__['heartbeatTimeout'] = heartbeat_timeout
+        __props__['heartbeat_timeout'] = heartbeat_timeout
 
         if not lifecycle_transition:
             raise TypeError('Missing required property lifecycle_transition')
-        __props__['lifecycleTransition'] = lifecycle_transition
+        __props__['lifecycle_transition'] = lifecycle_transition
 
         __props__['name'] = name
 
-        __props__['notificationMetadata'] = notification_metadata
+        __props__['notification_metadata'] = notification_metadata
 
-        __props__['notificationTargetArn'] = notification_target_arn
+        __props__['notification_target_arn'] = notification_target_arn
 
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         super(LifecycleHook, __self__).__init__(
             'aws:autoscaling/lifecycleHook:LifecycleHook',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

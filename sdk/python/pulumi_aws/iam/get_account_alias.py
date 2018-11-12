@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAccountAliasResult(object):
     """
@@ -24,14 +24,14 @@ class GetAccountAliasResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_account_alias():
+async def get_account_alias():
     """
     The IAM Account Alias data source allows access to the account alias
     for the effective account in which Terraform is working.
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__)
 
     return GetAccountAliasResult(
         account_alias=__ret__.get('accountAlias'),

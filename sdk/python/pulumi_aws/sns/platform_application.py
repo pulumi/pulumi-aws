@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PlatformApplication(pulumi.CustomResource):
     """
@@ -21,15 +21,15 @@ class PlatformApplication(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['eventDeliveryFailureTopicArn'] = event_delivery_failure_topic_arn
+        __props__['event_delivery_failure_topic_arn'] = event_delivery_failure_topic_arn
 
-        __props__['eventEndpointCreatedTopicArn'] = event_endpoint_created_topic_arn
+        __props__['event_endpoint_created_topic_arn'] = event_endpoint_created_topic_arn
 
-        __props__['eventEndpointDeletedTopicArn'] = event_endpoint_deleted_topic_arn
+        __props__['event_endpoint_deleted_topic_arn'] = event_endpoint_deleted_topic_arn
 
-        __props__['eventEndpointUpdatedTopicArn'] = event_endpoint_updated_topic_arn
+        __props__['event_endpoint_updated_topic_arn'] = event_endpoint_updated_topic_arn
 
-        __props__['failureFeedbackRoleArn'] = failure_feedback_role_arn
+        __props__['failure_feedback_role_arn'] = failure_feedback_role_arn
 
         __props__['name'] = name
 
@@ -39,13 +39,13 @@ class PlatformApplication(pulumi.CustomResource):
 
         if not platform_credential:
             raise TypeError('Missing required property platform_credential')
-        __props__['platformCredential'] = platform_credential
+        __props__['platform_credential'] = platform_credential
 
-        __props__['platformPrincipal'] = platform_principal
+        __props__['platform_principal'] = platform_principal
 
-        __props__['successFeedbackRoleArn'] = success_feedback_role_arn
+        __props__['success_feedback_role_arn'] = success_feedback_role_arn
 
-        __props__['successFeedbackSampleRate'] = success_feedback_sample_rate
+        __props__['success_feedback_sample_rate'] = success_feedback_sample_rate
 
         __props__['arn'] = None
 
@@ -54,4 +54,11 @@ class PlatformApplication(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

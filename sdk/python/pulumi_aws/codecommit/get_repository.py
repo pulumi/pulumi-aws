@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetRepositoryResult(object):
     """
@@ -42,14 +42,14 @@ class GetRepositoryResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_repository(repository_name=None):
+async def get_repository(repository_name=None):
     """
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
     """
     __args__ = dict()
 
     __args__['repositoryName'] = repository_name
-    __ret__ = pulumi.runtime.invoke('aws:codecommit/getRepository:getRepository', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:codecommit/getRepository:getRepository', __args__)
 
     return GetRepositoryResult(
         arn=__ret__.get('arn'),

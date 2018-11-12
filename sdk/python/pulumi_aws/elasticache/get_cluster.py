@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetClusterResult(object):
     """
@@ -141,7 +141,7 @@ class GetClusterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_cluster(cluster_id=None, tags=None):
+async def get_cluster(cluster_id=None, tags=None):
     """
     Use this data source to get information about an Elasticache Cluster
     """
@@ -149,7 +149,7 @@ def get_cluster(cluster_id=None, tags=None):
 
     __args__['clusterId'] = cluster_id
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:elasticache/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticache/getCluster:getCluster', __args__)
 
     return GetClusterResult(
         arn=__ret__.get('arn'),

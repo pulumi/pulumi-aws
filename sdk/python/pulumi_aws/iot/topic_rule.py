@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TopicRule(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
@@ -18,9 +18,9 @@ class TopicRule(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cloudwatchAlarm'] = cloudwatch_alarm
+        __props__['cloudwatch_alarm'] = cloudwatch_alarm
 
-        __props__['cloudwatchMetric'] = cloudwatch_metric
+        __props__['cloudwatch_metric'] = cloudwatch_metric
 
         __props__['description'] = description
 
@@ -36,7 +36,7 @@ class TopicRule(pulumi.CustomResource):
 
         __props__['kinesis'] = kinesis
 
-        __props__['lambda'] = lambda_
+        __props__['lambda_'] = lambda_
 
         __props__['name'] = name
 
@@ -52,7 +52,7 @@ class TopicRule(pulumi.CustomResource):
 
         if not sql_version:
             raise TypeError('Missing required property sql_version')
-        __props__['sqlVersion'] = sql_version
+        __props__['sql_version'] = sql_version
 
         __props__['sqs'] = sqs
 
@@ -63,4 +63,11 @@ class TopicRule(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

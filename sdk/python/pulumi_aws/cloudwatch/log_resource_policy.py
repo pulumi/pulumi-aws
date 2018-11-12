@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LogResourcePolicy(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         if not policy_document:
             raise TypeError('Missing required property policy_document')
-        __props__['policyDocument'] = policy_document
+        __props__['policy_document'] = policy_document
 
         if not policy_name:
             raise TypeError('Missing required property policy_name')
-        __props__['policyName'] = policy_name
+        __props__['policy_name'] = policy_name
 
         super(LogResourcePolicy, __self__).__init__(
             'aws:cloudwatch/logResourcePolicy:LogResourcePolicy',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetPartitionResult(object):
     """
@@ -21,13 +21,13 @@ class GetPartitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_partition():
+async def get_partition():
     """
     Use this data source to lookup current AWS partition in which Terraform is working
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__)
 
     return GetPartitionResult(
         partition=__ret__.get('partition'),

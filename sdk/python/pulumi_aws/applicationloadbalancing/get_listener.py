@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetListenerResult(object):
     """
@@ -39,7 +39,7 @@ class GetListenerResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_listener(arn=None, load_balancer_arn=None, port=None):
+async def get_listener(arn=None, load_balancer_arn=None, port=None):
     """
     ~> **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
     
@@ -54,7 +54,7 @@ def get_listener(arn=None, load_balancer_arn=None, port=None):
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
-    __ret__ = pulumi.runtime.invoke('aws:applicationloadbalancing/getListener:getListener', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:applicationloadbalancing/getListener:getListener', __args__)
 
     return GetListenerResult(
         arn=__ret__.get('arn'),

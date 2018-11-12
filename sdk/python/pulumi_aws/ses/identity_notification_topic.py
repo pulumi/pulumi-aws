@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class IdentityNotificationTopic(pulumi.CustomResource):
     """
@@ -27,13 +27,20 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         if not notification_type:
             raise TypeError('Missing required property notification_type')
-        __props__['notificationType'] = notification_type
+        __props__['notification_type'] = notification_type
 
-        __props__['topicArn'] = topic_arn
+        __props__['topic_arn'] = topic_arn
 
         super(IdentityNotificationTopic, __self__).__init__(
             'aws:ses/identityNotificationTopic:IdentityNotificationTopic',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetAvailabilityZoneResult(object):
     """
@@ -45,7 +45,7 @@ class GetAvailabilityZoneResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_availability_zone(name=None, state=None):
+async def get_availability_zone(name=None, state=None):
     """
     `aws_availability_zone` provides details about a specific availability zone (AZ)
     in the current region.
@@ -63,7 +63,7 @@ def get_availability_zone(name=None, state=None):
 
     __args__['name'] = name
     __args__['state'] = state
-    __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__)
 
     return GetAvailabilityZoneResult(
         name=__ret__.get('name'),

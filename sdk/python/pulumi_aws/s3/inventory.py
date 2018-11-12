@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Inventory(pulumi.CustomResource):
     """
@@ -35,11 +35,11 @@ class Inventory(pulumi.CustomResource):
 
         if not included_object_versions:
             raise TypeError('Missing required property included_object_versions')
-        __props__['includedObjectVersions'] = included_object_versions
+        __props__['included_object_versions'] = included_object_versions
 
         __props__['name'] = name
 
-        __props__['optionalFields'] = optional_fields
+        __props__['optional_fields'] = optional_fields
 
         if not schedule:
             raise TypeError('Missing required property schedule')
@@ -50,4 +50,11 @@ class Inventory(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

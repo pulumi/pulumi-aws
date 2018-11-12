@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Instance(pulumi.CustomResource):
     """
@@ -40,89 +40,89 @@ class Instance(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allocatedStorage'] = allocated_storage
+        __props__['allocated_storage'] = allocated_storage
 
-        __props__['allowMajorVersionUpgrade'] = allow_major_version_upgrade
+        __props__['allow_major_version_upgrade'] = allow_major_version_upgrade
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
+        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
-        __props__['backupRetentionPeriod'] = backup_retention_period
+        __props__['backup_retention_period'] = backup_retention_period
 
-        __props__['backupWindow'] = backup_window
+        __props__['backup_window'] = backup_window
 
-        __props__['characterSetName'] = character_set_name
+        __props__['character_set_name'] = character_set_name
 
-        __props__['copyTagsToSnapshot'] = copy_tags_to_snapshot
+        __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
 
-        __props__['dbSubnetGroupName'] = db_subnet_group_name
+        __props__['db_subnet_group_name'] = db_subnet_group_name
 
-        __props__['deletionProtection'] = deletion_protection
+        __props__['deletion_protection'] = deletion_protection
 
         __props__['domain'] = domain
 
-        __props__['domainIamRoleName'] = domain_iam_role_name
+        __props__['domain_iam_role_name'] = domain_iam_role_name
 
-        __props__['enabledCloudwatchLogsExports'] = enabled_cloudwatch_logs_exports
+        __props__['enabled_cloudwatch_logs_exports'] = enabled_cloudwatch_logs_exports
 
         __props__['engine'] = engine
 
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
-        __props__['finalSnapshotIdentifier'] = final_snapshot_identifier
+        __props__['final_snapshot_identifier'] = final_snapshot_identifier
 
-        __props__['iamDatabaseAuthenticationEnabled'] = iam_database_authentication_enabled
+        __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
 
         __props__['identifier'] = identifier
 
-        __props__['identifierPrefix'] = identifier_prefix
+        __props__['identifier_prefix'] = identifier_prefix
 
         if not instance_class:
             raise TypeError('Missing required property instance_class')
-        __props__['instanceClass'] = instance_class
+        __props__['instance_class'] = instance_class
 
         __props__['iops'] = iops
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
-        __props__['licenseModel'] = license_model
+        __props__['license_model'] = license_model
 
-        __props__['maintenanceWindow'] = maintenance_window
+        __props__['maintenance_window'] = maintenance_window
 
-        __props__['monitoringInterval'] = monitoring_interval
+        __props__['monitoring_interval'] = monitoring_interval
 
-        __props__['monitoringRoleArn'] = monitoring_role_arn
+        __props__['monitoring_role_arn'] = monitoring_role_arn
 
-        __props__['multiAz'] = multi_az
+        __props__['multi_az'] = multi_az
 
         __props__['name'] = name
 
-        __props__['optionGroupName'] = option_group_name
+        __props__['option_group_name'] = option_group_name
 
-        __props__['parameterGroupName'] = parameter_group_name
+        __props__['parameter_group_name'] = parameter_group_name
 
         __props__['password'] = password
 
         __props__['port'] = port
 
-        __props__['publiclyAccessible'] = publicly_accessible
+        __props__['publicly_accessible'] = publicly_accessible
 
-        __props__['replicateSourceDb'] = replicate_source_db
+        __props__['replicate_source_db'] = replicate_source_db
 
-        __props__['s3Import'] = s3_import
+        __props__['s3_import'] = s3_import
 
-        __props__['securityGroupNames'] = security_group_names
+        __props__['security_group_names'] = security_group_names
 
-        __props__['skipFinalSnapshot'] = skip_final_snapshot
+        __props__['skip_final_snapshot'] = skip_final_snapshot
 
-        __props__['snapshotIdentifier'] = snapshot_identifier
+        __props__['snapshot_identifier'] = snapshot_identifier
 
-        __props__['storageEncrypted'] = storage_encrypted
+        __props__['storage_encrypted'] = storage_encrypted
 
-        __props__['storageType'] = storage_type
+        __props__['storage_type'] = storage_type
 
         __props__['tags'] = tags
 
@@ -130,7 +130,7 @@ class Instance(pulumi.CustomResource):
 
         __props__['username'] = username
 
-        __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
+        __props__['vpc_security_group_ids'] = vpc_security_group_ids
 
         __props__['address'] = None
         __props__['arn'] = None
@@ -146,4 +146,11 @@ class Instance(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

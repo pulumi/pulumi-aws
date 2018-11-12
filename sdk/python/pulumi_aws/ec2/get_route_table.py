@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetRouteTableResult(object):
     """
@@ -42,7 +42,7 @@ class GetRouteTableResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_route_table(filters=None, route_table_id=None, subnet_id=None, tags=None, vpc_id=None):
+async def get_route_table(filters=None, route_table_id=None, subnet_id=None, tags=None, vpc_id=None):
     """
     `aws_route_table` provides details about a specific Route Table.
     
@@ -57,7 +57,7 @@ def get_route_table(filters=None, route_table_id=None, subnet_id=None, tags=None
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTable:getRouteTable', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getRouteTable:getRouteTable', __args__)
 
     return GetRouteTableResult(
         associations=__ret__.get('associations'),

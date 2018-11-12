@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LogMetricFilter(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class LogMetricFilter(pulumi.CustomResource):
 
         if not log_group_name:
             raise TypeError('Missing required property log_group_name')
-        __props__['logGroupName'] = log_group_name
+        __props__['log_group_name'] = log_group_name
 
         if not metric_transformation:
             raise TypeError('Missing required property metric_transformation')
-        __props__['metricTransformation'] = metric_transformation
+        __props__['metric_transformation'] = metric_transformation
 
         __props__['name'] = name
 
@@ -40,4 +40,11 @@ class LogMetricFilter(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

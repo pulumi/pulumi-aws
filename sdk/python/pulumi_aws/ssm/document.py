@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Document(pulumi.CustomResource):
     """
@@ -29,11 +29,11 @@ class Document(pulumi.CustomResource):
             raise TypeError('Missing required property content')
         __props__['content'] = content
 
-        __props__['documentFormat'] = document_format
+        __props__['document_format'] = document_format
 
         if not document_type:
             raise TypeError('Missing required property document_type')
-        __props__['documentType'] = document_type
+        __props__['document_type'] = document_type
 
         __props__['name'] = name
 
@@ -59,4 +59,11 @@ class Document(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

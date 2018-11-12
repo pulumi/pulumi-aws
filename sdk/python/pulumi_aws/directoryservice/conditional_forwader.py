@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ConditionalForwader(pulumi.CustomResource):
     """
@@ -23,19 +23,26 @@ class ConditionalForwader(pulumi.CustomResource):
 
         if not directory_id:
             raise TypeError('Missing required property directory_id')
-        __props__['directoryId'] = directory_id
+        __props__['directory_id'] = directory_id
 
         if not dns_ips:
             raise TypeError('Missing required property dns_ips')
-        __props__['dnsIps'] = dns_ips
+        __props__['dns_ips'] = dns_ips
 
         if not remote_domain_name:
             raise TypeError('Missing required property remote_domain_name')
-        __props__['remoteDomainName'] = remote_domain_name
+        __props__['remote_domain_name'] = remote_domain_name
 
         super(ConditionalForwader, __self__).__init__(
             'aws:directoryservice/conditionalForwader:ConditionalForwader',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

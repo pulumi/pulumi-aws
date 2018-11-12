@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Distribution(pulumi.CustomResource):
     """
@@ -33,49 +33,49 @@ class Distribution(pulumi.CustomResource):
 
         __props__['aliases'] = aliases
 
-        __props__['cacheBehaviors'] = cache_behaviors
+        __props__['cache_behaviors'] = cache_behaviors
 
         __props__['comment'] = comment
 
-        __props__['customErrorResponses'] = custom_error_responses
+        __props__['custom_error_responses'] = custom_error_responses
 
         if not default_cache_behavior:
             raise TypeError('Missing required property default_cache_behavior')
-        __props__['defaultCacheBehavior'] = default_cache_behavior
+        __props__['default_cache_behavior'] = default_cache_behavior
 
-        __props__['defaultRootObject'] = default_root_object
+        __props__['default_root_object'] = default_root_object
 
         if not enabled:
             raise TypeError('Missing required property enabled')
         __props__['enabled'] = enabled
 
-        __props__['httpVersion'] = http_version
+        __props__['http_version'] = http_version
 
-        __props__['isIpv6Enabled'] = is_ipv6_enabled
+        __props__['is_ipv6_enabled'] = is_ipv6_enabled
 
-        __props__['loggingConfig'] = logging_config
+        __props__['logging_config'] = logging_config
 
-        __props__['orderedCacheBehaviors'] = ordered_cache_behaviors
+        __props__['ordered_cache_behaviors'] = ordered_cache_behaviors
 
         if not origins:
             raise TypeError('Missing required property origins')
         __props__['origins'] = origins
 
-        __props__['priceClass'] = price_class
+        __props__['price_class'] = price_class
 
         if not restrictions:
             raise TypeError('Missing required property restrictions')
         __props__['restrictions'] = restrictions
 
-        __props__['retainOnDelete'] = retain_on_delete
+        __props__['retain_on_delete'] = retain_on_delete
 
         __props__['tags'] = tags
 
         if not viewer_certificate:
             raise TypeError('Missing required property viewer_certificate')
-        __props__['viewerCertificate'] = viewer_certificate
+        __props__['viewer_certificate'] = viewer_certificate
 
-        __props__['webAclId'] = web_acl_id
+        __props__['web_acl_id'] = web_acl_id
 
         __props__['active_trusted_signers'] = None
         __props__['arn'] = None
@@ -92,4 +92,11 @@ class Distribution(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

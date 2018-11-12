@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class BasePathMapping(pulumi.CustomResource):
     """
@@ -25,19 +25,26 @@ class BasePathMapping(pulumi.CustomResource):
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
-        __props__['basePath'] = base_path
+        __props__['base_path'] = base_path
 
         if not domain_name:
             raise TypeError('Missing required property domain_name')
-        __props__['domainName'] = domain_name
+        __props__['domain_name'] = domain_name
 
-        __props__['stageName'] = stage_name
+        __props__['stage_name'] = stage_name
 
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

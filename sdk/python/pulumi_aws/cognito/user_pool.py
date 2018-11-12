@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UserPool(pulumi.CustomResource):
     """
@@ -21,41 +21,41 @@ class UserPool(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['adminCreateUserConfig'] = admin_create_user_config
+        __props__['admin_create_user_config'] = admin_create_user_config
 
-        __props__['aliasAttributes'] = alias_attributes
+        __props__['alias_attributes'] = alias_attributes
 
-        __props__['autoVerifiedAttributes'] = auto_verified_attributes
+        __props__['auto_verified_attributes'] = auto_verified_attributes
 
-        __props__['deviceConfiguration'] = device_configuration
+        __props__['device_configuration'] = device_configuration
 
-        __props__['emailConfiguration'] = email_configuration
+        __props__['email_configuration'] = email_configuration
 
-        __props__['emailVerificationMessage'] = email_verification_message
+        __props__['email_verification_message'] = email_verification_message
 
-        __props__['emailVerificationSubject'] = email_verification_subject
+        __props__['email_verification_subject'] = email_verification_subject
 
-        __props__['lambdaConfig'] = lambda_config
+        __props__['lambda_config'] = lambda_config
 
-        __props__['mfaConfiguration'] = mfa_configuration
+        __props__['mfa_configuration'] = mfa_configuration
 
         __props__['name'] = name
 
-        __props__['passwordPolicy'] = password_policy
+        __props__['password_policy'] = password_policy
 
         __props__['schemas'] = schemas
 
-        __props__['smsAuthenticationMessage'] = sms_authentication_message
+        __props__['sms_authentication_message'] = sms_authentication_message
 
-        __props__['smsConfiguration'] = sms_configuration
+        __props__['sms_configuration'] = sms_configuration
 
-        __props__['smsVerificationMessage'] = sms_verification_message
+        __props__['sms_verification_message'] = sms_verification_message
 
         __props__['tags'] = tags
 
-        __props__['usernameAttributes'] = username_attributes
+        __props__['username_attributes'] = username_attributes
 
-        __props__['verificationMessageTemplate'] = verification_message_template
+        __props__['verification_message_template'] = verification_message_template
 
         __props__['arn'] = None
         __props__['creation_date'] = None
@@ -67,4 +67,11 @@ class UserPool(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

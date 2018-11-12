@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Preset(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Preset(pulumi.CustomResource):
 
         __props__['audio'] = audio
 
-        __props__['audioCodecOptions'] = audio_codec_options
+        __props__['audio_codec_options'] = audio_codec_options
 
         if not container:
             raise TypeError('Missing required property container')
@@ -39,9 +39,9 @@ class Preset(pulumi.CustomResource):
 
         __props__['video'] = video
 
-        __props__['videoCodecOptions'] = video_codec_options
+        __props__['video_codec_options'] = video_codec_options
 
-        __props__['videoWatermarks'] = video_watermarks
+        __props__['video_watermarks'] = video_watermarks
 
         __props__['arn'] = None
 
@@ -50,4 +50,11 @@ class Preset(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

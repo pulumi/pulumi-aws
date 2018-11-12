@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Dashboard(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class Dashboard(pulumi.CustomResource):
 
         if not dashboard_body:
             raise TypeError('Missing required property dashboard_body')
-        __props__['dashboardBody'] = dashboard_body
+        __props__['dashboard_body'] = dashboard_body
 
         if not dashboard_name:
             raise TypeError('Missing required property dashboard_name')
-        __props__['dashboardName'] = dashboard_name
+        __props__['dashboard_name'] = dashboard_name
 
         __props__['dashboard_arn'] = None
 
@@ -36,4 +36,11 @@ class Dashboard(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

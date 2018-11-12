@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetTargetGroupResult(object):
     """
@@ -51,7 +51,7 @@ class GetTargetGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_target_group(arn=None, name=None, tags=None):
+async def get_target_group(arn=None, name=None, tags=None):
     """
     ~> **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
     
@@ -66,7 +66,7 @@ def get_target_group(arn=None, name=None, tags=None):
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:applicationloadbalancing/getTargetGroup:getTargetGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:applicationloadbalancing/getTargetGroup:getTargetGroup', __args__)
 
     return GetTargetGroupResult(
         arn=__ret__.get('arn'),

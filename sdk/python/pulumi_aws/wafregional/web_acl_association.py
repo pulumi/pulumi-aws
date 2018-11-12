@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class WebAclAssociation(pulumi.CustomResource):
     """
@@ -25,15 +25,22 @@ class WebAclAssociation(pulumi.CustomResource):
 
         if not resource_arn:
             raise TypeError('Missing required property resource_arn')
-        __props__['resourceArn'] = resource_arn
+        __props__['resource_arn'] = resource_arn
 
         if not web_acl_id:
             raise TypeError('Missing required property web_acl_id')
-        __props__['webAclId'] = web_acl_id
+        __props__['web_acl_id'] = web_acl_id
 
         super(WebAclAssociation, __self__).__init__(
             'aws:wafregional/webAclAssociation:WebAclAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

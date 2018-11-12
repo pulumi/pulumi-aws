@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LogSubscriptionFilter(pulumi.CustomResource):
     """
@@ -23,25 +23,32 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
         if not destination_arn:
             raise TypeError('Missing required property destination_arn')
-        __props__['destinationArn'] = destination_arn
+        __props__['destination_arn'] = destination_arn
 
         __props__['distribution'] = distribution
 
         if not filter_pattern:
             raise TypeError('Missing required property filter_pattern')
-        __props__['filterPattern'] = filter_pattern
+        __props__['filter_pattern'] = filter_pattern
 
         if not log_group:
             raise TypeError('Missing required property log_group')
-        __props__['logGroup'] = log_group
+        __props__['log_group'] = log_group
 
         __props__['name'] = name
 
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         super(LogSubscriptionFilter, __self__).__init__(
             'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

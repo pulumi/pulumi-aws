@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Hsm(pulumi.CustomResource):
     """
@@ -21,15 +21,15 @@ class Hsm(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
         if not cluster_id:
             raise TypeError('Missing required property cluster_id')
-        __props__['clusterId'] = cluster_id
+        __props__['cluster_id'] = cluster_id
 
-        __props__['ipAddress'] = ip_address
+        __props__['ip_address'] = ip_address
 
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         __props__['hsm_eni_id'] = None
         __props__['hsm_id'] = None
@@ -40,4 +40,11 @@ class Hsm(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

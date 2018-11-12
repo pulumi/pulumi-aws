@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FirehoseDeliveryStream(pulumi.CustomResource):
     """
@@ -29,27 +29,34 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             raise TypeError('Missing required property destination')
         __props__['destination'] = destination
 
-        __props__['destinationId'] = destination_id
+        __props__['destination_id'] = destination_id
 
-        __props__['elasticsearchConfiguration'] = elasticsearch_configuration
+        __props__['elasticsearch_configuration'] = elasticsearch_configuration
 
-        __props__['extendedS3Configuration'] = extended_s3_configuration
+        __props__['extended_s3_configuration'] = extended_s3_configuration
 
-        __props__['kinesisSourceConfiguration'] = kinesis_source_configuration
+        __props__['kinesis_source_configuration'] = kinesis_source_configuration
 
         __props__['name'] = name
 
-        __props__['redshiftConfiguration'] = redshift_configuration
+        __props__['redshift_configuration'] = redshift_configuration
 
-        __props__['s3Configuration'] = s3_configuration
+        __props__['s3_configuration'] = s3_configuration
 
-        __props__['splunkConfiguration'] = splunk_configuration
+        __props__['splunk_configuration'] = splunk_configuration
 
-        __props__['versionId'] = version_id
+        __props__['version_id'] = version_id
 
         super(FirehoseDeliveryStream, __self__).__init__(
             'aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Endpoint(pulumi.CustomResource):
     """
@@ -24,39 +24,39 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['certificateArn'] = certificate_arn
+        __props__['certificate_arn'] = certificate_arn
 
-        __props__['databaseName'] = database_name
+        __props__['database_name'] = database_name
 
         if not endpoint_id:
             raise TypeError('Missing required property endpoint_id')
-        __props__['endpointId'] = endpoint_id
+        __props__['endpoint_id'] = endpoint_id
 
         if not endpoint_type:
             raise TypeError('Missing required property endpoint_type')
-        __props__['endpointType'] = endpoint_type
+        __props__['endpoint_type'] = endpoint_type
 
         if not engine_name:
             raise TypeError('Missing required property engine_name')
-        __props__['engineName'] = engine_name
+        __props__['engine_name'] = engine_name
 
-        __props__['extraConnectionAttributes'] = extra_connection_attributes
+        __props__['extra_connection_attributes'] = extra_connection_attributes
 
-        __props__['kmsKeyArn'] = kms_key_arn
+        __props__['kms_key_arn'] = kms_key_arn
 
-        __props__['mongodbSettings'] = mongodb_settings
+        __props__['mongodb_settings'] = mongodb_settings
 
         __props__['password'] = password
 
         __props__['port'] = port
 
-        __props__['s3Settings'] = s3_settings
+        __props__['s3_settings'] = s3_settings
 
-        __props__['serverName'] = server_name
+        __props__['server_name'] = server_name
 
-        __props__['serviceAccessRole'] = service_access_role
+        __props__['service_access_role'] = service_access_role
 
-        __props__['sslMode'] = ssl_mode
+        __props__['ssl_mode'] = ssl_mode
 
         __props__['tags'] = tags
 
@@ -69,4 +69,11 @@ class Endpoint(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

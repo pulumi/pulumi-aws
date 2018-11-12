@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ScheduledAction(pulumi.CustomResource):
     """
@@ -21,25 +21,25 @@ class ScheduledAction(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['endTime'] = end_time
+        __props__['end_time'] = end_time
 
         __props__['name'] = name
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
-        __props__['scalableDimension'] = scalable_dimension
+        __props__['scalable_dimension'] = scalable_dimension
 
-        __props__['scalableTargetAction'] = scalable_target_action
+        __props__['scalable_target_action'] = scalable_target_action
 
         __props__['schedule'] = schedule
 
         if not service_namespace:
             raise TypeError('Missing required property service_namespace')
-        __props__['serviceNamespace'] = service_namespace
+        __props__['service_namespace'] = service_namespace
 
-        __props__['startTime'] = start_time
+        __props__['start_time'] = start_time
 
         __props__['arn'] = None
 
@@ -48,4 +48,11 @@ class ScheduledAction(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

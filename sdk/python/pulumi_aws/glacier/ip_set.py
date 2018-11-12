@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class IPSet(pulumi.CustomResource):
     """
@@ -29,7 +29,7 @@ class IPSet(pulumi.CustomResource):
 
         if not detector_id:
             raise TypeError('Missing required property detector_id')
-        __props__['detectorId'] = detector_id
+        __props__['detector_id'] = detector_id
 
         if not format:
             raise TypeError('Missing required property format')
@@ -46,4 +46,11 @@ class IPSet(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Pipeline(pulumi.CustomResource):
     """
@@ -21,29 +21,29 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['awsKmsKeyArn'] = aws_kms_key_arn
+        __props__['aws_kms_key_arn'] = aws_kms_key_arn
 
-        __props__['contentConfig'] = content_config
+        __props__['content_config'] = content_config
 
-        __props__['contentConfigPermissions'] = content_config_permissions
+        __props__['content_config_permissions'] = content_config_permissions
 
         if not input_bucket:
             raise TypeError('Missing required property input_bucket')
-        __props__['inputBucket'] = input_bucket
+        __props__['input_bucket'] = input_bucket
 
         __props__['name'] = name
 
         __props__['notifications'] = notifications
 
-        __props__['outputBucket'] = output_bucket
+        __props__['output_bucket'] = output_bucket
 
         if not role:
             raise TypeError('Missing required property role')
         __props__['role'] = role
 
-        __props__['thumbnailConfig'] = thumbnail_config
+        __props__['thumbnail_config'] = thumbnail_config
 
-        __props__['thumbnailConfigPermissions'] = thumbnail_config_permissions
+        __props__['thumbnail_config_permissions'] = thumbnail_config_permissions
 
         __props__['arn'] = None
 
@@ -52,4 +52,11 @@ class Pipeline(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

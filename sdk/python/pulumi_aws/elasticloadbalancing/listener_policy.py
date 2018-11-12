@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ListenerPolicy(pulumi.CustomResource):
     """
@@ -24,17 +24,24 @@ class ListenerPolicy(pulumi.CustomResource):
 
         if not load_balancer_name:
             raise TypeError('Missing required property load_balancer_name')
-        __props__['loadBalancerName'] = load_balancer_name
+        __props__['load_balancer_name'] = load_balancer_name
 
         if not load_balancer_port:
             raise TypeError('Missing required property load_balancer_port')
-        __props__['loadBalancerPort'] = load_balancer_port
+        __props__['load_balancer_port'] = load_balancer_port
 
-        __props__['policyNames'] = policy_names
+        __props__['policy_names'] = policy_names
 
         super(ListenerPolicy, __self__).__init__(
             'aws:elasticloadbalancing/listenerPolicy:ListenerPolicy',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

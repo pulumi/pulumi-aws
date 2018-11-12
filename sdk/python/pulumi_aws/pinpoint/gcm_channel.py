@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GcmChannel(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, api_key=None, application_id=None, enabled=None):
@@ -20,11 +20,11 @@ class GcmChannel(pulumi.CustomResource):
 
         if not api_key:
             raise TypeError('Missing required property api_key')
-        __props__['apiKey'] = api_key
+        __props__['api_key'] = api_key
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
         __props__['enabled'] = enabled
 
@@ -33,4 +33,11 @@ class GcmChannel(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

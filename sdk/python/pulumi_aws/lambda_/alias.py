@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Alias(pulumi.CustomResource):
     """
@@ -28,15 +28,15 @@ class Alias(pulumi.CustomResource):
 
         if not function_name:
             raise TypeError('Missing required property function_name')
-        __props__['functionName'] = function_name
+        __props__['function_name'] = function_name
 
         if not function_version:
             raise TypeError('Missing required property function_version')
-        __props__['functionVersion'] = function_version
+        __props__['function_version'] = function_version
 
         __props__['name'] = name
 
-        __props__['routingConfig'] = routing_config
+        __props__['routing_config'] = routing_config
 
         __props__['arn'] = None
 
@@ -45,4 +45,11 @@ class Alias(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

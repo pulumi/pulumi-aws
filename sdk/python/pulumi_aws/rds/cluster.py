@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Cluster(pulumi.CustomResource):
     """
@@ -39,71 +39,71 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['availabilityZones'] = availability_zones
+        __props__['availability_zones'] = availability_zones
 
-        __props__['backtrackWindow'] = backtrack_window
+        __props__['backtrack_window'] = backtrack_window
 
-        __props__['backupRetentionPeriod'] = backup_retention_period
+        __props__['backup_retention_period'] = backup_retention_period
 
-        __props__['clusterIdentifier'] = cluster_identifier
+        __props__['cluster_identifier'] = cluster_identifier
 
-        __props__['clusterIdentifierPrefix'] = cluster_identifier_prefix
+        __props__['cluster_identifier_prefix'] = cluster_identifier_prefix
 
-        __props__['clusterMembers'] = cluster_members
+        __props__['cluster_members'] = cluster_members
 
-        __props__['databaseName'] = database_name
+        __props__['database_name'] = database_name
 
-        __props__['dbClusterParameterGroupName'] = db_cluster_parameter_group_name
+        __props__['db_cluster_parameter_group_name'] = db_cluster_parameter_group_name
 
-        __props__['dbSubnetGroupName'] = db_subnet_group_name
+        __props__['db_subnet_group_name'] = db_subnet_group_name
 
-        __props__['deletionProtection'] = deletion_protection
+        __props__['deletion_protection'] = deletion_protection
 
-        __props__['enabledCloudwatchLogsExports'] = enabled_cloudwatch_logs_exports
+        __props__['enabled_cloudwatch_logs_exports'] = enabled_cloudwatch_logs_exports
 
         __props__['engine'] = engine
 
-        __props__['engineMode'] = engine_mode
+        __props__['engine_mode'] = engine_mode
 
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
-        __props__['finalSnapshotIdentifier'] = final_snapshot_identifier
+        __props__['final_snapshot_identifier'] = final_snapshot_identifier
 
-        __props__['iamDatabaseAuthenticationEnabled'] = iam_database_authentication_enabled
+        __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
 
-        __props__['iamRoles'] = iam_roles
+        __props__['iam_roles'] = iam_roles
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
-        __props__['masterPassword'] = master_password
+        __props__['master_password'] = master_password
 
-        __props__['masterUsername'] = master_username
+        __props__['master_username'] = master_username
 
         __props__['port'] = port
 
-        __props__['preferredBackupWindow'] = preferred_backup_window
+        __props__['preferred_backup_window'] = preferred_backup_window
 
-        __props__['preferredMaintenanceWindow'] = preferred_maintenance_window
+        __props__['preferred_maintenance_window'] = preferred_maintenance_window
 
-        __props__['replicationSourceIdentifier'] = replication_source_identifier
+        __props__['replication_source_identifier'] = replication_source_identifier
 
-        __props__['s3Import'] = s3_import
+        __props__['s3_import'] = s3_import
 
-        __props__['scalingConfiguration'] = scaling_configuration
+        __props__['scaling_configuration'] = scaling_configuration
 
-        __props__['skipFinalSnapshot'] = skip_final_snapshot
+        __props__['skip_final_snapshot'] = skip_final_snapshot
 
-        __props__['snapshotIdentifier'] = snapshot_identifier
+        __props__['snapshot_identifier'] = snapshot_identifier
 
-        __props__['sourceRegion'] = source_region
+        __props__['source_region'] = source_region
 
-        __props__['storageEncrypted'] = storage_encrypted
+        __props__['storage_encrypted'] = storage_encrypted
 
         __props__['tags'] = tags
 
-        __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
+        __props__['vpc_security_group_ids'] = vpc_security_group_ids
 
         __props__['arn'] = None
         __props__['cluster_resource_id'] = None
@@ -116,4 +116,11 @@ class Cluster(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

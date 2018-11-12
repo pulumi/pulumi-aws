@@ -566,12 +566,6 @@
   version = "v0.2.0"
 
 [[projects]]
-  name = "github.com/pelletier/go-toml"
-  packages = ["."]
-  revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
-  version = "v1.0.1"
-
-[[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
@@ -649,7 +643,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "8f5d8e993fe779394ce39fe330591759a4b1cc67"
+  revision = "76de635651f249fda570be21fdbb7676123d12f6"
 
 [[projects]]
   branch = "master"

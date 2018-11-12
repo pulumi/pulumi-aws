@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ProxyProtocolPolicy(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
 
         if not instance_ports:
             raise TypeError('Missing required property instance_ports')
-        __props__['instancePorts'] = instance_ports
+        __props__['instance_ports'] = instance_ports
 
         if not load_balancer:
             raise TypeError('Missing required property load_balancer')
-        __props__['loadBalancer'] = load_balancer
+        __props__['load_balancer'] = load_balancer
 
         super(ProxyProtocolPolicy, __self__).__init__(
             'aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

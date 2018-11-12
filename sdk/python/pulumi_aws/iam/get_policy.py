@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetPolicyResult(object):
     """
@@ -42,7 +42,7 @@ class GetPolicyResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_policy(arn=None):
+async def get_policy(arn=None):
     """
     This data source can be used to fetch information about a specific
     IAM policy.
@@ -50,7 +50,7 @@ def get_policy(arn=None):
     __args__ = dict()
 
     __args__['arn'] = arn
-    __ret__ = pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__)
 
     return GetPolicyResult(
         description=__ret__.get('description'),

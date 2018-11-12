@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DefaultVpc(pulumi.CustomResource):
     """
@@ -30,13 +30,13 @@ class DefaultVpc(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['enableClassiclink'] = enable_classiclink
+        __props__['enable_classiclink'] = enable_classiclink
 
-        __props__['enableClassiclinkDnsSupport'] = enable_classiclink_dns_support
+        __props__['enable_classiclink_dns_support'] = enable_classiclink_dns_support
 
-        __props__['enableDnsHostnames'] = enable_dns_hostnames
+        __props__['enable_dns_hostnames'] = enable_dns_hostnames
 
-        __props__['enableDnsSupport'] = enable_dns_support
+        __props__['enable_dns_support'] = enable_dns_support
 
         __props__['tags'] = tags
 
@@ -57,4 +57,11 @@ class DefaultVpc(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

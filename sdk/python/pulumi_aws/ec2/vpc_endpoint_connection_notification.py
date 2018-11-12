@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpointConnectionNotification(pulumi.CustomResource):
     """
@@ -24,15 +24,15 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
         if not connection_events:
             raise TypeError('Missing required property connection_events')
-        __props__['connectionEvents'] = connection_events
+        __props__['connection_events'] = connection_events
 
         if not connection_notification_arn:
             raise TypeError('Missing required property connection_notification_arn')
-        __props__['connectionNotificationArn'] = connection_notification_arn
+        __props__['connection_notification_arn'] = connection_notification_arn
 
-        __props__['vpcEndpointId'] = vpc_endpoint_id
+        __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
-        __props__['vpcEndpointServiceId'] = vpc_endpoint_service_id
+        __props__['vpc_endpoint_service_id'] = vpc_endpoint_service_id
 
         __props__['notification_type'] = None
         __props__['state'] = None
@@ -42,4 +42,11 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ReplicationInstance(pulumi.CustomResource):
     """
@@ -21,37 +21,37 @@ class ReplicationInstance(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allocatedStorage'] = allocated_storage
+        __props__['allocated_storage'] = allocated_storage
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
+        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
-        __props__['kmsKeyArn'] = kms_key_arn
+        __props__['kms_key_arn'] = kms_key_arn
 
-        __props__['multiAz'] = multi_az
+        __props__['multi_az'] = multi_az
 
-        __props__['preferredMaintenanceWindow'] = preferred_maintenance_window
+        __props__['preferred_maintenance_window'] = preferred_maintenance_window
 
-        __props__['publiclyAccessible'] = publicly_accessible
+        __props__['publicly_accessible'] = publicly_accessible
 
         if not replication_instance_class:
             raise TypeError('Missing required property replication_instance_class')
-        __props__['replicationInstanceClass'] = replication_instance_class
+        __props__['replication_instance_class'] = replication_instance_class
 
         if not replication_instance_id:
             raise TypeError('Missing required property replication_instance_id')
-        __props__['replicationInstanceId'] = replication_instance_id
+        __props__['replication_instance_id'] = replication_instance_id
 
-        __props__['replicationSubnetGroupId'] = replication_subnet_group_id
+        __props__['replication_subnet_group_id'] = replication_subnet_group_id
 
         __props__['tags'] = tags
 
-        __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
+        __props__['vpc_security_group_ids'] = vpc_security_group_ids
 
         __props__['replication_instance_arn'] = None
         __props__['replication_instance_private_ips'] = None
@@ -62,4 +62,11 @@ class ReplicationInstance(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SecurityConfiguration(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         if not encryption_configuration:
             raise TypeError('Missing required property encryption_configuration')
-        __props__['encryptionConfiguration'] = encryption_configuration
+        __props__['encryption_configuration'] = encryption_configuration
 
         __props__['name'] = name
 
@@ -32,4 +32,11 @@ class SecurityConfiguration(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

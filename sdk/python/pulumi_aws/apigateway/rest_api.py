@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RestApi(pulumi.CustomResource):
     """
@@ -21,17 +21,17 @@ class RestApi(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['apiKeySource'] = api_key_source
+        __props__['api_key_source'] = api_key_source
 
-        __props__['binaryMediaTypes'] = binary_media_types
+        __props__['binary_media_types'] = binary_media_types
 
         __props__['body'] = body
 
         __props__['description'] = description
 
-        __props__['endpointConfiguration'] = endpoint_configuration
+        __props__['endpoint_configuration'] = endpoint_configuration
 
-        __props__['minimumCompressionSize'] = minimum_compression_size
+        __props__['minimum_compression_size'] = minimum_compression_size
 
         __props__['name'] = name
 
@@ -46,4 +46,11 @@ class RestApi(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

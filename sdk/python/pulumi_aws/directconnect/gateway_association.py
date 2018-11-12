@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GatewayAssociation(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class GatewayAssociation(pulumi.CustomResource):
 
         if not dx_gateway_id:
             raise TypeError('Missing required property dx_gateway_id')
-        __props__['dxGatewayId'] = dx_gateway_id
+        __props__['dx_gateway_id'] = dx_gateway_id
 
         if not vpn_gateway_id:
             raise TypeError('Missing required property vpn_gateway_id')
-        __props__['vpnGatewayId'] = vpn_gateway_id
+        __props__['vpn_gateway_id'] = vpn_gateway_id
 
         super(GatewayAssociation, __self__).__init__(
             'aws:directconnect/gatewayAssociation:GatewayAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

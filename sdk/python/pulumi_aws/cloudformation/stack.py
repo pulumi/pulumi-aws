@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Stack(pulumi.CustomResource):
     """
@@ -23,29 +23,29 @@ class Stack(pulumi.CustomResource):
 
         __props__['capabilities'] = capabilities
 
-        __props__['disableRollback'] = disable_rollback
+        __props__['disable_rollback'] = disable_rollback
 
-        __props__['iamRoleArn'] = iam_role_arn
+        __props__['iam_role_arn'] = iam_role_arn
 
         __props__['name'] = name
 
-        __props__['notificationArns'] = notification_arns
+        __props__['notification_arns'] = notification_arns
 
-        __props__['onFailure'] = on_failure
+        __props__['on_failure'] = on_failure
 
         __props__['parameters'] = parameters
 
-        __props__['policyBody'] = policy_body
+        __props__['policy_body'] = policy_body
 
-        __props__['policyUrl'] = policy_url
+        __props__['policy_url'] = policy_url
 
         __props__['tags'] = tags
 
-        __props__['templateBody'] = template_body
+        __props__['template_body'] = template_body
 
-        __props__['templateUrl'] = template_url
+        __props__['template_url'] = template_url
 
-        __props__['timeoutInMinutes'] = timeout_in_minutes
+        __props__['timeout_in_minutes'] = timeout_in_minutes
 
         __props__['outputs'] = None
 
@@ -54,4 +54,11 @@ class Stack(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

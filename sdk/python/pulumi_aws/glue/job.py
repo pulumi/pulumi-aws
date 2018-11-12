@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Job(pulumi.CustomResource):
     """
@@ -21,7 +21,7 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allocatedCapacity'] = allocated_capacity
+        __props__['allocated_capacity'] = allocated_capacity
 
         if not command:
             raise TypeError('Missing required property command')
@@ -29,21 +29,21 @@ class Job(pulumi.CustomResource):
 
         __props__['connections'] = connections
 
-        __props__['defaultArguments'] = default_arguments
+        __props__['default_arguments'] = default_arguments
 
         __props__['description'] = description
 
-        __props__['executionProperty'] = execution_property
+        __props__['execution_property'] = execution_property
 
-        __props__['maxRetries'] = max_retries
+        __props__['max_retries'] = max_retries
 
         __props__['name'] = name
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
-        __props__['securityConfiguration'] = security_configuration
+        __props__['security_configuration'] = security_configuration
 
         __props__['timeout'] = timeout
 
@@ -52,4 +52,11 @@ class Job(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

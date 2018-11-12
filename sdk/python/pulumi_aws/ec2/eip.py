@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Eip(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class Eip(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['associateWithPrivateIp'] = associate_with_private_ip
+        __props__['associate_with_private_ip'] = associate_with_private_ip
 
         __props__['instance'] = instance
 
-        __props__['networkInterface'] = network_interface
+        __props__['network_interface'] = network_interface
 
         __props__['tags'] = tags
 
@@ -46,4 +46,11 @@ class Eip(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

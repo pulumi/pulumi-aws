@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AccountPasswordPolicy(pulumi.CustomResource):
     """
@@ -25,23 +25,23 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowUsersToChangePassword'] = allow_users_to_change_password
+        __props__['allow_users_to_change_password'] = allow_users_to_change_password
 
-        __props__['hardExpiry'] = hard_expiry
+        __props__['hard_expiry'] = hard_expiry
 
-        __props__['maxPasswordAge'] = max_password_age
+        __props__['max_password_age'] = max_password_age
 
-        __props__['minimumPasswordLength'] = minimum_password_length
+        __props__['minimum_password_length'] = minimum_password_length
 
-        __props__['passwordReusePrevention'] = password_reuse_prevention
+        __props__['password_reuse_prevention'] = password_reuse_prevention
 
-        __props__['requireLowercaseCharacters'] = require_lowercase_characters
+        __props__['require_lowercase_characters'] = require_lowercase_characters
 
-        __props__['requireNumbers'] = require_numbers
+        __props__['require_numbers'] = require_numbers
 
-        __props__['requireSymbols'] = require_symbols
+        __props__['require_symbols'] = require_symbols
 
-        __props__['requireUppercaseCharacters'] = require_uppercase_characters
+        __props__['require_uppercase_characters'] = require_uppercase_characters
 
         __props__['expire_passwords'] = None
 
@@ -50,4 +50,11 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

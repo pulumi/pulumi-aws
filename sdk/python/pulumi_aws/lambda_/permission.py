@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Permission(pulumi.CustomResource):
     """
@@ -26,7 +26,7 @@ class Permission(pulumi.CustomResource):
             raise TypeError('Missing required property action')
         __props__['action'] = action
 
-        __props__['eventSourceToken'] = event_source_token
+        __props__['event_source_token'] = event_source_token
 
         if not function:
             raise TypeError('Missing required property function')
@@ -38,17 +38,24 @@ class Permission(pulumi.CustomResource):
 
         __props__['qualifier'] = qualifier
 
-        __props__['sourceAccount'] = source_account
+        __props__['source_account'] = source_account
 
-        __props__['sourceArn'] = source_arn
+        __props__['source_arn'] = source_arn
 
-        __props__['statementId'] = statement_id
+        __props__['statement_id'] = statement_id
 
-        __props__['statementIdPrefix'] = statement_id_prefix
+        __props__['statement_id_prefix'] = statement_id_prefix
 
         super(Permission, __self__).__init__(
             'aws:lambda/permission:Permission',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

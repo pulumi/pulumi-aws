@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetRegionResult(object):
     """
@@ -43,7 +43,7 @@ class GetRegionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_region(current=None, endpoint=None, name=None):
+async def get_region(current=None, endpoint=None, name=None):
     """
     `aws_region` provides details about a specific AWS region.
     
@@ -57,7 +57,7 @@ def get_region(current=None, endpoint=None, name=None):
     __args__['current'] = current
     __args__['endpoint'] = endpoint
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__)
 
     return GetRegionResult(
         current=__ret__.get('current'),

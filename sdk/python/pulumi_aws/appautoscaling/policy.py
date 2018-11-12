@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Policy(pulumi.CustomResource):
     """
@@ -21,37 +21,37 @@ class Policy(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['adjustmentType'] = adjustment_type
+        __props__['adjustment_type'] = adjustment_type
 
         __props__['alarms'] = alarms
 
         __props__['cooldown'] = cooldown
 
-        __props__['metricAggregationType'] = metric_aggregation_type
+        __props__['metric_aggregation_type'] = metric_aggregation_type
 
-        __props__['minAdjustmentMagnitude'] = min_adjustment_magnitude
+        __props__['min_adjustment_magnitude'] = min_adjustment_magnitude
 
         __props__['name'] = name
 
-        __props__['policyType'] = policy_type
+        __props__['policy_type'] = policy_type
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
         if not scalable_dimension:
             raise TypeError('Missing required property scalable_dimension')
-        __props__['scalableDimension'] = scalable_dimension
+        __props__['scalable_dimension'] = scalable_dimension
 
         if not service_namespace:
             raise TypeError('Missing required property service_namespace')
-        __props__['serviceNamespace'] = service_namespace
+        __props__['service_namespace'] = service_namespace
 
-        __props__['stepAdjustments'] = step_adjustments
+        __props__['step_adjustments'] = step_adjustments
 
-        __props__['stepScalingPolicyConfigurations'] = step_scaling_policy_configurations
+        __props__['step_scaling_policy_configurations'] = step_scaling_policy_configurations
 
-        __props__['targetTrackingScalingPolicyConfiguration'] = target_tracking_scaling_policy_configuration
+        __props__['target_tracking_scaling_policy_configuration'] = target_tracking_scaling_policy_configuration
 
         __props__['arn'] = None
 
@@ -60,4 +60,11 @@ class Policy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

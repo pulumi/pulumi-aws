@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ReplicationSubnetGroup(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         if not replication_subnet_group_description:
             raise TypeError('Missing required property replication_subnet_group_description')
-        __props__['replicationSubnetGroupDescription'] = replication_subnet_group_description
+        __props__['replication_subnet_group_description'] = replication_subnet_group_description
 
         if not replication_subnet_group_id:
             raise TypeError('Missing required property replication_subnet_group_id')
-        __props__['replicationSubnetGroupId'] = replication_subnet_group_id
+        __props__['replication_subnet_group_id'] = replication_subnet_group_id
 
         if not subnet_ids:
             raise TypeError('Missing required property subnet_ids')
-        __props__['subnetIds'] = subnet_ids
+        __props__['subnet_ids'] = subnet_ids
 
         __props__['tags'] = tags
 
@@ -43,4 +43,11 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

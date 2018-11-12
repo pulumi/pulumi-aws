@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class CertificateValidation(pulumi.CustomResource):
     """
@@ -31,13 +31,20 @@ class CertificateValidation(pulumi.CustomResource):
 
         if not certificate_arn:
             raise TypeError('Missing required property certificate_arn')
-        __props__['certificateArn'] = certificate_arn
+        __props__['certificate_arn'] = certificate_arn
 
-        __props__['validationRecordFqdns'] = validation_record_fqdns
+        __props__['validation_record_fqdns'] = validation_record_fqdns
 
         super(CertificateValidation, __self__).__init__(
             'aws:acm/certificateValidation:CertificateValidation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LaunchConfiguration(pulumi.CustomResource):
     """
@@ -21,51 +21,58 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['associatePublicIpAddress'] = associate_public_ip_address
+        __props__['associate_public_ip_address'] = associate_public_ip_address
 
-        __props__['ebsBlockDevices'] = ebs_block_devices
+        __props__['ebs_block_devices'] = ebs_block_devices
 
-        __props__['ebsOptimized'] = ebs_optimized
+        __props__['ebs_optimized'] = ebs_optimized
 
-        __props__['enableMonitoring'] = enable_monitoring
+        __props__['enable_monitoring'] = enable_monitoring
 
-        __props__['ephemeralBlockDevices'] = ephemeral_block_devices
+        __props__['ephemeral_block_devices'] = ephemeral_block_devices
 
-        __props__['iamInstanceProfile'] = iam_instance_profile
+        __props__['iam_instance_profile'] = iam_instance_profile
 
         if not image_id:
             raise TypeError('Missing required property image_id')
-        __props__['imageId'] = image_id
+        __props__['image_id'] = image_id
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        __props__['instanceType'] = instance_type
+        __props__['instance_type'] = instance_type
 
-        __props__['keyName'] = key_name
+        __props__['key_name'] = key_name
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['placementTenancy'] = placement_tenancy
+        __props__['placement_tenancy'] = placement_tenancy
 
-        __props__['rootBlockDevice'] = root_block_device
+        __props__['root_block_device'] = root_block_device
 
-        __props__['securityGroups'] = security_groups
+        __props__['security_groups'] = security_groups
 
-        __props__['spotPrice'] = spot_price
+        __props__['spot_price'] = spot_price
 
-        __props__['userData'] = user_data
+        __props__['user_data'] = user_data
 
-        __props__['userDataBase64'] = user_data_base64
+        __props__['user_data_base64'] = user_data_base64
 
-        __props__['vpcClassicLinkId'] = vpc_classic_link_id
+        __props__['vpc_classic_link_id'] = vpc_classic_link_id
 
-        __props__['vpcClassicLinkSecurityGroups'] = vpc_classic_link_security_groups
+        __props__['vpc_classic_link_security_groups'] = vpc_classic_link_security_groups
 
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

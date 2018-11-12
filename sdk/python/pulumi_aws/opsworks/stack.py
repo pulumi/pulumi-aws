@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Stack(pulumi.CustomResource):
     """
@@ -21,37 +21,37 @@ class Stack(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['agentVersion'] = agent_version
+        __props__['agent_version'] = agent_version
 
-        __props__['berkshelfVersion'] = berkshelf_version
+        __props__['berkshelf_version'] = berkshelf_version
 
         __props__['color'] = color
 
-        __props__['configurationManagerName'] = configuration_manager_name
+        __props__['configuration_manager_name'] = configuration_manager_name
 
-        __props__['configurationManagerVersion'] = configuration_manager_version
+        __props__['configuration_manager_version'] = configuration_manager_version
 
-        __props__['customCookbooksSources'] = custom_cookbooks_sources
+        __props__['custom_cookbooks_sources'] = custom_cookbooks_sources
 
-        __props__['customJson'] = custom_json
+        __props__['custom_json'] = custom_json
 
-        __props__['defaultAvailabilityZone'] = default_availability_zone
+        __props__['default_availability_zone'] = default_availability_zone
 
         if not default_instance_profile_arn:
             raise TypeError('Missing required property default_instance_profile_arn')
-        __props__['defaultInstanceProfileArn'] = default_instance_profile_arn
+        __props__['default_instance_profile_arn'] = default_instance_profile_arn
 
-        __props__['defaultOs'] = default_os
+        __props__['default_os'] = default_os
 
-        __props__['defaultRootDeviceType'] = default_root_device_type
+        __props__['default_root_device_type'] = default_root_device_type
 
-        __props__['defaultSshKeyName'] = default_ssh_key_name
+        __props__['default_ssh_key_name'] = default_ssh_key_name
 
-        __props__['defaultSubnetId'] = default_subnet_id
+        __props__['default_subnet_id'] = default_subnet_id
 
-        __props__['hostnameTheme'] = hostname_theme
+        __props__['hostname_theme'] = hostname_theme
 
-        __props__['manageBerkshelf'] = manage_berkshelf
+        __props__['manage_berkshelf'] = manage_berkshelf
 
         __props__['name'] = name
 
@@ -61,15 +61,15 @@ class Stack(pulumi.CustomResource):
 
         if not service_role_arn:
             raise TypeError('Missing required property service_role_arn')
-        __props__['serviceRoleArn'] = service_role_arn
+        __props__['service_role_arn'] = service_role_arn
 
         __props__['tags'] = tags
 
-        __props__['useCustomCookbooks'] = use_custom_cookbooks
+        __props__['use_custom_cookbooks'] = use_custom_cookbooks
 
-        __props__['useOpsworksSecurityGroups'] = use_opsworks_security_groups
+        __props__['use_opsworks_security_groups'] = use_opsworks_security_groups
 
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         __props__['arn'] = None
         __props__['stack_endpoint'] = None
@@ -79,4 +79,11 @@ class Stack(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

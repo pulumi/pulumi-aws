@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Project(pulumi.CustomResource):
     """
@@ -25,15 +25,15 @@ class Project(pulumi.CustomResource):
             raise TypeError('Missing required property artifacts')
         __props__['artifacts'] = artifacts
 
-        __props__['badgeEnabled'] = badge_enabled
+        __props__['badge_enabled'] = badge_enabled
 
-        __props__['buildTimeout'] = build_timeout
+        __props__['build_timeout'] = build_timeout
 
         __props__['cache'] = cache
 
         __props__['description'] = description
 
-        __props__['encryptionKey'] = encryption_key
+        __props__['encryption_key'] = encryption_key
 
         if not environment:
             raise TypeError('Missing required property environment')
@@ -41,13 +41,13 @@ class Project(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['secondaryArtifacts'] = secondary_artifacts
+        __props__['secondary_artifacts'] = secondary_artifacts
 
-        __props__['secondarySources'] = secondary_sources
+        __props__['secondary_sources'] = secondary_sources
 
         if not service_role:
             raise TypeError('Missing required property service_role')
-        __props__['serviceRole'] = service_role
+        __props__['service_role'] = service_role
 
         if not source:
             raise TypeError('Missing required property source')
@@ -55,7 +55,7 @@ class Project(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        __props__['vpcConfig'] = vpc_config
+        __props__['vpc_config'] = vpc_config
 
         __props__['arn'] = None
         __props__['badge_url'] = None
@@ -65,4 +65,11 @@ class Project(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

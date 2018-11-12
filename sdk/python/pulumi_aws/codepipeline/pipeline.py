@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Pipeline(pulumi.CustomResource):
     """
@@ -25,13 +25,13 @@ class Pipeline(pulumi.CustomResource):
 
         if not artifact_store:
             raise TypeError('Missing required property artifact_store')
-        __props__['artifactStore'] = artifact_store
+        __props__['artifact_store'] = artifact_store
 
         __props__['name'] = name
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         if not stages:
             raise TypeError('Missing required property stages')
@@ -44,4 +44,11 @@ class Pipeline(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

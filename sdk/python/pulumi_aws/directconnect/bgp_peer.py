@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class BgpPeer(pulumi.CustomResource):
     """
@@ -23,21 +23,21 @@ class BgpPeer(pulumi.CustomResource):
 
         if not address_family:
             raise TypeError('Missing required property address_family')
-        __props__['addressFamily'] = address_family
+        __props__['address_family'] = address_family
 
-        __props__['amazonAddress'] = amazon_address
+        __props__['amazon_address'] = amazon_address
 
         if not bgp_asn:
             raise TypeError('Missing required property bgp_asn')
-        __props__['bgpAsn'] = bgp_asn
+        __props__['bgp_asn'] = bgp_asn
 
-        __props__['bgpAuthKey'] = bgp_auth_key
+        __props__['bgp_auth_key'] = bgp_auth_key
 
-        __props__['customerAddress'] = customer_address
+        __props__['customer_address'] = customer_address
 
         if not virtual_interface_id:
             raise TypeError('Missing required property virtual_interface_id')
-        __props__['virtualInterfaceId'] = virtual_interface_id
+        __props__['virtual_interface_id'] = virtual_interface_id
 
         __props__['bgp_status'] = None
 
@@ -46,4 +46,11 @@ class BgpPeer(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class KeyPair(pulumi.CustomResource):
     """
@@ -27,11 +27,11 @@ class KeyPair(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['pgpKey'] = pgp_key
+        __props__['pgp_key'] = pgp_key
 
-        __props__['publicKey'] = public_key
+        __props__['public_key'] = public_key
 
         __props__['arn'] = None
         __props__['encrypted_fingerprint'] = None
@@ -44,4 +44,11 @@ class KeyPair(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

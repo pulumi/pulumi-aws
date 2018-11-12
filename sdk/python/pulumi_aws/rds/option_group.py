@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class OptionGroup(pulumi.CustomResource):
     """
@@ -27,20 +27,20 @@ class OptionGroup(pulumi.CustomResource):
 
         if not engine_name:
             raise TypeError('Missing required property engine_name')
-        __props__['engineName'] = engine_name
+        __props__['engine_name'] = engine_name
 
         if not major_engine_version:
             raise TypeError('Missing required property major_engine_version')
-        __props__['majorEngineVersion'] = major_engine_version
+        __props__['major_engine_version'] = major_engine_version
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         __props__['options'] = options
 
         option_group_description = 'Managed by Pulumi'
-        __props__['optionGroupDescription'] = option_group_description
+        __props__['option_group_description'] = option_group_description
 
         __props__['tags'] = tags
 
@@ -51,4 +51,11 @@ class OptionGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

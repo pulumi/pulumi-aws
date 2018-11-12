@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SecurityGroupRule(pulumi.CustomResource):
     """
@@ -31,17 +31,17 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cidrBlocks'] = cidr_blocks
+        __props__['cidr_blocks'] = cidr_blocks
 
         __props__['description'] = description
 
         if not from_port:
             raise TypeError('Missing required property from_port')
-        __props__['fromPort'] = from_port
+        __props__['from_port'] = from_port
 
-        __props__['ipv6CidrBlocks'] = ipv6_cidr_blocks
+        __props__['ipv6_cidr_blocks'] = ipv6_cidr_blocks
 
-        __props__['prefixListIds'] = prefix_list_ids
+        __props__['prefix_list_ids'] = prefix_list_ids
 
         if not protocol:
             raise TypeError('Missing required property protocol')
@@ -49,15 +49,15 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         if not security_group_id:
             raise TypeError('Missing required property security_group_id')
-        __props__['securityGroupId'] = security_group_id
+        __props__['security_group_id'] = security_group_id
 
         __props__['self'] = self
 
-        __props__['sourceSecurityGroupId'] = source_security_group_id
+        __props__['source_security_group_id'] = source_security_group_id
 
         if not to_port:
             raise TypeError('Missing required property to_port')
-        __props__['toPort'] = to_port
+        __props__['to_port'] = to_port
 
         if not type:
             raise TypeError('Missing required property type')
@@ -68,4 +68,11 @@ class SecurityGroupRule(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

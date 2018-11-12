@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PublicKey(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, comment=None, encoded_key=None, name=None, name_prefix=None):
@@ -22,11 +22,11 @@ class PublicKey(pulumi.CustomResource):
 
         if not encoded_key:
             raise TypeError('Missing required property encoded_key')
-        __props__['encodedKey'] = encoded_key
+        __props__['encoded_key'] = encoded_key
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         __props__['caller_reference'] = None
         __props__['etag'] = None
@@ -36,4 +36,11 @@ class PublicKey(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetBucketResult(object):
     """
@@ -54,7 +54,7 @@ class GetBucketResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_bucket(bucket=None):
+async def get_bucket(bucket=None):
     """
     Provides details about a specific S3 bucket.
     
@@ -64,7 +64,7 @@ def get_bucket(bucket=None):
     __args__ = dict()
 
     __args__['bucket'] = bucket
-    __ret__ = pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__)
 
     return GetBucketResult(
         arn=__ret__.get('arn'),

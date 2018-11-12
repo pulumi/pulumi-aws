@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcPeeringConnection(pulumi.CustomResource):
     """
@@ -35,15 +35,15 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         __props__['accepter'] = accepter
 
-        __props__['autoAccept'] = auto_accept
+        __props__['auto_accept'] = auto_accept
 
-        __props__['peerOwnerId'] = peer_owner_id
+        __props__['peer_owner_id'] = peer_owner_id
 
-        __props__['peerRegion'] = peer_region
+        __props__['peer_region'] = peer_region
 
         if not peer_vpc_id:
             raise TypeError('Missing required property peer_vpc_id')
-        __props__['peerVpcId'] = peer_vpc_id
+        __props__['peer_vpc_id'] = peer_vpc_id
 
         __props__['requester'] = requester
 
@@ -51,7 +51,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         __props__['accept_status'] = None
 
@@ -60,4 +60,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

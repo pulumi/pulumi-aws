@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Key(pulumi.CustomResource):
     """
@@ -21,15 +21,15 @@ class Key(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['deletionWindowInDays'] = deletion_window_in_days
+        __props__['deletion_window_in_days'] = deletion_window_in_days
 
         __props__['description'] = description
 
-        __props__['enableKeyRotation'] = enable_key_rotation
+        __props__['enable_key_rotation'] = enable_key_rotation
 
-        __props__['isEnabled'] = is_enabled
+        __props__['is_enabled'] = is_enabled
 
-        __props__['keyUsage'] = key_usage
+        __props__['key_usage'] = key_usage
 
         __props__['policy'] = policy
 
@@ -43,4 +43,11 @@ class Key(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

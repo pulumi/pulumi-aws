@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ReplicationGroup(pulumi.CustomResource):
     """
@@ -23,61 +23,61 @@ class ReplicationGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['atRestEncryptionEnabled'] = at_rest_encryption_enabled
+        __props__['at_rest_encryption_enabled'] = at_rest_encryption_enabled
 
-        __props__['authToken'] = auth_token
+        __props__['auth_token'] = auth_token
 
-        __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
+        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
-        __props__['automaticFailoverEnabled'] = automatic_failover_enabled
+        __props__['automatic_failover_enabled'] = automatic_failover_enabled
 
-        __props__['availabilityZones'] = availability_zones
+        __props__['availability_zones'] = availability_zones
 
-        __props__['clusterMode'] = cluster_mode
+        __props__['cluster_mode'] = cluster_mode
 
         __props__['engine'] = engine
 
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
-        __props__['maintenanceWindow'] = maintenance_window
+        __props__['maintenance_window'] = maintenance_window
 
-        __props__['nodeType'] = node_type
+        __props__['node_type'] = node_type
 
-        __props__['notificationTopicArn'] = notification_topic_arn
+        __props__['notification_topic_arn'] = notification_topic_arn
 
-        __props__['numberCacheClusters'] = number_cache_clusters
+        __props__['number_cache_clusters'] = number_cache_clusters
 
-        __props__['parameterGroupName'] = parameter_group_name
+        __props__['parameter_group_name'] = parameter_group_name
 
         __props__['port'] = port
 
         if not replication_group_description:
             raise TypeError('Missing required property replication_group_description')
-        __props__['replicationGroupDescription'] = replication_group_description
+        __props__['replication_group_description'] = replication_group_description
 
         if not replication_group_id:
             raise TypeError('Missing required property replication_group_id')
-        __props__['replicationGroupId'] = replication_group_id
+        __props__['replication_group_id'] = replication_group_id
 
-        __props__['securityGroupIds'] = security_group_ids
+        __props__['security_group_ids'] = security_group_ids
 
-        __props__['securityGroupNames'] = security_group_names
+        __props__['security_group_names'] = security_group_names
 
-        __props__['snapshotArns'] = snapshot_arns
+        __props__['snapshot_arns'] = snapshot_arns
 
-        __props__['snapshotName'] = snapshot_name
+        __props__['snapshot_name'] = snapshot_name
 
-        __props__['snapshotRetentionLimit'] = snapshot_retention_limit
+        __props__['snapshot_retention_limit'] = snapshot_retention_limit
 
-        __props__['snapshotWindow'] = snapshot_window
+        __props__['snapshot_window'] = snapshot_window
 
-        __props__['subnetGroupName'] = subnet_group_name
+        __props__['subnet_group_name'] = subnet_group_name
 
         __props__['tags'] = tags
 
-        __props__['transitEncryptionEnabled'] = transit_encryption_enabled
+        __props__['transit_encryption_enabled'] = transit_encryption_enabled
 
         __props__['configuration_endpoint_address'] = None
         __props__['member_clusters'] = None
@@ -88,4 +88,11 @@ class ReplicationGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

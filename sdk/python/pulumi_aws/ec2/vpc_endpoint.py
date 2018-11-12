@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpoint(pulumi.CustomResource):
     """
@@ -28,27 +28,27 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['autoAccept'] = auto_accept
+        __props__['auto_accept'] = auto_accept
 
         __props__['policy'] = policy
 
-        __props__['privateDnsEnabled'] = private_dns_enabled
+        __props__['private_dns_enabled'] = private_dns_enabled
 
-        __props__['routeTableIds'] = route_table_ids
+        __props__['route_table_ids'] = route_table_ids
 
-        __props__['securityGroupIds'] = security_group_ids
+        __props__['security_group_ids'] = security_group_ids
 
         if not service_name:
             raise TypeError('Missing required property service_name')
-        __props__['serviceName'] = service_name
+        __props__['service_name'] = service_name
 
-        __props__['subnetIds'] = subnet_ids
+        __props__['subnet_ids'] = subnet_ids
 
-        __props__['vpcEndpointType'] = vpc_endpoint_type
+        __props__['vpc_endpoint_type'] = vpc_endpoint_type
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         __props__['cidr_blocks'] = None
         __props__['dns_entries'] = None
@@ -61,4 +61,11 @@ class VpcEndpoint(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

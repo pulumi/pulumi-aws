@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
     """
@@ -22,15 +22,15 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['dxGatewayId'] = dx_gateway_id
+        __props__['dx_gateway_id'] = dx_gateway_id
 
         __props__['tags'] = tags
 
         if not virtual_interface_id:
             raise TypeError('Missing required property virtual_interface_id')
-        __props__['virtualInterfaceId'] = virtual_interface_id
+        __props__['virtual_interface_id'] = virtual_interface_id
 
-        __props__['vpnGatewayId'] = vpn_gateway_id
+        __props__['vpn_gateway_id'] = vpn_gateway_id
 
         __props__['arn'] = None
 
@@ -39,4 +39,11 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

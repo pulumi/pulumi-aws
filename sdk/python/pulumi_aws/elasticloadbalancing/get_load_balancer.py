@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetLoadBalancerResult(object):
     """
@@ -69,7 +69,7 @@ class GetLoadBalancerResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_load_balancer(name=None, tags=None):
+async def get_load_balancer(name=None, tags=None):
     """
     Provides information about a "classic" Elastic Load Balancer (ELB).
     See [LB Data Source](https://www.terraform.io/docs/providers/aws/d/lb.html) if you are looking for "v2"
@@ -83,7 +83,7 @@ def get_load_balancer(name=None, tags=None):
 
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer', __args__)
 
     return GetLoadBalancerResult(
         access_logs=__ret__.get('accessLogs'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Directory(pulumi.CustomResource):
     """
@@ -26,13 +26,13 @@ class Directory(pulumi.CustomResource):
 
         __props__['alias'] = alias
 
-        __props__['connectSettings'] = connect_settings
+        __props__['connect_settings'] = connect_settings
 
         __props__['description'] = description
 
         __props__['edition'] = edition
 
-        __props__['enableSso'] = enable_sso
+        __props__['enable_sso'] = enable_sso
 
         __props__['name'] = name
 
@@ -40,7 +40,7 @@ class Directory(pulumi.CustomResource):
             raise TypeError('Missing required property password')
         __props__['password'] = password
 
-        __props__['shortName'] = short_name
+        __props__['short_name'] = short_name
 
         __props__['size'] = size
 
@@ -48,7 +48,7 @@ class Directory(pulumi.CustomResource):
 
         __props__['type'] = type
 
-        __props__['vpcSettings'] = vpc_settings
+        __props__['vpc_settings'] = vpc_settings
 
         __props__['access_url'] = None
         __props__['dns_ip_addresses'] = None
@@ -59,4 +59,11 @@ class Directory(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

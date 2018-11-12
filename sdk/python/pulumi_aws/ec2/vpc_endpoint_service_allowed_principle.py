@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
     """
@@ -29,15 +29,22 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
         if not principal_arn:
             raise TypeError('Missing required property principal_arn')
-        __props__['principalArn'] = principal_arn
+        __props__['principal_arn'] = principal_arn
 
         if not vpc_endpoint_service_id:
             raise TypeError('Missing required property vpc_endpoint_service_id')
-        __props__['vpcEndpointServiceId'] = vpc_endpoint_service_id
+        __props__['vpc_endpoint_service_id'] = vpc_endpoint_service_id
 
         super(VpcEndpointServiceAllowedPrinciple, __self__).__init__(
             'aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

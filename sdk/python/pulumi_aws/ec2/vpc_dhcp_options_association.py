@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcDhcpOptionsAssociation(pulumi.CustomResource):
     """
@@ -24,15 +24,22 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         if not dhcp_options_id:
             raise TypeError('Missing required property dhcp_options_id')
-        __props__['dhcpOptionsId'] = dhcp_options_id
+        __props__['dhcp_options_id'] = dhcp_options_id
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         super(VpcDhcpOptionsAssociation, __self__).__init__(
             'aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

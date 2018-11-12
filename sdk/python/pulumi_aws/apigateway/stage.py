@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Stage(pulumi.CustomResource):
     """
@@ -21,13 +21,13 @@ class Stage(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accessLogSettings'] = access_log_settings
+        __props__['access_log_settings'] = access_log_settings
 
-        __props__['cacheClusterEnabled'] = cache_cluster_enabled
+        __props__['cache_cluster_enabled'] = cache_cluster_enabled
 
-        __props__['cacheClusterSize'] = cache_cluster_size
+        __props__['cache_cluster_size'] = cache_cluster_size
 
-        __props__['clientCertificateId'] = client_certificate_id
+        __props__['client_certificate_id'] = client_certificate_id
 
         if not deployment:
             raise TypeError('Missing required property deployment')
@@ -35,21 +35,21 @@ class Stage(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['documentationVersion'] = documentation_version
+        __props__['documentation_version'] = documentation_version
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
         if not stage_name:
             raise TypeError('Missing required property stage_name')
-        __props__['stageName'] = stage_name
+        __props__['stage_name'] = stage_name
 
         __props__['tags'] = tags
 
         __props__['variables'] = variables
 
-        __props__['xrayTracingEnabled'] = xray_tracing_enabled
+        __props__['xray_tracing_enabled'] = xray_tracing_enabled
 
         __props__['execution_arn'] = None
         __props__['invoke_url'] = None
@@ -59,4 +59,11 @@ class Stage(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

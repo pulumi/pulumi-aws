@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Schedule(pulumi.CustomResource):
     """
@@ -23,23 +23,23 @@ class Schedule(pulumi.CustomResource):
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        __props__['autoscalingGroupName'] = autoscaling_group_name
+        __props__['autoscaling_group_name'] = autoscaling_group_name
 
-        __props__['desiredCapacity'] = desired_capacity
+        __props__['desired_capacity'] = desired_capacity
 
-        __props__['endTime'] = end_time
+        __props__['end_time'] = end_time
 
-        __props__['maxSize'] = max_size
+        __props__['max_size'] = max_size
 
-        __props__['minSize'] = min_size
+        __props__['min_size'] = min_size
 
         __props__['recurrence'] = recurrence
 
         if not scheduled_action_name:
             raise TypeError('Missing required property scheduled_action_name')
-        __props__['scheduledActionName'] = scheduled_action_name
+        __props__['scheduled_action_name'] = scheduled_action_name
 
-        __props__['startTime'] = start_time
+        __props__['start_time'] = start_time
 
         __props__['arn'] = None
 
@@ -48,4 +48,11 @@ class Schedule(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

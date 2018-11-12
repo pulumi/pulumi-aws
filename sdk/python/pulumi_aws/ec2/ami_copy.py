@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AmiCopy(pulumi.CustomResource):
     """
@@ -33,23 +33,23 @@ class AmiCopy(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['ebsBlockDevices'] = ebs_block_devices
+        __props__['ebs_block_devices'] = ebs_block_devices
 
         __props__['encrypted'] = encrypted
 
-        __props__['ephemeralBlockDevices'] = ephemeral_block_devices
+        __props__['ephemeral_block_devices'] = ephemeral_block_devices
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         __props__['name'] = name
 
         if not source_ami_id:
             raise TypeError('Missing required property source_ami_id')
-        __props__['sourceAmiId'] = source_ami_id
+        __props__['source_ami_id'] = source_ami_id
 
         if not source_ami_region:
             raise TypeError('Missing required property source_ami_region')
-        __props__['sourceAmiRegion'] = source_ami_region
+        __props__['source_ami_region'] = source_ami_region
 
         __props__['tags'] = tags
 
@@ -69,4 +69,11 @@ class AmiCopy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Stream(pulumi.CustomResource):
     """
@@ -26,19 +26,19 @@ class Stream(pulumi.CustomResource):
 
         __props__['arn'] = arn
 
-        __props__['encryptionType'] = encryption_type
+        __props__['encryption_type'] = encryption_type
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         __props__['name'] = name
 
-        __props__['retentionPeriod'] = retention_period
+        __props__['retention_period'] = retention_period
 
         if not shard_count:
             raise TypeError('Missing required property shard_count')
-        __props__['shardCount'] = shard_count
+        __props__['shard_count'] = shard_count
 
-        __props__['shardLevelMetrics'] = shard_level_metrics
+        __props__['shard_level_metrics'] = shard_level_metrics
 
         __props__['tags'] = tags
 
@@ -47,4 +47,11 @@ class Stream(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

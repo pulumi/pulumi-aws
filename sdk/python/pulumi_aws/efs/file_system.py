@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FileSystem(pulumi.CustomResource):
     """
@@ -21,21 +21,21 @@ class FileSystem(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['creationToken'] = creation_token
+        __props__['creation_token'] = creation_token
 
         __props__['encrypted'] = encrypted
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
-        __props__['performanceMode'] = performance_mode
+        __props__['performance_mode'] = performance_mode
 
-        __props__['provisionedThroughputInMibps'] = provisioned_throughput_in_mibps
+        __props__['provisioned_throughput_in_mibps'] = provisioned_throughput_in_mibps
 
-        __props__['referenceName'] = reference_name
+        __props__['reference_name'] = reference_name
 
         __props__['tags'] = tags
 
-        __props__['throughputMode'] = throughput_mode
+        __props__['throughput_mode'] = throughput_mode
 
         __props__['dns_name'] = None
 
@@ -44,4 +44,11 @@ class FileSystem(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetComputeEnvironmentResult(object):
     """
@@ -60,7 +60,7 @@ class GetComputeEnvironmentResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_compute_environment(compute_environment_name=None):
+async def get_compute_environment(compute_environment_name=None):
     """
     The Batch Compute Environment data source allows access to details of a specific
     compute environment within AWS Batch.
@@ -68,7 +68,7 @@ def get_compute_environment(compute_environment_name=None):
     __args__ = dict()
 
     __args__['computeEnvironmentName'] = compute_environment_name
-    __ret__ = pulumi.runtime.invoke('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__)
 
     return GetComputeEnvironmentResult(
         arn=__ret__.get('arn'),

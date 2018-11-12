@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Model(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Model(pulumi.CustomResource):
 
         if not content_type:
             raise TypeError('Missing required property content_type')
-        __props__['contentType'] = content_type
+        __props__['content_type'] = content_type
 
         __props__['description'] = description
 
@@ -31,7 +31,7 @@ class Model(pulumi.CustomResource):
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
         __props__['schema'] = schema
 
@@ -40,4 +40,11 @@ class Model(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

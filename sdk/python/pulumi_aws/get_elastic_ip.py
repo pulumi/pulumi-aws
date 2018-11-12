@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetElasticIpResult(object):
     """
@@ -18,7 +18,7 @@ class GetElasticIpResult(object):
             raise TypeError('Expected argument public_ip to be a str')
         __self__.public_ip = public_ip
 
-def get_elastic_ip(id=None, public_ip=None):
+async def get_elastic_ip(id=None, public_ip=None):
     """
     `aws_eip` provides details about a specific Elastic IP.
     
@@ -29,7 +29,7 @@ def get_elastic_ip(id=None, public_ip=None):
 
     __args__['id'] = id
     __args__['publicIp'] = public_ip
-    __ret__ = pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__)
 
     return GetElasticIpResult(
         id=__ret__.get('id'),

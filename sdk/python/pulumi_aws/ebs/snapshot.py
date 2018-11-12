@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Snapshot(pulumi.CustomResource):
     """
@@ -27,7 +27,7 @@ class Snapshot(pulumi.CustomResource):
 
         if not volume_id:
             raise TypeError('Missing required property volume_id')
-        __props__['volumeId'] = volume_id
+        __props__['volume_id'] = volume_id
 
         __props__['data_encryption_key_id'] = None
         __props__['encrypted'] = None
@@ -41,4 +41,11 @@ class Snapshot(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

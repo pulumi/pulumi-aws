@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AppCookieStickinessPolicy(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         if not cookie_name:
             raise TypeError('Missing required property cookie_name')
-        __props__['cookieName'] = cookie_name
+        __props__['cookie_name'] = cookie_name
 
         if not lb_port:
             raise TypeError('Missing required property lb_port')
-        __props__['lbPort'] = lb_port
+        __props__['lb_port'] = lb_port
 
         if not load_balancer:
             raise TypeError('Missing required property load_balancer')
-        __props__['loadBalancer'] = load_balancer
+        __props__['load_balancer'] = load_balancer
 
         __props__['name'] = name
 
@@ -40,4 +40,11 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetLaunchTemplateResult(object):
     """
@@ -176,7 +176,7 @@ class GetLaunchTemplateResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_launch_template(name=None, tags=None):
+async def get_launch_template(name=None, tags=None):
     """
     Provides information about a Launch Template.
     """
@@ -184,7 +184,7 @@ def get_launch_template(name=None, tags=None):
 
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__)
 
     return GetLaunchTemplateResult(
         arn=__ret__.get('arn'),

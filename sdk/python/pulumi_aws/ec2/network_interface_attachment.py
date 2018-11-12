@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NetworkInterfaceAttachment(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         if not device_index:
             raise TypeError('Missing required property device_index')
-        __props__['deviceIndex'] = device_index
+        __props__['device_index'] = device_index
 
         if not instance_id:
             raise TypeError('Missing required property instance_id')
-        __props__['instanceId'] = instance_id
+        __props__['instance_id'] = instance_id
 
         if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
-        __props__['networkInterfaceId'] = network_interface_id
+        __props__['network_interface_id'] = network_interface_id
 
         __props__['attachment_id'] = None
         __props__['status'] = None
@@ -41,4 +41,11 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetContainerDefinitionResult(object):
     """
@@ -66,7 +66,7 @@ class GetContainerDefinitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_container_definition(container_name=None, task_definition=None):
+async def get_container_definition(container_name=None, task_definition=None):
     """
     The ECS container definition data source allows access to details of
     a specific container within an AWS ECS service.
@@ -75,7 +75,7 @@ def get_container_definition(container_name=None, task_definition=None):
 
     __args__['containerName'] = container_name
     __args__['taskDefinition'] = task_definition
-    __ret__ = pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__)
 
     return GetContainerDefinitionResult(
         cpu=__ret__.get('cpu'),

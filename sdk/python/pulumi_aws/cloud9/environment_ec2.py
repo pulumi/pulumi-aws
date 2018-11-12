@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EnvironmentEC2(pulumi.CustomResource):
     """
@@ -21,19 +21,19 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['automaticStopTimeMinutes'] = automatic_stop_time_minutes
+        __props__['automatic_stop_time_minutes'] = automatic_stop_time_minutes
 
         __props__['description'] = description
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        __props__['instanceType'] = instance_type
+        __props__['instance_type'] = instance_type
 
         __props__['name'] = name
 
-        __props__['ownerArn'] = owner_arn
+        __props__['owner_arn'] = owner_arn
 
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         __props__['arn'] = None
         __props__['type'] = None
@@ -43,4 +43,11 @@ class EnvironmentEC2(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

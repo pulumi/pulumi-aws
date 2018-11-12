@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SamlProvider(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class SamlProvider(pulumi.CustomResource):
 
         if not saml_metadata_document:
             raise TypeError('Missing required property saml_metadata_document')
-        __props__['samlMetadataDocument'] = saml_metadata_document
+        __props__['saml_metadata_document'] = saml_metadata_document
 
         __props__['arn'] = None
         __props__['valid_until'] = None
@@ -35,4 +35,11 @@ class SamlProvider(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

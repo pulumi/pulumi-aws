@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MaintenanceWindowTarget(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['ownerInformation'] = owner_information
+        __props__['owner_information'] = owner_information
 
         if not resource_type:
             raise TypeError('Missing required property resource_type')
-        __props__['resourceType'] = resource_type
+        __props__['resource_type'] = resource_type
 
         if not targets:
             raise TypeError('Missing required property targets')
@@ -33,11 +33,18 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         if not window_id:
             raise TypeError('Missing required property window_id')
-        __props__['windowId'] = window_id
+        __props__['window_id'] = window_id
 
         super(MaintenanceWindowTarget, __self__).__init__(
             'aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

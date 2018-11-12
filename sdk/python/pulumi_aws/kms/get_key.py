@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetKeyResult(object):
     """
@@ -54,7 +54,7 @@ class GetKeyResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_key(grant_tokens=None, key_id=None):
+async def get_key(grant_tokens=None, key_id=None):
     """
     Use this data source to get detailed information about 
     the specified KMS Key with flexible key id input. 
@@ -65,7 +65,7 @@ def get_key(grant_tokens=None, key_id=None):
 
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
-    __ret__ = pulumi.runtime.invoke('aws:kms/getKey:getKey', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getKey:getKey', __args__)
 
     return GetKeyResult(
         arn=__ret__.get('arn'),

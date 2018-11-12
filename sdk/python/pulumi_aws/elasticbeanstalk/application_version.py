@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ApplicationVersion(pulumi.CustomResource):
     """
@@ -46,7 +46,7 @@ class ApplicationVersion(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['forceDelete'] = force_delete
+        __props__['force_delete'] = force_delete
 
         if not key:
             raise TypeError('Missing required property key')
@@ -59,4 +59,11 @@ class ApplicationVersion(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

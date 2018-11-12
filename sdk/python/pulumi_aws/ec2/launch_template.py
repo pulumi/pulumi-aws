@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LaunchTemplate(pulumi.CustomResource):
     """
@@ -21,53 +21,53 @@ class LaunchTemplate(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['blockDeviceMappings'] = block_device_mappings
+        __props__['block_device_mappings'] = block_device_mappings
 
-        __props__['creditSpecification'] = credit_specification
+        __props__['credit_specification'] = credit_specification
 
         __props__['description'] = description
 
-        __props__['disableApiTermination'] = disable_api_termination
+        __props__['disable_api_termination'] = disable_api_termination
 
-        __props__['ebsOptimized'] = ebs_optimized
+        __props__['ebs_optimized'] = ebs_optimized
 
-        __props__['elasticGpuSpecifications'] = elastic_gpu_specifications
+        __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
 
-        __props__['iamInstanceProfile'] = iam_instance_profile
+        __props__['iam_instance_profile'] = iam_instance_profile
 
-        __props__['imageId'] = image_id
+        __props__['image_id'] = image_id
 
-        __props__['instanceInitiatedShutdownBehavior'] = instance_initiated_shutdown_behavior
+        __props__['instance_initiated_shutdown_behavior'] = instance_initiated_shutdown_behavior
 
-        __props__['instanceMarketOptions'] = instance_market_options
+        __props__['instance_market_options'] = instance_market_options
 
-        __props__['instanceType'] = instance_type
+        __props__['instance_type'] = instance_type
 
-        __props__['kernelId'] = kernel_id
+        __props__['kernel_id'] = kernel_id
 
-        __props__['keyName'] = key_name
+        __props__['key_name'] = key_name
 
         __props__['monitoring'] = monitoring
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['networkInterfaces'] = network_interfaces
+        __props__['network_interfaces'] = network_interfaces
 
         __props__['placement'] = placement
 
-        __props__['ramDiskId'] = ram_disk_id
+        __props__['ram_disk_id'] = ram_disk_id
 
-        __props__['securityGroupNames'] = security_group_names
+        __props__['security_group_names'] = security_group_names
 
-        __props__['tagSpecifications'] = tag_specifications
+        __props__['tag_specifications'] = tag_specifications
 
         __props__['tags'] = tags
 
-        __props__['userData'] = user_data
+        __props__['user_data'] = user_data
 
-        __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
+        __props__['vpc_security_group_ids'] = vpc_security_group_ids
 
         __props__['arn'] = None
         __props__['default_version'] = None
@@ -78,4 +78,11 @@ class LaunchTemplate(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

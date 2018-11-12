@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetServiceAccountResult(object):
     """
@@ -24,7 +24,7 @@ class GetServiceAccountResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_service_account(region=None):
+async def get_service_account(region=None):
     """
     Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
     in a given region for the purpose of allowing Redshift to store audit data in S3.
@@ -32,7 +32,7 @@ def get_service_account(region=None):
     __args__ = dict()
 
     __args__['region'] = region
-    __ret__ = pulumi.runtime.invoke('aws:redshift/getServiceAccount:getServiceAccount', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:redshift/getServiceAccount:getServiceAccount', __args__)
 
     return GetServiceAccountResult(
         arn=__ret__.get('arn'),

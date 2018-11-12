@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Listener(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class Listener(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['certificateArn'] = certificate_arn
+        __props__['certificate_arn'] = certificate_arn
 
         if not default_action:
             raise TypeError('Missing required property default_action')
-        __props__['defaultAction'] = default_action
+        __props__['default_action'] = default_action
 
         if not load_balancer_arn:
             raise TypeError('Missing required property load_balancer_arn')
-        __props__['loadBalancerArn'] = load_balancer_arn
+        __props__['load_balancer_arn'] = load_balancer_arn
 
         if not port:
             raise TypeError('Missing required property port')
@@ -39,7 +39,7 @@ class Listener(pulumi.CustomResource):
 
         __props__['protocol'] = protocol
 
-        __props__['sslPolicy'] = ssl_policy
+        __props__['ssl_policy'] = ssl_policy
 
         __props__['arn'] = None
 
@@ -48,4 +48,11 @@ class Listener(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

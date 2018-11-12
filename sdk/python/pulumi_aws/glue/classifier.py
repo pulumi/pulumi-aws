@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Classifier(pulumi.CustomResource):
     """
@@ -23,17 +23,24 @@ class Classifier(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['grokClassifier'] = grok_classifier
+        __props__['grok_classifier'] = grok_classifier
 
-        __props__['jsonClassifier'] = json_classifier
+        __props__['json_classifier'] = json_classifier
 
         __props__['name'] = name
 
-        __props__['xmlClassifier'] = xml_classifier
+        __props__['xml_classifier'] = xml_classifier
 
         super(Classifier, __self__).__init__(
             'aws:glue/classifier:Classifier',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

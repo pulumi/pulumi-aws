@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MethodSettings(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class MethodSettings(pulumi.CustomResource):
 
         if not method_path:
             raise TypeError('Missing required property method_path')
-        __props__['methodPath'] = method_path
+        __props__['method_path'] = method_path
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
         if not settings:
             raise TypeError('Missing required property settings')
@@ -35,11 +35,18 @@ class MethodSettings(pulumi.CustomResource):
 
         if not stage_name:
             raise TypeError('Missing required property stage_name')
-        __props__['stageName'] = stage_name
+        __props__['stage_name'] = stage_name
 
         super(MethodSettings, __self__).__init__(
             'aws:apigateway/methodSettings:MethodSettings',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

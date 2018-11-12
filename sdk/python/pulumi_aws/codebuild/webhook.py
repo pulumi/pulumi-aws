@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Webhook(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class Webhook(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['branchFilter'] = branch_filter
+        __props__['branch_filter'] = branch_filter
 
         if not project_name:
             raise TypeError('Missing required property project_name')
-        __props__['projectName'] = project_name
+        __props__['project_name'] = project_name
 
         __props__['payload_url'] = None
         __props__['secret'] = None
@@ -36,4 +36,11 @@ class Webhook(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

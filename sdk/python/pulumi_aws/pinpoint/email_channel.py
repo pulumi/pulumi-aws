@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EmailChannel(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, application_id=None, enabled=None, from_address=None, identity=None, role_arn=None):
@@ -20,13 +20,13 @@ class EmailChannel(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
         __props__['enabled'] = enabled
 
         if not from_address:
             raise TypeError('Missing required property from_address')
-        __props__['fromAddress'] = from_address
+        __props__['from_address'] = from_address
 
         if not identity:
             raise TypeError('Missing required property identity')
@@ -34,7 +34,7 @@ class EmailChannel(pulumi.CustomResource):
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         __props__['messages_per_second'] = None
 
@@ -43,4 +43,11 @@ class EmailChannel(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

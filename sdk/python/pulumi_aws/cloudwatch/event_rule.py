@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EventRule(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class EventRule(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['eventPattern'] = event_pattern
+        __props__['event_pattern'] = event_pattern
 
-        __props__['isEnabled'] = is_enabled
+        __props__['is_enabled'] = is_enabled
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
-        __props__['scheduleExpression'] = schedule_expression
+        __props__['schedule_expression'] = schedule_expression
 
         __props__['arn'] = None
 
@@ -42,4 +42,11 @@ class EventRule(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

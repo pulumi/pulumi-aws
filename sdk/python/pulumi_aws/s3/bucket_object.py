@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class BucketObject(pulumi.CustomResource):
     """
@@ -27,35 +27,35 @@ class BucketObject(pulumi.CustomResource):
             raise TypeError('Missing required property bucket')
         __props__['bucket'] = bucket
 
-        __props__['cacheControl'] = cache_control
+        __props__['cache_control'] = cache_control
 
         __props__['content'] = content
 
-        __props__['contentBase64'] = content_base64
+        __props__['content_base64'] = content_base64
 
-        __props__['contentDisposition'] = content_disposition
+        __props__['content_disposition'] = content_disposition
 
-        __props__['contentEncoding'] = content_encoding
+        __props__['content_encoding'] = content_encoding
 
-        __props__['contentLanguage'] = content_language
+        __props__['content_language'] = content_language
 
-        __props__['contentType'] = content_type
+        __props__['content_type'] = content_type
 
         __props__['etag'] = etag
 
         __props__['key'] = key
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
-        __props__['serverSideEncryption'] = server_side_encryption
+        __props__['server_side_encryption'] = server_side_encryption
 
         __props__['source'] = source
 
-        __props__['storageClass'] = storage_class
+        __props__['storage_class'] = storage_class
 
         __props__['tags'] = tags
 
-        __props__['websiteRedirect'] = website_redirect
+        __props__['website_redirect'] = website_redirect
 
         __props__['version_id'] = None
 
@@ -64,4 +64,11 @@ class BucketObject(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

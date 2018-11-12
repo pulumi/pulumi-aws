@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AssessmentTemplate(pulumi.CustomResource):
     """
@@ -29,11 +29,11 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         if not rules_package_arns:
             raise TypeError('Missing required property rules_package_arns')
-        __props__['rulesPackageArns'] = rules_package_arns
+        __props__['rules_package_arns'] = rules_package_arns
 
         if not target_arn:
             raise TypeError('Missing required property target_arn')
-        __props__['targetArn'] = target_arn
+        __props__['target_arn'] = target_arn
 
         __props__['arn'] = None
 
@@ -42,4 +42,11 @@ class AssessmentTemplate(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

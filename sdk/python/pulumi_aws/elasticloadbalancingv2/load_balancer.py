@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LoadBalancer(pulumi.CustomResource):
     """
@@ -23,29 +23,29 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accessLogs'] = access_logs
+        __props__['access_logs'] = access_logs
 
-        __props__['enableCrossZoneLoadBalancing'] = enable_cross_zone_load_balancing
+        __props__['enable_cross_zone_load_balancing'] = enable_cross_zone_load_balancing
 
-        __props__['enableDeletionProtection'] = enable_deletion_protection
+        __props__['enable_deletion_protection'] = enable_deletion_protection
 
-        __props__['enableHttp2'] = enable_http2
+        __props__['enable_http2'] = enable_http2
 
-        __props__['idleTimeout'] = idle_timeout
+        __props__['idle_timeout'] = idle_timeout
 
         __props__['internal'] = internal
 
-        __props__['ipAddressType'] = ip_address_type
+        __props__['ip_address_type'] = ip_address_type
 
-        __props__['loadBalancerType'] = load_balancer_type
+        __props__['load_balancer_type'] = load_balancer_type
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['securityGroups'] = security_groups
+        __props__['security_groups'] = security_groups
 
-        __props__['subnetMappings'] = subnet_mappings
+        __props__['subnet_mappings'] = subnet_mappings
 
         __props__['subnets'] = subnets
 
@@ -62,4 +62,11 @@ class LoadBalancer(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

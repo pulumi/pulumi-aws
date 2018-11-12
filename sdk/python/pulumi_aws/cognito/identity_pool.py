@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class IdentityPool(pulumi.CustomResource):
     """
@@ -21,21 +21,21 @@ class IdentityPool(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowUnauthenticatedIdentities'] = allow_unauthenticated_identities
+        __props__['allow_unauthenticated_identities'] = allow_unauthenticated_identities
 
-        __props__['cognitoIdentityProviders'] = cognito_identity_providers
+        __props__['cognito_identity_providers'] = cognito_identity_providers
 
-        __props__['developerProviderName'] = developer_provider_name
+        __props__['developer_provider_name'] = developer_provider_name
 
         if not identity_pool_name:
             raise TypeError('Missing required property identity_pool_name')
-        __props__['identityPoolName'] = identity_pool_name
+        __props__['identity_pool_name'] = identity_pool_name
 
-        __props__['openidConnectProviderArns'] = openid_connect_provider_arns
+        __props__['openid_connect_provider_arns'] = openid_connect_provider_arns
 
-        __props__['samlProviderArns'] = saml_provider_arns
+        __props__['saml_provider_arns'] = saml_provider_arns
 
-        __props__['supportedLoginProviders'] = supported_login_providers
+        __props__['supported_login_providers'] = supported_login_providers
 
         __props__['arn'] = None
 
@@ -44,4 +44,11 @@ class IdentityPool(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

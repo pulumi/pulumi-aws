@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ApnsChannel(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, application_id=None, bundle_id=None, certificate=None, default_authentication_method=None, enabled=None, private_key=None, team_id=None, token_key=None, token_key_id=None):
@@ -20,27 +20,34 @@ class ApnsChannel(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
-        __props__['bundleId'] = bundle_id
+        __props__['bundle_id'] = bundle_id
 
         __props__['certificate'] = certificate
 
-        __props__['defaultAuthenticationMethod'] = default_authentication_method
+        __props__['default_authentication_method'] = default_authentication_method
 
         __props__['enabled'] = enabled
 
-        __props__['privateKey'] = private_key
+        __props__['private_key'] = private_key
 
-        __props__['teamId'] = team_id
+        __props__['team_id'] = team_id
 
-        __props__['tokenKey'] = token_key
+        __props__['token_key'] = token_key
 
-        __props__['tokenKeyId'] = token_key_id
+        __props__['token_key_id'] = token_key_id
 
         super(ApnsChannel, __self__).__init__(
             'aws:pinpoint/apnsChannel:ApnsChannel',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MetricAlarm(pulumi.CustomResource):
     """
@@ -21,41 +21,41 @@ class MetricAlarm(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['actionsEnabled'] = actions_enabled
+        __props__['actions_enabled'] = actions_enabled
 
-        __props__['alarmActions'] = alarm_actions
+        __props__['alarm_actions'] = alarm_actions
 
-        __props__['alarmDescription'] = alarm_description
+        __props__['alarm_description'] = alarm_description
 
         __props__['name'] = name
 
         if not comparison_operator:
             raise TypeError('Missing required property comparison_operator')
-        __props__['comparisonOperator'] = comparison_operator
+        __props__['comparison_operator'] = comparison_operator
 
-        __props__['datapointsToAlarm'] = datapoints_to_alarm
+        __props__['datapoints_to_alarm'] = datapoints_to_alarm
 
         __props__['dimensions'] = dimensions
 
-        __props__['evaluateLowSampleCountPercentiles'] = evaluate_low_sample_count_percentiles
+        __props__['evaluate_low_sample_count_percentiles'] = evaluate_low_sample_count_percentiles
 
         if not evaluation_periods:
             raise TypeError('Missing required property evaluation_periods')
-        __props__['evaluationPeriods'] = evaluation_periods
+        __props__['evaluation_periods'] = evaluation_periods
 
-        __props__['extendedStatistic'] = extended_statistic
+        __props__['extended_statistic'] = extended_statistic
 
-        __props__['insufficientDataActions'] = insufficient_data_actions
+        __props__['insufficient_data_actions'] = insufficient_data_actions
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        __props__['metricName'] = metric_name
+        __props__['metric_name'] = metric_name
 
         if not namespace:
             raise TypeError('Missing required property namespace')
         __props__['namespace'] = namespace
 
-        __props__['okActions'] = ok_actions
+        __props__['ok_actions'] = ok_actions
 
         if not period:
             raise TypeError('Missing required property period')
@@ -67,7 +67,7 @@ class MetricAlarm(pulumi.CustomResource):
             raise TypeError('Missing required property threshold')
         __props__['threshold'] = threshold
 
-        __props__['treatMissingData'] = treat_missing_data
+        __props__['treat_missing_data'] = treat_missing_data
 
         __props__['unit'] = unit
 
@@ -78,4 +78,11 @@ class MetricAlarm(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

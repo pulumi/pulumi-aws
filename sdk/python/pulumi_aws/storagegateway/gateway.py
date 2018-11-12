@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Gateway(pulumi.CustomResource):
     """
@@ -23,27 +23,27 @@ class Gateway(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['activationKey'] = activation_key
+        __props__['activation_key'] = activation_key
 
-        __props__['gatewayIpAddress'] = gateway_ip_address
+        __props__['gateway_ip_address'] = gateway_ip_address
 
         if not gateway_name:
             raise TypeError('Missing required property gateway_name')
-        __props__['gatewayName'] = gateway_name
+        __props__['gateway_name'] = gateway_name
 
         if not gateway_timezone:
             raise TypeError('Missing required property gateway_timezone')
-        __props__['gatewayTimezone'] = gateway_timezone
+        __props__['gateway_timezone'] = gateway_timezone
 
-        __props__['gatewayType'] = gateway_type
+        __props__['gateway_type'] = gateway_type
 
-        __props__['mediumChangerType'] = medium_changer_type
+        __props__['medium_changer_type'] = medium_changer_type
 
-        __props__['smbActiveDirectorySettings'] = smb_active_directory_settings
+        __props__['smb_active_directory_settings'] = smb_active_directory_settings
 
-        __props__['smbGuestPassword'] = smb_guest_password
+        __props__['smb_guest_password'] = smb_guest_password
 
-        __props__['tapeDriveType'] = tape_drive_type
+        __props__['tape_drive_type'] = tape_drive_type
 
         __props__['arn'] = None
         __props__['gateway_id'] = None
@@ -53,4 +53,11 @@ class Gateway(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

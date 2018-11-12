@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class App(pulumi.CustomResource):
     """
@@ -21,15 +21,15 @@ class App(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['campaignHook'] = campaign_hook
+        __props__['campaign_hook'] = campaign_hook
 
         __props__['limits'] = limits
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['quietTime'] = quiet_time
+        __props__['quiet_time'] = quiet_time
 
         __props__['application_id'] = None
 
@@ -38,4 +38,11 @@ class App(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

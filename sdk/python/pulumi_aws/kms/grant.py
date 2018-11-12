@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Grant(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class Grant(pulumi.CustomResource):
 
         __props__['constraints'] = constraints
 
-        __props__['grantCreationTokens'] = grant_creation_tokens
+        __props__['grant_creation_tokens'] = grant_creation_tokens
 
         if not grantee_principal:
             raise TypeError('Missing required property grantee_principal')
-        __props__['granteePrincipal'] = grantee_principal
+        __props__['grantee_principal'] = grantee_principal
 
         if not key_id:
             raise TypeError('Missing required property key_id')
-        __props__['keyId'] = key_id
+        __props__['key_id'] = key_id
 
         __props__['name'] = name
 
@@ -39,9 +39,9 @@ class Grant(pulumi.CustomResource):
             raise TypeError('Missing required property operations')
         __props__['operations'] = operations
 
-        __props__['retireOnDelete'] = retire_on_delete
+        __props__['retire_on_delete'] = retire_on_delete
 
-        __props__['retiringPrincipal'] = retiring_principal
+        __props__['retiring_principal'] = retiring_principal
 
         __props__['grant_id'] = None
         __props__['grant_token'] = None
@@ -51,4 +51,11 @@ class Grant(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

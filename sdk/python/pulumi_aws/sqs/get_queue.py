@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetQueueResult(object):
     """
@@ -30,7 +30,7 @@ class GetQueueResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_queue(name=None):
+async def get_queue(name=None):
     """
     Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
     By using this data source, you can reference SQS queues without having to hardcode
@@ -39,7 +39,7 @@ def get_queue(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:sqs/getQueue:getQueue', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:sqs/getQueue:getQueue', __args__)
 
     return GetQueueResult(
         arn=__ret__.get('arn'),

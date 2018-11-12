@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DomainPolicy(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class DomainPolicy(pulumi.CustomResource):
 
         if not access_policies:
             raise TypeError('Missing required property access_policies')
-        __props__['accessPolicies'] = access_policies
+        __props__['access_policies'] = access_policies
 
         if not domain_name:
             raise TypeError('Missing required property domain_name')
-        __props__['domainName'] = domain_name
+        __props__['domain_name'] = domain_name
 
         super(DomainPolicy, __self__).__init__(
             'aws:elasticsearch/domainPolicy:DomainPolicy',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

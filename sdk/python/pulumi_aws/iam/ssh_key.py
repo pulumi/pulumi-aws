@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SshKey(pulumi.CustomResource):
     """
@@ -27,7 +27,7 @@ class SshKey(pulumi.CustomResource):
 
         if not public_key:
             raise TypeError('Missing required property public_key')
-        __props__['publicKey'] = public_key
+        __props__['public_key'] = public_key
 
         __props__['status'] = status
 
@@ -43,4 +43,11 @@ class SshKey(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

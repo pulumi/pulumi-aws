@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
     """
@@ -26,15 +26,22 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         if not cidr_block:
             raise TypeError('Missing required property cidr_block')
-        __props__['cidrBlock'] = cidr_block
+        __props__['cidr_block'] = cidr_block
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         super(VpcIpv4CidrBlockAssociation, __self__).__init__(
             'aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

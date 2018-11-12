@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Budget(pulumi.CustomResource):
     """
@@ -21,41 +21,48 @@ class Budget(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accountId'] = account_id
+        __props__['account_id'] = account_id
 
         if not budget_type:
             raise TypeError('Missing required property budget_type')
-        __props__['budgetType'] = budget_type
+        __props__['budget_type'] = budget_type
 
-        __props__['costFilters'] = cost_filters
+        __props__['cost_filters'] = cost_filters
 
-        __props__['costTypes'] = cost_types
+        __props__['cost_types'] = cost_types
 
         if not limit_amount:
             raise TypeError('Missing required property limit_amount')
-        __props__['limitAmount'] = limit_amount
+        __props__['limit_amount'] = limit_amount
 
         if not limit_unit:
             raise TypeError('Missing required property limit_unit')
-        __props__['limitUnit'] = limit_unit
+        __props__['limit_unit'] = limit_unit
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['timePeriodEnd'] = time_period_end
+        __props__['time_period_end'] = time_period_end
 
         if not time_period_start:
             raise TypeError('Missing required property time_period_start')
-        __props__['timePeriodStart'] = time_period_start
+        __props__['time_period_start'] = time_period_start
 
         if not time_unit:
             raise TypeError('Missing required property time_unit')
-        __props__['timeUnit'] = time_unit
+        __props__['time_unit'] = time_unit
 
         super(Budget, __self__).__init__(
             'aws:budgets/budget:Budget',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

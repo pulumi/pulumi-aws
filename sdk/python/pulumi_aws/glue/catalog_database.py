@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class CatalogDatabase(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class CatalogDatabase(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['catalogId'] = catalog_id
+        __props__['catalog_id'] = catalog_id
 
         __props__['description'] = description
 
-        __props__['locationUri'] = location_uri
+        __props__['location_uri'] = location_uri
 
         __props__['name'] = name
 
@@ -36,4 +36,11 @@ class CatalogDatabase(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

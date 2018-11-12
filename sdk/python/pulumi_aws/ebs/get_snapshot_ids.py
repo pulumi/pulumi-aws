@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSnapshotIdsResult(object):
     """
@@ -21,7 +21,7 @@ class GetSnapshotIdsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None):
+async def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None):
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
@@ -31,7 +31,7 @@ def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None):
     __args__['filters'] = filters
     __args__['owners'] = owners
     __args__['restorableByUserIds'] = restorable_by_user_ids
-    __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__)
 
     return GetSnapshotIdsResult(
         ids=__ret__.get('ids'),

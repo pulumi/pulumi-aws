@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Vpc(pulumi.CustomResource):
     """
@@ -21,21 +21,21 @@ class Vpc(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['assignGeneratedIpv6CidrBlock'] = assign_generated_ipv6_cidr_block
+        __props__['assign_generated_ipv6_cidr_block'] = assign_generated_ipv6_cidr_block
 
         if not cidr_block:
             raise TypeError('Missing required property cidr_block')
-        __props__['cidrBlock'] = cidr_block
+        __props__['cidr_block'] = cidr_block
 
-        __props__['enableClassiclink'] = enable_classiclink
+        __props__['enable_classiclink'] = enable_classiclink
 
-        __props__['enableClassiclinkDnsSupport'] = enable_classiclink_dns_support
+        __props__['enable_classiclink_dns_support'] = enable_classiclink_dns_support
 
-        __props__['enableDnsHostnames'] = enable_dns_hostnames
+        __props__['enable_dns_hostnames'] = enable_dns_hostnames
 
-        __props__['enableDnsSupport'] = enable_dns_support
+        __props__['enable_dns_support'] = enable_dns_support
 
-        __props__['instanceTenancy'] = instance_tenancy
+        __props__['instance_tenancy'] = instance_tenancy
 
         __props__['tags'] = tags
 
@@ -53,4 +53,11 @@ class Vpc(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

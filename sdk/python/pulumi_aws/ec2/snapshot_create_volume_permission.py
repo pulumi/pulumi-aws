@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SnapshotCreateVolumePermission(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
         if not account_id:
             raise TypeError('Missing required property account_id')
-        __props__['accountId'] = account_id
+        __props__['account_id'] = account_id
 
         if not snapshot_id:
             raise TypeError('Missing required property snapshot_id')
-        __props__['snapshotId'] = snapshot_id
+        __props__['snapshot_id'] = snapshot_id
 
         super(SnapshotCreateVolumePermission, __self__).__init__(
             'aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

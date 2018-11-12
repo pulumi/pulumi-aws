@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Subnet(pulumi.CustomResource):
     """
@@ -21,23 +21,23 @@ class Subnet(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['assignIpv6AddressOnCreation'] = assign_ipv6_address_on_creation
+        __props__['assign_ipv6_address_on_creation'] = assign_ipv6_address_on_creation
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
         if not cidr_block:
             raise TypeError('Missing required property cidr_block')
-        __props__['cidrBlock'] = cidr_block
+        __props__['cidr_block'] = cidr_block
 
-        __props__['ipv6CidrBlock'] = ipv6_cidr_block
+        __props__['ipv6_cidr_block'] = ipv6_cidr_block
 
-        __props__['mapPublicIpOnLaunch'] = map_public_ip_on_launch
+        __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
 
         __props__['tags'] = tags
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         __props__['arn'] = None
         __props__['ipv6_cidr_block_association_id'] = None
@@ -47,4 +47,11 @@ class Subnet(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

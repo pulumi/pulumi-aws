@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Certificate(pulumi.CustomResource):
     """
@@ -39,15 +39,15 @@ class Certificate(pulumi.CustomResource):
 
         if not domain_name:
             raise TypeError('Missing required property domain_name')
-        __props__['domainName'] = domain_name
+        __props__['domain_name'] = domain_name
 
-        __props__['subjectAlternativeNames'] = subject_alternative_names
+        __props__['subject_alternative_names'] = subject_alternative_names
 
         __props__['tags'] = tags
 
         if not validation_method:
             raise TypeError('Missing required property validation_method')
-        __props__['validationMethod'] = validation_method
+        __props__['validation_method'] = validation_method
 
         __props__['arn'] = None
         __props__['domain_validation_options'] = None
@@ -58,4 +58,11 @@ class Certificate(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DefaultNetworkAcl(pulumi.CustomResource):
     """
@@ -46,13 +46,13 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         if not default_network_acl_id:
             raise TypeError('Missing required property default_network_acl_id')
-        __props__['defaultNetworkAclId'] = default_network_acl_id
+        __props__['default_network_acl_id'] = default_network_acl_id
 
         __props__['egress'] = egress
 
         __props__['ingress'] = ingress
 
-        __props__['subnetIds'] = subnet_ids
+        __props__['subnet_ids'] = subnet_ids
 
         __props__['tags'] = tags
 
@@ -63,4 +63,11 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

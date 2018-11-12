@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Portfolio(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Portfolio(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['providerName'] = provider_name
+        __props__['provider_name'] = provider_name
 
         __props__['tags'] = tags
 
@@ -37,4 +37,11 @@ class Portfolio(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

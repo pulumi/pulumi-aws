@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     """
@@ -29,15 +29,22 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
-        __props__['routeTableId'] = route_table_id
+        __props__['route_table_id'] = route_table_id
 
         if not vpc_endpoint_id:
             raise TypeError('Missing required property vpc_endpoint_id')
-        __props__['vpcEndpointId'] = vpc_endpoint_id
+        __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
         super(VpcEndpointRouteTableAssociation, __self__).__init__(
             'aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

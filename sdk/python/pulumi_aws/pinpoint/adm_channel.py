@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AdmChannel(pulumi.CustomResource):
     """
@@ -27,15 +27,15 @@ class AdmChannel(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
         if not client_id:
             raise TypeError('Missing required property client_id')
-        __props__['clientId'] = client_id
+        __props__['client_id'] = client_id
 
         if not client_secret:
             raise TypeError('Missing required property client_secret')
-        __props__['clientSecret'] = client_secret
+        __props__['client_secret'] = client_secret
 
         __props__['enabled'] = enabled
 
@@ -44,4 +44,11 @@ class AdmChannel(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

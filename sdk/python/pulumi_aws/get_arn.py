@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetArnResult(object):
     """
@@ -50,14 +50,14 @@ class GetArnResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_arn(arn=None):
+async def get_arn(arn=None):
     """
     Parses an Amazon Resource Name (ARN) into its constituent parts.
     """
     __args__ = dict()
 
     __args__['arn'] = arn
-    __ret__ = pulumi.runtime.invoke('aws:index/getArn:getArn', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getArn:getArn', __args__)
 
     return GetArnResult(
         account=__ret__.get('account'),

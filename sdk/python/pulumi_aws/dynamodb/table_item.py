@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TableItem(pulumi.CustomResource):
     """
@@ -26,21 +26,28 @@ class TableItem(pulumi.CustomResource):
 
         if not hash_key:
             raise TypeError('Missing required property hash_key')
-        __props__['hashKey'] = hash_key
+        __props__['hash_key'] = hash_key
 
         if not item:
             raise TypeError('Missing required property item')
         __props__['item'] = item
 
-        __props__['rangeKey'] = range_key
+        __props__['range_key'] = range_key
 
         if not table_name:
             raise TypeError('Missing required property table_name')
-        __props__['tableName'] = table_name
+        __props__['table_name'] = table_name
 
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

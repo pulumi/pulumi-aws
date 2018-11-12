@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ConfigurationAggregator(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accountAggregationSource'] = account_aggregation_source
+        __props__['account_aggregation_source'] = account_aggregation_source
 
         __props__['name'] = name
 
-        __props__['organizationAggregationSource'] = organization_aggregation_source
+        __props__['organization_aggregation_source'] = organization_aggregation_source
 
         __props__['arn'] = None
 
@@ -34,4 +34,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

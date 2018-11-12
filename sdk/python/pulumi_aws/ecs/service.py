@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Service(pulumi.CustomResource):
     """
@@ -27,43 +27,50 @@ class Service(pulumi.CustomResource):
 
         __props__['cluster'] = cluster
 
-        __props__['deploymentMaximumPercent'] = deployment_maximum_percent
+        __props__['deployment_maximum_percent'] = deployment_maximum_percent
 
-        __props__['deploymentMinimumHealthyPercent'] = deployment_minimum_healthy_percent
+        __props__['deployment_minimum_healthy_percent'] = deployment_minimum_healthy_percent
 
-        __props__['desiredCount'] = desired_count
+        __props__['desired_count'] = desired_count
 
-        __props__['healthCheckGracePeriodSeconds'] = health_check_grace_period_seconds
+        __props__['health_check_grace_period_seconds'] = health_check_grace_period_seconds
 
-        __props__['iamRole'] = iam_role
+        __props__['iam_role'] = iam_role
 
-        __props__['launchType'] = launch_type
+        __props__['launch_type'] = launch_type
 
-        __props__['loadBalancers'] = load_balancers
+        __props__['load_balancers'] = load_balancers
 
         __props__['name'] = name
 
-        __props__['networkConfiguration'] = network_configuration
+        __props__['network_configuration'] = network_configuration
 
-        __props__['orderedPlacementStrategies'] = ordered_placement_strategies
+        __props__['ordered_placement_strategies'] = ordered_placement_strategies
 
-        __props__['placementConstraints'] = placement_constraints
+        __props__['placement_constraints'] = placement_constraints
 
-        __props__['placementStrategies'] = placement_strategies
+        __props__['placement_strategies'] = placement_strategies
 
-        __props__['schedulingStrategy'] = scheduling_strategy
+        __props__['scheduling_strategy'] = scheduling_strategy
 
-        __props__['serviceRegistries'] = service_registries
+        __props__['service_registries'] = service_registries
 
         if not task_definition:
             raise TypeError('Missing required property task_definition')
-        __props__['taskDefinition'] = task_definition
+        __props__['task_definition'] = task_definition
 
-        __props__['waitForSteadyState'] = wait_for_steady_state
+        __props__['wait_for_steady_state'] = wait_for_steady_state
 
         super(Service, __self__).__init__(
             'aws:ecs/service:Service',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

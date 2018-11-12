@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Volume(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class Volume(pulumi.CustomResource):
 
         if not availability_zone:
             raise TypeError('Missing required property availability_zone')
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
         __props__['encrypted'] = encrypted
 
         __props__['iops'] = iops
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         __props__['size'] = size
 
-        __props__['snapshotId'] = snapshot_id
+        __props__['snapshot_id'] = snapshot_id
 
         __props__['tags'] = tags
 
@@ -46,4 +46,11 @@ class Volume(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

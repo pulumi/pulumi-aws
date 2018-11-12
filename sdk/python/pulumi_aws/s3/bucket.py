@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Bucket(pulumi.CustomResource):
     """
@@ -21,7 +21,7 @@ class Bucket(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accelerationStatus'] = acceleration_status
+        __props__['acceleration_status'] = acceleration_status
 
         __props__['acl'] = acl
 
@@ -29,15 +29,15 @@ class Bucket(pulumi.CustomResource):
 
         __props__['bucket'] = bucket
 
-        __props__['bucketPrefix'] = bucket_prefix
+        __props__['bucket_prefix'] = bucket_prefix
 
-        __props__['corsRules'] = cors_rules
+        __props__['cors_rules'] = cors_rules
 
-        __props__['forceDestroy'] = force_destroy
+        __props__['force_destroy'] = force_destroy
 
-        __props__['hostedZoneId'] = hosted_zone_id
+        __props__['hosted_zone_id'] = hosted_zone_id
 
-        __props__['lifecycleRules'] = lifecycle_rules
+        __props__['lifecycle_rules'] = lifecycle_rules
 
         __props__['loggings'] = loggings
 
@@ -45,11 +45,11 @@ class Bucket(pulumi.CustomResource):
 
         __props__['region'] = region
 
-        __props__['replicationConfiguration'] = replication_configuration
+        __props__['replication_configuration'] = replication_configuration
 
-        __props__['requestPayer'] = request_payer
+        __props__['request_payer'] = request_payer
 
-        __props__['serverSideEncryptionConfiguration'] = server_side_encryption_configuration
+        __props__['server_side_encryption_configuration'] = server_side_encryption_configuration
 
         __props__['tags'] = tags
 
@@ -57,9 +57,9 @@ class Bucket(pulumi.CustomResource):
 
         __props__['website'] = website
 
-        __props__['websiteDomain'] = website_domain
+        __props__['website_domain'] = website_domain
 
-        __props__['websiteEndpoint'] = website_endpoint
+        __props__['website_endpoint'] = website_endpoint
 
         __props__['bucket_domain_name'] = None
         __props__['bucket_regional_domain_name'] = None
@@ -69,4 +69,11 @@ class Bucket(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

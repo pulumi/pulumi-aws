@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class IdentityPoolRoleAttachment(pulumi.CustomResource):
     """
@@ -23,9 +23,9 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
         if not identity_pool_id:
             raise TypeError('Missing required property identity_pool_id')
-        __props__['identityPoolId'] = identity_pool_id
+        __props__['identity_pool_id'] = identity_pool_id
 
-        __props__['roleMappings'] = role_mappings
+        __props__['role_mappings'] = role_mappings
 
         if not roles:
             raise TypeError('Missing required property roles')
@@ -36,4 +36,11 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
