@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetNetworkInterfacesResult(object):
     """
@@ -20,19 +20,19 @@ class GetNetworkInterfacesResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_network_interfaces(filters=None, tags=None):
+async def get_network_interfaces(filters=None, tags=None):
     __args__ = dict()
 
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__)
 
     return GetNetworkInterfacesResult(
         ids=__ret__.get('ids'),

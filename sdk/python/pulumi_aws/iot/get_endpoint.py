@@ -4,33 +4,39 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetEndpointResult(object):
     """
     A collection of values returned by getEndpoint.
     """
     def __init__(__self__, endpoint_address=None, id=None):
-        if endpoint_address and not isinstance(endpoint_address, basestring):
-            raise TypeError('Expected argument endpoint_address to be a basestring')
+        if endpoint_address and not isinstance(endpoint_address, str):
+            raise TypeError('Expected argument endpoint_address to be a str')
         __self__.endpoint_address = endpoint_address
         """
-        The endpoint. The format of the endpoint is as follows: `IDENTIFIER.iot.REGION.amazonaws.com`.
+        The endpoint based on `endpoint_type`:
+        * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
+        * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
+        * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
+        * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
+        * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_endpoint():
+async def get_endpoint(endpoint_type=None):
     """
     Returns a unique endpoint specific to the AWS account making the call.
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__)
+    __args__['endpointType'] = endpoint_type
+    __ret__ = await pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__)
 
     return GetEndpointResult(
         endpoint_address=__ret__.get('endpointAddress'),

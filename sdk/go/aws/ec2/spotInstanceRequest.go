@@ -210,12 +210,12 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *SpotInstanceRequest) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SpotInstanceRequest) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The AMI to use for the instance.
@@ -251,7 +251,7 @@ func (r *SpotInstanceRequest) CpuCoreCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["cpuCoreCount"])
 }
 
-// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 func (r *SpotInstanceRequest) CpuThreadsPerCore() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["cpuThreadsPerCore"])
 }
@@ -510,7 +510,7 @@ type SpotInstanceRequestState struct {
 	// only supported on creation of instance type that support CPU Options
 	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount interface{}
-	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore interface{}
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification interface{}
@@ -638,7 +638,7 @@ type SpotInstanceRequestArgs struct {
 	// only supported on creation of instance type that support CPU Options
 	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount interface{}
-	// If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore interface{}
 	// Customize the credit specification of the instance. See Credit Specification below for more details.
 	CreditSpecification interface{}

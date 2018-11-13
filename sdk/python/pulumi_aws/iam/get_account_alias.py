@@ -4,34 +4,34 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAccountAliasResult(object):
     """
     A collection of values returned by getAccountAlias.
     """
     def __init__(__self__, account_alias=None, id=None):
-        if account_alias and not isinstance(account_alias, basestring):
-            raise TypeError('Expected argument account_alias to be a basestring')
+        if account_alias and not isinstance(account_alias, str):
+            raise TypeError('Expected argument account_alias to be a str')
         __self__.account_alias = account_alias
         """
         The alias associated with the AWS account.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_account_alias():
+async def get_account_alias():
     """
     The IAM Account Alias data source allows access to the account alias
     for the effective account in which Terraform is working.
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__)
 
     return GetAccountAliasResult(
         account_alias=__ret__.get('accountAlias'),

@@ -58,12 +58,12 @@ func GetIdentityNotificationTopic(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *IdentityNotificationTopic) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *IdentityNotificationTopic) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).

@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSecretResult(object):
     """
     A collection of values returned by getSecret.
     """
     def __init__(__self__, id=None):
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_secret(__has_dynamic_attributes=None, secrets=None):
+async def get_secret(__has_dynamic_attributes=None, secrets=None):
     """
     !> **WARNING:** This data source is deprecated and will be removed in the next major version. You can migrate existing configurations to the [`aws_kms_secrets` data source](https://www.terraform.io/docs/providers/aws/d/kms_secrets.html) following instructions available in the [Version 2 Upgrade Guide](https://www.terraform.io/docs/providers/aws/guides/version-2-upgrade.html#data-source-aws_kms_secret).
     
@@ -35,7 +35,7 @@ def get_secret(__has_dynamic_attributes=None, secrets=None):
 
     __args__['__hasDynamicAttributes'] = __has_dynamic_attributes
     __args__['secrets'] = secrets
-    __ret__ = pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__)
 
     return GetSecretResult(
         id=__ret__.get('id'))

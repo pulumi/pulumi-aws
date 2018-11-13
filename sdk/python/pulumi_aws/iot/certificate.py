@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Certificate(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class Certificate(pulumi.CustomResource):
         """Create a Certificate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,30 +23,13 @@ class Certificate(pulumi.CustomResource):
 
         if not active:
             raise TypeError('Missing required property active')
-        elif not isinstance(active, bool):
-            raise TypeError('Expected property active to be a bool')
-        __self__.active = active
-        """
-        Boolean flag to indicate if the certificate should be active
-        """
         __props__['active'] = active
 
         if not csr:
             raise TypeError('Missing required property csr')
-        elif not isinstance(csr, basestring):
-            raise TypeError('Expected property csr to be a basestring')
-        __self__.csr = csr
-        """
-        The certificate signing request. Review the
-        [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-        for more information on creating a certificate from a certificate signing request (CSR).
-        """
         __props__['csr'] = csr
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the created AWS IoT certificate
-        """
+        __props__['arn'] = None
 
         super(Certificate, __self__).__init__(
             'aws:iot/certificate:Certificate',
@@ -54,10 +37,10 @@ class Certificate(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'active' in outs:
-            self.active = outs['active']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'csr' in outs:
-            self.csr = outs['csr']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

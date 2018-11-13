@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AggregateAuthorization(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class AggregateAuthorization(pulumi.CustomResource):
         """Create a AggregateAuthorization resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,28 +23,13 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         if not account_id:
             raise TypeError('Missing required property account_id')
-        elif not isinstance(account_id, basestring):
-            raise TypeError('Expected property account_id to be a basestring')
-        __self__.account_id = account_id
-        """
-        Account ID
-        """
-        __props__['accountId'] = account_id
+        __props__['account_id'] = account_id
 
         if not region:
             raise TypeError('Missing required property region')
-        elif not isinstance(region, basestring):
-            raise TypeError('Expected property region to be a basestring')
-        __self__.region = region
-        """
-        Region
-        """
         __props__['region'] = region
 
-        __self__.arn = pulumi.runtime.UNKNOWN
-        """
-        The ARN of the authorization
-        """
+        __props__['arn'] = None
 
         super(AggregateAuthorization, __self__).__init__(
             'aws:cfg/aggregateAuthorization:AggregateAuthorization',
@@ -52,10 +37,10 @@ class AggregateAuthorization(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accountId' in outs:
-            self.account_id = outs['accountId']
-        if 'arn' in outs:
-            self.arn = outs['arn']
-        if 'region' in outs:
-            self.region = outs['region']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcLink(pulumi.CustomResource):
     """
@@ -14,38 +14,20 @@ class VpcLink(pulumi.CustomResource):
         """Create a VpcLink resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        The description of the VPC link.
-        """
         __props__['description'] = description
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name used to label and identify the VPC link.
-        """
         __props__['name'] = name
 
         if not target_arn:
             raise TypeError('Missing required property target_arn')
-        elif not isinstance(target_arn, basestring):
-            raise TypeError('Expected property target_arn to be a basestring')
-        __self__.target_arn = target_arn
-        """
-        The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        """
-        __props__['targetArn'] = target_arn
+        __props__['target_arn'] = target_arn
 
         super(VpcLink, __self__).__init__(
             'aws:apigateway/vpcLink:VpcLink',
@@ -53,10 +35,10 @@ class VpcLink(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'targetArn' in outs:
-            self.target_arn = outs['targetArn']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

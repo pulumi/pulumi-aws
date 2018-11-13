@@ -70,12 +70,12 @@ func GetPatchBaseline(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *PatchBaseline) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *PatchBaseline) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.

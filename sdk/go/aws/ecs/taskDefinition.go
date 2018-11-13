@@ -83,12 +83,12 @@ func GetTaskDefinition(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *TaskDefinition) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *TaskDefinition) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Full ARN of the Task Definition (including both `family` and `revision`).

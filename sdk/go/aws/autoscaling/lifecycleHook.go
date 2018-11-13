@@ -85,12 +85,12 @@ func GetLifecycleHook(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *LifecycleHook) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *LifecycleHook) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The name of the Auto Scaling group to which you want to assign the lifecycle hook

@@ -4,42 +4,42 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetListenerResult(object):
     """
     A collection of values returned by getListener.
     """
     def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
-        if certificate_arn and not isinstance(certificate_arn, basestring):
-            raise TypeError('Expected argument certificate_arn to be a basestring')
+        if certificate_arn and not isinstance(certificate_arn, str):
+            raise TypeError('Expected argument certificate_arn to be a str')
         __self__.certificate_arn = certificate_arn
         if default_actions and not isinstance(default_actions, list):
             raise TypeError('Expected argument default_actions to be a list')
         __self__.default_actions = default_actions
-        if load_balancer_arn and not isinstance(load_balancer_arn, basestring):
-            raise TypeError('Expected argument load_balancer_arn to be a basestring')
+        if load_balancer_arn and not isinstance(load_balancer_arn, str):
+            raise TypeError('Expected argument load_balancer_arn to be a str')
         __self__.load_balancer_arn = load_balancer_arn
         if port and not isinstance(port, int):
             raise TypeError('Expected argument port to be a int')
         __self__.port = port
-        if protocol and not isinstance(protocol, basestring):
-            raise TypeError('Expected argument protocol to be a basestring')
+        if protocol and not isinstance(protocol, str):
+            raise TypeError('Expected argument protocol to be a str')
         __self__.protocol = protocol
-        if ssl_policy and not isinstance(ssl_policy, basestring):
-            raise TypeError('Expected argument ssl_policy to be a basestring')
+        if ssl_policy and not isinstance(ssl_policy, str):
+            raise TypeError('Expected argument ssl_policy to be a str')
         __self__.ssl_policy = ssl_policy
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_listener(arn=None, load_balancer_arn=None, port=None):
+async def get_listener(arn=None, load_balancer_arn=None, port=None):
     """
     ~> **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
     
@@ -54,7 +54,7 @@ def get_listener(arn=None, load_balancer_arn=None, port=None):
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
-    __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancingv2/getListener:getListener', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancingv2/getListener:getListener', __args__)
 
     return GetListenerResult(
         arn=__ret__.get('arn'),

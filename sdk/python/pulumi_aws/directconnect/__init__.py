@@ -3,16 +3,16 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from bgp_peer import *
-from connection import *
-from connection_association import *
-from gateway import *
-from gateway_association import *
-from hosted_private_virtual_interface import *
-from hosted_private_virtual_interface_accepter import *
-from hosted_public_virtual_interface import *
-from hosted_public_virtual_interface_accepter import *
-from link_aggregation_group import *
-from private_virtual_interface import *
-from public_virtual_interface import *
-from get_gateway import *
+from .bgp_peer import *
+from .connection import *
+from .connection_association import *
+from .gateway import *
+from .gateway_association import *
+from .hosted_private_virtual_interface import *
+from .hosted_private_virtual_interface_accepter import *
+from .hosted_public_virtual_interface import *
+from .hosted_public_virtual_interface_accepter import *
+from .link_aggregation_group import *
+from .private_virtual_interface import *
+from .public_virtual_interface import *
+from .get_gateway import *

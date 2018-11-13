@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SnapshotCreateVolumePermission(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         """Create a SnapshotCreateVolumePermission resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,23 +23,11 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
         if not account_id:
             raise TypeError('Missing required property account_id')
-        elif not isinstance(account_id, basestring):
-            raise TypeError('Expected property account_id to be a basestring')
-        __self__.account_id = account_id
-        """
-        An AWS Account ID to add create volume permissions
-        """
-        __props__['accountId'] = account_id
+        __props__['account_id'] = account_id
 
         if not snapshot_id:
             raise TypeError('Missing required property snapshot_id')
-        elif not isinstance(snapshot_id, basestring):
-            raise TypeError('Expected property snapshot_id to be a basestring')
-        __self__.snapshot_id = snapshot_id
-        """
-        A snapshot ID
-        """
-        __props__['snapshotId'] = snapshot_id
+        __props__['snapshot_id'] = snapshot_id
 
         super(SnapshotCreateVolumePermission, __self__).__init__(
             'aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission',
@@ -47,8 +35,10 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accountId' in outs:
-            self.account_id = outs['accountId']
-        if 'snapshotId' in outs:
-            self.snapshot_id = outs['snapshotId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

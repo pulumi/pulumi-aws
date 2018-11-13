@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetVpcDhcpOptionsResult(object):
     """
     A collection of values returned by getVpcDhcpOptions.
     """
     def __init__(__self__, dhcp_options_id=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, tags=None, id=None):
-        if dhcp_options_id and not isinstance(dhcp_options_id, basestring):
-            raise TypeError('Expected argument dhcp_options_id to be a basestring')
+        if dhcp_options_id and not isinstance(dhcp_options_id, str):
+            raise TypeError('Expected argument dhcp_options_id to be a str')
         __self__.dhcp_options_id = dhcp_options_id
         """
         EC2 DHCP Options ID
         """
-        if domain_name and not isinstance(domain_name, basestring):
-            raise TypeError('Expected argument domain_name to be a basestring')
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError('Expected argument domain_name to be a str')
         __self__.domain_name = domain_name
         """
         The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
@@ -35,8 +35,8 @@ class GetVpcDhcpOptionsResult(object):
         """
         List of NETBIOS name servers.
         """
-        if netbios_node_type and not isinstance(netbios_node_type, basestring):
-            raise TypeError('Expected argument netbios_node_type to be a basestring')
+        if netbios_node_type and not isinstance(netbios_node_type, str):
+            raise TypeError('Expected argument netbios_node_type to be a str')
         __self__.netbios_node_type = netbios_node_type
         """
         The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
@@ -53,14 +53,14 @@ class GetVpcDhcpOptionsResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
+async def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
     """
     Retrieve information about an EC2 DHCP Options configuration.
     """
@@ -69,7 +69,7 @@ def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__)
 
     return GetVpcDhcpOptionsResult(
         dhcp_options_id=__ret__.get('dhcpOptionsId'),

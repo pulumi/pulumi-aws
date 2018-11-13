@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from assessment_target import *
-from assessment_template import *
-from resource_group import *
-from get_rules_packages import *
+from .assessment_target import *
+from .assessment_template import *
+from .resource_group import *
+from .get_rules_packages import *

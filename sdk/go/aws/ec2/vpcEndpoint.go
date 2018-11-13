@@ -93,12 +93,12 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *VpcEndpoint) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *VpcEndpoint) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).

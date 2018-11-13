@@ -4,39 +4,39 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAliasResult(object):
     """
     A collection of values returned by getAlias.
     """
     def __init__(__self__, arn=None, target_key_arn=None, target_key_id=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The Amazon Resource Name(ARN) of the key alias.
         """
-        if target_key_arn and not isinstance(target_key_arn, basestring):
-            raise TypeError('Expected argument target_key_arn to be a basestring')
+        if target_key_arn and not isinstance(target_key_arn, str):
+            raise TypeError('Expected argument target_key_arn to be a str')
         __self__.target_key_arn = target_key_arn
         """
         ARN pointed to by the alias.
         """
-        if target_key_id and not isinstance(target_key_id, basestring):
-            raise TypeError('Expected argument target_key_id to be a basestring')
+        if target_key_id and not isinstance(target_key_id, str):
+            raise TypeError('Expected argument target_key_id to be a str')
         __self__.target_key_id = target_key_id
         """
         Key identifier pointed to by the alias.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_alias(name=None):
+async def get_alias(name=None):
     """
     Use this data source to get the ARN of a KMS key alias.
     By using this data source, you can reference key alias
@@ -45,7 +45,7 @@ def get_alias(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__)
 
     return GetAliasResult(
         arn=__ret__.get('arn'),

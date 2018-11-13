@@ -150,7 +150,7 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 	return ""
 }
 
-// preConfigureCallback validates that AWS credentials can be succesfully discovered. This emulates the credentials
+// preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
@@ -904,6 +904,21 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_ec2_capacity_reservation": {
+				Tok: awsResource(ec2Mod, "CapacityReservation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"instance_type": {
+						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
+					},
+					"instance_platform": {
+						Type: awsType(ec2Mod+"/instancePlatform", "InstancePlatform"),
+					},
+					"tags": {Type: awsType(awsMod, "Tags")},
+					"tenancy": {
+						Type: awsType(ec2Mod+"/tenancy", "Tenancy"),
+					},
+				},
+			},
 			"aws_ec2_fleet": {
 				Tok: awsResource(ec2Mod, "Fleet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1154,11 +1169,9 @@ func Provider() tfbridge.ProviderInfo {
 					"domain_name": tfbridge.AutoNameTransform("domainName", 28, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					// These only accept a single value in the AWS API, but are not marked as MaxItems==1 in the TF
-					// provider.
-					"cluster_config":   {Name: "clusterConfig", MaxItemsOne: boolRef(true)},
-					"ebs_options":      {Name: "ebsOptions", MaxItemsOne: boolRef(true)},
-					"snapshot_options": {Name: "snapshotOptions", MaxItemsOne: boolRef(true)},
+					"cluster_config":   {Name: "clusterConfig"},
+					"ebs_options":      {Name: "ebsOptions"},
+					"snapshot_options": {Name: "snapshotOptions"},
 					"tags":             {Type: awsType(awsMod, "Tags")},
 				},
 			},
@@ -1193,13 +1206,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Glue
-			"aws_glue_catalog_database": {Tok: awsResource(glueMod, "CatalogDatabase")},
-			"aws_glue_catalog_table":    {Tok: awsResource(glueMod, "CatalogTable")},
-			"aws_glue_classifier":       {Tok: awsResource(glueMod, "Classifier")},
-			"aws_glue_connection":       {Tok: awsResource(glueMod, "Connection")},
-			"aws_glue_crawler":          {Tok: awsResource(glueMod, "Crawler")},
-			"aws_glue_job":              {Tok: awsResource(glueMod, "Job")},
-			"aws_glue_trigger":          {Tok: awsResource(glueMod, "Trigger")},
+			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
+			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
+			"aws_glue_classifier":             {Tok: awsResource(glueMod, "Classifier")},
+			"aws_glue_connection":             {Tok: awsResource(glueMod, "Connection")},
+			"aws_glue_crawler":                {Tok: awsResource(glueMod, "Crawler")},
+			"aws_glue_job":                    {Tok: awsResource(glueMod, "Job")},
+			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
+			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			// Glacier
 			"aws_gamelift_alias": {Tok: awsResource(glacierMod, "Alias")},
 			"aws_gamelift_build": {Tok: awsResource(glacierMod, "Build")},
@@ -1347,13 +1361,33 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
-			// IoT
+			// IOT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
 			"aws_iot_policy": {
 				Tok:      awsResource(iotMod, "Policy"),
 				IDFields: []string{"name"},
 			},
-			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_policy_attachment": {
+				Tok: awsResource(iotMod, "PolicyAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iotMod, "Policy")},
+					},
+					"target": {
+						Type: awsType(awsMod, "ARN"),
+					},
+				},
+			},
+			"aws_iot_thing": {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_thing_principal_attachment": {
+				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"principal": {
+						Type: awsType(awsMod, "ARN"),
+					},
+				},
+			},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),
@@ -1417,8 +1451,9 @@ func Provider() tfbridge.ProviderInfo {
 				IDFields: []string{"statement_id"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": {
-						Name: "function",
-						Type: awsType(lambdaMod+"/function", "Function"),
+						Name:     "function",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(lambdaMod+"/function", "Function")},
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
@@ -1484,14 +1519,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_policy":            {Tok: awsResource(organizationsMod, "Policy")},
 			"aws_organizations_policy_attachment": {Tok: awsResource(organizationsMod, "PolicyAttachment")},
 			// Pinpoint
-			"aws_pinpoint_adm_channel":   {Tok: awsResource(pinpointMod, "AdmChannel")},
-			"aws_pinpoint_apns_channel":  {Tok: awsResource(pinpointMod, "ApnsChannel")},
-			"aws_pinpoint_app":           {Tok: awsResource(pinpointMod, "App")},
-			"aws_pinpoint_baidu_channel": {Tok: awsResource(pinpointMod, "BaiduChannel")},
-			"aws_pinpoint_email_channel": {Tok: awsResource(pinpointMod, "EmailChannel")},
-			"aws_pinpoint_event_stream":  {Tok: awsResource(pinpointMod, "EventStream")},
-			"aws_pinpoint_gcm_channel":   {Tok: awsResource(pinpointMod, "GcmChannel")},
-			"aws_pinpoint_sms_channel":   {Tok: awsResource(pinpointMod, "SmsChannel")},
+			"aws_pinpoint_adm_channel":               {Tok: awsResource(pinpointMod, "AdmChannel")},
+			"aws_pinpoint_apns_channel":              {Tok: awsResource(pinpointMod, "ApnsChannel")},
+			"aws_pinpoint_apns_sandbox_channel":      {Tok: awsResource(pinpointMod, "ApnsSandboxChannel")},
+			"aws_pinpoint_apns_voip_channel":         {Tok: awsResource(pinpointMod, "ApnsVoipChannel")},
+			"aws_pinpoint_apns_voip_sandbox_channel": {Tok: awsResource(pinpointMod, "ApnsVoipSandboxChannel")},
+			"aws_pinpoint_app":                       {Tok: awsResource(pinpointMod, "App")},
+			"aws_pinpoint_baidu_channel":             {Tok: awsResource(pinpointMod, "BaiduChannel")},
+			"aws_pinpoint_email_channel":             {Tok: awsResource(pinpointMod, "EmailChannel")},
+			"aws_pinpoint_event_stream":              {Tok: awsResource(pinpointMod, "EventStream")},
+			"aws_pinpoint_gcm_channel":               {Tok: awsResource(pinpointMod, "GcmChannel")},
+			"aws_pinpoint_sms_channel":               {Tok: awsResource(pinpointMod, "SmsChannel")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster": {
 				Tok: awsResource(rdsMod, "Cluster"),
@@ -1670,7 +1708,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
 					// provider.
-					"website": {Name: "website", MaxItemsOne: boolRef(true)},
+					"website": {Name: "website"},
 					"tags":    {Type: awsType(awsMod, "Tags")},
 				},
 			},
@@ -1996,7 +2034,8 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.16.0",
+				"@pulumi/pulumi":    "^0.16.4",
+				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
@@ -2045,7 +2084,9 @@ func Provider() tfbridge.ProviderInfo {
 					"ec2": {
 						DestFiles: []string{
 							"instanceType.ts",      // InstanceType union type and constants
+							"instancePlatform.ts",  // InstancePlatform union type and constants
 							"placementStrategy.ts", // PlacementStrategy union type and constants
+							"tenancy.ts",           // Tenancy union type and constants
 						},
 					},
 					"ecs": {
@@ -2098,7 +2139,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.16.0,<0.17.0",
+				"pulumi": ">=0.16.4,<0.17.0",
 			},
 		},
 	}

@@ -1,10 +1,10 @@
 [[constraint]]
   name = "github.com/pulumi/pulumi"
-  version = "v0.15.1"
+  branch = "master"
 
 [[constraint]]
-  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
+  branch = "master"
 
 [[constraint]]
   branch = "pulumi-master"
@@ -48,7 +48,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "v1.15.55"
+  version = "v1.15.64"
   [override.metadata]
     govendor-overriden=true
 
@@ -313,12 +313,6 @@
 [[override]]
   name = "golang.org/x/text"
   revision = "6eab0e8f74e86c598ec3b6fad4888e0c11482d48"
-  [override.metadata]
-    govendor-overriden=true
-
-[[override]]
-  name = "google.golang.org/genproto"
-  revision = "f676e0f3ac6395ff1a529ae59a6670878a8371a6"
   [override.metadata]
     govendor-overriden=true
 

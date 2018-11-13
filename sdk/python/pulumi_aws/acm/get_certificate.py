@@ -4,27 +4,27 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetCertificateResult(object):
     """
     A collection of values returned by getCertificate.
     """
     def __init__(__self__, arn=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_certificate(domain=None, most_recent=None, statuses=None, types=None):
+async def get_certificate(domain=None, most_recent=None, statuses=None, types=None):
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
@@ -36,7 +36,7 @@ def get_certificate(domain=None, most_recent=None, statuses=None, types=None):
     __args__['mostRecent'] = most_recent
     __args__['statuses'] = statuses
     __args__['types'] = types
-    __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__)
 
     return GetCertificateResult(
         arn=__ret__.get('arn'),

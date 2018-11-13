@@ -14,7 +14,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as table from "./table";
-import * as iam from "../iam";
 import * as lambda from "../lambda";
 
 /**

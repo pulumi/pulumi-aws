@@ -29,15 +29,15 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The ENI ID of the network interface created by the NAT gateway.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * The private IP address of the NAT Gateway.
      */
-    public readonly privateIp: pulumi.Output<string>;
+    public /*out*/ readonly privateIp: pulumi.Output<string>;
     /**
      * The public IP address of the NAT Gateway.
      */
-    public readonly publicIp: pulumi.Output<string>;
+    public /*out*/ readonly publicIp: pulumi.Output<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
@@ -74,11 +74,11 @@ export class NatGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["allocationId"] = args ? args.allocationId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["privateIp"] = args ? args.privateIp : undefined;
-            inputs["publicIp"] = args ? args.publicIp : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["networkInterfaceId"] = undefined /*out*/;
+            inputs["privateIp"] = undefined /*out*/;
+            inputs["publicIp"] = undefined /*out*/;
         }
         super("aws:ec2/natGateway:NatGateway", name, inputs, opts);
     }
@@ -122,18 +122,6 @@ export interface NatGatewayArgs {
      * The Allocation ID of the Elastic IP address for the gateway.
      */
     readonly allocationId: pulumi.Input<string>;
-    /**
-     * The ENI ID of the network interface created by the NAT gateway.
-     */
-    readonly networkInterfaceId?: pulumi.Input<string>;
-    /**
-     * The private IP address of the NAT Gateway.
-     */
-    readonly privateIp?: pulumi.Input<string>;
-    /**
-     * The public IP address of the NAT Gateway.
-     */
-    readonly publicIp?: pulumi.Input<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */

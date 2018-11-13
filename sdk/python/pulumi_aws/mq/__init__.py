@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from broker import *
-from configuration import *
-from get_broker import *
+from .broker import *
+from .configuration import *
+from .get_broker import *

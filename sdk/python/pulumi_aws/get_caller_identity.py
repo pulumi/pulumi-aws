@@ -4,46 +4,46 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetCallerIdentityResult(object):
     """
     A collection of values returned by getCallerIdentity.
     """
     def __init__(__self__, account_id=None, arn=None, user_id=None, id=None):
-        if account_id and not isinstance(account_id, basestring):
-            raise TypeError('Expected argument account_id to be a basestring')
+        if account_id and not isinstance(account_id, str):
+            raise TypeError('Expected argument account_id to be a str')
         __self__.account_id = account_id
         """
         The AWS Account ID number of the account that owns or contains the calling entity.
         """
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The AWS ARN associated with the calling entity.
         """
-        if user_id and not isinstance(user_id, basestring):
-            raise TypeError('Expected argument user_id to be a basestring')
+        if user_id and not isinstance(user_id, str):
+            raise TypeError('Expected argument user_id to be a str')
         __self__.user_id = user_id
         """
         The unique identifier of the calling entity.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_caller_identity():
+async def get_caller_identity():
     """
     Use this data source to get the access to the effective Account ID, User ID, and ARN in
     which Terraform is authorized.
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__)
 
     return GetCallerIdentityResult(
         account_id=__ret__.get('accountId'),

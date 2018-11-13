@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetRouteTablesResult(object):
     """
@@ -20,14 +20,14 @@ class GetRouteTablesResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_route_tables(filters=None, tags=None, vpc_id=None):
+async def get_route_tables(filters=None, tags=None, vpc_id=None):
     """
     This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
     """
@@ -36,7 +36,7 @@ def get_route_tables(filters=None, tags=None, vpc_id=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTables:getRouteTables', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getRouteTables:getRouteTables', __args__)
 
     return GetRouteTablesResult(
         ids=__ret__.get('ids'),

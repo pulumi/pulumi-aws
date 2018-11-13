@@ -20,6 +20,7 @@ func NewSecret(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["kmsKeyId"] = nil
 		inputs["name"] = nil
+		inputs["namePrefix"] = nil
 		inputs["policy"] = nil
 		inputs["recoveryWindowInDays"] = nil
 		inputs["rotationLambdaArn"] = nil
@@ -29,6 +30,7 @@ func NewSecret(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["name"] = args.Name
+		inputs["namePrefix"] = args.NamePrefix
 		inputs["policy"] = args.Policy
 		inputs["recoveryWindowInDays"] = args.RecoveryWindowInDays
 		inputs["rotationLambdaArn"] = args.RotationLambdaArn
@@ -54,6 +56,7 @@ func GetSecret(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["name"] = state.Name
+		inputs["namePrefix"] = state.NamePrefix
 		inputs["policy"] = state.Policy
 		inputs["recoveryWindowInDays"] = state.RecoveryWindowInDays
 		inputs["rotationEnabled"] = state.RotationEnabled
@@ -70,12 +73,12 @@ func GetSecret(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *Secret) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Secret) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the secret.
@@ -93,9 +96,14 @@ func (r *Secret) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
-// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
 func (r *Secret) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+func (r *Secret) NamePrefix() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
@@ -136,8 +144,10 @@ type SecretState struct {
 	Description interface{}
 	// Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId interface{}
-	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
 	Name interface{}
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix interface{}
 	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
@@ -158,8 +168,10 @@ type SecretArgs struct {
 	Description interface{}
 	// Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId interface{}
-	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
 	Name interface{}
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix interface{}
 	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.

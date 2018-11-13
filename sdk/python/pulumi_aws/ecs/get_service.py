@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetServiceResult(object):
     """
     A collection of values returned by getService.
     """
     def __init__(__self__, arn=None, desired_count=None, launch_type=None, scheduling_strategy=None, task_definition=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the ECS Service
@@ -23,32 +23,32 @@ class GetServiceResult(object):
         """
         The number of tasks for the ECS Service
         """
-        if launch_type and not isinstance(launch_type, basestring):
-            raise TypeError('Expected argument launch_type to be a basestring')
+        if launch_type and not isinstance(launch_type, str):
+            raise TypeError('Expected argument launch_type to be a str')
         __self__.launch_type = launch_type
         """
         The launch type for the ECS Service
         """
-        if scheduling_strategy and not isinstance(scheduling_strategy, basestring):
-            raise TypeError('Expected argument scheduling_strategy to be a basestring')
+        if scheduling_strategy and not isinstance(scheduling_strategy, str):
+            raise TypeError('Expected argument scheduling_strategy to be a str')
         __self__.scheduling_strategy = scheduling_strategy
         """
         The scheduling strategy for the ECS Service
         """
-        if task_definition and not isinstance(task_definition, basestring):
-            raise TypeError('Expected argument task_definition to be a basestring')
+        if task_definition and not isinstance(task_definition, str):
+            raise TypeError('Expected argument task_definition to be a str')
         __self__.task_definition = task_definition
         """
         The family for the latest ACTIVE revision
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_service(cluster_arn=None, service_name=None):
+async def get_service(cluster_arn=None, service_name=None):
     """
     The ECS Service data source allows access to details of a specific
     Service within a AWS ECS Cluster.
@@ -57,7 +57,7 @@ def get_service(cluster_arn=None, service_name=None):
 
     __args__['clusterArn'] = cluster_arn
     __args__['serviceName'] = service_name
-    __ret__ = pulumi.runtime.invoke('aws:ecs/getService:getService', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ecs/getService:getService', __args__)
 
     return GetServiceResult(
         arn=__ret__.get('arn'),

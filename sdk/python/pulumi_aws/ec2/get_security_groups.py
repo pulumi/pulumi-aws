@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSecurityGroupsResult(object):
     """
@@ -27,14 +27,14 @@ class GetSecurityGroupsResult(object):
         The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
         unless the `vpc-id` filter is also used.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_security_groups(filters=None, tags=None):
+async def get_security_groups(filters=None, tags=None):
     """
     Use this data source to get IDs and VPC membership of Security Groups that are created
     outside of Terraform.
@@ -43,7 +43,7 @@ def get_security_groups(filters=None, tags=None):
 
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__)
 
     return GetSecurityGroupsResult(
         ids=__ret__.get('ids'),

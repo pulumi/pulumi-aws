@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PolicyAttachment(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class PolicyAttachment(pulumi.CustomResource):
         """Create a PolicyAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,23 +23,11 @@ class PolicyAttachment(pulumi.CustomResource):
 
         if not policy_id:
             raise TypeError('Missing required property policy_id')
-        elif not isinstance(policy_id, basestring):
-            raise TypeError('Expected property policy_id to be a basestring')
-        __self__.policy_id = policy_id
-        """
-        The unique identifier (ID) of the policy that you want to attach to the target.
-        """
-        __props__['policyId'] = policy_id
+        __props__['policy_id'] = policy_id
 
         if not target_id:
             raise TypeError('Missing required property target_id')
-        elif not isinstance(target_id, basestring):
-            raise TypeError('Expected property target_id to be a basestring')
-        __self__.target_id = target_id
-        """
-        The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        """
-        __props__['targetId'] = target_id
+        __props__['target_id'] = target_id
 
         super(PolicyAttachment, __self__).__init__(
             'aws:organizations/policyAttachment:PolicyAttachment',
@@ -47,8 +35,10 @@ class PolicyAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'policyId' in outs:
-            self.policy_id = outs['policyId']
-        if 'targetId' in outs:
-            self.target_id = outs['targetId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

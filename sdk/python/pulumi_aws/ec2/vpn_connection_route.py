@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpnConnectionRoute(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
         """Create a VpnConnectionRoute resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,23 +23,11 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         if not destination_cidr_block:
             raise TypeError('Missing required property destination_cidr_block')
-        elif not isinstance(destination_cidr_block, basestring):
-            raise TypeError('Expected property destination_cidr_block to be a basestring')
-        __self__.destination_cidr_block = destination_cidr_block
-        """
-        The CIDR block associated with the local subnet of the customer network.
-        """
-        __props__['destinationCidrBlock'] = destination_cidr_block
+        __props__['destination_cidr_block'] = destination_cidr_block
 
         if not vpn_connection_id:
             raise TypeError('Missing required property vpn_connection_id')
-        elif not isinstance(vpn_connection_id, basestring):
-            raise TypeError('Expected property vpn_connection_id to be a basestring')
-        __self__.vpn_connection_id = vpn_connection_id
-        """
-        The ID of the VPN connection.
-        """
-        __props__['vpnConnectionId'] = vpn_connection_id
+        __props__['vpn_connection_id'] = vpn_connection_id
 
         super(VpnConnectionRoute, __self__).__init__(
             'aws:ec2/vpnConnectionRoute:VpnConnectionRoute',
@@ -47,8 +35,10 @@ class VpnConnectionRoute(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'destinationCidrBlock' in outs:
-            self.destination_cidr_block = outs['destinationCidrBlock']
-        if 'vpnConnectionId' in outs:
-            self.vpn_connection_id = outs['vpnConnectionId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

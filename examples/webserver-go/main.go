@@ -38,8 +38,8 @@ func main() {
 			return err
 		}
 
-		ctx.Export("publicIp", server.PublicIp)
-		ctx.Export("publicDns", server.PublicDns)
+		ctx.Export("publicIp", server.PublicIp())
+		ctx.Export("publicDns", server.PublicDns())
 		return nil
 	})
 }

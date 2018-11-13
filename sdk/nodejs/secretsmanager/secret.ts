@@ -33,9 +33,13 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
-     * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+     * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix: pulumi.Output<string>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
@@ -77,6 +81,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
             inputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
@@ -88,6 +93,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
             inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
@@ -117,9 +123,13 @@ export interface SecretState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+     * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
@@ -159,9 +169,13 @@ export interface SecretArgs {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Spaces are not permitted.
+     * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */

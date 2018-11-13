@@ -4,30 +4,30 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetPartitionResult(object):
     """
     A collection of values returned by getPartition.
     """
     def __init__(__self__, partition=None, id=None):
-        if partition and not isinstance(partition, basestring):
-            raise TypeError('Expected argument partition to be a basestring')
+        if partition and not isinstance(partition, str):
+            raise TypeError('Expected argument partition to be a str')
         __self__.partition = partition
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_partition():
+async def get_partition():
     """
     Use this data source to lookup current AWS partition in which Terraform is working
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__)
 
     return GetPartitionResult(
         partition=__ret__.get('partition'),

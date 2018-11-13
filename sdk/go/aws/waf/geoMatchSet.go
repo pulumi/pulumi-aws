@@ -48,12 +48,12 @@ func GetGeoMatchSet(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *GeoMatchSet) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *GeoMatchSet) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.

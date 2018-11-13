@@ -40,6 +40,7 @@ func NewHostedPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["bgpAuthKey"] = nil
 		inputs["connectionId"] = nil
 		inputs["customerAddress"] = nil
+		inputs["mtu"] = nil
 		inputs["name"] = nil
 		inputs["ownerAccountId"] = nil
 		inputs["vlan"] = nil
@@ -50,11 +51,13 @@ func NewHostedPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["bgpAuthKey"] = args.BgpAuthKey
 		inputs["connectionId"] = args.ConnectionId
 		inputs["customerAddress"] = args.CustomerAddress
+		inputs["mtu"] = args.Mtu
 		inputs["name"] = args.Name
 		inputs["ownerAccountId"] = args.OwnerAccountId
 		inputs["vlan"] = args.Vlan
 	}
 	inputs["arn"] = nil
+	inputs["jumboFrameCapable"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -75,6 +78,8 @@ func GetHostedPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["bgpAuthKey"] = state.BgpAuthKey
 		inputs["connectionId"] = state.ConnectionId
 		inputs["customerAddress"] = state.CustomerAddress
+		inputs["jumboFrameCapable"] = state.JumboFrameCapable
+		inputs["mtu"] = state.Mtu
 		inputs["name"] = state.Name
 		inputs["ownerAccountId"] = state.OwnerAccountId
 		inputs["vlan"] = state.Vlan
@@ -88,12 +93,12 @@ func GetHostedPrivateVirtualInterface(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *HostedPrivateVirtualInterface) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *HostedPrivateVirtualInterface) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -131,6 +136,16 @@ func (r *HostedPrivateVirtualInterface) CustomerAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["customerAddress"])
 }
 
+// Indicates whether jumbo frames (9001 MTU) are supported.
+func (r *HostedPrivateVirtualInterface) JumboFrameCapable() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+}
+
+// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+func (r *HostedPrivateVirtualInterface) Mtu() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["mtu"])
+}
+
 // The name for the virtual interface.
 func (r *HostedPrivateVirtualInterface) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -162,6 +177,10 @@ type HostedPrivateVirtualInterfaceState struct {
 	ConnectionId interface{}
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
 	CustomerAddress interface{}
+	// Indicates whether jumbo frames (9001 MTU) are supported.
+	JumboFrameCapable interface{}
+	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+	Mtu interface{}
 	// The name for the virtual interface.
 	Name interface{}
 	// The AWS account that will own the new virtual interface.
@@ -184,6 +203,8 @@ type HostedPrivateVirtualInterfaceArgs struct {
 	ConnectionId interface{}
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
 	CustomerAddress interface{}
+	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+	Mtu interface{}
 	// The name for the virtual interface.
 	Name interface{}
 	// The AWS account that will own the new virtual interface.

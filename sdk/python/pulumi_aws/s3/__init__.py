@@ -3,11 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from bucket import *
-from inventory import *
-from bucket_metric import *
-from bucket_notification import *
-from bucket_object import *
-from bucket_policy import *
-from get_bucket import *
-from get_bucket_object import *
+from .bucket import *
+from .inventory import *
+from .bucket_metric import *
+from .bucket_notification import *
+from .bucket_object import *
+from .bucket_policy import *
+from .get_bucket import *
+from .get_bucket_object import *

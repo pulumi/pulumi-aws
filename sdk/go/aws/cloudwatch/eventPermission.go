@@ -25,10 +25,12 @@ func NewEventPermission(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["action"] = nil
+		inputs["condition"] = nil
 		inputs["principal"] = nil
 		inputs["statementId"] = nil
 	} else {
 		inputs["action"] = args.Action
+		inputs["condition"] = args.Condition
 		inputs["principal"] = args.Principal
 		inputs["statementId"] = args.StatementId
 	}
@@ -46,6 +48,7 @@ func GetEventPermission(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["action"] = state.Action
+		inputs["condition"] = state.Condition
 		inputs["principal"] = state.Principal
 		inputs["statementId"] = state.StatementId
 	}
@@ -58,12 +61,12 @@ func GetEventPermission(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *EventPermission) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *EventPermission) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -71,7 +74,12 @@ func (r *EventPermission) Action() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["action"])
 }
 
-// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+func (r *EventPermission) Condition() *pulumi.Output {
+	return r.s.State["condition"]
+}
+
+// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 func (r *EventPermission) Principal() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["principal"])
 }
@@ -85,7 +93,9 @@ func (r *EventPermission) StatementId() *pulumi.StringOutput {
 type EventPermissionState struct {
 	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
 	Action interface{}
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+	Condition interface{}
+	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal interface{}
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId interface{}
@@ -95,7 +105,9 @@ type EventPermissionState struct {
 type EventPermissionArgs struct {
 	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
 	Action interface{}
-	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus.
+	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+	Condition interface{}
+	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal interface{}
 	// An identifier string for the external account that you are granting permissions to.
 	StatementId interface{}

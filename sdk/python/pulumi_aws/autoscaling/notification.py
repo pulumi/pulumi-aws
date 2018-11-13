@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Notification(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class Notification(pulumi.CustomResource):
         """Create a Notification resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,34 +25,15 @@ class Notification(pulumi.CustomResource):
 
         if not group_names:
             raise TypeError('Missing required property group_names')
-        elif not isinstance(group_names, list):
-            raise TypeError('Expected property group_names to be a list')
-        __self__.group_names = group_names
-        """
-        A list of AutoScaling Group Names
-        """
-        __props__['groupNames'] = group_names
+        __props__['group_names'] = group_names
 
         if not notifications:
             raise TypeError('Missing required property notifications')
-        elif not isinstance(notifications, list):
-            raise TypeError('Expected property notifications to be a list')
-        __self__.notifications = notifications
-        """
-        A list of Notification Types that trigger
-        notifications. Acceptable values are documented [in the AWS documentation here][1]
-        """
         __props__['notifications'] = notifications
 
         if not topic_arn:
             raise TypeError('Missing required property topic_arn')
-        elif not isinstance(topic_arn, basestring):
-            raise TypeError('Expected property topic_arn to be a basestring')
-        __self__.topic_arn = topic_arn
-        """
-        The Topic ARN for notifications to be sent through
-        """
-        __props__['topicArn'] = topic_arn
+        __props__['topic_arn'] = topic_arn
 
         super(Notification, __self__).__init__(
             'aws:autoscaling/notification:Notification',
@@ -60,10 +41,10 @@ class Notification(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'groupNames' in outs:
-            self.group_names = outs['groupNames']
-        if 'notifications' in outs:
-            self.notifications = outs['notifications']
-        if 'topicArn' in outs:
-            self.topic_arn = outs['topicArn']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

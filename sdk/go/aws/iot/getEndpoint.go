@@ -8,8 +8,12 @@ import (
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
-func LookupEndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
-	outputs, err := ctx.Invoke("aws:iot/getEndpoint:getEndpoint", nil)
+func LookupEndpoint(ctx *pulumi.Context, args *GetEndpointArgs) (*GetEndpointResult, error) {
+	inputs := make(map[string]interface{})
+	if args != nil {
+		inputs["endpointType"] = args.EndpointType
+	}
+	outputs, err := ctx.Invoke("aws:iot/getEndpoint:getEndpoint", inputs)
 	if err != nil {
 		return nil, err
 	}
@@ -19,9 +23,20 @@ func LookupEndpoint(ctx *pulumi.Context) (*GetEndpointResult, error) {
 	}, nil
 }
 
+// A collection of arguments for invoking getEndpoint.
+type GetEndpointArgs struct {
+	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+	EndpointType interface{}
+}
+
 // A collection of values returned by getEndpoint.
 type GetEndpointResult struct {
-	// The endpoint. The format of the endpoint is as follows: `IDENTIFIER.iot.REGION.amazonaws.com`.
+	// The endpoint based on `endpoint_type`:
+	// * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
+	// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
+	// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
+	// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
+	// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 	EndpointAddress interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

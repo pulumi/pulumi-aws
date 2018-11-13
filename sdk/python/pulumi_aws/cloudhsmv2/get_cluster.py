@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetClusterResult(object):
     """
@@ -23,11 +23,11 @@ class GetClusterResult(object):
         * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
         The number of available cluster certificates may vary depending on state of the cluster.
         """
-        if cluster_state and not isinstance(cluster_state, basestring):
-            raise TypeError('Expected argument cluster_state to be a basestring')
+        if cluster_state and not isinstance(cluster_state, str):
+            raise TypeError('Expected argument cluster_state to be a str')
         __self__.cluster_state = cluster_state
-        if security_group_id and not isinstance(security_group_id, basestring):
-            raise TypeError('Expected argument security_group_id to be a basestring')
+        if security_group_id and not isinstance(security_group_id, str):
+            raise TypeError('Expected argument security_group_id to be a str')
         __self__.security_group_id = security_group_id
         """
         The ID of the security group associated with the CloudHSM cluster.
@@ -38,20 +38,20 @@ class GetClusterResult(object):
         """
         The IDs of subnets in which cluster operates.
         """
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
         """
         The id of the VPC that the CloudHSM cluster resides in.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_cluster(cluster_id=None, cluster_state=None):
+async def get_cluster(cluster_id=None, cluster_state=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
     """
@@ -59,7 +59,7 @@ def get_cluster(cluster_id=None, cluster_state=None):
 
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
-    __ret__ = pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__)
 
     return GetClusterResult(
         cluster_certificates=__ret__.get('clusterCertificates'),

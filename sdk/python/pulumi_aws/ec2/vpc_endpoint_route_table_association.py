@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     """
@@ -20,7 +20,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         """Create a VpcEndpointRouteTableAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -29,23 +29,11 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
-        elif not isinstance(route_table_id, basestring):
-            raise TypeError('Expected property route_table_id to be a basestring')
-        __self__.route_table_id = route_table_id
-        """
-        The ID of the routing table to be associated with the VPC endpoint.
-        """
-        __props__['routeTableId'] = route_table_id
+        __props__['route_table_id'] = route_table_id
 
         if not vpc_endpoint_id:
             raise TypeError('Missing required property vpc_endpoint_id')
-        elif not isinstance(vpc_endpoint_id, basestring):
-            raise TypeError('Expected property vpc_endpoint_id to be a basestring')
-        __self__.vpc_endpoint_id = vpc_endpoint_id
-        """
-        The ID of the VPC endpoint with which the routing table will be associated.
-        """
-        __props__['vpcEndpointId'] = vpc_endpoint_id
+        __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
         super(VpcEndpointRouteTableAssociation, __self__).__init__(
             'aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation',
@@ -53,8 +41,10 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'routeTableId' in outs:
-            self.route_table_id = outs['routeTableId']
-        if 'vpcEndpointId' in outs:
-            self.vpc_endpoint_id = outs['vpcEndpointId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

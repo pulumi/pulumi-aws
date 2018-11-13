@@ -48,7 +48,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly cpuCoreCount: pulumi.Output<number>;
     /**
-     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
     public readonly cpuThreadsPerCore: pulumi.Output<number>;
     /**
@@ -330,7 +330,7 @@ export interface InstanceState {
      */
     readonly cpuCoreCount?: pulumi.Input<number>;
     /**
-     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
     readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
@@ -506,7 +506,7 @@ export interface InstanceArgs {
      */
     readonly cpuCoreCount?: pulumi.Input<number>;
     /**
-     * If set to to 1, hyperthreading is disabled on the launcehd instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
     readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**

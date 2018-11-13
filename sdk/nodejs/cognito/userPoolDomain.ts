@@ -25,6 +25,10 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
+     * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+     */
+    public readonly certificateArn: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the CloudFront distribution.
      */
     public /*out*/ readonly cloudfrontDistributionArn: pulumi.Output<string>;
@@ -58,6 +62,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: UserPoolDomainState = argsOrState as UserPoolDomainState | undefined;
             inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
@@ -71,6 +76,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
             if (!args || args.userPoolId === undefined) {
                 throw new Error("Missing required property 'userPoolId'");
             }
+            inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
             inputs["awsAccountId"] = undefined /*out*/;
@@ -90,6 +96,10 @@ export interface UserPoolDomainState {
      * The AWS account ID for the user pool owner.
      */
     readonly awsAccountId?: pulumi.Input<string>;
+    /**
+     * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+     */
+    readonly certificateArn?: pulumi.Input<string>;
     /**
      * The ARN of the CloudFront distribution.
      */
@@ -116,6 +126,10 @@ export interface UserPoolDomainState {
  * The set of arguments for constructing a UserPoolDomain resource.
  */
 export interface UserPoolDomainArgs {
+    /**
+     * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+     */
+    readonly certificateArn?: pulumi.Input<string>;
     /**
      * The domain string.
      */

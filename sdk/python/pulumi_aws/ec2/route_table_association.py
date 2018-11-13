@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RouteTableAssociation(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         """Create a RouteTableAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,23 +23,11 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
-        elif not isinstance(route_table_id, basestring):
-            raise TypeError('Expected property route_table_id to be a basestring')
-        __self__.route_table_id = route_table_id
-        """
-        The ID of the routing table to associate with.
-        """
-        __props__['routeTableId'] = route_table_id
+        __props__['route_table_id'] = route_table_id
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        elif not isinstance(subnet_id, basestring):
-            raise TypeError('Expected property subnet_id to be a basestring')
-        __self__.subnet_id = subnet_id
-        """
-        The subnet ID to create an association.
-        """
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         super(RouteTableAssociation, __self__).__init__(
             'aws:ec2/routeTableAssociation:RouteTableAssociation',
@@ -47,8 +35,10 @@ class RouteTableAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'routeTableId' in outs:
-            self.route_table_id = outs['routeTableId']
-        if 'subnetId' in outs:
-            self.subnet_id = outs['subnetId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

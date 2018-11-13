@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetLoadBalancerResult(object):
     """
@@ -14,14 +14,14 @@ class GetLoadBalancerResult(object):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError('Expected argument access_logs to be a dict')
         __self__.access_logs = access_logs
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
-        if arn_suffix and not isinstance(arn_suffix, basestring):
-            raise TypeError('Expected argument arn_suffix to be a basestring')
+        if arn_suffix and not isinstance(arn_suffix, str):
+            raise TypeError('Expected argument arn_suffix to be a str')
         __self__.arn_suffix = arn_suffix
-        if dns_name and not isinstance(dns_name, basestring):
-            raise TypeError('Expected argument dns_name to be a basestring')
+        if dns_name and not isinstance(dns_name, str):
+            raise TypeError('Expected argument dns_name to be a str')
         __self__.dns_name = dns_name
         if enable_deletion_protection and not isinstance(enable_deletion_protection, bool):
             raise TypeError('Expected argument enable_deletion_protection to be a bool')
@@ -32,11 +32,11 @@ class GetLoadBalancerResult(object):
         if internal and not isinstance(internal, bool):
             raise TypeError('Expected argument internal to be a bool')
         __self__.internal = internal
-        if load_balancer_type and not isinstance(load_balancer_type, basestring):
-            raise TypeError('Expected argument load_balancer_type to be a basestring')
+        if load_balancer_type and not isinstance(load_balancer_type, str):
+            raise TypeError('Expected argument load_balancer_type to be a str')
         __self__.load_balancer_type = load_balancer_type
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         if security_groups and not isinstance(security_groups, list):
             raise TypeError('Expected argument security_groups to be a list')
@@ -50,20 +50,20 @@ class GetLoadBalancerResult(object):
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, basestring):
-            raise TypeError('Expected argument vpc_id to be a basestring')
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
-        if zone_id and not isinstance(zone_id, basestring):
-            raise TypeError('Expected argument zone_id to be a basestring')
+        if zone_id and not isinstance(zone_id, str):
+            raise TypeError('Expected argument zone_id to be a str')
         __self__.zone_id = zone_id
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_load_balancer(arn=None, name=None, tags=None):
+async def get_load_balancer(arn=None, name=None, tags=None):
     """
     ~> **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
     
@@ -78,7 +78,7 @@ def get_load_balancer(arn=None, name=None, tags=None):
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer', __args__)
 
     return GetLoadBalancerResult(
         access_logs=__ret__.get('accessLogs'),

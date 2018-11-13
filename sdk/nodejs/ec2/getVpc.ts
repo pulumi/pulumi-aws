@@ -99,6 +99,10 @@ export interface GetVpcResult {
      */
     readonly ipv6CidrBlock: string;
     /**
+     * The ID of the main route table associated with this VPC.
+     */
+    readonly mainRouteTableId: string;
+    /**
      * The State of the association.
      */
     readonly state: string;

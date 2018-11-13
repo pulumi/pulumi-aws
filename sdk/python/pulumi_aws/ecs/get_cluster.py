@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetClusterResult(object):
     """
     A collection of values returned by getCluster.
     """
     def __init__(__self__, arn=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, status=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The ARN of the ECS Cluster
@@ -35,20 +35,20 @@ class GetClusterResult(object):
         """
         The number of running tasks for the ECS Cluster
         """
-        if status and not isinstance(status, basestring):
-            raise TypeError('Expected argument status to be a basestring')
+        if status and not isinstance(status, str):
+            raise TypeError('Expected argument status to be a str')
         __self__.status = status
         """
         The status of the ECS Cluster
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_cluster(cluster_name=None):
+async def get_cluster(cluster_name=None):
     """
     The ECS Cluster data source allows access to details of a specific
     cluster within an AWS ECS service.
@@ -56,7 +56,7 @@ def get_cluster(cluster_name=None):
     __args__ = dict()
 
     __args__['clusterName'] = cluster_name
-    __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__)
 
     return GetClusterResult(
         arn=__ret__.get('arn'),

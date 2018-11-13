@@ -4,45 +4,45 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetPolicyResult(object):
     """
     A collection of values returned by getPolicy.
     """
     def __init__(__self__, description=None, name=None, path=None, policy=None, id=None):
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         The description of the policy.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         """
         The name of the IAM policy.
         """
-        if path and not isinstance(path, basestring):
-            raise TypeError('Expected argument path to be a basestring')
+        if path and not isinstance(path, str):
+            raise TypeError('Expected argument path to be a str')
         __self__.path = path
         """
         The path to the policy.
         """
-        if policy and not isinstance(policy, basestring):
-            raise TypeError('Expected argument policy to be a basestring')
+        if policy and not isinstance(policy, str):
+            raise TypeError('Expected argument policy to be a str')
         __self__.policy = policy
         """
         The policy document of the policy.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_policy(arn=None):
+async def get_policy(arn=None):
     """
     This data source can be used to fetch information about a specific
     IAM policy.
@@ -50,7 +50,7 @@ def get_policy(arn=None):
     __args__ = dict()
 
     __args__['arn'] = arn
-    __ret__ = pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__)
 
     return GetPolicyResult(
         description=__ret__.get('description'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSecretsResult(object):
     """
@@ -17,14 +17,14 @@ class GetSecretsResult(object):
         """
         Map containing each `secret` `name` as the key with its decrypted plaintext value
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_secrets(secrets=None):
+async def get_secrets(secrets=None):
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
     
@@ -33,7 +33,7 @@ def get_secrets(secrets=None):
     __args__ = dict()
 
     __args__['secrets'] = secrets
-    __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__)
 
     return GetSecretsResult(
         plaintext=__ret__.get('plaintext'),

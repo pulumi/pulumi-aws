@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PeeringConnectionOptions(pulumi.CustomResource):
     """
@@ -90,42 +90,20 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         """Create a PeeringConnectionOptions resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if accepter and not isinstance(accepter, dict):
-            raise TypeError('Expected property accepter to be a dict')
-        __self__.accepter = accepter
-        """
-        An optional configuration block that allows for [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
-        """
         __props__['accepter'] = accepter
 
-        if requester and not isinstance(requester, dict):
-            raise TypeError('Expected property requester to be a dict')
-        __self__.requester = requester
-        """
-        A optional configuration block that allows for [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
-        """
         __props__['requester'] = requester
 
         if not vpc_peering_connection_id:
             raise TypeError('Missing required property vpc_peering_connection_id')
-        elif not isinstance(vpc_peering_connection_id, basestring):
-            raise TypeError('Expected property vpc_peering_connection_id to be a basestring')
-        __self__.vpc_peering_connection_id = vpc_peering_connection_id
-        """
-        The ID of the requester VPC peering connection.
-        """
-        __props__['vpcPeeringConnectionId'] = vpc_peering_connection_id
+        __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 
         super(PeeringConnectionOptions, __self__).__init__(
             'aws:ec2/peeringConnectionOptions:PeeringConnectionOptions',
@@ -133,10 +111,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accepter' in outs:
-            self.accepter = outs['accepter']
-        if 'requester' in outs:
-            self.requester = outs['requester']
-        if 'vpcPeeringConnectionId' in outs:
-            self.vpc_peering_connection_id = outs['vpcPeeringConnectionId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

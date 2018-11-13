@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ConnectionAssociation(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class ConnectionAssociation(pulumi.CustomResource):
         """Create a ConnectionAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,23 +23,11 @@ class ConnectionAssociation(pulumi.CustomResource):
 
         if not connection_id:
             raise TypeError('Missing required property connection_id')
-        elif not isinstance(connection_id, basestring):
-            raise TypeError('Expected property connection_id to be a basestring')
-        __self__.connection_id = connection_id
-        """
-        The ID of the connection.
-        """
-        __props__['connectionId'] = connection_id
+        __props__['connection_id'] = connection_id
 
         if not lag_id:
             raise TypeError('Missing required property lag_id')
-        elif not isinstance(lag_id, basestring):
-            raise TypeError('Expected property lag_id to be a basestring')
-        __self__.lag_id = lag_id
-        """
-        The ID of the LAG with which to associate the connection.
-        """
-        __props__['lagId'] = lag_id
+        __props__['lag_id'] = lag_id
 
         super(ConnectionAssociation, __self__).__init__(
             'aws:directconnect/connectionAssociation:ConnectionAssociation',
@@ -47,8 +35,10 @@ class ConnectionAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'connectionId' in outs:
-            self.connection_id = outs['connectionId']
-        if 'lagId' in outs:
-            self.lag_id = outs['lagId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

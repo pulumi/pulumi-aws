@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RdsDbInstance(pulumi.CustomResource):
     """
@@ -17,7 +17,7 @@ class RdsDbInstance(pulumi.CustomResource):
         """Create a RdsDbInstance resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -26,43 +26,19 @@ class RdsDbInstance(pulumi.CustomResource):
 
         if not db_password:
             raise TypeError('Missing required property db_password')
-        elif not isinstance(db_password, basestring):
-            raise TypeError('Expected property db_password to be a basestring')
-        __self__.db_password = db_password
-        """
-        A db password
-        """
-        __props__['dbPassword'] = db_password
+        __props__['db_password'] = db_password
 
         if not db_user:
             raise TypeError('Missing required property db_user')
-        elif not isinstance(db_user, basestring):
-            raise TypeError('Expected property db_user to be a basestring')
-        __self__.db_user = db_user
-        """
-        A db username
-        """
-        __props__['dbUser'] = db_user
+        __props__['db_user'] = db_user
 
         if not rds_db_instance_arn:
             raise TypeError('Missing required property rds_db_instance_arn')
-        elif not isinstance(rds_db_instance_arn, basestring):
-            raise TypeError('Expected property rds_db_instance_arn to be a basestring')
-        __self__.rds_db_instance_arn = rds_db_instance_arn
-        """
-        The db instance to register for this stack. Changing this will force a new resource.
-        """
-        __props__['rdsDbInstanceArn'] = rds_db_instance_arn
+        __props__['rds_db_instance_arn'] = rds_db_instance_arn
 
         if not stack_id:
             raise TypeError('Missing required property stack_id')
-        elif not isinstance(stack_id, basestring):
-            raise TypeError('Expected property stack_id to be a basestring')
-        __self__.stack_id = stack_id
-        """
-        The stack to register a db inatance for. Changing this will force a new resource.
-        """
-        __props__['stackId'] = stack_id
+        __props__['stack_id'] = stack_id
 
         super(RdsDbInstance, __self__).__init__(
             'aws:opsworks/rdsDbInstance:RdsDbInstance',
@@ -70,12 +46,10 @@ class RdsDbInstance(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'dbPassword' in outs:
-            self.db_password = outs['dbPassword']
-        if 'dbUser' in outs:
-            self.db_user = outs['dbUser']
-        if 'rdsDbInstanceArn' in outs:
-            self.rds_db_instance_arn = outs['rdsDbInstanceArn']
-        if 'stackId' in outs:
-            self.stack_id = outs['stackId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

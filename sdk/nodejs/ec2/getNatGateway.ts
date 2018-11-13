@@ -25,8 +25,6 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
 export interface GetNatGatewayArgs {
     /**
      * Custom filter block as described below.
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     readonly filters?: { name: string, values: string[] }[];
     /**
@@ -41,6 +39,10 @@ export interface GetNatGatewayArgs {
      * The id of subnet that the Nat Gateway resides in.
      */
     readonly subnetId?: string;
+    /**
+     * A mapping of tags, each pair of which must exactly match
+     * a pair on the desired Nat Gateway.
+     */
     readonly tags?: {[key: string]: any};
     /**
      * The id of the VPC that the Nat Gateway resides in.

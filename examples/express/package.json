@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.16.0",
+        "@pulumi/pulumi": "dev",
         "express": "^4.16.3",
         "aws-serverless-express": "^3.3.5"
     },

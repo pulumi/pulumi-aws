@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetInternetGatewayResult(object):
     """
@@ -14,20 +14,20 @@ class GetInternetGatewayResult(object):
         if attachments and not isinstance(attachments, list):
             raise TypeError('Expected argument attachments to be a list')
         __self__.attachments = attachments
-        if internet_gateway_id and not isinstance(internet_gateway_id, basestring):
-            raise TypeError('Expected argument internet_gateway_id to be a basestring')
+        if internet_gateway_id and not isinstance(internet_gateway_id, str):
+            raise TypeError('Expected argument internet_gateway_id to be a str')
         __self__.internet_gateway_id = internet_gateway_id
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
+async def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
     """
     `aws_internet_gateway` provides details about a specific Internet Gateway.
     """
@@ -36,7 +36,7 @@ def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__)
 
     return GetInternetGatewayResult(
         attachments=__ret__.get('attachments'),

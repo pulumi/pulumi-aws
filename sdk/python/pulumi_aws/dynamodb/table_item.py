@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TableItem(pulumi.CustomResource):
     """
@@ -17,7 +17,7 @@ class TableItem(pulumi.CustomResource):
         """Create a TableItem resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -26,42 +26,17 @@ class TableItem(pulumi.CustomResource):
 
         if not hash_key:
             raise TypeError('Missing required property hash_key')
-        elif not isinstance(hash_key, basestring):
-            raise TypeError('Expected property hash_key to be a basestring')
-        __self__.hash_key = hash_key
-        """
-        Hash key to use for lookups and identification of the item
-        """
-        __props__['hashKey'] = hash_key
+        __props__['hash_key'] = hash_key
 
         if not item:
             raise TypeError('Missing required property item')
-        elif not isinstance(item, basestring):
-            raise TypeError('Expected property item to be a basestring')
-        __self__.item = item
-        """
-        JSON representation of a map of attribute name/value pairs, one for each attribute.
-        Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-        """
         __props__['item'] = item
 
-        if range_key and not isinstance(range_key, basestring):
-            raise TypeError('Expected property range_key to be a basestring')
-        __self__.range_key = range_key
-        """
-        Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-        """
-        __props__['rangeKey'] = range_key
+        __props__['range_key'] = range_key
 
         if not table_name:
             raise TypeError('Missing required property table_name')
-        elif not isinstance(table_name, basestring):
-            raise TypeError('Expected property table_name to be a basestring')
-        __self__.table_name = table_name
-        """
-        The name of the table to contain the item.
-        """
-        __props__['tableName'] = table_name
+        __props__['table_name'] = table_name
 
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
@@ -69,12 +44,10 @@ class TableItem(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'hashKey' in outs:
-            self.hash_key = outs['hashKey']
-        if 'item' in outs:
-            self.item = outs['item']
-        if 'rangeKey' in outs:
-            self.range_key = outs['rangeKey']
-        if 'tableName' in outs:
-            self.table_name = outs['tableName']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

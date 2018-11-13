@@ -106,12 +106,12 @@ func GetBucket(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *Bucket) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Bucket) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
@@ -202,7 +202,8 @@ func (r *Bucket) ServerSideEncryptionConfiguration() *pulumi.Output {
 	return r.s.State["serverSideEncryptionConfiguration"]
 }
 
-// Specifies object tags key and value.
+// A mapping of tags that identifies subset of objects to which the rule applies.
+// The rule applies only to objects having all the tags in its tagset.
 func (r *Bucket) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -266,7 +267,8 @@ type BucketState struct {
 	RequestPayer interface{}
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration interface{}
-	// Specifies object tags key and value.
+	// A mapping of tags that identifies subset of objects to which the rule applies.
+	// The rule applies only to objects having all the tags in its tagset.
 	Tags interface{}
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning interface{}
@@ -313,7 +315,8 @@ type BucketArgs struct {
 	RequestPayer interface{}
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration interface{}
-	// Specifies object tags key and value.
+	// A mapping of tags that identifies subset of objects to which the rule applies.
+	// The rule applies only to objects having all the tags in its tagset.
 	Tags interface{}
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning interface{}

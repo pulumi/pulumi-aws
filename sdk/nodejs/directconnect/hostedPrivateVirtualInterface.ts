@@ -50,6 +50,14 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
      */
     public readonly customerAddress: pulumi.Output<string>;
     /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    public readonly mtu: pulumi.Output<number | undefined>;
+    /**
      * The name for the virtual interface.
      */
     public readonly name: pulumi.Output<string>;
@@ -81,6 +89,8 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;
             inputs["customerAddress"] = state ? state.customerAddress : undefined;
+            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            inputs["mtu"] = state ? state.mtu : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
             inputs["vlan"] = state ? state.vlan : undefined;
@@ -107,10 +117,12 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
             inputs["connectionId"] = args ? args.connectionId : undefined;
             inputs["customerAddress"] = args ? args.customerAddress : undefined;
+            inputs["mtu"] = args ? args.mtu : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["jumboFrameCapable"] = undefined /*out*/;
         }
         super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, inputs, opts);
     }
@@ -148,6 +160,14 @@ export interface HostedPrivateVirtualInterfaceState {
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
     readonly customerAddress?: pulumi.Input<string>;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+    readonly jumboFrameCapable?: pulumi.Input<boolean>;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    readonly mtu?: pulumi.Input<number>;
     /**
      * The name for the virtual interface.
      */
@@ -190,6 +210,10 @@ export interface HostedPrivateVirtualInterfaceArgs {
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
     readonly customerAddress?: pulumi.Input<string>;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    readonly mtu?: pulumi.Input<number>;
     /**
      * The name for the virtual interface.
      */

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetPrefixListResult(object):
     """
@@ -18,20 +18,20 @@ class GetPrefixListResult(object):
         The list of CIDR blocks for the AWS service associated
         with the prefix list.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         """
         The name of the selected prefix list.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_prefix_list(name=None, prefix_list_id=None):
+async def get_prefix_list(name=None, prefix_list_id=None):
     """
     `aws_prefix_list` provides details about a specific prefix list (PL)
     in the current region.
@@ -45,7 +45,7 @@ def get_prefix_list(name=None, prefix_list_id=None):
 
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
-    __ret__ = pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__)
 
     return GetPrefixListResult(
         cidr_blocks=__ret__.get('cidrBlocks'),

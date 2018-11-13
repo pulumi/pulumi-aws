@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetIpRangesResult(object):
     """
@@ -17,8 +17,8 @@ class GetIpRangesResult(object):
         """
         The lexically ordered list of CIDR blocks.
         """
-        if create_date and not isinstance(create_date, basestring):
-            raise TypeError('Expected argument create_date to be a basestring')
+        if create_date and not isinstance(create_date, str):
+            raise TypeError('Expected argument create_date to be a str')
         __self__.create_date = create_date
         """
         The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
@@ -36,14 +36,14 @@ class GetIpRangesResult(object):
         The publication time of the IP ranges, in Unix epoch time format
         (e.g. `1470267965`).
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_ip_ranges(regions=None, services=None):
+async def get_ip_ranges(regions=None, services=None):
     """
     Use this data source to get the [IP ranges][1] of various AWS products and services.
     """
@@ -51,7 +51,7 @@ def get_ip_ranges(regions=None, services=None):
 
     __args__['regions'] = regions
     __args__['services'] = services
-    __ret__ = pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__)
 
     return GetIpRangesResult(
         cidr_blocks=__ret__.get('cidrBlocks'),

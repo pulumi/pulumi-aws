@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class WebAclAssociation(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class WebAclAssociation(pulumi.CustomResource):
         """Create a WebAclAssociation resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,23 +25,11 @@ class WebAclAssociation(pulumi.CustomResource):
 
         if not resource_arn:
             raise TypeError('Missing required property resource_arn')
-        elif not isinstance(resource_arn, basestring):
-            raise TypeError('Expected property resource_arn to be a basestring')
-        __self__.resource_arn = resource_arn
-        """
-        Application Load Balancer ARN to associate with.
-        """
-        __props__['resourceArn'] = resource_arn
+        __props__['resource_arn'] = resource_arn
 
         if not web_acl_id:
             raise TypeError('Missing required property web_acl_id')
-        elif not isinstance(web_acl_id, basestring):
-            raise TypeError('Expected property web_acl_id to be a basestring')
-        __self__.web_acl_id = web_acl_id
-        """
-        The ID of the WAF Regional WebACL to create an association.
-        """
-        __props__['webAclId'] = web_acl_id
+        __props__['web_acl_id'] = web_acl_id
 
         super(WebAclAssociation, __self__).__init__(
             'aws:wafregional/webAclAssociation:WebAclAssociation',
@@ -49,8 +37,10 @@ class WebAclAssociation(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'resourceArn' in outs:
-            self.resource_arn = outs['resourceArn']
-        if 'webAclId' in outs:
-            self.web_acl_id = outs['webAclId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

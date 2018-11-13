@@ -4,36 +4,36 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSecretResult(object):
     """
     A collection of values returned by getSecret.
     """
     def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, policy=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, id=None):
-        if arn and not isinstance(arn, basestring):
-            raise TypeError('Expected argument arn to be a basestring')
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the secret.
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         A description of the secret.
         """
-        if kms_key_id and not isinstance(kms_key_id, basestring):
-            raise TypeError('Expected argument kms_key_id to be a basestring')
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError('Expected argument kms_key_id to be a str')
         __self__.kms_key_id = kms_key_id
         """
         The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
-        if policy and not isinstance(policy, basestring):
-            raise TypeError('Expected argument policy to be a basestring')
+        if policy and not isinstance(policy, str):
+            raise TypeError('Expected argument policy to be a str')
         __self__.policy = policy
         """
         The resource-based policy document that's attached to the secret.
@@ -44,8 +44,8 @@ class GetSecretResult(object):
         """
         Whether rotation is enabled or not.
         """
-        if rotation_lambda_arn and not isinstance(rotation_lambda_arn, basestring):
-            raise TypeError('Expected argument rotation_lambda_arn to be a basestring')
+        if rotation_lambda_arn and not isinstance(rotation_lambda_arn, str):
+            raise TypeError('Expected argument rotation_lambda_arn to be a str')
         __self__.rotation_lambda_arn = rotation_lambda_arn
         """
         Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
@@ -62,14 +62,14 @@ class GetSecretResult(object):
         """
         Tags of the secret.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_secret(arn=None, name=None):
+async def get_secret(arn=None, name=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
     """
@@ -77,7 +77,7 @@ def get_secret(arn=None, name=None):
 
     __args__['arn'] = arn
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__)
 
     return GetSecretResult(
         arn=__ret__.get('arn'),
