@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SnapshotCopy(pulumi.CustomResource):
     """
@@ -25,15 +25,15 @@ class SnapshotCopy(pulumi.CustomResource):
 
         __props__['encrypted'] = encrypted
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         if not source_region:
             raise TypeError('Missing required property source_region')
-        __props__['sourceRegion'] = source_region
+        __props__['source_region'] = source_region
 
         if not source_snapshot_id:
             raise TypeError('Missing required property source_snapshot_id')
-        __props__['sourceSnapshotId'] = source_snapshot_id
+        __props__['source_snapshot_id'] = source_snapshot_id
 
         __props__['tags'] = tags
 
@@ -48,4 +48,11 @@ class SnapshotCopy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

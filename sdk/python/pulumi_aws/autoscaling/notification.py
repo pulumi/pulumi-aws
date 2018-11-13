@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Notification(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Notification(pulumi.CustomResource):
 
         if not group_names:
             raise TypeError('Missing required property group_names')
-        __props__['groupNames'] = group_names
+        __props__['group_names'] = group_names
 
         if not notifications:
             raise TypeError('Missing required property notifications')
@@ -33,11 +33,18 @@ class Notification(pulumi.CustomResource):
 
         if not topic_arn:
             raise TypeError('Missing required property topic_arn')
-        __props__['topicArn'] = topic_arn
+        __props__['topic_arn'] = topic_arn
 
         super(Notification, __self__).__init__(
             'aws:autoscaling/notification:Notification',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

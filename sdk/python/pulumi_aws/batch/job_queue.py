@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class JobQueue(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class JobQueue(pulumi.CustomResource):
 
         if not compute_environments:
             raise TypeError('Missing required property compute_environments')
-        __props__['computeEnvironments'] = compute_environments
+        __props__['compute_environments'] = compute_environments
 
         __props__['name'] = name
 
@@ -42,4 +42,11 @@ class JobQueue(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

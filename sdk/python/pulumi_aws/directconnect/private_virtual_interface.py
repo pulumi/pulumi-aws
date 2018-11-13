@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PrivateVirtualInterface(pulumi.CustomResource):
     """
@@ -23,23 +23,23 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
         if not address_family:
             raise TypeError('Missing required property address_family')
-        __props__['addressFamily'] = address_family
+        __props__['address_family'] = address_family
 
-        __props__['amazonAddress'] = amazon_address
+        __props__['amazon_address'] = amazon_address
 
         if not bgp_asn:
             raise TypeError('Missing required property bgp_asn')
-        __props__['bgpAsn'] = bgp_asn
+        __props__['bgp_asn'] = bgp_asn
 
-        __props__['bgpAuthKey'] = bgp_auth_key
+        __props__['bgp_auth_key'] = bgp_auth_key
 
         if not connection_id:
             raise TypeError('Missing required property connection_id')
-        __props__['connectionId'] = connection_id
+        __props__['connection_id'] = connection_id
 
-        __props__['customerAddress'] = customer_address
+        __props__['customer_address'] = customer_address
 
-        __props__['dxGatewayId'] = dx_gateway_id
+        __props__['dx_gateway_id'] = dx_gateway_id
 
         __props__['mtu'] = mtu
 
@@ -51,7 +51,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             raise TypeError('Missing required property vlan')
         __props__['vlan'] = vlan
 
-        __props__['vpnGatewayId'] = vpn_gateway_id
+        __props__['vpn_gateway_id'] = vpn_gateway_id
 
         __props__['arn'] = None
         __props__['jumbo_frame_capable'] = None
@@ -61,4 +61,11 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

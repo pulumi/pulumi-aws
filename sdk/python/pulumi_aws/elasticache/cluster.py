@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Cluster(pulumi.CustomResource):
     """
@@ -30,49 +30,49 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
-        __props__['availabilityZones'] = availability_zones
+        __props__['availability_zones'] = availability_zones
 
-        __props__['azMode'] = az_mode
+        __props__['az_mode'] = az_mode
 
-        __props__['clusterId'] = cluster_id
+        __props__['cluster_id'] = cluster_id
 
         __props__['engine'] = engine
 
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
-        __props__['maintenanceWindow'] = maintenance_window
+        __props__['maintenance_window'] = maintenance_window
 
-        __props__['nodeType'] = node_type
+        __props__['node_type'] = node_type
 
-        __props__['notificationTopicArn'] = notification_topic_arn
+        __props__['notification_topic_arn'] = notification_topic_arn
 
-        __props__['numCacheNodes'] = num_cache_nodes
+        __props__['num_cache_nodes'] = num_cache_nodes
 
-        __props__['parameterGroupName'] = parameter_group_name
+        __props__['parameter_group_name'] = parameter_group_name
 
         __props__['port'] = port
 
-        __props__['preferredAvailabilityZones'] = preferred_availability_zones
+        __props__['preferred_availability_zones'] = preferred_availability_zones
 
-        __props__['replicationGroupId'] = replication_group_id
+        __props__['replication_group_id'] = replication_group_id
 
-        __props__['securityGroupIds'] = security_group_ids
+        __props__['security_group_ids'] = security_group_ids
 
-        __props__['securityGroupNames'] = security_group_names
+        __props__['security_group_names'] = security_group_names
 
-        __props__['snapshotArns'] = snapshot_arns
+        __props__['snapshot_arns'] = snapshot_arns
 
-        __props__['snapshotName'] = snapshot_name
+        __props__['snapshot_name'] = snapshot_name
 
-        __props__['snapshotRetentionLimit'] = snapshot_retention_limit
+        __props__['snapshot_retention_limit'] = snapshot_retention_limit
 
-        __props__['snapshotWindow'] = snapshot_window
+        __props__['snapshot_window'] = snapshot_window
 
-        __props__['subnetGroupName'] = subnet_group_name
+        __props__['subnet_group_name'] = subnet_group_name
 
         __props__['tags'] = tags
 
@@ -85,4 +85,11 @@ class Cluster(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

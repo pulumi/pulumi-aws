@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ClusterInstance(pulumi.CustomResource):
     """
@@ -25,41 +25,41 @@ class ClusterInstance(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
+        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
         if not cluster_identifier:
             raise TypeError('Missing required property cluster_identifier')
-        __props__['clusterIdentifier'] = cluster_identifier
+        __props__['cluster_identifier'] = cluster_identifier
 
         __props__['engine'] = engine
 
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
         __props__['identifier'] = identifier
 
-        __props__['identifierPrefix'] = identifier_prefix
+        __props__['identifier_prefix'] = identifier_prefix
 
         if not instance_class:
             raise TypeError('Missing required property instance_class')
-        __props__['instanceClass'] = instance_class
+        __props__['instance_class'] = instance_class
 
-        __props__['neptuneParameterGroupName'] = neptune_parameter_group_name
+        __props__['neptune_parameter_group_name'] = neptune_parameter_group_name
 
-        __props__['neptuneSubnetGroupName'] = neptune_subnet_group_name
+        __props__['neptune_subnet_group_name'] = neptune_subnet_group_name
 
         __props__['port'] = port
 
-        __props__['preferredBackupWindow'] = preferred_backup_window
+        __props__['preferred_backup_window'] = preferred_backup_window
 
-        __props__['preferredMaintenanceWindow'] = preferred_maintenance_window
+        __props__['preferred_maintenance_window'] = preferred_maintenance_window
 
-        __props__['promotionTier'] = promotion_tier
+        __props__['promotion_tier'] = promotion_tier
 
-        __props__['publiclyAccessible'] = publicly_accessible
+        __props__['publicly_accessible'] = publicly_accessible
 
         __props__['tags'] = tags
 
@@ -76,4 +76,11 @@ class ClusterInstance(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UsagePlan(pulumi.CustomResource):
     """
@@ -21,21 +21,28 @@ class UsagePlan(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['apiStages'] = api_stages
+        __props__['api_stages'] = api_stages
 
         __props__['description'] = description
 
         __props__['name'] = name
 
-        __props__['productCode'] = product_code
+        __props__['product_code'] = product_code
 
-        __props__['quotaSettings'] = quota_settings
+        __props__['quota_settings'] = quota_settings
 
-        __props__['throttleSettings'] = throttle_settings
+        __props__['throttle_settings'] = throttle_settings
 
         super(UsagePlan, __self__).__init__(
             'aws:apigateway/usagePlan:UsagePlan',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetClusterResult(object):
     """
@@ -183,7 +183,7 @@ class GetClusterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_cluster(cluster_identifier=None, tags=None):
+async def get_cluster(cluster_identifier=None, tags=None):
     """
     Provides details about a specific redshift cluster.
     """
@@ -191,7 +191,7 @@ def get_cluster(cluster_identifier=None, tags=None):
 
     __args__['clusterIdentifier'] = cluster_identifier
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:redshift/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:redshift/getCluster:getCluster', __args__)
 
     return GetClusterResult(
         allow_version_upgrade=__ret__.get('allowVersionUpgrade'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetBillingServiceAccountResult(object):
     """
@@ -24,13 +24,13 @@ class GetBillingServiceAccountResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_billing_service_account():
+async def get_billing_service_account():
     """
     Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of whitelisting in S3 bucket policy.
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('aws:index/getBillingServiceAccount:getBillingServiceAccount', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getBillingServiceAccount:getBillingServiceAccount', __args__)
 
     return GetBillingServiceAccountResult(
         arn=__ret__.get('arn'),

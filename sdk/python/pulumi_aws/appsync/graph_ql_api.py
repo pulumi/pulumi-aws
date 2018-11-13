@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GraphQLApi(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class GraphQLApi(pulumi.CustomResource):
 
         if not authentication_type:
             raise TypeError('Missing required property authentication_type')
-        __props__['authenticationType'] = authentication_type
+        __props__['authentication_type'] = authentication_type
 
-        __props__['logConfig'] = log_config
+        __props__['log_config'] = log_config
 
         __props__['name'] = name
 
-        __props__['openidConnectConfig'] = openid_connect_config
+        __props__['openid_connect_config'] = openid_connect_config
 
-        __props__['userPoolConfig'] = user_pool_config
+        __props__['user_pool_config'] = user_pool_config
 
         __props__['arn'] = None
         __props__['uris'] = None
@@ -41,4 +41,11 @@ class GraphQLApi(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

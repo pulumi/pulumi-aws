@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
     """
@@ -35,15 +35,22 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
 
         if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
-        __props__['networkInterfaceId'] = network_interface_id
+        __props__['network_interface_id'] = network_interface_id
 
         if not security_group_id:
             raise TypeError('Missing required property security_group_id')
-        __props__['securityGroupId'] = security_group_id
+        __props__['security_group_id'] = security_group_id
 
         super(NetworkInterfaceSecurityGroupAttachment, __self__).__init__(
             'aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

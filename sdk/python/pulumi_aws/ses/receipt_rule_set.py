@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ReceiptRuleSet(pulumi.CustomResource):
     """
@@ -23,11 +23,18 @@ class ReceiptRuleSet(pulumi.CustomResource):
 
         if not rule_set_name:
             raise TypeError('Missing required property rule_set_name')
-        __props__['ruleSetName'] = rule_set_name
+        __props__['rule_set_name'] = rule_set_name
 
         super(ReceiptRuleSet, __self__).__init__(
             'aws:ses/receiptRuleSet:ReceiptRuleSet',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

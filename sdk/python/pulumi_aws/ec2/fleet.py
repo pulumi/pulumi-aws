@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Fleet(pulumi.CustomResource):
     """
@@ -21,27 +21,27 @@ class Fleet(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['excessCapacityTerminationPolicy'] = excess_capacity_termination_policy
+        __props__['excess_capacity_termination_policy'] = excess_capacity_termination_policy
 
         if not launch_template_config:
             raise TypeError('Missing required property launch_template_config')
-        __props__['launchTemplateConfig'] = launch_template_config
+        __props__['launch_template_config'] = launch_template_config
 
-        __props__['onDemandOptions'] = on_demand_options
+        __props__['on_demand_options'] = on_demand_options
 
-        __props__['replaceUnhealthyInstances'] = replace_unhealthy_instances
+        __props__['replace_unhealthy_instances'] = replace_unhealthy_instances
 
-        __props__['spotOptions'] = spot_options
+        __props__['spot_options'] = spot_options
 
         __props__['tags'] = tags
 
         if not target_capacity_specification:
             raise TypeError('Missing required property target_capacity_specification')
-        __props__['targetCapacitySpecification'] = target_capacity_specification
+        __props__['target_capacity_specification'] = target_capacity_specification
 
-        __props__['terminateInstances'] = terminate_instances
+        __props__['terminate_instances'] = terminate_instances
 
-        __props__['terminateInstancesWithExpiration'] = terminate_instances_with_expiration
+        __props__['terminate_instances_with_expiration'] = terminate_instances_with_expiration
 
         __props__['type'] = type
 
@@ -50,4 +50,11 @@ class Fleet(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ReceiptRule(pulumi.CustomResource):
     """
@@ -21,15 +21,15 @@ class ReceiptRule(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['addHeaderActions'] = add_header_actions
+        __props__['add_header_actions'] = add_header_actions
 
         __props__['after'] = after
 
-        __props__['bounceActions'] = bounce_actions
+        __props__['bounce_actions'] = bounce_actions
 
         __props__['enabled'] = enabled
 
-        __props__['lambdaActions'] = lambda_actions
+        __props__['lambda_actions'] = lambda_actions
 
         __props__['name'] = name
 
@@ -37,23 +37,30 @@ class ReceiptRule(pulumi.CustomResource):
 
         if not rule_set_name:
             raise TypeError('Missing required property rule_set_name')
-        __props__['ruleSetName'] = rule_set_name
+        __props__['rule_set_name'] = rule_set_name
 
-        __props__['s3Actions'] = s3_actions
+        __props__['s3_actions'] = s3_actions
 
-        __props__['scanEnabled'] = scan_enabled
+        __props__['scan_enabled'] = scan_enabled
 
-        __props__['snsActions'] = sns_actions
+        __props__['sns_actions'] = sns_actions
 
-        __props__['stopActions'] = stop_actions
+        __props__['stop_actions'] = stop_actions
 
-        __props__['tlsPolicy'] = tls_policy
+        __props__['tls_policy'] = tls_policy
 
-        __props__['workmailActions'] = workmail_actions
+        __props__['workmail_actions'] = workmail_actions
 
         super(ReceiptRule, __self__).__init__(
             'aws:ses/receiptRule:ReceiptRule',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

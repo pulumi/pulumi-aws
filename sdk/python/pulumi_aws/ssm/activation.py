@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Activation(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class Activation(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['expirationDate'] = expiration_date
+        __props__['expiration_date'] = expiration_date
 
         if not iam_role:
             raise TypeError('Missing required property iam_role')
-        __props__['iamRole'] = iam_role
+        __props__['iam_role'] = iam_role
 
         __props__['name'] = name
 
-        __props__['registrationLimit'] = registration_limit
+        __props__['registration_limit'] = registration_limit
 
         __props__['activation_code'] = None
         __props__['expired'] = None
@@ -42,4 +42,11 @@ class Activation(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Snapshot(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class Snapshot(pulumi.CustomResource):
 
         if not db_instance_identifier:
             raise TypeError('Missing required property db_instance_identifier')
-        __props__['dbInstanceIdentifier'] = db_instance_identifier
+        __props__['db_instance_identifier'] = db_instance_identifier
 
         if not db_snapshot_identifier:
             raise TypeError('Missing required property db_snapshot_identifier')
-        __props__['dbSnapshotIdentifier'] = db_snapshot_identifier
+        __props__['db_snapshot_identifier'] = db_snapshot_identifier
 
         __props__['allocated_storage'] = None
         __props__['availability_zone'] = None
@@ -52,4 +52,11 @@ class Snapshot(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

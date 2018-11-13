@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ConfigurationTemplate(pulumi.CustomResource):
     """
@@ -29,17 +29,24 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['environmentId'] = environment_id
+        __props__['environment_id'] = environment_id
 
         __props__['name'] = name
 
         __props__['settings'] = settings
 
-        __props__['solutionStackName'] = solution_stack_name
+        __props__['solution_stack_name'] = solution_stack_name
 
         super(ConfigurationTemplate, __self__).__init__(
             'aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSubnetResult(object):
     """
@@ -51,7 +51,7 @@ class GetSubnetResult(object):
             raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
-def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, state=None, tags=None, vpc_id=None):
+async def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, state=None, tags=None, vpc_id=None):
     """
     `aws_subnet` provides details about a specific VPC subnet.
     
@@ -70,7 +70,7 @@ def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, fil
     __args__['state'] = state
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnet:getSubnet', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSubnet:getSubnet', __args__)
 
     return GetSubnetResult(
         arn=__ret__.get('arn'),

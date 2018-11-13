@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Policy(pulumi.CustomResource):
     """
@@ -27,31 +27,31 @@ class Policy(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['adjustmentType'] = adjustment_type
+        __props__['adjustment_type'] = adjustment_type
 
         if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
-        __props__['autoscalingGroupName'] = autoscaling_group_name
+        __props__['autoscaling_group_name'] = autoscaling_group_name
 
         __props__['cooldown'] = cooldown
 
-        __props__['estimatedInstanceWarmup'] = estimated_instance_warmup
+        __props__['estimated_instance_warmup'] = estimated_instance_warmup
 
-        __props__['metricAggregationType'] = metric_aggregation_type
+        __props__['metric_aggregation_type'] = metric_aggregation_type
 
-        __props__['minAdjustmentMagnitude'] = min_adjustment_magnitude
+        __props__['min_adjustment_magnitude'] = min_adjustment_magnitude
 
-        __props__['minAdjustmentStep'] = min_adjustment_step
+        __props__['min_adjustment_step'] = min_adjustment_step
 
         __props__['name'] = name
 
-        __props__['policyType'] = policy_type
+        __props__['policy_type'] = policy_type
 
-        __props__['scalingAdjustment'] = scaling_adjustment
+        __props__['scaling_adjustment'] = scaling_adjustment
 
-        __props__['stepAdjustments'] = step_adjustments
+        __props__['step_adjustments'] = step_adjustments
 
-        __props__['targetTrackingConfiguration'] = target_tracking_configuration
+        __props__['target_tracking_configuration'] = target_tracking_configuration
 
         __props__['arn'] = None
 
@@ -60,4 +60,11 @@ class Policy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

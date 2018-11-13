@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None):
@@ -18,33 +18,33 @@ class Queue(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['contentBasedDeduplication'] = content_based_deduplication
+        __props__['content_based_deduplication'] = content_based_deduplication
 
-        __props__['delaySeconds'] = delay_seconds
+        __props__['delay_seconds'] = delay_seconds
 
-        __props__['fifoQueue'] = fifo_queue
+        __props__['fifo_queue'] = fifo_queue
 
-        __props__['kmsDataKeyReusePeriodSeconds'] = kms_data_key_reuse_period_seconds
+        __props__['kms_data_key_reuse_period_seconds'] = kms_data_key_reuse_period_seconds
 
-        __props__['kmsMasterKeyId'] = kms_master_key_id
+        __props__['kms_master_key_id'] = kms_master_key_id
 
-        __props__['maxMessageSize'] = max_message_size
+        __props__['max_message_size'] = max_message_size
 
-        __props__['messageRetentionSeconds'] = message_retention_seconds
+        __props__['message_retention_seconds'] = message_retention_seconds
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         __props__['policy'] = policy
 
-        __props__['receiveWaitTimeSeconds'] = receive_wait_time_seconds
+        __props__['receive_wait_time_seconds'] = receive_wait_time_seconds
 
-        __props__['redrivePolicy'] = redrive_policy
+        __props__['redrive_policy'] = redrive_policy
 
         __props__['tags'] = tags
 
-        __props__['visibilityTimeoutSeconds'] = visibility_timeout_seconds
+        __props__['visibility_timeout_seconds'] = visibility_timeout_seconds
 
         __props__['arn'] = None
 
@@ -53,4 +53,11 @@ class Queue(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

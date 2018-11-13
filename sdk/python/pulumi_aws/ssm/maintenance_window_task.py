@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MaintenanceWindowTask(pulumi.CustomResource):
     """
@@ -21,21 +21,21 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['loggingInfo'] = logging_info
+        __props__['logging_info'] = logging_info
 
         if not max_concurrency:
             raise TypeError('Missing required property max_concurrency')
-        __props__['maxConcurrency'] = max_concurrency
+        __props__['max_concurrency'] = max_concurrency
 
         if not max_errors:
             raise TypeError('Missing required property max_errors')
-        __props__['maxErrors'] = max_errors
+        __props__['max_errors'] = max_errors
 
         __props__['priority'] = priority
 
         if not service_role_arn:
             raise TypeError('Missing required property service_role_arn')
-        __props__['serviceRoleArn'] = service_role_arn
+        __props__['service_role_arn'] = service_role_arn
 
         if not targets:
             raise TypeError('Missing required property targets')
@@ -43,21 +43,28 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         if not task_arn:
             raise TypeError('Missing required property task_arn')
-        __props__['taskArn'] = task_arn
+        __props__['task_arn'] = task_arn
 
-        __props__['taskParameters'] = task_parameters
+        __props__['task_parameters'] = task_parameters
 
         if not task_type:
             raise TypeError('Missing required property task_type')
-        __props__['taskType'] = task_type
+        __props__['task_type'] = task_type
 
         if not window_id:
             raise TypeError('Missing required property window_id')
-        __props__['windowId'] = window_id
+        __props__['window_id'] = window_id
 
         super(MaintenanceWindowTask, __self__).__init__(
             'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

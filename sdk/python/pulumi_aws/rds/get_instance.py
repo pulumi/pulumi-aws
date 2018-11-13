@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetInstanceResult(object):
     """
@@ -234,14 +234,14 @@ class GetInstanceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_instance(db_instance_identifier=None):
+async def get_instance(db_instance_identifier=None):
     """
     Use this data source to get information about an RDS instance
     """
     __args__ = dict()
 
     __args__['dbInstanceIdentifier'] = db_instance_identifier
-    __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__)
 
     return GetInstanceResult(
         address=__ret__.get('address'),

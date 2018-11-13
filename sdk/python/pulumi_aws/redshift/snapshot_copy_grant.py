@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SnapshotCopyGrant(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         if not snapshot_copy_grant_name:
             raise TypeError('Missing required property snapshot_copy_grant_name')
-        __props__['snapshotCopyGrantName'] = snapshot_copy_grant_name
+        __props__['snapshot_copy_grant_name'] = snapshot_copy_grant_name
 
         __props__['tags'] = tags
 
@@ -36,4 +36,11 @@ class SnapshotCopyGrant(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

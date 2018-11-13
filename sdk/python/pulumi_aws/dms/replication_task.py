@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ReplicationTask(pulumi.CustomResource):
     """
@@ -21,35 +21,35 @@ class ReplicationTask(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cdcStartTime'] = cdc_start_time
+        __props__['cdc_start_time'] = cdc_start_time
 
         if not migration_type:
             raise TypeError('Missing required property migration_type')
-        __props__['migrationType'] = migration_type
+        __props__['migration_type'] = migration_type
 
         if not replication_instance_arn:
             raise TypeError('Missing required property replication_instance_arn')
-        __props__['replicationInstanceArn'] = replication_instance_arn
+        __props__['replication_instance_arn'] = replication_instance_arn
 
         if not replication_task_id:
             raise TypeError('Missing required property replication_task_id')
-        __props__['replicationTaskId'] = replication_task_id
+        __props__['replication_task_id'] = replication_task_id
 
-        __props__['replicationTaskSettings'] = replication_task_settings
+        __props__['replication_task_settings'] = replication_task_settings
 
         if not source_endpoint_arn:
             raise TypeError('Missing required property source_endpoint_arn')
-        __props__['sourceEndpointArn'] = source_endpoint_arn
+        __props__['source_endpoint_arn'] = source_endpoint_arn
 
         if not table_mappings:
             raise TypeError('Missing required property table_mappings')
-        __props__['tableMappings'] = table_mappings
+        __props__['table_mappings'] = table_mappings
 
         __props__['tags'] = tags
 
         if not target_endpoint_arn:
             raise TypeError('Missing required property target_endpoint_arn')
-        __props__['targetEndpointArn'] = target_endpoint_arn
+        __props__['target_endpoint_arn'] = target_endpoint_arn
 
         __props__['replication_task_arn'] = None
 
@@ -58,4 +58,11 @@ class ReplicationTask(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

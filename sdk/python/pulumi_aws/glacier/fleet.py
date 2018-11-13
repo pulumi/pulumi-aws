@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Fleet(pulumi.CustomResource):
     """
@@ -23,25 +23,25 @@ class Fleet(pulumi.CustomResource):
 
         if not build_id:
             raise TypeError('Missing required property build_id')
-        __props__['buildId'] = build_id
+        __props__['build_id'] = build_id
 
         __props__['description'] = description
 
-        __props__['ec2InboundPermissions'] = ec2_inbound_permissions
+        __props__['ec2_inbound_permissions'] = ec2_inbound_permissions
 
         if not ec2_instance_type:
             raise TypeError('Missing required property ec2_instance_type')
-        __props__['ec2InstanceType'] = ec2_instance_type
+        __props__['ec2_instance_type'] = ec2_instance_type
 
-        __props__['metricGroups'] = metric_groups
+        __props__['metric_groups'] = metric_groups
 
         __props__['name'] = name
 
-        __props__['newGameSessionProtectionPolicy'] = new_game_session_protection_policy
+        __props__['new_game_session_protection_policy'] = new_game_session_protection_policy
 
-        __props__['resourceCreationLimitPolicy'] = resource_creation_limit_policy
+        __props__['resource_creation_limit_policy'] = resource_creation_limit_policy
 
-        __props__['runtimeConfiguration'] = runtime_configuration
+        __props__['runtime_configuration'] = runtime_configuration
 
         __props__['arn'] = None
         __props__['log_paths'] = None
@@ -52,4 +52,11 @@ class Fleet(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

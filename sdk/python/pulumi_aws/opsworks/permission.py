@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Permission(pulumi.CustomResource):
     """
@@ -21,21 +21,28 @@ class Permission(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowSsh'] = allow_ssh
+        __props__['allow_ssh'] = allow_ssh
 
-        __props__['allowSudo'] = allow_sudo
+        __props__['allow_sudo'] = allow_sudo
 
         __props__['level'] = level
 
-        __props__['stackId'] = stack_id
+        __props__['stack_id'] = stack_id
 
         if not user_arn:
             raise TypeError('Missing required property user_arn')
-        __props__['userArn'] = user_arn
+        __props__['user_arn'] = user_arn
 
         super(Permission, __self__).__init__(
             'aws:opsworks/permission:Permission',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

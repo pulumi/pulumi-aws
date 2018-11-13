@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EventSubscription(pulumi.CustomResource):
     """
@@ -23,19 +23,19 @@ class EventSubscription(pulumi.CustomResource):
 
         __props__['enabled'] = enabled
 
-        __props__['eventCategories'] = event_categories
+        __props__['event_categories'] = event_categories
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         if not sns_topic:
             raise TypeError('Missing required property sns_topic')
-        __props__['snsTopic'] = sns_topic
+        __props__['sns_topic'] = sns_topic
 
-        __props__['sourceIds'] = source_ids
+        __props__['source_ids'] = source_ids
 
-        __props__['sourceType'] = source_type
+        __props__['source_type'] = source_type
 
         __props__['tags'] = tags
 
@@ -47,4 +47,11 @@ class EventSubscription(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

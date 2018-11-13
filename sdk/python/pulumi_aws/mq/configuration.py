@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Configuration(pulumi.CustomResource):
     """
@@ -31,11 +31,11 @@ class Configuration(pulumi.CustomResource):
 
         if not engine_type:
             raise TypeError('Missing required property engine_type')
-        __props__['engineType'] = engine_type
+        __props__['engine_type'] = engine_type
 
         if not engine_version:
             raise TypeError('Missing required property engine_version')
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
         __props__['name'] = name
 
@@ -47,4 +47,11 @@ class Configuration(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

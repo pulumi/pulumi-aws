@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetInvocationResult(object):
     """
@@ -30,7 +30,7 @@ class GetInvocationResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_invocation(function_name=None, input=None, qualifier=None):
+async def get_invocation(function_name=None, input=None, qualifier=None):
     """
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
@@ -41,7 +41,7 @@ def get_invocation(function_name=None, input=None, qualifier=None):
     __args__['functionName'] = function_name
     __args__['input'] = input
     __args__['qualifier'] = qualifier
-    __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__)
 
     return GetInvocationResult(
         result=__ret__.get('result'),

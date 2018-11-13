@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Deployment(pulumi.CustomResource):
     """
@@ -28,13 +28,13 @@ class Deployment(pulumi.CustomResource):
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
-        __props__['stageDescription'] = stage_description
+        __props__['stage_description'] = stage_description
 
         if not stage_name:
             raise TypeError('Missing required property stage_name')
-        __props__['stageName'] = stage_name
+        __props__['stage_name'] = stage_name
 
         __props__['variables'] = variables
 
@@ -47,4 +47,11 @@ class Deployment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

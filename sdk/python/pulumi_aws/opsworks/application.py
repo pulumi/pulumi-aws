@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Application(pulumi.CustomResource):
     """
@@ -21,39 +21,39 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['appSources'] = app_sources
+        __props__['app_sources'] = app_sources
 
-        __props__['autoBundleOnDeploy'] = auto_bundle_on_deploy
+        __props__['auto_bundle_on_deploy'] = auto_bundle_on_deploy
 
-        __props__['awsFlowRubySettings'] = aws_flow_ruby_settings
+        __props__['aws_flow_ruby_settings'] = aws_flow_ruby_settings
 
-        __props__['dataSourceArn'] = data_source_arn
+        __props__['data_source_arn'] = data_source_arn
 
-        __props__['dataSourceDatabaseName'] = data_source_database_name
+        __props__['data_source_database_name'] = data_source_database_name
 
-        __props__['dataSourceType'] = data_source_type
+        __props__['data_source_type'] = data_source_type
 
         __props__['description'] = description
 
-        __props__['documentRoot'] = document_root
+        __props__['document_root'] = document_root
 
         __props__['domains'] = domains
 
-        __props__['enableSsl'] = enable_ssl
+        __props__['enable_ssl'] = enable_ssl
 
         __props__['environments'] = environments
 
         __props__['name'] = name
 
-        __props__['railsEnv'] = rails_env
+        __props__['rails_env'] = rails_env
 
-        __props__['shortName'] = short_name
+        __props__['short_name'] = short_name
 
-        __props__['sslConfigurations'] = ssl_configurations
+        __props__['ssl_configurations'] = ssl_configurations
 
         if not stack_id:
             raise TypeError('Missing required property stack_id')
-        __props__['stackId'] = stack_id
+        __props__['stack_id'] = stack_id
 
         if not type:
             raise TypeError('Missing required property type')
@@ -64,4 +64,11 @@ class Application(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ContainerPolicy(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class ContainerPolicy(pulumi.CustomResource):
 
         if not container_name:
             raise TypeError('Missing required property container_name')
-        __props__['containerName'] = container_name
+        __props__['container_name'] = container_name
 
         if not policy:
             raise TypeError('Missing required property policy')
@@ -34,4 +34,11 @@ class ContainerPolicy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

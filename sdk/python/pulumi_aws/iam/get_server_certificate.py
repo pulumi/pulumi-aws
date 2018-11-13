@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetServerCertificateResult(object):
     """
@@ -39,7 +39,7 @@ class GetServerCertificateResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_server_certificate(latest=None, name=None, name_prefix=None, path_prefix=None):
+async def get_server_certificate(latest=None, name=None, name_prefix=None, path_prefix=None):
     """
     Use this data source to lookup information about IAM Server Certificates.
     """
@@ -49,7 +49,7 @@ def get_server_certificate(latest=None, name=None, name_prefix=None, path_prefix
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
     __args__['pathPrefix'] = path_prefix
-    __ret__ = pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__)
 
     return GetServerCertificateResult(
         arn=__ret__.get('arn'),

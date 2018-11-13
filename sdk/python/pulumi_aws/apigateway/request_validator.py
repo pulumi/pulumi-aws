@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RequestValidator(pulumi.CustomResource):
     """
@@ -25,15 +25,22 @@ class RequestValidator(pulumi.CustomResource):
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
-        __props__['validateRequestBody'] = validate_request_body
+        __props__['validate_request_body'] = validate_request_body
 
-        __props__['validateRequestParameters'] = validate_request_parameters
+        __props__['validate_request_parameters'] = validate_request_parameters
 
         super(RequestValidator, __self__).__init__(
             'aws:apigateway/requestValidator:RequestValidator',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

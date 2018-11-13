@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Broker(pulumi.CustomResource):
     """
@@ -36,39 +36,39 @@ class Broker(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['applyImmediately'] = apply_immediately
+        __props__['apply_immediately'] = apply_immediately
 
-        __props__['autoMinorVersionUpgrade'] = auto_minor_version_upgrade
+        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
         if not broker_name:
             raise TypeError('Missing required property broker_name')
-        __props__['brokerName'] = broker_name
+        __props__['broker_name'] = broker_name
 
         __props__['configuration'] = configuration
 
-        __props__['deploymentMode'] = deployment_mode
+        __props__['deployment_mode'] = deployment_mode
 
         if not engine_type:
             raise TypeError('Missing required property engine_type')
-        __props__['engineType'] = engine_type
+        __props__['engine_type'] = engine_type
 
         if not engine_version:
             raise TypeError('Missing required property engine_version')
-        __props__['engineVersion'] = engine_version
+        __props__['engine_version'] = engine_version
 
         if not host_instance_type:
             raise TypeError('Missing required property host_instance_type')
-        __props__['hostInstanceType'] = host_instance_type
+        __props__['host_instance_type'] = host_instance_type
 
-        __props__['maintenanceWindowStartTime'] = maintenance_window_start_time
+        __props__['maintenance_window_start_time'] = maintenance_window_start_time
 
-        __props__['publiclyAccessible'] = publicly_accessible
+        __props__['publicly_accessible'] = publicly_accessible
 
         if not security_groups:
             raise TypeError('Missing required property security_groups')
-        __props__['securityGroups'] = security_groups
+        __props__['security_groups'] = security_groups
 
-        __props__['subnetIds'] = subnet_ids
+        __props__['subnet_ids'] = subnet_ids
 
         if not users:
             raise TypeError('Missing required property users')
@@ -82,4 +82,11 @@ class Broker(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

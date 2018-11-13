@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Trail(pulumi.CustomResource):
     """
@@ -21,31 +21,31 @@ class Trail(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cloudWatchLogsGroupArn'] = cloud_watch_logs_group_arn
+        __props__['cloud_watch_logs_group_arn'] = cloud_watch_logs_group_arn
 
-        __props__['cloudWatchLogsRoleArn'] = cloud_watch_logs_role_arn
+        __props__['cloud_watch_logs_role_arn'] = cloud_watch_logs_role_arn
 
-        __props__['enableLogFileValidation'] = enable_log_file_validation
+        __props__['enable_log_file_validation'] = enable_log_file_validation
 
-        __props__['enableLogging'] = enable_logging
+        __props__['enable_logging'] = enable_logging
 
-        __props__['eventSelectors'] = event_selectors
+        __props__['event_selectors'] = event_selectors
 
-        __props__['includeGlobalServiceEvents'] = include_global_service_events
+        __props__['include_global_service_events'] = include_global_service_events
 
-        __props__['isMultiRegionTrail'] = is_multi_region_trail
+        __props__['is_multi_region_trail'] = is_multi_region_trail
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         __props__['name'] = name
 
         if not s3_bucket_name:
             raise TypeError('Missing required property s3_bucket_name')
-        __props__['s3BucketName'] = s3_bucket_name
+        __props__['s3_bucket_name'] = s3_bucket_name
 
-        __props__['s3KeyPrefix'] = s3_key_prefix
+        __props__['s3_key_prefix'] = s3_key_prefix
 
-        __props__['snsTopicName'] = sns_topic_name
+        __props__['sns_topic_name'] = sns_topic_name
 
         __props__['tags'] = tags
 
@@ -57,4 +57,11 @@ class Trail(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

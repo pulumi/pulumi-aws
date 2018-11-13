@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LogStream(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class LogStream(pulumi.CustomResource):
 
         if not log_group_name:
             raise TypeError('Missing required property log_group_name')
-        __props__['logGroupName'] = log_group_name
+        __props__['log_group_name'] = log_group_name
 
         __props__['name'] = name
 
@@ -34,4 +34,11 @@ class LogStream(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

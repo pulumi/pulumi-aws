@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class IntegrationResponse(pulumi.CustomResource):
     """
@@ -24,35 +24,42 @@ class IntegrationResponse(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['contentHandling'] = content_handling
+        __props__['content_handling'] = content_handling
 
         if not http_method:
             raise TypeError('Missing required property http_method')
-        __props__['httpMethod'] = http_method
+        __props__['http_method'] = http_method
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
-        __props__['responseParameters'] = response_parameters
+        __props__['response_parameters'] = response_parameters
 
-        __props__['responseParametersInJson'] = response_parameters_in_json
+        __props__['response_parameters_in_json'] = response_parameters_in_json
 
-        __props__['responseTemplates'] = response_templates
+        __props__['response_templates'] = response_templates
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
-        __props__['selectionPattern'] = selection_pattern
+        __props__['selection_pattern'] = selection_pattern
 
         if not status_code:
             raise TypeError('Missing required property status_code')
-        __props__['statusCode'] = status_code
+        __props__['status_code'] = status_code
 
         super(IntegrationResponse, __self__).__init__(
             'aws:apigateway/integrationResponse:IntegrationResponse',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

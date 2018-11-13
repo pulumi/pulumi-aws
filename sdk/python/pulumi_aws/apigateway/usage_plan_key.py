@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UsagePlanKey(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class UsagePlanKey(pulumi.CustomResource):
 
         if not key_id:
             raise TypeError('Missing required property key_id')
-        __props__['keyId'] = key_id
+        __props__['key_id'] = key_id
 
         if not key_type:
             raise TypeError('Missing required property key_type')
-        __props__['keyType'] = key_type
+        __props__['key_type'] = key_type
 
         if not usage_plan_id:
             raise TypeError('Missing required property usage_plan_id')
-        __props__['usagePlanId'] = usage_plan_id
+        __props__['usage_plan_id'] = usage_plan_id
 
         __props__['name'] = None
         __props__['value'] = None
@@ -41,4 +41,11 @@ class UsagePlanKey(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

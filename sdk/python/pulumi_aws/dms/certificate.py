@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Certificate(pulumi.CustomResource):
     """
@@ -26,11 +26,11 @@ class Certificate(pulumi.CustomResource):
 
         if not certificate_id:
             raise TypeError('Missing required property certificate_id')
-        __props__['certificateId'] = certificate_id
+        __props__['certificate_id'] = certificate_id
 
-        __props__['certificatePem'] = certificate_pem
+        __props__['certificate_pem'] = certificate_pem
 
-        __props__['certificateWallet'] = certificate_wallet
+        __props__['certificate_wallet'] = certificate_wallet
 
         __props__['certificate_arn'] = None
 
@@ -39,4 +39,11 @@ class Certificate(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

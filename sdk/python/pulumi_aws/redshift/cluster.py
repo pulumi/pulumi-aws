@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Cluster(pulumi.CustomResource):
     """
@@ -24,83 +24,83 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowVersionUpgrade'] = allow_version_upgrade
+        __props__['allow_version_upgrade'] = allow_version_upgrade
 
-        __props__['automatedSnapshotRetentionPeriod'] = automated_snapshot_retention_period
+        __props__['automated_snapshot_retention_period'] = automated_snapshot_retention_period
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
-        __props__['bucketName'] = bucket_name
+        __props__['bucket_name'] = bucket_name
 
         if not cluster_identifier:
             raise TypeError('Missing required property cluster_identifier')
-        __props__['clusterIdentifier'] = cluster_identifier
+        __props__['cluster_identifier'] = cluster_identifier
 
-        __props__['clusterParameterGroupName'] = cluster_parameter_group_name
+        __props__['cluster_parameter_group_name'] = cluster_parameter_group_name
 
-        __props__['clusterPublicKey'] = cluster_public_key
+        __props__['cluster_public_key'] = cluster_public_key
 
-        __props__['clusterRevisionNumber'] = cluster_revision_number
+        __props__['cluster_revision_number'] = cluster_revision_number
 
-        __props__['clusterSecurityGroups'] = cluster_security_groups
+        __props__['cluster_security_groups'] = cluster_security_groups
 
-        __props__['clusterSubnetGroupName'] = cluster_subnet_group_name
+        __props__['cluster_subnet_group_name'] = cluster_subnet_group_name
 
-        __props__['clusterType'] = cluster_type
+        __props__['cluster_type'] = cluster_type
 
-        __props__['clusterVersion'] = cluster_version
+        __props__['cluster_version'] = cluster_version
 
-        __props__['databaseName'] = database_name
+        __props__['database_name'] = database_name
 
-        __props__['elasticIp'] = elastic_ip
+        __props__['elastic_ip'] = elastic_ip
 
-        __props__['enableLogging'] = enable_logging
+        __props__['enable_logging'] = enable_logging
 
         __props__['encrypted'] = encrypted
 
         __props__['endpoint'] = endpoint
 
-        __props__['enhancedVpcRouting'] = enhanced_vpc_routing
+        __props__['enhanced_vpc_routing'] = enhanced_vpc_routing
 
-        __props__['finalSnapshotIdentifier'] = final_snapshot_identifier
+        __props__['final_snapshot_identifier'] = final_snapshot_identifier
 
-        __props__['iamRoles'] = iam_roles
+        __props__['iam_roles'] = iam_roles
 
-        __props__['kmsKeyId'] = kms_key_id
+        __props__['kms_key_id'] = kms_key_id
 
         __props__['logging'] = logging
 
-        __props__['masterPassword'] = master_password
+        __props__['master_password'] = master_password
 
-        __props__['masterUsername'] = master_username
+        __props__['master_username'] = master_username
 
         if not node_type:
             raise TypeError('Missing required property node_type')
-        __props__['nodeType'] = node_type
+        __props__['node_type'] = node_type
 
-        __props__['numberOfNodes'] = number_of_nodes
+        __props__['number_of_nodes'] = number_of_nodes
 
-        __props__['ownerAccount'] = owner_account
+        __props__['owner_account'] = owner_account
 
         __props__['port'] = port
 
-        __props__['preferredMaintenanceWindow'] = preferred_maintenance_window
+        __props__['preferred_maintenance_window'] = preferred_maintenance_window
 
-        __props__['publiclyAccessible'] = publicly_accessible
+        __props__['publicly_accessible'] = publicly_accessible
 
-        __props__['s3KeyPrefix'] = s3_key_prefix
+        __props__['s3_key_prefix'] = s3_key_prefix
 
-        __props__['skipFinalSnapshot'] = skip_final_snapshot
+        __props__['skip_final_snapshot'] = skip_final_snapshot
 
-        __props__['snapshotClusterIdentifier'] = snapshot_cluster_identifier
+        __props__['snapshot_cluster_identifier'] = snapshot_cluster_identifier
 
-        __props__['snapshotCopy'] = snapshot_copy
+        __props__['snapshot_copy'] = snapshot_copy
 
-        __props__['snapshotIdentifier'] = snapshot_identifier
+        __props__['snapshot_identifier'] = snapshot_identifier
 
         __props__['tags'] = tags
 
-        __props__['vpcSecurityGroupIds'] = vpc_security_group_ids
+        __props__['vpc_security_group_ids'] = vpc_security_group_ids
 
         __props__['dns_name'] = None
 
@@ -109,4 +109,11 @@ class Cluster(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

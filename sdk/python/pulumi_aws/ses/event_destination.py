@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EventDestination(pulumi.CustomResource):
     """
@@ -21,27 +21,34 @@ class EventDestination(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cloudwatchDestination'] = cloudwatch_destination
+        __props__['cloudwatch_destination'] = cloudwatch_destination
 
         if not configuration_set_name:
             raise TypeError('Missing required property configuration_set_name')
-        __props__['configurationSetName'] = configuration_set_name
+        __props__['configuration_set_name'] = configuration_set_name
 
         __props__['enabled'] = enabled
 
-        __props__['kinesisDestination'] = kinesis_destination
+        __props__['kinesis_destination'] = kinesis_destination
 
         if not matching_types:
             raise TypeError('Missing required property matching_types')
-        __props__['matchingTypes'] = matching_types
+        __props__['matching_types'] = matching_types
 
         __props__['name'] = name
 
-        __props__['snsDestination'] = sns_destination
+        __props__['sns_destination'] = sns_destination
 
         super(EventDestination, __self__).__init__(
             'aws:ses/eventDestination:EventDestination',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

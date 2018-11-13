@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class CachesIscsiVolume(pulumi.CustomResource):
     """
@@ -27,23 +27,23 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         if not gateway_arn:
             raise TypeError('Missing required property gateway_arn')
-        __props__['gatewayArn'] = gateway_arn
+        __props__['gateway_arn'] = gateway_arn
 
         if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
-        __props__['networkInterfaceId'] = network_interface_id
+        __props__['network_interface_id'] = network_interface_id
 
-        __props__['snapshotId'] = snapshot_id
+        __props__['snapshot_id'] = snapshot_id
 
-        __props__['sourceVolumeArn'] = source_volume_arn
+        __props__['source_volume_arn'] = source_volume_arn
 
         if not target_name:
             raise TypeError('Missing required property target_name')
-        __props__['targetName'] = target_name
+        __props__['target_name'] = target_name
 
         if not volume_size_in_bytes:
             raise TypeError('Missing required property volume_size_in_bytes')
-        __props__['volumeSizeInBytes'] = volume_size_in_bytes
+        __props__['volume_size_in_bytes'] = volume_size_in_bytes
 
         __props__['arn'] = None
         __props__['chap_enabled'] = None
@@ -58,4 +58,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

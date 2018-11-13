@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class CapacityReservation(pulumi.CustomResource):
     """
@@ -23,29 +23,29 @@ class CapacityReservation(pulumi.CustomResource):
 
         if not availability_zone:
             raise TypeError('Missing required property availability_zone')
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
-        __props__['ebsOptimized'] = ebs_optimized
+        __props__['ebs_optimized'] = ebs_optimized
 
-        __props__['endDate'] = end_date
+        __props__['end_date'] = end_date
 
-        __props__['endDateType'] = end_date_type
+        __props__['end_date_type'] = end_date_type
 
-        __props__['ephemeralStorage'] = ephemeral_storage
+        __props__['ephemeral_storage'] = ephemeral_storage
 
         if not instance_count:
             raise TypeError('Missing required property instance_count')
-        __props__['instanceCount'] = instance_count
+        __props__['instance_count'] = instance_count
 
-        __props__['instanceMatchCriteria'] = instance_match_criteria
+        __props__['instance_match_criteria'] = instance_match_criteria
 
         if not instance_platform:
             raise TypeError('Missing required property instance_platform')
-        __props__['instancePlatform'] = instance_platform
+        __props__['instance_platform'] = instance_platform
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        __props__['instanceType'] = instance_type
+        __props__['instance_type'] = instance_type
 
         __props__['tags'] = tags
 
@@ -56,4 +56,11 @@ class CapacityReservation(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

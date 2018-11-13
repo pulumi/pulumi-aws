@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Function(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Function(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['deadLetterConfig'] = dead_letter_config
+        __props__['dead_letter_config'] = dead_letter_config
 
         __props__['description'] = description
 
@@ -37,13 +37,13 @@ class Function(pulumi.CustomResource):
             raise TypeError('Missing required property handler')
         __props__['handler'] = handler
 
-        __props__['kmsKeyArn'] = kms_key_arn
+        __props__['kms_key_arn'] = kms_key_arn
 
-        __props__['memorySize'] = memory_size
+        __props__['memory_size'] = memory_size
 
         __props__['publish'] = publish
 
-        __props__['reservedConcurrentExecutions'] = reserved_concurrent_executions
+        __props__['reserved_concurrent_executions'] = reserved_concurrent_executions
 
         if not role:
             raise TypeError('Missing required property role')
@@ -53,21 +53,21 @@ class Function(pulumi.CustomResource):
             raise TypeError('Missing required property runtime')
         __props__['runtime'] = runtime
 
-        __props__['s3Bucket'] = s3_bucket
+        __props__['s3_bucket'] = s3_bucket
 
-        __props__['s3Key'] = s3_key
+        __props__['s3_key'] = s3_key
 
-        __props__['s3ObjectVersion'] = s3_object_version
+        __props__['s3_object_version'] = s3_object_version
 
-        __props__['sourceCodeHash'] = source_code_hash
+        __props__['source_code_hash'] = source_code_hash
 
         __props__['tags'] = tags
 
         __props__['timeout'] = timeout
 
-        __props__['tracingConfig'] = tracing_config
+        __props__['tracing_config'] = tracing_config
 
-        __props__['vpcConfig'] = vpc_config
+        __props__['vpc_config'] = vpc_config
 
         __props__['arn'] = None
         __props__['invoke_arn'] = None
@@ -81,4 +81,11 @@ class Function(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

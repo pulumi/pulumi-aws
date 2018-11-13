@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AccountAlias(pulumi.CustomResource):
     """
@@ -25,11 +25,18 @@ class AccountAlias(pulumi.CustomResource):
 
         if not account_alias:
             raise TypeError('Missing required property account_alias')
-        __props__['accountAlias'] = account_alias
+        __props__['account_alias'] = account_alias
 
         super(AccountAlias, __self__).__init__(
             'aws:iam/accountAlias:AccountAlias',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

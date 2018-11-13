@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Cluster(pulumi.CustomResource):
     """
@@ -32,13 +32,13 @@ class Cluster(pulumi.CustomResource):
 
         if not hsm_type:
             raise TypeError('Missing required property hsm_type')
-        __props__['hsmType'] = hsm_type
+        __props__['hsm_type'] = hsm_type
 
-        __props__['sourceBackupIdentifier'] = source_backup_identifier
+        __props__['source_backup_identifier'] = source_backup_identifier
 
         if not subnet_ids:
             raise TypeError('Missing required property subnet_ids')
-        __props__['subnetIds'] = subnet_ids
+        __props__['subnet_ids'] = subnet_ids
 
         __props__['tags'] = tags
 
@@ -53,4 +53,11 @@ class Cluster(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

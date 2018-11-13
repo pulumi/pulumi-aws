@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetAutoscalingGroupsResult(object):
     """
@@ -30,7 +30,7 @@ class GetAutoscalingGroupsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_autoscaling_groups(filters=None):
+async def get_autoscaling_groups(filters=None):
     """
     The Autoscaling Groups data source allows access to the list of AWS
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
@@ -38,7 +38,7 @@ def get_autoscaling_groups(filters=None):
     __args__ = dict()
 
     __args__['filters'] = filters
-    __ret__ = pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__)
 
     return GetAutoscalingGroupsResult(
         arns=__ret__.get('arns'),

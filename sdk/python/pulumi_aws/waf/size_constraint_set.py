@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SizeConstraintSet(pulumi.CustomResource):
     """
@@ -23,11 +23,18 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['sizeConstraints'] = size_constraints
+        __props__['size_constraints'] = size_constraints
 
         super(SizeConstraintSet, __self__).__init__(
             'aws:waf/sizeConstraintSet:SizeConstraintSet',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

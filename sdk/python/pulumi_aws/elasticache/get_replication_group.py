@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetReplicationGroupResult(object):
     """
@@ -84,14 +84,14 @@ class GetReplicationGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_replication_group(replication_group_id=None):
+async def get_replication_group(replication_group_id=None):
     """
     Use this data source to get information about an Elasticache Replication Group.
     """
     __args__ = dict()
 
     __args__['replicationGroupId'] = replication_group_id
-    __ret__ = pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__)
 
     return GetReplicationGroupResult(
         auth_token_enabled=__ret__.get('authTokenEnabled'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetUserResult(object):
     """
@@ -42,7 +42,7 @@ class GetUserResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_user(user_name=None):
+async def get_user(user_name=None):
     """
     This data source can be used to fetch information about a specific
     IAM user. By using this data source, you can reference IAM user
@@ -51,7 +51,7 @@ def get_user(user_name=None):
     __args__ = dict()
 
     __args__['userName'] = user_name
-    __ret__ = pulumi.runtime.invoke('aws:iam/getUser:getUser', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getUser:getUser', __args__)
 
     return GetUserResult(
         arn=__ret__.get('arn'),

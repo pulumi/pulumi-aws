@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class XssMatchSet(pulumi.CustomResource):
     """
@@ -23,11 +23,18 @@ class XssMatchSet(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['xssMatchTuples'] = xss_match_tuples
+        __props__['xss_match_tuples'] = xss_match_tuples
 
         super(XssMatchSet, __self__).__init__(
             'aws:waf/xssMatchSet:XssMatchSet',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

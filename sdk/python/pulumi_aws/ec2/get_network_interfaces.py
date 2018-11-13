@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetNetworkInterfacesResult(object):
     """
@@ -27,12 +27,12 @@ class GetNetworkInterfacesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_network_interfaces(filters=None, tags=None):
+async def get_network_interfaces(filters=None, tags=None):
     __args__ = dict()
 
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__)
 
     return GetNetworkInterfacesResult(
         ids=__ret__.get('ids'),

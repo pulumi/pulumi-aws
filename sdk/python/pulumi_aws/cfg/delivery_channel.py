@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DeliveryChannel(pulumi.CustomResource):
     """
@@ -27,17 +27,24 @@ class DeliveryChannel(pulumi.CustomResource):
 
         if not s3_bucket_name:
             raise TypeError('Missing required property s3_bucket_name')
-        __props__['s3BucketName'] = s3_bucket_name
+        __props__['s3_bucket_name'] = s3_bucket_name
 
-        __props__['s3KeyPrefix'] = s3_key_prefix
+        __props__['s3_key_prefix'] = s3_key_prefix
 
-        __props__['snapshotDeliveryProperties'] = snapshot_delivery_properties
+        __props__['snapshot_delivery_properties'] = snapshot_delivery_properties
 
-        __props__['snsTopicArn'] = sns_topic_arn
+        __props__['sns_topic_arn'] = sns_topic_arn
 
         super(DeliveryChannel, __self__).__init__(
             'aws:cfg/deliveryChannel:DeliveryChannel',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

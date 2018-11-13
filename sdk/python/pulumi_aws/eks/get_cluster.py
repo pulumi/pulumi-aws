@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetClusterResult(object):
     """
@@ -66,14 +66,14 @@ class GetClusterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_cluster(name=None):
+async def get_cluster(name=None):
     """
     Retrieve information about an EKS Cluster.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__)
 
     return GetClusterResult(
         arn=__ret__.get('arn'),

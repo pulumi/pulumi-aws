@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PatchBaseline(pulumi.CustomResource):
     """
@@ -25,25 +25,32 @@ class PatchBaseline(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['approvalRules'] = approval_rules
+        __props__['approval_rules'] = approval_rules
 
-        __props__['approvedPatches'] = approved_patches
+        __props__['approved_patches'] = approved_patches
 
-        __props__['approvedPatchesComplianceLevel'] = approved_patches_compliance_level
+        __props__['approved_patches_compliance_level'] = approved_patches_compliance_level
 
         __props__['description'] = description
 
-        __props__['globalFilters'] = global_filters
+        __props__['global_filters'] = global_filters
 
         __props__['name'] = name
 
-        __props__['operatingSystem'] = operating_system
+        __props__['operating_system'] = operating_system
 
-        __props__['rejectedPatches'] = rejected_patches
+        __props__['rejected_patches'] = rejected_patches
 
         super(PatchBaseline, __self__).__init__(
             'aws:ssm/patchBaseline:PatchBaseline',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

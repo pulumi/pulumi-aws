@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetJobQueueResult(object):
     """
@@ -59,7 +59,7 @@ class GetJobQueueResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_job_queue(name=None):
+async def get_job_queue(name=None):
     """
     The Batch Job Queue data source allows access to details of a specific
     job queue within AWS Batch.
@@ -67,7 +67,7 @@ def get_job_queue(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__)
 
     return GetJobQueueResult(
         arn=__ret__.get('arn'),

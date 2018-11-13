@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RdsDbInstance(pulumi.CustomResource):
     """
@@ -26,23 +26,30 @@ class RdsDbInstance(pulumi.CustomResource):
 
         if not db_password:
             raise TypeError('Missing required property db_password')
-        __props__['dbPassword'] = db_password
+        __props__['db_password'] = db_password
 
         if not db_user:
             raise TypeError('Missing required property db_user')
-        __props__['dbUser'] = db_user
+        __props__['db_user'] = db_user
 
         if not rds_db_instance_arn:
             raise TypeError('Missing required property rds_db_instance_arn')
-        __props__['rdsDbInstanceArn'] = rds_db_instance_arn
+        __props__['rds_db_instance_arn'] = rds_db_instance_arn
 
         if not stack_id:
             raise TypeError('Missing required property stack_id')
-        __props__['stackId'] = stack_id
+        __props__['stack_id'] = stack_id
 
         super(RdsDbInstance, __self__).__init__(
             'aws:opsworks/rdsDbInstance:RdsDbInstance',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

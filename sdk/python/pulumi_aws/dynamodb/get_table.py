@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetTableResult(object):
     """
@@ -63,7 +63,7 @@ class GetTableResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_table(name=None, server_side_encryption=None, tags=None):
+async def get_table(name=None, server_side_encryption=None, tags=None):
     """
     Provides information about a DynamoDB table.
     """
@@ -72,7 +72,7 @@ def get_table(name=None, server_side_encryption=None, tags=None):
     __args__['name'] = name
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__)
 
     return GetTableResult(
         arn=__ret__.get('arn'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MailFrom(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class MailFrom(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['behaviorOnMxFailure'] = behavior_on_mx_failure
+        __props__['behavior_on_mx_failure'] = behavior_on_mx_failure
 
         if not domain:
             raise TypeError('Missing required property domain')
@@ -31,11 +31,18 @@ class MailFrom(pulumi.CustomResource):
 
         if not mail_from_domain:
             raise TypeError('Missing required property mail_from_domain')
-        __props__['mailFromDomain'] = mail_from_domain
+        __props__['mail_from_domain'] = mail_from_domain
 
         super(MailFrom, __self__).__init__(
             'aws:ses/mailFrom:MailFrom',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

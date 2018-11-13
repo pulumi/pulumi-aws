@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RateBasedRule(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class RateBasedRule(pulumi.CustomResource):
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        __props__['metricName'] = metric_name
+        __props__['metric_name'] = metric_name
 
         __props__['name'] = name
 
@@ -31,15 +31,22 @@ class RateBasedRule(pulumi.CustomResource):
 
         if not rate_key:
             raise TypeError('Missing required property rate_key')
-        __props__['rateKey'] = rate_key
+        __props__['rate_key'] = rate_key
 
         if not rate_limit:
             raise TypeError('Missing required property rate_limit')
-        __props__['rateLimit'] = rate_limit
+        __props__['rate_limit'] = rate_limit
 
         super(RateBasedRule, __self__).__init__(
             'aws:waf/rateBasedRule:RateBasedRule',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

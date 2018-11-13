@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PatchGroup(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class PatchGroup(pulumi.CustomResource):
 
         if not baseline_id:
             raise TypeError('Missing required property baseline_id')
-        __props__['baselineId'] = baseline_id
+        __props__['baseline_id'] = baseline_id
 
         if not patch_group:
             raise TypeError('Missing required property patch_group')
-        __props__['patchGroup'] = patch_group
+        __props__['patch_group'] = patch_group
 
         super(PatchGroup, __self__).__init__(
             'aws:ssm/patchGroup:PatchGroup',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

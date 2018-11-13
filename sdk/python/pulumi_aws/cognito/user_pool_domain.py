@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UserPoolDomain(pulumi.CustomResource):
     """
@@ -21,7 +21,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['certificateArn'] = certificate_arn
+        __props__['certificate_arn'] = certificate_arn
 
         if not domain:
             raise TypeError('Missing required property domain')
@@ -29,7 +29,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
-        __props__['userPoolId'] = user_pool_id
+        __props__['user_pool_id'] = user_pool_id
 
         __props__['aws_account_id'] = None
         __props__['cloudfront_distribution_arn'] = None
@@ -41,4 +41,11 @@ class UserPoolDomain(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

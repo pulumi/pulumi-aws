@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetVpcPeeringConnectionResult(object):
     """
@@ -59,7 +59,7 @@ class GetVpcPeeringConnectionResult(object):
             raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
-def get_vpc_peering_connection(cidr_block=None, filters=None, id=None, owner_id=None, peer_cidr_block=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, status=None, tags=None, vpc_id=None):
+async def get_vpc_peering_connection(cidr_block=None, filters=None, id=None, owner_id=None, peer_cidr_block=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, status=None, tags=None, vpc_id=None):
     """
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
@@ -78,7 +78,7 @@ def get_vpc_peering_connection(cidr_block=None, filters=None, id=None, owner_id=
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__)
 
     return GetVpcPeeringConnectionResult(
         accepter=__ret__.get('accepter'),

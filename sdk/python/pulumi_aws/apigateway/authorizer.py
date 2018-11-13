@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Authorizer(pulumi.CustomResource):
     """
@@ -21,23 +21,23 @@ class Authorizer(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['authorizerCredentials'] = authorizer_credentials
+        __props__['authorizer_credentials'] = authorizer_credentials
 
-        __props__['authorizerResultTtlInSeconds'] = authorizer_result_ttl_in_seconds
+        __props__['authorizer_result_ttl_in_seconds'] = authorizer_result_ttl_in_seconds
 
-        __props__['authorizerUri'] = authorizer_uri
+        __props__['authorizer_uri'] = authorizer_uri
 
-        __props__['identitySource'] = identity_source
+        __props__['identity_source'] = identity_source
 
-        __props__['identityValidationExpression'] = identity_validation_expression
+        __props__['identity_validation_expression'] = identity_validation_expression
 
         __props__['name'] = name
 
-        __props__['providerArns'] = provider_arns
+        __props__['provider_arns'] = provider_arns
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
         __props__['type'] = type
 
@@ -46,4 +46,11 @@ class Authorizer(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

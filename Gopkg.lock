@@ -566,12 +566,6 @@
   version = "v0.2.0"
 
 [[projects]]
-  name = "github.com/pelletier/go-toml"
-  packages = ["."]
-  revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
-  version = "v1.0.1"
-
-[[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
@@ -643,13 +637,13 @@
   revision = "adb0d9aee6d98b2b0b2f3dca6e368feffed92288"
 
 [[projects]]
-  branch = "master"
+  branch = "ellismg/rollback-importers"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "8f5d8e993fe779394ce39fe330591759a4b1cc67"
+  revision = "5b8cd566103e0ef4c2f01e464c9216322fa53230"
 
 [[projects]]
   branch = "master"
@@ -953,6 +947,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cedbf5ae867a310abe0026c90d5db588c2fc28ed3d012c137d4024c15ea7a8d4"
+  inputs-digest = "935d121cda94d182f1dc4df972ffe7c54b1630cbe15c58c57ff863c4e19399cc"
   solver-name = "gps-cdcl"
   solver-version = 1

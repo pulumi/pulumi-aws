@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Domain(pulumi.CustomResource):
     """
@@ -25,15 +25,22 @@ class Domain(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         if not workflow_execution_retention_period_in_days:
             raise TypeError('Missing required property workflow_execution_retention_period_in_days')
-        __props__['workflowExecutionRetentionPeriodInDays'] = workflow_execution_retention_period_in_days
+        __props__['workflow_execution_retention_period_in_days'] = workflow_execution_retention_period_in_days
 
         super(Domain, __self__).__init__(
             'aws:swf/domain:Domain',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

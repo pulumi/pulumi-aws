@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LoadBalancer(pulumi.CustomResource):
     """
@@ -30,19 +30,19 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accessLogs'] = access_logs
+        __props__['access_logs'] = access_logs
 
-        __props__['availabilityZones'] = availability_zones
+        __props__['availability_zones'] = availability_zones
 
-        __props__['connectionDraining'] = connection_draining
+        __props__['connection_draining'] = connection_draining
 
-        __props__['connectionDrainingTimeout'] = connection_draining_timeout
+        __props__['connection_draining_timeout'] = connection_draining_timeout
 
-        __props__['crossZoneLoadBalancing'] = cross_zone_load_balancing
+        __props__['cross_zone_load_balancing'] = cross_zone_load_balancing
 
-        __props__['healthCheck'] = health_check
+        __props__['health_check'] = health_check
 
-        __props__['idleTimeout'] = idle_timeout
+        __props__['idle_timeout'] = idle_timeout
 
         __props__['instances'] = instances
 
@@ -54,11 +54,11 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
-        __props__['securityGroups'] = security_groups
+        __props__['security_groups'] = security_groups
 
-        __props__['sourceSecurityGroup'] = source_security_group
+        __props__['source_security_group'] = source_security_group
 
         __props__['subnets'] = subnets
 
@@ -74,4 +74,11 @@ class LoadBalancer(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

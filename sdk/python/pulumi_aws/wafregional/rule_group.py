@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RuleGroup(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class RuleGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['activatedRules'] = activated_rules
+        __props__['activated_rules'] = activated_rules
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        __props__['metricName'] = metric_name
+        __props__['metric_name'] = metric_name
 
         __props__['name'] = name
 
@@ -34,4 +34,11 @@ class RuleGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

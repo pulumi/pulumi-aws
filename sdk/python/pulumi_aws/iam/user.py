@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class User(pulumi.CustomResource):
     """
@@ -21,13 +21,13 @@ class User(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['forceDestroy'] = force_destroy
+        __props__['force_destroy'] = force_destroy
 
         __props__['name'] = name
 
         __props__['path'] = path
 
-        __props__['permissionsBoundary'] = permissions_boundary
+        __props__['permissions_boundary'] = permissions_boundary
 
         __props__['arn'] = None
         __props__['unique_id'] = None
@@ -37,4 +37,11 @@ class User(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

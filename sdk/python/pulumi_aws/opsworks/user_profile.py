@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UserProfile(pulumi.CustomResource):
     """
@@ -21,21 +21,28 @@ class UserProfile(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowSelfManagement'] = allow_self_management
+        __props__['allow_self_management'] = allow_self_management
 
-        __props__['sshPublicKey'] = ssh_public_key
+        __props__['ssh_public_key'] = ssh_public_key
 
         if not ssh_username:
             raise TypeError('Missing required property ssh_username')
-        __props__['sshUsername'] = ssh_username
+        __props__['ssh_username'] = ssh_username
 
         if not user_arn:
             raise TypeError('Missing required property user_arn')
-        __props__['userArn'] = user_arn
+        __props__['user_arn'] = user_arn
 
         super(UserProfile, __self__).__init__(
             'aws:opsworks/userProfile:UserProfile',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

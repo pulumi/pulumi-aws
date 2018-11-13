@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class InstanceGroup(pulumi.CustomResource):
     """
@@ -28,17 +28,17 @@ class InstanceGroup(pulumi.CustomResource):
 
         if not cluster_id:
             raise TypeError('Missing required property cluster_id')
-        __props__['clusterId'] = cluster_id
+        __props__['cluster_id'] = cluster_id
 
-        __props__['ebsConfigs'] = ebs_configs
+        __props__['ebs_configs'] = ebs_configs
 
-        __props__['ebsOptimized'] = ebs_optimized
+        __props__['ebs_optimized'] = ebs_optimized
 
-        __props__['instanceCount'] = instance_count
+        __props__['instance_count'] = instance_count
 
         if not instance_type:
             raise TypeError('Missing required property instance_type')
-        __props__['instanceType'] = instance_type
+        __props__['instance_type'] = instance_type
 
         __props__['name'] = name
 
@@ -50,4 +50,11 @@ class InstanceGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

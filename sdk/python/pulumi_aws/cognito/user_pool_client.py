@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UserPoolClient(pulumi.CustomResource):
     """
@@ -21,35 +21,35 @@ class UserPoolClient(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowedOauthFlows'] = allowed_oauth_flows
+        __props__['allowed_oauth_flows'] = allowed_oauth_flows
 
-        __props__['allowedOauthFlowsUserPoolClient'] = allowed_oauth_flows_user_pool_client
+        __props__['allowed_oauth_flows_user_pool_client'] = allowed_oauth_flows_user_pool_client
 
-        __props__['allowedOauthScopes'] = allowed_oauth_scopes
+        __props__['allowed_oauth_scopes'] = allowed_oauth_scopes
 
-        __props__['callbackUrls'] = callback_urls
+        __props__['callback_urls'] = callback_urls
 
-        __props__['defaultRedirectUri'] = default_redirect_uri
+        __props__['default_redirect_uri'] = default_redirect_uri
 
-        __props__['explicitAuthFlows'] = explicit_auth_flows
+        __props__['explicit_auth_flows'] = explicit_auth_flows
 
-        __props__['generateSecret'] = generate_secret
+        __props__['generate_secret'] = generate_secret
 
-        __props__['logoutUrls'] = logout_urls
+        __props__['logout_urls'] = logout_urls
 
         __props__['name'] = name
 
-        __props__['readAttributes'] = read_attributes
+        __props__['read_attributes'] = read_attributes
 
-        __props__['refreshTokenValidity'] = refresh_token_validity
+        __props__['refresh_token_validity'] = refresh_token_validity
 
-        __props__['supportedIdentityProviders'] = supported_identity_providers
+        __props__['supported_identity_providers'] = supported_identity_providers
 
         if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
-        __props__['userPoolId'] = user_pool_id
+        __props__['user_pool_id'] = user_pool_id
 
-        __props__['writeAttributes'] = write_attributes
+        __props__['write_attributes'] = write_attributes
 
         __props__['client_secret'] = None
 
@@ -58,4 +58,11 @@ class UserPoolClient(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetVpcDhcpOptionsResult(object):
     """
@@ -60,7 +60,7 @@ class GetVpcDhcpOptionsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
+async def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
     """
     Retrieve information about an EC2 DHCP Options configuration.
     """
@@ -69,7 +69,7 @@ def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__)
 
     return GetVpcDhcpOptionsResult(
         dhcp_options_id=__ret__.get('dhcpOptionsId'),

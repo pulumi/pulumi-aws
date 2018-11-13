@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Organization(pulumi.CustomResource):
     """
@@ -21,7 +21,7 @@ class Organization(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['featureSet'] = feature_set
+        __props__['feature_set'] = feature_set
 
         __props__['arn'] = None
         __props__['master_account_arn'] = None
@@ -33,4 +33,11 @@ class Organization(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

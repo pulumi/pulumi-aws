@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SmsPreferences(pulumi.CustomResource):
     """
@@ -21,21 +21,28 @@ class SmsPreferences(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['defaultSenderId'] = default_sender_id
+        __props__['default_sender_id'] = default_sender_id
 
-        __props__['defaultSmsType'] = default_sms_type
+        __props__['default_sms_type'] = default_sms_type
 
-        __props__['deliveryStatusIamRoleArn'] = delivery_status_iam_role_arn
+        __props__['delivery_status_iam_role_arn'] = delivery_status_iam_role_arn
 
-        __props__['deliveryStatusSuccessSamplingRate'] = delivery_status_success_sampling_rate
+        __props__['delivery_status_success_sampling_rate'] = delivery_status_success_sampling_rate
 
-        __props__['monthlySpendLimit'] = monthly_spend_limit
+        __props__['monthly_spend_limit'] = monthly_spend_limit
 
-        __props__['usageReportS3Bucket'] = usage_report_s3_bucket
+        __props__['usage_report_s3_bucket'] = usage_report_s3_bucket
 
         super(SmsPreferences, __self__).__init__(
             'aws:sns/smsPreferences:SmsPreferences',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

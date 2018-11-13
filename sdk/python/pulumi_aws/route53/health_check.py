@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class HealthCheck(pulumi.CustomResource):
     """
@@ -21,39 +21,39 @@ class HealthCheck(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['childHealthThreshold'] = child_health_threshold
+        __props__['child_health_threshold'] = child_health_threshold
 
-        __props__['childHealthchecks'] = child_healthchecks
+        __props__['child_healthchecks'] = child_healthchecks
 
-        __props__['cloudwatchAlarmName'] = cloudwatch_alarm_name
+        __props__['cloudwatch_alarm_name'] = cloudwatch_alarm_name
 
-        __props__['cloudwatchAlarmRegion'] = cloudwatch_alarm_region
+        __props__['cloudwatch_alarm_region'] = cloudwatch_alarm_region
 
-        __props__['enableSni'] = enable_sni
+        __props__['enable_sni'] = enable_sni
 
-        __props__['failureThreshold'] = failure_threshold
+        __props__['failure_threshold'] = failure_threshold
 
         __props__['fqdn'] = fqdn
 
-        __props__['insufficientDataHealthStatus'] = insufficient_data_health_status
+        __props__['insufficient_data_health_status'] = insufficient_data_health_status
 
-        __props__['invertHealthcheck'] = invert_healthcheck
+        __props__['invert_healthcheck'] = invert_healthcheck
 
-        __props__['ipAddress'] = ip_address
+        __props__['ip_address'] = ip_address
 
-        __props__['measureLatency'] = measure_latency
+        __props__['measure_latency'] = measure_latency
 
         __props__['port'] = port
 
-        __props__['referenceName'] = reference_name
+        __props__['reference_name'] = reference_name
 
         __props__['regions'] = regions
 
-        __props__['requestInterval'] = request_interval
+        __props__['request_interval'] = request_interval
 
-        __props__['resourcePath'] = resource_path
+        __props__['resource_path'] = resource_path
 
-        __props__['searchString'] = search_string
+        __props__['search_string'] = search_string
 
         __props__['tags'] = tags
 
@@ -66,4 +66,11 @@ class HealthCheck(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

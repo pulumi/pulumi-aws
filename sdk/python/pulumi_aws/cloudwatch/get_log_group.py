@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetLogGroupResult(object):
     """
@@ -30,14 +30,14 @@ class GetLogGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_log_group(name=None):
+async def get_log_group(name=None):
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__)
 
     return GetLogGroupResult(
         arn=__ret__.get('arn'),

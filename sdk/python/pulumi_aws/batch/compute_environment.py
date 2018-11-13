@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ComputeEnvironment(pulumi.CustomResource):
     """
@@ -29,13 +29,13 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         if not compute_environment_name:
             raise TypeError('Missing required property compute_environment_name')
-        __props__['computeEnvironmentName'] = compute_environment_name
+        __props__['compute_environment_name'] = compute_environment_name
 
-        __props__['computeResources'] = compute_resources
+        __props__['compute_resources'] = compute_resources
 
         if not service_role:
             raise TypeError('Missing required property service_role')
-        __props__['serviceRole'] = service_role
+        __props__['service_role'] = service_role
 
         __props__['state'] = state
 
@@ -54,4 +54,11 @@ class ComputeEnvironment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

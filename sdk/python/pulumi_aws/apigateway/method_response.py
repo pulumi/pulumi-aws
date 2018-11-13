@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MethodResponse(pulumi.CustomResource):
     """
@@ -23,29 +23,36 @@ class MethodResponse(pulumi.CustomResource):
 
         if not http_method:
             raise TypeError('Missing required property http_method')
-        __props__['httpMethod'] = http_method
+        __props__['http_method'] = http_method
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
-        __props__['responseModels'] = response_models
+        __props__['response_models'] = response_models
 
-        __props__['responseParameters'] = response_parameters
+        __props__['response_parameters'] = response_parameters
 
-        __props__['responseParametersInJson'] = response_parameters_in_json
+        __props__['response_parameters_in_json'] = response_parameters_in_json
 
         if not rest_api:
             raise TypeError('Missing required property rest_api')
-        __props__['restApi'] = rest_api
+        __props__['rest_api'] = rest_api
 
         if not status_code:
             raise TypeError('Missing required property status_code')
-        __props__['statusCode'] = status_code
+        __props__['status_code'] = status_code
 
         super(MethodResponse, __self__).__init__(
             'aws:apigateway/methodResponse:MethodResponse',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

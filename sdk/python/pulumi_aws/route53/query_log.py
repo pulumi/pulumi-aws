@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class QueryLog(pulumi.CustomResource):
     """
@@ -29,15 +29,22 @@ class QueryLog(pulumi.CustomResource):
 
         if not cloudwatch_log_group_arn:
             raise TypeError('Missing required property cloudwatch_log_group_arn')
-        __props__['cloudwatchLogGroupArn'] = cloudwatch_log_group_arn
+        __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
 
         if not zone_id:
             raise TypeError('Missing required property zone_id')
-        __props__['zoneId'] = zone_id
+        __props__['zone_id'] = zone_id
 
         super(QueryLog, __self__).__init__(
             'aws:route53/queryLog:QueryLog',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

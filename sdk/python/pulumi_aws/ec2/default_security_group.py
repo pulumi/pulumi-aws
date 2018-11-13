@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DefaultSecurityGroup(pulumi.CustomResource):
     """
@@ -49,11 +49,11 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         __props__['ingress'] = ingress
 
-        __props__['revokeRulesOnDelete'] = revoke_rules_on_delete
+        __props__['revoke_rules_on_delete'] = revoke_rules_on_delete
 
         __props__['tags'] = tags
 
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         __props__['arn'] = None
         __props__['name'] = None
@@ -64,4 +64,11 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

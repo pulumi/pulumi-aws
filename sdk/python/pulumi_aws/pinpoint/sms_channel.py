@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SmsChannel(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, application_id=None, enabled=None, sender_id=None, short_code=None):
@@ -20,13 +20,13 @@ class SmsChannel(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
         __props__['enabled'] = enabled
 
-        __props__['senderId'] = sender_id
+        __props__['sender_id'] = sender_id
 
-        __props__['shortCode'] = short_code
+        __props__['short_code'] = short_code
 
         __props__['promotional_messages_per_second'] = None
         __props__['transactional_messages_per_second'] = None
@@ -36,4 +36,11 @@ class SmsChannel(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

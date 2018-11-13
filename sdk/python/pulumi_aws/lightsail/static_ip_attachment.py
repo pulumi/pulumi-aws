@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class StaticIpAttachment(pulumi.CustomResource):
     """
@@ -25,15 +25,22 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         if not instance_name:
             raise TypeError('Missing required property instance_name')
-        __props__['instanceName'] = instance_name
+        __props__['instance_name'] = instance_name
 
         if not static_ip_name:
             raise TypeError('Missing required property static_ip_name')
-        __props__['staticIpName'] = static_ip_name
+        __props__['static_ip_name'] = static_ip_name
 
         super(StaticIpAttachment, __self__).__init__(
             'aws:lightsail/staticIpAttachment:StaticIpAttachment',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

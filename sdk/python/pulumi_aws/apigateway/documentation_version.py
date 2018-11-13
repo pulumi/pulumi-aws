@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DocumentationVersion(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class DocumentationVersion(pulumi.CustomResource):
 
         if not rest_api_id:
             raise TypeError('Missing required property rest_api_id')
-        __props__['restApiId'] = rest_api_id
+        __props__['rest_api_id'] = rest_api_id
 
         if not version:
             raise TypeError('Missing required property version')
@@ -36,4 +36,11 @@ class DocumentationVersion(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

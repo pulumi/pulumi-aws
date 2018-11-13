@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ClusterSnapshot(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         if not db_cluster_identifier:
             raise TypeError('Missing required property db_cluster_identifier')
-        __props__['dbClusterIdentifier'] = db_cluster_identifier
+        __props__['db_cluster_identifier'] = db_cluster_identifier
 
         if not db_cluster_snapshot_identifier:
             raise TypeError('Missing required property db_cluster_snapshot_identifier')
-        __props__['dbClusterSnapshotIdentifier'] = db_cluster_snapshot_identifier
+        __props__['db_cluster_snapshot_identifier'] = db_cluster_snapshot_identifier
 
         __props__['allocated_storage'] = None
         __props__['availability_zones'] = None
@@ -48,4 +48,11 @@ class ClusterSnapshot(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

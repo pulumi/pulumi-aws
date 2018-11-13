@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DocumentationPart(pulumi.CustomResource):
     """
@@ -31,11 +31,18 @@ class DocumentationPart(pulumi.CustomResource):
 
         if not rest_api_id:
             raise TypeError('Missing required property rest_api_id')
-        __props__['restApiId'] = rest_api_id
+        __props__['rest_api_id'] = rest_api_id
 
         super(DocumentationPart, __self__).__init__(
             'aws:apigateway/documentationPart:DocumentationPart',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TargetGroupAttachment(pulumi.CustomResource):
     """
@@ -23,21 +23,28 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['availabilityZone'] = availability_zone
+        __props__['availability_zone'] = availability_zone
 
         __props__['port'] = port
 
         if not target_group_arn:
             raise TypeError('Missing required property target_group_arn')
-        __props__['targetGroupArn'] = target_group_arn
+        __props__['target_group_arn'] = target_group_arn
 
         if not target_id:
             raise TypeError('Missing required property target_id')
-        __props__['targetId'] = target_id
+        __props__['target_id'] = target_id
 
         super(TargetGroupAttachment, __self__).__init__(
             'aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

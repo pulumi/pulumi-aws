@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LinkAggregationGroup(pulumi.CustomResource):
     """
@@ -23,9 +23,9 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         if not connections_bandwidth:
             raise TypeError('Missing required property connections_bandwidth')
-        __props__['connectionsBandwidth'] = connections_bandwidth
+        __props__['connections_bandwidth'] = connections_bandwidth
 
-        __props__['forceDestroy'] = force_destroy
+        __props__['force_destroy'] = force_destroy
 
         if not location:
             raise TypeError('Missing required property location')
@@ -33,7 +33,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['numberOfConnections'] = number_of_connections
+        __props__['number_of_connections'] = number_of_connections
 
         __props__['tags'] = tags
 
@@ -44,4 +44,11 @@ class LinkAggregationGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

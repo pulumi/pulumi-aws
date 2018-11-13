@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Alias(pulumi.CustomResource):
     """
@@ -27,7 +27,7 @@ class Alias(pulumi.CustomResource):
 
         if not routing_strategy:
             raise TypeError('Missing required property routing_strategy')
-        __props__['routingStrategy'] = routing_strategy
+        __props__['routing_strategy'] = routing_strategy
 
         __props__['arn'] = None
 
@@ -36,4 +36,11 @@ class Alias(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

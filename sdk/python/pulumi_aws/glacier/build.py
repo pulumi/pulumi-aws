@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Build(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class Build(pulumi.CustomResource):
 
         if not operating_system:
             raise TypeError('Missing required property operating_system')
-        __props__['operatingSystem'] = operating_system
+        __props__['operating_system'] = operating_system
 
         if not storage_location:
             raise TypeError('Missing required property storage_location')
-        __props__['storageLocation'] = storage_location
+        __props__['storage_location'] = storage_location
 
         __props__['version'] = version
 
@@ -38,4 +38,11 @@ class Build(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

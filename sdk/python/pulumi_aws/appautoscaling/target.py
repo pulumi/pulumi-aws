@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Target(pulumi.CustomResource):
     """
@@ -23,29 +23,36 @@ class Target(pulumi.CustomResource):
 
         if not max_capacity:
             raise TypeError('Missing required property max_capacity')
-        __props__['maxCapacity'] = max_capacity
+        __props__['max_capacity'] = max_capacity
 
         if not min_capacity:
             raise TypeError('Missing required property min_capacity')
-        __props__['minCapacity'] = min_capacity
+        __props__['min_capacity'] = min_capacity
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         if not scalable_dimension:
             raise TypeError('Missing required property scalable_dimension')
-        __props__['scalableDimension'] = scalable_dimension
+        __props__['scalable_dimension'] = scalable_dimension
 
         if not service_namespace:
             raise TypeError('Missing required property service_namespace')
-        __props__['serviceNamespace'] = service_namespace
+        __props__['service_namespace'] = service_namespace
 
         super(Target, __self__).__init__(
             'aws:appautoscaling/target:Target',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

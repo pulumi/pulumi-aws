@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UserGroup(pulumi.CustomResource):
     """
@@ -27,15 +27,22 @@ class UserGroup(pulumi.CustomResource):
 
         __props__['precedence'] = precedence
 
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
-        __props__['userPoolId'] = user_pool_id
+        __props__['user_pool_id'] = user_pool_id
 
         super(UserGroup, __self__).__init__(
             'aws:cognito/userGroup:UserGroup',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

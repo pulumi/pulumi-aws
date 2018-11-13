@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Zone(pulumi.CustomResource):
     """
@@ -24,9 +24,9 @@ class Zone(pulumi.CustomResource):
         comment = 'Managed by Pulumi'
         __props__['comment'] = comment
 
-        __props__['delegationSetId'] = delegation_set_id
+        __props__['delegation_set_id'] = delegation_set_id
 
-        __props__['forceDestroy'] = force_destroy
+        __props__['force_destroy'] = force_destroy
 
         __props__['name'] = name
 
@@ -34,9 +34,9 @@ class Zone(pulumi.CustomResource):
 
         __props__['vpcs'] = vpcs
 
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
-        __props__['vpcRegion'] = vpc_region
+        __props__['vpc_region'] = vpc_region
 
         __props__['name_servers'] = None
         __props__['zone_id'] = None
@@ -46,4 +46,11 @@ class Zone(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Route(pulumi.CustomResource):
     """
@@ -27,25 +27,25 @@ class Route(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['destinationCidrBlock'] = destination_cidr_block
+        __props__['destination_cidr_block'] = destination_cidr_block
 
-        __props__['destinationIpv6CidrBlock'] = destination_ipv6_cidr_block
+        __props__['destination_ipv6_cidr_block'] = destination_ipv6_cidr_block
 
-        __props__['egressOnlyGatewayId'] = egress_only_gateway_id
+        __props__['egress_only_gateway_id'] = egress_only_gateway_id
 
-        __props__['gatewayId'] = gateway_id
+        __props__['gateway_id'] = gateway_id
 
-        __props__['instanceId'] = instance_id
+        __props__['instance_id'] = instance_id
 
-        __props__['natGatewayId'] = nat_gateway_id
+        __props__['nat_gateway_id'] = nat_gateway_id
 
-        __props__['networkInterfaceId'] = network_interface_id
+        __props__['network_interface_id'] = network_interface_id
 
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
-        __props__['routeTableId'] = route_table_id
+        __props__['route_table_id'] = route_table_id
 
-        __props__['vpcPeeringConnectionId'] = vpc_peering_connection_id
+        __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 
         __props__['destination_prefix_list_id'] = None
         __props__['instance_owner_id'] = None
@@ -57,4 +57,11 @@ class Route(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from . import utilities
+from . import utilities, tables
 
 class GetAvailabilityZonesResult(object):
     """
@@ -24,7 +24,7 @@ class GetAvailabilityZonesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_availability_zones(state=None):
+async def get_availability_zones(state=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -36,7 +36,7 @@ def get_availability_zones(state=None):
     __args__ = dict()
 
     __args__['state'] = state
-    __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__)
 
     return GetAvailabilityZonesResult(
         names=__ret__.get('names'),

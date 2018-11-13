@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpcEndpointService(pulumi.CustomResource):
     """
@@ -30,13 +30,13 @@ class VpcEndpointService(pulumi.CustomResource):
 
         if not acceptance_required:
             raise TypeError('Missing required property acceptance_required')
-        __props__['acceptanceRequired'] = acceptance_required
+        __props__['acceptance_required'] = acceptance_required
 
-        __props__['allowedPrincipals'] = allowed_principals
+        __props__['allowed_principals'] = allowed_principals
 
         if not network_load_balancer_arns:
             raise TypeError('Missing required property network_load_balancer_arns')
-        __props__['networkLoadBalancerArns'] = network_load_balancer_arns
+        __props__['network_load_balancer_arns'] = network_load_balancer_arns
 
         __props__['availability_zones'] = None
         __props__['base_endpoint_dns_names'] = None
@@ -50,4 +50,11 @@ class VpcEndpointService(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

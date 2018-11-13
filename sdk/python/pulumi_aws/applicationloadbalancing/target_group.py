@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TargetGroup(pulumi.CustomResource):
     """
@@ -23,13 +23,13 @@ class TargetGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['deregistrationDelay'] = deregistration_delay
+        __props__['deregistration_delay'] = deregistration_delay
 
-        __props__['healthCheck'] = health_check
+        __props__['health_check'] = health_check
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         if not port:
             raise TypeError('Missing required property port')
@@ -39,19 +39,19 @@ class TargetGroup(pulumi.CustomResource):
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
-        __props__['proxyProtocolV2'] = proxy_protocol_v2
+        __props__['proxy_protocol_v2'] = proxy_protocol_v2
 
-        __props__['slowStart'] = slow_start
+        __props__['slow_start'] = slow_start
 
         __props__['stickiness'] = stickiness
 
         __props__['tags'] = tags
 
-        __props__['targetType'] = target_type
+        __props__['target_type'] = target_type
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
         __props__['arn'] = None
         __props__['arn_suffix'] = None
@@ -61,4 +61,11 @@ class TargetGroup(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

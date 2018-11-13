@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ZoneAssociation(pulumi.CustomResource):
     """
@@ -27,17 +27,24 @@ class ZoneAssociation(pulumi.CustomResource):
 
         if not vpc_id:
             raise TypeError('Missing required property vpc_id')
-        __props__['vpcId'] = vpc_id
+        __props__['vpc_id'] = vpc_id
 
-        __props__['vpcRegion'] = vpc_region
+        __props__['vpc_region'] = vpc_region
 
         if not zone_id:
             raise TypeError('Missing required property zone_id')
-        __props__['zoneId'] = zone_id
+        __props__['zone_id'] = zone_id
 
         super(ZoneAssociation, __self__).__init__(
             'aws:route53/zoneAssociation:ZoneAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

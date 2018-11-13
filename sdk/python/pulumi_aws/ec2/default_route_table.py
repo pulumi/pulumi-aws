@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DefaultRouteTable(pulumi.CustomResource):
     """
@@ -53,9 +53,9 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         if not default_route_table_id:
             raise TypeError('Missing required property default_route_table_id')
-        __props__['defaultRouteTableId'] = default_route_table_id
+        __props__['default_route_table_id'] = default_route_table_id
 
-        __props__['propagatingVgws'] = propagating_vgws
+        __props__['propagating_vgws'] = propagating_vgws
 
         __props__['routes'] = routes
 
@@ -68,4 +68,11 @@ class DefaultRouteTable(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

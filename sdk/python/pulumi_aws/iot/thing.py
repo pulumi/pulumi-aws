@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Thing(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Thing(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['thingTypeName'] = thing_type_name
+        __props__['thing_type_name'] = thing_type_name
 
         __props__['arn'] = None
         __props__['default_client_id'] = None
@@ -36,4 +36,11 @@ class Thing(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

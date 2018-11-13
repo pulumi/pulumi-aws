@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DefaultVpcDhcpOptions(pulumi.CustomResource):
     """
@@ -30,9 +30,9 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['netbiosNameServers'] = netbios_name_servers
+        __props__['netbios_name_servers'] = netbios_name_servers
 
-        __props__['netbiosNodeType'] = netbios_node_type
+        __props__['netbios_node_type'] = netbios_node_type
 
         __props__['tags'] = tags
 
@@ -45,4 +45,11 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

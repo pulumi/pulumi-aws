@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetRoleResult(object):
     """
@@ -63,7 +63,7 @@ class GetRoleResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_role(name=None, role_name=None):
+async def get_role(name=None, role_name=None):
     """
     This data source can be used to fetch information about a specific
     IAM role. By using this data source, you can reference IAM role
@@ -73,7 +73,7 @@ def get_role(name=None, role_name=None):
 
     __args__['name'] = name
     __args__['roleName'] = role_name
-    __ret__ = pulumi.runtime.invoke('aws:iam/getRole:getRole', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getRole:getRole', __args__)
 
     return GetRoleResult(
         arn=__ret__.get('arn'),

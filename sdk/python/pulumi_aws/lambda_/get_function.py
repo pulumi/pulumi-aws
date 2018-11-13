@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetFunctionResult(object):
     """
@@ -132,7 +132,7 @@ class GetFunctionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_function(function_name=None, qualifier=None):
+async def get_function(function_name=None, qualifier=None):
     """
     Provides information about a Lambda Function.
     """
@@ -140,7 +140,7 @@ def get_function(function_name=None, qualifier=None):
 
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
-    __ret__ = pulumi.runtime.invoke('aws:lambda/getFunction:getFunction', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:lambda/getFunction:getFunction', __args__)
 
     return GetFunctionResult(
         arn=__ret__.get('arn'),

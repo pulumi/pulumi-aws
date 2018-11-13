@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VpnConnectionRoute(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         if not destination_cidr_block:
             raise TypeError('Missing required property destination_cidr_block')
-        __props__['destinationCidrBlock'] = destination_cidr_block
+        __props__['destination_cidr_block'] = destination_cidr_block
 
         if not vpn_connection_id:
             raise TypeError('Missing required property vpn_connection_id')
-        __props__['vpnConnectionId'] = vpn_connection_id
+        __props__['vpn_connection_id'] = vpn_connection_id
 
         super(VpnConnectionRoute, __self__).__init__(
             'aws:ec2/vpnConnectionRoute:VpnConnectionRoute',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

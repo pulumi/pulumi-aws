@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NfsFileShare(pulumi.CustomResource):
     """
@@ -23,35 +23,35 @@ class NfsFileShare(pulumi.CustomResource):
 
         if not client_lists:
             raise TypeError('Missing required property client_lists')
-        __props__['clientLists'] = client_lists
+        __props__['client_lists'] = client_lists
 
-        __props__['defaultStorageClass'] = default_storage_class
+        __props__['default_storage_class'] = default_storage_class
 
         if not gateway_arn:
             raise TypeError('Missing required property gateway_arn')
-        __props__['gatewayArn'] = gateway_arn
+        __props__['gateway_arn'] = gateway_arn
 
-        __props__['guessMimeTypeEnabled'] = guess_mime_type_enabled
+        __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
 
-        __props__['kmsEncrypted'] = kms_encrypted
+        __props__['kms_encrypted'] = kms_encrypted
 
-        __props__['kmsKeyArn'] = kms_key_arn
+        __props__['kms_key_arn'] = kms_key_arn
 
         if not location_arn:
             raise TypeError('Missing required property location_arn')
-        __props__['locationArn'] = location_arn
+        __props__['location_arn'] = location_arn
 
-        __props__['nfsFileShareDefaults'] = nfs_file_share_defaults
+        __props__['nfs_file_share_defaults'] = nfs_file_share_defaults
 
-        __props__['objectAcl'] = object_acl
+        __props__['object_acl'] = object_acl
 
-        __props__['readOnly'] = read_only
+        __props__['read_only'] = read_only
 
-        __props__['requesterPays'] = requester_pays
+        __props__['requester_pays'] = requester_pays
 
         if not role_arn:
             raise TypeError('Missing required property role_arn')
-        __props__['roleArn'] = role_arn
+        __props__['role_arn'] = role_arn
 
         __props__['squash'] = squash
 
@@ -63,4 +63,11 @@ class NfsFileShare(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

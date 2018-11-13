@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LogDestinationPolicy(pulumi.CustomResource):
     """
@@ -23,15 +23,22 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         if not access_policy:
             raise TypeError('Missing required property access_policy')
-        __props__['accessPolicy'] = access_policy
+        __props__['access_policy'] = access_policy
 
         if not destination_name:
             raise TypeError('Missing required property destination_name')
-        __props__['destinationName'] = destination_name
+        __props__['destination_name'] = destination_name
 
         super(LogDestinationPolicy, __self__).__init__(
             'aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

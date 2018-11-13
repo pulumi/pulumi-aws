@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TaskDefinition(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class TaskDefinition(pulumi.CustomResource):
 
         if not container_definitions:
             raise TypeError('Missing required property container_definitions')
-        __props__['containerDefinitions'] = container_definitions
+        __props__['container_definitions'] = container_definitions
 
         __props__['cpu'] = cpu
 
-        __props__['executionRoleArn'] = execution_role_arn
+        __props__['execution_role_arn'] = execution_role_arn
 
         if not family:
             raise TypeError('Missing required property family')
@@ -35,13 +35,13 @@ class TaskDefinition(pulumi.CustomResource):
 
         __props__['memory'] = memory
 
-        __props__['networkMode'] = network_mode
+        __props__['network_mode'] = network_mode
 
-        __props__['placementConstraints'] = placement_constraints
+        __props__['placement_constraints'] = placement_constraints
 
-        __props__['requiresCompatibilities'] = requires_compatibilities
+        __props__['requires_compatibilities'] = requires_compatibilities
 
-        __props__['taskRoleArn'] = task_role_arn
+        __props__['task_role_arn'] = task_role_arn
 
         __props__['volumes'] = volumes
 
@@ -53,4 +53,11 @@ class TaskDefinition(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

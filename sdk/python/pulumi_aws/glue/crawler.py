@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Crawler(pulumi.CustomResource):
     """
@@ -27,13 +27,13 @@ class Crawler(pulumi.CustomResource):
 
         if not database_name:
             raise TypeError('Missing required property database_name')
-        __props__['databaseName'] = database_name
+        __props__['database_name'] = database_name
 
         __props__['description'] = description
 
-        __props__['dynamodbTargets'] = dynamodb_targets
+        __props__['dynamodb_targets'] = dynamodb_targets
 
-        __props__['jdbcTargets'] = jdbc_targets
+        __props__['jdbc_targets'] = jdbc_targets
 
         __props__['name'] = name
 
@@ -41,17 +41,24 @@ class Crawler(pulumi.CustomResource):
             raise TypeError('Missing required property role')
         __props__['role'] = role
 
-        __props__['s3Targets'] = s3_targets
+        __props__['s3_targets'] = s3_targets
 
         __props__['schedule'] = schedule
 
-        __props__['schemaChangePolicy'] = schema_change_policy
+        __props__['schema_change_policy'] = schema_change_policy
 
-        __props__['tablePrefix'] = table_prefix
+        __props__['table_prefix'] = table_prefix
 
         super(Crawler, __self__).__init__(
             'aws:glue/crawler:Crawler',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

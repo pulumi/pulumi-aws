@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class RolePolicyAttachment(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         if not policy_arn:
             raise TypeError('Missing required property policy_arn')
-        __props__['policyArn'] = policy_arn
+        __props__['policy_arn'] = policy_arn
 
         if not role:
             raise TypeError('Missing required property role')
@@ -34,4 +34,11 @@ class RolePolicyAttachment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAliasResult(object):
     """
@@ -36,7 +36,7 @@ class GetAliasResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_alias(name=None):
+async def get_alias(name=None):
     """
     Use this data source to get the ARN of a KMS key alias.
     By using this data source, you can reference key alias
@@ -45,7 +45,7 @@ def get_alias(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__)
 
     return GetAliasResult(
         arn=__ret__.get('arn'),

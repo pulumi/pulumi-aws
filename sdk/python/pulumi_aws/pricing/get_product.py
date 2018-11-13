@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetProductResult(object):
     """
@@ -24,7 +24,7 @@ class GetProductResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_product(filters=None, service_code=None):
+async def get_product(filters=None, service_code=None):
     """
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
@@ -33,7 +33,7 @@ def get_product(filters=None, service_code=None):
 
     __args__['filters'] = filters
     __args__['serviceCode'] = service_code
-    __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__)
 
     return GetProductResult(
         result=__ret__.get('result'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Role(pulumi.CustomResource):
     """
@@ -23,21 +23,21 @@ class Role(pulumi.CustomResource):
 
         if not assume_role_policy:
             raise TypeError('Missing required property assume_role_policy')
-        __props__['assumeRolePolicy'] = assume_role_policy
+        __props__['assume_role_policy'] = assume_role_policy
 
         __props__['description'] = description
 
-        __props__['forceDetachPolicies'] = force_detach_policies
+        __props__['force_detach_policies'] = force_detach_policies
 
-        __props__['maxSessionDuration'] = max_session_duration
+        __props__['max_session_duration'] = max_session_duration
 
         __props__['name'] = name
 
-        __props__['namePrefix'] = name_prefix
+        __props__['name_prefix'] = name_prefix
 
         __props__['path'] = path
 
-        __props__['permissionsBoundary'] = permissions_boundary
+        __props__['permissions_boundary'] = permissions_boundary
 
         __props__['arn'] = None
         __props__['create_date'] = None
@@ -48,4 +48,11 @@ class Role(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

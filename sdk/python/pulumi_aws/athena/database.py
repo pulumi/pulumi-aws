@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Database(pulumi.CustomResource):
     """
@@ -25,9 +25,9 @@ class Database(pulumi.CustomResource):
             raise TypeError('Missing required property bucket')
         __props__['bucket'] = bucket
 
-        __props__['encryptionConfiguration'] = encryption_configuration
+        __props__['encryption_configuration'] = encryption_configuration
 
-        __props__['forceDestroy'] = force_destroy
+        __props__['force_destroy'] = force_destroy
 
         __props__['name'] = name
 
@@ -36,4 +36,11 @@ class Database(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

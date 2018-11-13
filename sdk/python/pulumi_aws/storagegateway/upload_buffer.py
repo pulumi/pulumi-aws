@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class UploadBuffer(pulumi.CustomResource):
     """
@@ -25,15 +25,22 @@ class UploadBuffer(pulumi.CustomResource):
 
         if not disk_id:
             raise TypeError('Missing required property disk_id')
-        __props__['diskId'] = disk_id
+        __props__['disk_id'] = disk_id
 
         if not gateway_arn:
             raise TypeError('Missing required property gateway_arn')
-        __props__['gatewayArn'] = gateway_arn
+        __props__['gateway_arn'] = gateway_arn
 
         super(UploadBuffer, __self__).__init__(
             'aws:storagegateway/uploadBuffer:UploadBuffer',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

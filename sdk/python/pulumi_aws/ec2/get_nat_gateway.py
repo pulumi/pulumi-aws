@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetNatGatewayResult(object):
     """
@@ -51,7 +51,7 @@ class GetNatGatewayResult(object):
             raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
-def get_nat_gateway(filters=None, id=None, state=None, subnet_id=None, tags=None, vpc_id=None):
+async def get_nat_gateway(filters=None, id=None, state=None, subnet_id=None, tags=None, vpc_id=None):
     """
     Provides details about a specific Nat Gateway.
     """
@@ -63,7 +63,7 @@ def get_nat_gateway(filters=None, id=None, state=None, subnet_id=None, tags=None
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__)
 
     return GetNatGatewayResult(
         allocation_id=__ret__.get('allocationId'),

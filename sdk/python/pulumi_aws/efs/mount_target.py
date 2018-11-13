@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MountTarget(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class MountTarget(pulumi.CustomResource):
 
         if not file_system_id:
             raise TypeError('Missing required property file_system_id')
-        __props__['fileSystemId'] = file_system_id
+        __props__['file_system_id'] = file_system_id
 
-        __props__['ipAddress'] = ip_address
+        __props__['ip_address'] = ip_address
 
-        __props__['securityGroups'] = security_groups
+        __props__['security_groups'] = security_groups
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         __props__['dns_name'] = None
         __props__['network_interface_id'] = None
@@ -41,4 +41,11 @@ class MountTarget(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

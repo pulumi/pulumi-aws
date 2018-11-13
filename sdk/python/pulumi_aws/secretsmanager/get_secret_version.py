@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSecretVersionResult(object):
     """
@@ -45,7 +45,7 @@ class GetSecretVersionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_secret_version(secret_id=None, version_id=None, version_stage=None):
+async def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     """
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
     """
@@ -54,7 +54,7 @@ def get_secret_version(secret_id=None, version_id=None, version_stage=None):
     __args__['secretId'] = secret_id
     __args__['versionId'] = version_id
     __args__['versionStage'] = version_stage
-    __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__)
 
     return GetSecretVersionResult(
         arn=__ret__.get('arn'),

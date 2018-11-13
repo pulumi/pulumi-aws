@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class EventPermission(pulumi.CustomResource):
     """
@@ -31,11 +31,18 @@ class EventPermission(pulumi.CustomResource):
 
         if not statement_id:
             raise TypeError('Missing required property statement_id')
-        __props__['statementId'] = statement_id
+        __props__['statement_id'] = statement_id
 
         super(EventPermission, __self__).__init__(
             'aws:cloudwatch/eventPermission:EventPermission',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

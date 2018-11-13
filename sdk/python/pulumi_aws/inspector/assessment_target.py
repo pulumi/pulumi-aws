@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AssessmentTarget(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
         if not resource_group_arn:
             raise TypeError('Missing required property resource_group_arn')
-        __props__['resourceGroupArn'] = resource_group_arn
+        __props__['resource_group_arn'] = resource_group_arn
 
         __props__['arn'] = None
 
@@ -34,4 +34,11 @@ class AssessmentTarget(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

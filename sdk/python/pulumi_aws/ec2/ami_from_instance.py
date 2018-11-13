@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AmiFromInstance(pulumi.CustomResource):
     """
@@ -39,17 +39,17 @@ class AmiFromInstance(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['ebsBlockDevices'] = ebs_block_devices
+        __props__['ebs_block_devices'] = ebs_block_devices
 
-        __props__['ephemeralBlockDevices'] = ephemeral_block_devices
+        __props__['ephemeral_block_devices'] = ephemeral_block_devices
 
         __props__['name'] = name
 
-        __props__['snapshotWithoutReboot'] = snapshot_without_reboot
+        __props__['snapshot_without_reboot'] = snapshot_without_reboot
 
         if not source_instance_id:
             raise TypeError('Missing required property source_instance_id')
-        __props__['sourceInstanceId'] = source_instance_id
+        __props__['source_instance_id'] = source_instance_id
 
         __props__['tags'] = tags
 
@@ -69,4 +69,11 @@ class AmiFromInstance(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
