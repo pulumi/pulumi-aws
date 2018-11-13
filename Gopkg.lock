@@ -634,7 +634,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "adb0d9aee6d98b2b0b2f3dca6e368feffed92288"
+  revision = "aa7f26a3b50c468fbce81c2297c41da968b0e053"
 
 [[projects]]
   branch = "ellismg/rollback-importers"
