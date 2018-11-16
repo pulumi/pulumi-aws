@@ -68,6 +68,9 @@ export let M5dInstance24XLarge: InstanceType = "m5d.24xlarge";
 export let P2Instance16XLarge:  InstanceType = "p2.16xlarge";
 export let P2Instance8XLarge:   InstanceType = "p2.8xlarge";
 export let P2InstanceXLarge:    InstanceType = "p2.xlarge";
+export let P3Instance16XLarge:  InstanceType = "p3.16xlarge";
+export let P3Instance2XLarge:   InstanceType = "p3.2xlarge";
+export let P3Instance8XLarge:   InstanceType = "p3.8xlarge";
 export let R3Instance2XLarge:   InstanceType = "r3.2xlarge";
 export let R3Instance4XLarge:   InstanceType = "r3.4xlarge";
 export let R3Instance8XLarge:   InstanceType = "r3.8xlarge";
@@ -139,6 +142,9 @@ export type InstanceType =
     "p2.16xlarge"  |
     "p2.8xlarge"   |
     "p2.xlarge"    |
+    "p3.16xlarge"  |
+    "p3.8xlarge"   |
+    "p3.2xlarge"   |
     "r3.2xlarge"   |
     "r3.4xlarge"   |
     "r3.8xlarge"   |
