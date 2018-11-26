@@ -67,7 +67,7 @@ publish_tgz:
 .PHONY: publish_packages
 publish_packages:
 	$(call STEP_MESSAGE)
-	./scripts/publish_packages.sh
+	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-tfgen-package .
 
 .PHONY: check_clean_worktree
 check_clean_worktree:
