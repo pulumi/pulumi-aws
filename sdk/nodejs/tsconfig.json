@@ -377,6 +377,7 @@
         "glacier/member.ts",
         "glacier/threatIntelSet.ts",
         "glacier/vault.ts",
+        "glacier/vaultLock.ts",
         "glue/catalogDatabase.ts",
         "glue/catalogTable.ts",
         "glue/classifier.ts",

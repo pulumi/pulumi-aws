@@ -10,3 +10,4 @@ export * from "./iPSet";
 export * from "./member";
 export * from "./threatIntelSet";
 export * from "./vault";
+export * from "./vaultLock";

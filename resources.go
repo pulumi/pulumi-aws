@@ -1206,6 +1206,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Glue
 			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},

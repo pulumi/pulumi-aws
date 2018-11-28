@@ -7,6 +7,7 @@ from .alias import *
 from .build import *
 from .fleet import *
 from .vault import *
+from .vault_lock import *
 from .detector import *
 from .ip_set import *
 from .member import *
