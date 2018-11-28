@@ -24,6 +24,7 @@
         "apigateway/documentationPart.ts",
         "apigateway/documentationVersion.ts",
         "apigateway/domainName.ts",
+        "apigateway/getKey.ts",
         "apigateway/getResource.ts",
         "apigateway/getRestApi.ts",
         "apigateway/index.ts",
