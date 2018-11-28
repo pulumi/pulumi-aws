@@ -2020,7 +2020,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_cluster":         {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account": {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
 			// Route53
-			"aws_route53_zone": {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
 			// S3
 			"aws_s3_bucket":        {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object": {Tok: awsDataSource(s3Mod, "getBucketObject")},

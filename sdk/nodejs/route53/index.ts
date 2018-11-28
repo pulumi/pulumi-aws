@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./delegationSet";
+export * from "./getDelegationSet";
 export * from "./getZone";
 export * from "./healthCheck";
 export * from "./queryLog";
