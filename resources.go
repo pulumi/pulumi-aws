@@ -1044,6 +1044,35 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_vpn_gateway_attachment":        {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
 			"aws_vpn_gateway_route_propagation": {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			// EC2 Transit Gateway
+			"aws_ec2_transit_gateway": {
+				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"arn":  {Type: awsType(awsMod, "ARN")},
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ec2_transit_gateway_route": {
+				Tok: awsResource(ec2TransitGatewayMod, "Route"),
+			},
+			"aws_ec2_transit_gateway_route_table": {
+				Tok: awsResource(ec2TransitGatewayMod, "RouteTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ec2_transit_gateway_route_table_association": {
+				Tok: awsResource(ec2TransitGatewayMod, "RouteTableAssociation"),
+			},
+			"aws_ec2_transit_gateway_route_table_propagation": {
+				Tok: awsResource(ec2TransitGatewayMod, "RouteTablePropagation"),
+			},
+			"aws_ec2_transit_gateway_vpc_attachment": {
+				Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Elastic Container Registry
 			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},
