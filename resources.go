@@ -63,6 +63,7 @@ const (
 	dmsMod               = "dms"                      // Data Migraiton Services
 	ebsMod               = "ebs"                      // Elastic Block Store
 	ec2Mod               = "ec2"                      // EC2
+	ec2TransitGatewayMod = "ec2transitgateway"        // EC2 Transit Gateway
 	ecrMod               = "ecr"                      // Elastic Container Registry
 	ecsMod               = "ecs"                      // Elastic Container Service
 	efsMod               = "efs"                      // Elastic Filesystem
@@ -1925,6 +1926,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_peering_connection": {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
 			"aws_vpcs":                   {Tok: awsDataSource(ec2Mod, "getVpcs")},
 			"aws_vpn_gateway":            {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
+			// EC2 Transit Gateway
+			"aws_ec2_transit_gateway":                {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway_route_table":    {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTable")},
+			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
 			// Elastic Block Storage
 			"aws_ebs_snapshot":     {Tok: awsDataSource(ebsMod, "getSnapshot")},
 			"aws_ebs_snapshot_ids": {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
