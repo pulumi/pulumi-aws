@@ -1,10 +1,10 @@
 [[constraint]]
-  name = "github.com/pulumi/pulumi"
   branch = "master"
+  name = "github.com/pulumi/pulumi"
 
 [[constraint]]
-  name = "github.com/pulumi/pulumi-terraform"
   branch = "master"
+  name = "github.com/pulumi/pulumi-terraform"
 
 [[constraint]]
   branch = "pulumi-master"
@@ -48,7 +48,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "v1.15.64"
+  version = "v1.15.83"
   [override.metadata]
     govendor-overriden=true
 
@@ -73,6 +73,12 @@
 [[override]]
   name = "github.com/blang/semver"
   version = "v3.5.1"
+  [override.metadata]
+    govendor-overriden=true
+
+[[override]]
+  name = "github.com/boombuler/barcode"
+  revision = "34fff276c74eba9c3506f0c6f4064dbaa67d8da3"
   [override.metadata]
     govendor-overriden=true
 
@@ -265,6 +271,12 @@
 [[override]]
   name = "github.com/posener/complete"
   revision = "f4461a52b6329c11190f11fe3384ec8aa964e21c"
+  [override.metadata]
+    govendor-overriden=true
+
+[[override]]
+  name = "github.com/pquerna/otp"
+  revision = "be78767b3e392ce45ea73444451022a6fc32ad0d"
   [override.metadata]
     govendor-overriden=true
 
