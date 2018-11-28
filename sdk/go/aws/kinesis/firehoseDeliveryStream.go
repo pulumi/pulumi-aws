@@ -33,6 +33,7 @@ func NewFirehoseDeliveryStream(ctx *pulumi.Context,
 		inputs["redshiftConfiguration"] = nil
 		inputs["s3Configuration"] = nil
 		inputs["splunkConfiguration"] = nil
+		inputs["tags"] = nil
 		inputs["versionId"] = nil
 	} else {
 		inputs["arn"] = args.Arn
@@ -45,6 +46,7 @@ func NewFirehoseDeliveryStream(ctx *pulumi.Context,
 		inputs["redshiftConfiguration"] = args.RedshiftConfiguration
 		inputs["s3Configuration"] = args.S3Configuration
 		inputs["splunkConfiguration"] = args.SplunkConfiguration
+		inputs["tags"] = args.Tags
 		inputs["versionId"] = args.VersionId
 	}
 	s, err := ctx.RegisterResource("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, true, inputs, opts...)
@@ -70,6 +72,7 @@ func GetFirehoseDeliveryStream(ctx *pulumi.Context,
 		inputs["redshiftConfiguration"] = state.RedshiftConfiguration
 		inputs["s3Configuration"] = state.S3Configuration
 		inputs["splunkConfiguration"] = state.SplunkConfiguration
+		inputs["tags"] = state.Tags
 		inputs["versionId"] = state.VersionId
 	}
 	s, err := ctx.ReadResource("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, id, inputs, opts...)
@@ -140,6 +143,11 @@ func (r *FirehoseDeliveryStream) SplunkConfiguration() *pulumi.Output {
 	return r.s.State["splunkConfiguration"]
 }
 
+// A mapping of tags to assign to the resource.
+func (r *FirehoseDeliveryStream) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Specifies the table version for the output data schema. Defaults to `LATEST`.
 func (r *FirehoseDeliveryStream) VersionId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["versionId"])
@@ -168,6 +176,8 @@ type FirehoseDeliveryStreamState struct {
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId interface{}
 }
@@ -195,6 +205,8 @@ type FirehoseDeliveryStreamArgs struct {
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId interface{}
 }

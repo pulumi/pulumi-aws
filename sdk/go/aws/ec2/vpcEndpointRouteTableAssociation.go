@@ -8,13 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a resource to create an association between a VPC endpoint and routing table.
-// 
-// ~> **NOTE on VPC Endpoints and VPC Endpoint Route Table Associations:** Terraform provides
-// both a standalone VPC Endpoint Route Table Association (an association between a VPC endpoint
-// and a single `route_table_id`) and a VPC Endpoint resource with a `route_table_ids`
-// attribute. Do not use the same route table ID in both a VPC Endpoint resource and a VPC Endpoint Route
-// Table Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+// Manages a VPC Endpoint Route Table Association
 type VpcEndpointRouteTableAssociation struct {
 	s *pulumi.ResourceState
 }
@@ -69,28 +63,28 @@ func (r *VpcEndpointRouteTableAssociation) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ID of the routing table to be associated with the VPC endpoint.
+// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 func (r *VpcEndpointRouteTableAssociation) RouteTableId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
-// The ID of the VPC endpoint with which the routing table will be associated.
+// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 func (r *VpcEndpointRouteTableAssociation) VpcEndpointId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcEndpointId"])
 }
 
 // Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
 type VpcEndpointRouteTableAssociationState struct {
-	// The ID of the routing table to be associated with the VPC endpoint.
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId interface{}
-	// The ID of the VPC endpoint with which the routing table will be associated.
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId interface{}
 }
 
 // The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
 type VpcEndpointRouteTableAssociationArgs struct {
-	// The ID of the routing table to be associated with the VPC endpoint.
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId interface{}
-	// The ID of the VPC endpoint with which the routing table will be associated.
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
 	VpcEndpointId interface{}
 }

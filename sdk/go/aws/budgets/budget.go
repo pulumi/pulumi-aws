@@ -124,7 +124,7 @@ func (r *Budget) LimitAmount() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["limitAmount"])
 }
 
-// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend ](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 func (r *Budget) LimitUnit() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["limitUnit"])
 }
@@ -166,7 +166,7 @@ type BudgetState struct {
 	CostTypes interface{}
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount interface{}
-	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend ](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit interface{}
 	// The name of a budget. Unique within accounts.
 	Name interface{}
@@ -192,7 +192,7 @@ type BudgetArgs struct {
 	CostTypes interface{}
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount interface{}
-	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend ](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit interface{}
 	// The name of a budget. Unique within accounts.
 	Name interface{}

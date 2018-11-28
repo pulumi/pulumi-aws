@@ -12,7 +12,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     
     For more details, see the [Amazon Kinesis Firehose Documentation][1].
     """
-    def __init__(__self__, __name__, __opts__=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, splunk_configuration=None, version_id=None):
+    def __init__(__self__, __name__, __opts__=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, splunk_configuration=None, tags=None, version_id=None):
         """Create a FirehoseDeliveryStream resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -44,6 +44,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__['s3_configuration'] = s3_configuration
 
         __props__['splunk_configuration'] = splunk_configuration
+
+        __props__['tags'] = tags
 
         __props__['version_id'] = version_id
 

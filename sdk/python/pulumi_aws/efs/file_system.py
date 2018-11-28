@@ -37,6 +37,7 @@ class FileSystem(pulumi.CustomResource):
 
         __props__['throughput_mode'] = throughput_mode
 
+        __props__['arn'] = None
         __props__['dns_name'] = None
 
         super(FileSystem, __self__).__init__(

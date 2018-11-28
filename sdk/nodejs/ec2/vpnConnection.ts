@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 import {Tags} from "../index";
 
 /**
- * 
- * Provides a VPN connection connected to a VPC. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and the VPC.
+ * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
  * 
  * ~> **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -46,6 +45,10 @@ export class VpnConnection extends pulumi.CustomResource {
      * Tags to apply to the connection.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
+    /**
+     * The ID of the EC2 Transit Gateway.
+     */
+    public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * The public IP address of the first VPN tunnel.
      */
@@ -96,7 +99,6 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly tunnel2InsideCidr: pulumi.Output<string>;
     /**
      * The preshared key of the second VPN tunnel.
-     * ~> **Note:** The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
     public readonly tunnel2PresharedKey: pulumi.Output<string>;
     /**
@@ -109,9 +111,9 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly type: pulumi.Output<string>;
     public readonly vgwTelemetries: pulumi.Output<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
     /**
-     * The ID of the virtual private gateway.
+     * The ID of the Virtual Private Gateway.
      */
-    public readonly vpnGatewayId: pulumi.Output<string>;
+    public readonly vpnGatewayId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -130,6 +132,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["routes"] = state ? state.routes : undefined;
             inputs["staticRoutesOnly"] = state ? state.staticRoutesOnly : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
             inputs["tunnel1Address"] = state ? state.tunnel1Address : undefined;
             inputs["tunnel1BgpAsn"] = state ? state.tunnel1BgpAsn : undefined;
             inputs["tunnel1BgpHoldtime"] = state ? state.tunnel1BgpHoldtime : undefined;
@@ -155,14 +158,12 @@ export class VpnConnection extends pulumi.CustomResource {
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.vpnGatewayId === undefined) {
-                throw new Error("Missing required property 'vpnGatewayId'");
-            }
             inputs["customerGatewayConfiguration"] = args ? args.customerGatewayConfiguration : undefined;
             inputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["tunnel1InsideCidr"] = args ? args.tunnel1InsideCidr : undefined;
             inputs["tunnel1PresharedKey"] = args ? args.tunnel1PresharedKey : undefined;
             inputs["tunnel2InsideCidr"] = args ? args.tunnel2InsideCidr : undefined;
@@ -206,6 +207,10 @@ export interface VpnConnectionState {
      * Tags to apply to the connection.
      */
     readonly tags?: pulumi.Input<Tags>;
+    /**
+     * The ID of the EC2 Transit Gateway.
+     */
+    readonly transitGatewayId?: pulumi.Input<string>;
     /**
      * The public IP address of the first VPN tunnel.
      */
@@ -256,7 +261,6 @@ export interface VpnConnectionState {
     readonly tunnel2InsideCidr?: pulumi.Input<string>;
     /**
      * The preshared key of the second VPN tunnel.
-     * ~> **Note:** The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
     readonly tunnel2PresharedKey?: pulumi.Input<string>;
     /**
@@ -269,7 +273,7 @@ export interface VpnConnectionState {
     readonly type?: pulumi.Input<string>;
     readonly vgwTelemetries?: pulumi.Input<pulumi.Input<{ acceptedRouteCount?: pulumi.Input<number>, lastStatusChange?: pulumi.Input<string>, outsideIpAddress?: pulumi.Input<string>, status?: pulumi.Input<string>, statusMessage?: pulumi.Input<string> }>[]>;
     /**
-     * The ID of the virtual private gateway.
+     * The ID of the Virtual Private Gateway.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
@@ -296,6 +300,10 @@ export interface VpnConnectionArgs {
      */
     readonly tags?: pulumi.Input<Tags>;
     /**
+     * The ID of the EC2 Transit Gateway.
+     */
+    readonly transitGatewayId?: pulumi.Input<string>;
+    /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel.
      */
     readonly tunnel1InsideCidr?: pulumi.Input<string>;
@@ -309,7 +317,6 @@ export interface VpnConnectionArgs {
     readonly tunnel2InsideCidr?: pulumi.Input<string>;
     /**
      * The preshared key of the second VPN tunnel.
-     * ~> **Note:** The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
     readonly tunnel2PresharedKey?: pulumi.Input<string>;
     /**
@@ -318,7 +325,7 @@ export interface VpnConnectionArgs {
     readonly type: pulumi.Input<string>;
     readonly vgwTelemetries?: pulumi.Input<pulumi.Input<{ acceptedRouteCount?: pulumi.Input<number>, lastStatusChange?: pulumi.Input<string>, outsideIpAddress?: pulumi.Input<string>, status?: pulumi.Input<string>, statusMessage?: pulumi.Input<string> }>[]>;
     /**
-     * The ID of the virtual private gateway.
+     * The ID of the Virtual Private Gateway.
      */
-    readonly vpnGatewayId: pulumi.Input<string>;
+    readonly vpnGatewayId?: pulumi.Input<string>;
 }

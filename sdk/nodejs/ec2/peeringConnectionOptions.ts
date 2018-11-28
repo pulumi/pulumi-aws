@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
  * }
  * 
  * resource "aws_vpc_peering_connection" "foo" {
- *   vpc_id        = "${aws_vpc.foo.id}"
- *   peer_vpc_id   = "${aws_vpc.bar.id}"
- *   auto_accept   = true
+ *   vpc_id      = "${aws_vpc.foo.id}"
+ *   peer_vpc_id = "${aws_vpc.bar.id}"
+ *   auto_accept = true
  * }
  * 
  * resource "aws_vpc_peering_connection_options" "foo" {

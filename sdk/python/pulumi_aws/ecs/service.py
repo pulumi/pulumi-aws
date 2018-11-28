@@ -14,7 +14,7 @@ class Service(pulumi.CustomResource):
     
     See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
     """
-    def __init__(__self__, __name__, __opts__=None, cluster=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, placement_strategies=None, scheduling_strategy=None, service_registries=None, task_definition=None, wait_for_steady_state=None):
+    def __init__(__self__, __name__, __opts__=None, cluster=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, placement_strategies=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None):
         """Create a Service resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -32,6 +32,8 @@ class Service(pulumi.CustomResource):
         __props__['deployment_minimum_healthy_percent'] = deployment_minimum_healthy_percent
 
         __props__['desired_count'] = desired_count
+
+        __props__['enable_ecs_managed_tags'] = enable_ecs_managed_tags
 
         __props__['health_check_grace_period_seconds'] = health_check_grace_period_seconds
 
@@ -54,6 +56,8 @@ class Service(pulumi.CustomResource):
         __props__['scheduling_strategy'] = scheduling_strategy
 
         __props__['service_registries'] = service_registries
+
+        __props__['tags'] = tags
 
         if not task_definition:
             raise TypeError('Missing required property task_definition')

@@ -9,6 +9,8 @@ from .. import utilities, tables
 class GroupPolicyAttachment(pulumi.CustomResource):
     """
     Attaches a Managed IAM Policy to an IAM group
+    
+    ~> **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
     """
     def __init__(__self__, __name__, __opts__=None, group=None, policy_arn=None):
         """Create a GroupPolicyAttachment resource with the given unique name, props, and options."""

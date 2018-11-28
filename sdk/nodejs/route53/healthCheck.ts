@@ -88,7 +88,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly resourcePath: pulumi.Output<string | undefined>;
     /**
-     * String searched in the first 5120 bytes of the response body for check to be considered healthy.
+     * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
     public readonly searchString: pulumi.Output<string | undefined>;
     /**
@@ -230,7 +230,7 @@ export interface HealthCheckState {
      */
     readonly resourcePath?: pulumi.Input<string>;
     /**
-     * String searched in the first 5120 bytes of the response body for check to be considered healthy.
+     * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
     readonly searchString?: pulumi.Input<string>;
     /**
@@ -313,7 +313,7 @@ export interface HealthCheckArgs {
      */
     readonly resourcePath?: pulumi.Input<string>;
     /**
-     * String searched in the first 5120 bytes of the response body for check to be considered healthy.
+     * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
     readonly searchString?: pulumi.Input<string>;
     /**

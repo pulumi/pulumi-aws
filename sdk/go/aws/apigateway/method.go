@@ -132,8 +132,8 @@ func (r *Method) RequestModels() *pulumi.MapOutput {
 // For example:
 // ```hcl
 // request_parameters = {
-// "method.request.header.X-Some-Header" = true,
-// "method.request.querystring.some-query-param"  = true,
+// "method.request.header.X-Some-Header"         = true
+// "method.request.querystring.some-query-param" = true
 // }
 // ```
 // would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
@@ -181,8 +181,8 @@ type MethodState struct {
 	// For example:
 	// ```hcl
 	// request_parameters = {
-	// "method.request.header.X-Some-Header" = true,
-	// "method.request.querystring.some-query-param"  = true,
+	// "method.request.header.X-Some-Header"         = true
+	// "method.request.querystring.some-query-param" = true
 	// }
 	// ```
 	// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
@@ -217,8 +217,8 @@ type MethodArgs struct {
 	// For example:
 	// ```hcl
 	// request_parameters = {
-	// "method.request.header.X-Some-Header" = true,
-	// "method.request.querystring.some-query-param"  = true,
+	// "method.request.header.X-Some-Header"         = true
+	// "method.request.querystring.some-query-param" = true
 	// }
 	// ```
 	// would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or

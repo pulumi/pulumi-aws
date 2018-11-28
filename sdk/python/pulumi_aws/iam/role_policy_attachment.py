@@ -9,6 +9,8 @@ from .. import utilities, tables
 class RolePolicyAttachment(pulumi.CustomResource):
     """
     Attaches a Managed IAM Policy to an IAM role
+    
+    ~> **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
     """
     def __init__(__self__, __name__, __opts__=None, policy_arn=None, role=None):
         """Create a RolePolicyAttachment resource with the given unique name, props, and options."""

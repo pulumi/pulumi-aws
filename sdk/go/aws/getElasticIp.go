@@ -8,35 +8,64 @@ import (
 )
 
 // `aws_eip` provides details about a specific Elastic IP.
-// 
-// This resource can prove useful when a module accepts an allocation ID or
-// public IP as an input variable and needs to determine the other.
 func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIpResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["filters"] = args.Filters
 		inputs["id"] = args.Id
 		inputs["publicIp"] = args.PublicIp
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:index/getElasticIp:getElasticIp", inputs)
 	if err != nil {
 		return nil, err
 	}
 	return &GetElasticIpResult{
+		AssociationId: outputs["associationId"],
+		Domain: outputs["domain"],
 		Id: outputs["id"],
+		InstanceId: outputs["instanceId"],
+		NetworkInterfaceId: outputs["networkInterfaceId"],
+		NetworkInterfaceOwnerId: outputs["networkInterfaceOwnerId"],
+		PrivateIp: outputs["privateIp"],
 		PublicIp: outputs["publicIp"],
+		PublicIpv4Pool: outputs["publicIpv4Pool"],
+		Tags: outputs["tags"],
 	}, nil
 }
 
 // A collection of arguments for invoking getElasticIp.
 type GetElasticIpArgs struct {
-	// The allocation id of the specific EIP to retrieve.
+	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+	Filters interface{}
+	// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
 	Id interface{}
 	// The public IP of the specific EIP to retrieve.
 	PublicIp interface{}
+	// A mapping of tags, each pair of which must exactly match a pair on the desired Elastic IP
+	Tags interface{}
 }
 
 // A collection of values returned by getElasticIp.
 type GetElasticIpResult struct {
+	// The ID representing the association of the address with an instance in a VPC.
+	AssociationId interface{}
+	// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+	Domain interface{}
+	// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
 	Id interface{}
+	// The ID of the instance that the address is associated with (if any).
+	InstanceId interface{}
+	// The ID of the network interface.
+	NetworkInterfaceId interface{}
+	// The ID of the AWS account that owns the network interface.
+	NetworkInterfaceOwnerId interface{}
+	// The private IP address associated with the Elastic IP address.
+	PrivateIp interface{}
+	// Public IP address of Elastic IP.
 	PublicIp interface{}
+	// The ID of an address pool.
+	PublicIpv4Pool interface{}
+	// Key-value map of tags associated with Elastic IP.
+	Tags interface{}
 }

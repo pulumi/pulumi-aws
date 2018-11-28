@@ -10,7 +10,7 @@ class Cluster(pulumi.CustomResource):
     """
     Provides an ECS cluster.
     """
-    def __init__(__self__, __name__, __opts__=None, name=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, tags=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -22,6 +22,8 @@ class Cluster(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
 

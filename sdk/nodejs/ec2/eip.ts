@@ -52,6 +52,10 @@ export class Eip extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIp: pulumi.Output<string>;
     /**
+     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     */
+    public readonly publicIpv4Pool: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
@@ -80,6 +84,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["networkInterface"] = state ? state.networkInterface : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
             inputs["publicIp"] = state ? state.publicIp : undefined;
+            inputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpc"] = state ? state.vpc : undefined;
         } else {
@@ -87,6 +92,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
             inputs["instance"] = args ? args.instance : undefined;
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
+            inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["allocationId"] = undefined /*out*/;
@@ -129,6 +135,10 @@ export interface EipState {
      */
     readonly publicIp?: pulumi.Input<string>;
     /**
+     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     */
+    readonly publicIpv4Pool?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<Tags>;
@@ -156,6 +166,10 @@ export interface EipArgs {
      * Network interface ID to associate with.
      */
     readonly networkInterface?: pulumi.Input<string>;
+    /**
+     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     */
+    readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

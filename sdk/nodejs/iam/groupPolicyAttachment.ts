@@ -9,6 +9,8 @@ import {Group} from "./group";
 
 /**
  * Attaches a Managed IAM Policy to an IAM group
+ * 
+ * ~> **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
  */
 export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**

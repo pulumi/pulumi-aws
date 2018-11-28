@@ -13,6 +13,7 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 	if args != nil {
 		inputs["brokerId"] = args.BrokerId
 		inputs["brokerName"] = args.BrokerName
+		inputs["logs"] = args.Logs
 	}
 	outputs, err := ctx.Invoke("aws:mq/getBroker:getBroker", inputs)
 	if err != nil {
@@ -44,6 +45,7 @@ type GetBrokerArgs struct {
 	BrokerId interface{}
 	// The unique name of the mq broker.
 	BrokerName interface{}
+	Logs interface{}
 }
 
 // A collection of values returned by getBroker.

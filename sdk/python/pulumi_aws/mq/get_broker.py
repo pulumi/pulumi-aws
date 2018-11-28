@@ -63,7 +63,7 @@ class GetBrokerResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_broker(broker_id=None, broker_name=None):
+async def get_broker(broker_id=None, broker_name=None, logs=None):
     """
     Provides information about a MQ Broker.
     """
@@ -71,6 +71,7 @@ async def get_broker(broker_id=None, broker_name=None):
 
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
+    __args__['logs'] = logs
     __ret__ = await pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__)
 
     return GetBrokerResult(

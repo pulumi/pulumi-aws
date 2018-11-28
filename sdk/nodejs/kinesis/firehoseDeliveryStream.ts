@@ -58,6 +58,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly s3Configuration: pulumi.Output<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string } | undefined>;
     public readonly splunkConfiguration: pulumi.Output<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, hecAcknowledgmentTimeout?: number, hecEndpoint: string, hecEndpointType?: string, hecToken: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, s3BackupMode?: string } | undefined>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
     public readonly versionId: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
             inputs["s3Configuration"] = state ? state.s3Configuration : undefined;
             inputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
@@ -100,6 +105,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
             inputs["s3Configuration"] = args ? args.s3Configuration : undefined;
             inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
         }
         super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, inputs, opts);
@@ -146,6 +152,10 @@ export interface FirehoseDeliveryStreamState {
     readonly s3Configuration?: pulumi.Input<{ bucketArn: pulumi.Input<string>, bufferInterval?: pulumi.Input<number>, bufferSize?: pulumi.Input<number>, cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, compressionFormat?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
     readonly splunkConfiguration?: pulumi.Input<{ cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, hecAcknowledgmentTimeout?: pulumi.Input<number>, hecEndpoint: pulumi.Input<string>, hecEndpointType?: pulumi.Input<string>, hecToken: pulumi.Input<string>, processingConfiguration?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, processors?: pulumi.Input<pulumi.Input<{ parameters?: pulumi.Input<pulumi.Input<{ parameterName: pulumi.Input<string>, parameterValue: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]> }>, retryDuration?: pulumi.Input<number>, s3BackupMode?: pulumi.Input<string> }>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
     readonly versionId?: pulumi.Input<string>;
@@ -190,6 +200,10 @@ export interface FirehoseDeliveryStreamArgs {
      */
     readonly s3Configuration?: pulumi.Input<{ bucketArn: pulumi.Input<string>, bufferInterval?: pulumi.Input<number>, bufferSize?: pulumi.Input<number>, cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, compressionFormat?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
     readonly splunkConfiguration?: pulumi.Input<{ cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, hecAcknowledgmentTimeout?: pulumi.Input<number>, hecEndpoint: pulumi.Input<string>, hecEndpointType?: pulumi.Input<string>, hecToken: pulumi.Input<string>, processingConfiguration?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, processors?: pulumi.Input<pulumi.Input<{ parameters?: pulumi.Input<pulumi.Input<{ parameterName: pulumi.Input<string>, parameterValue: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]> }>, retryDuration?: pulumi.Input<number>, s3BackupMode?: pulumi.Input<string> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */

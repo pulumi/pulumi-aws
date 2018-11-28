@@ -59,6 +59,7 @@ func NewBroker(ctx *pulumi.Context,
 		inputs["engineType"] = nil
 		inputs["engineVersion"] = nil
 		inputs["hostInstanceType"] = nil
+		inputs["logs"] = nil
 		inputs["maintenanceWindowStartTime"] = nil
 		inputs["publiclyAccessible"] = nil
 		inputs["securityGroups"] = nil
@@ -73,6 +74,7 @@ func NewBroker(ctx *pulumi.Context,
 		inputs["engineType"] = args.EngineType
 		inputs["engineVersion"] = args.EngineVersion
 		inputs["hostInstanceType"] = args.HostInstanceType
+		inputs["logs"] = args.Logs
 		inputs["maintenanceWindowStartTime"] = args.MaintenanceWindowStartTime
 		inputs["publiclyAccessible"] = args.PubliclyAccessible
 		inputs["securityGroups"] = args.SecurityGroups
@@ -104,6 +106,7 @@ func GetBroker(ctx *pulumi.Context,
 		inputs["engineVersion"] = state.EngineVersion
 		inputs["hostInstanceType"] = state.HostInstanceType
 		inputs["instances"] = state.Instances
+		inputs["logs"] = state.Logs
 		inputs["maintenanceWindowStartTime"] = state.MaintenanceWindowStartTime
 		inputs["publiclyAccessible"] = state.PubliclyAccessible
 		inputs["securityGroups"] = state.SecurityGroups
@@ -186,6 +189,11 @@ func (r *Broker) Instances() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["instances"])
 }
 
+// Logging configuration of the broker. See below.
+func (r *Broker) Logs() *pulumi.Output {
+	return r.s.State["logs"]
+}
+
 // Maintenance window start time. See below.
 func (r *Broker) MaintenanceWindowStartTime() *pulumi.Output {
 	return r.s.State["maintenanceWindowStartTime"]
@@ -242,6 +250,8 @@ type BrokerState struct {
 	// * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
 	// * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
 	Instances interface{}
+	// Logging configuration of the broker. See below.
+	Logs interface{}
 	// Maintenance window start time. See below.
 	MaintenanceWindowStartTime interface{}
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
@@ -273,6 +283,8 @@ type BrokerArgs struct {
 	EngineVersion interface{}
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
 	HostInstanceType interface{}
+	// Logging configuration of the broker. See below.
+	Logs interface{}
 	// Maintenance window start time. See below.
 	MaintenanceWindowStartTime interface{}
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.

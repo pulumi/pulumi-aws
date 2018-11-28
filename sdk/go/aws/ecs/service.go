@@ -29,6 +29,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["deploymentMaximumPercent"] = nil
 		inputs["deploymentMinimumHealthyPercent"] = nil
 		inputs["desiredCount"] = nil
+		inputs["enableEcsManagedTags"] = nil
 		inputs["healthCheckGracePeriodSeconds"] = nil
 		inputs["iamRole"] = nil
 		inputs["launchType"] = nil
@@ -40,6 +41,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["placementStrategies"] = nil
 		inputs["schedulingStrategy"] = nil
 		inputs["serviceRegistries"] = nil
+		inputs["tags"] = nil
 		inputs["taskDefinition"] = nil
 		inputs["waitForSteadyState"] = nil
 	} else {
@@ -47,6 +49,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["deploymentMaximumPercent"] = args.DeploymentMaximumPercent
 		inputs["deploymentMinimumHealthyPercent"] = args.DeploymentMinimumHealthyPercent
 		inputs["desiredCount"] = args.DesiredCount
+		inputs["enableEcsManagedTags"] = args.EnableEcsManagedTags
 		inputs["healthCheckGracePeriodSeconds"] = args.HealthCheckGracePeriodSeconds
 		inputs["iamRole"] = args.IamRole
 		inputs["launchType"] = args.LaunchType
@@ -58,6 +61,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["placementStrategies"] = args.PlacementStrategies
 		inputs["schedulingStrategy"] = args.SchedulingStrategy
 		inputs["serviceRegistries"] = args.ServiceRegistries
+		inputs["tags"] = args.Tags
 		inputs["taskDefinition"] = args.TaskDefinition
 		inputs["waitForSteadyState"] = args.WaitForSteadyState
 	}
@@ -78,6 +82,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["deploymentMaximumPercent"] = state.DeploymentMaximumPercent
 		inputs["deploymentMinimumHealthyPercent"] = state.DeploymentMinimumHealthyPercent
 		inputs["desiredCount"] = state.DesiredCount
+		inputs["enableEcsManagedTags"] = state.EnableEcsManagedTags
 		inputs["healthCheckGracePeriodSeconds"] = state.HealthCheckGracePeriodSeconds
 		inputs["iamRole"] = state.IamRole
 		inputs["launchType"] = state.LaunchType
@@ -89,6 +94,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["placementStrategies"] = state.PlacementStrategies
 		inputs["schedulingStrategy"] = state.SchedulingStrategy
 		inputs["serviceRegistries"] = state.ServiceRegistries
+		inputs["tags"] = state.Tags
 		inputs["taskDefinition"] = state.TaskDefinition
 		inputs["waitForSteadyState"] = state.WaitForSteadyState
 	}
@@ -127,6 +133,10 @@ func (r *Service) DeploymentMinimumHealthyPercent() *pulumi.IntOutput {
 // The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 func (r *Service) DesiredCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["desiredCount"])
+}
+
+func (r *Service) EnableEcsManagedTags() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enableEcsManagedTags"])
 }
 
 // Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
@@ -185,12 +195,18 @@ func (r *Service) ServiceRegistries() *pulumi.Output {
 	return r.s.State["serviceRegistries"]
 }
 
+// Key-value mapping of resource tags
+func (r *Service) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 func (r *Service) TaskDefinition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["taskDefinition"])
 }
 
 // If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+// =======
 func (r *Service) WaitForSteadyState() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["waitForSteadyState"])
 }
@@ -205,6 +221,7 @@ type ServiceState struct {
 	DeploymentMinimumHealthyPercent interface{}
 	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
+	EnableEcsManagedTags interface{}
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
@@ -228,9 +245,12 @@ type ServiceState struct {
 	SchedulingStrategy interface{}
 	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 	ServiceRegistries interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition interface{}
 	// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+	// =======
 	WaitForSteadyState interface{}
 }
 
@@ -244,6 +264,7 @@ type ServiceArgs struct {
 	DeploymentMinimumHealthyPercent interface{}
 	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
+	EnableEcsManagedTags interface{}
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
@@ -267,8 +288,11 @@ type ServiceArgs struct {
 	SchedulingStrategy interface{}
 	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 	ServiceRegistries interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition interface{}
 	// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+	// =======
 	WaitForSteadyState interface{}
 }

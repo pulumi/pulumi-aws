@@ -28,6 +28,10 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -43,9 +47,11 @@ export class Cluster extends pulumi.CustomResource {
             const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         super("aws:ecs/cluster:Cluster", name, inputs, opts);
@@ -64,6 +70,10 @@ export interface ClusterState {
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -74,4 +84,8 @@ export interface ClusterArgs {
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

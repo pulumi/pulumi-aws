@@ -16,7 +16,7 @@ class Route(pulumi.CustomResource):
     in conjunction with any Route resources. Doing so will cause
     a conflict of rule settings and will overwrite rules.
     """
-    def __init__(__self__, __name__, __opts__=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, __name__, __opts__=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
         """Create a Route resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -44,6 +44,8 @@ class Route(pulumi.CustomResource):
         if not route_table_id:
             raise TypeError('Missing required property route_table_id')
         __props__['route_table_id'] = route_table_id
+
+        __props__['transit_gateway_id'] = transit_gateway_id
 
         __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 

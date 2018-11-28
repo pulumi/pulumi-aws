@@ -10,7 +10,7 @@ class Topic(pulumi.CustomResource):
     """
     Provides an SNS topic resource
     """
-    def __init__(__self__, __name__, __opts__=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None):
+    def __init__(__self__, __name__, __opts__=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_master_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None):
         """Create a Topic resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -36,6 +36,8 @@ class Topic(pulumi.CustomResource):
         __props__['http_success_feedback_role_arn'] = http_success_feedback_role_arn
 
         __props__['http_success_feedback_sample_rate'] = http_success_feedback_sample_rate
+
+        __props__['kms_master_key_id'] = kms_master_key_id
 
         __props__['lambda_failure_feedback_role_arn'] = lambda_failure_feedback_role_arn
 

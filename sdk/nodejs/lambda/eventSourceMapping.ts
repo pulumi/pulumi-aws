@@ -52,9 +52,13 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastProcessingResult: pulumi.Output<string>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
     public readonly startingPosition: pulumi.Output<string | undefined>;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     */
+    public readonly startingPositionTimestamp: pulumi.Output<string | undefined>;
     /**
      * The state of the event source mapping.
      */
@@ -88,6 +92,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["lastModified"] = state ? state.lastModified : undefined;
             inputs["lastProcessingResult"] = state ? state.lastProcessingResult : undefined;
             inputs["startingPosition"] = state ? state.startingPosition : undefined;
+            inputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["stateTransitionReason"] = state ? state.stateTransitionReason : undefined;
             inputs["uuid"] = state ? state.uuid : undefined;
@@ -104,6 +109,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
             inputs["functionName"] = args ? args.functionName : undefined;
             inputs["startingPosition"] = args ? args.startingPosition : undefined;
+            inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             inputs["functionArn"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
             inputs["lastProcessingResult"] = undefined /*out*/;
@@ -148,9 +154,13 @@ export interface EventSourceMappingState {
      */
     readonly lastProcessingResult?: pulumi.Input<string>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
     readonly startingPosition?: pulumi.Input<string>;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     */
+    readonly startingPositionTimestamp?: pulumi.Input<string>;
     /**
      * The state of the event source mapping.
      */
@@ -186,7 +196,11 @@ export interface EventSourceMappingArgs {
      */
     readonly functionName: pulumi.Input<string>;
     /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST` if getting events from Kinesis or DynamoDB.  Must not be provided if getting events from SQS.
+     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
     readonly startingPosition?: pulumi.Input<string>;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     */
+    readonly startingPositionTimestamp?: pulumi.Input<string>;
 }

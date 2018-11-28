@@ -192,7 +192,7 @@ func (r *HealthCheck) ResourcePath() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourcePath"])
 }
 
-// String searched in the first 5120 bytes of the response body for check to be considered healthy.
+// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 func (r *HealthCheck) SearchString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["searchString"])
 }
@@ -242,7 +242,7 @@ type HealthCheckState struct {
 	RequestInterval interface{}
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath interface{}
-	// String searched in the first 5120 bytes of the response body for check to be considered healthy.
+	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString interface{}
 	// A mapping of tags to assign to the health check.
 	Tags interface{}
@@ -285,7 +285,7 @@ type HealthCheckArgs struct {
 	RequestInterval interface{}
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath interface{}
-	// String searched in the first 5120 bytes of the response body for check to be considered healthy.
+	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString interface{}
 	// A mapping of tags to assign to the health check.
 	Tags interface{}

@@ -34,6 +34,7 @@ class MountTarget(pulumi.CustomResource):
         __props__['subnet_id'] = subnet_id
 
         __props__['dns_name'] = None
+        __props__['file_system_arn'] = None
         __props__['network_interface_id'] = None
 
         super(MountTarget, __self__).__init__(

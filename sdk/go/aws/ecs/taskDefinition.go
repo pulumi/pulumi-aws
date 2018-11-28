@@ -28,10 +28,13 @@ func NewTaskDefinition(ctx *pulumi.Context,
 		inputs["cpu"] = nil
 		inputs["executionRoleArn"] = nil
 		inputs["family"] = nil
+		inputs["ipcMode"] = nil
 		inputs["memory"] = nil
 		inputs["networkMode"] = nil
+		inputs["pidMode"] = nil
 		inputs["placementConstraints"] = nil
 		inputs["requiresCompatibilities"] = nil
+		inputs["tags"] = nil
 		inputs["taskRoleArn"] = nil
 		inputs["volumes"] = nil
 	} else {
@@ -39,10 +42,13 @@ func NewTaskDefinition(ctx *pulumi.Context,
 		inputs["cpu"] = args.Cpu
 		inputs["executionRoleArn"] = args.ExecutionRoleArn
 		inputs["family"] = args.Family
+		inputs["ipcMode"] = args.IpcMode
 		inputs["memory"] = args.Memory
 		inputs["networkMode"] = args.NetworkMode
+		inputs["pidMode"] = args.PidMode
 		inputs["placementConstraints"] = args.PlacementConstraints
 		inputs["requiresCompatibilities"] = args.RequiresCompatibilities
+		inputs["tags"] = args.Tags
 		inputs["taskRoleArn"] = args.TaskRoleArn
 		inputs["volumes"] = args.Volumes
 	}
@@ -66,11 +72,14 @@ func GetTaskDefinition(ctx *pulumi.Context,
 		inputs["cpu"] = state.Cpu
 		inputs["executionRoleArn"] = state.ExecutionRoleArn
 		inputs["family"] = state.Family
+		inputs["ipcMode"] = state.IpcMode
 		inputs["memory"] = state.Memory
 		inputs["networkMode"] = state.NetworkMode
+		inputs["pidMode"] = state.PidMode
 		inputs["placementConstraints"] = state.PlacementConstraints
 		inputs["requiresCompatibilities"] = state.RequiresCompatibilities
 		inputs["revision"] = state.Revision
+		inputs["tags"] = state.Tags
 		inputs["taskRoleArn"] = state.TaskRoleArn
 		inputs["volumes"] = state.Volumes
 	}
@@ -121,6 +130,11 @@ func (r *TaskDefinition) Family() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["family"])
 }
 
+// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+func (r *TaskDefinition) IpcMode() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ipcMode"])
+}
+
 // The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
 func (r *TaskDefinition) Memory() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["memory"])
@@ -129,6 +143,11 @@ func (r *TaskDefinition) Memory() *pulumi.StringOutput {
 // The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 func (r *TaskDefinition) NetworkMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkMode"])
+}
+
+// The process namespace to use for the containers in the task. The valid values are `host` and `task`.
+func (r *TaskDefinition) PidMode() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["pidMode"])
 }
 
 // A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
@@ -144,6 +163,11 @@ func (r *TaskDefinition) RequiresCompatibilities() *pulumi.ArrayOutput {
 // The revision of the task in a particular family.
 func (r *TaskDefinition) Revision() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["revision"])
+}
+
+// Key-value mapping of resource tags
+func (r *TaskDefinition) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -173,16 +197,22 @@ type TaskDefinitionState struct {
 	ExecutionRoleArn interface{}
 	// A unique name for your task definition.
 	Family interface{}
+	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	IpcMode interface{}
 	// The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
 	Memory interface{}
 	// The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 	NetworkMode interface{}
+	// The process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	PidMode interface{}
 	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 	PlacementConstraints interface{}
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities interface{}
 	// The revision of the task in a particular family.
 	Revision interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn interface{}
 	// A set of volume blocks that containers in your task may use.
@@ -204,14 +234,20 @@ type TaskDefinitionArgs struct {
 	ExecutionRoleArn interface{}
 	// A unique name for your task definition.
 	Family interface{}
+	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+	IpcMode interface{}
 	// The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
 	Memory interface{}
 	// The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 	NetworkMode interface{}
+	// The process namespace to use for the containers in the task. The valid values are `host` and `task`.
+	PidMode interface{}
 	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 	PlacementConstraints interface{}
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn interface{}
 	// A set of volume blocks that containers in your task may use.

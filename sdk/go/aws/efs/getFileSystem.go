@@ -20,6 +20,7 @@ func LookupFileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSys
 		return nil, err
 	}
 	return &GetFileSystemResult{
+		Arn: outputs["arn"],
 		CreationToken: outputs["creationToken"],
 		DnsName: outputs["dnsName"],
 		Encrypted: outputs["encrypted"],
@@ -42,6 +43,8 @@ type GetFileSystemArgs struct {
 
 // A collection of values returned by getFileSystem.
 type GetFileSystemResult struct {
+	// Amazon Resource Name of the file system.
+	Arn interface{}
 	CreationToken interface{}
 	// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	DnsName interface{}

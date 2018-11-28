@@ -21,7 +21,7 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
+     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
     public readonly metricName: pulumi.Output<string>;
     /**
@@ -66,7 +66,7 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleState {
     /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
+     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
     readonly metricName?: pulumi.Input<string>;
     /**
@@ -84,7 +84,7 @@ export interface RuleState {
  */
 export interface RuleArgs {
     /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
+     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
     readonly metricName: pulumi.Input<string>;
     /**

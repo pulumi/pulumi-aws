@@ -8,8 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// 
-// Provides a VPN connection connected to a VPC. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and the VPC.
+// Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
 // 
 // ~> **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -29,9 +28,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	if args == nil || args.VpnGatewayId == nil {
-		return nil, errors.New("missing required argument 'VpnGatewayId'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["customerGatewayConfiguration"] = nil
@@ -39,6 +35,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 		inputs["routes"] = nil
 		inputs["staticRoutesOnly"] = nil
 		inputs["tags"] = nil
+		inputs["transitGatewayId"] = nil
 		inputs["tunnel1InsideCidr"] = nil
 		inputs["tunnel1PresharedKey"] = nil
 		inputs["tunnel2InsideCidr"] = nil
@@ -52,6 +49,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 		inputs["routes"] = args.Routes
 		inputs["staticRoutesOnly"] = args.StaticRoutesOnly
 		inputs["tags"] = args.Tags
+		inputs["transitGatewayId"] = args.TransitGatewayId
 		inputs["tunnel1InsideCidr"] = args.Tunnel1InsideCidr
 		inputs["tunnel1PresharedKey"] = args.Tunnel1PresharedKey
 		inputs["tunnel2InsideCidr"] = args.Tunnel2InsideCidr
@@ -88,6 +86,7 @@ func GetVpnConnection(ctx *pulumi.Context,
 		inputs["routes"] = state.Routes
 		inputs["staticRoutesOnly"] = state.StaticRoutesOnly
 		inputs["tags"] = state.Tags
+		inputs["transitGatewayId"] = state.TransitGatewayId
 		inputs["tunnel1Address"] = state.Tunnel1Address
 		inputs["tunnel1BgpAsn"] = state.Tunnel1BgpAsn
 		inputs["tunnel1BgpHoldtime"] = state.Tunnel1BgpHoldtime
@@ -145,6 +144,11 @@ func (r *VpnConnection) StaticRoutesOnly() *pulumi.BoolOutput {
 // Tags to apply to the connection.
 func (r *VpnConnection) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
+// The ID of the EC2 Transit Gateway.
+func (r *VpnConnection) TransitGatewayId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["transitGatewayId"])
 }
 
 // The public IP address of the first VPN tunnel.
@@ -208,7 +212,6 @@ func (r *VpnConnection) Tunnel2InsideCidr() *pulumi.StringOutput {
 }
 
 // The preshared key of the second VPN tunnel.
-// ~> **Note:** The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
 func (r *VpnConnection) Tunnel2PresharedKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tunnel2PresharedKey"])
 }
@@ -227,7 +230,7 @@ func (r *VpnConnection) VgwTelemetries() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["vgwTelemetries"])
 }
 
-// The ID of the virtual private gateway.
+// The ID of the Virtual Private Gateway.
 func (r *VpnConnection) VpnGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
@@ -243,6 +246,8 @@ type VpnConnectionState struct {
 	StaticRoutesOnly interface{}
 	// Tags to apply to the connection.
 	Tags interface{}
+	// The ID of the EC2 Transit Gateway.
+	TransitGatewayId interface{}
 	// The public IP address of the first VPN tunnel.
 	Tunnel1Address interface{}
 	// The bgp asn number of the first VPN tunnel.
@@ -268,14 +273,13 @@ type VpnConnectionState struct {
 	// The CIDR block of the second IP addresses for the first VPN tunnel.
 	Tunnel2InsideCidr interface{}
 	// The preshared key of the second VPN tunnel.
-	// ~> **Note:** The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
 	Tunnel2PresharedKey interface{}
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress interface{}
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type interface{}
 	VgwTelemetries interface{}
-	// The ID of the virtual private gateway.
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId interface{}
 }
 
@@ -290,6 +294,8 @@ type VpnConnectionArgs struct {
 	StaticRoutesOnly interface{}
 	// Tags to apply to the connection.
 	Tags interface{}
+	// The ID of the EC2 Transit Gateway.
+	TransitGatewayId interface{}
 	// The CIDR block of the inside IP addresses for the first VPN tunnel.
 	Tunnel1InsideCidr interface{}
 	// The preshared key of the first VPN tunnel.
@@ -297,11 +303,10 @@ type VpnConnectionArgs struct {
 	// The CIDR block of the second IP addresses for the first VPN tunnel.
 	Tunnel2InsideCidr interface{}
 	// The preshared key of the second VPN tunnel.
-	// ~> **Note:** The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
 	Tunnel2PresharedKey interface{}
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type interface{}
 	VgwTelemetries interface{}
-	// The ID of the virtual private gateway.
+	// The ID of the Virtual Private Gateway.
 	VpnGatewayId interface{}
 }
