@@ -5,6 +5,7 @@
 export * from "./activation";
 export * from "./association";
 export * from "./document";
+export * from "./getDocument";
 export * from "./getParameter";
 export * from "./maintenanceWindow";
 export * from "./maintenanceWindowTarget";

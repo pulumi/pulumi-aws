@@ -616,6 +616,7 @@
         "ssm/activation.ts",
         "ssm/association.ts",
         "ssm/document.ts",
+        "ssm/getDocument.ts",
         "ssm/getParameter.ts",
         "ssm/index.ts",
         "ssm/maintenanceWindow.ts",

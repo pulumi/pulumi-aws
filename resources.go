@@ -2033,6 +2033,7 @@ func Provider() tfbridge.ProviderInfo {
 			// SQS
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
+			"aws_ssm_document":  {Tok: awsDataSource(ssmMod, "getDocument")},
 			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
