@@ -55,6 +55,7 @@ const (
 	codepipelineMod      = "codepipeline"             // Code Pipeline
 	cognitoMod           = "cognito"                  // Cognito
 	cfgMod               = "cfg"                      // Resource Config
+	datasyncMod          = "datasync"                 // DataSync
 	daxMod               = "dax"                      // DynamoDB Accelerator
 	devicefarmMod        = "devicefarm"               // Device Farm
 	directoryserviceMod  = "directoryservice"         // Directory Services
@@ -591,6 +592,42 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_configuration_recorder":        {Tok: awsResource(cfgMod, "Recorder")},
 			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
+			// DataSync
+			"aws_datasync_agent": {
+				Tok: awsResource(datasyncMod, "Agent"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_location_efs": {
+				Tok: awsResource(datasyncMod, "EfsLocation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"efs_file_system_arn": {Type: awsType(awsMod, "ARN")},
+					"tags":                {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_location_nfs": {
+				Tok: awsResource(datasyncMod, "NfsLocation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_location_s3": {
+				Tok: awsResource(datasyncMod, "S3Location"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"s3_bucket_arn": {Type: awsType(awsMod, "ARN")},
+					"tags":          {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_task": {
+				Tok: awsResource(datasyncMod, "Task"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"destination_location_arn": {Type: awsType(awsMod, "ARN")},
+					"source_location_arn":      {Type: awsType(awsMod, "ARN")},
+					"cloudwatch_log_group_arn": {Type: awsType(awsMod, "ARN")},
+					"tags":                     {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Data Migration Service
 			"aws_dms_certificate": {Tok: awsResource(dmsMod, "Certificate")},
 			"aws_dms_endpoint": {
