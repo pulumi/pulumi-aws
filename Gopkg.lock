@@ -182,8 +182,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "08df30d135d32f1eb21bb7754eb042aeca521a4b"
-  version = "v1.15.84"
+  revision = "180cc10e5ff368b86dee226b034af7d1672baec6"
+  version = "v1.15.87"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -638,7 +638,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "ba31c6c69aa0a1c33e1a0e457029e4f1d632b540"
+  revision = "55bea6527690f24bb1dadfc10897212a99e84069"
 
 [[projects]]
   branch = "master"
@@ -706,7 +706,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "76cbc434ede1217e8a4d93cd3db4645965617f05"
+  revision = "0c0f06453c528eb43a18241dd94b9c3a27f46114"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -837,30 +837,22 @@
   revision = "6eab0e8f74e86c598ec3b6fad4888e0c11482d48"
 
 [[projects]]
-  branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "31ac5d88444a9e7ad18077db9a165d793ad06a2e"
+  revision = "f676e0f3ac6395ff1a529ae59a6670878a8371a6"
 
 [[projects]]
   name = "google.golang.org/grpc"
   packages = [
     ".",
     "balancer",
-    "balancer/base",
     "balancer/roundrobin",
     "codes",
     "connectivity",
     "credentials",
-    "encoding",
-    "encoding/proto",
+    "grpclb/grpc_lb_v1/messages",
     "grpclog",
     "internal",
-    "internal/backoff",
-    "internal/channelz",
-    "internal/envconfig",
-    "internal/grpcrand",
-    "internal/transport",
     "keepalive",
     "metadata",
     "naming",
@@ -872,10 +864,10 @@
     "resolver/passthrough",
     "stats",
     "status",
-    "tap"
+    "tap",
+    "transport"
   ]
-  revision = "2e463a05d100327ca47ac218281906921038fd95"
-  version = "v1.16.0"
+  revision = "b5eab4ccac6df282ff981436a5a87554d7377c75"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -955,12 +947,12 @@
 [[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
-  version = "v2.2.1"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c2d05400554ffed62386a5736c34e6deba87bcd71830e897b45ef5fc7f16fbef"
+  inputs-digest = "0d4369f6143344a2367f93dd80260f213d84c6927351c7f8b7fa5d07f479ce48"
   solver-name = "gps-cdcl"
   solver-version = 1
