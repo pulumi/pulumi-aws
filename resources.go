@@ -56,6 +56,7 @@ const (
 	cognitoMod           = "cognito"                  // Cognito
 	cfgMod               = "cfg"                      // Resource Config
 	datasyncMod          = "datasync"                 // DataSync
+	dlmMod               = "dlm"                      // Data Lifecycle Manager
 	daxMod               = "dax"                      // DynamoDB Accelerator
 	devicefarmMod        = "devicefarm"               // Device Farm
 	directoryserviceMod  = "directoryservice"         // Directory Services
@@ -629,6 +630,8 @@ func Provider() tfbridge.ProviderInfo {
 					"tags":                     {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			// Data Lifecycle Manager
+			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Data Migration Service
 			"aws_dms_certificate": {Tok: awsResource(dmsMod, "Certificate")},
 			"aws_dms_endpoint": {

@@ -179,6 +179,8 @@
         "directoryservice/conditionalForwader.ts",
         "directoryservice/directory.ts",
         "directoryservice/index.ts",
+        "dlm/index.ts",
+        "dlm/lifecyclePolicy.ts",
         "dms/certificate.ts",
         "dms/endpoint.ts",
         "dms/index.ts",
