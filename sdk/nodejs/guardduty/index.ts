@@ -2,5 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./vault";
-export * from "./vaultLock";
+export * from "./detector";
+export * from "./iPSet";
+export * from "./member";
+export * from "./threatIntelSet";

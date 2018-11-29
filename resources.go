@@ -81,6 +81,7 @@ const (
 	gameliftMod          = "gamelift"                 // Gamelift
 	glacierMod           = "glacier"                  // Glacier
 	glueMod              = "glue"                     // Glue
+	guarddutyMod         = "guardduty"                // Guard Duty
 	iamMod               = "iam"                      // Identity and Access Management (IAM)
 	inspectorMod         = "inspector"                // Inspector
 	iotMod               = "iot"                      // Internet of Things (IoT)
@@ -1292,10 +1293,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			// GuardDuty
-			"aws_guardduty_detector":       {Tok: awsResource(glacierMod, "Detector")},
-			"aws_guardduty_ipset":          {Tok: awsResource(glacierMod, "IPSet")},
-			"aws_guardduty_member":         {Tok: awsResource(glacierMod, "Member")},
-			"aws_guardduty_threatintelset": {Tok: awsResource(glacierMod, "ThreatIntelSet")},
+			"aws_guardduty_detector":       {Tok: awsResource(guarddutyMod, "Detector")},
+			"aws_guardduty_ipset":          {Tok: awsResource(guarddutyMod, "IPSet")},
+			"aws_guardduty_member":         {Tok: awsResource(guarddutyMod, "Member")},
+			"aws_guardduty_threatintelset": {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
