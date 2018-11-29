@@ -37,6 +37,7 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 		inputs["deploymentStyle"] = nil
 		inputs["ec2TagFilters"] = nil
 		inputs["ec2TagSets"] = nil
+		inputs["ecsService"] = nil
 		inputs["loadBalancerInfo"] = nil
 		inputs["onPremisesInstanceTagFilters"] = nil
 		inputs["serviceRoleArn"] = nil
@@ -52,6 +53,7 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 		inputs["deploymentStyle"] = args.DeploymentStyle
 		inputs["ec2TagFilters"] = args.Ec2TagFilters
 		inputs["ec2TagSets"] = args.Ec2TagSets
+		inputs["ecsService"] = args.EcsService
 		inputs["loadBalancerInfo"] = args.LoadBalancerInfo
 		inputs["onPremisesInstanceTagFilters"] = args.OnPremisesInstanceTagFilters
 		inputs["serviceRoleArn"] = args.ServiceRoleArn
@@ -80,6 +82,7 @@ func GetDeploymentGroup(ctx *pulumi.Context,
 		inputs["deploymentStyle"] = state.DeploymentStyle
 		inputs["ec2TagFilters"] = state.Ec2TagFilters
 		inputs["ec2TagSets"] = state.Ec2TagSets
+		inputs["ecsService"] = state.EcsService
 		inputs["loadBalancerInfo"] = state.LoadBalancerInfo
 		inputs["onPremisesInstanceTagFilters"] = state.OnPremisesInstanceTagFilters
 		inputs["serviceRoleArn"] = state.ServiceRoleArn
@@ -102,7 +105,7 @@ func (r *DeploymentGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Information about alarms associated with the deployment group (documented below).
+// Configuration block of alarms associated with the deployment group (documented below).
 func (r *DeploymentGroup) AlarmConfiguration() *pulumi.Output {
 	return r.s.State["alarmConfiguration"]
 }
@@ -112,7 +115,7 @@ func (r *DeploymentGroup) AppName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appName"])
 }
 
-// The automatic rollback configuration associated with the deployment group (documented below).
+// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 func (r *DeploymentGroup) AutoRollbackConfiguration() *pulumi.Output {
 	return r.s.State["autoRollbackConfiguration"]
 }
@@ -122,7 +125,7 @@ func (r *DeploymentGroup) AutoscalingGroups() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
 }
 
-// Information about blue/green deployment options for a deployment group (documented below).
+// Configuration block of the blue/green deployment options for a deployment group (documented below).
 func (r *DeploymentGroup) BlueGreenDeploymentConfig() *pulumi.Output {
 	return r.s.State["blueGreenDeploymentConfig"]
 }
@@ -137,7 +140,7 @@ func (r *DeploymentGroup) DeploymentGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deploymentGroupName"])
 }
 
-// Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
 func (r *DeploymentGroup) DeploymentStyle() *pulumi.Output {
 	return r.s.State["deploymentStyle"]
 }
@@ -147,12 +150,17 @@ func (r *DeploymentGroup) Ec2TagFilters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ec2TagFilters"])
 }
 
-// Sets of Tag filters associated with the deployment group, which are referred to as *tag groups* in the document.  See the AWS docs for details.
+// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
 func (r *DeploymentGroup) Ec2TagSets() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ec2TagSets"])
 }
 
-// Information about the load balancer to use in a blue/green deployment (documented below).
+// Configuration block(s) of the ECS services for a deployment group (documented below).
+func (r *DeploymentGroup) EcsService() *pulumi.Output {
+	return r.s.State["ecsService"]
+}
+
+// Configuration block of the load balancer to use in a blue/green deployment (documented below).
 func (r *DeploymentGroup) LoadBalancerInfo() *pulumi.Output {
 	return r.s.State["loadBalancerInfo"]
 }
@@ -167,71 +175,75 @@ func (r *DeploymentGroup) ServiceRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
 
-// Trigger Configurations for the deployment group (documented below).
+// Configuration block(s) of the triggers for the deployment group (documented below).
 func (r *DeploymentGroup) TriggerConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["triggerConfigurations"])
 }
 
 // Input properties used for looking up and filtering DeploymentGroup resources.
 type DeploymentGroupState struct {
-	// Information about alarms associated with the deployment group (documented below).
+	// Configuration block of alarms associated with the deployment group (documented below).
 	AlarmConfiguration interface{}
 	// The name of the application.
 	AppName interface{}
-	// The automatic rollback configuration associated with the deployment group (documented below).
+	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration interface{}
 	// Autoscaling groups associated with the deployment group.
 	AutoscalingGroups interface{}
-	// Information about blue/green deployment options for a deployment group (documented below).
+	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig interface{}
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
 	DeploymentConfigName interface{}
 	// The name of the deployment group.
 	DeploymentGroupName interface{}
-	// Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
 	DeploymentStyle interface{}
 	// Tag filters associated with the deployment group. See the AWS docs for details.
 	Ec2TagFilters interface{}
-	// Sets of Tag filters associated with the deployment group, which are referred to as *tag groups* in the document.  See the AWS docs for details.
+	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
 	Ec2TagSets interface{}
-	// Information about the load balancer to use in a blue/green deployment (documented below).
+	// Configuration block(s) of the ECS services for a deployment group (documented below).
+	EcsService interface{}
+	// Configuration block of the load balancer to use in a blue/green deployment (documented below).
 	LoadBalancerInfo interface{}
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters interface{}
 	// The service role ARN that allows deployments.
 	ServiceRoleArn interface{}
-	// Trigger Configurations for the deployment group (documented below).
+	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations interface{}
 }
 
 // The set of arguments for constructing a DeploymentGroup resource.
 type DeploymentGroupArgs struct {
-	// Information about alarms associated with the deployment group (documented below).
+	// Configuration block of alarms associated with the deployment group (documented below).
 	AlarmConfiguration interface{}
 	// The name of the application.
 	AppName interface{}
-	// The automatic rollback configuration associated with the deployment group (documented below).
+	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration interface{}
 	// Autoscaling groups associated with the deployment group.
 	AutoscalingGroups interface{}
-	// Information about blue/green deployment options for a deployment group (documented below).
+	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig interface{}
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
 	DeploymentConfigName interface{}
 	// The name of the deployment group.
 	DeploymentGroupName interface{}
-	// Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
 	DeploymentStyle interface{}
 	// Tag filters associated with the deployment group. See the AWS docs for details.
 	Ec2TagFilters interface{}
-	// Sets of Tag filters associated with the deployment group, which are referred to as *tag groups* in the document.  See the AWS docs for details.
+	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
 	Ec2TagSets interface{}
-	// Information about the load balancer to use in a blue/green deployment (documented below).
+	// Configuration block(s) of the ECS services for a deployment group (documented below).
+	EcsService interface{}
+	// Configuration block of the load balancer to use in a blue/green deployment (documented below).
 	LoadBalancerInfo interface{}
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters interface{}
 	// The service role ARN that allows deployments.
 	ServiceRoleArn interface{}
-	// Trigger Configurations for the deployment group (documented below).
+	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations interface{}
 }

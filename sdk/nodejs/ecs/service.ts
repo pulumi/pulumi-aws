@@ -29,6 +29,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cluster: pulumi.Output<string>;
     /**
+     * Configuration block containing deployment controller configuration. Defined below.
+     */
+    public readonly deploymentController: pulumi.Output<{ type?: string } | undefined>;
+    /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     public readonly deploymentMaximumPercent: pulumi.Output<number | undefined>;
@@ -113,6 +117,7 @@ export class Service extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ServiceState = argsOrState as ServiceState | undefined;
             inputs["cluster"] = state ? state.cluster : undefined;
+            inputs["deploymentController"] = state ? state.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
             inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = state ? state.desiredCount : undefined;
@@ -137,6 +142,7 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'taskDefinition'");
             }
             inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["deploymentController"] = args ? args.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
             inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = args ? args.desiredCount : undefined;
@@ -168,6 +174,10 @@ export interface ServiceState {
      * ARN of an ECS cluster
      */
     readonly cluster?: pulumi.Input<string>;
+    /**
+     * Configuration block containing deployment controller configuration. Defined below.
+     */
+    readonly deploymentController?: pulumi.Input<{ type?: pulumi.Input<string> }>;
     /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
@@ -249,6 +259,10 @@ export interface ServiceArgs {
      * ARN of an ECS cluster
      */
     readonly cluster?: pulumi.Input<string>;
+    /**
+     * Configuration block containing deployment controller configuration. Defined below.
+     */
+    readonly deploymentController?: pulumi.Input<{ type?: pulumi.Input<string> }>;
     /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */

@@ -26,6 +26,7 @@ func NewService(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["cluster"] = nil
+		inputs["deploymentController"] = nil
 		inputs["deploymentMaximumPercent"] = nil
 		inputs["deploymentMinimumHealthyPercent"] = nil
 		inputs["desiredCount"] = nil
@@ -46,6 +47,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["waitForSteadyState"] = nil
 	} else {
 		inputs["cluster"] = args.Cluster
+		inputs["deploymentController"] = args.DeploymentController
 		inputs["deploymentMaximumPercent"] = args.DeploymentMaximumPercent
 		inputs["deploymentMinimumHealthyPercent"] = args.DeploymentMinimumHealthyPercent
 		inputs["desiredCount"] = args.DesiredCount
@@ -79,6 +81,7 @@ func GetService(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["cluster"] = state.Cluster
+		inputs["deploymentController"] = state.DeploymentController
 		inputs["deploymentMaximumPercent"] = state.DeploymentMaximumPercent
 		inputs["deploymentMinimumHealthyPercent"] = state.DeploymentMinimumHealthyPercent
 		inputs["desiredCount"] = state.DesiredCount
@@ -118,6 +121,11 @@ func (r *Service) ID() *pulumi.IDOutput {
 // ARN of an ECS cluster
 func (r *Service) Cluster() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cluster"])
+}
+
+// Configuration block containing deployment controller configuration. Defined below.
+func (r *Service) DeploymentController() *pulumi.Output {
+	return r.s.State["deploymentController"]
 }
 
 // The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -215,6 +223,8 @@ func (r *Service) WaitForSteadyState() *pulumi.BoolOutput {
 type ServiceState struct {
 	// ARN of an ECS cluster
 	Cluster interface{}
+	// Configuration block containing deployment controller configuration. Defined below.
+	DeploymentController interface{}
 	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent interface{}
 	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
@@ -258,6 +268,8 @@ type ServiceState struct {
 type ServiceArgs struct {
 	// ARN of an ECS cluster
 	Cluster interface{}
+	// Configuration block containing deployment controller configuration. Defined below.
+	DeploymentController interface{}
 	// The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
 	DeploymentMaximumPercent interface{}
 	// The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.

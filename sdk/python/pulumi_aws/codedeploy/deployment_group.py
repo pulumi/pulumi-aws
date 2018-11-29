@@ -10,7 +10,7 @@ class DeploymentGroup(pulumi.CustomResource):
     """
     Provides a CodeDeploy Deployment Group for a CodeDeploy Application
     """
-    def __init__(__self__, __name__, __opts__=None, alarm_configuration=None, app_name=None, auto_rollback_configuration=None, autoscaling_groups=None, blue_green_deployment_config=None, deployment_config_name=None, deployment_group_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_sets=None, load_balancer_info=None, on_premises_instance_tag_filters=None, service_role_arn=None, trigger_configurations=None):
+    def __init__(__self__, __name__, __opts__=None, alarm_configuration=None, app_name=None, auto_rollback_configuration=None, autoscaling_groups=None, blue_green_deployment_config=None, deployment_config_name=None, deployment_group_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_sets=None, ecs_service=None, load_balancer_info=None, on_premises_instance_tag_filters=None, service_role_arn=None, trigger_configurations=None):
         """Create a DeploymentGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -44,6 +44,8 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__['ec2_tag_filters'] = ec2_tag_filters
 
         __props__['ec2_tag_sets'] = ec2_tag_sets
+
+        __props__['ecs_service'] = ecs_service
 
         __props__['load_balancer_info'] = load_balancer_info
 
