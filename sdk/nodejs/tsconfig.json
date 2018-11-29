@@ -454,6 +454,7 @@
         "iot/thingPrincipalAttachment.ts",
         "iot/thingType.ts",
         "iot/topicRule.ts",
+        "kinesis/analyticsApplication.ts",
         "kinesis/firehoseDeliveryStream.ts",
         "kinesis/getStream.ts",
         "kinesis/index.ts",
