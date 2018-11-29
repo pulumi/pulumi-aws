@@ -77,6 +77,7 @@ const (
 	albMod               = "applicationloadbalancing" // Elastic Load Balancing (V2: Application)
 	elbv2Mod             = "elasticloadbalancingv2"   // Elastic Load Balancing (V2: Application and Network)
 	emrMod               = "emr"                      // Elastic MapReduce
+	gameliftMod          = "gamelift"                 // Gamelift
 	glacierMod           = "glacier"                  // Glacier
 	glueMod              = "glue"                     // Glue
 	iamMod               = "iam"                      // Identity and Access Management (IAM)
@@ -1266,6 +1267,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			// GameLift
+			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
+			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
+			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
+			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
+			// Glacier
 			"aws_glacier_vault": {
 				Tok: awsResource(glacierMod, "Vault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1282,10 +1288,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_job":                    {Tok: awsResource(glueMod, "Job")},
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
-			// Glacier
-			"aws_gamelift_alias": {Tok: awsResource(glacierMod, "Alias")},
-			"aws_gamelift_build": {Tok: awsResource(glacierMod, "Build")},
-			"aws_gamelift_fleet": {Tok: awsResource(glacierMod, "Fleet")},
 			// GuardDuty
 			"aws_guardduty_detector":       {Tok: awsResource(glacierMod, "Detector")},
 			"aws_guardduty_ipset":          {Tok: awsResource(glacierMod, "IPSet")},

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./detector";
-export * from "./iPSet";
-export * from "./member";
-export * from "./threatIntelSet";
-export * from "./vault";
-export * from "./vaultLock";
+export * from "./alias";
+export * from "./build";
+export * from "./fleet";
+export * from "./gameSessionQueue";
