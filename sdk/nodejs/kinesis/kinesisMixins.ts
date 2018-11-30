@@ -126,5 +126,5 @@ declare module "./stream" {
 }
 
 stream.Stream.prototype.onEvent = function(this: stream.Stream, name, handler, args, opts) {
-    return new StreamEventSubscription(name, this, handler, args, opts || { parent: this });
+    return new StreamEventSubscription(name, this, handler, args, opts);
 }
