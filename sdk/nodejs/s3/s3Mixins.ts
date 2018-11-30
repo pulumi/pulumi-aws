@@ -126,7 +126,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
 
     public constructor(
         name: string, bucket: Bucket, handler: BucketEventHandler,
-        args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+        args: BucketEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
         super("aws:s3:BucketEventSubscription", name, { bucket: bucket }, opts);
 
@@ -197,7 +197,7 @@ declare module "./bucket" {
          */
         onObjectCreated(
             name: string, handler: BucketEventHandler,
-            args?: ObjectCreatedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
+            args?: ObjectCreatedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BucketEventSubscription;
 
         /**
          * Creates a new subscription to events fired from this Bucket to the handler provided,
@@ -206,7 +206,7 @@ declare module "./bucket" {
          */
         onObjectRemoved(
             name: string, handler: BucketEventHandler,
-            args?: ObjectRemovedSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
+            args?: ObjectRemovedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BucketEventSubscription;
 
         /**
          * Creates a new subscription to events fired from this Bucket to the handler provided,
@@ -216,7 +216,7 @@ declare module "./bucket" {
          */
         onEvent(
             name: string, handler: BucketEventHandler,
-            args: BucketEventSubscriptionArgs, opts?: pulumi.ResourceOptions): BucketEventSubscription;
+            args: BucketEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BucketEventSubscription;
     }
 }
 

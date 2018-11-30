@@ -74,7 +74,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
 
     constructor(
         name: string, logGroup: logGroup.LogGroup, handler: LogGroupEventHandler,
-        args: LogGroupEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+        args: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
         super("aws:cloudwatch:LogGroupEventSubscription", name, { logGroup: logGroup }, opts);
 
@@ -112,7 +112,7 @@ declare module "./logGroup" {
          * The events will be produced in raw (gzipped + base64 encoded) form.
          */
         onEvent(name: string, handler: LogGroupEventHandler,
-                args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ResourceOptions): LogGroupEventSubscription;
+                args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): LogGroupEventSubscription;
 
         /**
          * Creates a new subscription to events fired from this LogGroup to the callback provided,
@@ -123,7 +123,7 @@ declare module "./logGroup" {
          * not a [lambda.Function] instance.
          */
         onDecodedEvent(name: string, callback: lambda.Callback<DecodedLogGroupEvent, void>,
-            args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ResourceOptions): LogGroupEventSubscription;
+            args?: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): LogGroupEventSubscription;
     }
 }
 

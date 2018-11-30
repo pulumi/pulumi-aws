@@ -68,7 +68,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
 
     constructor(
         name: string, stream: stream.Stream, handler: StreamEventHandler,
-        args: StreamEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+        args: StreamEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
         super("aws:kinesis:StreamEventSubscription", name, { stream: stream }, opts);
 
@@ -101,7 +101,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
 }
 
 function createFunctionFromEventHandler(
-    name: string, handler: StreamEventHandler, opts?: pulumi.ResourceOptions): lambda.Function {
+    name: string, handler: StreamEventHandler, opts?: pulumi.CustomResourceOptions): lambda.Function {
 
     if (handler instanceof Function) {
         return new lambda.CallbackFunction(name, {
@@ -121,7 +121,7 @@ declare module "./stream" {
          * with options to control the behavior of the subscription.
          */
         onEvent(name: string, handler: StreamEventHandler,
-                args: StreamEventSubscriptionArgs, opts?: pulumi.ResourceOptions): StreamEventSubscription;
+                args: StreamEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): StreamEventSubscription;
     }
 }
 

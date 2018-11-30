@@ -23,6 +23,6 @@ export function onSchedule(
         name: string, schedule: string,
         handler: eventRule.EventRuleEventHandler,
         args?: eventRule.EventRuleEventSubscriptionArgs,
-        opts?: pulumi.ResourceOptions): eventRule.EventRuleEventSubscription {
+        opts?: pulumi.ComponentResourceOptions): eventRule.EventRuleEventSubscription {
     return new eventRule.EventRuleEventSubscription(name, schedule, handler, args, opts);
 }

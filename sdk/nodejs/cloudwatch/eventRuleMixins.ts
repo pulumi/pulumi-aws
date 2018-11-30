@@ -71,7 +71,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
 
     public constructor(
         name: string, eventRuleOrSchedule: eventRule.EventRule | string, handler: EventRuleEventHandler,
-        args: EventRuleEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+        args: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
         super("aws:cloudwatch:EventRuleEventSubscription", name, { }, opts);
 
@@ -118,7 +118,7 @@ declare module "./eventRule" {
          * with options to control the behavior of the subscription.
          */
         onEvent(name: string, handler: EventRuleEventHandler,
-                args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ResourceOptions): EventRuleEventSubscription;
+                args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventRuleEventSubscription;
     }
 }
 
