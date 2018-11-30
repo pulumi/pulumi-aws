@@ -73,7 +73,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
         name: string, eventRuleOrSchedule: eventRule.EventRule | string, handler: EventRuleEventHandler,
         args: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:cloudwatch:EventRuleEventSubscription", name, { }, opts);
+        super("aws:cloudwatch:EventRuleEventSubscription", name, { }, getSuperOpts(eventRuleOrSchedule, opts));
 
         const parentOpts = { parent: this };
         if (typeof eventRuleOrSchedule === "string") {
@@ -109,6 +109,21 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
     }
 }
 
+function getSuperOpts(
+        eventRuleOrSchedule: eventRule.EventRule | string,
+        opts: pulumi.ComponentResourceOptions | undefined) {
+
+    if (opts) {
+        return opts;
+    }
+
+    if (typeof eventRuleOrSchedule !== "string") {
+        return { parent: eventRuleOrSchedule };
+    }
+
+    return undefined;
+}
+
 // Mixin helpers to create lambda triggers directly from an event rule event.
 
 declare module "./eventRule" {
@@ -123,5 +138,5 @@ declare module "./eventRule" {
 }
 
 eventRule.EventRule.prototype.onEvent = function(this: eventRule.EventRule, name, handler, args, opts) {
-    return new EventRuleEventSubscription(name, this, handler, args, opts || { parent: this });
+    return new EventRuleEventSubscription(name, this, handler, args, opts);
 }
