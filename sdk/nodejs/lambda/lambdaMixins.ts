@@ -227,7 +227,7 @@ export class EventSubscription extends pulumi.ComponentResource {
     public func: LambdaFunction;
 
     public constructor(
-        type: string, name: string, props: Record<string, any>, opts?: pulumi.ResourceOptions) {
+        type: string, name: string, props: Record<string, any>, opts?: pulumi.ComponentResourceOptions) {
 
         super(type, name, props, opts);
     }
@@ -252,7 +252,7 @@ export class EventSubscription extends pulumi.ComponentResource {
  * details on this process.
  */
 export class CallbackFunction<E, R> extends LambdaFunction {
-    public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts?: pulumi.ResourceOptions) {
+    public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts?: pulumi.CustomResourceOptions) {
         if (!name) {
             throw new Error("Missing required resource name");
         }

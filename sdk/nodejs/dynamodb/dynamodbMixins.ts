@@ -65,7 +65,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
 
     constructor(
         name: string, table: table.Table, handler: TableEventHandler,
-        args: TableEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+        args: TableEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
         super("aws:dynamodb:TableEventSubscription", name, { table: table }, opts);
 
@@ -102,7 +102,7 @@ declare module "./table" {
          * with options to control the behavior of the subscription.
          */
         onEvent(name: string, handler: TableEventHandler,
-                args: TableEventSubscriptionArgs, opts?: pulumi.ResourceOptions): TableEventSubscription;
+                args: TableEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): TableEventSubscription;
     }
 }
 

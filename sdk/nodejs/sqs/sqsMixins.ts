@@ -64,7 +64,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
 
     public constructor(
         name: string, queue: queue.Queue, handler: QueueEventHandler,
-        args: QueueEventSubscriptionArgs, opts?: pulumi.ResourceOptions) {
+        args: QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
         super("aws:sqs:QueueEventSubscription", name, { }, opts);
 
@@ -96,7 +96,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
 }
 
 function createFunctionFromEventHandler(
-    name: string, handler: QueueEventHandler, opts?: pulumi.ResourceOptions): lambda.Function {
+    name: string, handler: QueueEventHandler, opts?: pulumi.CustomResourceOptions): lambda.Function {
 
     if (handler instanceof Function) {
         return new lambda.CallbackFunction(name, {
@@ -117,7 +117,7 @@ declare module "./queue" {
          */
         onEvent(
             name: string, handler: QueueEventHandler,
-            args?: QueueEventSubscriptionArgs, opts?: pulumi.ResourceOptions): QueueEventSubscription;
+            args?: QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
     }
 }
 
