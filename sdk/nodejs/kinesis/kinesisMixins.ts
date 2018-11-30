@@ -70,7 +70,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
         name: string, stream: stream.Stream, handler: StreamEventHandler,
         args: StreamEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:kinesis:StreamEventSubscription", name, { stream: stream }, opts);
+        super("aws:kinesis:StreamEventSubscription", name, { stream: stream }, opts || { parent: stream});
 
         const parentOpts = { parent: this };
         this.func = createFunctionFromEventHandler(name, handler, parentOpts);
@@ -126,5 +126,5 @@ declare module "./stream" {
 }
 
 stream.Stream.prototype.onEvent = function(this: stream.Stream, name, handler, args, opts) {
-    return new StreamEventSubscription(name, this, handler, args, opts);
+    return new StreamEventSubscription(name, this, handler, args, opts || { parent: this });
 }

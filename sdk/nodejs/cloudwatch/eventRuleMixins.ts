@@ -123,5 +123,5 @@ declare module "./eventRule" {
 }
 
 eventRule.EventRule.prototype.onEvent = function(this: eventRule.EventRule, name, handler, args, opts) {
-    return new EventRuleEventSubscription(name, this, handler, args, opts);
+    return new EventRuleEventSubscription(name, this, handler, args, opts || { parent: this });
 }
