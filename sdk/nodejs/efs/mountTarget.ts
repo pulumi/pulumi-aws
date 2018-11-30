@@ -25,6 +25,10 @@ export class MountTarget extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
+     * Amazon Resource Name of the file system.
+     */
+    public /*out*/ readonly fileSystemArn: pulumi.Output<string>;
+    /**
      * The ID of the file system for which the mount target is intended.
      */
     public readonly fileSystemId: pulumi.Output<string>;
@@ -60,6 +64,7 @@ export class MountTarget extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: MountTargetState = argsOrState as MountTargetState | undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
+            inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
             inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
@@ -78,6 +83,7 @@ export class MountTarget extends pulumi.CustomResource {
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["dnsName"] = undefined /*out*/;
+            inputs["fileSystemArn"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
         }
         super("aws:efs/mountTarget:MountTarget", name, inputs, opts);
@@ -92,6 +98,10 @@ export interface MountTargetState {
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
     readonly dnsName?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name of the file system.
+     */
+    readonly fileSystemArn?: pulumi.Input<string>;
     /**
      * The ID of the file system for which the mount target is intended.
      */

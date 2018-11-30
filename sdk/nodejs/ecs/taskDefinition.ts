@@ -46,6 +46,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly family: pulumi.Output<string>;
     /**
+     * The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     */
+    public readonly ipcMode: pulumi.Output<string | undefined>;
+    /**
      * The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      */
     public readonly memory: pulumi.Output<string | undefined>;
@@ -53,6 +57,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      * The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
     public readonly networkMode: pulumi.Output<string>;
+    /**
+     * The process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     */
+    public readonly pidMode: pulumi.Output<string | undefined>;
     /**
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
@@ -65,6 +73,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      * The revision of the task in a particular family.
      */
     public /*out*/ readonly revision: pulumi.Output<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
@@ -91,11 +103,14 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["cpu"] = state ? state.cpu : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["family"] = state ? state.family : undefined;
+            inputs["ipcMode"] = state ? state.ipcMode : undefined;
             inputs["memory"] = state ? state.memory : undefined;
             inputs["networkMode"] = state ? state.networkMode : undefined;
+            inputs["pidMode"] = state ? state.pidMode : undefined;
             inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             inputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
             inputs["revision"] = state ? state.revision : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
             inputs["volumes"] = state ? state.volumes : undefined;
         } else {
@@ -110,10 +125,13 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["cpu"] = args ? args.cpu : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             inputs["family"] = args ? args.family : undefined;
+            inputs["ipcMode"] = args ? args.ipcMode : undefined;
             inputs["memory"] = args ? args.memory : undefined;
             inputs["networkMode"] = args ? args.networkMode : undefined;
+            inputs["pidMode"] = args ? args.pidMode : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -153,6 +171,10 @@ export interface TaskDefinitionState {
      */
     readonly family?: pulumi.Input<string>;
     /**
+     * The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     */
+    readonly ipcMode?: pulumi.Input<string>;
+    /**
      * The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      */
     readonly memory?: pulumi.Input<string>;
@@ -160,6 +182,10 @@ export interface TaskDefinitionState {
      * The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
     readonly networkMode?: pulumi.Input<string>;
+    /**
+     * The process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     */
+    readonly pidMode?: pulumi.Input<string>;
     /**
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
@@ -172,6 +198,10 @@ export interface TaskDefinitionState {
      * The revision of the task in a particular family.
      */
     readonly revision?: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
@@ -208,6 +238,10 @@ export interface TaskDefinitionArgs {
      */
     readonly family: pulumi.Input<string>;
     /**
+     * The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     */
+    readonly ipcMode?: pulumi.Input<string>;
+    /**
      * The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      */
     readonly memory?: pulumi.Input<string>;
@@ -216,6 +250,10 @@ export interface TaskDefinitionArgs {
      */
     readonly networkMode?: pulumi.Input<string>;
     /**
+     * The process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     */
+    readonly pidMode?: pulumi.Input<string>;
+    /**
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
@@ -223,6 +261,10 @@ export interface TaskDefinitionArgs {
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
     readonly requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */

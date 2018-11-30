@@ -10,7 +10,7 @@ class User(pulumi.CustomResource):
     """
     Provides an IAM user.
     """
-    def __init__(__self__, __name__, __opts__=None, force_destroy=None, name=None, path=None, permissions_boundary=None):
+    def __init__(__self__, __name__, __opts__=None, force_destroy=None, name=None, path=None, permissions_boundary=None, tags=None):
         """Create a User resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,6 +28,8 @@ class User(pulumi.CustomResource):
         __props__['path'] = path
 
         __props__['permissions_boundary'] = permissions_boundary
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['unique_id'] = None

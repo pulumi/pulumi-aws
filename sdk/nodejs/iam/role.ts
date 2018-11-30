@@ -64,6 +64,10 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of tags for the IAM role
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The stable and unique string identifying the role.
      */
     public /*out*/ readonly uniqueId: pulumi.Output<string>;
@@ -90,6 +94,7 @@ export class Role extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
@@ -104,6 +109,7 @@ export class Role extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface RoleState {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
+     * Key-value mapping of tags for the IAM role
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The stable and unique string identifying the role.
      */
     readonly uniqueId?: pulumi.Input<string>;
@@ -200,4 +210,8 @@ export interface RoleArgs {
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the IAM role
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

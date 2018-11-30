@@ -41,7 +41,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly limitAmount: pulumi.Output<string>;
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend ](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     public readonly limitUnit: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface BudgetState {
      */
     readonly limitAmount?: pulumi.Input<string>;
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend ](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     readonly limitUnit?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface BudgetArgs {
      */
     readonly limitAmount: pulumi.Input<string>;
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend ](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     readonly limitUnit: pulumi.Input<string>;
     /**

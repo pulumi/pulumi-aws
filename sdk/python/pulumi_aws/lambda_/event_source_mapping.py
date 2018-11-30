@@ -13,7 +13,7 @@ class EventSourceMapping(pulumi.CustomResource):
     For information about Lambda and how to use it, see [What is AWS Lambda?][1]
     For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
     """
-    def __init__(__self__, __name__, __opts__=None, batch_size=None, enabled=None, event_source_arn=None, function_name=None, starting_position=None):
+    def __init__(__self__, __name__, __opts__=None, batch_size=None, enabled=None, event_source_arn=None, function_name=None, starting_position=None, starting_position_timestamp=None):
         """Create a EventSourceMapping resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -37,6 +37,8 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__['function_name'] = function_name
 
         __props__['starting_position'] = starting_position
+
+        __props__['starting_position_timestamp'] = starting_position_timestamp
 
         __props__['function_arn'] = None
         __props__['last_modified'] = None

@@ -55,6 +55,8 @@ const (
 	codepipelineMod      = "codepipeline"             // Code Pipeline
 	cognitoMod           = "cognito"                  // Cognito
 	cfgMod               = "cfg"                      // Resource Config
+	datasyncMod          = "datasync"                 // DataSync
+	dlmMod               = "dlm"                      // Data Lifecycle Manager
 	daxMod               = "dax"                      // DynamoDB Accelerator
 	devicefarmMod        = "devicefarm"               // Device Farm
 	directoryserviceMod  = "directoryservice"         // Directory Services
@@ -63,6 +65,7 @@ const (
 	dmsMod               = "dms"                      // Data Migraiton Services
 	ebsMod               = "ebs"                      // Elastic Block Store
 	ec2Mod               = "ec2"                      // EC2
+	ec2TransitGatewayMod = "ec2transitgateway"        // EC2 Transit Gateway
 	ecrMod               = "ecr"                      // Elastic Container Registry
 	ecsMod               = "ecs"                      // Elastic Container Service
 	efsMod               = "efs"                      // Elastic Filesystem
@@ -75,8 +78,10 @@ const (
 	albMod               = "applicationloadbalancing" // Elastic Load Balancing (V2: Application)
 	elbv2Mod             = "elasticloadbalancingv2"   // Elastic Load Balancing (V2: Application and Network)
 	emrMod               = "emr"                      // Elastic MapReduce
+	gameliftMod          = "gamelift"                 // Gamelift
 	glacierMod           = "glacier"                  // Glacier
 	glueMod              = "glue"                     // Glue
+	guarddutyMod         = "guardduty"                // Guard Duty
 	iamMod               = "iam"                      // Identity and Access Management (IAM)
 	inspectorMod         = "inspector"                // Inspector
 	iotMod               = "iot"                      // Internet of Things (IoT)
@@ -590,6 +595,44 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_configuration_recorder":        {Tok: awsResource(cfgMod, "Recorder")},
 			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
+			// DataSync
+			"aws_datasync_agent": {
+				Tok: awsResource(datasyncMod, "Agent"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_location_efs": {
+				Tok: awsResource(datasyncMod, "EfsLocation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"efs_file_system_arn": {Type: awsType(awsMod, "ARN")},
+					"tags":                {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_location_nfs": {
+				Tok: awsResource(datasyncMod, "NfsLocation"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_location_s3": {
+				Tok: awsResource(datasyncMod, "S3Location"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"s3_bucket_arn": {Type: awsType(awsMod, "ARN")},
+					"tags":          {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_datasync_task": {
+				Tok: awsResource(datasyncMod, "Task"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"destination_location_arn": {Type: awsType(awsMod, "ARN")},
+					"source_location_arn":      {Type: awsType(awsMod, "ARN")},
+					"cloudwatch_log_group_arn": {Type: awsType(awsMod, "ARN")},
+					"tags":                     {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			// Data Lifecycle Manager
+			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Data Migration Service
 			"aws_dms_certificate": {Tok: awsResource(dmsMod, "Certificate")},
 			"aws_dms_endpoint": {
@@ -1043,6 +1086,35 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_vpn_gateway_attachment":        {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
 			"aws_vpn_gateway_route_propagation": {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			// EC2 Transit Gateway
+			"aws_ec2_transit_gateway": {
+				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"arn":  {Type: awsType(awsMod, "ARN")},
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ec2_transit_gateway_route": {
+				Tok: awsResource(ec2TransitGatewayMod, "Route"),
+			},
+			"aws_ec2_transit_gateway_route_table": {
+				Tok: awsResource(ec2TransitGatewayMod, "RouteTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_ec2_transit_gateway_route_table_association": {
+				Tok: awsResource(ec2TransitGatewayMod, "RouteTableAssociation"),
+			},
+			"aws_ec2_transit_gateway_route_table_propagation": {
+				Tok: awsResource(ec2TransitGatewayMod, "RouteTablePropagation"),
+			},
+			"aws_ec2_transit_gateway_vpc_attachment": {
+				Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
 			// Elastic Container Registry
 			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},
@@ -1199,12 +1271,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			// GameLift
+			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
+			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
+			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
+			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
+			// Glacier
 			"aws_glacier_vault": {
 				Tok: awsResource(glacierMod, "Vault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Glue
 			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
@@ -1214,15 +1292,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_job":                    {Tok: awsResource(glueMod, "Job")},
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
-			// Glacier
-			"aws_gamelift_alias": {Tok: awsResource(glacierMod, "Alias")},
-			"aws_gamelift_build": {Tok: awsResource(glacierMod, "Build")},
-			"aws_gamelift_fleet": {Tok: awsResource(glacierMod, "Fleet")},
 			// GuardDuty
-			"aws_guardduty_detector":       {Tok: awsResource(glacierMod, "Detector")},
-			"aws_guardduty_ipset":          {Tok: awsResource(glacierMod, "IPSet")},
-			"aws_guardduty_member":         {Tok: awsResource(glacierMod, "Member")},
-			"aws_guardduty_threatintelset": {Tok: awsResource(glacierMod, "ThreatIntelSet")},
+			"aws_guardduty_detector":       {Tok: awsResource(guarddutyMod, "Detector")},
+			"aws_guardduty_ipset":          {Tok: awsResource(guarddutyMod, "IPSet")},
+			"aws_guardduty_member":         {Tok: awsResource(guarddutyMod, "Member")},
+			"aws_guardduty_threatintelset": {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
@@ -1411,6 +1485,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(kinesisMod, "Stream"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"tags": {Type: awsType(awsMod, "Tags")},
+				},
+			},
+			"aws_kinesis_analytics_application": {
+				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"arn": {
+						Type: awsType(awsMod, "ARN"),
+					},
 				},
 			},
 			// Key Management Service (KMS)
@@ -1871,6 +1953,7 @@ func Provider() tfbridge.ProviderInfo {
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			// API Gateway
+			"aws_api_gateway_api_key":  {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
 			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
 			// Batch
@@ -1924,6 +2007,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_peering_connection": {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
 			"aws_vpcs":                   {Tok: awsDataSource(ec2Mod, "getVpcs")},
 			"aws_vpn_gateway":            {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
+			// EC2 Transit Gateway
+			"aws_ec2_transit_gateway":                {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway_route_table":    {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTable")},
+			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
 			// Elastic Block Storage
 			"aws_ebs_snapshot":     {Tok: awsDataSource(ebsMod, "getSnapshot")},
 			"aws_ebs_snapshot_ids": {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
@@ -2014,7 +2101,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_cluster":         {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account": {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
 			// Route53
-			"aws_route53_zone": {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
 			// S3
 			"aws_s3_bucket":        {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object": {Tok: awsDataSource(s3Mod, "getBucketObject")},
@@ -2026,6 +2114,7 @@ func Provider() tfbridge.ProviderInfo {
 			// SQS
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
+			"aws_ssm_document":  {Tok: awsDataSource(ssmMod, "getDocument")},
 			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},

@@ -10,9 +10,9 @@ class Group(pulumi.CustomResource):
     """
     Provides an AutoScaling Group resource.
     
-    -> **Note:** You must specify either `launch_configuration` or `launch_template`.
+    -> **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
     """
-    def __init__(__self__, __name__, __opts__=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None):
+    def __init__(__self__, __name__, __opts__=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None):
         """Create a Group resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -56,6 +56,8 @@ class Group(pulumi.CustomResource):
         if not min_size:
             raise TypeError('Missing required property min_size')
         __props__['min_size'] = min_size
+
+        __props__['mixed_instances_policy'] = mixed_instances_policy
 
         __props__['name'] = name
 

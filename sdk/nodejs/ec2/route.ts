@@ -36,24 +36,24 @@ export class Route extends pulumi.CustomResource {
     public readonly destinationIpv6CidrBlock: pulumi.Output<string | undefined>;
     public /*out*/ readonly destinationPrefixListId: pulumi.Output<string>;
     /**
-     * An ID of a VPC Egress Only Internet Gateway.
+     * Identifier of a VPC Egress Only Internet Gateway.
      */
     public readonly egressOnlyGatewayId: pulumi.Output<string>;
     /**
-     * An ID of a VPC internet gateway or a virtual private gateway.
+     * Identifier of a VPC internet gateway or a virtual private gateway.
      */
     public readonly gatewayId: pulumi.Output<string>;
     /**
-     * An ID of an EC2 instance.
+     * Identifier of an EC2 instance.
      */
     public readonly instanceId: pulumi.Output<string>;
     public /*out*/ readonly instanceOwnerId: pulumi.Output<string>;
     /**
-     * An ID of a VPC NAT gateway.
+     * Identifier of a VPC NAT gateway.
      */
     public readonly natGatewayId: pulumi.Output<string>;
     /**
-     * An ID of a network interface.
+     * Identifier of an EC2 network interface.
      */
     public readonly networkInterfaceId: pulumi.Output<string>;
     public /*out*/ readonly origin: pulumi.Output<string>;
@@ -63,7 +63,11 @@ export class Route extends pulumi.CustomResource {
     public readonly routeTableId: pulumi.Output<string>;
     public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * An ID of a VPC peering connection.
+     * Identifier of an EC2 Transit Gateway.
+     */
+    public readonly transitGatewayId: pulumi.Output<string | undefined>;
+    /**
+     * Identifier of a VPC peering connection.
      */
     public readonly vpcPeeringConnectionId: pulumi.Output<string | undefined>;
 
@@ -91,6 +95,7 @@ export class Route extends pulumi.CustomResource {
             inputs["origin"] = state ? state.origin : undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["state"] = state ? state.state : undefined;
+            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
@@ -105,6 +110,7 @@ export class Route extends pulumi.CustomResource {
             inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
+            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
             inputs["destinationPrefixListId"] = undefined /*out*/;
             inputs["instanceOwnerId"] = undefined /*out*/;
@@ -129,24 +135,24 @@ export interface RouteState {
     readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
     readonly destinationPrefixListId?: pulumi.Input<string>;
     /**
-     * An ID of a VPC Egress Only Internet Gateway.
+     * Identifier of a VPC Egress Only Internet Gateway.
      */
     readonly egressOnlyGatewayId?: pulumi.Input<string>;
     /**
-     * An ID of a VPC internet gateway or a virtual private gateway.
+     * Identifier of a VPC internet gateway or a virtual private gateway.
      */
     readonly gatewayId?: pulumi.Input<string>;
     /**
-     * An ID of an EC2 instance.
+     * Identifier of an EC2 instance.
      */
     readonly instanceId?: pulumi.Input<string>;
     readonly instanceOwnerId?: pulumi.Input<string>;
     /**
-     * An ID of a VPC NAT gateway.
+     * Identifier of a VPC NAT gateway.
      */
     readonly natGatewayId?: pulumi.Input<string>;
     /**
-     * An ID of a network interface.
+     * Identifier of an EC2 network interface.
      */
     readonly networkInterfaceId?: pulumi.Input<string>;
     readonly origin?: pulumi.Input<string>;
@@ -156,7 +162,11 @@ export interface RouteState {
     readonly routeTableId?: pulumi.Input<string>;
     readonly state?: pulumi.Input<string>;
     /**
-     * An ID of a VPC peering connection.
+     * Identifier of an EC2 Transit Gateway.
+     */
+    readonly transitGatewayId?: pulumi.Input<string>;
+    /**
+     * Identifier of a VPC peering connection.
      */
     readonly vpcPeeringConnectionId?: pulumi.Input<string>;
 }
@@ -174,23 +184,23 @@ export interface RouteArgs {
      */
     readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
-     * An ID of a VPC Egress Only Internet Gateway.
+     * Identifier of a VPC Egress Only Internet Gateway.
      */
     readonly egressOnlyGatewayId?: pulumi.Input<string>;
     /**
-     * An ID of a VPC internet gateway or a virtual private gateway.
+     * Identifier of a VPC internet gateway or a virtual private gateway.
      */
     readonly gatewayId?: pulumi.Input<string>;
     /**
-     * An ID of an EC2 instance.
+     * Identifier of an EC2 instance.
      */
     readonly instanceId?: pulumi.Input<string>;
     /**
-     * An ID of a VPC NAT gateway.
+     * Identifier of a VPC NAT gateway.
      */
     readonly natGatewayId?: pulumi.Input<string>;
     /**
-     * An ID of a network interface.
+     * Identifier of an EC2 network interface.
      */
     readonly networkInterfaceId?: pulumi.Input<string>;
     /**
@@ -198,7 +208,11 @@ export interface RouteArgs {
      */
     readonly routeTableId: pulumi.Input<string>;
     /**
-     * An ID of a VPC peering connection.
+     * Identifier of an EC2 Transit Gateway.
+     */
+    readonly transitGatewayId?: pulumi.Input<string>;
+    /**
+     * Identifier of a VPC peering connection.
      */
     readonly vpcPeeringConnectionId?: pulumi.Input<string>;
 }

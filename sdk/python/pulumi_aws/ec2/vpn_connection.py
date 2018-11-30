@@ -8,8 +8,7 @@ from .. import utilities, tables
 
 class VpnConnection(pulumi.CustomResource):
     """
-    
-    Provides a VPN connection connected to a VPC. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and the VPC.
+    Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
     
     ~> **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -17,7 +16,7 @@ class VpnConnection(pulumi.CustomResource):
     ~> **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
     [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
     """
-    def __init__(__self__, __name__, __opts__=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vgw_telemetries=None, vpn_gateway_id=None):
+    def __init__(__self__, __name__, __opts__=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vgw_telemetries=None, vpn_gateway_id=None):
         """Create a VpnConnection resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -40,6 +39,8 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        __props__['transit_gateway_id'] = transit_gateway_id
+
         __props__['tunnel1_inside_cidr'] = tunnel1_inside_cidr
 
         __props__['tunnel1_preshared_key'] = tunnel1_preshared_key
@@ -54,8 +55,6 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__['vgw_telemetries'] = vgw_telemetries
 
-        if not vpn_gateway_id:
-            raise TypeError('Missing required property vpn_gateway_id')
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
         __props__['tunnel1_address'] = None

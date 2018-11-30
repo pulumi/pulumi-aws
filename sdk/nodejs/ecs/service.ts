@@ -29,6 +29,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cluster: pulumi.Output<string>;
     /**
+     * Configuration block containing deployment controller configuration. Defined below.
+     */
+    public readonly deploymentController: pulumi.Output<{ type?: string } | undefined>;
+    /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     public readonly deploymentMaximumPercent: pulumi.Output<number | undefined>;
@@ -40,6 +44,7 @@ export class Service extends pulumi.CustomResource {
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     public readonly desiredCount: pulumi.Output<number | undefined>;
+    public readonly enableEcsManagedTags: pulumi.Output<boolean | undefined>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
      */
@@ -86,11 +91,16 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly serviceRegistries: pulumi.Output<{ containerName?: string, containerPort?: number, port?: number, registryArn: string } | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
     public readonly taskDefinition: pulumi.Output<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+     * =======
      */
     public readonly waitForSteadyState: pulumi.Output<boolean | undefined>;
 
@@ -107,9 +117,11 @@ export class Service extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ServiceState = argsOrState as ServiceState | undefined;
             inputs["cluster"] = state ? state.cluster : undefined;
+            inputs["deploymentController"] = state ? state.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
             inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = state ? state.desiredCount : undefined;
+            inputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
             inputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
             inputs["iamRole"] = state ? state.iamRole : undefined;
             inputs["launchType"] = state ? state.launchType : undefined;
@@ -121,6 +133,7 @@ export class Service extends pulumi.CustomResource {
             inputs["placementStrategies"] = state ? state.placementStrategies : undefined;
             inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["taskDefinition"] = state ? state.taskDefinition : undefined;
             inputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
@@ -129,9 +142,11 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'taskDefinition'");
             }
             inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["deploymentController"] = args ? args.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
             inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = args ? args.desiredCount : undefined;
+            inputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
             inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             inputs["iamRole"] = args ? args.iamRole : undefined;
             inputs["launchType"] = args ? args.launchType : undefined;
@@ -143,6 +158,7 @@ export class Service extends pulumi.CustomResource {
             inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
             inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
         }
@@ -159,6 +175,10 @@ export interface ServiceState {
      */
     readonly cluster?: pulumi.Input<string>;
     /**
+     * Configuration block containing deployment controller configuration. Defined below.
+     */
+    readonly deploymentController?: pulumi.Input<{ type?: pulumi.Input<string> }>;
+    /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
@@ -170,6 +190,7 @@ export interface ServiceState {
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
+    readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
      */
@@ -216,11 +237,16 @@ export interface ServiceState {
      */
     readonly serviceRegistries?: pulumi.Input<{ containerName?: pulumi.Input<string>, containerPort?: pulumi.Input<number>, port?: pulumi.Input<number>, registryArn: pulumi.Input<string> }>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
     readonly taskDefinition?: pulumi.Input<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+     * =======
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
@@ -234,6 +260,10 @@ export interface ServiceArgs {
      */
     readonly cluster?: pulumi.Input<string>;
     /**
+     * Configuration block containing deployment controller configuration. Defined below.
+     */
+    readonly deploymentController?: pulumi.Input<{ type?: pulumi.Input<string> }>;
+    /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
     readonly deploymentMaximumPercent?: pulumi.Input<number>;
@@ -245,6 +275,7 @@ export interface ServiceArgs {
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
+    readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
      */
@@ -291,11 +322,16 @@ export interface ServiceArgs {
      */
     readonly serviceRegistries?: pulumi.Input<{ containerName?: pulumi.Input<string>, containerPort?: pulumi.Input<number>, port?: pulumi.Input<number>, registryArn: pulumi.Input<string> }>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
     readonly taskDefinition: pulumi.Input<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+     * =======
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

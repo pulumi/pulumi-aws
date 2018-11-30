@@ -39,9 +39,11 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["description"] = nil
 		inputs["loggingInfo"] = nil
 		inputs["maxConcurrency"] = nil
 		inputs["maxErrors"] = nil
+		inputs["name"] = nil
 		inputs["priority"] = nil
 		inputs["serviceRoleArn"] = nil
 		inputs["targets"] = nil
@@ -50,9 +52,11 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 		inputs["taskType"] = nil
 		inputs["windowId"] = nil
 	} else {
+		inputs["description"] = args.Description
 		inputs["loggingInfo"] = args.LoggingInfo
 		inputs["maxConcurrency"] = args.MaxConcurrency
 		inputs["maxErrors"] = args.MaxErrors
+		inputs["name"] = args.Name
 		inputs["priority"] = args.Priority
 		inputs["serviceRoleArn"] = args.ServiceRoleArn
 		inputs["targets"] = args.Targets
@@ -74,9 +78,11 @@ func GetMaintenanceWindowTask(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *MaintenanceWindowTaskState, opts ...pulumi.ResourceOpt) (*MaintenanceWindowTask, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["description"] = state.Description
 		inputs["loggingInfo"] = state.LoggingInfo
 		inputs["maxConcurrency"] = state.MaxConcurrency
 		inputs["maxErrors"] = state.MaxErrors
+		inputs["name"] = state.Name
 		inputs["priority"] = state.Priority
 		inputs["serviceRoleArn"] = state.ServiceRoleArn
 		inputs["targets"] = state.Targets
@@ -102,6 +108,11 @@ func (r *MaintenanceWindowTask) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The description of the maintenance window task.
+func (r *MaintenanceWindowTask) Description() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["description"])
+}
+
 // A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
 func (r *MaintenanceWindowTask) LoggingInfo() *pulumi.Output {
 	return r.s.State["loggingInfo"]
@@ -115,6 +126,10 @@ func (r *MaintenanceWindowTask) MaxConcurrency() *pulumi.StringOutput {
 // The maximum number of errors allowed before this task stops being scheduled.
 func (r *MaintenanceWindowTask) MaxErrors() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["maxErrors"])
+}
+
+func (r *MaintenanceWindowTask) Name() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
@@ -154,12 +169,15 @@ func (r *MaintenanceWindowTask) WindowId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering MaintenanceWindowTask resources.
 type MaintenanceWindowTaskState struct {
+	// The description of the maintenance window task.
+	Description interface{}
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
 	LoggingInfo interface{}
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency interface{}
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors interface{}
+	Name interface{}
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority interface{}
 	// The role that should be assumed when executing the task.
@@ -178,12 +196,15 @@ type MaintenanceWindowTaskState struct {
 
 // The set of arguments for constructing a MaintenanceWindowTask resource.
 type MaintenanceWindowTaskArgs struct {
+	// The description of the maintenance window task.
+	Description interface{}
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
 	LoggingInfo interface{}
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency interface{}
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors interface{}
+	Name interface{}
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority interface{}
 	// The role that should be assumed when executing the task.

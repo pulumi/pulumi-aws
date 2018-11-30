@@ -9,4 +9,5 @@ from .query_log import *
 from .record import *
 from .zone import *
 from .zone_association import *
+from .get_delegation_set import *
 from .get_zone import *

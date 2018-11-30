@@ -63,7 +63,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * A list of route objects. Their keys are documented below.
      */
-    public readonly routes: pulumi.Output<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, vpcPeeringConnectionId?: string }[]>;
+    public readonly routes: pulumi.Output<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -117,7 +117,7 @@ export interface DefaultRouteTableState {
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, transitGatewayId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -140,7 +140,7 @@ export interface DefaultRouteTableArgs {
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, transitGatewayId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

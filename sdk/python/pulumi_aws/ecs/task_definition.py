@@ -10,7 +10,7 @@ class TaskDefinition(pulumi.CustomResource):
     """
     Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
     """
-    def __init__(__self__, __name__, __opts__=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, memory=None, network_mode=None, placement_constraints=None, requires_compatibilities=None, task_role_arn=None, volumes=None):
+    def __init__(__self__, __name__, __opts__=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None):
         """Create a TaskDefinition resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -33,13 +33,19 @@ class TaskDefinition(pulumi.CustomResource):
             raise TypeError('Missing required property family')
         __props__['family'] = family
 
+        __props__['ipc_mode'] = ipc_mode
+
         __props__['memory'] = memory
 
         __props__['network_mode'] = network_mode
 
+        __props__['pid_mode'] = pid_mode
+
         __props__['placement_constraints'] = placement_constraints
 
         __props__['requires_compatibilities'] = requires_compatibilities
+
+        __props__['tags'] = tags
 
         __props__['task_role_arn'] = task_role_arn
 

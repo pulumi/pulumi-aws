@@ -21,6 +21,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
         "natGatewayId": args.natGatewayId,
         "networkInterfaceId": args.networkInterfaceId,
         "routeTableId": args.routeTableId,
+        "transitGatewayId": args.transitGatewayId,
         "vpcPeeringConnectionId": args.vpcPeeringConnectionId,
     }, opts);
 }
@@ -62,6 +63,10 @@ export interface GetRouteArgs {
      */
     readonly routeTableId: string;
     /**
+     * The EC2 Transit Gateway ID of the Route belonging to the Route Table.
+     */
+    readonly transitGatewayId?: string;
+    /**
      * The VPC Peering Connection ID of the Route belonging to the Route Table.
      */
     readonly vpcPeeringConnectionId?: string;
@@ -78,6 +83,7 @@ export interface GetRouteResult {
     readonly instanceId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
+    readonly transitGatewayId: string;
     readonly vpcPeeringConnectionId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

@@ -16,6 +16,8 @@ import * as utilities from "../utilities";
  * a conflict of rule settings and will overwrite rules.
  * 
  * ~> **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by Terraform and may generate warnings in the future.
+ * 
+ * ~> **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
  */
 export class SecurityGroupRule extends pulumi.CustomResource {
     /**

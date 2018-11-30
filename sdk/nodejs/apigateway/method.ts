@@ -53,8 +53,8 @@ export class Method extends pulumi.CustomResource {
      * For example:
      * ```hcl
      * request_parameters = {
-     * "method.request.header.X-Some-Header" = true,
-     * "method.request.querystring.some-query-param"  = true,
+     * "method.request.header.X-Some-Header"         = true
+     * "method.request.querystring.some-query-param" = true
      * }
      * ```
      * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
@@ -165,8 +165,8 @@ export interface MethodState {
      * For example:
      * ```hcl
      * request_parameters = {
-     * "method.request.header.X-Some-Header" = true,
-     * "method.request.querystring.some-query-param"  = true,
+     * "method.request.header.X-Some-Header"         = true
+     * "method.request.querystring.some-query-param" = true
      * }
      * ```
      * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
@@ -225,8 +225,8 @@ export interface MethodArgs {
      * For example:
      * ```hcl
      * request_parameters = {
-     * "method.request.header.X-Some-Header" = true,
-     * "method.request.querystring.some-query-param"  = true,
+     * "method.request.header.X-Some-Header"         = true
+     * "method.request.querystring.some-query-param" = true
      * }
      * ```
      * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or

@@ -21,6 +21,10 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     }
 
     /**
+     * The description of the maintenance window task.
+     */
+    public readonly description: pulumi.Output<string | undefined>;
+    /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
     public readonly loggingInfo: pulumi.Output<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string } | undefined>;
@@ -32,6 +36,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      * The maximum number of errors allowed before this task stops being scheduled.
      */
     public readonly maxErrors: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
@@ -73,9 +78,11 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MaintenanceWindowTaskState = argsOrState as MaintenanceWindowTaskState | undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
             inputs["maxErrors"] = state ? state.maxErrors : undefined;
+            inputs["name"] = state ? state.name : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             inputs["targets"] = state ? state.targets : undefined;
@@ -106,9 +113,11 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             if (!args || args.windowId === undefined) {
                 throw new Error("Missing required property 'windowId'");
             }
+            inputs["description"] = args ? args.description : undefined;
             inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
             inputs["maxErrors"] = args ? args.maxErrors : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["targets"] = args ? args.targets : undefined;
@@ -126,6 +135,10 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
  */
 export interface MaintenanceWindowTaskState {
     /**
+     * The description of the maintenance window task.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
     readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
@@ -137,6 +150,7 @@ export interface MaintenanceWindowTaskState {
      * The maximum number of errors allowed before this task stops being scheduled.
      */
     readonly maxErrors?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
@@ -172,6 +186,10 @@ export interface MaintenanceWindowTaskState {
  */
 export interface MaintenanceWindowTaskArgs {
     /**
+     * The description of the maintenance window task.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
     readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
@@ -183,6 +201,7 @@ export interface MaintenanceWindowTaskArgs {
      * The maximum number of errors allowed before this task stops being scheduled.
      */
     readonly maxErrors: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */

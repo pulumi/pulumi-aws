@@ -10,7 +10,13 @@ class GetFileSystemResult(object):
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None, id=None):
+    def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None, id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError('Expected argument arn to be a str')
+        __self__.arn = arn
+        """
+        Amazon Resource Name of the file system.
+        """
         if creation_token and not isinstance(creation_token, str):
             raise TypeError('Expected argument creation_token to be a str')
         __self__.creation_token = creation_token
@@ -66,6 +72,7 @@ async def get_file_system(creation_token=None, file_system_id=None, tags=None):
     __ret__ = await pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__)
 
     return GetFileSystemResult(
+        arn=__ret__.get('arn'),
         creation_token=__ret__.get('creationToken'),
         dns_name=__ret__.get('dnsName'),
         encrypted=__ret__.get('encrypted'),

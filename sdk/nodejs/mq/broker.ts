@@ -85,6 +85,10 @@ export class Broker extends pulumi.CustomResource {
      */
     public /*out*/ readonly instances: pulumi.Output<{ consoleUrl: string, endpoints: string[], ipAddress: string }[]>;
     /**
+     * Logging configuration of the broker. See below.
+     */
+    public readonly logs: pulumi.Output<{ audit?: boolean, general?: boolean } | undefined>;
+    /**
      * Maintenance window start time. See below.
      */
     public readonly maintenanceWindowStartTime: pulumi.Output<{ dayOfWeek: string, timeOfDay: string, timeZone: string }>;
@@ -127,6 +131,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
             inputs["instances"] = state ? state.instances : undefined;
+            inputs["logs"] = state ? state.logs : undefined;
             inputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -160,6 +165,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["engineType"] = args ? args.engineType : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
+            inputs["logs"] = args ? args.logs : undefined;
             inputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -226,6 +232,10 @@ export interface BrokerState {
      */
     readonly instances?: pulumi.Input<pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]>, ipAddress?: pulumi.Input<string> }>[]>;
     /**
+     * Logging configuration of the broker. See below.
+     */
+    readonly logs?: pulumi.Input<{ audit?: pulumi.Input<boolean>, general?: pulumi.Input<boolean> }>;
+    /**
      * Maintenance window start time. See below.
      */
     readonly maintenanceWindowStartTime?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, timeOfDay: pulumi.Input<string>, timeZone: pulumi.Input<string> }>;
@@ -284,6 +294,10 @@ export interface BrokerArgs {
      * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
      */
     readonly hostInstanceType: pulumi.Input<string>;
+    /**
+     * Logging configuration of the broker. See below.
+     */
+    readonly logs?: pulumi.Input<{ audit?: pulumi.Input<boolean>, general?: pulumi.Input<boolean> }>;
     /**
      * Maintenance window start time. See below.
      */

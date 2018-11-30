@@ -35,6 +35,10 @@ export interface GetFileSystemArgs {
  * A collection of values returned by getFileSystem.
  */
 export interface GetFileSystemResult {
+    /**
+     * Amazon Resource Name of the file system.
+     */
+    readonly arn: string;
     readonly creationToken: string;
     /**
      * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).

@@ -8,13 +8,7 @@ from .. import utilities, tables
 
 class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     """
-    Provides a resource to create an association between a VPC endpoint and routing table.
-    
-    ~> **NOTE on VPC Endpoints and VPC Endpoint Route Table Associations:** Terraform provides
-    both a standalone VPC Endpoint Route Table Association (an association between a VPC endpoint
-    and a single `route_table_id`) and a VPC Endpoint resource with a `route_table_ids`
-    attribute. Do not use the same route table ID in both a VPC Endpoint resource and a VPC Endpoint Route
-    Table Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+    Manages a VPC Endpoint Route Table Association
     """
     def __init__(__self__, __name__, __opts__=None, route_table_id=None, vpc_endpoint_id=None):
         """Create a VpcEndpointRouteTableAssociation resource with the given unique name, props, and options."""

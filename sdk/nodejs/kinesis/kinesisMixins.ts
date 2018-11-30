@@ -32,12 +32,13 @@ export interface StreamEventSubscriptionArgs {
     readonly startingPosition: "TRIM_HORIZON" | "LATEST" | "AT_TIMESTAMP";
 
     /**
-     * The timestamp of the data record from which to start reading. Used with shard iterator type
-     * AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is
-     * for the next (later) record. If the timestamp is older than the current trim horizon, the
-     * iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the
+     * data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`.
+     * If a record with this exact timestamp does not exist, the next later record is chosen.
+     * If the timestamp is older than the current trim horizon, the oldest available record is
+     * chosen.
      */
-    readonly startingPositionTimestamp?: number;
+    readonly startingPositionTimestamp?: string;
 }
 
 export interface StreamEvent {
@@ -127,4 +128,4 @@ declare module "./stream" {
 
 stream.Stream.prototype.onEvent = function(this: stream.Stream, name, handler, args, opts) {
     return new StreamEventSubscription(name, this, handler, args, opts);
-}
+};
