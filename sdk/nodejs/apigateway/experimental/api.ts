@@ -182,7 +182,7 @@ export class API extends pulumi.ComponentResource {
 
     public url: pulumi.Output<string>;
 
-    constructor(name: string, args: APIArgs, opts: pulumi.ResourceOptions = {}) {
+    constructor(name: string, args: APIArgs, opts: pulumi.ComponentResourceOptions = {}) {
         super("aws:apigateway:x:API", name, {}, opts);
 
         let swaggerString: pulumi.Output<string>;
@@ -341,7 +341,7 @@ interface ApigatewayIntegration {
     connectionId?: pulumi.Output<string>;
 }
 
-function createSwaggerSpec(name: string, opts: pulumi.ResourceOptions, routes: Route[]): SwaggerSpec {
+function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, routes: Route[]): SwaggerSpec {
     // Set up the initial swagger spec.
     const swagger: SwaggerSpec = {
         swagger: "2.0",
@@ -405,14 +405,14 @@ function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string,
     swagger.paths[path][method] = operation;
 }
 
-function checkRoute<TRoute>(route: TRoute, propName: keyof TRoute, opts: pulumi.ResourceOptions) {
+function checkRoute<TRoute>(route: TRoute, propName: keyof TRoute, opts: pulumi.ComponentResourceOptions) {
     if (route[propName] === undefined) {
         throw new pulumi.ResourceError(`Route missing required [${propName}] property`, opts.parent);
     }
 }
 
 function addEventHandlerRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: EventHandlerRoute, opts: pulumi.ResourceOptions) {
+    name: string, swagger: SwaggerSpec, route: EventHandlerRoute, opts: pulumi.ComponentResourceOptions) {
 
     checkRoute(route, "eventHandler", opts);
     checkRoute(route, "method", opts);
@@ -443,7 +443,7 @@ function addEventHandlerRouteToSwaggerSpec(
 
 function addStaticRouteToSwaggerSpec(
     name: string, swagger: SwaggerSpec, route: StaticRoute,
-    opts: pulumi.ResourceOptions, bucket: aws.s3.Bucket | undefined) {
+    opts: pulumi.ComponentResourceOptions, bucket: aws.s3.Bucket | undefined) {
 
     checkRoute(route, "localPath", opts);
 
@@ -630,7 +630,7 @@ function addStaticRouteToSwaggerSpec(
 }
 
 function addProxyRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: ProxyRoute, opts: pulumi.ResourceOptions) {
+    name: string, swagger: SwaggerSpec, route: ProxyRoute, opts: pulumi.ComponentResourceOptions) {
 
     checkRoute(route, "target", opts);
 
@@ -729,7 +729,7 @@ function addProxyRouteToSwaggerSpec(
 }
 
 function addRawDataRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: RawDataRoute, opts: pulumi.ResourceOptions) {
+    name: string, swagger: SwaggerSpec, route: RawDataRoute, opts: pulumi.ComponentResourceOptions) {
 
     checkRoute(route, "data", opts);
     checkRoute(route, "method", opts);
