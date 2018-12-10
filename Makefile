@@ -19,7 +19,7 @@ TESTPARALLELISM := 4
 build::
 	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
 	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
-	for LANGUAGE in "nodejs" "python" "go" ; do \
+	for LANGUAGE in "nodejs" "go" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
 	cd ${PACKDIR}/nodejs/ && \
@@ -27,18 +27,6 @@ build::
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
-	cd ${PACKDIR}/python/ && \
-		if [ $$(command -v pandoc) ]; then \
-			pandoc --from=markdown --to=rst --output=README.rst ../../README.md; \
-		else \
-			echo "warning: pandoc not found, not generating README.rst"; \
-			echo "" > README.rst; \
-		fi && \
-		$(PYTHON) setup.py clean --all 2>/dev/null && \
-		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
-		rm ./bin/setup.py.bak && \
-		cd ./bin && $(PYTHON) setup.py build sdist
 
 lint::
 	golangci-lint run
@@ -53,7 +41,6 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
-	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
 test_all::
 	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
