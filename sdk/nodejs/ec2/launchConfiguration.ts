@@ -18,8 +18,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LaunchConfigurationState): LaunchConfiguration {
-        return new LaunchConfiguration(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LaunchConfigurationState, opts?: pulumi.CustomResourceOptions): LaunchConfiguration {
+        return new LaunchConfiguration(name, <any>state, { ...opts, id: id });
     }
 
     /**

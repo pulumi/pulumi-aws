@@ -16,8 +16,8 @@ export class SmsPreferences extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SmsPreferencesState): SmsPreferences {
-        return new SmsPreferences(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SmsPreferencesState, opts?: pulumi.CustomResourceOptions): SmsPreferences {
+        return new SmsPreferences(name, <any>state, { ...opts, id: id });
     }
 
     /**

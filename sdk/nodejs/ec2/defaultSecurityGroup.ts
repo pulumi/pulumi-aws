@@ -42,8 +42,8 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultSecurityGroupState): DefaultSecurityGroup {
-        return new DefaultSecurityGroup(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultSecurityGroupState, opts?: pulumi.CustomResourceOptions): DefaultSecurityGroup {
+        return new DefaultSecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
     public /*out*/ readonly arn: pulumi.Output<string>;

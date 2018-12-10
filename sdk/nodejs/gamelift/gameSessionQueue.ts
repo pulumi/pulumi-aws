@@ -16,8 +16,8 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GameSessionQueueState): GameSessionQueue {
-        return new GameSessionQueue(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GameSessionQueueState, opts?: pulumi.CustomResourceOptions): GameSessionQueue {
+        return new GameSessionQueue(name, <any>state, { ...opts, id: id });
     }
 
     /**

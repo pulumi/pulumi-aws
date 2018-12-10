@@ -18,8 +18,8 @@ export class UserPolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPolicyState): UserPolicy {
-        return new UserPolicy(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPolicyState, opts?: pulumi.CustomResourceOptions): UserPolicy {
+        return new UserPolicy(name, <any>state, { ...opts, id: id });
     }
 
     /**

@@ -17,8 +17,8 @@ export class QueuePolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueuePolicyState): QueuePolicy {
-        return new QueuePolicy(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueuePolicyState, opts?: pulumi.CustomResourceOptions): QueuePolicy {
+        return new QueuePolicy(name, <any>state, { ...opts, id: id });
     }
 
     /**

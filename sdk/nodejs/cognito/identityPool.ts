@@ -16,8 +16,8 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IdentityPoolState): IdentityPool {
-        return new IdentityPool(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IdentityPoolState, opts?: pulumi.CustomResourceOptions): IdentityPool {
+        return new IdentityPool(name, <any>state, { ...opts, id: id });
     }
 
     /**

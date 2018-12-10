@@ -16,8 +16,8 @@ export class Fleet extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FleetState): Fleet {
-        return new Fleet(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FleetState, opts?: pulumi.CustomResourceOptions): Fleet {
+        return new Fleet(name, <any>state, { ...opts, id: id });
     }
 
     /**

@@ -16,8 +16,8 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SqlInjectionMatchSetState): SqlInjectionMatchSet {
-        return new SqlInjectionMatchSet(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SqlInjectionMatchSetState, opts?: pulumi.CustomResourceOptions): SqlInjectionMatchSet {
+        return new SqlInjectionMatchSet(name, <any>state, { ...opts, id: id });
     }
 
     /**

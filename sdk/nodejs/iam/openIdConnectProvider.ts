@@ -16,8 +16,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OpenIdConnectProviderState): OpenIdConnectProvider {
-        return new OpenIdConnectProvider(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions): OpenIdConnectProvider {
+        return new OpenIdConnectProvider(name, <any>state, { ...opts, id: id });
     }
 
     /**
