@@ -67,7 +67,6 @@
     "aws/credentials",
     "aws/credentials/ec2rolecreds",
     "aws/credentials/endpointcreds",
-    "aws/credentials/processcreds",
     "aws/credentials/stscreds",
     "aws/crr",
     "aws/csm",
@@ -183,8 +182,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "c4e0e593d5f18b478f17ff0e86b56d41a70ced2d"
-  version = "v1.16.2"
+  revision = "180cc10e5ff368b86dee226b034af7d1672baec6"
+  version = "v1.15.87"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -639,7 +638,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "05f53110556393a14456741a5b0ff2acf830a3d5"
+  revision = "55bea6527690f24bb1dadfc10897212a99e84069"
 
 [[projects]]
   branch = "master"
@@ -648,7 +647,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "2c187fb6f5e33adbc3c54c4dff4c86f7c9af7379"
+  revision = "a5f089711e12eef3f688407de1032a041b7f8b08"
 
 [[projects]]
   branch = "master"
