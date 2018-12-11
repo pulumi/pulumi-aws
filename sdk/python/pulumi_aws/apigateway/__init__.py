@@ -26,5 +26,6 @@ from .stage import *
 from .usage_plan import *
 from .usage_plan_key import *
 from .vpc_link import *
+from .get_key import *
 from .get_resource import *
 from .get_rest_api import *

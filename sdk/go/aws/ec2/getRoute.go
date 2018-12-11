@@ -23,6 +23,7 @@ func LookupRoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, erro
 		inputs["natGatewayId"] = args.NatGatewayId
 		inputs["networkInterfaceId"] = args.NetworkInterfaceId
 		inputs["routeTableId"] = args.RouteTableId
+		inputs["transitGatewayId"] = args.TransitGatewayId
 		inputs["vpcPeeringConnectionId"] = args.VpcPeeringConnectionId
 	}
 	outputs, err := ctx.Invoke("aws:ec2/getRoute:getRoute", inputs)
@@ -37,6 +38,7 @@ func LookupRoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, erro
 		InstanceId: outputs["instanceId"],
 		NatGatewayId: outputs["natGatewayId"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
+		TransitGatewayId: outputs["transitGatewayId"],
 		VpcPeeringConnectionId: outputs["vpcPeeringConnectionId"],
 		Id: outputs["id"],
 	}, nil
@@ -60,6 +62,8 @@ type GetRouteArgs struct {
 	NetworkInterfaceId interface{}
 	// The id of the specific Route Table containing the Route entry.
 	RouteTableId interface{}
+	// The EC2 Transit Gateway ID of the Route belonging to the Route Table.
+	TransitGatewayId interface{}
 	// The VPC Peering Connection ID of the Route belonging to the Route Table.
 	VpcPeeringConnectionId interface{}
 }
@@ -73,6 +77,7 @@ type GetRouteResult struct {
 	InstanceId interface{}
 	NatGatewayId interface{}
 	NetworkInterfaceId interface{}
+	TransitGatewayId interface{}
 	VpcPeeringConnectionId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

@@ -17,8 +17,10 @@ func NewOrganization(ctx *pulumi.Context,
 	name string, args *OrganizationArgs, opts ...pulumi.ResourceOpt) (*Organization, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["awsServiceAccessPrincipals"] = nil
 		inputs["featureSet"] = nil
 	} else {
+		inputs["awsServiceAccessPrincipals"] = args.AwsServiceAccessPrincipals
 		inputs["featureSet"] = args.FeatureSet
 	}
 	inputs["arn"] = nil
@@ -39,6 +41,7 @@ func GetOrganization(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["awsServiceAccessPrincipals"] = state.AwsServiceAccessPrincipals
 		inputs["featureSet"] = state.FeatureSet
 		inputs["masterAccountArn"] = state.MasterAccountArn
 		inputs["masterAccountEmail"] = state.MasterAccountEmail
@@ -66,6 +69,11 @@ func (r *Organization) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+func (r *Organization) AwsServiceAccessPrincipals() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["awsServiceAccessPrincipals"])
+}
+
 // Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 func (r *Organization) FeatureSet() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["featureSet"])
@@ -90,6 +98,8 @@ func (r *Organization) MasterAccountId() *pulumi.StringOutput {
 type OrganizationState struct {
 	// ARN of the organization
 	Arn interface{}
+	// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+	AwsServiceAccessPrincipals interface{}
 	// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 	FeatureSet interface{}
 	// ARN of the master account
@@ -102,6 +112,8 @@ type OrganizationState struct {
 
 // The set of arguments for constructing a Organization resource.
 type OrganizationArgs struct {
+	// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+	AwsServiceAccessPrincipals interface{}
 	// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 	FeatureSet interface{}
 }

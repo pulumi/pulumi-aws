@@ -21,7 +21,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
     public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
@@ -60,7 +60,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
     readonly computePlatform?: pulumi.Input<string>;
     /**
@@ -75,7 +75,7 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
     readonly computePlatform?: pulumi.Input<string>;
     /**

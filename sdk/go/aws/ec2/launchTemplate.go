@@ -18,6 +18,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["blockDeviceMappings"] = nil
+		inputs["capacityReservationSpecification"] = nil
 		inputs["creditSpecification"] = nil
 		inputs["description"] = nil
 		inputs["disableApiTermination"] = nil
@@ -43,6 +44,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["vpcSecurityGroupIds"] = nil
 	} else {
 		inputs["blockDeviceMappings"] = args.BlockDeviceMappings
+		inputs["capacityReservationSpecification"] = args.CapacityReservationSpecification
 		inputs["creditSpecification"] = args.CreditSpecification
 		inputs["description"] = args.Description
 		inputs["disableApiTermination"] = args.DisableApiTermination
@@ -85,6 +87,7 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["blockDeviceMappings"] = state.BlockDeviceMappings
+		inputs["capacityReservationSpecification"] = state.CapacityReservationSpecification
 		inputs["creditSpecification"] = state.CreditSpecification
 		inputs["defaultVersion"] = state.DefaultVersion
 		inputs["description"] = state.Description
@@ -139,7 +142,12 @@ func (r *LaunchTemplate) BlockDeviceMappings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["blockDeviceMappings"])
 }
 
-// Customize the credit specification of the instance. See Credit 
+// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+func (r *LaunchTemplate) CapacityReservationSpecification() *pulumi.Output {
+	return r.s.State["capacityReservationSpecification"]
+}
+
+// Customize the credit specification of the instance. See Credit
 // Specification below for more details.
 func (r *LaunchTemplate) CreditSpecification() *pulumi.Output {
 	return r.s.State["creditSpecification"]
@@ -230,7 +238,7 @@ func (r *LaunchTemplate) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// Customize network interfaces to be attached at instance boot time. See Network 
+// Customize network interfaces to be attached at instance boot time. See Network
 // Interfaces below for more details.
 func (r *LaunchTemplate) NetworkInterfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
@@ -279,7 +287,9 @@ type LaunchTemplateState struct {
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
 	BlockDeviceMappings interface{}
-	// Customize the credit specification of the instance. See Credit 
+	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification interface{}
+	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification interface{}
 	// The default version of the launch template.
@@ -319,7 +329,7 @@ type LaunchTemplateState struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// Customize network interfaces to be attached at instance boot time. See Network 
+	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces interface{}
 	// The placement of the instance. See Placement below for more details.
@@ -344,7 +354,9 @@ type LaunchTemplateArgs struct {
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
 	BlockDeviceMappings interface{}
-	// Customize the credit specification of the instance. See Credit 
+	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification interface{}
+	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification interface{}
 	// Description of the launch template.
@@ -380,7 +392,7 @@ type LaunchTemplateArgs struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// Customize network interfaces to be attached at instance boot time. See Network 
+	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces interface{}
 	// The placement of the instance. See Placement below for more details.

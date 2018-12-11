@@ -111,6 +111,8 @@ interface SubscriptionInfo {
     filterSuffix?: string;
     lambdaFunctionArn: pulumi.Output<string>;
     permission: lambda.Permission;
+
+    provider: pulumi.ProviderResource;
 }
 
 let bucketSubscriptionInfos = new Map<Bucket, SubscriptionInfo[]>();
@@ -157,6 +159,16 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             filterSuffix: args.filterSuffix,
             lambdaFunctionArn: this.func.arn,
             permission: this.permission,
+
+            // See https://github.com/pulumi/pulumi/issues/2262 for full details.
+            //
+            // pulumi.Resource does not set the provider for a *custom* resource if the parent is
+            // another *custom* resource. This is problematic as that BucketNotification has to
+            // agree with the Bucket on their provider so that things like 'region' are properly
+            // shared between the two.  As a temporary workaround we explicitly pull the provider
+            // out of the parent bucket and pass it along. We use the "aws::" form as we know that
+            // Resource will pull off the "aws" portion to grab that provider.
+            provider: this.getProvider("aws::"),
         });
 
         this.registerOutputs({
@@ -175,6 +187,13 @@ process.on("beforeExit", () => {
 
     for (const [bucket, subscriptions] of copy) {
         const permissions = subscriptions.map(s => s.permission);
+
+        // See https://github.com/pulumi/pulumi/issues/2262 for full details.
+        //
+        // We just use the provider for the first subscription here.  In the future we will be able
+        // to grab the provider from the bucket, which acts as our single logical parent.
+        const opts = { parent: bucket, dependsOn: permissions, provider: subscriptions[0].provider };
+
         const _ = new BucketNotification(subscriptions[0].name, {
             bucket: bucket.id,
             lambdaFunctions: subscriptions.map(subscription => ({
@@ -183,7 +202,7 @@ process.on("beforeExit", () => {
                 filterSuffix: subscription.filterSuffix,
                 lambdaFunctionArn: subscription.lambdaFunctionArn,
             })),
-        }, { parent: bucket, dependsOn: permissions });
+        }, opts);
     }
 });
 

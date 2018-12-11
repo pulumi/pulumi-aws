@@ -35,6 +35,7 @@ func NewMountTarget(ctx *pulumi.Context,
 		inputs["subnetId"] = args.SubnetId
 	}
 	inputs["dnsName"] = nil
+	inputs["fileSystemArn"] = nil
 	inputs["networkInterfaceId"] = nil
 	s, err := ctx.RegisterResource("aws:efs/mountTarget:MountTarget", name, true, inputs, opts...)
 	if err != nil {
@@ -50,6 +51,7 @@ func GetMountTarget(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["dnsName"] = state.DnsName
+		inputs["fileSystemArn"] = state.FileSystemArn
 		inputs["fileSystemId"] = state.FileSystemId
 		inputs["ipAddress"] = state.IpAddress
 		inputs["networkInterfaceId"] = state.NetworkInterfaceId
@@ -76,6 +78,11 @@ func (r *MountTarget) ID() *pulumi.IDOutput {
 // The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 func (r *MountTarget) DnsName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsName"])
+}
+
+// Amazon Resource Name of the file system.
+func (r *MountTarget) FileSystemArn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["fileSystemArn"])
 }
 
 // The ID of the file system for which the mount target is intended.
@@ -109,6 +116,8 @@ func (r *MountTarget) SubnetId() *pulumi.StringOutput {
 type MountTargetState struct {
 	// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	DnsName interface{}
+	// Amazon Resource Name of the file system.
+	FileSystemArn interface{}
 	// The ID of the file system for which the mount target is intended.
 	FileSystemId interface{}
 	// The address (within the address range of the specified subnet) at

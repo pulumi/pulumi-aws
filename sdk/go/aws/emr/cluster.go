@@ -153,8 +153,7 @@ func (r *Cluster) AutoscalingRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["autoscalingRole"])
 }
 
-// List of bootstrap actions that will be run before Hadoop is started on
-// the cluster nodes. Defined below
+// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 func (r *Cluster) BootstrapActions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["bootstrapActions"])
 }
@@ -193,8 +192,7 @@ func (r *Cluster) EbsRootVolumeSize() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["ebsRootVolumeSize"])
 }
 
-// Attributes for the EC2 instances running the job
-// flow. Defined below
+// Attributes for the EC2 instances running the job flow. Defined below
 func (r *Cluster) Ec2Attributes() *pulumi.Output {
 	return r.s.State["ec2Attributes"]
 }
@@ -214,8 +212,7 @@ func (r *Cluster) KerberosAttributes() *pulumi.Output {
 	return r.s.State["kerberosAttributes"]
 }
 
-// S3 bucket to write the log files of the job flow. If a value
-// is not provided, logs are not created
+// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
 func (r *Cluster) LogUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logUri"])
 }
@@ -240,7 +237,7 @@ func (r *Cluster) ReleaseLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["releaseLabel"])
 }
 
-// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized. 
+// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
 func (r *Cluster) ScaleDownBehavior() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scaleDownBehavior"])
 }
@@ -283,8 +280,7 @@ type ClusterState struct {
 	Applications interface{}
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole interface{}
-	// List of bootstrap actions that will be run before Hadoop is started on
-	// the cluster nodes. Defined below
+	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions interface{}
 	ClusterState interface{}
 	// List of configurations supplied for the EMR cluster you are creating
@@ -299,8 +295,7 @@ type ClusterState struct {
 	CustomAmiId interface{}
 	// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
 	EbsRootVolumeSize interface{}
-	// Attributes for the EC2 instances running the job
-	// flow. Defined below
+	// Attributes for the EC2 instances running the job flow. Defined below
 	Ec2Attributes interface{}
 	// A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
 	InstanceGroups interface{}
@@ -308,8 +303,7 @@ type ClusterState struct {
 	KeepJobFlowAliveWhenNoSteps interface{}
 	// Kerberos configuration for the cluster. Defined below
 	KerberosAttributes interface{}
-	// S3 bucket to write the log files of the job flow. If a value
-	// is not provided, logs are not created
+	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
 	LogUri interface{}
 	// The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
 	MasterInstanceType interface{}
@@ -319,7 +313,7 @@ type ClusterState struct {
 	Name interface{}
 	// The release label for the Amazon EMR release
 	ReleaseLabel interface{}
-	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized. 
+	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
 	ScaleDownBehavior interface{}
 	// The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
 	SecurityConfiguration interface{}
@@ -343,8 +337,7 @@ type ClusterArgs struct {
 	Applications interface{}
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole interface{}
-	// List of bootstrap actions that will be run before Hadoop is started on
-	// the cluster nodes. Defined below
+	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions interface{}
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations interface{}
@@ -358,8 +351,7 @@ type ClusterArgs struct {
 	CustomAmiId interface{}
 	// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
 	EbsRootVolumeSize interface{}
-	// Attributes for the EC2 instances running the job
-	// flow. Defined below
+	// Attributes for the EC2 instances running the job flow. Defined below
 	Ec2Attributes interface{}
 	// A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
 	InstanceGroups interface{}
@@ -367,8 +359,7 @@ type ClusterArgs struct {
 	KeepJobFlowAliveWhenNoSteps interface{}
 	// Kerberos configuration for the cluster. Defined below
 	KerberosAttributes interface{}
-	// S3 bucket to write the log files of the job flow. If a value
-	// is not provided, logs are not created
+	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
 	LogUri interface{}
 	// The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
 	MasterInstanceType interface{}
@@ -376,7 +367,7 @@ type ClusterArgs struct {
 	Name interface{}
 	// The release label for the Amazon EMR release
 	ReleaseLabel interface{}
-	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized. 
+	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
 	ScaleDownBehavior interface{}
 	// The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
 	SecurityConfiguration interface{}

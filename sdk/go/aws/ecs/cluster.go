@@ -18,8 +18,10 @@ func NewCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:ecs/cluster:Cluster", name, true, inputs, opts...)
@@ -37,6 +39,7 @@ func GetCluster(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ecs/cluster:Cluster", name, id, inputs, opts...)
 	if err != nil {
@@ -65,16 +68,25 @@ func (r *Cluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Key-value mapping of resource tags
+func (r *Cluster) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// The Amazon Resource Name (ARN) that identifies the cluster
 	Arn interface{}
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

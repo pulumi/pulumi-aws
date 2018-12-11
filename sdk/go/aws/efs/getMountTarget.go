@@ -19,6 +19,7 @@ func LookupMountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMount
 	}
 	return &GetMountTargetResult{
 		DnsName: outputs["dnsName"],
+		FileSystemArn: outputs["fileSystemArn"],
 		FileSystemId: outputs["fileSystemId"],
 		IpAddress: outputs["ipAddress"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
@@ -38,6 +39,8 @@ type GetMountTargetArgs struct {
 type GetMountTargetResult struct {
 	// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	DnsName interface{}
+	// Amazon Resource Name of the file system for which the mount target is intended.
+	FileSystemArn interface{}
 	// ID of the file system for which the mount target is intended.
 	FileSystemId interface{}
 	// Address at which the file system may be mounted via the mount target.

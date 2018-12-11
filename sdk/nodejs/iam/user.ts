@@ -43,6 +43,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of tags for the IAM user
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The [unique ID][1] assigned by AWS.
      */
     public /*out*/ readonly uniqueId: pulumi.Output<string>;
@@ -64,6 +68,7 @@ export class User extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
@@ -71,6 +76,7 @@ export class User extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
@@ -105,6 +111,10 @@ export interface UserState {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
+     * Key-value mapping of tags for the IAM user
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The [unique ID][1] assigned by AWS.
      */
     readonly uniqueId?: pulumi.Input<string>;
@@ -132,4 +142,8 @@ export interface UserArgs {
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the IAM user
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

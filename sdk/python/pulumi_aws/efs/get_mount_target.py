@@ -10,12 +10,18 @@ class GetMountTargetResult(object):
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, dns_name=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None, id=None):
+    def __init__(__self__, dns_name=None, file_system_arn=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None, id=None):
         if dns_name and not isinstance(dns_name, str):
             raise TypeError('Expected argument dns_name to be a str')
         __self__.dns_name = dns_name
         """
         The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        """
+        if file_system_arn and not isinstance(file_system_arn, str):
+            raise TypeError('Expected argument file_system_arn to be a str')
+        __self__.file_system_arn = file_system_arn
+        """
+        Amazon Resource Name of the file system for which the mount target is intended.
         """
         if file_system_id and not isinstance(file_system_id, str):
             raise TypeError('Expected argument file_system_id to be a str')
@@ -65,6 +71,7 @@ async def get_mount_target(mount_target_id=None):
 
     return GetMountTargetResult(
         dns_name=__ret__.get('dnsName'),
+        file_system_arn=__ret__.get('fileSystemArn'),
         file_system_id=__ret__.get('fileSystemId'),
         ip_address=__ret__.get('ipAddress'),
         network_interface_id=__ret__.get('networkInterfaceId'),

@@ -12,6 +12,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
+        "logs": args.logs,
     }, opts);
 }
 
@@ -27,6 +28,7 @@ export interface GetBrokerArgs {
      * The unique name of the mq broker.
      */
     readonly brokerName?: string;
+    readonly logs?: { audit?: boolean, general?: boolean };
 }
 
 /**
@@ -42,7 +44,7 @@ export interface GetBrokerResult {
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
-    readonly instances: { consoleUrl: string, endpoints: string[] }[];
+    readonly instances: { consoleUrl: string, endpoints: string[], ipAddress: string }[];
     readonly maintenanceWindowStartTime: { dayOfWeek: string, timeOfDay: string, timeZone: string };
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];

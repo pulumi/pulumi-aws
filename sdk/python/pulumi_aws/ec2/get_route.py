@@ -10,7 +10,7 @@ class GetRouteResult(object):
     """
     A collection of values returned by getRoute.
     """
-    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, vpc_peering_connection_id=None, id=None):
+    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, transit_gateway_id=None, vpc_peering_connection_id=None, id=None):
         if destination_cidr_block and not isinstance(destination_cidr_block, str):
             raise TypeError('Expected argument destination_cidr_block to be a str')
         __self__.destination_cidr_block = destination_cidr_block
@@ -32,6 +32,9 @@ class GetRouteResult(object):
         if network_interface_id and not isinstance(network_interface_id, str):
             raise TypeError('Expected argument network_interface_id to be a str')
         __self__.network_interface_id = network_interface_id
+        if transit_gateway_id and not isinstance(transit_gateway_id, str):
+            raise TypeError('Expected argument transit_gateway_id to be a str')
+        __self__.transit_gateway_id = transit_gateway_id
         if vpc_peering_connection_id and not isinstance(vpc_peering_connection_id, str):
             raise TypeError('Expected argument vpc_peering_connection_id to be a str')
         __self__.vpc_peering_connection_id = vpc_peering_connection_id
@@ -42,7 +45,7 @@ class GetRouteResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, vpc_peering_connection_id=None):
+async def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
     """
     `aws_route` provides details about a specific Route.
     
@@ -60,6 +63,7 @@ async def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=Non
     __args__['natGatewayId'] = nat_gateway_id
     __args__['networkInterfaceId'] = network_interface_id
     __args__['routeTableId'] = route_table_id
+    __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpcPeeringConnectionId'] = vpc_peering_connection_id
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__)
 
@@ -71,5 +75,6 @@ async def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=Non
         instance_id=__ret__.get('instanceId'),
         nat_gateway_id=__ret__.get('natGatewayId'),
         network_interface_id=__ret__.get('networkInterfaceId'),
+        transit_gateway_id=__ret__.get('transitGatewayId'),
         vpc_peering_connection_id=__ret__.get('vpcPeeringConnectionId'),
         id=__ret__.get('id'))

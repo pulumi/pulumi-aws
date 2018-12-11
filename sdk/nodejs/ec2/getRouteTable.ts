@@ -58,7 +58,7 @@ export interface GetRouteTableResult {
      * The Route Table ID.
      */
     readonly routeTableId: string;
-    readonly routes: { cidrBlock: string, egressOnlyGatewayId: string, gatewayId: string, instanceId: string, ipv6CidrBlock: string, natGatewayId: string, networkInterfaceId: string, vpcPeeringConnectionId: string }[];
+    readonly routes: { cidrBlock: string, egressOnlyGatewayId: string, gatewayId: string, instanceId: string, ipv6CidrBlock: string, natGatewayId: string, networkInterfaceId: string, transitGatewayId: string, vpcPeeringConnectionId: string }[];
     /**
      * The Subnet ID.
      */

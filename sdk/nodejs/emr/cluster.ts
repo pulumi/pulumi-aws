@@ -37,8 +37,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly autoscalingRole: pulumi.Output<string | undefined>;
     /**
-     * List of bootstrap actions that will be run before Hadoop is started on
-     * the cluster nodes. Defined below
+     * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
     public readonly bootstrapActions: pulumi.Output<{ args?: string[], name: string, path: string }[] | undefined>;
     public /*out*/ readonly clusterState: pulumi.Output<string>;
@@ -67,8 +66,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly ebsRootVolumeSize: pulumi.Output<number | undefined>;
     /**
-     * Attributes for the EC2 instances running the job
-     * flow. Defined below
+     * Attributes for the EC2 instances running the job flow. Defined below
      */
     public readonly ec2Attributes: pulumi.Output<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string } | undefined>;
     /**
@@ -84,8 +82,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kerberosAttributes: pulumi.Output<{ adDomainJoinPassword?: string, adDomainJoinUser?: string, crossRealmTrustPrincipalPassword?: string, kdcAdminPassword: string, realm: string } | undefined>;
     /**
-     * S3 bucket to write the log files of the job flow. If a value
-     * is not provided, logs are not created
+     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
     public readonly logUri: pulumi.Output<string | undefined>;
     /**
@@ -105,7 +102,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly releaseLabel: pulumi.Output<string>;
     /**
-     * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized. 
+     * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
     public readonly scaleDownBehavior: pulumi.Output<string>;
     /**
@@ -229,8 +226,7 @@ export interface ClusterState {
      */
     readonly autoscalingRole?: pulumi.Input<string>;
     /**
-     * List of bootstrap actions that will be run before Hadoop is started on
-     * the cluster nodes. Defined below
+     * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
     readonly bootstrapActions?: pulumi.Input<pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }>[]>;
     readonly clusterState?: pulumi.Input<string>;
@@ -259,8 +255,7 @@ export interface ClusterState {
      */
     readonly ebsRootVolumeSize?: pulumi.Input<number>;
     /**
-     * Attributes for the EC2 instances running the job
-     * flow. Defined below
+     * Attributes for the EC2 instances running the job flow. Defined below
      */
     readonly ec2Attributes?: pulumi.Input<{ additionalMasterSecurityGroups?: pulumi.Input<string>, additionalSlaveSecurityGroups?: pulumi.Input<string>, emrManagedMasterSecurityGroup?: pulumi.Input<string>, emrManagedSlaveSecurityGroup?: pulumi.Input<string>, instanceProfile: pulumi.Input<string>, keyName?: pulumi.Input<string>, serviceAccessSecurityGroup?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>;
     /**
@@ -276,8 +271,7 @@ export interface ClusterState {
      */
     readonly kerberosAttributes?: pulumi.Input<{ adDomainJoinPassword?: pulumi.Input<string>, adDomainJoinUser?: pulumi.Input<string>, crossRealmTrustPrincipalPassword?: pulumi.Input<string>, kdcAdminPassword: pulumi.Input<string>, realm: pulumi.Input<string> }>;
     /**
-     * S3 bucket to write the log files of the job flow. If a value
-     * is not provided, logs are not created
+     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
     readonly logUri?: pulumi.Input<string>;
     /**
@@ -297,7 +291,7 @@ export interface ClusterState {
      */
     readonly releaseLabel?: pulumi.Input<string>;
     /**
-     * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized. 
+     * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
     readonly scaleDownBehavior?: pulumi.Input<string>;
     /**
@@ -343,8 +337,7 @@ export interface ClusterArgs {
      */
     readonly autoscalingRole?: pulumi.Input<string>;
     /**
-     * List of bootstrap actions that will be run before Hadoop is started on
-     * the cluster nodes. Defined below
+     * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
     readonly bootstrapActions?: pulumi.Input<pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }>[]>;
     /**
@@ -372,8 +365,7 @@ export interface ClusterArgs {
      */
     readonly ebsRootVolumeSize?: pulumi.Input<number>;
     /**
-     * Attributes for the EC2 instances running the job
-     * flow. Defined below
+     * Attributes for the EC2 instances running the job flow. Defined below
      */
     readonly ec2Attributes?: pulumi.Input<{ additionalMasterSecurityGroups?: pulumi.Input<string>, additionalSlaveSecurityGroups?: pulumi.Input<string>, emrManagedMasterSecurityGroup?: pulumi.Input<string>, emrManagedSlaveSecurityGroup?: pulumi.Input<string>, instanceProfile: pulumi.Input<string>, keyName?: pulumi.Input<string>, serviceAccessSecurityGroup?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>;
     /**
@@ -389,8 +381,7 @@ export interface ClusterArgs {
      */
     readonly kerberosAttributes?: pulumi.Input<{ adDomainJoinPassword?: pulumi.Input<string>, adDomainJoinUser?: pulumi.Input<string>, crossRealmTrustPrincipalPassword?: pulumi.Input<string>, kdcAdminPassword: pulumi.Input<string>, realm: pulumi.Input<string> }>;
     /**
-     * S3 bucket to write the log files of the job flow. If a value
-     * is not provided, logs are not created
+     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
     readonly logUri?: pulumi.Input<string>;
     /**
@@ -406,7 +397,7 @@ export interface ClusterArgs {
      */
     readonly releaseLabel: pulumi.Input<string>;
     /**
-     * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized. 
+     * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
     readonly scaleDownBehavior?: pulumi.Input<string>;
     /**

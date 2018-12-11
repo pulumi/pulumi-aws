@@ -59,7 +59,7 @@ func (r *Application) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 func (r *Application) ComputePlatform() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["computePlatform"])
 }
@@ -75,7 +75,7 @@ func (r *Application) UniqueId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
-	// The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform interface{}
 	// The name of the application.
 	Name interface{}
@@ -84,7 +84,7 @@ type ApplicationState struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The compute platform can either be `Server` or `Lambda`. Default is `Server`.
+	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform interface{}
 	// The name of the application.
 	Name interface{}

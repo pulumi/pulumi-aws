@@ -6,15 +6,14 @@ import * as utilities from "./utilities";
 
 /**
  * `aws_eip` provides details about a specific Elastic IP.
- * 
- * This resource can prove useful when a module accepts an allocation ID or
- * public IP as an input variable and needs to determine the other.
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
+        "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -23,19 +22,65 @@ export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOption
  */
 export interface GetElasticIpArgs {
     /**
-     * The allocation id of the specific EIP to retrieve.
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+     */
+    readonly filters?: { name: string, values: string[] }[];
+    /**
+     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
      */
     readonly id?: string;
     /**
      * The public IP of the specific EIP to retrieve.
      */
     readonly publicIp?: string;
+    /**
+     * A mapping of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     */
+    readonly tags?: {[key: string]: any};
 }
 
 /**
  * A collection of values returned by getElasticIp.
  */
 export interface GetElasticIpResult {
+    /**
+     * The ID representing the association of the address with an instance in a VPC.
+     */
+    readonly associationId: string;
+    /**
+     * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     */
+    readonly domain: string;
+    /**
+     * If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
+     */
     readonly id: string;
+    /**
+     * The ID of the instance that the address is associated with (if any).
+     */
+    readonly instanceId: string;
+    /**
+     * The ID of the network interface.
+     */
+    readonly networkInterfaceId: string;
+    /**
+     * The ID of the AWS account that owns the network interface.
+     */
+    readonly networkInterfaceOwnerId: string;
+    /**
+     * The private IP address associated with the Elastic IP address.
+     */
+    readonly privateIp: string;
+    /**
+     * Public IP address of Elastic IP.
+     */
     readonly publicIp: string;
+    /**
+     * The ID of an address pool.
+     */
+    readonly publicIpv4Pool: string;
+    /**
+     * Key-value map of tags associated with Elastic IP.
+     */
+    readonly tags: {[key: string]: any};
 }

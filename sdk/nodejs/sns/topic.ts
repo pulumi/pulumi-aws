@@ -59,6 +59,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly httpSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
+     * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+     */
+    public readonly kmsMasterKeyId: pulumi.Output<string | undefined>;
+    /**
      * IAM role for failure feedback
      */
     public readonly lambdaFailureFeedbackRoleArn: pulumi.Output<string | undefined>;
@@ -116,6 +120,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["httpFailureFeedbackRoleArn"] = state ? state.httpFailureFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackRoleArn"] = state ? state.httpSuccessFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackSampleRate"] = state ? state.httpSuccessFeedbackSampleRate : undefined;
+            inputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
             inputs["lambdaFailureFeedbackRoleArn"] = state ? state.lambdaFailureFeedbackRoleArn : undefined;
             inputs["lambdaSuccessFeedbackRoleArn"] = state ? state.lambdaSuccessFeedbackRoleArn : undefined;
             inputs["lambdaSuccessFeedbackSampleRate"] = state ? state.lambdaSuccessFeedbackSampleRate : undefined;
@@ -135,6 +140,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["httpFailureFeedbackRoleArn"] = args ? args.httpFailureFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackRoleArn"] = args ? args.httpSuccessFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackSampleRate"] = args ? args.httpSuccessFeedbackSampleRate : undefined;
+            inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
             inputs["lambdaFailureFeedbackRoleArn"] = args ? args.lambdaFailureFeedbackRoleArn : undefined;
             inputs["lambdaSuccessFeedbackRoleArn"] = args ? args.lambdaSuccessFeedbackRoleArn : undefined;
             inputs["lambdaSuccessFeedbackSampleRate"] = args ? args.lambdaSuccessFeedbackSampleRate : undefined;
@@ -190,6 +196,10 @@ export interface TopicState {
      * Percentage of success to sample
      */
     readonly httpSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    /**
+     * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+     */
+    readonly kmsMasterKeyId?: pulumi.Input<string>;
     /**
      * IAM role for failure feedback
      */
@@ -264,6 +274,10 @@ export interface TopicArgs {
      * Percentage of success to sample
      */
     readonly httpSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    /**
+     * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+     */
+    readonly kmsMasterKeyId?: pulumi.Input<string>;
     /**
      * IAM role for failure feedback
      */

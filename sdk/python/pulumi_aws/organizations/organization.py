@@ -10,7 +10,7 @@ class Organization(pulumi.CustomResource):
     """
     Provides a resource to create an organization.
     """
-    def __init__(__self__, __name__, __opts__=None, feature_set=None):
+    def __init__(__self__, __name__, __opts__=None, aws_service_access_principals=None, feature_set=None):
         """Create a Organization resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -20,6 +20,8 @@ class Organization(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        __props__['aws_service_access_principals'] = aws_service_access_principals
 
         __props__['feature_set'] = feature_set
 

@@ -10,7 +10,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     Provides an SSM Maintenance Window Task resource
     """
-    def __init__(__self__, __name__, __opts__=None, logging_info=None, max_concurrency=None, max_errors=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_parameters=None, task_type=None, window_id=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_parameters=None, task_type=None, window_id=None):
         """Create a MaintenanceWindowTask resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -21,6 +21,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['description'] = description
+
         __props__['logging_info'] = logging_info
 
         if not max_concurrency:
@@ -30,6 +32,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if not max_errors:
             raise TypeError('Missing required property max_errors')
         __props__['max_errors'] = max_errors
+
+        __props__['name'] = name
 
         __props__['priority'] = priority
 

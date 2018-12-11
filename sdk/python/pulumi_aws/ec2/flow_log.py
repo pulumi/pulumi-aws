@@ -9,7 +9,7 @@ from .. import utilities, tables
 class FlowLog(pulumi.CustomResource):
     """
     Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
-    interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group.
+    interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
     """
     def __init__(__self__, __name__, __opts__=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None):
         """Create a FlowLog resource with the given unique name, props, and options."""

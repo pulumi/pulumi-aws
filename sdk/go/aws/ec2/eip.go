@@ -24,12 +24,14 @@ func NewEip(ctx *pulumi.Context,
 		inputs["associateWithPrivateIp"] = nil
 		inputs["instance"] = nil
 		inputs["networkInterface"] = nil
+		inputs["publicIpv4Pool"] = nil
 		inputs["tags"] = nil
 		inputs["vpc"] = nil
 	} else {
 		inputs["associateWithPrivateIp"] = args.AssociateWithPrivateIp
 		inputs["instance"] = args.Instance
 		inputs["networkInterface"] = args.NetworkInterface
+		inputs["publicIpv4Pool"] = args.PublicIpv4Pool
 		inputs["tags"] = args.Tags
 		inputs["vpc"] = args.Vpc
 	}
@@ -59,6 +61,7 @@ func GetEip(ctx *pulumi.Context,
 		inputs["networkInterface"] = state.NetworkInterface
 		inputs["privateIp"] = state.PrivateIp
 		inputs["publicIp"] = state.PublicIp
+		inputs["publicIpv4Pool"] = state.PublicIpv4Pool
 		inputs["tags"] = state.Tags
 		inputs["vpc"] = state.Vpc
 	}
@@ -118,6 +121,11 @@ func (r *Eip) PublicIp() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicIp"])
 }
 
+// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+func (r *Eip) PublicIpv4Pool() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["publicIpv4Pool"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *Eip) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -145,6 +153,8 @@ type EipState struct {
 	PrivateIp interface{}
 	// Contains the public IP address.
 	PublicIp interface{}
+	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	PublicIpv4Pool interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Boolean if the EIP is in a VPC or not.
@@ -161,6 +171,8 @@ type EipArgs struct {
 	Instance interface{}
 	// Network interface ID to associate with.
 	NetworkInterface interface{}
+	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	PublicIpv4Pool interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Boolean if the EIP is in a VPC or not.

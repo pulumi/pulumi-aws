@@ -32,7 +32,11 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly blockDeviceMappings: pulumi.Output<{ deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[] | undefined>;
     /**
-     * Customize the credit specification of the instance. See Credit 
+     * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+     */
+    public readonly capacityReservationSpecification: pulumi.Output<{ capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } } | undefined>;
+    /**
+     * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
     public readonly creditSpecification: pulumi.Output<{ cpuCredits?: string } | undefined>;
@@ -106,7 +110,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly namePrefix: pulumi.Output<string | undefined>;
     /**
-     * Customize network interfaces to be attached at instance boot time. See Network 
+     * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
     public readonly networkInterfaces: pulumi.Output<{ associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[] | undefined>;
@@ -154,6 +158,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             const state: LaunchTemplateState = argsOrState as LaunchTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
+            inputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
             inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -182,6 +187,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LaunchTemplateArgs | undefined;
             inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
+            inputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
             inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
@@ -227,7 +233,11 @@ export interface LaunchTemplateState {
      */
     readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
-     * Customize the credit specification of the instance. See Credit 
+     * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+     */
+    readonly capacityReservationSpecification?: pulumi.Input<{ capacityReservationPreference?: pulumi.Input<string>, capacityReservationTarget?: pulumi.Input<{ capacityReservationId?: pulumi.Input<string> }> }>;
+    /**
+     * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
     readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
@@ -301,7 +311,7 @@ export interface LaunchTemplateState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * Customize network interfaces to be attached at instance boot time. See Network 
+     * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
@@ -346,7 +356,11 @@ export interface LaunchTemplateArgs {
      */
     readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
-     * Customize the credit specification of the instance. See Credit 
+     * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+     */
+    readonly capacityReservationSpecification?: pulumi.Input<{ capacityReservationPreference?: pulumi.Input<string>, capacityReservationTarget?: pulumi.Input<{ capacityReservationId?: pulumi.Input<string> }> }>;
+    /**
+     * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
     readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
@@ -412,7 +426,7 @@ export interface LaunchTemplateArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * Customize network interfaces to be attached at instance boot time. See Network 
+     * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;

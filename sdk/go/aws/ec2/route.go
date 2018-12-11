@@ -35,6 +35,7 @@ func NewRoute(ctx *pulumi.Context,
 		inputs["natGatewayId"] = nil
 		inputs["networkInterfaceId"] = nil
 		inputs["routeTableId"] = nil
+		inputs["transitGatewayId"] = nil
 		inputs["vpcPeeringConnectionId"] = nil
 	} else {
 		inputs["destinationCidrBlock"] = args.DestinationCidrBlock
@@ -45,6 +46,7 @@ func NewRoute(ctx *pulumi.Context,
 		inputs["natGatewayId"] = args.NatGatewayId
 		inputs["networkInterfaceId"] = args.NetworkInterfaceId
 		inputs["routeTableId"] = args.RouteTableId
+		inputs["transitGatewayId"] = args.TransitGatewayId
 		inputs["vpcPeeringConnectionId"] = args.VpcPeeringConnectionId
 	}
 	inputs["destinationPrefixListId"] = nil
@@ -76,6 +78,7 @@ func GetRoute(ctx *pulumi.Context,
 		inputs["origin"] = state.Origin
 		inputs["routeTableId"] = state.RouteTableId
 		inputs["state"] = state.State
+		inputs["transitGatewayId"] = state.TransitGatewayId
 		inputs["vpcPeeringConnectionId"] = state.VpcPeeringConnectionId
 	}
 	s, err := ctx.ReadResource("aws:ec2/route:Route", name, id, inputs, opts...)
@@ -109,17 +112,17 @@ func (r *Route) DestinationPrefixListId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destinationPrefixListId"])
 }
 
-// An ID of a VPC Egress Only Internet Gateway.
+// Identifier of a VPC Egress Only Internet Gateway.
 func (r *Route) EgressOnlyGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["egressOnlyGatewayId"])
 }
 
-// An ID of a VPC internet gateway or a virtual private gateway.
+// Identifier of a VPC internet gateway or a virtual private gateway.
 func (r *Route) GatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayId"])
 }
 
-// An ID of an EC2 instance.
+// Identifier of an EC2 instance.
 func (r *Route) InstanceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceId"])
 }
@@ -128,12 +131,12 @@ func (r *Route) InstanceOwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceOwnerId"])
 }
 
-// An ID of a VPC NAT gateway.
+// Identifier of a VPC NAT gateway.
 func (r *Route) NatGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["natGatewayId"])
 }
 
-// An ID of a network interface.
+// Identifier of an EC2 network interface.
 func (r *Route) NetworkInterfaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
@@ -151,7 +154,12 @@ func (r *Route) State() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["state"])
 }
 
-// An ID of a VPC peering connection.
+// Identifier of an EC2 Transit Gateway.
+func (r *Route) TransitGatewayId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["transitGatewayId"])
+}
+
+// Identifier of a VPC peering connection.
 func (r *Route) VpcPeeringConnectionId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
 }
@@ -163,22 +171,24 @@ type RouteState struct {
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock interface{}
 	DestinationPrefixListId interface{}
-	// An ID of a VPC Egress Only Internet Gateway.
+	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId interface{}
-	// An ID of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId interface{}
-	// An ID of an EC2 instance.
+	// Identifier of an EC2 instance.
 	InstanceId interface{}
 	InstanceOwnerId interface{}
-	// An ID of a VPC NAT gateway.
+	// Identifier of a VPC NAT gateway.
 	NatGatewayId interface{}
-	// An ID of a network interface.
+	// Identifier of an EC2 network interface.
 	NetworkInterfaceId interface{}
 	Origin interface{}
 	// The ID of the routing table.
 	RouteTableId interface{}
 	State interface{}
-	// An ID of a VPC peering connection.
+	// Identifier of an EC2 Transit Gateway.
+	TransitGatewayId interface{}
+	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId interface{}
 }
 
@@ -188,18 +198,20 @@ type RouteArgs struct {
 	DestinationCidrBlock interface{}
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock interface{}
-	// An ID of a VPC Egress Only Internet Gateway.
+	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId interface{}
-	// An ID of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId interface{}
-	// An ID of an EC2 instance.
+	// Identifier of an EC2 instance.
 	InstanceId interface{}
-	// An ID of a VPC NAT gateway.
+	// Identifier of a VPC NAT gateway.
 	NatGatewayId interface{}
-	// An ID of a network interface.
+	// Identifier of an EC2 network interface.
 	NetworkInterfaceId interface{}
 	// The ID of the routing table.
 	RouteTableId interface{}
-	// An ID of a VPC peering connection.
+	// Identifier of an EC2 Transit Gateway.
+	TransitGatewayId interface{}
+	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId interface{}
 }

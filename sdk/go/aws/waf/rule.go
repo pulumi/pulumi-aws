@@ -63,7 +63,7 @@ func (r *Rule) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name or description for the Amazon CloudWatch metric of this rule.
+// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 func (r *Rule) MetricName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["metricName"])
 }
@@ -80,7 +80,7 @@ func (r *Rule) Predicates() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Rule resources.
 type RuleState struct {
-	// The name or description for the Amazon CloudWatch metric of this rule.
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 	MetricName interface{}
 	// The name or description of the rule.
 	Name interface{}
@@ -90,7 +90,7 @@ type RuleState struct {
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// The name or description for the Amazon CloudWatch metric of this rule.
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 	MetricName interface{}
 	// The name or description of the rule.
 	Name interface{}

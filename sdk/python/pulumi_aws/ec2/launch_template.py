@@ -10,7 +10,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
     """
-    def __init__(__self__, __name__, __opts__=None, block_device_mappings=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, __name__, __opts__=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         """Create a LaunchTemplate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -22,6 +22,8 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['block_device_mappings'] = block_device_mappings
+
+        __props__['capacity_reservation_specification'] = capacity_reservation_specification
 
         __props__['credit_specification'] = credit_specification
 

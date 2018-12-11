@@ -25,6 +25,7 @@ func NewTopic(ctx *pulumi.Context,
 		inputs["httpFailureFeedbackRoleArn"] = nil
 		inputs["httpSuccessFeedbackRoleArn"] = nil
 		inputs["httpSuccessFeedbackSampleRate"] = nil
+		inputs["kmsMasterKeyId"] = nil
 		inputs["lambdaFailureFeedbackRoleArn"] = nil
 		inputs["lambdaSuccessFeedbackRoleArn"] = nil
 		inputs["lambdaSuccessFeedbackSampleRate"] = nil
@@ -43,6 +44,7 @@ func NewTopic(ctx *pulumi.Context,
 		inputs["httpFailureFeedbackRoleArn"] = args.HttpFailureFeedbackRoleArn
 		inputs["httpSuccessFeedbackRoleArn"] = args.HttpSuccessFeedbackRoleArn
 		inputs["httpSuccessFeedbackSampleRate"] = args.HttpSuccessFeedbackSampleRate
+		inputs["kmsMasterKeyId"] = args.KmsMasterKeyId
 		inputs["lambdaFailureFeedbackRoleArn"] = args.LambdaFailureFeedbackRoleArn
 		inputs["lambdaSuccessFeedbackRoleArn"] = args.LambdaSuccessFeedbackRoleArn
 		inputs["lambdaSuccessFeedbackSampleRate"] = args.LambdaSuccessFeedbackSampleRate
@@ -76,6 +78,7 @@ func GetTopic(ctx *pulumi.Context,
 		inputs["httpFailureFeedbackRoleArn"] = state.HttpFailureFeedbackRoleArn
 		inputs["httpSuccessFeedbackRoleArn"] = state.HttpSuccessFeedbackRoleArn
 		inputs["httpSuccessFeedbackSampleRate"] = state.HttpSuccessFeedbackSampleRate
+		inputs["kmsMasterKeyId"] = state.KmsMasterKeyId
 		inputs["lambdaFailureFeedbackRoleArn"] = state.LambdaFailureFeedbackRoleArn
 		inputs["lambdaSuccessFeedbackRoleArn"] = state.LambdaSuccessFeedbackRoleArn
 		inputs["lambdaSuccessFeedbackSampleRate"] = state.LambdaSuccessFeedbackSampleRate
@@ -148,6 +151,11 @@ func (r *Topic) HttpSuccessFeedbackSampleRate() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["httpSuccessFeedbackSampleRate"])
 }
 
+// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+func (r *Topic) KmsMasterKeyId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["kmsMasterKeyId"])
+}
+
 // IAM role for failure feedback
 func (r *Topic) LambdaFailureFeedbackRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["lambdaFailureFeedbackRoleArn"])
@@ -213,6 +221,8 @@ type TopicState struct {
 	HttpSuccessFeedbackRoleArn interface{}
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate interface{}
+	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMasterKeyId interface{}
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn interface{}
 	// The IAM role permitted to receive success feedback for this topic
@@ -251,6 +261,8 @@ type TopicArgs struct {
 	HttpSuccessFeedbackRoleArn interface{}
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate interface{}
+	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMasterKeyId interface{}
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn interface{}
 	// The IAM role permitted to receive success feedback for this topic

@@ -29,6 +29,7 @@ func NewRole(ctx *pulumi.Context,
 		inputs["namePrefix"] = nil
 		inputs["path"] = nil
 		inputs["permissionsBoundary"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["assumeRolePolicy"] = args.AssumeRolePolicy
 		inputs["description"] = args.Description
@@ -38,6 +39,7 @@ func NewRole(ctx *pulumi.Context,
 		inputs["namePrefix"] = args.NamePrefix
 		inputs["path"] = args.Path
 		inputs["permissionsBoundary"] = args.PermissionsBoundary
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["createDate"] = nil
@@ -65,6 +67,7 @@ func GetRole(ctx *pulumi.Context,
 		inputs["namePrefix"] = state.NamePrefix
 		inputs["path"] = state.Path
 		inputs["permissionsBoundary"] = state.PermissionsBoundary
+		inputs["tags"] = state.Tags
 		inputs["uniqueId"] = state.UniqueId
 	}
 	s, err := ctx.ReadResource("aws:iam/role:Role", name, id, inputs, opts...)
@@ -135,6 +138,11 @@ func (r *Role) PermissionsBoundary() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["permissionsBoundary"])
 }
 
+// Key-value mapping of tags for the IAM role
+func (r *Role) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The stable and unique string identifying the role.
 func (r *Role) UniqueId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
@@ -163,6 +171,8 @@ type RoleState struct {
 	Path interface{}
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary interface{}
+	// Key-value mapping of tags for the IAM role
+	Tags interface{}
 	// The stable and unique string identifying the role.
 	UniqueId interface{}
 }
@@ -186,4 +196,6 @@ type RoleArgs struct {
 	Path interface{}
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary interface{}
+	// Key-value mapping of tags for the IAM role
+	Tags interface{}
 }

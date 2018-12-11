@@ -25,6 +25,10 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+     */
+    public readonly awsServiceAccessPrincipals: pulumi.Output<string[] | undefined>;
+    /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
     public readonly featureSet: pulumi.Output<string | undefined>;
@@ -54,12 +58,14 @@ export class Organization extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: OrganizationState = argsOrState as OrganizationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
             inputs["featureSet"] = state ? state.featureSet : undefined;
             inputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
             inputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
             inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
+            inputs["awsServiceAccessPrincipals"] = args ? args.awsServiceAccessPrincipals : undefined;
             inputs["featureSet"] = args ? args.featureSet : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["masterAccountArn"] = undefined /*out*/;
@@ -78,6 +84,10 @@ export interface OrganizationState {
      * ARN of the organization
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+     */
+    readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
@@ -100,6 +110,10 @@ export interface OrganizationState {
  * The set of arguments for constructing a Organization resource.
  */
 export interface OrganizationArgs {
+    /**
+     * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+     */
+    readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */

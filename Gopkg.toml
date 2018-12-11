@@ -1,10 +1,10 @@
 [[constraint]]
-  name = "github.com/pulumi/pulumi"
   branch = "master"
+  name = "github.com/pulumi/pulumi"
 
 [[constraint]]
-  name = "github.com/pulumi/pulumi-terraform"
   branch = "master"
+  name = "github.com/pulumi/pulumi-terraform"
 
 [[constraint]]
   branch = "pulumi-master"
@@ -48,7 +48,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "v1.15.64"
+  version = "v1.15.84"
   [override.metadata]
     govendor-overriden=true
 
@@ -73,6 +73,12 @@
 [[override]]
   name = "github.com/blang/semver"
   version = "v3.5.1"
+  [override.metadata]
+    govendor-overriden=true
+
+[[override]]
+  name = "github.com/boombuler/barcode"
+  revision = "34fff276c74eba9c3506f0c6f4064dbaa67d8da3"
   [override.metadata]
     govendor-overriden=true
 
@@ -269,6 +275,12 @@
     govendor-overriden=true
 
 [[override]]
+  name = "github.com/pquerna/otp"
+  revision = "be78767b3e392ce45ea73444451022a6fc32ad0d"
+  [override.metadata]
+    govendor-overriden=true
+
+[[override]]
   name = "github.com/terraform-providers/terraform-provider-template"
   version = "v0.1.1"
   [override.metadata]
@@ -313,6 +325,18 @@
 [[override]]
   name = "golang.org/x/text"
   revision = "6eab0e8f74e86c598ec3b6fad4888e0c11482d48"
+  [override.metadata]
+    govendor-overriden=true
+
+[[override]]
+  name = "google.golang.org/genproto"
+  revision = "f676e0f3ac6395ff1a529ae59a6670878a8371a6"
+  [override.metadata]
+    govendor-overriden=true
+
+[[override]]
+  name = "google.golang.org/grpc"
+  revision = "b5eab4ccac6df282ff981436a5a87554d7377c75"
   [override.metadata]
     govendor-overriden=true
 
