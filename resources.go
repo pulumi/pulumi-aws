@@ -37,6 +37,7 @@ const (
 	acmMod               = "acm"                      // AWS Certificate Manager
 	acmpcaMod            = "acmpca"                   // AWS Priviate Certificate Authority
 	appsyncMod           = "appsync"                  // AppSync
+	appmeshMod           = "appmesh"                  // AppMesh
 	apigatewayMod        = "apigateway"               // API Gateway
 	appautoscalingMod    = "appautoscaling"           // Application Auto Scaling
 	athenaMod            = "athena"                   // Athena
@@ -234,6 +235,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appsync_api_key":     {Tok: awsResource(appsyncMod, "ApiKey")},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
+			// AppMesh
+			"aws_appmesh_mesh":           {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_virtual_router": {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
