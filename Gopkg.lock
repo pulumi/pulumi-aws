@@ -67,6 +67,7 @@
     "aws/credentials",
     "aws/credentials/ec2rolecreds",
     "aws/credentials/endpointcreds",
+    "aws/credentials/processcreds",
     "aws/credentials/stscreds",
     "aws/crr",
     "aws/csm",
@@ -99,6 +100,7 @@
     "service/acmpca",
     "service/apigateway",
     "service/applicationautoscaling",
+    "service/appmesh",
     "service/appsync",
     "service/athena",
     "service/autoscaling",
@@ -182,8 +184,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "180cc10e5ff368b86dee226b034af7d1672baec6"
-  version = "v1.15.87"
+  revision = "818fa5c274d4dee665096411e2bad037f47c31f7"
+  version = "v1.16.3"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -638,7 +640,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "55bea6527690f24bb1dadfc10897212a99e84069"
+  revision = "b94cfb22d5d213ddd84b508c61422ab86c3bffbf"
 
 [[projects]]
   branch = "master"
@@ -647,7 +649,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "a5f089711e12eef3f688407de1032a041b7f8b08"
+  revision = "2c187fb6f5e33adbc3c54c4dff4c86f7c9af7379"
 
 [[projects]]
   branch = "master"
@@ -706,7 +708,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "0c0f06453c528eb43a18241dd94b9c3a27f46114"
+  revision = "1d9e3809e33962d13e9d483f48f310b68e752e7d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -876,8 +878,8 @@
     "core",
     "terminal"
   ]
-  revision = "fb519f89e19299d852ffdd9b734af122d2dcbd30"
-  version = "v1.7.0"
+  revision = "e205523512c83e9236698dbe7eb9649ec56e80ca"
+  version = "v1.7.1"
 
 [[projects]]
   name = "gopkg.in/src-d/go-billy.v4"
@@ -953,6 +955,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0d4369f6143344a2367f93dd80260f213d84c6927351c7f8b7fa5d07f479ce48"
+  inputs-digest = "d7141c2af21158e258cc8026a77f926bb8e8c16dfba9a5418dbb9726334c863f"
   solver-name = "gps-cdcl"
   solver-version = 1
