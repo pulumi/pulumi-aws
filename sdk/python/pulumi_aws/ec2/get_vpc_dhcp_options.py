@@ -10,7 +10,7 @@ class GetVpcDhcpOptionsResult(object):
     """
     A collection of values returned by getVpcDhcpOptions.
     """
-    def __init__(__self__, dhcp_options_id=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, tags=None, id=None):
+    def __init__(__self__, dhcp_options_id=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None, id=None):
         if dhcp_options_id and not isinstance(dhcp_options_id, str):
             raise TypeError('Expected argument dhcp_options_id to be a str')
         __self__.dhcp_options_id = dhcp_options_id
@@ -47,6 +47,12 @@ class GetVpcDhcpOptionsResult(object):
         """
         List of NTP servers.
         """
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
+        __self__.owner_id = owner_id
+        """
+        The ID of the AWS account that owns the DHCP options set.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -78,5 +84,6 @@ async def get_vpc_dhcp_options(dhcp_options_id=None, filters=None, tags=None):
         netbios_name_servers=__ret__.get('netbiosNameServers'),
         netbios_node_type=__ret__.get('netbiosNodeType'),
         ntp_servers=__ret__.get('ntpServers'),
+        owner_id=__ret__.get('ownerId'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

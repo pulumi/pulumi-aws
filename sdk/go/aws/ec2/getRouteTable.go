@@ -27,6 +27,7 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	}
 	return &GetRouteTableResult{
 		Associations: outputs["associations"],
+		OwnerId: outputs["ownerId"],
 		RouteTableId: outputs["routeTableId"],
 		Routes: outputs["routes"],
 		SubnetId: outputs["subnetId"],
@@ -54,6 +55,8 @@ type GetRouteTableArgs struct {
 // A collection of values returned by getRouteTable.
 type GetRouteTableResult struct {
 	Associations interface{}
+	// The ID of the AWS account that owns the route table
+	OwnerId interface{}
 	// The Route Table ID.
 	RouteTableId interface{}
 	Routes interface{}

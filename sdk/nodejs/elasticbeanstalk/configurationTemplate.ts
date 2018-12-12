@@ -18,8 +18,8 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfigurationTemplateState): ConfigurationTemplate {
-        return new ConfigurationTemplate(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfigurationTemplateState, opts?: pulumi.CustomResourceOptions): ConfigurationTemplate {
+        return new ConfigurationTemplate(name, <any>state, { ...opts, id: id });
     }
 
     /**

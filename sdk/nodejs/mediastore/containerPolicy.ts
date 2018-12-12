@@ -16,8 +16,8 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ContainerPolicyState): ContainerPolicy {
-        return new ContainerPolicy(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ContainerPolicyState, opts?: pulumi.CustomResourceOptions): ContainerPolicy {
+        return new ContainerPolicy(name, <any>state, { ...opts, id: id });
     }
 
     /**

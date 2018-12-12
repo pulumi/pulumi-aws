@@ -10,7 +10,7 @@ class EventDestination(pulumi.CustomResource):
     """
     Provides an SES event destination
     """
-    def __init__(__self__, __name__, __opts__=None, cloudwatch_destination=None, configuration_set_name=None, enabled=None, kinesis_destination=None, matching_types=None, name=None, sns_destination=None):
+    def __init__(__self__, __name__, __opts__=None, cloudwatch_destinations=None, configuration_set_name=None, enabled=None, kinesis_destination=None, matching_types=None, name=None, sns_destination=None):
         """Create a EventDestination resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -21,7 +21,7 @@ class EventDestination(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['cloudwatch_destination'] = cloudwatch_destination
+        __props__['cloudwatch_destinations'] = cloudwatch_destinations
 
         if not configuration_set_name:
             raise TypeError('Missing required property configuration_set_name')

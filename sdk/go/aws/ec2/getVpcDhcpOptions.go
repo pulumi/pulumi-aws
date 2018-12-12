@@ -26,6 +26,7 @@ func LookupVpcDhcpOptions(ctx *pulumi.Context, args *GetVpcDhcpOptionsArgs) (*Ge
 		NetbiosNameServers: outputs["netbiosNameServers"],
 		NetbiosNodeType: outputs["netbiosNodeType"],
 		NtpServers: outputs["ntpServers"],
+		OwnerId: outputs["ownerId"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -54,6 +55,8 @@ type GetVpcDhcpOptionsResult struct {
 	NetbiosNodeType interface{}
 	// List of NTP servers.
 	NtpServers interface{}
+	// The ID of the AWS account that owns the DHCP options set.
+	OwnerId interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

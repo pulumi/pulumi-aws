@@ -40,6 +40,7 @@ func NewAlias(ctx *pulumi.Context,
 		inputs["routingConfig"] = args.RoutingConfig
 	}
 	inputs["arn"] = nil
+	inputs["invokeArn"] = nil
 	s, err := ctx.RegisterResource("aws:lambda/alias:Alias", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -57,6 +58,7 @@ func GetAlias(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["functionName"] = state.FunctionName
 		inputs["functionVersion"] = state.FunctionVersion
+		inputs["invokeArn"] = state.InvokeArn
 		inputs["name"] = state.Name
 		inputs["routingConfig"] = state.RoutingConfig
 	}
@@ -97,6 +99,11 @@ func (r *Alias) FunctionVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["functionVersion"])
 }
 
+// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+func (r *Alias) InvokeArn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["invokeArn"])
+}
+
 // Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 func (r *Alias) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -117,6 +124,8 @@ type AliasState struct {
 	FunctionName interface{}
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion interface{}
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	InvokeArn interface{}
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name interface{}
 	// The Lambda alias' route configuration settings. Fields documented below

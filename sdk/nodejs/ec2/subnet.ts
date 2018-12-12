@@ -18,13 +18,12 @@ export class Subnet extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubnetState): Subnet {
-        return new Subnet(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubnetState, opts?: pulumi.CustomResourceOptions): Subnet {
+        return new Subnet(name, <any>state, { ...opts, id: id });
     }
 
     /**
      * The ARN of the subnet.
-     * * `availability_zone`- The AZ for the subnet.
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -33,7 +32,14 @@ export class Subnet extends pulumi.CustomResource {
      * assigned an IPv6 address. Default is `false`
      */
     public readonly assignIpv6AddressOnCreation: pulumi.Output<boolean | undefined>;
+    /**
+     * The AZ for the subnet.
+     */
     public readonly availabilityZone: pulumi.Output<string>;
+    /**
+     * The AZ ID of the subnet.
+     */
+    public readonly availabilityZoneId: pulumi.Output<string>;
     /**
      * The CIDR block for the subnet.
      */
@@ -53,6 +59,10 @@ export class Subnet extends pulumi.CustomResource {
      * a public IP address. Default is `false`.
      */
     public readonly mapPublicIpOnLaunch: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the AWS account that owns the subnet.
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -77,10 +87,12 @@ export class Subnet extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
             inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -93,6 +105,7 @@ export class Subnet extends pulumi.CustomResource {
             }
             inputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
@@ -100,6 +113,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/subnet:Subnet", name, inputs, opts);
     }
@@ -111,7 +125,6 @@ export class Subnet extends pulumi.CustomResource {
 export interface SubnetState {
     /**
      * The ARN of the subnet.
-     * * `availability_zone`- The AZ for the subnet.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -120,7 +133,14 @@ export interface SubnetState {
      * assigned an IPv6 address. Default is `false`
      */
     readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    /**
+     * The AZ for the subnet.
+     */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AZ ID of the subnet.
+     */
+    readonly availabilityZoneId?: pulumi.Input<string>;
     /**
      * The CIDR block for the subnet.
      */
@@ -141,6 +161,10 @@ export interface SubnetState {
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**
+     * The ID of the AWS account that owns the subnet.
+     */
+    readonly ownerId?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<Tags>;
@@ -160,7 +184,14 @@ export interface SubnetArgs {
      * assigned an IPv6 address. Default is `false`
      */
     readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    /**
+     * The AZ for the subnet.
+     */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AZ ID of the subnet.
+     */
+    readonly availabilityZoneId?: pulumi.Input<string>;
     /**
      * The CIDR block for the subnet.
      */

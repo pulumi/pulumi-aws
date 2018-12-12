@@ -36,9 +36,11 @@ class DefaultSubnet(pulumi.CustomResource):
 
         __props__['arn'] = None
         __props__['assign_ipv6_address_on_creation'] = None
+        __props__['availability_zone_id'] = None
         __props__['cidr_block'] = None
         __props__['ipv6_cidr_block'] = None
         __props__['ipv6_cidr_block_association_id'] = None
+        __props__['owner_id'] = None
         __props__['vpc_id'] = None
 
         super(DefaultSubnet, __self__).__init__(

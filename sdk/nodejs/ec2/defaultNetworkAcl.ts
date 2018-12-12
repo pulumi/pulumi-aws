@@ -41,8 +41,8 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultNetworkAclState): DefaultNetworkAcl {
-        return new DefaultNetworkAcl(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultNetworkAclState, opts?: pulumi.CustomResourceOptions): DefaultNetworkAcl {
+        return new DefaultNetworkAcl(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -58,6 +58,10 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
      * Specifies an ingress rule. Parameters defined below.
      */
     public readonly ingress: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[] | undefined>;
+    /**
+     * The ID of the AWS account that owns the Default Network ACL
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * A list of Subnet IDs to apply the ACL to. See the
      * notes below on managing Subnets in the Default Network ACL
@@ -87,6 +91,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -100,6 +105,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["ingress"] = args ? args.ingress : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         super("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, inputs, opts);
@@ -123,6 +129,10 @@ export interface DefaultNetworkAclState {
      * Specifies an ingress rule. Parameters defined below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
+    /**
+     * The ID of the AWS account that owns the Default Network ACL
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A list of Subnet IDs to apply the ACL to. See the
      * notes below on managing Subnets in the Default Network ACL

@@ -47,6 +47,7 @@ func NewVpc(ctx *pulumi.Context,
 	inputs["ipv6AssociationId"] = nil
 	inputs["ipv6CidrBlock"] = nil
 	inputs["mainRouteTableId"] = nil
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/vpc:Vpc", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -75,6 +76,7 @@ func GetVpc(ctx *pulumi.Context,
 		inputs["ipv6AssociationId"] = state.Ipv6AssociationId
 		inputs["ipv6CidrBlock"] = state.Ipv6CidrBlock
 		inputs["mainRouteTableId"] = state.MainRouteTableId
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ec2/vpc:Vpc", name, id, inputs, opts...)
@@ -99,7 +101,7 @@ func (r *Vpc) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// Requests an Amazon-provided IPv6 CIDR 
+// Requests an Amazon-provided IPv6 CIDR
 // block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
 // the size of the CIDR block. Default is `false`.
 func (r *Vpc) AssignGeneratedIpv6CidrBlock() *pulumi.BoolOutput {
@@ -175,6 +177,11 @@ func (r *Vpc) MainRouteTableId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["mainRouteTableId"])
 }
 
+// The ID of the AWS account that owns the VPC.
+func (r *Vpc) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *Vpc) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -184,7 +191,7 @@ func (r *Vpc) Tags() *pulumi.MapOutput {
 type VpcState struct {
 	// Amazon Resource Name (ARN) of VPC
 	Arn interface{}
-	// Requests an Amazon-provided IPv6 CIDR 
+	// Requests an Amazon-provided IPv6 CIDR
 	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
 	// the size of the CIDR block. Default is `false`.
 	AssignGeneratedIpv6CidrBlock interface{}
@@ -218,13 +225,15 @@ type VpcState struct {
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
 	MainRouteTableId interface{}
+	// The ID of the AWS account that owns the VPC.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
 // The set of arguments for constructing a Vpc resource.
 type VpcArgs struct {
-	// Requests an Amazon-provided IPv6 CIDR 
+	// Requests an Amazon-provided IPv6 CIDR
 	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
 	// the size of the CIDR block. Default is `false`.
 	AssignGeneratedIpv6CidrBlock interface{}

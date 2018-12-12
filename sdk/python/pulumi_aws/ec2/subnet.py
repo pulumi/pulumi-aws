@@ -10,7 +10,7 @@ class Subnet(pulumi.CustomResource):
     """
     Provides an VPC subnet resource.
     """
-    def __init__(__self__, __name__, __opts__=None, assign_ipv6_address_on_creation=None, availability_zone=None, cidr_block=None, ipv6_cidr_block=None, map_public_ip_on_launch=None, tags=None, vpc_id=None):
+    def __init__(__self__, __name__, __opts__=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, map_public_ip_on_launch=None, tags=None, vpc_id=None):
         """Create a Subnet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -24,6 +24,8 @@ class Subnet(pulumi.CustomResource):
         __props__['assign_ipv6_address_on_creation'] = assign_ipv6_address_on_creation
 
         __props__['availability_zone'] = availability_zone
+
+        __props__['availability_zone_id'] = availability_zone_id
 
         if not cidr_block:
             raise TypeError('Missing required property cidr_block')
@@ -41,6 +43,7 @@ class Subnet(pulumi.CustomResource):
 
         __props__['arn'] = None
         __props__['ipv6_cidr_block_association_id'] = None
+        __props__['owner_id'] = None
 
         super(Subnet, __self__).__init__(
             'aws:ec2/subnet:Subnet',

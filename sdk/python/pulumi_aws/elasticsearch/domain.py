@@ -7,6 +7,9 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Domain(pulumi.CustomResource):
+    """
+    Manages an AWS Elasticsearch Domain.
+    """
     def __init__(__self__, __name__, __opts__=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None):
         """Create a Domain resource with the given unique name, props, and options."""
         if not __name__:

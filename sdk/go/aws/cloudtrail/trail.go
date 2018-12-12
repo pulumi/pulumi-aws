@@ -9,6 +9,10 @@ import (
 )
 
 // Provides a CloudTrail resource.
+// 
+// ~> *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
+// 
+// ~> *NOTE:* For an organization trail, this resource must be in the master account of the organization.
 type Trail struct {
 	s *pulumi.ResourceState
 }
@@ -28,6 +32,7 @@ func NewTrail(ctx *pulumi.Context,
 		inputs["eventSelectors"] = nil
 		inputs["includeGlobalServiceEvents"] = nil
 		inputs["isMultiRegionTrail"] = nil
+		inputs["isOrganizationTrail"] = nil
 		inputs["kmsKeyId"] = nil
 		inputs["name"] = nil
 		inputs["s3BucketName"] = nil
@@ -42,6 +47,7 @@ func NewTrail(ctx *pulumi.Context,
 		inputs["eventSelectors"] = args.EventSelectors
 		inputs["includeGlobalServiceEvents"] = args.IncludeGlobalServiceEvents
 		inputs["isMultiRegionTrail"] = args.IsMultiRegionTrail
+		inputs["isOrganizationTrail"] = args.IsOrganizationTrail
 		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["name"] = args.Name
 		inputs["s3BucketName"] = args.S3BucketName
@@ -73,6 +79,7 @@ func GetTrail(ctx *pulumi.Context,
 		inputs["homeRegion"] = state.HomeRegion
 		inputs["includeGlobalServiceEvents"] = state.IncludeGlobalServiceEvents
 		inputs["isMultiRegionTrail"] = state.IsMultiRegionTrail
+		inputs["isOrganizationTrail"] = state.IsOrganizationTrail
 		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["name"] = state.Name
 		inputs["s3BucketName"] = state.S3BucketName
@@ -148,6 +155,11 @@ func (r *Trail) IsMultiRegionTrail() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["isMultiRegionTrail"])
 }
 
+// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+func (r *Trail) IsOrganizationTrail() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["isOrganizationTrail"])
+}
+
 // Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 func (r *Trail) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
@@ -206,6 +218,8 @@ type TrailState struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail interface{}
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	IsOrganizationTrail interface{}
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId interface{}
 	// Specifies the name of the trail.
@@ -244,6 +258,8 @@ type TrailArgs struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail interface{}
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	IsOrganizationTrail interface{}
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId interface{}
 	// Specifies the name of the trail.

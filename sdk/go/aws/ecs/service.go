@@ -40,6 +40,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = nil
 		inputs["placementConstraints"] = nil
 		inputs["placementStrategies"] = nil
+		inputs["propagateTags"] = nil
 		inputs["schedulingStrategy"] = nil
 		inputs["serviceRegistries"] = nil
 		inputs["tags"] = nil
@@ -61,6 +62,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = args.OrderedPlacementStrategies
 		inputs["placementConstraints"] = args.PlacementConstraints
 		inputs["placementStrategies"] = args.PlacementStrategies
+		inputs["propagateTags"] = args.PropagateTags
 		inputs["schedulingStrategy"] = args.SchedulingStrategy
 		inputs["serviceRegistries"] = args.ServiceRegistries
 		inputs["tags"] = args.Tags
@@ -95,6 +97,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = state.OrderedPlacementStrategies
 		inputs["placementConstraints"] = state.PlacementConstraints
 		inputs["placementStrategies"] = state.PlacementStrategies
+		inputs["propagateTags"] = state.PropagateTags
 		inputs["schedulingStrategy"] = state.SchedulingStrategy
 		inputs["serviceRegistries"] = state.ServiceRegistries
 		inputs["tags"] = state.Tags
@@ -143,6 +146,7 @@ func (r *Service) DesiredCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["desiredCount"])
 }
 
+// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 func (r *Service) EnableEcsManagedTags() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableEcsManagedTags"])
 }
@@ -193,6 +197,11 @@ func (r *Service) PlacementStrategies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementStrategies"])
 }
 
+// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+func (r *Service) PropagateTags() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["propagateTags"])
+}
+
 // The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
 func (r *Service) SchedulingStrategy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["schedulingStrategy"])
@@ -231,6 +240,7 @@ type ServiceState struct {
 	DeploymentMinimumHealthyPercent interface{}
 	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
+	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags interface{}
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
@@ -251,6 +261,8 @@ type ServiceState struct {
 	PlacementConstraints interface{}
 	// **Deprecated**, use `ordered_placement_strategy` instead.
 	PlacementStrategies interface{}
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	PropagateTags interface{}
 	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
 	SchedulingStrategy interface{}
 	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
@@ -276,6 +288,7 @@ type ServiceArgs struct {
 	DeploymentMinimumHealthyPercent interface{}
 	// The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount interface{}
+	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags interface{}
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
@@ -296,6 +309,8 @@ type ServiceArgs struct {
 	PlacementConstraints interface{}
 	// **Deprecated**, use `ordered_placement_strategy` instead.
 	PlacementStrategies interface{}
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	PropagateTags interface{}
 	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
 	SchedulingStrategy interface{}
 	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.

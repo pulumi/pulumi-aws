@@ -20,8 +20,8 @@ export class EfsLocation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EfsLocationState): EfsLocation {
-        return new EfsLocation(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EfsLocationState, opts?: pulumi.CustomResourceOptions): EfsLocation {
+        return new EfsLocation(name, <any>state, { ...opts, id: id });
     }
 
     /**

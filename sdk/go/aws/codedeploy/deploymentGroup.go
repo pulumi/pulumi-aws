@@ -160,7 +160,7 @@ func (r *DeploymentGroup) EcsService() *pulumi.Output {
 	return r.s.State["ecsService"]
 }
 
-// Configuration block of the load balancer to use in a blue/green deployment (documented below).
+// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
 func (r *DeploymentGroup) LoadBalancerInfo() *pulumi.Output {
 	return r.s.State["loadBalancerInfo"]
 }
@@ -204,7 +204,7 @@ type DeploymentGroupState struct {
 	Ec2TagSets interface{}
 	// Configuration block(s) of the ECS services for a deployment group (documented below).
 	EcsService interface{}
-	// Configuration block of the load balancer to use in a blue/green deployment (documented below).
+	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
 	LoadBalancerInfo interface{}
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters interface{}
@@ -238,7 +238,7 @@ type DeploymentGroupArgs struct {
 	Ec2TagSets interface{}
 	// Configuration block(s) of the ECS services for a deployment group (documented below).
 	EcsService interface{}
-	// Configuration block of the load balancer to use in a blue/green deployment (documented below).
+	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
 	LoadBalancerInfo interface{}
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters interface{}

@@ -20,8 +20,8 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnGatewayRoutePropagationState): VpnGatewayRoutePropagation {
-        return new VpnGatewayRoutePropagation(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions): VpnGatewayRoutePropagation {
+        return new VpnGatewayRoutePropagation(name, <any>state, { ...opts, id: id });
     }
 
     /**

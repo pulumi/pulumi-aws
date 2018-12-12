@@ -42,6 +42,7 @@ func NewNetworkAcl(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
 	}
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/networkAcl:NetworkAcl", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -57,6 +58,7 @@ func GetNetworkAcl(ctx *pulumi.Context,
 	if state != nil {
 		inputs["egress"] = state.Egress
 		inputs["ingress"] = state.Ingress
+		inputs["ownerId"] = state.OwnerId
 		inputs["subnetId"] = state.SubnetId
 		inputs["subnetIds"] = state.SubnetIds
 		inputs["tags"] = state.Tags
@@ -89,6 +91,11 @@ func (r *NetworkAcl) Ingress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
+// The ID of the AWS account that owns the network ACL.
+func (r *NetworkAcl) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // The ID of the associated Subnet. This
 // attribute is deprecated, please use the `subnet_ids` attribute instead
 func (r *NetworkAcl) SubnetId() *pulumi.StringOutput {
@@ -116,6 +123,8 @@ type NetworkAclState struct {
 	Egress interface{}
 	// Specifies an ingress rule. Parameters defined below.
 	Ingress interface{}
+	// The ID of the AWS account that owns the network ACL.
+	OwnerId interface{}
 	// The ID of the associated Subnet. This
 	// attribute is deprecated, please use the `subnet_ids` attribute instead
 	SubnetId interface{}

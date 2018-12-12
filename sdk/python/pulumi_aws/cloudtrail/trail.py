@@ -9,8 +9,12 @@ from .. import utilities, tables
 class Trail(pulumi.CustomResource):
     """
     Provides a CloudTrail resource.
+    
+    ~> *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
+    
+    ~> *NOTE:* For an organization trail, this resource must be in the master account of the organization.
     """
-    def __init__(__self__, __name__, __opts__=None, cloud_watch_logs_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, enable_logging=None, event_selectors=None, include_global_service_events=None, is_multi_region_trail=None, kms_key_id=None, name=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, cloud_watch_logs_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, enable_logging=None, event_selectors=None, include_global_service_events=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, name=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_name=None, tags=None):
         """Create a Trail resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -34,6 +38,8 @@ class Trail(pulumi.CustomResource):
         __props__['include_global_service_events'] = include_global_service_events
 
         __props__['is_multi_region_trail'] = is_multi_region_trail
+
+        __props__['is_organization_trail'] = is_organization_trail
 
         __props__['kms_key_id'] = kms_key_id
 

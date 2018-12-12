@@ -19,8 +19,8 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HostedPrivateVirtualInterfaceAccepterState): HostedPrivateVirtualInterfaceAccepter {
-        return new HostedPrivateVirtualInterfaceAccepter(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions): HostedPrivateVirtualInterfaceAccepter {
+        return new HostedPrivateVirtualInterfaceAccepter(name, <any>state, { ...opts, id: id });
     }
 
     /**

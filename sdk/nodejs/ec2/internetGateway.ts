@@ -18,10 +18,14 @@ export class InternetGateway extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InternetGatewayState): InternetGateway {
-        return new InternetGateway(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InternetGatewayState, opts?: pulumi.CustomResourceOptions): InternetGateway {
+        return new InternetGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * The ID of the AWS account that owns the internet gateway.
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -43,12 +47,14 @@ export class InternetGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: InternetGatewayState = argsOrState as InternetGatewayState | undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as InternetGatewayArgs | undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/internetGateway:InternetGateway", name, inputs, opts);
     }
@@ -58,6 +64,10 @@ export class InternetGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InternetGateway resources.
  */
 export interface InternetGatewayState {
+    /**
+     * The ID of the AWS account that owns the internet gateway.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

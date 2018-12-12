@@ -16,8 +16,8 @@ export class DeploymentGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DeploymentGroupState): DeploymentGroup {
-        return new DeploymentGroup(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DeploymentGroupState, opts?: pulumi.CustomResourceOptions): DeploymentGroup {
+        return new DeploymentGroup(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -65,7 +65,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly ecsService: pulumi.Output<{ clusterName: string, serviceName: string } | undefined>;
     /**
-     * Configuration block of the load balancer to use in a blue/green deployment (documented below).
+     * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
     public readonly loadBalancerInfo: pulumi.Output<{ elbInfos?: { name?: string }[], targetGroupInfos?: { name?: string }[], targetGroupPairInfo?: { prodTrafficRoute: { listenerArns: string[] }, targetGroups: { name: string }[], testTrafficRoute?: { listenerArns: string[] } } }>;
     /**
@@ -188,7 +188,7 @@ export interface DeploymentGroupState {
      */
     readonly ecsService?: pulumi.Input<{ clusterName: pulumi.Input<string>, serviceName: pulumi.Input<string> }>;
     /**
-     * Configuration block of the load balancer to use in a blue/green deployment (documented below).
+     * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
     readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupPairInfo?: pulumi.Input<{ prodTrafficRoute: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }>, targetGroups: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>, testTrafficRoute?: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }> }> }>;
     /**
@@ -254,7 +254,7 @@ export interface DeploymentGroupArgs {
      */
     readonly ecsService?: pulumi.Input<{ clusterName: pulumi.Input<string>, serviceName: pulumi.Input<string> }>;
     /**
-     * Configuration block of the load balancer to use in a blue/green deployment (documented below).
+     * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
     readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupPairInfo?: pulumi.Input<{ prodTrafficRoute: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }>, targetGroups: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>, testTrafficRoute?: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }> }> }>;
     /**

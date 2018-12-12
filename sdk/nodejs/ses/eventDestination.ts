@@ -16,14 +16,14 @@ export class EventDestination extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventDestinationState): EventDestination {
-        return new EventDestination(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventDestinationState, opts?: pulumi.CustomResourceOptions): EventDestination {
+        return new EventDestination(name, <any>state, { ...opts, id: id });
     }
 
     /**
      * CloudWatch destination for the events
      */
-    public readonly cloudwatchDestination: pulumi.Output<{ defaultValue: string, dimensionName: string, valueSource: string } | undefined>;
+    public readonly cloudwatchDestinations: pulumi.Output<{ defaultValue: string, dimensionName: string, valueSource: string }[] | undefined>;
     /**
      * The name of the configuration set
      */
@@ -61,7 +61,7 @@ export class EventDestination extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventDestinationState = argsOrState as EventDestinationState | undefined;
-            inputs["cloudwatchDestination"] = state ? state.cloudwatchDestination : undefined;
+            inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
             inputs["configurationSetName"] = state ? state.configurationSetName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["kinesisDestination"] = state ? state.kinesisDestination : undefined;
@@ -76,7 +76,7 @@ export class EventDestination extends pulumi.CustomResource {
             if (!args || args.matchingTypes === undefined) {
                 throw new Error("Missing required property 'matchingTypes'");
             }
-            inputs["cloudwatchDestination"] = args ? args.cloudwatchDestination : undefined;
+            inputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;
             inputs["configurationSetName"] = args ? args.configurationSetName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["kinesisDestination"] = args ? args.kinesisDestination : undefined;
@@ -95,7 +95,7 @@ export interface EventDestinationState {
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestination?: pulumi.Input<{ defaultValue: pulumi.Input<string>, dimensionName: pulumi.Input<string>, valueSource: pulumi.Input<string> }>;
+    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<{ defaultValue: pulumi.Input<string>, dimensionName: pulumi.Input<string>, valueSource: pulumi.Input<string> }>[]>;
     /**
      * The name of the configuration set
      */
@@ -129,7 +129,7 @@ export interface EventDestinationArgs {
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestination?: pulumi.Input<{ defaultValue: pulumi.Input<string>, dimensionName: pulumi.Input<string>, valueSource: pulumi.Input<string> }>;
+    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<{ defaultValue: pulumi.Input<string>, dimensionName: pulumi.Input<string>, valueSource: pulumi.Input<string> }>[]>;
     /**
      * The name of the configuration set
      */

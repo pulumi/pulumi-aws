@@ -56,6 +56,7 @@ func NewDefaultNetworkAcl(ctx *pulumi.Context,
 		inputs["subnetIds"] = args.SubnetIds
 		inputs["tags"] = args.Tags
 	}
+	inputs["ownerId"] = nil
 	inputs["vpcId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, true, inputs, opts...)
 	if err != nil {
@@ -73,6 +74,7 @@ func GetDefaultNetworkAcl(ctx *pulumi.Context,
 		inputs["defaultNetworkAclId"] = state.DefaultNetworkAclId
 		inputs["egress"] = state.Egress
 		inputs["ingress"] = state.Ingress
+		inputs["ownerId"] = state.OwnerId
 		inputs["subnetIds"] = state.SubnetIds
 		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
@@ -110,6 +112,11 @@ func (r *DefaultNetworkAcl) Ingress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
+// The ID of the AWS account that owns the Default Network ACL
+func (r *DefaultNetworkAcl) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A list of Subnet IDs to apply the ACL to. See the
 // notes below on managing Subnets in the Default Network ACL
 func (r *DefaultNetworkAcl) SubnetIds() *pulumi.ArrayOutput {
@@ -135,6 +142,8 @@ type DefaultNetworkAclState struct {
 	Egress interface{}
 	// Specifies an ingress rule. Parameters defined below.
 	Ingress interface{}
+	// The ID of the AWS account that owns the Default Network ACL
+	OwnerId interface{}
 	// A list of Subnet IDs to apply the ACL to. See the
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds interface{}

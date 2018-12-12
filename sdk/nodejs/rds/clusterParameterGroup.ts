@@ -20,8 +20,8 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterParameterGroupState): ClusterParameterGroup {
-        return new ClusterParameterGroup(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterParameterGroupState, opts?: pulumi.CustomResourceOptions): ClusterParameterGroup {
+        return new ClusterParameterGroup(name, <any>state, { ...opts, id: id });
     }
 
     /**

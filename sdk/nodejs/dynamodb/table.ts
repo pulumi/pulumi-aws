@@ -18,8 +18,8 @@ export class Table extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TableState): Table {
-        return new Table(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TableState, opts?: pulumi.CustomResourceOptions): Table {
+        return new Table(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -30,6 +30,10 @@ export class Table extends pulumi.CustomResource {
      * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
     public readonly attributes: pulumi.Output<{ name: string, type: string }[]>;
+    /**
+     * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+     */
+    public readonly billingMode: pulumi.Output<string | undefined>;
     /**
      * Describe a GSO for the table;
      * subject to the normal limits on the number of GSIs, projected
@@ -62,7 +66,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * The number of read units for this index
      */
-    public readonly readCapacity: pulumi.Output<number>;
+    public readonly readCapacity: pulumi.Output<number | undefined>;
     /**
      * Encrypt at rest options.
      */
@@ -97,7 +101,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * The number of write units for this index
      */
-    public readonly writeCapacity: pulumi.Output<number>;
+    public readonly writeCapacity: pulumi.Output<number | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -113,6 +117,7 @@ export class Table extends pulumi.CustomResource {
             const state: TableState = argsOrState as TableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
+            inputs["billingMode"] = state ? state.billingMode : undefined;
             inputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
             inputs["hashKey"] = state ? state.hashKey : undefined;
             inputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
@@ -136,13 +141,8 @@ export class Table extends pulumi.CustomResource {
             if (!args || args.hashKey === undefined) {
                 throw new Error("Missing required property 'hashKey'");
             }
-            if (!args || args.readCapacity === undefined) {
-                throw new Error("Missing required property 'readCapacity'");
-            }
-            if (!args || args.writeCapacity === undefined) {
-                throw new Error("Missing required property 'writeCapacity'");
-            }
             inputs["attributes"] = args ? args.attributes : undefined;
+            inputs["billingMode"] = args ? args.billingMode : undefined;
             inputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
             inputs["hashKey"] = args ? args.hashKey : undefined;
             inputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
@@ -176,6 +176,10 @@ export interface TableState {
      * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
     readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+     */
+    readonly billingMode?: pulumi.Input<string>;
     /**
      * Describe a GSO for the table;
      * subject to the normal limits on the number of GSIs, projected
@@ -255,6 +259,10 @@ export interface TableArgs {
      */
     readonly attributes: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
+     * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+     */
+    readonly billingMode?: pulumi.Input<string>;
+    /**
      * Describe a GSO for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
@@ -286,7 +294,7 @@ export interface TableArgs {
     /**
      * The number of read units for this index
      */
-    readonly readCapacity: pulumi.Input<number>;
+    readonly readCapacity?: pulumi.Input<number>;
     /**
      * Encrypt at rest options.
      */
@@ -310,5 +318,5 @@ export interface TableArgs {
     /**
      * The number of write units for this index
      */
-    readonly writeCapacity: pulumi.Input<number>;
+    readonly writeCapacity?: pulumi.Input<number>;
 }

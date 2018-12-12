@@ -10,7 +10,7 @@ class DeploymentConfig(pulumi.CustomResource):
     """
     Provides a CodeDeploy deployment config for an application
     """
-    def __init__(__self__, __name__, __opts__=None, deployment_config_name=None, minimum_healthy_hosts=None):
+    def __init__(__self__, __name__, __opts__=None, compute_platform=None, deployment_config_name=None, minimum_healthy_hosts=None, traffic_routing_config=None):
         """Create a DeploymentConfig resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -21,13 +21,15 @@ class DeploymentConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['compute_platform'] = compute_platform
+
         if not deployment_config_name:
             raise TypeError('Missing required property deployment_config_name')
         __props__['deployment_config_name'] = deployment_config_name
 
-        if not minimum_healthy_hosts:
-            raise TypeError('Missing required property minimum_healthy_hosts')
         __props__['minimum_healthy_hosts'] = minimum_healthy_hosts
+
+        __props__['traffic_routing_config'] = traffic_routing_config
 
         __props__['deployment_config_id'] = None
 

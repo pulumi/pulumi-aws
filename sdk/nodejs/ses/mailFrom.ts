@@ -18,8 +18,8 @@ export class MailFrom extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MailFromState): MailFrom {
-        return new MailFrom(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MailFromState, opts?: pulumi.CustomResourceOptions): MailFrom {
+        return new MailFrom(name, <any>state, { ...opts, id: id });
     }
 
     /**

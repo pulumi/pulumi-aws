@@ -50,6 +50,7 @@ func NewRouteTable(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
 	}
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/routeTable:RouteTable", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -63,6 +64,7 @@ func GetRouteTable(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *RouteTableState, opts ...pulumi.ResourceOpt) (*RouteTable, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["ownerId"] = state.OwnerId
 		inputs["propagatingVgws"] = state.PropagatingVgws
 		inputs["routes"] = state.Routes
 		inputs["tags"] = state.Tags
@@ -83,6 +85,11 @@ func (r *RouteTable) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *RouteTable) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The ID of the AWS account that owns the route table
+func (r *RouteTable) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A list of virtual gateways for propagation.
@@ -107,6 +114,8 @@ func (r *RouteTable) VpcId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering RouteTable resources.
 type RouteTableState struct {
+	// The ID of the AWS account that owns the route table
+	OwnerId interface{}
 	// A list of virtual gateways for propagation.
 	PropagatingVgws interface{}
 	// A list of route objects. Their keys are documented below.

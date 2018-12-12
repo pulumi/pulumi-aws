@@ -11,7 +11,7 @@ import (
 // * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
 // * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws_vpc_dhcp_options_association`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
 // * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
-// * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`. 
+// * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
 type VpcDhcpOptions struct {
 	s *pulumi.ResourceState
 }
@@ -35,6 +35,7 @@ func NewVpcDhcpOptions(ctx *pulumi.Context,
 		inputs["ntpServers"] = args.NtpServers
 		inputs["tags"] = args.Tags
 	}
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -53,6 +54,7 @@ func GetVpcDhcpOptions(ctx *pulumi.Context,
 		inputs["netbiosNameServers"] = state.NetbiosNameServers
 		inputs["netbiosNodeType"] = state.NetbiosNodeType
 		inputs["ntpServers"] = state.NtpServers
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, id, inputs, opts...)
@@ -97,6 +99,11 @@ func (r *VpcDhcpOptions) NtpServers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ntpServers"])
 }
 
+// The ID of the AWS account that owns the DHCP options set.
+func (r *VpcDhcpOptions) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *VpcDhcpOptions) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -114,6 +121,8 @@ type VpcDhcpOptionsState struct {
 	NetbiosNodeType interface{}
 	// List of NTP servers to configure.
 	NtpServers interface{}
+	// The ID of the AWS account that owns the DHCP options set.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

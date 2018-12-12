@@ -41,6 +41,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["autoMinorVersionUpgrade"] = nil
 		inputs["availabilityZone"] = nil
 		inputs["clusterIdentifier"] = nil
+		inputs["copyTagsToSnapshot"] = nil
 		inputs["dbParameterGroupName"] = nil
 		inputs["dbSubnetGroupName"] = nil
 		inputs["engine"] = nil
@@ -62,6 +63,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["autoMinorVersionUpgrade"] = args.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = args.AvailabilityZone
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
+		inputs["copyTagsToSnapshot"] = args.CopyTagsToSnapshot
 		inputs["dbParameterGroupName"] = args.DbParameterGroupName
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
 		inputs["engine"] = args.Engine
@@ -104,6 +106,7 @@ func GetClusterInstance(ctx *pulumi.Context,
 		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["clusterIdentifier"] = state.ClusterIdentifier
+		inputs["copyTagsToSnapshot"] = state.CopyTagsToSnapshot
 		inputs["dbParameterGroupName"] = state.DbParameterGroupName
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
 		inputs["dbiResourceId"] = state.DbiResourceId
@@ -168,6 +171,11 @@ func (r *ClusterInstance) AvailabilityZone() *pulumi.StringOutput {
 // The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 func (r *ClusterInstance) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
+}
+
+// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+func (r *ClusterInstance) CopyTagsToSnapshot() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
 }
 
 // The name of the DB parameter group to associate with this instance.
@@ -317,6 +325,8 @@ type ClusterInstanceState struct {
 	AvailabilityZone interface{}
 	// The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
+	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+	CopyTagsToSnapshot interface{}
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
@@ -398,6 +408,8 @@ type ClusterInstanceArgs struct {
 	AvailabilityZone interface{}
 	// The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
+	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+	CopyTagsToSnapshot interface{}
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName interface{}
 	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).

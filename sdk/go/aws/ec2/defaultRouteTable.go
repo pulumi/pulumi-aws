@@ -61,6 +61,7 @@ func NewDefaultRouteTable(ctx *pulumi.Context,
 		inputs["routes"] = args.Routes
 		inputs["tags"] = args.Tags
 	}
+	inputs["ownerId"] = nil
 	inputs["vpcId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, true, inputs, opts...)
 	if err != nil {
@@ -76,6 +77,7 @@ func GetDefaultRouteTable(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["defaultRouteTableId"] = state.DefaultRouteTableId
+		inputs["ownerId"] = state.OwnerId
 		inputs["propagatingVgws"] = state.PropagatingVgws
 		inputs["routes"] = state.Routes
 		inputs["tags"] = state.Tags
@@ -103,6 +105,11 @@ func (r *DefaultRouteTable) DefaultRouteTableId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultRouteTableId"])
 }
 
+// The ID of the AWS account that owns the route table
+func (r *DefaultRouteTable) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A list of virtual gateways for propagation.
 func (r *DefaultRouteTable) PropagatingVgws() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["propagatingVgws"])
@@ -126,6 +133,8 @@ func (r *DefaultRouteTable) VpcId() *pulumi.StringOutput {
 type DefaultRouteTableState struct {
 	// The ID of the Default Routing Table.
 	DefaultRouteTableId interface{}
+	// The ID of the AWS account that owns the route table
+	OwnerId interface{}
 	// A list of virtual gateways for propagation.
 	PropagatingVgws interface{}
 	// A list of route objects. Their keys are documented below.

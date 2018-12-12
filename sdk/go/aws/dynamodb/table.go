@@ -24,15 +24,10 @@ func NewTable(ctx *pulumi.Context,
 	if args == nil || args.HashKey == nil {
 		return nil, errors.New("missing required argument 'HashKey'")
 	}
-	if args == nil || args.ReadCapacity == nil {
-		return nil, errors.New("missing required argument 'ReadCapacity'")
-	}
-	if args == nil || args.WriteCapacity == nil {
-		return nil, errors.New("missing required argument 'WriteCapacity'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["attributes"] = nil
+		inputs["billingMode"] = nil
 		inputs["globalSecondaryIndexes"] = nil
 		inputs["hashKey"] = nil
 		inputs["localSecondaryIndexes"] = nil
@@ -48,6 +43,7 @@ func NewTable(ctx *pulumi.Context,
 		inputs["writeCapacity"] = nil
 	} else {
 		inputs["attributes"] = args.Attributes
+		inputs["billingMode"] = args.BillingMode
 		inputs["globalSecondaryIndexes"] = args.GlobalSecondaryIndexes
 		inputs["hashKey"] = args.HashKey
 		inputs["localSecondaryIndexes"] = args.LocalSecondaryIndexes
@@ -80,6 +76,7 @@ func GetTable(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["attributes"] = state.Attributes
+		inputs["billingMode"] = state.BillingMode
 		inputs["globalSecondaryIndexes"] = state.GlobalSecondaryIndexes
 		inputs["hashKey"] = state.HashKey
 		inputs["localSecondaryIndexes"] = state.LocalSecondaryIndexes
@@ -121,6 +118,11 @@ func (r *Table) Arn() *pulumi.StringOutput {
 // List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
 func (r *Table) Attributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["attributes"])
+}
+
+// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+func (r *Table) BillingMode() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["billingMode"])
 }
 
 // Describe a GSO for the table;
@@ -212,6 +214,8 @@ type TableState struct {
 	Arn interface{}
 	// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
 	Attributes interface{}
+	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+	BillingMode interface{}
 	// Describe a GSO for the table;
 	// subject to the normal limits on the number of GSIs, projected
 	// attributes, etc.
@@ -256,6 +260,8 @@ type TableState struct {
 type TableArgs struct {
 	// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
 	Attributes interface{}
+	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+	BillingMode interface{}
 	// Describe a GSO for the table;
 	// subject to the normal limits on the number of GSIs, projected
 	// attributes, etc.

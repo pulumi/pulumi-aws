@@ -16,8 +16,8 @@ export class DomainIdentity extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainIdentityState): DomainIdentity {
-        return new DomainIdentity(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainIdentityState, opts?: pulumi.CustomResourceOptions): DomainIdentity {
+        return new DomainIdentity(name, <any>state, { ...opts, id: id });
     }
 
     /**

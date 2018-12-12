@@ -20,8 +20,8 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountPasswordPolicyState): AccountPasswordPolicy {
-        return new AccountPasswordPolicy(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountPasswordPolicyState, opts?: pulumi.CustomResourceOptions): AccountPasswordPolicy {
+        return new AccountPasswordPolicy(name, <any>state, { ...opts, id: id });
     }
 
     /**

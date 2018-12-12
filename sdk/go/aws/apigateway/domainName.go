@@ -110,9 +110,7 @@ func (r *DomainName) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is
-// desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`,
-// `regional_certificate_arn`, and `regional_certificate_name`.
+// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
 func (r *DomainName) CertificateArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
 }
@@ -167,14 +165,12 @@ func (r *DomainName) DomainName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["domainName"])
 }
 
-// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+// Configuration block defining API endpoint information including type. Defined below.
 func (r *DomainName) EndpointConfiguration() *pulumi.Output {
 	return r.s.State["endpointConfiguration"]
 }
 
-// The ARN for an AWS-managed certificate. Used when a regional domain name is
-// desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-// `certificate_private_key`.
+// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
 func (r *DomainName) RegionalCertificateArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["regionalCertificateArn"])
 }
@@ -197,9 +193,7 @@ func (r *DomainName) RegionalZoneId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering DomainName resources.
 type DomainNameState struct {
-	// The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is
-	// desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`,
-	// `regional_certificate_arn`, and `regional_certificate_name`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
 	CertificateArn interface{}
 	// The certificate issued for the domain name
 	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
@@ -227,11 +221,9 @@ type DomainNameState struct {
 	CloudfrontZoneId interface{}
 	// The fully-qualified domain name to register
 	DomainName interface{}
-	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration interface{}
-	// The ARN for an AWS-managed certificate. Used when a regional domain name is
-	// desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-	// `certificate_private_key`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
 	RegionalCertificateArn interface{}
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
 	// `certificate_private_key`.
@@ -244,9 +236,7 @@ type DomainNameState struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is
-	// desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`,
-	// `regional_certificate_arn`, and `regional_certificate_name`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
 	CertificateArn interface{}
 	// The certificate issued for the domain name
 	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
@@ -266,11 +256,9 @@ type DomainNameArgs struct {
 	CertificatePrivateKey interface{}
 	// The fully-qualified domain name to register
 	DomainName interface{}
-	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration interface{}
-	// The ARN for an AWS-managed certificate. Used when a regional domain name is
-	// desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-	// `certificate_private_key`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
 	RegionalCertificateArn interface{}
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
 	// `certificate_private_key`.

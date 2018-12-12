@@ -17,7 +17,7 @@ class DefaultVpc(pulumi.CustomResource):
     
     The `aws_default_vpc` behaves differently from normal resources, in that
     Terraform does not _create_ this resource, but instead "adopts" it
-    into management. 
+    into management.
     """
     def __init__(__self__, __name__, __opts__=None, enable_classiclink=None, enable_classiclink_dns_support=None, enable_dns_hostnames=None, enable_dns_support=None, tags=None):
         """Create a DefaultVpc resource with the given unique name, props, and options."""
@@ -51,6 +51,7 @@ class DefaultVpc(pulumi.CustomResource):
         __props__['ipv6_association_id'] = None
         __props__['ipv6_cidr_block'] = None
         __props__['main_route_table_id'] = None
+        __props__['owner_id'] = None
 
         super(DefaultVpc, __self__).__init__(
             'aws:ec2/defaultVpc:DefaultVpc',

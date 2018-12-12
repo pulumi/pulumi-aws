@@ -31,8 +31,8 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterInstanceState): ClusterInstance {
-        return new ClusterInstance(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterInstanceState, opts?: pulumi.CustomResourceOptions): ClusterInstance {
+        return new ClusterInstance(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -56,6 +56,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      * The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
     public readonly clusterIdentifier: pulumi.Output<string>;
+    /**
+     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     */
+    public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
      * The name of the DB parameter group to associate with this instance.
      */
@@ -186,6 +190,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["dbParameterGroupName"] = state ? state.dbParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             inputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
@@ -220,6 +225,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             inputs["engine"] = args ? args.engine : undefined;
@@ -273,6 +279,10 @@ export interface ClusterInstanceState {
      * The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     */
+    readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the DB parameter group to associate with this instance.
      */
@@ -408,6 +418,10 @@ export interface ClusterInstanceArgs {
      * The identifier of the [`aws_rds_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
+    /**
+     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     */
+    readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the DB parameter group to associate with this instance.
      */

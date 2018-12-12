@@ -16,7 +16,7 @@ import {Tags} from "../index";
  * 
  * The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead "adopts" it
- * into management. 
+ * into management.
  */
 export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     /**
@@ -27,8 +27,8 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcDhcpOptionsState): DefaultVpcDhcpOptions {
-        return new DefaultVpcDhcpOptions(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions): DefaultVpcDhcpOptions {
+        return new DefaultVpcDhcpOptions(name, <any>state, { ...opts, id: id });
     }
 
     public /*out*/ readonly domainName: pulumi.Output<string>;
@@ -42,6 +42,10 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      */
     public readonly netbiosNodeType: pulumi.Output<string | undefined>;
     public /*out*/ readonly ntpServers: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -64,6 +68,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
             inputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
             inputs["ntpServers"] = state ? state.ntpServers : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DefaultVpcDhcpOptionsArgs | undefined;
@@ -73,6 +78,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["domainName"] = undefined /*out*/;
             inputs["domainNameServers"] = undefined /*out*/;
             inputs["ntpServers"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, inputs, opts);
     }
@@ -93,6 +99,10 @@ export interface DefaultVpcDhcpOptionsState {
      */
     readonly netbiosNodeType?: pulumi.Input<string>;
     readonly ntpServers?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -19,8 +19,8 @@ export class Alias extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AliasState): Alias {
-        return new Alias(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AliasState, opts?: pulumi.CustomResourceOptions): Alias {
+        return new Alias(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -39,6 +39,10 @@ export class Alias extends pulumi.CustomResource {
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
     public readonly functionVersion: pulumi.Output<string>;
+    /**
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     */
+    public /*out*/ readonly invokeArn: pulumi.Output<string>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
@@ -64,6 +68,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["functionName"] = state ? state.functionName : undefined;
             inputs["functionVersion"] = state ? state.functionVersion : undefined;
+            inputs["invokeArn"] = state ? state.invokeArn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["routingConfig"] = state ? state.routingConfig : undefined;
         } else {
@@ -80,6 +85,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["routingConfig"] = args ? args.routingConfig : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["invokeArn"] = undefined /*out*/;
         }
         super("aws:lambda/alias:Alias", name, inputs, opts);
     }
@@ -105,6 +111,10 @@ export interface AliasState {
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
     readonly functionVersion?: pulumi.Input<string>;
+    /**
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     */
+    readonly invokeArn?: pulumi.Input<string>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */

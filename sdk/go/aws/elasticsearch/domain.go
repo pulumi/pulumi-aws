@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an AWS Elasticsearch Domain.
 type Domain struct {
 	s *pulumi.ResourceState
 }

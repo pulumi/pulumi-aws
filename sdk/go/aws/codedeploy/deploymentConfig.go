@@ -19,16 +19,17 @@ func NewDeploymentConfig(ctx *pulumi.Context,
 	if args == nil || args.DeploymentConfigName == nil {
 		return nil, errors.New("missing required argument 'DeploymentConfigName'")
 	}
-	if args == nil || args.MinimumHealthyHosts == nil {
-		return nil, errors.New("missing required argument 'MinimumHealthyHosts'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["computePlatform"] = nil
 		inputs["deploymentConfigName"] = nil
 		inputs["minimumHealthyHosts"] = nil
+		inputs["trafficRoutingConfig"] = nil
 	} else {
+		inputs["computePlatform"] = args.ComputePlatform
 		inputs["deploymentConfigName"] = args.DeploymentConfigName
 		inputs["minimumHealthyHosts"] = args.MinimumHealthyHosts
+		inputs["trafficRoutingConfig"] = args.TrafficRoutingConfig
 	}
 	inputs["deploymentConfigId"] = nil
 	s, err := ctx.RegisterResource("aws:codedeploy/deploymentConfig:DeploymentConfig", name, true, inputs, opts...)
@@ -44,9 +45,11 @@ func GetDeploymentConfig(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *DeploymentConfigState, opts ...pulumi.ResourceOpt) (*DeploymentConfig, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["computePlatform"] = state.ComputePlatform
 		inputs["deploymentConfigId"] = state.DeploymentConfigId
 		inputs["deploymentConfigName"] = state.DeploymentConfigName
 		inputs["minimumHealthyHosts"] = state.MinimumHealthyHosts
+		inputs["trafficRoutingConfig"] = state.TrafficRoutingConfig
 	}
 	s, err := ctx.ReadResource("aws:codedeploy/deploymentConfig:DeploymentConfig", name, id, inputs, opts...)
 	if err != nil {
@@ -65,6 +68,11 @@ func (r *DeploymentConfig) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+func (r *DeploymentConfig) ComputePlatform() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["computePlatform"])
+}
+
 // The AWS Assigned deployment config id
 func (r *DeploymentConfig) DeploymentConfigId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deploymentConfigId"])
@@ -80,20 +88,33 @@ func (r *DeploymentConfig) MinimumHealthyHosts() *pulumi.Output {
 	return r.s.State["minimumHealthyHosts"]
 }
 
+// A traffic_routing_config block. Traffic Routing Config is documented below.
+func (r *DeploymentConfig) TrafficRoutingConfig() *pulumi.Output {
+	return r.s.State["trafficRoutingConfig"]
+}
+
 // Input properties used for looking up and filtering DeploymentConfig resources.
 type DeploymentConfigState struct {
+	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+	ComputePlatform interface{}
 	// The AWS Assigned deployment config id
 	DeploymentConfigId interface{}
 	// The name of the deployment config.
 	DeploymentConfigName interface{}
 	// A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts interface{}
+	// A traffic_routing_config block. Traffic Routing Config is documented below.
+	TrafficRoutingConfig interface{}
 }
 
 // The set of arguments for constructing a DeploymentConfig resource.
 type DeploymentConfigArgs struct {
+	// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+	ComputePlatform interface{}
 	// The name of the deployment config.
 	DeploymentConfigName interface{}
 	// A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts interface{}
+	// A traffic_routing_config block. Traffic Routing Config is documented below.
+	TrafficRoutingConfig interface{}
 }

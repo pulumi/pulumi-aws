@@ -36,9 +36,11 @@ func NewDefaultSubnet(ctx *pulumi.Context,
 	}
 	inputs["arn"] = nil
 	inputs["assignIpv6AddressOnCreation"] = nil
+	inputs["availabilityZoneId"] = nil
 	inputs["cidrBlock"] = nil
 	inputs["ipv6CidrBlock"] = nil
 	inputs["ipv6CidrBlockAssociationId"] = nil
+	inputs["ownerId"] = nil
 	inputs["vpcId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/defaultSubnet:DefaultSubnet", name, true, inputs, opts...)
 	if err != nil {
@@ -56,10 +58,12 @@ func GetDefaultSubnet(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["assignIpv6AddressOnCreation"] = state.AssignIpv6AddressOnCreation
 		inputs["availabilityZone"] = state.AvailabilityZone
+		inputs["availabilityZoneId"] = state.AvailabilityZoneId
 		inputs["cidrBlock"] = state.CidrBlock
 		inputs["ipv6CidrBlock"] = state.Ipv6CidrBlock
 		inputs["ipv6CidrBlockAssociationId"] = state.Ipv6CidrBlockAssociationId
 		inputs["mapPublicIpOnLaunch"] = state.MapPublicIpOnLaunch
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
 	}
@@ -92,6 +96,10 @@ func (r *DefaultSubnet) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
+func (r *DefaultSubnet) AvailabilityZoneId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["availabilityZoneId"])
+}
+
 // The CIDR block for the subnet.
 func (r *DefaultSubnet) CidrBlock() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cidrBlock"])
@@ -113,6 +121,11 @@ func (r *DefaultSubnet) MapPublicIpOnLaunch() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["mapPublicIpOnLaunch"])
 }
 
+// The ID of the AWS account that owns the subnet.
+func (r *DefaultSubnet) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *DefaultSubnet) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -128,6 +141,7 @@ type DefaultSubnetState struct {
 	Arn interface{}
 	AssignIpv6AddressOnCreation interface{}
 	AvailabilityZone interface{}
+	AvailabilityZoneId interface{}
 	// The CIDR block for the subnet.
 	CidrBlock interface{}
 	// The IPv6 CIDR block.
@@ -137,6 +151,8 @@ type DefaultSubnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch interface{}
+	// The ID of the AWS account that owns the subnet.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The VPC ID.

@@ -28,8 +28,8 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceSecurityGroupAttachmentState): NetworkInterfaceSecurityGroupAttachment {
-        return new NetworkInterfaceSecurityGroupAttachment(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceSecurityGroupAttachmentState, opts?: pulumi.CustomResourceOptions): NetworkInterfaceSecurityGroupAttachment {
+        return new NetworkInterfaceSecurityGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
     /**

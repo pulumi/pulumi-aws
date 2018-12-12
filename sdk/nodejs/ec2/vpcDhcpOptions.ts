@@ -11,7 +11,7 @@ import {Tags} from "../index";
  * * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
  * * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws_vpc_dhcp_options_association`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
  * * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
- * * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`. 
+ * * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
  */
 export class VpcDhcpOptions extends pulumi.CustomResource {
     /**
@@ -22,8 +22,8 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcDhcpOptionsState): VpcDhcpOptions {
-        return new VpcDhcpOptions(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions): VpcDhcpOptions {
+        return new VpcDhcpOptions(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -47,6 +47,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     public readonly ntpServers: pulumi.Output<string[] | undefined>;
     /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
@@ -68,6 +72,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
             inputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
             inputs["ntpServers"] = state ? state.ntpServers : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VpcDhcpOptionsArgs | undefined;
@@ -77,6 +82,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["ntpServers"] = args ? args.ntpServers : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, inputs, opts);
     }
@@ -106,6 +112,10 @@ export interface VpcDhcpOptionsState {
      * List of NTP servers to configure.
      */
     readonly ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

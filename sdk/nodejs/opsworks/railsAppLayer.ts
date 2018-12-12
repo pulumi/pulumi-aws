@@ -16,8 +16,8 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RailsAppLayerState): RailsAppLayer {
-        return new RailsAppLayer(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RailsAppLayerState, opts?: pulumi.CustomResourceOptions): RailsAppLayer {
+        return new RailsAppLayer(name, <any>state, { ...opts, id: id });
     }
 
     /**
