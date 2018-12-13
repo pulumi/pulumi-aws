@@ -20,8 +20,8 @@ export class NfsLocation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NfsLocationState): NfsLocation {
-        return new NfsLocation(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NfsLocationState, opts?: pulumi.CustomResourceOptions): NfsLocation {
+        return new NfsLocation(name, <any>state, { ...opts, id: id });
     }
 
     /**

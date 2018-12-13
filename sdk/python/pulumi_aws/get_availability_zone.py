@@ -10,7 +10,7 @@ class GetAvailabilityZoneResult(object):
     """
     A collection of values returned by getAvailabilityZone.
     """
-    def __init__(__self__, name=None, name_suffix=None, region=None, state=None, id=None):
+    def __init__(__self__, name=None, name_suffix=None, region=None, state=None, zone_id=None, id=None):
         if name and not isinstance(name, str):
             raise TypeError('Expected argument name to be a str')
         __self__.name = name
@@ -38,6 +38,12 @@ class GetAvailabilityZoneResult(object):
         """
         The current state of the AZ.
         """
+        if zone_id and not isinstance(zone_id, str):
+            raise TypeError('Expected argument zone_id to be a str')
+        __self__.zone_id = zone_id
+        """
+        (Optional) The zone ID of the selected availability zone.
+        """
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -45,7 +51,7 @@ class GetAvailabilityZoneResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_availability_zone(name=None, state=None):
+async def get_availability_zone(name=None, state=None, zone_id=None):
     """
     `aws_availability_zone` provides details about a specific availability zone (AZ)
     in the current region.
@@ -63,6 +69,7 @@ async def get_availability_zone(name=None, state=None):
 
     __args__['name'] = name
     __args__['state'] = state
+    __args__['zoneId'] = zone_id
     __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__)
 
     return GetAvailabilityZoneResult(
@@ -70,4 +77,5 @@ async def get_availability_zone(name=None, state=None):
         name_suffix=__ret__.get('nameSuffix'),
         region=__ret__.get('region'),
         state=__ret__.get('state'),
+        zone_id=__ret__.get('zoneId'),
         id=__ret__.get('id'))

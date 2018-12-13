@@ -48,14 +48,18 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultRouteTableState): DefaultRouteTable {
-        return new DefaultRouteTable(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultRouteTableState, opts?: pulumi.CustomResourceOptions): DefaultRouteTable {
+        return new DefaultRouteTable(name, <any>state, { ...opts, id: id });
     }
 
     /**
      * The ID of the Default Routing Table.
      */
     public readonly defaultRouteTableId: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that owns the route table
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * A list of virtual gateways for propagation.
      */
@@ -83,6 +87,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: DefaultRouteTableState = argsOrState as DefaultRouteTableState | undefined;
             inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
             inputs["routes"] = state ? state.routes : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -96,6 +101,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         super("aws:ec2/defaultRouteTable:DefaultRouteTable", name, inputs, opts);
@@ -110,6 +116,10 @@ export interface DefaultRouteTableState {
      * The ID of the Default Routing Table.
      */
     readonly defaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the route table
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A list of virtual gateways for propagation.
      */

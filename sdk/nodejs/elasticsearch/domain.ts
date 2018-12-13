@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 import {Tags} from "../index";
 
+/**
+ * Manages an AWS Elasticsearch Domain.
+ */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -15,8 +18,8 @@ export class Domain extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainState): Domain {
-        return new Domain(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainState, opts?: pulumi.CustomResourceOptions): Domain {
+        return new Domain(name, <any>state, { ...opts, id: id });
     }
 
     /**

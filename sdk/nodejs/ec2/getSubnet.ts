@@ -15,6 +15,7 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pr
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getSubnet:getSubnet", {
         "availabilityZone": args.availabilityZone,
+        "availabilityZoneId": args.availabilityZoneId,
         "cidrBlock": args.cidrBlock,
         "defaultForAz": args.defaultForAz,
         "filters": args.filters,
@@ -35,6 +36,10 @@ export interface GetSubnetArgs {
      * subnet must reside.
      */
     readonly availabilityZone?: string;
+    /**
+     * The ID of the Availability Zone for the subnet.
+     */
+    readonly availabilityZoneId?: string;
     /**
      * The cidr block of the desired subnet.
      */
@@ -81,12 +86,17 @@ export interface GetSubnetResult {
     readonly arn: string;
     readonly assignIpv6AddressOnCreation: boolean;
     readonly availabilityZone: string;
+    readonly availabilityZoneId: string;
     readonly cidrBlock: string;
     readonly defaultForAz: boolean;
     readonly id: string;
     readonly ipv6CidrBlock: string;
     readonly ipv6CidrBlockAssociationId: string;
     readonly mapPublicIpOnLaunch: boolean;
+    /**
+     * The ID of the AWS account that owns the subnet.
+     */
+    readonly ownerId: string;
     readonly state: string;
     readonly tags: {[key: string]: any};
     readonly vpcId: string;

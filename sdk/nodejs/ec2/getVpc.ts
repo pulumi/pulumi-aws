@@ -103,6 +103,10 @@ export interface GetVpcResult {
      */
     readonly mainRouteTableId: string;
     /**
+     * The ID of the AWS account that owns the VPC.
+     */
+    readonly ownerId: string;
+    /**
      * The State of the association.
      */
     readonly state: string;

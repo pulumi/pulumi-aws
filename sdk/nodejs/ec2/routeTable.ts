@@ -37,10 +37,14 @@ export class RouteTable extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RouteTableState): RouteTable {
-        return new RouteTable(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RouteTableState, opts?: pulumi.CustomResourceOptions): RouteTable {
+        return new RouteTable(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * The ID of the AWS account that owns the route table
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * A list of virtual gateways for propagation.
      */
@@ -70,6 +74,7 @@ export class RouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteTableState = argsOrState as RouteTableState | undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
             inputs["routes"] = state ? state.routes : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -83,6 +88,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/routeTable:RouteTable", name, inputs, opts);
     }
@@ -92,6 +98,10 @@ export class RouteTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTable resources.
  */
 export interface RouteTableState {
+    /**
+     * The ID of the AWS account that owns the route table
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A list of virtual gateways for propagation.
      */

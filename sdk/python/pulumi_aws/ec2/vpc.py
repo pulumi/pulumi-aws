@@ -47,6 +47,7 @@ class Vpc(pulumi.CustomResource):
         __props__['ipv6_association_id'] = None
         __props__['ipv6_cidr_block'] = None
         __props__['main_route_table_id'] = None
+        __props__['owner_id'] = None
 
         super(Vpc, __self__).__init__(
             'aws:ec2/vpc:Vpc',

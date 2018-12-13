@@ -16,8 +16,8 @@ export class Dashboard extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DashboardState): Dashboard {
-        return new Dashboard(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DashboardState, opts?: pulumi.CustomResourceOptions): Dashboard {
+        return new Dashboard(name, <any>state, { ...opts, id: id });
     }
 
     /**

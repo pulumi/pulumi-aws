@@ -16,8 +16,8 @@ export class MountTarget extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MountTargetState): MountTarget {
-        return new MountTarget(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MountTargetState, opts?: pulumi.CustomResourceOptions): MountTarget {
+        return new MountTarget(name, <any>state, { ...opts, id: id });
     }
 
     /**

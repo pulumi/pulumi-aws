@@ -22,6 +22,7 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
     return pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
         "name": args.name,
         "state": args.state,
+        "zoneId": args.zoneId,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetAvailabilityZoneArgs {
      * be any of `"available"`, `"information"` or `"impaired"`.
      */
     readonly state?: string;
+    /**
+     * The zone ID of the availability zone to select.
+     */
+    readonly zoneId?: string;
 }
 
 /**
@@ -63,6 +68,10 @@ export interface GetAvailabilityZoneResult {
      * The current state of the AZ.
      */
     readonly state: string;
+    /**
+     * (Optional) The zone ID of the selected availability zone.
+     */
+    readonly zoneId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

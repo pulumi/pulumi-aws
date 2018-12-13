@@ -10,7 +10,7 @@ class GetSubnetResult(object):
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, cidr_block=None, default_for_az=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, default_for_az=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, owner_id=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
@@ -23,6 +23,9 @@ class GetSubnetResult(object):
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError('Expected argument availability_zone to be a str')
         __self__.availability_zone = availability_zone
+        if availability_zone_id and not isinstance(availability_zone_id, str):
+            raise TypeError('Expected argument availability_zone_id to be a str')
+        __self__.availability_zone_id = availability_zone_id
         if cidr_block and not isinstance(cidr_block, str):
             raise TypeError('Expected argument cidr_block to be a str')
         __self__.cidr_block = cidr_block
@@ -41,6 +44,12 @@ class GetSubnetResult(object):
         if map_public_ip_on_launch and not isinstance(map_public_ip_on_launch, bool):
             raise TypeError('Expected argument map_public_ip_on_launch to be a bool')
         __self__.map_public_ip_on_launch = map_public_ip_on_launch
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
+        __self__.owner_id = owner_id
+        """
+        The ID of the AWS account that owns the subnet.
+        """
         if state and not isinstance(state, str):
             raise TypeError('Expected argument state to be a str')
         __self__.state = state
@@ -51,7 +60,7 @@ class GetSubnetResult(object):
             raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
-async def get_subnet(availability_zone=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, state=None, tags=None, vpc_id=None):
+async def get_subnet(availability_zone=None, availability_zone_id=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, state=None, tags=None, vpc_id=None):
     """
     `aws_subnet` provides details about a specific VPC subnet.
     
@@ -62,6 +71,7 @@ async def get_subnet(availability_zone=None, cidr_block=None, default_for_az=Non
     __args__ = dict()
 
     __args__['availabilityZone'] = availability_zone
+    __args__['availabilityZoneId'] = availability_zone_id
     __args__['cidrBlock'] = cidr_block
     __args__['defaultForAz'] = default_for_az
     __args__['filters'] = filters
@@ -76,12 +86,14 @@ async def get_subnet(availability_zone=None, cidr_block=None, default_for_az=Non
         arn=__ret__.get('arn'),
         assign_ipv6_address_on_creation=__ret__.get('assignIpv6AddressOnCreation'),
         availability_zone=__ret__.get('availabilityZone'),
+        availability_zone_id=__ret__.get('availabilityZoneId'),
         cidr_block=__ret__.get('cidrBlock'),
         default_for_az=__ret__.get('defaultForAz'),
         id=__ret__.get('id'),
         ipv6_cidr_block=__ret__.get('ipv6CidrBlock'),
         ipv6_cidr_block_association_id=__ret__.get('ipv6CidrBlockAssociationId'),
         map_public_ip_on_launch=__ret__.get('mapPublicIpOnLaunch'),
+        owner_id=__ret__.get('ownerId'),
         state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         vpc_id=__ret__.get('vpcId'))

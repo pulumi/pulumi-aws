@@ -17,7 +17,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
     
     The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
     Terraform does not _create_ this resource, but instead "adopts" it
-    into management. 
+    into management.
     """
     def __init__(__self__, __name__, __opts__=None, netbios_name_servers=None, netbios_node_type=None, tags=None):
         """Create a DefaultVpcDhcpOptions resource with the given unique name, props, and options."""
@@ -39,6 +39,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         __props__['domain_name'] = None
         __props__['domain_name_servers'] = None
         __props__['ntp_servers'] = None
+        __props__['owner_id'] = None
 
         super(DefaultVpcDhcpOptions, __self__).__init__(
             'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions',

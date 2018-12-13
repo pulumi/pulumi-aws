@@ -10,10 +10,16 @@ class GetRouteTableResult(object):
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, associations=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None, id=None):
+    def __init__(__self__, associations=None, owner_id=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None, id=None):
         if associations and not isinstance(associations, list):
             raise TypeError('Expected argument associations to be a list')
         __self__.associations = associations
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
+        __self__.owner_id = owner_id
+        """
+        The ID of the AWS account that owns the route table
+        """
         if route_table_id and not isinstance(route_table_id, str):
             raise TypeError('Expected argument route_table_id to be a str')
         __self__.route_table_id = route_table_id
@@ -61,6 +67,7 @@ async def get_route_table(filters=None, route_table_id=None, subnet_id=None, tag
 
     return GetRouteTableResult(
         associations=__ret__.get('associations'),
+        owner_id=__ret__.get('ownerId'),
         route_table_id=__ret__.get('routeTableId'),
         routes=__ret__.get('routes'),
         subnet_id=__ret__.get('subnetId'),

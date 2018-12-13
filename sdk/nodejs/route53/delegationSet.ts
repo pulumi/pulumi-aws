@@ -16,8 +16,8 @@ export class DelegationSet extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DelegationSetState): DelegationSet {
-        return new DelegationSet(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DelegationSetState, opts?: pulumi.CustomResourceOptions): DelegationSet {
+        return new DelegationSet(name, <any>state, { ...opts, id: id });
     }
 
     /**

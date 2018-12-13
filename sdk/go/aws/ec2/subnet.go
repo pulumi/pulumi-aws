@@ -26,6 +26,7 @@ func NewSubnet(ctx *pulumi.Context,
 	if args == nil {
 		inputs["assignIpv6AddressOnCreation"] = nil
 		inputs["availabilityZone"] = nil
+		inputs["availabilityZoneId"] = nil
 		inputs["cidrBlock"] = nil
 		inputs["ipv6CidrBlock"] = nil
 		inputs["mapPublicIpOnLaunch"] = nil
@@ -34,6 +35,7 @@ func NewSubnet(ctx *pulumi.Context,
 	} else {
 		inputs["assignIpv6AddressOnCreation"] = args.AssignIpv6AddressOnCreation
 		inputs["availabilityZone"] = args.AvailabilityZone
+		inputs["availabilityZoneId"] = args.AvailabilityZoneId
 		inputs["cidrBlock"] = args.CidrBlock
 		inputs["ipv6CidrBlock"] = args.Ipv6CidrBlock
 		inputs["mapPublicIpOnLaunch"] = args.MapPublicIpOnLaunch
@@ -42,6 +44,7 @@ func NewSubnet(ctx *pulumi.Context,
 	}
 	inputs["arn"] = nil
 	inputs["ipv6CidrBlockAssociationId"] = nil
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/subnet:Subnet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -58,10 +61,12 @@ func GetSubnet(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["assignIpv6AddressOnCreation"] = state.AssignIpv6AddressOnCreation
 		inputs["availabilityZone"] = state.AvailabilityZone
+		inputs["availabilityZoneId"] = state.AvailabilityZoneId
 		inputs["cidrBlock"] = state.CidrBlock
 		inputs["ipv6CidrBlock"] = state.Ipv6CidrBlock
 		inputs["ipv6CidrBlockAssociationId"] = state.Ipv6CidrBlockAssociationId
 		inputs["mapPublicIpOnLaunch"] = state.MapPublicIpOnLaunch
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
 	}
@@ -83,7 +88,6 @@ func (r *Subnet) ID() *pulumi.IDOutput {
 }
 
 // The ARN of the subnet.
-// * `availability_zone`- The AZ for the subnet.
 func (r *Subnet) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -95,8 +99,14 @@ func (r *Subnet) AssignIpv6AddressOnCreation() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["assignIpv6AddressOnCreation"])
 }
 
+// The AZ for the subnet.
 func (r *Subnet) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+}
+
+// The AZ ID of the subnet.
+func (r *Subnet) AvailabilityZoneId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["availabilityZoneId"])
 }
 
 // The CIDR block for the subnet.
@@ -122,6 +132,11 @@ func (r *Subnet) MapPublicIpOnLaunch() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["mapPublicIpOnLaunch"])
 }
 
+// The ID of the AWS account that owns the subnet.
+func (r *Subnet) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *Subnet) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -135,13 +150,15 @@ func (r *Subnet) VpcId() *pulumi.StringOutput {
 // Input properties used for looking up and filtering Subnet resources.
 type SubnetState struct {
 	// The ARN of the subnet.
-	// * `availability_zone`- The AZ for the subnet.
 	Arn interface{}
 	// Specify true to indicate
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation interface{}
+	// The AZ for the subnet.
 	AvailabilityZone interface{}
+	// The AZ ID of the subnet.
+	AvailabilityZoneId interface{}
 	// The CIDR block for the subnet.
 	CidrBlock interface{}
 	// The IPv6 network range for the subnet,
@@ -153,6 +170,8 @@ type SubnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch interface{}
+	// The ID of the AWS account that owns the subnet.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The VPC ID.
@@ -165,7 +184,10 @@ type SubnetArgs struct {
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
 	AssignIpv6AddressOnCreation interface{}
+	// The AZ for the subnet.
 	AvailabilityZone interface{}
+	// The AZ ID of the subnet.
+	AvailabilityZoneId interface{}
 	// The CIDR block for the subnet.
 	CidrBlock interface{}
 	// The IPv6 network range for the subnet,

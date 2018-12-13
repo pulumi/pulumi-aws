@@ -16,10 +16,14 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DeploymentConfigState): DeploymentConfig {
-        return new DeploymentConfig(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DeploymentConfigState, opts?: pulumi.CustomResourceOptions): DeploymentConfig {
+        return new DeploymentConfig(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
+    public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
      * The AWS Assigned deployment config id
      */
@@ -31,7 +35,11 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
      */
-    public readonly minimumHealthyHosts: pulumi.Output<{ type: string, value?: number }>;
+    public readonly minimumHealthyHosts: pulumi.Output<{ type?: string, value?: number } | undefined>;
+    /**
+     * A traffic_routing_config block. Traffic Routing Config is documented below.
+     */
+    public readonly trafficRoutingConfig: pulumi.Output<{ timeBasedCanary?: { interval?: number, percentage?: number }, timeBasedLinear?: { interval?: number, percentage?: number }, type?: string } | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -45,19 +53,20 @@ export class DeploymentConfig extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DeploymentConfigState = argsOrState as DeploymentConfigState | undefined;
+            inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
             inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
             inputs["minimumHealthyHosts"] = state ? state.minimumHealthyHosts : undefined;
+            inputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
         } else {
             const args = argsOrState as DeploymentConfigArgs | undefined;
             if (!args || args.deploymentConfigName === undefined) {
                 throw new Error("Missing required property 'deploymentConfigName'");
             }
-            if (!args || args.minimumHealthyHosts === undefined) {
-                throw new Error("Missing required property 'minimumHealthyHosts'");
-            }
+            inputs["computePlatform"] = args ? args.computePlatform : undefined;
             inputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             inputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
+            inputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
             inputs["deploymentConfigId"] = undefined /*out*/;
         }
         super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, inputs, opts);
@@ -69,6 +78,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
  */
 export interface DeploymentConfigState {
     /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
+    readonly computePlatform?: pulumi.Input<string>;
+    /**
      * The AWS Assigned deployment config id
      */
     readonly deploymentConfigId?: pulumi.Input<string>;
@@ -79,7 +92,11 @@ export interface DeploymentConfigState {
     /**
      * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts?: pulumi.Input<{ type: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    readonly minimumHealthyHosts?: pulumi.Input<{ type?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    /**
+     * A traffic_routing_config block. Traffic Routing Config is documented below.
+     */
+    readonly trafficRoutingConfig?: pulumi.Input<{ timeBasedCanary?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, timeBasedLinear?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, type?: pulumi.Input<string> }>;
 }
 
 /**
@@ -87,11 +104,19 @@ export interface DeploymentConfigState {
  */
 export interface DeploymentConfigArgs {
     /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
+    readonly computePlatform?: pulumi.Input<string>;
+    /**
      * The name of the deployment config.
      */
     readonly deploymentConfigName: pulumi.Input<string>;
     /**
      * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts: pulumi.Input<{ type: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    readonly minimumHealthyHosts?: pulumi.Input<{ type?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    /**
+     * A traffic_routing_config block. Traffic Routing Config is documented below.
+     */
+    readonly trafficRoutingConfig?: pulumi.Input<{ timeBasedCanary?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, timeBasedLinear?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, type?: pulumi.Input<string> }>;
 }

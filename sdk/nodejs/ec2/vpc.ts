@@ -18,8 +18,8 @@ export class Vpc extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcState): Vpc {
-        return new Vpc(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcState, opts?: pulumi.CustomResourceOptions): Vpc {
+        return new Vpc(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -27,7 +27,7 @@ export class Vpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Requests an Amazon-provided IPv6 CIDR 
+     * Requests an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
@@ -87,6 +87,10 @@ export class Vpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly mainRouteTableId: pulumi.Output<string>;
     /**
+     * The ID of the AWS account that owns the VPC.
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
@@ -118,6 +122,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VpcArgs | undefined;
@@ -140,6 +145,7 @@ export class Vpc extends pulumi.CustomResource {
             inputs["ipv6AssociationId"] = undefined /*out*/;
             inputs["ipv6CidrBlock"] = undefined /*out*/;
             inputs["mainRouteTableId"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/vpc:Vpc", name, inputs, opts);
     }
@@ -154,7 +160,7 @@ export interface VpcState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Requests an Amazon-provided IPv6 CIDR 
+     * Requests an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
@@ -214,6 +220,10 @@ export interface VpcState {
      */
     readonly mainRouteTableId?: pulumi.Input<string>;
     /**
+     * The ID of the AWS account that owns the VPC.
+     */
+    readonly ownerId?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<Tags>;
@@ -224,7 +234,7 @@ export interface VpcState {
  */
 export interface VpcArgs {
     /**
-     * Requests an Amazon-provided IPv6 CIDR 
+     * Requests an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */

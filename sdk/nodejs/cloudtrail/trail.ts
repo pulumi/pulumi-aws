@@ -8,6 +8,10 @@ import {Tags} from "../index";
 
 /**
  * Provides a CloudTrail resource.
+ * 
+ * ~> *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
+ * 
+ * ~> *NOTE:* For an organization trail, this resource must be in the master account of the organization.
  */
 export class Trail extends pulumi.CustomResource {
     /**
@@ -18,8 +22,8 @@ export class Trail extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TrailState): Trail {
-        return new Trail(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TrailState, opts?: pulumi.CustomResourceOptions): Trail {
+        return new Trail(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -64,6 +68,10 @@ export class Trail extends pulumi.CustomResource {
      * region or in all regions. Defaults to `false`.
      */
     public readonly isMultiRegionTrail: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+     */
+    public readonly isOrganizationTrail: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      */
@@ -112,6 +120,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["homeRegion"] = state ? state.homeRegion : undefined;
             inputs["includeGlobalServiceEvents"] = state ? state.includeGlobalServiceEvents : undefined;
             inputs["isMultiRegionTrail"] = state ? state.isMultiRegionTrail : undefined;
+            inputs["isOrganizationTrail"] = state ? state.isOrganizationTrail : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
@@ -130,6 +139,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["eventSelectors"] = args ? args.eventSelectors : undefined;
             inputs["includeGlobalServiceEvents"] = args ? args.includeGlobalServiceEvents : undefined;
             inputs["isMultiRegionTrail"] = args ? args.isMultiRegionTrail : undefined;
+            inputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["s3BucketName"] = args ? args.s3BucketName : undefined;
@@ -189,6 +199,10 @@ export interface TrailState {
      * region or in all regions. Defaults to `false`.
      */
     readonly isMultiRegionTrail?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+     */
+    readonly isOrganizationTrail?: pulumi.Input<boolean>;
     /**
      * Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      */
@@ -255,6 +269,10 @@ export interface TrailArgs {
      * region or in all regions. Defaults to `false`.
      */
     readonly isMultiRegionTrail?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+     */
+    readonly isOrganizationTrail?: pulumi.Input<boolean>;
     /**
      * Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      */

@@ -24,7 +24,7 @@ func NewEventDestination(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["cloudwatchDestination"] = nil
+		inputs["cloudwatchDestinations"] = nil
 		inputs["configurationSetName"] = nil
 		inputs["enabled"] = nil
 		inputs["kinesisDestination"] = nil
@@ -32,7 +32,7 @@ func NewEventDestination(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["snsDestination"] = nil
 	} else {
-		inputs["cloudwatchDestination"] = args.CloudwatchDestination
+		inputs["cloudwatchDestinations"] = args.CloudwatchDestinations
 		inputs["configurationSetName"] = args.ConfigurationSetName
 		inputs["enabled"] = args.Enabled
 		inputs["kinesisDestination"] = args.KinesisDestination
@@ -53,7 +53,7 @@ func GetEventDestination(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *EventDestinationState, opts ...pulumi.ResourceOpt) (*EventDestination, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["cloudwatchDestination"] = state.CloudwatchDestination
+		inputs["cloudwatchDestinations"] = state.CloudwatchDestinations
 		inputs["configurationSetName"] = state.ConfigurationSetName
 		inputs["enabled"] = state.Enabled
 		inputs["kinesisDestination"] = state.KinesisDestination
@@ -79,8 +79,8 @@ func (r *EventDestination) ID() *pulumi.IDOutput {
 }
 
 // CloudWatch destination for the events
-func (r *EventDestination) CloudwatchDestination() *pulumi.Output {
-	return r.s.State["cloudwatchDestination"]
+func (r *EventDestination) CloudwatchDestinations() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["cloudwatchDestinations"])
 }
 
 // The name of the configuration set
@@ -116,7 +116,7 @@ func (r *EventDestination) SnsDestination() *pulumi.Output {
 // Input properties used for looking up and filtering EventDestination resources.
 type EventDestinationState struct {
 	// CloudWatch destination for the events
-	CloudwatchDestination interface{}
+	CloudwatchDestinations interface{}
 	// The name of the configuration set
 	ConfigurationSetName interface{}
 	// If true, the event destination will be enabled
@@ -134,7 +134,7 @@ type EventDestinationState struct {
 // The set of arguments for constructing a EventDestination resource.
 type EventDestinationArgs struct {
 	// CloudWatch destination for the events
-	CloudwatchDestination interface{}
+	CloudwatchDestinations interface{}
 	// The name of the configuration set
 	ConfigurationSetName interface{}
 	// If true, the event destination will be enabled

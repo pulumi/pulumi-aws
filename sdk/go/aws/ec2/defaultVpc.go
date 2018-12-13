@@ -16,7 +16,7 @@ import (
 // 
 // The `aws_default_vpc` behaves differently from normal resources, in that
 // Terraform does not _create_ this resource, but instead "adopts" it
-// into management. 
+// into management.
 type DefaultVpc struct {
 	s *pulumi.ResourceState
 }
@@ -49,6 +49,7 @@ func NewDefaultVpc(ctx *pulumi.Context,
 	inputs["ipv6AssociationId"] = nil
 	inputs["ipv6CidrBlock"] = nil
 	inputs["mainRouteTableId"] = nil
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/defaultVpc:DefaultVpc", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -77,6 +78,7 @@ func GetDefaultVpc(ctx *pulumi.Context,
 		inputs["ipv6AssociationId"] = state.Ipv6AssociationId
 		inputs["ipv6CidrBlock"] = state.Ipv6CidrBlock
 		inputs["mainRouteTableId"] = state.MainRouteTableId
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ec2/defaultVpc:DefaultVpc", name, id, inputs, opts...)
@@ -101,7 +103,7 @@ func (r *DefaultVpc) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// Whether or not an Amazon-provided IPv6 CIDR 
+// Whether or not an Amazon-provided IPv6 CIDR
 // block with a /56 prefix length for the VPC was assigned
 func (r *DefaultVpc) AssignGeneratedIpv6CidrBlock() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["assignGeneratedIpv6CidrBlock"])
@@ -131,7 +133,7 @@ func (r *DefaultVpc) DhcpOptionsId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dhcpOptionsId"])
 }
 
-// A boolean flag to enable/disable ClassicLink 
+// A boolean flag to enable/disable ClassicLink
 // for the VPC. Only valid in regions and accounts that support EC2 Classic.
 // See the [ClassicLink documentation][1] for more information. Defaults false.
 func (r *DefaultVpc) EnableClassiclink() *pulumi.BoolOutput {
@@ -174,6 +176,11 @@ func (r *DefaultVpc) MainRouteTableId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["mainRouteTableId"])
 }
 
+// The ID of the AWS account that owns the VPC.
+func (r *DefaultVpc) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *DefaultVpc) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -183,7 +190,7 @@ func (r *DefaultVpc) Tags() *pulumi.MapOutput {
 type DefaultVpcState struct {
 	// Amazon Resource Name (ARN) of VPC
 	Arn interface{}
-	// Whether or not an Amazon-provided IPv6 CIDR 
+	// Whether or not an Amazon-provided IPv6 CIDR
 	// block with a /56 prefix length for the VPC was assigned
 	AssignGeneratedIpv6CidrBlock interface{}
 	// The CIDR block of the VPC
@@ -195,7 +202,7 @@ type DefaultVpcState struct {
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId interface{}
 	DhcpOptionsId interface{}
-	// A boolean flag to enable/disable ClassicLink 
+	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
 	EnableClassiclink interface{}
@@ -214,13 +221,15 @@ type DefaultVpcState struct {
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
 	MainRouteTableId interface{}
+	// The ID of the AWS account that owns the VPC.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
 // The set of arguments for constructing a DefaultVpc resource.
 type DefaultVpcArgs struct {
-	// A boolean flag to enable/disable ClassicLink 
+	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
 	EnableClassiclink interface{}

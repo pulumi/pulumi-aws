@@ -16,7 +16,7 @@ import (
 // 
 // The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
 // Terraform does not _create_ this resource, but instead "adopts" it
-// into management. 
+// into management.
 type DefaultVpcDhcpOptions struct {
 	s *pulumi.ResourceState
 }
@@ -37,6 +37,7 @@ func NewDefaultVpcDhcpOptions(ctx *pulumi.Context,
 	inputs["domainName"] = nil
 	inputs["domainNameServers"] = nil
 	inputs["ntpServers"] = nil
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -55,6 +56,7 @@ func GetDefaultVpcDhcpOptions(ctx *pulumi.Context,
 		inputs["netbiosNameServers"] = state.NetbiosNameServers
 		inputs["netbiosNodeType"] = state.NetbiosNodeType
 		inputs["ntpServers"] = state.NtpServers
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, id, inputs, opts...)
@@ -96,6 +98,11 @@ func (r *DefaultVpcDhcpOptions) NtpServers() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ntpServers"])
 }
 
+// The ID of the AWS account that owns the DHCP options set.
+func (r *DefaultVpcDhcpOptions) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *DefaultVpcDhcpOptions) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -110,6 +117,8 @@ type DefaultVpcDhcpOptionsState struct {
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType interface{}
 	NtpServers interface{}
+	// The ID of the AWS account that owns the DHCP options set.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

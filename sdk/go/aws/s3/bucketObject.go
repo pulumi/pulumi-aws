@@ -182,7 +182,7 @@ func (r *BucketObject) Source() *pulumi.StringOutput {
 }
 
 // Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 func (r *BucketObject) StorageClass() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageClass"])
 }
@@ -238,7 +238,7 @@ type BucketObjectState struct {
 	// The path to a file that will be read and uploaded as raw bytes for the object content.
 	Source interface{}
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}
@@ -284,7 +284,7 @@ type BucketObjectArgs struct {
 	// The path to a file that will be read and uploaded as raw bytes for the object content.
 	Source interface{}
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}

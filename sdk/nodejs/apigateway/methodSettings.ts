@@ -18,8 +18,8 @@ export class MethodSettings extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MethodSettingsState): MethodSettings {
-        return new MethodSettings(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MethodSettingsState, opts?: pulumi.CustomResourceOptions): MethodSettings {
+        return new MethodSettings(name, <any>state, { ...opts, id: id });
     }
 
     /**

@@ -16,6 +16,7 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["availabilityZone"] = args.AvailabilityZone
+		inputs["availabilityZoneId"] = args.AvailabilityZoneId
 		inputs["cidrBlock"] = args.CidrBlock
 		inputs["defaultForAz"] = args.DefaultForAz
 		inputs["filters"] = args.Filters
@@ -33,12 +34,14 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 		Arn: outputs["arn"],
 		AssignIpv6AddressOnCreation: outputs["assignIpv6AddressOnCreation"],
 		AvailabilityZone: outputs["availabilityZone"],
+		AvailabilityZoneId: outputs["availabilityZoneId"],
 		CidrBlock: outputs["cidrBlock"],
 		DefaultForAz: outputs["defaultForAz"],
 		Id: outputs["id"],
 		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
 		Ipv6CidrBlockAssociationId: outputs["ipv6CidrBlockAssociationId"],
 		MapPublicIpOnLaunch: outputs["mapPublicIpOnLaunch"],
+		OwnerId: outputs["ownerId"],
 		State: outputs["state"],
 		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
@@ -50,6 +53,8 @@ type GetSubnetArgs struct {
 	// The availability zone where the
 	// subnet must reside.
 	AvailabilityZone interface{}
+	// The ID of the Availability Zone for the subnet.
+	AvailabilityZoneId interface{}
 	// The cidr block of the desired subnet.
 	CidrBlock interface{}
 	// Boolean constraint for whether the desired
@@ -76,12 +81,15 @@ type GetSubnetResult struct {
 	Arn interface{}
 	AssignIpv6AddressOnCreation interface{}
 	AvailabilityZone interface{}
+	AvailabilityZoneId interface{}
 	CidrBlock interface{}
 	DefaultForAz interface{}
 	Id interface{}
 	Ipv6CidrBlock interface{}
 	Ipv6CidrBlockAssociationId interface{}
 	MapPublicIpOnLaunch interface{}
+	// The ID of the AWS account that owns the subnet.
+	OwnerId interface{}
 	State interface{}
 	Tags interface{}
 	VpcId interface{}

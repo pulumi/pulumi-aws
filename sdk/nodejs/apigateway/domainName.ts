@@ -35,14 +35,12 @@ export class DomainName extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainNameState): DomainName {
-        return new DomainName(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainNameState, opts?: pulumi.CustomResourceOptions): DomainName {
+        return new DomainName(name, <any>state, { ...opts, id: id });
     }
 
     /**
-     * The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is
-     * desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`,
-     * `regional_certificate_arn`, and `regional_certificate_name`.
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      */
     public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
@@ -88,13 +86,11 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName: pulumi.Output<string>;
     /**
-     * Nested argument defining API endpoint configuration including endpoint type. Defined below.
+     * Configuration block defining API endpoint information including type. Defined below.
      */
     public readonly endpointConfiguration: pulumi.Output<{ types: string }>;
     /**
-     * The ARN for an AWS-managed certificate. Used when a regional domain name is
-     * desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-     * `certificate_private_key`.
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      */
     public readonly regionalCertificateArn: pulumi.Output<string | undefined>;
     /**
@@ -166,9 +162,7 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameState {
     /**
-     * The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is
-     * desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`,
-     * `regional_certificate_arn`, and `regional_certificate_name`.
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**
@@ -214,13 +208,11 @@ export interface DomainNameState {
      */
     readonly domainName?: pulumi.Input<string>;
     /**
-     * Nested argument defining API endpoint configuration including endpoint type. Defined below.
+     * Configuration block defining API endpoint information including type. Defined below.
      */
     readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
-     * The ARN for an AWS-managed certificate. Used when a regional domain name is
-     * desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-     * `certificate_private_key`.
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      */
     readonly regionalCertificateArn?: pulumi.Input<string>;
     /**
@@ -243,9 +235,7 @@ export interface DomainNameState {
  */
 export interface DomainNameArgs {
     /**
-     * The ARN for an AWS-managed certificate. Used when an edge-optimized domain name is
-     * desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`,
-     * `regional_certificate_arn`, and `regional_certificate_name`.
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**
@@ -277,13 +267,11 @@ export interface DomainNameArgs {
      */
     readonly domainName: pulumi.Input<string>;
     /**
-     * Nested argument defining API endpoint configuration including endpoint type. Defined below.
+     * Configuration block defining API endpoint information including type. Defined below.
      */
     readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
-     * The ARN for an AWS-managed certificate. Used when a regional domain name is
-     * desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-     * `certificate_private_key`.
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      */
     readonly regionalCertificateArn?: pulumi.Input<string>;
     /**

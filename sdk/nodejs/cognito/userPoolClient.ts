@@ -16,8 +16,8 @@ export class UserPoolClient extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolClientState): UserPoolClient {
-        return new UserPoolClient(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolClientState, opts?: pulumi.CustomResourceOptions): UserPoolClient {
+        return new UserPoolClient(name, <any>state, { ...opts, id: id });
     }
 
     /**

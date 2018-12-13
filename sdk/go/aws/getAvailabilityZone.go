@@ -23,6 +23,7 @@ func LookupAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs) 
 	if args != nil {
 		inputs["name"] = args.Name
 		inputs["state"] = args.State
+		inputs["zoneId"] = args.ZoneId
 	}
 	outputs, err := ctx.Invoke("aws:index/getAvailabilityZone:getAvailabilityZone", inputs)
 	if err != nil {
@@ -33,6 +34,7 @@ func LookupAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs) 
 		NameSuffix: outputs["nameSuffix"],
 		Region: outputs["region"],
 		State: outputs["state"],
+		ZoneId: outputs["zoneId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -44,6 +46,8 @@ type GetAvailabilityZoneArgs struct {
 	// A specific availability zone state to require. May
 	// be any of `"available"`, `"information"` or `"impaired"`.
 	State interface{}
+	// The zone ID of the availability zone to select.
+	ZoneId interface{}
 }
 
 // A collection of values returned by getAvailabilityZone.
@@ -59,6 +63,8 @@ type GetAvailabilityZoneResult struct {
 	Region interface{}
 	// The current state of the AZ.
 	State interface{}
+	// (Optional) The zone ID of the selected availability zone.
+	ZoneId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

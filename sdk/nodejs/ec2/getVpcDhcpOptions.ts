@@ -60,6 +60,10 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly ntpServers: string[];
     /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    readonly ownerId: string;
+    /**
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};

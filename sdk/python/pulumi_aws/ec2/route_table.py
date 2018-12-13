@@ -50,6 +50,8 @@ class RouteTable(pulumi.CustomResource):
             raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
+        __props__['owner_id'] = None
+
         super(RouteTable, __self__).__init__(
             'aws:ec2/routeTable:RouteTable',
             __name__,

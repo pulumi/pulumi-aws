@@ -16,7 +16,7 @@ import {Tags} from "../index";
  * 
  * The `aws_default_vpc` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead "adopts" it
- * into management. 
+ * into management.
  */
 export class DefaultVpc extends pulumi.CustomResource {
     /**
@@ -27,8 +27,8 @@ export class DefaultVpc extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcState): DefaultVpc {
-        return new DefaultVpc(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcState, opts?: pulumi.CustomResourceOptions): DefaultVpc {
+        return new DefaultVpc(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -36,7 +36,7 @@ export class DefaultVpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Whether or not an Amazon-provided IPv6 CIDR 
+     * Whether or not an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC was assigned
      */
     public /*out*/ readonly assignGeneratedIpv6CidrBlock: pulumi.Output<boolean>;
@@ -58,7 +58,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     public /*out*/ readonly defaultSecurityGroupId: pulumi.Output<string>;
     public /*out*/ readonly dhcpOptionsId: pulumi.Output<string>;
     /**
-     * A boolean flag to enable/disable ClassicLink 
+     * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */
@@ -91,6 +91,10 @@ export class DefaultVpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly mainRouteTableId: pulumi.Output<string>;
     /**
+     * The ID of the AWS account that owns the VPC.
+     */
+    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<Tags | undefined>;
@@ -122,6 +126,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DefaultVpcArgs | undefined;
@@ -141,6 +146,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["ipv6AssociationId"] = undefined /*out*/;
             inputs["ipv6CidrBlock"] = undefined /*out*/;
             inputs["mainRouteTableId"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         super("aws:ec2/defaultVpc:DefaultVpc", name, inputs, opts);
     }
@@ -155,7 +161,7 @@ export interface DefaultVpcState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Whether or not an Amazon-provided IPv6 CIDR 
+     * Whether or not an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC was assigned
      */
     readonly assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
@@ -177,7 +183,7 @@ export interface DefaultVpcState {
     readonly defaultSecurityGroupId?: pulumi.Input<string>;
     readonly dhcpOptionsId?: pulumi.Input<string>;
     /**
-     * A boolean flag to enable/disable ClassicLink 
+     * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */
@@ -210,6 +216,10 @@ export interface DefaultVpcState {
      */
     readonly mainRouteTableId?: pulumi.Input<string>;
     /**
+     * The ID of the AWS account that owns the VPC.
+     */
+    readonly ownerId?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<Tags>;
@@ -220,7 +230,7 @@ export interface DefaultVpcState {
  */
 export interface DefaultVpcArgs {
     /**
-     * A boolean flag to enable/disable ClassicLink 
+     * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */

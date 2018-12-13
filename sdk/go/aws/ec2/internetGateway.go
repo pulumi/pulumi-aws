@@ -23,6 +23,7 @@ func NewInternetGateway(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
 	}
+	inputs["ownerId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/internetGateway:InternetGateway", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -36,6 +37,7 @@ func GetInternetGateway(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *InternetGatewayState, opts ...pulumi.ResourceOpt) (*InternetGateway, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["ownerId"] = state.OwnerId
 		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
 	}
@@ -56,6 +58,11 @@ func (r *InternetGateway) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The ID of the AWS account that owns the internet gateway.
+func (r *InternetGateway) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *InternetGateway) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -68,6 +75,8 @@ func (r *InternetGateway) VpcId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering InternetGateway resources.
 type InternetGatewayState struct {
+	// The ID of the AWS account that owns the internet gateway.
+	OwnerId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The VPC ID to create in.

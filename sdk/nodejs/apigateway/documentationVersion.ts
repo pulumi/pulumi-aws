@@ -16,8 +16,8 @@ export class DocumentationVersion extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DocumentationVersionState): DocumentationVersion {
-        return new DocumentationVersion(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DocumentationVersionState, opts?: pulumi.CustomResourceOptions): DocumentationVersion {
+        return new DocumentationVersion(name, <any>state, { ...opts, id: id });
     }
 
     /**

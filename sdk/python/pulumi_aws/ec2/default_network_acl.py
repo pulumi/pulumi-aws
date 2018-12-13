@@ -56,6 +56,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        __props__['owner_id'] = None
         __props__['vpc_id'] = None
 
         super(DefaultNetworkAcl, __self__).__init__(

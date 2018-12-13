@@ -42,6 +42,8 @@ class NetworkAcl(pulumi.CustomResource):
             raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
+        __props__['owner_id'] = None
+
         super(NetworkAcl, __self__).__init__(
             'aws:ec2/networkAcl:NetworkAcl',
             __name__,

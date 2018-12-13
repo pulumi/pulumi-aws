@@ -79,6 +79,7 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
         "policyId": args.policyId,
         "sourceJson": args.sourceJson,
         "statements": args.statements,
+        "version": args.version,
     }, opts);
 }
 
@@ -109,6 +110,10 @@ export interface GetPolicyDocumentArgs {
      * configuring one *statement* to be included in the policy document.
      */
     readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    /**
+     * IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+     */
+    readonly version?: string;
 }
 
 /**

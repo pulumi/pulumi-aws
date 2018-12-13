@@ -10,13 +10,19 @@ class GetInternetGatewayResult(object):
     """
     A collection of values returned by getInternetGateway.
     """
-    def __init__(__self__, attachments=None, internet_gateway_id=None, tags=None, id=None):
+    def __init__(__self__, attachments=None, internet_gateway_id=None, owner_id=None, tags=None, id=None):
         if attachments and not isinstance(attachments, list):
             raise TypeError('Expected argument attachments to be a list')
         __self__.attachments = attachments
         if internet_gateway_id and not isinstance(internet_gateway_id, str):
             raise TypeError('Expected argument internet_gateway_id to be a str')
         __self__.internet_gateway_id = internet_gateway_id
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError('Expected argument owner_id to be a str')
+        __self__.owner_id = owner_id
+        """
+        The ID of the AWS account that owns the internet gateway.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -41,5 +47,6 @@ async def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None
     return GetInternetGatewayResult(
         attachments=__ret__.get('attachments'),
         internet_gateway_id=__ret__.get('internetGatewayId'),
+        owner_id=__ret__.get('ownerId'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

@@ -39,6 +39,7 @@ class Alias(pulumi.CustomResource):
         __props__['routing_config'] = routing_config
 
         __props__['arn'] = None
+        __props__['invoke_arn'] = None
 
         super(Alias, __self__).__init__(
             'aws:lambda/alias:Alias',

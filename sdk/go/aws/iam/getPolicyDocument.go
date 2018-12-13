@@ -80,6 +80,7 @@ func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*Ge
 		inputs["policyId"] = args.PolicyId
 		inputs["sourceJson"] = args.SourceJson
 		inputs["statements"] = args.Statements
+		inputs["version"] = args.Version
 	}
 	outputs, err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", inputs)
 	if err != nil {
@@ -108,6 +109,8 @@ type GetPolicyDocumentArgs struct {
 	// A nested configuration block (described below)
 	// configuring one *statement* to be included in the policy document.
 	Statements interface{}
+	// IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+	Version interface{}
 }
 
 // A collection of values returned by getPolicyDocument.

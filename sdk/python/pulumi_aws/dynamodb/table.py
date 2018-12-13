@@ -12,7 +12,7 @@ class Table(pulumi.CustomResource):
     
     ~> **Note:** It is recommended to use `lifecycle` [`ignore_changes`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
     """
-    def __init__(__self__, __name__, __opts__=None, attributes=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_enabled=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, __name__, __opts__=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_enabled=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
         """Create a Table resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -26,6 +26,8 @@ class Table(pulumi.CustomResource):
         if not attributes:
             raise TypeError('Missing required property attributes')
         __props__['attributes'] = attributes
+
+        __props__['billing_mode'] = billing_mode
 
         __props__['global_secondary_indexes'] = global_secondary_indexes
 
@@ -41,8 +43,6 @@ class Table(pulumi.CustomResource):
 
         __props__['range_key'] = range_key
 
-        if not read_capacity:
-            raise TypeError('Missing required property read_capacity')
         __props__['read_capacity'] = read_capacity
 
         __props__['server_side_encryption'] = server_side_encryption
@@ -55,8 +55,6 @@ class Table(pulumi.CustomResource):
 
         __props__['ttl'] = ttl
 
-        if not write_capacity:
-            raise TypeError('Missing required property write_capacity')
         __props__['write_capacity'] = write_capacity
 
         __props__['arn'] = None

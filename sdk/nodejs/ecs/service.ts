@@ -20,8 +20,8 @@ export class Service extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServiceState): Service {
-        return new Service(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServiceState, opts?: pulumi.CustomResourceOptions): Service {
+        return new Service(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -44,6 +44,9 @@ export class Service extends pulumi.CustomResource {
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     public readonly desiredCount: pulumi.Output<number | undefined>;
+    /**
+     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     */
     public readonly enableEcsManagedTags: pulumi.Output<boolean | undefined>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
@@ -82,6 +85,10 @@ export class Service extends pulumi.CustomResource {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     public readonly placementStrategies: pulumi.Output<{ field?: string, type: string }[] | undefined>;
+    /**
+     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     */
+    public readonly propagateTags: pulumi.Output<string | undefined>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */
@@ -131,6 +138,7 @@ export class Service extends pulumi.CustomResource {
             inputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             inputs["placementStrategies"] = state ? state.placementStrategies : undefined;
+            inputs["propagateTags"] = state ? state.propagateTags : undefined;
             inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -156,6 +164,7 @@ export class Service extends pulumi.CustomResource {
             inputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
+            inputs["propagateTags"] = args ? args.propagateTags : undefined;
             inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -190,6 +199,9 @@ export interface ServiceState {
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
+    /**
+     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
@@ -228,6 +240,10 @@ export interface ServiceState {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     */
+    readonly propagateTags?: pulumi.Input<string>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */
@@ -275,6 +291,9 @@ export interface ServiceArgs {
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
     readonly desiredCount?: pulumi.Input<number>;
+    /**
+     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
@@ -313,6 +332,10 @@ export interface ServiceArgs {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     */
+    readonly propagateTags?: pulumi.Input<string>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */

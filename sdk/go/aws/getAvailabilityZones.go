@@ -24,6 +24,7 @@ func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs
 	}
 	return &GetAvailabilityZonesResult{
 		Names: outputs["names"],
+		ZoneIds: outputs["zoneIds"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -41,6 +42,8 @@ type GetAvailabilityZonesArgs struct {
 type GetAvailabilityZonesResult struct {
 	// A list of the Availability Zone names available to the account.
 	Names interface{}
+	// A list of the Availability Zone IDs available to the account.
+	ZoneIds interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -99,6 +99,7 @@
     "service/acmpca",
     "service/apigateway",
     "service/applicationautoscaling",
+    "service/appmesh",
     "service/appsync",
     "service/athena",
     "service/autoscaling",
@@ -182,8 +183,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "180cc10e5ff368b86dee226b034af7d1672baec6"
-  version = "v1.15.87"
+  revision = "ddc06f9fad886ea5daa5f828f3ca094084f8c2a7"
+  version = "v1.15.90"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -415,8 +416,8 @@
     "tfdiags",
     "version"
   ]
-  revision = "17850e9a55d33c43d7c31fd6ac122ba97a51d899"
-  version = "v0.11.10"
+  revision = "48c1ae62b3e1f5e5bc1c2e9ab3e64c7b4b86a6a1"
+  version = "v0.11.9-beta1"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -638,7 +639,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "55bea6527690f24bb1dadfc10897212a99e84069"
+  revision = "89f862e74e1fc8fff13ea0a18de9d78962961e43"
 
 [[projects]]
   branch = "master"
@@ -647,7 +648,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "a5f089711e12eef3f688407de1032a041b7f8b08"
+  revision = "2c187fb6f5e33adbc3c54c4dff4c86f7c9af7379"
 
 [[projects]]
   branch = "master"
@@ -706,7 +707,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "0c0f06453c528eb43a18241dd94b9c3a27f46114"
+  revision = "1d9e3809e33962d13e9d483f48f310b68e752e7d"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -748,8 +749,8 @@
     "internal/xlog",
     "lzma"
   ]
-  revision = "590df8077fbcb06ad62d7714da06c00e5dd2316d"
-  version = "v0.5.5"
+  revision = "0c6b41e72360850ca4f98dc341fd999726ea007f"
+  version = "v0.5.4"
 
 [[projects]]
   name = "github.com/xanzy/ssh-agent"
@@ -876,8 +877,8 @@
     "core",
     "terminal"
   ]
-  revision = "fb519f89e19299d852ffdd9b734af122d2dcbd30"
-  version = "v1.7.0"
+  revision = "e205523512c83e9236698dbe7eb9649ec56e80ca"
+  version = "v1.7.1"
 
 [[projects]]
   name = "gopkg.in/src-d/go-billy.v4"
@@ -947,12 +948,12 @@
 [[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
-  version = "v2.2.2"
+  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
+  version = "v2.2.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0d4369f6143344a2367f93dd80260f213d84c6927351c7f8b7fa5d07f479ce48"
+  inputs-digest = "4fd79fdcf70da36911359e0ecbaf81ca8adede3aa05acfb6e70b398a2e079fdd"
   solver-name = "gps-cdcl"
   solver-version = 1

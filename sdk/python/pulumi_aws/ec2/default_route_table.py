@@ -61,6 +61,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        __props__['owner_id'] = None
         __props__['vpc_id'] = None
 
         super(DefaultRouteTable, __self__).__init__(

@@ -25,6 +25,8 @@ class InternetGateway(pulumi.CustomResource):
 
         __props__['vpc_id'] = vpc_id
 
+        __props__['owner_id'] = None
+
         super(InternetGateway, __self__).__init__(
             'aws:ec2/internetGateway:InternetGateway',
             __name__,

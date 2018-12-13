@@ -22,6 +22,7 @@ func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*
 	return &GetInternetGatewayResult{
 		Attachments: outputs["attachments"],
 		InternetGatewayId: outputs["internetGatewayId"],
+		OwnerId: outputs["ownerId"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -42,6 +43,8 @@ type GetInternetGatewayArgs struct {
 type GetInternetGatewayResult struct {
 	Attachments interface{}
 	InternetGatewayId interface{}
+	// The ID of the AWS account that owns the internet gateway.
+	OwnerId interface{}
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

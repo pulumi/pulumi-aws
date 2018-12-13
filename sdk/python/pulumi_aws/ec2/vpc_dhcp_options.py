@@ -12,7 +12,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
     * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws_vpc_dhcp_options_association`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
     * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
-    * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`. 
+    * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
     """
     def __init__(__self__, __name__, __opts__=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, tags=None):
         """Create a VpcDhcpOptions resource with the given unique name, props, and options."""
@@ -36,6 +36,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
         __props__['ntp_servers'] = ntp_servers
 
         __props__['tags'] = tags
+
+        __props__['owner_id'] = None
 
         super(VpcDhcpOptions, __self__).__init__(
             'aws:ec2/vpcDhcpOptions:VpcDhcpOptions',
