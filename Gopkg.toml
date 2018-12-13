@@ -19,7 +19,7 @@
 # remove some of these overrides in order to produce a buildable vendor tree.
 [[override]]
   name = "github.com/agext/levenshtein"
-  version = "v1.2.1"
+  version = "=v1.2.1"
   [override.metadata]
     govendor-overridden=true
 
@@ -31,31 +31,31 @@
 
 [[override]]
   name = "github.com/apparentlymart/go-cidr"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/apparentlymart/go-textseg"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/armon/go-radix"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "v1.15.90"
+  version = "=v1.15.90"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/beevik/etree"
-  version = "v1.0.1"
+  version = "=v1.0.1"
   [override.metadata]
     govendor-overridden=true
 
@@ -67,13 +67,13 @@
 
 [[override]]
   name = "github.com/bgentry/speakeasy"
-  version = "v0.1.0"
+  version = "=v0.1.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/blang/semver"
-  version = "v3.5.1"
+  version = "=v3.5.1"
   [override.metadata]
     govendor-overridden=true
 
@@ -85,13 +85,13 @@
 
 [[override]]
   name = "github.com/davecgh/go-spew"
-  version = "v1.1.1"
+  version = "=v1.1.1"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/go-ini/ini"
-  version = "v1.25.4"
+  version = "=v1.25.4"
   [override.metadata]
     govendor-overridden=true
 
@@ -103,13 +103,13 @@
 
 [[override]]
   name = "github.com/hashicorp/errwrap"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-cleanhttp"
-  version = "v0.5.0"
+  version = "=v0.5.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -127,7 +127,7 @@
 
 [[override]]
   name = "github.com/hashicorp/go-multierror"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -139,19 +139,19 @@
 
 [[override]]
   name = "github.com/hashicorp/go-safetemp"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-uuid"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-version"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -175,19 +175,19 @@
 
 [[override]]
   name = "github.com/hashicorp/logutils"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/terraform"
-  version = "v0.11.9-beta1"
+  version = "=v0.11.9-beta1"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/vault"
-  version = "v0.10.4"
+  version = "=v0.10.4"
   [override.metadata]
     govendor-overridden=true
 
@@ -199,7 +199,7 @@
 
 [[override]]
   name = "github.com/jen20/awspolicyequivalence"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -217,7 +217,7 @@
 
 [[override]]
   name = "github.com/mattn/go-isatty"
-  version = "v0.0.4"
+  version = "=v0.0.4"
   [override.metadata]
     govendor-overridden=true
 
@@ -229,13 +229,13 @@
 
 [[override]]
   name = "github.com/mitchellh/copystructure"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/go-homedir"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -247,13 +247,13 @@
 
 [[override]]
   name = "github.com/mitchellh/go-wordwrap"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/hashstructure"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -265,7 +265,7 @@
 
 [[override]]
   name = "github.com/mitchellh/reflectwalk"
-  version = "v1.0.0"
+  version = "=v1.0.0"
   [override.metadata]
     govendor-overridden=true
 
@@ -283,19 +283,19 @@
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-template"
-  version = "v0.1.1"
+  version = "=v0.1.1"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/terraform-providers/terraform-provider-tls"
-  version = "v0.1.0"
+  version = "=v0.1.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/ulikunitz/xz"
-  version = "v0.5.4"
+  version = "=v0.5.4"
   [override.metadata]
     govendor-overridden=true
 
@@ -343,6 +343,6 @@
 
 [[override]]
   name = "gopkg.in/yaml.v2"
-  version = "v2.2.1"
+  version = "=v2.2.1"
   [override.metadata]
     govendor-overridden=true

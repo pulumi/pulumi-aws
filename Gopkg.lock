@@ -67,7 +67,6 @@
     "aws/credentials",
     "aws/credentials/ec2rolecreds",
     "aws/credentials/endpointcreds",
-    "aws/credentials/processcreds",
     "aws/credentials/stscreds",
     "aws/crr",
     "aws/csm",
@@ -184,8 +183,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "818fa5c274d4dee665096411e2bad037f47c31f7"
-  version = "v1.16.3"
+  revision = "ddc06f9fad886ea5daa5f828f3ca094084f8c2a7"
+  version = "v1.15.90"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -417,8 +416,8 @@
     "tfdiags",
     "version"
   ]
-  revision = "17850e9a55d33c43d7c31fd6ac122ba97a51d899"
-  version = "v0.11.10"
+  revision = "48c1ae62b3e1f5e5bc1c2e9ab3e64c7b4b86a6a1"
+  version = "v0.11.9-beta1"
 
 [[projects]]
   name = "github.com/hashicorp/vault"
@@ -640,7 +639,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "b94cfb22d5d213ddd84b508c61422ab86c3bffbf"
+  revision = "89f862e74e1fc8fff13ea0a18de9d78962961e43"
 
 [[projects]]
   branch = "master"
@@ -750,8 +749,8 @@
     "internal/xlog",
     "lzma"
   ]
-  revision = "590df8077fbcb06ad62d7714da06c00e5dd2316d"
-  version = "v0.5.5"
+  revision = "0c6b41e72360850ca4f98dc341fd999726ea007f"
+  version = "v0.5.4"
 
 [[projects]]
   name = "github.com/xanzy/ssh-agent"
@@ -949,12 +948,12 @@
 [[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
-  version = "v2.2.2"
+  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
+  version = "v2.2.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d7141c2af21158e258cc8026a77f926bb8e8c16dfba9a5418dbb9726334c863f"
+  inputs-digest = "4fd79fdcf70da36911359e0ecbaf81ca8adede3aa05acfb6e70b398a2e079fdd"
   solver-name = "gps-cdcl"
   solver-version = 1
