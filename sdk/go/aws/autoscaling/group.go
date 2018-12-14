@@ -295,8 +295,8 @@ func (r *Group) Tags() *pulumi.ArrayOutput {
 }
 
 // A list of tag blocks (maps). Tags documented below.
-func (r *Group) TagsCollection() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tagsCollection"])
+func (r *Group) TagsCollection() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["tagsCollection"])
 }
 
 // A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.

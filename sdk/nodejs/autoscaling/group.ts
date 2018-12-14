@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 import {LaunchConfiguration} from "../ec2/launchConfiguration";
 import {PlacementGroup} from "../ec2/placementGroup";
-import {Tags} from "../index";
 import {Metric, MetricsGranularity} from "./metrics";
 
 /**
@@ -152,7 +151,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    public readonly tagsCollection: pulumi.Output<Tags | undefined>;
+    public readonly tagsCollection: pulumi.Output<{[key: string]: any}[] | undefined>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
@@ -389,7 +388,7 @@ export interface GroupState {
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    readonly tagsCollection?: pulumi.Input<Tags>;
+    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
@@ -538,7 +537,7 @@ export interface GroupArgs {
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    readonly tagsCollection?: pulumi.Input<Tags>;
+    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
