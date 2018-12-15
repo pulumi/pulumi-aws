@@ -433,9 +433,7 @@ func Provider() tfbridge.ProviderInfo {
 						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
 						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
 						// give it a different name.
-						Name:        "tagsCollection",
-						Type:        awsType(awsMod, "Tags"),
-						MaxItemsOne: boolRef(true),
+						Name: "tagsCollection",
 					},
 				},
 			},
