@@ -100,12 +100,11 @@ export class Function extends pulumi.ComponentResource {
      * @param func Deprecated.  Pass the function as [options.func] or [options.factoryFunc] instead.
      */
     constructor(name: string,
-        options: FunctionOptions,
-        func?: Handler,
-        opts?: pulumi.ResourceOptions,
-        serialize?: (obj: any) => boolean) {
+                options: FunctionOptions,
+                func?: Handler,
+                opts?: pulumi.ResourceOptions) {
 
-        super("aws:serverless:Function", name, { options: options }, opts);
+        super("aws:serverless:Function", name, {}, opts);
 
         opts = opts || { parent: this };
 

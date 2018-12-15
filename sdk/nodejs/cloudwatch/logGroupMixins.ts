@@ -76,7 +76,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         name: string, logGroup: logGroup.LogGroup, handler: LogGroupEventHandler,
         args: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:cloudwatch:LogGroupEventSubscription", name, { logGroup: logGroup }, opts);
+        super("aws:cloudwatch:LogGroupEventSubscription", name, opts);
 
         args = args || {};
         const parentOpts = { parent: this };
@@ -95,11 +95,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
             logGroup: logGroup,
         }, parentOpts);
 
-        this.registerOutputs({
-            func: this.func,
-            permission: this.permission,
-            logSubscriptionFilter: this.logSubscriptionFilter,
-        });
+        this.registerOutputs();
     }
 }
 

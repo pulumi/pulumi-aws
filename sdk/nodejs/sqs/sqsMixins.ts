@@ -66,7 +66,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
         name: string, queue: queue.Queue, handler: QueueEventHandler,
         args: QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:sqs:QueueEventSubscription", name, { }, opts);
+        super("aws:sqs:QueueEventSubscription", name, opts);
 
         args = args || {};
 
@@ -87,11 +87,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
             functionName: this.func.name,
         }, parentOpts);
 
-        this.registerOutputs({
-            func: this.func,
-            permission: this.permission,
-            eventSourceMapping: this.eventSourceMapping,
-        });
+        this.registerOutputs();
     }
 }
 

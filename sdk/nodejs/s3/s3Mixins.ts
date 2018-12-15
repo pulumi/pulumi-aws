@@ -130,7 +130,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
         name: string, bucket: Bucket, handler: BucketEventHandler,
         args: BucketEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:s3:BucketEventSubscription", name, { bucket: bucket }, opts);
+        super("aws:s3:BucketEventSubscription", name, opts);
 
         const parentOpts = { parent: this };
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
@@ -171,10 +171,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             provider: this.getProvider("aws::"),
         });
 
-        this.registerOutputs({
-            func: this.func,
-            permission: this.permission,
-        });
+        this.registerOutputs();
     }
 }
 
