@@ -329,7 +329,7 @@ func (r *Instance) DomainIamRoleName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["domainIamRoleName"])
 }
 
-// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
+// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 func (r *Instance) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
@@ -631,7 +631,7 @@ type InstanceState struct {
 	Domain interface{}
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName interface{}
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports interface{}
 	// The connection endpoint in `address:port` format.
 	Endpoint interface{}
@@ -817,7 +817,7 @@ type InstanceArgs struct {
 	Domain interface{}
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName interface{}
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`.
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports interface{}
 	// (Required unless a `snapshot_identifier` or `replicate_source_db`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).

@@ -67,6 +67,7 @@
     "aws/credentials",
     "aws/credentials/ec2rolecreds",
     "aws/credentials/endpointcreds",
+    "aws/credentials/processcreds",
     "aws/credentials/stscreds",
     "aws/crr",
     "aws/csm",
@@ -168,6 +169,7 @@
     "service/route53",
     "service/s3",
     "service/secretsmanager",
+    "service/securityhub",
     "service/servicecatalog",
     "service/servicediscovery",
     "service/ses",
@@ -179,12 +181,13 @@
     "service/storagegateway",
     "service/sts",
     "service/swf",
+    "service/transfer",
     "service/waf",
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "ddc06f9fad886ea5daa5f828f3ca094084f8c2a7"
-  version = "v1.15.90"
+  revision = "a00e7512a2533cd96e525fe50607f9fe98badec3"
+  version = "v1.16.4"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -639,7 +642,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "89f862e74e1fc8fff13ea0a18de9d78962961e43"
+  revision = "2d92b516b2be7989e91e1a0dbd6fda533e3b922f"
 
 [[projects]]
   branch = "master"
@@ -707,7 +710,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "1d9e3809e33962d13e9d483f48f310b68e752e7d"
+  revision = "76240dab3bfef9b4f079869c1a07f6320274d149"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -954,6 +957,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "4fd79fdcf70da36911359e0ecbaf81ca8adede3aa05acfb6e70b398a2e079fdd"
+  inputs-digest = "087974729362a9d1388c3e1fb0930c266f8f9aefba85700e53d738481115a6be"
   solver-name = "gps-cdcl"
   solver-version = 1

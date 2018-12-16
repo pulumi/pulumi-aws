@@ -32,6 +32,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		EbsBlockDevices: outputs["ebsBlockDevices"],
 		EbsOptimized: outputs["ebsOptimized"],
 		EphemeralBlockDevices: outputs["ephemeralBlockDevices"],
+		HostId: outputs["hostId"],
 		IamInstanceProfile: outputs["iamInstanceProfile"],
 		InstanceState: outputs["instanceState"],
 		InstanceTags: outputs["instanceTags"],
@@ -92,6 +93,8 @@ type GetInstanceResult struct {
 	EbsOptimized interface{}
 	// The ephemeral block device mappings of the Instance.
 	EphemeralBlockDevices interface{}
+	// The Id of the dedicated host the instance will be assigned to.
+	HostId interface{}
 	// The name of the instance profile associated with the Instance.
 	IamInstanceProfile interface{}
 	InstanceState interface{}

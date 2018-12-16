@@ -29,3 +29,4 @@ from .vpc_link import *
 from .get_key import *
 from .get_resource import *
 from .get_rest_api import *
+from .get_vpc_link import *

@@ -35,7 +35,7 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Availability Zone in which to create your
-     * instance. At this time, must be in `us-east-1`, `us-east-2`, `us-west-2`, `eu-west-1`, `eu-west-2`, `eu-central-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, `ap-south-1` regions
+     * instance (see list below)
      */
     public readonly availabilityZone: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export interface InstanceState {
     readonly arn?: pulumi.Input<string>;
     /**
      * The Availability Zone in which to create your
-     * instance. At this time, must be in `us-east-1`, `us-east-2`, `us-west-2`, `eu-west-1`, `eu-west-2`, `eu-central-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, `ap-south-1` regions
+     * instance (see list below)
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface InstanceState {
 export interface InstanceArgs {
     /**
      * The Availability Zone in which to create your
-     * instance. At this time, must be in `us-east-1`, `us-east-2`, `us-west-2`, `eu-west-1`, `eu-west-2`, `eu-central-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, `ap-south-1` regions
+     * instance (see list below)
      */
     readonly availabilityZone: pulumi.Input<string>;
     /**

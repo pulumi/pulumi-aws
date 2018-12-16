@@ -14,6 +14,7 @@ export * from "./domainName";
 export * from "./getKey";
 export * from "./getResource";
 export * from "./getRestApi";
+export * from "./getVpcLink";
 export * from "./integration";
 export * from "./integrationResponse";
 export * from "./method";

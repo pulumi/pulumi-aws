@@ -25,11 +25,11 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The creation date of the service mesh.
+     * The creation date of the virtual router.
      */
     public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
-     * The last update date of the service mesh.
+     * The last update date of the virtual router.
      */
     public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
@@ -91,11 +91,11 @@ export interface VirtualRouterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The creation date of the service mesh.
+     * The creation date of the virtual router.
      */
     readonly createdDate?: pulumi.Input<string>;
     /**
-     * The last update date of the service mesh.
+     * The last update date of the virtual router.
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**

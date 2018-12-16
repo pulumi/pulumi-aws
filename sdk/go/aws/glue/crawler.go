@@ -35,6 +35,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["s3Targets"] = nil
 		inputs["schedule"] = nil
 		inputs["schemaChangePolicy"] = nil
+		inputs["securityConfiguration"] = nil
 		inputs["tablePrefix"] = nil
 	} else {
 		inputs["classifiers"] = args.Classifiers
@@ -48,6 +49,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["s3Targets"] = args.S3Targets
 		inputs["schedule"] = args.Schedule
 		inputs["schemaChangePolicy"] = args.SchemaChangePolicy
+		inputs["securityConfiguration"] = args.SecurityConfiguration
 		inputs["tablePrefix"] = args.TablePrefix
 	}
 	s, err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, true, inputs, opts...)
@@ -74,6 +76,7 @@ func GetCrawler(ctx *pulumi.Context,
 		inputs["s3Targets"] = state.S3Targets
 		inputs["schedule"] = state.Schedule
 		inputs["schemaChangePolicy"] = state.SchemaChangePolicy
+		inputs["securityConfiguration"] = state.SecurityConfiguration
 		inputs["tablePrefix"] = state.TablePrefix
 	}
 	s, err := ctx.ReadResource("aws:glue/crawler:Crawler", name, id, inputs, opts...)
@@ -148,6 +151,11 @@ func (r *Crawler) SchemaChangePolicy() *pulumi.Output {
 	return r.s.State["schemaChangePolicy"]
 }
 
+// The name of Security Configuration to be used by the crawler
+func (r *Crawler) SecurityConfiguration() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["securityConfiguration"])
+}
+
 // The table prefix used for catalog tables that are created.
 func (r *Crawler) TablePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tablePrefix"])
@@ -177,6 +185,8 @@ type CrawlerState struct {
 	Schedule interface{}
 	// Policy for the crawler's update and deletion behavior.
 	SchemaChangePolicy interface{}
+	// The name of Security Configuration to be used by the crawler
+	SecurityConfiguration interface{}
 	// The table prefix used for catalog tables that are created.
 	TablePrefix interface{}
 }
@@ -205,6 +215,8 @@ type CrawlerArgs struct {
 	Schedule interface{}
 	// Policy for the crawler's update and deletion behavior.
 	SchemaChangePolicy interface{}
+	// The name of Security Configuration to be used by the crawler
+	SecurityConfiguration interface{}
 	// The table prefix used for catalog tables that are created.
 	TablePrefix interface{}
 }

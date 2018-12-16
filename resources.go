@@ -101,6 +101,7 @@ const (
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
 	route53Mod           = "route53"                  // Route 53 (DNS)
+	securityhubMod       = "securityhub"              // SecurityHub
 	sesMod               = "ses"                      // Simple Email Service (SES)
 	s3Mod                = "s3"                       // Simple Storage (S3)
 	ssmMod               = "ssm"                      // System Manager
@@ -113,6 +114,7 @@ const (
 	sqsMod               = "sqs"                      // Simple Queueing Service (SQS)
 	storagegatewayMod    = "storagegateway"           // Storage Gateway
 	swfMod               = "swf"                      // Simple Workflow Service (SWF)
+	transferMod          = "transfer"                 // Transfer Service
 	wafMod               = "waf"                      // Web Application Firewall (WAF)
 	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
 	workspacesMod        = "workspaces"               // Workspaces
@@ -237,6 +239,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
 			// AppMesh
 			"aws_appmesh_mesh":           {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_route":          {Tok: awsResource(appmeshMod, "Route")},
+			"aws_appmesh_virtual_node":   {Tok: awsResource(appmeshMod, "VirtualNode")},
 			"aws_appmesh_virtual_router": {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
@@ -1621,6 +1625,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
 			"aws_rds_cluster_instance": {
 				Tok: awsResource(rdsMod, "ClusterInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1762,6 +1767,8 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			// Security Hub
+			"aws_securityhub_account": {Tok: awsResource(securityhubMod, "Account")},
 			// Service Discovery
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
@@ -1897,6 +1904,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
 			// Simple Workflow Service (SWF)
 			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
+			// Transfer Service
+			"aws_transfer_server": {Tok: awsResource(transferMod, "Server")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
 			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},
@@ -1958,6 +1967,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_api_key":  {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
 			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
+			"aws_api_gateway_vpc_link": {Tok: awsDataSource(apigatewayMod, "getVpcLink")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},

@@ -5,12 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get the [IP ranges][1] of various AWS products and services.
+ * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
  */
 export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
     return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "regions": args.regions,
         "services": args.services,
+        "url": args.url,
     }, opts);
 }
 
@@ -29,6 +30,10 @@ export interface GetIpRangesArgs {
      * (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
      */
     readonly services: string[];
+    /**
+     * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+     */
+    readonly url?: string;
 }
 
 /**
