@@ -665,6 +665,8 @@
         "swf/domain.ts",
         "swf/index.ts",
         "tags.ts",
+        "transfer/index.ts",
+        "transfer/server.ts",
         "utilities.ts",
         "utils.ts",
         "waf/byteMatchSet.ts",

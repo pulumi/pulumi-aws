@@ -114,6 +114,7 @@ const (
 	sqsMod               = "sqs"                      // Simple Queueing Service (SQS)
 	storagegatewayMod    = "storagegateway"           // Storage Gateway
 	swfMod               = "swf"                      // Simple Workflow Service (SWF)
+	transferMod          = "transfer"                 // Transfer Service
 	wafMod               = "waf"                      // Web Application Firewall (WAF)
 	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
 	workspacesMod        = "workspaces"               // Workspaces
@@ -1903,6 +1904,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
 			// Simple Workflow Service (SWF)
 			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
+			// Transfer Service
+			"aws_transfer_server": {Tok: awsResource(transferMod, "Server")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
 			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},
