@@ -3,4 +3,6 @@
 
 // Export members:
 export * from "./mesh";
+export * from "./route";
+export * from "./virtualNode";
 export * from "./virtualRouter";

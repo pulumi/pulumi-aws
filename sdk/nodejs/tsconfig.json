@@ -59,6 +59,8 @@
         "applicationloadbalancing/targetGroupAttachment.ts",
         "appmesh/index.ts",
         "appmesh/mesh.ts",
+        "appmesh/route.ts",
+        "appmesh/virtualNode.ts",
         "appmesh/virtualRouter.ts",
         "appsync/apiKey.ts",
         "appsync/dataSource.ts",

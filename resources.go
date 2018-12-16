@@ -237,6 +237,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
 			// AppMesh
 			"aws_appmesh_mesh":           {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_route":          {Tok: awsResource(appmeshMod, "Route")},
+			"aws_appmesh_virtual_node":   {Tok: awsResource(appmeshMod, "VirtualNode")},
 			"aws_appmesh_virtual_router": {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
