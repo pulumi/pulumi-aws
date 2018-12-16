@@ -83,6 +83,10 @@ export interface GetInstanceResult {
      */
     readonly ephemeralBlockDevices: { deviceName: string, noDevice?: boolean, virtualName?: string }[];
     /**
+     * The Id of the dedicated host the instance will be assigned to.
+     */
+    readonly hostId: string;
+    /**
      * The name of the instance profile associated with the Instance.
      */
     readonly iamInstanceProfile: string;

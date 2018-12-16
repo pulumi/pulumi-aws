@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 /**
  * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
- * for the effective account in which Terraform is working.
+ * for the effective account in which Terraform is working.  
  */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
     return pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
@@ -18,7 +18,7 @@ export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCano
  */
 export interface GetCanonicalUserIdResult {
     /**
-     * The human-friendly name linked to the canonical user ID.
+     * The human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
      */
     readonly displayName: string;
     /**

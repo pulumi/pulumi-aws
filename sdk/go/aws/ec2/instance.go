@@ -36,6 +36,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["ebsOptimized"] = nil
 		inputs["ephemeralBlockDevices"] = nil
 		inputs["getPasswordData"] = nil
+		inputs["hostId"] = nil
 		inputs["iamInstanceProfile"] = nil
 		inputs["instanceInitiatedShutdownBehavior"] = nil
 		inputs["instanceType"] = nil
@@ -68,6 +69,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["ebsOptimized"] = args.EbsOptimized
 		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
 		inputs["getPasswordData"] = args.GetPasswordData
+		inputs["hostId"] = args.HostId
 		inputs["iamInstanceProfile"] = args.IamInstanceProfile
 		inputs["instanceInitiatedShutdownBehavior"] = args.InstanceInitiatedShutdownBehavior
 		inputs["instanceType"] = args.InstanceType
@@ -122,6 +124,7 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["ebsOptimized"] = state.EbsOptimized
 		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
 		inputs["getPasswordData"] = state.GetPasswordData
+		inputs["hostId"] = state.HostId
 		inputs["iamInstanceProfile"] = state.IamInstanceProfile
 		inputs["instanceInitiatedShutdownBehavior"] = state.InstanceInitiatedShutdownBehavior
 		inputs["instanceState"] = state.InstanceState
@@ -234,6 +237,11 @@ func (r *Instance) EphemeralBlockDevices() *pulumi.ArrayOutput {
 // If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 func (r *Instance) GetPasswordData() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["getPasswordData"])
+}
+
+// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+func (r *Instance) HostId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["hostId"])
 }
 
 // The IAM Instance Profile to
@@ -419,6 +427,8 @@ type InstanceState struct {
 	EphemeralBlockDevices interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
+	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	HostId interface{}
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -521,6 +531,8 @@ type InstanceArgs struct {
 	EphemeralBlockDevices interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
+	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+	HostId interface{}
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
 	// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.

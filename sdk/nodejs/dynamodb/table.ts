@@ -39,7 +39,7 @@ export class Table extends pulumi.CustomResource {
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    public readonly globalSecondaryIndexes: pulumi.Output<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity: number, writeCapacity: number }[] | undefined>;
+    public readonly globalSecondaryIndexes: pulumi.Output<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity?: number, writeCapacity?: number }[] | undefined>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -64,7 +64,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly rangeKey: pulumi.Output<string | undefined>;
     /**
-     * The number of read units for this index
+     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
     public readonly readCapacity: pulumi.Output<number | undefined>;
     /**
@@ -99,7 +99,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly ttl: pulumi.Output<{ attributeName: string, enabled: boolean } | undefined>;
     /**
-     * The number of write units for this index
+     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
     public readonly writeCapacity: pulumi.Output<number | undefined>;
 
@@ -185,7 +185,7 @@ export interface TableState {
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity: pulumi.Input<number>, writeCapacity: pulumi.Input<number> }>[]>;
+    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity?: pulumi.Input<number>, writeCapacity?: pulumi.Input<number> }>[]>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -210,7 +210,7 @@ export interface TableState {
      */
     readonly rangeKey?: pulumi.Input<string>;
     /**
-     * The number of read units for this index
+     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
@@ -245,7 +245,7 @@ export interface TableState {
      */
     readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled: pulumi.Input<boolean> }>;
     /**
-     * The number of write units for this index
+     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
     readonly writeCapacity?: pulumi.Input<number>;
 }
@@ -267,7 +267,7 @@ export interface TableArgs {
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity: pulumi.Input<number>, writeCapacity: pulumi.Input<number> }>[]>;
+    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity?: pulumi.Input<number>, writeCapacity?: pulumi.Input<number> }>[]>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -292,7 +292,7 @@ export interface TableArgs {
      */
     readonly rangeKey?: pulumi.Input<string>;
     /**
-     * The number of read units for this index
+     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
@@ -316,7 +316,7 @@ export interface TableArgs {
      */
     readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled: pulumi.Input<boolean> }>;
     /**
-     * The number of write units for this index
+     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
     readonly writeCapacity?: pulumi.Input<number>;
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 import {Tags} from "../index";
 
 /**
- * Provides a CodeBuild Project resource.
+ * Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
  */
 export class Project extends pulumi.CustomResource {
     /**

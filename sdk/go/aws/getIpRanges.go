@@ -7,12 +7,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get the [IP ranges][1] of various AWS products and services.
+// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
 func LookupIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs) (*GetIpRangesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["regions"] = args.Regions
 		inputs["services"] = args.Services
+		inputs["url"] = args.Url
 	}
 	outputs, err := ctx.Invoke("aws:index/getIpRanges:getIpRanges", inputs)
 	if err != nil {
@@ -36,6 +37,8 @@ type GetIpRangesArgs struct {
 	// Filter IP ranges by services. Valid items are `amazon`
 	// (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
 	Services interface{}
+	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+	Url interface{}
 }
 
 // A collection of values returned by getIpRanges.

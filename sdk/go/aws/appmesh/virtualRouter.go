@@ -77,12 +77,12 @@ func (r *VirtualRouter) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The creation date of the service mesh.
+// The creation date of the virtual router.
 func (r *VirtualRouter) CreatedDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
-// The last update date of the service mesh.
+// The last update date of the virtual router.
 func (r *VirtualRouter) LastUpdatedDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
 }
@@ -106,9 +106,9 @@ func (r *VirtualRouter) Spec() *pulumi.Output {
 type VirtualRouterState struct {
 	// The ARN of the virtual router.
 	Arn interface{}
-	// The creation date of the service mesh.
+	// The creation date of the virtual router.
 	CreatedDate interface{}
-	// The last update date of the service mesh.
+	// The last update date of the virtual router.
 	LastUpdatedDate interface{}
 	// The name of the service mesh in which to create the virtual router.
 	MeshName interface{}

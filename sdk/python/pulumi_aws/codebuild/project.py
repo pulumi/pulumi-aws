@@ -8,7 +8,7 @@ from .. import utilities, tables
 
 class Project(pulumi.CustomResource):
     """
-    Provides a CodeBuild Project resource.
+    Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
     """
     def __init__(__self__, __name__, __opts__=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None):
         """Create a Project resource with the given unique name, props, and options."""

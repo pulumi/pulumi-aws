@@ -105,6 +105,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly getPasswordData: pulumi.Output<boolean | undefined>;
     /**
+     * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+     */
+    public readonly hostId: pulumi.Output<string>;
+    /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -281,6 +285,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
             inputs["getPasswordData"] = state ? state.getPasswordData : undefined;
+            inputs["hostId"] = state ? state.hostId : undefined;
             inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
             inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
@@ -338,6 +343,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["getPasswordData"] = args ? args.getPasswordData : undefined;
+            inputs["hostId"] = args ? args.hostId : undefined;
             inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
             inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
@@ -445,6 +451,10 @@ export interface SpotInstanceRequestState {
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: pulumi.Input<boolean>;
+    /**
+     * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+     */
+    readonly hostId?: pulumi.Input<string>;
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
@@ -661,6 +671,10 @@ export interface SpotInstanceRequestArgs {
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: pulumi.Input<boolean>;
+    /**
+     * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+     */
+    readonly hostId?: pulumi.Input<string>;
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.

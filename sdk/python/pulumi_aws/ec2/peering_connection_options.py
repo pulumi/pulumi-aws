@@ -95,7 +95,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
       peer_owner_id = "${data.aws_caller_identity.peer.account_id}"
       auto_accept   = false
     
-      tags {
+      tags = {
         Side = "Requester"
       }
     }
@@ -107,7 +107,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
       vpc_peering_connection_id = "${aws_vpc_peering_connection.peer.id}"
       auto_accept               = true
     
-      tags {
+      tags = {
         Side = "Accepter"
       }
     }

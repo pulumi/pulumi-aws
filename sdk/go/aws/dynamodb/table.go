@@ -160,7 +160,7 @@ func (r *Table) RangeKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rangeKey"])
 }
 
-// The number of read units for this index
+// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
 func (r *Table) ReadCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["readCapacity"])
 }
@@ -203,7 +203,7 @@ func (r *Table) Ttl() *pulumi.Output {
 	return r.s.State["ttl"]
 }
 
-// The number of write units for this index
+// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
 func (r *Table) WriteCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["writeCapacity"])
 }
@@ -233,7 +233,7 @@ type TableState struct {
 	PointInTimeRecovery interface{}
 	// The name of the range key; must be defined
 	RangeKey interface{}
-	// The number of read units for this index
+	// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
 	ReadCapacity interface{}
 	// Encrypt at rest options.
 	ServerSideEncryption interface{}
@@ -252,7 +252,7 @@ type TableState struct {
 	Tags interface{}
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl interface{}
-	// The number of write units for this index
+	// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
 	WriteCapacity interface{}
 }
 
@@ -279,7 +279,7 @@ type TableArgs struct {
 	PointInTimeRecovery interface{}
 	// The name of the range key; must be defined
 	RangeKey interface{}
-	// The number of read units for this index
+	// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
 	ReadCapacity interface{}
 	// Encrypt at rest options.
 	ServerSideEncryption interface{}
@@ -291,6 +291,6 @@ type TableArgs struct {
 	Tags interface{}
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl interface{}
-	// The number of write units for this index
+	// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
 	WriteCapacity interface{}
 }

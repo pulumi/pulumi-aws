@@ -15,7 +15,7 @@ class GetCanonicalUserIdResult(object):
             raise TypeError('Expected argument display_name to be a str')
         __self__.display_name = display_name
         """
-        The human-friendly name linked to the canonical user ID.
+        The human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
         """
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
@@ -27,7 +27,7 @@ class GetCanonicalUserIdResult(object):
 async def get_canonical_user_id():
     """
     The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
-    for the effective account in which Terraform is working.
+    for the effective account in which Terraform is working.  
     """
     __args__ = dict()
 

@@ -65,6 +65,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly schemaChangePolicy: pulumi.Output<{ deleteBehavior?: string, updateBehavior?: string } | undefined>;
     /**
+     * The name of Security Configuration to be used by the crawler
+     */
+    public readonly securityConfiguration: pulumi.Output<string | undefined>;
+    /**
      * The table prefix used for catalog tables that are created.
      */
     public readonly tablePrefix: pulumi.Output<string | undefined>;
@@ -92,6 +96,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["s3Targets"] = state ? state.s3Targets : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
             inputs["schemaChangePolicy"] = state ? state.schemaChangePolicy : undefined;
+            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             inputs["tablePrefix"] = state ? state.tablePrefix : undefined;
         } else {
             const args = argsOrState as CrawlerArgs | undefined;
@@ -112,6 +117,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["s3Targets"] = args ? args.s3Targets : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
+            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
         }
         super("aws:glue/crawler:Crawler", name, inputs, opts);
@@ -167,6 +173,10 @@ export interface CrawlerState {
      */
     readonly schemaChangePolicy?: pulumi.Input<{ deleteBehavior?: pulumi.Input<string>, updateBehavior?: pulumi.Input<string> }>;
     /**
+     * The name of Security Configuration to be used by the crawler
+     */
+    readonly securityConfiguration?: pulumi.Input<string>;
+    /**
      * The table prefix used for catalog tables that are created.
      */
     readonly tablePrefix?: pulumi.Input<string>;
@@ -220,6 +230,10 @@ export interface CrawlerArgs {
      * Policy for the crawler's update and deletion behavior.
      */
     readonly schemaChangePolicy?: pulumi.Input<{ deleteBehavior?: pulumi.Input<string>, updateBehavior?: pulumi.Input<string> }>;
+    /**
+     * The name of Security Configuration to be used by the crawler
+     */
+    readonly securityConfiguration?: pulumi.Input<string>;
     /**
      * The table prefix used for catalog tables that are created.
      */
