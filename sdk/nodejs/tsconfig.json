@@ -546,6 +546,7 @@
         "pricing/index.ts",
         "provider.ts",
         "rds/cluster.ts",
+        "rds/clusterEndpoint.ts",
         "rds/clusterInstance.ts",
         "rds/clusterParameterGroup.ts",
         "rds/clusterSnapshot.ts",

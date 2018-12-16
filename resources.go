@@ -1623,6 +1623,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
 			"aws_rds_cluster_instance": {
 				Tok: awsResource(rdsMod, "ClusterInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{

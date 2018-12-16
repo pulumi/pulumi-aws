@@ -12,6 +12,7 @@ from .security_group import *
 from .snapshot import *
 from .subnet_group import *
 from .cluster import *
+from .cluster_endpoint import *
 from .cluster_instance import *
 from .cluster_parameter_group import *
 from .get_cluster_snapshot import *

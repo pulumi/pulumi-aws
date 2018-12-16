@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./cluster";
+export * from "./clusterEndpoint";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
 export * from "./clusterSnapshot";
