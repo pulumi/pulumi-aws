@@ -67,7 +67,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         name: string, topic: topic.Topic, handler: TopicEventHandler,
         args: TopicEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:sns:TopicEventSubscription", name, { }, opts);
+        super("aws:sns:TopicEventSubscription", name, opts);
 
         args = args || {};
         this.topic = topic;
@@ -88,11 +88,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
             endpoint: this.func.arn,
         }, parentOpts);
 
-        this.registerOutputs({
-            func: this.func,
-            permission: this.permission,
-            subscription: this.subscription,
-        });
+        this.registerOutputs();
     }
 }
 
