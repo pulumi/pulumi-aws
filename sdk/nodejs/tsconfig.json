@@ -598,6 +598,8 @@
         "secretsmanager/index.ts",
         "secretsmanager/secret.ts",
         "secretsmanager/secretVersion.ts",
+        "securityhub/account.ts",
+        "securityhub/index.ts",
         "serverless/function.ts",
         "serverless/index.ts",
         "servicecatalog/index.ts",

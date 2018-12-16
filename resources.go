@@ -101,6 +101,7 @@ const (
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
 	route53Mod           = "route53"                  // Route 53 (DNS)
+	securityhubMod       = "securityhub"              // SecurityHub
 	sesMod               = "ses"                      // Simple Email Service (SES)
 	s3Mod                = "s3"                       // Simple Storage (S3)
 	ssmMod               = "ssm"                      // System Manager
@@ -1765,6 +1766,8 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			// Security Hub
+			"aws_securityhub_account": {Tok: awsResource(securityhubMod, "Account")},
 			// Service Discovery
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
