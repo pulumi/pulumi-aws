@@ -27,6 +27,7 @@
         "apigateway/getKey.ts",
         "apigateway/getResource.ts",
         "apigateway/getRestApi.ts",
+        "apigateway/getVpcLink.ts",
         "apigateway/index.ts",
         "apigateway/integration.ts",
         "apigateway/integrationResponse.ts",
