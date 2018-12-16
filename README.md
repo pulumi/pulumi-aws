@@ -54,3 +54,10 @@ of this underlying capability.
 
 For detailed reference documentation, please visit [the API docs](
 https://pulumi.io/reference/pkg/nodejs/@pulumi/aws/index.html).
+
+## Updating this provider
+
+The AWS Resource Provider for Pulumi is based on the Terraform Provider for
+AWS. Instructions for keeping it up to date are available [here][updating].
+
+[updating]: https://github.com/pulumi/pulumi-terraform/wiki/Updating-Pulumi-Providers-Backed-By-Terraform-Providers
