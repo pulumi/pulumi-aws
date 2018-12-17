@@ -189,7 +189,7 @@ process.on("beforeExit", () => {
         //
         // We just use the provider for the first subscription here.  In the future we will be able
         // to grab the provider from the bucket, which acts as our single logical parent.
-        const opts = { parent: bucket, dependsOn: permissions, provider: subscriptions[0].provider };
+        const opts = { dependsOn: permissions, provider: subscriptions[0].provider };
 
         const _ = new BucketNotification(subscriptions[0].name, {
             bucket: bucket.id,
