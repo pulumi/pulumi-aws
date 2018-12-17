@@ -1,4 +1,10 @@
-## 0.16.4 (unreleased)
+## 0.16.5 (unreleased)
+
+## 0.16.4 (Released December 17th, 2018)
+
+### Improvements
+
+- Updated to the v1.52.0 version of the AWS Terraform Provider.
 
 ## 0.16.3 (Released December 5th, 2018)
 
