@@ -187,11 +187,14 @@ export class API extends pulumi.ComponentResource {
 
         let swaggerString: pulumi.Output<string>;
         let swaggerSpec: SwaggerSpec | undefined;
+        let swaggerLambdas: SwaggerLambdas | undefined;
         if (args.swaggerString) {
             swaggerString = pulumi.output(args.swaggerString);
         }
         else if (args.routes) {
-            swaggerSpec = createSwaggerSpec(name, { parent: this }, args.routes);
+            const result = createSwaggerSpec(this, name, args.routes);
+            swaggerSpec = result.swagger;
+            swaggerLambdas = result.swaggerLambdas;
             swaggerString = pulumi.output(swaggerSpec).apply(JSON.stringify);
         }
         else {
@@ -222,42 +225,10 @@ export class API extends pulumi.ComponentResource {
             },
         }, { parent: this });
 
+        const permissions = createLambdaPermissions(this, name, swaggerLambdas);
+
         // Expose the URL that the API is served at.
         this.url = this.deployment.invokeUrl.apply(url => url + stageName + "/");
-
-        // Ensure that the permissions allow the API Gateway to invoke the lambdas.
-        const permissions = [];
-        if (swaggerSpec) {
-            for (const path of Object.keys(swaggerSpec.paths)) {
-                for (let method of Object.keys(swaggerSpec.paths[path])) {
-                    const operation = swaggerSpec.paths[path][method];
-                    const lambda = operation.lambda;
-
-                    if (lambda) {
-                        if (method === "x-amazon-apigateway-any-method") {
-                            method = "*";
-                        }
-                        else {
-                            method = method.toUpperCase();
-                        }
-
-                        const methodAndPath = method + ":" + path;
-                        const permissionName = name + "-" + sha1hash(methodAndPath);
-                        const invokePermission = new aws.lambda.Permission(permissionName, {
-                            action: "lambda:invokeFunction",
-                            function: lambda,
-                            principal: "apigateway.amazonaws.com",
-                            // We give permission for this function to be invoked by any stage at the given method and
-                            // path on the API. We allow any stage instead of encoding the one known stage that will be
-                            // deployed by Pulumi because the API Gateway console "Test" feature invokes the route
-                            // handler with the fake stage `test-invoke-stage`.
-                            sourceArn: this.deployment.executionArn.apply(arn => arn + "*/" + method + path),
-                        }, { parent: this });
-                        permissions.push(invokePermission);
-                    }
-                }
-            }
-        }
 
         // Create a stage, which is an addressable instance of the Rest API. Set it to point at the latest deployment.
         this.stage = new aws.apigateway.Stage(name, {
@@ -270,12 +241,39 @@ export class API extends pulumi.ComponentResource {
     }
 }
 
+function createLambdaPermissions(api: API, name: string, swaggerLambdas: SwaggerLambdas = {}) {
+    const permissions: aws.lambda.Permission[] = [];
+    for (const path of Object.keys(swaggerLambdas)) {
+        for (const method of Object.keys(swaggerLambdas[path])) {
+            const methodAndPath =
+                `${method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase()}${path}`;
+
+            permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(methodAndPath), {
+                action: "lambda:invokeFunction",
+                function: swaggerLambdas[path][method],
+                principal: "apigateway.amazonaws.com",
+                // We give permission for this function to be invoked by any stage at the given method and
+                // path on the API. We allow any stage instead of encoding the one known stage that will be
+                // deployed by Pulumi because the API Gateway console "Test" feature invokes the route
+                // handler with the fake stage `test-invoke-stage`.
+                sourceArn: api.deployment.executionArn.apply(arn => arn + "*/" + methodAndPath),
+            }, { parent: api }));
+        }
+    }
+
+    return permissions;
+}
+
 interface SwaggerSpec {
     swagger: string;
     info: SwaggerInfo;
     paths: { [path: string]: { [method: string]: SwaggerOperation; }; };
     "x-amazon-apigateway-binary-media-types"?: string[];
     "x-amazon-apigateway-gateway-responses": Record<string, SwaggerGatewayResponse>;
+}
+
+interface SwaggerLambdas {
+    [path: string]: { [method: string]: aws.lambda.Function };
 }
 
 interface SwaggerGatewayResponse {
@@ -294,9 +292,6 @@ interface SwaggerOperation {
     parameters?: any[];
     responses?: { [code: string]: SwaggerResponse };
     "x-amazon-apigateway-integration": ApigatewayIntegration;
-
-    // The optional lambda to actualy invoke when this operation is invoked.
-    lambda?: aws.lambda.Function;
 }
 
 interface SwaggerResponse {
@@ -336,7 +331,8 @@ interface ApigatewayIntegration {
     connectionId?: pulumi.Output<string>;
 }
 
-function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, routes: Route[]): SwaggerSpec {
+function createSwaggerSpec(api: API, name: string, routes: Route[]) {
+
     // Set up the initial swagger spec.
     const swagger: SwaggerSpec = {
         swagger: "2.0",
@@ -361,6 +357,8 @@ function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, 
         },
     };
 
+    const swaggerLambdas: SwaggerLambdas = { };
+
     // Now add all the routes to it.
 
     // For static routes, we'll end up creating a bucket to store all the data.  We only want to do
@@ -369,19 +367,20 @@ function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, 
     let staticRouteBucket: aws.s3.Bucket;
 
     for (const route of routes) {
-        checkRoute(route, "path", opts);
+        checkRoute(api, route, "path");
+        swaggerLambdas[route.path] = swaggerLambdas[route.path] || {};
 
         if (isEventHandler(route)) {
-            addEventHandlerRouteToSwaggerSpec(name, swagger, route, opts);
+            addEventHandlerRouteToSwaggerSpec(api, name, swagger, swaggerLambdas, route);
         }
         else if (isStaticRoute(route)) {
-            staticRouteBucket = addStaticRouteToSwaggerSpec(name, swagger, route, opts, staticRouteBucket);
+            staticRouteBucket = addStaticRouteToSwaggerSpec(api, name, swagger, route, staticRouteBucket);
         }
         else if (isProxyRoute(route)) {
-            addProxyRouteToSwaggerSpec(name, swagger, route, opts);
+            addProxyRouteToSwaggerSpec(api, name, swagger, route);
         }
         else if (isRawDataRoute(route)) {
-            addRawDataRouteToSwaggerSpec(name, swagger, route, opts);
+            addRawDataRouteToSwaggerSpec(api, name, swagger, route);
         }
         else {
             const exhaustiveMatch: never = route;
@@ -389,7 +388,7 @@ function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, 
         }
     }
 
-    return swagger;
+    return { swagger, swaggerLambdas };
 }
 
 function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string, operation: SwaggerOperation) {
@@ -400,28 +399,32 @@ function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string,
     swagger.paths[path][method] = operation;
 }
 
-function checkRoute<TRoute>(route: TRoute, propName: keyof TRoute, opts: pulumi.ComponentResourceOptions) {
+function checkRoute<TRoute>(api: API, route: TRoute, propName: keyof TRoute) {
     if (route[propName] === undefined) {
-        throw new pulumi.ResourceError(`Route missing required [${propName}] property`, opts.parent);
+        throw new pulumi.ResourceError(`Route missing required [${propName}] property`, api);
     }
 }
 
 function addEventHandlerRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: EventHandlerRoute, opts: pulumi.ComponentResourceOptions) {
+    api: API, name: string,
+    swagger: SwaggerSpec,
+    swaggerLambdas: SwaggerLambdas,
+    route: EventHandlerRoute) {
 
-    checkRoute(route, "eventHandler", opts);
-    checkRoute(route, "method", opts);
+    checkRoute(api, route, "eventHandler");
+    checkRoute(api, route, "method");
 
     const method = swaggerMethod(route.method);
     const lambdaFunc = lambda.createFunctionFromEventHandler(
-        name + sha1hash(method + ":" + route.path), route.eventHandler, opts);
+        name + sha1hash(method + ":" + route.path), route.eventHandler, { parent: api });
 
-    addSwaggerOperation(swagger, route.path, method, createSwaggerOperationForLambda(lambdaFunc));
+    addSwaggerOperation(swagger, route.path, method, createSwaggerOperationForLambda());
+    swaggerLambdas[route.path][method] = lambdaFunc;
     return;
 
-    function createSwaggerOperationForLambda(lambda: aws.lambda.Function): SwaggerOperation {
+    function createSwaggerOperationForLambda(): SwaggerOperation {
         const region = aws.config.requireRegion();
-        const uri = lambda.arn.apply(lambdaARN =>
+        const uri = lambdaFunc.arn.apply(lambdaARN =>
             `arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambdaARN}/invocations`);
 
         return {
@@ -431,21 +434,21 @@ function addEventHandlerRouteToSwaggerSpec(
                 httpMethod: "POST",
                 type: "aws_proxy",
             },
-            lambda: lambda,
         };
     }
 }
 
 function addStaticRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: StaticRoute,
-    opts: pulumi.ComponentResourceOptions, bucket: aws.s3.Bucket | undefined) {
+    api: API, name: string, swagger: SwaggerSpec, route: StaticRoute,
+    bucket: aws.s3.Bucket | undefined) {
 
-    checkRoute(route, "localPath", opts);
+    checkRoute(api, route, "localPath");
 
     const method = swaggerMethod("GET");
 
+    const parentOpts = { parent: api };
     // Create a bucket to place all the static data under.
-    bucket = bucket || new aws.s3.Bucket(safeS3BucketName(name), undefined, opts);
+    bucket = bucket || new aws.s3.Bucket(safeS3BucketName(name), undefined, parentOpts);
 
     // For each static file, just make a simple bucket object to hold it, and create a swagger path
     // that routes from the file path to the arn for the bucket object.
@@ -466,11 +469,11 @@ function addStaticRouteToSwaggerSpec(
         // Create a role and attach it so that this route can access the AWS bucket.
         const role = new aws.iam.Role(key, {
             assumeRolePolicy: JSON.stringify(apigatewayAssumeRolePolicyDocument),
-        }, opts);
+        }, parentOpts);
         const attachment = new aws.iam.RolePolicyAttachment(key, {
             role: role,
             policyArn: aws.iam.AmazonS3FullAccess,
-        }, opts);
+        }, parentOpts);
 
         return role;
     }
@@ -481,7 +484,7 @@ function addStaticRouteToSwaggerSpec(
             key: key,
             source: new pulumi.asset.FileAsset(localPath),
             contentType: contentType || mime.getType(localPath) || undefined,
-        }, opts);
+        }, parentOpts);
     }
 
     function processFile(route: StaticRoute) {
@@ -625,16 +628,16 @@ function addStaticRouteToSwaggerSpec(
 }
 
 function addProxyRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: ProxyRoute, opts: pulumi.ComponentResourceOptions) {
+    api: API, name: string, swagger: SwaggerSpec, route: ProxyRoute) {
 
-    checkRoute(route, "target", opts);
+    checkRoute(api, route, "target");
 
     // If this is an Endpoint proxy, create a VpcLink to the load balancer in the VPC
     let vpcLink: aws.apigateway.VpcLink | undefined = undefined;
     if (typeof route.target !== "string") {
         const targetArn = route.target.apply(endpoint => {
             if (!endpoint.loadBalancer) {
-                throw new pulumi.ResourceError("AWS endpoint proxy requires an AWS Endpoint", opts.parent);
+                throw new pulumi.ResourceError("AWS endpoint proxy requires an AWS Endpoint", api);
             }
             return endpoint.loadBalancer.loadBalancerType.apply(loadBalancerType => {
                 if (loadBalancerType === "application") {
@@ -642,7 +645,7 @@ function addProxyRouteToSwaggerSpec(
                     // NLB, which will only be the case for cloud.Service ports exposed as
                     // type "tcp".
                     throw new pulumi.ResourceError(
-                        "AWS endpoint proxy requires an Endpoint on a service port of type 'tcp'", opts.parent);
+                        "AWS endpoint proxy requires an Endpoint on a service port of type 'tcp'", api);
                 }
                 return endpoint.loadBalancer.arn;
             });
@@ -650,7 +653,7 @@ function addProxyRouteToSwaggerSpec(
 
         vpcLink = new aws.apigateway.VpcLink(name + sha1hash(route.path), {
             targetArn: targetArn,
-        }, opts);
+        }, { parent: api });
     }
 
     // Register two paths in the Swagger spec, for the root and for a catch all under the root
@@ -724,10 +727,10 @@ function addProxyRouteToSwaggerSpec(
 }
 
 function addRawDataRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: RawDataRoute, opts: pulumi.ComponentResourceOptions) {
+    api: API, name: string, swagger: SwaggerSpec, route: RawDataRoute) {
 
-    checkRoute(route, "data", opts);
-    checkRoute(route, "method", opts);
+    checkRoute(api, route, "data");
+    checkRoute(api, route, "method");
 
     // Simply take the [data] part of the route and place it into the correct place in the
     // swagger spec "paths" location.
