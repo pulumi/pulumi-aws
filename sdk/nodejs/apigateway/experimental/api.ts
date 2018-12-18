@@ -245,12 +245,12 @@ function createLambdaPermissions(api: API, swaggerLambdas: SwaggerLambdas | unde
     const permissions: aws.lambda.Permission[] = [];
     if (swaggerLambdas) {
         for (const path of Object.keys(swaggerLambdas.paths)) {
-            for (let method of Object.keys(swaggerLambdas.paths[path])) {
+            for (const method of Object.keys(swaggerLambdas.paths[path])) {
                 const lambdaFunc = swaggerLambdas.paths[path][method];
 
-                method = method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase();
+                const methodAndPath = `${method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase()}${path}`;
 
-                permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(method + ":" + path), {
+                permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(methodAndPath), {
                     action: "lambda:invokeFunction",
                     function: lambdaFunc,
                     principal: "apigateway.amazonaws.com",
@@ -258,7 +258,7 @@ function createLambdaPermissions(api: API, swaggerLambdas: SwaggerLambdas | unde
                     // path on the API. We allow any stage instead of encoding the one known stage that will be
                     // deployed by Pulumi because the API Gateway console "Test" feature invokes the route
                     // handler with the fake stage `test-invoke-stage`.
-                    sourceArn: api.deployment.executionArn.apply(arn => arn + "*/" + method + path),
+                    sourceArn: api.deployment.executionArn.apply(arn => arn + "*/" + methodAndPath),
                 }, { parent: api }));
             }
         }
