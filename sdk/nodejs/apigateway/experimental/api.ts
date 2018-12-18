@@ -230,10 +230,9 @@ export class API extends pulumi.ComponentResource {
 
         // Ensure that the permissions allow the API Gateway to invoke the lambdas.
         const permissions = [];
-        if (swaggerSpec) {
-            for (const path of Object.keys(swaggerSpec.paths)) {
-                for (let method of Object.keys(swaggerSpec.paths[path])) {
-                    const operation = swaggerSpec.paths[path][method];
+        if (swaggerLambdas) {
+            for (const path of Object.keys(swaggerLambdas.paths)) {
+                for (let method of Object.keys(swaggerLambdas.paths[path])) {
                     const lambda = swaggerLambdas.paths[path][method];
 
                     if (lambda) {
@@ -379,8 +378,6 @@ function createSwaggerSpec(
     for (const route of routes) {
         checkRoute(route, "path", opts);
 
-        swaggerLambdas.paths[route.path] = swaggerLambdas.paths[route.path] || {};
-
         if (isEventHandler(route)) {
             addEventHandlerRouteToSwaggerSpec(name, swagger, swaggerLambdas, route, opts);
         }
@@ -428,7 +425,12 @@ function addEventHandlerRouteToSwaggerSpec(
         name + sha1hash(method + ":" + route.path), route.eventHandler, opts);
 
     addSwaggerOperation(swagger, route.path, method, createSwaggerOperationForLambda());
-    swaggerLambdas.paths[route.path][method] = lambdaFunc;
+    let methods = swaggerLambdas.paths[route.path];
+    if (!methods) {
+        methods = {};
+        swaggerLambdas.paths[route.path] = methods;
+    }
+    methods[method] = lambdaFunc;
 
     return;
 
