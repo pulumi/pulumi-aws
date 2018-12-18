@@ -241,25 +241,23 @@ export class API extends pulumi.ComponentResource {
     }
 }
 
-function createLambdaPermissions(api: API, name: string, swaggerLambdas: SwaggerLambdas | undefined) {
+function createLambdaPermissions(api: API, name: string, swaggerLambdas: SwaggerLambdas = {}) {
     const permissions: aws.lambda.Permission[] = [];
-    if (swaggerLambdas) {
-        for (const path of Object.keys(swaggerLambdas.paths)) {
-            for (const method of Object.keys(swaggerLambdas.paths[path])) {
-                const methodAndPath =
-                    `${method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase()}${path}`;
+    for (const path of Object.keys(swaggerLambdas)) {
+        for (const method of Object.keys(swaggerLambdas[path])) {
+            const methodAndPath =
+                `${method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase()}${path}`;
 
-                permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(methodAndPath), {
-                    action: "lambda:invokeFunction",
-                    function: swaggerLambdas.paths[path][method],
-                    principal: "apigateway.amazonaws.com",
-                    // We give permission for this function to be invoked by any stage at the given method and
-                    // path on the API. We allow any stage instead of encoding the one known stage that will be
-                    // deployed by Pulumi because the API Gateway console "Test" feature invokes the route
-                    // handler with the fake stage `test-invoke-stage`.
-                    sourceArn: api.deployment.executionArn.apply(arn => arn + "*/" + methodAndPath),
-                }, { parent: api }));
-            }
+            permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(methodAndPath), {
+                action: "lambda:invokeFunction",
+                function: swaggerLambdas.paths[path][method],
+                principal: "apigateway.amazonaws.com",
+                // We give permission for this function to be invoked by any stage at the given method and
+                // path on the API. We allow any stage instead of encoding the one known stage that will be
+                // deployed by Pulumi because the API Gateway console "Test" feature invokes the route
+                // handler with the fake stage `test-invoke-stage`.
+                sourceArn: api.deployment.executionArn.apply(arn => arn + "*/" + methodAndPath),
+            }, { parent: api }));
         }
     }
 
@@ -275,7 +273,7 @@ interface SwaggerSpec {
 }
 
 interface SwaggerLambdas {
-    paths: { [path: string]: { [method: string]: aws.lambda.Function }; };
+    [path: string]: { [method: string]: aws.lambda.Function };
 }
 
 interface SwaggerGatewayResponse {
@@ -359,7 +357,7 @@ function createSwaggerSpec(api: API, name: string, routes: Route[]) {
         },
     };
 
-    const swaggerLambdas: SwaggerLambdas = { paths: { } };
+    const swaggerLambdas: SwaggerLambdas = { };
 
     // Now add all the routes to it.
 
@@ -370,7 +368,7 @@ function createSwaggerSpec(api: API, name: string, routes: Route[]) {
 
     for (const route of routes) {
         checkRoute(api, route, "path");
-        swaggerLambdas.paths[route.path] = swaggerLambdas.paths[route.path] || {};
+        swaggerLambdas[route.path] = swaggerLambdas[route.path] || {};
 
         if (isEventHandler(route)) {
             addEventHandlerRouteToSwaggerSpec(api, name, swagger, swaggerLambdas, route);
@@ -421,7 +419,7 @@ function addEventHandlerRouteToSwaggerSpec(
         name + sha1hash(method + ":" + route.path), route.eventHandler, { parent: api });
 
     addSwaggerOperation(swagger, route.path, method, createSwaggerOperationForLambda());
-    swaggerLambdas.paths[route.path][method] = lambdaFunc;
+    swaggerLambdas[route.path][method] = lambdaFunc;
     return;
 
     function createSwaggerOperationForLambda(): SwaggerOperation {
