@@ -250,7 +250,7 @@ function createLambdaPermissions(api: API, name: string, swaggerLambdas: Swagger
 
             permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(methodAndPath), {
                 action: "lambda:invokeFunction",
-                function: swaggerLambdas.paths[path][method],
+                function: swaggerLambdas[path][method],
                 principal: "apigateway.amazonaws.com",
                 // We give permission for this function to be invoked by any stage at the given method and
                 // path on the API. We allow any stage instead of encoding the one known stage that will be
