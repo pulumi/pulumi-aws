@@ -187,11 +187,14 @@ export class API extends pulumi.ComponentResource {
 
         let swaggerString: pulumi.Output<string>;
         let swaggerSpec: SwaggerSpec | undefined;
+        let swaggerLambdas: SwaggerLambdas | undefined;
         if (args.swaggerString) {
             swaggerString = pulumi.output(args.swaggerString);
         }
         else if (args.routes) {
-            swaggerSpec = createSwaggerSpec(name, { parent: this }, args.routes);
+            const result = createSwaggerSpec(name, { parent: this }, args.routes);
+            swaggerSpec = result.swaggerSpec;
+            swaggerLambdas = result.swaggerLambdas;
             swaggerString = pulumi.output(swaggerSpec).apply(JSON.stringify);
         }
         else {
@@ -231,7 +234,7 @@ export class API extends pulumi.ComponentResource {
             for (const path of Object.keys(swaggerSpec.paths)) {
                 for (let method of Object.keys(swaggerSpec.paths[path])) {
                     const operation = swaggerSpec.paths[path][method];
-                    const lambda = operation.lambda;
+                    const lambda = swaggerLambdas.paths[path][method];
 
                     if (lambda) {
                         if (method === "x-amazon-apigateway-any-method") {
@@ -278,6 +281,11 @@ interface SwaggerSpec {
     "x-amazon-apigateway-gateway-responses": Record<string, SwaggerGatewayResponse>;
 }
 
+// Optional lambda to invoke when a specific path is accessed.
+interface SwaggerLambdas {
+    paths: { [path: string]: { [method: string]: aws.lambda.Function; }; };
+}
+
 interface SwaggerGatewayResponse {
     statusCode: number,
     responseTemplates: {
@@ -294,9 +302,6 @@ interface SwaggerOperation {
     parameters?: any[];
     responses?: { [code: string]: SwaggerResponse };
     "x-amazon-apigateway-integration": ApigatewayIntegration;
-
-    // The optional lambda to actualy invoke when this operation is invoked.
-    lambda?: aws.lambda.Function;
 }
 
 interface SwaggerResponse {
@@ -336,9 +341,10 @@ interface ApigatewayIntegration {
     connectionId?: pulumi.Output<string>;
 }
 
-function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, routes: Route[]): SwaggerSpec {
+function createSwaggerSpec(
+        name: string, opts: pulumi.ComponentResourceOptions, routes: Route[]) {
     // Set up the initial swagger spec.
-    const swagger: SwaggerSpec = {
+    const swaggerSpec: SwaggerSpec = {
         swagger: "2.0",
         info: { title: name, version: "1.0" },
         paths: {},
@@ -361,6 +367,8 @@ function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, 
         },
     };
 
+    const swaggerLambdas: SwaggerLambdas = { paths: {}};
+
     // Now add all the routes to it.
 
     // For static routes, we'll end up creating a bucket to store all the data.  We only want to do
@@ -371,17 +379,19 @@ function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, 
     for (const route of routes) {
         checkRoute(route, "path", opts);
 
+        swaggerLambdas.paths[route.path] = swaggerLambdas.paths[route.path] || {};
+
         if (isEventHandler(route)) {
-            addEventHandlerRouteToSwaggerSpec(name, swagger, route, opts);
+            addEventHandlerRouteToSwaggerSpec(name, swaggerSpec, swaggerLambdas, route, opts);
         }
         else if (isStaticRoute(route)) {
-            staticRouteBucket = addStaticRouteToSwaggerSpec(name, swagger, route, opts, staticRouteBucket);
+            staticRouteBucket = addStaticRouteToSwaggerSpec(name, swaggerSpec, route, opts, staticRouteBucket);
         }
         else if (isProxyRoute(route)) {
-            addProxyRouteToSwaggerSpec(name, swagger, route, opts);
+            addProxyRouteToSwaggerSpec(name, swaggerSpec, route, opts);
         }
         else if (isRawDataRoute(route)) {
-            addRawDataRouteToSwaggerSpec(name, swagger, route, opts);
+            addRawDataRouteToSwaggerSpec(name, swaggerSpec, route, opts);
         }
         else {
             const exhaustiveMatch: never = route;
@@ -389,7 +399,7 @@ function createSwaggerSpec(name: string, opts: pulumi.ComponentResourceOptions, 
         }
     }
 
-    return swagger;
+    return { swaggerSpec, swaggerLambdas };
 }
 
 function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string, operation: SwaggerOperation) {
@@ -407,7 +417,8 @@ function checkRoute<TRoute>(route: TRoute, propName: keyof TRoute, opts: pulumi.
 }
 
 function addEventHandlerRouteToSwaggerSpec(
-    name: string, swagger: SwaggerSpec, route: EventHandlerRoute, opts: pulumi.ComponentResourceOptions) {
+    name: string, swagger: SwaggerSpec, swaggerLambdas: SwaggerLambdas,
+    route: EventHandlerRoute, opts: pulumi.ComponentResourceOptions) {
 
     checkRoute(route, "eventHandler", opts);
     checkRoute(route, "method", opts);
@@ -416,12 +427,14 @@ function addEventHandlerRouteToSwaggerSpec(
     const lambdaFunc = lambda.createFunctionFromEventHandler(
         name + sha1hash(method + ":" + route.path), route.eventHandler, opts);
 
-    addSwaggerOperation(swagger, route.path, method, createSwaggerOperationForLambda(lambdaFunc));
+    addSwaggerOperation(swagger, route.path, method, createSwaggerOperationForLambda());
+    swaggerLambdas.paths[route.path][method] = lambdaFunc;
+
     return;
 
-    function createSwaggerOperationForLambda(lambda: aws.lambda.Function): SwaggerOperation {
+    function createSwaggerOperationForLambda(): SwaggerOperation {
         const region = aws.config.requireRegion();
-        const uri = lambda.arn.apply(lambdaARN =>
+        const uri = lambdaFunc.arn.apply(lambdaARN =>
             `arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambdaARN}/invocations`);
 
         return {
@@ -431,7 +444,6 @@ function addEventHandlerRouteToSwaggerSpec(
                 httpMethod: "POST",
                 type: "aws_proxy",
             },
-            lambda: lambda,
         };
     }
 }
