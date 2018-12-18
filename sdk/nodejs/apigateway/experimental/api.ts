@@ -367,7 +367,7 @@ function createSwaggerSpec(
         },
     };
 
-    const swaggerLambdas: SwaggerLambdas = { paths: {}};
+    const swaggerLambdas: SwaggerLambdas = { paths: { } };
 
     // Now add all the routes to it.
 
