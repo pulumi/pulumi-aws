@@ -193,7 +193,7 @@ export class API extends pulumi.ComponentResource {
         }
         else if (args.routes) {
             const result = createSwaggerSpec(name, { parent: this }, args.routes);
-            swaggerSpec = result.swaggerSpec;
+            swaggerSpec = result.swagger;
             swaggerLambdas = result.swaggerLambdas;
             swaggerString = pulumi.output(swaggerSpec).apply(JSON.stringify);
         }
@@ -344,7 +344,7 @@ interface ApigatewayIntegration {
 function createSwaggerSpec(
         name: string, opts: pulumi.ComponentResourceOptions, routes: Route[]) {
     // Set up the initial swagger spec.
-    const swaggerSpec: SwaggerSpec = {
+    const swagger: SwaggerSpec = {
         swagger: "2.0",
         info: { title: name, version: "1.0" },
         paths: {},
@@ -382,16 +382,16 @@ function createSwaggerSpec(
         swaggerLambdas.paths[route.path] = swaggerLambdas.paths[route.path] || {};
 
         if (isEventHandler(route)) {
-            addEventHandlerRouteToSwaggerSpec(name, swaggerSpec, swaggerLambdas, route, opts);
+            addEventHandlerRouteToSwaggerSpec(name, swagger, swaggerLambdas, route, opts);
         }
         else if (isStaticRoute(route)) {
-            staticRouteBucket = addStaticRouteToSwaggerSpec(name, swaggerSpec, route, opts, staticRouteBucket);
+            staticRouteBucket = addStaticRouteToSwaggerSpec(name, swagger, route, opts, staticRouteBucket);
         }
         else if (isProxyRoute(route)) {
-            addProxyRouteToSwaggerSpec(name, swaggerSpec, route, opts);
+            addProxyRouteToSwaggerSpec(name, swagger, route, opts);
         }
         else if (isRawDataRoute(route)) {
-            addRawDataRouteToSwaggerSpec(name, swaggerSpec, route, opts);
+            addRawDataRouteToSwaggerSpec(name, swagger, route, opts);
         }
         else {
             const exhaustiveMatch: never = route;
@@ -399,7 +399,7 @@ function createSwaggerSpec(
         }
     }
 
-    return { swaggerSpec, swaggerLambdas };
+    return { swagger, swaggerLambdas };
 }
 
 function addSwaggerOperation(swagger: SwaggerSpec, path: string, method: string, operation: SwaggerOperation) {
