@@ -225,7 +225,7 @@ export class API extends pulumi.ComponentResource {
             },
         }, { parent: this });
 
-        const permissions = createLambdaPermissions(this, swaggerLambdas);
+        const permissions = createLambdaPermissions(this, name, swaggerLambdas);
 
         // Expose the URL that the API is served at.
         this.url = this.deployment.invokeUrl.apply(url => url + stageName + "/");
@@ -241,18 +241,17 @@ export class API extends pulumi.ComponentResource {
     }
 }
 
-function createLambdaPermissions(api: API, swaggerLambdas: SwaggerLambdas | undefined) {
+function createLambdaPermissions(api: API, name: string, swaggerLambdas: SwaggerLambdas | undefined) {
     const permissions: aws.lambda.Permission[] = [];
     if (swaggerLambdas) {
         for (const path of Object.keys(swaggerLambdas.paths)) {
             for (const method of Object.keys(swaggerLambdas.paths[path])) {
-                const lambdaFunc = swaggerLambdas.paths[path][method];
-
-                const methodAndPath = `${method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase()}${path}`;
+                const methodAndPath =
+                    `${method === "x-amazon-apigateway-any-method" ? "*" : method.toUpperCase()}${path}`;
 
                 permissions.push(new aws.lambda.Permission(name + "-" + sha1hash(methodAndPath), {
                     action: "lambda:invokeFunction",
-                    function: lambdaFunc,
+                    function: swaggerLambdas.paths[path][method],
                     principal: "apigateway.amazonaws.com",
                     // We give permission for this function to be invoked by any stage at the given method and
                     // path on the API. We allow any stage instead of encoding the one known stage that will be
