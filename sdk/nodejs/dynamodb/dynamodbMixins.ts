@@ -94,8 +94,8 @@ export class TableEventSubscription extends lambda.EventSubscription {
 declare module "./table" {
     interface Table {
         /**
-         * Creates a new subscription to events fired from this Table to the handler provided, along
-         * with options to control the behavior of the subscription.
+         * Creates a new subscription to events fired from this Table to the handler provided,
+         * along with options to control the behavior of the subscription.
          */
         onEvent(name: string, handler: TableEventHandler,
                 args: TableEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): TableEventSubscription;
