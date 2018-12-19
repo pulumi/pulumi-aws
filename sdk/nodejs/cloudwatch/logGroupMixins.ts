@@ -24,8 +24,8 @@ import * as logSubscriptionFilter from "./logSubscriptionFilter";
  */
 export interface LogGroupEventSubscriptionArgs {
     /**
-     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
-     * If not provided, the empty-string pattern will be used.
+     * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. If
+     * not provided, the empty-string pattern will be used.
      */
     filterPattern?: string;
 }
