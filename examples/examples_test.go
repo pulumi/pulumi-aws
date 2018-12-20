@@ -99,7 +99,10 @@ func TestExamples(t *testing.T) {
 				ExpectRefreshChanges: true,
 			}),
 			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
+			baseJS.With(integration.ProgramTestOptions{
+				Dir:                  path.Join(cwd, "multiple-regions"),
+				ExpectRefreshChanges: true,
+			}),
 			// Python tests:
 			base.With(integration.ProgramTestOptions{
 				Dir: path.Join(cwd, "webserver-py"),
