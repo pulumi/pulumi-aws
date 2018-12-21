@@ -557,6 +557,7 @@
         "rds/getEventCategories.ts",
         "rds/getInstance.ts",
         "rds/getSnapshot.ts",
+        "rds/globalCluster.ts",
         "rds/index.ts",
         "rds/instance.ts",
         "rds/optionGroup.ts",

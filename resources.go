@@ -1641,6 +1641,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_rds_global_cluster":  {Tok: awsResource(rdsMod, "GlobalCluster")},
 			"aws_db_cluster_snapshot": {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription": {
 				Tok: awsResource(rdsMod, "EventSubscription"),
