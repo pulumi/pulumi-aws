@@ -1770,6 +1770,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Security Hub
 			"aws_securityhub_account": {Tok: awsResource(securityhubMod, "Account")},
 			// Service Discovery
+			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
 			"aws_service_discovery_service":               {Tok: awsResource(servicediscoveryMod, "Service")},

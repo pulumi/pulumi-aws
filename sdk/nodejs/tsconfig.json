@@ -605,6 +605,7 @@
         "serverless/index.ts",
         "servicecatalog/index.ts",
         "servicecatalog/portfolio.ts",
+        "servicediscovery/httpNamespace.ts",
         "servicediscovery/index.ts",
         "servicediscovery/privateDnsNamespace.ts",
         "servicediscovery/publicDnsNamespace.ts",
