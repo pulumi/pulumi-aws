@@ -12,7 +12,7 @@ class Detector(pulumi.CustomResource):
     
     ~> **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
     """
-    def __init__(__self__, __name__, __opts__=None, enable=None):
+    def __init__(__self__, __name__, __opts__=None, enable=None, finding_publishing_frequency=None):
         """Create a Detector resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -24,6 +24,8 @@ class Detector(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['enable'] = enable
+
+        __props__['finding_publishing_frequency'] = finding_publishing_frequency
 
         __props__['account_id'] = None
 

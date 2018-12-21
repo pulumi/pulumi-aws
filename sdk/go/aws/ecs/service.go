@@ -40,6 +40,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = nil
 		inputs["placementConstraints"] = nil
 		inputs["placementStrategies"] = nil
+		inputs["platformVersion"] = nil
 		inputs["propagateTags"] = nil
 		inputs["schedulingStrategy"] = nil
 		inputs["serviceRegistries"] = nil
@@ -62,6 +63,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = args.OrderedPlacementStrategies
 		inputs["placementConstraints"] = args.PlacementConstraints
 		inputs["placementStrategies"] = args.PlacementStrategies
+		inputs["platformVersion"] = args.PlatformVersion
 		inputs["propagateTags"] = args.PropagateTags
 		inputs["schedulingStrategy"] = args.SchedulingStrategy
 		inputs["serviceRegistries"] = args.ServiceRegistries
@@ -97,6 +99,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["orderedPlacementStrategies"] = state.OrderedPlacementStrategies
 		inputs["placementConstraints"] = state.PlacementConstraints
 		inputs["placementStrategies"] = state.PlacementStrategies
+		inputs["platformVersion"] = state.PlatformVersion
 		inputs["propagateTags"] = state.PropagateTags
 		inputs["schedulingStrategy"] = state.SchedulingStrategy
 		inputs["serviceRegistries"] = state.ServiceRegistries
@@ -197,6 +200,11 @@ func (r *Service) PlacementStrategies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementStrategies"])
 }
 
+// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+func (r *Service) PlatformVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["platformVersion"])
+}
+
 // Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 func (r *Service) PropagateTags() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["propagateTags"])
@@ -261,6 +269,8 @@ type ServiceState struct {
 	PlacementConstraints interface{}
 	// **Deprecated**, use `ordered_placement_strategy` instead.
 	PlacementStrategies interface{}
+	// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	PlatformVersion interface{}
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags interface{}
 	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
@@ -309,6 +319,8 @@ type ServiceArgs struct {
 	PlacementConstraints interface{}
 	// **Deprecated**, use `ordered_placement_strategy` instead.
 	PlacementStrategies interface{}
+	// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	PlatformVersion interface{}
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags interface{}
 	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).

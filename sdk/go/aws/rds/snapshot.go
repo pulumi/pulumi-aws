@@ -26,9 +26,11 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args == nil {
 		inputs["dbInstanceIdentifier"] = nil
 		inputs["dbSnapshotIdentifier"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["dbInstanceIdentifier"] = args.DbInstanceIdentifier
 		inputs["dbSnapshotIdentifier"] = args.DbSnapshotIdentifier
+		inputs["tags"] = args.Tags
 	}
 	inputs["allocatedStorage"] = nil
 	inputs["availabilityZone"] = nil
@@ -78,6 +80,7 @@ func GetSnapshot(ctx *pulumi.Context,
 		inputs["sourceRegion"] = state.SourceRegion
 		inputs["status"] = state.Status
 		inputs["storageType"] = state.StorageType
+		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
 	}
 	s, err := ctx.ReadResource("aws:rds/snapshot:Snapshot", name, id, inputs, opts...)
@@ -185,6 +188,11 @@ func (r *Snapshot) StorageType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageType"])
 }
 
+// Key-value mapping of resource tags
+func (r *Snapshot) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Specifies the storage type associated with DB snapshot.
 func (r *Snapshot) VpcId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcId"])
@@ -226,6 +234,8 @@ type SnapshotState struct {
 	Status interface{}
 	// Specifies the storage type associated with DB snapshot.
 	StorageType interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Specifies the storage type associated with DB snapshot.
 	VpcId interface{}
 }
@@ -236,4 +246,6 @@ type SnapshotArgs struct {
 	DbInstanceIdentifier interface{}
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

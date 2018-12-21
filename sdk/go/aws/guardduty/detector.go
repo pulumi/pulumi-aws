@@ -20,8 +20,10 @@ func NewDetector(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["enable"] = nil
+		inputs["findingPublishingFrequency"] = nil
 	} else {
 		inputs["enable"] = args.Enable
+		inputs["findingPublishingFrequency"] = args.FindingPublishingFrequency
 	}
 	inputs["accountId"] = nil
 	s, err := ctx.RegisterResource("aws:guardduty/detector:Detector", name, true, inputs, opts...)
@@ -39,6 +41,7 @@ func GetDetector(ctx *pulumi.Context,
 	if state != nil {
 		inputs["accountId"] = state.AccountId
 		inputs["enable"] = state.Enable
+		inputs["findingPublishingFrequency"] = state.FindingPublishingFrequency
 	}
 	s, err := ctx.ReadResource("aws:guardduty/detector:Detector", name, id, inputs, opts...)
 	if err != nil {
@@ -67,16 +70,25 @@ func (r *Detector) Enable() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enable"])
 }
 
+// Specifies the frequency of notifications sent for subsequent finding occurrences. Valid values: `FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS`. Default: `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+func (r *Detector) FindingPublishingFrequency() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["findingPublishingFrequency"])
+}
+
 // Input properties used for looking up and filtering Detector resources.
 type DetectorState struct {
 	// The AWS account ID of the GuardDuty detector
 	AccountId interface{}
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable interface{}
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. Valid values: `FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS`. Default: `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+	FindingPublishingFrequency interface{}
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable interface{}
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. Valid values: `FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS`. Default: `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+	FindingPublishingFrequency interface{}
 }

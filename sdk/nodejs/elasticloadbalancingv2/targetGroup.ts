@@ -51,11 +51,11 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
      */
-    public readonly port: pulumi.Output<number>;
+    public readonly port: pulumi.Output<number | undefined>;
     /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`.
+     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
      */
@@ -74,7 +74,7 @@ export class TargetGroup extends pulumi.CustomResource {
     public readonly tags: pulumi.Output<Tags | undefined>;
     /**
      * The type of target that you must specify when registering targets with this target group.
-     * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
+     * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
      * The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
      * the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
@@ -82,9 +82,9 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly targetType: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the VPC in which to create the target group.
+     * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a TargetGroup resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class TargetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TargetGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TargetGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
@@ -114,15 +114,6 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as TargetGroupArgs | undefined;
-            if (!args || args.port === undefined) {
-                throw new Error("Missing required property 'port'");
-            }
-            if (!args || args.protocol === undefined) {
-                throw new Error("Missing required property 'protocol'");
-            }
-            if (!args || args.vpcId === undefined) {
-                throw new Error("Missing required property 'vpcId'");
-            }
             inputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
             inputs["healthCheck"] = args ? args.healthCheck : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -175,7 +166,7 @@ export interface TargetGroupState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`.
+     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -196,7 +187,7 @@ export interface TargetGroupState {
     readonly tags?: pulumi.Input<Tags>;
     /**
      * The type of target that you must specify when registering targets with this target group.
-     * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
+     * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
      * The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
      * the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
@@ -204,7 +195,7 @@ export interface TargetGroupState {
      */
     readonly targetType?: pulumi.Input<string>;
     /**
-     * The identifier of the VPC in which to create the target group.
+     * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -232,11 +223,11 @@ export interface TargetGroupArgs {
     /**
      * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
      */
-    readonly port: pulumi.Input<number>;
+    readonly port?: pulumi.Input<number>;
     /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`.
+     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string>;
     /**
      * Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
      */
@@ -255,7 +246,7 @@ export interface TargetGroupArgs {
     readonly tags?: pulumi.Input<Tags>;
     /**
      * The type of target that you must specify when registering targets with this target group.
-     * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
+     * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
      * The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
      * the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
@@ -263,7 +254,7 @@ export interface TargetGroupArgs {
      */
     readonly targetType?: pulumi.Input<string>;
     /**
-     * The identifier of the VPC in which to create the target group.
+     * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
      */
-    readonly vpcId: pulumi.Input<string>;
+    readonly vpcId?: pulumi.Input<string>;
 }

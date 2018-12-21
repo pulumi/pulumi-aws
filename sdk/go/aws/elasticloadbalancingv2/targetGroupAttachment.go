@@ -86,7 +86,7 @@ func (r *TargetGroupAttachment) TargetGroupArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetGroupArn"])
 }
 
-// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
+// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
 func (r *TargetGroupAttachment) TargetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetId"])
 }
@@ -99,7 +99,7 @@ type TargetGroupAttachmentState struct {
 	Port interface{}
 	// The ARN of the target group with which to register targets
 	TargetGroupArn interface{}
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
 	TargetId interface{}
 }
 
@@ -111,6 +111,6 @@ type TargetGroupAttachmentArgs struct {
 	Port interface{}
 	// The ARN of the target group with which to register targets
 	TargetGroupArn interface{}
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
 	TargetId interface{}
 }

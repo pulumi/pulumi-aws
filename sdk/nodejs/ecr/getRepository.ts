@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     return pulumi.runtime.invoke("aws:ecr/getRepository:getRepository", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -21,6 +22,7 @@ export interface GetRepositoryArgs {
      * The name of the ECR Repository.
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -39,6 +41,10 @@ export interface GetRepositoryResult {
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
     readonly repositoryUrl: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
