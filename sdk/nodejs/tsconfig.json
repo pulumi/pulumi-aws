@@ -584,6 +584,7 @@
         "route53/record.ts",
         "route53/zone.ts",
         "route53/zoneAssociation.ts",
+        "s3/accountPublicAccessBlock.ts",
         "s3/bucket.ts",
         "s3/bucketMetric.ts",
         "s3/bucketNotification.ts",
