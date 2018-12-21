@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./account";
+export * from "./standardsSubscription";

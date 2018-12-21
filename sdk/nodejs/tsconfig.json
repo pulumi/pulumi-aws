@@ -601,6 +601,7 @@
         "secretsmanager/secretVersion.ts",
         "securityhub/account.ts",
         "securityhub/index.ts",
+        "securityhub/standardsSubscription.ts",
         "serverless/function.ts",
         "serverless/index.ts",
         "servicecatalog/index.ts",
