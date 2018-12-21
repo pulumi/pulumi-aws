@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .account import *
+from .standards_subscription import *

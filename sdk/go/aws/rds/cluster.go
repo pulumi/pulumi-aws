@@ -51,6 +51,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["engineMode"] = nil
 		inputs["engineVersion"] = nil
 		inputs["finalSnapshotIdentifier"] = nil
+		inputs["globalClusterIdentifier"] = nil
 		inputs["iamDatabaseAuthenticationEnabled"] = nil
 		inputs["iamRoles"] = nil
 		inputs["kmsKeyId"] = nil
@@ -85,6 +86,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["engineMode"] = args.EngineMode
 		inputs["engineVersion"] = args.EngineVersion
 		inputs["finalSnapshotIdentifier"] = args.FinalSnapshotIdentifier
+		inputs["globalClusterIdentifier"] = args.GlobalClusterIdentifier
 		inputs["iamDatabaseAuthenticationEnabled"] = args.IamDatabaseAuthenticationEnabled
 		inputs["iamRoles"] = args.IamRoles
 		inputs["kmsKeyId"] = args.KmsKeyId
@@ -140,6 +142,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["engineMode"] = state.EngineMode
 		inputs["engineVersion"] = state.EngineVersion
 		inputs["finalSnapshotIdentifier"] = state.FinalSnapshotIdentifier
+		inputs["globalClusterIdentifier"] = state.GlobalClusterIdentifier
 		inputs["hostedZoneId"] = state.HostedZoneId
 		inputs["iamDatabaseAuthenticationEnabled"] = state.IamDatabaseAuthenticationEnabled
 		inputs["iamRoles"] = state.IamRoles
@@ -261,7 +264,7 @@ func (r *Cluster) Engine() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engine"])
 }
 
-// The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+// The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 func (r *Cluster) EngineMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineMode"])
 }
@@ -276,6 +279,10 @@ func (r *Cluster) EngineVersion() *pulumi.StringOutput {
 // made.
 func (r *Cluster) FinalSnapshotIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
+}
+
+func (r *Cluster) GlobalClusterIdentifier() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["globalClusterIdentifier"])
 }
 
 // The Route53 Hosted Zone ID of the endpoint
@@ -414,7 +421,7 @@ type ClusterState struct {
 	Endpoint interface{}
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}
-	// The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode interface{}
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion interface{}
@@ -422,6 +429,7 @@ type ClusterState struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
+	GlobalClusterIdentifier interface{}
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId interface{}
 	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
@@ -497,7 +505,7 @@ type ClusterArgs struct {
 	EnabledCloudwatchLogsExports interface{}
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}
-	// The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode interface{}
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion interface{}
@@ -505,6 +513,7 @@ type ClusterArgs struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
+	GlobalClusterIdentifier interface{}
 	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the RDS Cluster.

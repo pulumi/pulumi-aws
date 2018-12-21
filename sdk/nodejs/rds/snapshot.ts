@@ -87,6 +87,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageType: pulumi.Output<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Specifies the storage type associated with DB snapshot.
      */
     public /*out*/ readonly vpcId: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["storageType"] = state ? state.storageType : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
@@ -132,6 +137,7 @@ export class Snapshot extends pulumi.CustomResource {
             }
             inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             inputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["allocatedStorage"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
             inputs["dbSnapshotArn"] = undefined /*out*/;
@@ -225,6 +231,10 @@ export interface SnapshotState {
      */
     readonly storageType?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Specifies the storage type associated with DB snapshot.
      */
     readonly vpcId?: pulumi.Input<string>;
@@ -242,4 +252,8 @@ export interface SnapshotArgs {
      * The Identifier for the snapshot.
      */
     readonly dbSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

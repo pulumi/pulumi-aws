@@ -35,7 +35,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      */
     public readonly targetGroupArn: pulumi.Output<string>;
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
     public readonly targetId: pulumi.Output<string>;
 
@@ -89,7 +89,7 @@ export interface TargetGroupAttachmentState {
      */
     readonly targetGroupArn?: pulumi.Input<string>;
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
     readonly targetId?: pulumi.Input<string>;
 }
@@ -111,7 +111,7 @@ export interface TargetGroupAttachmentArgs {
      */
     readonly targetGroupArn: pulumi.Input<string>;
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
     readonly targetId: pulumi.Input<string>;
 }

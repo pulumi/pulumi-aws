@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./httpNamespace";
 export * from "./privateDnsNamespace";
 export * from "./publicDnsNamespace";
 export * from "./service";

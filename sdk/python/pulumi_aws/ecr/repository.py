@@ -14,7 +14,7 @@ class Repository(pulumi.CustomResource):
     in all regions - available regions are listed
     [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
     """
-    def __init__(__self__, __name__, __opts__=None, name=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, tags=None):
         """Create a Repository resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -26,6 +26,8 @@ class Repository(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['registry_id'] = None

@@ -12,6 +12,7 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:ecr/getRepository:getRepository", inputs)
 	if err != nil {
@@ -21,6 +22,7 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 		Arn: outputs["arn"],
 		RegistryId: outputs["registryId"],
 		RepositoryUrl: outputs["repositoryUrl"],
+		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -29,6 +31,7 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 type GetRepositoryArgs struct {
 	// The name of the ECR Repository.
 	Name interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getRepository.
@@ -39,6 +42,8 @@ type GetRepositoryResult struct {
 	RegistryId interface{}
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl interface{}
+	// A mapping of tags assigned to the resource.
+	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

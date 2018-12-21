@@ -15,6 +15,7 @@ from .cluster import *
 from .cluster_endpoint import *
 from .cluster_instance import *
 from .cluster_parameter_group import *
+from .global_cluster import *
 from .get_cluster_snapshot import *
 from .get_event_categories import *
 from .get_instance import *

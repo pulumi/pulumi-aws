@@ -155,6 +155,7 @@
     "service/kms",
     "service/lambda",
     "service/lexmodelbuildingservice",
+    "service/licensemanager",
     "service/lightsail",
     "service/macie",
     "service/mediastore",
@@ -168,6 +169,7 @@
     "service/redshift",
     "service/route53",
     "service/s3",
+    "service/s3control",
     "service/secretsmanager",
     "service/securityhub",
     "service/servicecatalog",
@@ -186,8 +188,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "a00e7512a2533cd96e525fe50607f9fe98badec3"
-  version = "v1.16.4"
+  revision = "8d41be8a37391ddc4feb2d16f5ca6f440eb8b356"
+  version = "v1.16.8"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -642,7 +644,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "2d92b516b2be7989e91e1a0dbd6fda533e3b922f"
+  revision = "3045236decf6c59a4d7c11c29357e0ef84d5c912"
 
 [[projects]]
   branch = "master"
@@ -710,7 +712,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "76240dab3bfef9b4f079869c1a07f6320274d149"
+  revision = "45b5b93f7a421287397fb0d2ddeed931ebe12162"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -957,6 +959,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "087974729362a9d1388c3e1fb0930c266f8f9aefba85700e53d738481115a6be"
+  inputs-digest = "7315305e361530398d18192a2bdc0289052d21fe36a436ffad41757f54130e00"
   solver-name = "gps-cdcl"
   solver-version = 1

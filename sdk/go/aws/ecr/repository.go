@@ -22,8 +22,10 @@ func NewRepository(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["registryId"] = nil
@@ -45,6 +47,7 @@ func GetRepository(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["registryId"] = state.RegistryId
 		inputs["repositoryUrl"] = state.RepositoryUrl
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ecr/repository:Repository", name, id, inputs, opts...)
 	if err != nil {
@@ -83,6 +86,11 @@ func (r *Repository) RepositoryUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["repositoryUrl"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Repository) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Repository resources.
 type RepositoryState struct {
 	// Full ARN of the repository.
@@ -93,10 +101,14 @@ type RepositoryState struct {
 	RegistryId interface{}
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
 	RepositoryUrl interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
 	// Name of the repository.
 	Name interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

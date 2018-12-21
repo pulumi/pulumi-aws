@@ -3,3 +3,5 @@
 
 // Export members:
 export * from "./server";
+export * from "./sshKey";
+export * from "./user";

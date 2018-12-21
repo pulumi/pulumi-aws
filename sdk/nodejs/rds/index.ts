@@ -13,6 +13,7 @@ export * from "./getClusterSnapshot";
 export * from "./getEventCategories";
 export * from "./getInstance";
 export * from "./getSnapshot";
+export * from "./globalCluster";
 export * from "./instance";
 export * from "./optionGroup";
 export * from "./parameterGroup";

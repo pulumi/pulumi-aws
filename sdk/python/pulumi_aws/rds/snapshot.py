@@ -10,7 +10,7 @@ class Snapshot(pulumi.CustomResource):
     """
     Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`aws_db_cluster_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
     """
-    def __init__(__self__, __name__, __opts__=None, db_instance_identifier=None, db_snapshot_identifier=None):
+    def __init__(__self__, __name__, __opts__=None, db_instance_identifier=None, db_snapshot_identifier=None, tags=None):
         """Create a Snapshot resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,6 +28,8 @@ class Snapshot(pulumi.CustomResource):
         if not db_snapshot_identifier:
             raise TypeError('Missing required property db_snapshot_identifier')
         __props__['db_snapshot_identifier'] = db_snapshot_identifier
+
+        __props__['tags'] = tags
 
         __props__['allocated_storage'] = None
         __props__['availability_zone'] = None

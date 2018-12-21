@@ -86,6 +86,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly placementStrategies: pulumi.Output<{ field?: string, type: string }[] | undefined>;
     /**
+     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     */
+    public readonly platformVersion: pulumi.Output<string>;
+    /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     public readonly propagateTags: pulumi.Output<string | undefined>;
@@ -138,6 +142,7 @@ export class Service extends pulumi.CustomResource {
             inputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             inputs["placementStrategies"] = state ? state.placementStrategies : undefined;
+            inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["propagateTags"] = state ? state.propagateTags : undefined;
             inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
@@ -164,6 +169,7 @@ export class Service extends pulumi.CustomResource {
             inputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
+            inputs["platformVersion"] = args ? args.platformVersion : undefined;
             inputs["propagateTags"] = args ? args.propagateTags : undefined;
             inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
@@ -240,6 +246,10 @@ export interface ServiceState {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     */
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
@@ -332,6 +342,10 @@ export interface ServiceArgs {
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
     readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     */
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */

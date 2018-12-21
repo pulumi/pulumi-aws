@@ -109,7 +109,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine: pulumi.Output<string | undefined>;
     /**
-     * The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode: pulumi.Output<string | undefined>;
     /**
@@ -122,6 +122,7 @@ export class Cluster extends pulumi.CustomResource {
      * made.
      */
     public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
+    public readonly globalClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
@@ -231,6 +232,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["engineMode"] = state ? state.engineMode : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
+            inputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             inputs["iamDatabaseAuthenticationEnabled"] = state ? state.iamDatabaseAuthenticationEnabled : undefined;
             inputs["iamRoles"] = state ? state.iamRoles : undefined;
@@ -268,6 +270,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["engineMode"] = args ? args.engineMode : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
+            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             inputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
             inputs["iamRoles"] = args ? args.iamRoles : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -368,7 +371,7 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
@@ -381,6 +384,7 @@ export interface ClusterState {
      * made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
@@ -521,7 +525,7 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The database engine mode. Valid values: `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
@@ -534,6 +538,7 @@ export interface ClusterArgs {
      * made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
      */

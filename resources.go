@@ -89,6 +89,7 @@ const (
 	kinesisMod           = "kinesis"                  // Kinesis
 	kmsMod               = "kms"                      // Key Management Service (KMS)
 	lambdaMod            = "lambda"                   // Lambda
+	licensemanagerMod    = "licensemanager"           // License Manager
 	lightsailMod         = "lightsail"                // LightSail
 	macieMod             = "macie"                    // Macie
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
@@ -1546,6 +1547,8 @@ func Provider() tfbridge.ProviderInfo {
 					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
 			},
+			// License Manager
+			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 			// LightSail
 			"aws_lightsail_domain":               {Tok: awsResource(lightsailMod, "Domain")},
 			"aws_lightsail_instance":             {Tok: awsResource(lightsailMod, "Instance")},
@@ -1641,6 +1644,7 @@ func Provider() tfbridge.ProviderInfo {
 					"tags": {Type: awsType(awsMod, "Tags")},
 				},
 			},
+			"aws_rds_global_cluster":  {Tok: awsResource(rdsMod, "GlobalCluster")},
 			"aws_db_cluster_snapshot": {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription": {
 				Tok: awsResource(rdsMod, "EventSubscription"),
@@ -1768,8 +1772,10 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Security Hub
-			"aws_securityhub_account": {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_account":                {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_standards_subscription": {Tok: awsResource(securityhubMod, "StandardsSubscription")},
 			// Service Discovery
+			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
 			"aws_service_discovery_service":               {Tok: awsResource(servicediscoveryMod, "Service")},
@@ -1787,6 +1793,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
 			// S3
+			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {
 				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1905,7 +1912,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Simple Workflow Service (SWF)
 			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
 			// Transfer Service
-			"aws_transfer_server": {Tok: awsResource(transferMod, "Server")},
+			"aws_transfer_server":  {Tok: awsResource(transferMod, "Server")},
+			"aws_transfer_ssh_key": {Tok: awsResource(transferMod, "SshKey")},
+			"aws_transfer_user":    {Tok: awsResource(transferMod, "User")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
 			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},

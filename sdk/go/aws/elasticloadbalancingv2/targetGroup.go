@@ -4,7 +4,6 @@
 package elasticloadbalancingv2
 
 import (
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -18,15 +17,6 @@ type TargetGroup struct {
 // NewTargetGroup registers a new resource with the given unique name, arguments, and options.
 func NewTargetGroup(ctx *pulumi.Context,
 	name string, args *TargetGroupArgs, opts ...pulumi.ResourceOpt) (*TargetGroup, error) {
-	if args == nil || args.Port == nil {
-		return nil, errors.New("missing required argument 'Port'")
-	}
-	if args == nil || args.Protocol == nil {
-		return nil, errors.New("missing required argument 'Protocol'")
-	}
-	if args == nil || args.VpcId == nil {
-		return nil, errors.New("missing required argument 'VpcId'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["deregistrationDelay"] = nil
@@ -137,7 +127,7 @@ func (r *TargetGroup) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
-// The protocol to use to connect with the target. Defaults to `HTTP`.
+// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
 func (r *TargetGroup) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -163,7 +153,7 @@ func (r *TargetGroup) Tags() *pulumi.MapOutput {
 }
 
 // The type of target that you must specify when registering targets with this target group.
-// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
+// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 // The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 // If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
 // the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
@@ -172,7 +162,7 @@ func (r *TargetGroup) TargetType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetType"])
 }
 
-// The identifier of the VPC in which to create the target group.
+// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
 func (r *TargetGroup) VpcId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcId"])
 }
@@ -193,7 +183,7 @@ type TargetGroupState struct {
 	NamePrefix interface{}
 	// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
 	Port interface{}
-	// The protocol to use to connect with the target. Defaults to `HTTP`.
+	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
 	Protocol interface{}
 	// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
 	ProxyProtocolV2 interface{}
@@ -204,13 +194,13 @@ type TargetGroupState struct {
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The type of target that you must specify when registering targets with this target group.
-	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
+	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
 	// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
 	// You can't specify publicly routable IP addresses.
 	TargetType interface{}
-	// The identifier of the VPC in which to create the target group.
+	// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
 	VpcId interface{}
 }
 
@@ -226,7 +216,7 @@ type TargetGroupArgs struct {
 	NamePrefix interface{}
 	// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
 	Port interface{}
-	// The protocol to use to connect with the target. Defaults to `HTTP`.
+	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
 	Protocol interface{}
 	// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
 	ProxyProtocolV2 interface{}
@@ -237,12 +227,12 @@ type TargetGroupArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The type of target that you must specify when registering targets with this target group.
-	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address).
+	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
 	// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
 	// You can't specify publicly routable IP addresses.
 	TargetType interface{}
-	// The identifier of the VPC in which to create the target group.
+	// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
 	VpcId interface{}
 }

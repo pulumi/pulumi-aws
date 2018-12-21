@@ -31,12 +31,8 @@ class TargetGroup(pulumi.CustomResource):
 
         __props__['name_prefix'] = name_prefix
 
-        if not port:
-            raise TypeError('Missing required property port')
         __props__['port'] = port
 
-        if not protocol:
-            raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
         __props__['proxy_protocol_v2'] = proxy_protocol_v2
@@ -49,8 +45,6 @@ class TargetGroup(pulumi.CustomResource):
 
         __props__['target_type'] = target_type
 
-        if not vpc_id:
-            raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
         __props__['arn'] = None
