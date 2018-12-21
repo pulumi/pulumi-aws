@@ -668,6 +668,8 @@
         "tags.ts",
         "transfer/index.ts",
         "transfer/server.ts",
+        "transfer/sshKey.ts",
+        "transfer/user.ts",
         "utilities.ts",
         "utils.ts",
         "waf/byteMatchSet.ts",

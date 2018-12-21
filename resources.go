@@ -1905,7 +1905,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Simple Workflow Service (SWF)
 			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
 			// Transfer Service
-			"aws_transfer_server": {Tok: awsResource(transferMod, "Server")},
+			"aws_transfer_server":  {Tok: awsResource(transferMod, "Server")},
+			"aws_transfer_ssh_key": {Tok: awsResource(transferMod, "SshKey")},
+			"aws_transfer_user":    {Tok: awsResource(transferMod, "User")},
 			// Web Application Firewall (WAF)
 			"aws_waf_byte_match_set":          {Tok: awsResource(wafMod, "ByteMatchSet")},
 			"aws_waf_geo_match_set":           {Tok: awsResource(wafMod, "GeoMatchSet")},
