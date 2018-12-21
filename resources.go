@@ -89,6 +89,7 @@ const (
 	kinesisMod           = "kinesis"                  // Kinesis
 	kmsMod               = "kms"                      // Key Management Service (KMS)
 	lambdaMod            = "lambda"                   // Lambda
+	licensemanagerMod    = "licensemanager"           // License Manager
 	lightsailMod         = "lightsail"                // LightSail
 	macieMod             = "macie"                    // Macie
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
@@ -1546,6 +1547,8 @@ func Provider() tfbridge.ProviderInfo {
 					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
 			},
+			// License Manager
+			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 			// LightSail
 			"aws_lightsail_domain":               {Tok: awsResource(lightsailMod, "Domain")},
 			"aws_lightsail_instance":             {Tok: awsResource(lightsailMod, "Instance")},
