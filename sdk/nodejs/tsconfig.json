@@ -486,6 +486,7 @@
         "lambda/lambdaMixins.ts",
         "lambda/permission.ts",
         "lambda/runtimes.ts",
+        "licensemanager/association.ts",
         "licensemanager/index.ts",
         "licensemanager/licenseConfiguration.ts",
         "lightsail/domain.ts",

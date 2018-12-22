@@ -1266,6 +1266,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// License Manager
+			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 			// LightSail
 			"aws_lightsail_domain":               {Tok: awsResource(lightsailMod, "Domain")},
