@@ -8,6 +8,7 @@ export * from "./bucketMetric";
 export * from "./bucketNotification";
 export * from "./bucketObject";
 export * from "./bucketPolicy";
+export * from "./bucketPublicAccessBlock";
 export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";

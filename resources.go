@@ -1507,6 +1507,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_s3_bucket_public_access_block": {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
