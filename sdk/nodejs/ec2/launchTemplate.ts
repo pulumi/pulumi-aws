@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
  */
@@ -134,7 +132,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the launch template.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */
@@ -335,7 +333,7 @@ export interface LaunchTemplateState {
     /**
      * A mapping of tags to assign to the launch template.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */
@@ -450,7 +448,7 @@ export interface LaunchTemplateArgs {
     /**
      * A mapping of tags to assign to the launch template.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */

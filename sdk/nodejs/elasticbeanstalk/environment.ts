@@ -4,7 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
 import {Application} from "./application";
 import {ApplicationVersion} from "./applicationVersion";
 
@@ -105,7 +104,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * A set of tags to apply to the Environment.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -279,7 +278,7 @@ export interface EnvironmentState {
     /**
      * A set of tags to apply to the Environment.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -357,7 +356,7 @@ export interface EnvironmentArgs {
     /**
      * A set of tags to apply to the Environment.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment

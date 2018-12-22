@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
  */
@@ -33,7 +31,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * Tags to apply to the gateway.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
@@ -91,7 +89,7 @@ export interface CustomerGatewayState {
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
@@ -114,7 +112,7 @@ export interface CustomerGatewayArgs {
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".

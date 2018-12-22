@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
  * 
@@ -44,7 +42,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
@@ -206,7 +204,7 @@ export interface VpnConnectionState {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
@@ -298,7 +296,7 @@ export interface VpnConnectionArgs {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */

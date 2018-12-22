@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN, Tags} from "../index";
+import {ARN} from "../index";
 
 /**
  * Manages an EC2 Transit Gateway.
@@ -65,7 +65,7 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * Key-value tags for the EC2 Transit Gateway.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -161,7 +161,7 @@ export interface TransitGatewayState {
     /**
      * Key-value tags for the EC2 Transit Gateway.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -199,7 +199,7 @@ export interface TransitGatewayArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */

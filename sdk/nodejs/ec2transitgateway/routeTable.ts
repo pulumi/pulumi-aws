@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Manages an EC2 Transit Gateway Route Table.
  */
@@ -33,7 +31,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -84,7 +82,7 @@ export interface RouteTableState {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -98,7 +96,7 @@ export interface RouteTableArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

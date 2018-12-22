@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN, Tags} from "../index";
+import {ARN} from "../index";
 
 /**
  * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
@@ -112,7 +112,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
@@ -299,7 +299,7 @@ export interface FunctionState {
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
@@ -386,7 +386,7 @@ export interface FunctionArgs {
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */

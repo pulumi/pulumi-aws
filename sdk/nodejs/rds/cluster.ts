@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
  * 
@@ -194,7 +192,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -456,7 +454,7 @@ export interface ClusterState {
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -601,7 +599,7 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster

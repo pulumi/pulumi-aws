@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides a Inspector resource group
  */
@@ -29,7 +27,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The tags on your EC2 Instance.
      */
-    public readonly tags: pulumi.Output<Tags>;
+    public readonly tags: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -68,7 +66,7 @@ export interface ResourceGroupState {
     /**
      * The tags on your EC2 Instance.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -78,5 +76,5 @@ export interface ResourceGroupArgs {
     /**
      * The tags on your EC2 Instance.
      */
-    readonly tags: pulumi.Input<Tags>;
+    readonly tags: pulumi.Input<{[key: string]: any}>;
 }

@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Creates a Snapshot of an EBS Volume.
  */
@@ -49,7 +47,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the snapshot
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -130,7 +128,7 @@ export interface SnapshotState {
     /**
      * A mapping of tags to assign to the snapshot
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -152,7 +150,7 @@ export interface SnapshotArgs {
     /**
      * A mapping of tags to assign to the snapshot
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Volume ID of which to make a snapshot.
      */

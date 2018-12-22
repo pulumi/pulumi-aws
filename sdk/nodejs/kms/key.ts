@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides a KMS customer master key.
  */
@@ -60,7 +58,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -141,7 +139,7 @@ export interface KeyState {
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -178,5 +176,5 @@ export interface KeyArgs {
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

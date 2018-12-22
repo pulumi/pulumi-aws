@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN, Tags} from "../index";
+import {ARN} from "../index";
 
 /**
  * Manages an S3 Location within AWS DataSync.
@@ -41,7 +41,7 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
@@ -107,7 +107,7 @@ export interface S3LocationState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
 }
 
@@ -130,5 +130,5 @@ export interface S3LocationArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

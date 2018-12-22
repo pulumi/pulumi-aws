@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides an network ACL resource. You might set up network ACLs with rules similar
  * to your security groups in order to add an additional layer of security to your VPC.
@@ -53,7 +51,7 @@ export class NetworkAcl extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the associated VPC.
      */
@@ -123,7 +121,7 @@ export interface NetworkAclState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The ID of the associated VPC.
      */
@@ -154,7 +152,7 @@ export interface NetworkAclArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The ID of the associated VPC.
      */
