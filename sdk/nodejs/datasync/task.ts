@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN, Tags} from "../index";
+import {ARN} from "../index";
 
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this Terraform resource.
@@ -49,7 +49,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ export interface TaskState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -151,5 +151,5 @@ export interface TaskArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

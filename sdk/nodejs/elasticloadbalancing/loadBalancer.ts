@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides an Elastic Load Balancer resource, also known as a "Classic
  * Load Balancer" after the release of
@@ -112,7 +110,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -265,7 +263,7 @@ export interface LoadBalancerState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -343,5 +341,5 @@ export interface LoadBalancerArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides a resource to manage EC2 Fleets.
  */
@@ -45,7 +43,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -135,7 +133,7 @@ export interface FleetState {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -181,7 +179,7 @@ export interface FleetArgs {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */

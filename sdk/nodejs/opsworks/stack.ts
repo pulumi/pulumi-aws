@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides an OpsWorks stack resource.
  */
@@ -104,7 +102,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
@@ -282,7 +280,7 @@ export interface StackState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
@@ -383,7 +381,7 @@ export interface StackArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.

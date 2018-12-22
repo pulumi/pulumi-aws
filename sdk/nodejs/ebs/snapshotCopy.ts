@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Creates a Snapshot of a snapshot.
  */
@@ -55,7 +53,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
     /**
      * A mapping of tags for the snapshot.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     public /*out*/ readonly volumeId: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
@@ -146,7 +144,7 @@ export interface SnapshotCopyState {
     /**
      * A mapping of tags for the snapshot.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     readonly volumeId?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
@@ -177,5 +175,5 @@ export interface SnapshotCopyArgs {
     /**
      * A mapping of tags for the snapshot.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

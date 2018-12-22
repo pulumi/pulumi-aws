@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides a resource to create a Service Catalog Portfolio.
  */
@@ -39,7 +37,7 @@ export class Portfolio extends pulumi.CustomResource {
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Portfolio resource with the given unique name, arguments, and options.
@@ -93,7 +91,7 @@ export interface PortfolioState {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -115,5 +113,5 @@ export interface PortfolioArgs {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

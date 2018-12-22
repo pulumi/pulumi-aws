@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Tags} from "../index";
-
 /**
  * Provides a CloudFormation Stack resource.
  */
@@ -70,7 +68,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * A list of tags to associate with this stack.
      */
-    public readonly tags: pulumi.Output<Tags | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
@@ -183,7 +181,7 @@ export interface StackState {
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
@@ -246,7 +244,7 @@ export interface StackArgs {
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: pulumi.Input<Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
