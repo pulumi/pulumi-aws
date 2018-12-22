@@ -608,6 +608,7 @@
         "secretsmanager/secretVersion.ts",
         "securityhub/account.ts",
         "securityhub/index.ts",
+        "securityhub/productSubscription.ts",
         "securityhub/standardsSubscription.ts",
         "serverless/function.ts",
         "serverless/index.ts",

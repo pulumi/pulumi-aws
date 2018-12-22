@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./account";
+export * from "./productSubscription";
 export * from "./standardsSubscription";

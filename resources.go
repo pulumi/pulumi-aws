@@ -1435,6 +1435,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
 			// Security Hub
 			"aws_securityhub_account":                {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_product_subscription":   {Tok: awsResource(securityhubMod, "ProductSubscription")},
 			"aws_securityhub_standards_subscription": {Tok: awsResource(securityhubMod, "StandardsSubscription")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
