@@ -10,7 +10,7 @@ import (
 
 // Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
 // 
-// ~> Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
+// > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
 type GlobalTable struct {
 	s *pulumi.ResourceState
 }

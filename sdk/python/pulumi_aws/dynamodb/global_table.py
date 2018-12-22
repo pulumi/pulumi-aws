@@ -10,7 +10,7 @@ class GlobalTable(pulumi.CustomResource):
     """
     Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
     
-    ~> Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
+    > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, replicas=None):
         """Create a GlobalTable resource with the given unique name, props, and options."""

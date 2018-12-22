@@ -31,6 +31,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["instanceType"] = nil
 		inputs["kernelId"] = nil
 		inputs["keyName"] = nil
+		inputs["licenseSpecifications"] = nil
 		inputs["monitoring"] = nil
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
@@ -57,6 +58,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["instanceType"] = args.InstanceType
 		inputs["kernelId"] = args.KernelId
 		inputs["keyName"] = args.KeyName
+		inputs["licenseSpecifications"] = args.LicenseSpecifications
 		inputs["monitoring"] = args.Monitoring
 		inputs["name"] = args.Name
 		inputs["namePrefix"] = args.NamePrefix
@@ -102,6 +104,7 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 		inputs["kernelId"] = state.KernelId
 		inputs["keyName"] = state.KeyName
 		inputs["latestVersion"] = state.LatestVersion
+		inputs["licenseSpecifications"] = state.LicenseSpecifications
 		inputs["monitoring"] = state.Monitoring
 		inputs["name"] = state.Name
 		inputs["namePrefix"] = state.NamePrefix
@@ -223,6 +226,11 @@ func (r *LaunchTemplate) LatestVersion() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["latestVersion"])
 }
 
+// A list of license specifications to associate with. See License Specifications below for more details.
+func (r *LaunchTemplate) LicenseSpecifications() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["licenseSpecifications"])
+}
+
 // The monitoring option for the instance. See Monitoring below for more details.
 func (r *LaunchTemplate) Monitoring() *pulumi.Output {
 	return r.s.State["monitoring"]
@@ -323,6 +331,8 @@ type LaunchTemplateState struct {
 	KeyName interface{}
 	// The latest version of the launch template.
 	LatestVersion interface{}
+	// A list of license specifications to associate with. See License Specifications below for more details.
+	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
 	// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
@@ -386,6 +396,8 @@ type LaunchTemplateArgs struct {
 	KernelId interface{}
 	// The key name to use for the instance.
 	KeyName interface{}
+	// A list of license specifications to associate with. See License Specifications below for more details.
+	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
 	// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.

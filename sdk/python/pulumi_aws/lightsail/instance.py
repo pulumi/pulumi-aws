@@ -12,7 +12,7 @@ class Instance(pulumi.CustomResource):
     with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
     for more information.
     
-    ~> **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     """
     def __init__(__self__, __name__, __opts__=None, availability_zone=None, blueprint_id=None, bundle_id=None, key_pair_name=None, name=None, user_data=None):
         """Create a Instance resource with the given unique name, props, and options."""

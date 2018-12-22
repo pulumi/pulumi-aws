@@ -10,7 +10,7 @@ class TargetGroup(pulumi.CustomResource):
     """
     Provides a Target Group resource for use with Load Balancer resources.
     
-    ~> **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+    > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
     """
     def __init__(__self__, __name__, __opts__=None, deregistration_delay=None, health_check=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         """Create a TargetGroup resource with the given unique name, props, and options."""

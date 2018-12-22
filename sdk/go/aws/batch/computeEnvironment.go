@@ -13,7 +13,7 @@ import (
 // For information about AWS Batch, see [What is AWS Batch?][1] .
 // For information about compute environment, see [Compute Environments][2] .
 // 
-// ~> **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
+// > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
 //    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
 type ComputeEnvironment struct {
 	s *pulumi.ResourceState

@@ -23,7 +23,7 @@ import (
 // when the instance is terminated either by the request being below the current spot
 // price availability or by a user.
 // 
-// ~> **NOTE:** Because their behavior depends on the live status of the spot
+// > **NOTE:** Because their behavior depends on the live status of the spot
 // market, Spot Instance Requests have a unique lifecycle that makes them behave
 // differently than other Terraform resources. Most importantly: there is __no
 // guarantee__ that a Spot Instance exists to fulfill the request at any given

@@ -10,7 +10,7 @@ class RdsDbInstance(pulumi.CustomResource):
     """
     Provides an OpsWorks RDS DB Instance resource.
     
-    ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+    > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, db_password=None, db_user=None, rds_db_instance_arn=None, stack_id=None):

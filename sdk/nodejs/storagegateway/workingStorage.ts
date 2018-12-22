@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Storage Gateway working storage.
  * 
- * ~> **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
+ * > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
  */
 export class WorkingStorage extends pulumi.CustomResource {
     /**

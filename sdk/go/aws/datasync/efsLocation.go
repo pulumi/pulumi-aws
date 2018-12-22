@@ -10,7 +10,7 @@ import (
 
 // Manages an AWS DataSync EFS Location.
 // 
-// ~> **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
+// > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 type EfsLocation struct {
 	s *pulumi.ResourceState
 }

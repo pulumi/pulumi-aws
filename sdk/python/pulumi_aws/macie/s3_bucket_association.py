@@ -10,7 +10,7 @@ class S3BucketAssociation(pulumi.CustomResource):
     """
     Associates an S3 resource with Amazon Macie for monitoring and data classification.
     
-    ~> **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+    > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
     """
     def __init__(__self__, __name__, __opts__=None, bucket_name=None, classification_type=None, member_account_id=None, prefix=None):
         """Create a S3BucketAssociation resource with the given unique name, props, and options."""

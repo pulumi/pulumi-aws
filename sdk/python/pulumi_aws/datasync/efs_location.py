@@ -10,7 +10,7 @@ class EfsLocation(pulumi.CustomResource):
     """
     Manages an AWS DataSync EFS Location.
     
-    ~> **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
+    > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
     """
     def __init__(__self__, __name__, __opts__=None, ec2_config=None, efs_file_system_arn=None, subdirectory=None, tags=None):
         """Create a EfsLocation resource with the given unique name, props, and options."""

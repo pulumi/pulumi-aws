@@ -12,7 +12,7 @@ class GlobalCluster(pulumi.CustomResource):
     
     More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
     
-    ~> **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
+    > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
     """
     def __init__(__self__, __name__, __opts__=None, database_name=None, deletion_protection=None, engine=None, engine_version=None, global_cluster_identifier=None, storage_encrypted=None):
         """Create a GlobalCluster resource with the given unique name, props, and options."""

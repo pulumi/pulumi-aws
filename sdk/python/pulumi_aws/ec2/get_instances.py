@@ -50,7 +50,7 @@ async def get_instances(filters=None, instance_state_names=None, instance_tags=N
     **use [`terraform_remote_state`](https://www.terraform.io/docs/providers/terraform/d/remote_state.html)
     data source instead** if you manage referenced instances via Terraform.
     
-    ~> **Note:** It's strongly discouraged to use this data source for querying ephemeral
+    > **Note:** It's strongly discouraged to use this data source for querying ephemeral
     instances (e.g. managed via autoscaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
     """

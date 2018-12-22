@@ -96,6 +96,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly latestVersion: pulumi.Output<number>;
     /**
+     * A list of license specifications to associate with. See License Specifications below for more details.
+     */
+    public readonly licenseSpecifications: pulumi.Output<{ licenseConfigurationArn: string }[] | undefined>;
+    /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     public readonly monitoring: pulumi.Output<{ enabled?: boolean } | undefined>;
@@ -171,6 +175,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["kernelId"] = state ? state.kernelId : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["latestVersion"] = state ? state.latestVersion : undefined;
+            inputs["licenseSpecifications"] = state ? state.licenseSpecifications : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -198,6 +203,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["kernelId"] = args ? args.kernelId : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
+            inputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
             inputs["monitoring"] = args ? args.monitoring : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -296,6 +302,10 @@ export interface LaunchTemplateState {
      * The latest version of the launch template.
      */
     readonly latestVersion?: pulumi.Input<number>;
+    /**
+     * A list of license specifications to associate with. See License Specifications below for more details.
+     */
+    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
@@ -411,6 +421,10 @@ export interface LaunchTemplateArgs {
      * The key name to use for the instance.
      */
     readonly keyName?: pulumi.Input<string>;
+    /**
+     * A list of license specifications to associate with. See License Specifications below for more details.
+     */
+    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */

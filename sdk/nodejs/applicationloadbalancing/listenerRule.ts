@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Load Balancer Listener Rule resource.
  * 
- * ~> **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
+ * > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
  */
 export class ListenerRule extends pulumi.CustomResource {
     /**

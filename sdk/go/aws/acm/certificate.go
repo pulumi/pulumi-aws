@@ -4,7 +4,6 @@
 package acm
 
 import (
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -32,20 +31,20 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.ValidationMethod == nil {
-		return nil, errors.New("missing required argument 'ValidationMethod'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["certificateBody"] = nil
+		inputs["certificateChain"] = nil
 		inputs["domainName"] = nil
+		inputs["privateKey"] = nil
 		inputs["subjectAlternativeNames"] = nil
 		inputs["tags"] = nil
 		inputs["validationMethod"] = nil
 	} else {
+		inputs["certificateBody"] = args.CertificateBody
+		inputs["certificateChain"] = args.CertificateChain
 		inputs["domainName"] = args.DomainName
+		inputs["privateKey"] = args.PrivateKey
 		inputs["subjectAlternativeNames"] = args.SubjectAlternativeNames
 		inputs["tags"] = args.Tags
 		inputs["validationMethod"] = args.ValidationMethod
@@ -67,8 +66,11 @@ func GetCertificate(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["certificateBody"] = state.CertificateBody
+		inputs["certificateChain"] = state.CertificateChain
 		inputs["domainName"] = state.DomainName
 		inputs["domainValidationOptions"] = state.DomainValidationOptions
+		inputs["privateKey"] = state.PrivateKey
 		inputs["subjectAlternativeNames"] = state.SubjectAlternativeNames
 		inputs["tags"] = state.Tags
 		inputs["validationEmails"] = state.ValidationEmails
@@ -96,6 +98,16 @@ func (r *Certificate) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The certificate's PEM-formatted public key
+func (r *Certificate) CertificateBody() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["certificateBody"])
+}
+
+// The certificate's PEM-formatted chain
+func (r *Certificate) CertificateChain() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
+}
+
 // A domain name for which the certificate should be issued
 func (r *Certificate) DomainName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["domainName"])
@@ -104,6 +116,11 @@ func (r *Certificate) DomainName() *pulumi.StringOutput {
 // A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 func (r *Certificate) DomainValidationOptions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["domainValidationOptions"])
+}
+
+// The certificate's PEM-formatted private key
+func (r *Certificate) PrivateKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["privateKey"])
 }
 
 // A list of domains that should be SANs in the issued certificate
@@ -122,6 +139,7 @@ func (r *Certificate) ValidationEmails() *pulumi.ArrayOutput {
 }
 
 // Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+// * Importing an existing certificate
 func (r *Certificate) ValidationMethod() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["validationMethod"])
 }
@@ -130,10 +148,16 @@ func (r *Certificate) ValidationMethod() *pulumi.StringOutput {
 type CertificateState struct {
 	// The ARN of the certificate
 	Arn interface{}
+	// The certificate's PEM-formatted public key
+	CertificateBody interface{}
+	// The certificate's PEM-formatted chain
+	CertificateChain interface{}
 	// A domain name for which the certificate should be issued
 	DomainName interface{}
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions interface{}
+	// The certificate's PEM-formatted private key
+	PrivateKey interface{}
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames interface{}
 	// A mapping of tags to assign to the resource.
@@ -141,17 +165,25 @@ type CertificateState struct {
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails interface{}
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+	// * Importing an existing certificate
 	ValidationMethod interface{}
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// The certificate's PEM-formatted public key
+	CertificateBody interface{}
+	// The certificate's PEM-formatted chain
+	CertificateChain interface{}
 	// A domain name for which the certificate should be issued
 	DomainName interface{}
+	// The certificate's PEM-formatted private key
+	PrivateKey interface{}
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+	// * Importing an existing certificate
 	ValidationMethod interface{}
 }

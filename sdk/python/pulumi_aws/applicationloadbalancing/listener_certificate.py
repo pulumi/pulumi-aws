@@ -12,7 +12,7 @@ class ListenerCertificate(pulumi.CustomResource):
     
     This resource is for additional certificates and does not replace the default certificate on the listener.
     
-    ~> **Note:** `aws_alb_listener_certificate` is known as `aws_lb_listener_certificate`. The functionality is identical.
+    > **Note:** `aws_alb_listener_certificate` is known as `aws_lb_listener_certificate`. The functionality is identical.
     """
     def __init__(__self__, __name__, __opts__=None, certificate_arn=None, listener_arn=None):
         """Create a ListenerCertificate resource with the given unique name, props, and options."""

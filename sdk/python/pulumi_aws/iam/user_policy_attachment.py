@@ -10,7 +10,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
     """
     Attaches a Managed IAM Policy to an IAM user
     
-    ~> **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
+    > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
     """
     def __init__(__self__, __name__, __opts__=None, policy_arn=None, user=None):
         """Create a UserPolicyAttachment resource with the given unique name, props, and options."""

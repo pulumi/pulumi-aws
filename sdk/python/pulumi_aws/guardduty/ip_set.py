@@ -10,7 +10,7 @@ class IPSet(pulumi.CustomResource):
     """
     Provides a resource to manage a GuardDuty IPSet.
     
-    ~> **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
+    > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
     """
     def __init__(__self__, __name__, __opts__=None, activate=None, detector_id=None, format=None, location=None, name=None):
         """Create a IPSet resource with the given unique name, props, and options."""

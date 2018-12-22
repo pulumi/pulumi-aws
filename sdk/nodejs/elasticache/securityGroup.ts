@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache Security Group to control access to one or more cache
  * clusters.
  * 
- * ~> **NOTE:** ElastiCache Security Groups are for use only when working with an
+ * > **NOTE:** ElastiCache Security Groups are for use only when working with an
  * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
  * ElastiCache Subnet Group resource.
  */

@@ -10,7 +10,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     Provides a Load Balancer resource.
     
-    ~> **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
+    > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
     """
     def __init__(__self__, __name__, __opts__=None, access_logs=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, name_prefix=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
         """Create a LoadBalancer resource with the given unique name, props, and options."""

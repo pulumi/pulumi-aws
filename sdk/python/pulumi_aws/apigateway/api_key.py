@@ -10,7 +10,7 @@ class ApiKey(pulumi.CustomResource):
     """
     Provides an API Gateway API Key.
     
-    ~> **Warning:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
+    > **Warning:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, enabled=None, name=None, stage_keys=None, value=None):
         """Create a ApiKey resource with the given unique name, props, and options."""

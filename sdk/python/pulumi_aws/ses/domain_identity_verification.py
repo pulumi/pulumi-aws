@@ -14,7 +14,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
     `aws_ses_domain_identity` to request an SES domain identity,
     deploy the required DNS verification records, and wait for verification to complete.
     
-    ~> **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+    > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
     """
     def __init__(__self__, __name__, __opts__=None, domain=None):
         """Create a DomainIdentityVerification resource with the given unique name, props, and options."""

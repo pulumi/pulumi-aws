@@ -25,7 +25,7 @@ async def get_ami_ids(executable_users=None, filters=None, name_regex=None, owne
     """
     Use this data source to get a list of AMI IDs matching the specified criteria.
     
-    ~> **NOTE:** The `owners` argument will be **required** in the next major version.
+    > **NOTE:** The `owners` argument will be **required** in the next major version.
     """
     __args__ = dict()
 

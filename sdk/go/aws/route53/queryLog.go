@@ -10,7 +10,7 @@ import (
 
 // Provides a Route53 query logging configuration resource.
 // 
-// ~> **NOTE:** There are restrictions on the configuration of query logging. Notably,
+// > **NOTE:** There are restrictions on the configuration of query logging. Notably,
 // the CloudWatch log group must be in the `us-east-1` region,
 // a permissive CloudWatch log resource policy must be in place, and
 // the Route53 hosted zone must be public.

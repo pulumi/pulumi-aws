@@ -10,7 +10,7 @@ class StaticIpAttachment(pulumi.CustomResource):
     """
     Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
     
-    ~> **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     """
     def __init__(__self__, __name__, __opts__=None, instance_name=None, static_ip_name=None):
         """Create a StaticIpAttachment resource with the given unique name, props, and options."""

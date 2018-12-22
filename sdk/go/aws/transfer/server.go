@@ -70,12 +70,14 @@ func NewServer(ctx *pulumi.Context,
 	name string, args *ServerArgs, opts ...pulumi.ResourceOpt) (*Server, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["forceDestroy"] = nil
 		inputs["identityProviderType"] = nil
 		inputs["invocationRole"] = nil
 		inputs["loggingRole"] = nil
 		inputs["tags"] = nil
 		inputs["url"] = nil
 	} else {
+		inputs["forceDestroy"] = args.ForceDestroy
 		inputs["identityProviderType"] = args.IdentityProviderType
 		inputs["invocationRole"] = args.InvocationRole
 		inputs["loggingRole"] = args.LoggingRole
@@ -99,6 +101,7 @@ func GetServer(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["endpoint"] = state.Endpoint
+		inputs["forceDestroy"] = state.ForceDestroy
 		inputs["identityProviderType"] = state.IdentityProviderType
 		inputs["invocationRole"] = state.InvocationRole
 		inputs["loggingRole"] = state.LoggingRole
@@ -132,6 +135,11 @@ func (r *Server) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
+// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+func (r *Server) ForceDestroy() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+}
+
 // The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 func (r *Server) IdentityProviderType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identityProviderType"])
@@ -163,6 +171,8 @@ type ServerState struct {
 	Arn interface{}
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint interface{}
+	// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+	ForceDestroy interface{}
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 	IdentityProviderType interface{}
 	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
@@ -177,6 +187,8 @@ type ServerState struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+	ForceDestroy interface{}
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 	IdentityProviderType interface{}
 	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.

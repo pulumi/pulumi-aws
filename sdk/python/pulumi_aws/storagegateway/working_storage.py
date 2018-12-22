@@ -10,7 +10,7 @@ class WorkingStorage(pulumi.CustomResource):
     """
     Manages an AWS Storage Gateway working storage.
     
-    ~> **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
+    > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
     """
     def __init__(__self__, __name__, __opts__=None, disk_id=None, gateway_arn=None):
         """Create a WorkingStorage resource with the given unique name, props, and options."""

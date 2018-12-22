@@ -10,7 +10,7 @@ class NfsLocation(pulumi.CustomResource):
     """
     Manages an NFS Location within AWS DataSync.
     
-    ~> **NOTE:** The DataSync Agents must be available before creating this resource.
+    > **NOTE:** The DataSync Agents must be available before creating this resource.
     """
     def __init__(__self__, __name__, __opts__=None, on_prem_config=None, server_hostname=None, subdirectory=None, tags=None):
         """Create a NfsLocation resource with the given unique name, props, and options."""

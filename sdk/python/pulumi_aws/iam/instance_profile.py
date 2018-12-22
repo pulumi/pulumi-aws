@@ -10,7 +10,7 @@ class InstanceProfile(pulumi.CustomResource):
     """
     Provides an IAM instance profile.
     
-    ~> **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
+    > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, name_prefix=None, path=None, role=None, roles=None):
         """Create a InstanceProfile resource with the given unique name, props, and options."""

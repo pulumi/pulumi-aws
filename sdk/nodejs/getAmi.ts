@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
  * Use this data source to get the ID of a registered AMI for use in other
  * resources.
  * 
- * ~> **NOTE:** The `owners` argument will be **required** in the next major version.
+ * > **NOTE:** The `owners` argument will be **required** in the next major version.
  */
 export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     args = args || {};

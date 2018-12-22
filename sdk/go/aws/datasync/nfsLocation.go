@@ -10,7 +10,7 @@ import (
 
 // Manages an NFS Location within AWS DataSync.
 // 
-// ~> **NOTE:** The DataSync Agents must be available before creating this resource.
+// > **NOTE:** The DataSync Agents must be available before creating this resource.
 type NfsLocation struct {
 	s *pulumi.ResourceState
 }

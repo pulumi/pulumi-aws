@@ -10,7 +10,7 @@ class SecretVersion(pulumi.CustomResource):
     """
     Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws_secretsmanager_secret` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
     
-    ~> **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from Terraform unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from Terraform to fully trigger version deprecation if necessary.
+    > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from Terraform unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from Terraform to fully trigger version deprecation if necessary.
     """
     def __init__(__self__, __name__, __opts__=None, secret_binary=None, secret_id=None, secret_string=None, version_stages=None):
         """Create a SecretVersion resource with the given unique name, props, and options."""

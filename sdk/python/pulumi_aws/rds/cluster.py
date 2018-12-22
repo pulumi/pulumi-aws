@@ -21,11 +21,11 @@ class Cluster(pulumi.CustomResource):
     `apply_immediately` flag to instruct the service to apply the change immediately
     (see documentation below).
     
-    ~> **Note:** using `apply_immediately` can result in a
+    > **Note:** using `apply_immediately` can result in a
     brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
     for more information.
     
-    ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+    > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):

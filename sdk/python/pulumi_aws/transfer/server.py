@@ -63,7 +63,7 @@ class Server(pulumi.CustomResource):
     }
     ```
     """
-    def __init__(__self__, __name__, __opts__=None, identity_provider_type=None, invocation_role=None, logging_role=None, tags=None, url=None):
+    def __init__(__self__, __name__, __opts__=None, force_destroy=None, identity_provider_type=None, invocation_role=None, logging_role=None, tags=None, url=None):
         """Create a Server resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -73,6 +73,8 @@ class Server(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        __props__['force_destroy'] = force_destroy
 
         __props__['identity_provider_type'] = identity_provider_type
 

@@ -9,7 +9,7 @@ import (
 
 // Provides an IAM instance profile.
 // 
-// ~> **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
+// > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
 type InstanceProfile struct {
 	s *pulumi.ResourceState
 }

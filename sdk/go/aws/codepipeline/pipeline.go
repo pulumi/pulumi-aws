@@ -10,7 +10,7 @@ import (
 
 // Provides a CodePipeline.
 // 
-// ~> **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+// > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
 type Pipeline struct {
 	s *pulumi.ResourceState
 }

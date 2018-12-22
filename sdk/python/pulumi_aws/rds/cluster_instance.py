@@ -21,7 +21,7 @@ class ClusterInstance(pulumi.CustomResource):
     
     For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
     
-    ~> **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`prevent_destroy` lifecycle behavior](https://www.terraform.io/docs/configuration/resources.html#prevent_destroy) to your Terraform resource configuration if you desire protection from accidental deletion.
+    > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`prevent_destroy` lifecycle behavior](https://www.terraform.io/docs/configuration/resources.html#prevent_destroy) to your Terraform resource configuration if you desire protection from accidental deletion.
     """
     def __init__(__self__, __name__, __opts__=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None):
         """Create a ClusterInstance resource with the given unique name, props, and options."""

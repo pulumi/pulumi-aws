@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * [AWS CloudHSM User Guide][1] and the [Amazon
  * CloudHSM API Reference][2].
  * 
- * ~> **NOTE:** CloudHSM can take up to several minutes to be set up.
+ * > **NOTE:** CloudHSM can take up to several minutes to be set up.
  * Practically no single attribute can be updated except TAGS.
  * If you need to delete a cluster, you have to remove its HSM modules first.
  * To initialize cluster you have to sign CSR and upload it.

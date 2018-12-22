@@ -10,7 +10,7 @@ class Repository(pulumi.CustomResource):
     """
     Provides a CodeCommit Repository Resource.
     
-    ~> **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
+    > **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
     in all regions - available regions are listed
     [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
     """
