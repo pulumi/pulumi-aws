@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./attachment";
+export * from "./getGroup";
 export * from "./group";
 export * from "./lifecycleHook";
 export * from "./metrics";

@@ -72,6 +72,7 @@
         "athena/index.ts",
         "athena/namedQuery.ts",
         "autoscaling/attachment.ts",
+        "autoscaling/getGroup.ts",
         "autoscaling/group.ts",
         "autoscaling/index.ts",
         "autoscaling/lifecycleHook.ts",

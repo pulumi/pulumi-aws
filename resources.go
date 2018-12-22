@@ -1625,6 +1625,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
 			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
 			"aws_api_gateway_vpc_link": {Tok: awsDataSource(apigatewayMod, "getVpcLink")},
+			// Autoscaling
+			"aws_autoscaling_group": {Tok: awsDataSource(autoscalingMod, "getGroup")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},
