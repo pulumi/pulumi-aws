@@ -2,7 +2,7 @@
 
 ### Improvements
 
-- Updated to the v1.53.0 version of the AWS Terraform Provider.
+- Updated to the v1.54.0 version of the AWS Terraform Provider.
 
 ## 0.16.4 (Released December 17th, 2018)
 
