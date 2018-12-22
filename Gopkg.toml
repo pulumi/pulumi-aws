@@ -49,7 +49,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "=v1.16.8"
+  version = "=v1.16.9"
   [override.metadata]
     govendor-overridden=true
 
