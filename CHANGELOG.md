@@ -1,8 +1,12 @@
-## 0.16.5 (unreleased)
+## 0.16.7 (Unreleased)
+
+## 0.16.6 (Released December 23rd, 2018)
 
 ### Improvements
 
 - Updated to the v1.54.0 version of the AWS Terraform Provider.
+
+- Changed the type of properties which were previously `aws.Tags` to allow `Output<string>` to be used as tag values.
 
 ## 0.16.4 (Released December 17th, 2018)
 
