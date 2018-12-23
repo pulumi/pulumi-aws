@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Config Delivery Channel.
  * 
- * ~> **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ * > **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
  */
 export class DeliveryChannel extends pulumi.CustomResource {
     /**

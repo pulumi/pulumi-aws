@@ -9,3 +9,4 @@ from .lifecycle_hook import *
 from .notification import *
 from .policy import *
 from .schedule import *
+from .get_group import *

@@ -12,7 +12,7 @@ class LoadBalancer(pulumi.CustomResource):
     Load Balancer" after the release of
     [Application/Network Load Balancers](https://www.terraform.io/docs/providers/aws/r/lb.html).
     
-    ~> **NOTE on ELB Instances and ELB Attachments:** Terraform currently
+    > **NOTE on ELB Instances and ELB Attachments:** Terraform currently
     provides both a standalone ELB Attachment resource
     (describing an instance attached to an ELB), and an ELB resource with
     `instances` defined in-line. At this time you cannot use an ELB with in-line

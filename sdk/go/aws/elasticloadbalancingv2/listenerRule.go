@@ -10,7 +10,7 @@ import (
 
 // Provides a Load Balancer Listener Rule resource.
 // 
-// ~> **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
+// > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
 type ListenerRule struct {
 	s *pulumi.ResourceState
 }

@@ -41,6 +41,14 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The certificate's PEM-formatted public key
+     */
+    public readonly certificateBody: pulumi.Output<string | undefined>;
+    /**
+     * The certificate's PEM-formatted chain
+     */
+    public readonly certificateChain: pulumi.Output<string | undefined>;
+    /**
      * A domain name for which the certificate should be issued
      */
     public readonly domainName: pulumi.Output<string>;
@@ -49,9 +57,13 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainValidationOptions: pulumi.Output<{ domainName: string, resourceRecordName: string, resourceRecordType: string, resourceRecordValue: string }[]>;
     /**
+     * The certificate's PEM-formatted private key
+     */
+    public readonly privateKey: pulumi.Output<string | undefined>;
+    /**
      * A list of domains that should be SANs in the issued certificate
      */
-    public readonly subjectAlternativeNames: pulumi.Output<string[] | undefined>;
+    public readonly subjectAlternativeNames: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -62,6 +74,7 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly validationEmails: pulumi.Output<string[]>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+     * * Importing an existing certificate
      */
     public readonly validationMethod: pulumi.Output<string>;
 
@@ -72,27 +85,27 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CertificateState = argsOrState as CertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["certificateBody"] = state ? state.certificateBody : undefined;
+            inputs["certificateChain"] = state ? state.certificateChain : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
+            inputs["privateKey"] = state ? state.privateKey : undefined;
             inputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["validationEmails"] = state ? state.validationEmails : undefined;
             inputs["validationMethod"] = state ? state.validationMethod : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.domainName === undefined) {
-                throw new Error("Missing required property 'domainName'");
-            }
-            if (!args || args.validationMethod === undefined) {
-                throw new Error("Missing required property 'validationMethod'");
-            }
+            inputs["certificateBody"] = args ? args.certificateBody : undefined;
+            inputs["certificateChain"] = args ? args.certificateChain : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["privateKey"] = args ? args.privateKey : undefined;
             inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["validationMethod"] = args ? args.validationMethod : undefined;
@@ -113,6 +126,14 @@ export interface CertificateState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The certificate's PEM-formatted public key
+     */
+    readonly certificateBody?: pulumi.Input<string>;
+    /**
+     * The certificate's PEM-formatted chain
+     */
+    readonly certificateChain?: pulumi.Input<string>;
+    /**
      * A domain name for which the certificate should be issued
      */
     readonly domainName?: pulumi.Input<string>;
@@ -120,6 +141,10 @@ export interface CertificateState {
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     readonly domainValidationOptions?: pulumi.Input<pulumi.Input<{ domainName?: pulumi.Input<string>, resourceRecordName?: pulumi.Input<string>, resourceRecordType?: pulumi.Input<string>, resourceRecordValue?: pulumi.Input<string> }>[]>;
+    /**
+     * The certificate's PEM-formatted private key
+     */
+    readonly privateKey?: pulumi.Input<string>;
     /**
      * A list of domains that should be SANs in the issued certificate
      */
@@ -134,6 +159,7 @@ export interface CertificateState {
     readonly validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+     * * Importing an existing certificate
      */
     readonly validationMethod?: pulumi.Input<string>;
 }
@@ -143,9 +169,21 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
+     * The certificate's PEM-formatted public key
+     */
+    readonly certificateBody?: pulumi.Input<string>;
+    /**
+     * The certificate's PEM-formatted chain
+     */
+    readonly certificateChain?: pulumi.Input<string>;
+    /**
      * A domain name for which the certificate should be issued
      */
-    readonly domainName: pulumi.Input<string>;
+    readonly domainName?: pulumi.Input<string>;
+    /**
+     * The certificate's PEM-formatted private key
+     */
+    readonly privateKey?: pulumi.Input<string>;
     /**
      * A list of domains that should be SANs in the issued certificate
      */
@@ -156,6 +194,7 @@ export interface CertificateArgs {
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+     * * Importing an existing certificate
      */
-    readonly validationMethod: pulumi.Input<string>;
+    readonly validationMethod?: pulumi.Input<string>;
 }

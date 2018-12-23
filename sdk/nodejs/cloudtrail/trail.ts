@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudTrail resource.
  * 
- * ~> *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
+ * > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
  * 
- * ~> *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+ * > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
  */
 export class Trail extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import (
 
 // Provides a Glue Classifier resource.
 // 
-// ~> **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
+// > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
 type Classifier struct {
 	s *pulumi.ResourceState
 }

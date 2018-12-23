@@ -11,7 +11,7 @@ class VolumeAttachment(pulumi.CustomResource):
     Provides an AWS EBS Volume Attachment as a top level resource, to attach and
     detach volumes from AWS Instances.
     
-    ~> **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, Terraform will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
+    > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, Terraform will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
     """
     def __init__(__self__, __name__, __opts__=None, device_name=None, force_detach=None, instance_id=None, skip_destroy=None, volume_id=None):
         """Create a VolumeAttachment resource with the given unique name, props, and options."""

@@ -10,7 +10,7 @@ class MemberAccountAssociation(pulumi.CustomResource):
     """
     Associates an AWS account with Amazon Macie as a member account.
     
-    ~> **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+    > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
     """
     def __init__(__self__, __name__, __opts__=None, member_account_id=None):
         """Create a MemberAccountAssociation resource with the given unique name, props, and options."""

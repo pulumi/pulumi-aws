@@ -10,7 +10,7 @@ import (
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
 // 
-// ~> **NOTE:** The `owners` argument will be **required** in the next major version.
+// > **NOTE:** The `owners` argument will be **required** in the next major version.
 func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -1266,6 +1266,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// License Manager
+			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 			// LightSail
 			"aws_lightsail_domain":               {Tok: awsResource(lightsailMod, "Domain")},
@@ -1434,6 +1435,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
 			// Security Hub
 			"aws_securityhub_account":                {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_product_subscription":   {Tok: awsResource(securityhubMod, "ProductSubscription")},
 			"aws_securityhub_standards_subscription": {Tok: awsResource(securityhubMod, "StandardsSubscription")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
@@ -1506,6 +1508,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_s3_bucket_public_access_block": {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -1625,6 +1628,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_api_gateway_resource": {Tok: awsDataSource(apigatewayMod, "getResource")},
 			"aws_api_gateway_rest_api": {Tok: awsDataSource(apigatewayMod, "getRestApi")},
 			"aws_api_gateway_vpc_link": {Tok: awsDataSource(apigatewayMod, "getVpcLink")},
+			// Autoscaling
+			"aws_autoscaling_group": {Tok: awsDataSource(autoscalingMod, "getGroup")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},

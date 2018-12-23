@@ -82,6 +82,10 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+     */
+    public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      */
     public readonly identityProviderType: pulumi.Output<string | undefined>;
@@ -116,6 +120,7 @@ export class Server extends pulumi.CustomResource {
             const state: ServerState = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["identityProviderType"] = state ? state.identityProviderType : undefined;
             inputs["invocationRole"] = state ? state.invocationRole : undefined;
             inputs["loggingRole"] = state ? state.loggingRole : undefined;
@@ -123,6 +128,7 @@ export class Server extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
+            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             inputs["invocationRole"] = args ? args.invocationRole : undefined;
             inputs["loggingRole"] = args ? args.loggingRole : undefined;
@@ -147,6 +153,10 @@ export interface ServerState {
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
     readonly endpoint?: pulumi.Input<string>;
+    /**
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+     */
+    readonly forceDestroy?: pulumi.Input<boolean>;
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      */
@@ -173,6 +183,10 @@ export interface ServerState {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    /**
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+     */
+    readonly forceDestroy?: pulumi.Input<boolean>;
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      */

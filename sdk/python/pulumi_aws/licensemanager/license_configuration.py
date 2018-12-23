@@ -10,7 +10,7 @@ class LicenseConfiguration(pulumi.CustomResource):
     """
     Provides a License Manager license configuration resource.
     
-    ~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
+    > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, license_count=None, license_count_hard_limit=None, license_counting_type=None, license_rules=None, name=None, tags=None):
         """Create a LicenseConfiguration resource with the given unique name, props, and options."""

@@ -10,9 +10,9 @@ class Eip(pulumi.CustomResource):
     """
     Provides an Elastic IP resource.
     
-    ~> **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
+    > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
     
-    ~> **Note:** Do not use `network_interface` to associate the EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+    > **Note:** Do not use `network_interface` to associate the EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     """
     def __init__(__self__, __name__, __opts__=None, associate_with_private_ip=None, instance=None, network_interface=None, public_ipv4_pool=None, tags=None, vpc=None):
         """Create a Eip resource with the given unique name, props, and options."""

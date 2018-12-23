@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * `apply_immediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
  * 
- * ~> **Note:** using `apply_immediately` can result in a
+ * > **Note:** using `apply_immediately` can result in a
  * brief downtime as the broker reboots.
  * 
- * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class Broker extends pulumi.CustomResource {

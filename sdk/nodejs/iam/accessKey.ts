@@ -22,7 +22,7 @@ export class AccessKey extends pulumi.CustomResource {
 
     /**
      * The encrypted secret, base64 encoded.
-     * ~> **NOTE:** The encrypted secret may be decrypted using the command line,
+     * > **NOTE:** The encrypted secret may be decrypted using the command line,
      * for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
      */
     public /*out*/ readonly encryptedSecret: pulumi.Output<string>;
@@ -100,7 +100,7 @@ export class AccessKey extends pulumi.CustomResource {
 export interface AccessKeyState {
     /**
      * The encrypted secret, base64 encoded.
-     * ~> **NOTE:** The encrypted secret may be decrypted using the command line,
+     * > **NOTE:** The encrypted secret may be decrypted using the command line,
      * for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
      */
     readonly encryptedSecret?: pulumi.Input<string>;

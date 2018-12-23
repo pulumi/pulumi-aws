@@ -10,7 +10,7 @@ class Vault(pulumi.CustomResource):
     """
     Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
     
-    ~> **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+    > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
     """
     def __init__(__self__, __name__, __opts__=None, access_policy=None, name=None, notifications=None, tags=None):
         """Create a Vault resource with the given unique name, props, and options."""

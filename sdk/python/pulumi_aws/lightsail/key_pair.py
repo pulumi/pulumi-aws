@@ -12,7 +12,7 @@ class KeyPair(pulumi.CustomResource):
     are separate from EC2 Key Pairs, and must be created or imported for use with
     Lightsail.
     
-    ~> **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     """
     def __init__(__self__, __name__, __opts__=None, name=None, name_prefix=None, pgp_key=None, public_key=None):
         """Create a KeyPair resource with the given unique name, props, and options."""

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// ~> **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+// > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
 // 
 // Provides information about a Load Balancer Target Group.
 // 

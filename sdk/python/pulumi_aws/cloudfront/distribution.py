@@ -15,7 +15,7 @@ class Distribution(pulumi.CustomResource):
     CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
     CloudFront API Reference.
     
-    ~> **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
+    > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
     after creation or modification. During this time, deletes to resources will be
     blocked. If you need to delete a distribution that is enabled and you do not
     want to wait, you need to use the `retain_on_delete` flag.

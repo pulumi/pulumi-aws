@@ -10,7 +10,7 @@ class Classifier(pulumi.CustomResource):
     """
     Provides a Glue Classifier resource.
     
-    ~> **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
+    > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
     """
     def __init__(__self__, __name__, __opts__=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None):
         """Create a Classifier resource with the given unique name, props, and options."""

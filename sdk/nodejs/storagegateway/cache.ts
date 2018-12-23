@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Storage Gateway cache.
  * 
- * ~> **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
+ * > **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
  */
 export class Cache extends pulumi.CustomResource {
     /**

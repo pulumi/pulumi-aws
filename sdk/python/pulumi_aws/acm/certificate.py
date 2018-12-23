@@ -26,7 +26,7 @@ class Certificate(pulumi.CustomResource):
     It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
     which is currently in use (eg, by `aws_lb_listener`).
     """
-    def __init__(__self__, __name__, __opts__=None, domain_name=None, subject_alternative_names=None, tags=None, validation_method=None):
+    def __init__(__self__, __name__, __opts__=None, certificate_body=None, certificate_chain=None, domain_name=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None):
         """Create a Certificate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -37,16 +37,18 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if not domain_name:
-            raise TypeError('Missing required property domain_name')
+        __props__['certificate_body'] = certificate_body
+
+        __props__['certificate_chain'] = certificate_chain
+
         __props__['domain_name'] = domain_name
+
+        __props__['private_key'] = private_key
 
         __props__['subject_alternative_names'] = subject_alternative_names
 
         __props__['tags'] = tags
 
-        if not validation_method:
-            raise TypeError('Missing required property validation_method')
         __props__['validation_method'] = validation_method
 
         __props__['arn'] = None

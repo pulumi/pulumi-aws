@@ -188,8 +188,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "8d41be8a37391ddc4feb2d16f5ca6f440eb8b356"
-  version = "v1.16.8"
+  revision = "cae66ecf52e0171f937f1fa80e12130fbb652474"
+  version = "v1.16.9"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -653,7 +653,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "2c187fb6f5e33adbc3c54c4dff4c86f7c9af7379"
+  revision = "e9a2d394b36b1c0722c2edec01cf663495d44bc4"
 
 [[projects]]
   branch = "master"
@@ -712,7 +712,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "45b5b93f7a421287397fb0d2ddeed931ebe12162"
+  revision = "9a24ade381f56dadeabd12b2810186684356d1c8"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -959,6 +959,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7315305e361530398d18192a2bdc0289052d21fe36a436ffad41757f54130e00"
+  inputs-digest = "1dfb66d000437e401e87eb28277f43fb2fa25ffe3ee27240976892403fd9e460"
   solver-name = "gps-cdcl"
   solver-version = 1

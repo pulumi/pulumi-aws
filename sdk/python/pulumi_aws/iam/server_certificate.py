@@ -19,7 +19,7 @@ class ServerCertificate(pulumi.CustomResource):
     For information about server certificates in IAM, see [Managing Server
     Certificates][2] in AWS Documentation.
     
-    ~> **Note:** All arguments including the private key will be stored in the raw state as plain-text.
+    > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, arn=None, certificate_body=None, certificate_chain=None, name=None, name_prefix=None, path=None, private_key=None):

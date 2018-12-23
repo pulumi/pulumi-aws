@@ -10,7 +10,7 @@ class Agent(pulumi.CustomResource):
     """
     Manages an AWS DataSync Agent deployed on premises.
     
-    ~> **NOTE:** One of `activation_key` or `ip_address` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ip_address`, Terraform must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
+    > **NOTE:** One of `activation_key` or `ip_address` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ip_address`, Terraform must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
     """
     def __init__(__self__, __name__, __opts__=None, activation_key=None, ip_address=None, name=None, tags=None):
         """Create a Agent resource with the given unique name, props, and options."""

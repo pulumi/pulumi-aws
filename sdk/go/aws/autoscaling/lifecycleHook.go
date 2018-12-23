@@ -10,7 +10,7 @@ import (
 
 // Provides an AutoScaling Lifecycle Hook resource.
 // 
-// ~> **NOTE:** Terraform has two types of ways you can add lifecycle hooks - via
+// > **NOTE:** Terraform has two types of ways you can add lifecycle hooks - via
 // the `initial_lifecycle_hook` attribute from the
 // [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
 // resource, or via this one. Hooks added via this resource will not be added

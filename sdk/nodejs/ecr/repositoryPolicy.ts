@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * 
  * Note that currently only one policy may be applied to a repository.
  * 
- * ~> **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
+ * > **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
  */

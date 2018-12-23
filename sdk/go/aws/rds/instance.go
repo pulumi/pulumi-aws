@@ -22,10 +22,10 @@ import (
 // When upgrading the major version of an engine, `allow_major_version_upgrade`
 // must be set to `true`.
 // 
-// ~> **Note:** using `apply_immediately` can result in a brief downtime as the
+// > **Note:** using `apply_immediately` can result in a brief downtime as the
 // server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
 // 
-// ~> **Note:** All arguments including the username and password will be stored in
+// > **Note:** All arguments including the username and password will be stored in
 // the raw state as plain-text. [Read more about sensitive data in
 // state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Instance struct {

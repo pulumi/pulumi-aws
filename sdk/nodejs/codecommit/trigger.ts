@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeCommit Trigger Resource.
  * 
- * ~> **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
+ * > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
  */

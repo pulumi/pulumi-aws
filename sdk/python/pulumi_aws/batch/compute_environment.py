@@ -13,7 +13,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     For information about AWS Batch, see [What is AWS Batch?][1] .
     For information about compute environment, see [Compute Environments][2] .
     
-    ~> **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
+    > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
        otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
     """
     def __init__(__self__, __name__, __opts__=None, compute_environment_name=None, compute_resources=None, service_role=None, state=None, type=None):

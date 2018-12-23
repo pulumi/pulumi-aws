@@ -9,7 +9,7 @@ import (
 
 // Provides a Target Group resource for use with Load Balancer resources.
 // 
-// ~> **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+// > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
 type TargetGroup struct {
 	s *pulumi.ResourceState
 }

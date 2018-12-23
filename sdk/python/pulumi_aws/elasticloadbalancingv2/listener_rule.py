@@ -10,7 +10,7 @@ class ListenerRule(pulumi.CustomResource):
     """
     Provides a Load Balancer Listener Rule resource.
     
-    ~> **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
+    > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
     """
     def __init__(__self__, __name__, __opts__=None, actions=None, conditions=None, listener_arn=None, priority=None):
         """Create a ListenerRule resource with the given unique name, props, and options."""

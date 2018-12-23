@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Redshift Cluster Resource.
  * 
- * ~> **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class Cluster extends pulumi.CustomResource {
@@ -91,7 +91,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * If true , the data in the cluster is encrypted at rest.
      */
-    public readonly encrypted: pulumi.Output<boolean>;
+    public readonly encrypted: pulumi.Output<boolean | undefined>;
     /**
      * The connection endpoint
      */

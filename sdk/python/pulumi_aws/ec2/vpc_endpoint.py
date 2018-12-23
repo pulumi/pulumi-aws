@@ -10,7 +10,7 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     Provides a VPC Endpoint resource.
     
-    ~> **NOTE on VPC Endpoints and VPC Endpoint Associations:** Terraform provides both standalone VPC Endpoint Associations for
+    > **NOTE on VPC Endpoints and VPC Endpoint Associations:** Terraform provides both standalone VPC Endpoint Associations for
     Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
     Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
     a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.

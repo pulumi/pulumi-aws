@@ -9,7 +9,7 @@ import {ARN} from "../index";
 /**
  * Manages an AWS DataSync EFS Location.
  * 
- * ~> **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
+ * > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
  */
 export class EfsLocation extends pulumi.CustomResource {
     /**

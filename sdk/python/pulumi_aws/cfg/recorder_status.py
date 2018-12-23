@@ -10,7 +10,7 @@ class RecorderStatus(pulumi.CustomResource):
     """
     Manages status (recording / stopped) of an AWS Config Configuration Recorder.
     
-    ~> **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    > **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
     """
     def __init__(__self__, __name__, __opts__=None, is_enabled=None, name=None):
         """Create a RecorderStatus resource with the given unique name, props, and options."""

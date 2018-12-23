@@ -9,7 +9,7 @@ import (
 
 // Use this data source to get information about a DB Snapshot for use when provisioning DB instances
 // 
-// ~> **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
+// > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
 // See the [`aws_db_cluster_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
 func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
 	inputs := make(map[string]interface{})
