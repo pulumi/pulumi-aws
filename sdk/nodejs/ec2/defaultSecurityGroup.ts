@@ -30,6 +30,29 @@ import * as utilities from "../utilities";
  * 
  * For more information about Default Security Groups, see the AWS Documentation on
  * [Default Security Groups][aws-default-security-groups].
+ * 
+ * ## Example config to deny all Egress traffic, allowing Ingress
+ * 
+ * The following denies all Egress traffic by omitting any `egress` rules, while
+ * including the default `ingress` rule to allow all traffic.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_mainvpc = new aws.ec2.Vpc("mainvpc", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const aws_default_security_group_default = new aws.ec2.DefaultSecurityGroup("default", {
+ *     ingress: [{
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         self: true,
+ *         toPort: 0,
+ *     }],
+ *     vpcId: aws_vpc_mainvpc.id,
+ * });
+ * ```
  */
 export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**

@@ -24,6 +24,71 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ### Aurora MySQL 2.x (MySQL 5.7)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_rds_cluster_default = new aws.rds.Cluster("default", {
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     databaseName: "mydb",
+ *     engine: "aurora-mysql",
+ *     masterPassword: "bar",
+ *     masterUsername: "foo",
+ *     preferredBackupWindow: "07:00-09:00",
+ * });
+ * ```
+ * ### Aurora MySQL 1.x (MySQL 5.6)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_rds_cluster_default = new aws.rds.Cluster("default", {
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     databaseName: "mydb",
+ *     masterPassword: "bar",
+ *     masterUsername: "foo",
+ *     preferredBackupWindow: "07:00-09:00",
+ * });
+ * ```
+ * ### Aurora with PostgreSQL engine
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_rds_cluster_postgresql = new aws.rds.Cluster("postgresql", {
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     databaseName: "mydb",
+ *     engine: "aurora-postgresql",
+ *     masterPassword: "bar",
+ *     masterUsername: "foo",
+ *     preferredBackupWindow: "07:00-09:00",
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

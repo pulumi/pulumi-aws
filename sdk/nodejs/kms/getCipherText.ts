@@ -10,6 +10,22 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_kms_key_oauth_config = new aws.kms.Key("oauth_config", {
+ *     description: "oauth config",
+ *     isEnabled: true,
+ * });
+ * const aws_kms_ciphertext_oauth = pulumi.output(aws.kms.getCipherText({
+ *     keyId: aws_kms_key_oauth_config.keyId,
+ *     plaintext: "{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n",
+ * }));
+ * ```
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
     return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {

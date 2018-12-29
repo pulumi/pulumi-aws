@@ -13,6 +13,24 @@ import * as utilities from "../utilities";
  * 
  * If you just want to share an existing AMI with another AWS account,
  * it's better to use `aws_ami_launch_permission` instead.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ami_example = new aws.ec2.Ami("example", {
+ *     ebsBlockDevices: [{
+ *         deviceName: "/dev/xvda",
+ *         snapshotId: "snap-xxxxxxxx",
+ *         volumeSize: 8,
+ *     }],
+ *     name: "terraform-example",
+ *     rootDeviceName: "/dev/xvda",
+ *     virtualizationType: "hvm",
+ * });
+ * ```
  */
 export class Ami extends pulumi.CustomResource {
     /**

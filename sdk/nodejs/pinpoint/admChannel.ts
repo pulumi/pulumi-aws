@@ -10,6 +10,22 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
+ * const aws_pinpoint_adm_channel_channel = new aws.pinpoint.AdmChannel("channel", {
+ *     applicationId: aws_pinpoint_app_app.applicationId,
+ *     clientId: "",
+ *     clientSecret: "",
+ *     enabled: true,
+ * });
+ * ```
+ * 
  */
 export class AdmChannel extends pulumi.CustomResource {
     /**

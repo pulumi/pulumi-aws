@@ -12,6 +12,21 @@ import * as utilities from "../utilities";
  * > **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ecr_repository_foo = new aws.ecr.Repository("foo", {
+ *     name: "bar",
+ * });
+ * const aws_ecr_repository_policy_foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
+ *     policy: "{\n    \"Version\": \"2008-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"new policy\",\n            \"Effect\": \"Allow\",\n            \"Principal\": \"*\",\n            \"Action\": [\n                \"ecr:GetDownloadUrlForLayer\",\n                \"ecr:BatchGetImage\",\n                \"ecr:BatchCheckLayerAvailability\",\n                \"ecr:PutImage\",\n                \"ecr:InitiateLayerUpload\",\n                \"ecr:UploadLayerPart\",\n                \"ecr:CompleteLayerUpload\",\n                \"ecr:DescribeRepositories\",\n                \"ecr:GetRepositoryPolicy\",\n                \"ecr:ListImages\",\n                \"ecr:DeleteRepository\",\n                \"ecr:BatchDeleteImage\",\n                \"ecr:SetRepositoryPolicy\",\n                \"ecr:DeleteRepositoryPolicy\"\n            ]\n        }\n    ]\n}\n",
+ *     repository: aws_ecr_repository_foo.name,
+ * });
+ * ```
  */
 export class RepositoryPolicy extends pulumi.CustomResource {
     /**

@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic File System (EFS) resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_efs_file_system_foo = new aws.efs.FileSystem("foo", {
+ *     creationToken: "my-product",
+ *     tags: {
+ *         Name: "MyProduct",
+ *     },
+ * });
+ * ```
  */
 export class FileSystem extends pulumi.CustomResource {
     /**

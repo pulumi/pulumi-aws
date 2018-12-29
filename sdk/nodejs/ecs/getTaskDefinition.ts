@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * The ECS task definition data source allows access to details of
  * a specific AWS ECS task definition.
  * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ecs_cluster_foo = new aws.ecs.Cluster("foo", {
+ *     name: "foo",
+ * });
+ * const aws_ecs_task_definition_mongo = new aws.ecs.TaskDefinition("mongo", {
+ *     containerDefinitions: "[\n  {\n    \"cpu\": 128,\n    \"environment\": [{\n      \"name\": \"SECRET\",\n      \"value\": \"KEY\"\n    }],\n    \"essential\": true,\n    \"image\": \"mongo:latest\",\n    \"memory\": 128,\n    \"memoryReservation\": 64,\n    \"name\": \"mongodb\"\n  }\n]\n",
+ *     family: "mongodb",
+ * });
+ * const aws_ecs_task_definition_mongo = pulumi.output(aws.ecs.getTaskDefinition({
+ *     taskDefinition: aws_ecs_task_definition_mongo.family,
+ * }));
+ * const aws_ecs_service_mongo = new aws.ecs.Service("mongo", {
+ *     cluster: aws_ecs_cluster_foo.id,
+ *     desiredCount: 2,
+ *     name: "mongo",
+ *     taskDefinition: pulumi.all([aws_ecs_task_definition_mongo.family, aws_ecs_task_definition_mongo.revision, aws_ecs_task_definition_mongo]).apply(([__arg0, __arg1, __arg2]) => `${__arg0}:${(() => {
+ *         throw "tf2pulumi error: NYI: call to max";
+ *         return (() => { throw "NYI: call to max"; })();
+ *     })()}`),
+ * });
+ * ```
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {

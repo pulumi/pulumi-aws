@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Gateway Response for a REST API Gateway.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_main = new aws.apigateway.RestApi("main", {
+ *     name: "MyDemoAPI",
+ * });
+ * const aws_api_gateway_gateway_response_test = new aws.apigateway.Response("test", {
+ *     responseParameters: {
+ *         gatewayresponse.header.Authorization: "'Basic'",
+ *     },
+ *     responseTemplates: {
+ *         application/json: "{'message':$context.error.messageString}",
+ *     },
+ *     responseType: "UNAUTHORIZED",
+ *     restApiId: aws_api_gateway_rest_api_main.id,
+ *     statusCode: "401",
+ * });
+ * ```
  */
 export class Response extends pulumi.CustomResource {
     /**

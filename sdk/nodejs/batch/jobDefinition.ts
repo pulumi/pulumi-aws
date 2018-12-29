@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Batch Job Definition resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_batch_job_definition_test = new aws.batch.JobDefinition("test", {
+ *     containerProperties: "{\n\t\"command\": [\"ls\", \"-la\"],\n\t\"image\": \"busybox\",\n\t\"memory\": 1024,\n\t\"vcpus\": 1,\n\t\"volumes\": [\n      {\n        \"host\": {\n          \"sourcePath\": \"/tmp\"\n        },\n        \"name\": \"tmp\"\n      }\n    ],\n\t\"environment\": [\n\t\t{\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n\t],\n\t\"mountPoints\": [\n\t\t{\n          \"sourceVolume\": \"tmp\",\n          \"containerPath\": \"/tmp\",\n          \"readOnly\": false\n        }\n\t],\n    \"ulimits\": [\n      {\n        \"hardLimit\": 1024,\n        \"name\": \"nofile\",\n        \"softLimit\": 1024\n      }\n    ]\n}\n",
+ *     name: "tf_test_batch_job_definition",
+ *     type: "container",
+ * });
+ * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

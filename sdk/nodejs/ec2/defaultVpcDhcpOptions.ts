@@ -15,6 +15,21 @@ import * as utilities from "../utilities";
  * The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead "adopts" it
  * into management.
+ * 
+ * ## Example Usage
+ * 
+ * Basic usage with tags:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_default_vpc_dhcp_options_default = new aws.ec2.DefaultVpcDhcpOptions("default", {
+ *     tags: {
+ *         Name: "Default DHCP Option Set",
+ *     },
+ * });
+ * ```
  */
 export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     /**

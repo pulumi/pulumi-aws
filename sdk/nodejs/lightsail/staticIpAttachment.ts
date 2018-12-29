@@ -8,6 +8,28 @@ import * as utilities from "../utilities";
  * Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
  * 
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lightsail_instance_test = new aws.lightsail.Instance("test", {
+ *     availabilityZone: "us-east-1b",
+ *     blueprintId: "string",
+ *     bundleId: "string",
+ *     keyPairName: "some_key_name",
+ *     name: "example",
+ * });
+ * const aws_lightsail_static_ip_test = new aws.lightsail.StaticIp("test", {
+ *     name: "example",
+ * });
+ * const aws_lightsail_static_ip_attachment_test = new aws.lightsail.StaticIpAttachment("test", {
+ *     instanceName: aws_lightsail_instance_test.name,
+ *     staticIpName: aws_lightsail_static_ip_test.name,
+ * });
+ * ```
  */
 export class StaticIpAttachment extends pulumi.CustomResource {
     /**

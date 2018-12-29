@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudFormation Stack resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudformation_stack_network = new aws.cloudformation.Stack("network", {
+ *     name: "networking-stack",
+ *     parameters: {
+ *         VPCCidr: "10.0.0.0/16",
+ *     },
+ *     templateBody: "{\n  \"Parameters\" : {\n    \"VPCCidr\" : {\n      \"Type\" : \"String\",\n      \"Default\" : \"10.0.0.0/16\",\n      \"Description\" : \"Enter the CIDR block for the VPC. Default is 10.0.0.0/16.\"\n    }\n  },\n  \"Resources\" : {\n    \"myVpc\": {\n      \"Type\" : \"AWS::EC2::VPC\",\n      \"Properties\" : {\n        \"CidrBlock\" : { \"Ref\" : \"VPCCidr\" },\n        \"Tags\" : [\n          {\"Key\": \"Name\", \"Value\": \"Primary_CF_VPC\"}\n        ]\n      }\n    }\n  }\n}\n",
+ * });
+ * ```
  */
 export class Stack extends pulumi.CustomResource {
     /**

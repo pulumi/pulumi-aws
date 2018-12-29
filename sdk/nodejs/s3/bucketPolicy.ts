@@ -8,6 +8,23 @@ import {PolicyDocument} from "../iam/documents";
 
 /**
  * Attaches a policy to an S3 bucket resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     bucket: "my_tf_test_bucket",
+ * });
+ * const aws_s3_bucket_policy_b = new aws.s3.BucketPolicy("b", {
+ *     bucket: aws_s3_bucket_b.id,
+ *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Id\": \"MYBUCKETPOLICY\",\n  \"Statement\": [\n    {\n      \"Sid\": \"IPAllow\",\n      \"Effect\": \"Deny\",\n      \"Principal\": \"*\",\n      \"Action\": \"s3:*\",\n      \"Resource\": \"arn:aws:s3:::my_tf_test_bucket/*\",\n      \"Condition\": {\n         \"IpAddress\": {\"aws:SourceIp\": \"8.8.8.8/32\"}\n      }\n    }\n  ]\n}\n",
+ * });
+ * ```
  */
 export class BucketPolicy extends pulumi.CustomResource {
     /**

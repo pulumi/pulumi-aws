@@ -12,6 +12,27 @@ import * as utilities from "../utilities";
  * This data source can prove useful when a module accepts an LB Listener as an
  * input variable and needs to know the LB it is attached to, or other
  * information specific to the listener in question.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_listener_arn = config.require("listenerArn");
+ * 
+ * const aws_lb_selected = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
+ *     name: "default-public",
+ * }));
+ * const aws_lb_listener_listener = pulumi.output(aws.elasticloadbalancingv2.getListener({
+ *     arn: var_listener_arn,
+ * }));
+ * const aws_lb_listener_selected443 = pulumi.output(aws.elasticloadbalancingv2.getListener({
+ *     loadBalancerArn: aws_lb_selected.apply(__arg0 => __arg0.arn),
+ *     port: 443,
+ * }));
+ * ```
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};

@@ -10,6 +10,34 @@ import * as utilities from "../utilities";
  * You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
  * meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
  * 
+ * 
+ * ## Example Usage
+ * 
+ * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_neptune_cluster_default = new aws.neptune.Cluster("default", {
+ *     applyImmediately: true,
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "neptune-cluster-demo",
+ *     engine: "neptune",
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     preferredBackupWindow: "07:00-09:00",
+ *     skipFinalSnapshot: true,
+ * });
+ * const aws_neptune_cluster_instance_example: aws.neptune.ClusterInstance[] = [];
+ * for (let i = 0; i < 2; i++) {
+ *     aws_neptune_cluster_instance_example.push(new aws.neptune.ClusterInstance(`example-${i}`, {
+ *         applyImmediately: true,
+ *         clusterIdentifier: aws_neptune_cluster_default.id,
+ *         engine: "neptune",
+ *         instanceClass: "db.r4.large",
+ *     }));
+ * }
+ * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**

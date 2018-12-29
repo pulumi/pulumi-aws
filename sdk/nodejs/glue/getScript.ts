@@ -6,6 +6,37 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
+ * 
+ * ## Example Usage
+ * 
+ * ### Generate Python Script
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_script_example = pulumi.output(aws.glue.getScript({
+ *     dagEdges: [],
+ *     dagNodes: [],
+ *     language: "PYTHON",
+ * }));
+ * 
+ * export const pythonScript = aws_glue_script_example.apply(__arg0 => __arg0.pythonScript);
+ * ```
+ * ### Generate Scala Code
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_script_example = pulumi.output(aws.glue.getScript({
+ *     dagEdges: [],
+ *     dagNodes: [],
+ *     language: "SCALA",
+ * }));
+ * 
+ * export const scalaCode = aws_glue_script_example.apply(__arg0 => __arg0.scalaCode);
+ * ```
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
     return pulumi.runtime.invoke("aws:glue/getScript:getScript", {

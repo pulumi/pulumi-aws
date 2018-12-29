@@ -9,6 +9,30 @@ import * as utilities from "./utilities";
  * resources.
  * 
  * > **NOTE:** The `owners` argument will be **required** in the next major version.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ami_nat_ami = pulumi.output(aws.getAmi({
+ *     executableUsers: ["self"],
+ *     filters: [
+ *         {
+ *             name: "owner-alias",
+ *             values: ["amazon"],
+ *         },
+ *         {
+ *             name: "name",
+ *             values: ["amzn-ami-vpc-nat*"],
+ *         },
+ *     ],
+ *     mostRecent: true,
+ *     nameRegex: "^myami-\\d{3}",
+ *     owners: ["self"],
+ * }));
+ * ```
  */
 export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     args = args || {};

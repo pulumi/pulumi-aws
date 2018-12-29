@@ -8,6 +8,54 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Authorizer.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_api_gateway_rest_api_demo = new aws.apigateway.RestApi("demo", {
+ *     name: "auth-demo",
+ * });
+ * const aws_iam_role_invocation_role = new aws.iam.Role("invocation_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"apigateway.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "api_gateway_auth_invocation",
+ *     path: "/",
+ * });
+ * const aws_iam_role_lambda = new aws.iam.Role("lambda", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "demo-lambda",
+ * });
+ * const aws_lambda_function_authorizer = new aws.lambda.Function("authorizer", {
+ *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
+ *     name: "api_gateway_authorizer",
+ *     handler: "exports.example",
+ *     role: aws_iam_role_lambda.arn,
+ * });
+ * const aws_api_gateway_authorizer_demo = new aws.apigateway.Authorizer("demo", {
+ *     authorizerCredentials: aws_iam_role_invocation_role.arn,
+ *     authorizerUri: aws_lambda_function_authorizer.invokeArn,
+ *     name: "demo",
+ *     restApi: aws_api_gateway_rest_api_demo.id,
+ * });
+ * const aws_iam_role_policy_invocation_policy = new aws.iam.RolePolicy("invocation_policy", {
+ *     name: "default",
+ *     policy: aws_lambda_function_authorizer.arn.apply(__arg0 => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "lambda:InvokeFunction",
+ *       "Effect": "Allow",
+ *       "Resource": "${__arg0}"
+ *     }
+ *   ]
+ * }
+ * `),
+ *     role: aws_iam_role_invocation_role.id,
+ * });
+ * ```
  */
 export class Authorizer extends pulumi.CustomResource {
     /**

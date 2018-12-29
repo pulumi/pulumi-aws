@@ -6,6 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elb_lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
+ *     availabilityZones: ["us-east-1a"],
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "http",
+ *         lbPort: 80,
+ *         lbProtocol: "http",
+ *     }],
+ *     name: "test-lb",
+ * });
+ * const aws_lb_cookie_stickiness_policy_foo = new aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy("foo", {
+ *     cookieExpirationPeriod: 600,
+ *     lbPort: 80,
+ *     loadBalancer: aws_elb_lb.id,
+ *     name: "foo-policy",
+ * });
+ * ```
  */
 export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     /**

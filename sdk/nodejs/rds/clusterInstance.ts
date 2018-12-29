@@ -19,6 +19,33 @@ import * as utilities from "../utilities";
  * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
  * 
  * > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`prevent_destroy` lifecycle behavior](https://www.terraform.io/docs/configuration/resources.html#prevent_destroy) to your Terraform resource configuration if you desire protection from accidental deletion.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_rds_cluster_default = new aws.rds.Cluster("default", {
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     databaseName: "mydb",
+ *     masterPassword: "barbut8chars",
+ *     masterUsername: "foo",
+ * });
+ * const aws_rds_cluster_instance_cluster_instances: aws.rds.ClusterInstance[] = [];
+ * for (let i = 0; i < 2; i++) {
+ *     aws_rds_cluster_instance_cluster_instances.push(new aws.rds.ClusterInstance(`cluster_instances-${i}`, {
+ *         clusterIdentifier: aws_rds_cluster_default.id,
+ *         identifier: `aurora-cluster-demo-${i}`,
+ *         instanceClass: "db.r4.large",
+ *     }));
+ * }
+ * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**

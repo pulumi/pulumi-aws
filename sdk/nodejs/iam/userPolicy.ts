@@ -8,6 +8,26 @@ import {PolicyDocument} from "./documents";
 
 /**
  * Provides an IAM policy attached to a user.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_user_lb = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
+ *     path: "/system/",
+ * });
+ * const aws_iam_access_key_lb = new aws.iam.AccessKey("lb", {
+ *     user: aws_iam_user_lb.name,
+ * });
+ * const aws_iam_user_policy_lb_ro = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
+ *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ *     user: aws_iam_user_lb.name,
+ * });
+ * ```
  */
 export class UserPolicy extends pulumi.CustomResource {
     /**

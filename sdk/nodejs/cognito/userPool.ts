@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic configuration
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {
+ *     name: "mypool",
+ * });
+ * ```
  */
 export class UserPool extends pulumi.CustomResource {
     /**

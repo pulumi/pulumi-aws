@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
  * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
  * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_db_parameter_group_default = new aws.rds.ParameterGroup("default", {
+ *     family: "mysql5.6",
+ *     name: "rds-pg",
+ *     parameters: [
+ *         {
+ *             name: "character_set_server",
+ *             value: "utf8",
+ *         },
+ *         {
+ *             name: "character_set_client",
+ *             value: "utf8",
+ *         },
+ *     ],
+ * });
+ * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

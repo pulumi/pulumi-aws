@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect private virtual interface resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_dx_private_virtual_interface_foo = new aws.directconnect.PrivateVirtualInterface("foo", {
+ *     addressFamily: "ipv4",
+ *     bgpAsn: 65352,
+ *     connectionId: "dxcon-zzzzzzzz",
+ *     name: "vif-foo",
+ *     vlan: 4094,
+ * });
+ * ```
  */
 export class PrivateVirtualInterface extends pulumi.CustomResource {
     /**

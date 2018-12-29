@@ -6,6 +6,60 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elb_lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
+ *     availabilityZones: ["us-east-1a"],
+ *     listeners: [{
+ *         instancePort: 8000,
+ *         instanceProtocol: "https",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
+ *     }],
+ *     name: "test-lb",
+ * });
+ * const aws_lb_ssl_negotiation_policy_foo = new aws.elasticloadbalancing.SslNegotiationPolicy("foo", {
+ *     attributes: [
+ *         {
+ *             name: "Protocol-TLSv1",
+ *             value: "false",
+ *         },
+ *         {
+ *             name: "Protocol-TLSv1.1",
+ *             value: "false",
+ *         },
+ *         {
+ *             name: "Protocol-TLSv1.2",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "Server-Defined-Cipher-Order",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "ECDHE-RSA-AES128-GCM-SHA256",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "AES128-GCM-SHA256",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "EDH-RSA-DES-CBC3-SHA",
+ *             value: "false",
+ *         },
+ *     ],
+ *     lbPort: 443,
+ *     loadBalancer: aws_elb_lb.id,
+ *     name: "foo-policy",
+ * });
+ * ```
  */
 export class SslNegotiationPolicy extends pulumi.CustomResource {
     /**
