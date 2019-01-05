@@ -933,15 +933,6 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "lb_listener.html.markdown",
 				},
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Force this to be projected as a singleton for backward compatibility and to continue to match
-					// `aws_lb_listener`.  Both of these are wrong though, and the MaxItemsOne overrride should be
-					// removed.  This will be a breaking change, so leaving as is for now.
-					"default_action": {
-						Name:        "defaultAction",
-						MaxItemsOne: boolRef(true),
-					},
-				},
 			},
 			"aws_alb_listener_certificate": {
 				Tok: awsResource(albMod, "ListenerCertificate"),
@@ -968,18 +959,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Load Balancing (Application and Network)
-			"aws_lb": {Tok: awsResource(elbv2Mod, "LoadBalancer")},
-			"aws_lb_listener": {
-				Tok: awsResource(elbv2Mod, "Listener"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// This is wrong, but leaving as is for now for backward compatibility.  When a breaking change is
-					// acceptable we should remove this and project this property as `default_actions`.
-					"default_action": {
-						Name:        "defaultAction",
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_lb":                         {Tok: awsResource(elbv2Mod, "LoadBalancer")},
+			"aws_lb_listener":                {Tok: awsResource(elbv2Mod, "Listener")},
 			"aws_lb_listener_certificate":    {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
 			"aws_lb_listener_rule":           {Tok: awsResource(elbv2Mod, "ListenerRule")},
 			"aws_lb_target_group":            {Tok: awsResource(elbv2Mod, "TargetGroup")},
