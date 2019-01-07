@@ -1,8 +1,4 @@
-## 0.17.0 (Unreleased)
-
-### Major Changes
-
-- The `defaultAction` property on `aws.elasticloadbalancingv2.Listener` and `aws.applicationloadbalancing.Listener` is now named `defaultActions` and is an array of actions.
+## 0.16.7 (Unreleased)
 
 ## 0.16.6 (Released December 23rd, 2018)
 
