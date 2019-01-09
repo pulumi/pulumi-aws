@@ -18,6 +18,35 @@ import * as utilities from "../utilities";
  * `initial_lifecycle_hook` in
  * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
  * but take care to not duplicate those hooks with this resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_autoscaling_group_foobar = new aws.autoscaling.Group("foobar", {
+ *     availabilityZones: ["us-west-2a"],
+ *     healthCheckType: "EC2",
+ *     name: "terraform-test-foobar5",
+ *     tags: [{
+ *         key: "Foo",
+ *         propagateAtLaunch: true,
+ *         value: "foo-bar",
+ *     }],
+ *     terminationPolicies: ["OldestInstance"],
+ * });
+ * const aws_autoscaling_lifecycle_hook_foobar = new aws.autoscaling.LifecycleHook("foobar", {
+ *     autoscalingGroupName: aws_autoscaling_group_foobar.name,
+ *     defaultResult: "CONTINUE",
+ *     heartbeatTimeout: 2000,
+ *     lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *     name: "foobar",
+ *     notificationMetadata: "{\n  \"foo\": \"bar\"\n}\n",
+ *     notificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
+ *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
+ * });
+ * ```
  */
 export class LifecycleHook extends pulumi.CustomResource {
     /**

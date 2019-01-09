@@ -9,6 +9,18 @@ import {PlacementStrategy} from "./placementStrategy";
 /**
  * Provides an EC2 placement group. Read more about placement groups
  * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_placement_group_web = new aws.ec2.PlacementGroup("web", {
+ *     name: "hunky-dory-pg",
+ *     strategy: "cluster",
+ * });
+ * ```
  */
 export class PlacementGroup extends pulumi.CustomResource {
     /**

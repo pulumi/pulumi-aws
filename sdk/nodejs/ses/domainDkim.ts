@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Provides an SES domain DKIM generation resource.
  * 
  * Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ses_domain_identity_example = new aws.ses.DomainIdentity("example", {
+ *     domain: "example.com",
+ * });
+ * const aws_ses_domain_dkim_example = new aws.ses.DomainDkim("example", {
+ *     domain: aws_ses_domain_identity_example.domain,
+ * });
+ * const aws_route53_record_example_amazonses_verification_record: aws.route53.Record[] = [];
+ * for (let i = 0; i < 3; i++) {
+ *     aws_route53_record_example_amazonses_verification_record.push(new aws.route53.Record(`example_amazonses_verification_record-${i}`, {
+ *         name: aws_ses_domain_dkim_example.dkimTokens.apply(__arg0 => `${__arg0[i]}._domainkey.example.com`),
+ *         records: [aws_ses_domain_dkim_example.dkimTokens.apply(__arg0 => `${__arg0[i]}.dkim.amazonses.com`)],
+ *         ttl: Number.parseFloat("600"),
+ *         type: "CNAME",
+ *         zoneId: "ABCDEFGHIJ123",
+ *     }));
+ * }
+ * ```
  */
 export class DomainDkim extends pulumi.CustomResource {
     /**

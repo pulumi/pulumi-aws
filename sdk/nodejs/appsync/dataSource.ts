@@ -6,6 +6,60 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync DataSource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appsync_graphql_api_example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ *     name: "tf_appsync_example",
+ * });
+ * const aws_dynamodb_table_example = new aws.dynamodb.Table("example", {
+ *     attributes: [{
+ *         name: "UserId",
+ *         type: "S",
+ *     }],
+ *     hashKey: "UserId",
+ *     name: "example",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
+ * });
+ * const aws_iam_role_example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"appsync.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\"\n    }\n  ]\n}\n",
+ *     name: "example",
+ * });
+ * const aws_appsync_datasource_example = new aws.appsync.DataSource("example", {
+ *     apiId: aws_appsync_graphql_api_example.id,
+ *     dynamodbConfig: {
+ *         tableName: aws_dynamodb_table_example.name,
+ *     },
+ *     name: "tf_appsync_example",
+ *     serviceRoleArn: aws_iam_role_example.arn,
+ *     type: "AMAZON_DYNAMODB",
+ * });
+ * const aws_iam_role_policy_example = new aws.iam.RolePolicy("example", {
+ *     name: "example",
+ *     policy: aws_dynamodb_table_example.arn.apply(__arg0 => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "dynamodb:*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "${__arg0}"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * `),
+ *     role: aws_iam_role_example.id,
+ * });
+ * ```
  */
 export class DataSource extends pulumi.CustomResource {
     /**

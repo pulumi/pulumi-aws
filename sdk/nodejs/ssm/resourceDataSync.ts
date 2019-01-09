@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SSM resource data sync.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_hoge = new aws.s3.Bucket("hoge", {
+ *     bucket: "tf-test-bucket-1234",
+ *     region: "us-east-1",
+ * });
+ * const aws_s3_bucket_policy_hoge = new aws.s3.BucketPolicy("hoge", {
+ *     bucket: aws_s3_bucket_hoge.bucket,
+ *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"SSMBucketPermissionsCheck\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"ssm.amazonaws.com\"\n            },\n            \"Action\": \"s3:GetBucketAcl\",\n            \"Resource\": \"arn:aws:s3:::tf-test-bucket-1234\"\n        },\n        {\n            \"Sid\": \" SSMBucketDelivery\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"ssm.amazonaws.com\"\n            },\n            \"Action\": \"s3:PutObject\",\n            \"Resource\": [\"arn:aws:s3:::tf-test-bucket-1234/*\"],\n            \"Condition\": {\n                \"StringEquals\": {\n                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n                }\n            }\n        }\n    ]\n}\n",
+ * });
+ * const aws_ssm_resource_data_sync_foo = new aws.ssm.ResourceDataSync("foo", {
+ *     name: "foo",
+ *     s3Destination: {
+ *         bucketName: aws_s3_bucket_hoge.bucket,
+ *         region: aws_s3_bucket_hoge.region,
+ *     },
+ * });
+ * ```
  */
 export class ResourceDataSync extends pulumi.CustomResource {
     /**

@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a single EBS volume.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ebs_volume_example = new aws.ebs.Volume("example", {
+ *     availabilityZone: "us-west-2a",
+ *     size: 40,
+ *     tags: {
+ *         Name: "HelloWorld",
+ *     },
+ * });
+ * ```
+ * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume 
+ * 
  */
 export class Volume extends pulumi.CustomResource {
     /**

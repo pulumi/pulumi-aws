@@ -15,6 +15,35 @@ import {User} from "./user";
  * !> **WARNING:** The aws_iam_policy_attachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws_iam_policy_attachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other Terraform resources) will have that attached policy revoked by this resource. Consider `aws_iam_role_policy_attachment`, `aws_iam_user_policy_attachment`, or `aws_iam_group_policy_attachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
  * 
  * > **NOTE:** The usage of this resource conflicts with the `aws_iam_group_policy_attachment`, `aws_iam_role_policy_attachment`, and `aws_iam_user_policy_attachment` resources and will permanently show a difference if both are defined.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_group_group = new aws.iam.Group("group", {
+ *     name: "test-group",
+ * });
+ * const aws_iam_policy_policy = new aws.iam.Policy("policy", {
+ *     description: "A test policy",
+ *     name: "test-policy",
+ *     policy: "",
+ * });
+ * const aws_iam_role_role = new aws.iam.Role("role", {
+ *     name: "test-role",
+ * });
+ * const aws_iam_user_user = new aws.iam.User("user", {
+ *     name: "test-user",
+ * });
+ * const aws_iam_policy_attachment_test_attach = new aws.iam.PolicyAttachment("test-attach", {
+ *     groups: [aws_iam_group_group.name],
+ *     name: "test-attachment",
+ *     policyArn: aws_iam_policy_policy.arn,
+ *     roles: [aws_iam_role_role.name],
+ *     users: [aws_iam_user_user.name],
+ * });
+ * ```
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

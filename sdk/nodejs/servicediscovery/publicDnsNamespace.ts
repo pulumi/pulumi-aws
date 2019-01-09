@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Service Discovery Public DNS Namespace resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_service_discovery_public_dns_namespace_example = new aws.servicediscovery.PublicDnsNamespace("example", {
+ *     description: "example",
+ *     name: "hoge.example.com",
+ * });
+ * ```
  */
 export class PublicDnsNamespace extends pulumi.CustomResource {
     /**

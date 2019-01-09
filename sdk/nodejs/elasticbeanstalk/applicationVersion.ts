@@ -24,6 +24,33 @@ import {Application} from "./application";
  * <li>Create your `aws_elastic_beanstalk_application_version` resources with a unique names in your 
  * Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
  * </ol>
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elastic_beanstalk_application_default = new aws.elasticbeanstalk.Application("default", {
+ *     description: "tf-test-desc",
+ *     name: "tf-test-name",
+ * });
+ * const aws_s3_bucket_default = new aws.s3.Bucket("default", {
+ *     bucket: "tftest.applicationversion.bucket",
+ * });
+ * const aws_s3_bucket_object_default = new aws.s3.BucketObject("default", {
+ *     bucket: aws_s3_bucket_default.id,
+ *     key: "beanstalk/go-v1.zip",
+ *     source: new pulumi.asset.FileAsset("go-v1.zip"),
+ * });
+ * const aws_elastic_beanstalk_application_version_default = new aws.elasticbeanstalk.ApplicationVersion("default", {
+ *     application: "tf-test-name",
+ *     bucket: aws_s3_bucket_default.id,
+ *     description: "application version created by terraform",
+ *     key: aws_s3_bucket_object_default.id,
+ *     name: "tf-test-version-label",
+ * });
+ * ```
  */
 export class ApplicationVersion extends pulumi.CustomResource {
     /**

@@ -9,6 +9,39 @@ import {Function} from "./function";
 /**
  * Creates a Lambda permission to allow external sources invoking the Lambda function
  * (e.g. CloudWatch Event Rule, SNS or S3).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "iam_for_lambda",
+ * });
+ * const aws_lambda_function_test_lambda = new aws.lambda.Function("test_lambda", {
+ *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
+ *     name: "lambda_function_name",
+ *     handler: "exports.handler",
+ *     role: aws_iam_role_iam_for_lambda.arn,
+ *     runtime: "nodejs6.10",
+ * });
+ * const aws_lambda_alias_test_alias = new aws.lambda.Alias("test_alias", {
+ *     description: "a sample description",
+ *     functionName: aws_lambda_function_test_lambda.functionName,
+ *     functionVersion: "$LATEST",
+ *     name: "testalias",
+ * });
+ * const aws_lambda_permission_allow_cloudwatch = new aws.lambda.Permission("allow_cloudwatch", {
+ *     action: "lambda:InvokeFunction",
+ *     function: aws_lambda_function_test_lambda.functionName,
+ *     principal: "events.amazonaws.com",
+ *     qualifier: aws_lambda_alias_test_alias.name,
+ *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
+ *     statementId: "AllowExecutionFromCloudWatch",
+ * });
+ * ```
  */
 export class Permission extends pulumi.CustomResource {
     /**

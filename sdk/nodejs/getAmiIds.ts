@@ -8,6 +8,21 @@ import * as utilities from "./utilities";
  * Use this data source to get a list of AMI IDs matching the specified criteria.
  * 
  * > **NOTE:** The `owners` argument will be **required** in the next major version.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ami_ids_ubuntu = pulumi.output(aws.getAmiIds({
+ *     filters: [{
+ *         name: "name",
+ *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
+ *     }],
+ *     owners: ["099720109477"],
+ * }));
+ * ```
  */
 export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     args = args || {};

@@ -6,6 +6,113 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"codebuild.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     name: "example",
+ * });
+ * const aws_s3_bucket_example = new aws.s3.Bucket("example", {
+ *     acl: "private",
+ *     bucket: "example",
+ * });
+ * const aws_codebuild_project_example = new aws.codebuild.Project("example", {
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     buildTimeout: Number.parseFloat("5"),
+ *     cache: {
+ *         location: aws_s3_bucket_example.bucket,
+ *         type: "S3",
+ *     },
+ *     description: "test_codebuild_project",
+ *     environment: {
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         environmentVariables: [
+ *             {
+ *                 name: "SOME_KEY1",
+ *                 value: "SOME_VALUE1",
+ *             },
+ *             {
+ *                 name: "SOME_KEY2",
+ *                 type: "PARAMETER_STORE",
+ *                 value: "SOME_VALUE2",
+ *             },
+ *         ],
+ *         image: "aws/codebuild/nodejs:6.3.1",
+ *         type: "LINUX_CONTAINER",
+ *     },
+ *     name: "test-project",
+ *     serviceRole: aws_iam_role_example.arn,
+ *     source: {
+ *         gitCloneDepth: 1,
+ *         location: "https://github.com/mitchellh/packer.git",
+ *         type: "GITHUB",
+ *     },
+ *     tags: {
+ *         Environment: "Test",
+ *     },
+ *     vpcConfig: {
+ *         securityGroupIds: [
+ *             "sg-f9f27d91",
+ *             "sg-e4f48g23",
+ *         ],
+ *         subnets: [
+ *             "subnet-ba35d2e0",
+ *             "subnet-ab129af1",
+ *         ],
+ *         vpcId: "vpc-725fca",
+ *     },
+ * });
+ * const aws_iam_role_policy_example = new aws.iam.RolePolicy("example", {
+ *     policy: pulumi.all([aws_s3_bucket_example.arn, aws_s3_bucket_example.arn]).apply(([__arg0, __arg1]) => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "*"
+ *       ],
+ *       "Action": [
+ *         "logs:CreateLogGroup",
+ *         "logs:CreateLogStream",
+ *         "logs:PutLogEvents"
+ *       ]
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "ec2:CreateNetworkInterface",
+ *         "ec2:DescribeDhcpOptions",
+ *         "ec2:DescribeNetworkInterfaces",
+ *         "ec2:DeleteNetworkInterface",
+ *         "ec2:DescribeSubnets",
+ *         "ec2:DescribeSecurityGroups",
+ *         "ec2:DescribeVpcs"
+ *       ],
+ *       "Resource": "*"
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "s3:*"
+ *       ],
+ *       "Resource": [
+ *         "${__arg0}",
+ *         "${__arg1}/*"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * `),
+ *     role: aws_iam_role_example.name,
+ * });
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

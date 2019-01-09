@@ -28,6 +28,22 @@ import * as utilities from "../utilities";
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
  * for more information.
  * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_spot_instance_request_cheap_worker = new aws.ec2.SpotInstanceRequest("cheap_worker", {
+ *     ami: "ami-1234",
+ *     instanceType: "c4.xlarge",
+ *     spotPrice: "0.03",
+ *     tags: {
+ *         Name: "CheapWorker",
+ *     },
+ * });
+ * ```
  */
 export class SpotInstanceRequest extends pulumi.CustomResource {
     /**

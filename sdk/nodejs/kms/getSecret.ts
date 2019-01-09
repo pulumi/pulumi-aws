@@ -15,6 +15,28 @@ import * as utilities from "../utilities";
  * logging output, plan output or state output.
  * 
  * Please take care to secure your secret data outside of resource definitions.
+ * Now, take that output and add it to your resource definitions.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_kms_secret_db = pulumi.output(aws.kms.getSecret({
+ *     secrets: [{
+ *         context: {
+ *             foo: "bar",
+ *         },
+ *         name: "master_password",
+ *         payload: "AQECAHgaPa0J8WadplGCqqVAr4HNvDaFSQ+NaiwIBhmm6qDSFwAAAGIwYAYJKoZIhvcNAQcGoFMwUQIBADBMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDI+LoLdvYv8l41OhAAIBEIAfx49FFJCLeYrkfMfAw6XlnxP23MmDBdqP8dPp28OoAQ==",
+ *     }],
+ * }));
+ * const aws_rds_cluster_rds = new aws.rds.Cluster("rds", {
+ *     masterPassword: aws_kms_secret_db.apply(__arg0 => __arg0.masterPassword),
+ *     masterUsername: "root",
+ * });
+ * ```
+ * And your RDS cluster would have the root password set to "master-password"
+ * 
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     return pulumi.runtime.invoke("aws:kms/getSecret:getSecret", {

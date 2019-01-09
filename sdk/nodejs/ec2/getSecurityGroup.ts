@@ -10,6 +10,27 @@ import * as utilities from "../utilities";
  * This resource can prove useful when a module accepts a Security Group id as
  * an input variable and needs to, for example, determine the id of the
  * VPC that the security group belongs to.
+ * 
+ * ## Example Usage
+ * 
+ * The following example shows how one might accept a Security Group id as a variable
+ * and use this data source to obtain the data necessary to create a subnet.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_security_group_id = config.require("securityGroupId");
+ * 
+ * const aws_security_group_selected = pulumi.output(aws.ec2.getSecurityGroup({
+ *     id: var_security_group_id,
+ * }));
+ * const aws_subnet_subnet = new aws.ec2.Subnet("subnet", {
+ *     cidrBlock: "10.0.1.0/24",
+ *     vpcId: aws_security_group_selected.apply(__arg0 => __arg0.vpcId),
+ * });
+ * ```
  */
 export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
     args = args || {};

@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_mount_target_id = config.get("mountTargetId") || "";
+ * 
+ * const aws_efs_mount_target_by_id = pulumi.output(aws.efs.getMountTarget({
+ *     mountTargetId: var_mount_target_id,
+ * }));
+ * ```
  */
 export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     return pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {

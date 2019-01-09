@@ -9,6 +9,21 @@ import * as utilities from "../utilities";
  * 
  * When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
  * The `aws_vpc_ipv4_cidr_block_association` resource allows further IPv4 CIDR blocks to be added to the VPC.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "10.0.0.0/16",
+ * });
+ * const aws_vpc_ipv4_cidr_block_association_secondary_cidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
+ *     cidrBlock: "172.2.0.0/16",
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * ```
  */
 export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
     /**

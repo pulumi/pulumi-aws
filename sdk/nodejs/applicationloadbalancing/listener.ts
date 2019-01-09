@@ -8,6 +8,140 @@ import * as utilities from "../utilities";
  * Provides a Load Balancer Listener resource.
  * 
  * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
+ * 
+ * ## Example Usage
+ * 
+ * ### Forward Action
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const aws_lb_target_group_front_end = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+ *     defaultAction: {
+ *         targetGroupArn: aws_lb_target_group_front_end.arn,
+ *         type: "forward",
+ *     },
+ *     loadBalancerArn: aws_lb_front_end.arn,
+ *     port: Number.parseFloat("443"),
+ *     protocol: "HTTPS",
+ *     sslPolicy: "ELBSecurityPolicy-2015-05",
+ * });
+ * ```
+ * ### Redirect Action
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     defaultAction: {
+ *         redirect: {
+ *             port: "443",
+ *             protocol: "HTTPS",
+ *             statusCode: "HTTP_301",
+ *         },
+ *         type: "redirect",
+ *     },
+ *     loadBalancerArn: aws_lb_front_end.arn,
+ *     port: Number.parseFloat("80"),
+ *     protocol: "HTTP",
+ * });
+ * ```
+ * ### Fixed-response Action
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     defaultAction: {
+ *         fixedResponse: {
+ *             contentType: "text/plain",
+ *             messageBody: "Fixed response content",
+ *             statusCode: "200",
+ *         },
+ *         type: "fixed-response",
+ *     },
+ *     loadBalancerArn: aws_lb_front_end.arn,
+ *     port: Number.parseFloat("80"),
+ *     protocol: "HTTP",
+ * });
+ * ```
+ * ### Authenticate-cognito Action
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {});
+ * const aws_cognito_user_pool_client_client = new aws.cognito.UserPoolClient("client", {});
+ * const aws_cognito_user_pool_domain_domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const aws_lb_target_group_front_end = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     defaultAction: pulumi.all([aws_cognito_user_pool_pool.arn, aws_cognito_user_pool_client_client.id, aws_cognito_user_pool_domain_domain.domain, aws_lb_target_group_front_end.arn]).apply(([__arg0, __arg1, __arg2, __arg3]) => (() => {
+ *         throw "tf2pulumi error: aws_lb_listener.front_end.default_action: expected at most one item in list, got 2";
+ *         return [
+ *             {
+ *                 authenticateCognito: {
+ *                     userPoolArn: __arg0,
+ *                     userPoolClientId: __arg1,
+ *                     userPoolDomain: __arg2,
+ *                 },
+ *                 type: "authenticate-cognito",
+ *             },
+ *             {
+ *                 targetGroupArn: __arg3,
+ *                 type: "forward",
+ *             },
+ *         ];
+ *     })()),
+ *     loadBalancerArn: aws_lb_front_end.arn,
+ *     port: Number.parseFloat("80"),
+ *     protocol: "HTTP",
+ * });
+ * ```
+ * ### Authenticate-oidc Action
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const aws_lb_target_group_front_end = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     defaultAction: aws_lb_target_group_front_end.arn.apply(__arg0 => (() => {
+ *         throw "tf2pulumi error: aws_lb_listener.front_end.default_action: expected at most one item in list, got 2";
+ *         return [
+ *             {
+ *                 authenticateOidc: {
+ *                     authorizationEndpoint: "https://example.com/authorization_endpoint",
+ *                     clientId: "client_id",
+ *                     clientSecret: "client_secret",
+ *                     issuer: "https://example.com",
+ *                     tokenEndpoint: "https://example.com/token_endpoint",
+ *                     userInfoEndpoint: "https://example.com/user_info_endpoint",
+ *                 },
+ *                 type: "authenticate-oidc",
+ *             },
+ *             {
+ *                 targetGroupArn: __arg0,
+ *                 type: "forward",
+ *             },
+ *         ];
+ *     })()),
+ *     loadBalancerArn: aws_lb_front_end.arn,
+ *     port: Number.parseFloat("80"),
+ *     protocol: "HTTP",
+ * });
+ * ```
+ * 
  */
 export class Listener extends pulumi.CustomResource {
     /**

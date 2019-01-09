@@ -9,6 +9,26 @@ import * as utilities from "../utilities";
  * scales elastically for real-time processing of streaming big data.
  * 
  * For more details, see the [Amazon Kinesis Documentation][1].
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_kinesis_stream_test_stream = new aws.kinesis.Stream("test_stream", {
+ *     name: "terraform-kinesis-test",
+ *     retentionPeriod: 48,
+ *     shardCount: 1,
+ *     shardLevelMetrics: [
+ *         "IncomingBytes",
+ *         "OutgoingBytes",
+ *     ],
+ *     tags: {
+ *         Environment: "test",
+ *     },
+ * });
+ * ```
  */
 export class Stream extends pulumi.CustomResource {
     /**

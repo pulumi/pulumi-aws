@@ -8,6 +8,28 @@ import {CannedAcl} from "./cannedAcl";
 
 /**
  * Provides a S3 bucket resource.
+ * ### Enable Default Server Side Encryption
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_kms_key_mykey = new aws.kms.Key("mykey", {
+ *     deletionWindowInDays: 10,
+ *     description: "This key is used to encrypt bucket objects",
+ * });
+ * const aws_s3_bucket_mybucket = new aws.s3.Bucket("mybucket", {
+ *     bucket: "mybucket",
+ *     serverSideEncryptionConfiguration: {
+ *         rule: {
+ *             applyServerSideEncryptionByDefault: {
+ *                 kmsMasterKeyId: aws_kms_key_mykey.arn,
+ *                 sseAlgorithm: "aws:kms",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
  */
 export class Bucket extends pulumi.CustomResource {
     /**

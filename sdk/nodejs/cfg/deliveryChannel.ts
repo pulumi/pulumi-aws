@@ -8,6 +8,50 @@ import * as utilities from "../utilities";
  * Provides an AWS Config Delivery Channel.
  * 
  * > **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_r = new aws.iam.Role("r", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"config.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "awsconfig-example",
+ * });
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     bucket: "example-awsconfig",
+ *     forceDestroy: true,
+ * });
+ * const aws_config_configuration_recorder_foo = new aws.cfg.Recorder("foo", {
+ *     name: "example",
+ *     roleArn: aws_iam_role_r.arn,
+ * });
+ * const aws_config_delivery_channel_foo = new aws.cfg.DeliveryChannel("foo", {
+ *     name: "example",
+ *     s3BucketName: aws_s3_bucket_b.bucket,
+ * }, {dependsOn: [aws_config_configuration_recorder_foo]});
+ * const aws_iam_role_policy_p = new aws.iam.RolePolicy("p", {
+ *     name: "awsconfig-example",
+ *     policy: pulumi.all([aws_s3_bucket_b.arn, aws_s3_bucket_b.arn]).apply(([__arg0, __arg1]) => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "s3:*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "${__arg0}",
+ *         "${__arg1}/*"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * `),
+ *     role: aws_iam_role_r.id,
+ * });
+ * ```
  */
 export class DeliveryChannel extends pulumi.CustomResource {
     /**
