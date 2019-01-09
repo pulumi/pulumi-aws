@@ -21,9 +21,6 @@ func NewReplicationGroup(ctx *pulumi.Context,
 	if args == nil || args.ReplicationGroupDescription == nil {
 		return nil, errors.New("missing required argument 'ReplicationGroupDescription'")
 	}
-	if args == nil || args.ReplicationGroupId == nil {
-		return nil, errors.New("missing required argument 'ReplicationGroupId'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["applyImmediately"] = nil
