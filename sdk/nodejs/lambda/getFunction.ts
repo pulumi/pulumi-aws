@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Function.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const var_function_name = config.require("functionName");
- * 
- * const aws_lambda_function_existing = pulumi.output(aws.lambda.getFunction({
- *     functionName: var_function_name,
- * }));
- * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {

@@ -6,60 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Service Discovery Service resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_example = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const aws_service_discovery_private_dns_namespace_example = new aws.servicediscovery.PrivateDnsNamespace("example", {
- *     description: "example",
- *     name: "example.terraform.local",
- *     vpc: aws_vpc_example.id,
- * });
- * const aws_service_discovery_service_example = new aws.servicediscovery.Service("example", {
- *     dnsConfig: {
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         namespaceId: aws_service_discovery_private_dns_namespace_example.id,
- *         routingPolicy: "MULTIVALUE",
- *     },
- *     healthCheckCustomConfig: {
- *         failureThreshold: 1,
- *     },
- *     name: "example",
- * });
- * ```
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_service_discovery_public_dns_namespace_example = new aws.servicediscovery.PublicDnsNamespace("example", {
- *     description: "example",
- *     name: "example.terraform.com",
- * });
- * const aws_service_discovery_service_example = new aws.servicediscovery.Service("example", {
- *     dnsConfig: {
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         namespaceId: aws_service_discovery_public_dns_namespace_example.id,
- *     },
- *     healthCheckConfig: {
- *         failureThreshold: 10,
- *         resourcePath: "path",
- *         type: "HTTP",
- *     },
- *     name: "example",
- * });
- * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

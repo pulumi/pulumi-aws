@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Neptune Parameter Group
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_neptune_parameter_group_example = new aws.neptune.ParameterGroup("example", {
- *     family: "neptune1",
- *     name: "example",
- *     parameters: [{
- *         name: "neptune_query_timeout",
- *         value: "25",
- *     }],
- * });
- * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

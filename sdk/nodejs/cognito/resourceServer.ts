@@ -6,43 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito Resource Server.
- * 
- * ## Example Usage
- * 
- * ### Create a basic resource server
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {
- *     name: "pool",
- * });
- * const aws_cognito_resource_server_resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     name: "example",
- *     userPoolId: aws_cognito_user_pool_pool.id,
- * });
- * ```
- * ### Create a resource server with sample-scope
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {
- *     name: "pool",
- * });
- * const aws_cognito_resource_server_resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     name: "example",
- *     scopes: [{
- *         scopeDescription: "a Sample Scope Description",
- *         scopeName: "sample-scope",
- *     }],
- *     userPoolId: aws_cognito_user_pool_pool.id,
- * });
- * ```
  */
 export class ResourceServer extends pulumi.CustomResource {
     /**

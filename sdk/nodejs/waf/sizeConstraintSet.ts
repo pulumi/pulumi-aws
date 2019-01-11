@@ -6,25 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Size Constraint Set Resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_waf_size_constraint_set_size_constraint_set = new aws.waf.SizeConstraintSet("size_constraint_set", {
- *     name: "tfsize_constraints",
- *     sizeConstraints: [{
- *         comparisonOperator: "EQ",
- *         fieldToMatch: {
- *             type: "BODY",
- *         },
- *         size: Number.parseFloat("4096"),
- *         textTransformation: "NONE",
- *     }],
- * });
- * ```
  */
 export class SizeConstraintSet extends pulumi.CustomResource {
     /**

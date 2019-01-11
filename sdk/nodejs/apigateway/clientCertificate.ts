@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Client Certificate.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_api_gateway_client_certificate_demo = new aws.apigateway.ClientCertificate("demo", {
- *     description: "My client certificate",
- * });
- * ```
  */
 export class ClientCertificate extends pulumi.CustomResource {
     /**

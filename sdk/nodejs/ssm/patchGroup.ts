@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Group resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ssm_patch_baseline_production = new aws.ssm.PatchBaseline("production", {
- *     approvedPatches: ["KB123456"],
- *     name: "patch-baseline",
- * });
- * const aws_ssm_patch_group_patchgroup = new aws.ssm.PatchGroup("patchgroup", {
- *     baselineId: aws_ssm_patch_baseline_production.id,
- *     patchGroup: "patch-group-name",
- * });
- * ```
  */
 export class PatchGroup extends pulumi.CustomResource {
     /**

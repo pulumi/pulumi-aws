@@ -6,27 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF IPSet Resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_waf_ipset_ipset = new aws.waf.IpSet("ipset", {
- *     ipSetDescriptors: [
- *         {
- *             type: "IPV4",
- *             value: "192.0.7.0/24",
- *         },
- *         {
- *             type: "IPV4",
- *             value: "10.16.16.0/16",
- *         },
- *     ],
- *     name: "tfIPSet",
- * });
- * ```
  */
 export class IpSet extends pulumi.CustomResource {
     /**

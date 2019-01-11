@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
  * resources.
  * 
  * For more details, see the [Amazon Kinesis Documentation][1].
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_kinesis_stream_stream = pulumi.output(aws.kinesis.getStream({
- *     name: "stream-name",
- * }));
- * ```
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {

@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
- * const aws_pinpoint_sms_channel_sms = new aws.pinpoint.SmsChannel("sms", {
- *     applicationId: aws_pinpoint_app_app.applicationId,
- * });
- * ```
- * 
- */
 export class SmsChannel extends pulumi.CustomResource {
     /**
      * Get an existing SmsChannel resource's state with the given name, ID, and optional extra

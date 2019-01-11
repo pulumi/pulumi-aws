@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The Batch Compute Environment data source allows access to details of a specific
  * compute environment within AWS Batch.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_batch_compute_environment_batch_mongo = pulumi.output(aws.batch.getComputeEnvironment({
- *     computeEnvironmentName: "batch-mongo-production",
- * }));
- * ```
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {

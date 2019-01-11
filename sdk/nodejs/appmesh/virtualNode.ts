@@ -6,32 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual node resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_appmesh_virtual_node_serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: "simpleapp",
- *     name: "serviceBv1",
- *     spec: {
- *         backends: ["servicea.simpleapp.local"],
- *         listener: {
- *             portMapping: {
- *                 port: 8080,
- *                 protocol: "http",
- *             },
- *         },
- *         serviceDiscovery: {
- *             dns: {
- *                 serviceName: "serviceb.simpleapp.local",
- *             },
- *         },
- *     },
- * });
- * ```
  */
 export class VirtualNode extends pulumi.CustomResource {
     /**

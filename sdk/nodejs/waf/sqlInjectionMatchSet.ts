@@ -6,23 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF SQL Injection Match Set Resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_waf_sql_injection_match_set_sql_injection_match_set = new aws.waf.SqlInjectionMatchSet("sql_injection_match_set", {
- *     name: "tf-sql_injection_match_set",
- *     sqlInjectionMatchTuples: [{
- *         fieldToMatch: {
- *             type: "QUERY_STRING",
- *         },
- *         textTransformation: "URL_DECODE",
- *     }],
- * });
- * ```
  */
 export class SqlInjectionMatchSet extends pulumi.CustomResource {
     /**

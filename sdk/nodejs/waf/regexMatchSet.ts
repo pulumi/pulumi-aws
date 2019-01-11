@@ -6,32 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regex Match Set Resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_waf_regex_pattern_set_example = new aws.waf.RegexPatternSet("example", {
- *     name: "example",
- *     regexPatternStrings: [
- *         "one",
- *         "two",
- *     ],
- * });
- * const aws_waf_regex_match_set_example = new aws.waf.RegexMatchSet("example", {
- *     name: "example",
- *     regexMatchTuples: [{
- *         fieldToMatch: {
- *             data: "User-Agent",
- *             type: "HEADER",
- *         },
- *         regexPatternSetId: aws_waf_regex_pattern_set_example.id,
- *         textTransformation: "NONE",
- *     }],
- * });
- * ```
  */
 export class RegexMatchSet extends pulumi.CustomResource {
     /**

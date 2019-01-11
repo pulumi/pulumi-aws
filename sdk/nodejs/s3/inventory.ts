@@ -6,67 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
- * 
- * ## Example Usage
- * 
- * ### Add inventory configuration
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_s3_bucket_inventory = new aws.s3.Bucket("inventory", {
- *     bucket: "my-tf-inventory-bucket",
- * });
- * const aws_s3_bucket_test = new aws.s3.Bucket("test", {
- *     bucket: "my-tf-test-bucket",
- * });
- * const aws_s3_bucket_inventory_test = new aws.s3.Inventory("test", {
- *     bucket: aws_s3_bucket_test.id,
- *     destination: {
- *         bucket: {
- *             bucketArn: aws_s3_bucket_inventory.arn,
- *             format: "ORC",
- *         },
- *     },
- *     includedObjectVersions: "All",
- *     name: "EntireBucketDaily",
- *     schedule: {
- *         frequency: "Daily",
- *     },
- * });
- * ```
- * ### Add inventory configuration with S3 bucket object prefix
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_s3_bucket_inventory = new aws.s3.Bucket("inventory", {
- *     bucket: "my-tf-inventory-bucket",
- * });
- * const aws_s3_bucket_test = new aws.s3.Bucket("test", {
- *     bucket: "my-tf-test-bucket",
- * });
- * const aws_s3_bucket_inventory_test_prefix = new aws.s3.Inventory("test-prefix", {
- *     bucket: aws_s3_bucket_test.id,
- *     destination: {
- *         bucket: {
- *             bucketArn: aws_s3_bucket_inventory.arn,
- *             format: "ORC",
- *             prefix: "inventory",
- *         },
- *     },
- *     filter: {
- *         prefix: "documents/",
- *     },
- *     includedObjectVersions: "All",
- *     name: "DocumentsWeekly",
- *     schedule: {
- *         frequency: "Daily",
- *     },
- * });
- * ```
  */
 export class Inventory extends pulumi.CustomResource {
     /**

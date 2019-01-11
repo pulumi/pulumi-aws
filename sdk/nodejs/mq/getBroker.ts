@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MQ Broker.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const var_broker_id = config.get("brokerId") || "";
- * const var_broker_name = config.get("brokerName") || "";
- * 
- * const aws_mq_broker_by_id = pulumi.output(aws.mq.getBroker({
- *     brokerId: var_broker_id,
- * }));
- * const aws_mq_broker_by_name = pulumi.output(aws.mq.getBroker({
- *     brokerName: var_broker_name,
- * }));
- * ```
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};

@@ -11,22 +11,6 @@ import * as utilities from "../utilities";
  * The `aws_default_subnet` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
- * ## Example Usage
- * 
- * Basic usage with tags:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_default_subnet_default_az1 = new aws.ec2.DefaultSubnet("default_az1", {
- *     availabilityZone: "us-west-2a",
- *     tags: {
- *         Name: "Default subnet for us-west-2a",
- *     },
- * });
- * ```
  */
 export class DefaultSubnet extends pulumi.CustomResource {
     /**

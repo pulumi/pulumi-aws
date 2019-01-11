@@ -6,32 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Redshift Cluster parameter group resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_redshift_parameter_group_bar = new aws.redshift.ParameterGroup("bar", {
- *     family: "redshift-1.0",
- *     name: "parameter-group-test-terraform",
- *     parameters: [
- *         {
- *             name: "require_ssl",
- *             value: "true",
- *         },
- *         {
- *             name: "query_group",
- *             value: "example",
- *         },
- *         {
- *             name: "enable_user_activity_logging",
- *             value: "true",
- *         },
- *     ],
- * });
- * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

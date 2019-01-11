@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an ECS cluster.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ecs_cluster_foo = new aws.ecs.Cluster("foo", {
- *     name: "white-hart",
- * });
- * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

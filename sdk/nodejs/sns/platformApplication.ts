@@ -6,34 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SNS platform application resource
- * 
- * ## Example Usage
- * 
- * ### Apple Push Notification Service (APNS)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_sns_platform_application_apns_application = new aws.sns.PlatformApplication("apns_application", {
- *     name: "apns_application",
- *     platform: "APNS",
- *     platformCredential: "<APNS PRIVATE KEY>",
- *     platformPrincipal: "<APNS CERTIFICATE>",
- * });
- * ```
- * ### Google Cloud Messaging (GCM)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_sns_platform_application_gcm_application = new aws.sns.PlatformApplication("gcm_application", {
- *     name: "gcm_application",
- *     platform: "GCM",
- *     platformCredential: "<GCM API KEY>",
- * });
- * ```
  */
 export class PlatformApplication extends pulumi.CustomResource {
     /**

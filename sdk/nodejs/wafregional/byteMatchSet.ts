@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_wafregional_byte_match_set_byte_set = new aws.wafregional.ByteMatchSet("byte_set", {
- *     byteMatchTuples: [{
- *         fieldToMatch: {
- *             data: "referer",
- *             type: "HEADER",
- *         },
- *         positionalConstraint: "CONTAINS",
- *         targetString: "badrefer1",
- *         textTransformation: "NONE",
- *     }],
- *     name: "tf_waf_byte_match_set",
- * });
- * ```
  */
 export class ByteMatchSet extends pulumi.CustomResource {
     /**

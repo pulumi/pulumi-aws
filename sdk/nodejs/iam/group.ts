@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM group.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_iam_group_developers = new aws.iam.Group("developers", {
- *     name: "developers",
- *     path: "/users/",
- * });
- * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

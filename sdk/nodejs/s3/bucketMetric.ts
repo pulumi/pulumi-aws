@@ -6,44 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
- * 
- * ## Example Usage
- * 
- * ### Add metrics configuration for entire S3 bucket
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_s3_bucket_example = new aws.s3.Bucket("example", {
- *     bucket: "example",
- * });
- * const aws_s3_bucket_metric_example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
- *     bucket: aws_s3_bucket_example.bucket,
- *     name: "EntireBucket",
- * });
- * ```
- * ### Add metrics configuration with S3 bucket object filter
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_s3_bucket_example = new aws.s3.Bucket("example", {
- *     bucket: "example",
- * });
- * const aws_s3_bucket_metric_example_filtered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: aws_s3_bucket_example.bucket,
- *     filter: {
- *         prefix: "documents/",
- *         tags: {
- *             class: "blue",
- *             priority: "high",
- *         },
- *     },
- *     name: "ImportantBlueDocuments",
- * });
- * ```
  */
 export class BucketMetric extends pulumi.CustomResource {
     /**

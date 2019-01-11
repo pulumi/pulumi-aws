@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SWF Domain resource.
- * 
- * ## Example Usage
- * 
- * To register a basic SWF domain:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_swf_domain_foo = new aws.swf.Domain("foo", {
- *     description: "Terraform SWF Domain",
- *     name: "foo",
- *     workflowExecutionRetentionPeriodInDays: "30",
- * });
- * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

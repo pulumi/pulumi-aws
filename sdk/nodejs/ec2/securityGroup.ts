@@ -15,26 +15,6 @@ import * as utilities from "../utilities";
  * a conflict of rule settings and will overwrite rules.
  * 
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
- * Basic usage with tags:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_security_group_allow_all = new aws.ec2.SecurityGroup("allow_all", {
- *     description: "Allow all inbound traffic",
- *     ingress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "tcp",
- *         toPort: 65535,
- *     }],
- *     name: "allow_all",
- *     tags: {
- *         Name: "allow_all",
- *     },
- * });
- * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about an Elastic File System (EFS).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const var_file_system_id = config.get("fileSystemId") || "";
- * 
- * const aws_efs_file_system_by_id = pulumi.output(aws.efs.getFileSystem({
- *     fileSystemId: var_file_system_id,
- * }));
- * ```
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     args = args || {};

@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_codecommit_repository_test = new aws.codecommit.Repository("test", {
- *     description: "This is the Sample App Repository",
- *     repositoryName: "MyTestRepository",
- * });
- * ```
  */
 export class Repository extends pulumi.CustomResource {
     /**

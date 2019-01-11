@@ -11,21 +11,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** ElastiCache Security Groups are for use only when working with an
  * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
  * ElastiCache Subnet Group resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_security_group_bar = new aws.ec2.SecurityGroup("bar", {
- *     name: "security-group",
- * });
- * const aws_elasticache_security_group_bar = new aws.elasticache.SecurityGroup("bar", {
- *     name: "elasticache-security-group",
- *     securityGroupNames: [aws_security_group_bar.name],
- * });
- * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

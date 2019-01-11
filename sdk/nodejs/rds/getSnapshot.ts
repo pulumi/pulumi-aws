@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  * See the [`aws_db_cluster_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_db_instance_prod = new aws.rds.Instance("prod", {
- *     allocatedStorage: 10,
- *     dbSubnetGroupName: "my_database_subnet_group",
- *     engine: "mysql",
- *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
- *     name: "mydb",
- *     parameterGroupName: "default.mysql5.6",
- *     password: "bar",
- *     username: "foo",
- * });
- * const aws_db_snapshot_latest_prod_snapshot = pulumi.output(aws.rds.getSnapshot({
- *     dbInstanceIdentifier: aws_db_instance_prod.id,
- *     mostRecent: true,
- * }));
- * const aws_db_instance_dev = new aws.rds.Instance("dev", {
- *     instanceClass: "db.t2.micro",
- *     name: "mydbdev",
- *     snapshotIdentifier: aws_db_snapshot_latest_prod_snapshot.apply(__arg0 => __arg0.id),
- * });
- * ```
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};

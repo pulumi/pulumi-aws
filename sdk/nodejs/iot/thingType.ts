@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS IoT Thing Type.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_iot_thing_type_foo = new aws.iot.ThingType("foo", {
- *     name: "my_iot_thing",
- * });
- * ```
  */
 export class ThingType extends pulumi.CustomResource {
     /**

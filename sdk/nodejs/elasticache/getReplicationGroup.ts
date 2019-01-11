@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticache Replication Group.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_elasticache_replication_group_bar = pulumi.output(aws.elasticache.getReplicationGroup({
- *     replicationGroupId: "example",
- * }));
- * ```
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
     return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {

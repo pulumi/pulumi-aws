@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a Workspaces Bundle.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_workspaces_bundle_example = pulumi.output(aws.workspaces.getBundle({
- *     bundleId: "wsb-b0s22j3d7",
- * }));
- * ```
  */
 export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {

@@ -6,38 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway Route Table.
- * 
- * ## Example Usage
- * 
- * ### By Filter
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ec2_transit_gateway_route_table_example = pulumi.output(aws.ec2transitgateway.getRouteTable({
- *     filters: [
- *         {
- *             name: "default-association-route-table",
- *             values: ["true"],
- *         },
- *         {
- *             name: "transit-gateway-id",
- *             values: ["tgw-12345678"],
- *         },
- *     ],
- * }));
- * ```
- * ### By Identifier
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ec2_transit_gateway_route_table_example = pulumi.output(aws.ec2transitgateway.getRouteTable({
- *     id: "tgw-rtb-12345678",
- * }));
- * ```
  */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};

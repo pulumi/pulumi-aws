@@ -10,35 +10,6 @@ import {InstanceType} from "./instanceType";
 /**
  * Provides an EC2 instance resource. This allows instances to be created, updated,
  * and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ami_ubuntu = pulumi.output(aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"],
- * }));
- * const aws_instance_web = new aws.ec2.Instance("web", {
- *     ami: aws_ami_ubuntu.apply(__arg0 => __arg0.id),
- *     instanceType: "t2.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  */
 export class Instance extends pulumi.CustomResource {
     /**
