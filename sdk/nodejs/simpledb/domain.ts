@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SimpleDB domain resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_simpledb_domain_users = new aws.simpledb.Domain("users", {
- *     name: "users",
- * });
- * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

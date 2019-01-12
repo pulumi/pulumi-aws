@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Parses an Amazon Resource Name (ARN) into its constituent parts.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_arn_db_instance = pulumi.output(aws.getArn({
- *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
- * }));
- * ```
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
     return pulumi.runtime.invoke("aws:index/getArn:getArn", {

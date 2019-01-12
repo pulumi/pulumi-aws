@@ -6,35 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ip_ranges_european_ec2 = pulumi.output(aws.getIpRanges({
- *     regions: [
- *         "eu-west-1",
- *         "eu-central-1",
- *     ],
- *     services: ["ec2"],
- * }));
- * const aws_security_group_from_europe = new aws.ec2.SecurityGroup("from_europe", {
- *     ingress: [{
- *         cidrBlocks: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.cidrBlocks),
- *         fromPort: Number.parseFloat("443"),
- *         ipv6CidrBlocks: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.ipv6CidrBlocks),
- *         protocol: "tcp",
- *         toPort: Number.parseFloat("443"),
- *     }],
- *     name: "from_europe",
- *     tags: {
- *         CreateDate: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.createDate),
- *         SyncToken: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.syncToken),
- *     },
- * });
- * ```
  */
 export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
     return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {

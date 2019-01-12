@@ -9,53 +9,6 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Stage.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_api_gateway_rest_api_test = new aws.apigateway.RestApi("test", {
- *     description: "This is my API for demonstration purposes",
- *     name: "MyDemoAPI",
- * });
- * const aws_api_gateway_resource_test = new aws.apigateway.Resource("test", {
- *     parentId: aws_api_gateway_rest_api_test.rootResourceId,
- *     pathPart: "mytestresource",
- *     restApi: aws_api_gateway_rest_api_test.id,
- * });
- * const aws_api_gateway_method_test = new aws.apigateway.Method("test", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: aws_api_gateway_resource_test.id,
- *     restApi: aws_api_gateway_rest_api_test.id,
- * });
- * const aws_api_gateway_integration_test = new aws.apigateway.Integration("test", {
- *     httpMethod: aws_api_gateway_method_test.httpMethod,
- *     resourceId: aws_api_gateway_resource_test.id,
- *     restApi: aws_api_gateway_rest_api_test.id,
- *     type: "MOCK",
- * });
- * const aws_api_gateway_deployment_test = new aws.apigateway.Deployment("test", {
- *     restApi: aws_api_gateway_rest_api_test.id,
- *     stageName: "dev",
- * }, {dependsOn: [aws_api_gateway_integration_test]});
- * const aws_api_gateway_stage_test = new aws.apigateway.Stage("test", {
- *     deployment: aws_api_gateway_deployment_test.id,
- *     restApi: aws_api_gateway_rest_api_test.id,
- *     stageName: "prod",
- * });
- * const aws_api_gateway_method_settings_s = new aws.apigateway.MethodSettings("s", {
- *     methodPath: pulumi.all([aws_api_gateway_resource_test.pathPart, aws_api_gateway_method_test.httpMethod]).apply(([__arg0, __arg1]) => `${__arg0}/${__arg1}`),
- *     restApi: aws_api_gateway_rest_api_test.id,
- *     settings: {
- *         loggingLevel: "INFO",
- *         metricsEnabled: true,
- *     },
- *     stageName: aws_api_gateway_stage_test.stageName,
- * });
- * ```
  */
 export class Stage extends pulumi.CustomResource {
     /**

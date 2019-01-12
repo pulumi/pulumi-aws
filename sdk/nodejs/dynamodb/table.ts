@@ -8,62 +8,6 @@ import * as utilities from "../utilities";
  * Provides a DynamoDB table resource
  * 
  * > **Note:** It is recommended to use `lifecycle` [`ignore_changes`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
- * 
- * ## Example Usage
- * 
- * The following dynamodb table description models the table and GSI shown
- * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_dynamodb_table_basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
- *     attributes: [
- *         {
- *             name: "UserId",
- *             type: "S",
- *         },
- *         {
- *             name: "GameTitle",
- *             type: "S",
- *         },
- *         {
- *             name: "TopScore",
- *             type: "N",
- *         },
- *     ],
- *     billingMode: "PROVISIONED",
- *     globalSecondaryIndexes: [{
- *         hashKey: "GameTitle",
- *         name: "GameTitleIndex",
- *         nonKeyAttributes: ["UserId"],
- *         projectionType: "INCLUDE",
- *         rangeKey: "TopScore",
- *         readCapacity: 10,
- *         writeCapacity: 10,
- *     }],
- *     hashKey: "UserId",
- *     name: "GameScores",
- *     rangeKey: "GameTitle",
- *     readCapacity: 20,
- *     tags: {
- *         Environment: "production",
- *         Name: "dynamodb-table-1",
- *     },
- *     ttl: {
- *         attributeName: "TimeToExist",
- *         enabled: false,
- *     },
- *     writeCapacity: 20,
- * });
- * ```
- * Notes: `attribute` can be lists
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * 
- * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect LAG.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_dx_lag_hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
- *     connectionsBandwidth: "1Gbps",
- *     forceDestroy: true,
- *     location: "EqDC2",
- *     name: "tf-dx-lag",
- *     numberOfConnections: 2,
- * });
- * ```
  */
 export class LinkAggregationGroup extends pulumi.CustomResource {
     /**

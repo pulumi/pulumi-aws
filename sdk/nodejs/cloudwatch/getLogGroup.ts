@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an AWS Cloudwatch Log Group
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_cloudwatch_log_group_example = pulumi.output(aws.cloudwatch.getLogGroup({
- *     name: "MyImportantLogs",
- * }));
- * ```
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {

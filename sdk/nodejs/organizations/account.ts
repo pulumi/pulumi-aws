@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** Account management must be done from the organization's master account.
  * 
  * !> **WARNING:** Deleting this Terraform resource will only remove an AWS account from an organization. Terraform will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
- * 
- * ## Example Usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_organizations_account_account = new aws.organizations.Account("account", {
- *     email: "john@doe.org",
- *     name: "my_new_account",
- * });
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

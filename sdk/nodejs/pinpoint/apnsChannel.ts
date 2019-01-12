@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
- * const aws_pinpoint_apns_channel_apns = new aws.pinpoint.ApnsChannel("apns", {
- *     applicationId: aws_pinpoint_app_app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem", "utf-8"),
- *     privateKey: fs.readFileSync("./private_key.key", "utf-8"),
- * });
- * ```
- * 
- */
 export class ApnsChannel extends pulumi.CustomResource {
     /**
      * Get an existing ApnsChannel resource's state with the given name, ID, and optional extra

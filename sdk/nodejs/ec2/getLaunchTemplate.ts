@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Template.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_launch_template_default = pulumi.output(aws.ec2.getLaunchTemplate({
- *     name: "my-launch-template",
- * }));
- * ```
  */
 export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {

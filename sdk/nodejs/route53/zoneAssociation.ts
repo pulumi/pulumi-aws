@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the [`aws_route53_zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) instead.
  * 
  * > **NOTE:** Terraform provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the [`aws_route53_zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic Terraform resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` in the `aws_route53_zone` resource to manage additional associations via this resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_primary = new aws.ec2.Vpc("primary", {
- *     cidrBlock: "10.6.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const aws_vpc_secondary = new aws.ec2.Vpc("secondary", {
- *     cidrBlock: "10.7.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const aws_route53_zone_example = new aws.route53.Zone("example", {
- *     name: "example.com",
- *     vpcs: [{
- *         vpcId: aws_vpc_primary.id,
- *     }],
- * });
- * const aws_route53_zone_association_secondary = new aws.route53.ZoneAssociation("secondary", {
- *     vpcId: aws_vpc_secondary.id,
- *     zoneId: aws_route53_zone_example.zoneId,
- * });
- * ```
  */
 export class ZoneAssociation extends pulumi.CustomResource {
     /**

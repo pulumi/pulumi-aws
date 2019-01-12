@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cloud9 EC2 Development Environment.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_cloud9_environment_ec2_example = new aws.cloud9.EnvironmentEC2("example", {
- *     instanceType: "t2.micro",
- *     name: "example-env",
- * });
- * ```
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
     /**

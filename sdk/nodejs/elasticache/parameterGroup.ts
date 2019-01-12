@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache parameter group resource.
  * 
  * > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in Terraform due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_elasticache_parameter_group_default = new aws.elasticache.ParameterGroup("default", {
- *     family: "redis2.8",
- *     name: "cache-params",
- *     parameters: [
- *         {
- *             name: "activerehashing",
- *             value: "yes",
- *         },
- *         {
- *             name: "min-slaves-to-write",
- *             value: "2",
- *         },
- *     ],
- * });
- * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

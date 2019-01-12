@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the contents of the specified Systems Manager document.
- * 
  */
 export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
     return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {

@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the name of a elastic beanstalk solution stack.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_elastic_beanstalk_solution_stack_multi_docker = pulumi.output(aws.elasticbeanstalk.getSolutionStack({
- *     mostRecent: true,
- *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
- * }));
- * ```
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {

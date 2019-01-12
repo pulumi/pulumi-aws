@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get a list of EBS Snapshot IDs matching the specified
  * criteria.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ebs_snapshot_ids_ebs_volumes = pulumi.output(aws.ebs.getSnapshotIds({
- *     filters: [
- *         {
- *             name: "volume-size",
- *             values: ["40"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["Example"],
- *         },
- *     ],
- *     owners: ["self"],
- * }));
- * ```
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};

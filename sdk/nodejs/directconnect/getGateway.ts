@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Direct Connect Gateway.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_dx_gateway_example = pulumi.output(aws.directconnect.getGateway({
- *     name: "example",
- * }));
- * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {

@@ -16,23 +16,6 @@ import * as utilities from "../utilities";
  * 
  * Copying an AMI can take several minutes. The creation of this resource will
  * block until the new AMI is available for use on new instances.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ami_copy_example = new aws.ec2.AmiCopy("example", {
- *     description: "A copy of ami-xxxxxxxx",
- *     name: "terraform-example",
- *     sourceAmiId: "ami-xxxxxxxx",
- *     sourceAmiRegion: "us-west-1",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  */
 export class AmiCopy extends pulumi.CustomResource {
     /**

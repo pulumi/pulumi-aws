@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Subscribes to a Security Hub product.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_securityhub_account_example = new aws.securityhub.Account("example", {});
- * const aws_region_current = pulumi.output(aws.getRegion({}));
- * const aws_securityhub_product_subscription_example = new aws.securityhub.ProductSubscription("example", {
- *     productArn: aws_region_current.apply(__arg0 => `arn:aws:securityhub:${__arg0.name}:733251395267:product/alertlogic/althreatmanagement`),
- * }, {dependsOn: [aws_securityhub_account_example]});
- * ```
  */
 export class ProductSubscription extends pulumi.CustomResource {
     /**

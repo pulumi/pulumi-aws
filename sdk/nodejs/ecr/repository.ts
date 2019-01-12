@@ -10,17 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ecr_repository_foo = new aws.ecr.Repository("foo", {
- *     name: "bar",
- * });
- * ```
  */
 export class Repository extends pulumi.CustomResource {
     /**

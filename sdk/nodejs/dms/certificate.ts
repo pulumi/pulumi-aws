@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_dms_certificate_test = new aws.dms.Certificate("test", {
- *     certificateId: "test-dms-certificate-tf",
- *     certificatePem: "...",
- * });
- * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

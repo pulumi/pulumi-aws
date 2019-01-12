@@ -6,25 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Adds permission to create volumes off of a given EBS Snapshot.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_ebs_volume_example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 40,
- * });
- * const aws_ebs_snapshot_example_snapshot = new aws.ebs.Snapshot("example_snapshot", {
- *     volumeId: aws_ebs_volume_example.id,
- * });
- * const aws_snapshot_create_volume_permission_example_perm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
- *     accountId: "12345678",
- *     snapshotId: aws_ebs_snapshot_example_snapshot.id,
- * });
- * ```
  */
 export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     /**

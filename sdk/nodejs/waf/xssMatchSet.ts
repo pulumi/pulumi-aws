@@ -6,31 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF XSS Match Set Resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_waf_xss_match_set_xss_match_set = new aws.waf.XssMatchSet("xss_match_set", {
- *     name: "xss_match_set",
- *     xssMatchTuples: [
- *         {
- *             fieldToMatch: {
- *                 type: "URI",
- *             },
- *             textTransformation: "NONE",
- *         },
- *         {
- *             fieldToMatch: {
- *                 type: "QUERY_STRING",
- *             },
- *             textTransformation: "NONE",
- *         },
- *     ],
- * });
- * ```
  */
 export class XssMatchSet extends pulumi.CustomResource {
     /**

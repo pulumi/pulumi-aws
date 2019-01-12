@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
- * const aws_pinpoint_apns_voip_sandbox_channel_apns_voip_sandbox = new aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox", {
- *     applicationId: aws_pinpoint_app_app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem", "utf-8"),
- *     privateKey: fs.readFileSync("./private_key.key", "utf-8"),
- * });
- * ```
- * 
- */
 export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
     /**
      * Get an existing ApnsVoipSandboxChannel resource's state with the given name, ID, and optional extra

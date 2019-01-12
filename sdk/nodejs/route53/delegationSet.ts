@@ -6,25 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html) resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_route53_delegation_set_main = new aws.route53.DelegationSet("main", {
- *     referenceName: "DynDNS",
- * });
- * const aws_route53_zone_primary = new aws.route53.Zone("primary", {
- *     delegationSetId: aws_route53_delegation_set_main.id,
- *     name: "hashicorp.com",
- * });
- * const aws_route53_zone_secondary = new aws.route53.Zone("secondary", {
- *     delegationSetId: aws_route53_delegation_set_main.id,
- *     name: "terraform.io",
- * });
- * ```
  */
 export class DelegationSet extends pulumi.CustomResource {
     /**

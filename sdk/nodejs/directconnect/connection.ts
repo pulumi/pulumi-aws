@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Connection of Direct Connect.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_dx_connection_hoge = new aws.directconnect.Connection("hoge", {
- *     bandwidth: "1Gbps",
- *     location: "EqDC2",
- *     name: "tf-dx-connection",
- * });
- * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

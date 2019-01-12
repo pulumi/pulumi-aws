@@ -8,53 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Target Group resource for use with Load Balancer resources.
  * 
  * > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ### Instance Target Group
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const aws_lb_target_group_test = new aws.elasticloadbalancingv2.TargetGroup("test", {
- *     name: "tf-example-lb-tg",
- *     port: 80,
- *     protocol: "HTTP",
- *     vpcId: aws_vpc_main.id,
- * });
- * ```
- * ### IP Target Group
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const aws_lb_target_group_ip_example = new aws.elasticloadbalancingv2.TargetGroup("ip-example", {
- *     name: "tf-example-lb-tg",
- *     port: 80,
- *     protocol: "HTTP",
- *     targetType: "ip",
- *     vpcId: aws_vpc_main.id,
- * });
- * ```
- * ### Lambda Target Group
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_lb_target_group_lambda_example = new aws.elasticloadbalancingv2.TargetGroup("lambda-example", {
- *     name: "tf-example-lb-tg",
- *     targetType: "lambda",
- * });
- * ```
  */
 export class TargetGroup extends pulumi.CustomResource {
     /**

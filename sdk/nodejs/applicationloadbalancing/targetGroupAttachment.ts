@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
  * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws_elb_attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
  * 
  * > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_instance_test = new aws.ec2.Instance("test", {});
- * const aws_lb_target_group_test = new aws.elasticloadbalancingv2.TargetGroup("test", {});
- * const aws_lb_target_group_attachment_test = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
- *     port: 80,
- *     targetGroupArn: aws_lb_target_group_test.arn,
- *     targetId: aws_instance_test.id,
- * });
- * ```
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

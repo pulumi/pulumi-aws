@@ -6,33 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Schedule resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_autoscaling_group_foobar = new aws.autoscaling.Group("foobar", {
- *     availabilityZones: ["us-west-2a"],
- *     forceDelete: true,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     maxSize: 1,
- *     minSize: 1,
- *     name: "terraform-test-foobar5",
- *     terminationPolicies: ["OldestInstance"],
- * });
- * const aws_autoscaling_schedule_foobar = new aws.autoscaling.Schedule("foobar", {
- *     autoscalingGroupName: aws_autoscaling_group_foobar.name,
- *     desiredCapacity: 0,
- *     endTime: "2016-12-12T06:00:00Z",
- *     maxSize: 1,
- *     minSize: 0,
- *     scheduledActionName: "foobar",
- *     startTime: "2016-12-11T18:00:00Z",
- * });
- * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

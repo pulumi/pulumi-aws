@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The VPC Endpoint Service data source details about a specific service that
  * can be specified when creating a VPC endpoint within the region configured in the provider.
- * 
- * ## Example Usage
- * 
- * AWS service usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_foo = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const aws_vpc_endpoint_service_s3 = pulumi.output(aws.ec2.getVpcEndpointService({
- *     service: "s3",
- * }));
- * const aws_vpc_endpoint_ep = new aws.ec2.VpcEndpoint("ep", {
- *     serviceName: aws_vpc_endpoint_service_s3.apply(__arg0 => __arg0.serviceName),
- *     vpcId: aws_vpc_foo.id,
- * });
- * ```
- * Non-AWS service usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_endpoint_service_custome = pulumi.output(aws.ec2.getVpcEndpointService({
- *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
- * }));
- * ```
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};

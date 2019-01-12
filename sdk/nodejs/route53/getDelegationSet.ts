@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * `aws_route53_delegation_set` provides details about a specific Route 53 Delegation Set.
  * 
  * This data source allows to find a list of name servers associated with a specific delegation set.
- * 
- * ## Example Usage
- * 
- * The following example shows how to get a delegation set from its id.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_route53_delegation_set_dset = pulumi.output(aws.route53.getDelegationSet({
- *     id: "MQWGHCBFAKEID",
- * }));
- * ```
  */
 export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> {
     return pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
