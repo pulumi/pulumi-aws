@@ -57,8 +57,6 @@ class ReplicationGroup(pulumi.CustomResource):
             raise TypeError('Missing required property replication_group_description')
         __props__['replication_group_description'] = replication_group_description
 
-        if not replication_group_id:
-            raise TypeError('Missing required property replication_group_id')
         __props__['replication_group_id'] = replication_group_id
 
         __props__['security_group_ids'] = security_group_ids

@@ -196,9 +196,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             if (!args || args.replicationGroupDescription === undefined) {
                 throw new Error("Missing required property 'replicationGroupDescription'");
             }
-            if (!args || args.replicationGroupId === undefined) {
-                throw new Error("Missing required property 'replicationGroupId'");
-            }
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
             inputs["authToken"] = args ? args.authToken : undefined;
@@ -441,7 +438,7 @@ export interface ReplicationGroupArgs {
     /**
      * The replication group identifier. This parameter is stored as a lowercase string.
      */
-    readonly replicationGroupId: pulumi.Input<string>;
+    readonly replicationGroupId?: pulumi.Input<string>;
     /**
      * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      */
