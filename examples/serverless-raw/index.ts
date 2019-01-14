@@ -1,5 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { asset } from "@pulumi/pulumi";
 let region = aws.config.requireRegion();
@@ -129,8 +130,7 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
     type: "AWS_PROXY",
     integrationHttpMethod: "POST",
     passthroughBehavior: "WHEN_NO_MATCH",
-    uri: lambda.arn.apply(arn =>
-        arn && "arn:aws:apigateway:" + region + ":lambda:path/2015-03-31/functions/" + arn + "/invocations"),
+    uri: pulumi.interpolate `arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambda.arn}/invocations`,
 }, { dependsOn: [ method ] });
 
 let deployment = new aws.apigateway.Deployment("myrestapi-deployment-prod", {

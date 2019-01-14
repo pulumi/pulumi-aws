@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "dev"
+        "@pulumi/pulumi": "=0.16.10-dev.1547490046"
     },
     "devDependencies": {
         "typescript": "^3.0.3"
