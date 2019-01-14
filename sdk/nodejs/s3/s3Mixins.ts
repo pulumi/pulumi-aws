@@ -139,7 +139,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
-            sourceArn: bucket.id.apply(bucketName => `arn:aws:s3:::${bucketName}`),
+            sourceArn: pulumi.interpolate `arn:aws:s3:::${bucket.id}`,
         }, parentOpts);
 
         // We must create only a single BucketNotification per Bucket per AWS API limitations.  See
