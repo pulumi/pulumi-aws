@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi"
+import { interpolate } from "@pulumi/pulumi";
 import { Bucket } from "./bucket";
 import { BucketNotification } from "./bucketNotification";
 import * as lambda from "../lambda"
@@ -139,7 +140,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
-            sourceArn: pulumi.interpolate `arn:aws:s3:::${bucket.id}`,
+            sourceArn: interpolate `arn:aws:s3:::${bucket.id}`,
         }, parentOpts);
 
         // We must create only a single BucketNotification per Bucket per AWS API limitations.  See
