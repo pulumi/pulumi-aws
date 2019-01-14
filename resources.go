@@ -1593,6 +1593,9 @@ func Provider() tfbridge.ProviderInfo {
 					"byte_match_tuple": {
 						Name: "byte_match_tuple",
 					},
+					"byte_match_tuples": {
+						Name: "byteMatchTuples",
+					},
 				},
 			},
 			"aws_wafregional_geo_match_set":           {Tok: awsResource(wafregionalMod, "GeoMatchSet")},
