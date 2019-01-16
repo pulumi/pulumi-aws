@@ -19,7 +19,7 @@ const mountTarget = new aws.efs.MountTarget("mt", {
 
 const size: aws.ec2.InstanceType = "t2.micro";
 const instance = new aws.ec2.Instance("dummy-instance", {
-    userData: `#!/bin/bash
+    userData: pulumi.interpolate `#!/bin/bash
 echo ${mountTarget.dnsName}`,
     ami: getLinuxAMI(size),
     instanceType: size,
