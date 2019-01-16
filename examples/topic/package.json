@@ -13,9 +13,9 @@
     },
     "devDependencies": {
         "@types/aws-sdk": "^2.7.0",
-        "@types/node": "^8.0.27",
-        "@types/node-fetch": "=2.1.2",
-        "typescript": "^3.0.3"
+        "@types/node": "^10.0.0",
+        "typescript": "^3.0.0",
+        "@types/node-fetch": "=2.1.2"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"
