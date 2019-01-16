@@ -11,8 +11,9 @@
         "@pulumi/pulumi": "dev"
     },
     "devDependencies": {
-        "@types/node": "^8.0.26",
-        "typescript": "^3.0.3"
+        "@types/aws-sdk": "^2.7.0",
+        "@types/node": "^10.0.0",
+        "typescript": "^3.0.0"
     },
     "peerDependencies": {
         "@pulumi/aws": "latest"
