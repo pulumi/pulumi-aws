@@ -1,6 +1,20 @@
 ## 0.16.7 (Unreleased)
 
-## 0.16.6 (Released December 23rd, 2018)
+### Improvements
+
+## 0.16.6 (Released January 15th, 2019)
+
+### Improvements
+
+- Auto name `aws.elasticache.ReplicationGroup.replicationGroupId` (fixes [pulumi/pulumi-aws#426](https://github.com/pulumi/pulumi-aws/issues/426)).
+
+- Fix a depcreation warning when using `aws.wafregional.ByteMatchSet` (fixes [pulumi/pulumi-aws#429](https://github.com/pulumi/pulumi-aws/issues/429)).
+
+- Updated package constraints such that we do not depend on unreleased versions of `@pulumi/pulumi`.
+
+- Add some more constants for EC2 instance types.  Thanks to [@BradBarnich](https://github.com/BradBarnich)!
+
+## 0.16.5 (Released December 23rd, 2018)
 
 ### Improvements
 
