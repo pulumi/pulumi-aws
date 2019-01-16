@@ -13,7 +13,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.16.10",
+        "@pulumi/pulumi": "^0.16.9",
         "aws-sdk": "^2.0.0",
         "builtin-modules": "3.0.0",
         "mime": "^2.0.0",
@@ -23,7 +23,7 @@
     "devDependencies": {
         "@types/mime": "^2.0.0",
         "@types/node": "^10.0.0",
-        "typescript": "^3.0.0"
+        "typescript": "^2.6.2"
     },
     "pulumi": {
         "resource": true
