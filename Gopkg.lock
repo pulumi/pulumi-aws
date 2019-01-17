@@ -19,8 +19,8 @@
 [[projects]]
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
-  revision = "bcd833dfe83d3cebad139e4a29ed79cb2318bf95"
-  version = "v1.2.0"
+  revision = "e1e72e9de974bd926e5c56f83753fba2df402ce5"
+  version = "v1.3.0"
 
 [[projects]]
   name = "github.com/agext/levenshtein"
@@ -128,6 +128,7 @@
     "service/directconnect",
     "service/directoryservice",
     "service/dlm",
+    "service/docdb",
     "service/dynamodb",
     "service/ec2",
     "service/ecr",
@@ -158,6 +159,7 @@
     "service/licensemanager",
     "service/lightsail",
     "service/macie",
+    "service/mediapackage",
     "service/mediastore",
     "service/mq",
     "service/neptune",
@@ -167,6 +169,7 @@
     "service/pricing",
     "service/rds",
     "service/redshift",
+    "service/resourcegroups",
     "service/route53",
     "service/s3",
     "service/s3control",
@@ -188,8 +191,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "cae66ecf52e0171f937f1fa80e12130fbb652474"
-  version = "v1.16.9"
+  revision = "1f8a24693bc965514ee0d7aadbabe0ceed184a88"
+  version = "v1.16.16"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -229,8 +232,8 @@
 [[projects]]
   name = "github.com/djherbis/times"
   packages = ["."]
-  revision = "faa5b9ca02e9fe5d12023adddc0afa603d489fa8"
-  version = "v1.1.0"
+  revision = "847c5208d8924cea0acea3376ff62aede93afe39"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/docker/docker"
@@ -578,8 +581,8 @@
 [[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
-  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
-  version = "v0.8.0"
+  revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
+  version = "v0.8.1"
 
 [[projects]]
   name = "github.com/pmezard/go-difflib"
@@ -644,7 +647,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "3045236decf6c59a4d7c11c29357e0ef84d5c912"
+  revision = "3cf81c0b4ccdd64fbc07cc8ec7cf5fbb74cd7194"
 
 [[projects]]
   branch = "master"
@@ -653,7 +656,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "e9a2d394b36b1c0722c2edec01cf663495d44bc4"
+  revision = "9070bbff358bce84f8f8ba25297513256749db2d"
 
 [[projects]]
   branch = "master"
@@ -705,14 +708,14 @@
 [[projects]]
   name = "github.com/stretchr/testify"
   packages = ["assert"]
-  revision = "f35b8ab0b5a2cef36673838d662e249dd9c94686"
-  version = "v1.2.2"
+  revision = "ffdc059bfe9ce6a4e144ba849dbedead332c6053"
+  version = "v1.3.0"
 
 [[projects]]
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "9a24ade381f56dadeabd12b2810186684356d1c8"
+  revision = "8c6b42a08461350a6f0b58c9e61c487d93248320"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -882,8 +885,8 @@
     "core",
     "terminal"
   ]
-  revision = "e205523512c83e9236698dbe7eb9649ec56e80ca"
-  version = "v1.7.1"
+  revision = "38cdfa1242b19e0eb8b6f33004bf8e89832b8743"
+  version = "v1.8.0"
 
 [[projects]]
   name = "gopkg.in/src-d/go-billy.v4"
@@ -959,6 +962,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1dfb66d000437e401e87eb28277f43fb2fa25ffe3ee27240976892403fd9e460"
+  inputs-digest = "f2a45f9c0cb458b5f56bfbab2c0d0cd2031ee7dc7958f4405013a1171e2c89ef"
   solver-name = "gps-cdcl"
   solver-version = 1
