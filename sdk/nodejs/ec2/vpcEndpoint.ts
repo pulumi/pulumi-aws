@@ -13,6 +13,8 @@ import * as utilities from "../utilities";
  * a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
  * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
  * Doing so will cause a conflict of associations and will overwrite the association.
+ * > **NOTE The `dns_entry` output is a list of maps:** Terraform interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+ * 
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

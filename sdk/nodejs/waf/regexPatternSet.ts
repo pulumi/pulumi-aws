@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regex Pattern Set Resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_waf_regex_pattern_set_example = new aws.waf.RegexPatternSet("example", {
+ *     name: "tf_waf_regex_pattern_set",
+ *     regexPatternStrings: [
+ *         "one",
+ *         "two",
+ *     ],
+ * });
+ * ```
  */
 export class RegexPatternSet extends pulumi.CustomResource {
     /**

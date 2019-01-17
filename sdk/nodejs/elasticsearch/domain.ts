@@ -6,6 +6,81 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Elasticsearch Domain.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elasticsearch_domain_example = new aws.elasticsearch.Domain("example", {
+ *     clusterConfig: {
+ *         instanceType: "r4.large.elasticsearch",
+ *     },
+ *     domainName: "example",
+ *     elasticsearchVersion: "1.5",
+ *     snapshotOptions: {
+ *         automatedSnapshotStartHour: 23,
+ *     },
+ *     tags: {
+ *         Domain: "TestDomain",
+ *     },
+ * });
+ * ```
+ * ### Access Policy
+ * 
+ * -> See also: [`aws_elasticsearch_domain_policy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_domain = config.get("domain") || "tf-test";
+ * 
+ * const aws_caller_identity_current = pulumi.output(aws.getCallerIdentity({}));
+ * const aws_region_current = pulumi.output(aws.getRegion({}));
+ * const aws_elasticsearch_domain_example = new aws.elasticsearch.Domain("example", {
+ *     accessPolicies: pulumi.all([aws_region_current, aws_caller_identity_current]).apply(([__arg0, __arg1]) => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "es:*",
+ *       "Principal": "*",
+ *       "Effect": "Allow",
+ *       "Resource": "arn:aws:es:${__arg0.name}:${__arg1.accountId}:domain/${var_domain}/*",
+ *       "Condition": {
+ *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+ *       }
+ *     }
+ *   ]
+ * }
+ * `),
+ *     domainName: var_domain,
+ * });
+ * ```
+ * ### Log Publishing to CloudWatch Logs
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudwatch_log_group_example = new aws.cloudwatch.LogGroup("example", {
+ *     name: "example",
+ * });
+ * const aws_cloudwatch_log_resource_policy_example = new aws.cloudwatch.LogResourcePolicy("example", {
+ *     policyDocument: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"es.amazonaws.com\"\n      },\n      \"Action\": [\n        \"logs:PutLogEvents\",\n        \"logs:PutLogEventsBatch\",\n        \"logs:CreateLogStream\"\n      ],\n      \"Resource\": \"arn:aws:logs:*\"\n    }\n  ]\n}\n",
+ *     policyName: "example",
+ * });
+ * const aws_elasticsearch_domain_example = new aws.elasticsearch.Domain("example", {
+ *     logPublishingOptions: [{
+ *         cloudwatchLogGroupArn: aws_cloudwatch_log_group_example.arn,
+ *         logType: "INDEX_SLOW_LOGS",
+ *     }],
+ * });
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

@@ -6,6 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`aws_db_cluster_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_db_instance_bar = new aws.rds.Instance("bar", {
+ *     allocatedStorage: 10,
+ *     backupRetentionPeriod: 0,
+ *     engine: "MySQL",
+ *     engineVersion: "5.6.21",
+ *     instanceClass: "db.t2.micro",
+ *     maintenanceWindow: "Fri:09:00-Fri:09:30",
+ *     name: "baz",
+ *     parameterGroupName: "default.mysql5.6",
+ *     password: "barbarbarbar",
+ *     username: "foo",
+ * });
+ * const aws_db_snapshot_test = new aws.rds.Snapshot("test", {
+ *     dbInstanceIdentifier: aws_db_instance_bar.id,
+ *     dbSnapshotIdentifier: "testsnapshot1234",
+ * });
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a KMS customer master key.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_kms_key_a = new aws.kms.Key("a", {
+ *     deletionWindowInDays: 10,
+ *     description: "KMS key 1",
+ * });
+ * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

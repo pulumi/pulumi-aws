@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing autoscaling group.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_autoscaling_group_foo = pulumi.output(aws.autoscaling.getGroup({
+ *     name: "foo",
+ * }));
+ * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     return pulumi.runtime.invoke("aws:autoscaling/getGroup:getGroup", {
@@ -48,6 +59,9 @@ export interface GetGroupResult {
      * The service to use for the health checks. The valid values are EC2 and ELB.
      */
     readonly healthCheckType: string;
+    /**
+     * The name of the associated launch configuration.
+     */
     readonly launchConfiguration: string;
     /**
      * One or more load balancers associated with the group.

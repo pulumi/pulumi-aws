@@ -14,6 +14,109 @@ import * as utilities from "../utilities";
  * 
  * > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
  * 
+ * 
+ * ## Example Usage
+ * 
+ * ### DNS Validation with Route 53
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_acm_certificate_cert = new aws.acm.Certificate("cert", {
+ *     domainName: "example.com",
+ *     validationMethod: "DNS",
+ * });
+ * const aws_route53_zone_zone = pulumi.output(aws.route53.getZone({
+ *     name: "example.com.",
+ *     privateZone: false,
+ * }));
+ * const aws_route53_record_cert_validation = new aws.route53.Record("cert_validation", {
+ *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordName),
+ *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordValue)],
+ *     ttl: 60,
+ *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordType),
+ *     zoneId: aws_route53_zone_zone.apply(__arg0 => __arg0.id),
+ * });
+ * const aws_acm_certificate_validation_cert = new aws.acm.CertificateValidation("cert", {
+ *     certificateArn: aws_acm_certificate_cert.arn,
+ *     validationRecordFqdns: [aws_route53_record_cert_validation.fqdn],
+ * });
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     certificateArn: aws_acm_certificate_validation_cert.certificateArn,
+ * });
+ * ```
+ * ### Alternative Domains DNS Validation with Route 53
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_acm_certificate_cert = new aws.acm.Certificate("cert", {
+ *     domainName: "example.com",
+ *     subjectAlternativeNames: [
+ *         "www.example.com",
+ *         "example.org",
+ *     ],
+ *     validationMethod: "DNS",
+ * });
+ * const aws_route53_zone_zone = pulumi.output(aws.route53.getZone({
+ *     name: "example.com.",
+ *     privateZone: false,
+ * }));
+ * const aws_route53_zone_zone_alt = pulumi.output(aws.route53.getZone({
+ *     name: "example.org.",
+ *     privateZone: false,
+ * }));
+ * const aws_route53_record_cert_validation = new aws.route53.Record("cert_validation", {
+ *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordName),
+ *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordValue)],
+ *     ttl: 60,
+ *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordType),
+ *     zoneId: aws_route53_zone_zone.apply(__arg0 => __arg0.id),
+ * });
+ * const aws_route53_record_cert_validation_alt1 = new aws.route53.Record("cert_validation_alt1", {
+ *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[1].resourceRecordName),
+ *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[1].resourceRecordValue)],
+ *     ttl: 60,
+ *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[1].resourceRecordType),
+ *     zoneId: aws_route53_zone_zone.apply(__arg0 => __arg0.id),
+ * });
+ * const aws_route53_record_cert_validation_alt2 = new aws.route53.Record("cert_validation_alt2", {
+ *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[2].resourceRecordName),
+ *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[2].resourceRecordValue)],
+ *     ttl: 60,
+ *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[2].resourceRecordType),
+ *     zoneId: aws_route53_zone_zone_alt.apply(__arg0 => __arg0.id),
+ * });
+ * const aws_acm_certificate_validation_cert = new aws.acm.CertificateValidation("cert", {
+ *     certificateArn: aws_acm_certificate_cert.arn,
+ *     validationRecordFqdns: [
+ *         aws_route53_record_cert_validation.fqdn,
+ *         aws_route53_record_cert_validation_alt1.fqdn,
+ *         aws_route53_record_cert_validation_alt2.fqdn,
+ *     ],
+ * });
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     certificateArn: aws_acm_certificate_validation_cert.certificateArn,
+ * });
+ * ```
+ * ### Email Validation
+ * 
+ * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_acm_certificate_cert = new aws.acm.Certificate("cert", {
+ *     domainName: "example.com",
+ *     validationMethod: "EMAIL",
+ * });
+ * const aws_acm_certificate_validation_cert = new aws.acm.CertificateValidation("cert", {
+ *     certificateArn: aws_acm_certificate_cert.arn,
+ * });
+ * ```
  */
 export class CertificateValidation extends pulumi.CustomResource {
     /**

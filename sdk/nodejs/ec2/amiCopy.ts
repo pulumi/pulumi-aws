@@ -16,6 +16,23 @@ import * as utilities from "../utilities";
  * 
  * Copying an AMI can take several minutes. The creation of this resource will
  * block until the new AMI is available for use on new instances.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ami_copy_example = new aws.ec2.AmiCopy("example", {
+ *     description: "A copy of ami-xxxxxxxx",
+ *     name: "terraform-example",
+ *     sourceAmiId: "ami-xxxxxxxx",
+ *     sourceAmiRegion: "us-west-1",
+ *     tags: {
+ *         Name: "HelloWorld",
+ *     },
+ * });
+ * ```
  */
 export class AmiCopy extends pulumi.CustomResource {
     /**
@@ -100,6 +117,9 @@ export class AmiCopy extends pulumi.CustomResource {
      * for created instances. No other value is supported at this time.
      */
     public /*out*/ readonly sriovNetSupport: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -245,6 +265,9 @@ export interface AmiCopyState {
      * for created instances. No other value is supported at this time.
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -294,5 +317,8 @@ export interface AmiCopyArgs {
      * same as the AWS provider region in order to create a copy within the same region.
      */
     readonly sourceAmiRegion: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

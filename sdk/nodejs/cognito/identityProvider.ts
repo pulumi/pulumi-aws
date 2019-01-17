@@ -6,6 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Identity Provider resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cognito_user_pool_example = new aws.cognito.UserPool("example", {
+ *     autoVerifiedAttributes: ["email"],
+ *     name: "example-pool",
+ * });
+ * const aws_cognito_identity_provider_example_provider = new aws.cognito.IdentityProvider("example_provider", {
+ *     attributeMapping: {
+ *         email: "email",
+ *         username: "sub",
+ *     },
+ *     providerDetails: {
+ *         authorize_scopes: "email",
+ *         client_id: "your client_id",
+ *         client_secret: "your client_secret",
+ *     },
+ *     providerName: "Google",
+ *     providerType: "Google",
+ *     userPoolId: aws_cognito_user_pool_example.id,
+ * });
+ * ```
  */
 export class IdentityProvider extends pulumi.CustomResource {
     /**

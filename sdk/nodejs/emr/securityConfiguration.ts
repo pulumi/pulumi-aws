@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage AWS EMR Security Configurations
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_emr_security_configuration_foo = new aws.emr.SecurityConfiguration("foo", {
+ *     configuration: "{\n  \"EncryptionConfiguration\": {\n    \"AtRestEncryptionConfiguration\": {\n      \"S3EncryptionConfiguration\": {\n        \"EncryptionMode\": \"SSE-S3\"\n      },\n      \"LocalDiskEncryptionConfiguration\": {\n        \"EncryptionKeyProviderType\": \"AwsKms\",\n        \"AwsKmsKey\": \"arn:aws:kms:us-west-2:187416307283:alias/tf_emr_test_key\"\n      }\n    },\n    \"EnableInTransitEncryption\": false,\n    \"EnableAtRestEncryption\": true\n  }\n}\n",
+ *     name: "emrsc_other",
+ * });
+ * ```
  */
 export class SecurityConfiguration extends pulumi.CustomResource {
     /**

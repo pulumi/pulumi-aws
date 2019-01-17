@@ -6,6 +6,58 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a CloudWatch log resource policy.
+ * 
+ * ## Example Usage
+ * 
+ * ### Elasticsearch Log Publishing
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_document_elasticsearch_log_publishing_policy = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: [
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *             "logs:PutLogEventsBatch",
+ *         ],
+ *         principals: [{
+ *             identifiers: ["es.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *         resources: ["arn:aws:logs:*"],
+ *     }],
+ * }));
+ * const aws_cloudwatch_log_resource_policy_elasticsearch_log_publishing_policy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy", {
+ *     policyDocument: aws_iam_policy_document_elasticsearch_log_publishing_policy.apply(__arg0 => __arg0.json),
+ *     policyName: "elasticsearch-log-publishing-policy",
+ * });
+ * ```
+ * ### Route53 Query Logging
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_document_route53_query_logging_policy = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: [
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *         ],
+ *         principals: [{
+ *             identifiers: ["route53.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
+ *     }],
+ * }));
+ * const aws_cloudwatch_log_resource_policy_route53_query_logging_policy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
+ *     policyDocument: aws_iam_policy_document_route53_query_logging_policy.apply(__arg0 => __arg0.json),
+ *     policyName: "route53-query-logging-policy",
+ * });
+ * ```
  */
 export class LogResourcePolicy extends pulumi.CustomResource {
     /**

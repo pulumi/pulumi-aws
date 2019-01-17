@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ebs_snapshot_ebs_volume = pulumi.output(aws.ebs.getSnapshot({
+ *     filters: [
+ *         {
+ *             name: "volume-size",
+ *             values: ["40"],
+ *         },
+ *         {
+ *             name: "tag:Name",
+ *             values: ["Example"],
+ *         },
+ *     ],
+ *     mostRecent: true,
+ *     owners: ["self"],
+ * }));
+ * ```
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};

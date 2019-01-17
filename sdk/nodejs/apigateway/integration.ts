@@ -8,6 +8,44 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an HTTP Method Integration for an API Gateway Integration.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
+ * });
+ * const aws_api_gateway_resource_MyDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *     parentId: aws_api_gateway_rest_api_MyDemoAPI.rootResourceId,
+ *     pathPart: "mydemoresource",
+ *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ * });
+ * const aws_api_gateway_method_MyDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
+ *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ * });
+ * const aws_api_gateway_integration_MyDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
+ *     cacheKeyParameters: ["method.request.path.param"],
+ *     cacheNamespace: "foobar",
+ *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
+ *     requestParameters: {
+ *         integration.request.header.X-Authorization: "'static'",
+ *     },
+ *     requestTemplates: {
+ *         application/xml: "{\n   \"body\" : $input.json('$')\n}\n",
+ *     },
+ *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
+ *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     timeoutMilliseconds: 29000,
+ *     type: "MOCK",
+ * });
+ * ```
  */
 export class Integration extends pulumi.CustomResource {
     /**

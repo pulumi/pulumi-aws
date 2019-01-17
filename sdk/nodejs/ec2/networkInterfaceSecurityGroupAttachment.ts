@@ -18,6 +18,65 @@ import * as utilities from "../utilities";
  * 
  * [1]: /docs/providers/aws/d/instance.html
  * [2]: /docs/providers/aws/r/network_interface.html
+ * 
+ * ## Example Usage
+ * 
+ * The following provides a very basic example of setting up an instance (provided
+ * by `instance`) in the default security group, creating a security group
+ * (provided by `sg`) and then attaching the security group to the instance's
+ * primary network interface via the `aws_network_interface_sg_attachment` resource,
+ * named `sg_attachment`:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_security_group_sg = new aws.ec2.SecurityGroup("sg", {
+ *     tags: {
+ *         type: "terraform-test-security-group",
+ *     },
+ * });
+ * const aws_ami_ami = pulumi.output(aws.getAmi({
+ *     filters: [{
+ *         name: "name",
+ *         values: ["amzn-ami-hvm-*"],
+ *     }],
+ *     mostRecent: true,
+ *     owners: ["amazon"],
+ * }));
+ * const aws_instance_instance = new aws.ec2.Instance("instance", {
+ *     ami: aws_ami_ami.apply(__arg0 => __arg0.id),
+ *     instanceType: "t2.micro",
+ *     tags: {
+ *         type: "terraform-test-instance",
+ *     },
+ * });
+ * const aws_network_interface_sg_attachment_sg_attachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
+ *     networkInterfaceId: aws_instance_instance.primaryNetworkInterfaceId,
+ *     securityGroupId: aws_security_group_sg.id,
+ * });
+ * ```
+ * In this example, `instance` is provided by the `aws_instance` data source,
+ * fetching an external instance, possibly not managed by Terraform.
+ * `sg_attachment` then attaches to the output instance's `network_interface_id`:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_security_group_sg = new aws.ec2.SecurityGroup("sg", {
+ *     tags: {
+ *         type: "terraform-test-security-group",
+ *     },
+ * });
+ * const aws_instance_instance = pulumi.output(aws.ec2.getInstance({
+ *     instanceId: "i-1234567890abcdef0",
+ * }));
+ * const aws_network_interface_sg_attachment_sg_attachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
+ *     networkInterfaceId: aws_instance_instance.apply(__arg0 => __arg0.networkInterfaceId),
+ *     securityGroupId: aws_security_group_sg.id,
+ * });
+ * ```
  */
 export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResource {
     /**

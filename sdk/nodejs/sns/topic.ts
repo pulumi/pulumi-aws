@@ -8,6 +8,29 @@ import {ARN} from "../index";
 
 /**
  * Provides an SNS topic resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sns_topic_user_updates = new aws.sns.Topic("user_updates", {
+ *     name: "user-updates-topic",
+ * });
+ * ```
+ * 
+ * ## Example with Delivery Policy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sns_topic_user_updates = new aws.sns.Topic("user_updates", {
+ *     deliveryPolicy: "{\n  \"http\": {\n    \"defaultHealthyRetryPolicy\": {\n      \"minDelayTarget\": 20,\n      \"maxDelayTarget\": 20,\n      \"numRetries\": 3,\n      \"numMaxDelayRetries\": 0,\n      \"numNoDelayRetries\": 0,\n      \"numMinDelayRetries\": 0,\n      \"backoffFunction\": \"linear\"\n    },\n    \"disableSubscriptionOverrides\": false,\n    \"defaultThrottlePolicy\": {\n      \"maxReceivesPerSecond\": 1\n    }\n  }\n}\n",
+ *     name: "user-updates-topic",
+ * });
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

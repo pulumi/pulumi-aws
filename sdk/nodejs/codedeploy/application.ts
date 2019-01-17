@@ -6,6 +6,42 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy application to be used as a basis for deployments
+ * 
+ * ## Example Usage
+ * 
+ * ### ECS Application
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "ECS",
+ *     name: "example",
+ * });
+ * ```
+ * ### Lambda Application
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "Lambda",
+ *     name: "example",
+ * });
+ * ```
+ * ### Server Application
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "Server",
+ *     name: "example",
+ * });
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

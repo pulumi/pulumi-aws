@@ -8,6 +8,23 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
+ * });
+ * const aws_api_gateway_resource_MyDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *     parentId: aws_api_gateway_rest_api_MyDemoAPI.rootResourceId,
+ *     pathPart: "mydemoresource",
+ *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ * });
+ * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**

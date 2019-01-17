@@ -8,6 +8,63 @@ import * as utilities from "../utilities";
  * Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
  * 
  * > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
+ * 
+ * ## Example Usage
+ * 
+ * ### File Gateway
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_storagegateway_gateway_example = new aws.storagegateway.Gateway("example", {
+ *     gatewayIpAddress: "1.2.3.4",
+ *     gatewayName: "example",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "FILE_S3",
+ * });
+ * ```
+ * ### Tape Gateway
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_storagegateway_gateway_example = new aws.storagegateway.Gateway("example", {
+ *     gatewayIpAddress: "1.2.3.4",
+ *     gatewayName: "example",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "VTL",
+ *     mediaChangerType: "AWS-Gateway-VTL",
+ *     tapeDriveType: "IBM-ULT3580-TD5",
+ * });
+ * ```
+ * ### Volume Gateway (Cached)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_storagegateway_gateway_example = new aws.storagegateway.Gateway("example", {
+ *     gatewayIpAddress: "1.2.3.4",
+ *     gatewayName: "example",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "CACHED",
+ * });
+ * ```
+ * ### Volume Gateway (Stored)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_storagegateway_gateway_example = new aws.storagegateway.Gateway("example", {
+ *     gatewayIpAddress: "1.2.3.4",
+ *     gatewayName: "example",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "STORED",
+ * });
+ * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

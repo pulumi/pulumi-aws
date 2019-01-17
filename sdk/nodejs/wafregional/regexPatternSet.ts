@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Regex Pattern Set Resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_wafregional_regex_pattern_set_example = new aws.wafregional.RegexPatternSet("example", {
+ *     name: "example",
+ *     regexPatternStrings: [
+ *         "one",
+ *         "two",
+ *     ],
+ * });
+ * ```
  */
 export class RegexPatternSet extends pulumi.CustomResource {
     /**

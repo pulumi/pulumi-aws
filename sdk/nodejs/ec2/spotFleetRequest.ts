@@ -89,8 +89,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly targetCapacity: pulumi.Output<number>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with
-     * Application Load Balancing.
+     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
     public readonly targetGroupArns: pulumi.Output<string[]>;
     /**
@@ -249,8 +248,7 @@ export interface SpotFleetRequestState {
      */
     readonly targetCapacity?: pulumi.Input<number>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with
-     * Application Load Balancing.
+     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -341,8 +339,7 @@ export interface SpotFleetRequestArgs {
      */
     readonly targetCapacity: pulumi.Input<number>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with
-     * Application Load Balancing.
+     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

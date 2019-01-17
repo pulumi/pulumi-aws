@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Group resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cognito_user_pool_main = new aws.cognito.UserPool("main", {
+ *     name: "identity pool",
+ * });
+ * const aws_iam_role_group_role = new aws.iam.Role("group_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Federated\": \"cognito-identity.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRoleWithWebIdentity\",\n      \"Condition\": {\n        \"StringEquals\": {\n          \"cognito-identity.amazonaws.com:aud\": \"us-east-1:12345678-dead-beef-cafe-123456790ab\"\n        },\n        \"ForAnyValue:StringLike\": {\n          \"cognito-identity.amazonaws.com:amr\": \"authenticated\"\n        }\n      }\n    }\n  ]\n}\n",
+ *     name: "user-group-role",
+ * });
+ * const aws_cognito_user_group_main = new aws.cognito.UserGroup("main", {
+ *     description: "Managed by Terraform",
+ *     name: "user-group",
+ *     precedence: 42,
+ *     roleArn: aws_iam_role_group_role.arn,
+ *     userPoolId: aws_cognito_user_pool_main.id,
+ * });
+ * ```
  */
 export class UserGroup extends pulumi.CustomResource {
     /**

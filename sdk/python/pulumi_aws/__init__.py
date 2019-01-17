@@ -20,3 +20,4 @@ from .get_ip_ranges import *
 from .get_partition import *
 from .get_prefix_list import *
 from .get_region import *
+from .provider import *
