@@ -27,6 +27,7 @@ func NewBucket(ctx *pulumi.Context,
 		inputs["hostedZoneId"] = nil
 		inputs["lifecycleRules"] = nil
 		inputs["loggings"] = nil
+		inputs["objectLockConfiguration"] = nil
 		inputs["policy"] = nil
 		inputs["region"] = nil
 		inputs["replicationConfiguration"] = nil
@@ -48,6 +49,7 @@ func NewBucket(ctx *pulumi.Context,
 		inputs["hostedZoneId"] = args.HostedZoneId
 		inputs["lifecycleRules"] = args.LifecycleRules
 		inputs["loggings"] = args.Loggings
+		inputs["objectLockConfiguration"] = args.ObjectLockConfiguration
 		inputs["policy"] = args.Policy
 		inputs["region"] = args.Region
 		inputs["replicationConfiguration"] = args.ReplicationConfiguration
@@ -86,6 +88,7 @@ func GetBucket(ctx *pulumi.Context,
 		inputs["hostedZoneId"] = state.HostedZoneId
 		inputs["lifecycleRules"] = state.LifecycleRules
 		inputs["loggings"] = state.Loggings
+		inputs["objectLockConfiguration"] = state.ObjectLockConfiguration
 		inputs["policy"] = state.Policy
 		inputs["region"] = state.Region
 		inputs["replicationConfiguration"] = state.ReplicationConfiguration
@@ -174,6 +177,11 @@ func (r *Bucket) Loggings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["loggings"])
 }
 
+// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+func (r *Bucket) ObjectLockConfiguration() *pulumi.Output {
+	return r.s.State["objectLockConfiguration"]
+}
+
 // A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *Bucket) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
@@ -254,6 +262,8 @@ type BucketState struct {
 	LifecycleRules interface{}
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings interface{}
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	ObjectLockConfiguration interface{}
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
@@ -302,6 +312,8 @@ type BucketArgs struct {
 	LifecycleRules interface{}
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings interface{}
+	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	ObjectLockConfiguration interface{}
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.

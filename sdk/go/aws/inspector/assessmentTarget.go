@@ -4,7 +4,6 @@
 package inspector
 
 import (
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -16,9 +15,6 @@ type AssessmentTarget struct {
 // NewAssessmentTarget registers a new resource with the given unique name, arguments, and options.
 func NewAssessmentTarget(ctx *pulumi.Context,
 	name string, args *AssessmentTargetArgs, opts ...pulumi.ResourceOpt) (*AssessmentTarget, error) {
-	if args == nil || args.ResourceGroupArn == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupArn'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
@@ -68,11 +64,11 @@ func (r *AssessmentTarget) Arn() *pulumi.StringOutput {
 }
 
 // The name of the assessment target.
-// * `resource_group_arn` (Required )- The resource group ARN stating tags for instance matching.
 func (r *AssessmentTarget) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
 func (r *AssessmentTarget) ResourceGroupArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupArn"])
 }
@@ -82,15 +78,15 @@ type AssessmentTargetState struct {
 	// The target assessment ARN.
 	Arn interface{}
 	// The name of the assessment target.
-	// * `resource_group_arn` (Required )- The resource group ARN stating tags for instance matching.
 	Name interface{}
+	// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
 	ResourceGroupArn interface{}
 }
 
 // The set of arguments for constructing a AssessmentTarget resource.
 type AssessmentTargetArgs struct {
 	// The name of the assessment target.
-	// * `resource_group_arn` (Required )- The resource group ARN stating tags for instance matching.
 	Name interface{}
+	// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
 	ResourceGroupArn interface{}
 }

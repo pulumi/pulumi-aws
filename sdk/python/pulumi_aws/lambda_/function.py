@@ -48,6 +48,10 @@ class Function(pulumi.CustomResource):
     """
     The date this resource was last modified.
     """
+    layers: pulumi.Output[list]
+    """
+    List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+    """
     memory_size: pulumi.Output[int]
     """
     Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
@@ -110,7 +114,7 @@ class Function(pulumi.CustomResource):
     """
     Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
     """
-    def __init__(__self__, __name__, __opts__=None, dead_letter_config=None, description=None, environment=None, code=None, name=None, handler=None, kms_key_arn=None, memory_size=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, __name__, __opts__=None, dead_letter_config=None, description=None, environment=None, code=None, name=None, handler=None, kms_key_arn=None, layers=None, memory_size=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         """
         Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
         
@@ -126,6 +130,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
         :param pulumi.Input[str] handler: The function [entrypoint][3] in your code.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key.
+        :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[int] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
@@ -164,6 +169,8 @@ class Function(pulumi.CustomResource):
         __props__['handler'] = handler
 
         __props__['kms_key_arn'] = kms_key_arn
+
+        __props__['layers'] = layers
 
         __props__['memory_size'] = memory_size
 

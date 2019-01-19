@@ -71,9 +71,7 @@ class Instance(pulumi.CustomResource):
     """
     copy_tags_to_snapshot: pulumi.Output[bool]
     """
-    On delete, copy all Instance
-    `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-    Default is `false`.
+    Copy all Instance `tags` to snapshots. Default is `false`.
     """
     db_subnet_group_name: pulumi.Output[str]
     """
@@ -351,9 +349,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon
                RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                for more information.
-        :param pulumi.Input[bool] copy_tags_to_snapshot: On delete, copy all Instance
-               `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-               Default is `false`.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working

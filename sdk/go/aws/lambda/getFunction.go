@@ -27,6 +27,7 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 		InvokeArn: outputs["invokeArn"],
 		KmsKeyArn: outputs["kmsKeyArn"],
 		LastModified: outputs["lastModified"],
+		Layers: outputs["layers"],
 		MemorySize: outputs["memorySize"],
 		QualifiedArn: outputs["qualifiedArn"],
 		ReservedConcurrentExecutions: outputs["reservedConcurrentExecutions"],
@@ -68,6 +69,8 @@ type GetFunctionResult struct {
 	KmsKeyArn interface{}
 	// The date this resource was last modified.
 	LastModified interface{}
+	// A list of Lambda Layer ARNs attached to your Lambda Function.
+	Layers interface{}
 	// Amount of memory in MB your Lambda Function can use at runtime.
 	MemorySize interface{}
 	// The Amazon Resource Name (ARN) identifying your Lambda Function Version

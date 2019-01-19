@@ -6,5 +6,6 @@ export * from "./application";
 export * from "./applicationVersion";
 export * from "./configurationTemplate";
 export * from "./environment";
+export * from "./getApplication";
 export * from "./getHostedZone";
 export * from "./getSolutionStack";

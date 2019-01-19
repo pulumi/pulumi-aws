@@ -120,9 +120,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly characterSetName: pulumi.Output<string>;
     /**
-     * On delete, copy all Instance
-     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-     * Default is `false`.
+     * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
@@ -546,9 +544,7 @@ export interface InstanceState {
      */
     readonly characterSetName?: pulumi.Input<string>;
     /**
-     * On delete, copy all Instance
-     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-     * Default is `false`.
+     * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
@@ -832,9 +828,7 @@ export interface InstanceArgs {
      */
     readonly characterSetName?: pulumi.Input<string>;
     /**
-     * On delete, copy all Instance
-     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-     * Default is `false`.
+     * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**

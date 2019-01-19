@@ -3,5 +3,4 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .cluster_parameter_group import *
-from .subnet_group import *
+from .accelerator import *

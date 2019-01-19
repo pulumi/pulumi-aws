@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *     },
  *     vpcId: aws_vpc_main.id,
  * }, {dependsOn: [aws_subnet_main]});
- * const aws_emr_cluster_tf_test_cluster = new aws.emr.Cluster("tf-test-cluster", {
+ * const aws_emr_cluster_cluster = new aws.emr.Cluster("cluster", {
  *     applications: ["Spark"],
  *     bootstrapActions: [{
  *         args: [
@@ -192,7 +192,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
-    public readonly coreInstanceCount: pulumi.Output<number | undefined>;
+    public readonly coreInstanceCount: pulumi.Output<number>;
     /**
      * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
      */
@@ -212,7 +212,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    public readonly instanceGroups: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs?: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[] | undefined>;
+    public readonly instanceGroups: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -228,7 +228,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    public readonly masterInstanceType: pulumi.Output<string | undefined>;
+    public readonly masterInstanceType: pulumi.Output<string>;
     /**
      * The public DNS name of the master EC2 instance.
      */
@@ -401,7 +401,7 @@ export interface ClusterState {
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -511,7 +511,7 @@ export interface ClusterArgs {
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
