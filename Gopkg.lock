@@ -146,6 +146,7 @@
     "service/fms",
     "service/gamelift",
     "service/glacier",
+    "service/globalaccelerator",
     "service/glue",
     "service/guardduty",
     "service/iam",
@@ -167,12 +168,14 @@
     "service/organizations",
     "service/pinpoint",
     "service/pricing",
+    "service/ram",
     "service/rds",
     "service/redshift",
     "service/resourcegroups",
     "service/route53",
     "service/s3",
     "service/s3control",
+    "service/sagemaker",
     "service/secretsmanager",
     "service/securityhub",
     "service/servicecatalog",
@@ -191,8 +194,8 @@
     "service/wafregional",
     "service/workspaces"
   ]
-  revision = "1f8a24693bc965514ee0d7aadbabe0ceed184a88"
-  version = "v1.16.16"
+  revision = "d2d8f8c33f49af99cdd889f6897ffd525c520407"
+  version = "v1.16.19"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -271,6 +274,12 @@
   name = "github.com/gedex/inflector"
   packages = ["."]
   revision = "16278e9db8130ac7ec405dc174cfb94344f16325"
+
+[[projects]]
+  name = "github.com/gofrs/flock"
+  packages = ["."]
+  revision = "7f43ea2e6a643ad441fc12d0ecc0d3388b300c53"
+  version = "v0.7.0"
 
 [[projects]]
   branch = "master"
@@ -647,7 +656,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "3cf81c0b4ccdd64fbc07cc8ec7cf5fbb74cd7194"
+  revision = "0b8fd47fb541a3ceae04b8661d8ad9ed642f711e"
 
 [[projects]]
   branch = "master"
@@ -656,7 +665,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "9070bbff358bce84f8f8ba25297513256749db2d"
+  revision = "b0770d37ae5ab50be1a2d316a6b5a7b41e8043cb"
 
 [[projects]]
   branch = "master"
@@ -715,7 +724,7 @@
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "8c6b42a08461350a6f0b58c9e61c487d93248320"
+  revision = "e31ea4589d701213d32460991a1671a1146fca66"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -962,6 +971,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f2a45f9c0cb458b5f56bfbab2c0d0cd2031ee7dc7958f4405013a1171e2c89ef"
+  inputs-digest = "bc5916fcf18101b439976ff53822e3fa35e77df396f2515fed0525520ce888dc"
   solver-name = "gps-cdcl"
   solver-version = 1
