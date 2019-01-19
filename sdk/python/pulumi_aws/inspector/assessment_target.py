@@ -15,9 +15,11 @@ class AssessmentTarget(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     The name of the assessment target.
-    * `resource_group_arn` (Required )- The resource group ARN stating tags for instance matching.
     """
     resource_group_arn: pulumi.Output[str]
+    """
+    Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+    """
     def __init__(__self__, __name__, __opts__=None, name=None, resource_group_arn=None):
         """
         Provides a Inspector assessment target
@@ -26,8 +28,7 @@ class AssessmentTarget(pulumi.CustomResource):
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the assessment target.
-               * `resource_group_arn` (Required )- The resource group ARN stating tags for instance matching.
-        :param pulumi.Input[str] resource_group_arn
+        :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -40,8 +41,6 @@ class AssessmentTarget(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not resource_group_arn:
-            raise TypeError('Missing required property resource_group_arn')
         __props__['resource_group_arn'] = resource_group_arn
 
         __props__['arn'] = None

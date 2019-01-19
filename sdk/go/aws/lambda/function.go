@@ -36,6 +36,7 @@ func NewFunction(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["handler"] = nil
 		inputs["kmsKeyArn"] = nil
+		inputs["layers"] = nil
 		inputs["memorySize"] = nil
 		inputs["publish"] = nil
 		inputs["reservedConcurrentExecutions"] = nil
@@ -57,6 +58,7 @@ func NewFunction(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["handler"] = args.Handler
 		inputs["kmsKeyArn"] = args.KmsKeyArn
+		inputs["layers"] = args.Layers
 		inputs["memorySize"] = args.MemorySize
 		inputs["publish"] = args.Publish
 		inputs["reservedConcurrentExecutions"] = args.ReservedConcurrentExecutions
@@ -100,6 +102,7 @@ func GetFunction(ctx *pulumi.Context,
 		inputs["invokeArn"] = state.InvokeArn
 		inputs["kmsKeyArn"] = state.KmsKeyArn
 		inputs["lastModified"] = state.LastModified
+		inputs["layers"] = state.Layers
 		inputs["memorySize"] = state.MemorySize
 		inputs["publish"] = state.Publish
 		inputs["qualifiedArn"] = state.QualifiedArn
@@ -182,6 +185,11 @@ func (r *Function) KmsKeyArn() *pulumi.StringOutput {
 // The date this resource was last modified.
 func (r *Function) LastModified() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["lastModified"])
+}
+
+// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+func (r *Function) Layers() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["layers"])
 }
 
 // Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
@@ -286,6 +294,8 @@ type FunctionState struct {
 	KmsKeyArn interface{}
 	// The date this resource was last modified.
 	LastModified interface{}
+	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+	Layers interface{}
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
 	MemorySize interface{}
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -336,6 +346,8 @@ type FunctionArgs struct {
 	Handler interface{}
 	// The ARN for the KMS encryption key.
 	KmsKeyArn interface{}
+	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+	Layers interface{}
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
 	MemorySize interface{}
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.

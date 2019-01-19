@@ -79,6 +79,10 @@ export interface GetFunctionResult {
      */
     readonly lastModified: string;
     /**
+     * A list of Lambda Layer ARNs attached to your Lambda Function.
+     */
+    readonly layers: string[];
+    /**
      * Amount of memory in MB your Lambda Function can use at runtime.
      */
     readonly memorySize: number;

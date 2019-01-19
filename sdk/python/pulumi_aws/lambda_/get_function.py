@@ -11,7 +11,7 @@ class GetFunctionResult(object):
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, memory_size=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, timeout=None, tracing_config=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, timeout=None, tracing_config=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
@@ -59,6 +59,12 @@ class GetFunctionResult(object):
         __self__.last_modified = last_modified
         """
         The date this resource was last modified.
+        """
+        if layers and not isinstance(layers, list):
+            raise TypeError('Expected argument layers to be a list')
+        __self__.layers = layers
+        """
+        A list of Lambda Layer ARNs attached to your Lambda Function.
         """
         if memory_size and not isinstance(memory_size, int):
             raise TypeError('Expected argument memory_size to be a int')
@@ -152,6 +158,7 @@ async def get_function(function_name=None, qualifier=None):
         invoke_arn=__ret__.get('invokeArn'),
         kms_key_arn=__ret__.get('kmsKeyArn'),
         last_modified=__ret__.get('lastModified'),
+        layers=__ret__.get('layers'),
         memory_size=__ret__.get('memorySize'),
         qualified_arn=__ret__.get('qualifiedArn'),
         reserved_concurrent_executions=__ret__.get('reservedConcurrentExecutions'),
