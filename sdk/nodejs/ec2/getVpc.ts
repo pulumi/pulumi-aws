@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
  * This resource can prove useful when a module accepts a vpc id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
+ * 
+ * ## Example Usage
+ * 
+ * The following example shows how one might accept a VPC id as a variable
+ * and use this data source to obtain the data necessary to create a subnet
+ * within it.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_vpc_id = config.require("vpcId");
+ * 
+ * const aws_vpc_selected = pulumi.output(aws.ec2.getVpc({
+ *     id: var_vpc_id,
+ * }));
+ * const aws_subnet_example = new aws.ec2.Subnet("example", {
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: aws_vpc_selected.apply(__arg0 => (() => {
+ *         throw "tf2pulumi error: NYI: call to cidrsubnet";
+ *         return (() => { throw "NYI: call to cidrsubnet"; })();
+ *     })()),
+ *     vpcId: aws_vpc_selected.apply(__arg0 => __arg0.id),
+ * });
+ * ```
  */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};

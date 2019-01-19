@@ -6,6 +6,33 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway REST API.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
+ * });
+ * ```
+ * ### Regional Endpoint Type
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_example = new aws.apigateway.RestApi("example", {
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
+ *     name: "regional-example",
+ * });
+ * ```
  */
 export class RestApi extends pulumi.CustomResource {
     /**

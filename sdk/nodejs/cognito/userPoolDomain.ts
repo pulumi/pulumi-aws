@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Domain resource.
+ * 
+ * 
  */
 export class UserPoolDomain extends pulumi.CustomResource {
     /**

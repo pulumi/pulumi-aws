@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Parameter Group resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_dax_parameter_group_example = new aws.dax.ParameterGroup("example", {
+ *     name: "example",
+ *     parameters: [
+ *         {
+ *             name: "query-ttl-millis",
+ *             value: "100000",
+ *         },
+ *         {
+ *             name: "record-ttl-millis",
+ *             value: "100000",
+ *         },
+ *     ],
+ * });
+ * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

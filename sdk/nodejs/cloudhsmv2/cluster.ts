@@ -62,6 +62,9 @@ export class Cluster extends pulumi.CustomResource {
      * The IDs of subnets in which cluster will operate.
      */
     public readonly subnetIds: pulumi.Output<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
@@ -148,6 +151,9 @@ export interface ClusterState {
      * The IDs of subnets in which cluster will operate.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
@@ -171,5 +177,8 @@ export interface ClusterArgs {
      * The IDs of subnets in which cluster will operate.
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

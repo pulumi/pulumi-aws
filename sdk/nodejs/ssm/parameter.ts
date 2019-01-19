@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Parameter resource.
+ * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
  */
 export class Parameter extends pulumi.CustomResource {
     /**

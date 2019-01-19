@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage an API Gateway Documentation Version.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_example = new aws.apigateway.RestApi("example", {
+ *     name: "example_api",
+ * });
+ * const aws_api_gateway_documentation_part_example = new aws.apigateway.DocumentationPart("example", {
+ *     location: {
+ *         type: "API",
+ *     },
+ *     properties: "{\"description\":\"Example\"}",
+ *     restApiId: aws_api_gateway_rest_api_example.id,
+ * });
+ * const aws_api_gateway_documentation_version_example = new aws.apigateway.DocumentationVersion("example", {
+ *     description: "Example description",
+ *     restApiId: aws_api_gateway_rest_api_example.id,
+ *     version: "example_version",
+ * }, {dependsOn: [aws_api_gateway_documentation_part_example]});
+ * ```
  */
 export class DocumentationVersion extends pulumi.CustomResource {
     /**

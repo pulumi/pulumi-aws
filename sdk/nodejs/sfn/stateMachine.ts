@@ -40,6 +40,10 @@ export class StateMachine extends pulumi.CustomResource {
      * The current status of the state machine. Either "ACTIVE" or "DELETING".
      */
     public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -58,6 +62,7 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StateMachineArgs | undefined;
             if (!args || args.definition === undefined) {
@@ -69,6 +74,7 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["definition"] = args ? args.definition : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -100,6 +106,10 @@ export interface StateMachineState {
      * The current status of the state machine. Either "ACTIVE" or "DELETING".
      */
     readonly status?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -118,4 +128,8 @@ export interface StateMachineArgs {
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

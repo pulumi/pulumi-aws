@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Rule Group Resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_wafregional_rule_example = new aws.wafregional.Rule("example", {
+ *     metricName: "example",
+ *     name: "example",
+ * });
+ * const aws_wafregional_rule_group_example = new aws.wafregional.RuleGroup("example", {
+ *     activatedRules: [{
+ *         action: {
+ *             type: "COUNT",
+ *         },
+ *         priority: 50,
+ *         ruleId: aws_wafregional_rule_example.id,
+ *     }],
+ *     metricName: "example",
+ *     name: "example",
+ * });
+ * ```
  */
 export class RuleGroup extends pulumi.CustomResource {
     /**

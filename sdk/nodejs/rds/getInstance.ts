@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an RDS instance
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_db_instance_database = pulumi.output(aws.rds.getInstance({
+ *     dbInstanceIdentifier: "my-test-database",
+ * }));
+ * ```
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {

@@ -128,6 +128,7 @@ func (r *Cluster) SubnetIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Cluster) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -158,6 +159,7 @@ type ClusterState struct {
 	SourceBackupIdentifier interface{}
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId interface{}
@@ -171,5 +173,6 @@ type ClusterArgs struct {
 	SourceBackupIdentifier interface{}
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

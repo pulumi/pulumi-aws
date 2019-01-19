@@ -10,6 +10,88 @@ import * as utilities from "../utilities";
  * > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
  * 
  * > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic
+ * 
+ * Enable CloudTrail to capture all compatible management events in region.
+ * For capturing events from services like IAM, `include_global_service_events` must be enabled.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_foo = new aws.s3.Bucket("foo", {
+ *     bucket: "tf-test-trail",
+ *     forceDestroy: true,
+ *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"AWSCloudTrailAclCheck\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n              \"Service\": \"cloudtrail.amazonaws.com\"\n            },\n            \"Action\": \"s3:GetBucketAcl\",\n            \"Resource\": \"arn:aws:s3:::tf-test-trail\"\n        },\n        {\n            \"Sid\": \"AWSCloudTrailWrite\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n              \"Service\": \"cloudtrail.amazonaws.com\"\n            },\n            \"Action\": \"s3:PutObject\",\n            \"Resource\": \"arn:aws:s3:::tf-test-trail/*\",\n            \"Condition\": {\n                \"StringEquals\": {\n                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n                }\n            }\n        }\n    ]\n}\n",
+ * });
+ * const aws_cloudtrail_foobar = new aws.cloudtrail.Trail("foobar", {
+ *     includeGlobalServiceEvents: false,
+ *     name: "tf-trail-foobar",
+ *     s3BucketName: aws_s3_bucket_foo.id,
+ *     s3KeyPrefix: "prefix",
+ * });
+ * ```
+ * ### Data Event Logging
+ * 
+ * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
+ * 
+ * ### Logging All Lambda Function Invocations
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudtrail_example = new aws.cloudtrail.Trail("example", {
+ *     eventSelectors: [{
+ *         dataResources: [{
+ *             type: "AWS::Lambda::Function",
+ *             values: ["arn:aws:lambda"],
+ *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
+ *     }],
+ * });
+ * ```
+ * ### Logging All S3 Bucket Object Events
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudtrail_example = new aws.cloudtrail.Trail("example", {
+ *     eventSelectors: [{
+ *         dataResources: [{
+ *             type: "AWS::S3::Object",
+ *             values: ["arn:aws:s3:::"],
+ *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
+ *     }],
+ * });
+ * ```
+ * ### Logging Individual S3 Bucket Events
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_important_bucket = pulumi.output(aws.s3.getBucket({
+ *     bucket: "important-bucket",
+ * }));
+ * const aws_cloudtrail_example = new aws.cloudtrail.Trail("example", {
+ *     eventSelectors: [{
+ *         dataResources: [{
+ *             type: "AWS::S3::Object",
+ *             values: [aws_s3_bucket_important_bucket.apply(__arg0 => `${__arg0.arn}/`)],
+ *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
+ *     }],
+ * });
+ * ```
  */
 export class Trail extends pulumi.CustomResource {
     /**

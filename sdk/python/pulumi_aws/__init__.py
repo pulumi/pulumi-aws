@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Make subpackages available:
-__all__ = ['acm', 'acmpca', 'apigateway', 'appautoscaling', 'applicationloadbalancing', 'appmesh', 'appsync', 'athena', 'autoscaling', 'batch', 'budgets', 'cfg', 'cloud9', 'cloudformation', 'cloudfront', 'cloudhsmv2', 'cloudtrail', 'cloudwatch', 'codebuild', 'codecommit', 'codedeploy', 'codepipeline', 'cognito', 'config', 'datasync', 'dax', 'devicefarm', 'directconnect', 'directoryservice', 'dlm', 'dms', 'dynamodb', 'ebs', 'ec2', 'ec2transitgateway', 'ecr', 'ecs', 'efs', 'eks', 'elasticache', 'elasticbeanstalk', 'elasticloadbalancing', 'elasticloadbalancingv2', 'elasticsearch', 'elastictranscoder', 'emr', 'gamelift', 'glacier', 'glue', 'guardduty', 'iam', 'inspector', 'iot', 'kinesis', 'kms', 'lambda', 'licensemanager', 'lightsail', 'macie', 'mediastore', 'mq', 'neptune', 'opsworks', 'organizations', 'pinpoint', 'pricing', 'rds', 'redshift', 'route53', 's3', 'secretsmanager', 'securityhub', 'servicecatalog', 'servicediscovery', 'ses', 'sfn', 'simpledb', 'sns', 'sqs', 'ssm', 'storagegateway', 'swf', 'transfer', 'waf', 'wafregional', 'workspaces']
+__all__ = ['acm', 'acmpca', 'apigateway', 'appautoscaling', 'applicationloadbalancing', 'appmesh', 'appsync', 'athena', 'autoscaling', 'batch', 'budgets', 'cfg', 'cloud9', 'cloudformation', 'cloudfront', 'cloudhsmv2', 'cloudtrail', 'cloudwatch', 'codebuild', 'codecommit', 'codedeploy', 'codepipeline', 'cognito', 'config', 'datasync', 'dax', 'devicefarm', 'directconnect', 'directoryservice', 'dlm', 'dms', 'docdb', 'dynamodb', 'ebs', 'ec2', 'ec2transitgateway', 'ecr', 'ecs', 'efs', 'eks', 'elasticache', 'elasticbeanstalk', 'elasticloadbalancing', 'elasticloadbalancingv2', 'elasticsearch', 'elastictranscoder', 'emr', 'gamelift', 'glacier', 'glue', 'guardduty', 'iam', 'inspector', 'iot', 'kinesis', 'kms', 'lambda', 'licensemanager', 'lightsail', 'macie', 'mediapackage', 'mediastore', 'mq', 'neptune', 'opsworks', 'organizations', 'pinpoint', 'pricing', 'rds', 'redshift', 'resourcegroups', 'route53', 's3', 'secretsmanager', 'securityhub', 'servicecatalog', 'servicediscovery', 'ses', 'sfn', 'simpledb', 'sns', 'sqs', 'ssm', 'storagegateway', 'swf', 'transfer', 'waf', 'wafregional', 'workspaces']
 
 # Export this package's modules as members:
 from .get_ami import *
@@ -20,3 +20,4 @@ from .get_ip_ranges import *
 from .get_partition import *
 from .get_prefix_list import *
 from .get_region import *
+from .provider import *

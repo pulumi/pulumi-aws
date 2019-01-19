@@ -7,6 +7,17 @@ import * as utilities from "../utilities";
 /**
  * This data source can be used to fetch information about a specific
  * IAM policy.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_example = pulumi.output(aws.iam.getPolicy({
+ *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
+ * }));
+ * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {

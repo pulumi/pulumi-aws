@@ -8,6 +8,23 @@ import * as utilities from "../utilities";
  * Provides an Elastic Beanstalk Configuration Template, which are associated with
  * a specific application and are used to deploy different versions of the
  * application with the same configuration settings.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elastic_beanstalk_application_tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     description: "tf-test-desc",
+ *     name: "tf-test-name",
+ * });
+ * const aws_elastic_beanstalk_configuration_template_tf_template = new aws.elasticbeanstalk.ConfigurationTemplate("tf_template", {
+ *     application: aws_elastic_beanstalk_application_tftest.name,
+ *     name: "tf-test-template-config",
+ *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
+ * });
+ * ```
  */
 export class ConfigurationTemplate extends pulumi.CustomResource {
     /**

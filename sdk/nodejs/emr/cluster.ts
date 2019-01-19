@@ -8,6 +8,148 @@ import * as utilities from "../utilities";
  * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
  * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
  * for more information.
+ * The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster
+ * to use as a service, and another to place on your Cluster Instances to interact
+ * with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
+ * and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
+ * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
+ * guide for more information on these IAM roles. There is also a fully-bootable
+ * example Terraform configuration at the bottom of this page.
+ * 
+ * ### Enable Debug Logging
+ * 
+ * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
+ * is implemented as a step. It is highly recommended to utilize the
+ * [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other
+ * steps are being managed outside of Terraform.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_emr_cluster_example = new aws.emr.Cluster("example", {
+ *     steps: [{
+ *         action: "TERMINATE_CLUSTER",
+ *         hadoopJarStep: {
+ *             args: ["state-pusher-script"],
+ *             jar: "command-runner.jar",
+ *         },
+ *         name: "Setup Hadoop Debugging",
+ *     }],
+ * });
+ * ```
+ * 
+ * ## Example bootable config
+ * 
+ * **NOTE:** This configuration demonstrates a minimal configuration needed to
+ * boot an example EMR Cluster. It is not meant to display best practices. Please
+ * use at your own risk.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_iam_emr_profile_role = new aws.iam.Role("iam_emr_profile_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     name: "iam_emr_profile_role",
+ * });
+ * const aws_iam_role_iam_emr_service_role = new aws.iam.Role("iam_emr_service_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"elasticmapreduce.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     name: "iam_emr_service_role",
+ * });
+ * const aws_vpc_main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "168.31.0.0/16",
+ *     enableDnsHostnames: true,
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ * });
+ * const aws_iam_instance_profile_emr_profile = new aws.iam.InstanceProfile("emr_profile", {
+ *     name: "emr_profile",
+ *     roles: [aws_iam_role_iam_emr_profile_role.name],
+ * });
+ * const aws_subnet_main = new aws.ec2.Subnet("main", {
+ *     cidrBlock: "168.31.0.0/20",
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * const aws_security_group_allow_all = new aws.ec2.SecurityGroup("allow_all", {
+ *     description: "Allow all inbound traffic",
+ *     egress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     ingress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     name: "allow_all",
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ *     vpcId: aws_vpc_main.id,
+ * }, {dependsOn: [aws_subnet_main]});
+ * const aws_emr_cluster_tf_test_cluster = new aws.emr.Cluster("tf-test-cluster", {
+ *     applications: ["Spark"],
+ *     bootstrapActions: [{
+ *         args: [
+ *             "instance.isMaster=true",
+ *             "echo running on master node",
+ *         ],
+ *         name: "runif",
+ *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
+ *     }],
+ *     configurationsJson: "  [\n    {\n      \"Classification\": \"hadoop-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    },\n    {\n      \"Classification\": \"spark-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    }\n  ]\n",
+ *     coreInstanceCount: 1,
+ *     coreInstanceType: "m5.xlarge",
+ *     ec2Attributes: {
+ *         emrManagedMasterSecurityGroup: aws_security_group_allow_all.id,
+ *         emrManagedSlaveSecurityGroup: aws_security_group_allow_all.id,
+ *         instanceProfile: aws_iam_instance_profile_emr_profile.arn,
+ *         subnetId: aws_subnet_main.id,
+ *     },
+ *     masterInstanceType: "m5.xlarge",
+ *     name: "emr-test-arn",
+ *     releaseLabel: "emr-4.6.0",
+ *     serviceRole: aws_iam_role_iam_emr_service_role.arn,
+ *     tags: {
+ *         dns_zone: "env_zone",
+ *         env: "env",
+ *         name: "name-env",
+ *         role: "rolename",
+ *     },
+ * });
+ * const aws_iam_role_policy_iam_emr_profile_policy = new aws.iam.RolePolicy("iam_emr_profile_policy", {
+ *     name: "iam_emr_profile_policy",
+ *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [{\n        \"Effect\": \"Allow\",\n        \"Resource\": \"*\",\n        \"Action\": [\n            \"cloudwatch:*\",\n            \"dynamodb:*\",\n            \"ec2:Describe*\",\n            \"elasticmapreduce:Describe*\",\n            \"elasticmapreduce:ListBootstrapActions\",\n            \"elasticmapreduce:ListClusters\",\n            \"elasticmapreduce:ListInstanceGroups\",\n            \"elasticmapreduce:ListInstances\",\n            \"elasticmapreduce:ListSteps\",\n            \"kinesis:CreateStream\",\n            \"kinesis:DeleteStream\",\n            \"kinesis:DescribeStream\",\n            \"kinesis:GetRecords\",\n            \"kinesis:GetShardIterator\",\n            \"kinesis:MergeShards\",\n            \"kinesis:PutRecord\",\n            \"kinesis:SplitShard\",\n            \"rds:Describe*\",\n            \"s3:*\",\n            \"sdb:*\",\n            \"sns:*\",\n            \"sqs:*\"\n        ]\n    }]\n}\n",
+ *     role: aws_iam_role_iam_emr_profile_role.id,
+ * });
+ * const aws_iam_role_policy_iam_emr_service_policy = new aws.iam.RolePolicy("iam_emr_service_policy", {
+ *     name: "iam_emr_service_policy",
+ *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [{\n        \"Effect\": \"Allow\",\n        \"Resource\": \"*\",\n        \"Action\": [\n            \"ec2:AuthorizeSecurityGroupEgress\",\n            \"ec2:AuthorizeSecurityGroupIngress\",\n            \"ec2:CancelSpotInstanceRequests\",\n            \"ec2:CreateNetworkInterface\",\n            \"ec2:CreateSecurityGroup\",\n            \"ec2:CreateTags\",\n            \"ec2:DeleteNetworkInterface\",\n            \"ec2:DeleteSecurityGroup\",\n            \"ec2:DeleteTags\",\n            \"ec2:DescribeAvailabilityZones\",\n            \"ec2:DescribeAccountAttributes\",\n            \"ec2:DescribeDhcpOptions\",\n            \"ec2:DescribeInstanceStatus\",\n            \"ec2:DescribeInstances\",\n            \"ec2:DescribeKeyPairs\",\n            \"ec2:DescribeNetworkAcls\",\n            \"ec2:DescribeNetworkInterfaces\",\n            \"ec2:DescribePrefixLists\",\n            \"ec2:DescribeRouteTables\",\n            \"ec2:DescribeSecurityGroups\",\n            \"ec2:DescribeSpotInstanceRequests\",\n            \"ec2:DescribeSpotPriceHistory\",\n            \"ec2:DescribeSubnets\",\n            \"ec2:DescribeVpcAttribute\",\n            \"ec2:DescribeVpcEndpoints\",\n            \"ec2:DescribeVpcEndpointServices\",\n            \"ec2:DescribeVpcs\",\n            \"ec2:DetachNetworkInterface\",\n            \"ec2:ModifyImageAttribute\",\n            \"ec2:ModifyInstanceAttribute\",\n            \"ec2:RequestSpotInstances\",\n            \"ec2:RevokeSecurityGroupEgress\",\n            \"ec2:RunInstances\",\n            \"ec2:TerminateInstances\",\n            \"ec2:DeleteVolume\",\n            \"ec2:DescribeVolumeStatus\",\n            \"ec2:DescribeVolumes\",\n            \"ec2:DetachVolume\",\n            \"iam:GetRole\",\n            \"iam:GetRolePolicy\",\n            \"iam:ListInstanceProfiles\",\n            \"iam:ListRolePolicies\",\n            \"iam:PassRole\",\n            \"s3:CreateBucket\",\n            \"s3:Get*\",\n            \"s3:List*\",\n            \"sdb:BatchPutAttributes\",\n            \"sdb:Select\",\n            \"sqs:CreateQueue\",\n            \"sqs:Delete*\",\n            \"sqs:GetQueue*\",\n            \"sqs:PurgeQueue\",\n            \"sqs:ReceiveMessage\"\n        ]\n    }]\n}\n",
+ *     role: aws_iam_role_iam_emr_service_role.id,
+ * });
+ * const aws_internet_gateway_gw = new aws.ec2.InternetGateway("gw", {
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * const aws_route_table_r = new aws.ec2.RouteTable("r", {
+ *     routes: [{
+ *         cidrBlock: "0.0.0.0/0",
+ *         gatewayId: aws_internet_gateway_gw.id,
+ *     }],
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * const aws_main_route_table_association_a = new aws.ec2.MainRouteTableAssociation("a", {
+ *     routeTableId: aws_route_table_r.id,
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

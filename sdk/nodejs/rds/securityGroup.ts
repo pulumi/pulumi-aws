@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
  * EC2-Classic Platform. For instances inside a VPC, use the
  * [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
  * attribute instead.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_db_security_group_default = new aws.rds.SecurityGroup("default", {
+ *     ingress: [{
+ *         cidr: "10.0.0.0/24",
+ *     }],
+ *     name: "rds_sg",
+ * });
+ * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

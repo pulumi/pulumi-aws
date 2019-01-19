@@ -27,10 +27,12 @@ func NewStateMachine(ctx *pulumi.Context,
 		inputs["definition"] = nil
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["definition"] = args.Definition
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
+		inputs["tags"] = args.Tags
 	}
 	inputs["creationDate"] = nil
 	inputs["status"] = nil
@@ -52,6 +54,7 @@ func GetStateMachine(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["roleArn"] = state.RoleArn
 		inputs["status"] = state.Status
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:sfn/stateMachine:StateMachine", name, id, inputs, opts...)
 	if err != nil {
@@ -95,6 +98,11 @@ func (r *StateMachine) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// Key-value mapping of resource tags
+func (r *StateMachine) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering StateMachine resources.
 type StateMachineState struct {
 	// The date the state machine was created.
@@ -107,6 +115,8 @@ type StateMachineState struct {
 	RoleArn interface{}
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a StateMachine resource.
@@ -117,4 +127,6 @@ type StateMachineArgs struct {
 	Name interface{}
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

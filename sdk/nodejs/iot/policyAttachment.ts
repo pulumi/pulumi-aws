@@ -9,6 +9,27 @@ import {ARN} from "../index";
 
 /**
  * Provides an IoT policy attachment.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_iot_certificate_cert = new aws.iot.Certificate("cert", {
+ *     active: true,
+ *     csr: fs.readFileSync("csr.pem", "utf-8"),
+ * });
+ * const aws_iot_policy_pubsub = new aws.iot.Policy("pubsub", {
+ *     name: "PubSubToAnyTopic",
+ *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"iot:*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ * });
+ * const aws_iot_policy_attachment_att = new aws.iot.PolicyAttachment("att", {
+ *     policy: aws_iot_policy_pubsub.name,
+ *     target: aws_iot_certificate_cert.arn,
+ * });
+ * ```
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

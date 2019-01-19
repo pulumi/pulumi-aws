@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_test_role = new aws.iam.Role("test_role", {
+ *     assumeRolePolicy: "  {\n    \"Version\": \"2012-10-17\",\n    \"Statement\": {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\"Service\": \"ssm.amazonaws.com\"},\n      \"Action\": \"sts:AssumeRole\"\n    }\n  }\n",
+ *     name: "test_role",
+ * });
+ * const aws_iam_role_policy_attachment_test_attach = new aws.iam.RolePolicyAttachment("test_attach", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+ *     role: aws_iam_role_test_role.name,
+ * });
+ * const aws_ssm_activation_foo = new aws.ssm.Activation("foo", {
+ *     description: "Test",
+ *     iamRole: aws_iam_role_test_role.id,
+ *     name: "test_ssm_activation",
+ *     registrationLimit: Number.parseFloat("5"),
+ * }, {dependsOn: [aws_iam_role_policy_attachment_test_attach]});
+ * ```
  */
 export class Activation extends pulumi.CustomResource {
     /**

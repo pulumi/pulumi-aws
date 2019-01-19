@@ -205,6 +205,7 @@ func (r *AmiCopy) SriovNetSupport() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sriovNetSupport"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *AmiCopy) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -258,6 +259,7 @@ type AmiCopyState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -287,5 +289,6 @@ type AmiCopyArgs struct {
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.
 	SourceAmiRegion interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

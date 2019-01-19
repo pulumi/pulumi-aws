@@ -61,6 +61,7 @@ const (
 	daxMod               = "dax"                      // DynamoDB Accelerator
 	devicefarmMod        = "devicefarm"               // Device Farm
 	directoryserviceMod  = "directoryservice"         // Directory Services
+	docdbMod             = "docdb"                    // Document DB
 	dynamodbMod          = "dynamodb"                 // DynamoDB
 	dxMod                = "directconnect"            // Direct Connect
 	dmsMod               = "dms"                      // Data Migraiton Services
@@ -92,6 +93,7 @@ const (
 	licensemanagerMod    = "licensemanager"           // License Manager
 	lightsailMod         = "lightsail"                // LightSail
 	macieMod             = "macie"                    // Macie
+	mediapackageMod      = "mediapackage"             // Elemental MediaPackage
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
 	mqMod                = "mq"                       // MQ
 	neptuneMod           = "neptune"                  // Neptune
@@ -101,6 +103,7 @@ const (
 	pricingMod           = "pricing"                  // Pricing
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
+	resourcegroupsMod    = "resourcegroups"           // Resource Groups
 	route53Mod           = "route53"                  // Route 53 (DNS)
 	securityhubMod       = "securityhub"              // SecurityHub
 	sesMod               = "ses"                      // Simple Email Service (SES)
@@ -603,6 +606,8 @@ func Provider() tfbridge.ProviderInfo {
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
+			// Document DB
+			"aws_docdb_cluster_parameter_group": {Tok: awsResource(docdbMod, "ClusterParameterGroup")},
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
@@ -1282,6 +1287,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
+			// Elemental MediaPackage
+			"aws_media_package_channel": {Tok: awsResource(mediapackageMod, "Channel")},
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
@@ -1419,6 +1426,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			// Resource Groups
+			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
 			"aws_route53_delegation_set":   {Tok: awsResource(route53Mod, "DelegationSet")},
 			"aws_route53_record":           {Tok: awsResource(route53Mod, "Record")},

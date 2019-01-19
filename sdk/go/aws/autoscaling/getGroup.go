@@ -58,6 +58,7 @@ type GetGroupResult struct {
 	HealthCheckGracePeriod interface{}
 	// The service to use for the health checks. The valid values are EC2 and ELB.
 	HealthCheckType interface{}
+	// The name of the associated launch configuration.
 	LaunchConfiguration interface{}
 	// One or more load balancers associated with the group.
 	LoadBalancers interface{}

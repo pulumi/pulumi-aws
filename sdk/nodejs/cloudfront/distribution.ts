@@ -16,6 +16,142 @@ import * as utilities from "../utilities";
  * after creation or modification. During this time, deletes to resources will be
  * blocked. If you need to delete a distribution that is enabled and you do not
  * want to wait, you need to use the `retain_on_delete` flag.
+ * 
+ * ## Example Usage
+ * 
+ * The following example below creates a CloudFront distribution with an S3 origin.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const local_s3_origin_id = "myS3Origin";
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "mybucket",
+ *     tags: {
+ *         Name: "My bucket",
+ *     },
+ * });
+ * const aws_cloudfront_distribution_s3_distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ *     aliases: [
+ *         "mysite.example.com",
+ *         "yoursite.example.com",
+ *     ],
+ *     comment: "Some comment",
+ *     defaultCacheBehavior: {
+ *         allowedMethods: [
+ *             "DELETE",
+ *             "GET",
+ *             "HEAD",
+ *             "OPTIONS",
+ *             "PATCH",
+ *             "POST",
+ *             "PUT",
+ *         ],
+ *         cachedMethods: [
+ *             "GET",
+ *             "HEAD",
+ *         ],
+ *         defaultTtl: 3600,
+ *         forwardedValues: {
+ *             cookies: {
+ *                 forward: "none",
+ *             },
+ *             queryString: false,
+ *         },
+ *         maxTtl: 86400,
+ *         minTtl: 0,
+ *         targetOriginId: local_s3_origin_id,
+ *         viewerProtocolPolicy: "allow-all",
+ *     },
+ *     defaultRootObject: "index.html",
+ *     enabled: true,
+ *     isIpv6Enabled: true,
+ *     loggingConfig: {
+ *         bucket: "mylogs.s3.amazonaws.com",
+ *         includeCookies: false,
+ *         prefix: "myprefix",
+ *     },
+ *     orderedCacheBehaviors: [
+ *         {
+ *             allowedMethods: [
+ *                 "GET",
+ *                 "HEAD",
+ *                 "OPTIONS",
+ *             ],
+ *             cachedMethods: [
+ *                 "GET",
+ *                 "HEAD",
+ *                 "OPTIONS",
+ *             ],
+ *             compress: true,
+ *             defaultTtl: 86400,
+ *             forwardedValues: {
+ *                 cookies: {
+ *                     forward: "none",
+ *                 },
+ *                 headers: ["Origin"],
+ *                 queryString: false,
+ *             },
+ *             maxTtl: 31536000,
+ *             minTtl: 0,
+ *             pathPattern: "/content/immutable/*",
+ *             targetOriginId: local_s3_origin_id,
+ *             viewerProtocolPolicy: "redirect-to-https",
+ *         },
+ *         {
+ *             allowedMethods: [
+ *                 "GET",
+ *                 "HEAD",
+ *                 "OPTIONS",
+ *             ],
+ *             cachedMethods: [
+ *                 "GET",
+ *                 "HEAD",
+ *             ],
+ *             compress: true,
+ *             defaultTtl: 3600,
+ *             forwardedValues: {
+ *                 cookies: {
+ *                     forward: "none",
+ *                 },
+ *                 queryString: false,
+ *             },
+ *             maxTtl: 86400,
+ *             minTtl: 0,
+ *             pathPattern: "/content/*",
+ *             targetOriginId: local_s3_origin_id,
+ *             viewerProtocolPolicy: "redirect-to-https",
+ *         },
+ *     ],
+ *     origins: [{
+ *         domainName: aws_s3_bucket_b.bucketRegionalDomainName,
+ *         originId: local_s3_origin_id,
+ *         s3OriginConfig: {
+ *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
+ *         },
+ *     }],
+ *     priceClass: "PriceClass_200",
+ *     restrictions: {
+ *         geoRestriction: {
+ *             locations: [
+ *                 "US",
+ *                 "CA",
+ *                 "GB",
+ *                 "DE",
+ *             ],
+ *             restrictionType: "whitelist",
+ *         },
+ *     },
+ *     tags: {
+ *         Environment: "production",
+ *     },
+ *     viewerCertificate: {
+ *         cloudfrontDefaultCertificate: true,
+ *     },
+ * });
+ * ```
  */
 export class Distribution extends pulumi.CustomResource {
     /**

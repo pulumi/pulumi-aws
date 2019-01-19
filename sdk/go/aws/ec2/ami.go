@@ -170,6 +170,7 @@ func (r *Ami) SriovNetSupport() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sriovNetSupport"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Ami) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -214,6 +215,7 @@ type AmiState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -251,6 +253,7 @@ type AmiArgs struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
