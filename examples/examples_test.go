@@ -38,7 +38,7 @@ func TestExamples(t *testing.T) {
 		},
 	})
 
-	examples := []integration.ProgramTestOptions{
+	shortTests := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
 		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
@@ -66,53 +66,61 @@ func TestExamples(t *testing.T) {
 		}),
 	}
 
-	if !testing.Short() {
-		examples = append(examples, []integration.ProgramTestOptions{
-			// JavaScript tests:
-			baseJS.With(integration.ProgramTestOptions{
-				Dir: path.Join(cwd, "webserver"),
-				EditDirs: []integration.EditDir{
-					// First, look up the server just created using get.  No new resources.
-					createEditDir(path.Join(cwd, "webserver", "variants", "get")),
-					// Next, patch the ingress rules by adding port 20: should be a quick update.
-					createEditDir(path.Join(cwd, "webserver", "variants", "ssh")),
-					// Now do the reverse; this basically ensures that an update that deletes a property works.
-					createEditDir(path.Join(cwd, "webserver")),
-					// Next patch the security group description, necessitating a full replacement of resources.
-					createEditDir(path.Join(cwd, "webserver", "variants", "ssh_description")),
-				},
-			}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
-			baseJS.With(integration.ProgramTestOptions{
-				Dir: path.Join(cwd, "webserver-comp"),
-				// Verify that credentials can be passed via explicit configuration
-				Secrets: map[string]string{
-					"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
-					"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
-				},
-			}),
-			baseJS.With(integration.ProgramTestOptions{
-				Dir: path.Join(cwd, "serverless-raw"),
-				// Two changes are known to occur during refresh of the resources in this example:
-				// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
-				// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
-				ExpectRefreshChanges: true,
-			}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
-			baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
-			// Python tests:
-			base.With(integration.ProgramTestOptions{
-				Dir: path.Join(cwd, "webserver-py"),
-				Dependencies: []string{
-					filepath.Join("..", "sdk", "python", "bin"),
-				},
-			}),
-			// Go tests:
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
-		}...)
+	longTests := []integration.ProgramTestOptions{
+		// JavaScript tests:
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "webserver"),
+			EditDirs: []integration.EditDir{
+				// First, look up the server just created using get.  No new resources.
+				createEditDir(path.Join(cwd, "webserver", "variants", "get")),
+				// Next, patch the ingress rules by adding port 20: should be a quick update.
+				createEditDir(path.Join(cwd, "webserver", "variants", "ssh")),
+				// Now do the reverse; this basically ensures that an update that deletes a property works.
+				createEditDir(path.Join(cwd, "webserver")),
+				// Next patch the security group description, necessitating a full replacement of resources.
+				createEditDir(path.Join(cwd, "webserver", "variants", "ssh_description")),
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "webserver-comp"),
+			// Verify that credentials can be passed via explicit configuration
+			Secrets: map[string]string{
+				"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
+				"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "serverless-raw"),
+			// Two changes are known to occur during refresh of the resources in this example:
+			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
+			// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
+			ExpectRefreshChanges: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
+		// Python tests:
+		base.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "webserver-py"),
+			Dependencies: []string{
+				filepath.Join("..", "sdk", "python", "bin"),
+			},
+		}),
+		// Go tests:
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
 	}
 
-	for _, ex := range examples {
+	// Run the short or long tests depending on the config.  Note that we only run long tests on
+	// travis after already running short tests.  So no need to actually run both at the same time
+	// ever.
+	var tests []integration.ProgramTestOptions
+	if testing.Short() {
+		tests = shortTests
+	} else {
+		tests = longTests
+	}
+
+	for _, ex := range tests {
 		example := ex
 		t.Run(example.Dir, func(t *testing.T) {
 			integration.ProgramTest(t, &example)
