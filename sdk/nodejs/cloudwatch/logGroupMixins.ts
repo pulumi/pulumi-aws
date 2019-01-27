@@ -95,7 +95,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
             logGroup: logGroup,
         }, parentOpts);
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 
