@@ -87,7 +87,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
             functionName: this.func.name,
         }, parentOpts);
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 

@@ -87,7 +87,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
             startingPosition: args.startingPosition,
         }, parentOpts);
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 

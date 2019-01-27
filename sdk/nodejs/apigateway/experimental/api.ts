@@ -237,7 +237,7 @@ export class API extends pulumi.ComponentResource {
             stageName: stageName,
         }, { parent: this, dependsOn: permissions });
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 

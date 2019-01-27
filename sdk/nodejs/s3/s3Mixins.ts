@@ -171,7 +171,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             provider: this.getProvider("aws::"),
         });
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 
