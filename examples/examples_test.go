@@ -3,13 +3,10 @@
 package examples
 
 import (
-	"io/ioutil"
-	"net/http"
 	"os"
 	"path"
 	"path/filepath"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 
