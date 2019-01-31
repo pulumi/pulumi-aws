@@ -6,6 +6,49 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_myapi = new aws.apigateway.RestApi("myapi", {
+ *     name: "MyDemoAPI",
+ * });
+ * const aws_api_gateway_deployment_dev = new aws.apigateway.Deployment("dev", {
+ *     restApi: aws_api_gateway_rest_api_myapi.id,
+ *     stageName: "dev",
+ * });
+ * const aws_api_gateway_deployment_prod = new aws.apigateway.Deployment("prod", {
+ *     restApi: aws_api_gateway_rest_api_myapi.id,
+ *     stageName: "prod",
+ * });
+ * const aws_api_gateway_usage_plan_MyUsagePlan = new aws.apigateway.UsagePlan("MyUsagePlan", {
+ *     apiStages: [
+ *         {
+ *             apiId: aws_api_gateway_rest_api_myapi.id,
+ *             stage: aws_api_gateway_deployment_dev.stageName,
+ *         },
+ *         {
+ *             apiId: aws_api_gateway_rest_api_myapi.id,
+ *             stage: aws_api_gateway_deployment_prod.stageName,
+ *         },
+ *     ],
+ *     description: "my description",
+ *     name: "my-usage-plan",
+ *     productCode: "MYCODE",
+ *     quotaSettings: {
+ *         limit: 20,
+ *         offset: 2,
+ *         period: "WEEK",
+ *     },
+ *     throttleSettings: {
+ *         burstLimit: 5,
+ *         rateLimit: 10,
+ *     },
+ * });
+ * ```
  */
 export class UsagePlan extends pulumi.CustomResource {
     /**

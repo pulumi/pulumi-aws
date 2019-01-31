@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"pinpoint.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ * });
+ * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
+ * const aws_ses_domain_identity_identity = new aws.ses.DomainIdentity("identity", {
+ *     domain: "example.com",
+ * });
+ * const aws_iam_role_policy_role_policy = new aws.iam.RolePolicy("role_policy", {
+ *     name: "role_policy",
+ *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": {\n    \"Action\": [\n      \"mobileanalytics:PutEvents\",\n      \"mobileanalytics:PutItems\"\n    ],\n    \"Effect\": \"Allow\",\n    \"Resource\": [\n      \"*\"\n    ]\n  }\n}\n",
+ *     role: aws_iam_role_role.id,
+ * });
+ * const aws_pinpoint_email_channel_email = new aws.pinpoint.EmailChannel("email", {
+ *     applicationId: aws_pinpoint_app_app.applicationId,
+ *     fromAddress: "user@example.com",
+ *     identity: aws_ses_domain_identity_identity.arn,
+ *     roleArn: aws_iam_role_role.arn,
+ * });
+ * ```
+ * 
+ */
 export class EmailChannel extends pulumi.CustomResource {
     /**
      * Get an existing EmailChannel resource's state with the given name, ID, and optional extra

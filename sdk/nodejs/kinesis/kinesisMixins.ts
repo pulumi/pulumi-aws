@@ -93,7 +93,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
         };
         this.eventSourceMapping = new lambda.EventSourceMapping(name, mappingArgs, parentOpts);
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 

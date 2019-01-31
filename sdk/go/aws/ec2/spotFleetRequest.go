@@ -195,8 +195,7 @@ func (r *SpotFleetRequest) TargetCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["targetCapacity"])
 }
 
-// A list of `aws_alb_target_group` ARNs, for use with
-// Application Load Balancing.
+// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
 func (r *SpotFleetRequest) TargetGroupArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
 }
@@ -269,8 +268,7 @@ type SpotFleetRequestState struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with
-	// Application Load Balancing.
+	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
 	TargetGroupArns interface{}
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
@@ -327,8 +325,7 @@ type SpotFleetRequestArgs struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with
-	// Application Load Balancing.
+	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
 	TargetGroupArns interface{}
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.

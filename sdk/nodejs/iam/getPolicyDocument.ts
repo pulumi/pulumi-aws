@@ -71,6 +71,112 @@ import * as utilities from "../utilities";
  * Using this data source to generate policy documents is *optional*. It is also
  * valid to use literal JSON strings within your configuration, or to use the
  * `file` interpolation function to read a raw JSON policy document from a file.
+ * 
+ * ## Example with Source and Override
+ * 
+ * Showing how you can use `source_json` and `override_json`
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_document_override = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["s3:*"],
+ *         resources: ["*"],
+ *         sid: "SidToOverwrite",
+ *     }],
+ * }));
+ * const aws_iam_policy_document_source = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             actions: ["ec2:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             actions: ["s3:*"],
+ *             resources: ["*"],
+ *             sid: "SidToOverwrite",
+ *         },
+ *     ],
+ * }));
+ * const aws_iam_policy_document_override_json_example = pulumi.output(aws.iam.getPolicyDocument({
+ *     overrideJson: aws_iam_policy_document_override.apply(__arg0 => __arg0.json),
+ *     statements: [
+ *         {
+ *             actions: ["ec2:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             actions: ["s3:*"],
+ *             resources: [
+ *                 "arn:aws:s3:::somebucket",
+ *                 "arn:aws:s3:::somebucket/*",
+ *             ],
+ *             sid: "SidToOverwrite",
+ *         },
+ *     ],
+ * }));
+ * const aws_iam_policy_document_source_json_example = pulumi.output(aws.iam.getPolicyDocument({
+ *     sourceJson: aws_iam_policy_document_source.apply(__arg0 => __arg0.json),
+ *     statements: [{
+ *         actions: ["s3:*"],
+ *         resources: [
+ *             "arn:aws:s3:::somebucket",
+ *             "arn:aws:s3:::somebucket/*",
+ *         ],
+ *         sid: "SidToOverwrite",
+ *     }],
+ * }));
+ * ```
+ * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * 
+ * ```
+ * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * 
+ * ```
+ * You can also combine `source_json` and `override_json` in the same document.
+ * 
+ * 
+ * ## Example without Statement
+ * 
+ * Use without a `statement`:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_document_override = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["s3:GetObject"],
+ *         resources: ["*"],
+ *         sid: "OverridePlaceholder",
+ *     }],
+ * }));
+ * const aws_iam_policy_document_source = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["ec2:DescribeAccountAttributes"],
+ *         resources: ["*"],
+ *         sid: "OverridePlaceholder",
+ *     }],
+ * }));
+ * const aws_iam_policy_document_politik = pulumi.output(aws.iam.getPolicyDocument({
+ *     overrideJson: aws_iam_policy_document_override.apply(__arg0 => __arg0.json),
+ *     sourceJson: aws_iam_policy_document_source.apply(__arg0 => __arg0.json),
+ * }));
+ * ```
+ * `data.aws_iam_policy_document.politik.json` will evaluate to:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * 
+ * ```
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};

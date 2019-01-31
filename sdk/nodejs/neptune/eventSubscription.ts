@@ -4,6 +4,57 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_neptune_cluster_default = new aws.neptune.Cluster("default", {
+ *     applyImmediately: true,
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "neptune-cluster-demo",
+ *     engine: "neptune",
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     preferredBackupWindow: "07:00-09:00",
+ *     skipFinalSnapshot: true,
+ * });
+ * const aws_sns_topic_default = new aws.sns.Topic("default", {
+ *     name: "neptune-events",
+ * });
+ * const aws_neptune_cluster_instance_example = new aws.neptune.ClusterInstance("example", {
+ *     applyImmediately: true,
+ *     clusterIdentifier: aws_neptune_cluster_default.id,
+ *     engine: "neptune",
+ *     instanceClass: "db.r4.large",
+ * });
+ * const aws_neptune_event_subscription_default = new aws.neptune.EventSubscription("default", {
+ *     eventCategories: [
+ *         "maintenance",
+ *         "availability",
+ *         "creation",
+ *         "backup",
+ *         "restoration",
+ *         "recovery",
+ *         "deletion",
+ *         "failover",
+ *         "failure",
+ *         "notification",
+ *         "configuration change",
+ *         "read replica",
+ *     ],
+ *     name: "neptune-event-sub",
+ *     snsTopicArn: aws_sns_topic_default.arn,
+ *     sourceIds: [aws_neptune_cluster_instance_example.id],
+ *     sourceType: "db-instance",
+ *     tags: {
+ *         env: "test",
+ *     },
+ * });
+ * ```
+ */
 export class EventSubscription extends pulumi.CustomResource {
     /**
      * Get an existing EventSubscription resource's state with the given name, ID, and optional extra

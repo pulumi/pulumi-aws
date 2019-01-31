@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a RDS cluster.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_rds_cluster_clusterName = pulumi.output(aws.rds.getCluster({
+ *     clusterIdentifier: "clusterName",
+ * }));
+ * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {

@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt rule set resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ses_receipt_rule_set_main = new aws.ses.ReceiptRuleSet("main", {
+ *     ruleSetName: "primary-rules",
+ * });
+ * ```
  */
 export class ReceiptRuleSet extends pulumi.CustomResource {
     /**

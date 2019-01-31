@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ssm_maintenance_window_production = new aws.ssm.MaintenanceWindow("production", {
+ *     cutoff: 1,
+ *     duration: 3,
+ *     name: "maintenance-window-application",
+ *     schedule: "cron(0 16 ? * TUE *)",
+ * });
+ * ```
  */
 export class MaintenanceWindow extends pulumi.CustomResource {
     /**
@@ -32,7 +46,14 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      * The duration of the Maintenance Window in hours.
      */
     public readonly duration: pulumi.Output<number>;
+    /**
+     * Whether the maintenance window is enabled. Default: `true`.
+     */
     public readonly enabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+     */
+    public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * The name of the maintenance window.
      */
@@ -41,6 +62,14 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
     public readonly schedule: pulumi.Output<string>;
+    /**
+     * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+     */
+    public readonly scheduleTimezone: pulumi.Output<string | undefined>;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+     */
+    public readonly startDate: pulumi.Output<string | undefined>;
 
     /**
      * Create a MaintenanceWindow resource with the given unique name, arguments, and options.
@@ -58,8 +87,11 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["cutoff"] = state ? state.cutoff : undefined;
             inputs["duration"] = state ? state.duration : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["endDate"] = state ? state.endDate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
+            inputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
+            inputs["startDate"] = state ? state.startDate : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
             if (!args || args.cutoff === undefined) {
@@ -75,8 +107,11 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["cutoff"] = args ? args.cutoff : undefined;
             inputs["duration"] = args ? args.duration : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["endDate"] = args ? args.endDate : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
+            inputs["startDate"] = args ? args.startDate : undefined;
         }
         super("aws:ssm/maintenanceWindow:MaintenanceWindow", name, inputs, opts);
     }
@@ -98,7 +133,14 @@ export interface MaintenanceWindowState {
      * The duration of the Maintenance Window in hours.
      */
     readonly duration?: pulumi.Input<number>;
+    /**
+     * Whether the maintenance window is enabled. Default: `true`.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+     */
+    readonly endDate?: pulumi.Input<string>;
     /**
      * The name of the maintenance window.
      */
@@ -107,6 +149,14 @@ export interface MaintenanceWindowState {
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
     readonly schedule?: pulumi.Input<string>;
+    /**
+     * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+     */
+    readonly scheduleTimezone?: pulumi.Input<string>;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+     */
+    readonly startDate?: pulumi.Input<string>;
 }
 
 /**
@@ -125,7 +175,14 @@ export interface MaintenanceWindowArgs {
      * The duration of the Maintenance Window in hours.
      */
     readonly duration: pulumi.Input<number>;
+    /**
+     * Whether the maintenance window is enabled. Default: `true`.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+     */
+    readonly endDate?: pulumi.Input<string>;
     /**
      * The name of the maintenance window.
      */
@@ -134,4 +191,12 @@ export interface MaintenanceWindowArgs {
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
     readonly schedule: pulumi.Input<string>;
+    /**
+     * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+     */
+    readonly scheduleTimezone?: pulumi.Input<string>;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+     */
+    readonly startDate?: pulumi.Input<string>;
 }

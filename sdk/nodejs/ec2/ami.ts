@@ -13,6 +13,24 @@ import * as utilities from "../utilities";
  * 
  * If you just want to share an existing AMI with another AWS account,
  * it's better to use `aws_ami_launch_permission` instead.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ami_example = new aws.ec2.Ami("example", {
+ *     ebsBlockDevices: [{
+ *         deviceName: "/dev/xvda",
+ *         snapshotId: "snap-xxxxxxxx",
+ *         volumeSize: 8,
+ *     }],
+ *     name: "terraform-example",
+ *     rootDeviceName: "/dev/xvda",
+ *     virtualizationType: "hvm",
+ * });
+ * ```
  */
 export class Ami extends pulumi.CustomResource {
     /**
@@ -82,6 +100,9 @@ export class Ami extends pulumi.CustomResource {
      * for created instances. No other value is supported at this time.
      */
     public readonly sriovNetSupport: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -198,6 +219,9 @@ export interface AmiState {
      * for created instances. No other value is supported at this time.
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -261,6 +285,9 @@ export interface AmiArgs {
      * for created instances. No other value is supported at this time.
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Keyword to choose what virtualization mode created instances

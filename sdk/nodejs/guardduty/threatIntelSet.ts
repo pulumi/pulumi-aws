@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a GuardDuty ThreatIntelSet.
  * 
  * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_guardduty_detector_master = new aws.guardduty.Detector("master", {
+ *     enable: true,
+ * });
+ * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ * });
+ * const aws_s3_bucket_object_MyThreatIntelSet = new aws.s3.BucketObject("MyThreatIntelSet", {
+ *     acl: "public-read",
+ *     bucket: aws_s3_bucket_bucket.id,
+ *     content: "10.0.0.0/8\n",
+ *     key: "MyThreatIntelSet",
+ * });
+ * const aws_guardduty_threatintelset_MyThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
+ *     activate: true,
+ *     detectorId: aws_guardduty_detector_master.id,
+ *     format: "TXT",
+ *     location: pulumi.all([aws_s3_bucket_object_MyThreatIntelSet.bucket, aws_s3_bucket_object_MyThreatIntelSet.key]).apply(([__arg0, __arg1]) => `https://s3.amazonaws.com/${__arg0}/${__arg1}`),
+ *     name: "MyThreatIntelSet",
+ * });
+ * ```
  */
 export class ThreatIntelSet extends pulumi.CustomResource {
     /**

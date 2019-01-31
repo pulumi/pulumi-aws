@@ -75,6 +75,7 @@ func (r *SnapshotCopyGrant) SnapshotCopyGrantName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snapshotCopyGrantName"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *SnapshotCopyGrant) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -85,6 +86,7 @@ type SnapshotCopyGrantState struct {
 	KmsKeyId interface{}
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
@@ -94,5 +96,6 @@ type SnapshotCopyGrantArgs struct {
 	KmsKeyId interface{}
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

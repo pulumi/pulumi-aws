@@ -15,6 +15,21 @@ import * as utilities from "../utilities";
  * The `aws_default_vpc` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead "adopts" it
  * into management.
+ * 
+ * ## Example Usage
+ * 
+ * Basic usage with tags:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_default_vpc_default = new aws.ec2.DefaultVpc("default", {
+ *     tags: {
+ *         Name: "Default VPC",
+ *     },
+ * });
+ * ```
  */
 export class DefaultVpc extends pulumi.CustomResource {
     /**

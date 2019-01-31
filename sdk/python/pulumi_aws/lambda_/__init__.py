@@ -6,6 +6,7 @@
 from .alias import *
 from .event_source_mapping import *
 from .function import *
+from .layer_version import *
 from .permission import *
 from .get_function import *
 from .get_invocation import *

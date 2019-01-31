@@ -10,6 +10,21 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
+ * const aws_pinpoint_baidu_channel_channel = new aws.pinpoint.BaiduChannel("channel", {
+ *     apiKey: "",
+ *     applicationId: aws_pinpoint_app_app.applicationId,
+ *     secretKey: "",
+ * });
+ * ```
+ * 
  */
 export class BaiduChannel extends pulumi.CustomResource {
     /**

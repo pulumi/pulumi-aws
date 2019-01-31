@@ -8,6 +8,17 @@ import * as utilities from "../utilities";
  * Associates an AWS account with Amazon Macie as a member account.
  * 
  * > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_macie_member_account_association_example = new aws.macie.MemberAccountAssociation("example", {
+ *     memberAccountId: "123456789012",
+ * });
+ * ```
  */
 export class MemberAccountAssociation extends pulumi.CustomResource {
     /**

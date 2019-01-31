@@ -16,6 +16,50 @@ import * as utilities from "./utilities";
  * 
  * This is different from the `aws_availability_zones` (plural) data source,
  * which provides a list of the available zones.
+ * 
+ * ## Example Usage
+ * 
+ * The following example shows how this data source might be used to derive
+ * VPC and subnet CIDR prefixes systematically for an availability zone.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_az_number = config.get("azNumber") || {
+ *     a: 1,
+ *     b: 2,
+ *     c: 3,
+ *     d: 4,
+ *     e: 5,
+ *     f: 6,
+ * };
+ * const var_region_number = config.get("regionNumber") || {
+ *     "ap-northeast-1": 5,
+ *     "eu-central-1": 4,
+ *     "us-east-1": 1,
+ *     "us-west-1": 2,
+ *     "us-west-2": 3,
+ * };
+ * 
+ * const aws_availability_zone_example = pulumi.output(aws.getAvailabilityZone({
+ *     name: "eu-central-1a",
+ * }));
+ * const aws_vpc_example = new aws.ec2.Vpc("example", {
+ *     cidrBlock: aws_availability_zone_example.apply(__arg0 => (() => {
+ *         throw "tf2pulumi error: NYI: call to cidrsubnet";
+ *         return (() => { throw "NYI: call to cidrsubnet"; })();
+ *     })()),
+ * });
+ * const aws_subnet_example = new aws.ec2.Subnet("example", {
+ *     cidrBlock: pulumi.all([aws_vpc_example.cidrBlock, aws_availability_zone_example]).apply(([__arg0, __arg1]) => (() => {
+ *         throw "tf2pulumi error: NYI: call to cidrsubnet";
+ *         return (() => { throw "NYI: call to cidrsubnet"; })();
+ *     })()),
+ *     vpcId: aws_vpc_example.id,
+ * });
+ * ```
  */
 export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> {
     args = args || {};

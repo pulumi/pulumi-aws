@@ -10,6 +10,23 @@ import {Role} from "./role";
  * Provides an IAM instance profile.
  * 
  * > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Action\": \"sts:AssumeRole\",\n            \"Principal\": {\n               \"Service\": \"ec2.amazonaws.com\"\n            },\n            \"Effect\": \"Allow\",\n            \"Sid\": \"\"\n        }\n    ]\n}\n",
+ *     name: "test_role",
+ *     path: "/",
+ * });
+ * const aws_iam_instance_profile_test_profile = new aws.iam.InstanceProfile("test_profile", {
+ *     name: "test_profile",
+ *     role: aws_iam_role_role.name,
+ * });
+ * ```
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**

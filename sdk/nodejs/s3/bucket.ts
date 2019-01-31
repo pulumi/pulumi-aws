@@ -8,6 +8,28 @@ import {CannedAcl} from "./cannedAcl";
 
 /**
  * Provides a S3 bucket resource.
+ * ### Enable Default Server Side Encryption
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_kms_key_mykey = new aws.kms.Key("mykey", {
+ *     deletionWindowInDays: 10,
+ *     description: "This key is used to encrypt bucket objects",
+ * });
+ * const aws_s3_bucket_mybucket = new aws.s3.Bucket("mybucket", {
+ *     bucket: "mybucket",
+ *     serverSideEncryptionConfiguration: {
+ *         rule: {
+ *             applyServerSideEncryptionByDefault: {
+ *                 kmsMasterKeyId: aws_kms_key_mykey.arn,
+ *                 sseAlgorithm: "aws:kms",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
  */
 export class Bucket extends pulumi.CustomResource {
     /**
@@ -70,6 +92,10 @@ export class Bucket extends pulumi.CustomResource {
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
     public readonly loggings: pulumi.Output<{ targetBucket: string, targetPrefix?: string }[] | undefined>;
+    /**
+     * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     */
+    public readonly objectLockConfiguration: pulumi.Output<{ objectLockEnabled: string, rule?: { defaultRetention: { days?: number, mode: string, years?: number } } } | undefined>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
@@ -139,6 +165,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             inputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
             inputs["loggings"] = state ? state.loggings : undefined;
+            inputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["region"] = state ? state.region : undefined;
             inputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
@@ -161,6 +188,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
             inputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
             inputs["loggings"] = args ? args.loggings : undefined;
+            inputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["region"] = args ? args.region : undefined;
             inputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
@@ -230,6 +258,10 @@ export interface BucketState {
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
     readonly loggings?: pulumi.Input<pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }>[]>;
+    /**
+     * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     */
+    readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
@@ -320,6 +352,10 @@ export interface BucketArgs {
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
     readonly loggings?: pulumi.Input<pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }>[]>;
+    /**
+     * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     */
+    readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */

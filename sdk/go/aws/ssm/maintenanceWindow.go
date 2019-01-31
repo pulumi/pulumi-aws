@@ -31,15 +31,21 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 		inputs["cutoff"] = nil
 		inputs["duration"] = nil
 		inputs["enabled"] = nil
+		inputs["endDate"] = nil
 		inputs["name"] = nil
 		inputs["schedule"] = nil
+		inputs["scheduleTimezone"] = nil
+		inputs["startDate"] = nil
 	} else {
 		inputs["allowUnassociatedTargets"] = args.AllowUnassociatedTargets
 		inputs["cutoff"] = args.Cutoff
 		inputs["duration"] = args.Duration
 		inputs["enabled"] = args.Enabled
+		inputs["endDate"] = args.EndDate
 		inputs["name"] = args.Name
 		inputs["schedule"] = args.Schedule
+		inputs["scheduleTimezone"] = args.ScheduleTimezone
+		inputs["startDate"] = args.StartDate
 	}
 	s, err := ctx.RegisterResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, true, inputs, opts...)
 	if err != nil {
@@ -58,8 +64,11 @@ func GetMaintenanceWindow(ctx *pulumi.Context,
 		inputs["cutoff"] = state.Cutoff
 		inputs["duration"] = state.Duration
 		inputs["enabled"] = state.Enabled
+		inputs["endDate"] = state.EndDate
 		inputs["name"] = state.Name
 		inputs["schedule"] = state.Schedule
+		inputs["scheduleTimezone"] = state.ScheduleTimezone
+		inputs["startDate"] = state.StartDate
 	}
 	s, err := ctx.ReadResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, id, inputs, opts...)
 	if err != nil {
@@ -93,8 +102,14 @@ func (r *MaintenanceWindow) Duration() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["duration"])
 }
 
+// Whether the maintenance window is enabled. Default: `true`.
 func (r *MaintenanceWindow) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+}
+
+// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+func (r *MaintenanceWindow) EndDate() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["endDate"])
 }
 
 // The name of the maintenance window.
@@ -107,6 +122,16 @@ func (r *MaintenanceWindow) Schedule() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["schedule"])
 }
 
+// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+func (r *MaintenanceWindow) ScheduleTimezone() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["scheduleTimezone"])
+}
+
+// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+func (r *MaintenanceWindow) StartDate() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["startDate"])
+}
+
 // Input properties used for looking up and filtering MaintenanceWindow resources.
 type MaintenanceWindowState struct {
 	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -115,11 +140,18 @@ type MaintenanceWindowState struct {
 	Cutoff interface{}
 	// The duration of the Maintenance Window in hours.
 	Duration interface{}
+	// Whether the maintenance window is enabled. Default: `true`.
 	Enabled interface{}
+	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+	EndDate interface{}
 	// The name of the maintenance window.
 	Name interface{}
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule interface{}
+	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+	ScheduleTimezone interface{}
+	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+	StartDate interface{}
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
@@ -130,9 +162,16 @@ type MaintenanceWindowArgs struct {
 	Cutoff interface{}
 	// The duration of the Maintenance Window in hours.
 	Duration interface{}
+	// Whether the maintenance window is enabled. Default: `true`.
 	Enabled interface{}
+	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+	EndDate interface{}
 	// The name of the maintenance window.
 	Name interface{}
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
 	Schedule interface{}
+	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+	ScheduleTimezone interface{}
+	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+	StartDate interface{}
 }

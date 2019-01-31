@@ -6,6 +6,49 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_dlm_lifecycle_role = new aws.iam.Role("dlm_lifecycle_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"dlm.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "dlm-lifecycle-role",
+ * });
+ * const aws_dlm_lifecycle_policy_example = new aws.dlm.LifecyclePolicy("example", {
+ *     description: "example DLM lifecycle policy",
+ *     executionRoleArn: aws_iam_role_dlm_lifecycle_role.arn,
+ *     policyDetails: {
+ *         resourceTypes: ["VOLUME"],
+ *         schedules: [{
+ *             copyTags: false,
+ *             createRule: {
+ *                 interval: 24,
+ *                 intervalUnit: "HOURS",
+ *                 times: "23:45",
+ *             },
+ *             name: "2 weeks of daily snapshots",
+ *             retainRule: {
+ *                 count: 14,
+ *             },
+ *             tagsToAdd: {
+ *                 SnapshotCreator: "DLM",
+ *             },
+ *         }],
+ *         targetTags: {
+ *             Snapshot: "true",
+ *         },
+ *     },
+ *     state: "ENABLED",
+ * });
+ * const aws_iam_role_policy_dlm_lifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
+ *     name: "dlm-lifecycle-policy",
+ *     policy: "{\n   \"Version\": \"2012-10-17\",\n   \"Statement\": [\n      {\n         \"Effect\": \"Allow\",\n         \"Action\": [\n            \"ec2:CreateSnapshot\",\n            \"ec2:DeleteSnapshot\",\n            \"ec2:DescribeVolumes\",\n            \"ec2:DescribeSnapshots\"\n         ],\n         \"Resource\": \"*\"\n      },\n      {\n         \"Effect\": \"Allow\",\n         \"Action\": [\n            \"ec2:CreateTags\"\n         ],\n         \"Resource\": \"arn:aws:ec2:*::snapshot/*\"\n      }\n   ]\n}\n",
+ *     role: aws_iam_role_dlm_lifecycle_role.id,
+ * });
+ * ```
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**

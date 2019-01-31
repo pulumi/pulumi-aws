@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
  * 
  * > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sns_topic_aws_sns_topic = new aws.sns.Topic("aws_sns_topic", {
+ *     name: "glacier-sns-topic",
+ * });
+ * const aws_glacier_vault_my_archive = new aws.glacier.Vault("my_archive", {
+ *     accessPolicy: "{\n    \"Version\":\"2012-10-17\",\n    \"Statement\":[\n       {\n          \"Sid\": \"add-read-only-perm\",\n          \"Principal\": \"*\",\n          \"Effect\": \"Allow\",\n          \"Action\": [\n             \"glacier:InitiateJob\",\n             \"glacier:GetJobOutput\"\n          ],\n          \"Resource\": \"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive\"\n       }\n    ]\n}\n",
+ *     name: "MyArchive",
+ *     notifications: [{
+ *         events: [
+ *             "ArchiveRetrievalCompleted",
+ *             "InventoryRetrievalCompleted",
+ *         ],
+ *         snsTopic: aws_sns_topic_aws_sns_topic.arn,
+ *     }],
+ *     tags: {
+ *         Test: "MyArchive",
+ *     },
+ * });
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

@@ -12,6 +12,58 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
  *    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_aws_batch_service_role = new aws.iam.Role("aws_batch_service_role", {
+ *     assumeRolePolicy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n\t{\n\t    \"Action\": \"sts:AssumeRole\",\n\t    \"Effect\": \"Allow\",\n\t    \"Principal\": {\n\t\t\"Service\": \"batch.amazonaws.com\"\n\t    }\n\t}\n    ]\n}\n",
+ *     name: "aws_batch_service_role",
+ * });
+ * const aws_iam_role_ecs_instance_role = new aws.iam.Role("ecs_instance_role", {
+ *     assumeRolePolicy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n\t{\n\t    \"Action\": \"sts:AssumeRole\",\n\t    \"Effect\": \"Allow\",\n\t    \"Principal\": {\n\t\t\"Service\": \"ec2.amazonaws.com\"\n\t    }\n\t}\n    ]\n}\n",
+ *     name: "ecs_instance_role",
+ * });
+ * const aws_security_group_sample = new aws.ec2.SecurityGroup("sample", {
+ *     name: "aws_batch_compute_environment_security_group",
+ * });
+ * const aws_vpc_sample = new aws.ec2.Vpc("sample", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const aws_iam_instance_profile_ecs_instance_role = new aws.iam.InstanceProfile("ecs_instance_role", {
+ *     name: "ecs_instance_role",
+ *     role: aws_iam_role_ecs_instance_role.name,
+ * });
+ * const aws_iam_role_policy_attachment_aws_batch_service_role = new aws.iam.RolePolicyAttachment("aws_batch_service_role", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+ *     role: aws_iam_role_aws_batch_service_role.name,
+ * });
+ * const aws_subnet_sample = new aws.ec2.Subnet("sample", {
+ *     cidrBlock: "10.1.1.0/24",
+ *     vpcId: aws_vpc_sample.id,
+ * });
+ * const aws_batch_compute_environment_sample = new aws.batch.ComputeEnvironment("sample", {
+ *     computeEnvironmentName: "sample",
+ *     computeResources: {
+ *         instanceRole: aws_iam_instance_profile_ecs_instance_role.arn,
+ *         instanceTypes: ["c4.large"],
+ *         maxVcpus: 16,
+ *         minVcpus: 0,
+ *         securityGroupIds: [aws_security_group_sample.id],
+ *         subnets: [aws_subnet_sample.id],
+ *         type: "EC2",
+ *     },
+ *     serviceRole: aws_iam_role_aws_batch_service_role.arn,
+ *     type: "MANAGED",
+ * }, {dependsOn: [aws_iam_role_policy_attachment_aws_batch_service_role]});
+ * const aws_iam_role_policy_attachment_ecs_instance_role = new aws.iam.RolePolicyAttachment("ecs_instance_role", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+ *     role: aws_iam_role_ecs_instance_role.name,
+ * });
+ * ```
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**

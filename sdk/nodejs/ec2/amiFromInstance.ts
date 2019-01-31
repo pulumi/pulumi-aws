@@ -22,6 +22,18 @@ import * as utilities from "../utilities";
  * resource. Ongoing updates to the referenced instance will not be propagated into
  * the generated AMI. Users may taint or otherwise recreate the resource in order
  * to produce a fresh snapshot.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ami_from_instance_example = new aws.ec2.AmiFromInstance("example", {
+ *     name: "terraform-example",
+ *     sourceInstanceId: "i-xxxxxxxx",
+ * });
+ * ```
  */
 export class AmiFromInstance extends pulumi.CustomResource {
     /**
@@ -99,6 +111,9 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * for created instances. No other value is supported at this time.
      */
     public /*out*/ readonly sriovNetSupport: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -230,6 +245,9 @@ export interface AmiFromInstanceState {
      * for created instances. No other value is supported at this time.
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -272,5 +290,8 @@ export interface AmiFromInstanceArgs {
      * The id of the instance to use as the basis of the AMI.
      */
     readonly sourceInstanceId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

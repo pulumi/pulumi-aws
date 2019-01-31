@@ -6,6 +6,67 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool Roles Attachment.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cognito_identity_pool_main = new aws.cognito.IdentityPool("main", {
+ *     allowUnauthenticatedIdentities: false,
+ *     identityPoolName: "identity pool",
+ *     supportedLoginProviders: {
+ *         graph.facebook.com: "7346241598935555",
+ *     },
+ * });
+ * const aws_iam_role_authenticated = new aws.iam.Role("authenticated", {
+ *     assumeRolePolicy: aws_cognito_identity_pool_main.id.apply(__arg0 => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Federated": "cognito-identity.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRoleWithWebIdentity",
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "cognito-identity.amazonaws.com:aud": "${__arg0}"
+ *         },
+ *         "ForAnyValue:StringLike": {
+ *           "cognito-identity.amazonaws.com:amr": "authenticated"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * `),
+ *     name: "cognito_authenticated",
+ * });
+ * const aws_cognito_identity_pool_roles_attachment_main = new aws.cognito.IdentityPoolRoleAttachment("main", {
+ *     identityPoolId: aws_cognito_identity_pool_main.id,
+ *     roleMappings: [{
+ *         ambiguousRoleResolution: "AuthenticatedRole",
+ *         identityProvider: "graph.facebook.com",
+ *         mappingRules: [{
+ *             claim: "isAdmin",
+ *             matchType: "Equals",
+ *             roleArn: aws_iam_role_authenticated.arn,
+ *             value: "paid",
+ *         }],
+ *         type: "Rules",
+ *     }],
+ *     roles: {
+ *         authenticated: aws_iam_role_authenticated.arn,
+ *     },
+ * });
+ * const aws_iam_role_policy_authenticated = new aws.iam.RolePolicy("authenticated", {
+ *     name: "authenticated_policy",
+ *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"mobileanalytics:PutEvents\",\n        \"cognito-sync:*\",\n        \"cognito-identity:*\"\n      ],\n      \"Resource\": [\n        \"*\"\n      ]\n    }\n  ]\n}\n",
+ *     role: aws_iam_role_authenticated.id,
+ * });
+ * ```
  */
 export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**

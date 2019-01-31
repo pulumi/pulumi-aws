@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Geo Match Set Resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_waf_geo_match_set_geo_match_set = new aws.waf.GeoMatchSet("geo_match_set", {
+ *     geoMatchConstraints: [
+ *         {
+ *             type: "Country",
+ *             value: "US",
+ *         },
+ *         {
+ *             type: "Country",
+ *             value: "CA",
+ *         },
+ *     ],
+ *     name: "geo_match_set",
+ * });
+ * ```
  */
 export class GeoMatchSet extends pulumi.CustomResource {
     /**

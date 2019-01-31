@@ -6,6 +6,102 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Event Target resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudwatch_event_rule_console = new aws.cloudwatch.EventRule("console", {
+ *     description: "Capture all EC2 scaling events",
+ *     eventPattern: "{\n  \"source\": [\n    \"aws.autoscaling\"\n  ],\n  \"detail-type\": [\n    \"EC2 Instance Launch Successful\",\n    \"EC2 Instance Terminate Successful\",\n    \"EC2 Instance Launch Unsuccessful\",\n    \"EC2 Instance Terminate Unsuccessful\"\n  ]\n}\n",
+ *     name: "capture-ec2-scaling-events",
+ * });
+ * const aws_kinesis_stream_test_stream = new aws.kinesis.Stream("test_stream", {
+ *     name: "terraform-kinesis-test",
+ *     shardCount: 1,
+ * });
+ * const aws_cloudwatch_event_target_yada = new aws.cloudwatch.EventTarget("yada", {
+ *     arn: aws_kinesis_stream_test_stream.arn,
+ *     rule: aws_cloudwatch_event_rule_console.name,
+ *     runCommandTargets: [
+ *         {
+ *             key: "tag:Name",
+ *             values: ["FooBar"],
+ *         },
+ *         {
+ *             key: "InstanceIds",
+ *             values: ["i-162058cd308bffec2"],
+ *         },
+ *     ],
+ *     targetId: "Yada",
+ * });
+ * ```
+ * 
+ * ## Example SSM Document Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudwatch_event_rule_stop_instances = new aws.cloudwatch.EventRule("stop_instances", {
+ *     description: "Stop instances nightly",
+ *     name: "StopInstance",
+ *     scheduleExpression: "cron(0 0 * * ? *)",
+ * });
+ * const aws_ssm_document_stop_instance = new aws.ssm.Document("stop_instance", {
+ *     content: "  {\n    \"schemaVersion\": \"1.2\",\n    \"description\": \"Stop an instance\",\n    \"parameters\": {\n\n    },\n    \"runtimeConfig\": {\n      \"aws:runShellScript\": {\n        \"properties\": [\n          {\n            \"id\": \"0.aws:runShellScript\",\n            \"runCommand\": [\"halt\"]\n          }\n        ]\n      }\n    }\n  }\n",
+ *     documentType: "Command",
+ *     name: "stop_instance",
+ * });
+ * const aws_iam_policy_document_ssm_lifecycle_trust = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             identifiers: ["events.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *     }],
+ * }));
+ * const aws_iam_role_ssm_lifecycle = new aws.iam.Role("ssm_lifecycle", {
+ *     assumeRolePolicy: aws_iam_policy_document_ssm_lifecycle_trust.apply(__arg0 => __arg0.json),
+ *     name: "SSMLifecycle",
+ * });
+ * const aws_cloudwatch_event_target_stop_instances = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     arn: aws_ssm_document_stop_instance.arn,
+ *     roleArn: aws_iam_role_ssm_lifecycle.arn,
+ *     rule: aws_cloudwatch_event_rule_stop_instances.name,
+ *     runCommandTargets: [{
+ *         key: "tag:Terminate",
+ *         values: ["midnight"],
+ *     }],
+ *     targetId: "StopInstance",
+ * });
+ * const aws_iam_policy_document_ssm_lifecycle = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             actions: ["ssm:SendCommand"],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 values: ["*"],
+ *                 variable: "ec2:ResourceTag/Terminate",
+ *             }],
+ *             effect: "Allow",
+ *             resources: ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
+ *         },
+ *         {
+ *             actions: ["ssm:SendCommand"],
+ *             effect: "Allow",
+ *             resources: [aws_ssm_document_stop_instance.arn],
+ *         },
+ *     ],
+ * }));
+ * const aws_iam_policy_ssm_lifecycle = new aws.iam.Policy("ssm_lifecycle", {
+ *     name: "SSMLifecycle",
+ *     policy: aws_iam_policy_document_ssm_lifecycle.apply(__arg0 => __arg0.json),
+ * });
+ * ```
  */
 export class EventTarget extends pulumi.CustomResource {
     /**

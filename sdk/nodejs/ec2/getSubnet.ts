@@ -10,6 +10,33 @@ import * as utilities from "../utilities";
  * This resource can prove useful when a module accepts a subnet id as
  * an input variable and needs to, for example, determine the id of the
  * VPC that the subnet belongs to.
+ * 
+ * ## Example Usage
+ * 
+ * The following example shows how one might accept a subnet id as a variable
+ * and use this data source to obtain the data necessary to create a security
+ * group that allows connections from hosts in that subnet.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_subnet_id = config.require("subnetId");
+ * 
+ * const aws_subnet_selected = pulumi.output(aws.ec2.getSubnet({
+ *     id: var_subnet_id,
+ * }));
+ * const aws_security_group_subnet = new aws.ec2.SecurityGroup("subnet", {
+ *     ingress: [{
+ *         cidrBlocks: [aws_subnet_selected.apply(__arg0 => __arg0.cidrBlock)],
+ *         fromPort: 80,
+ *         protocol: "tcp",
+ *         toPort: 80,
+ *     }],
+ *     vpcId: aws_subnet_selected.apply(__arg0 => __arg0.vpcId),
+ * });
+ * ```
  */
 export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     args = args || {};

@@ -8,6 +8,17 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN of a topic in AWS Simple Notification
  * Service (SNS). By using this data source, you can reference SNS topics
  * without having to hard code the ARNs as input.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sns_topic_example = pulumi.output(aws.sns.getTopic({
+ *     name: "an_example_topic",
+ * }));
+ * ```
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {

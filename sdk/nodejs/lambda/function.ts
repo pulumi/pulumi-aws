@@ -10,6 +10,31 @@ import {ARN} from "../index";
  * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "iam_for_lambda",
+ * });
+ * const aws_lambda_function_test_lambda = new aws.lambda.Function("test_lambda", {
+ *     environment: {
+ *         variables: {
+ *             foo: "bar",
+ *         },
+ *     },
+ *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     name: "lambda_function_name",
+ *     handler: "exports.test",
+ *     role: aws_iam_role_iam_for_lambda.arn,
+ *     runtime: "nodejs8.10",
+ * });
+ * ```
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -64,6 +89,10 @@ export class Function extends pulumi.CustomResource {
      * The date this resource was last modified.
      */
     public /*out*/ readonly lastModified: pulumi.Output<string>;
+    /**
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+     */
+    public readonly layers: pulumi.Output<string[] | undefined>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
@@ -149,6 +178,7 @@ export class Function extends pulumi.CustomResource {
             inputs["invokeArn"] = state ? state.invokeArn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["lastModified"] = state ? state.lastModified : undefined;
+            inputs["layers"] = state ? state.layers : undefined;
             inputs["memorySize"] = state ? state.memorySize : undefined;
             inputs["publish"] = state ? state.publish : undefined;
             inputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
@@ -183,6 +213,7 @@ export class Function extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["handler"] = args ? args.handler : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            inputs["layers"] = args ? args.layers : undefined;
             inputs["memorySize"] = args ? args.memorySize : undefined;
             inputs["publish"] = args ? args.publish : undefined;
             inputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
@@ -251,6 +282,10 @@ export interface FunctionState {
      * The date this resource was last modified.
      */
     readonly lastModified?: pulumi.Input<string>;
+    /**
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+     */
+    readonly layers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
@@ -347,6 +382,10 @@ export interface FunctionArgs {
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+     */
+    readonly layers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */

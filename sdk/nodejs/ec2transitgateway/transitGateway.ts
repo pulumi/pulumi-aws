@@ -8,6 +8,17 @@ import {ARN} from "../index";
 
 /**
  * Manages an EC2 Transit Gateway.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ec2_transit_gateway_example = new aws.ec2transitgateway.TransitGateway("example", {
+ *     description: "example",
+ * });
+ * ```
  */
 export class TransitGateway extends pulumi.CustomResource {
     /**

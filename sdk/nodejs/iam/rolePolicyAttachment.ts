@@ -11,6 +11,27 @@ import {Role} from "./role";
  * Attaches a Managed IAM Policy to an IAM role
  * 
  * > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_policy = new aws.iam.Policy("policy", {
+ *     description: "A test policy",
+ *     name: "test-policy",
+ *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ * });
+ * const aws_iam_role_role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: "    {\n      \"Version\": \"2012-10-17\",\n      \"Statement\": [\n        {\n          \"Action\": \"sts:AssumeRole\",\n          \"Principal\": {\n            \"Service\": \"ec2.amazonaws.com\"\n          },\n          \"Effect\": \"Allow\",\n          \"Sid\": \"\"\n        }\n      ]\n    }\n",
+ *     name: "test-role",
+ * });
+ * const aws_iam_role_policy_attachment_test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
+ *     policyArn: aws_iam_policy_policy.arn,
+ *     role: aws_iam_role_role.name,
+ * });
+ * ```
  */
 export class RolePolicyAttachment extends pulumi.CustomResource {
     /**

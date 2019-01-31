@@ -61,6 +61,7 @@ const (
 	daxMod               = "dax"                      // DynamoDB Accelerator
 	devicefarmMod        = "devicefarm"               // Device Farm
 	directoryserviceMod  = "directoryservice"         // Directory Services
+	docdbMod             = "docdb"                    // Document DB
 	dynamodbMod          = "dynamodb"                 // DynamoDB
 	dxMod                = "directconnect"            // Direct Connect
 	dmsMod               = "dms"                      // Data Migraiton Services
@@ -81,6 +82,7 @@ const (
 	emrMod               = "emr"                      // Elastic MapReduce
 	gameliftMod          = "gamelift"                 // Gamelift
 	glacierMod           = "glacier"                  // Glacier
+	globalacceleratorMod = "globalaccelerator"        // Global Accelerator
 	glueMod              = "glue"                     // Glue
 	guarddutyMod         = "guardduty"                // Guard Duty
 	iamMod               = "iam"                      // Identity and Access Management (IAM)
@@ -92,6 +94,7 @@ const (
 	licensemanagerMod    = "licensemanager"           // License Manager
 	lightsailMod         = "lightsail"                // LightSail
 	macieMod             = "macie"                    // Macie
+	mediapackageMod      = "mediapackage"             // Elemental MediaPackage
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
 	mqMod                = "mq"                       // MQ
 	neptuneMod           = "neptune"                  // Neptune
@@ -101,7 +104,9 @@ const (
 	pricingMod           = "pricing"                  // Pricing
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
+	resourcegroupsMod    = "resourcegroups"           // Resource Groups
 	route53Mod           = "route53"                  // Route 53 (DNS)
+	sagemakerMod         = "sagemaker"                // Sagemaker
 	securityhubMod       = "securityhub"              // SecurityHub
 	sesMod               = "ses"                      // Simple Email Service (SES)
 	s3Mod                = "s3"                       // Simple Storage (S3)
@@ -603,6 +608,9 @@ func Provider() tfbridge.ProviderInfo {
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
+			// Document DB
+			"aws_docdb_cluster_parameter_group": {Tok: awsResource(docdbMod, "ClusterParameterGroup")},
+			"aws_docdb_subnet_group":            {Tok: awsResource(docdbMod, "SubnetGroup")},
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
@@ -1029,6 +1037,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
+			// Global Accelerator
+			"aws_globalaccelerator_accelerator": {Tok: awsResource(globalacceleratorMod, "Accelerator")},
 			// Glue
 			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
@@ -1256,8 +1266,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_lambda_event_source_mapping": {Tok: awsResource(lambdaMod, "EventSourceMapping")},
 			"aws_lambda_alias":                {Tok: awsResource(lambdaMod, "Alias")},
+			"aws_lambda_event_source_mapping": {Tok: awsResource(lambdaMod, "EventSourceMapping")},
+			"aws_lambda_layer_version":        {Tok: awsResource(lambdaMod, "LayerVersion")},
 			"aws_lambda_permission": {
 				Tok:      awsResource(lambdaMod, "Permission"),
 				IDFields: []string{"statement_id"},
@@ -1282,6 +1293,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
+			// Elemental MediaPackage
+			"aws_media_package_channel": {Tok: awsResource(mediapackageMod, "Channel")},
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
@@ -1419,6 +1432,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			// Resource Groups
+			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
 			"aws_route53_delegation_set":   {Tok: awsResource(route53Mod, "DelegationSet")},
 			"aws_route53_record":           {Tok: awsResource(route53Mod, "Record")},
@@ -1433,6 +1448,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
+			// Sagemaker
+			"aws_sagemaker_notebook_instance": {Tok: awsResource(sagemakerMod, "NotebookInstance")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
@@ -1693,6 +1710,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway":                {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_route_table":    {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTable")},
 			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
+			// Elastic Beanstalk
+			"aws_elastic_beanstalk_application": {Tok: awsDataSource(elasticbeanstalkMod, "getApplication")},
 			// Elastic Block Storage
 			"aws_ebs_snapshot":     {Tok: awsDataSource(ebsMod, "getSnapshot")},
 			"aws_ebs_snapshot_ids": {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
@@ -1805,7 +1824,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "dev",
+				"@pulumi/pulumi":    "^0.16.12",
 				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
@@ -1813,7 +1832,7 @@ func Provider() tfbridge.ProviderInfo {
 				"resolve":           "^1.7.1",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{

@@ -7,6 +7,43 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
  * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudtrail_service_account_main = pulumi.output(aws.cloudtrail.getServiceAccount({}));
+ * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ *     bucket: "tf-cloudtrail-logging-test-bucket",
+ *     forceDestroy: true,
+ *     policy: pulumi.all([aws_cloudtrail_service_account_main, aws_cloudtrail_service_account_main]).apply(([__arg0, __arg1]) => `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "Put bucket policy needed for trails",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "AWS": "${__arg0.arn}"
+ *       },
+ *       "Action": "s3:PutObject",
+ *       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*"
+ *     },
+ *     {
+ *       "Sid": "Get bucket policy needed for trails",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "AWS": "${__arg1.arn}"
+ *       },
+ *       "Action": "s3:GetBucketAcl",
+ *       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket"
+ *     }
+ *   ]
+ * }
+ * `),
+ * });
+ * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};

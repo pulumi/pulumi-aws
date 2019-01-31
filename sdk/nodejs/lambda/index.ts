@@ -8,5 +8,6 @@ export * from "./function";
 export * from "./getFunction";
 export * from "./getInvocation";
 export * from "./lambdaMixins";
+export * from "./layerVersion";
 export * from "./permission";
 export * from "./runtimes";

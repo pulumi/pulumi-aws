@@ -6,6 +6,54 @@ import * as utilities from "./utilities";
 
 /**
  * `aws_eip` provides details about a specific Elastic IP.
+ * 
+ * ## Example Usage
+ * 
+ * ### Search By Allocation ID (VPC only)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_eip_by_allocation_id = pulumi.output(aws.getElasticIp({
+ *     id: "eipalloc-12345678",
+ * }));
+ * ```
+ * ### Search By Filters (EC2-Classic or VPC)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_eip_by_filter = pulumi.output(aws.getElasticIp({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["exampleNameTagValue"],
+ *     }],
+ * }));
+ * ```
+ * ### Search By Public IP (EC2-Classic or VPC)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_eip_by_public_ip = pulumi.output(aws.getElasticIp({
+ *     publicIp: "1.2.3.4",
+ * }));
+ * ```
+ * ### Search By Tags (EC2-Classic or VPC)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_eip_by_tags = pulumi.output(aws.getElasticIp({
+ *     tags: {
+ *         Name: "exampleNameTagValue",
+ *     },
+ * }));
+ * ```
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};

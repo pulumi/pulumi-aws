@@ -140,7 +140,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             function: this.func,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
-            sourceArn: interpolate `arn:aws:s3:::${bucket.id}`,
+            sourceArn: bucket.arn,
         }, parentOpts);
 
         // We must create only a single BucketNotification per Bucket per AWS API limitations.  See
@@ -172,7 +172,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             provider: this.getProvider("aws::"),
         });
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 

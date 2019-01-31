@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
  * > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
  * or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
  * schema version you must recreate the resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ssm_document_foo = new aws.ssm.Document("foo", {
+ *     content: "  {\n    \"schemaVersion\": \"1.2\",\n    \"description\": \"Check ip configuration of a Linux instance.\",\n    \"parameters\": {\n\n    },\n    \"runtimeConfig\": {\n      \"aws:runShellScript\": {\n        \"properties\": [\n          {\n            \"id\": \"0.aws:runShellScript\",\n            \"runCommand\": [\"ifconfig\"]\n          }\n        ]\n      }\n    }\n  }\n",
+ *     documentType: "Command",
+ *     name: "test_document",
+ * });
+ * ```
  */
 export class Document extends pulumi.CustomResource {
     /**

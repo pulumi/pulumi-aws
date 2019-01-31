@@ -88,7 +88,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
             endpoint: this.func.arn,
         }, parentOpts);
 
-        this.registerOutputs();
+        this.registerOutputs({});
     }
 }
 

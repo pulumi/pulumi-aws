@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function Activity resource
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sfn_activity_sfn_activity = new aws.sfn.Activity("sfn_activity", {
+ *     name: "my-activity",
+ * });
+ * ```
  */
 export class Activity extends pulumi.CustomResource {
     /**
@@ -28,6 +39,10 @@ export class Activity extends pulumi.CustomResource {
      * The name of the activity to create.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Activity resource with the given unique name, arguments, and options.
@@ -43,9 +58,11 @@ export class Activity extends pulumi.CustomResource {
             const state: ActivityState = argsOrState as ActivityState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActivityArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
         super("aws:sfn/activity:Activity", name, inputs, opts);
@@ -64,6 +81,10 @@ export interface ActivityState {
      * The name of the activity to create.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -74,4 +95,8 @@ export interface ActivityArgs {
      * The name of the activity to create.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

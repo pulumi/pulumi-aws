@@ -25,6 +25,25 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the username and password will be stored in
  * the raw state as plain-text. [Read more about sensitive data in
  * state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_db_instance_default = new aws.rds.Instance("default", {
+ *     allocatedStorage: 10,
+ *     engine: "mysql",
+ *     engineVersion: "5.7",
+ *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
+ *     parameterGroupName: "default.mysql5.7",
+ *     password: "foobarbaz",
+ *     storageType: "gp2",
+ *     username: "foo",
+ * });
+ * ```
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -101,9 +120,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly characterSetName: pulumi.Output<string>;
     /**
-     * On delete, copy all Instance
-     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-     * Default is `false`.
+     * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
@@ -527,9 +544,7 @@ export interface InstanceState {
      */
     readonly characterSetName?: pulumi.Input<string>;
     /**
-     * On delete, copy all Instance
-     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-     * Default is `false`.
+     * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
@@ -813,9 +828,7 @@ export interface InstanceArgs {
      */
     readonly characterSetName?: pulumi.Input<string>;
     /**
-     * On delete, copy all Instance
-     * `tags` to the final snapshot (if `final_snapshot_identifier` is specified).
-     * Default is `false`.
+     * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**

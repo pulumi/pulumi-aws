@@ -4,6 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"iot.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     name: "myrole",
+ * });
+ * const aws_sns_topic_mytopic = new aws.sns.Topic("mytopic", {
+ *     name: "mytopic",
+ * });
+ * const aws_iam_role_policy_iam_policy_for_lambda = new aws.iam.RolePolicy("iam_policy_for_lambda", {
+ *     name: "mypolicy",
+ *     policy: aws_sns_topic_mytopic.arn.apply(__arg0 => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *         "Effect": "Allow",
+ *         "Action": [
+ *             "sns:Publish"
+ *         ],
+ *         "Resource": "${__arg0}"
+ *     }
+ *   ]
+ * }
+ * `),
+ *     role: aws_iam_role_role.id,
+ * });
+ * const aws_iot_topic_rule_rule = new aws.iot.TopicRule("rule", {
+ *     description: "Example rule",
+ *     enabled: true,
+ *     name: "MyRule",
+ *     sns: {
+ *         messageFormat: "RAW",
+ *         roleArn: aws_iam_role_role.arn,
+ *         targetArn: aws_sns_topic_mytopic.arn,
+ *     },
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2015-10-08",
+ * });
+ * ```
+ */
 export class TopicRule extends pulumi.CustomResource {
     /**
      * Get an existing TopicRule resource's state with the given name, ID, and optional extra
