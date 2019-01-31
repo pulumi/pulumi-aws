@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi"
-import { interpolate } from "@pulumi/pulumi";
 import { Bucket } from "./bucket";
 import { BucketNotification } from "./bucketNotification";
 import * as lambda from "../lambda"
