@@ -559,6 +559,8 @@
         "pricing/getProduct.ts",
         "pricing/index.ts",
         "provider.ts",
+        "ram/index.ts",
+        "ram/resourceShare.ts",
         "rds/cluster.ts",
         "rds/clusterEndpoint.ts",
         "rds/clusterInstance.ts",

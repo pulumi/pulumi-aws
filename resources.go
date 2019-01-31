@@ -102,6 +102,7 @@ const (
 	organizationsMod     = "organizations"            // Organizations
 	pinpointMod          = "pinpoint"                 // Pinpoint
 	pricingMod           = "pricing"                  // Pricing
+	ramMod               = "ram"                      // Resource Access Manager
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
 	resourcegroupsMod    = "resourcegroups"           // Resource Groups
@@ -1343,6 +1344,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_pinpoint_event_stream":              {Tok: awsResource(pinpointMod, "EventStream")},
 			"aws_pinpoint_gcm_channel":               {Tok: awsResource(pinpointMod, "GcmChannel")},
 			"aws_pinpoint_sms_channel":               {Tok: awsResource(pinpointMod, "SmsChannel")},
+			// Resource Access Manager
+			"aws_ram_resource_share": {Tok: awsResource(ramMod, "ResourceShare")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
 			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
