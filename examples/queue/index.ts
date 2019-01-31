@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
 const bucket = new aws.s3.Bucket("testbucket", {
@@ -46,4 +47,4 @@ queue.onEvent("subscription", async (event) => {
 }, { batchSize: 1 });
 
 export const queueUrl = queue.id;
-export const bucketUrl = bucket.id.apply(id => `s3://${id}`);
+export const bucketUrl = pulumi.interpolate `s3://${bucket.id}`;
