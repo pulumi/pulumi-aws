@@ -12,6 +12,30 @@ import {Metric, MetricsGranularity} from "./metrics";
  * Provides an AutoScaling Group resource.
  * 
  * -> **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+ * 
+ * ## Example Usage
+ * ### With Latest Version Of Launch Template
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_launch_template_foobar = new aws.ec2.LaunchTemplate("foobar", {
+ *     imageId: "ami-1a2b3c",
+ *     instanceType: "t2.micro",
+ *     namePrefix: "foobar",
+ * });
+ * const aws_autoscaling_group_bar = new aws.autoscaling.Group("bar", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     launchTemplate: {
+ *         id: aws_launch_template_foobar.id,
+ *         version: "$Latest",
+ *     },
+ *     maxSize: 1,
+ *     minSize: 1,
+ * });
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

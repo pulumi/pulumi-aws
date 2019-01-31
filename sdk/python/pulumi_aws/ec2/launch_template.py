@@ -85,7 +85,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     license_specifications: pulumi.Output[list]
     """
-    A list of license specifications to associate with. See License Specifications below for more details.
+    A list of license specifications to associate with. See License Specification below for more details.
     """
     monitoring: pulumi.Output[dict]
     """
@@ -119,7 +119,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     tag_specifications: pulumi.Output[list]
     """
-    The tags to apply to the resources during launch. See Tags below for more details.
+    The tags to apply to the resources during launch. See Tag Specifications below for more details.
     """
     tags: pulumi.Output[dict]
     """
@@ -161,7 +161,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The type of the instance.
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
-        :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specifications below for more details.
+        :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -171,7 +171,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[list] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
-        :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tags below for more details.
+        :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.

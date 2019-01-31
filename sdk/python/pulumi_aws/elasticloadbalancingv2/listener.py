@@ -34,7 +34,7 @@ class Listener(pulumi.CustomResource):
     """
     ssl_policy: pulumi.Output[str]
     """
-    The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+    The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
     """
     def __init__(__self__, __name__, __opts__=None, certificate_arn=None, default_action=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
         """
@@ -50,7 +50,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
         :param pulumi.Input[int] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-        :param pulumi.Input[str] ssl_policy: The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+        :param pulumi.Input[str] ssl_policy: The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

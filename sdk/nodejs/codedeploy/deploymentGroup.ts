@@ -8,6 +8,60 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy Deployment Group for a CodeDeploy Application
  * 
  * > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by terraform and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     name: "example-app",
+ * });
+ * const aws_iam_role_example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"codedeploy.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     name: "example-role",
+ * });
+ * const aws_sns_topic_example = new aws.sns.Topic("example", {
+ *     name: "example-topic",
+ * });
+ * const aws_codedeploy_deployment_group_example = new aws.codedeploy.DeploymentGroup("example", {
+ *     alarmConfiguration: {
+ *         alarms: ["my-alarm-name"],
+ *         enabled: true,
+ *     },
+ *     appName: aws_codedeploy_app_example.name,
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_FAILURE"],
+ *     },
+ *     deploymentGroupName: "example-group",
+ *     ec2TagSets: [{
+ *         ec2TagFilters: [
+ *             {
+ *                 key: "filterkey1",
+ *                 type: "KEY_AND_VALUE",
+ *                 value: "filtervalue",
+ *             },
+ *             {
+ *                 key: "filterkey2",
+ *                 type: "KEY_AND_VALUE",
+ *                 value: "filtervalue",
+ *             },
+ *         ],
+ *     }],
+ *     serviceRoleArn: aws_iam_role_example.arn,
+ *     triggerConfigurations: [{
+ *         triggerEvents: ["DeploymentFailure"],
+ *         triggerName: "example-trigger",
+ *         triggerTargetArn: aws_sns_topic_example.arn,
+ *     }],
+ * });
+ * const aws_iam_role_policy_attachment_AWSCodeDeployRole = new aws.iam.RolePolicyAttachment("AWSCodeDeployRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
+ *     role: aws_iam_role_example.name,
+ * });
+ * ```
  */
 export class DeploymentGroup extends pulumi.CustomResource {
     /**

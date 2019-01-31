@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * servers reboots.
  * 
  * ## Example Usage
- * 
  * ### Redis Cluster Mode Disabled
  * 
  * To create a single shard primary with single read replica:
@@ -68,6 +67,7 @@ import * as utilities from "../utilities";
  *     replicationGroupId: aws_elasticache_replication_group_example.id,
  * });
  * ```
+ * 
  * ### Redis Cluster Mode Enabled
  * 
  * To create two shards with a primary and a single read replica each:

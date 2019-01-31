@@ -96,7 +96,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly latestVersion: pulumi.Output<number>;
     /**
-     * A list of license specifications to associate with. See License Specifications below for more details.
+     * A list of license specifications to associate with. See License Specification below for more details.
      */
     public readonly licenseSpecifications: pulumi.Output<{ licenseConfigurationArn: string }[] | undefined>;
     /**
@@ -130,7 +130,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly securityGroupNames: pulumi.Output<string[] | undefined>;
     /**
-     * The tags to apply to the resources during launch. See Tags below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
     public readonly tagSpecifications: pulumi.Output<{ resourceType?: string, tags?: {[key: string]: any} }[] | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface LaunchTemplateState {
      */
     readonly latestVersion?: pulumi.Input<number>;
     /**
-     * A list of license specifications to associate with. See License Specifications below for more details.
+     * A list of license specifications to associate with. See License Specification below for more details.
      */
     readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
     /**
@@ -337,7 +337,7 @@ export interface LaunchTemplateState {
      */
     readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tags to apply to the resources during launch. See Tags below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
     readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
     /**
@@ -422,7 +422,7 @@ export interface LaunchTemplateArgs {
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * A list of license specifications to associate with. See License Specifications below for more details.
+     * A list of license specifications to associate with. See License Specification below for more details.
      */
     readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
     /**
@@ -456,7 +456,7 @@ export interface LaunchTemplateArgs {
      */
     readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tags to apply to the resources during launch. See Tags below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
     readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
     /**

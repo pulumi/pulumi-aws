@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_resource_group_test = new aws.ResourceGroup("test", {
+ * const aws_resourcegroups_group_test = new aws.resourcegroups.Group("test", {
  *     name: "test-group",
- *     resourceQuery: [{
+ *     resourceQuery: {
  *         query: "{\n  \"ResourceTypeFilters\": [\n    \"AWS::EC2::Instance\"\n  ],\n  \"TagFilters\": [\n    {\n      \"Key\": \"Stage\",\n      \"Values\": [\"Test\"]\n    }\n  ]\n}\n",
- *     }],
+ *     },
  * });
  * ```
  */

@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  * defined in-line. At this time you cannot use a Route Table with in-line routes
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
+ * 
+ * ## Example usage:
  * ### Example IPv6 Usage:
  * 
  * ```typescript

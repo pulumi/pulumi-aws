@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
+ * 
+ * ## Example Usage
+ * ### Account Access
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudwatch_event_permission_DevAccountAccess = new aws.cloudwatch.EventPermission("DevAccountAccess", {
+ *     principal: "123456789012",
+ *     statementId: "DevAccountAccess",
+ * });
+ * ```
  */
 export class EventPermission extends pulumi.CustomResource {
     /**

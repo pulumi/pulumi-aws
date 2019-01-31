@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling Policy resource.
+ * 
+ * ## Example Usage
+ * ### Preserve desired count when updating an autoscaled ECS Service
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ecs_service_ecs_service = new aws.ecs.Service("ecs_service", {
+ *     cluster: "clusterName",
+ *     desiredCount: 2,
+ *     name: "serviceName",
+ *     taskDefinition: "taskDefinitionFamily:1",
+ * });
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

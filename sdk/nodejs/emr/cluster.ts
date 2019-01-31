@@ -8,14 +8,8 @@ import * as utilities from "../utilities";
  * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
  * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
  * for more information.
- * The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster
- * to use as a service, and another to place on your Cluster Instances to interact
- * with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
- * and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
- * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
- * guide for more information on these IAM roles. There is also a fully-bootable
- * example Terraform configuration at the bottom of this page.
  * 
+ * ## Example Usage
  * ### Enable Debug Logging
  * 
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)

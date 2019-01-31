@@ -28,9 +28,6 @@ import {Topic} from "../sns/topic";
  *     threshold: Number.parseFloat("80"),
  * });
  * ```
- * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
- * You must choose one or the other
- * 
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**

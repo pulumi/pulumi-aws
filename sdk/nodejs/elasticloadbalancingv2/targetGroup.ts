@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
  * 
  * ## Example Usage
- * 
  * ### Instance Target Group
  * 
  * ```typescript
@@ -27,6 +26,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
+ * 
  * ### IP Target Group
  * 
  * ```typescript
@@ -44,6 +44,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
+ * 
  * ### Lambda Target Group
  * 
  * ```typescript

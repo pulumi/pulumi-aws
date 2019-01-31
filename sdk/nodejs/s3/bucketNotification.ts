@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides a S3 bucket notification resource.
  * 
  * ## Example Usage
- * 
  * ### Add notification configuration to SNS Topic
  * 
  * ```typescript
@@ -43,6 +42,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
  * ### Add notification configuration to SQS Queue
  * 
  * ```typescript
@@ -79,6 +79,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
  * ### Add notification configuration to Lambda Function
  * 
  * ```typescript
@@ -116,6 +117,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
  * ### Trigger multiple Lambda functions
  * 
  * ```typescript
@@ -174,6 +176,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * 
  * ### Add multiple notification configurations to SQS Queue
  * 
  * ```typescript

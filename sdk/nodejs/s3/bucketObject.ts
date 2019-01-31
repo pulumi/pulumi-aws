@@ -10,7 +10,6 @@ import {Bucket} from "./bucket";
  * Provides a S3 bucket object resource.
  * 
  * ## Example Usage
- * 
  * ### Uploading a file to a bucket
  * 
  * ```typescript
@@ -28,6 +27,7 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("path/to/file"),
  * });
  * ```
+ * 
  * ### Encrypting with KMS Key
  * 
  * ```typescript
@@ -49,6 +49,7 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
+ * 
  * ### Server Side Encryption with S3 Default Master Key
  * 
  * ```typescript
@@ -66,6 +67,7 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
+ * 
  * ### Server Side Encryption with AWS-Managed Key
  * 
  * ```typescript

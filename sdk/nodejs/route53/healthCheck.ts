@@ -6,6 +6,44 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 health check.
+ * 
+ * ## Example Usage
+ * ### Connectivity and HTTP Status Code Check
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_route53_health_check_example = new aws.route53.HealthCheck("example", {
+ *     failureThreshold: Number.parseFloat("5"),
+ *     fqdn: "example.com",
+ *     port: 80,
+ *     requestInterval: Number.parseFloat("30"),
+ *     resourcePath: "/",
+ *     tags: {
+ *         Name: "tf-test-health-check",
+ *     },
+ *     type: "HTTP",
+ * });
+ * ```
+ * 
+ * ### Connectivity and String Matching Check
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_route53_health_check_example = new aws.route53.HealthCheck("example", {
+ *     failureThreshold: Number.parseFloat("5"),
+ *     fqdn: "example.com",
+ *     port: 443,
+ *     requestInterval: Number.parseFloat("30"),
+ *     resourcePath: "/",
+ *     searchString: "example",
+ *     type: "HTTPS_STR_MATCH",
+ * });
+ * ```
+ * 
  * ### CloudWatch Alarm Check
  * 
  * ```typescript

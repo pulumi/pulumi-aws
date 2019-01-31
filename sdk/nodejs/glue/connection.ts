@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Connection resource.
+ * 
+ * ## Example Usage
+ * ### Non-VPC Connection
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_connection_example = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
+ *         PASSWORD: "examplepassword",
+ *         USERNAME: "exampleusername",
+ *     },
+ *     name: "example",
+ * });
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

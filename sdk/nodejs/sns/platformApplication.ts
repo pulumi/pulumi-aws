@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides an SNS platform application resource
  * 
  * ## Example Usage
- * 
  * ### Apple Push Notification Service (APNS)
  * 
  * ```typescript
@@ -22,6 +21,7 @@ import * as utilities from "../utilities";
  *     platformPrincipal: "<APNS CERTIFICATE>",
  * });
  * ```
+ * 
  * ### Google Cloud Messaging (GCM)
  * 
  * ```typescript

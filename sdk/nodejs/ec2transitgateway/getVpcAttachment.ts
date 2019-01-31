@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway VPC Attachment.
  * 
  * ## Example Usage
- * 
  * ### By Filter
  * 
  * ```typescript
@@ -22,6 +21,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * ```
+ * 
  * ### By Identifier
  * 
  * ```typescript

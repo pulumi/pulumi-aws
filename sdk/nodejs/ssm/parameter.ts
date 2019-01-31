@@ -6,9 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Parameter resource.
- * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
  */
 export class Parameter extends pulumi.CustomResource {
     /**
@@ -40,7 +37,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly keyId: pulumi.Output<string>;
     /**
-     * The name of the parameter.
+     * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -124,7 +121,7 @@ export interface ParameterState {
      */
     readonly keyId?: pulumi.Input<string>;
     /**
-     * The name of the parameter.
+     * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -166,7 +163,7 @@ export interface ParameterArgs {
      */
     readonly keyId?: pulumi.Input<string>;
     /**
-     * The name of the parameter.
+     * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     readonly name?: pulumi.Input<string>;
     /**

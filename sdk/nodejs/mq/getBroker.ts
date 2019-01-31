@@ -31,6 +31,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
         "logs": args.logs,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -47,6 +48,7 @@ export interface GetBrokerArgs {
      */
     readonly brokerName?: string;
     readonly logs?: { audit?: boolean, general?: boolean };
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -67,6 +69,7 @@ export interface GetBrokerResult {
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly subnetIds: string[];
+    readonly tags: {[key: string]: any};
     readonly users: { consoleAccess: boolean, groups: string[], username: string }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

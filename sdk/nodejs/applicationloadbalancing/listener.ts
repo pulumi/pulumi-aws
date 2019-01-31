@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
  * 
  * ## Example Usage
- * 
  * ### Forward Action
  * 
  * ```typescript
@@ -31,6 +30,7 @@ import * as utilities from "../utilities";
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  * });
  * ```
+ * 
  * ### Redirect Action
  * 
  * ```typescript
@@ -52,6 +52,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Fixed-response Action
  * 
  * ```typescript
@@ -73,6 +74,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Authenticate-cognito Action
  * 
  * ```typescript
@@ -107,6 +109,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Authenticate-oidc Action
  * 
  * ```typescript
@@ -181,7 +184,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly protocol: pulumi.Output<string | undefined>;
     /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
     public readonly sslPolicy: pulumi.Output<string>;
 
@@ -256,7 +259,7 @@ export interface ListenerState {
      */
     readonly protocol?: pulumi.Input<string>;
     /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
     readonly sslPolicy?: pulumi.Input<string>;
 }
@@ -286,7 +289,7 @@ export interface ListenerArgs {
      */
     readonly protocol?: pulumi.Input<string>;
     /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
     readonly sslPolicy?: pulumi.Input<string>;
 }

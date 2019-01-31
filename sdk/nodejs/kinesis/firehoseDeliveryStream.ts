@@ -8,6 +8,76 @@ import * as utilities from "../utilities";
  * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
  * 
  * For more details, see the [Amazon Kinesis Firehose Documentation][1].
+ * 
+ * ## Example Usage
+ * ### Extended S3 Destination
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_firehose_role = new aws.iam.Role("firehose_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"firehose.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "firehose_test_role",
+ * });
+ * const aws_iam_role_lambda_iam = new aws.iam.Role("lambda_iam", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "lambda_iam",
+ * });
+ * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ *     bucket: "tf-test-bucket",
+ * });
+ * const aws_lambda_function_lambda_processor = new aws.lambda.Function("lambda_processor", {
+ *     code: new pulumi.asset.FileArchive("lambda.zip"),
+ *     name: "firehose_lambda_processor",
+ *     handler: "exports.handler",
+ *     role: aws_iam_role_lambda_iam.arn,
+ *     runtime: "nodejs8.10",
+ * });
+ * const aws_kinesis_firehose_delivery_stream_extended_s3_stream = new aws.kinesis.FirehoseDeliveryStream("extended_s3_stream", {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
+ *         bucketArn: aws_s3_bucket_bucket.arn,
+ *         processingConfiguration: {
+ *             enabled: true,
+ *             processors: [{
+ *                 parameters: [{
+ *                     parameterName: "LambdaArn",
+ *                     parameterValue: aws_lambda_function_lambda_processor.arn.apply(__arg0 => `${__arg0}:$LATEST`),
+ *                 }],
+ *                 type: "Lambda",
+ *             }],
+ *         },
+ *         roleArn: aws_iam_role_firehose_role.arn,
+ *     },
+ *     name: "terraform-kinesis-firehose-extended-s3-test-stream",
+ * });
+ * ```
+ * 
+ * ### S3 Destination
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_firehose_role = new aws.iam.Role("firehose_role", {
+ *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"firehose.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     name: "firehose_test_role",
+ * });
+ * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ *     bucket: "tf-test-bucket",
+ * });
+ * const aws_kinesis_firehose_delivery_stream_test_stream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ *     destination: "s3",
+ *     name: "terraform-kinesis-firehose-test-stream",
+ *     s3Configuration: {
+ *         bucketArn: aws_s3_bucket_bucket.arn,
+ *         roleArn: aws_iam_role_firehose_role.arn,
+ *     },
+ * });
+ * ```
  */
 export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**

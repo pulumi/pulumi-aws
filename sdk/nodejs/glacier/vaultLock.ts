@@ -10,6 +10,35 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource allows you to test Glacier Vault Lock policies by setting the `complete_lock` argument to `false`. When testing policies in this manner, the Glacier Vault Lock automatically expires after 24 hours and Terraform will show this resource as needing recreation after that time. To permanently apply the policy, set the `complete_lock` argument to `true`. When changing `complete_lock` to `true`, it is expected the resource will show as recreating.
  * 
  * !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from Terraform will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via Terraform or use `terraform state rm` to remove this resource from Terraform management.
+ * 
+ * ## Example Usage
+ * ### Testing Glacier Vault Lock Policy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glacier_vault_example = new aws.glacier.Vault("example", {
+ *     name: "example",
+ * });
+ * const aws_iam_policy_document_example = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["glacier:DeleteArchive"],
+ *         conditions: [{
+ *             test: "NumericLessThanEquals",
+ *             values: ["365"],
+ *             variable: "glacier:ArchiveAgeinDays",
+ *         }],
+ *         effect: "Deny",
+ *         resources: [aws_glacier_vault_example.arn],
+ *     }],
+ * }));
+ * const aws_glacier_vault_lock_example = new aws.glacier.VaultLock("example", {
+ *     completeLock: false,
+ *     policy: aws_iam_policy_document_example.apply(__arg0 => __arg0.json),
+ *     vaultName: aws_glacier_vault_example.name,
+ * });
+ * ```
  */
 export class VaultLock extends pulumi.CustomResource {
     /**

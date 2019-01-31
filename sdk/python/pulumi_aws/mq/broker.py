@@ -77,11 +77,15 @@ class Broker(pulumi.CustomResource):
     """
     The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     users: pulumi.Output[list]
     """
     The list of all ActiveMQ usernames for the specified broker. See below.
     """
-    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, users=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None):
         """
         Provides an MQ Broker Resource. This resources also manages users for the broker.
         
@@ -117,6 +121,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[list] security_groups: The list of security group IDs assigned to the broker.
         :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
         """
         if not __name__:
@@ -163,6 +168,8 @@ class Broker(pulumi.CustomResource):
         __props__['security_groups'] = security_groups
 
         __props__['subnet_ids'] = subnet_ids
+
+        __props__['tags'] = tags
 
         if not users:
             raise TypeError('Missing required property users')

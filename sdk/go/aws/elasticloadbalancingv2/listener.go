@@ -112,7 +112,7 @@ func (r *Listener) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
 
-// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 func (r *Listener) SslPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sslPolicy"])
 }
@@ -131,7 +131,7 @@ type ListenerState struct {
 	Port interface{}
 	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol interface{}
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy interface{}
 }
 
@@ -147,6 +147,6 @@ type ListenerArgs struct {
 	Port interface{}
 	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol interface{}
-	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy interface{}
 }

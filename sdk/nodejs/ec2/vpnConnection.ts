@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  * 
  * ## Example Usage
- * 
  * ### EC2 Transit Gateway
  * 
  * ```typescript
@@ -33,6 +32,7 @@ import * as utilities from "../utilities";
  *     type: aws_customer_gateway_example.type,
  * });
  * ```
+ * 
  * ### Virtual Private Gateway
  * 
  * ```typescript

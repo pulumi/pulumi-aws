@@ -10,6 +10,20 @@ import * as utilities from "../utilities";
  * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
  * 
  * See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
+ * 
+ * ## Example Usage
+ * ### Ignoring Changes to Desired Count
+ * 
+ * You can utilize the generic Terraform resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ecs_service_example = new aws.ecs.Service("example", {
+ *     desiredCount: 2,
+ * });
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

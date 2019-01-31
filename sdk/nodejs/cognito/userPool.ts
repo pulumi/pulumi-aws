@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Pool resource.
  * 
  * ## Example Usage
- * 
  * ### Basic configuration
  * 
  * ```typescript

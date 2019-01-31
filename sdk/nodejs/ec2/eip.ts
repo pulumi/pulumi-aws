@@ -10,47 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
  * 
  * > **Note:** Do not use `network_interface` to associate the EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_vpc_default = new aws.ec2.Vpc("default", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsHostnames: true,
- * });
- * const aws_internet_gateway_gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: aws_vpc_default.id,
- * });
- * const aws_subnet_tf_test_subnet = new aws.ec2.Subnet("tf_test_subnet", {
- *     cidrBlock: "10.0.0.0/24",
- *     mapPublicIpOnLaunch: true,
- *     vpcId: aws_vpc_default.id,
- * }, {dependsOn: [aws_internet_gateway_gw]});
- * const aws_instance_foo = new aws.ec2.Instance("foo", {
- *     ami: "ami-5189a661",
- *     instanceType: "t2.micro",
- *     privateIp: "10.0.0.12",
- *     subnetId: aws_subnet_tf_test_subnet.id,
- * });
- * const aws_eip_bar = new aws.ec2.Eip("bar", {
- *     associateWithPrivateIp: "10.0.0.12",
- *     instance: aws_instance_foo.id,
- *     vpc: true,
- * }, {dependsOn: [aws_internet_gateway_gw]});
- * ```
- * Allocating EIP from the BYOIP pool:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const aws_eip_byoip_ip = new aws.ec2.Eip("byoip-ip", {
- *     publicIpv4Pool: "ipv4pool-ec2-012345",
- *     vpc: true,
- * });
- * ```
  */
 export class Eip extends pulumi.CustomResource {
     /**

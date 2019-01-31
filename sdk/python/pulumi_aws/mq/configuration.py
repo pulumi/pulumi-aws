@@ -38,7 +38,11 @@ class Configuration(pulumi.CustomResource):
     """
     The name of the configuration
     """
-    def __init__(__self__, __name__, __opts__=None, data=None, description=None, engine_type=None, engine_version=None, name=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, __name__, __opts__=None, data=None, description=None, engine_type=None, engine_version=None, name=None, tags=None):
         """
         Provides an MQ Configuration Resource. 
         
@@ -54,6 +58,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] engine_type: The type of broker engine.
         :param pulumi.Input[str] engine_version: The version of the broker engine.
         :param pulumi.Input[str] name: The name of the configuration
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -79,6 +84,8 @@ class Configuration(pulumi.CustomResource):
         __props__['engine_version'] = engine_version
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['latest_revision'] = None

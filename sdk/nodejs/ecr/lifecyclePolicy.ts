@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the Terraform code, the resource will be flagged for recreation every `terraform plan`.
  * 
  * ## Example Usage
- * 
  * ### Policy on untagged image
  * 
  * ```typescript
@@ -27,6 +26,7 @@ import * as utilities from "../utilities";
  *     repository: aws_ecr_repository_foo.name,
  * });
  * ```
+ * 
  * ### Policy on tagged image
  * 
  * ```typescript

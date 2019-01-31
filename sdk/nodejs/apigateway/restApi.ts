@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides an API Gateway REST API.
  * 
  * ## Example Usage
- * 
  * ### Basic
  * 
  * ```typescript
@@ -20,6 +19,7 @@ import * as utilities from "../utilities";
  *     name: "MyDemoAPI",
  * });
  * ```
+ * 
  * ### Regional Endpoint Type
  * 
  * ```typescript
