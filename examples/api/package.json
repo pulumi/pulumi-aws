@@ -1,0 +1,21 @@
+{
+    "name": "api",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "dev"
+    },
+    "devDependencies": {
+        "@types/aws-sdk": "^2.7.0",
+        "@types/node": "^10.0.0",
+        "typescript": "^3.0.0"
+    },
+    "peerDependencies": {
+        "@pulumi/aws": "latest"
+    }
+}

@@ -24,7 +24,6 @@ import * as pulumi from "@pulumi/pulumi";
 
 import { sha1hash } from "../../utils";
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export interface Request {
     resource: string;
     path: string;
@@ -38,7 +37,6 @@ export interface Request {
     isBase64Encoded: boolean;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export interface RequestContext {
     accountId: string;
     resourceId: string;
@@ -50,7 +48,6 @@ export interface RequestContext {
     apiId: string;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export interface RequestIdentity {
     cognitoIdentityPoolId?: string;
     accountId?: string;
@@ -65,7 +62,6 @@ export interface RequestIdentity {
     user?: string;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export interface Response {
     isBase64Encoded?: boolean;
     statusCode: number;
@@ -73,13 +69,16 @@ export interface Response {
     body: string;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export type Method = "ANY" | "GET" | "PUT" | "POST" | "DELETE" | "PATCH";
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
+/**
+ * A route that that APIGateway should accept and forward to some type of destination. All routes
+ * have an incoming path that they match against.  However, destinations are determined by the kind
+ * of the route.  See [EventHandlerRoute], [StaticRoute], [ProxyRoute] and [RawJsonRoute] for
+ * additional details.
+ */
 export type Route = EventHandlerRoute | StaticRoute | ProxyRoute | RawDataRoute;
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export type EventHandlerRoute = {
     path: string;
     method: Method;
@@ -90,7 +89,10 @@ function isEventHandler(route: Route): route is EventHandlerRoute {
     return (<EventHandlerRoute>route).eventHandler !== undefined;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
+/**
+ * StaticRoute is a route that will map from an incoming path to the files/directories specified by
+ * [localPath].
+ */
 export type StaticRoute = {
     path: string;
     /**
@@ -116,7 +118,9 @@ function isStaticRoute(route: Route): route is StaticRoute {
     return (<StaticRoute>route).localPath !== undefined;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
+/**
+ * An apigateway route that maps to some target uri, or some elastic-load-balancer host/port.
+ */
 export type ProxyRoute = {
     path: string;
     target: string | pulumi.Output<Endpoint>;
@@ -126,7 +130,15 @@ function isProxyRoute(route: Route): route is ProxyRoute {
     return (<ProxyRoute>route).target !== undefined;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
+/**
+ * Fallback route for when raw swagger control is desired.  The [data] field should be a javascript
+ * object that will be then included in the final swagger specification like so:
+ *
+ * `"paths": { [path]: { [method]: data } }`
+ *
+ * This value will be JSON.stringify'd as part of normal processing.  It should not be passed as
+ * string here.
+ */
 export type RawDataRoute = {
     path: string;
     method: Method;
@@ -137,14 +149,12 @@ function isRawDataRoute(route: Route): route is RawDataRoute {
     return (<RawDataRoute>route).data !== undefined;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export interface Endpoint {
     hostname: string;
     port: number;
     loadBalancer: aws.elasticloadbalancingv2.LoadBalancer;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export interface APIArgs {
     /**
      * Routes to use to initialize the APIGateway.
@@ -165,7 +175,6 @@ export interface APIArgs {
     stageName?: pulumi.Input<string>;
 }
 
-/** @deprecated This type has moved to the `apigateway` module in `@pulumi/awsx` */
 export class API extends pulumi.ComponentResource {
     public restAPI: aws.apigateway.RestApi;
     public deployment: aws.apigateway.Deployment;
