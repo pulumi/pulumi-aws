@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * }));
  * ```
+ * 
  * ### Name
  * 
  * ```typescript

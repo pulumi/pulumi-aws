@@ -22,7 +22,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         """
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] instance_ports: List of instance ports to which the policy

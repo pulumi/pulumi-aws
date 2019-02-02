@@ -23,7 +23,11 @@ import * as utilities from "../utilities";
  * });
  * const aws_kms_ciphertext_oauth = pulumi.output(aws.kms.getCipherText({
  *     keyId: aws_kms_key_oauth_config.keyId,
- *     plaintext: "{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n",
+ *     plaintext: `{
+ *   "client_id": "e587dbae22222f55da22",
+ *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
+ * }
+ * `,
  * }));
  * ```
  */

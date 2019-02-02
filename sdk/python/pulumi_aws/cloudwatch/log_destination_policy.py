@@ -20,7 +20,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
         """
         Provides a CloudWatch Logs destination policy resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.

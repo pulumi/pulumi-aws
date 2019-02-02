@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  * 
  * export const pythonScript = aws_glue_script_example.apply(__arg0 => __arg0.pythonScript);
  * ```
+ * 
  * ### Generate Scala Code
  * 
  * ```typescript

@@ -113,8 +113,6 @@ class ClusterInstance(pulumi.CustomResource):
         You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
         meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
         
-        
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any instance modifications

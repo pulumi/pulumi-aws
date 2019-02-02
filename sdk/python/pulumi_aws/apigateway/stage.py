@@ -72,7 +72,6 @@ class Stage(pulumi.CustomResource):
         """
         Provides an API Gateway Stage.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] access_log_settings: Enables access logs for the API stage. Detailed below.

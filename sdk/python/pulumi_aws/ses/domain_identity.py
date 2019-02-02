@@ -30,7 +30,6 @@ class DomainIdentity(pulumi.CustomResource):
         """
         Provides an SES domain identity resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES

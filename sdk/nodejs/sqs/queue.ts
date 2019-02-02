@@ -4,6 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sqs_queue_terraform_queue = new aws.sqs.Queue("terraform_queue", {
+ *     delaySeconds: 90,
+ *     maxMessageSize: 2048,
+ *     messageRetentionSeconds: 86400,
+ *     name: "terraform-example-queue",
+ *     receiveWaitTimeSeconds: 10,
+ *     redrivePolicy: aws_sqs_queue_terraform_queue_deadletter.arn.apply(__arg0 => `{"deadLetterTargetArn":"${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}","maxReceiveCount":4}`),
+ *     tags: {
+ *         Environment: "production",
+ *     },
+ * });
+ * ```
+ * 
+ * ## FIFO queue
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sqs_queue_terraform_queue = new aws.sqs.Queue("terraform_queue", {
+ *     contentBasedDeduplication: true,
+ *     fifoQueue: true,
+ *     name: "terraform-example-queue.fifo",
+ * });
+ * ```
+ * 
+ * ## Server-side encryption (SSE)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sqs_queue_terraform_queue = new aws.sqs.Queue("terraform_queue", {
+ *     kmsDataKeyReusePeriodSeconds: 300,
+ *     kmsMasterKeyId: "alias/aws/sqs",
+ *     name: "terraform-example-queue",
+ * });
+ * ```
+ */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra

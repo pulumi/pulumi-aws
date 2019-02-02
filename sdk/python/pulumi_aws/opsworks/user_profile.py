@@ -28,7 +28,6 @@ class UserProfile(pulumi.CustomResource):
         """
         Provides an OpsWorks User Profile resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] allow_self_management: Whether users can specify their own SSH public key through the My Settings page

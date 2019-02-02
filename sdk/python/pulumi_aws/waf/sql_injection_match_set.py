@@ -20,7 +20,6 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         """
         Provides a WAF SQL Injection Match Set Resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.

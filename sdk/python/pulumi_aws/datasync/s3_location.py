@@ -33,7 +33,6 @@ class S3Location(pulumi.CustomResource):
         """
         Manages an S3 Location within AWS DataSync.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.

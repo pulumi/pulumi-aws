@@ -35,7 +35,6 @@ class EfsLocation(pulumi.CustomResource):
         
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] ec2_config: Configuration block containing EC2 configurations for connecting to the EFS File System.

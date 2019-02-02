@@ -88,7 +88,6 @@ class Integration(pulumi.CustomResource):
         """
         Provides an HTTP Method Integration for an API Gateway Integration.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] cache_key_parameters: A list of cache key parameters for the integration.

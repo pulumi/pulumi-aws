@@ -37,6 +37,27 @@ import * as utilities from "../utilities";
  *     type: "ingress",
  * });
  * ```
+ * 
+ * ## Usage with prefix list IDs
+ * 
+ * Prefix list IDs are manged by AWS internally. Prefix list IDs
+ * are associated with a prefix list name, or service name, that is linked to a specific region.
+ * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_endpoint_my_endpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
+ * const aws_security_group_rule_allow_all = new aws.ec2.SecurityGroupRule("allow_all", {
+ *     fromPort: 0,
+ *     prefixListIds: [aws_vpc_endpoint_my_endpoint.prefixListId],
+ *     protocol: "-1",
+ *     securityGroupId: "sg-123456",
+ *     toPort: 0,
+ *     type: "egress",
+ * });
+ * ```
  */
 export class SecurityGroupRule extends pulumi.CustomResource {
     /**

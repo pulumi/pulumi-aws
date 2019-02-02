@@ -40,7 +40,6 @@ class Webhook(pulumi.CustomResource):
         """
         Provides a CodePipeline Webhook.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.

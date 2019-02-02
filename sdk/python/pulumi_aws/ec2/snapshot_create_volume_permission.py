@@ -20,7 +20,6 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         """
         Adds permission to create volumes off of a given EBS Snapshot.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions

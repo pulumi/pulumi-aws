@@ -22,7 +22,6 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Byte Match Set Resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] byte_match_tuples: Specifies the bytes (typically a string that corresponds

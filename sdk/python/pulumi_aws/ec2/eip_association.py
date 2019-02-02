@@ -51,7 +51,6 @@ class EipAssociation(pulumi.CustomResource):
         > **NOTE:** `aws_eip_association` is useful in scenarios where EIPs are either
         pre-existing or distributed to customers or users and therefore cannot be changed.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.

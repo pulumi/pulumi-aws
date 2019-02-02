@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
  * ### Add inventory configuration with S3 bucket object prefix
  * 
  * ```typescript

@@ -51,7 +51,6 @@ class Key(pulumi.CustomResource):
         """
         Provides a KMS customer master key.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted

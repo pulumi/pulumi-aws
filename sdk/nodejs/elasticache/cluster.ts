@@ -15,6 +15,55 @@ import * as utilities from "../utilities";
  * place. You can use the `apply_immediately` flag to instruct the service to apply the
  * change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
  * See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
+ * 
+ * ## Example Usage
+ * 
+ * ### Memcached Cluster
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elasticache_cluster_example = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
+ *     engine: "memcached",
+ *     nodeType: "cache.m4.large",
+ *     numCacheNodes: 2,
+ *     parameterGroupName: "default.memcached1.4",
+ *     port: 11211,
+ * });
+ * ```
+ * 
+ * ### Redis Instance
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elasticache_cluster_example = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
+ *     engine: "redis",
+ *     engineVersion: "3.2.10",
+ *     nodeType: "cache.m4.large",
+ *     numCacheNodes: 1,
+ *     parameterGroupName: "default.redis3.2",
+ *     port: 6379,
+ * });
+ * ```
+ * 
+ * ### Redis Cluster Mode Disabled Read Replica Instance
+ * 
+ * These inherit their settings from the replication group.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elasticache_cluster_replica = new aws.elasticache.Cluster("replica", {
+ *     clusterId: "cluster-example",
+ *     replicationGroupId: aws_elasticache_replication_group_example.id,
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

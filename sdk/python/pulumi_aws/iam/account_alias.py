@@ -14,10 +14,9 @@ class AccountAlias(pulumi.CustomResource):
     """
     def __init__(__self__, __name__, __opts__=None, account_alias=None):
         """
-        -> **Note:** There is only a single account alias per AWS account.
+        > **Note:** There is only a single account alias per AWS account.
         
         Manages the account alias for the AWS Account.
-        
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

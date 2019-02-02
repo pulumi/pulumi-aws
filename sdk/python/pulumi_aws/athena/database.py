@@ -28,7 +28,6 @@ class Database(pulumi.CustomResource):
         """
         Provides an Athena database.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bucket: Name of s3 bucket to save the results of the query execution.

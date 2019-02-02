@@ -42,7 +42,6 @@ class BgpPeer(pulumi.CustomResource):
         """
         Provides a Direct Connect BGP peer resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.

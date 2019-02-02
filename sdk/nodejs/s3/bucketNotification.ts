@@ -43,6 +43,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
  * ### Add notification configuration to SQS Queue
  * 
  * ```typescript
@@ -79,6 +80,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
  * ### Add notification configuration to Lambda Function
  * 
  * ```typescript
@@ -86,7 +88,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_for_lambda",
  * });
  * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
@@ -116,6 +130,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
  * ### Trigger multiple Lambda functions
  * 
  * ```typescript
@@ -123,7 +138,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_for_lambda",
  * });
  * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
@@ -174,6 +201,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * 
  * ### Add multiple notification configurations to SQS Queue
  * 
  * ```typescript
@@ -219,11 +247,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * 
  * For Terraform's [JSON syntax](https://www.terraform.io/docs/configuration/syntax.html), use an array instead of defining the `queue` key twice.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * 
  * ```
  */
 export class BucketNotification extends pulumi.CustomResource {

@@ -26,7 +26,6 @@ class Certificate(pulumi.CustomResource):
         """
         Creates and manages an AWS IoT certificate.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active

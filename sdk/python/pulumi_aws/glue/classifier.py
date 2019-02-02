@@ -30,7 +30,6 @@ class Classifier(pulumi.CustomResource):
         
         > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] grok_classifier: A classifier that uses grok patterns. Defined below.

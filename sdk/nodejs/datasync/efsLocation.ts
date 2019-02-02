@@ -10,6 +10,21 @@ import {ARN} from "../index";
  * Manages an AWS DataSync EFS Location.
  * 
  * > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_datasync_location_efs_example = new aws.datasync.EfsLocation("example", {
+ *     ec2Config: {
+ *         securityGroupArns: [aws_security_group_example.arn],
+ *         subnetArn: aws_subnet_example.arn,
+ *     },
+ *     efsFileSystemArn: aws_efs_mount_target_example.fileSystemArn,
+ * });
+ * ```
  */
 export class EfsLocation extends pulumi.CustomResource {
     /**

@@ -8,6 +8,110 @@ import * as utilities from "../utilities";
  * Provides a Load Balancer Listener Rule resource.
  * 
  * > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {});
+ * const aws_cognito_user_pool_client_client = new aws.cognito.UserPoolClient("client", {});
+ * const aws_cognito_user_pool_domain_domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {});
+ * const aws_lb_listener_admin = new aws.elasticloadbalancingv2.Listener("admin", {
+ *     action: [
+ *         {
+ *             authenticateOidc: [{
+ *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
+ *                 clientId: "client_id",
+ *                 clientSecret: "client_secret",
+ *                 issuer: "https://example.com",
+ *                 tokenEndpoint: "https://example.com/token_endpoint",
+ *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
+ *             }],
+ *             type: "authenticate-oidc",
+ *         },
+ *         {
+ *             targetGroupArn: aws_lb_target_group_static.arn,
+ *             type: "forward",
+ *         },
+ *     ],
+ *     listenerArn: aws_lb_listener_front_end.arn,
+ * });
+ * const aws_lb_listener_rule_admin = new aws.elasticloadbalancingv2.ListenerRule("admin", {
+ *     actions: [
+ *         {
+ *             authenticateCognito: {
+ *                 userPoolArn: aws_cognito_user_pool_pool.arn,
+ *                 userPoolClientId: aws_cognito_user_pool_client_client.id,
+ *                 userPoolDomain: aws_cognito_user_pool_domain_domain.domain,
+ *             },
+ *             type: "authenticate-cognito",
+ *         },
+ *         {
+ *             targetGroupArn: aws_lb_target_group_static.arn,
+ *             type: "forward",
+ *         },
+ *     ],
+ *     listenerArn: aws_lb_listener_front_end.arn,
+ * });
+ * const aws_lb_listener_rule_health_check = new aws.elasticloadbalancingv2.ListenerRule("health_check", {
+ *     actions: [{
+ *         fixedResponse: {
+ *             contentType: "text/plain",
+ *             messageBody: "HEALTHY",
+ *             statusCode: "200",
+ *         },
+ *         type: "fixed-response",
+ *     }],
+ *     conditions: [{
+ *         field: "path-pattern",
+ *         values: "/health",
+ *     }],
+ *     listenerArn: aws_lb_listener_front_end.arn,
+ * });
+ * const aws_lb_listener_rule_host_based_routing = new aws.elasticloadbalancingv2.ListenerRule("host_based_routing", {
+ *     actions: [{
+ *         targetGroupArn: aws_lb_target_group_static.arn,
+ *         type: "forward",
+ *     }],
+ *     conditions: [{
+ *         field: "host-header",
+ *         values: "my-service.*.terraform.io",
+ *     }],
+ *     listenerArn: aws_lb_listener_front_end.arn,
+ *     priority: 99,
+ * });
+ * const aws_lb_listener_rule_redirect_http_to_https = new aws.elasticloadbalancingv2.ListenerRule("redirect_http_to_https", {
+ *     actions: [{
+ *         redirect: {
+ *             port: "443",
+ *             protocol: "HTTPS",
+ *             statusCode: "HTTP_301",
+ *         },
+ *         type: "redirect",
+ *     }],
+ *     conditions: [{
+ *         field: "host-header",
+ *         values: "my-service.*.terraform.io",
+ *     }],
+ *     listenerArn: aws_lb_listener_front_end.arn,
+ * });
+ * const aws_lb_listener_rule_static = new aws.elasticloadbalancingv2.ListenerRule("static", {
+ *     actions: [{
+ *         targetGroupArn: aws_lb_target_group_static.arn,
+ *         type: "forward",
+ *     }],
+ *     conditions: [{
+ *         field: "path-pattern",
+ *         values: "/static/*",
+ *     }],
+ *     listenerArn: aws_lb_listener_front_end.arn,
+ *     priority: 100,
+ * });
+ * ```
  */
 export class ListenerRule extends pulumi.CustomResource {
     /**

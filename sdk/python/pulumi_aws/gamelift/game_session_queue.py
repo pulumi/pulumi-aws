@@ -32,7 +32,6 @@ class GameSessionQueue(pulumi.CustomResource):
         """
         Provides an Gamelift Game Session Queue resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.

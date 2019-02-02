@@ -24,6 +24,12 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Provides a DAX Parameter Group resource.
         
+        ## parameters
+        
+        `parameters` supports the following:
+        
+        * `name` - (Required) The name of the parameter.
+        * `value` - (Required) The value for the parameter.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

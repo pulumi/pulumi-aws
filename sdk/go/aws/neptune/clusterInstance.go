@@ -12,7 +12,6 @@ import (
 // 
 // You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
 // meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
-// 
 type ClusterInstance struct {
 	s *pulumi.ResourceState
 }

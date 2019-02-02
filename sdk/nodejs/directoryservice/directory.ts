@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
  * ### Microsoft Active Directory (MicrosoftAD)
  * 
  * ```typescript
@@ -83,6 +84,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
  * ### Microsoft Active Directory Connector (ADConnector)
  * 
  * ```typescript

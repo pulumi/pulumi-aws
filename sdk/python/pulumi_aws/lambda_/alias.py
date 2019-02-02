@@ -43,7 +43,6 @@ class Alias(pulumi.CustomResource):
         For information about Lambda and how to use it, see [What is AWS Lambda?][1]
         For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: Description of the alias.

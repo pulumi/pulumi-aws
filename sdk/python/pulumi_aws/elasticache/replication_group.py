@@ -149,7 +149,6 @@ class ReplicationGroup(pulumi.CustomResource):
         immediately. Using `apply_immediately` can result in a brief downtime as
         servers reboots.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.

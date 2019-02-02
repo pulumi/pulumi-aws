@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  * });
  * ```
+ * 
  * ### Redirect Action
  * 
  * ```typescript
@@ -52,6 +53,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Fixed-response Action
  * 
  * ```typescript
@@ -73,6 +75,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Authenticate-cognito Action
  * 
  * ```typescript
@@ -107,6 +110,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Authenticate-oidc Action
  * 
  * ```typescript
@@ -141,7 +145,6 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
  */
 export class Listener extends pulumi.CustomResource {
     /**

@@ -25,6 +25,15 @@ import * as utilities from "../utilities";
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
  * ```
+ * 
+ * ## Option Settings
+ * 
+ * The `setting` field supports the following format:
+ * 
+ * * `namespace` - unique namespace identifying the option's associated AWS resource
+ * * `name` - name of the configuration option
+ * * `value` - value for the configuration option
+ * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  */
 export class ConfigurationTemplate extends pulumi.CustomResource {
     /**

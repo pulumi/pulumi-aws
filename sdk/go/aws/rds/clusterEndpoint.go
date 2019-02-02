@@ -10,7 +10,6 @@ import (
 
 // Manages a RDS Aurora Cluster Endpoint.
 // You can refer to the [User Guide][1].
-// 
 type ClusterEndpoint struct {
 	s *pulumi.ResourceState
 }

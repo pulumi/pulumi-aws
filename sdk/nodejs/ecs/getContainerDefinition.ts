@@ -7,6 +7,18 @@ import * as utilities from "../utilities";
 /**
  * The ECS container definition data source allows access to details of
  * a specific container within an AWS ECS service.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ecs_container_definition_ecs_mongo = pulumi.output(aws.ecs.getContainerDefinition({
+ *     containerName: "mongodb",
+ *     taskDefinition: aws_ecs_task_definition_mongo.id,
+ * }));
+ * ```
  */
 export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
     return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {

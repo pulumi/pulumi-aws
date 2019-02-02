@@ -27,8 +27,6 @@ class CertificateValidation(pulumi.CustomResource):
         
         > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
         
-        
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.

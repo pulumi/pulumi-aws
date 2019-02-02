@@ -28,7 +28,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer on which the policy is defined.

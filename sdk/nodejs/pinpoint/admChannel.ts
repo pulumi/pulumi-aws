@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
- * 
  */
 export class AdmChannel extends pulumi.CustomResource {
     /**

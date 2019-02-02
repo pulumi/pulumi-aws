@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic File System (EFS) mount target.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_foo = new aws.ec2.Vpc("foo", {
+ *     cidrBlock: "10.0.0.0/16",
+ * });
+ * const aws_subnet_alpha = new aws.ec2.Subnet("alpha", {
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: "10.0.1.0/24",
+ *     vpcId: aws_vpc_foo.id,
+ * });
+ * const aws_efs_mount_target_alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: aws_efs_file_system_foo.id,
+ *     subnetId: aws_subnet_alpha.id,
+ * });
+ * ```
  */
 export class MountTarget extends pulumi.CustomResource {
     /**

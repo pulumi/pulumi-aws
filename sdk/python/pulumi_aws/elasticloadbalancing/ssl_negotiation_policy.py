@@ -31,7 +31,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         """
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] attributes: An SSL Negotiation policy attribute. Each has two properties:

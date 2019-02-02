@@ -28,7 +28,6 @@ class UserPolicy(pulumi.CustomResource):
         """
         Provides an IAM policy attached to a user.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, Terraform will assign a random, unique name.

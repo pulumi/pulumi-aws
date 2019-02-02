@@ -45,7 +45,6 @@ class Association(pulumi.CustomResource):
         """
         Associates an SSM Document to an instance or EC2 tag.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] association_name: The descriptive name for the association.

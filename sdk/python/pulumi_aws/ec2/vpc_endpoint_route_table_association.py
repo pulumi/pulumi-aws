@@ -20,7 +20,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         """
         Manages a VPC Endpoint Route Table Association
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.

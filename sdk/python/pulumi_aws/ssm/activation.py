@@ -44,7 +44,6 @@ class Activation(pulumi.CustomResource):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the resource that you want to register.

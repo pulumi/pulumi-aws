@@ -37,7 +37,6 @@ class Route(pulumi.CustomResource):
         """
         Provides an AWS App Mesh route resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.

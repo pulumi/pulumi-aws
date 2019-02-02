@@ -4,6 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ * 
+ * The following shows outputing all network interface ids in a region.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_network_interfaces_example = pulumi.output(aws.ec2.getNetworkInterfaces({}));
+ * 
+ * export const example = aws_network_interfaces_example.apply(__arg0 => __arg0.ids);
+ * ```
+ * 
+ * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_network_interfaces_example = pulumi.output(aws.ec2.getNetworkInterfaces({
+ *     tags: {
+ *         Name: "test",
+ *     },
+ * }));
+ * 
+ * export const example1 = aws_network_interfaces_example.apply(__arg0 => __arg0.ids);
+ * ```
+ * 
+ * The following example retrieves a network interface ids which associated
+ * with specific subnet.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_network_interfaces_example = pulumi.output(aws.ec2.getNetworkInterfaces({
+ *     filters: [{
+ *         name: "subnet-id",
+ *         values: [aws_subnet_test.id],
+ *     }],
+ * }));
+ * 
+ * export const example = aws_network_interfaces_example.apply(__arg0 => __arg0.ids);
+ * ```
+ */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {

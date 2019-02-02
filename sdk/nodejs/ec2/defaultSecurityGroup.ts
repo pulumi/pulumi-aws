@@ -31,6 +31,36 @@ import * as utilities from "../utilities";
  * For more information about Default Security Groups, see the AWS Documentation on
  * [Default Security Groups][aws-default-security-groups].
  * 
+ * ## Basic Example Usage, with default rules
+ * 
+ * The following config gives the Default Security Group the same rules that AWS
+ * provides by default, but pulls the resource under management by Terraform. This means that
+ * any ingress or egress rules added or changed will be detected as drift.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_mainvpc = new aws.ec2.Vpc("mainvpc", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const aws_default_security_group_default = new aws.ec2.DefaultSecurityGroup("default", {
+ *     egress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     ingress: [{
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         self: true,
+ *         toPort: 0,
+ *     }],
+ *     vpcId: aws_vpc_mainvpc.id,
+ * });
+ * ```
+ * 
  * ## Example config to deny all Egress traffic, allowing Ingress
  * 
  * The following denies all Egress traffic by omitting any `egress` rules, while
@@ -53,6 +83,21 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_mainvpc.id,
  * });
  * ```
+ * 
+ * ## Usage
+ * 
+ * With the exceptions mentioned above, `aws_default_security_group` should
+ * identical behavior to `aws_security_group`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
+ * for further usage documentation.
+ * 
+ * ### Removing `aws_default_security_group` from your configuration
+ * 
+ * Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
+ * Group that cannot be deleted. The `aws_default_security_group` allows you to
+ * manage this Security Group, but Terraform cannot destroy it. Removing this resource
+ * from your configuration will remove it from your statefile and management, but
+ * will not destroy the Security Group. All ingress or egress rules will be left as
+ * they are at the time of removal. You can resume managing them via the AWS Console.
  */
 export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**

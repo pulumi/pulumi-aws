@@ -27,7 +27,6 @@ class DomainDkim(pulumi.CustomResource):
         
         Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.

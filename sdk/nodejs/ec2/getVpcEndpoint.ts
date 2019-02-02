@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * The VPC Endpoint data source provides details about
  * a specific VPC endpoint.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_endpoint_s3 = pulumi.output(aws.ec2.getVpcEndpoint({
+ *     serviceName: "com.amazonaws.us-west-2.s3",
+ *     vpcId: aws_vpc_foo.id,
+ * }));
+ * const aws_vpc_endpoint_route_table_association_private_s3 = new aws.ec2.VpcEndpointRouteTableAssociation("private_s3", {
+ *     routeTableId: aws_route_table_private.id,
+ *     vpcEndpointId: aws_vpc_endpoint_s3.apply(__arg0 => __arg0.id),
+ * });
+ * ```
  */
 export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     args = args || {};

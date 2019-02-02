@@ -28,7 +28,6 @@ class BucketNotification(pulumi.CustomResource):
         """
         Provides a S3 bucket notification resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.

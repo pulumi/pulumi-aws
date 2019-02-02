@@ -48,7 +48,6 @@ class PatchBaseline(pulumi.CustomResource):
         both marked as optional fields, but the Patch Baseline requires that at least one
         of them is specified.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] approval_rules: A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.

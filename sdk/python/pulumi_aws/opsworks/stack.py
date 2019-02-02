@@ -109,7 +109,6 @@ class Stack(pulumi.CustomResource):
         """
         Provides an OpsWorks stack resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.

@@ -26,7 +26,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
         Association resource. Doing so will cause a conflict of associations and will overwrite the association.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.

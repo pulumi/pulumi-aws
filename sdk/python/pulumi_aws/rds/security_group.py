@@ -35,7 +35,6 @@ class SecurityGroup(pulumi.CustomResource):
         [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
         attribute instead.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB security group. Defaults to "Managed by Terraform".

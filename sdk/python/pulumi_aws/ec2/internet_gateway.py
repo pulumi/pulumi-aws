@@ -24,7 +24,6 @@ class InternetGateway(pulumi.CustomResource):
         """
         Provides a resource to create a VPC Internet Gateway.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

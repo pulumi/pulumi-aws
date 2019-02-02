@@ -24,7 +24,6 @@ class Cluster(pulumi.CustomResource):
         """
         Provides an ECS cluster.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)

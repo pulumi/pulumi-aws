@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 
  * ## Example Usage
  * 
  * List the event categories of all the RDS resources. 
@@ -18,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * export const example = aws_db_event_categories_example.apply(__arg0 => __arg0.eventCategories);
  * ```
+ * 
  * List the event categories specific to the RDS resource `db-snapshot`.
  * 
  * ```typescript

@@ -58,7 +58,6 @@ class Permission(pulumi.CustomResource):
         Creates a Lambda permission to allow external sources invoking the Lambda function
         (e.g. CloudWatch Event Rule, SNS or S3).
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)

@@ -40,7 +40,6 @@ class Hsm(pulumi.CustomResource):
         """
         Creates an HSM module in Amazon CloudHSM v2 cluster.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.

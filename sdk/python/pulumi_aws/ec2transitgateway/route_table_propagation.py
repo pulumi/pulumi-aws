@@ -28,7 +28,6 @@ class RouteTablePropagation(pulumi.CustomResource):
         """
         Manages an EC2 Transit Gateway Route Table propagation.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.

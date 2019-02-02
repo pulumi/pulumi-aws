@@ -32,7 +32,6 @@ class Response(pulumi.CustomResource):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] response_parameters: A map specifying the templates used to transform the response body.

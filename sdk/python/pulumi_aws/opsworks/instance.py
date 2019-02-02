@@ -146,6 +146,59 @@ class Instance(pulumi.CustomResource):
         """
         Provides an OpsWorks instance resource.
         
+        ## Block devices
+        
+        Each of the `*_block_device` attributes controls a portion of the AWS
+        Instance's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
+        Mapping docs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
+        to understand the implications of using these attributes.
+        
+        The `root_block_device` mapping supports the following:
+        
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        
+        Modifying any of the `root_block_device` settings requires resource
+        replacement.
+        
+        Each `ebs_block_device` supports the following:
+        
+        * `device_name` - The name of the device to mount.
+        * `snapshot_id` - (Optional) The Snapshot ID to mount.
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        
+        Modifying any `ebs_block_device` currently requires resource replacement.
+        
+        Each `ephemeral_block_device` supports the following:
+        
+        * `device_name` - The name of the block device to mount on the instance.
+        * `virtual_name` - The [Instance Store Device
+          Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+          (e.g. `"ephemeral0"`)
+        
+        Each AWS Instance type has a different set of Instance Store block devices
+        available for attachment. AWS [publishes a
+        list](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
+        of which ephemeral devices are available on each type. The devices are always
+        identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+        
+        > **NOTE:** Currently, changes to `*_block_device` configuration of _existing_
+        resources cannot be automatically detected by Terraform. After making updates
+        to block device configuration, resource recreation can be manually triggered by
+        using the [`taint` command](https://www.terraform.io/docs/commands/taint.html).
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

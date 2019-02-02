@@ -24,7 +24,6 @@ class Container(pulumi.CustomResource):
         """
         Provides a MediaStore Container.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the container. Must contain alphanumeric characters or underscores.

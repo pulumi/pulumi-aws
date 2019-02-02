@@ -22,7 +22,6 @@ class UserPolicyAttachment(pulumi.CustomResource):
         
         > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply

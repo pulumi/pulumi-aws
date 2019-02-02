@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * 
  * ### Organization Based Aggregation
  * 
  * ```typescript
@@ -30,7 +31,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_organization = new aws.iam.Role("organization", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"config.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "config.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "example",
  * });
  * const aws_iam_role_policy_attachment_organization = new aws.iam.RolePolicyAttachment("organization", {

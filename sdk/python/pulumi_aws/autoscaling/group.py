@@ -67,7 +67,7 @@ class Group(pulumi.CustomResource):
     """
     launch_template: pulumi.Output[dict]
     """
-    Nested argument with Launch template specification to use to launch instances. Defined below.
+    Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
     """
     load_balancers: pulumi.Output[list]
     """
@@ -159,8 +159,69 @@ class Group(pulumi.CustomResource):
         """
         Provides an AutoScaling Group resource.
         
-        -> **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+        > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
         
+        ## Waiting for Capacity
+        
+        A newly-created ASG is initially empty and begins to scale to `min_size` (or
+        `desired_capacity`, if specified) by launching instances using the provided
+        Launch Configuration. These instances take time to launch and boot.
+        
+        On ASG Update, changes to these values also take time to result in the target
+        number of instances providing service.
+        
+        Terraform provides two mechanisms to help consistently manage ASG scale up
+        time across dependent resources.
+        
+        #### Waiting for ASG Capacity
+        
+        The first is default behavior. Terraform waits after ASG creation for
+        `min_size` (or `desired_capacity`, if specified) healthy instances to show up
+        in the ASG before continuing.
+        
+        If `min_size` or `desired_capacity` are changed in a subsequent update,
+        Terraform will also wait for the correct number of healthy instances before
+        continuing.
+        
+        Terraform considers an instance "healthy" when the ASG reports `HealthStatus:
+        "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
+        Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
+        for more information on an ASG's lifecycle.
+        
+        Terraform will wait for healthy instances for up to
+        `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
+        it's worth investigating for scaling activity errors, which can be caused by
+        problems with the selected Launch Configuration.
+        
+        Setting `wait_for_capacity_timeout` to `"0"` disables ASG Capacity waiting.
+        
+        #### Waiting for ELB Capacity
+        
+        The second mechanism is optional, and affects ASGs with attached ELBs specified
+        via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
+        
+        The `min_elb_capacity` parameter causes Terraform to wait for at least the
+        requested number of instances to show up `"InService"` in all attached ELBs
+        during ASG creation.  It has no effect on ASG updates.
+        
+        If `wait_for_elb_capacity` is set, Terraform will wait for exactly that number
+        of Instances to be `"InService"` in all attached ELBs on both creation and
+        updates.
+        
+        These parameters can be used to ensure that service is being provided before
+        Terraform moves on. If new instances don't pass the ELB's health checks for any
+        reason, the Terraform apply will time out, and the ASG will be marked as
+        tainted (i.e. marked to be destroyed in a follow up run).
+        
+        As with ASG Capacity, Terraform will wait for up to `wait_for_capacity_timeout`
+        for the proper number of instances to be healthy.
+        
+        #### Troubleshooting Capacity Waiting Timeouts
+        
+        If ASG creation takes more than a few minutes, this could indicate one of a
+        number of configuration problems. See the [AWS Docs on Load Balancer
+        Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
+        for more information.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
@@ -190,7 +251,7 @@ class Group(pulumi.CustomResource):
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
         :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
-        :param pulumi.Input[dict] launch_template: Nested argument with Launch template specification to use to launch instances. Defined below.
+        :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_size: The maximum size of the auto scale group.

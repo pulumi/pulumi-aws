@@ -28,7 +28,6 @@ class MethodSettings(pulumi.CustomResource):
         """
         Provides an API Gateway Method Settings, e.g. logging or monitoring.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.

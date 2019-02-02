@@ -8,6 +8,18 @@ import * as utilities from "../utilities";
  * Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
  * 
  * For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
+ * 
+ * ## Specifying the Deployment Package
+ * 
+ * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
+ * See [Runtimes][2] for the valid values of `compatible_runtimes`.
+ * 
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+ * indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
+ * package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+ * 
+ * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
+ * large files efficiently.
  */
 export class LayerVersion extends pulumi.CustomResource {
     /**

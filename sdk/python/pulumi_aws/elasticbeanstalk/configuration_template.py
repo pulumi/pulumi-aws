@@ -41,6 +41,14 @@ class ConfigurationTemplate(pulumi.CustomResource):
         a specific application and are used to deploy different versions of the
         application with the same configuration settings.
         
+        ## Option Settings
+        
+        The `setting` field supports the following format:
+        
+        * `namespace` - unique namespace identifying the option's associated AWS resource
+        * `name` - name of the configuration option
+        * `value` - value for the configuration option
+        * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

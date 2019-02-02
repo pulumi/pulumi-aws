@@ -44,7 +44,13 @@ class EventSubscription(pulumi.CustomResource):
     """
     def __init__(__self__, __name__, __opts__=None, enabled=None, event_categories=None, name=None, name_prefix=None, sns_topic_arn=None, source_ids=None, source_type=None, tags=None):
         """
-        Create a EventSubscription resource with the given unique name, props, and options.
+        ## Attributes
+        
+        The following additional atttributes are provided:
+        
+        * `id` - The name of the Neptune event notification subscription.
+        * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
+        * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

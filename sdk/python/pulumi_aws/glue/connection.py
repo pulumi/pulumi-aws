@@ -40,7 +40,6 @@ class Connection(pulumi.CustomResource):
         """
         Provides a Glue Connection resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.

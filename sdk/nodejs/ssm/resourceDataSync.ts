@@ -19,7 +19,35 @@ import * as utilities from "../utilities";
  * });
  * const aws_s3_bucket_policy_hoge = new aws.s3.BucketPolicy("hoge", {
  *     bucket: aws_s3_bucket_hoge.bucket,
- *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"SSMBucketPermissionsCheck\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"ssm.amazonaws.com\"\n            },\n            \"Action\": \"s3:GetBucketAcl\",\n            \"Resource\": \"arn:aws:s3:::tf-test-bucket-1234\"\n        },\n        {\n            \"Sid\": \" SSMBucketDelivery\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"ssm.amazonaws.com\"\n            },\n            \"Action\": \"s3:PutObject\",\n            \"Resource\": [\"arn:aws:s3:::tf-test-bucket-1234/*\"],\n            \"Condition\": {\n                \"StringEquals\": {\n                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n                }\n            }\n        }\n    ]\n}\n",
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Sid": "SSMBucketPermissionsCheck",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "Service": "ssm.amazonaws.com"
+ *             },
+ *             "Action": "s3:GetBucketAcl",
+ *             "Resource": "arn:aws:s3:::tf-test-bucket-1234"
+ *         },
+ *         {
+ *             "Sid": " SSMBucketDelivery",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "Service": "ssm.amazonaws.com"
+ *             },
+ *             "Action": "s3:PutObject",
+ *             "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
+ *             "Condition": {
+ *                 "StringEquals": {
+ *                     "s3:x-amz-acl": "bucket-owner-full-control"
+ *                 }
+ *             }
+ *         }
+ *     ]
+ * }
+ * `,
  * });
  * const aws_ssm_resource_data_sync_foo = new aws.ssm.ResourceDataSync("foo", {
  *     name: "foo",
@@ -29,6 +57,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
+ * ## s3_destination
+ * 
+ * `s3_destination` supports the following:
+ * 
+ * * `bucket_name` - (Required) Name of S3 bucket where the aggregated data is stored.
+ * * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
+ * * `kms_key_arn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
+ * * `prefix` - (Optional) Prefix for the bucket.
+ * * `sync_format` - (Optional) A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
  */
 export class ResourceDataSync extends pulumi.CustomResource {
     /**

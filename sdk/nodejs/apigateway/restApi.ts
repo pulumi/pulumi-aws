@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     name: "MyDemoAPI",
  * });
  * ```
+ * 
  * ### Regional Endpoint Type
  * 
  * ```typescript

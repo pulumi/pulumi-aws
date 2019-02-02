@@ -9,21 +9,39 @@ from .. import utilities, tables
 
 class SmsChannel(pulumi.CustomResource):
     application_id: pulumi.Output[str]
+    """
+    The application ID.
+    """
     enabled: pulumi.Output[bool]
+    """
+    Whether the channel is enabled or disabled. Defaults to `true`.
+    """
     promotional_messages_per_second: pulumi.Output[int]
+    """
+    Promotional messages per second that can be sent.
+    """
     sender_id: pulumi.Output[str]
+    """
+    Sender identifier of your messages.
+    """
     short_code: pulumi.Output[str]
+    """
+    The Short Code registered with the phone provider.
+    """
     transactional_messages_per_second: pulumi.Output[int]
+    """
+    Transactional messages per second that can be sent.
+    """
     def __init__(__self__, __name__, __opts__=None, application_id=None, enabled=None, sender_id=None, short_code=None):
         """
-        Create a SmsChannel resource with the given unique name, props, and options.
+        Provides a Pinpoint SMS Channel resource.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[str] application_id
-        :param pulumi.Input[bool] enabled
-        :param pulumi.Input[str] sender_id
-        :param pulumi.Input[str] short_code
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[str] sender_id: Sender identifier of your messages.
+        :param pulumi.Input[str] short_code: The Short Code registered with the phone provider.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

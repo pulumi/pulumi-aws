@@ -40,7 +40,6 @@ class UserPoolDomain(pulumi.CustomResource):
         """
         Provides a Cognito User Pool Domain resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.

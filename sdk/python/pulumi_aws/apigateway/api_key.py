@@ -42,7 +42,6 @@ class ApiKey(pulumi.CustomResource):
         
         > **Warning:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Terraform".

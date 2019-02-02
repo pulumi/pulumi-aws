@@ -16,7 +16,6 @@ class StandardsSubscription(pulumi.CustomResource):
         """
         Subscribes to a Security Hub standard.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.

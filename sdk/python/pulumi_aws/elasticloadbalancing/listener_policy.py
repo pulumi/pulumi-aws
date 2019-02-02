@@ -24,8 +24,6 @@ class ListenerPolicy(pulumi.CustomResource):
         """
         Attaches a load balancer policy to an ELB Listener.
         
-        
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.

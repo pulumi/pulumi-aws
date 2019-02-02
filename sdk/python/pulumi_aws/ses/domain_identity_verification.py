@@ -26,7 +26,6 @@ class DomainIdentityVerification(pulumi.CustomResource):
         
         > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.

@@ -6,6 +6,34 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Logs destination policy resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudwatch_log_destination_test_destination = new aws.cloudwatch.LogDestination("test_destination", {
+ *     name: "test_destination",
+ *     roleArn: aws_iam_role_iam_for_cloudwatch.arn,
+ *     targetArn: aws_kinesis_stream_kinesis_for_cloudwatch.arn,
+ * });
+ * const aws_iam_policy_document_test_destination_policy = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["logs:PutSubscriptionFilter"],
+ *         effect: "Allow",
+ *         principals: [{
+ *             identifiers: ["123456789012"],
+ *             type: "AWS",
+ *         }],
+ *         resources: [aws_cloudwatch_log_destination_test_destination.arn],
+ *     }],
+ * }));
+ * const aws_cloudwatch_log_destination_policy_test_destination_policy = new aws.cloudwatch.LogDestinationPolicy("test_destination_policy", {
+ *     accessPolicy: aws_iam_policy_document_test_destination_policy.apply(__arg0 => __arg0.json),
+ *     destinationName: aws_cloudwatch_log_destination_test_destination.name,
+ * });
+ * ```
  */
 export class LogDestinationPolicy extends pulumi.CustomResource {
     /**

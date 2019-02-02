@@ -48,7 +48,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.

@@ -13,6 +13,28 @@ import * as utilities from "../utilities";
  * `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
  * load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_autoscaling_attachment_asg_attachment_bar = new aws.autoscaling.Attachment("asg_attachment_bar", {
+ *     autoscalingGroupName: aws_autoscaling_group_asg.id,
+ *     elb: aws_elb_bar.id,
+ * });
+ * ```
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_autoscaling_attachment_asg_attachment_bar = new aws.autoscaling.Attachment("asg_attachment_bar", {
+ *     albTargetGroupArn: aws_alb_target_group_test.arn,
+ *     autoscalingGroupName: aws_autoscaling_group_asg.id,
+ * });
+ * ```
  */
 export class Attachment extends pulumi.CustomResource {
     /**

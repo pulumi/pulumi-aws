@@ -41,8 +41,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         Manages a RDS Aurora Cluster Endpoint.
         You can refer to the [User Guide][1].
         
-        
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.

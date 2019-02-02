@@ -32,7 +32,6 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         """
         Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] cookie_expiration_period: The time period after which

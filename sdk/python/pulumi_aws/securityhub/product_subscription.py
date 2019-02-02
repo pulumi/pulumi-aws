@@ -20,7 +20,6 @@ class ProductSubscription(pulumi.CustomResource):
         """
         Subscribes to a Security Hub product.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.

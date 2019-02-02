@@ -22,7 +22,6 @@ class DelegationSet(pulumi.CustomResource):
         """
         Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html) resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference

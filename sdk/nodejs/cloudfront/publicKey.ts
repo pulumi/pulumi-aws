@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 
  * ## Example Usage
  * 
  * The following example below creates a CloudFront public key.

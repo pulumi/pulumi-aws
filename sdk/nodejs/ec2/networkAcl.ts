@@ -13,6 +13,36 @@ import * as utilities from "../utilities";
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_network_acl_main = new aws.ec2.NetworkAcl("main", {
+ *     egress: [{
+ *         action: "allow",
+ *         cidrBlock: "10.3.0.0/18",
+ *         fromPort: 443,
+ *         protocol: "tcp",
+ *         ruleNo: 200,
+ *         toPort: 443,
+ *     }],
+ *     ingress: [{
+ *         action: "allow",
+ *         cidrBlock: "10.3.0.0/18",
+ *         fromPort: 80,
+ *         protocol: "tcp",
+ *         ruleNo: 100,
+ *         toPort: 80,
+ *     }],
+ *     tags: {
+ *         Name: "main",
+ *     },
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * ```
  */
 export class NetworkAcl extends pulumi.CustomResource {
     /**

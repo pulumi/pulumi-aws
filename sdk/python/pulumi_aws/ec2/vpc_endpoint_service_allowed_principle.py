@@ -26,7 +26,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
         and will overwrite the association.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.

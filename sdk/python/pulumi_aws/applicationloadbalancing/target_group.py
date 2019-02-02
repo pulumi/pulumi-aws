@@ -75,7 +75,6 @@ class TargetGroup(pulumi.CustomResource):
         
         > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.

@@ -52,7 +52,6 @@ class ApplicationVersion(pulumi.CustomResource):
         Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
         </ol>
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] application: Name of the Beanstalk Application the version is associated with.

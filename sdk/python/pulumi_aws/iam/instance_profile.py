@@ -48,7 +48,6 @@ class InstanceProfile(pulumi.CustomResource):
         
         > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The profile's name. If omitted, Terraform will assign a random, unique name.

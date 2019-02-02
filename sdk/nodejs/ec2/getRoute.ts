@@ -10,6 +10,30 @@ import * as utilities from "../utilities";
  * This resource can prove useful when finding the resource
  * associated with a CIDR. For example, finding the peering
  * connection associated with a CIDR value.
+ * 
+ * ## Example Usage
+ * 
+ * The following example shows how one might use a CIDR value to find a network interface id
+ * and use this to create a data source of that network interface.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_subnet_id = config.require("subnetId");
+ * 
+ * const aws_route_route = pulumi.output(aws.ec2.getRoute({
+ *     destinationCidrBlock: "10.0.1.0/24",
+ *     routeTableId: aws_route_table_selected.id,
+ * }));
+ * const aws_network_interface_interface = pulumi.output(aws.ec2.getNetworkInterface({
+ *     networkInterfaceId: aws_route_route.apply(__arg0 => __arg0.networkInterfaceId),
+ * }));
+ * const aws_route_table_selected = pulumi.output(aws.ec2.getRouteTable({
+ *     subnetId: var_subnet_id,
+ * }));
+ * ```
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {

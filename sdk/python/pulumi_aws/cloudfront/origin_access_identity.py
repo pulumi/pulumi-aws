@@ -48,7 +48,6 @@ class OriginAccessIdentity(pulumi.CustomResource):
         origin access identities, see
         [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment for the origin access identity.

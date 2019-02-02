@@ -32,7 +32,6 @@ class RateBasedRule(pulumi.CustomResource):
         """
         Provides a WAF Rate Based Rule Resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.

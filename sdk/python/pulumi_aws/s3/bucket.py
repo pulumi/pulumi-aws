@@ -108,7 +108,6 @@ class Bucket(pulumi.CustomResource):
         """
         Provides a S3 bucket resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.

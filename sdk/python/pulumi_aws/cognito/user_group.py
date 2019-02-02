@@ -32,7 +32,6 @@ class UserGroup(pulumi.CustomResource):
         """
         Provides a Cognito User Group resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the user group.

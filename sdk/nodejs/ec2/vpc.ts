@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.0.0/16",
  * });
  * ```
+ * 
  * Basic usage with tags:
  * 
  * ```typescript

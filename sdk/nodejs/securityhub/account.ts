@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * -> **Note:** Destroying this resource will disable Security Hub for this AWS account.
+ * > **Note:** Destroying this resource will disable Security Hub for this AWS account.
  * 
  * Enables Security Hub for this AWS account.
  * 

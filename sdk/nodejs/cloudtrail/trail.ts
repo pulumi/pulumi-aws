@@ -25,7 +25,35 @@ import * as utilities from "../utilities";
  * const aws_s3_bucket_foo = new aws.s3.Bucket("foo", {
  *     bucket: "tf-test-trail",
  *     forceDestroy: true,
- *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"AWSCloudTrailAclCheck\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n              \"Service\": \"cloudtrail.amazonaws.com\"\n            },\n            \"Action\": \"s3:GetBucketAcl\",\n            \"Resource\": \"arn:aws:s3:::tf-test-trail\"\n        },\n        {\n            \"Sid\": \"AWSCloudTrailWrite\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n              \"Service\": \"cloudtrail.amazonaws.com\"\n            },\n            \"Action\": \"s3:PutObject\",\n            \"Resource\": \"arn:aws:s3:::tf-test-trail/*\",\n            \"Condition\": {\n                \"StringEquals\": {\n                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n                }\n            }\n        }\n    ]\n}\n",
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Sid": "AWSCloudTrailAclCheck",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *               "Service": "cloudtrail.amazonaws.com"
+ *             },
+ *             "Action": "s3:GetBucketAcl",
+ *             "Resource": "arn:aws:s3:::tf-test-trail"
+ *         },
+ *         {
+ *             "Sid": "AWSCloudTrailWrite",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *               "Service": "cloudtrail.amazonaws.com"
+ *             },
+ *             "Action": "s3:PutObject",
+ *             "Resource": "arn:aws:s3:::tf-test-trail/*",
+ *             "Condition": {
+ *                 "StringEquals": {
+ *                     "s3:x-amz-acl": "bucket-owner-full-control"
+ *                 }
+ *             }
+ *         }
+ *     ]
+ * }
+ * `,
  * });
  * const aws_cloudtrail_foobar = new aws.cloudtrail.Trail("foobar", {
  *     includeGlobalServiceEvents: false,
@@ -34,11 +62,12 @@ import * as utilities from "../utilities";
  *     s3KeyPrefix: "prefix",
  * });
  * ```
+ * 
  * ### Data Event Logging
  * 
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
  * 
- * ### Logging All Lambda Function Invocations
+ * #### Logging All Lambda Function Invocations
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,7 +84,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging All S3 Bucket Object Events
+ * 
+ * #### Logging All S3 Bucket Object Events
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -72,7 +102,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging Individual S3 Bucket Events
+ * 
+ * #### Logging Individual S3 Bucket Events
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -191,7 +191,6 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated,
         and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] ami: The AMI to use for the instance.

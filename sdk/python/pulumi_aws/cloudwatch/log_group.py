@@ -39,7 +39,6 @@ class LogGroup(pulumi.CustomResource):
         """
         Provides a CloudWatch Log Group resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,

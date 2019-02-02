@@ -93,7 +93,6 @@ class LoadBalancer(pulumi.CustomResource):
         
         > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.

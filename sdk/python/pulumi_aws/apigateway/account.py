@@ -22,8 +22,7 @@ class Account(pulumi.CustomResource):
         """
         Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
         
-        -> **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
-        
+        > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

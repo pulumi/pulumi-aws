@@ -29,9 +29,10 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
  * ### Access Policy
  * 
- * -> See also: [`aws_elasticsearch_domain_policy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
+ * > See also: [`aws_elasticsearch_domain_policy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -61,6 +62,7 @@ import * as utilities from "../utilities";
  *     domainName: var_domain,
  * });
  * ```
+ * 
  * ### Log Publishing to CloudWatch Logs
  * 
  * ```typescript
@@ -71,7 +73,24 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * const aws_cloudwatch_log_resource_policy_example = new aws.cloudwatch.LogResourcePolicy("example", {
- *     policyDocument: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"es.amazonaws.com\"\n      },\n      \"Action\": [\n        \"logs:PutLogEvents\",\n        \"logs:PutLogEventsBatch\",\n        \"logs:CreateLogStream\"\n      ],\n      \"Resource\": \"arn:aws:logs:*\"\n    }\n  ]\n}\n",
+ *     policyDocument: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "es.amazonaws.com"
+ *       },
+ *       "Action": [
+ *         "logs:PutLogEvents",
+ *         "logs:PutLogEventsBatch",
+ *         "logs:CreateLogStream"
+ *       ],
+ *       "Resource": "arn:aws:logs:*"
+ *     }
+ *   ]
+ * }
+ * `,
  *     policyName: "example",
  * });
  * const aws_elasticsearch_domain_example = new aws.elasticsearch.Domain("example", {

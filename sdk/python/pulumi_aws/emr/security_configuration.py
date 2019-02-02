@@ -29,7 +29,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         """
         Provides a resource to manage AWS EMR Security Configurations
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] configuration: A JSON formatted Security Configuration

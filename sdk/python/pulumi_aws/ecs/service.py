@@ -100,12 +100,70 @@ class Service(pulumi.CustomResource):
     """
     def __init__(__self__, __name__, __opts__=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None):
         """
-        -> **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws_iam_role_policy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+        > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws_iam_role_policy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
         
         Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
         
         See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
         
+        ## deployment_controller
+        
+        The `deployment_controller` configuration block supports the following:
+        
+        * `type` - (Optional) Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+        
+        ## load_balancer
+        
+        `load_balancer` supports the following:
+        
+        * `elb_name` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
+        * `target_group_arn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
+        * `container_name` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
+        * `container_port` - (Required) The port on the container to associate with the load balancer.
+        
+        > **Note:** As a result of an AWS limitation, a single `load_balancer` can be attached to the ECS service at most. See [related docs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html#load-balancing-concepts).
+        
+        ## ordered_placement_strategy
+        
+        `ordered_placement_strategy` supports the following:
+        
+        * `type` - (Required) The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        * `field` - (Optional) For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+         which has the same effect), or any platform or custom attribute that is applied to a container instance.
+         For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+         needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+        
+        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        
+        ## placement_constraints
+        
+        `placement_constraints` support the following:
+        
+        * `type` - (Required) The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        * `expression` -  (Optional) Cluster Query Language expression to apply to the constraint. Does not need to be specified
+        for the `distinctInstance` type.
+        For more information, see [Cluster Query Language in the Amazon EC2 Container
+        Service Developer
+        Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        
+        ## network_configuration
+        
+        `network_configuration` support the following:
+        
+        * `subnets` - (Required) The subnets associated with the task or service.
+        * `security_groups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        * `assign_public_ip` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+        
+        ## service_registries
+        
+        `service_registries` support the following:
+        
+        * `registry_arn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws_service_discovery_service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+        * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
+        * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
+        * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

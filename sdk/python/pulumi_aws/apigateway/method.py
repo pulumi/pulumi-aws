@@ -38,12 +38,6 @@ class Method(pulumi.CustomResource):
     """
     A map of request query string parameters and headers that should be passed to the integration.
     For example:
-    ```hcl
-    request_parameters = {
-    "method.request.header.X-Some-Header"         = true
-    "method.request.querystring.some-query-param" = true
-    }
-    ```
     would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
     """
     request_parameters_in_json: pulumi.Output[str]
@@ -66,7 +60,6 @@ class Method(pulumi.CustomResource):
         """
         Provides a HTTP Method for an API Gateway Resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
@@ -79,12 +72,6 @@ class Method(pulumi.CustomResource):
                and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
         :param pulumi.Input[dict] request_parameters: A map of request query string parameters and headers that should be passed to the integration.
                For example:
-               ```hcl
-               request_parameters = {
-               "method.request.header.X-Some-Header"         = true
-               "method.request.querystring.some-query-param" = true
-               }
-               ```
                would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
         :param pulumi.Input[str] request_parameters_in_json: **Deprecated**, use `request_parameters` instead.
         :param pulumi.Input[str] request_validator_id: The ID of a `aws_api_gateway_request_validator`

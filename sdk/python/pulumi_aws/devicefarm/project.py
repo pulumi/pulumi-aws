@@ -25,7 +25,6 @@ class Project(pulumi.CustomResource):
         For more information about Device Farm Projects, see the AWS Documentation on
         [Device Farm Projects][aws-get-project].
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the project

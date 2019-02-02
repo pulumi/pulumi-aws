@@ -26,7 +26,6 @@ class Application(pulumi.CustomResource):
         This resource creates an application that has one configuration template named
         `default`, and no application versions
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] appversion_lifecycle

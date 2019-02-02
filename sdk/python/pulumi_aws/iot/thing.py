@@ -36,7 +36,6 @@ class Thing(pulumi.CustomResource):
         """
         Creates and manages an AWS IoT Thing.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] attributes: Map of attributes of the thing.

@@ -6,6 +6,62 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling ScheduledAction resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### DynamoDB Table Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_dynamodb = new aws.appautoscaling.Target("dynamodb", {
+ *     maxCapacity: 100,
+ *     minCapacity: 5,
+ *     resourceId: "table/tableName",
+ *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
+ *     serviceNamespace: "dynamodb",
+ * });
+ * const aws_appautoscaling_scheduled_action_dynamodb = new aws.appautoscaling.ScheduledAction("dynamodb", {
+ *     name: "dynamodb",
+ *     resourceId: aws_appautoscaling_target_dynamodb.resourceId,
+ *     scalableDimension: aws_appautoscaling_target_dynamodb.scalableDimension,
+ *     scalableTargetAction: {
+ *         maxCapacity: 200,
+ *         minCapacity: 1,
+ *     },
+ *     schedule: "at(2006-01-02T15:04:05)",
+ *     serviceNamespace: aws_appautoscaling_target_dynamodb.serviceNamespace,
+ * });
+ * ```
+ * 
+ * ### ECS Service Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_ecs = new aws.appautoscaling.Target("ecs", {
+ *     maxCapacity: 4,
+ *     minCapacity: 1,
+ *     resourceId: "service/clusterName/serviceName",
+ *     roleArn: var_ecs_iam_role,
+ *     scalableDimension: "ecs:service:DesiredCount",
+ *     serviceNamespace: "ecs",
+ * });
+ * const aws_appautoscaling_scheduled_action_ecs = new aws.appautoscaling.ScheduledAction("ecs", {
+ *     name: "ecs",
+ *     resourceId: aws_appautoscaling_target_ecs.resourceId,
+ *     scalableDimension: aws_appautoscaling_target_ecs.scalableDimension,
+ *     scalableTargetAction: {
+ *         maxCapacity: 10,
+ *         minCapacity: 1,
+ *     },
+ *     schedule: "at(2006-01-02T15:04:05)",
+ *     serviceNamespace: aws_appautoscaling_target_ecs.serviceNamespace,
+ * });
+ * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**

@@ -20,7 +20,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
         """
         Provides a static route between a VPN connection and a customer gateway.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.

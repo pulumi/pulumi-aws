@@ -28,7 +28,6 @@ class WebAcl(pulumi.CustomResource):
         """
         Provides a WAF Web ACL Resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] default_action: The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.

@@ -6,6 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Job resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Python Job
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_job_example = new aws.glue.Job("example", {
+ *     command: {
+ *         scriptLocation: aws_s3_bucket_example.bucket.apply(__arg0 => `s3://${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}/example.py`),
+ *     },
+ *     name: "example",
+ *     roleArn: aws_iam_role_example.arn,
+ * });
+ * ```
+ * 
+ * ### Scala Job
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_job_example = new aws.glue.Job("example", {
+ *     command: {
+ *         scriptLocation: aws_s3_bucket_example.bucket.apply(__arg0 => `s3://${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}/example.scala`),
+ *     },
+ *     defaultArguments: {
+ *         "--job-language": "scala",
+ *     },
+ *     name: "example",
+ *     roleArn: aws_iam_role_example.arn,
+ * });
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

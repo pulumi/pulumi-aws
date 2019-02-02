@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     timeUnit: "MONTHLY",
  * });
  * ```
+ * 
  * Create a budget for *$100*.
  * 
  * ```typescript
@@ -38,6 +39,7 @@ import * as utilities from "../utilities";
  *     limitUnit: "USD",
  * });
  * ```
+ * 
  * Create a budget for s3 with a limit of *3 GB* of storage.
  * 
  * ```typescript

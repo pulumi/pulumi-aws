@@ -36,7 +36,6 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         """
         Provides a CloudWatch Logs subscription filter resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] destination_arn: The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.

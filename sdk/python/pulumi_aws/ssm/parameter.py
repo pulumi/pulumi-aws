@@ -48,7 +48,6 @@ class Parameter(pulumi.CustomResource):
         """
         Provides an SSM Parameter resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.

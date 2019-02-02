@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Cluster resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_dax_cluster_bar = new aws.dax.Cluster("bar", {
+ *     clusterName: "cluster-example",
+ *     iamRoleArn: aws_iam_role_example.arn.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *     nodeType: "dax.r4.large",
+ *     replicationFactor: 1,
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

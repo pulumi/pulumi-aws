@@ -6,6 +6,57 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+ * 
+ * ## Example Usage
+ * 
+ * ### DynamoDB Target
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_crawler_example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database_example.name,
+ *     dynamodbTargets: [{
+ *         path: "table-name",
+ *     }],
+ *     name: "example",
+ *     role: aws_iam_role_example.arn,
+ * });
+ * ```
+ * 
+ * ### JDBC Target
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_crawler_example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database_example.name,
+ *     jdbcTargets: [{
+ *         connectionName: aws_glue_connection_example.name,
+ *         path: "database-name/%",
+ *     }],
+ *     name: "example",
+ *     role: aws_iam_role_example.arn,
+ * });
+ * ```
+ * 
+ * ### S3 Target
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_crawler_example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database_example.name,
+ *     name: "example",
+ *     role: aws_iam_role_example.arn,
+ *     s3Targets: [{
+ *         path: aws_s3_bucket_example.bucket.apply(__arg0 => `s3://${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}`),
+ *     }],
+ * });
+ * ```
  */
 export class Crawler extends pulumi.CustomResource {
     /**

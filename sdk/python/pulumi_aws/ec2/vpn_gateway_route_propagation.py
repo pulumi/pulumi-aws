@@ -24,7 +24,6 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         the `propagating_vgws` argument set. If that argument is set, any route
         propagation not explicitly listed in its value will be removed.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `aws_route_table` to propagate routes into.

@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 
  * ## Example Usage
  * 
  * ```typescript
@@ -54,6 +53,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
+ * ## Attributes
+ * 
+ * The following additional atttributes are provided:
+ * 
+ * * `id` - The name of the Neptune event notification subscription.
+ * * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
+ * * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

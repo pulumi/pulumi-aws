@@ -20,7 +20,6 @@ class GeoMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Geo Match Set Resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.

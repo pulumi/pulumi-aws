@@ -32,7 +32,6 @@ class Pipeline(pulumi.CustomResource):
         
         > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] artifact_store: An artifact_store block. Artifact stores are documented below.

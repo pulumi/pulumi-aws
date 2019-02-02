@@ -61,7 +61,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         and the accepter can use the `aws_vpc_peering_connection_accepter` resource to "adopt" its side of the
         connection into management.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] accepter: A configuration block that describes [VPC Peering Connection]

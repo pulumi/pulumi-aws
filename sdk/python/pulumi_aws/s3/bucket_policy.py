@@ -20,7 +20,6 @@ class BucketPolicy(pulumi.CustomResource):
         """
         Attaches a policy to an S3 bucket resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.

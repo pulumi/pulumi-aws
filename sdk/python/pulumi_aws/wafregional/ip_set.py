@@ -24,7 +24,6 @@ class IpSet(pulumi.CustomResource):
         """
         Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.

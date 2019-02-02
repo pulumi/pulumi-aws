@@ -14,11 +14,54 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_batch_job_definition_test = new aws.batch.JobDefinition("test", {
- *     containerProperties: "{\n\t\"command\": [\"ls\", \"-la\"],\n\t\"image\": \"busybox\",\n\t\"memory\": 1024,\n\t\"vcpus\": 1,\n\t\"volumes\": [\n      {\n        \"host\": {\n          \"sourcePath\": \"/tmp\"\n        },\n        \"name\": \"tmp\"\n      }\n    ],\n\t\"environment\": [\n\t\t{\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n\t],\n\t\"mountPoints\": [\n\t\t{\n          \"sourceVolume\": \"tmp\",\n          \"containerPath\": \"/tmp\",\n          \"readOnly\": false\n        }\n\t],\n    \"ulimits\": [\n      {\n        \"hardLimit\": 1024,\n        \"name\": \"nofile\",\n        \"softLimit\": 1024\n      }\n    ]\n}\n",
+ *     containerProperties: `{
+ * 	"command": ["ls", "-la"],
+ * 	"image": "busybox",
+ * 	"memory": 1024,
+ * 	"vcpus": 1,
+ * 	"volumes": [
+ *       {
+ *         "host": {
+ *           "sourcePath": "/tmp"
+ *         },
+ *         "name": "tmp"
+ *       }
+ *     ],
+ * 	"environment": [
+ * 		{"name": "VARNAME", "value": "VARVAL"}
+ * 	],
+ * 	"mountPoints": [
+ * 		{
+ *           "sourceVolume": "tmp",
+ *           "containerPath": "/tmp",
+ *           "readOnly": false
+ *         }
+ * 	],
+ *     "ulimits": [
+ *       {
+ *         "hardLimit": 1024,
+ *         "name": "nofile",
+ *         "softLimit": 1024
+ *       }
+ *     ]
+ * }
+ * `,
  *     name: "tf_test_batch_job_definition",
  *     type: "container",
  * });
  * ```
+ * 
+ * ## retry_strategy
+ * 
+ * `retry_strategy` supports the following:
+ * 
+ * * `attempts` - (Optional) The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+ * 
+ * ## timeout
+ * 
+ * `timeout` supports the following:
+ * 
+ * * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

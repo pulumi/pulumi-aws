@@ -8,6 +8,164 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy Deployment Group for a CodeDeploy Application
  * 
  * > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by terraform and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     name: "example-app",
+ * });
+ * const aws_iam_role_example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "codedeploy.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     name: "example-role",
+ * });
+ * const aws_sns_topic_example = new aws.sns.Topic("example", {
+ *     name: "example-topic",
+ * });
+ * const aws_codedeploy_deployment_group_example = new aws.codedeploy.DeploymentGroup("example", {
+ *     alarmConfiguration: {
+ *         alarms: ["my-alarm-name"],
+ *         enabled: true,
+ *     },
+ *     appName: aws_codedeploy_app_example.name,
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_FAILURE"],
+ *     },
+ *     deploymentGroupName: "example-group",
+ *     ec2TagSets: [{
+ *         ec2TagFilters: [
+ *             {
+ *                 key: "filterkey1",
+ *                 type: "KEY_AND_VALUE",
+ *                 value: "filtervalue",
+ *             },
+ *             {
+ *                 key: "filterkey2",
+ *                 type: "KEY_AND_VALUE",
+ *                 value: "filtervalue",
+ *             },
+ *         ],
+ *     }],
+ *     serviceRoleArn: aws_iam_role_example.arn,
+ *     triggerConfigurations: [{
+ *         triggerEvents: ["DeploymentFailure"],
+ *         triggerName: "example-trigger",
+ *         triggerTargetArn: aws_sns_topic_example.arn,
+ *     }],
+ * });
+ * const aws_iam_role_policy_attachment_AWSCodeDeployRole = new aws.iam.RolePolicyAttachment("AWSCodeDeployRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
+ *     role: aws_iam_role_example.name,
+ * });
+ * ```
+ * 
+ * ### Blue Green Deployments with ECS
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     computePlatform: "ECS",
+ *     name: "example",
+ * });
+ * const aws_codedeploy_deployment_group_example = new aws.codedeploy.DeploymentGroup("example", {
+ *     appName: aws_codedeploy_app_example.name,
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_FAILURE"],
+ *     },
+ *     blueGreenDeploymentConfig: {
+ *         deploymentReadyOption: {
+ *             actionOnTimeout: "CONTINUE_DEPLOYMENT",
+ *         },
+ *         terminateBlueInstancesOnDeploymentSuccess: {
+ *             action: "TERMINATE",
+ *             terminationWaitTimeInMinutes: 5,
+ *         },
+ *     },
+ *     deploymentConfigName: "CodeDeployDefault.ECSAllAtOnce",
+ *     deploymentGroupName: "example",
+ *     deploymentStyle: {
+ *         deploymentOption: "WITH_TRAFFIC_CONTROL",
+ *         deploymentType: "BLUE_GREEN",
+ *     },
+ *     ecsService: {
+ *         clusterName: aws_ecs_cluster_example.name,
+ *         serviceName: aws_ecs_service_example.name,
+ *     },
+ *     loadBalancerInfo: {
+ *         targetGroupPairInfo: {
+ *             prodTrafficRoute: {
+ *                 listenerArns: [aws_lb_listener_example.arn],
+ *             },
+ *             targetGroups: [
+ *                 {
+ *                     name: aws_lb_target_group_blue.name,
+ *                 },
+ *                 {
+ *                     name: aws_lb_target_group_green.name,
+ *                 },
+ *             ],
+ *         },
+ *     },
+ *     serviceRoleArn: aws_iam_role_example.arn,
+ * });
+ * ```
+ * 
+ * ### Blue Green Deployments with Servers and Classic ELB
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_codedeploy_app_example = new aws.codedeploy.Application("example", {
+ *     name: "example-app",
+ * });
+ * const aws_codedeploy_deployment_group_example = new aws.codedeploy.DeploymentGroup("example", {
+ *     appName: aws_codedeploy_app_example.name,
+ *     blueGreenDeploymentConfig: {
+ *         deploymentReadyOption: {
+ *             actionOnTimeout: "STOP_DEPLOYMENT",
+ *             waitTimeInMinutes: 60,
+ *         },
+ *         greenFleetProvisioningOption: {
+ *             action: "DISCOVER_EXISTING",
+ *         },
+ *         terminateBlueInstancesOnDeploymentSuccess: {
+ *             action: "KEEP_ALIVE",
+ *         },
+ *     },
+ *     deploymentGroupName: "example-group",
+ *     deploymentStyle: {
+ *         deploymentOption: "WITH_TRAFFIC_CONTROL",
+ *         deploymentType: "BLUE_GREEN",
+ *     },
+ *     loadBalancerInfo: {
+ *         elbInfos: [{
+ *             name: aws_elb_example.name,
+ *         }],
+ *     },
+ *     serviceRoleArn: aws_iam_role_example.arn,
+ * });
+ * ```
  */
 export class DeploymentGroup extends pulumi.CustomResource {
     /**

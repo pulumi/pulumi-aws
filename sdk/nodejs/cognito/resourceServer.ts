@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     userPoolId: aws_cognito_user_pool_pool.id,
  * });
  * ```
+ * 
  * ### Create a resource server with sample-scope
  * 
  * ```typescript

@@ -34,6 +34,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_test_zone.apply(__arg0 => __arg0.id),
  * });
  * ```
+ * 
  * ### CloudFront Origin
  * 
  * ```typescript

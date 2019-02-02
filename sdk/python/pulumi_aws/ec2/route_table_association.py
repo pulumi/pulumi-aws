@@ -20,7 +20,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         """
         Provides a resource to create an association between a subnet and routing table.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.

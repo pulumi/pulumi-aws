@@ -6,6 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan Key.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_test = new aws.apigateway.RestApi("test", {
+ *     name: "MyDemoAPI",
+ * });
+ * const aws_api_gateway_usage_plan_myusageplan = new aws.apigateway.UsagePlan("myusageplan", {
+ *     name: "my_usage_plan",
+ * });
+ * const aws_api_gateway_api_key_mykey = new aws.apigateway.ApiKey("mykey", {
+ *     name: "my_key",
+ *     stageKeys: [{
+ *         restApi: aws_api_gateway_rest_api_test.id,
+ *         stageName: aws_api_gateway_deployment_foo.stageName,
+ *     }],
+ * });
+ * const aws_api_gateway_usage_plan_key_main = new aws.apigateway.UsagePlanKey("main", {
+ *     keyId: aws_api_gateway_api_key_mykey.id,
+ *     keyType: "API_KEY",
+ *     usagePlanId: aws_api_gateway_usage_plan_myusageplan.id,
+ * });
+ * ```
  */
 export class UsagePlanKey extends pulumi.CustomResource {
     /**

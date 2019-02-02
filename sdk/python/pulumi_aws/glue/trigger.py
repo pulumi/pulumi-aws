@@ -40,7 +40,6 @@ class Trigger(pulumi.CustomResource):
         """
         Manages a Glue Trigger resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] actions: List of actions initiated by this trigger when it fires. Defined below.

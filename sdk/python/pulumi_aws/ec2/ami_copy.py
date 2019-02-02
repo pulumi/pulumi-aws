@@ -102,7 +102,6 @@ class AmiCopy(pulumi.CustomResource):
         Copying an AMI can take several minutes. The creation of this resource will
         block until the new AMI is available for use on new instances.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.

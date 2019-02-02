@@ -65,7 +65,6 @@ class AnalyticsApplication(pulumi.CustomResource):
         
         For more details, see the [Amazon Kinesis Analytics Documentation][1].
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors. 

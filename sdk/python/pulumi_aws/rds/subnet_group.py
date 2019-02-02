@@ -36,7 +36,6 @@ class SubnetGroup(pulumi.CustomResource):
         """
         Provides an RDS DB subnet group resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB subnet group. Defaults to "Managed by Terraform".

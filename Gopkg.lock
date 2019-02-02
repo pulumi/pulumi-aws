@@ -788,14 +788,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:06a35c7046592cb52f649451d9aa1649926011cd2863b3152aa64fa393184014"
+  digest = "1:022f81da90a04c63ecccffe558aea82aa5ef2f1e85388120503d23e04b1a6f9d"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "b0770d37ae5ab50be1a2d316a6b5a7b41e8043cb"
+  revision = "65ebb76bdff3e2c5ad04ff65fc275a2034b6d290"
 
 [[projects]]
   branch = "master"

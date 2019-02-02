@@ -6,6 +6,71 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES event destination
+ * 
+ * ## Example Usage
+ * 
+ * ### CloudWatch Destination
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ses_event_destination_cloudwatch = new aws.ses.EventDestination("cloudwatch", {
+ *     cloudwatchDestinations: [{
+ *         defaultValue: "default",
+ *         dimensionName: "dimension",
+ *         valueSource: "emailHeader",
+ *     }],
+ *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     enabled: true,
+ *     matchingTypes: [
+ *         "bounce",
+ *         "send",
+ *     ],
+ *     name: "event-destination-cloudwatch",
+ * });
+ * ```
+ * 
+ * ### Kinesis Destination
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ses_event_destination_kinesis = new aws.ses.EventDestination("kinesis", {
+ *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     enabled: true,
+ *     kinesisDestination: {
+ *         roleArn: aws_iam_role_example.arn,
+ *         streamArn: aws_kinesis_firehose_delivery_stream_example.arn,
+ *     },
+ *     matchingTypes: [
+ *         "bounce",
+ *         "send",
+ *     ],
+ *     name: "event-destination-kinesis",
+ * });
+ * ```
+ * 
+ * ### SNS Destination
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ses_event_destination_sns = new aws.ses.EventDestination("sns", {
+ *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     enabled: true,
+ *     matchingTypes: [
+ *         "bounce",
+ *         "send",
+ *     ],
+ *     name: "event-destination-sns",
+ *     snsDestination: {
+ *         topicArn: aws_sns_topic_example.arn,
+ *     },
+ * });
+ * ```
  */
 export class EventDestination extends pulumi.CustomResource {
     /**

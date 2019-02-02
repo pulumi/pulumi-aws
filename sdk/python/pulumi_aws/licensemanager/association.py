@@ -22,7 +22,6 @@ class Association(pulumi.CustomResource):
         
         > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws_launch_template`.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.

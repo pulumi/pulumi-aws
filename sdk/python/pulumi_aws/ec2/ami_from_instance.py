@@ -101,7 +101,6 @@ class AmiFromInstance(pulumi.CustomResource):
         the generated AMI. Users may taint or otherwise recreate the resource in order
         to produce a fresh snapshot.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.

@@ -36,7 +36,6 @@ class StateMachine(pulumi.CustomResource):
         """
         Provides a Step Function State Machine resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.

@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
+ * 
  * ### IP Target Group
  * 
  * ```typescript
@@ -44,6 +45,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
+ * 
  * ### Lambda Target Group
  * 
  * ```typescript

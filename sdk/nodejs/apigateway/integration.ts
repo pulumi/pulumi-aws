@@ -35,15 +35,144 @@ import {RestApi} from "./restApi";
  *     cacheNamespace: "foobar",
  *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
  *     requestParameters: {
- *         integration.request.header.X-Authorization: "'static'",
+ *         "integration.request.header.X-Authorization": "'static'",
  *     },
  *     requestTemplates: {
- *         application/xml: "{\n   \"body\" : $input.json('$')\n}\n",
+ *         "application/xml": `{
+ *    "body" : $input.json('$')
+ * }
+ * `,
  *     },
  *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
  *     timeoutMilliseconds: 29000,
  *     type: "MOCK",
+ * });
+ * ```
+ * 
+ * ## Lambda integration
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const config = new pulumi.Config();
+ * const var_accountId = config.require("accountId");
+ * const var_myregion = config.require("myregion");
+ * 
+ * const aws_api_gateway_rest_api_api = new aws.apigateway.RestApi("api", {
+ *     name: "myapi",
+ * });
+ * const aws_iam_role_role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ *     name: "myrole",
+ * });
+ * const aws_api_gateway_resource_resource = new aws.apigateway.Resource("resource", {
+ *     parentId: aws_api_gateway_rest_api_api.rootResourceId,
+ *     pathPart: "resource",
+ *     restApi: aws_api_gateway_rest_api_api.id,
+ * });
+ * const aws_api_gateway_method_method = new aws.apigateway.Method("method", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: aws_api_gateway_resource_resource.id,
+ *     restApi: aws_api_gateway_rest_api_api.id,
+ * });
+ * const aws_lambda_function_lambda = new aws.lambda.Function("lambda", {
+ *     code: new pulumi.asset.FileArchive("lambda.zip"),
+ *     name: "mylambda",
+ *     handler: "lambda.lambda_handler",
+ *     role: aws_iam_role_role.arn,
+ *     runtime: "python2.7",
+ * });
+ * const aws_api_gateway_integration_integration = new aws.apigateway.Integration("integration", {
+ *     httpMethod: aws_api_gateway_method_method.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     resourceId: aws_api_gateway_resource_resource.id,
+ *     restApi: aws_api_gateway_rest_api_api.id,
+ *     type: "AWS_PROXY",
+ *     uri: aws_lambda_function_lambda.arn.apply(__arg0 => `arn:aws:apigateway:${var_myregion}:lambda:path/2015-03-31/functions/${__arg0}/invocations`),
+ * });
+ * const aws_lambda_permission_apigw_lambda = new aws.lambda.Permission("apigw_lambda", {
+ *     action: "lambda:InvokeFunction",
+ *     function: aws_lambda_function_lambda.arn,
+ *     principal: "apigateway.amazonaws.com",
+ *     sourceArn: pulumi.all([aws_api_gateway_rest_api_api.id, aws_api_gateway_method_method.httpMethod, aws_api_gateway_resource_resource.path]).apply(([__arg0, __arg1, __arg2]) => `arn:aws:execute-api:${var_myregion}:${var_accountId}:${__arg0}/*&#47;${__arg1} ${__arg2}`),
+ *     statementId: "AllowExecutionFromAPIGateway",
+ * });
+ * ```
+ * 
+ * ## VPC Link
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_name = config.require("name");
+ * const var_subnet_id = config.require("subnetId");
+ * 
+ * const aws_api_gateway_rest_api_test = new aws.apigateway.RestApi("test", {
+ *     name: var_name,
+ * });
+ * const aws_api_gateway_resource_test = new aws.apigateway.Resource("test", {
+ *     parentId: aws_api_gateway_rest_api_test.rootResourceId,
+ *     pathPart: "test",
+ *     restApi: aws_api_gateway_rest_api_test.id,
+ * });
+ * const aws_api_gateway_method_test = new aws.apigateway.Method("test", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     requestModels: {
+ *         "application/json": "Error",
+ *     },
+ *     resourceId: aws_api_gateway_resource_test.id,
+ *     restApi: aws_api_gateway_rest_api_test.id,
+ * });
+ * const aws_lb_test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
+ *     internal: true,
+ *     loadBalancerType: "network",
+ *     name: var_name,
+ *     subnets: [var_subnet_id],
+ * });
+ * const aws_api_gateway_vpc_link_test = new aws.apigateway.VpcLink("test", {
+ *     name: var_name,
+ *     targetArn: aws_lb_test.arn,
+ * });
+ * const aws_api_gateway_integration_test = new aws.apigateway.Integration("test", {
+ *     connectionId: aws_api_gateway_vpc_link_test.id,
+ *     connectionType: "VPC_LINK",
+ *     contentHandling: "CONVERT_TO_TEXT",
+ *     httpMethod: aws_api_gateway_method_test.httpMethod,
+ *     integrationHttpMethod: "GET",
+ *     passthroughBehavior: "WHEN_NO_MATCH",
+ *     requestParameters: {
+ *         "integration.request.header.X-Authorization": "'static'",
+ *         "integration.request.header.X-Foo": "'Bar'",
+ *     },
+ *     requestTemplates: {
+ *         "application/json": "",
+ *         "application/xml": `#set($inputRoot = $input.path('$'))
+ * { }`,
+ *     },
+ *     resourceId: aws_api_gateway_resource_test.id,
+ *     restApi: aws_api_gateway_rest_api_test.id,
+ *     type: "HTTP",
+ *     uri: "https://www.google.de",
  * });
  * ```
  */

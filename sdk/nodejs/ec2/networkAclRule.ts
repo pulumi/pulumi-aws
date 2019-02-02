@@ -12,8 +12,29 @@ import * as utilities from "../utilities";
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
  * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_network_acl_bar = new aws.ec2.NetworkAcl("bar", {
+ *     vpcId: aws_vpc_foo.id,
+ * });
+ * const aws_network_acl_rule_bar = new aws.ec2.NetworkAclRule("bar", {
+ *     cidrBlock: "0.0.0.0/0",
+ *     egress: false,
+ *     fromPort: 22,
+ *     networkAclId: aws_network_acl_bar.id,
+ *     protocol: "tcp",
+ *     ruleAction: "allow",
+ *     ruleNumber: 200,
+ *     toPort: 22,
+ * });
+ * ```
+ * 
+ * > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
  */
 export class NetworkAclRule extends pulumi.CustomResource {
     /**

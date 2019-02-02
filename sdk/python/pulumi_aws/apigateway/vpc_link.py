@@ -24,7 +24,6 @@ class VpcLink(pulumi.CustomResource):
         """
         Provides an API Gateway VPC Link.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the VPC link.

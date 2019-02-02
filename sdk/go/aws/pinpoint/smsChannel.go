@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a Pinpoint SMS Channel resource.
 type SmsChannel struct {
 	s *pulumi.ResourceState
 }
@@ -69,44 +70,60 @@ func (r *SmsChannel) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The application ID.
 func (r *SmsChannel) ApplicationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
+// Whether the channel is enabled or disabled. Defaults to `true`.
 func (r *SmsChannel) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
+// Promotional messages per second that can be sent.
 func (r *SmsChannel) PromotionalMessagesPerSecond() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["promotionalMessagesPerSecond"])
 }
 
+// Sender identifier of your messages.
 func (r *SmsChannel) SenderId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["senderId"])
 }
 
+// The Short Code registered with the phone provider.
 func (r *SmsChannel) ShortCode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["shortCode"])
 }
 
+// Transactional messages per second that can be sent.
 func (r *SmsChannel) TransactionalMessagesPerSecond() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["transactionalMessagesPerSecond"])
 }
 
 // Input properties used for looking up and filtering SmsChannel resources.
 type SmsChannelState struct {
+	// The application ID.
 	ApplicationId interface{}
+	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled interface{}
+	// Promotional messages per second that can be sent.
 	PromotionalMessagesPerSecond interface{}
+	// Sender identifier of your messages.
 	SenderId interface{}
+	// The Short Code registered with the phone provider.
 	ShortCode interface{}
+	// Transactional messages per second that can be sent.
 	TransactionalMessagesPerSecond interface{}
 }
 
 // The set of arguments for constructing a SmsChannel resource.
 type SmsChannelArgs struct {
+	// The application ID.
 	ApplicationId interface{}
+	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled interface{}
+	// Sender identifier of your messages.
 	SenderId interface{}
+	// The Short Code registered with the phone provider.
 	ShortCode interface{}
 }

@@ -12,6 +12,27 @@ import * as utilities from "../utilities";
  * deploy the required DNS verification records, and wait for verification to complete.
  * 
  * > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ses_domain_identity_example = new aws.ses.DomainIdentity("example", {
+ *     domain: "example.com",
+ * });
+ * const aws_route53_record_example_amazonses_verification_record = new aws.route53.Record("example_amazonses_verification_record", {
+ *     name: aws_ses_domain_identity_example.id.apply(__arg0 => `_amazonses.${__arg0}`),
+ *     records: [aws_ses_domain_identity_example.verificationToken],
+ *     ttl: Number.parseFloat("600"),
+ *     type: "TXT",
+ *     zoneId: aws_route53_zone_example.zoneId,
+ * });
+ * const aws_ses_domain_identity_verification_example_verification = new aws.ses.DomainIdentityVerification("example_verification", {
+ *     domain: aws_ses_domain_identity_example.id,
+ * }, {dependsOn: [aws_route53_record_example_amazonses_verification_record]});
+ * ```
  */
 export class DomainIdentityVerification extends pulumi.CustomResource {
     /**

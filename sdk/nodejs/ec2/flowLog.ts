@@ -7,6 +7,80 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+ * 
+ * ## Example Usage
+ * 
+ * ### CloudWatch Logging
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudwatch_log_group_example = new aws.cloudwatch.LogGroup("example", {
+ *     name: "example",
+ * });
+ * const aws_iam_role_test_role = new aws.iam.Role("test_role", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "vpc-flow-logs.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     name: "example",
+ * });
+ * const aws_iam_role_policy_example = new aws.iam.RolePolicy("example", {
+ *     name: "example",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "logs:CreateLogGroup",
+ *         "logs:CreateLogStream",
+ *         "logs:PutLogEvents",
+ *         "logs:DescribeLogGroups",
+ *         "logs:DescribeLogStreams"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     role: aws_iam_role_example.id,
+ * });
+ * const aws_flow_log_example = new aws.ec2.FlowLog("example", {
+ *     iamRoleArn: aws_iam_role_example.arn,
+ *     logDestination: aws_cloudwatch_log_group_example.arn,
+ *     trafficType: "ALL",
+ *     vpcId: aws_vpc_example.id,
+ * });
+ * ```
+ * 
+ * ### S3 Logging
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_example = new aws.s3.Bucket("example", {
+ *     name: "example",
+ * });
+ * const aws_flow_log_example = new aws.ec2.FlowLog("example", {
+ *     logDestination: aws_s3_bucket_example.arn,
+ *     logDestinationType: "s3",
+ *     trafficType: "ALL",
+ *     vpcId: aws_vpc_example.id,
+ * });
+ * ```
  */
 export class FlowLog extends pulumi.CustomResource {
     /**

@@ -23,7 +23,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
         The `aws_vpc_ipv4_cidr_block_association` resource allows further IPv4 CIDR blocks to be added to the VPC.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.

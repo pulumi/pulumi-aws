@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     userPoolId: aws_cognito_user_pool_pool.id,
  * });
  * ```
+ * 
  * ### Create a user pool client with no SRP authentication
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -21,7 +21,6 @@ class Application(pulumi.CustomResource):
         """
         Provides a CodeDeploy application to be used as a basis for deployments
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.

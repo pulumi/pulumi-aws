@@ -28,7 +28,6 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window Target resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.

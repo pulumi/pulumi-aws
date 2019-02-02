@@ -6,6 +6,47 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Connection resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Non-VPC Connection
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_connection_example = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
+ *         PASSWORD: "examplepassword",
+ *         USERNAME: "exampleusername",
+ *     },
+ *     name: "example",
+ * });
+ * ```
+ * 
+ * ### VPC Connection
+ * 
+ * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_connection_example = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: aws_rds_cluster_example.endpoint.apply(__arg0 => `jdbc:mysql://${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}/exampledatabase`),
+ *         PASSWORD: "examplepassword",
+ *         USERNAME: "exampleusername",
+ *     },
+ *     name: "example",
+ *     physicalConnectionRequirements: {
+ *         availabilityZone: aws_subnet_example.availabilityZone,
+ *         securityGroupIdLists: [aws_security_group_example.id],
+ *         subnetId: aws_subnet_example.id,
+ *     },
+ * });
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

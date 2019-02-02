@@ -28,9 +28,39 @@ import {Topic} from "../sns/topic";
  *     threshold: Number.parseFloat("80"),
  * });
  * ```
+ * 
+ * ## Example in Conjunction with Scaling Policies
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_autoscaling_policy_bat = new aws.autoscaling.Policy("bat", {
+ *     adjustmentType: "ChangeInCapacity",
+ *     autoscalingGroupName: aws_autoscaling_group_bar.name,
+ *     cooldown: 300,
+ *     name: "foobar3-terraform-test",
+ *     scalingAdjustment: 4,
+ * });
+ * const aws_cloudwatch_metric_alarm_bat = new aws.cloudwatch.MetricAlarm("bat", {
+ *     alarmActions: [aws_autoscaling_policy_bat.arn],
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     name: "terraform-test-foobar5",
+ *     comparisonOperator: "GreaterThanOrEqualToThreshold",
+ *     dimensions: {
+ *         AutoScalingGroupName: aws_autoscaling_group_bar.name,
+ *     },
+ *     evaluationPeriods: Number.parseFloat("2"),
+ *     metricName: "CPUUtilization",
+ *     namespace: "AWS/EC2",
+ *     period: Number.parseFloat("120"),
+ *     statistic: "Average",
+ *     threshold: Number.parseFloat("80"),
+ * });
+ * ```
+ * 
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
  * You must choose one or the other
- * 
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**

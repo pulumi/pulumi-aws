@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
  */
 export class App extends pulumi.CustomResource {
     /**

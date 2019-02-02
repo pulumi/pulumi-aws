@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
+ * 
  * > **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
- * 
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -40,7 +40,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
         """
         Provides a Direct Connect LAG.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] connections_bandwidth: The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.

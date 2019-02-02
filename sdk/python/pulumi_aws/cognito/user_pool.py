@@ -100,7 +100,6 @@ class UserPool(pulumi.CustomResource):
         """
         Provides a Cognito User Pool resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] admin_create_user_config: The configuration for AdminCreateUser requests.

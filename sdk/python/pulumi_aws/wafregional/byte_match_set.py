@@ -24,7 +24,6 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] byte_match_tuple: **Deprecated**, use `byte_match_tuples` instead.

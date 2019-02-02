@@ -32,7 +32,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         """
         Provides a Inspector assessment template
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] duration: The duration of the inspector run.

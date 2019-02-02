@@ -33,7 +33,6 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         """
         Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.

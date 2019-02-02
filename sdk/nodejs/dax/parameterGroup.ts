@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * 
+ * ## parameters
+ * 
+ * `parameters` supports the following:
+ * 
+ * * `name` - (Required) The name of the parameter.
+ * * `value` - (Required) The value for the parameter.
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

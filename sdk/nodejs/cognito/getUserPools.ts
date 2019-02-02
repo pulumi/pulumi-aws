@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get a list of cognito user pools.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_selected = pulumi.output(aws.apigateway.getRestApi({
+ *     name: var_api_gateway_name,
+ * }));
+ * const aws_cognito_user_pools_selected = pulumi.output(aws.cognito.getUserPools({
+ *     name: var_cognito_user_pool_name,
+ * }));
+ * const aws_api_gateway_authorizer_cognito = new aws.apigateway.Authorizer("cognito", {
+ *     name: "cognito",
+ *     providerArns: aws_cognito_user_pools_selected.apply(__arg0 => __arg0.arns),
+ *     restApi: aws_api_gateway_rest_api_selected.apply(__arg0 => __arg0.id),
+ *     type: "COGNITO_USER_POOLS",
+ * });
+ * ```
  */
 export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> {
     return pulumi.runtime.invoke("aws:cognito/getUserPools:getUserPools", {

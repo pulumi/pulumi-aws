@@ -8,6 +8,49 @@ import * as utilities from "../utilities";
  * Provides an SNS topic policy resource
  * 
  * > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future terraform plans to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sns_topic_test = new aws.sns.Topic("test", {
+ *     name: "my-topic-with-policy",
+ * });
+ * const aws_iam_policy_document_sns_topic_policy = pulumi.output(aws.iam.getPolicyDocument({
+ *     policyId: "__default_policy_ID",
+ *     statements: [{
+ *         actions: [
+ *             "SNS:Subscribe",
+ *             "SNS:SetTopicAttributes",
+ *             "SNS:RemovePermission",
+ *             "SNS:Receive",
+ *             "SNS:Publish",
+ *             "SNS:ListSubscriptionsByTopic",
+ *             "SNS:GetTopicAttributes",
+ *             "SNS:DeleteTopic",
+ *             "SNS:AddPermission",
+ *         ],
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             values: [var_account_id],
+ *             variable: "AWS:SourceOwner",
+ *         }],
+ *         effect: "Allow",
+ *         principals: [{
+ *             identifiers: ["*"],
+ *             type: "AWS",
+ *         }],
+ *         resources: [aws_sns_topic_test.arn],
+ *         sid: "__default_statement_ID",
+ *     }],
+ * }));
+ * const aws_sns_topic_policy_default = new aws.sns.TopicPolicy("default", {
+ *     arn: aws_sns_topic_test.arn,
+ *     policy: aws_iam_policy_document_sns_topic_policy.apply(__arg0 => __arg0.json),
+ * });
+ * ```
  */
 export class TopicPolicy extends pulumi.CustomResource {
     /**

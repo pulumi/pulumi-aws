@@ -24,7 +24,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         """
         Resource for managing SES Identity Notification Topics
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).

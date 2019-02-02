@@ -53,7 +53,6 @@ async def get_task_definition(task_definition=None):
     """
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
-    
     """
     __args__ = dict()
 

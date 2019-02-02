@@ -24,7 +24,6 @@ class LogStream(pulumi.CustomResource):
         """
         Provides a CloudWatch Log Stream resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.

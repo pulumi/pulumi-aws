@@ -53,7 +53,6 @@ class Pipeline(pulumi.CustomResource):
         """
         Provides an Elastic Transcoder pipeline resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.

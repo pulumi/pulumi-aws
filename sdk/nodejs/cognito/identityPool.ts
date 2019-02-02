@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/foo.example.com"],
  *     samlProviderArns: [aws_iam_saml_provider_default.arn],
  *     supportedLoginProviders: {
- *         accounts.google.com: "123456789012.apps.googleusercontent.com",
- *         graph.facebook.com: "7346241598935552",
+ *         "accounts.google.com": "123456789012.apps.googleusercontent.com",
+ *         "graph.facebook.com": "7346241598935552",
  *     },
  * });
  * ```

@@ -6,6 +6,37 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific redshift cluster.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_redshift_cluster_test_cluster = pulumi.output(aws.redshift.getCluster({
+ *     clusterIdentifier: "test-cluster",
+ * }));
+ * const aws_kinesis_firehose_delivery_stream_test_stream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ *     destination: "redshift",
+ *     name: "terraform-kinesis-firehose-test-stream",
+ *     redshiftConfiguration: {
+ *         clusterJdbcurl: pulumi.all([aws_redshift_cluster_test_cluster, aws_redshift_cluster_test_cluster]).apply(([__arg0, __arg1]) => `jdbc:redshift://${__arg0.endpoint}/${__arg1.databaseName}`),
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "test-col",
+ *         dataTableName: "test-table",
+ *         password: "T3stPass",
+ *         roleArn: aws_iam_role_firehose_role.arn,
+ *         username: "testuser",
+ *     },
+ *     s3Configuration: {
+ *         bucketArn: aws_s3_bucket_bucket.arn,
+ *         bufferInterval: 400,
+ *         bufferSize: 10,
+ *         compressionFormat: "GZIP",
+ *         roleArn: aws_iam_role_firehose_role.arn,
+ *     },
+ * });
+ * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {

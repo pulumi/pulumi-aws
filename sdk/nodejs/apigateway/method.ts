@@ -31,6 +31,44 @@ import {RestApi} from "./restApi";
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
  * });
  * ```
+ * 
+ * ## Usage with Cognito User Pool Authorizer
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_cognito_user_pool_name = config.require("cognitoUserPoolName");
+ * 
+ * const aws_api_gateway_rest_api_this = new aws.apigateway.RestApi("this", {
+ *     name: "with-authorizer",
+ * });
+ * const aws_cognito_user_pools_this = pulumi.output(aws.cognito.getUserPools({
+ *     name: var_cognito_user_pool_name,
+ * }));
+ * const aws_api_gateway_authorizer_this = new aws.apigateway.Authorizer("this", {
+ *     name: "CognitoUserPoolAuthorizer",
+ *     providerArns: aws_cognito_user_pools_this.apply(__arg0 => __arg0.arns),
+ *     restApi: aws_api_gateway_rest_api_this.id,
+ *     type: "COGNITO_USER_POOLS",
+ * });
+ * const aws_api_gateway_resource_this = new aws.apigateway.Resource("this", {
+ *     parentId: aws_api_gateway_rest_api_this.rootResourceId,
+ *     pathPart: "{proxy+}",
+ *     restApi: aws_api_gateway_rest_api_this.id,
+ * });
+ * const aws_api_gateway_method_any = new aws.apigateway.Method("any", {
+ *     authorization: "COGNITO_USER_POOLS",
+ *     authorizerId: aws_api_gateway_authorizer_this.id,
+ *     httpMethod: "ANY",
+ *     requestParameters: {
+ *         "method.request.path.proxy": true,
+ *     },
+ *     resourceId: aws_api_gateway_resource_this.id,
+ *     restApi: aws_api_gateway_rest_api_this.id,
+ * });
+ * ```
  */
 export class Method extends pulumi.CustomResource {
     /**
@@ -74,11 +112,8 @@ export class Method extends pulumi.CustomResource {
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
      * For example:
-     * ```hcl
-     * request_parameters = {
-     * "method.request.header.X-Some-Header"         = true
-     * "method.request.querystring.some-query-param" = true
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
@@ -186,11 +221,8 @@ export interface MethodState {
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
      * For example:
-     * ```hcl
-     * request_parameters = {
-     * "method.request.header.X-Some-Header"         = true
-     * "method.request.querystring.some-query-param" = true
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */
@@ -246,11 +278,8 @@ export interface MethodArgs {
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
      * For example:
-     * ```hcl
-     * request_parameters = {
-     * "method.request.header.X-Some-Header"         = true
-     * "method.request.querystring.some-query-param" = true
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
      */

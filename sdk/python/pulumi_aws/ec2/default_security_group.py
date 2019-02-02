@@ -66,6 +66,20 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         For more information about Default Security Groups, see the AWS Documentation on
         [Default Security Groups][aws-default-security-groups].
         
+        ## Usage
+        
+        With the exceptions mentioned above, `aws_default_security_group` should
+        identical behavior to `aws_security_group`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
+        for further usage documentation.
+        
+        ### Removing `aws_default_security_group` from your configuration
+        
+        Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
+        Group that cannot be deleted. The `aws_default_security_group` allows you to
+        manage this Security Group, but Terraform cannot destroy it. Removing this resource
+        from your configuration will remove it from your statefile and management, but
+        will not destroy the Security Group. All ingress or egress rules will be left as
+        they are at the time of removal. You can resume managing them via the AWS Console.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

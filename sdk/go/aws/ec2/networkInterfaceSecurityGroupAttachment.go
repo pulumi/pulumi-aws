@@ -21,6 +21,10 @@ import (
 // 
 // [1]: /docs/providers/aws/d/instance.html
 // [2]: /docs/providers/aws/r/network_interface.html
+// 
+// ## Output Reference
+// 
+// There are no outputs for this resource.
 type NetworkInterfaceSecurityGroupAttachment struct {
 	s *pulumi.ResourceState
 }

@@ -20,7 +20,6 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.

@@ -72,7 +72,6 @@ class SmbFileShare(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway SMB File Share.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.

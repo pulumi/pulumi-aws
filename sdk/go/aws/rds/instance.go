@@ -28,6 +28,12 @@ import (
 // > **Note:** All arguments including the username and password will be stored in
 // the raw state as plain-text. [Read more about sensitive data in
 // state](https://www.terraform.io/docs/state/sensitive-data.html).
+// 
+// ## RDS Instance Class Types
+// 
+// Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
+// and Burstable Performance. For more information please read the AWS RDS documentation
+// about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 type Instance struct {
 	s *pulumi.ResourceState
 }

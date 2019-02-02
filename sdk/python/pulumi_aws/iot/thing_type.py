@@ -25,7 +25,6 @@ class ThingType(pulumi.CustomResource):
         """
         Creates and manages an AWS IoT Thing Type.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.

@@ -32,7 +32,6 @@ class UsagePlanKey(pulumi.CustomResource):
         """
         Provides an API Gateway Usage Plan Key.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] key_id: The identifier of the API key resource.

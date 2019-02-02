@@ -61,7 +61,6 @@ class Subnet(pulumi.CustomResource):
         """
         Provides an VPC subnet resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate

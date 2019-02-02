@@ -24,7 +24,6 @@ class Route(pulumi.CustomResource):
         """
         Manages an EC2 Transit Gateway Route.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.

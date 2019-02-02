@@ -17,7 +17,20 @@ import {Function} from "./function";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_for_lambda",
  * });
  * const aws_lambda_function_test_lambda = new aws.lambda.Function("test_lambda", {
@@ -40,6 +53,72 @@ import {Function} from "./function";
  *     qualifier: aws_lambda_alias_test_alias.name,
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
  *     statementId: "AllowExecutionFromCloudWatch",
+ * });
+ * ```
+ * 
+ * ## Usage with SNS
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_default = new aws.iam.Role("default", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ *     name: "iam_for_lambda_with_sns",
+ * });
+ * const aws_sns_topic_default = new aws.sns.Topic("default", {
+ *     name: "call-lambda-maybe",
+ * });
+ * const aws_lambda_function_func = new aws.lambda.Function("func", {
+ *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
+ *     name: "lambda_called_from_sns",
+ *     handler: "exports.handler",
+ *     role: aws_iam_role_default.arn,
+ *     runtime: "python2.7",
+ * });
+ * const aws_lambda_permission_with_sns = new aws.lambda.Permission("with_sns", {
+ *     action: "lambda:InvokeFunction",
+ *     function: aws_lambda_function_func.functionName,
+ *     principal: "sns.amazonaws.com",
+ *     sourceArn: aws_sns_topic_default.arn,
+ *     statementId: "AllowExecutionFromSNS",
+ * });
+ * const aws_sns_topic_subscription_lambda = new aws.sns.TopicSubscription("lambda", {
+ *     endpoint: aws_lambda_function_func.arn,
+ *     protocol: "lambda",
+ *     topic: aws_sns_topic_default.arn,
+ * });
+ * ```
+ * 
+ * ## Specify Lambda permissions for API Gateway REST API
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
+ * });
+ * const aws_lambda_permission_lambda_permission = new aws.lambda.Permission("lambda_permission", {
+ *     action: "lambda:InvokeFunction",
+ *     function: "MyDemoFunction",
+ *     principal: "apigateway.amazonaws.com",
+ *     sourceArn: aws_api_gateway_rest_api_MyDemoAPI.executionArn.apply(__arg0 => `${__arg0}/*&#47;*&#47;*`),
+ *     statementId: "AllowMyDemoAPIInvoke",
  * });
  * ```
  */

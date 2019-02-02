@@ -6,6 +6,34 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Nat Gateway.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const var_subnet_id = config.require("subnetId");
+ * 
+ * const aws_nat_gateway_default = pulumi.output(aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet_public.id,
+ * }));
+ * ```
+ * 
+ * Usage with tags:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_nat_gateway_default = pulumi.output(aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet_public.id,
+ *     tags: {
+ *         Name: "gw NAT",
+ *     },
+ * }));
+ * ```
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};

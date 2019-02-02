@@ -72,7 +72,6 @@ class UserPoolClient(pulumi.CustomResource):
         """
         Provides a Cognito User Pool Client resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).

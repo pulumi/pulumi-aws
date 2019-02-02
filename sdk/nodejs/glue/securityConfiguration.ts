@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Security Configuration.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_glue_security_configuration_example = new aws.glue.SecurityConfiguration("example", {
+ *     encryptionConfiguration: {
+ *         cloudwatchEncryption: {
+ *             cloudwatchEncryptionMode: "DISABLED",
+ *         },
+ *         jobBookmarksEncryption: {
+ *             jobBookmarksEncryptionMode: "DISABLED",
+ *         },
+ *         s3Encryption: {
+ *             kmsKeyArn: aws_kms_key_example.arn.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *             s3EncryptionMode: "SSE-KMS",
+ *         },
+ *     },
+ *     name: "example",
+ * });
+ * ```
  */
 export class SecurityConfiguration extends pulumi.CustomResource {
     /**

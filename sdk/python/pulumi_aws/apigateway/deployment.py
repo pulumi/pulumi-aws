@@ -47,9 +47,8 @@ class Deployment(pulumi.CustomResource):
         """
         Provides an API Gateway Deployment.
         
-        -> **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
+        > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
         you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
-        
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

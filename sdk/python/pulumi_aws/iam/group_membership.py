@@ -31,7 +31,6 @@ class GroupMembership(pulumi.CustomResource):
         > **Note:** `aws_iam_group_membership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
         [`aws_iam_user_group_membership` resource][3].
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to

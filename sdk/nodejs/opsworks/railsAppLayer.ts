@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks Ruby on Rails application layer resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_opsworks_rails_app_layer_app = new aws.opsworks.RailsAppLayer("app", {
+ *     stackId: aws_opsworks_stack_main.id,
+ * });
+ * ```
  */
 export class RailsAppLayer extends pulumi.CustomResource {
     /**

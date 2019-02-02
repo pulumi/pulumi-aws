@@ -50,7 +50,6 @@ import * as utilities from "./utilities";
  * `),
  * });
  * ```
- * 
  */
 export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> {
     return pulumi.runtime.invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", {

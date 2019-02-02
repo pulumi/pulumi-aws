@@ -22,7 +22,6 @@ class RecorderStatus(pulumi.CustomResource):
         
         > **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.

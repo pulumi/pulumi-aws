@@ -20,7 +20,6 @@ class GatewayAssociation(pulumi.CustomResource):
         """
         Associates a Direct Connect Gateway with a VGW.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect Gateway.

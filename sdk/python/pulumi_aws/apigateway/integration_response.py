@@ -52,9 +52,8 @@ class IntegrationResponse(pulumi.CustomResource):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
         
-        -> **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
+        > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
         you might need to add an explicit `depends_on` for clean runs.
-        
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

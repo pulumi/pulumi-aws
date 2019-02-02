@@ -28,7 +28,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
         """
         Manages an AWS Config Configuration Aggregator
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] account_aggregation_source: The account(s) to aggregate config data from as documented below.

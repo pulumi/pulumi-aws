@@ -40,7 +40,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         Terraform does not _create_ this resource, but instead "adopts" it
         into management.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] netbios_name_servers: List of NETBIOS name servers.

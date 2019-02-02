@@ -45,6 +45,28 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
+ * ## Nested Fields
+ * 
+ * ### `rule`
+ * 
+ * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_ActivatedRule.html) for all details and supported values.
+ * 
+ * #### Arguments
+ * 
+ * * `action` - (Required) The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`.
+ * * `override_action` - (Required) Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`.
+ * * `priority` - (Required) Specifies the order in which the rules in a WebACL are evaluated.
+ *   Rules with a lower value are evaluated before rules with a higher value.
+ * * `rule_id` - (Required) ID of the associated WAF (Regional) rule (e.g. [`aws_wafregional_rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
+ * * `type` - (Optional) The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+ * 
+ * ### `default_action` / `action`
+ * 
+ * #### Arguments
+ * 
+ * * `type` - (Required) Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule.
+ *   e.g. `ALLOW`, `BLOCK` or `COUNT`
  */
 export class WebAcl extends pulumi.CustomResource {
     /**

@@ -42,7 +42,10 @@ import * as utilities from "../utilities";
  *     heartbeatTimeout: 2000,
  *     lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
  *     name: "foobar",
- *     notificationMetadata: "{\n  \"foo\": \"bar\"\n}\n",
+ *     notificationMetadata: `{
+ *   "foo": "bar"
+ * }
+ * `,
  *     notificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
  *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
  * });

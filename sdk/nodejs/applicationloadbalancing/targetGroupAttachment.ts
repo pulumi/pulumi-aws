@@ -23,6 +23,30 @@ import * as utilities from "../utilities";
  *     targetId: aws_instance_test.id,
  * });
  * ```
+ * 
+ * ## Usage with lambda
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lambda_function_test = new aws.lambda.Function("test", {});
+ * const aws_lb_target_group_test = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ *     name: "test",
+ *     targetType: "lambda",
+ * });
+ * const aws_lambda_permission_with_lb = new aws.lambda.Permission("with_lb", {
+ *     action: "lambda:InvokeFunction",
+ *     function: aws_lambda_function_test.arn,
+ *     principal: "elasticloadbalancing.amazonaws.com",
+ *     sourceArn: aws_lb_target_group_test.arn,
+ *     statementId: "AllowExecutionFromlb",
+ * });
+ * const aws_lb_target_group_attachment_test = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ *     targetGroupArn: aws_lb_target_group_test.arn,
+ *     targetId: aws_lambda_function_test.arn,
+ * }, {dependsOn: [aws_lambda_permission_with_lb]});
+ * ```
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

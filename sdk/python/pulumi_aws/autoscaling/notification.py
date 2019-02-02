@@ -27,7 +27,6 @@ class Notification(pulumi.CustomResource):
         the `notifications` map to a [Notification Configuration][2] inside Amazon Web
         Services, and are applied to each AutoScaling Group you supply.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] group_names: A list of AutoScaling Group Names

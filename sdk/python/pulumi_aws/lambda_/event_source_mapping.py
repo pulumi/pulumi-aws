@@ -63,7 +63,6 @@ class EventSourceMapping(pulumi.CustomResource):
         For information about Lambda and how to use it, see [What is AWS Lambda?][1]
         For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.

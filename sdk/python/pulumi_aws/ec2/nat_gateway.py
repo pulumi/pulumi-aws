@@ -36,7 +36,6 @@ class NatGateway(pulumi.CustomResource):
         """
         Provides a resource to create a VPC NAT Gateway.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.

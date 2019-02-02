@@ -45,7 +45,6 @@ class GlobalCluster(pulumi.CustomResource):
         
         > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.

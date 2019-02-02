@@ -80,7 +80,6 @@ class Application(pulumi.CustomResource):
         """
         Provides an OpsWorks application resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] app_sources: SCM configuration of the app as described below.

@@ -25,7 +25,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
         This resource accepts ownership of a public virtual interface created by another AWS account.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

@@ -36,7 +36,6 @@ class SmsPreferences(pulumi.CustomResource):
         """
         Provides a way to set SNS SMS preferences.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.

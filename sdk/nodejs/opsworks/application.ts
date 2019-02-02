@@ -6,6 +6,44 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks application resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_opsworks_application_foo_app = new aws.opsworks.Application("foo-app", {
+ *     appSources: [{
+ *         revision: "master",
+ *         type: "git",
+ *         url: "https://github.com/example.git",
+ *     }],
+ *     autoBundleOnDeploy: "true",
+ *     description: "This is a Rails application",
+ *     documentRoot: "public",
+ *     domains: [
+ *         "example.com",
+ *         "sub.example.com",
+ *     ],
+ *     enableSsl: true,
+ *     environments: [{
+ *         key: "key",
+ *         secure: false,
+ *         value: "value",
+ *     }],
+ *     name: "foobar application",
+ *     railsEnv: "staging",
+ *     shortName: "foobar",
+ *     sslConfigurations: [{
+ *         certificate: fs.readFileSync("./foobar.crt", "utf-8"),
+ *         privateKey: fs.readFileSync("./foobar.key", "utf-8"),
+ *     }],
+ *     stackId: aws_opsworks_stack_main.id,
+ *     type: "rails",
+ * });
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

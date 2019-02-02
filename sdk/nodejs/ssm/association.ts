@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Associates an SSM Document to an instance or EC2 tag.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ssm_association_example = new aws.ssm.Association("example", {
+ *     name: aws_ssm_document_example.name,
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: aws_instance_example.id,
+ *     }],
+ * });
+ * ```
  */
 export class Association extends pulumi.CustomResource {
     /**

@@ -20,7 +20,6 @@ class PatchGroup(pulumi.CustomResource):
         """
         Provides an SSM Patch Group resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.

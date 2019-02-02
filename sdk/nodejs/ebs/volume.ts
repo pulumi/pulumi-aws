@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume 
  * 
+ * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume 
  */
 export class Volume extends pulumi.CustomResource {
     /**

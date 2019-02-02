@@ -10,10 +10,9 @@ from .. import utilities, tables
 class Account(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None):
         """
-        -> **Note:** Destroying this resource will disable Security Hub for this AWS account.
+        > **Note:** Destroying this resource will disable Security Hub for this AWS account.
         
         Enables Security Hub for this AWS account.
-        
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

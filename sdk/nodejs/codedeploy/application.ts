@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * 
  * ### Lambda Application
  * 
  * ```typescript
@@ -31,6 +32,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * 
  * ### Server Application
  * 
  * ```typescript

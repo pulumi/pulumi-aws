@@ -89,7 +89,6 @@ class GangliaLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks Ganglia layer resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.

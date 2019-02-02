@@ -8,13 +8,8 @@ import * as utilities from "../utilities";
  * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
  * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
  * for more information.
- * The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster
- * to use as a service, and another to place on your Cluster Instances to interact
- * with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
- * and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
- * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
- * guide for more information on these IAM roles. There is also a fully-bootable
- * example Terraform configuration at the bottom of this page.
+ * 
+ * ## Example Usage
  * 
  * ### Enable Debug Logging
  * 
@@ -39,6 +34,88 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ## ec2_attributes
+ * 
+ * Attributes for the Amazon EC2 instances running the job flow
+ * 
+ * * `key_name` - (Optional) Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+ * * `subnet_id` - (Optional) VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
+ * * `additional_master_security_groups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
+ * * `additional_slave_security_groups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
+ * * `emr_managed_master_security_group` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the master node
+ * * `emr_managed_slave_security_group` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
+ * * `service_access_security_group` - (Optional) Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
+ * * `instance_profile` - (Required) Instance Profile for EC2 instances of the cluster assume this role
+ * 
+ * > **NOTE on EMR-Managed security groups:** These security groups will have any
+ * missing inbound or outbound access rules added and maintained by AWS, to ensure
+ * proper communication between instances in a cluster. The EMR service will
+ * maintain these rules for groups provided in `emr_managed_master_security_group`
+ * and `emr_managed_slave_security_group`; attempts to remove the required rules
+ * may succeed, only for the EMR service to re-add them in a matter of minutes.
+ * This may cause Terraform to fail to destroy an environment that contains an EMR
+ * cluster, because the EMR service does not revoke rules added on deletion,
+ * leaving a cyclic dependency between the security groups that prevents their
+ * deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for
+ * any Security Group used in `emr_managed_master_security_group` and
+ * `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security
+ * Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)
+ * for more information about the EMR-managed security group rules.
+ * 
+ * ## kerberos_attributes
+ * 
+ * Attributes for Kerberos configuration
+ * 
+ * * `ad_domain_join_password` - (Optional) The Active Directory password for `ad_domain_join_user`
+ * * `ad_domain_join_user` - (Optional) Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
+ * * `cross_realm_trust_principal_password` - (Optional) Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+ * * `kdc_admin_password` - (Required) The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+ * * `realm` - (Required) The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+ * 
+ * ## instance_group
+ * 
+ * Attributes for each task instance group in the cluster
+ * 
+ * * `instance_role` - (Required) The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
+ * * `instance_type` - (Required) The EC2 instance type for all instances in the instance group
+ * * `instance_count` - (Optional) Target number of instances for the instance group
+ * * `name` - (Optional) Friendly name given to the instance group
+ * * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances. `bid_price` can not be set for the `MASTER` instance group, since that group must always be On-Demand
+ * * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
+ * * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+ * 
+ * ## ebs_config
+ * 
+ * Attributes for the EBS volumes attached to each EC2 instance in the `instance_group`
+ * 
+ * * `size` - (Required) The volume size, in gibibytes (GiB).
+ * * `type` - (Required) The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+ * * `iops` - (Optional) The number of I/O operations per second (IOPS) that the volume supports
+ * * `volumes_per_instance` - (Optional) The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+ * 
+ * ## bootstrap_action
+ * 
+ * * `name` - (Required) Name of the bootstrap action
+ * * `path` - (Required) Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
+ * * `args` - (Optional) List of command line arguments to pass to the bootstrap action script
+ * 
+ * ## step
+ * 
+ * Attributes for step configuration
+ * 
+ * * `action_on_failure` - (Required) The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+ * * `hadoop_jar_step` - (Required) The JAR file used for the step. Defined below.
+ * * `name` - (Required) The name of the step.
+ * 
+ * ### hadoop_jar_step
+ * 
+ * Attributes for Hadoop job step configuration
+ * 
+ * * `args` - (Optional) List of command line arguments passed to the JAR file's main function when executed.
+ * * `jar` - (Required) Path to a JAR file run during the step.
+ * * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+ * * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+ * 
  * ## Example bootable config
  * 
  * **NOTE:** This configuration demonstrates a minimal configuration needed to
@@ -50,11 +127,37 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_emr_profile_role = new aws.iam.Role("iam_emr_profile_role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "ec2.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_emr_profile_role",
  * });
  * const aws_iam_role_iam_emr_service_role = new aws.iam.Role("iam_emr_service_role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"elasticmapreduce.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "elasticmapreduce.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_emr_service_role",
  * });
  * const aws_vpc_main = new aws.ec2.Vpc("main", {
@@ -105,7 +208,33 @@ import * as utilities from "../utilities";
  *         name: "runif",
  *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
  *     }],
- *     configurationsJson: "  [\n    {\n      \"Classification\": \"hadoop-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    },\n    {\n      \"Classification\": \"spark-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    }\n  ]\n",
+ *     configurationsJson: `  [
+ *     {
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     },
+ *     {
+ *       "Classification": "spark-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     }
+ *   ]
+ * `,
  *     coreInstanceCount: 1,
  *     coreInstanceType: "m5.xlarge",
  *     ec2Attributes: {
@@ -127,12 +256,105 @@ import * as utilities from "../utilities";
  * });
  * const aws_iam_role_policy_iam_emr_profile_policy = new aws.iam.RolePolicy("iam_emr_profile_policy", {
  *     name: "iam_emr_profile_policy",
- *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [{\n        \"Effect\": \"Allow\",\n        \"Resource\": \"*\",\n        \"Action\": [\n            \"cloudwatch:*\",\n            \"dynamodb:*\",\n            \"ec2:Describe*\",\n            \"elasticmapreduce:Describe*\",\n            \"elasticmapreduce:ListBootstrapActions\",\n            \"elasticmapreduce:ListClusters\",\n            \"elasticmapreduce:ListInstanceGroups\",\n            \"elasticmapreduce:ListInstances\",\n            \"elasticmapreduce:ListSteps\",\n            \"kinesis:CreateStream\",\n            \"kinesis:DeleteStream\",\n            \"kinesis:DescribeStream\",\n            \"kinesis:GetRecords\",\n            \"kinesis:GetShardIterator\",\n            \"kinesis:MergeShards\",\n            \"kinesis:PutRecord\",\n            \"kinesis:SplitShard\",\n            \"rds:Describe*\",\n            \"s3:*\",\n            \"sdb:*\",\n            \"sns:*\",\n            \"sqs:*\"\n        ]\n    }]\n}\n",
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "cloudwatch:*",
+ *             "dynamodb:*",
+ *             "ec2:Describe*",
+ *             "elasticmapreduce:Describe*",
+ *             "elasticmapreduce:ListBootstrapActions",
+ *             "elasticmapreduce:ListClusters",
+ *             "elasticmapreduce:ListInstanceGroups",
+ *             "elasticmapreduce:ListInstances",
+ *             "elasticmapreduce:ListSteps",
+ *             "kinesis:CreateStream",
+ *             "kinesis:DeleteStream",
+ *             "kinesis:DescribeStream",
+ *             "kinesis:GetRecords",
+ *             "kinesis:GetShardIterator",
+ *             "kinesis:MergeShards",
+ *             "kinesis:PutRecord",
+ *             "kinesis:SplitShard",
+ *             "rds:Describe*",
+ *             "s3:*",
+ *             "sdb:*",
+ *             "sns:*",
+ *             "sqs:*"
+ *         ]
+ *     }]
+ * }
+ * `,
  *     role: aws_iam_role_iam_emr_profile_role.id,
  * });
  * const aws_iam_role_policy_iam_emr_service_policy = new aws.iam.RolePolicy("iam_emr_service_policy", {
  *     name: "iam_emr_service_policy",
- *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [{\n        \"Effect\": \"Allow\",\n        \"Resource\": \"*\",\n        \"Action\": [\n            \"ec2:AuthorizeSecurityGroupEgress\",\n            \"ec2:AuthorizeSecurityGroupIngress\",\n            \"ec2:CancelSpotInstanceRequests\",\n            \"ec2:CreateNetworkInterface\",\n            \"ec2:CreateSecurityGroup\",\n            \"ec2:CreateTags\",\n            \"ec2:DeleteNetworkInterface\",\n            \"ec2:DeleteSecurityGroup\",\n            \"ec2:DeleteTags\",\n            \"ec2:DescribeAvailabilityZones\",\n            \"ec2:DescribeAccountAttributes\",\n            \"ec2:DescribeDhcpOptions\",\n            \"ec2:DescribeInstanceStatus\",\n            \"ec2:DescribeInstances\",\n            \"ec2:DescribeKeyPairs\",\n            \"ec2:DescribeNetworkAcls\",\n            \"ec2:DescribeNetworkInterfaces\",\n            \"ec2:DescribePrefixLists\",\n            \"ec2:DescribeRouteTables\",\n            \"ec2:DescribeSecurityGroups\",\n            \"ec2:DescribeSpotInstanceRequests\",\n            \"ec2:DescribeSpotPriceHistory\",\n            \"ec2:DescribeSubnets\",\n            \"ec2:DescribeVpcAttribute\",\n            \"ec2:DescribeVpcEndpoints\",\n            \"ec2:DescribeVpcEndpointServices\",\n            \"ec2:DescribeVpcs\",\n            \"ec2:DetachNetworkInterface\",\n            \"ec2:ModifyImageAttribute\",\n            \"ec2:ModifyInstanceAttribute\",\n            \"ec2:RequestSpotInstances\",\n            \"ec2:RevokeSecurityGroupEgress\",\n            \"ec2:RunInstances\",\n            \"ec2:TerminateInstances\",\n            \"ec2:DeleteVolume\",\n            \"ec2:DescribeVolumeStatus\",\n            \"ec2:DescribeVolumes\",\n            \"ec2:DetachVolume\",\n            \"iam:GetRole\",\n            \"iam:GetRolePolicy\",\n            \"iam:ListInstanceProfiles\",\n            \"iam:ListRolePolicies\",\n            \"iam:PassRole\",\n            \"s3:CreateBucket\",\n            \"s3:Get*\",\n            \"s3:List*\",\n            \"sdb:BatchPutAttributes\",\n            \"sdb:Select\",\n            \"sqs:CreateQueue\",\n            \"sqs:Delete*\",\n            \"sqs:GetQueue*\",\n            \"sqs:PurgeQueue\",\n            \"sqs:ReceiveMessage\"\n        ]\n    }]\n}\n",
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "ec2:AuthorizeSecurityGroupEgress",
+ *             "ec2:AuthorizeSecurityGroupIngress",
+ *             "ec2:CancelSpotInstanceRequests",
+ *             "ec2:CreateNetworkInterface",
+ *             "ec2:CreateSecurityGroup",
+ *             "ec2:CreateTags",
+ *             "ec2:DeleteNetworkInterface",
+ *             "ec2:DeleteSecurityGroup",
+ *             "ec2:DeleteTags",
+ *             "ec2:DescribeAvailabilityZones",
+ *             "ec2:DescribeAccountAttributes",
+ *             "ec2:DescribeDhcpOptions",
+ *             "ec2:DescribeInstanceStatus",
+ *             "ec2:DescribeInstances",
+ *             "ec2:DescribeKeyPairs",
+ *             "ec2:DescribeNetworkAcls",
+ *             "ec2:DescribeNetworkInterfaces",
+ *             "ec2:DescribePrefixLists",
+ *             "ec2:DescribeRouteTables",
+ *             "ec2:DescribeSecurityGroups",
+ *             "ec2:DescribeSpotInstanceRequests",
+ *             "ec2:DescribeSpotPriceHistory",
+ *             "ec2:DescribeSubnets",
+ *             "ec2:DescribeVpcAttribute",
+ *             "ec2:DescribeVpcEndpoints",
+ *             "ec2:DescribeVpcEndpointServices",
+ *             "ec2:DescribeVpcs",
+ *             "ec2:DetachNetworkInterface",
+ *             "ec2:ModifyImageAttribute",
+ *             "ec2:ModifyInstanceAttribute",
+ *             "ec2:RequestSpotInstances",
+ *             "ec2:RevokeSecurityGroupEgress",
+ *             "ec2:RunInstances",
+ *             "ec2:TerminateInstances",
+ *             "ec2:DeleteVolume",
+ *             "ec2:DescribeVolumeStatus",
+ *             "ec2:DescribeVolumes",
+ *             "ec2:DetachVolume",
+ *             "iam:GetRole",
+ *             "iam:GetRolePolicy",
+ *             "iam:ListInstanceProfiles",
+ *             "iam:ListRolePolicies",
+ *             "iam:PassRole",
+ *             "s3:CreateBucket",
+ *             "s3:Get*",
+ *             "s3:List*",
+ *             "sdb:BatchPutAttributes",
+ *             "sdb:Select",
+ *             "sqs:CreateQueue",
+ *             "sqs:Delete*",
+ *             "sqs:GetQueue*",
+ *             "sqs:PurgeQueue",
+ *             "sqs:ReceiveMessage"
+ *         ]
+ *     }]
+ * }
+ * `,
  *     role: aws_iam_role_iam_emr_service_role.id,
  * });
  * const aws_internet_gateway_gw = new aws.ec2.InternetGateway("gw", {

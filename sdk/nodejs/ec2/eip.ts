@@ -10,6 +10,46 @@ import * as utilities from "../utilities";
  * > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
  * 
  * > **Note:** Do not use `network_interface` to associate the EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+ * 
+ * ## Example Usage
+ * 
+ * Single EIP associated with an instance:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_eip_lb = new aws.ec2.Eip("lb", {
+ *     instance: aws_instance_web.id,
+ *     vpc: true,
+ * });
+ * ```
+ * 
+ * Multiple EIPs associated with a single network interface:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_network_interface_multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
+ *     privateIps: [
+ *         "10.0.0.10",
+ *         "10.0.0.11",
+ *     ],
+ *     subnetId: aws_subnet_main.id,
+ * });
+ * const aws_eip_one = new aws.ec2.Eip("one", {
+ *     associateWithPrivateIp: "10.0.0.10",
+ *     networkInterface: aws_network_interface_multi_ip.id,
+ *     vpc: true,
+ * });
+ * const aws_eip_two = new aws.ec2.Eip("two", {
+ *     associateWithPrivateIp: "10.0.0.11",
+ *     networkInterface: aws_network_interface_multi_ip.id,
+ *     vpc: true,
+ * });
+ * ```
+ * 
  * Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
  * 
  * ```typescript
@@ -40,6 +80,7 @@ import * as utilities from "../utilities";
  *     vpc: true,
  * }, {dependsOn: [aws_internet_gateway_gw]});
  * ```
+ * 
  * Allocating EIP from the BYOIP pool:
  * 
  * ```typescript

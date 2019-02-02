@@ -11,66 +11,97 @@ import * as utilities from "../utilities";
  * an IAM policy document, for use with resources which expect policy documents,
  * such as the `aws_iam_policy` resource.
  * 
- * -> For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+ * > For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
  * 
- * ```hcl
- * data "aws_iam_policy_document" "example" {
- *   statement {
- *     sid = "1"
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  * 
- *     actions = [
- *       "s3:ListAllMyBuckets",
- *       "s3:GetBucketLocation",
- *     ]
- * 
- *     resources = [
- *       "arn:aws:s3:::*",
- *     ]
- *   }
- * 
- *   statement {
- *     actions = [
- *       "s3:ListBucket",
- *     ]
- * 
- *     resources = [
- *       "arn:aws:s3:::${var.s3_bucket_name}",
- *     ]
- * 
- *     condition {
- *       test     = "StringLike"
- *       variable = "s3:prefix"
- * 
- *       values = [
- *         "",
- *         "home/",
- *         "home/&{aws:username}/",
- *       ]
- *     }
- *   }
- * 
- *   statement {
- *     actions = [
- *       "s3:*",
- *     ]
- * 
- *     resources = [
- *       "arn:aws:s3:::${var.s3_bucket_name}/home/&{aws:username}",
- *       "arn:aws:s3:::${var.s3_bucket_name}/home/&{aws:username}/*",
- *     ]
- *   }
- * }
- * 
- * resource "aws_iam_policy" "example" {
- *   name   = "example_policy"
- *   path   = "/"
- *   policy = "${data.aws_iam_policy_document.example.json}"
- * }
+ * const aws_iam_policy_document_example = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             actions: [
+ *                 "s3:ListAllMyBuckets",
+ *                 "s3:GetBucketLocation",
+ *             ],
+ *             resources: ["arn:aws:s3:::*"],
+ *             sid: "1",
+ *         },
+ *         {
+ *             actions: ["s3:ListBucket"],
+ *             conditions: [{
+ *                 test: "StringLike",
+ *                 values: [
+ *                     "",
+ *                     "home/",
+ *                     "home/&{aws:username}/",
+ *                 ],
+ *                 variable: "s3:prefix",
+ *             }],
+ *             resources: [`arn:aws:s3:::${var_s3_bucket_name}`],
+ *         },
+ *         {
+ *             actions: ["s3:*"],
+ *             resources: [
+ *                 `arn:aws:s3:::${var_s3_bucket_name}/home/&{aws:username}`,
+ *                 `arn:aws:s3:::${var_s3_bucket_name}/home/&{aws:username}/*`,
+ *             ],
+ *         },
+ *     ],
+ * }));
+ * const aws_iam_policy_example = new aws.iam.Policy("example", {
+ *     name: "example_policy",
+ *     path: "/",
+ *     policy: aws_iam_policy_document_example.apply(__arg0 => __arg0.json),
+ * });
  * ```
  * 
  * Using this data source to generate policy documents is *optional*. It is also
  * valid to use literal JSON strings within your configuration, or to use the
  * `file` interpolation function to read a raw JSON policy document from a file.
+ * 
+ * ## Context Variable Interpolation
+ * 
+ * The IAM policy document format allows context variables to be interpolated
+ * into various strings within a statement. The native IAM policy document format
+ * uses `${...}`-style syntax that is in conflict with Terraform's interpolation
+ * syntax, so this data source instead uses `&{...}` syntax for interpolations that
+ * should be processed by AWS rather than by Terraform.
+ * 
+ * ## Wildcard Principal
+ * 
+ * In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
+ * `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
+ * Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
+ * states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
+ * those principals have different behavior for IAM Role Trust Policy. Therefore
+ * Terraform will normalize the principal field only in above-mentioned case and principals
+ * like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
+ * 
+ * ## Example with Multiple Principals
+ * 
+ * Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_policy_document_event_stream_bucket_role_assume_role_policy = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [
+ *             {
+ *                 identifiers: ["firehose.amazonaws.com"],
+ *                 type: "Service",
+ *             },
+ *             {
+ *                 identifiers: [var_trusted_role_arn],
+ *                 type: "AWS",
+ *             },
+ *         ],
+ *     }],
+ * }));
+ * ```
  * 
  * ## Example with Source and Override
  * 
@@ -129,20 +160,20 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * ```
+ * 
  * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * 
  * ```
+ * 
  * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * 
  * ```
- * You can also combine `source_json` and `override_json` in the same document.
  * 
+ * You can also combine `source_json` and `override_json` in the same document.
  * 
  * ## Example without Statement
  * 
@@ -171,11 +202,11 @@ import * as utilities from "../utilities";
  *     sourceJson: aws_iam_policy_document_source.apply(__arg0 => __arg0.json),
  * }));
  * ```
+ * 
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * 
  * ```
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {

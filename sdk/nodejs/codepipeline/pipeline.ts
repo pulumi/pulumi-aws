@@ -8,6 +8,111 @@ import * as utilities from "../utilities";
  * Provides a CodePipeline.
  * 
  * > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_iam_role_foo = new aws.iam.Role("foo", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "codepipeline.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     name: "test-role",
+ * });
+ * const aws_s3_bucket_foo = new aws.s3.Bucket("foo", {
+ *     acl: "private",
+ *     bucket: "test-bucket",
+ * });
+ * const aws_kms_alias_s3kmskey = pulumi.output(aws.kms.getAlias({
+ *     name: "alias/myKmsKey",
+ * }));
+ * const aws_codepipeline_foo = new aws.codepipeline.Pipeline("foo", {
+ *     artifactStore: {
+ *         encryptionKey: {
+ *             id: aws_kms_alias_s3kmskey.apply(__arg0 => __arg0.arn),
+ *             type: "KMS",
+ *         },
+ *         location: aws_s3_bucket_foo.bucket,
+ *         type: "S3",
+ *     },
+ *     name: "tf-test-pipeline",
+ *     roleArn: aws_iam_role_foo.arn,
+ *     stages: [
+ *         {
+ *             actions: [{
+ *                 category: "Source",
+ *                 configuration: {
+ *                     Branch: "master",
+ *                     Owner: "my-organization",
+ *                     Repo: "test",
+ *                 },
+ *                 name: "Source",
+ *                 outputArtifacts: ["test"],
+ *                 owner: "ThirdParty",
+ *                 provider: "GitHub",
+ *                 version: "1",
+ *             }],
+ *             name: "Source",
+ *         },
+ *         {
+ *             actions: [{
+ *                 category: "Build",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *                 inputArtifacts: ["test"],
+ *                 name: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 version: "1",
+ *             }],
+ *             name: "Build",
+ *         },
+ *     ],
+ * });
+ * const aws_iam_role_policy_codepipeline_policy = new aws.iam.RolePolicy("codepipeline_policy", {
+ *     name: "codepipeline_policy",
+ *     policy: pulumi.all([aws_s3_bucket_foo.arn, aws_s3_bucket_foo.arn]).apply(([__arg0, __arg1]) => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect":"Allow",
+ *       "Action": [
+ *         "s3:GetObject",
+ *         "s3:GetObjectVersion",
+ *         "s3:GetBucketVersioning"
+ *       ],
+ *       "Resource": [
+ *         "${__arg0}",
+ *         "${__arg1}/*"
+ *       ]
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "codebuild:BatchGetBuilds",
+ *         "codebuild:StartBuild"
+ *       ],
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `),
+ *     role: aws_iam_role_codepipeline_role.id,
+ * });
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

@@ -28,7 +28,6 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Provides a Redshift Cluster parameter group resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Terraform".

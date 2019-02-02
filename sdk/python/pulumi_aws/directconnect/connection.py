@@ -36,7 +36,6 @@ class Connection(pulumi.CustomResource):
         """
         Provides a Connection of Direct Connect.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.

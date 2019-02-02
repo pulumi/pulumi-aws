@@ -30,7 +30,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
         
         > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered.

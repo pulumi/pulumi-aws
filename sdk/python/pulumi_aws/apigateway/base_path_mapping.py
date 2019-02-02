@@ -30,7 +30,6 @@ class BasePathMapping(pulumi.CustomResource):
         with a deployed API so that its methods can be called via the
         custom domain name.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] rest_api: The id of the API to connect.

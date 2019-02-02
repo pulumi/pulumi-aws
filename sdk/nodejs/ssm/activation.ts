@@ -14,7 +14,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_test_role = new aws.iam.Role("test_role", {
- *     assumeRolePolicy: "  {\n    \"Version\": \"2012-10-17\",\n    \"Statement\": {\n      \"Effect\": \"Allow\",\n      \"Principal\": {\"Service\": \"ssm.amazonaws.com\"},\n      \"Action\": \"sts:AssumeRole\"\n    }\n  }\n",
+ *     assumeRolePolicy: `  {
+ *     "Version": "2012-10-17",
+ *     "Statement": {
+ *       "Effect": "Allow",
+ *       "Principal": {"Service": "ssm.amazonaws.com"},
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   }
+ * `,
  *     name: "test_role",
  * });
  * const aws_iam_role_policy_attachment_test_attach = new aws.iam.RolePolicyAttachment("test_attach", {

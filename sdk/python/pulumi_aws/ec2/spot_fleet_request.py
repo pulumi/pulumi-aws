@@ -103,7 +103,6 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across

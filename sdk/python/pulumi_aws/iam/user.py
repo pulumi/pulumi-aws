@@ -42,7 +42,6 @@ class User(pulumi.CustomResource):
         """
         Provides an IAM user.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] force_destroy: When destroying this user, destroy even if it

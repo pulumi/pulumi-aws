@@ -20,11 +20,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_aws_batch_service_role = new aws.iam.Role("aws_batch_service_role", {
- *     assumeRolePolicy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n\t{\n\t    \"Action\": \"sts:AssumeRole\",\n\t    \"Effect\": \"Allow\",\n\t    \"Principal\": {\n\t\t\"Service\": \"batch.amazonaws.com\"\n\t    }\n\t}\n    ]\n}\n",
+ *     assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ * 	{
+ * 	    "Action": "sts:AssumeRole",
+ * 	    "Effect": "Allow",
+ * 	    "Principal": {
+ * 		"Service": "batch.amazonaws.com"
+ * 	    }
+ * 	}
+ *     ]
+ * }
+ * `,
  *     name: "aws_batch_service_role",
  * });
  * const aws_iam_role_ecs_instance_role = new aws.iam.Role("ecs_instance_role", {
- *     assumeRolePolicy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n\t{\n\t    \"Action\": \"sts:AssumeRole\",\n\t    \"Effect\": \"Allow\",\n\t    \"Principal\": {\n\t\t\"Service\": \"ec2.amazonaws.com\"\n\t    }\n\t}\n    ]\n}\n",
+ *     assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ * 	{
+ * 	    "Action": "sts:AssumeRole",
+ * 	    "Effect": "Allow",
+ * 	    "Principal": {
+ * 		"Service": "ec2.amazonaws.com"
+ * 	    }
+ * 	}
+ *     ]
+ * }
+ * `,
  *     name: "ecs_instance_role",
  * });
  * const aws_security_group_sample = new aws.ec2.SecurityGroup("sample", {

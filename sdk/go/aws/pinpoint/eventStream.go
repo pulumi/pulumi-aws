@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a Pinpoint Event Stream resource.
 type EventStream struct {
 	s *pulumi.ResourceState
 }
@@ -68,28 +69,37 @@ func (r *EventStream) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The application ID.
 func (r *EventStream) ApplicationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 func (r *EventStream) DestinationStreamArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destinationStreamArn"])
 }
 
+// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
 func (r *EventStream) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering EventStream resources.
 type EventStreamState struct {
+	// The application ID.
 	ApplicationId interface{}
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn interface{}
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
 	RoleArn interface{}
 }
 
 // The set of arguments for constructing a EventStream resource.
 type EventStreamArgs struct {
+	// The application ID.
 	ApplicationId interface{}
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	DestinationStreamArn interface{}
+	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
 	RoleArn interface{}
 }

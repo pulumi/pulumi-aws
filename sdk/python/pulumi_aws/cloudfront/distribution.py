@@ -160,7 +160,6 @@ class Distribution(pulumi.CustomResource):
         blocked. If you need to delete a distribution that is enabled and you do not
         want to wait, you need to use the `retain_on_delete` flag.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] aliases: Extra CNAMEs (alternate domain names), if any, for

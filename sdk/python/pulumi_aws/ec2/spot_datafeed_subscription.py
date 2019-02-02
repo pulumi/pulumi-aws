@@ -18,11 +18,10 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
     """
     def __init__(__self__, __name__, __opts__=None, bucket=None, prefix=None):
         """
-        -> **Note:** There is only a single subscription allowed per account.
+        > **Note:** There is only a single subscription allowed per account.
         
         To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
-        
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     dhcpOptionsId: "dopts-12345678",
  * }));
  * ```
+ * 
  * ### Lookup by Filter
  * 
  * ```typescript

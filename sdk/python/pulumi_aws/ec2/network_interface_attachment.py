@@ -32,7 +32,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         """
         Attach an Elastic network interface (ENI) resource with EC2 instance.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] device_index: Network interface index (int).

@@ -24,7 +24,6 @@ class RuleGroup(pulumi.CustomResource):
         """
         Provides a WAF Rule Group Resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below

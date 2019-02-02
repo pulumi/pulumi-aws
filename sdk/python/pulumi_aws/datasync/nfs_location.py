@@ -35,7 +35,6 @@ class NfsLocation(pulumi.CustomResource):
         
         > **NOTE:** The DataSync Agents must be available before creating this resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] on_prem_config: Configuration block containing information for connecting to the NFS File System.

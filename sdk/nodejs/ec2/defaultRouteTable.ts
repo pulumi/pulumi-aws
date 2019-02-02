@@ -36,6 +36,21 @@ import * as utilities from "../utilities";
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite routes.
  * 
+ * 
+ * ## Example usage with tags:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_default_route_table_r = new aws.ec2.DefaultRouteTable("r", {
+ *     defaultRouteTableId: aws_vpc_foo.defaultRouteTableId,
+ *     routes: [{}],
+ *     tags: {
+ *         Name: "default table",
+ *     },
+ * });
+ * ```
  */
 export class DefaultRouteTable extends pulumi.CustomResource {
     /**

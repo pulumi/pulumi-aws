@@ -31,7 +31,6 @@ class Attachment(pulumi.CustomResource):
         load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.

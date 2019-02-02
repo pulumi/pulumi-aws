@@ -23,7 +23,19 @@ import * as utilities from "../utilities";
  * });
  * const aws_iam_user_policy_lb_ro = new aws.iam.UserPolicy("lb_ro", {
  *     name: "test",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
  *     user: aws_iam_user_lb.name,
  * });
  * 

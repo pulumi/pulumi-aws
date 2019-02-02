@@ -9,6 +9,10 @@ import (
 )
 
 // Provides a VPC DHCP Options Association resource.
+// 
+// ## Remarks
+// 
+// * You can only associate one DHCP Options Set to a given VPC ID.
 // * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
 type VpcDhcpOptionsAssociation struct {
 	s *pulumi.ResourceState

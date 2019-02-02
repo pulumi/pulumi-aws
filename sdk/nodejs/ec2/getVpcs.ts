@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * 
  * export const foo = aws_vpcs_foo.apply(__arg0 => __arg0.ids);
  * ```
+ * 
  * An example use case would be interpolate the `aws_vpcs` output into `count` of an aws_flow_log resource.
  * 
  * ```typescript

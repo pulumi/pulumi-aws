@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     secretKey: "",
  * });
  * ```
- * 
  */
 export class BaiduChannel extends pulumi.CustomResource {
     /**

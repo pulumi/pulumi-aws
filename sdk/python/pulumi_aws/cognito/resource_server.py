@@ -29,7 +29,6 @@ class ResourceServer(pulumi.CustomResource):
         """
         Provides a Cognito Resource Server.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.

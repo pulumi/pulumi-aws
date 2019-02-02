@@ -82,7 +82,6 @@ class Domain(pulumi.CustomResource):
         """
         Manages an AWS Elasticsearch Domain.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain

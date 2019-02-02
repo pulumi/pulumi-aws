@@ -42,7 +42,6 @@ class MethodResponse(pulumi.CustomResource):
         """
         Provides an HTTP Method Response for an API Gateway Resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)

@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Subnet Group resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_dax_subnet_group_example = new aws.dax.SubnetGroup("example", {
+ *     name: "example",
+ *     subnetIds: [
+ *         aws_subnet_example1.id,
+ *         aws_subnet_example2.id,
+ *     ],
+ * });
+ * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

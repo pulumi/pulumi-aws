@@ -100,7 +100,6 @@ class MetricAlarm(pulumi.CustomResource):
         """
         Provides a CloudWatch Metric Alarm resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.

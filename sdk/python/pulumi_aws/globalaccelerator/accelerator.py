@@ -32,7 +32,6 @@ class Accelerator(pulumi.CustomResource):
         """
         Provides a Global Accelerator accelerator.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] attributes: The attributes of the accelerator. Fields documented below.

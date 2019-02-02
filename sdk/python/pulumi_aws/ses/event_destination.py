@@ -40,7 +40,6 @@ class EventDestination(pulumi.CustomResource):
         """
         Provides an SES event destination
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] cloudwatch_destinations: CloudWatch destination for the events

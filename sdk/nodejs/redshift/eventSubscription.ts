@@ -37,6 +37,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
+ * ## Attributes
+ * 
+ * The following additional atttributes are provided:
+ * 
+ * * `id` - The name of the Redshift event notification subscription
+ * * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

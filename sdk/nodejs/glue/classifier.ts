@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * 
  * ### JSON Classifier
  * 
  * ```typescript
@@ -38,6 +39,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * 
  * ### XML Classifier
  * 
  * ```typescript

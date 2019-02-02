@@ -28,7 +28,6 @@ class Resource(pulumi.CustomResource):
         """
         Provides an API Gateway Resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] parent_id: The ID of the parent API resource

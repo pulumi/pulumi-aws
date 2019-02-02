@@ -30,7 +30,6 @@ class SecurityGroup(pulumi.CustomResource):
         ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
         ElastiCache Subnet Group resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: description for the cache security group. Defaults to "Managed by Terraform".

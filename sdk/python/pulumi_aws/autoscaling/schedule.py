@@ -52,7 +52,6 @@ class Schedule(pulumi.CustomResource):
         """
         Provides an AutoScaling Schedule resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.

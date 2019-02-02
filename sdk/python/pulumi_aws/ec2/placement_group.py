@@ -21,7 +21,6 @@ class PlacementGroup(pulumi.CustomResource):
         Provides an EC2 placement group. Read more about placement groups
         in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.

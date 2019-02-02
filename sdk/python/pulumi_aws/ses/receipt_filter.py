@@ -24,7 +24,6 @@ class ReceiptFilter(pulumi.CustomResource):
         """
         Provides an SES receipt filter resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation

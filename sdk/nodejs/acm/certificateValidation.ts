@@ -46,6 +46,7 @@ import * as utilities from "../utilities";
  *     certificateArn: aws_acm_certificate_validation_cert.certificateArn,
  * });
  * ```
+ * 
  * ### Alternative Domains DNS Validation with Route 53
  * 
  * ```typescript
@@ -101,6 +102,7 @@ import * as utilities from "../utilities";
  *     certificateArn: aws_acm_certificate_validation_cert.certificateArn,
  * });
  * ```
+ * 
  * ### Email Validation
  * 
  * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.

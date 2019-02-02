@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     type: aws_customer_gateway_example.type,
  * });
  * ```
+ * 
  * ### Virtual Private Gateway
  * 
  * ```typescript

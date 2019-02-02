@@ -66,7 +66,6 @@ class ClusterSnapshot(pulumi.CustomResource):
         """
         Manages a Neptune database cluster snapshot.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.

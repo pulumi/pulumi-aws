@@ -42,7 +42,6 @@ class MountTarget(pulumi.CustomResource):
         """
         Provides an Elastic File System (EFS) mount target.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.

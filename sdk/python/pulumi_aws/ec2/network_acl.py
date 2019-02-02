@@ -48,7 +48,6 @@ class NetworkAcl(pulumi.CustomResource):
         in conjunction with any Network ACL Rule resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.

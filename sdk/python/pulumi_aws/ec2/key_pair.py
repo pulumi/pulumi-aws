@@ -36,7 +36,6 @@ class KeyPair(pulumi.CustomResource):
         * Base64 encoded DER format
         * SSH public key file format as specified in RFC4716
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] key_name: The name for the key pair.

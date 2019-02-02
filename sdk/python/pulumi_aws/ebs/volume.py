@@ -48,7 +48,6 @@ class Volume(pulumi.CustomResource):
         """
         Manages a single EBS volume.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.

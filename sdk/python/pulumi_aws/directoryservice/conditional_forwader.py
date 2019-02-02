@@ -24,7 +24,6 @@ class ConditionalForwader(pulumi.CustomResource):
         """
         Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] directory_id: The id of directory.

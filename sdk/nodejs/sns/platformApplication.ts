@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     platformPrincipal: "<APNS CERTIFICATE>",
  * });
  * ```
+ * 
  * ### Google Cloud Messaging (GCM)
  * 
  * ```typescript

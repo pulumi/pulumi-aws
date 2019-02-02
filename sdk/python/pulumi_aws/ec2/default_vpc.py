@@ -88,7 +88,6 @@ class DefaultVpc(pulumi.CustomResource):
         Terraform does not _create_ this resource, but instead "adopts" it
         into management.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink

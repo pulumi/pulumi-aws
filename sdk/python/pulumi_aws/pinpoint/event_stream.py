@@ -9,17 +9,26 @@ from .. import utilities, tables
 
 class EventStream(pulumi.CustomResource):
     application_id: pulumi.Output[str]
+    """
+    The application ID.
+    """
     destination_stream_arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+    """
     role_arn: pulumi.Output[str]
+    """
+    The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+    """
     def __init__(__self__, __name__, __opts__=None, application_id=None, destination_stream_arn=None, role_arn=None):
         """
-        Create a EventStream resource with the given unique name, props, and options.
+        Provides a Pinpoint Event Stream resource.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[str] application_id
-        :param pulumi.Input[str] destination_stream_arn
-        :param pulumi.Input[str] role_arn
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] destination_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        :param pulumi.Input[str] role_arn: The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

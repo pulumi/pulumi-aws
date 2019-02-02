@@ -7,6 +7,41 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC Endpoint connection notification resource.
  * Connection notifications notify subscribers of VPC Endpoint events.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_sns_topic_topic = new aws.sns.Topic("topic", {
+ *     name: "vpce-notification-topic",
+ *     policy: `{
+ *     "Version":"2012-10-17",
+ *     "Statement":[{
+ *         "Effect": "Allow",
+ *         "Principal": {
+ *             "Service": "vpce.amazonaws.com"
+ *         },
+ *         "Action": "SNS:Publish",
+ *         "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
+ *     }]
+ * }
+ * `,
+ * });
+ * const aws_vpc_endpoint_service_foo = new aws.ec2.VpcEndpointService("foo", {
+ *     acceptanceRequired: false,
+ *     networkLoadBalancerArns: [aws_lb_test.arn],
+ * });
+ * const aws_vpc_endpoint_connection_notification_foo = new aws.ec2.VpcEndpointConnectionNotification("foo", {
+ *     connectionEvents: [
+ *         "Accept",
+ *         "Reject",
+ *     ],
+ *     connectionNotificationArn: aws_sns_topic_topic.arn,
+ *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
+ * });
+ * ```
  */
 export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**

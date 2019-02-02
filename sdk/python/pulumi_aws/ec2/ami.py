@@ -84,7 +84,6 @@ class Ami(pulumi.CustomResource):
         If you just want to share an existing AMI with another AWS account,
         it's better to use `aws_ami_launch_permission` instead.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".

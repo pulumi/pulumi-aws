@@ -23,7 +23,33 @@ import * as utilities from "../utilities";
  *     name: "bar",
  * });
  * const aws_ecr_repository_policy_foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
- *     policy: "{\n    \"Version\": \"2008-10-17\",\n    \"Statement\": [\n        {\n            \"Sid\": \"new policy\",\n            \"Effect\": \"Allow\",\n            \"Principal\": \"*\",\n            \"Action\": [\n                \"ecr:GetDownloadUrlForLayer\",\n                \"ecr:BatchGetImage\",\n                \"ecr:BatchCheckLayerAvailability\",\n                \"ecr:PutImage\",\n                \"ecr:InitiateLayerUpload\",\n                \"ecr:UploadLayerPart\",\n                \"ecr:CompleteLayerUpload\",\n                \"ecr:DescribeRepositories\",\n                \"ecr:GetRepositoryPolicy\",\n                \"ecr:ListImages\",\n                \"ecr:DeleteRepository\",\n                \"ecr:BatchDeleteImage\",\n                \"ecr:SetRepositoryPolicy\",\n                \"ecr:DeleteRepositoryPolicy\"\n            ]\n        }\n    ]\n}\n",
+ *     policy: `{
+ *     "Version": "2008-10-17",
+ *     "Statement": [
+ *         {
+ *             "Sid": "new policy",
+ *             "Effect": "Allow",
+ *             "Principal": "*",
+ *             "Action": [
+ *                 "ecr:GetDownloadUrlForLayer",
+ *                 "ecr:BatchGetImage",
+ *                 "ecr:BatchCheckLayerAvailability",
+ *                 "ecr:PutImage",
+ *                 "ecr:InitiateLayerUpload",
+ *                 "ecr:UploadLayerPart",
+ *                 "ecr:CompleteLayerUpload",
+ *                 "ecr:DescribeRepositories",
+ *                 "ecr:GetRepositoryPolicy",
+ *                 "ecr:ListImages",
+ *                 "ecr:DeleteRepository",
+ *                 "ecr:BatchDeleteImage",
+ *                 "ecr:SetRepositoryPolicy",
+ *                 "ecr:DeleteRepositoryPolicy"
+ *             ]
+ *         }
+ *     ]
+ * }
+ * `,
  *     repository: aws_ecr_repository_foo.name,
  * });
  * ```

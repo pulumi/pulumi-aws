@@ -57,7 +57,6 @@ class Fleet(pulumi.CustomResource):
         """
         Provides a Gamelift Fleet resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] build_id: ID of the Gamelift Build to be deployed on the fleet.

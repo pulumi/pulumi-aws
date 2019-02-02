@@ -8,6 +8,177 @@ import {CannedAcl} from "./cannedAcl";
 
 /**
  * Provides a S3 bucket resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Private Bucket w/ Tags
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "my-tf-test-bucket",
+ *     tags: {
+ *         Environment: "Dev",
+ *         Name: "My bucket",
+ *     },
+ * });
+ * ```
+ * 
+ * ### Static Website Hosting
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     acl: "public-read",
+ *     bucket: "s3-website-test.hashicorp.com",
+ *     policy: fs.readFileSync("policy.json", "utf-8"),
+ *     website: {
+ *         errorDocument: "error.html",
+ *         indexDocument: "index.html",
+ *         routingRules: `[{
+ *     "Condition": {
+ *         "KeyPrefixEquals": "docs/"
+ *     },
+ *     "Redirect": {
+ *         "ReplaceKeyPrefixWith": "documents/"
+ *     }
+ * }]
+ * `,
+ *     },
+ * });
+ * ```
+ * 
+ * ### Using CORS
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     acl: "public-read",
+ *     bucket: "s3-website-test.hashicorp.com",
+ *     corsRules: [{
+ *         allowedHeaders: ["*"],
+ *         allowedMethods: [
+ *             "PUT",
+ *             "POST",
+ *         ],
+ *         allowedOrigins: ["https://s3-website-test.hashicorp.com"],
+ *         exposeHeaders: ["ETag"],
+ *         maxAgeSeconds: 3000,
+ *     }],
+ * });
+ * ```
+ * 
+ * ### Using versioning
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "my-tf-test-bucket",
+ *     versioning: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ * 
+ * ### Enable Logging
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_log_bucket = new aws.s3.Bucket("log_bucket", {
+ *     acl: "log-delivery-write",
+ *     bucket: "my-tf-log-bucket",
+ * });
+ * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "my-tf-test-bucket",
+ *     loggings: [{
+ *         targetBucket: aws_s3_bucket_log_bucket.id,
+ *         targetPrefix: "log/",
+ *     }],
+ * });
+ * ```
+ * 
+ * ### Using object lifecycle
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ *     bucket: "my-bucket",
+ *     lifecycleRules: [
+ *         {
+ *             enabled: true,
+ *             expirations: [{
+ *                 days: 90,
+ *             }],
+ *             id: "log",
+ *             prefix: "log/",
+ *             tags: {
+ *                 autoclean: "true",
+ *                 rule: "log",
+ *             },
+ *             transitions: [
+ *                 {
+ *                     days: 30,
+ *                     storageClass: "STANDARD_IA",
+ *                 },
+ *                 {
+ *                     days: 60,
+ *                     storageClass: "GLACIER",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             enabled: true,
+ *             expirations: [{
+ *                 date: "2016-01-12",
+ *             }],
+ *             id: "tmp",
+ *             prefix: "tmp/",
+ *         },
+ *     ],
+ * });
+ * const aws_s3_bucket_versioning_bucket = new aws.s3.Bucket("versioning_bucket", {
+ *     acl: "private",
+ *     bucket: "my-versioning-bucket",
+ *     lifecycleRules: [{
+ *         enabled: true,
+ *         noncurrentVersionExpirations: [{
+ *             days: 90,
+ *         }],
+ *         noncurrentVersionTransitions: [
+ *             {
+ *                 days: 30,
+ *                 storageClass: "STANDARD_IA",
+ *             },
+ *             {
+ *                 days: 60,
+ *                 storageClass: "GLACIER",
+ *             },
+ *         ],
+ *         prefix: "config/",
+ *     }],
+ *     versioning: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ * 
  * ### Enable Default Server Side Encryption
  * 
  * ```typescript

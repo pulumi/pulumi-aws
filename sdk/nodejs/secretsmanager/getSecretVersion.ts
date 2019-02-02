@@ -6,6 +6,33 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+ * 
+ * ## Example Usage
+ * 
+ * ### Retrieve Current Secret Version
+ * 
+ * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_secretsmanager_secret_version_example = pulumi.output(aws.secretsmanager.getSecretVersion({
+ *     secretId: aws_secretsmanager_secret_example.id.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ * }));
+ * ```
+ * 
+ * ### Retrieve Specific Secret Version
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_secretsmanager_secret_version_by_version_stage = pulumi.output(aws.secretsmanager.getSecretVersion({
+ *     secretId: aws_secretsmanager_secret_example.id.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *     versionStage: "example",
+ * }));
+ * ```
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {

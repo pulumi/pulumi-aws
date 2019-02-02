@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_foo.id,
  * });
  * ```
+ * 
  * Non-AWS service usage:
  * 
  * ```typescript

@@ -132,7 +132,6 @@ class Cluster(pulumi.CustomResource):
         `apply_immediately` flag to instruct the service to apply the change immediately
         (see documentation below).
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.

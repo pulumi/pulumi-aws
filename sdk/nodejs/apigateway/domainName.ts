@@ -25,6 +25,112 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * > For information about regions that support AWS Certificate Manager (ACM), see the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region).
+ * 
+ * ### Edge Optimized (ACM Certificate)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_domain_name_example = new aws.apigateway.DomainName("example", {
+ *     certificateArn: aws_acm_certificate_validation_example.certificateArn,
+ *     domainName: "api.example.com",
+ * });
+ * const aws_route53_record_example = new aws.route53.Record("example", {
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: aws_api_gateway_domain_name_example.cloudfrontDomainName,
+ *         zoneId: aws_api_gateway_domain_name_example.cloudfrontZoneId,
+ *     }],
+ *     name: aws_api_gateway_domain_name_example.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone_example.id,
+ * });
+ * ```
+ * 
+ * ### Edge Optimized (Uploaded Certificate)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_api_gateway_domain_name_example = new aws.apigateway.DomainName("example", {
+ *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
+ *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
+ *     certificateName: "example-api",
+ *     certificatePrivateKey: fs.readFileSync(`./example.com/example.key`, "utf-8"),
+ *     domainName: "api.example.com",
+ * });
+ * const aws_route53_record_example = new aws.route53.Record("example", {
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: aws_api_gateway_domain_name_example.cloudfrontDomainName,
+ *         zoneId: aws_api_gateway_domain_name_example.cloudfrontZoneId,
+ *     }],
+ *     name: aws_api_gateway_domain_name_example.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone_example.id,
+ * });
+ * ```
+ * 
+ * ### Regional (ACM Certificate)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_api_gateway_domain_name_example = new aws.apigateway.DomainName("example", {
+ *     domainName: "api.example.com",
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
+ *     regionalCertificateArn: aws_acm_certificate_validation_example.certificateArn,
+ * });
+ * const aws_route53_record_example = new aws.route53.Record("example", {
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: aws_api_gateway_domain_name_example.regionalDomainName,
+ *         zoneId: aws_api_gateway_domain_name_example.regionalZoneId,
+ *     }],
+ *     name: aws_api_gateway_domain_name_example.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone_example.id,
+ * });
+ * ```
+ * 
+ * ### Regional (Uploaded Certificate)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_api_gateway_domain_name_example = new aws.apigateway.DomainName("example", {
+ *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
+ *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
+ *     certificatePrivateKey: fs.readFileSync(`./example.com/example.key`, "utf-8"),
+ *     domainName: "api.example.com",
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
+ *     regionalCertificateName: "example-api",
+ * });
+ * const aws_route53_record_example = new aws.route53.Record("example", {
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: aws_api_gateway_domain_name_example.regionalDomainName,
+ *         zoneId: aws_api_gateway_domain_name_example.regionalZoneId,
+ *     }],
+ *     name: aws_api_gateway_domain_name_example.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone_example.id,
+ * });
+ * ```
  */
 export class DomainName extends pulumi.CustomResource {
     /**

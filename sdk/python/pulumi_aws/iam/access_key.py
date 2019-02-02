@@ -49,7 +49,6 @@ class AccessKey(pulumi.CustomResource):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a

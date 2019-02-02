@@ -34,6 +34,7 @@ import * as utilities from "../utilities";
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
+ * 
  * ### Route53 Query Logging
  * 
  * ```typescript

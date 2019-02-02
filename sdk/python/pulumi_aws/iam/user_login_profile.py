@@ -42,7 +42,6 @@ class UserLoginProfile(pulumi.CustomResource):
         encrypt the password for safe transport to the user. PGP keys can be
         obtained from Keybase.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] password_length: The length of the generated

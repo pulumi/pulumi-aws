@@ -48,6 +48,7 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * 
  * ### Aurora MySQL 1.x (MySQL 5.6)
  * 
  * ```typescript
@@ -68,6 +69,7 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * 
  * ### Aurora with PostgreSQL engine
  * 
  * ```typescript

@@ -68,7 +68,6 @@ class ReceiptRule(pulumi.CustomResource):
         """
         Provides an SES receipt rule resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] add_header_actions: A list of Add Header Action blocks. Documented below.

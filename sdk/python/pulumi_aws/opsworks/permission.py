@@ -32,7 +32,6 @@ class Permission(pulumi.CustomResource):
         """
         Provides an OpsWorks permission resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] allow_ssh: Whether the user is allowed to use SSH to communicate with the instance

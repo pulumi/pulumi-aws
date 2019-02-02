@@ -19,7 +19,22 @@ import * as utilities from "../utilities";
  *     name: "glacier-sns-topic",
  * });
  * const aws_glacier_vault_my_archive = new aws.glacier.Vault("my_archive", {
- *     accessPolicy: "{\n    \"Version\":\"2012-10-17\",\n    \"Statement\":[\n       {\n          \"Sid\": \"add-read-only-perm\",\n          \"Principal\": \"*\",\n          \"Effect\": \"Allow\",\n          \"Action\": [\n             \"glacier:InitiateJob\",\n             \"glacier:GetJobOutput\"\n          ],\n          \"Resource\": \"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive\"\n       }\n    ]\n}\n",
+ *     accessPolicy: `{
+ *     "Version":"2012-10-17",
+ *     "Statement":[
+ *        {
+ *           "Sid": "add-read-only-perm",
+ *           "Principal": "*",
+ *           "Effect": "Allow",
+ *           "Action": [
+ *              "glacier:InitiateJob",
+ *              "glacier:GetJobOutput"
+ *           ],
+ *           "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
+ *        }
+ *     ]
+ * }
+ * `,
  *     name: "MyArchive",
  *     notifications: [{
  *         events: [

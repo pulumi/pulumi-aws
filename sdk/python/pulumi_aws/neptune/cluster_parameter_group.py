@@ -40,7 +40,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
         """
         Manages a Neptune Cluster Parameter Group
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the neptune cluster parameter group. Defaults to "Managed by Terraform".

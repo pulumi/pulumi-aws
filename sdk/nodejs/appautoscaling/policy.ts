@@ -6,6 +6,137 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling Policy resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### DynamoDB Table Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_dynamodb_table_read_target = new aws.appautoscaling.Target("dynamodb_table_read_target", {
+ *     maxCapacity: 100,
+ *     minCapacity: 5,
+ *     resourceId: "table/tableName",
+ *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
+ *     serviceNamespace: "dynamodb",
+ * });
+ * const aws_appautoscaling_policy_dynamodb_table_read_policy = new aws.appautoscaling.Policy("dynamodb_table_read_policy", {
+ *     name: aws_appautoscaling_target_dynamodb_table_read_target.resourceId.apply(__arg0 => `DynamoDBReadCapacityUtilization:${__arg0}`),
+ *     policyType: "TargetTrackingScaling",
+ *     resourceId: aws_appautoscaling_target_dynamodb_table_read_target.resourceId,
+ *     scalableDimension: aws_appautoscaling_target_dynamodb_table_read_target.scalableDimension,
+ *     serviceNamespace: aws_appautoscaling_target_dynamodb_table_read_target.serviceNamespace,
+ *     targetTrackingScalingPolicyConfiguration: {
+ *         predefinedMetricSpecification: {
+ *             predefinedMetricType: "DynamoDBReadCapacityUtilization",
+ *         },
+ *         targetValue: 70,
+ *     },
+ * });
+ * ```
+ * 
+ * ### ECS Service Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_ecs_target = new aws.appautoscaling.Target("ecs_target", {
+ *     maxCapacity: 4,
+ *     minCapacity: 1,
+ *     resourceId: "service/clusterName/serviceName",
+ *     roleArn: var_ecs_iam_role,
+ *     scalableDimension: "ecs:service:DesiredCount",
+ *     serviceNamespace: "ecs",
+ * });
+ * const aws_appautoscaling_policy_ecs_policy = new aws.appautoscaling.Policy("ecs_policy", {
+ *     name: "scale-down",
+ *     policyType: "StepScaling",
+ *     resourceId: "service/clusterName/serviceName",
+ *     scalableDimension: "ecs:service:DesiredCount",
+ *     serviceNamespace: "ecs",
+ *     stepScalingPolicyConfigurations: [{
+ *         adjustmentType: "ChangeInCapacity",
+ *         cooldown: 60,
+ *         metricAggregationType: "Maximum",
+ *         stepAdjustments: [{
+ *             metricIntervalUpperBound: "0",
+ *             scalingAdjustment: -1,
+ *         }],
+ *     }],
+ * }, {dependsOn: [aws_appautoscaling_target_ecs_target]});
+ * ```
+ * 
+ * ### Preserve desired count when updating an autoscaled ECS Service
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_ecs_service_ecs_service = new aws.ecs.Service("ecs_service", {
+ *     cluster: "clusterName",
+ *     desiredCount: 2,
+ *     name: "serviceName",
+ *     taskDefinition: "taskDefinitionFamily:1",
+ * });
+ * ```
+ * 
+ * ### Aurora Read Replica Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_replicas = new aws.appautoscaling.Target("replicas", {
+ *     maxCapacity: 15,
+ *     minCapacity: 1,
+ *     resourceId: aws_rds_cluster_example.id.apply(__arg0 => `cluster:${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}`),
+ *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *     serviceNamespace: "rds",
+ * });
+ * const aws_appautoscaling_policy_replicas = new aws.appautoscaling.Policy("replicas", {
+ *     name: "cpu-auto-scaling",
+ *     policyType: "TargetTrackingScaling",
+ *     resourceId: aws_appautoscaling_target_replicas.resourceId,
+ *     scalableDimension: aws_appautoscaling_target_replicas.scalableDimension,
+ *     serviceNamespace: aws_appautoscaling_target_replicas.serviceNamespace,
+ *     targetTrackingScalingPolicyConfiguration: {
+ *         predefinedMetricSpecification: {
+ *             predefinedMetricType: "RDSReaderAverageCPUUtilization",
+ *         },
+ *         scaleInCooldown: 300,
+ *         scaleOutCooldown: 300,
+ *         targetValue: 75,
+ *     },
+ * });
+ * ```
+ * 
+ * ## Nested fields
+ * 
+ * ### `target_tracking_scaling_policy_configuration`
+ * 
+ * * `target_value` - (Required) The target value for the metric.
+ * * `disable_scale_in` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+ * * `scale_in_cooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+ * * `scale_out_cooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+ * * `customized_metric_specification` - (Optional) Reserved for future use. See supported fields below.
+ * * `predefined_metric_specification` - (Optional) A predefined metric. See supported fields below.
+ * 
+ * ### `customized_metric_specification`
+ * 
+ * * `dimensions` - (Optional) The dimensions of the metric.
+ * * `metric_name` - (Required) The name of the metric.
+ * * `namespace` - (Required) The namespace of the metric.
+ * * `statistic` - (Required) The statistic of the metric.
+ * * `unit` - (Optional) The unit of the metric.
+ * 
+ * ### `predefined_metric_specification`
+ * 
+ * * `predefined_metric_type` - (Required) The metric type.
+ * * `resource_label` - (Optional) Reserved for future use.
  */
 export class Policy extends pulumi.CustomResource {
     /**

@@ -21,6 +21,31 @@ import * as utilities from "../utilities";
  *     name: "lg_key_pair",
  * });
  * ```
+ * 
+ * ## Create new Key Pair, encrypting the private key with a PGP Key
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_lightsail_key_pair_lg_key_pair = new aws.lightsail.KeyPair("lg_key_pair", {
+ *     name: "lg_key_pair",
+ *     pgpKey: "keybase:keybaseusername",
+ * });
+ * ```
+ * 
+ * ## Import an existing public key
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const aws_lightsail_key_pair_lg_key_pair = new aws.lightsail.KeyPair("lg_key_pair", {
+ *     name: "importing",
+ *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
+ * });
+ * ```
  */
 export class KeyPair extends pulumi.CustomResource {
     /**

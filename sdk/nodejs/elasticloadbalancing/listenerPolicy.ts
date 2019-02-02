@@ -49,8 +49,8 @@ import * as utilities from "../utilities";
  *     policyNames: [aws_load_balancer_policy_wu_tang_ssl.policyName],
  * });
  * ```
- * This example shows how to customize the TLS settings of an HTTPS listener.
  * 
+ * This example shows how to customize the TLS settings of an HTTPS listener.
  */
 export class ListenerPolicy extends pulumi.CustomResource {
     /**

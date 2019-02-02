@@ -48,7 +48,6 @@ class ScheduledAction(pulumi.CustomResource):
         """
         Provides an Application AutoScaling ScheduledAction resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] end_time: The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z

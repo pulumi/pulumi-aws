@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks stack resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_opsworks_stack_main = new aws.opsworks.Stack("main", {
+ *     customJson: `{
+ *  "foobar": {
+ *     "version": "1.0.0"
+ *   }
+ * }
+ * `,
+ *     defaultInstanceProfileArn: aws_iam_instance_profile_opsworks.arn,
+ *     name: "awesome-stack",
+ *     region: "us-west-1",
+ *     serviceRoleArn: aws_iam_role_opsworks.arn,
+ *     tags: {
+ *         Name: "foobar-terraform-stack",
+ *     },
+ * });
+ * ```
  */
 export class Stack extends pulumi.CustomResource {
     /**

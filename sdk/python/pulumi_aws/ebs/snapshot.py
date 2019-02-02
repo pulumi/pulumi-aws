@@ -48,7 +48,6 @@ class Snapshot(pulumi.CustomResource):
         """
         Creates a Snapshot of an EBS Volume.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.

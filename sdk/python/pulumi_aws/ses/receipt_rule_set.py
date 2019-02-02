@@ -16,7 +16,6 @@ class ReceiptRuleSet(pulumi.CustomResource):
         """
         Provides an SES receipt rule set resource
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] rule_set_name: The name of the rule set

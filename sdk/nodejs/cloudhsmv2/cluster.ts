@@ -15,6 +15,42 @@ import * as utilities from "../utilities";
  * Practically no single attribute can be updated except TAGS.
  * If you need to delete a cluster, you have to remove its HSM modules first.
  * To initialize cluster you have to sign CSR and upload it.
+ * 
+ * ## Example Usage
+ * 
+ * The following example below creates a CloudHSM cluster.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_vpc_cloudhsm2_vpc = new aws.ec2.Vpc("cloudhsm2_vpc", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     tags: {
+ *         Name: "example-aws_cloudhsm_v2_cluster",
+ *     },
+ * });
+ * const aws_availability_zones_available = pulumi.output(aws.getAvailabilityZones({}));
+ * const aws_subnet_cloudhsm2_subnets: aws.ec2.Subnet[] = [];
+ * for (let i = 0; i < 2; i++) {
+ *     aws_subnet_cloudhsm2_subnets.push(new aws.ec2.Subnet(`cloudhsm2_subnets-${i}`, {
+ *         availabilityZone: aws_availability_zones_available.apply(__arg0 => __arg0.names[i]),
+ *         cidrBlock: var_subnets[i],
+ *         mapPublicIpOnLaunch: false,
+ *         tags: {
+ *             Name: "example-aws_cloudhsm_v2_cluster",
+ *         },
+ *         vpcId: aws_vpc_cloudhsm2_vpc.id,
+ *     }));
+ * }
+ * const aws_cloudhsm_v2_cluster_cloudhsm_v2_cluster = new aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster", {
+ *     hsmType: "hsm1.medium",
+ *     subnetIds: aws_subnet_cloudhsm2_subnets.map(v => v.id),
+ *     tags: {
+ *         Name: "example-aws_cloudhsm_v2_cluster",
+ *     },
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

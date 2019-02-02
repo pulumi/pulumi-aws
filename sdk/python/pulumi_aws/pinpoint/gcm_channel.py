@@ -9,17 +9,29 @@ from .. import utilities, tables
 
 class GcmChannel(pulumi.CustomResource):
     api_key: pulumi.Output[str]
+    """
+    Platform credential API key from Google.
+    """
     application_id: pulumi.Output[str]
+    """
+    The application ID.
+    """
     enabled: pulumi.Output[bool]
+    """
+    Whether the channel is enabled or disabled. Defaults to `true`.
+    """
     def __init__(__self__, __name__, __opts__=None, api_key=None, application_id=None, enabled=None):
         """
-        Create a GcmChannel resource with the given unique name, props, and options.
+        Provides a Pinpoint GCM Channel resource.
+        
+        > **Note:** Api Key argument will be stored in the raw state as plain-text.
+        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[str] api_key
-        :param pulumi.Input[str] application_id
-        :param pulumi.Input[bool] enabled
+        :param pulumi.Input[str] api_key: Platform credential API key from Google.
+        :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

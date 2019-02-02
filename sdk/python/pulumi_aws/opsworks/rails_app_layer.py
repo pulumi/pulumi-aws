@@ -101,7 +101,6 @@ class RailsAppLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks Ruby on Rails application layer resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] app_server: Keyword for the app server to use. Defaults to "apache_passenger".

@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     gatewayType: "FILE_S3",
  * });
  * ```
+ * 
  * ### Tape Gateway
  * 
  * ```typescript
@@ -39,6 +40,7 @@ import * as utilities from "../utilities";
  *     tapeDriveType: "IBM-ULT3580-TD5",
  * });
  * ```
+ * 
  * ### Volume Gateway (Cached)
  * 
  * ```typescript
@@ -52,6 +54,7 @@ import * as utilities from "../utilities";
  *     gatewayType: "CACHED",
  * });
  * ```
+ * 
  * ### Volume Gateway (Stored)
  * 
  * ```typescript

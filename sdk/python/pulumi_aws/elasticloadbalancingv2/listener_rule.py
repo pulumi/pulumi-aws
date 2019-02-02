@@ -34,7 +34,6 @@ class ListenerRule(pulumi.CustomResource):
         
         > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] actions: An Action block. Action blocks are documented below.

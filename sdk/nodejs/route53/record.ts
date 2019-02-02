@@ -6,6 +6,87 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 record resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Simple routing policy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_route53_record_www = new aws.route53.Record("www", {
+ *     name: "www.example.com",
+ *     records: [aws_eip_lb.publicIp],
+ *     ttl: Number.parseFloat("300"),
+ *     type: "A",
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * ```
+ * 
+ * ### Weighted routing policy
+ * Other routing policies are configured similarly. See [AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_route53_record_www_dev = new aws.route53.Record("www-dev", {
+ *     name: "www",
+ *     records: ["dev.example.com"],
+ *     setIdentifier: "dev",
+ *     ttl: Number.parseFloat("5"),
+ *     type: "CNAME",
+ *     weightedRoutingPolicies: [{
+ *         weight: 10,
+ *     }],
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * const aws_route53_record_www_live = new aws.route53.Record("www-live", {
+ *     name: "www",
+ *     records: ["live.example.com"],
+ *     setIdentifier: "live",
+ *     ttl: Number.parseFloat("5"),
+ *     type: "CNAME",
+ *     weightedRoutingPolicies: [{
+ *         weight: 90,
+ *     }],
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * ```
+ * 
+ * ### Alias record
+ * See [related part of AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+ * to understand differences between alias and non-alias records.
+ * 
+ * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
+ * you cannot change this, therefore `ttl` has to be omitted in alias records.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_elb_main = new aws.elasticloadbalancing.LoadBalancer("main", {
+ *     availabilityZones: ["us-east-1c"],
+ *     listeners: [{
+ *         instancePort: 80,
+ *         instanceProtocol: "http",
+ *         lbPort: 80,
+ *         lbProtocol: "http",
+ *     }],
+ *     name: "foobar-terraform-elb",
+ * });
+ * const aws_route53_record_www = new aws.route53.Record("www", {
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: aws_elb_main.dnsName,
+ *         zoneId: aws_elb_main.zoneId,
+ *     }],
+ *     name: "example.com",
+ *     type: "A",
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * ```
  */
 export class Record extends pulumi.CustomResource {
     /**

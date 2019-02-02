@@ -28,7 +28,6 @@ class Channel(pulumi.CustomResource):
         """
         Provides an AWS Elemental MediaPackage Channel.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel

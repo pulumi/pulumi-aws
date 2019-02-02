@@ -36,7 +36,6 @@ class JobQueue(pulumi.CustomResource):
         """
         Provides a Batch Job Queue resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] compute_environments: Specifies the set of compute environments

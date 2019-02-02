@@ -6,6 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Gamelift Fleet resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_gamelift_fleet_example = new aws.gamelift.Fleet("example", {
+ *     buildId: aws_gamelift_build_example.id,
+ *     ec2InstanceType: "t2.micro",
+ *     name: "example-fleet-name",
+ *     runtimeConfiguration: {
+ *         serverProcesses: [{
+ *             concurrentExecutions: 1,
+ *             launchPath: "C:\\game\\GomokuServer.exe",
+ *         }],
+ *     },
+ * });
+ * ```
  */
 export class Fleet extends pulumi.CustomResource {
     /**

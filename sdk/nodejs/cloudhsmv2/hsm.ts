@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an HSM module in Amazon CloudHSM v2 cluster.
+ * 
+ * ## Example Usage
+ * 
+ * The following example below creates an HSM module in CloudHSM cluster.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_cloudhsm_v2_cluster_cluster = pulumi.output(aws.cloudhsmv2.getCluster({
+ *     clusterId: var_cloudhsm_cluster_id,
+ * }));
+ * const aws_cloudhsm_v2_hsm_cloudhsm_v2_hsm = new aws.cloudhsmv2.Hsm("cloudhsm_v2_hsm", {
+ *     clusterId: aws_cloudhsm_v2_cluster_cluster.apply(__arg0 => __arg0.clusterId),
+ *     subnetId: aws_cloudhsm_v2_cluster_cluster.apply(__arg0 => __arg0.subnetIds[0]),
+ * });
+ * ```
  */
 export class Hsm extends pulumi.CustomResource {
     /**

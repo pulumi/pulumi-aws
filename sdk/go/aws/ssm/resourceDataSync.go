@@ -9,6 +9,16 @@ import (
 )
 
 // Provides a SSM resource data sync.
+// 
+// ## s3_destination
+// 
+// `s3_destination` supports the following:
+// 
+// * `bucket_name` - (Required) Name of S3 bucket where the aggregated data is stored.
+// * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
+// * `kms_key_arn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
+// * `prefix` - (Optional) Prefix for the bucket.
+// * `sync_format` - (Optional) A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
 type ResourceDataSync struct {
 	s *pulumi.ResourceState
 }

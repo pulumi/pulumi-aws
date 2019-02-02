@@ -56,6 +56,7 @@ import * as utilities from "../utilities";
  *     securityGroupId: aws_security_group_sg.id,
  * });
  * ```
+ * 
  * In this example, `instance` is provided by the `aws_instance` data source,
  * fetching an external instance, possibly not managed by Terraform.
  * `sg_attachment` then attaches to the output instance's `network_interface_id`:
@@ -77,6 +78,10 @@ import * as utilities from "../utilities";
  *     securityGroupId: aws_security_group_sg.id,
  * });
  * ```
+ * 
+ * ## Output Reference
+ * 
+ * There are no outputs for this resource.
  */
 export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResource {
     /**

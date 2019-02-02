@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     name: "patch-baseline",
  * });
  * ```
+ * 
  * Advanced usage, specifying patch filters
  * 
  * ```typescript
@@ -89,7 +90,6 @@ import * as utilities from "../utilities";
  *     rejectedPatches: ["KB987654"],
  * });
  * ```
- * 
  */
 export class PatchBaseline extends pulumi.CustomResource {
     /**

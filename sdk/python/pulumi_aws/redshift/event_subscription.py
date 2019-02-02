@@ -46,6 +46,12 @@ class EventSubscription(pulumi.CustomResource):
         """
         Provides a Redshift event subscription resource.
         
+        ## Attributes
+        
+        The following additional atttributes are provided:
+        
+        * `id` - The name of the Redshift event notification subscription
+        * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

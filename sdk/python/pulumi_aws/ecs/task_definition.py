@@ -77,7 +77,6 @@ class TaskDefinition(pulumi.CustomResource):
         """
         Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions]

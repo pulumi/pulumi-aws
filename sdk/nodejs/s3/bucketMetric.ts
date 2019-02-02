@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     name: "EntireBucket",
  * });
  * ```
+ * 
  * ### Add metrics configuration with S3 bucket object filter
  * 
  * ```typescript

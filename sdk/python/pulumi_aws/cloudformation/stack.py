@@ -73,7 +73,6 @@ class Stack(pulumi.CustomResource):
         """
         Provides a CloudFormation Stack resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] capabilities: A list of capabilities.

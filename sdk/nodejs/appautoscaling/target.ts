@@ -6,6 +6,71 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws_appautoscaling_policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
+ * 
+ * ## Example Usage
+ * 
+ * ### DynamoDB Table Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_dynamodb_table_read_target = new aws.appautoscaling.Target("dynamodb_table_read_target", {
+ *     maxCapacity: 100,
+ *     minCapacity: 5,
+ *     resourceId: aws_dynamodb_table_example.name.apply(__arg0 => `table/${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}`),
+ *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
+ *     serviceNamespace: "dynamodb",
+ * });
+ * ```
+ * 
+ * ### DynamoDB Index Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_dynamodb_index_read_target = new aws.appautoscaling.Target("dynamodb_index_read_target", {
+ *     maxCapacity: 100,
+ *     minCapacity: 5,
+ *     resourceId: aws_dynamodb_table_example.name.apply(__arg0 => `table/${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}/index/${var_index_name}`),
+ *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)),
+ *     scalableDimension: "dynamodb:index:ReadCapacityUnits",
+ *     serviceNamespace: "dynamodb",
+ * });
+ * ```
+ * 
+ * ### ECS Service Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_ecs_target = new aws.appautoscaling.Target("ecs_target", {
+ *     maxCapacity: 4,
+ *     minCapacity: 1,
+ *     resourceId: pulumi.all([aws_ecs_cluster_example.name, aws_ecs_service_example.name]).apply(([__arg0, __arg1]) => `service/${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}/${__arg1%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}`),
+ *     roleArn: var_ecs_iam_role,
+ *     scalableDimension: "ecs:service:DesiredCount",
+ *     serviceNamespace: "ecs",
+ * });
+ * ```
+ * 
+ * ### Aurora Read Replica Autoscaling
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const aws_appautoscaling_target_replicas = new aws.appautoscaling.Target("replicas", {
+ *     maxCapacity: 15,
+ *     minCapacity: 1,
+ *     resourceId: aws_rds_cluster_example.id.apply(__arg0 => `cluster:${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}`),
+ *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *     serviceNamespace: "rds",
+ * });
+ * ```
  */
 export class Target extends pulumi.CustomResource {
     /**

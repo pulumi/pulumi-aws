@@ -51,7 +51,6 @@ class RouteTable(pulumi.CustomResource):
         `propagating_vgws`. Omit this argument when defining route propagation using
         the separate resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.

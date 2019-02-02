@@ -58,7 +58,6 @@ class RestApi(pulumi.CustomResource):
         """
         Provides an API Gateway REST API.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] api_key_source: The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
