@@ -61,4 +61,3 @@ The AWS Resource Provider for Pulumi is based on the Terraform Provider for
 AWS. Instructions for keeping it up to date are available [here][updating].
 
 [updating]: https://github.com/pulumi/pulumi-terraform/wiki/Updating-Pulumi-Providers-Backed-By-Terraform-Providers
-
