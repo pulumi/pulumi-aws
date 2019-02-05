@@ -15,7 +15,18 @@ import * as utilities from "../utilities";
  * 
  * const aws_cloudwatch_event_rule_console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture all EC2 scaling events",
- *     eventPattern: "{\n  \"source\": [\n    \"aws.autoscaling\"\n  ],\n  \"detail-type\": [\n    \"EC2 Instance Launch Successful\",\n    \"EC2 Instance Terminate Successful\",\n    \"EC2 Instance Launch Unsuccessful\",\n    \"EC2 Instance Terminate Unsuccessful\"\n  ]\n}\n",
+ *     eventPattern: `{
+ *   "source": [
+ *     "aws.autoscaling"
+ *   ],
+ *   "detail-type": [
+ *     "EC2 Instance Launch Successful",
+ *     "EC2 Instance Terminate Successful",
+ *     "EC2 Instance Launch Unsuccessful",
+ *     "EC2 Instance Terminate Unsuccessful"
+ *   ]
+ * }
+ * `,
  *     name: "capture-ec2-scaling-events",
  * });
  * const aws_kinesis_stream_test_stream = new aws.kinesis.Stream("test_stream", {
@@ -51,7 +62,24 @@ import * as utilities from "../utilities";
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
  * const aws_ssm_document_stop_instance = new aws.ssm.Document("stop_instance", {
- *     content: "  {\n    \"schemaVersion\": \"1.2\",\n    \"description\": \"Stop an instance\",\n    \"parameters\": {\n\n    },\n    \"runtimeConfig\": {\n      \"aws:runShellScript\": {\n        \"properties\": [\n          {\n            \"id\": \"0.aws:runShellScript\",\n            \"runCommand\": [\"halt\"]\n          }\n        ]\n      }\n    }\n  }\n",
+ *     content: `  {
+ *     "schemaVersion": "1.2",
+ *     "description": "Stop an instance",
+ *     "parameters": {
+ * 
+ *     },
+ *     "runtimeConfig": {
+ *       "aws:runShellScript": {
+ *         "properties": [
+ *           {
+ *             "id": "0.aws:runShellScript",
+ *             "runCommand": ["halt"]
+ *           }
+ *         ]
+ *       }
+ *     }
+ *   }
+ * `,
  *     documentType: "Command",
  *     name: "stop_instance",
  * });

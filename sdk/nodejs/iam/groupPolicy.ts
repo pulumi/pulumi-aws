@@ -22,7 +22,19 @@ import {PolicyDocument} from "./documents";
  * const aws_iam_group_policy_my_developer_policy = new aws.iam.GroupPolicy("my_developer_policy", {
  *     group: aws_iam_group_my_developers.id,
  *     name: "my_developer_policy",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * ```
  */

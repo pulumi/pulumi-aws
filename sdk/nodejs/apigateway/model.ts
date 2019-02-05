@@ -24,7 +24,10 @@ import {RestApi} from "./restApi";
  *     description: "a JSON schema",
  *     name: "user",
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
- *     schema: "{\n  \"type\": \"object\"\n}\n",
+ *     schema: `{
+ *   "type": "object"
+ * }
+ * `,
  * });
  * ```
  */

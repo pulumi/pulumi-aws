@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     allowUnauthenticatedIdentities: false,
  *     identityPoolName: "identity pool",
  *     supportedLoginProviders: {
- *         graph.facebook.com: "7346241598935555",
+ *         "graph.facebook.com": "7346241598935555",
  *     },
  * });
  * const aws_iam_role_authenticated = new aws.iam.Role("authenticated", {
@@ -63,7 +63,23 @@ import * as utilities from "../utilities";
  * });
  * const aws_iam_role_policy_authenticated = new aws.iam.RolePolicy("authenticated", {
  *     name: "authenticated_policy",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"mobileanalytics:PutEvents\",\n        \"cognito-sync:*\",\n        \"cognito-identity:*\"\n      ],\n      \"Resource\": [\n        \"*\"\n      ]\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "mobileanalytics:PutEvents",
+ *         "cognito-sync:*",
+ *         "cognito-identity:*"
+ *       ],
+ *       "Resource": [
+ *         "*"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * `,
  *     role: aws_iam_role_authenticated.id,
  * });
  * ```

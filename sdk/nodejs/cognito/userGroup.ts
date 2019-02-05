@@ -17,7 +17,28 @@ import * as utilities from "../utilities";
  *     name: "identity pool",
  * });
  * const aws_iam_role_group_role = new aws.iam.Role("group_role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Federated\": \"cognito-identity.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRoleWithWebIdentity\",\n      \"Condition\": {\n        \"StringEquals\": {\n          \"cognito-identity.amazonaws.com:aud\": \"us-east-1:12345678-dead-beef-cafe-123456790ab\"\n        },\n        \"ForAnyValue:StringLike\": {\n          \"cognito-identity.amazonaws.com:amr\": \"authenticated\"\n        }\n      }\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Federated": "cognito-identity.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRoleWithWebIdentity",
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
+ *         },
+ *         "ForAnyValue:StringLike": {
+ *           "cognito-identity.amazonaws.com:amr": "authenticated"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "user-group-role",
  * });
  * const aws_cognito_user_group_main = new aws.cognito.UserGroup("main", {

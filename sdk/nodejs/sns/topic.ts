@@ -27,7 +27,24 @@ import {ARN} from "../index";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_sns_topic_user_updates = new aws.sns.Topic("user_updates", {
- *     deliveryPolicy: "{\n  \"http\": {\n    \"defaultHealthyRetryPolicy\": {\n      \"minDelayTarget\": 20,\n      \"maxDelayTarget\": 20,\n      \"numRetries\": 3,\n      \"numMaxDelayRetries\": 0,\n      \"numNoDelayRetries\": 0,\n      \"numMinDelayRetries\": 0,\n      \"backoffFunction\": \"linear\"\n    },\n    \"disableSubscriptionOverrides\": false,\n    \"defaultThrottlePolicy\": {\n      \"maxReceivesPerSecond\": 1\n    }\n  }\n}\n",
+ *     deliveryPolicy: `{
+ *   "http": {
+ *     "defaultHealthyRetryPolicy": {
+ *       "minDelayTarget": 20,
+ *       "maxDelayTarget": 20,
+ *       "numRetries": 3,
+ *       "numMaxDelayRetries": 0,
+ *       "numNoDelayRetries": 0,
+ *       "numMinDelayRetries": 0,
+ *       "backoffFunction": "linear"
+ *     },
+ *     "disableSubscriptionOverrides": false,
+ *     "defaultThrottlePolicy": {
+ *       "maxReceivesPerSecond": 1
+ *     }
+ *   }
+ * }
+ * `,
  *     name: "user-updates-topic",
  * });
  * ```

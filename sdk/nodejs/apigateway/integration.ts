@@ -35,10 +35,13 @@ import {RestApi} from "./restApi";
  *     cacheNamespace: "foobar",
  *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
  *     requestParameters: {
- *         integration.request.header.X-Authorization: "'static'",
+ *         "integration.request.header.X-Authorization": "'static'",
  *     },
  *     requestTemplates: {
- *         application/xml: "{\n   \"body\" : $input.json('$')\n}\n",
+ *         "application/xml": `{
+ *    "body" : $input.json('$')
+ * }
+ * `,
  *     },
  *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,

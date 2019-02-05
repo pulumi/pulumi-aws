@@ -33,7 +33,10 @@ import {RestApi} from "./restApi";
  * const aws_api_gateway_integration_test = new aws.apigateway.Integration("test", {
  *     httpMethod: aws_api_gateway_method_test.httpMethod,
  *     requestTemplates: {
- *         application/xml: "{\n   \"body\" : $input.json('$')\n}\n",
+ *         "application/xml": `{
+ *    "body" : $input.json('$')
+ * }
+ * `,
  *     },
  *     resourceId: aws_api_gateway_resource_test.id,
  *     restApi: aws_api_gateway_rest_api_test.id,

@@ -23,10 +23,10 @@ import * as utilities from "./utilities";
  * const aws_security_group_from_europe = new aws.ec2.SecurityGroup("from_europe", {
  *     ingress: [{
  *         cidrBlocks: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.cidrBlocks),
- *         fromPort: Number.parseFloat("443"),
+ *         fromPort: 443,
  *         ipv6CidrBlocks: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.ipv6CidrBlocks),
  *         protocol: "tcp",
- *         toPort: Number.parseFloat("443"),
+ *         toPort: 443,
  *     }],
  *     name: "from_europe",
  *     tags: {

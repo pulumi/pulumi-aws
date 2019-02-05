@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         fieldToMatch: {
  *             type: "BODY",
  *         },
- *         size: Number.parseFloat("4096"),
+ *         size: 4096,
  *         textTransformation: "NONE",
  *     }],
  * });

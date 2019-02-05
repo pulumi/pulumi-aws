@@ -38,7 +38,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_example = new aws.iam.Role("example", {
- *     assumeRolePolicy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n        \"Effect\": \"Allow\",\n        \"Principal\": {\n            \"Service\": \"appsync.amazonaws.com\"\n        },\n        \"Action\": \"sts:AssumeRole\"\n        }\n    ]\n}\n",
+ *     assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *         "Effect": "Allow",
+ *         "Principal": {
+ *             "Service": "appsync.amazonaws.com"
+ *         },
+ *         "Action": "sts:AssumeRole"
+ *         }
+ *     ]
+ * }
+ * `,
  *     name: "example",
  * });
  * const aws_appsync_graphql_api_example = new aws.appsync.GraphQLApi("example", {

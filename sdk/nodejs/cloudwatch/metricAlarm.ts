@@ -19,13 +19,13 @@ import {Topic} from "../sns/topic";
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     name: "terraform-test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: Number.parseFloat("2"),
+ *     evaluationPeriods: 2,
  *     insufficientDataActions: [],
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: Number.parseFloat("120"),
+ *     period: 120,
  *     statistic: "Average",
- *     threshold: Number.parseFloat("80"),
+ *     threshold: 80,
  * });
  * ```
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
