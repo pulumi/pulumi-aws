@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const aws_route53_record_example_amazonses_verification_record = new aws.route53.Record("example_amazonses_verification_record", {
  *     name: "_amazonses.example.com",
  *     records: [aws_ses_domain_identity_example.verificationToken],
- *     ttl: Number.parseFloat("600"),
+ *     ttl: 600,
  *     type: "TXT",
  *     zoneId: "ABCDEFGHIJ123",
  * });

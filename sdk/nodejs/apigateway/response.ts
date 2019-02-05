@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * });
  * const aws_api_gateway_gateway_response_test = new aws.apigateway.Response("test", {
  *     responseParameters: {
- *         gatewayresponse.header.Authorization: "'Basic'",
+ *         "gatewayresponse.header.Authorization": "'Basic'",
  *     },
  *     responseTemplates: {
- *         application/json: "{'message':$context.error.messageString}",
+ *         "application/json": "{'message':$context.error.messageString}",
  *     },
  *     responseType: "UNAUTHORIZED",
  *     restApiId: aws_api_gateway_rest_api_main.id,

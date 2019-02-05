@@ -14,7 +14,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_organizations_policy_example = new aws.organizations.Policy("example", {
- *     content: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": {\n    \"Effect\": \"Allow\",\n    \"Action\": \"*\",\n    \"Resource\": \"*\"\n  }\n}\n",
+ *     content: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": {
+ *     "Effect": "Allow",
+ *     "Action": "*",
+ *     "Resource": "*"
+ *   }
+ * }
+ * `,
  *     name: "example",
  * });
  * ```

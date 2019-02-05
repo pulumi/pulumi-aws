@@ -16,7 +16,18 @@ import * as utilities from "../utilities";
  * const aws_resource_group_test = new aws.ResourceGroup("test", {
  *     name: "test-group",
  *     resourceQuery: [{
- *         query: "{\n  \"ResourceTypeFilters\": [\n    \"AWS::EC2::Instance\"\n  ],\n  \"TagFilters\": [\n    {\n      \"Key\": \"Stage\",\n      \"Values\": [\"Test\"]\n    }\n  ]\n}\n",
+ *         query: `{
+ *   "ResourceTypeFilters": [
+ *     "AWS::EC2::Instance"
+ *   ],
+ *   "TagFilters": [
+ *     {
+ *       "Key": "Stage",
+ *       "Values": ["Test"]
+ *     }
+ *   ]
+ * }
+ * `,
  *     }],
  * });
  * ```

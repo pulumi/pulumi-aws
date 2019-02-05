@@ -49,7 +49,12 @@ import {RestApi} from "./restApi";
  *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
  *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
  *     responseTemplates: {
- *         application/xml: "#set($inputRoot = $input.path('$'))\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message>\n    $inputRoot.body\n</message>\n",
+ *         "application/xml": `#set($inputRoot = $input.path('$'))
+ * <?xml version="1.0" encoding="UTF-8"?>
+ * <message>
+ *     $inputRoot.body
+ * </message>
+ * `,
  *     },
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
  *     statusCode: aws_api_gateway_method_response_200.statusCode,

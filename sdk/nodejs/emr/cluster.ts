@@ -50,11 +50,37 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_emr_profile_role = new aws.iam.Role("iam_emr_profile_role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "ec2.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_emr_profile_role",
  * });
  * const aws_iam_role_iam_emr_service_role = new aws.iam.Role("iam_emr_service_role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"elasticmapreduce.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "elasticmapreduce.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_emr_service_role",
  * });
  * const aws_vpc_main = new aws.ec2.Vpc("main", {
@@ -105,7 +131,33 @@ import * as utilities from "../utilities";
  *         name: "runif",
  *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
  *     }],
- *     configurationsJson: "  [\n    {\n      \"Classification\": \"hadoop-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    },\n    {\n      \"Classification\": \"spark-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    }\n  ]\n",
+ *     configurationsJson: `  [
+ *     {
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     },
+ *     {
+ *       "Classification": "spark-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     }
+ *   ]
+ * `,
  *     coreInstanceCount: 1,
  *     coreInstanceType: "m5.xlarge",
  *     ec2Attributes: {
@@ -127,12 +179,105 @@ import * as utilities from "../utilities";
  * });
  * const aws_iam_role_policy_iam_emr_profile_policy = new aws.iam.RolePolicy("iam_emr_profile_policy", {
  *     name: "iam_emr_profile_policy",
- *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [{\n        \"Effect\": \"Allow\",\n        \"Resource\": \"*\",\n        \"Action\": [\n            \"cloudwatch:*\",\n            \"dynamodb:*\",\n            \"ec2:Describe*\",\n            \"elasticmapreduce:Describe*\",\n            \"elasticmapreduce:ListBootstrapActions\",\n            \"elasticmapreduce:ListClusters\",\n            \"elasticmapreduce:ListInstanceGroups\",\n            \"elasticmapreduce:ListInstances\",\n            \"elasticmapreduce:ListSteps\",\n            \"kinesis:CreateStream\",\n            \"kinesis:DeleteStream\",\n            \"kinesis:DescribeStream\",\n            \"kinesis:GetRecords\",\n            \"kinesis:GetShardIterator\",\n            \"kinesis:MergeShards\",\n            \"kinesis:PutRecord\",\n            \"kinesis:SplitShard\",\n            \"rds:Describe*\",\n            \"s3:*\",\n            \"sdb:*\",\n            \"sns:*\",\n            \"sqs:*\"\n        ]\n    }]\n}\n",
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "cloudwatch:*",
+ *             "dynamodb:*",
+ *             "ec2:Describe*",
+ *             "elasticmapreduce:Describe*",
+ *             "elasticmapreduce:ListBootstrapActions",
+ *             "elasticmapreduce:ListClusters",
+ *             "elasticmapreduce:ListInstanceGroups",
+ *             "elasticmapreduce:ListInstances",
+ *             "elasticmapreduce:ListSteps",
+ *             "kinesis:CreateStream",
+ *             "kinesis:DeleteStream",
+ *             "kinesis:DescribeStream",
+ *             "kinesis:GetRecords",
+ *             "kinesis:GetShardIterator",
+ *             "kinesis:MergeShards",
+ *             "kinesis:PutRecord",
+ *             "kinesis:SplitShard",
+ *             "rds:Describe*",
+ *             "s3:*",
+ *             "sdb:*",
+ *             "sns:*",
+ *             "sqs:*"
+ *         ]
+ *     }]
+ * }
+ * `,
  *     role: aws_iam_role_iam_emr_profile_role.id,
  * });
  * const aws_iam_role_policy_iam_emr_service_policy = new aws.iam.RolePolicy("iam_emr_service_policy", {
  *     name: "iam_emr_service_policy",
- *     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [{\n        \"Effect\": \"Allow\",\n        \"Resource\": \"*\",\n        \"Action\": [\n            \"ec2:AuthorizeSecurityGroupEgress\",\n            \"ec2:AuthorizeSecurityGroupIngress\",\n            \"ec2:CancelSpotInstanceRequests\",\n            \"ec2:CreateNetworkInterface\",\n            \"ec2:CreateSecurityGroup\",\n            \"ec2:CreateTags\",\n            \"ec2:DeleteNetworkInterface\",\n            \"ec2:DeleteSecurityGroup\",\n            \"ec2:DeleteTags\",\n            \"ec2:DescribeAvailabilityZones\",\n            \"ec2:DescribeAccountAttributes\",\n            \"ec2:DescribeDhcpOptions\",\n            \"ec2:DescribeInstanceStatus\",\n            \"ec2:DescribeInstances\",\n            \"ec2:DescribeKeyPairs\",\n            \"ec2:DescribeNetworkAcls\",\n            \"ec2:DescribeNetworkInterfaces\",\n            \"ec2:DescribePrefixLists\",\n            \"ec2:DescribeRouteTables\",\n            \"ec2:DescribeSecurityGroups\",\n            \"ec2:DescribeSpotInstanceRequests\",\n            \"ec2:DescribeSpotPriceHistory\",\n            \"ec2:DescribeSubnets\",\n            \"ec2:DescribeVpcAttribute\",\n            \"ec2:DescribeVpcEndpoints\",\n            \"ec2:DescribeVpcEndpointServices\",\n            \"ec2:DescribeVpcs\",\n            \"ec2:DetachNetworkInterface\",\n            \"ec2:ModifyImageAttribute\",\n            \"ec2:ModifyInstanceAttribute\",\n            \"ec2:RequestSpotInstances\",\n            \"ec2:RevokeSecurityGroupEgress\",\n            \"ec2:RunInstances\",\n            \"ec2:TerminateInstances\",\n            \"ec2:DeleteVolume\",\n            \"ec2:DescribeVolumeStatus\",\n            \"ec2:DescribeVolumes\",\n            \"ec2:DetachVolume\",\n            \"iam:GetRole\",\n            \"iam:GetRolePolicy\",\n            \"iam:ListInstanceProfiles\",\n            \"iam:ListRolePolicies\",\n            \"iam:PassRole\",\n            \"s3:CreateBucket\",\n            \"s3:Get*\",\n            \"s3:List*\",\n            \"sdb:BatchPutAttributes\",\n            \"sdb:Select\",\n            \"sqs:CreateQueue\",\n            \"sqs:Delete*\",\n            \"sqs:GetQueue*\",\n            \"sqs:PurgeQueue\",\n            \"sqs:ReceiveMessage\"\n        ]\n    }]\n}\n",
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "ec2:AuthorizeSecurityGroupEgress",
+ *             "ec2:AuthorizeSecurityGroupIngress",
+ *             "ec2:CancelSpotInstanceRequests",
+ *             "ec2:CreateNetworkInterface",
+ *             "ec2:CreateSecurityGroup",
+ *             "ec2:CreateTags",
+ *             "ec2:DeleteNetworkInterface",
+ *             "ec2:DeleteSecurityGroup",
+ *             "ec2:DeleteTags",
+ *             "ec2:DescribeAvailabilityZones",
+ *             "ec2:DescribeAccountAttributes",
+ *             "ec2:DescribeDhcpOptions",
+ *             "ec2:DescribeInstanceStatus",
+ *             "ec2:DescribeInstances",
+ *             "ec2:DescribeKeyPairs",
+ *             "ec2:DescribeNetworkAcls",
+ *             "ec2:DescribeNetworkInterfaces",
+ *             "ec2:DescribePrefixLists",
+ *             "ec2:DescribeRouteTables",
+ *             "ec2:DescribeSecurityGroups",
+ *             "ec2:DescribeSpotInstanceRequests",
+ *             "ec2:DescribeSpotPriceHistory",
+ *             "ec2:DescribeSubnets",
+ *             "ec2:DescribeVpcAttribute",
+ *             "ec2:DescribeVpcEndpoints",
+ *             "ec2:DescribeVpcEndpointServices",
+ *             "ec2:DescribeVpcs",
+ *             "ec2:DetachNetworkInterface",
+ *             "ec2:ModifyImageAttribute",
+ *             "ec2:ModifyInstanceAttribute",
+ *             "ec2:RequestSpotInstances",
+ *             "ec2:RevokeSecurityGroupEgress",
+ *             "ec2:RunInstances",
+ *             "ec2:TerminateInstances",
+ *             "ec2:DeleteVolume",
+ *             "ec2:DescribeVolumeStatus",
+ *             "ec2:DescribeVolumes",
+ *             "ec2:DetachVolume",
+ *             "iam:GetRole",
+ *             "iam:GetRolePolicy",
+ *             "iam:ListInstanceProfiles",
+ *             "iam:ListRolePolicies",
+ *             "iam:PassRole",
+ *             "s3:CreateBucket",
+ *             "s3:Get*",
+ *             "s3:List*",
+ *             "sdb:BatchPutAttributes",
+ *             "sdb:Select",
+ *             "sqs:CreateQueue",
+ *             "sqs:Delete*",
+ *             "sqs:GetQueue*",
+ *             "sqs:PurgeQueue",
+ *             "sqs:ReceiveMessage"
+ *         ]
+ *     }]
+ * }
+ * `,
  *     role: aws_iam_role_iam_emr_service_role.id,
  * });
  * const aws_internet_gateway_gw = new aws.ec2.InternetGateway("gw", {

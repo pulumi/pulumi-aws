@@ -21,10 +21,35 @@ import {Role} from "./role";
  * const aws_iam_policy_policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
  *     name: "test-policy",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * const aws_iam_role_role = new aws.iam.Role("role", {
- *     assumeRolePolicy: "    {\n      \"Version\": \"2012-10-17\",\n      \"Statement\": [\n        {\n          \"Action\": \"sts:AssumeRole\",\n          \"Principal\": {\n            \"Service\": \"ec2.amazonaws.com\"\n          },\n          \"Effect\": \"Allow\",\n          \"Sid\": \"\"\n        }\n      ]\n    }\n",
+ *     assumeRolePolicy: `    {
+ *       "Version": "2012-10-17",
+ *       "Statement": [
+ *         {
+ *           "Action": "sts:AssumeRole",
+ *           "Principal": {
+ *             "Service": "ec2.amazonaws.com"
+ *           },
+ *           "Effect": "Allow",
+ *           "Sid": ""
+ *         }
+ *       ]
+ *     }
+ * `,
  *     name: "test-role",
  * });
  * const aws_iam_role_policy_attachment_test_attach = new aws.iam.RolePolicyAttachment("test-attach", {

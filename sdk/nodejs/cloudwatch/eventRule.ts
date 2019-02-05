@@ -15,7 +15,12 @@ import * as utilities from "../utilities";
  * 
  * const aws_cloudwatch_event_rule_console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture each AWS Console Sign In",
- *     eventPattern: "{\n  \"detail-type\": [\n    \"AWS Console Sign In via CloudTrail\"\n  ]\n}\n",
+ *     eventPattern: `{
+ *   "detail-type": [
+ *     "AWS Console Sign In via CloudTrail"
+ *   ]
+ * }
+ * `,
  *     name: "capture-aws-sign-in",
  * });
  * const aws_sns_topic_aws_logins = new aws.sns.Topic("aws_logins", {

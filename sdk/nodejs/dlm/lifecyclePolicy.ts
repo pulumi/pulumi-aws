@@ -14,7 +14,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_dlm_lifecycle_role = new aws.iam.Role("dlm_lifecycle_role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"dlm.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "dlm.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "dlm-lifecycle-role",
  * });
  * const aws_dlm_lifecycle_policy_example = new aws.dlm.LifecyclePolicy("example", {
@@ -45,7 +58,29 @@ import * as utilities from "../utilities";
  * });
  * const aws_iam_role_policy_dlm_lifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
  *     name: "dlm-lifecycle-policy",
- *     policy: "{\n   \"Version\": \"2012-10-17\",\n   \"Statement\": [\n      {\n         \"Effect\": \"Allow\",\n         \"Action\": [\n            \"ec2:CreateSnapshot\",\n            \"ec2:DeleteSnapshot\",\n            \"ec2:DescribeVolumes\",\n            \"ec2:DescribeSnapshots\"\n         ],\n         \"Resource\": \"*\"\n      },\n      {\n         \"Effect\": \"Allow\",\n         \"Action\": [\n            \"ec2:CreateTags\"\n         ],\n         \"Resource\": \"arn:aws:ec2:*::snapshot/*\"\n      }\n   ]\n}\n",
+ *     policy: `{
+ *    "Version": "2012-10-17",
+ *    "Statement": [
+ *       {
+ *          "Effect": "Allow",
+ *          "Action": [
+ *             "ec2:CreateSnapshot",
+ *             "ec2:DeleteSnapshot",
+ *             "ec2:DescribeVolumes",
+ *             "ec2:DescribeSnapshots"
+ *          ],
+ *          "Resource": "*"
+ *       },
+ *       {
+ *          "Effect": "Allow",
+ *          "Action": [
+ *             "ec2:CreateTags"
+ *          ],
+ *          "Resource": "arn:aws:ec2:*::snapshot/*"
+ *       }
+ *    ]
+ * }
+ * `,
  *     role: aws_iam_role_dlm_lifecycle_role.id,
  * });
  * ```

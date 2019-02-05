@@ -16,7 +16,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_r = new aws.iam.Role("r", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"config.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "config.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "my-awsconfig-role",
  * });
  * const aws_config_configuration_recorder_foo = new aws.cfg.Recorder("foo", {
@@ -32,7 +45,18 @@ import * as utilities from "../utilities";
  * }, {dependsOn: [aws_config_configuration_recorder_foo]});
  * const aws_iam_role_policy_p = new aws.iam.RolePolicy("p", {
  *     name: "my-awsconfig-policy",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n  \t{\n  \t\t\"Action\": \"config:Put*\",\n  \t\t\"Effect\": \"Allow\",\n  \t\t\"Resource\": \"*\"\n\n  \t}\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *   	{
+ *   		"Action": "config:Put*",
+ *   		"Effect": "Allow",
+ *   		"Resource": "*"
+ * 
+ *   	}
+ *   ]
+ * }
+ * `,
  *     role: aws_iam_role_r.id,
  * });
  * ```

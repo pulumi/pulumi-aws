@@ -22,7 +22,23 @@ import {PolicyDocument} from "../iam/documents";
  * });
  * const aws_s3_bucket_policy_b = new aws.s3.BucketPolicy("b", {
  *     bucket: aws_s3_bucket_b.id,
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Id\": \"MYBUCKETPOLICY\",\n  \"Statement\": [\n    {\n      \"Sid\": \"IPAllow\",\n      \"Effect\": \"Deny\",\n      \"Principal\": \"*\",\n      \"Action\": \"s3:*\",\n      \"Resource\": \"arn:aws:s3:::my_tf_test_bucket/*\",\n      \"Condition\": {\n         \"IpAddress\": {\"aws:SourceIp\": \"8.8.8.8/32\"}\n      }\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Id": "MYBUCKETPOLICY",
+ *   "Statement": [
+ *     {
+ *       "Sid": "IPAllow",
+ *       "Effect": "Deny",
+ *       "Principal": "*",
+ *       "Action": "s3:*",
+ *       "Resource": "arn:aws:s3:::my_tf_test_bucket/*",
+ *       "Condition": {
+ *          "IpAddress": {"aws:SourceIp": "8.8.8.8/32"}
+ *       }
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * ```
  */
