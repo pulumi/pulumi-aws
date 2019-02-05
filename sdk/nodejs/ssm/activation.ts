@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     description: "Test",
  *     iamRole: aws_iam_role_test_role.id,
  *     name: "test_ssm_activation",
- *     registrationLimit: 5,
+ *     registrationLimit: Number.parseFloat("5"),
  * }, {dependsOn: [aws_iam_role_policy_attachment_test_attach]});
  * ```
  */

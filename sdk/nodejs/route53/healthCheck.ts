@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     name: "terraform-test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: 2,
+ *     evaluationPeriods: Number.parseFloat("2"),
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: 120,
+ *     period: Number.parseFloat("120"),
  *     statistic: "Average",
- *     threshold: 80,
+ *     threshold: Number.parseFloat("80"),
  * });
  * const aws_route53_health_check_foo = new aws.route53.HealthCheck("foo", {
  *     cloudwatchAlarmName: aws_cloudwatch_metric_alarm_foobar.alarmName,
