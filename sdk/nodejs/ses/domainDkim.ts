@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     aws_route53_record_example_amazonses_verification_record.push(new aws.route53.Record(`example_amazonses_verification_record-${i}`, {
  *         name: aws_ses_domain_dkim_example.dkimTokens.apply(__arg0 => `${__arg0[i]}._domainkey.example.com`),
  *         records: [aws_ses_domain_dkim_example.dkimTokens.apply(__arg0 => `${__arg0[i]}.dkim.amazonses.com`)],
- *         ttl: 600,
+ *         ttl: Number.parseFloat("600"),
  *         type: "CNAME",
  *         zoneId: "ABCDEFGHIJ123",
  *     }));

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         type: "forward",
  *     },
  *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: 443,
+ *     port: Number.parseFloat("443"),
  *     protocol: "HTTPS",
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  * });
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *         type: "redirect",
  *     },
  *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: 80,
+ *     port: Number.parseFloat("80"),
  *     protocol: "HTTP",
  * });
  * ```
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *         type: "fixed-response",
  *     },
  *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: 80,
+ *     port: Number.parseFloat("80"),
  *     protocol: "HTTP",
  * });
  * ```
@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *         ];
  *     })()),
  *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: 80,
+ *     port: Number.parseFloat("80"),
  *     protocol: "HTTP",
  * });
  * ```
@@ -137,7 +137,7 @@ import * as utilities from "../utilities";
  *         ];
  *     })()),
  *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: 80,
+ *     port: Number.parseFloat("80"),
  *     protocol: "HTTP",
  * });
  * ```

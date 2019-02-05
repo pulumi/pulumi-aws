@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     resourceGroupArn: aws_inspector_resource_group_group.arn,
  * });
  * const aws_inspector_assessment_template_assessment = new aws.inspector.AssessmentTemplate("assessment", {
- *     duration: 60,
+ *     duration: Number.parseFloat("60"),
  *     name: "Test",
  *     rulesPackageArns: aws_inspector_rules_packages_rules.apply(__arg0 => __arg0.arns),
  *     targetArn: aws_inspector_assessment_target_assessment.arn,

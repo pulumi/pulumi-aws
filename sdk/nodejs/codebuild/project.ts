@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
  *     },
- *     buildTimeout: 5,
+ *     buildTimeout: Number.parseFloat("5"),
  *     cache: {
  *         location: aws_s3_bucket_example.bucket,
  *         type: "S3",
