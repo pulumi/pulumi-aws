@@ -41,9 +41,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_server_certificate_test_cert_alt = new aws.iam.ServerCertificate("test_cert_alt", {
- *     certificateBody: "-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n",
+ *     certificateBody: `-----BEGIN CERTIFICATE-----
+ * [......] # cert contents
+ * -----END CERTIFICATE-----
+ * `,
  *     name: "alt_test_cert",
- *     privateKey: "-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n",
+ *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
+ * [......] # cert contents
+ * -----END RSA PRIVATE KEY-----
+ * `,
  * });
  * ```
  * **Use in combination with an AWS ELB resource:**

@@ -13,7 +13,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_role = new aws.iam.Role("role", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"pinpoint.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "pinpoint.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
  * const aws_ses_domain_identity_identity = new aws.ses.DomainIdentity("identity", {
@@ -21,7 +34,20 @@ import * as utilities from "../utilities";
  * });
  * const aws_iam_role_policy_role_policy = new aws.iam.RolePolicy("role_policy", {
  *     name: "role_policy",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": {\n    \"Action\": [\n      \"mobileanalytics:PutEvents\",\n      \"mobileanalytics:PutItems\"\n    ],\n    \"Effect\": \"Allow\",\n    \"Resource\": [\n      \"*\"\n    ]\n  }\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": {
+ *     "Action": [
+ *       "mobileanalytics:PutEvents",
+ *       "mobileanalytics:PutItems"
+ *     ],
+ *     "Effect": "Allow",
+ *     "Resource": [
+ *       "*"
+ *     ]
+ *   }
+ * }
+ * `,
  *     role: aws_iam_role_role.id,
  * });
  * const aws_pinpoint_email_channel_email = new aws.pinpoint.EmailChannel("email", {

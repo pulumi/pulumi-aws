@@ -19,7 +19,21 @@ import * as utilities from "../utilities";
  *     name: "foo",
  * });
  * const aws_ecs_task_definition_mongo = new aws.ecs.TaskDefinition("mongo", {
- *     containerDefinitions: "[\n  {\n    \"cpu\": 128,\n    \"environment\": [{\n      \"name\": \"SECRET\",\n      \"value\": \"KEY\"\n    }],\n    \"essential\": true,\n    \"image\": \"mongo:latest\",\n    \"memory\": 128,\n    \"memoryReservation\": 64,\n    \"name\": \"mongodb\"\n  }\n]\n",
+ *     containerDefinitions: `[
+ *   {
+ *     "cpu": 128,
+ *     "environment": [{
+ *       "name": "SECRET",
+ *       "value": "KEY"
+ *     }],
+ *     "essential": true,
+ *     "image": "mongo:latest",
+ *     "memory": 128,
+ *     "memoryReservation": 64,
+ *     "name": "mongodb"
+ *   }
+ * ]
+ * `,
  *     family: "mongodb",
  * });
  * const aws_ecs_task_definition_mongo = pulumi.output(aws.ecs.getTaskDefinition({

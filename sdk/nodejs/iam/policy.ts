@@ -17,7 +17,19 @@ import * as utilities from "../utilities";
  *     description: "My test policy",
  *     name: "test_policy",
  *     path: "/",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * ```
  */

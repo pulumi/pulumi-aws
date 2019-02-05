@@ -23,7 +23,19 @@ import {ARN} from "../index";
  * });
  * const aws_iot_policy_pubsub = new aws.iot.Policy("pubsub", {
  *     name: "PubSubToAnyTopic",
- *     policy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"iot:*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "iot:*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * const aws_iot_policy_attachment_att = new aws.iot.PolicyAttachment("att", {
  *     policy: aws_iot_policy_pubsub.name,

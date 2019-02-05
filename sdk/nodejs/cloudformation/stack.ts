@@ -18,7 +18,27 @@ import * as utilities from "../utilities";
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
  *     },
- *     templateBody: "{\n  \"Parameters\" : {\n    \"VPCCidr\" : {\n      \"Type\" : \"String\",\n      \"Default\" : \"10.0.0.0/16\",\n      \"Description\" : \"Enter the CIDR block for the VPC. Default is 10.0.0.0/16.\"\n    }\n  },\n  \"Resources\" : {\n    \"myVpc\": {\n      \"Type\" : \"AWS::EC2::VPC\",\n      \"Properties\" : {\n        \"CidrBlock\" : { \"Ref\" : \"VPCCidr\" },\n        \"Tags\" : [\n          {\"Key\": \"Name\", \"Value\": \"Primary_CF_VPC\"}\n        ]\n      }\n    }\n  }\n}\n",
+ *     templateBody: `{
+ *   "Parameters" : {
+ *     "VPCCidr" : {
+ *       "Type" : "String",
+ *       "Default" : "10.0.0.0/16",
+ *       "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
+ *     }
+ *   },
+ *   "Resources" : {
+ *     "myVpc": {
+ *       "Type" : "AWS::EC2::VPC",
+ *       "Properties" : {
+ *         "CidrBlock" : { "Ref" : "VPCCidr" },
+ *         "Tags" : [
+ *           {"Key": "Name", "Value": "Primary_CF_VPC"}
+ *         ]
+ *       }
+ *     }
+ *   }
+ * }
+ * `,
  * });
  * ```
  */

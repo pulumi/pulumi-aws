@@ -86,7 +86,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_for_lambda",
  * });
  * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
@@ -123,7 +135,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_iam_role_iam_for_lambda = new aws.iam.Role("iam_for_lambda", {
- *     assumeRolePolicy: "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"lambda.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\"\n    }\n  ]\n}\n",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
  *     name: "iam_for_lambda",
  * });
  * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {

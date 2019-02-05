@@ -16,7 +16,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const aws_mq_configuration_example = new aws.mq.Configuration("example", {
- *     data: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<broker xmlns=\"http://activemq.apache.org/schema/core\">\n  <plugins>\n    <forcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/>\n    <statisticsBrokerPlugin/>\n    <timeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/>\n  </plugins>\n</broker>\n",
+ *     data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ * <broker xmlns="http://activemq.apache.org/schema/core">
+ *   <plugins>
+ *     <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+ *     <statisticsBrokerPlugin/>
+ *     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+ *   </plugins>
+ * </broker>
+ * `,
  *     description: "Example Configuration",
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.15.0",
